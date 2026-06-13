@@ -149,6 +149,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'SBB: The new Stadler Rail freight locomotive arrives',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'SBB presents the new EURO DuFour freight locomotive: energy efficiency, reduced track wear, and a battery module for the last mile.',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'New SBB freight locomotive by Stadler Rail in red livery',
+    'blog.article.iniziativa-10-milioni-svizzera.title': 'No to a Switzerland of 10 Million: Vote June 14, 2026',
+    'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'On Sunday, June 14, 2026, Swiss voters will decide on the UDC initiative that aims to limit the population to 10 million by 2050 and on the referendum concerning civil service.',
+    'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Federal Palace in Bern with protesters and signs about the 10 million population initiative',
 };
 
 export default blogMetaChEn;

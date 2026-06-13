@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2788,
+ "numberOfItems": 2789,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7428,7 +7428,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2785, "name": "Coldrerio: bocciata la mozione per lo sportello...", "url": `${BASE_URL}/articoli-frontaliere/bocciatura-sportello-disoccupati-coldrerio` },
           { "@type": "ListItem", "position": 2786, "name": "Ristorni all'Italia", "url": `${BASE_URL}/articoli-frontaliere/ristorni-italia-sospesi` },
           { "@type": "ListItem", "position": 2787, "name": "FFS: arriva la nuova locomotiva merci Stadler Rail", "url": `${BASE_URL}/articoli-frontaliere/ffs-nuova-locomotiva-merci-stadler` },
-          { "@type": "ListItem", "position": 2788, "name": "Lavori giugno sentiero Ronchitt Molinetto", "url": `${BASE_URL}/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto` }
+          { "@type": "ListItem", "position": 2788, "name": "Lavori giugno sentiero Ronchitt Molinetto", "url": `${BASE_URL}/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto` },
+          { "@type": "ListItem", "position": 2789, "name": "Iniziativa 'No a una Svizzera da 10 milioni': v...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-svizzera` }
  ]
  },
  {

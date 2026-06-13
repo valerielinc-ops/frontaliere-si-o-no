@@ -1853,6 +1853,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziativa-10-milioni-svizzera': {
+    title: 'Iniziativa \'No a una Svizzera da 10 milioni\': voto 14 giugno 2026',
+    description: 'Domenica 14 giugno 2026 gli svizzeri votano sull\'iniziativa UDC per limitare la popolazione a 10 milioni e sul referendum sul servizio civile. Fatti',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, milioni, voto, giugno',
+    ogTitle: 'Iniziativa \'No a una Svizzera da 10 milioni\': voto 14 giugno 2026',
+    ogDescription: 'Votazione federale del 14 giugno 2026 sull\'iniziativa popolare che vuole limitare la popolazione della Svizzera a 10 milioni entro il 2050 e sul referendum per',
+    canonicalPath: '/articoli-svizzera/iniziativa-10-milioni-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa 'No a una Svizzera da 10 milioni': voto 14 giugno 2026",
+      "description": "Domenica 14 giugno 2026 gli svizzeri votano sull'iniziativa UDC per limitare la popolazione a 10 milioni e sul referendum sul servizio civile. Fatti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-10-milioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna con manifestanti e cartelli sull'iniziativa popolazione 10 milioni"
+      },
+      "datePublished": "2026-06-13T02:56:54+00:00",
+      "dateModified": "2026-06-13T02:56:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/iniziativa-10-milioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
