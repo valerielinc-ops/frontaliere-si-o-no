@@ -149,6 +149,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'SBB: Neue Stadler Rail Güterzuglokomotive vorgestellt',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Die SBB präsentiert die neue EURO DuFour-Lokomotive für den Güterverkehr: Energieeffizienz, weniger Gleisverschleiß und Batteriemodul für die letzte Meile.',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Neue SBB-Güterzuglokomotive von Stadler Rail in roter Lackierung',
+    'blog.article.iniziativa-10-milioni-svizzera.title': 'Initiative \'Nein zu 10-Mio-Schweiz\': Abstimmung 14.06.2026',
+    'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'Am Sonntag, 14. Juni 2026, stimmen die Schweizer über die SVP-Initiative ab, die die Bevölkerung auf 10 Millionen bis 2050 begrenzen will, sowie über das Referendum zum Zivildienst.',
+    'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Bundeshaus in Bern mit Demonstranten und Schildern zur 10-Millionen-Initiative',
 };
 
 export default blogMetaChDe;

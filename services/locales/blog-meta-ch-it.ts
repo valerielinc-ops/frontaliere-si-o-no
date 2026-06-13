@@ -149,6 +149,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'FFS: arriva la nuova locomotiva merci Stadler Rail',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Le FFS presentano la nuova locomotiva EURO DuFour per il traffico merci: efficienza energetica, riduzione usura binari e modulo batteria per l\'ultimo miglio.',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Nuova locomotiva merci FFS di Stadler Rail in livrea rossa',
+    'blog.article.iniziativa-10-milioni-svizzera.title': 'Iniziativa \'No a una Svizzera da 10 milioni\': voto 14 giugno 2026',
+    'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'Domenica 14 giugno 2026 gli svizzeri decidono sull\'iniziativa UDC che vuole limitare la popolazione a 10 milioni entro il 2050 e sul referendum sul servizio civile.',
+    'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Palazzo federale a Berna con manifestanti e cartelli sull\'iniziativa popolazione 10 milioni',
 };
 
 export default blogMetaChIt;

@@ -149,6 +149,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ffs-nuova-locomotiva-merci-stadler.title': 'CFF: voici la nouvelle locomotive de fret Stadler Rail',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.excerpt': 'Les CFF présentent la nouvelle locomotive EURO DuFour pour le trafic marchandises : efficacité énergétique, réduction de l\'usure des rails et module batterie pour le dernier kilomètre.',
     'blog.article.ffs-nuova-locomotiva-merci-stadler.imageAlt': 'Nouvelle locomotive de fret CFF par Stadler Rail en livrée rouge',
+    'blog.article.iniziativa-10-milioni-svizzera.title': 'Initiative \'Non à une Suisse de 10 millions\': vote le 14 juin 2026',
+    'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'Dimanche 14 juin 2026, les Suisses se prononceront sur l\'initiative de l\'UDC visant à limiter la population à 10 millions d\'ici 2050 et sur le référendum concernant le service civil.',
+    'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Palais fédéral à Berne avec manifestants et pancartes sur l\'initiative des 10 millions',
 };
 
 export default blogMetaChFr;

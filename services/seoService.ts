@@ -3985,6 +3985,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ristorni-italia-sospesi': { name: 'Ristorni', path: '/articoli-frontaliere/ristorni-italia-sospesi', parent: 'blog' },
     'blog-ffs-nuova-locomotiva-merci-stadler': { name: 'Trasporti FFS', path: '/articoli-svizzera/ffs-nuova-locomotiva-merci-stadler/', parent: 'blog' },
     'blog-lavori-giugno-sentiero-ronchitt-molinetto': { name: 'Lavori giugno', path: '/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto', parent: 'blog' },
+    'blog-iniziativa-10-milioni-svizzera': { name: 'Votazione federale', path: '/articoli-svizzera/iniziativa-10-milioni-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
