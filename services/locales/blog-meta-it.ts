@@ -8057,6 +8057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.equita-fiscale-famiglie-ticino.title': 'Equità fiscale famiglie Ticino: mozione per costi lavoro-famiglia',
     'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Le Donne del Centro propongono una mozione al Gran Consiglio per riconoscere fiscalmente i costi sostenuti dalle famiglie in Ticino per conciliare lavoro e gestione familiare, con criteri rigorosi.',
     'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande di Bellinzona con famiglie moderne in primo piano, simbolo delle sfide di conciliazione lavoro-famiglia in Ticino.',
+    'blog.article.ristorni-italia-sospesi.title': 'Ristorni all\'Italia',
+    'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centro e Lega chiedono la sospensione dei ristorni',
+    'blog.article.ristorni-italia-sospesi.imageAlt': 'Strada di Lugano',
 };
 
 export default blogMetaIt;

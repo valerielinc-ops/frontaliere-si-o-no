@@ -8055,6 +8055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.equita-fiscale-famiglie-ticino.title': 'Famiglie Ticino: equità fiscale per lavoro e famiglia',
     'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Die Frauen des Centro stellen eine Motion an den Grossen Rat, um steuerlich die im Kanton Tessin von Familien getragenen Kosten für die Vereinbarkeit von Arbeit und Familie mit strengen Kriterien anzuerkennen.',
     'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande in Bellinzona mit modernen Familien im Vordergrund, symbolisch für die Herausforderungen der Vereinbarkeit von Beruf und Familie im Tessin.',
+    'blog.article.ristorni-italia-sospesi.title': 'Rückzahlungen an Italien',
+    'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Zentrum und Lega fordern die Suspendierung der Rückzahlungen',
+    'blog.article.ristorni-italia-sospesi.imageAlt': 'Lugano Straße',
 };
 
 export default blogMetaDe;

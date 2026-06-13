@@ -25551,6 +25551,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ristorni-italia-sospesi',
+ category: 'fiscale',
+ date: '2026-06-13T01:08:14.930Z',
+ image: '/images/blog/ristorni-italia-sospesi.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

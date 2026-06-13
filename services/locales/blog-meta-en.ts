@@ -8056,6 +8056,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.equita-fiscale-famiglie-ticino.title': 'Tax Equity for Ticinese Families: Motion for Work-Family Costs',
     'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'The Women of the Centre propose a motion to the Grand Council to fiscally recognize the costs incurred by families in Ticino to reconcile work and family management, with rigorous criteria.',
     'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande in Bellinzona with modern families in the foreground, symbolizing work-life balance challenges in Ticino.',
+    'blog.article.ristorni-italia-sospesi.title': 'Refunds to Italy',
+    'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centro and Lega ask for suspension of refunds',
+    'blog.article.ristorni-italia-sospesi.imageAlt': 'Lugano street',
 };
 
 export default blogMetaEn;

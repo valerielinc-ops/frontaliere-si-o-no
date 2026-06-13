@@ -3982,6 +3982,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-smartworking-frontaliere-s-definitivo': { name: 'frontaliere', path: '/articoli-svizzera/smartworking-frontaliere-s-definitivo/', parent: 'blog' },
     'blog-equita-fiscale-famiglie-ticino': { name: 'Equità Fiscale Famiglie', path: '/articoli-frontaliere/equita-fiscale-famiglie-ticino', parent: 'blog' },
     'blog-bocciatura-sportello-disoccupati-coldrerio': { name: 'Politica Coldrerio', path: '/articoli-svizzera/bocciatura-sportello-disoccupati-coldrerio/', parent: 'blog' },
+    'blog-ristorni-italia-sospesi': { name: 'Ristorni', path: '/articoli-frontaliere/ristorni-italia-sospesi', parent: 'blog' },
  };
 
  const info = sectionNames[section];

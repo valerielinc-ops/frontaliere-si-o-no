@@ -8057,6 +8057,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.equita-fiscale-famiglie-ticino.title': 'Équité fiscale pour les familles tessinoises',
     'blog.article.equita-fiscale-famiglie-ticino.excerpt': 'Les Donne del Centro proposent une motion au Grand Conseil pour reconnaître fiscalement les coûts supportés par les familles tessinoises pour concilier travail et gestion familiale, avec des critères stricts.',
     'blog.article.equita-fiscale-famiglie-ticino.imageAlt': 'Castelgrande à Bellinzone avec des familles modernes au premier plan, symbolisant les défis de conciliation travail-famille au Tessin.',
+    'blog.article.ristorni-italia-sospesi.title': 'Remboursements à l\'Italie',
+    'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Centre et Ligue demandent la suspension des rembourses vinci obligatoires',
+    'blog.article.ristorni-italia-sospesi.imageAlt': 'Rue de Lugano',
 };
 
 export default blogMetaFr;
