@@ -443,7 +443,7 @@
       "slugByLocale": {
         "it": "direct-consulente-pictet-group-geneva",
         "en": "direct-advisor-pictet-geneva",
-        "de": "direct-berater-pictet-group-geneva",
+        "de": "direktberater-pictet-group-geneva",
         "fr": "direct-conseiller-pictet-group-geneva"
       },
       "company": "Pictet Group",
@@ -486,14 +486,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "direct-advisor-pictet-geneva"
+        "direct-advisor-pictet-geneva",
+        "direct-berater-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "direct-advisor-pictet-geneva"
         ],
         "de": [
-          "direct-advisor-pictet-geneva"
+          "direct-advisor-pictet-geneva",
+          "direct-berater-pictet-group-geneva"
         ],
         "fr": [
           "direct-advisor-pictet-geneva"
@@ -520,7 +522,7 @@
       "slugByLocale": {
         "it": "legal-advisor-direct-real-estate-6-mesi-di-maternita-pictet-group-geneva",
         "en": "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva",
-        "de": "legal-advisor-direct-real-estate-6-monate-mutterschaftsdeckung-pictet-group-geneva",
+        "de": "legal-berater-direct-real-estate-6-months-mutterschaftsvertretung-pictet-group-geneva",
         "fr": "conseiller-juridique-immobilier-direct-6-mois-de-maternite-pictet-group-geneva"
       },
       "company": "Pictet Group",
@@ -563,14 +565,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva"
+        "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva",
+        "legal-advisor-direct-real-estate-6-monate-mutterschaftsdeckung-pictet-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva"
         ],
         "de": [
-          "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva"
+          "legal-advisor-direct-real-estate-6-months-maternity-cover-pictet-geneva",
+          "legal-advisor-direct-real-estate-6-monate-mutterschaftsdeckung-pictet-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-11T23:13:01.023Z",

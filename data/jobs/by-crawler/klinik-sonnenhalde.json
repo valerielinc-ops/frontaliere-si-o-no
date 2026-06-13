@@ -477,7 +477,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
         "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen",
-        "dipl-radiology-specialist-60-bethesda-spital-basel",
         "dipl-specialiste-des-soins-hf-fh-klinik-sonnenhalde-riehen"
       ],
       "previousSlugsByLocale": {
@@ -486,7 +485,6 @@
           "dipl-specialista-di-cura-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "en": [
-          "dipl-radiology-specialist-60-bethesda-spital-basel",
           "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
         ],
         "fr": [
@@ -509,9 +507,9 @@
     },
     {
       "id": "klinik-sonnenhalde-4b64f2c58b0a",
-      "slug": "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
+      "slug": "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen",
       "slugByLocale": {
-        "it": "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
+        "it": "collaboratore-trice-service-stundenlohn-klinik-sonnenhalde-riehen",
         "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
         "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
         "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
@@ -569,7 +567,8 @@
       "previousSlugsByLocale": {
         "it": [
           "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
-          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen"
+          "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+          "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen"
         ],
         "en": [
           "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen"
@@ -581,6 +580,7 @@
       "previousSlugs": [
         "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
         "mitarbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "miterbeiter-in-servizio-la-sua-ricompensa-klinik-sonnenhalde-riehen",
         "miterbeiter-in-service-hour-reward-klinik-sonnenhalde-riehen",
         "miterbeiter-en-service-recompense-d-heure-klinik-sonnenhalde-riehen"
       ],

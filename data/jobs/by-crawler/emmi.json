@@ -5094,12 +5094,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5157,16 +5157,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -5279,9 +5276,9 @@
       "slug": "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr",
       "slugByLocale": {
         "it": "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr",
-        "en": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
+        "en": "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau",
         "de": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
-        "fr": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
+        "fr": "categorie-de-chauffeur-c-e-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5342,6 +5339,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
+        ],
+        "en": [
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
+        ],
+        "fr": [
           "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
         ]
       },

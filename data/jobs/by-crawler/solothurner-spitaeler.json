@@ -9,7 +9,7 @@
         "it": "oberarztin-oberarzt-kinder-e-jugendpsychiatrie-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "senior-physician-in-child-and-adolescent-psychiatry-m-f-d-solothurner-spitaler-soh-solothurn",
         "de": "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
-        "fr": "medecin-senior-en-psychiatrie-de-l-enfant-et-de-l-adolescent-h-f-d-solothurner-spitaler-soh-solothurn"
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-des-enfants-et-des-adolescents-f-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -59,7 +59,8 @@
         "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
         "medico-specialista-in-psichiatria-infantile-e-dell-adolescenza-m-f-d-solothurner-spitaler-soh-solothurn",
         "senior-consultant-m-d-solothurner-spitaler-soh-solothurn-bf7b5a",
-        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-bf7b5a"
+        "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-bf7b5a",
+        "medecin-senior-en-psychiatrie-de-l-enfant-et-de-l-adolescent-h-f-d-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72,7 +73,8 @@
         ],
         "fr": [
           "oberarztin-oberarzt-kinder-und-jugendpsychiatrie-w-m-d-soh-ch",
-          "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-bf7b5a"
+          "consultant-principal-m-j-solothurner-spitaler-soh-solothurn-bf7b5a",
+          "medecin-senior-en-psychiatrie-de-l-enfant-et-de-l-adolescent-h-f-d-solothurner-spitaler-soh-solothurn"
         ]
       },
       "firstSeenAt": "2026-05-10T22:25:06.396Z",
@@ -5041,10 +5043,10 @@
       "id": "solothurner-spitaeler-262b4bbd19bc",
       "slug": "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "ergoterapista-ergoterapista-u-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "fr": "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -5097,17 +5099,15 @@
       "workplace": "Bürgerspital Solothurn",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-        "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
-        "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn"
+        "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
+        "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "ergotherapeutin-ergotherapeut-w-m-d-soh-ch"
         ],
         "fr": [
           "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn",
-          "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "ergotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -10999,10 +10999,10 @@
       "id": "solothurner-spitaeler-cec35b631bd4",
       "slug": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-uomo-donna-solothurner-spitaler-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -11075,18 +11075,16 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
         "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn"
+        "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-w-m-d-soh-ch",
-          "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+          "fisioterapista-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "physiotherapeute-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -11201,10 +11199,10 @@
       "id": "solothurner-spitaeler-f3896c8634b7",
       "slug": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-m-f-d-solothurner-spitaler-soh-solothurn",
+        "it": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "en": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
         "de": "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-        "fr": "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
+        "fr": "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -11277,18 +11275,16 @@
       "previousSlugs": [
         "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
         "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
-        "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
-        "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn"
+        "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
+        "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeutin-physiotherapeut-m-w-d-soh-ch",
-          "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn"
+          "fisioterapista-m-w-d-solothurner-spitaler-soh-solothurn"
         ],
         "fr": [
           "kinesitherapeute-m-m-j-solothurner-spitaler-soh-solothurn",
-          "physiotherapeutin-physiotherapeut-m-w-d-solothurner-spitaler-soh-solothurn",
           "physiotherapeute-h-f-solothurner-spitaler-soh-solothurn"
         ]
       },
@@ -12394,7 +12390,7 @@
       "id": "solothurner-spitaeler-78ae3295ef65",
       "slug": "dottore-di-discorso-medico-di-discorso-f-m-d-solothurner-spitaler-soh-olten",
       "slugByLocale": {
-        "it": "dottore-di-discorso-medico-di-discorso-f-m-d-solothurner-spitaler-soh-olten",
+        "it": "dottore-di-discorso-medico-di-discorso-f-m-d-solothurner-spitaler-ag-soh-olten",
         "en": "logopadin-logopade-w-m-d-soh-ch",
         "de": "logopadin-logopade-w-m-d-soh-ch",
         "fr": "logopadin-logopade-w-m-d-soh-ch"
@@ -12467,7 +12463,7 @@
       "id": "solothurner-spitaeler-97f13ba57a71",
       "slug": "stv-leiterin-o-leiter-pflege-m-w-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
-        "it": "stv-leiterin-o-leiter-pflege-m-w-d-solothurner-spitaler-soh-dornach",
+        "it": "stv-leiterin-o-leiter-pflege-m-w-d-solothurner-spitaler-ag-soh-dornach",
         "en": "stv-leiterin-oder-leiter-pflege-w-m-d-soh-ch",
         "de": "stv-leiterin-oder-leiter-pflege-w-m-d-soh-ch",
         "fr": "stv-leiterin-oder-leiter-pflege-w-m-d-soh-ch"
@@ -12777,10 +12773,10 @@
       "id": "solothurner-spitaeler-bfa4c3129dcc",
       "slug": "pharmaassistentin-pharmaassistent-o-drogistin-drogist-m-w-d-solothurner-spitaler-soh-dornach",
       "slugByLocale": {
-        "it": "pharmaassistentin-pharmaassistent-o-drogistin-drogist-m-w-d-solothurner-spitaler-soh-dornach",
-        "en": "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch",
+        "it": "pharmaassistentin-pharmaassistent-o-drogistin-drogist-m-w-d-solothurner-spitaler-ag-soh-dornach",
+        "en": "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-solothurner-spitaler-ag-soh-dornach",
         "de": "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch",
-        "fr": "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch"
+        "fr": "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",
@@ -12829,6 +12825,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch"
+        ],
+        "en": [
+          "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch"
+        ],
+        "fr": [
           "pharmaassistentin-pharmaassistent-oder-drogistin-drogist-w-m-d-soh-ch"
         ]
       },

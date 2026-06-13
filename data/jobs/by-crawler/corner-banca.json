@@ -1281,9 +1281,9 @@
     },
     {
       "id": "corner-banca-115c1c6e6274",
-      "slug": "customer-analytics-officer-corner-banca-lugano",
+      "slug": "responsabile-customer-analytics-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-analytics-officer-corner-banca-lugano",
+        "it": "responsabile-customer-analytics-corner-banca-wallisellen",
         "en": "customer-analytics-officer-corner-banca-lugano",
         "de": "kundenanalytik-officer-corner-banca-lugano",
         "fr": "specialiste-de-l-analyse-des-clients-corner-banca-lugano"
@@ -1358,11 +1358,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "customer-analytics-officer-corner-banca-wallisellen"
+          "customer-analytics-officer-corner-banca-wallisellen",
+          "customer-analytics-officer-corner-banca-lugano"
         ]
       },
       "previousSlugs": [
-        "customer-analytics-officer-corner-banca-wallisellen"
+        "customer-analytics-officer-corner-banca-wallisellen",
+        "customer-analytics-officer-corner-banca-lugano"
       ],
       "salaryMin": 142000,
       "salaryMax": 249500,

@@ -73,9 +73,12 @@
       "employmentType": "60 - 70%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-13T11:15:30.448Z",
-      "slug": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur",
+      "slug": "prospetto-nella-clinica-femminile-fontana-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+        "de": "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur",
+        "it": "prospetto-nella-clinica-femminile-fontana-kantonsspital-graubunden-chur",
+        "en": "disponent-in-women-s-clinic-fontana-kantonsspital-graubunden-chur",
+        "fr": "disposant-dans-la-clinique-pour-femmes-fontana-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Disponent:in Frauenklinik Fontana",
@@ -105,7 +108,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-12T22:43:01.949Z"
+      "firstSeenAt": "2026-06-12T22:43:01.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "disponent-in-frauenklinik-fontana-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10072023",
@@ -6403,7 +6414,6 @@
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur",
-        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
