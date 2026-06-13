@@ -1,16 +1,16 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-06-13T11:38:09.906Z",
+  "generatedAt": "2026-06-13T22:31:58.455Z",
   "total": 19,
   "newCount": 13,
   "updatedCount": 6,
   "removedCount": 13,
   "unchangedCount": 0,
-  "durationMs": 22681,
-  "avgDurationMs": 22681,
+  "durationMs": 23778,
+  "avgDurationMs": 23778,
   "durationHistory": [
-    22681
+    23778
   ],
   "newJobs": [
     {
@@ -831,6 +831,7 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "firstSeenAt": "2026-04-13T22:18:42.772Z",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
