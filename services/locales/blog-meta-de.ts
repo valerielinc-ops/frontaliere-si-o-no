@@ -8058,6 +8058,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-italia-sospesi.title': 'Rückzahlungen an Italien',
     'blog.article.ristorni-italia-sospesi.excerpt': 'PLR, Zentrum und Lega fordern die Suspendierung der Rückzahlungen',
     'blog.article.ristorni-italia-sospesi.imageAlt': 'Lugano Straße',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'Arbeiten Juni Ronchitt Molinetto',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Zwei Tage Bauarbeiten: Straßen in Gambarogno gesperrt',
+    'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno Baustelle',
 };
 
 export default blogMetaDe;

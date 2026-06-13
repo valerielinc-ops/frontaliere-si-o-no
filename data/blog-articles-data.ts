@@ -25560,6 +25560,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lavori-giugno-sentiero-ronchitt-molinetto',
+ category: 'pratico',
+ date: '2026-06-13T02:46:01.903Z',
+ image: '/images/blog/lavori-giugno-sentiero-ronchitt-molinetto.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
