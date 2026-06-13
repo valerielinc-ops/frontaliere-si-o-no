@@ -16,6 +16,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
 import { normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
+import { fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -74,17 +75,21 @@ function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname
 // The override env var is preserved for tests/custom deployments.
 const SINTETICA_DEFAULT_UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
-async function fetchPage(url, timeoutMs = 20000) {
-  try {
-    const controller = new AbortController(); const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA } });
-    clearTimeout(timer); if (!res.ok) { console.warn(`⚠️ HTTP ${res.status}`); return null; } return await res.text();
-  } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
-}
+// fetchPage removed: replaced by shared fetchHtml from crawler-template.mjs,
+// which adds connection-level Jina fallback for datacenter egress blocks
+// (CI-IP-block de-index class, #1678/#1680/#1826). Chrome UA preserved via
+// headers override (NCore Platform blocks bot UAs → SPA shell).
+const SINTETICA_FETCH_OPTS = {
+  headers: {
+    'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || SINTETICA_DEFAULT_UA,
+    Accept: 'text/html,application/xhtml+xml',
+    'Accept-Language': 'en-US,en;q=0.9,it-CH;q=0.8',
+  },
+};
 
 async function fetchJobs() {
   console.log(`🔍 Fetching Sintetica SA jobs from ${CAREERS_URL}`);
-  const html = await fetchPage(CAREERS_URL, 25000);
+  const html = await fetchHtml(CAREERS_URL, { ...SINTETICA_FETCH_OPTS, timeoutMs: 25000 });
   if (!html) { console.error('❌ Failed to fetch Sintetica careers page.'); return []; }
   const listings = parseListingPage(html);
   console.log(`  📋 Jobs found: ${listings.length}`);
@@ -122,7 +127,7 @@ async function fetchJobs() {
     let detailClosed = false;
     if (raw.url) {
       console.log(`    🔗 Fetching detail page: ${raw.url}`);
-      const detailHtml = await fetchPage(raw.url);
+      const detailHtml = await fetchHtml(raw.url, SINTETICA_FETCH_OPTS);
       if (detailHtml) {
         const detail = parseDetailPage(detailHtml);
         if (detail.closed) {

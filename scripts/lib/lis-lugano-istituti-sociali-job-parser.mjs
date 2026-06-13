@@ -35,6 +35,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { fetchHtml } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('lis');
 
@@ -328,39 +329,10 @@ export function parseArca24DetailPage(html, pageUrl = '') {
 
 // ── Network helpers ──────────────────────────────────────────
 
-async function fetchPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000, retries = 2, backoffMs = 1000 } = {}) {
-  // Retry transient failures (network/5xx/timeout) with exponential backoff.
-  // 4xx (except 408/429) are treated as terminal — the page genuinely doesn't exist.
-  let lastErrorReason = '';
-  for (let attempt = 0; attempt <= retries; attempt += 1) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        headers: { 'User-Agent': userAgent },
-        signal: controller.signal,
-        redirect: 'follow',
-      });
-      if (res.ok) return await res.text();
-      const status = res.status;
-      // 408/429/5xx are retryable; other 4xx are not.
-      const retryable = status === 408 || status === 429 || (status >= 500 && status <= 599);
-      lastErrorReason = `HTTP ${status}`;
-      if (!retryable) return null;
-    } catch (err) {
-      lastErrorReason = err?.name === 'AbortError' ? 'timeout' : (err?.message || 'fetch_error');
-    } finally {
-      clearTimeout(timer);
-    }
-    if (attempt < retries) {
-      await new Promise((r) => setTimeout(r, backoffMs * Math.pow(2, attempt)));
-    }
-  }
-  if (lastErrorReason) {
-    console.warn(`  ⚠️ fetchPage exhausted retries for ${url}: ${lastErrorReason}`);
-  }
-  return null;
-}
+// fetchPage removed: replaced by shared fetchHtml from crawler-template.mjs,
+// which adds connection-level Jina fallback for datacenter egress blocks
+// (CI-IP-block de-index class, #1678/#1680/#1826). Retry/backoff is handled
+// by fetchWithRetry inside fetchHtml; userAgent is preserved via headers override.
 
 // ── Public API ───────────────────────────────────────────────
 
@@ -379,7 +351,7 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
   const failedUrls = [];
 
   for (const listingUrl of LISTING_URLS) {
-    const html = await fetchPage(listingUrl, { userAgent, timeoutMs });
+    const html = await fetchHtml(listingUrl, { headers: { 'User-Agent': userAgent }, timeoutMs });
     if (!html) {
       console.warn(`  \u26a0\ufe0f Failed to fetch listing page: ${listingUrl}`);
       failedUrls.push(listingUrl);
@@ -409,7 +381,7 @@ export async function fetchLisJobUrls({ userAgent = DEFAULT_UA, timeoutMs = 1500
  * Returns parsed job data or null on failure.
  */
 export async function fetchLisDetailPage(url, { userAgent = DEFAULT_UA, timeoutMs = 15000 } = {}) {
-  const html = await fetchPage(url, { userAgent, timeoutMs });
+  const html = await fetchHtml(url, { headers: { 'User-Agent': userAgent }, timeoutMs });
   if (!html) return null;
   return parseArca24DetailPage(html, url);
 }
