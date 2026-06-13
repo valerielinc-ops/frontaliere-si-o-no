@@ -1,6 +1,6 @@
 {
   "crawlerKey": "szb-chb",
-  "assembledAt": "2026-06-13T11:58:00.882Z",
+  "assembledAt": "2026-06-13T22:54:21.431Z",
   "jobs": [
     {
       "id": "szb-chb-36dcd92823a0",
@@ -34,7 +34,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4312/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:58.586Z",
+      "crawledAt": "2026-06-13T22:54:19.057Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4320/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:57.928Z",
+      "crawledAt": "2026-06-13T22:54:18.424Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4440/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:57.270Z",
+      "crawledAt": "2026-06-13T22:54:17.790Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -265,7 +265,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4399/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:56.448Z",
+      "crawledAt": "2026-06-13T22:54:16.965Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -314,10 +314,10 @@
       "id": "szb-chb-cd7517b87de3",
       "slug": "universita-intern-personal-marketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "universita-intern-personal-marketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "en": "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "hochschulpraktikant-in-personalmarketing-szb-chb-biel-bienne",
-        "fr": "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "stage-universitaire-marketing-personnel-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -342,7 +342,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4441/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:55.869Z",
+      "crawledAt": "2026-06-13T22:54:16.155Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -361,13 +361,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochschulpraktikant-in-personalmarketing-szb-chb-biel-bienne",
-        "stage-universitaire-marketing-personnel-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-personalmarketing-szb-chb-biel-bienne"
+          "hochschulpraktikant-in-personalmarketing-szb-chb-biel-bienne",
+          "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "fr": [
+          "hochschulpraktikant-in-personalmarketing-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "stage-universitaire-marketing-personnel-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
@@ -417,7 +419,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4311/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:55.040Z",
+      "crawledAt": "2026-06-13T22:54:15.319Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -495,7 +497,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4396/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:54.219Z",
+      "crawledAt": "2026-06-13T22:54:14.502Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -554,24 +556,25 @@
       "companyDomain": "szb-chb.ch",
       "title": "ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100%",
       "titleByLocale": {
-        "it": "ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 %",
+        "it": "ICT System Ingenieur:in / ICT Specialista & Technical Architetto, 90-100%",
         "en": "ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 %",
         "de": "ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100%",
         "fr": "Ingénieur du système TIC : spécialiste des TIC et architecte technique, 90-100 %"
       },
       "description": "ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100% - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Sind Sie interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Als ICT System Ingenieur:in planen, realisieren und betreiben Sie robuste ICT-Plattformen (On-Premises und Cloud) im Krankenhausumfeld. Sie tragen die Verantwortung für den stabilen, sicheren und effizienten Betrieb der IT-Infrastruktur und treiben die kontinuierliche Weiterentwicklung der Systeme und Architekturen voran. Dabei wirken Sie aktiv an strategischen Projekten und technologischen Innovationen mit. Wir suchen Sie per sofort oder nach Vereinbarung als ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100% Das tun Sie Planung & Engineering (Build) Planung, Spezifikation und Implementierung von ICT-Plattformen und Basisdiensten\n\nDefinition und Umsetzung von Zielarchitekturen für Virtualisierung, Speicherlösungen und Backup-Systeme\n\nEvaluation, Einführung und Migration von Plattformen und Infrastrukturkomponenten\n\nErstellung von technischen Pflichtenheften und Bewertung von Angeboten externer Anbieter\n\nLeitung und Koordination von Projekten im Bereich Infrastruktur, Virtualisierung und Datenmanagement\n\nVerantwortlich für die tägliche Verwaltung und Überwachung von Rechenzentren und zentralen Infrastrukturen\n\nBetrieb und Weiterentwicklung von Virtualisierungslösungen (VMware vSphere Suite, vCenter, ESXi)\n\nAdministration von Cloud- und Backup-Lösungen (Microsoft Azure, VEEAM Backup Suite)\n\n• Bereich: Andere Berufe\n• Art: Vollzeit",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 %\n\nCentro ospedaliero Biel / Centro ospedaliero Bienne\n\nBiel Hospital Centre è il centro ospedaliero pubblico della regione bilingue Biel-Seeland-Berne Jura. Se siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salute della nostra popolazione?\n\nCome ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100%:\n\n- Planazione & Ingegneria (Build): Progettare, specificare ere implementare piattaforme ICT e servizi di base.\n\n- Definizione e realizzazione di architetture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup.\n\n- Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastrutture.\n\n- Creazione di documenti di requisizione tecnici e valutazione di offerte da fornitori esterni.\n\n- Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati.\n\n- Responsabilità quotidiana per l'amministrazione e il monitoraggio di centri dati e strutture centrali.\n\n- Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi).\n\nAmministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite).\n\nArea: Altre professioni\n\nTipo: Tempo pieno\n\nSe siete interessati a questa posizione, contattateci subito!",
-        "en": "Descrizione\n\nICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 %\n\nHospital Center Biel / Centre hospitalier Bienne\n\nBiel Hospital Centre è il centro ospedaliero pubblico della regione bilingue Biel-Seeland-Berne Jura. Se siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salute della nostra popolazione?\n\nCome ICT System Engineer:in / ICT Specialist & Technical Architect, 90-100%:\n\n- Planazione & Ingegneria (Build): Progettare, specificare e implementare piattaforme ICT e servizi di base.\n\n- Definizione e realizzazione di architetture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup.\n\n- Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastruttura.\n\n- Creazione di documenti di requisiti tecnici e valutazione di offerte da fornitori esterni.\n\n- Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati.\n\n- Responsabilità quotidiana per l'amministrazione e il monitoraggio di centri dati e strutture centrali.\n\n- Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi).\n\nAmministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite).\n\nArea: Altre professioni\n\nTipo: Tempo pieno\n\nSe siete interessati a questa posizione, contattateci subito!",
-        "de": "Descrizione\n\nICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100%\n\nSpitalzentrum Biel / Centre hospitalier Bienne\n\nSpitalzentrum Biel è il centro ospedaliero pubblico della regione bilingue Biel-Seeland-Berner Jura. Se siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salute della nostra popolazione?\n\nCome ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100%:\n\n- Planazione & Ingegneria (Build): Progettare, specificare e implementare piattaforme ICT e servizi di base.\n\n- Definizione e realizzazione di architetture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup.\n\n- Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastruttura.\n\n- Creazione di documenti di requisiti tecnici e valutazione di offerte da fornitori esterni.\n\n- Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati.\n\n- Responsabilità quotidiana per l'amministrazione e il monitoraggio di centri dati e strutture centrali.\n\n- Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi).\n\n- Amministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite).\n\n- Area: Altre professioni\n\n- Tipo: Tempo pieno\n\nSe siete interessati a questa posizione, contattateci subito!",
-        "fr": "Descrizione\n\nIngénieur du système TIC : spécialiste des TIC et architecte technique, 90-100 %\n\nCentre hospitalier Bienne / Centre hospitalier Bienne\n\nBiel Hospital Centre è il centro ospedalero pubblico della regione bilingue Biel-Seeland-Berne Jura. Siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salu della nostra popolazione?\n\nIngénieur système TIC:In / Spécialiste TIC & Architecte technique, 90-100%:\n\n- Planazione & Ingegneria (Build): Progitare, specificare e implementare piattaforme ICT e servizi di base.\n\n- Definizione e realizzazione di architecture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup.\n\n- Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastruttura.\n\n- Creazione di documenti di requisiti tecnici e Valutazione di offrete da fornitori esterni.\n\n- Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati.\n\n- Responsabilità quotidiana per l'amministrazione e il monitoringaggio di centri dati e strutture centrali.\n\n- Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi).\n\nAmministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite).\n\nRégion: Altre professioni\n\nTipo: Tempo pieno\n\nSiete interessati a questa posizione, contattateci subito!"
+        "it": "Descrizione ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 % Centro ospedaliero Biel / Centro ospedaliero Bienne Biel Hospital Centre è il centro ospedaliero pubblico della regione bilingue Biel-Seeland-Berne Jura. Se siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salute della nostra popolazione? Come ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100%: - Planazione & Ingegneria (Build): Progettare, specificare ere implementare piattaforme ICT e servizi di base. - Definizione e realizzazione di architetture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup. - Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastrutture. - Creazione di documenti di requisizione tecnici e valutazione di offerte da fornitori esterni. - Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati. - Responsabilità quotidiana per l'amministrazione e il monitoraggio di centri dati e strutture centrali. - Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi). Amministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite). Area: Altre professioni Tipo: Tempo pieno Se siete interessati a questa posizione, contattateci subito!",
+        "en": "Descrizione ICT System Engineer: in / ICT Specialist & Technical Architect, 90-100 % Hospital Center Biel / Centre hospitalier Bienne Biel Hospital Centre è il centro ospedaliero pubblico della regione bilingue Biel-Seeland-Berne Jura. Se siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salute della nostra popolazione? Come ICT System Engineer:in / ICT Specialist & Technical Architect, 90-100%: - Planazione & Ingegneria (Build): Progettare, specificare e implementare piattaforme ICT e servizi di base. - Definizione e realizzazione di architetture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup. - Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastruttura. - Creazione di documenti di requisiti tecnici e valutazione di offerte da fornitori esterni. - Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati. - Responsabilità quotidiana per l'amministrazione e il monitoraggio di centri dati e strutture centrali. - Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi). Amministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite). Area: Altre professioni Tipo: Tempo pieno Se siete interessati a questa posizione, contattateci subito!",
+        "de": "ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100% - Spitalzentrum Biel / Centre hospitalier Bienne Das Spitalzentrum Biel ist das öffentliche Zentrumsspital der zweisprachigen Region Biel-Seeland-Berner Jura. Sind Sie interessiert, an der Seite unserer 2'300 Mitarbeitenden für die Gesundheit unserer Bevölkerung tätig zu sein? Als ICT System Ingenieur:in planen, realisieren und betreiben Sie robuste ICT-Plattformen (On-Premises und Cloud) im Krankenhausumfeld. Sie tragen die Verantwortung für den stabilen, sicheren und effizienten Betrieb der IT-Infrastruktur und treiben die kontinuierliche Weiterentwicklung der Systeme und Architekturen voran. Dabei wirken Sie aktiv an strategischen Projekten und technologischen Innovationen mit. Wir suchen Sie per sofort oder nach Vereinbarung als ICT System Ingenieur:in / ICT Specialist & Technical Architect, 90-100% Das tun Sie Planung & Engineering (Build) Planung, Spezifikation und Implementierung von ICT-Plattformen und Basisdiensten Definition und Umsetzung von Zielarchitekturen für Virtualisierung, Speicherlösungen und Backup-Systeme Evaluation, Einführung und Migration von Plattformen und Infrastrukturkomponenten Erstellung von technischen Pflichtenheften und Bewertung von Angeboten externer Anbieter Leitung und Koordination von Projekten im Bereich Infrastruktur, Virtualisierung und Datenmanagement Verantwortlich für die tägliche Verwaltung und Überwachung von Rechenzentren und zentralen Infrastrukturen Betrieb und Weiterentwicklung von Virtualisierungslösungen (VMware vSphere Suite, vCenter, ESXi) Administration von Cloud- und Backup-Lösungen (Microsoft Azure, VEEAM Backup Suite)\n• Bereich: Andere Berufe\n• Art: Vollzeit",
+        "fr": "Descrizione Ingénieur du système TIC : spécialiste des TIC et architecte technique, 90-100 % Centre hospitalier Bienne / Centre hospitalier Bienne Biel Hospital Centre è il centro ospedalero pubblico della regione bilingue Biel-Seeland-Berne Jura. Siete interessati a essere parte della nostra squadra di 2'300 dipendenti per la salu della nostra popolazione? Ingénieur système TIC:In / Spécialiste TIC & Architecte technique, 90-100%: - Planazione & Ingegneria (Build): Progitare, specificare e implementare piattaforme ICT e servizi di base. - Definizione e realizzazione di architecture di obiettivo per la virtualizzazione, soluzioni di archiviazione e sistemi di backup. - Evaluazione, introduzione e migrazione di piattaforme e componenti di infrastruttura. - Creazione di documenti di requisiti tecnici e Valutazione di offrete da fornitori esterni. - Guida e coordinamento di progetti nell'area di infrastrutture, virtualizzazione e gestione dei dati. - Responsabilità quotidiana per l'amministrazione e il monitoringaggio di centri dati e strutture centrali. - Manutenzione e sviluppo di soluzioni di virtualizzazione (VMware vSphere Suite, vCenter, ESXi). Amministrazione di soluzioni di cloud e backup (Microsoft Azure, VEEAM Backup Suite). Région: Altre professioni Tipo: Tempo pieno Siete interessati a questa posizione, contattateci subito!"
       },
+      "needsRetranslation": false,
       "location": "Biel/Bienne",
       "canton": "BE",
       "url": "https://jobs.szb-chb.ch/Vacancies/4366/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:53.401Z",
+      "crawledAt": "2026-06-13T22:54:13.703Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -645,7 +648,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4398/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:52.560Z",
+      "crawledAt": "2026-06-13T22:54:13.113Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -716,7 +719,7 @@
       "url": "https://jobs.szb-chb.ch/Vacancies/4056/Description/1",
       "source": "Spitalzentrum Biel / Centre hospitalier Bienne Dedicated Parser (Umantis listing @ jobs.szb-chb.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-13T11:57:51.743Z",
+      "crawledAt": "2026-06-13T22:54:12.290Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
