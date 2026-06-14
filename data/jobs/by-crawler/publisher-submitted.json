@@ -1,5 +1,72 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-06-14T19:27:26.137Z",
-  "jobs": []
+  "assembledAt": "2026-06-14T20:26:17.573Z",
+  "jobs": [
+    {
+      "title": "Specialista Marketing Digitale (Canary Test)",
+      "slug": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+      "url": "https://frontaliereticino.ch/lavoro/specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+      "applyUrl": "https://frontaliereticino.ch/lavoro/specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+      "company": "Frontaliere Ticino",
+      "companyKey": "frontaliere-ticino",
+      "companyDomain": "frontaliereticino.ch",
+      "companyLogo": "https://cdn.frontaliereticino.ch/images/brands/confederazione-ticino.png",
+      "descriptionMd": "## Chi siamo\nAnnuncio canary del team Frontaliere Ticino per validare il giro completo degli annunci sponsorizzati.\n\n## Responsabilita\n- Coordinare le campagne digitali rivolte ai frontalieri\n- Analizzare metriche di traffico e conversione\n- Ottimizzare la comunicazione multicanale\n\n## Requisiti\n- Esperienza in **marketing digitale**\n- Ottime capacita analitiche e di scrittura\n\n## Offriamo\n- Ambiente dinamico e da remoto\n- Progetti ad alto impatto",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "postalCode": "6900",
+      "streetAddress": null,
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "Marketing",
+      "source": "publisher-submitted",
+      "sourceLang": "it",
+      "postedDate": "2026-06-14T20:23:30.723Z",
+      "employmentType": "FULL_TIME",
+      "contractType": "permanent",
+      "validThrough": "2026-07-14T00:00:00.000Z",
+      "description": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test.",
+      "titleByLocale": {
+        "it": "Specialista Marketing Digitale (Canary Test)",
+        "en": "Specialista Marketing Digitale (Canary Test)",
+        "de": "Specialista Marketing Digitale (Canary Test)",
+        "fr": "Specialista Marketing Digitale (Canary Test)"
+      },
+      "slugByLocale": {
+        "it": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+        "en": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+        "de": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
+        "fr": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino"
+      },
+      "descriptionByLocale": {
+        "it": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test."
+      },
+      "id": "pub-canary-owner-demo-lugano",
+      "salaryMin": 70000,
+      "salaryMax": 90000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-14T20:23:30.723Z",
+      "crawledAt": "2026-06-14",
+      "featured": true,
+      "tier": "sponsored",
+      "applyMode": "forward_email",
+      "publisherUid": "aAqGpXr2mUQNQlio3gCxut4bBzH3",
+      "publisherJobId": "canary-owner-demo",
+      "canary": true,
+      "needsRetranslation": true,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70000,
+          "maxValue": 90000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
 }
