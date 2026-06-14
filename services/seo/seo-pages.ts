@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2795,
+ "numberOfItems": 2796,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7435,7 +7435,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2792, "name": "Sciopero femminista: migliaia in piazza a Vaud ...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-femminista-vd-ne` },
           { "@type": "ListItem", "position": 2793, "name": "Parcheggi Riservati a Cantello: Progetto Carpoo...", "url": `${BASE_URL}/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri` },
           { "@type": "ListItem", "position": 2794, "name": "Frontalieri: caos sull'applicazione del decreto...", "url": `${BASE_URL}/articoli-frontaliere/caos-applicazione-decreto-omnibus` },
-          { "@type": "ListItem", "position": 2795, "name": "La BCE alza i tassi e taglia le previsioni di c...", "url": `${BASE_URL}/articoli-frontaliere/bce-tassi-inflazione-2023` }
+          { "@type": "ListItem", "position": 2795, "name": "La BCE alza i tassi e taglia le previsioni di c...", "url": `${BASE_URL}/articoli-frontaliere/bce-tassi-inflazione-2023` },
+          { "@type": "ListItem", "position": 2796, "name": "Chiasso: interrogazione su parità salariale e t...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-parita-salariale-interrogazione` }
  ]
  },
  {
