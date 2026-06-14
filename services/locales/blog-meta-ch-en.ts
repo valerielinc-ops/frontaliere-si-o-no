@@ -161,6 +161,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-2023.title': 'ECB Raises Rates, Cuts Growth Forecasts',
     'blog.article.bce-tassi-inflazione-2023.excerpt': 'From 2% to 2.25% is the new deposit rate: a solid monetary tightening in response to the global energy shock.',
     'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Swiss financial and political scene showing economic graphs and financial developments',
+    'blog.article.tassa-prenotazione-capanne-cas.title': 'SAC Huts: New 10 CHF Booking Fee to Stop Cancellations',
+    'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'The Swiss Alpine Club is introducing a 10 CHF fee per night in staffed huts to combat the 40% rate of last-minute cancellations.',
+    'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Swiss alpine hut in high altitude',
 };
 
 export default blogMetaChEn;

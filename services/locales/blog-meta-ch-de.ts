@@ -161,6 +161,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-2023.title': 'EZB hebt Zinsen an, senkt Wachstumsprognose',
     'blog.article.bce-tassi-inflazione-2023.excerpt': 'Der neue Einlagenzinssatz steigt von 2% auf 2,25%: eine solide geldpolitische Straffung als Reaktion auf den globalen Energieschock.',
     'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Schweizer finanzielles und politisches Bild mit wirtschaftlichen Grafiken',
+    'blog.article.tassa-prenotazione-capanne-cas.title': 'CAS-Hütten: 10 Franken Gebühr bei Reservierung',
+    'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'Der Schweizer Alpenverein führt eine Reservierungsgebühr von 10 Franken pro Nacht in den Hütten ein, um die hohe Stornierungsquote von 40% zu reduzieren.',
+    'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Schweizer Alphütte im Hochgebirge',
 };
 
 export default blogMetaChDe;

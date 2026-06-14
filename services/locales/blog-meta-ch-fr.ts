@@ -161,6 +161,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bce-tassi-inflazione-2023.title': 'BCE: hausse des taux et baisse des prévisions de croissance',
     'blog.article.bce-tassi-inflazione-2023.excerpt': 'Le nouveau taux sur les dépôts passe de 2% à 2,25% : un resserrement monétaire solide en réponse au choc énergétique mondial.',
     'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Image de la scène financière et politique suisse avec des tableaux économiques',
+    'blog.article.tassa-prenotazione-capanne-cas.title': 'Cabanes CAS : taxe de réservation de 10 francs par nuit',
+    'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'Le Club Alpin Suisse introduit une taxe de 10 francs par nuit dans les cabanes gardiennées pour contrer les 40 % d\'annulations de dernière minute.',
+    'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Cabane alpine suisse en haute altitude',
 };
 
 export default blogMetaChFr;
