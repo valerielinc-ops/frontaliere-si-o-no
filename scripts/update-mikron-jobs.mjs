@@ -20,6 +20,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTe
 } from './lib/dedicated-crawler-common.mjs';
 import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_AGNO_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -245,4 +246,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => { console.error(`❌ Mikron crawler failed: ${err?.message || err}`); process.exit(1); });
+main().catch((err) => exitCrawlerOnError(err, 'Mikron'));

@@ -15,6 +15,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, d
 import { fetchLaderachJobUrls, fetchLaderachDetailPage, slugify, inferEmploymentType } from './lib/laderach-job-parser.mjs';
 import { inferAnyCanton, isKnownSwissMunicipality } from './lib/target-swiss-locations.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -109,4 +110,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => { console.error(`❌ Läderach crawler failed: ${err?.message || err}`); process.exit(1); });
+main().catch((err) => exitCrawlerOnError(err, 'Läderach'));

@@ -13,6 +13,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
@@ -249,4 +250,4 @@ async function main() {
   console.log('\n✅ Zambon crawler complete.');
 }
 
-main().catch((err) => { console.error(`❌ Zambon crawler failed: ${err?.message || err}`); process.exit(1); });
+main().catch((err) => exitCrawlerOnError(err, 'Zambon'));

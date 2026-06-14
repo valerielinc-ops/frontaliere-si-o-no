@@ -33,6 +33,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import {
@@ -673,7 +674,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`Confederazione crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'Confederazione'));

@@ -17,6 +17,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -142,4 +143,4 @@ async function main() {
   console.log('\n✅ Casale SA crawler complete.');
 }
 
-main().catch((err) => { console.error(`❌ Casale crawler failed: ${err?.message || err}`); process.exit(1); });
+main().catch((err) => exitCrawlerOnError(err, 'Casale'));

@@ -46,6 +46,7 @@ import {
   CLINIQUE_LE_NOIRMONT_CAREERS_URL,
 } from './lib/clinique-le-noirmont-job-parser.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -112,22 +113,10 @@ function slugify(text = '') {
 }
 
 async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent':
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: { Accept: 'text/html,application/xhtml+xml' },
+  });
 }
 
 function isTargetJob(job = {}) {
@@ -357,7 +346,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ Clinique Le Noirmont crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Clinique Le Noirmont'));

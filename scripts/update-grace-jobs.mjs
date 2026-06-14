@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   printPublishedJobUrls,
@@ -706,7 +707,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
       console.warn('ℹ️ Existing job data in slice preserved. Will retry next run.');
       process.exit(0);
     }
-    console.error('❌ Fatal crawler error:', err);
-    process.exit(1);
+    exitCrawlerOnError(err, 'Grace');
   });
 }

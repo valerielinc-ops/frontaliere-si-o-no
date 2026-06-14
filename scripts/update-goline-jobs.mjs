@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -340,7 +341,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ GOLINE crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'GOLINE'));

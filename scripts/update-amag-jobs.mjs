@@ -45,6 +45,7 @@ import {
 } from './lib/amag-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -96,22 +97,14 @@ function sleep(ms) {
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const resp = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)',
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'it-CH,it;q=0.9,de;q=0.5',
-      },
-    });
-    if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
-    return await resp.text();
-  } finally {
-    clearTimeout(timeoutId);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereBot/1.0)',
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'it-CH,it;q=0.9,de;q=0.5',
+    },
+  });
 }
 
 function isTargetJob(job = {}) {
@@ -479,7 +472,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ AMAG Group crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'AMAG Group'));

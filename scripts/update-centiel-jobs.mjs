@@ -52,6 +52,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -138,21 +139,7 @@ function isTrustedDomain(rawUrl = '') {
 /* ── Fetch & Parse ─────────────────────────────────────────── */
 async function fetchCareersHtml() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(CAREERS_URL, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtml(CAREERS_URL, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': UA } });
 }
 
 /**
@@ -518,7 +505,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Centiel crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'Centiel'));

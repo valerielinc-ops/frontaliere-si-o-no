@@ -49,6 +49,7 @@ import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-confi
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -124,23 +125,7 @@ function slugify(text = '') {
 
 /* ── Fetch & Parse ─────────────────────────────────────────── */
 async function fetchPage(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtml(url, { timeoutMs: TIMEOUT_MS, headers: { Accept: 'text/html', 'User-Agent': UA } });
 }
 
 /**
@@ -439,7 +424,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ Burkhalter Group crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Burkhalter Group'));

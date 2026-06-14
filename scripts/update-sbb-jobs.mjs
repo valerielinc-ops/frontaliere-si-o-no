@@ -38,6 +38,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
@@ -1188,8 +1189,5 @@ async function main() {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  main().catch((err) => {
-    console.error(`❌ SBB crawler failed: ${err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'SBB'));
 }

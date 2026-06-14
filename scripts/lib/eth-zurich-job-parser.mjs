@@ -23,7 +23,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeDescriptionBullets, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -62,22 +62,13 @@ function decodeHtmlEntities(s = '') {
 }
 
 async function fetchText(url) {
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': USER_AGENT,
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'de,en;q=0.8,it;q=0.5',
-      },
-      signal: ctrl.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs: REQUEST_TIMEOUT_MS,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'de,en;q=0.8,it;q=0.5',
+    },
+  });
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */

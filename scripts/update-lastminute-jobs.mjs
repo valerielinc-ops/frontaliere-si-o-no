@@ -48,6 +48,7 @@ import {
   buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -827,8 +828,5 @@ async function main() {
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectRun) {
-  main().catch((err) => {
-    console.error(`❌ lastminute.com crawler failed: ${err?.stack || err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'lastminute.com'));
 }

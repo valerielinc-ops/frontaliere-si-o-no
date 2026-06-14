@@ -529,6 +529,32 @@ export async function fetchHtml(url, options = {}) {
 }
 
 /**
+ * Terminal `.catch` handler for crawlers that run a CUSTOM main() instead of
+ * runStandardCrawlerPipeline (which has its own connection-level guard).
+ *
+ * A connection-level fetch failure (egress could not reach an otherwise-healthy
+ * source; no HTTP response received) is INFRA, not a source change. Exiting 1
+ * here opens a "Crawler Failure" issue every run and risks de-indexing a live
+ * employer. We instead exit 0 and preserve the existing slice — the same
+ * outcome as an empty fetch. A *persistent* outage is still surfaced by the
+ * crawler-health monitor (3 consecutive 0-job runs → broken issue), so nothing
+ * is silently buried. A thrown HTTP status (403/404/5xx) means the server DID
+ * respond → genuine break → exit 1 so it surfaces immediately.
+ *
+ * Usage: `main().catch((err) => exitCrawlerOnError(err, 'Company Label'));`
+ */
+export function exitCrawlerOnError(err, label = 'crawler') {
+  if (isConnectionLevelFetchError(err)) {
+    console.log(
+      `\n⚠️ ${label}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    process.exit(0);
+  }
+  console.error(`❌ ${label} crawler failed: ${err?.message || err}`);
+  process.exit(1);
+}
+
+/**
  * Verify that a URL resolves without redirecting to a different path.
  * Useful for validating SPA job detail URLs that may silently redirect
  * to the homepage when a required path segment is missing.
@@ -616,7 +642,33 @@ export async function runStandardCrawlerPipeline(config) {
 
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
-  const parsedJobs = await fetchJobs();
+  let parsedJobs;
+  try {
+    parsedJobs = await fetchJobs();
+  } catch (err) {
+    // Connection-level fetch failure = the runner's datacenter egress could not
+    // reach an otherwise-healthy source (transient IP-reputation / egress block,
+    // ~1-3% of fetches per wave; sites return 200 from a clean IP). This is
+    // INFRA, not a source change: hard-failing here would open a "Crawler
+    // Failure" issue every run AND risk de-indexing a live employer's TI/GR
+    // pages. Preserve the existing slice and soft-exit instead — exactly the
+    // same outcome as an empty fetch. A *persistent* outage is still caught by
+    // the crawler-health monitor (3 consecutive 0-job runs → broken issue).
+    //
+    // Connection-level ONLY (no HTTP response ever received): a thrown HTTP
+    // status (403 anti-bot, 404 source-gone, persistent 5xx) means the server
+    // DID respond — that is a genuine break and MUST still surface, so it
+    // propagates. The fetchHtml layer has already exhausted its Jina clean-IP
+    // fallback before re-throwing a connection-level error here, so this is the
+    // last-resort guard after the proxy could not help either.
+    if (isConnectionLevelFetchError(err)) {
+      console.log(
+        `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    throw err;
+  }
 
   if (!parsedJobs || parsedJobs.length === 0) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);

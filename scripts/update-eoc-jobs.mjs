@@ -26,7 +26,7 @@ import {
   validateDedicatedLocaleCoverage,
   stableSlugHash,
 } from './lib/dedicated-crawler-common.mjs';
-import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -856,8 +856,5 @@ const isInvokedDirectly = (() => {
 })();
 
 if (isInvokedDirectly) {
-  main().catch((err) => {
-    console.error(`❌ EOC crawler failed: ${err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'EOC'));
 }
