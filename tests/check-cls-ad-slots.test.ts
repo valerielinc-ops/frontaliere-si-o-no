@@ -28,8 +28,12 @@ describe('check-cls-ad-slots — invariant', () => {
     expect(findViolations()).toEqual([]);
   });
 
-  it('only adSlotHtml.ts is allow-listed as the raw <ins> emitter', () => {
+  it('allow-lists only the sanctioned emitter + ad-loader infra', () => {
     expect(ALLOWED.has('build-plugins/lib/adSlotHtml.ts')).toBe(true);
+    // constants.ts (loader) + htmlTemplate.ts (detection) reference the literal
+    // legitimately; every other build-plugin must use adSlotHtml().
+    expect(ALLOWED.has('build-plugins/constants.ts')).toBe(true);
+    expect(ALLOWED.has('build-plugins/htmlTemplate.ts')).toBe(true);
     expect(AD_MARKER).toBe('adsbygoogle');
   });
 });
@@ -40,10 +44,11 @@ describe('check-cls-ad-slots — CLI gate', () => {
     expect(out).toMatch(/no hard-coded AdSense/);
   });
 
-  it('exits 1 when a build-plugin hard-codes an ad <ins>', () => {
-    const dir = path.join(ROOT, 'build-plugins', '_clsgate_test_tmp');
-    const file = path.join(dir, 'bad.ts');
-    fs.mkdirSync(dir, { recursive: true });
+  it('exits 1 when a TOP-LEVEL build-plugin hard-codes an ad <ins>', () => {
+    // Fixture must be a TOP-LEVEL build-plugins/*.ts (not a subdir) — that is the
+    // #1910 file class and the case the original `**/*.ts` pathspec bug silently
+    // skipped. A subdir fixture would pass even with the bug.
+    const file = path.join(ROOT, 'build-plugins', '_clsgate_bad.ts');
     fs.writeFileSync(
       file,
       'export const X = `<ins class="adsbygoogle" style="min-height:280px"></ins>`;\n',
@@ -51,6 +56,7 @@ describe('check-cls-ad-slots — CLI gate', () => {
     try {
       // git grep only sees tracked files → stage the temp file.
       execFileSync('git', ['add', '-f', file], { cwd: ROOT });
+      expect(findViolations()).toContain('build-plugins/_clsgate_bad.ts');
       let exitCode = 0;
       try {
         execFileSync('node', [SCRIPT], { cwd: ROOT, encoding: 'utf-8' });
@@ -60,7 +66,6 @@ describe('check-cls-ad-slots — CLI gate', () => {
       expect(exitCode).toBe(1);
     } finally {
       execFileSync('git', ['rm', '-f', '--quiet', file], { cwd: ROOT });
-      fs.rmSync(dir, { recursive: true, force: true });
     }
   });
 });

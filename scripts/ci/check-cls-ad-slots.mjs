@@ -50,9 +50,19 @@ if (HELP) {
   process.exit(0);
 }
 
-// The single sanctioned raw-`<ins>` emitter. Every other build-plugin must route
-// ad markup through adSlotHtml() so heights/formats stay registry-driven.
-export const ALLOWED = new Set(['build-plugins/lib/adSlotHtml.ts']);
+// Files allowed to contain the `adsbygoogle` literal — ad INFRASTRUCTURE, not
+// page emitters:
+//   - lib/adSlotHtml.ts : the single sanctioned raw-<ins> emitter (page plugins
+//                         must call it instead of hand-rolling their own).
+//   - constants.ts      : the AdSense loader script + its `ins.adsbygoogle`
+//                         IntersectionObserver selectors + docs (no page <ins>).
+//   - htmlTemplate.ts   : `bodyHtml.includes('adsbygoogle')` static-slot detection.
+// Every OTHER build-plugin emitting the literal is hard-coding an ad slot.
+export const ALLOWED = new Set([
+  'build-plugins/lib/adSlotHtml.ts',
+  'build-plugins/constants.ts',
+  'build-plugins/htmlTemplate.ts',
+]);
 
 // The distinctive marker of an AdSense unit. adSlotHtml() and the React
 // <AdSenseBanner> both emit `class="adsbygoogle"`; in build-plugin source it must
@@ -81,11 +91,14 @@ function gitGrepFiles(marker, pathspec) {
  * Returns a sorted, de-duplicated list (empty = clean).
  */
 export function findViolations() {
-  // Scan both .ts and .tsx under build-plugins (tracked files only).
-  const matches = [
-    ...gitGrepFiles(AD_MARKER, 'build-plugins/**/*.ts'),
-    ...gitGrepFiles(AD_MARKER, 'build-plugins/**/*.tsx'),
-  ];
+  // Grep the whole build-plugins/ tree (a directory pathspec recurses reliably),
+  // then keep TS/TSX. NB: a `build-plugins/**/*.ts` git pathspec is a trap — git's
+  // default fnmatch makes the `/` after `**` literal, so it matches ONLY nested
+  // (lib/, shared/) files and silently SKIPS every top-level build-plugins/*.ts
+  // (where #1910's hard-coded <ins> lived). Filtering extensions in JS avoids it.
+  const matches = gitGrepFiles(AD_MARKER, 'build-plugins/').filter(
+    (f) => f.endsWith('.ts') || f.endsWith('.tsx'),
+  );
   return [...new Set(matches)].filter((f) => !ALLOWED.has(f)).sort();
 }
 
