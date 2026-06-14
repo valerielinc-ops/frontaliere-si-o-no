@@ -155,6 +155,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trump-dazi-doganali-2026.title': 'US-Zollabgaben: "Bleiben auch nach Trump"',
     'blog.article.trump-dazi-doganali-2026.excerpt': 'SECO-Direktorin Helene Budliger Artieda erwartet, dass US-Zollabgaben auch nach dem Ende von Donald Trumps Amtszeit bestehen bleiben werden.',
     'blog.article.trump-dazi-doganali-2026.imageAlt': 'Eine Aussicht auf Lugano mit dem See und den Bergen',
+    'blog.article.sciopero-femminista-vd-ne.title': 'Feministischer Streik: Tausende in Waadt und Neuenburg',
+    'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 Demonstranten in Lausanne, tausend in Neuenburg. Forderungen nach Gleichberechtigung am Arbeitsplatz, Sorgearbeit und Bekämpfung der 13 Femizide von 2025.',
+    'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Feministischer Streik Protest in Lausanne mit Tausenden',
 };
 
 export default blogMetaChDe;

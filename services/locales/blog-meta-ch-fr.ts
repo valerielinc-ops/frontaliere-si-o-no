@@ -155,6 +155,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.trump-dazi-doganali-2026.title': 'Dazi doganali USA:',
     'blog.article.trump-dazi-doganali-2026.excerpt': 'La directrice de la SECO, Helene Budliger Artieda, prévoit que les droits de douane aux États-Unis ne disparaîtront pas même après la fin du mandat de Donald Trump. 📊💡⚠️',
     'blog.article.trump-dazi-doganali-2026.imageAlt': 'Une vue de Lugano avec le lac et les montagnes',
+    'blog.article.sciopero-femminista-vd-ne.title': 'Grève féministe : milliers de manifestants à Vaud et Neuchâtel',
+    'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 manifestants à Lausanne, un millier à Neuchâtel. Des demandes sur l\'égalité professionnelle, le travail de soins et la lutte contre les 13 féminicides de 2025.',
+    'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Grève féministe à Lausanne avec des milliers de personnes',
 };
 
 export default blogMetaChFr;

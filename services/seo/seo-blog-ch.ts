@@ -1931,6 +1931,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-femminista-vd-ne': {
+    title: 'Sciopero femminista: migliaia in piazza a Vaud e Neuchâtel',
+    description: '9\'000-15\'000 manifestanti a Losanna, un migliaio a Neuchâtel. Richieste su parità lavorativa, lavoro di cura e contrasto ai 13 femminicidi del 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, femminista, migliaia, piazza',
+    ogTitle: 'Sciopero femminista: migliaia in piazza a Vaud e Neuchâte',
+    ogDescription: '9\'000-15\'000 manifestanti a Losanna, un migliaio a Neuchâtel. Richieste su parità lavorativa, lavoro di cura e contrasto ai 13 femminicidi del 2025.',
+    canonicalPath: '/articoli-svizzera/sciopero-femminista-vd-ne/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero femminista: migliaia in piazza a Vaud e Neuchâtel",
+      "description": "9'000-15'000 manifestanti a Losanna, un migliaio a Neuchâtel. Richieste su parità lavorativa, lavoro di cura e contrasto ai 13 femminicidi del 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-femminista-vd-ne.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione sciopero femminista a Losanna con migliaia di persone"
+      },
+      "datePublished": "2026-06-14T01:27:19+00:00",
+      "dateModified": "2026-06-14T01:27:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sciopero-femminista-vd-ne/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

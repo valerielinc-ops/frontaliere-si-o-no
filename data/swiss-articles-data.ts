@@ -467,6 +467,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sciopero-femminista-vd-ne',
+    category: 'novita',
+    date: '2026-06-14T01:27:19.872Z',
+    image: '/images/blog/sciopero-femminista-vd-ne.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2791,
+ "numberOfItems": 2792,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7431,7 +7431,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2788, "name": "Lavori giugno sentiero Ronchitt Molinetto", "url": `${BASE_URL}/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto` },
           { "@type": "ListItem", "position": 2789, "name": "Iniziativa 'No a una Svizzera da 10 milioni': v...", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-svizzera` },
           { "@type": "ListItem", "position": 2790, "name": "Dazi doganali USA: \"Non scompariranno con Trump\"", "url": `${BASE_URL}/articoli-frontaliere/trump-dazi-doganali-2026` },
-          { "@type": "ListItem", "position": 2791, "name": "Guida pratica per frontalieri con figli: asili ...", "url": `${BASE_URL}/articoli-frontaliere/asilo-nido-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2791, "name": "Guida pratica per frontalieri con figli: asili ...", "url": `${BASE_URL}/articoli-frontaliere/asilo-nido-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2792, "name": "Sciopero femminista: migliaia in piazza a Vaud ...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-femminista-vd-ne` }
  ]
  },
  {
