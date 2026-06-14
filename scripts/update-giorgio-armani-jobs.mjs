@@ -4,18 +4,23 @@
  * Crawls the Giorgio Armani SAP SuccessFactors careers portal for
  * Switzerland-based positions.
  *
- * Architecture note: SuccessFactors (career5.successfactors.eu) is a
- * JavaScript SPA — the listing page is not server-rendered. However,
- * individual job detail pages ARE server-rendered HTML. This crawler
- * scans job requisition IDs and parses detail pages directly.
+ * Architecture note: SuccessFactors (career5.successfactors.eu) switched BOTH
+ * the listing AND detail pages to a client-rendered SPA. The listing tiles are
+ * injected via an in-browser DWR POST (getInitialJobSearchData.dwr) that needs
+ * runtime tokens — NOT replicable with curl (curl returns an empty JS shell,
+ * which is why the old req-id scan started returning 0 jobs, issue #1956). The
+ * crawler now renders the pages with a headless browser (Playwright) and parses
+ * the resulting hydrated HTML.
  *
  * Discovery flow:
- *   1. Scan job req IDs from a starting point downward
- *   2. For each valid page, quick-extract title + country
- *   3. Filter for Swiss jobs (country="Switzerland" or Swiss city names)
- *   4. Full-parse detail pages for matching jobs
- *   5. Merge into data/jobs.json
- *   6. Run locale fill + validation
+ *   1. Render the listing page with a headless browser; wait for the hydrated
+ *      `tr.jobResultItem` tiles, then paginate through every page via the
+ *      "Next Page" arrow, collecting { reqId, title, area, country } per job.
+ *   2. Filter for Swiss jobs (country="Switzerland" or Swiss city names).
+ *   3. Render each Swiss reqId's detail page and parse the hydrated
+ *      `.joqReqDescription` for the full description.
+ *   4. Merge into data/jobs.json (preserving existing data when 0 Swiss found).
+ *   5. Run locale fill + validation.
  *
  * Giorgio Armani S.p.A. is an Italian luxury fashion house with retail
  * stores across Switzerland (Zurich, Landquart outlet, etc.), making
@@ -24,6 +29,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { launchChromium } from './lib/ensure-chromium.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -48,8 +54,8 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
-  isValidJobPage,
-  quickExtractJobMeta,
+  parseGiorgioArmaniListingHtml,
+  listingHasRenderedJobs,
   parseGiorgioArmaniJobDetail,
   isGiorgioArmaniSwissJob,
   inferGiorgioArmaniCanton,
@@ -72,11 +78,14 @@ const SF_COMPANY_ID = '3397177P';
 const DETAIL_URL_BASE = `https://career5.successfactors.eu/career?career_ns=job_listing&company=${SF_COMPANY_ID}&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=`;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Scan configuration
-const SCAN_START_ID = Number(process.env.ARMANI_SCAN_START_ID) || 5100;
-const SCAN_BATCH_SIZE = 10;
-const MAX_CONSECUTIVE_MISSES = 30;
-const MIN_SCAN_ID = 4000;
+// Headless browser configuration. Default is headless (required for CI). Set
+// JOBS_GIORGIO_ARMANI_HEADLESS=0 locally to watch the browser while debugging.
+const HEADLESS = process.env.JOBS_GIORGIO_ARMANI_HEADLESS !== '0';
+const BROWSER_TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 60000;
+const MAX_LISTING_PAGES = Number(process.env.ARMANI_MAX_LISTING_PAGES) || 25;
+const DEFAULT_UA =
+  process.env.JOBS_CRAWLER_USER_AGENT ||
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36';
 
 function readJson(filePath, fallback) {
   try {
@@ -110,24 +119,6 @@ function toIsoDate(value = '') {
   return parsed.toISOString().slice(0, 10);
 }
 
-async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 function isTargetJob(job = {}) {
   const key = normalizeKey(job.companyKey || job.company || '');
   const company = normalize(job.company || '');
@@ -145,55 +136,141 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 /**
- * Scan SuccessFactors job requisition IDs to discover all active jobs.
- * Returns an array of { reqId, title, country, area } for Swiss jobs.
+ * Run `fn(page)` inside a headless Chromium session (self-healing install).
  */
-async function discoverSwissJobs() {
-  console.log(`🔍 Scanning SuccessFactors job IDs from ${SCAN_START_ID} down to ${MIN_SCAN_ID}...`);
-  const swissJobs = [];
-  let consecutiveMisses = 0;
-  let totalScanned = 0;
-  let totalValid = 0;
+async function withBrowser(fn) {
+  const browser = await launchChromium({ headless: HEADLESS });
+  const context = await browser.newContext({
+    userAgent: DEFAULT_UA,
+    viewport: { width: 1440, height: 1200 },
+    locale: 'en-US',
+  });
+  const page = await context.newPage();
+  try {
+    return await fn(page);
+  } finally {
+    await context.close();
+    await browser.close();
+  }
+}
 
-  for (let startId = SCAN_START_ID; startId >= MIN_SCAN_ID; startId -= SCAN_BATCH_SIZE) {
-    if (consecutiveMisses >= MAX_CONSECUTIVE_MISSES) {
-      console.log(`  ⏹️  Stopping scan: ${MAX_CONSECUTIVE_MISSES} consecutive misses`);
-      break;
+/** Poll until the SPA injects the hydrated job tiles (or timeout). */
+async function waitForListingHydration(page) {
+  const started = Date.now();
+  while (Date.now() - started < BROWSER_TIMEOUT_MS) {
+    if (listingHasRenderedJobs(await page.content().catch(() => ''))) return true;
+    await page.waitForTimeout(1000);
+  }
+  return false;
+}
+
+/**
+ * Render the listing SPA and paginate through every page, collecting every
+ * job summary across all countries. Returns { reqId, title, area, country }[].
+ *
+ * Pagination is driven by clicking the `a.paginationArrow[aria-label="Next Page"]`
+ * control (the SF SPA re-renders the same `tr.jobResultItem` table in place).
+ * We stop when the arrow disappears/disables or the first-row title stops
+ * changing (terminal page), with a hard MAX_LISTING_PAGES safety cap.
+ */
+async function discoverAllListings(page) {
+  await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: BROWSER_TIMEOUT_MS });
+  const hydrated = await waitForListingHydration(page);
+  if (!hydrated) throw new Error('Giorgio Armani listing did not hydrate in browser session');
+
+  const byReqId = new Map();
+
+  for (let pageNum = 1; pageNum <= MAX_LISTING_PAGES; pageNum += 1) {
+    const html = await page.content();
+    const rows = parseGiorgioArmaniListingHtml(html);
+    for (const row of rows) {
+      if (!byReqId.has(row.reqId)) byReqId.set(row.reqId, row);
     }
+    const firstTitle = rows[0]?.title || '';
+    console.log(`  📄 Listing page ${pageNum}: ${rows.length} jobs (total unique so far: ${byReqId.size})`);
 
-    const batchIds = Array.from({ length: SCAN_BATCH_SIZE }, (_, i) => startId - i).filter((id) => id >= MIN_SCAN_ID);
-    const results = await Promise.allSettled(
-      batchIds.map(async (id) => {
-        const url = `${DETAIL_URL_BASE}${id}`;
-        const html = await fetchText(url);
-        return { id, html, valid: isValidJobPage(html) };
-      })
-    );
+    // Advance to the next page if a live "Next Page" arrow exists.
+    const advanced = await page.evaluate(() => {
+      const arrow = document.querySelector('a.paginationArrow[aria-label="Next Page"]');
+      if (!arrow) return false;
+      if (arrow.getAttribute('aria-disabled') === 'true' || arrow.classList.contains('disabled')) return false;
+      arrow.click();
+      return true;
+    }).catch(() => false);
 
-    let batchHasValid = false;
-    for (const result of results) {
-      totalScanned++;
-      if (result.status !== 'fulfilled' || !result.value.valid) continue;
+    if (!advanced) break;
 
-      batchHasValid = true;
-      totalValid++;
-      consecutiveMisses = 0;
-      const { id, html } = result.value;
-      const meta = quickExtractJobMeta(html);
-
-      if (isGiorgioArmaniSwissJob(meta.title, meta.country)) {
-        swissJobs.push({ reqId: String(id), ...meta, html });
-        console.log(`  🇨🇭 Swiss: ${meta.title} (${id}) — ${meta.country}`);
-      }
+    // Wait for the table to re-render with a new first-row title (terminal
+    // page guard: if it never changes, stop to avoid spinning on the cap).
+    const startedWait = Date.now();
+    let changed = false;
+    while (Date.now() - startedWait < BROWSER_TIMEOUT_MS) {
+      await page.waitForTimeout(800);
+      const nextFirst = parseGiorgioArmaniListingHtml(await page.content())[0]?.title || '';
+      if (nextFirst && nextFirst !== firstTitle) { changed = true; break; }
     }
-
-    if (!batchHasValid) {
-      consecutiveMisses += SCAN_BATCH_SIZE;
-    }
+    if (!changed) break;
   }
 
-  console.log(`📋 Scan complete: ${totalScanned} IDs checked, ${totalValid} valid, ${swissJobs.length} Swiss`);
-  return swissJobs;
+  return [...byReqId.values()];
+}
+
+/** Render one detail page and return its hydrated HTML (or null on failure). */
+async function fetchDetailHtml(page, reqId) {
+  try {
+    await page.goto(buildJobUrl(reqId), { waitUntil: 'domcontentloaded', timeout: BROWSER_TIMEOUT_MS });
+    const started = Date.now();
+    while (Date.now() - started < BROWSER_TIMEOUT_MS) {
+      const html = await page.content();
+      if (/joqReqDescription/i.test(html)) return html;
+      await page.waitForTimeout(800);
+    }
+    return await page.content();
+  } catch (err) {
+    console.warn(`  ⚠️  Failed to render detail for reqId ${reqId}: ${err.message}`);
+    return null;
+  }
+}
+
+/**
+ * Discover Swiss Giorgio Armani jobs via a headless browser.
+ * Returns an array of { reqId, title, area, country, html } for Swiss jobs.
+ *
+ * Returns null on a transient browser/site failure so the caller preserves the
+ * existing dataset rather than wiping it.
+ */
+async function discoverSwissJobs() {
+  console.log('🔍 Rendering SuccessFactors listing with headless browser...');
+  try {
+    return await withBrowser(async (page) => {
+      const listings = await discoverAllListings(page);
+      console.log(`📋 Discovered ${listings.length} total jobs across all pages.`);
+      if (listings.length === 0) {
+        throw new Error('Giorgio Armani listing rendered 0 jobs');
+      }
+
+      const swiss = listings.filter((l) => isGiorgioArmaniSwissJob(l.title, l.country));
+      console.log(`🇨🇭 ${swiss.length}/${listings.length} jobs match Switzerland (TI/GR).`);
+
+      const out = [];
+      for (const job of swiss) {
+        console.log(`  📄 Rendering Swiss detail: ${job.title} (${job.reqId}) — ${job.country}`);
+        const html = await fetchDetailHtml(page, job.reqId);
+        if (!html) continue;
+        out.push({ ...job, html });
+      }
+      return out;
+    });
+  } catch (err) {
+    const msg = err?.message || String(err);
+    const isTransient = /did not hydrate|rendered 0 jobs|net::ERR_|timeout|TimeoutError|403/i.test(msg);
+    if (isTransient) {
+      console.warn(`⚠️  Giorgio Armani listing unavailable: ${msg}`);
+      console.log('ℹ️  Keeping existing data — no updates this run.');
+      return null;
+    }
+    throw err;
+  }
 }
 
 function buildJobUrl(reqId) {
@@ -322,9 +399,9 @@ function updateAdapterConfig(jobs) {
     companyHost: COMPANY_HOST,
     enabled: true,
     priority: 16,
-    crawlerModes: ['html'],
+    crawlerModes: ['playwright', 'html'],
     seedUrls: [CAREERS_URL],
-    notes: `Dedicated Giorgio Armani crawler scans SuccessFactors (company=${SF_COMPANY_ID}) detail pages for Switzerland-based positions.`,
+    notes: `Dedicated Giorgio Armani crawler renders the SuccessFactors SPA (company=${SF_COMPANY_ID}) with a headless browser (Playwright): paginates the hydrated job listing, filters for Switzerland-based positions (TI/GR), and parses the hydrated detail .joqReqDescription. The listing/detail pages are no longer curl-fetchable (DWR-rendered SPA).`,
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -353,17 +430,28 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}`);
   console.log(`  SuccessFactors company: ${SF_COMPANY_ID}`);
-  console.log(`  Scan range: ${SCAN_START_ID} → ${MIN_SCAN_ID}\n`);
+  console.log(`  Headless browser: ${HEADLESS ? 'on' : 'off'}\n`);
 
   const discoveries = await discoverSwissJobs();
 
-  if (discoveries.length === 0) {
-    console.log('\n⚠️  No Swiss jobs found. Preserving existing data.');
-    // Still run merge to handle stale job cleanup
-    mergeJobs([]);
-    updateAdapterConfig([]);
+  // Transient browser/site failure → discoverSwissJobs returned null. Preserve
+  // the existing dataset untouched rather than wiping target jobs on a bad run.
+  if (discoveries === null) {
+    console.log('⏩ Skipping Giorgio Armani update — listing unavailable this run.');
     validateLocales();
-    console.log('\n✅ Giorgio Armani crawler complete (0 Swiss jobs found).');
+    return;
+  }
+
+  if (discoveries.length === 0) {
+    // Render succeeded but no Swiss roles are currently open (the common case —
+    // Armani usually has only IT roles). Keep existing data: do NOT call
+    // mergeJobs([]) (which would drop the existing Swiss entries), just refresh
+    // the adapter timestamp and re-validate.
+    console.log('\n⚠️  Rendered listing has 0 Swiss jobs. Preserving existing data.');
+    const existingSwiss = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+    updateAdapterConfig(existingSwiss);
+    validateLocales();
+    console.log('\n✅ Giorgio Armani crawler complete (0 Swiss jobs found, existing data preserved).');
     return;
   }
 
