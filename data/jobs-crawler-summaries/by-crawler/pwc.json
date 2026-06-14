@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-06-13T22:32:23.055Z",
+  "generatedAt": "2026-06-14T11:56:27.238Z",
   "total": 142,
   "newCount": 1,
   "updatedCount": 95,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 16,
-  "durationMs": 2816,
-  "avgDurationMs": 2816,
+  "durationMs": 2480,
+  "avgDurationMs": 2480,
   "durationHistory": [
-    2816
+    2480
   ],
   "newJobs": [
     {
@@ -250,19 +250,12 @@
       "validThrough": "2036-06-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-7f6ee3851b03",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "6300",
-      "firstSeenAt": "2026-06-10T12:50:57.954Z",
-      "needsRetranslation": true,
-      "_qualityScore": 84,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -1124,44 +1117,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Manager - Deals Tax (Mergers and Acquisitions)",
-      "slug": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-deals-tax-mergers-and-acquisitions/fe46b80f-b4ac-475f-a692-5d930dac5ad3",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Deals-Tax----Mergers-and-Acquisitions-_704400WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-14",
-      "validThrough": "2026-06-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-238b6c33edb1",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-15T11:40:23.088Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Senior Associate - Corporate Real Estate & Facility Manager",
@@ -1520,7 +1476,6 @@
       "id": "pwc-103ad3d254ef",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "postalCode": "1204",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1593,7 +1548,6 @@
       "postalCode": "8001",
       "id": "pwc-445b68e57732",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1738,7 +1692,6 @@
       "id": "pwc-a2328265c01a",
       "postalCode": "8001",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
