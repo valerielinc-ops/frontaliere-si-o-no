@@ -2,38 +2,36 @@
 /**
  * prune-cdn-assets.mjs — CDN assets/ GC janitor (zero-Claude, deterministico).
  *
- * Pota gli hash content-based (JS/CSS) dal repo frontaliere-cdn/assets/
- * che sono stati sostituiti da versioni più recenti, superata la grace-window.
- * Previene il breach del soft-limit ~1 GB di GitHub Pages causato
- * dall'accumulo additivo introdotto da PR #1426.
+ * Pota i file JS/CSS dal repo frontaliere-cdn/assets/ che la build corrente non
+ * referenzia più, superata la grace-window. Previene il breach del soft-limit
+ * ~1 GB di GitHub Pages causato dall'accumulo additivo (cp -n in deploy.yml).
  *
- * Algoritmo di sicurezza (senza accesso al vite manifest):
+ * Modello (lastActive — vedi cdn-prune-plan.mjs → planJanitor):
  *   - "Attivo" (AUTORITATIVO) = presente in `dist/assets/`, l'output appena
- *     buildato. Copre TUTTI gli hash del build corrente: entry, modulepreload E
+ *     buildato. Copre TUTTI i file del build corrente: entry, modulepreload E
  *     dynamic-import (lazy) chunks (firebase/charts/maps/pdf) — questi ultimi NON
  *     compaiono nel live HTML. Path overridabile via DIST_ASSETS_DIR; se assente
  *     → FAIL-CLOSED, non pota nulla (mai pruning alla cieca).
- *   - "Attivo" (belt-and-suspenders) = anche referenziato nel live HTML (entry +
- *     preload). Check secondario, non blocca più il prune se il fetch fallisce.
- *   - "Sostituito" = esiste un sibling con firstSeen STRETTAMENTE più recente per
- *     lo STESSO chunk-name prefix. Al bootstrap tutti i firstSeen === now → nessun
- *     sibling strettamente-più-nuovo → niente prunabile (ordine readdirSync NON
- *     decide mai una delete fra i duplicati #1426 con timestamp identici).
- *   - Grace ANCORATA alla SOSTITUZIONE, non all'età assoluta: supersededAt =
- *     firstSeen del sibling PIÙ VECCHIO strettamente più recente del candidato
- *     (il momento in cui è comparso il rimpiazzo). Un chunk lazy/dynamic
- *     (firebase/charts/maps/pdf, invisibile allo scrape HTML) può essere stabile
- *     per mesi: ancorare al suo firstSeen lo poterebbe nella STESSA run in cui
- *     l'hash ruota → 404 per i browser con HTML vecchio (outage class 2026-06-04).
- *     Ancorando a supersededAt resta per l'intera grace dopo la rotazione.
- *   - Prune solo se: NON in dist/assets && NON in live HTML && SOSTITUITO
- *     (sibling strettamente più nuovo) && supersededAt > GRACE_DAYS fa.
- *   - Hash "unici" (un solo file per chunk-name prefix) NON vengono MAI potati.
+ *   - "Attivo" (belt) = anche referenziato nel live HTML (entry + preload).
+ *     Check secondario; un fetch fallito non blocca il prune.
+ *   - Ogni run aggiorna `lastActive=now` per i file nel set attivo. Un file è
+ *     ORFANO quando è rimasto ASSENTE dal set attivo per l'INTERA grace-window.
+ *     Con i nomi STABILI (#1933) la build emette nomi FISSI: "assente da
+ *     dist/assets" significa in modo affidabile "non più referenziato", e il
+ *     max-age=600s dell'HTML (public/_headers) garantisce che nessuna pagina
+ *     live lo punti da più di 10 min dopo che è uscito dal build.
+ *   - Sostituisce la vecchia euristica "superseded sibling" per chunk-name, che
+ *     NON riusciva a GC-are i chunk hashed legacy post-cutover: i nomi stabili
+ *     locale-qualified (`slug.it.js`) vivono in un chunk-name group DIVERSO dai
+ *     legacy `slug-<hash>.js`/`slug2-<hash>.js`, che quindi non guadagnavano mai
+ *     un sibling più recente e restavano per sempre (16k file / 1.7 GB).
+ *   - Prune solo se: NON in dist/assets && NON in live HTML && lastActive >
+ *     GRACE_DAYS fa. Cap MAX_PRUNE_PER_RUN, oldest-inactive first (il backlog
+ *     one-time post-cutover drena su più deploy, non un unico force-push gigante).
  *
  * Tracking età: assets/.hash-age.json nel repo CDN (preserved deploy→deploy
- * tramite `cp -n` in deploy.yml che copia dal CDN precedente).
- * Prima run: registra tutti gli hash con firstSeen=now, pota 0 file (bootstrap).
- * Run successive: pota hash sostituiti la cui supersessione è > GRACE_DAYS fa.
+ * tramite `cp -n` in deploy.yml). Schema `{ [file]: { f: firstSeen, a: lastActive } }`
+ * (entry legacy stringa firstSeen-only migrate al volo).
  *
  * INVOCAZIONE (anti-clobber by sequencing):
  *   Eseguito come STEP INLINE in `.github/workflows/deploy.yml`, subito DOPO il
@@ -48,8 +46,9 @@
  *
  * Env:
  *   CDN_DEPLOY_KEY  SSH private key (write access su valerielinc-ops/frontaliere-cdn)
- *   GRACE_DAYS      grace-window giorni per hash sostituiti (default: 7)
- *   DRY_RUN         "1" → stampa piano senza modificare nulla
+ *   GRACE_DAYS         grace-window giorni di inattività prima del prune (default: 7)
+ *   MAX_PRUNE_PER_RUN  cap file potati per run (default: 6000)
+ *   DRY_RUN            "1" → stampa piano senza modificare nulla
  *   DIST_ASSETS_DIR override del path active-set (default: <repo>/dist/assets,
  *                   il path inline di deploy.yml). Assente → FAIL-CLOSED, no prune.
  */
@@ -57,11 +56,12 @@
 import { execFileSync } from 'node:child_process';
 import {
   mkdtempSync, writeFileSync, readFileSync, rmSync,
-  readdirSync, existsSync, unlinkSync,
+  readdirSync, existsSync,
 } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { planJanitor } from './cdn-prune-plan.mjs';
 
 // Shared Vite content-hash matcher (base64url alphabet `[A-Za-z0-9_-]`).
 // Imported — NOT copy-pasted — so the char class can't drift from the canonical
@@ -80,6 +80,11 @@ const DRY_RUN = process.env.DRY_RUN === '1';
 // 404). Require a finite positive number, else fall back to the 7-day default.
 const __graceRaw = Number(process.env.GRACE_DAYS);
 const GRACE_DAYS = Number.isFinite(__graceRaw) && __graceRaw > 0 ? __graceRaw : 7;
+// Max files pruned per run — bounds blast radius and spreads the one-time
+// post-cutover backlog (~16 k legacy hashed files, #1933) over a few deploys.
+// Same defensive numeric parse as GRACE_DAYS (empty/NaN → default).
+const __maxPruneRaw = Number(process.env.MAX_PRUNE_PER_RUN);
+const MAX_PRUNE_PER_RUN = Number.isFinite(__maxPruneRaw) && __maxPruneRaw > 0 ? __maxPruneRaw : 6000;
 const CDN_DEPLOY_KEY = process.env.CDN_DEPLOY_KEY ?? '';
 const CDN_REPO_SSH = 'git@github.com:valerielinc-ops/frontaliere-cdn.git';
 const LIVE_ENTRY_URL = 'https://frontaliereticino.ch/';
@@ -167,6 +172,7 @@ function readDistAssetHashes() {
   return set;
 }
 
+
 async function main() {
   if (!CDN_DEPLOY_KEY) {
     console.log('[janitor] CDN_DEPLOY_KEY not set — skip');
@@ -199,15 +205,16 @@ async function main() {
       return;
     }
 
-    // Bundle files in CDN assets/: legacy content-hashed (`name-<hash8>.ext`,
-    // prunable once superseded) + stable-named (`name.ext` — the vite.config.ts
-    // stable-name policy; they supersede the hashed generations of the same
-    // chunk). `.hash-age.json` and other non-bundle files match neither filter.
+    // Every JS/CSS bundle file in CDN assets/ is a prune CANDIDATE — stable-named
+    // (`name.js`, the vite.config.ts stable-name policy) and any legacy
+    // content-hashed leftover (`name-<hash8>.js`, from before the stable-name
+    // cutover #1933). `.hash-age.json`, images, fonts and `logo.svg` are not
+    // JS/CSS and are never touched here.
     const allDirFiles = readdirSync(assetsDir);
-    const allFiles = allDirFiles.filter(f => VITE_ASSET_RX.test(f));
-    const stableFiles = allDirFiles.filter(f => /\.(js|css)$/.test(f) && !VITE_ASSET_RX.test(f));
-    console.log(`[janitor] ${allFiles.length} hashed + ${stableFiles.length} stable asset file(s) in CDN assets/`);
-    if (allFiles.length === 0) {
+    const allAssets = allDirFiles.filter(f => /\.(js|css)$/.test(f));
+    const hashedCount = allAssets.filter(f => VITE_ASSET_RX.test(f)).length;
+    console.log(`[janitor] ${allAssets.length} JS/CSS file(s) in CDN assets/ (${hashedCount} legacy-hashed, ${allAssets.length - hashedCount} stable)`);
+    if (allAssets.length === 0) {
       console.log('[janitor] nothing to do');
       return;
     }
@@ -222,31 +229,25 @@ async function main() {
     const now = new Date().toISOString();
     const graceCutoffMs = Date.now() - GRACE_DAYS * 86_400_000;
 
-    // Register new files (firstSeen = now). Stable files are registered too:
-    // their firstSeen anchors the supersededAt of the hashed generation they
-    // replace (same grace semantics as a hashed rotation).
-    let newCount = 0;
-    for (const f of [...allFiles, ...stableFiles]) {
-      if (!registry[f]) {
-        registry[f] = now;
-        newCount++;
-      }
-    }
-    const registryDirty = newCount > 0;
-    if (newCount > 0) console.log(`[janitor] registered ${newCount} new hash(es) in age registry`);
-
     // AUTHORITATIVE active set: the just-built dist/assets/ (covers lazy/dynamic
-    // chunks invisible to the HTML scrape — firebase/charts/maps/pdf). This is
-    // the PRIMARY protection: a hash present here is referenced by the current
-    // build and must NEVER be pruned. Absent → FAIL-CLOSED: register ages but
-    // prune nothing (never prune blind against an incomplete active set).
+    // chunks invisible to the HTML scrape — firebase/charts/maps/pdf). A file
+    // present here is referenced by the current build and is NEVER pruned.
+    // Absent → FAIL-CLOSED: never prune blind against an incomplete active set.
     const distHashes = readDistAssetHashes();
     const canPrune = distHashes !== null;
-
-    // Live-HTML scrape: SECONDARY belt-and-suspenders (entry + modulepreload only).
-    // No longer required to prune — dist/assets/ is authoritative — but when it
-    // succeeds it adds an extra protect set. A failed fetch is non-blocking.
+    // Live-HTML scrape: SECONDARY belt — the boot bundles the homepage references
+    // (entry + modulepreload). A failed fetch is non-blocking.
     const activeHashes = canPrune ? await fetchActiveHashes() : null;
+    const isActive = (f) => (distHashes != null && distHashes.has(f)) || (activeHashes != null && activeHashes.has(f));
+
+    // Pure planner does registry update + prune selection (see planJanitor).
+    const { toPrune: plannedPrune, eligible, newCount, refreshed, registryPruned } = planJanitor({
+      allAssets, registry, isActive, canPrune, now, graceCutoffMs, maxPrune: MAX_PRUNE_PER_RUN,
+    });
+    const registryDirty = newCount > 0 || refreshed > 0 || registryPruned > 0;
+    if (newCount || refreshed || registryPruned) {
+      console.log(`[janitor] registry: +${newCount} new, ${refreshed} refreshed lastActive, -${registryPruned} gone`);
+    }
 
     const persistRegistryOnly = (reason) => {
       if (!(registryDirty && !DRY_RUN)) return;
@@ -255,12 +256,12 @@ async function main() {
       git(repoDir, [
         '-c', 'user.email=cdn-janitor@frontaliereticino.ch',
         '-c', 'user.name=cdn-janitor',
-        'commit', '-m', `chore(cdn-janitor): register ${newCount} new hash(es) (no prune, ${reason})`,
+        'commit', '-m', `chore(cdn-janitor): update age registry (no prune, ${reason})`,
       ]);
       assertFreshRemote(clonedTip, sshEnv);
       execFileSync('git', ['-C', repoDir, 'push', '-f', CDN_REPO_SSH, 'main'],
         { env: { ...process.env, ...sshEnv }, stdio: ['ignore', 'pipe', 'pipe'] });
-      console.log(`[janitor] persisted hash-age registry update (no prune, ${reason})`);
+      console.log(`[janitor] persisted age registry update (no prune, ${reason})`);
     };
 
     if (!canPrune) {
@@ -272,90 +273,14 @@ async function main() {
       return;
     }
 
-    // Group files by chunk-name prefix+ext to detect superseded hashes
-    // Only prune the OLDER hash(es) when multiple hashes exist for the same chunk name.
-    // Lone hashes (1 entry per chunk name) are never pruned — they may be active lazy chunks
-    // (firebase, charts, maps, pdf) not referenced in the entry HTML.
-    const groups = new Map(); // key: "chunkName.ext", value: [{file, firstSeen}]
-    for (const f of allFiles) {
-      const m = VITE_ASSET_RX.exec(f);
-      if (!m) continue;
-      const key = `${m[1]}.${m[3]}`;
-      if (!groups.has(key)) groups.set(key, []);
-      groups.get(key).push({ file: f, firstSeen: registry[f] ?? now });
+    // planJanitor already selected + capped the prune set (oldest-inactive
+    // first, bounded by MAX_PRUNE_PER_RUN so the one-time post-cutover backlog
+    // drains over several deploys instead of one giant force-push).
+    const toPrune = plannedPrune;
+    if (eligible > toPrune.length) {
+      console.log(`[janitor] ⚠️  ${eligible} orphan(s) eligible — capped at ${MAX_PRUNE_PER_RUN} this run (backlog drains over subsequent deploys)`);
     }
-    // A STABLE-named file (`chunkName.ext` — exactly a group's key) supersedes
-    // every hashed generation of that chunk: add it as a sibling so the legacy
-    // hashed files age out through the normal strictly-newer + grace path.
-    // Without this, the LAST hashed generation of each chunk would never gain
-    // a newer sibling after the stable-name cutover and would linger forever.
-    // The stable file itself is shielded from pruning by the dist/assets/
-    // protect set (it ships with every current build).
-    const allDirSet = new Set(allDirFiles);
-    for (const [key, entries] of groups) {
-      if (allDirSet.has(key)) {
-        entries.push({ file: key, firstSeen: registry[key] ?? now });
-      }
-    }
-
-    // Build prune list. A candidate is pruned ONLY when ALL hold:
-    //   1. NOT in dist/assets/ (current build) — authoritative active set.
-    //   2. NOT in live HTML (when the scrape succeeded) — belt-and-suspenders.
-    //   3. A sibling with a STRICTLY-NEWER firstSeen exists (truly superseded).
-    //      At bootstrap every firstSeen === now → no strictly-newer sibling →
-    //      nothing prunable → safe even with identical #1426-backlog timestamps
-    //      (where readdirSync order is arbitrary and must NOT decide deletion).
-    //   4. SUPERSESSION older than the grace-window. Grace is anchored to WHEN
-    //      the candidate was superseded — `supersededAt` = the firstSeen of the
-    //      OLDEST sibling strictly newer than the candidate — NOT to the
-    //      candidate's own (absolute) firstSeen. A lazy/dynamic chunk
-    //      (firebase/charts/maps/pdf — invisible to the live-HTML scrape) can be
-    //      stable for months: its firstSeen is far past the grace cutoff, yet its
-    //      hash may rotate only today. Anchoring to firstSeen would prune it the
-    //      SAME run it rotates → 404 for browsers holding the old HTML / open tabs
-    //      requesting the old dynamic-import chunk (the 2026-06-04 outage class).
-    //      Anchoring to supersededAt keeps it for the full grace window after the
-    //      rotation, which also covers the entry-bundle case where a failed
-    //      fetchActiveHashes() (returns null) could otherwise prune an entry hash
-    //      still referenced by the not-yet-redeployed live HTML.
-    const toPrune = [];
-    for (const [chunkKey, entries] of groups) {
-      if (entries.length < 2) continue; // single hash → keep (might be active lazy chunk)
-      for (const { file, firstSeen } of entries) {
-        if (distHashes.has(file)) {
-          // Referenced by the current build (entry OR lazy/dynamic chunk) → never prune.
-          console.log(`[janitor] keep ${file} (present in dist/assets — active in current build)`);
-          continue;
-        }
-        if (activeHashes && activeHashes.has(file)) {
-          // In live HTML → definitely still in use, never prune
-          console.log(`[janitor] keep ${file} (active in live HTML despite supersession by newer ${chunkKey})`);
-          continue;
-        }
-        // supersededAt = firstSeen of the OLDEST sibling strictly newer than this
-        // candidate (the moment a replacement first appeared). Undefined ⇒ no
-        // strictly-newer sibling ⇒ candidate is the newest/tied ⇒ not superseded.
-        let supersededAt;
-        for (const e of entries) {
-          if (e.firstSeen.localeCompare(firstSeen) <= 0) continue; // not strictly newer
-          if (supersededAt === undefined || e.firstSeen.localeCompare(supersededAt) < 0) {
-            supersededAt = e.firstSeen; // oldest such sibling = earliest supersession
-          }
-        }
-        if (supersededAt === undefined) {
-          // No strictly-newer sibling (it IS the newest, or tied with it) → not superseded.
-          console.log(`[janitor] keep ${file} (no strictly-newer sibling — not superseded, ${chunkKey})`);
-          continue;
-        }
-        if (new Date(supersededAt).getTime() > graceCutoffMs) {
-          console.log(`[janitor] keep ${file} (superseded recently — within grace-window: supersededAt ${supersededAt})`);
-          continue;
-        }
-        toPrune.push(file);
-      }
-    }
-
-    console.log(`[janitor] ${toPrune.length} orphan asset(s) eligible for pruning`);
+    console.log(`[janitor] ${toPrune.length} orphan asset(s) to prune this run (${eligible} eligible total)`);
 
     if (DRY_RUN) {
       console.log('[janitor] DRY RUN — would prune:');
@@ -369,10 +294,13 @@ async function main() {
       return;
     }
 
-    // Apply deletions
-    for (const f of toPrune) {
-      git(repoDir, ['rm', '--force', `assets/${f}`]);
-      delete registry[f]; // keep registry in sync
+    // Apply deletions in batches (one `git rm` per ~1000 paths — avoids spawning
+    // a subprocess per file when draining the large post-cutover backlog, while
+    // staying well under the OS arg-length limit).
+    for (let i = 0; i < toPrune.length; i += 1000) {
+      const batch = toPrune.slice(i, i + 1000);
+      git(repoDir, ['rm', '--force', '--quiet', ...batch.map(f => `assets/${f}`)]);
+      for (const f of batch) delete registry[f]; // keep registry in sync
     }
 
     // Persist updated hash-age registry
@@ -403,7 +331,11 @@ async function main() {
   }
 }
 
-main().catch(err => {
-  console.error('[janitor] fatal:', err.message);
-  process.exit(1);
-});
+// Run only when invoked directly (`node scripts/ci/prune-cdn-assets.mjs`), not
+// when imported by tests for the pure planJanitor helper.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch(err => {
+    console.error('[janitor] fatal:', err.message);
+    process.exit(1);
+  });
+}
