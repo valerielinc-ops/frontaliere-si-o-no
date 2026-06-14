@@ -27,6 +27,9 @@ interface AdSenseBannerProps {
  adLayout?: string;
  label?: string;
  enabled?: boolean;
+ /** Per-slot placeholder height override. Overrides getPlaceholderMinHeight(adFormat).
+ * Use when a specific slot renders taller than the format default (e.g. HOMEPAGE_MID_DISPLAY). */
+ minHeight?: number;
  /** When true, always render the placeholder wrapper (even when disabled) to prevent CLS.
  * Use on pages where ads appear after an async action (e.g., calculator results). */
  reserveSpace?: boolean;
@@ -83,6 +86,7 @@ export default function AdSenseBanner({
  // Pass an explicit empty string to opt out (not recommended).
  label = 'Pubblicità',
  enabled = true,
+ minHeight,
  reserveSpace = false,
 }: AdSenseBannerProps) {
  const adRef = useRef<HTMLModElement>(null);
@@ -95,7 +99,7 @@ export default function AdSenseBanner({
  const [state, setState] = useState<AdState>('idle');
  const [scriptReady, setScriptReady] = useState(false);
  const [scriptFailed, setScriptFailed] = useState(false);
- const placeholderMinHeight = getPlaceholderMinHeight(adFormat, adLayout);
+ const placeholderMinHeight = minHeight ?? getPlaceholderMinHeight(adFormat, adLayout);
 
  const cleanupAsyncWatchers = useCallback(() => {
  if (fillTimeoutRef.current) {
