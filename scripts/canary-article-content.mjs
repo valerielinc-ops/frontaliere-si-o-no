@@ -55,6 +55,12 @@ const DEFAULT_SAMPLES = 20;
 const MIN_BYTES = 5000;
 const FETCH_TIMEOUT_MS = 15000;
 const PROBE_CONCURRENCY = 5;
+// Cloudflare in front of the live site returns 403 to requests carrying
+// undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
+// runners). A descriptive UA — same convention as probe-5xx.mjs and
+// check-sitemap-shard-size.mjs — clears the bot check so the probe reaches
+// the real origin instead of failing on the sitemap fetch.
+const USER_AGENT = "FrontaliereTicino-ContentCanary/1.0 (+https://frontaliereticino.ch)";
 
 const args = process.argv.slice(2);
 const samples = (() => {
@@ -74,7 +80,16 @@ async function fetchWithTimeout(url, init = {}) {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
   try {
-    return await fetch(url, { ...init, signal: ctrl.signal });
+    return await fetch(url, {
+      ...init,
+      headers: {
+        "User-Agent": USER_AGENT,
+        Accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        ...(init.headers || {}),
+      },
+      signal: ctrl.signal,
+    });
   } finally {
     clearTimeout(timer);
   }
