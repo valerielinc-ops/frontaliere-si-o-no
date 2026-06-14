@@ -1,6 +1,6 @@
 {
   "crawlerKey": "denner",
-  "assembledAt": "2026-06-14T11:10:31.683Z",
+  "assembledAt": "2026-06-14T21:45:27.395Z",
   "jobs": [
     {
       "id": "denner-c506ab630a5e",
@@ -64,7 +64,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin/0ff7b1e1-e72a-4adf-90b3-efa71bb173f1",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:29.305Z",
+      "crawledAt": "2026-06-14T21:45:24.991Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-12T22:15:44.334Z",
       "salaryMin": 59000,
@@ -143,7 +143,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin-ausbildung/5ca6c506-2957-4913-a00f-2a266359fc3b",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:29.302Z",
+      "crawledAt": "2026-06-14T21:45:24.987Z",
       "previousSlugs": [
         "stv-filialleiter-in-in-ausbildung-denner"
       ],
@@ -236,7 +236,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/filialleiterin/62828f0b-d2c9-4682-af03-7bcaf47f9836",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:28.683Z",
+      "crawledAt": "2026-06-14T21:45:24.209Z",
       "previousSlugs": [
         "filialleiter-in-denner"
       ],
@@ -324,8 +324,9 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/assistentin-filialleitung/629aa12d-1f41-4881-906f-04abeb951bca",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:28.678Z",
+      "crawledAt": "2026-06-14T21:45:24.204Z",
       "firstSeenAt": "2026-06-11T12:31:03.024Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -402,7 +403,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkauferin-im-stundenlohn/eef3dbb1-7c90-4167-8a51-48e3e520eb3a",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:28.675Z",
+      "crawledAt": "2026-06-14T21:45:24.199Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T11:58:11.350Z",
       "salaryMin": 59000,
@@ -484,7 +485,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/verkaufsleiterin-denner-partner-ausbildung-region-bern-fribourg/24b0590d-dc65-470f-84f8-be6e1702c6f9",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:28.068Z",
+      "crawledAt": "2026-06-14T21:45:23.316Z",
       "previousSlugs": [
         "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
       ],
@@ -571,7 +572,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/2b7e3cdd-b16b-4c7d-aed3-65f0e4e282c6",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:27.481Z",
+      "crawledAt": "2026-06-14T21:45:22.534Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T22:32:53.391Z",
       "salaryMin": 82500,
@@ -649,7 +650,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/studentin-als-ferienaushilfe/40b26183-768d-4f2c-aae3-ee9b38b0a6dd",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:10:25.649Z",
+      "crawledAt": "2026-06-14T21:45:18.103Z",
       "previousSlugs": [
         "student-in-als-ferienaushilfe-denner"
       ],
@@ -659,6 +660,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:32:20.722Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -733,7 +735,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/gerant-e/2fd4b66d-a707-432c-bed7-a9dc4b1faede",
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T11:10:23.374Z",
+      "crawledAt": "2026-06-14T21:45:15.708Z",
       "previousSlugs": [
         "gerant-e-denner"
       ],
