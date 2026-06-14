@@ -33,6 +33,16 @@ const MAX_ATTEMPTS = 3;
 // Margine prima di considerare un agent:fix "orfano" (la run deve aver avuto il
 // tempo di partire + aprire la PR). Conservativo per non ri-accodare run vive.
 const ORPHAN_MIN_AGE_MIN = 30;
+// Finestra di "assestamento" promozione: copre SOLO la latenza secondi tra
+// `gh issue edit --add-label agent:fix` e la comparsa della run in `gh run list`
+// (race-visibilità #1339). NON va confusa con ORPHAN_MIN_AGE_MIN: il vero
+// serializzatore anti-doppia-promozione è `inFlightFixCount()` (run queued/
+// in_progress), che fa `return` in cima. Prima il settling riusava i 30min
+// dell'orfano → un fix COMPLETATO-FALLITO (no PR) restava "settling" per 30min e
+// BLOCCAVA il drain fino al cron throttlato (stallo osservato 2026-06-14 21:00Z:
+// coda 21 ferma ~40min). 3min coprono la registrazione con ampio margine senza
+// incatenare il drain a un fix già finito.
+const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
 
 const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
@@ -366,11 +376,17 @@ function main() {
   // logicamente occupato anche se inFlightFixCount()==0 (vedi guard al DRAIN).
   let settlingPromotions = 0;
   for (const iss of stuckFix) {
-    const young = minutesSince(iss.updatedAt) < ORPHAN_MIN_AGE_MIN;
+    const ageMin = minutesSince(iss.updatedAt);
     const hasPR = hasFixPR(iss.number);
-    if (young && !hasPR) { settlingPromotions++; continue; } // run viva o in registrazione
-    if (young) continue;   // giovane + PR → run completata, non orfano
-    if (hasPR) continue;   // vecchio + PR → non orfano
+    if (hasPR) continue;   // ha PR → run completata con successo, non orfano né settling
+    // Da qui: agent:fix SENZA PR. inFlightFixCount() in cima ha già garantito
+    // che NESSUNA run è queued/in_progress, quindi questo non è un fix che gira:
+    // o è appena stato promosso e la run non è ancora visibile (≤SETTLE_MIN →
+    // assestamento, blocca il drain di 1 tick), o è un fix già COMPLETATO senza
+    // PR (fallito/skip). Quest'ultimo NON deve bloccare il drain (era il bug del
+    // settling a 30min): lo lasciamo all'orphan-rescue quando supera i 30min.
+    if (ageMin < SETTLE_MIN) { settlingPromotions++; continue; } // registrazione run
+    if (ageMin < ORPHAN_MIN_AGE_MIN) continue; // fix finito senza PR ma non ancora orfano → non bloccare il drain
     // vecchio + nessuna PR → orfano. Ma «nessuna PR» ha due cause diverse:
     // (a) run morta/crashata (nessun verdetto) → ri-tentabile; (b) ABORT pulita
     // del fixer con verdetto deterministico-non-ri-tentabile (no-root-cause,
