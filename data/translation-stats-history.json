@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-26T16:29:12.335Z",
-    "label": "after",
-    "total": 8740,
-    "needsRetranslation": 1517,
-    "incomplete": 462,
-    "complete": 8278,
-    "missingByLocale": {
-      "it": 273,
-      "en": 213,
-      "de": 152,
-      "fr": 258
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 70
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 62
-      },
-      {
-        "company": "Nestlé",
-        "pending": 39
-      },
-      {
-        "company": "Roche",
-        "pending": 32
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 15
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-27T00:52:16.564Z",
-    "label": "before",
-    "total": 8802,
-    "needsRetranslation": 6108,
-    "incomplete": 919,
-    "complete": 7883,
-    "missingByLocale": {
-      "it": 621,
-      "en": 500,
-      "de": 312,
-      "fr": 599
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 116
-      },
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 81
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 73
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 71
-      },
-      {
-        "company": "Roche",
-        "pending": 64
-      },
-      {
-        "company": "Nestlé",
-        "pending": 38
-      },
-      {
-        "company": "UBS",
-        "pending": 25
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 24
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 24
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-27T04:28:36.410Z",
     "label": "after",
     "total": 8802,
@@ -11319,6 +11207,120 @@
       {
         "company": "Roche",
         "pending": 58
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      },
+      {
+        "company": "Implenia",
+        "pending": 44
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-14T12:42:56.693Z",
+    "label": "before",
+    "total": 16271,
+    "needsRetranslation": 9255,
+    "suppressed": 43,
+    "incomplete": 3247,
+    "complete": 13024,
+    "missingByLocale": {
+      "it": 2482,
+      "en": 2197,
+      "de": 712,
+      "fr": 2165
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1915
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Richemont",
+        "pending": 103
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 67
+      },
+      {
+        "company": "Roche",
+        "pending": 66
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-14T16:46:50.355Z",
+    "label": "after",
+    "total": 16271,
+    "needsRetranslation": 4549,
+    "suppressed": 53,
+    "incomplete": 3110,
+    "complete": 13161,
+    "missingByLocale": {
+      "it": 2414,
+      "en": 2138,
+      "de": 694,
+      "fr": 2097
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1904
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 67
+      },
+      {
+        "company": "Roche",
+        "pending": 62
       },
       {
         "company": "Coop Genossenschaft",
