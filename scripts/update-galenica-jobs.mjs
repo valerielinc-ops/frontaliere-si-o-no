@@ -47,6 +47,7 @@ mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -151,23 +152,10 @@ async function fetchJson(url, timeoutMs = 15000) {
 }
 
 async function fetchText(url, timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent':
-          process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: { Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' },
+  });
 }
 
 async function enrichFromYoustyProfile(variants, timeoutMs) {
@@ -627,7 +615,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error('❌ Galenica crawler failed:', err);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Galenica'));

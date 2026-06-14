@@ -51,6 +51,7 @@ import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -102,17 +103,7 @@ function slugify(value = '') {
 
 /* ── Fetch ─────────────────────────────────────────────────── */
 async function fetchHtml(url, timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally { clearTimeout(timer); }
+  return fetchHtmlShared(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': UA } });
 }
 
 /* ── Discovery & Detail Fetching ──────────────────────────── */
@@ -398,7 +389,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ BPS Suisse crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'BPS Suisse'));

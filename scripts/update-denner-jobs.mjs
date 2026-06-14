@@ -18,6 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
@@ -370,7 +371,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`\u274c Denner crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Denner'));

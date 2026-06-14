@@ -53,6 +53,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import {
   parseGiorgioArmaniListingHtml,
   listingHasRenderedJobs,
@@ -498,7 +499,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ Giorgio Armani crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Giorgio Armani'));

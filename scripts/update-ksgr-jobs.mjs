@@ -27,6 +27,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { detectLang } from './lib/dedicated-crawler-common.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
@@ -247,8 +248,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error('❌ KSGR dedicated crawler failed.');
-  console.error(error);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'KSGR'));

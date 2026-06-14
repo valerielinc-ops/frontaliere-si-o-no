@@ -46,6 +46,7 @@ import {
   inferArtificialyCategory,
   buildArtificialyLocalizedContent,
 } from './lib/artificialy-job-parser.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -94,26 +95,17 @@ function normalizeKey(value = '') {
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-        'Accept-Language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'none',
-      },
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+      'Accept-Language': 'it-IT,it;q=0.9,en-US;q=0.8,en;q=0.7',
+      'Sec-Fetch-Dest': 'document',
+      'Sec-Fetch-Mode': 'navigate',
+      'Sec-Fetch-Site': 'none',
+    },
+  });
 }
 
 function sleep(ms) {
@@ -363,7 +355,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`Artificialy crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'Artificialy'));
