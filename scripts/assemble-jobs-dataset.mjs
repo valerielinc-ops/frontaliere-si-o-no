@@ -1800,6 +1800,40 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       console.log(`  🌍 Locale completeness: flagged ${partialDescriptionFlags} jobs with partial descriptionByLocale`);
     }
 
+    // Same contract for titleByLocale: an unflagged job is treated as
+    // fully-translated and indexed in all 4 locales, and
+    // tests/job-locale-completeness.test.ts holds it to full titleByLocale
+    // coverage. A job whose titleByLocale lost a locale (e.g. de/en/fr present,
+    // `it` dropped — Coop / Two-Spice prospective slices, the #1920 deadlock
+    // class) can pass the descriptionByLocale guard above (its descriptions are
+    // complete) yet still be title-incomplete, turning the test red and getting
+    // indexed with a source-language title fallback. Mirror the description
+    // guard so it is flagged out of the indexable set until translate-pending
+    // fills the missing locale; render already falls back to `job.title`.
+    // NOTE: skip ONLY needsRetranslation here, NOT localeMismatchSuppressed.
+    // The completeness test exempts only needsRetranslation jobs, so a
+    // localeMismatchSuppressed job with an incomplete title (the pipeline gave
+    // up reconciling its locales but never set needsRetranslation) would stay
+    // test-red. Flagging it needsRetranslation is the truthful state and routes
+    // it out of the indexable set; translate-pending may retry, and if it
+    // re-suppresses, the flag persists — stable across re-assembly.
+    let partialTitleFlags = 0;
+    for (const job of assembled) {
+      if (job.needsRetranslation) continue;
+      const titles = job.titleByLocale && typeof job.titleByLocale === 'object'
+        ? job.titleByLocale
+        : {};
+      const missingTitle = ['it', 'en', 'de', 'fr']
+        .some((locale) => !String(titles[locale] || '').trim());
+      if (missingTitle) {
+        job.needsRetranslation = true;
+        partialTitleFlags++;
+      }
+    }
+    if (partialTitleFlags > 0) {
+      console.log(`  🌍 Locale completeness: flagged ${partialTitleFlags} jobs with partial titleByLocale`);
+    }
+
     // --- slugByLocale completeness backfill ---
     // Fixed-translation jobs (needsRetranslation:false) MUST expose a slug for
     // every locale. Some legacy crawlers populate only the source-language slug
