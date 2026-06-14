@@ -1,18 +1,112 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-06-14T12:19:42.371Z",
-  "total": 36,
-  "newCount": 0,
+  "generatedAt": "2026-06-14T22:51:11.063Z",
+  "total": 39,
+  "newCount": 3,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 51814,
-  "avgDurationMs": 51814,
+  "durationMs": 48894,
+  "avgDurationMs": 48894,
   "durationHistory": [
-    51814
+    48894
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-kuiflj",
+      "slug": "berufsdrohnenpilot-in-swiss-armed-forces-vtg-bern-kuiflj",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Berufsdrohnenpilot/-in",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-14",
+      "url": "https://jobs.admin.ch/offene-stellen/berufsdrohnenpilot-in/25b0bda8-53bb-465f-9d09-1636320a91a8",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Emmen",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-14T22:51:09.408Z",
+      "firstSeenAt": "2026-06-14T22:51:09.408Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-qjueiz",
+      "slug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Logistiker/-in",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-14",
+      "url": "https://jobs.admin.ch/offene-stellen/logistiker-in/71aa2d21-4fa8-415d-b396-9e77c29e4292",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Schattdorf",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-14T22:51:09.408Z",
+      "firstSeenAt": "2026-06-14T22:51:09.408Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-f1p602",
+      "slug": "impiegato-a-in-logistica-vorortlager-bronschhofen-swiss-armed-forces-vtg-bern-f1p602",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Logistiker/-in Vorortlager Bronschhofen",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-14",
+      "url": "https://jobs.admin.ch/offene-stellen/logistiker-in-vorortlager-bronschhofen/d67dfded-a943-47f1-a683-8b95a3ef65d0",
+      "source": "Company Careers Crawler",
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-06-14T22:51:09.408Z",
+      "firstSeenAt": "2026-06-14T22:51:09.408Z",
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-jhv13s",
