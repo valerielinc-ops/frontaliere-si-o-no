@@ -155,6 +155,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trump-dazi-doganali-2026.title': 'US Tariffs: \'They Won\'t Disappear with Trump\'',
     'blog.article.trump-dazi-doganali-2026.excerpt': 'The director of the SECO, Helene Budliger Artieda, predicts that US tariffs will not disappear even after the end of Donald Trump\'s mandate.',
     'blog.article.trump-dazi-doganali-2026.imageAlt': 'A view of Lugano with the lake and mountains',
+    'blog.article.sciopero-femminista-vd-ne.title': 'Feminist Strike: Thousands Protest in Vaud and Neuchâtel',
+    'blog.article.sciopero-femminista-vd-ne.excerpt': '9,000-15,000 demonstrators in Lausanne, a thousand in Neuchâtel. Demands for work equality, care work, and action against 13 femicides in 2025.',
+    'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Feminist strike protest in Lausanne with thousands of people',
 };
 
 export default blogMetaChEn;

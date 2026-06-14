@@ -155,6 +155,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trump-dazi-doganali-2026.title': 'Dazi doganali USA: "Non scompariranno con Trump"',
     'blog.article.trump-dazi-doganali-2026.excerpt': 'La direttrice della SECO, Helene Budliger Artieda, prevede che i dazi doganali negli Stati Uniti non scompariranno anche dopo la fine del mandato di Donald Trump.',
     'blog.article.trump-dazi-doganali-2026.imageAlt': 'Una vista di Lugano con il lago e le montagne',
+    'blog.article.sciopero-femminista-vd-ne.title': 'Sciopero femminista: migliaia in piazza a Vaud e Neuchâtel',
+    'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 manifestanti a Losanna, un migliaio a Neuchâtel. Richieste su parità lavorativa, lavoro di cura e contrasto ai 13 femminicidi del 2025.',
+    'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Manifestazione sciopero femminista a Losanna con migliaia di persone',
 };
 
 export default blogMetaChIt;
