@@ -158,6 +158,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sciopero-femminista-vd-ne.title': 'Feminist Strike: Thousands Protest in Vaud and Neuchâtel',
     'blog.article.sciopero-femminista-vd-ne.excerpt': '9,000-15,000 demonstrators in Lausanne, a thousand in Neuchâtel. Demands for work equality, care work, and action against 13 femicides in 2025.',
     'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Feminist strike protest in Lausanne with thousands of people',
+    'blog.article.bce-tassi-inflazione-2023.title': 'ECB Raises Rates, Cuts Growth Forecasts',
+    'blog.article.bce-tassi-inflazione-2023.excerpt': 'From 2% to 2.25% is the new deposit rate: a solid monetary tightening in response to the global energy shock.',
+    'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Swiss financial and political scene showing economic graphs and financial developments',
 };
 
 export default blogMetaChEn;

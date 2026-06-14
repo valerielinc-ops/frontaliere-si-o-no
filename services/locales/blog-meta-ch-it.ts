@@ -158,6 +158,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sciopero-femminista-vd-ne.title': 'Sciopero femminista: migliaia in piazza a Vaud e Neuchâtel',
     'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 manifestanti a Losanna, un migliaio a Neuchâtel. Richieste su parità lavorativa, lavoro di cura e contrasto ai 13 femminicidi del 2025.',
     'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Manifestazione sciopero femminista a Losanna con migliaia di persone',
+    'blog.article.bce-tassi-inflazione-2023.title': 'La BCE alza i tassi e taglia le previsioni di crescita',
+    'blog.article.bce-tassi-inflazione-2023.excerpt': 'Dal 2% al 2,25% il nuovo tasso sui depositi: una stretta monetaria solida in risposta allo shock energetico globale.',
+    'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Scena svizzera finanziaria e politica, grafici economici, sviluppi finanziari',
 };
 
 export default blogMetaChIt;

@@ -158,6 +158,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sciopero-femminista-vd-ne.title': 'Grève féministe : milliers de manifestants à Vaud et Neuchâtel',
     'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 manifestants à Lausanne, un millier à Neuchâtel. Des demandes sur l\'égalité professionnelle, le travail de soins et la lutte contre les 13 féminicides de 2025.',
     'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Grève féministe à Lausanne avec des milliers de personnes',
+    'blog.article.bce-tassi-inflazione-2023.title': 'BCE: hausse des taux et baisse des prévisions de croissance',
+    'blog.article.bce-tassi-inflazione-2023.excerpt': 'Le nouveau taux sur les dépôts passe de 2% à 2,25% : un resserrement monétaire solide en réponse au choc énergétique mondial.',
+    'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Image de la scène financière et politique suisse avec des tableaux économiques',
 };
 
 export default blogMetaChFr;

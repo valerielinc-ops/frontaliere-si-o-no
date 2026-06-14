@@ -1,0 +1,18 @@
+{
+  "id": "bce-tassi-inflazione-2023",
+  "slug": "bce-tassi-inflazione-2023",
+  "publishedAt": "2026-06-14T02:34:36.896Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "fiscale",
+    "score": 0,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1
+  }
+}
