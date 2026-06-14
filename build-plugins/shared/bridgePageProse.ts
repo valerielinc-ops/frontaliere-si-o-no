@@ -98,14 +98,14 @@ const FX_HREF: Record<BridgeProseLocale, string> = {
 };
 
 const HEALTH_HREF: Record<BridgeProseLocale, string> = {
-  it: '/comparatori/casse-malati/',
+  it: '/compara-servizi/confronta-casse-malati/',
   en: '/en/comparators/health-insurance/',
   de: '/de/vergleiche/krankenkassen/',
   fr: '/fr/comparateurs/caisses-maladie/',
 };
 
 const FUEL_HREF: Record<BridgeProseLocale, string> = {
-  it: '/prezzi-benzina-svizzera/',
+  it: '/prezzi-benzina/oggi/',
   en: '/en/gasoline-price-switzerland/',
   de: '/de/benzinpreis-schweiz/',
   fr: '/fr/prix-essence-suisse/',

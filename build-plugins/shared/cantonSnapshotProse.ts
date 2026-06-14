@@ -153,13 +153,13 @@ function buildParagraphs(opts: SnapshotProseOpts): ProseParagraphs {
     fr: '/fr/comparateurs/change-devises/',
   };
   const HEALTH: Record<SnapshotLocale, string> = {
-    it: '/comparatori/casse-malati/',
+    it: '/compara-servizi/confronta-casse-malati/',
     en: '/en/comparators/health-insurance/',
     de: '/de/vergleiche/krankenkassen/',
     fr: '/fr/comparateurs/caisses-maladie/',
   };
   const FUEL: Record<SnapshotLocale, string> = {
-    it: '/prezzi-benzina-svizzera/',
+    it: '/prezzi-benzina/oggi/',
     en: '/en/gasoline-price-switzerland/',
     de: '/de/benzinpreis-schweiz/',
     fr: '/fr/prix-essence-suisse/',

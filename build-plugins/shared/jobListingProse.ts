@@ -78,7 +78,7 @@ const FX_HREF: Record<ListingProseLocale, string> = {
   fr: '/fr/comparateurs/change-devises/',
 };
 const HEALTH_HREF: Record<ListingProseLocale, string> = {
-  it: '/comparatori/casse-malati/',
+  it: '/compara-servizi/confronta-casse-malati/',
   en: '/en/comparators/health-insurance/',
   de: '/de/vergleiche/krankenkassen/',
   fr: '/fr/comparateurs/caisses-maladie/',
