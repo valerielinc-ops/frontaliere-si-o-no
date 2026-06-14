@@ -1345,8 +1345,7 @@
       },
       "previousSlugs": [
         "pratica-in-attivita-di-marketing-presso-il-team-di-coinvolgimento-dei-clienti-80-100-axa-svizzera-winterthur"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Schadenjurist:in Personenschaden Haftpflicht",
@@ -2653,7 +2652,8 @@
       "previousSlugs": [
         "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeitsrecht-all-genders-axa-zurich-61vudy"
       ],
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Versicherungsberater:in für die Hauptagentur Heiden",
@@ -7530,7 +7530,8 @@
         "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
         "senior-specialiste-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-zurich",
         "senior-specialist-rechtsdienst-mit-schwerpunkt-arbeits-und-immobilienrecht-all-genders-axa-svizzera-befristet-fur-sechs",
-        "senior-specialista-rechtsdienst-con-schwerpunkt-arbeits-e-immobilienrecht-all-genders-axa-svizzera-ticino"
+        "senior-specialista-rechtsdienst-con-schwerpunkt-arbeits-e-immobilienrecht-all-genders-axa-svizzera-ticino",
+        "service-juridique-specialise-principal-axe-sur-le-droit-du-travail-et-du-droit-immobilier-tous-les-sexes-axa-svizzera"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -10790,7 +10791,7 @@
         "it": "consulente-assicurativo",
         "en": "insurance-consultant-axa-svizzera-manno",
         "de": "versicherungsberater-axa-svizzera-manno",
-        "fr": "consulente-assicurativo"
+        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
       },
       "id": "axa-svizzera-9a1a0bf0744b",
       "salaryMin": 49500,
@@ -10810,7 +10811,12 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-06-12T21:56:26.701Z",
       "previousSlugs": [
-        "consulente-assicurativo-axa-manno-nfod8k"
+        "consulente-assicurativo-axa-manno-nfod8k",
+        "consulente-assicurativo-axa-svizzera-axa",
+        "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+        "consulente-assicurativo-axa-biasca-xhxjxo",
+        "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10822,8 +10828,7 @@
         "de": [
           "consulente-assicurativo-axa-manno-nfod8k"
         ]
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
