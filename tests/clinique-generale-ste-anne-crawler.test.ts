@@ -95,7 +95,7 @@ describe('Clinique Générale Ste-Anne crawler parser', () => {
       location: 'Fribourg',
       canton: 'FR',
       url: 'https://jobs.smartrecruiters.com/SwissMedicalNetwork1/123-test',
-      source: 'Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=GSM)',
+      source: 'Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)',
       sourceLang: 'fr',
       crawledAt: new Date().toISOString(),
     };
