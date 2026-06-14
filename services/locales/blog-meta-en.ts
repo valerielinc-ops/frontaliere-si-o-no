@@ -8071,6 +8071,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.caos-applicazione-decreto-omnibus.title': 'Frontalieri: chaos over Omnibus decree application',
     'blog.article.caos-applicazione-decreto-omnibus.excerpt': 'Concerns over the implementation of the Omnibus decree cause uncertainty for cross-border workers. Urgent appeal to government and Region.',
     'blog.article.caos-applicazione-decreto-omnibus.imageAlt': 'Border crossing between Ticino and Italy',
+    'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: Question on Pay Equity and Salary Transparency',
+    'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Three city councilors demand clear data on salaries, gender distribution, and the pay gap within the municipal administration.',
+    'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'View of Chiasso with the border crossing and town hall, symbolizing the call for pay transparency.',
 };
 
 export default blogMetaEn;

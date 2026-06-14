@@ -25596,6 +25596,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiasso-parita-salariale-interrogazione',
+ category: 'novita',
+ date: '2026-06-14T02:50:47.364Z',
+ image: '/images/blog/chiasso-parita-salariale-interrogazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8070,6 +8070,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.caos-applicazione-decreto-omnibus.title': 'Frontalier: Chaos bei der Umsetzung des Omnibus-Dekrets',
     'blog.article.caos-applicazione-decreto-omnibus.excerpt': 'Die Kritik an der Umsetzung des Omnibus-Dekrets sorgt für Unsicherheit bei den Grenzgängern. Dringlicher Appell an Regierung und Region.',
     'blog.article.caos-applicazione-decreto-omnibus.imageAlt': 'Grenzübergang zwischen Tessin und Italien',
+    'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: Anfrage zu Lohngleichheit und Transparenz',
+    'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Drei Gemeinderäte verlangen klare Daten zu Gehältern, Geschlechterverteilung und Lohnunterschieden in der Gemeindeverwaltung.',
+    'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'Blick auf Chiasso mit dem Grenzübergang und dem Rathaus, Symbol für den Aufruf nach Lohngerechtigkeit.',
 };
 
 export default blogMetaDe;
