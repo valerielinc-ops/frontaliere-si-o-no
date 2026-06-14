@@ -3986,6 +3986,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ffs-nuova-locomotiva-merci-stadler': { name: 'Trasporti FFS', path: '/articoli-svizzera/ffs-nuova-locomotiva-merci-stadler/', parent: 'blog' },
     'blog-lavori-giugno-sentiero-ronchitt-molinetto': { name: 'Lavori giugno', path: '/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto', parent: 'blog' },
     'blog-iniziativa-10-milioni-svizzera': { name: 'Votazione federale', path: '/articoli-svizzera/iniziativa-10-milioni-svizzera/', parent: 'blog' },
+    'blog-trump-dazi-doganali-2026': { name: 'Dazi doganali USA', path: '/articoli-svizzera/trump-dazi-doganali-2026/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

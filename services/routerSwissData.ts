@@ -72,6 +72,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'bocciatura-sportello-disoccupati-coldrerio': { it: 'bocciatura-sportello-disoccupati-coldrerio', en: 'rejection-unemployed-center-coldrerio', de: 'ablehnung-arbeitslosenberatung-coldrerio', fr: 'rejet-guichet-chomeurs-coldrerio' },
  'ffs-nuova-locomotiva-merci-stadler': { it: 'ffs-nuova-locomotiva-merci-stadler', en: 'new-sbb-freight-locomotive-stadler', de: 'neue-sbb-gueterzuglokomotive-stadler', fr: 'nouvelle-locomotive-fret-cff-stadler' },
  'iniziativa-10-milioni-svizzera': { it: 'iniziativa-10-milioni-svizzera', en: 'initiative-10-million-switzerland', de: 'initiative-10-millionen-schweiz', fr: 'initiative-10-millions-suisse' },
+ 'trump-dazi-doganali-2026': { it: 'trump-dazi-doganali-2026', en: 'trump-tariffs-2026', de: 'trump-zolle-2026', fr: 'trump-droits-de-douane-2026' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

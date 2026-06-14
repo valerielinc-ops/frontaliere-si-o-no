@@ -152,6 +152,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-svizzera.title': 'Initiative \'Nein zu 10-Mio-Schweiz\': Abstimmung 14.06.2026',
     'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'Am Sonntag, 14. Juni 2026, stimmen die Schweizer über die SVP-Initiative ab, die die Bevölkerung auf 10 Millionen bis 2050 begrenzen will, sowie über das Referendum zum Zivildienst.',
     'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Bundeshaus in Bern mit Demonstranten und Schildern zur 10-Millionen-Initiative',
+    'blog.article.trump-dazi-doganali-2026.title': 'US-Zollabgaben: "Bleiben auch nach Trump"',
+    'blog.article.trump-dazi-doganali-2026.excerpt': 'SECO-Direktorin Helene Budliger Artieda erwartet, dass US-Zollabgaben auch nach dem Ende von Donald Trumps Amtszeit bestehen bleiben werden.',
+    'blog.article.trump-dazi-doganali-2026.imageAlt': 'Eine Aussicht auf Lugano mit dem See und den Bergen',
 };
 
 export default blogMetaChDe;
