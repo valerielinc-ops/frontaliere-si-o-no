@@ -31,7 +31,8 @@
  *
  * `agent:triaged` SEMPRE via GITHUB_TOKEN (idempotenza, non deve triggerare);
  * il routing SEMPRE via GITHUB_PAT (anti-ricorsione + gate sender, come il path
- * event-driven). PAT assente → marca triaged ma non routa (warning), come oggi.
+ * event-driven). PAT assente → le routabili (fix/queue) restano ORFANE (no
+ * triaged): uno sweep post-recovery le routa. Tagghiamo solo transient/human.
  *
  * Uso:  node scripts/ci/triage-sweep.mjs [--dry-run] [--cap N]
  * Env:  GH_TOKEN (GITHUB_TOKEN: list + agent:triaged + commenti),
@@ -44,7 +45,8 @@ const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
 const argv = process.argv.slice(2);
 const DRY = argv.includes('--dry-run');
-const ROUTE_FIX_CAP = Number(argv.includes('--cap') ? argv[argv.indexOf('--cap') + 1] : 5);
+const capArg = argv.includes('--cap') ? Number(argv[argv.indexOf('--cap') + 1]) : 5;
+const ROUTE_FIX_CAP = Number.isFinite(capArg) ? capArg : 5; // --cap senza valore/non-numerico → default 5 (no cap-off silenzioso)
 const SWEEP_MAX = 60; // safety bound sul numero di issue ispezionate per run
 
 function gh(args, { json = true, token } = {}) {
@@ -67,18 +69,23 @@ function main() {
   } catch (e) { console.error(`gh issue list fallito: ${String(e).slice(0, 160)}`); process.exit(0); }
 
   // Orfane = open senza agent:triaged. Più vecchie prima (numero crescente).
-  const orphans = issues
+  const allOrphans = issues
     .filter((i) => !has(i, 'agent:triaged'))
-    .sort((a, b) => a.number - b.number)
-    .slice(0, SWEEP_MAX);
+    .sort((a, b) => a.number - b.number);
+  const orphans = allOrphans.slice(0, SWEEP_MAX);
 
   if (!orphans.length) { console.log('Nessuna issue orfana (tutte triaged). ✅'); return; }
-  console.log(`Issue orfane senza agent:triaged: ${orphans.length}`);
+  // Logga il TOTALE pre-slice (no silent cap): l'eccesso oltre SWEEP_MAX è ripreso al prossimo tick.
+  console.log(`Issue orfane senza agent:triaged: ${allOrphans.length}` +
+    (allOrphans.length > orphans.length
+      ? ` (ispeziono prime ${orphans.length}/${allOrphans.length} questo run, resto al prossimo tick).`
+      : ''));
 
   let routedFix = 0;
   let routedQueue = 0;
   let markedOnly = 0;
   let fixDeferredByCap = 0;
+  let routeDeferredNoPat = 0;
 
   // Helper: marca agent:triaged (GITHUB_TOKEN, idempotente, non triggera).
   const markTriaged = (n) => {
@@ -91,12 +98,26 @@ function main() {
     const n = iss.number;
     const { category, autofix, route, fuPrio } = classifyIssue(iss.title, names(iss));
 
+    // Routable = ha un routing reale (fix/queue), auto-route consentito, non transient.
+    // Decisione PRIMA di qualunque label: marcare triaged una routabile che NON
+    // riusciamo a routare (PAT assente o oltre cap) la perderebbe dal filtro
+    // orfani per sempre → nessuno sweep successivo la routa mai (defeat-self).
+    const isCrawlerTransient = has(iss, 'crawler-transient');
+    const isRoutable = autofix === true && (route === 'fix' || route === 'queue') && !isCrawlerTransient;
+    const isCrawlerFix = isRoutable && route === 'fix';
+
+    // PAT assente: routing impossibile. Lascia orfana (NO triaged) → uno sweep
+    // post-recovery (PAT ripristinato — evento ricorrente, vedi gh-pat-expiry-monitor)
+    // la routa. Tagghiamo solo le NON-routabili (transient/human) sotto.
+    if (isRoutable && !PAT) {
+      routeDeferredNoPat++;
+      console.log(`::warning::#${n} route=${route} ma GITHUB_PAT assente → lasciata orfana (no triaged), retry al prossimo sweep con PAT.`);
+      continue;
+    }
+
     // crawler non-transient oltre il cap: NON marcare triaged → resta orfano →
     // il prossimo tick lo riprende (drain del backlog su più run, anti-burst).
-    // Decisione PRIMA di qualunque label, altrimenti il filtro orfani lo
-    // perderebbe per sempre.
-    const isCrawlerFix = autofix === true && route === 'fix' && !has(iss, 'crawler-transient');
-    if (isCrawlerFix && PAT && routedFix >= ROUTE_FIX_CAP) {
+    if (isCrawlerFix && routedFix >= ROUTE_FIX_CAP) {
       fixDeferredByCap++;
       continue;
     }
@@ -105,7 +126,7 @@ function main() {
     markTriaged(n);
 
     // crawler-transient → solo triaged (si auto-chiudono, routarle = burn).
-    if (has(iss, 'crawler-transient')) {
+    if (isCrawlerTransient) {
       console.log(`#${n} crawler-transient → solo triaged (auto-close, no route).`);
       markedOnly++;
       continue;
@@ -113,7 +134,7 @@ function main() {
 
     // categorie non auto-route (revenue/tracker/validation-failure/other) → human.
     if (route === 'none' || autofix !== true) { markedOnly++; continue; }
-    if (!PAT) { console.log(`::warning::#${n} route=${route} ma GITHUB_PAT assente → non routato.`); markedOnly++; continue; }
+    // PAT garantito qui: le routabili con !PAT sono già state lasciate orfane sopra.
 
     if (route === 'queue') {
       // follow-up: gentle by-construction (drainer 1-alla-volta) → nessun cap.
@@ -137,7 +158,8 @@ function main() {
   }
 
   console.log(`\nSweep done: fix=${routedFix} queue=${routedQueue} marked-only=${markedOnly}` +
-    (fixDeferredByCap ? ` · ${fixDeferredByCap} crawler-fix rinviati dal cap ${ROUTE_FIX_CAP}/run (no silent cap; prossimo tick).` : ''));
+    (fixDeferredByCap ? ` · ${fixDeferredByCap} crawler-fix rinviati dal cap ${ROUTE_FIX_CAP}/run (no silent cap; prossimo tick).` : '') +
+    (routeDeferredNoPat ? ` · ${routeDeferredNoPat} routabili lasciate orfane (GITHUB_PAT assente; retry sweep post-recovery).` : ''));
 }
 
 main();
