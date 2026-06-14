@@ -326,14 +326,25 @@ async function processPR(pr) {
   // auto-merge-eval (contributo PR invariato su un rebase di solo main-merge),
   // quindi NESSUNA review Opus/Sonnet gira di nuovo. Best-effort: se il
   // dispatch fallisce (PAT senza scope actions:write) lo logghiamo soltanto.
-  if (!lgtm && !hasAnyClaudeReview(num)) {
-    // Classe-A (review mai postata per drift 401): ora il branch è allineato a
-    // main → la workflow-validation passa, ma serve ri-triggerare la review.
-    // Un dispatch non esiste per pr-review-loop → close+reopen (= reopened
-    // event: review + tests insieme). Costa UNA review Claude, che è comunque
-    // dovuta: la PR non ne ha mai avuta una.
+  // !lgtm dopo un rebase = la PR NON è pronta al merge (manca l'LGTM): o non ha
+  // mai avuto review (classe-A, drift 401), o ne ha una con 🔴/❓ non chiuso. In
+  // ENTRAMBI i casi il rebase ha appena allineato i workflow a main (drift
+  // workflow-validation risolto), ma serve ri-triggerare review+redflag: un
+  // semplice dispatch tests NON rilancia pr-review-loop/redflag-fixer (triggerano
+  // su review submitted), quindi il 🔴+drift resterebbe stuck fino al recycle
+  // 24h. close+reopen emette `reopened` → review gira drift-free → (se 🔴)
+  // redflag-fixer riparte. ECCEZIONE needs-human: già escalata (round-cap),
+  // reopen riavvierebbe review inutilmente → skip (il round-cap marker persiste,
+  // niente loop, ma evitiamo la review-quota su una PR che aspetta un umano).
+  if (!lgtm) {
+    if (labels.includes('needs-human')) {
+      console.log(`PR #${num}: rebasata ma needs-human (round-cap) → no reopen (attende umano); solo dispatch tests.`);
+      dispatchTests(num, branch);
+      return;
+    }
+    const why = hasAnyClaudeReview(num) ? '🔴/❓ non chiuso + drift sanato' : 'classe-A senza review';
     if (reopenToRetrigger(num)) {
-      console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (classe-A senza review) → review+tests ri-triggerati.`);
+      console.log(`✅ PR #${num}: rebasata, pushata e ri-aperta (${why}) → review+redflag ri-triggerati drift-free.`);
     }
     return;
   }
