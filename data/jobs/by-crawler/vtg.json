@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-06-13T22:55:19.891Z",
+  "assembledAt": "2026-06-14T12:19:42.368Z",
   "jobs": [
     {
       "id": "company-go5lac",
@@ -482,7 +482,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "postalCode": "3001",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-vvystb",
@@ -2303,7 +2304,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
