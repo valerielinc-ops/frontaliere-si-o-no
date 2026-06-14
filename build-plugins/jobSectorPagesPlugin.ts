@@ -19,6 +19,7 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
   SEO_STATIC_CSS_LINK,
+  CDN_PRECONNECT_HINT,
 } from './constants';
 import {
   HERO_EYEBROW_STYLE,
@@ -374,7 +375,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(seo.title)}</title>
     <meta name="description" content="${esc(seo.desc)}">
     <meta property="og:type" content="website">

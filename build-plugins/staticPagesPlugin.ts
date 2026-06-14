@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4511,7 +4511,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(capTitle70(seoData.title))}</title>
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
  <link rel="canonical" href="${fullUrl}">
@@ -4622,7 +4622,7 @@ ${hubChromeSplit.bodyHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(capTitle70(seoData.title))}</title>
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
@@ -4661,7 +4661,7 @@ ${hrefTags}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${esc(capTitle70(seoData.title))}</title>
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
  <meta name="description" content="${esc(seoData.desc)}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
