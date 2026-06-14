@@ -1130,14 +1130,22 @@ async function main() {
   const compatPathsFile = dataPath('seo-404-compat-paths.json');
   const compatData = readJsonSafe(compatPathsFile);
   if (compatData?.paths && Array.isArray(compatData.paths)) {
-    const COMPAT_JOB_RE = /^\/(cerca-lavoro-ticino|en\/find-jobs?-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\/([^/]+)\/?$/;
+    // Canton-aware: the previous regex matched ONLY the four Ticino sections,
+    // so every non-TI compat job path (grigioni, vallese, zurigo, soletta, …)
+    // skipped this enrichment step and its soft-landing page degraded to
+    // slug-only fallback content. Match every locale job-board section stem
+    // (both `jobs-im` and `jobs-in` DE variants) + a single slug segment; the
+    // canton itself is preserved verbatim via `o.path`, so we don't need to
+    // resolve it here. Same downstream gate as before: prune-404-compat-paths
+    // drops any path the resolver can't map.
+    const COMPAT_JOB_RE = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)-[a-z-]+\/([^/]+)\/?$/;
     const SKIP_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
     const existingSlugs = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
     let compatAdded = 0;
     for (const p of compatData.paths) {
       const m = String(p || '').match(COMPAT_JOB_RE);
       if (!m) continue;
-      const slug = m[2];
+      const slug = m[1];
       if (!slug || SKIP_RE.test(slug)) continue;
       const locale = detectLocaleFromPath(p);
       const key = `${locale}:${slug}`;
