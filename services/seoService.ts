@@ -3991,6 +3991,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sciopero-femminista-vd-ne': { name: 'Sciopero femminista', path: '/articoli-svizzera/sciopero-femminista-vd-ne/', parent: 'blog' },
     'blog-carpooling-cantello-parcheggi-riservati-frontalieri': { name: 'Carpooling frontalieri', path: '/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri', parent: 'blog' },
     'blog-caos-applicazione-decreto-omnibus': { name: 'Decreto Omnibus frontalieri', path: '/articoli-frontaliere/caos-applicazione-decreto-omnibus', parent: 'blog' },
+    'blog-bce-tassi-inflazione-2023': { name: 'Fiscalità e Economia', path: '/articoli-svizzera/bce-tassi-inflazione-2023/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

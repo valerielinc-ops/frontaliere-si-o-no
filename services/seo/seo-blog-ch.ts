@@ -1970,6 +1970,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bce-tassi-inflazione-2023': {
+    title: 'La BCE alza i tassi e taglia le previsioni di crescita',
+    description: 'La Banca centrale europea ha modificato i tassi e riveduto le previsioni economiche in risposta all’impatto dello shock energetico. Scopri come questi',
+    keywords: 'frontalieri, ticino, svizzera, italia, alza, tassi, taglia, previsioni',
+    ogTitle: 'La BCE alza i tassi e taglia le previsioni di crescita',
+    ogDescription: 'La BCE modifica i tassi e rivede le previsioni economiche in risposta allo shock energetico. Esplora le implicazioni sulla fiscalità e la gestione finanziaria',
+    canonicalPath: '/articoli-svizzera/bce-tassi-inflazione-2023/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La BCE alza i tassi e taglia le previsioni di crescita",
+      "description": "La Banca centrale europea ha modificato i tassi e riveduto le previsioni economiche in risposta all’impatto dello shock energetico. Scopri come questi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bce-tassi-inflazione-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena svizzera finanziaria e politica, grafici economici, sviluppi finanziari"
+      },
+      "datePublished": "2026-06-14T02:34:35+00:00",
+      "dateModified": "2026-06-14T02:34:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bce-tassi-inflazione-2023/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

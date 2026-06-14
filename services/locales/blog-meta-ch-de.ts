@@ -158,6 +158,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sciopero-femminista-vd-ne.title': 'Feministischer Streik: Tausende in Waadt und Neuenburg',
     'blog.article.sciopero-femminista-vd-ne.excerpt': '9\'000-15\'000 Demonstranten in Lausanne, tausend in Neuenburg. Forderungen nach Gleichberechtigung am Arbeitsplatz, Sorgearbeit und Bekämpfung der 13 Femizide von 2025.',
     'blog.article.sciopero-femminista-vd-ne.imageAlt': 'Feministischer Streik Protest in Lausanne mit Tausenden',
+    'blog.article.bce-tassi-inflazione-2023.title': 'EZB hebt Zinsen an, senkt Wachstumsprognose',
+    'blog.article.bce-tassi-inflazione-2023.excerpt': 'Der neue Einlagenzinssatz steigt von 2% auf 2,25%: eine solide geldpolitische Straffung als Reaktion auf den globalen Energieschock.',
+    'blog.article.bce-tassi-inflazione-2023.imageAlt': 'Schweizer finanzielles und politisches Bild mit wirtschaftlichen Grafiken',
 };
 
 export default blogMetaChDe;
