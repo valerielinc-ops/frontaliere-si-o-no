@@ -3987,6 +3987,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-giugno-sentiero-ronchitt-molinetto': { name: 'Lavori giugno', path: '/articoli-frontaliere/lavori-giugno-sentiero-ronchitt-molinetto', parent: 'blog' },
     'blog-iniziativa-10-milioni-svizzera': { name: 'Votazione federale', path: '/articoli-svizzera/iniziativa-10-milioni-svizzera/', parent: 'blog' },
     'blog-trump-dazi-doganali-2026': { name: 'Dazi doganali USA', path: '/articoli-svizzera/trump-dazi-doganali-2026/', parent: 'blog' },
+    'blog-asilo-nido-frontalieri-ticino': { name: 'Asilo nido frontalieri', path: '/articoli-frontaliere/asilo-nido-frontalieri-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8062,6 +8062,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'June works on Ronchitt Molinetto trail',
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Two days of works: roads closed in Gambarogno',
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno construction zone',
+    'blog.article.asilo-nido-frontalieri-ticino.title': 'Guide for cross-border workers: Ticino childcare',
+    'blog.article.asilo-nido-frontalieri-ticino.excerpt': 'Everything you need to know about costs, waiting lists, subsidies, and alternatives for cross-border workers with preschool-age children in Ticino',
+    'blog.article.asilo-nido-frontalieri-ticino.imageAlt': 'Ticino nursery school with children and educators outdoors',
 };
 
 export default blogMetaEn;

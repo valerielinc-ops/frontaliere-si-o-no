@@ -8061,6 +8061,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.title': 'Arbeiten Juni Ronchitt Molinetto',
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.excerpt': 'Zwei Tage Bauarbeiten: Straßen in Gambarogno gesperrt',
     'blog.article.lavori-giugno-sentiero-ronchitt-molinetto.imageAlt': 'Gambarogno Baustelle',
+    'blog.article.asilo-nido-frontalieri-ticino.title': 'Praktische Anleitung für Grenzgänger mit Kindern: Tessiner Kinderkrippen',
+    'blog.article.asilo-nido-frontalieri-ticino.excerpt': 'Alles, was Sie wissen müssen über Kosten, Warteliste, Zuschüsse und Alternativen für Grenzgänger mit Kindern im Vorschulalter im Tessin',
+    'blog.article.asilo-nido-frontalieri-ticino.imageAlt': 'Tessiner Kindergarten mit Kindern und Erziehern im Freien',
 };
 
 export default blogMetaDe;
