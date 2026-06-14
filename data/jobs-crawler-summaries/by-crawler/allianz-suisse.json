@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-06-14T20:50:16.611Z",
+  "generatedAt": "2026-06-14T21:23:53.184Z",
   "total": 96,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 94,
-  "durationMs": 593203,
-  "avgDurationMs": 593203,
+  "durationMs": 323600,
+  "avgDurationMs": 323600,
   "durationHistory": [
-    593203
+    323600
   ],
   "newJobs": [
     {
@@ -74,11 +74,11 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     }
@@ -113,6 +113,7 @@
       "currency": "CHF",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -262,11 +263,11 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-05-17T09:33:54.522Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -298,11 +299,11 @@
       "currency": "CHF",
       "postalCode": "4900",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -336,11 +337,11 @@
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "retranslationAttempts": 0,
       "needsRetranslation": true,
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -411,11 +412,12 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -448,11 +450,11 @@
       "postalCode": "3930",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -479,18 +481,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-dcd251d59868",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -517,18 +518,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-a49a6b58005f",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -597,11 +597,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -671,11 +671,12 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -708,12 +709,11 @@
       "streetAddress": "",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -819,11 +819,11 @@
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "retranslationAttempts": 0,
       "needsRetranslation": true,
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -856,12 +856,11 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -888,18 +887,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-dc9f8a0fda4a",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -930,11 +928,11 @@
       "salaryMax": 89000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 89,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1077,12 +1075,11 @@
       "streetAddress": "",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1109,18 +1106,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-7368da8b52a7",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1153,11 +1149,12 @@
       "streetAddress": "",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1184,18 +1181,17 @@
       "contractType": "Durée indéterminée",
       "validThrough": "",
       "id": "allianz-suisse-48fe5985d129",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
