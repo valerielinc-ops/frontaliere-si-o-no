@@ -39,6 +39,12 @@
  *    ctaLabel })` returns a self-contained `<section>` of HTML.
  */
 
+// Canonical per-locale calculator path, single source of truth shared with
+// cantonSeoProse / jobsSeoPagesPlugin via the leaf module ./calcHref. Keeping
+// a local copy here let the DE cross-link drift to a dead /de/lohnrechner/
+// (404) and EN/FR to 301-redirect hops (#1948).
+import { CALC_HREF } from './calcHref';
+
 export type SnapshotLocale = 'it' | 'en' | 'de' | 'fr';
 
 export interface SnapshotProseOpts {
@@ -137,15 +143,9 @@ function buildParagraphs(opts: SnapshotProseOpts): ProseParagraphs {
   const sectorClause = topSectorLabel ? ` ${topSectorLabel}` : '';
   const cityClause = topCityName ? ` ${topCityName}` : '';
 
-  // Locale-aware salary calculator / FX / health-insurance / fuel hrefs reuse
-  // the canonical paths used elsewhere on the site so internal-link equity
-  // stays inside the same routing graph.
-  const CALC: Record<SnapshotLocale, string> = {
-    it: '/calcola-stipendio/',
-    en: '/en/salary-calculator/',
-    de: '/de/lohnrechner/',
-    fr: '/fr/calculateur-salaire/',
-  };
+  // FX / health-insurance / fuel hrefs reuse the canonical paths used
+  // elsewhere on the site so internal-link equity stays inside the same
+  // routing graph. The calculator path comes from the shared CALC_HREF SSOT.
   const FX: Record<SnapshotLocale, string> = {
     it: '/comparatori/cambio-valuta/',
     en: '/en/comparators/currency-exchange/',
@@ -165,7 +165,7 @@ function buildParagraphs(opts: SnapshotProseOpts): ProseParagraphs {
     fr: '/fr/prix-essence-suisse/',
   };
 
-  const calcHref = CALC[locale];
+  const calcHref = CALC_HREF[locale];
   const fxHref = FX[locale];
   const healthHref = HEALTH[locale];
   const fuelHref = FUEL[locale];
