@@ -8067,6 +8067,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Reservierte Parkplätze in Cantello: Carpooling für Schweizer Pendler',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 kostenlose Parkplätze am Gaggiolo Bahnhof für Personen, die das Auto teilen. Initiative zur Reduzierung von Verkehr und Luftverschmutzung.',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Reservierter Parkplatz in Cantello Gaggiolo für Pendler mit Fahrgemeinschaft',
+    'blog.article.caos-applicazione-decreto-omnibus.title': 'Frontalier: Chaos bei der Umsetzung des Omnibus-Dekrets',
+    'blog.article.caos-applicazione-decreto-omnibus.excerpt': 'Die Kritik an der Umsetzung des Omnibus-Dekrets sorgt für Unsicherheit bei den Grenzgängern. Dringlicher Appell an Regierung und Region.',
+    'blog.article.caos-applicazione-decreto-omnibus.imageAlt': 'Grenzübergang zwischen Tessin und Italien',
 };
 
 export default blogMetaDe;

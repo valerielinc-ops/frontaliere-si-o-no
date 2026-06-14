@@ -25587,6 +25587,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'caos-applicazione-decreto-omnibus',
+ category: 'novita',
+ date: '2026-06-14T02:19:18.267Z',
+ image: '/images/blog/caos-applicazione-decreto-omnibus.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
