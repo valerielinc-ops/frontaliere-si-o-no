@@ -41,21 +41,36 @@ describe('locale validator source-language consistency (whole class)', () => {
     .readdirSync(SCRIPTS_DIR)
     .filter((f) => /^update-.*-jobs\.mjs$/.test(f));
 
+  // The validator is invoked `detectSourceLang(text, job)`
+  // (dedicated-crawler-common.mjs). Two buggy shapes ignore the per-job source:
+  //   1. `() => 'xx'`            — 0-arg constant (ignores both params).
+  //   2. `(x) => x.sourceLang…`  — 1-arg: the single param is the TEXT string,
+  //      so `.sourceLang` is always undefined → silently falls back. (#2003)
+  // The correct shapes are `(text, job) => job?.sourceLang || detectLang(...)`
+  // or `(text) => detectLang(text, 'xx')` (re-detect from the job's own text).
   for (const file of files) {
     const src = read(file);
-    const hasHardcodedValidator = /detectSourceLang:\s*\(\)\s*=>\s*['"][a-z]{2}['"]/.test(src);
-    if (!hasHardcodedValidator) continue;
+    const m = src.match(/detectSourceLang:\s*([^\n]+)/);
+    if (!m) continue;
+    const def = m[1];
 
-    // Does it compute a per-job sourceLang from detectLang (variable source)?
+    const isZeroArgConstant = /^\(\)\s*=>\s*['"][a-z]{2}['"]/.test(def);
+    // 1-arg arrow that reaches into `.sourceLang` on its single (text) param.
+    const isSingleArgSourceLang = /^\(\s*\w+\s*\)\s*=>\s*\w+\.sourceLang\b/.test(def);
+
     const computesPerJobSource =
       /sourceLang\s*[:=]\s*[^'"\n]*detectLang\(/.test(src) ||
       /\bsourceLang:\s*(?:lang|row\.lang|row\.language)\b/.test(src);
 
-    it(`${file}: no hard-coded validator source when source is per-job`, () => {
+    // A single-arg `.sourceLang` shape is ALWAYS broken; a 0-arg constant is
+    // only broken when the crawler actually varies the source per job.
+    const isBuggy = isSingleArgSourceLang || (isZeroArgConstant && computesPerJobSource);
+
+    it(`${file}: validator derives source from the per-job \`job\` param`, () => {
       expect(
-        computesPerJobSource,
-        `${file} hard-codes detectSourceLang: () => '..' but stamps a per-job sourceLang — ` +
-          `use \`(text, job) => job?.sourceLang || detectLang(text, '..')\` (the #2003 false-positive class).`,
+        isBuggy,
+        `${file} uses \`detectSourceLang: ${def.slice(0, 60)}…\` which ignores the per-job ` +
+          `sourceLang — use \`(text, job) => job?.sourceLang || detectLang(text, '..')\` (#2003 class).`,
       ).toBe(false);
     });
   }
