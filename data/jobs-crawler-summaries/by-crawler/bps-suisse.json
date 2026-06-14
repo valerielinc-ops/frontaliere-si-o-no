@@ -1,21 +1,19 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-06-13T21:32:54.975Z",
+  "generatedAt": "2026-06-14T10:56:22.023Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3187,
-  "avgDurationMs": 3187,
+  "unchangedCount": 0,
+  "durationMs": 4035,
+  "avgDurationMs": 4035,
   "durationHistory": [
-    3187
+    4035
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
       "title": "Collaboratore Trice Gestione Crediti",
@@ -37,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-06-13",
+      "postedDate": "2026-06-14",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-06-13T21:32:53.126Z",
+      "crawledAt": "2026-06-14T10:56:19.814Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
