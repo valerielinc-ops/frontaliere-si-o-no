@@ -207,6 +207,34 @@ const attemptOf = (iss) => {
 };
 const prioRank = (iss) => (has(iss, 'fu-prio:high') ? 0 : 1); // high prima
 
+// --- PARKED-RETRY: ri-accoda i parked ritentabili (convergenza backlog) -------
+// Un follow-up va `fu-parked` dopo MAX_ATTEMPTS fix falliti. Molti fallirono per
+// cause ORA risolte (cap turni #1919/#1952, aggregate-sweep #1979, drift #2007):
+// restano un pool stagnante che NON drena fino all'age-out 21gg. Questo ri-prova
+// i parked con il fixer migliorato, BOUNDED (no loop infinito):
+//   - skip WF-scope (capability-guard: il fixer CI non può toccare workflows →
+//     re-fail garantito; restano umani/age-out);
+//   - cooldown: solo parked fermi da ≥ RETRY_COOLDOWN_DAYS (non i freschi);
+//   - generation-cap: `fu-reparked:N` ≤ MAX_REPARK_GEN (poi resta parked stabile);
+//   - cap/run anti-burst.
+const RETRY_COOLDOWN_DAYS = Number(process.env.FOLLOWUP_RETRY_COOLDOWN_DAYS || 2);
+const MAX_REPARK_GEN = Number(process.env.FOLLOWUP_MAX_REPARK_GEN || 2);
+const RETRY_MAX_PER_RUN = Number(process.env.FOLLOWUP_RETRY_MAX_PER_RUN || 5);
+const reparkGenOf = (iss) => {
+  const m = names(iss).map((n) => /^fu-reparked:(\d+)$/.exec(n)).find(Boolean);
+  return m ? parseInt(m[1], 10) : 0;
+};
+/** WF-scope = il fix toccherebbe .github/workflows (capability-guard) → non
+ * auto-fixabile. Best-effort sul body+titolo; null/errore → conservativo (skip
+ * retry, non rischiare un re-fail garantito). */
+function isWorkflowScoped(num) {
+  try {
+    const d = gh(['issue', 'view', String(num), '--repo', REPO, '--json', 'title,body']);
+    const t = `${d?.title || ''}\n${d?.body || ''}`;
+    return /\.github\/workflows|\bworkflow(s)?\b/i.test(t);
+  } catch { return true; }
+}
+
 function edit(num, { add = [], remove = [] }) {
   const args = ['issue', 'edit', String(num), '--repo', REPO];
   for (const l of add) args.push('--add-label', l);
@@ -277,6 +305,42 @@ function main() {
         console.log(`age-out: close #${iss.number} fallita (${e.message}) — continuo col batch.`);
       }
     }
+  }
+
+  // --- PARKED-RETRY: ri-accoda i parked ritentabili --------------------------
+  // Ortogonale allo slot (sposta solo fu-parked→queued; il drain promuove dopo).
+  if (RETRY_COOLDOWN_DAYS > 0) {
+    const now = Date.now();
+    const reparkable = listIssues(LBL_PARKED)
+      .filter((iss) => has(iss, 'follow-up'))
+      .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED)) // non già in lavoro/coda
+      .filter((iss) => reparkGenOf(iss) < MAX_REPARK_GEN)            // generation-cap
+      .filter((iss) => minutesSince(iss.updatedAt) >= RETRY_COOLDOWN_DAYS * 1440) // cooldown
+      .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.updatedAt) - Date.parse(b.updatedAt));
+    let retried = 0;
+    let skippedWf = 0;
+    for (const iss of reparkable) {
+      if (retried >= RETRY_MAX_PER_RUN) {
+        console.log(`parked-retry: cap ${RETRY_MAX_PER_RUN}/run raggiunto, ${reparkable.length - retried - skippedWf} rinviati al prossimo tick (no silent cap).`);
+        break;
+      }
+      if (isWorkflowScoped(iss.number)) { skippedWf++; continue; } // capability-guard → resta parked
+      const gen = reparkGenOf(iss) + 1;
+      const prevGen = reparkGenOf(iss) ? `fu-reparked:${reparkGenOf(iss)}` : null;
+      const prevAttempt = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
+      if (DRY) { console.log(`[dry] parked-retry #${iss.number} → un-park, gen ${gen} (reset attempts)`); retried++; continue; }
+      // un-park: rimuovi fu-parked + attempt counter, ri-accoda con generation
+      // bump. Reset attempts → il fixer migliorato ha tentativi freschi; se
+      // rifallisce MAX_ATTEMPTS torna parked, ma a gen MAX_REPARK_GEN resta
+      // parked stabile (no loop infinito).
+      edit(iss.number, {
+        add: [LBL_QUEUED, `fu-reparked:${gen}`],
+        remove: [LBL_PARKED, prevGen, prevAttempt].filter(Boolean),
+      });
+      console.log(`PARKED-RETRY #${iss.number} → agent:fix-queued (gen ${gen}/${MAX_REPARK_GEN}, attempts reset) — "${iss.title?.slice(0, 50)}"`);
+      retried++;
+    }
+    if (skippedWf) console.log(`parked-retry: ${skippedWf} skip WF-scope (capability-guard → restano parked/age-out).`);
   }
 
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
