@@ -369,7 +369,12 @@ function fallbackSplitAtomicChunks(normalized: string): string[] {
  for (const rawLine of lines) {
  const line = fallbackCleanSpaces(rawLine);
  if (!line || fallbackIsUiNoiseChunk(line)) continue;
- const sentenceChunks = line.split(/(?<=[.!?;])\s+(?=[A-ZÀ-ÖÙ-Ü])/g);
+ // Safari <16.4 / many in-app browsers reject lookbehind ("invalid group
+ // specifier name" SyntaxError → whole chunk fails to parse). Equivalent
+ // lookbehind-free split: capture the boundary punctuation, drop the
+ // following whitespace, and split on a NUL sentinel that never occurs in
+ // job text. Lookahead (?=…) is universally supported, so it stays.
+ const sentenceChunks = line.replace(/([.!?;])\s+(?=[A-ZÀ-ÖÙ-Ü])/g, '$1\u0000').split('\u0000');
  for (const piece of sentenceChunks) {
  const atom = fallbackCleanSpaces(piece);
  if (!atom || fallbackIsUiNoiseChunk(atom)) continue;
@@ -529,7 +534,8 @@ function fallbackExplodeDenseItem(item: string, sectionId: FallbackSectionId): s
  if (!canExplode) return [clean];
  const bySemi = clean.split(/;\s+(?=[A-ZÀ-ÖÙ-Üa-zà-öù-ü])/g).map((x) => fallbackCleanSpaces(x)).filter(Boolean);
  if (bySemi.length >= 3) return bySemi;
- const bySent = clean.split(/(?<=[.!?])\s+(?=[A-ZÀ-ÖÙ-Ü])/g).map((x) => fallbackCleanSpaces(x)).filter(Boolean);
+ // Lookbehind-free split (Safari <16.4 compat) — see fallbackSplitAtomicChunks above.
+ const bySent = clean.replace(/([.!?])\s+(?=[A-ZÀ-ÖÙ-Ü])/g, '$1\u0000').split('\u0000').map((x) => fallbackCleanSpaces(x)).filter(Boolean);
  if (bySent.length >= 3) return bySent;
  return [clean];
 }

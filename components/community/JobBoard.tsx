@@ -607,7 +607,11 @@ function normalizeParagraphs(text: string): string[] {
  if (byNewline.length > 1) return byNewline;
 
  // Chunk long single-paragraph content into readable blocks.
- const sentences = clean.split(/(?<=[.!?])\s+/).filter(Boolean);
+ // Lookbehind-free sentence split: Safari <16.4 / many in-app browsers throw
+ // "Invalid regular expression: invalid group specifier name" on (?<=…) and the
+ // whole lazy chunk fails to parse. Capture the punctuation, drop the trailing
+ // whitespace, split on a NUL sentinel absent from job text — byte-identical output.
+ const sentences = clean.replace(/([.!?])\s+/g, '$1\u0000').split('\u0000').filter(Boolean);
  const blocks: string[] = [];
  let buffer = '';
  for (const sentence of sentences) {
@@ -768,8 +772,11 @@ function splitFlatTextIntoItems(text: string): string[] {
  const items: string[] = [];
  let current = '';
 
- // Tokenize by splitting on spaces while preserving the space
- const words = text.split(/(?<=\s)/);
+ // Tokenize by splitting on spaces while preserving the space.
+ // Lookbehind-free (Safari <16.4 compat): insert a NUL sentinel after every
+ // whitespace char, then split on it — keeps trailing whitespace attached to
+ // each token exactly like the old /(?<=\s)/ split did.
+ const words = text.replace(/(\s)/g, '$1\u0000').replace(/\u0000$/, '').split('\u0000');
 
  for (const word of words) {
  const trimmed = word.trimStart();
