@@ -224,6 +224,11 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       // Provenance — distinguishes self-published ads from crawled jobs downstream.
       publisherUid: pubJob.publisherUid || null,
       publisherJobId: pubJob.id || null,
+      // Canary (broadcast-restricted) flag — a real on-site ad whose sponsor
+      // blast / newsletter / job-alert distribution is gated to the owner only
+      // (scripts/lib/canaryAd.mjs). Only emitted when true so non-canary records
+      // stay byte-identical. Sponsored-only (free ads have no broadcast perks).
+      ...(!isFree && pubJob.canary === true ? { canary: true } : {}),
     };
   });
 }

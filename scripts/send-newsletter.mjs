@@ -37,6 +37,7 @@ import { selectFeaturedArticleId } from '../services/newsletter-article-rotation
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
+import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { getCascadeDailyCapacity } from './lib/email-cascade.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1927,10 +1928,15 @@ async function main() {
 
   // ── Phase 1: Match jobs for all subscribers & build cohorts ──
   console.log('\n📋 Phase 1: Job matching & cohort grouping...');
+  // Canary gate: broadcast-restricted ads never enter a non-owner's candidate
+  // pool, so a test listing can't surface in real subscribers' newsletters (nor
+  // displace a real job from the top-4). The owner still sees them.
+  const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
-    const rawMatched = matchJobsForSubscriber(subscriber, jobs, 4, locale, recentlyFeaturedJobs);
+    const eligibleJobs = isOwnerEmail(subscriber.email) ? jobs : jobsNoCanary;
+    const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobs, 4, locale, recentlyFeaturedJobs);
     const matchedJobs = validateJobUrls(rawMatched, jobs).map((job) => ({
       ...job,
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),

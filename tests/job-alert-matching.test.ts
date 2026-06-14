@@ -120,6 +120,41 @@ describe('jobAlertMatching — pure location/sector alerts (legacy contract)', (
   });
 });
 
+describe('jobAlertMatching — job-specific scope (per-job / per-employer alert)', () => {
+  it('specificJobId: surfaces ONLY the pinned job', () => {
+    const target = job({ id: 'pub-canary-owner-demo-lugano' });
+    const other = job({ id: 'pub-other-zurich', title: 'Software Engineer' });
+    expect(score(target, { specificJobId: 'pub-canary-owner-demo-lugano' })).toBeGreaterThan(0);
+    expect(score(other, { specificJobId: 'pub-canary-owner-demo-lugano' })).toBe(0);
+  });
+
+  it('specificJobId also matches via publisherJobId', () => {
+    const j = job({ id: 'pub-x-lugano', publisherJobId: 'canary-owner-demo' });
+    expect(score(j, { specificJobId: 'canary-owner-demo' })).toBeGreaterThan(0);
+  });
+
+  it('specificCompanyKey: surfaces only that employer, ignores keywords', () => {
+    const same = job({ companyKey: 'board-international' });
+    const diff = job({ companyKey: 'acme-sa', company: 'Acme SA' });
+    expect(score(same, { specificCompanyKey: 'board-international' })).toBeGreaterThan(0);
+    expect(score(diff, { specificCompanyKey: 'board-international' })).toBe(0);
+  });
+
+  it('pinned scope overrides keyword scoring (hard gate, not additive)', () => {
+    const j = job({ id: 'pub-other', title: 'Software Engineer' });
+    expect(score(j, { keywords: ['engineer'], specificJobId: 'pub-canary' })).toBe(0);
+  });
+
+  it('accepts specificJobIds array form', () => {
+    const j = job({ id: 'pub-b' });
+    expect(score(j, { specificJobIds: ['pub-a', 'pub-b'] })).toBeGreaterThan(0);
+  });
+
+  it('a normal alert (no pin) is unaffected by the new fields', () => {
+    expect(score(job(), { keywords: ['engineer'] })).toBeGreaterThan(0);
+  });
+});
+
 describe('jobAlertMatching — robustness', () => {
   it('handles null job / profile without throwing', () => {
     expect(scoreJobForAlert(null as never, buildAlertProfile({}, null))).toBe(0);

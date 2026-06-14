@@ -17,6 +17,7 @@
  */
 
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
+import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -76,8 +77,15 @@ async function main() {
 
   let sentTotal = 0;
   for (const ad of ads) {
-    const audience = matchSubscribersForAd(ad, subscribers, { minScore: 5, max: PER_AD_CAP });
-    console.log(`[blast] ad "${ad.title}" (${ad.id}) → ${audience.length} matched subscriber(s)`);
+    // Canary gate: a broadcast-restricted ad blasts to the OWNER ONLY (forced,
+    // regardless of subscription/match), so the sponsor-blast path can be
+    // verified end-to-end without emailing real subscribers a test listing.
+    const audience = isCanaryJob(ad)
+      ? [{ email: OWNER_EMAIL, locale: ad.sourceLang || 'it', score: 999 }]
+      : matchSubscribersForAd(ad, subscribers, { minScore: 5, max: PER_AD_CAP });
+    console.log(
+      `[blast] ad "${ad.title}" (${ad.id})${isCanaryJob(ad) ? ' [CANARY → owner only]' : ''} → ${audience.length} matched subscriber(s)`,
+    );
     if (!SEND) continue;
     if (audience.length === 0) {
       await db.collection('publisher_jobs').doc(ad.id).set(

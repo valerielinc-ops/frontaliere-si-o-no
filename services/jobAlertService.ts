@@ -40,6 +40,15 @@ export interface JobAlertConfig {
   sourceJobSlug?: string | null;
   sourceJobUrl?: string | null;
   sourceJobTitle?: string | null;
+  /**
+   * Job-specific scope ("notify me about THIS job / this employer"). When set,
+   * the matcher (services/jobAlertMatching.mjs) HARD-filters to the pinned
+   * job id(s) / companyKey, ignoring keyword/location scoring. `specificJobId`
+   * accepts the stable job id (e.g. a publisher ad's `pub-…` id);
+   * `specificCompanyKey` pins to one employer. Both null = a normal alert.
+   */
+  specificJobId?: string | null;
+  specificCompanyKey?: string | null;
 }
 
 export interface JobAlert extends JobAlertConfig {
@@ -186,6 +195,9 @@ export async function createAlert(
     sourceJobSlug: config.sourceJobSlug ?? null,
     sourceJobUrl: config.sourceJobUrl ?? null,
     sourceJobTitle: config.sourceJobTitle ?? null,
+    // Job-specific scope (per-job / per-employer alert). null = normal alert.
+    specificJobId: config.specificJobId ?? null,
+    specificCompanyKey: config.specificCompanyKey ?? null,
     // State.
     active: true,
     createdAt: serverTimestamp(),
