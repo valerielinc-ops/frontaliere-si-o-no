@@ -24,6 +24,7 @@ import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchCluste
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
+import { cantonJobCompatBridgePlugin } from './build-plugins/cantonJobCompatBridgePlugin';
 import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
@@ -207,6 +208,12 @@ export default defineConfig(({ mode }) => {
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
+ // Canton-job compat bridges: recover non-Ticino job-detail 404s that
+ // jobsSeoPagesPlugin's TI-only compat merge + legacyRedirectsPlugin's
+ // job-path skip both leave uncovered. enforce:'post' + the existsSync
+ // gap-fill guard mean it only fills paths with no enriched page. See the
+ // plugin header for the full Ticino-blind-spot rationale.
+ cantonJobCompatBridgePlugin(__dirname),
  // Canton-orphan redirects: emits HTTP-200 canonical-bridge HTML at every
  // /cerca-lavoro-{canton}/{foreign-editorial-slug}/ combination (TI long-
  // form slug under a non-TI section, etc.) → that canton's canonical
