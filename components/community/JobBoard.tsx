@@ -334,6 +334,26 @@ const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
 const resolvedJobDetail = new Map<string, Partial<JobListing>>();
 
 /**
+ * Cap for the per-job detail caches. A long browsing session (many distinct
+ * detail views, cross-canton jumps) otherwise grows `jobDetailCache` and
+ * `resolvedJobDetail` without bound (#1516 item3). LRU-on-write: re-inserting a
+ * key moves it to newest, so the active/most-recent job is never evicted (it is
+ * read at the enrichment-loading check + the finalize re-enrich). Generous cap
+ * covers heavy sessions while bounding heap to ~50 small detail payloads.
+ */
+const DETAIL_CACHE_MAX = 50;
+
+function rememberInDetailCache<K, V>(map: Map<K, V>, key: K, value: V): void {
+  if (map.has(key)) {
+    map.delete(key); // re-insert below → moves to newest (LRU on write)
+  } else if (map.size >= DETAIL_CACHE_MAX) {
+    const oldest = map.keys().next().value; // Map preserves insertion order
+    if (oldest !== undefined) map.delete(oldest);
+  }
+  map.set(key, value);
+}
+
+/**
  * Fetch a single job's detail data (~15KB) instead of the full locale file (~11MB).
  * Per-job detail files are generated at build time by localeJobsSplitPlugin. (FRO-detail-split)
  */
@@ -343,11 +363,11 @@ function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
  .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
  .then((data: unknown) => {
  const detail = (data && typeof data === 'object' ? data : {}) as Partial<JobListing>;
- if (Object.keys(detail).length > 0) resolvedJobDetail.set(jobId, detail);
+ if (Object.keys(detail).length > 0) rememberInDetailCache(resolvedJobDetail, jobId, detail);
  return detail;
  })
  .catch(() => ({} as Partial<JobListing>));
- jobDetailCache.set(jobId, promise);
+ rememberInDetailCache(jobDetailCache, jobId, promise);
  }
  return jobDetailCache.get(jobId)!;
 }
@@ -2174,6 +2194,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  }
  };
+
+ // On a seeded detail page (window.__JOB_SEED__) the first paint already has its
+ // job, and the full canton index only powers below-the-fold related-jobs +
+ // counters. Defer that fetch/parse to idle so it never competes with the detail
+ // page's LCP/INP (#1516 item1). Listing routes have no seed → the index IS the
+ // above-the-fold content → load it immediately. Mirrors the requestIdleCallback+
+ // timeout fallback pattern used in hooks/useUIState.ts.
+ if (seededJob) {
+ const w = window as unknown as {
+ requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+ cancelIdleCallback?: (handle: number) => void;
+ };
+ if (typeof w.requestIdleCallback === 'function') {
+ const handle = w.requestIdleCallback(() => { if (!cancelled) void run(); }, { timeout: 3000 });
+ return () => { cancelled = true; w.cancelIdleCallback?.(handle); };
+ }
+ const timer = setTimeout(() => { if (!cancelled) void run(); }, 200);
+ return () => { cancelled = true; clearTimeout(timer); };
+ }
 
  void run();
  return () => {
