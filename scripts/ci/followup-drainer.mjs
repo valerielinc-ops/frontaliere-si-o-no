@@ -97,6 +97,52 @@ export function latestFixOutcomeFromComments(comments) {
   return latest;
 }
 
+// --- WORKFLOW-SCOPE PRE-FLIGHT (escalation #1724) ---------------------------
+// `fix-outcome:blocked-workflows-scope` ricorre 13×/14gg: ogni occorrenza è una
+// follow-up DISTINTA il cui fix tocca file `.github/workflows/**`, che il token
+// GitHub App di issue-fix NON può pushare (manca lo scope `workflows`). Il
+// drainer parka già quel verdetto a posteriori (NON_RETRYABLE), ma solo DOPO che
+// il primo run Claude ha bruciato ~1M token per scoprire il blocco. Questa
+// pre-flight deterministica lo rileva PRIMA della promozione a agent:fix.
+//
+// CONSERVATIVA (bias a PROMUOVERE — un falso park ritarda un fix reale): scatta
+// SOLO sul segnale forte «il fix è esclusivamente workflow-scoped» = il body cita
+// ≥1 path di workflow (`.github/workflows/x.yml` o un bare `x.yml`) E NESSUN path
+// di codice non-workflow (scripts/build-plugins/services/components/hooks/build/
+// src/...). Se cita anche un file di codice → il fix potrebbe vivere lì → PROMUOVI
+// (lascia decidere il fixer). Nessun path citato → PROMUOVI. Mirror del bias
+// dell'already-resolved gate (check-issue-already-resolved.mjs).
+const WORKFLOW_PATH_RE = /\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml\b/g;
+// Bare `<name>.yml` (un workflow è sempre .yml; in una follow-up un bare .yml
+// che non sia un file di config noto indica quasi sempre un workflow file).
+const BARE_YML_RE = /\b[A-Za-z0-9][A-Za-z0-9._-]*\.ya?ml\b/g;
+// File di codice NON-workflow: se citati, il fix potrebbe vivere lì → non scoped.
+const CODE_PATH_RE = /\b(?:scripts|build-plugins|services|components|hooks|build|src)\/[A-Za-z0-9._/-]+\.[A-Za-z0-9]+\b/g;
+// `.yml` di config che NON sono workflow (non implicano scope workflows).
+const NON_WORKFLOW_YML = new Set([
+  'lighthouserc.yml', 'pnpm-workspace.yml', 'docker-compose.yml',
+  '.prettierrc.yml', 'vitest.yml',
+]);
+
+/**
+ * Vero se il fix della follow-up è ESCLUSIVAMENTE workflow-scoped (richiede di
+ * editare `.github/workflows/**`), così la promozione a agent:fix brucerebbe
+ * quota in un run che il push bloccherebbe comunque. Pura → testabile.
+ * @param {string} text  title + body della issue
+ */
+export function detectWorkflowScoped(text) {
+  const s = String(text || '');
+  const wfFull = s.match(WORKFLOW_PATH_RE) || [];
+  const bareYml = (s.match(BARE_YML_RE) || []).filter(
+    (y) => !NON_WORKFLOW_YML.has(y.toLowerCase()),
+  );
+  const workflowRefs = [...new Set([...wfFull, ...bareYml])];
+  if (workflowRefs.length === 0) return false; // nessun riferimento a workflow → promuovi
+  const codeRefs = s.match(CODE_PATH_RE) || [];
+  if (codeRefs.length > 0) return false; // cita anche codice non-workflow → potrebbe fixarsi lì → promuovi
+  return true; // solo workflow → blocked-workflows-scope by-construction
+}
+
 /**
  * Un follow-up è eleggibile all'age-out close? Puro (niente gh) → testabile.
  * Vero se: è un `follow-up`, NON in lavorazione (né `agent:fix` né
@@ -311,9 +357,36 @@ function main() {
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
 
-  const pick = queued[0];
-  console.log(`PROMUOVO #${pick.number} (${has(pick, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [coda residua: ${queued.length - 1}]`);
-  edit(pick.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+  // Promuovi il primo candidato in coda, MA salta (parka) quelli il cui fix è
+  // esclusivamente workflow-scoped (#1724): promuoverli brucerebbe ~1M token in
+  // un run che il push GitHub-App bloccherebbe comunque (no scope `workflows`).
+  // Park preemptivo = stesso esito del NON_RETRYABLE post-hoc, senza il run. Il
+  // body serve solo per i candidati realmente considerati → fetch lazy, 1 alla volta.
+  for (const cand of queued) {
+    let body = '';
+    try {
+      const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });
+      body = String(raw?.body || '');
+    } catch { body = ''; } // body illeggibile → bias a promuovere (non parkare a vuoto)
+
+    if (body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
+      const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(
+        (body.match(BARE_YML_RE) || []).filter((y) => !NON_WORKFLOW_YML.has(y.toLowerCase())),
+      ))].slice(0, 5).join(', ');
+      console.log(`PARK #${cand.number} (workflow-scoped: ${wfRefs}) → no promozione, evito run bloccato`);
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #1724)**: il fix di questa follow-up tocca **esclusivamente** file \`.github/workflows/**\` (${wfRefs}), che il token GitHub App di \`issue-fix\` non può pushare (manca lo scope \`workflows\`). Promuoverla a \`agent:fix\` brucerebbe ~1M token in un run che finirebbe comunque \`blocked-workflows-scope\`. **Non promuovo**: serve un PAT abilitato o mano umana. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (workflow-scoped)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX}`);
+    edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
+    return; // una sola promozione per run (slot issue-fix)
+  }
+  console.log('coda esaurita (solo candidati workflow-scoped parkati) → niente da promuovere.');
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
