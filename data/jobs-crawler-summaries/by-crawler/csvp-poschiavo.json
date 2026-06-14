@@ -1,16 +1,16 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-06-13T21:46:55.315Z",
+  "generatedAt": "2026-06-14T11:09:20.129Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 64884,
-  "avgDurationMs": 64884,
+  "durationMs": 3374,
+  "avgDurationMs": 3374,
   "durationHistory": [
-    64884
+    3374
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/905-responsabile-informatica-e-manager-di-progetti",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-13T21:46:52.992Z",
+      "crawledAt": "2026-06-14T11:09:18.287Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -43,10 +43,10 @@
       "postedDate": "2026-06-03",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/905-responsabile-informatica-e-manager-di-progetti",
       "firstSeenAt": "2026-06-03T13:21:38.857Z",
-      "_qualityScore": 77,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 17
       }
