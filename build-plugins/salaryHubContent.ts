@@ -11,7 +11,7 @@
 
 import { SimulationResult } from '../types';
 import { SalaryHubScenario, buildFullPath, getRelatedScenarios, LOCALE_CALC_PREFIX } from './salaryHubScenarios';
-import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
@@ -431,21 +431,6 @@ const FR: Labels = {
 const LABELS: Record<Locale, Labels> = { it: IT, en: EN, de: DE, fr: FR };
 
 // ── HTML generation ─────────────────────────────────────────────
-
-function adSlotHtml(slotKey: keyof typeof AD_SLOTS): string {
-  const cfg = AD_SLOTS[slotKey];
-  const attrs = [
-    `class="adsbygoogle"`,
-    `style="display:block;min-height:${cfg.placeholderMinHeight}px"`,
-    `data-ad-client="${AD_CLIENT}"`,
-    `data-ad-slot="${cfg.slot}"`,
-    `data-ad-format="${cfg.format}"`,
-  ];
-  if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
-  if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
-  if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
-  return `<ins ${attrs.join(' ')}></ins>`;
-}
 
 function resultsTableHtml(result: SimulationResult, l: Labels): string {
   const ch = result.chResident;
