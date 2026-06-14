@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_LINK } from './constants';
+import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
@@ -1086,7 +1086,7 @@ ${href}
 <html lang="${locale}">
  <head>
 ${headTags}
- ${blogPreloads}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${blogPreloads}
  <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${inlineScriptJson(localizedTitle)}</script>
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
