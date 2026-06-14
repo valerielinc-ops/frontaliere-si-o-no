@@ -16,6 +16,7 @@ import {
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
   SEO_STATIC_CSS_LINK,
+  CDN_PRECONNECT_HINT,
 } from './constants';
 import {
   JOB_RECENCY_LANDING_SLUGS,
@@ -282,7 +283,7 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">

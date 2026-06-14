@@ -296,7 +296,22 @@ jobs:
             echo "---- begin gh stderr ----"
             cat "$STDERR_LOG" || true
             echo "---- end gh stderr ----"
+          fi
+
+          # Tolerate a few transient dispatch hiccups before failing the shard.
+          # `dispatch_and_verify` already retries; a residual "no run appeared
+          # within 15s" is a flaky GitHub dispatch-API timing issue, NOT a
+          # crawler bug — the un-dispatched crawler is simply re-dispatched on
+          # the next cron cycle, so nothing breaks. Failing the whole shard on a
+          # single 1/220 hiccup just opened a spurious "Workflow Failure" issue
+          # every time (#1880). Only fail on a SYSTEMIC dispatch outage (many
+          # failures), which is the signal actually worth an issue.
+          DISPATCH_FAIL_TOLERANCE="${DISPATCH_FAIL_TOLERANCE:-3}"
+          if [ "$failed" -gt "$DISPATCH_FAIL_TOLERANCE" ]; then
+            echo "❌ $failed dispatch failure(s) exceed tolerance ($DISPATCH_FAIL_TOLERANCE) — systemic dispatch outage, failing the shard."
             exit 1
+          elif [ "$failed" -gt 0 ]; then
+            echo "✅ $failed transient dispatch failure(s) within tolerance ($DISPATCH_FAIL_TOLERANCE) — not failing the shard; they retry next cron cycle."
           fi
 
       - name: Report failure to GitHub Issues
