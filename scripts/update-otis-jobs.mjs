@@ -46,6 +46,7 @@ import {
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -181,4 +182,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => { console.error(`\u274c Otis crawler failed: ${err?.message || err}`); process.exit(1); });
+main().catch((err) => exitCrawlerOnError(err, 'Otis'));

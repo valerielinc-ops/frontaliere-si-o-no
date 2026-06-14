@@ -16,6 +16,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
@@ -1009,8 +1010,5 @@ async function main() {
 // (not when imported by tests or other modules that want helper exports).
 const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
 if (_isMain) {
-  main().catch((err) => {
-    console.error(`❌ SUPSI crawler failed: ${err?.stack || err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'SUPSI'));
 }

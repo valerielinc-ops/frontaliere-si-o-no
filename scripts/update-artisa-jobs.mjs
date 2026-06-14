@@ -32,6 +32,7 @@ import {
   parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
 } from './lib/artisa-job-parser.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -74,21 +75,13 @@ function normalizeKey(value = '') {
 }
 
 async function fetchText(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: {
+      Accept: 'text/html,application/xhtml+xml',
+      'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    },
+  });
 }
 
 function isTargetJob(job = {}) {
@@ -356,7 +349,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Artisa Group crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'Artisa Group'));
