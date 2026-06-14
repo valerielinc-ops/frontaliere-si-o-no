@@ -10482,6 +10482,19 @@ ${staticAnalyticsHtml}
  const expiredWindowData = inlineScriptJson(expiredDataObj);
 
  recordPhase('ejp:title', __tEjpTitle);
+ // Substantial-content retention: keep the full frontalier prose + FAQ on
+ // expired pages that still carry traffic evidence (tier 'full'), so they
+ // stay well above the thin-content threshold and retain ranking + the
+ // search traffic the ad RPM already monetises. Zero-traffic pages stay
+ // stripped and are thin-shelled below, so the dist cost is bounded to the
+ // pages worth keeping. Same evidence flow as the full/thin shell decision
+ // recomputed after the body (__slDecision); see softLandingThinShell.ts.
+ const __slProsePaths: string[] = [relPath];
+ for (const __slProseLocale of localeList) {
+ const __slProseP = `/${localePrefix[__slProseLocale]}/${sectionByLocale[__slProseLocale]}/${slug}`.replace(/\/+/g, '/');
+ if (!__slProsePaths.includes(__slProseP)) __slProsePaths.push(__slProseP);
+ }
+ const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').action !== 'thin';
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
@@ -10594,7 +10607,9 @@ ${staticAnalyticsHtml}
  // locale; uses jobCompany / jobLocation / displayCanton so pages stay
  // distinct and Google won't see boilerplate. ---
  // Gated by STRIP_EXPIRED_JOB_PROSE (default on) — see top of file.
- if (!STRIP_EXPIRED_JOB_PROSE) {
+ // `__slKeepProse` overrides the strip for evidence-backed (full-tier)
+ // pages so traffic-carrying expired URLs stay substantial (see above).
+ if (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse) {
  const taxUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Informazioni per frontalieri</h2><p>${jobCompany ? `${esc(jobCompany)} si trova` : 'Questa posizione si trovava'}${jobLocation ? ` a ${esc(jobLocation)}` : ''} in Canton ${esc(displayCanton)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(displayCanton)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p><p><strong>Permesso G e residenza.</strong> Per candidarti a questa posizione come frontaliere devi risiedere in un comune italiano entro la fascia di 20 km dal confine svizzero (Lombardia o Piemonte) e rientrare al domicilio almeno una volta a settimana. Il datore di lavoro richiede il Permesso G all'Ufficio della migrazione cantonale dopo la firma del contratto: la prima emissione richiede 2-6 settimane, poi viene rinnovato annualmente fino al limite contrattuale. Il telelavoro a tempo pieno dall'Italia non è compatibile con lo status di frontaliere; assenze prolungate dal domicilio italiano (più di una settimana lavorativa senza rientro) compromettono il regime fiscale.</p><p><strong>Stipendio netto e Nuovo Accordo 2024.</strong> Lo stipendio lordo indicato in questa offerta viene tassato alla fonte dal datore svizzero con aliquote effettive che nel Canton ${esc(displayCanton)} variano fra il 5 % e il 19 % a seconda del reddito, dello stato civile e dei figli. Per i frontalieri assunti dal 1° gennaio 2024 si applica il regime concorrente Italia-Svizzera del Nuovo Accordo: l'Italia tassa il reddito da lavoro estero ma riconosce un credito d'imposta sulle ritenute svizzere fino all'80 %, da dichiarare nel quadro RW. Sommando imposta alla fonte e contributi sociali, la differenza fra lordo annuale e netto incassato è tipicamente del 18-28 %. Per il calcolo personalizzato sul lordo offerto da ${jobCompany ? esc(jobCompany) : 'questa azienda'} apri il simulatore stipendio.</p><p><strong>Pendolarismo e qualità della vita.</strong> ${jobLocation ? `Lavorare a ${esc(jobLocation)} significa ` : `Lavorare nel Canton ${esc(displayCanton)} significa `}un tragitto giornaliero che dipende dal valico scelto: Brogeda (autostrada A2) e Chiasso-strada coprono le destinazioni del Mendrisiotto e del Luganese; Stabio e Gaggiolo servono chi parte dal Varesotto; Ponte Tresa è l'opzione storica per Luino e il Verbano. In ora di punta un tragitto Como-Lugano si esaurisce in 25-50 minuti; da Varese verso Lugano servono tipicamente 35-60 minuti. Per chi valuta il trasferimento in Ticino, l'affitto medio per un 3.5 locali a Lugano è 1.500-2.200 CHF/mese, contro 600-900 EUR per un appartamento equivalente in provincia di Como. La rete sanitaria svizzera (LAMal) offre tempi di accesso più brevi del SSN italiano ma con un premio mensile di 350-500 CHF/adulto, voce che pesa nel confronto netto-netto.</p></section>`);
@@ -10610,7 +10625,7 @@ ${staticAnalyticsHtml}
 
  // --- FAQ section — gated by STRIP_EXPIRED_JOB_PROSE (default off = stripped).
  // 5 Q&A per locale (net salary, LAMal, G permit, statutory pay, documents). ---
- if (!STRIP_EXPIRED_JOB_PROSE) {
+ if (!STRIP_EXPIRED_JOB_PROSE || __slKeepProse) {
  const lamalUrl: Record<string, string> = {
  it: `${BASE_URL}/premi-cassa-malati/`,
  en: `${BASE_URL}/en/health-insurance-premiums/`,
@@ -10647,7 +10662,7 @@ ${staticAnalyticsHtml}
  // Also gated by STRIP_EXPIRED_JOB_PROSE: when stripping, the page falls back
  // to whatever Dettaglio/Dettagli/Recent/Related sections produce and the
  // robotsMetaForContent() helper below auto-noindexes if it lands < 50 words.
- if (!STRIP_EXPIRED_JOB_PROSE && !ejData?.title && !gscInfo?.title) {
+ if ((!STRIP_EXPIRED_JOB_PROSE || __slKeepProse) && !ejData?.title && !gscInfo?.title) {
  if (locale === 'it') {
  staticBodyParts.push(`<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunit\u00e0 per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori pi\u00f9 attivi includono industria, servizi finanziari, sanit\u00e0, commercio e tecnologia. Lo stipendio medio in Ticino \u00e8 significativamente pi\u00f9 alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`);
  } else if (locale === 'en') {
