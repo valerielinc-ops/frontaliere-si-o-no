@@ -56,6 +56,47 @@ export const BRIDGE_CSS_FILENAME = 'bridge.css';
 export const BRIDGE_CSS_LINK = `<link rel="stylesheet" href="/assets/${BRIDGE_CSS_FILENAME}">`;
 
 /**
+ * Cross-origin preconnect to the asset CDN (the frontaliere-cdn Pages site).
+ *
+ * On deploy builds every render-blocking resource on static + locale-shard
+ * pages — index.css, seo-static.css, the SPA bundle, early-boot.js,
+ * gtag-init.js — is rebased to `${ASSET_CDN}` (cdn.frontaliereticino.ch) by
+ * vite.config.ts `renderBuiltUrl`. Without an early hint the browser only
+ * opens that cross-origin socket when it reaches the stylesheet `<link>` ~8.6
+ * KB into the `<head>` (after the JSON-LD blocks), paying a full DNS+TCP+TLS
+ * round-trip (~50-300 ms) BEFORE the blocking CSS can even start downloading —
+ * and static pages carry NO `modulepreload` to the CDN to warm it first.
+ * Emitting one `<link rel="preconnect">` as an early head hint overlaps that
+ * handshake with head parsing → shaves the round-trip off first paint on every
+ * page in every locale.
+ *
+ * `crossorigin` makes it an anonymous (uncredentialed) connection — the same
+ * mode the CDN stylesheet/script/font fetches use — so the warmed socket is
+ * reused for all of them (HTTP/2 coalesces the no-cors seo-static.css onto the
+ * same uncredentialed connection). A single hint therefore covers every CDN
+ * fetch; no `dns-prefetch` fallback is emitted (preconnect already resolves
+ * DNS, and the ~57 extra bytes ride on ~822k pages).
+ *
+ * Built from process.env.ASSET_CDN (deploy builds only — the same env that
+ * drives renderBuiltUrl). Empty string on dev / non-CDN builds, where assets
+ * stay same-origin and no preconnect is needed. constants.ts is build-only
+ * (it already imports child_process/node:fs), so reading process.env here is
+ * safe — no client bundle pulls it in.
+ */
+const ASSET_CDN_ORIGIN = ((): string => {
+  const raw = (process.env.ASSET_CDN || '').trim().replace(/\/+$/, '');
+  if (!raw) return '';
+  try {
+    return new URL(raw).origin;
+  } catch {
+    return '';
+  }
+})();
+export const CDN_PRECONNECT_HINT = ASSET_CDN_ORIGIN
+  ? `<link rel="preconnect" href="${ASSET_CDN_ORIGIN}" crossorigin>`
+  : '';
+
+/**
  * Generate a lightweight canonical bridge page for alias URLs.
  * These pages avoid GitHub Pages redirect quirks while keeping the canonical target explicit
  * without shipping a hard noindex/meta-refresh combination that can accumulate in Search Console.
@@ -293,8 +334,13 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  */
 export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
 export const GTAG_INIT_FILENAME = 'gtag-init.js';
+// gtag-init.js only pushes the GA4 page_view onto window.dataLayer; it does
+// NOT need to run before paint. `defer` takes it off the render-blocking path
+// (it ran synchronously in <head> before) so first paint no longer waits on a
+// cross-origin script fetch — the deferred order still runs it before the
+// async gtag/js library consumes the queue. The library tag stays `async`.
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
- <script src="/assets/${GTAG_INIT_FILENAME}"></script>`;
+ <script defer src="/assets/${GTAG_INIT_FILENAME}"></script>`;
 
 /**
  * PostHog EU Cloud init snippet for standalone static pages that don't load the
