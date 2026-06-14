@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-06-14T11:34:55.229Z",
+  "assembledAt": "2026-06-14T22:18:16.779Z",
   "jobs": [
     {
       "title": "Chefpsychologin 06/2026",
@@ -48,7 +48,9 @@
         "sourceFilename": "Inserat-Chefpsychologin_06_2026.pdf"
       },
       "id": "klinik-wyssholzli-2369691a2e02",
-      "firstSeenAt": "2026-06-13T22:10:58.650Z",
+      "previousSlugs": [
+        "chefpsychologin-06-2026-klinik-wyssholzli"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chefpsychologin-06-2026-klinik-wyssholzli"
@@ -60,9 +62,7 @@
           "chefpsychologin-06-2026-klinik-wyssholzli"
         ]
       },
-      "previousSlugs": [
-        "chefpsychologin-06-2026-klinik-wyssholzli"
-      ],
+      "firstSeenAt": "2026-06-13T22:10:58.650Z",
       "salaryMin": 95000,
       "salaryMax": 132500,
       "currency": "CHF",
@@ -147,7 +147,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -223,7 +224,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -370,7 +372,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
