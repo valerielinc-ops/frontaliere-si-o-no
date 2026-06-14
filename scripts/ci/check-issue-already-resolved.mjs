@@ -52,6 +52,8 @@
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { detectAlreadyResolved } from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
@@ -136,10 +138,23 @@ const io = {
   },
 };
 
-/** Aggregate follow-up ("N items deferred", N>=2): never short-circuit on one match. */
-function isAggregate(title, body) {
-  const m = `${title}\n${body}`.match(/(\d+)\s+items?\s+deferred/i);
-  return m ? Number(m[1]) >= 2 : false;
+/**
+ * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Two
+ * detectors, OR'd:
+ *   1. Numeric count "N items deferred" with N>=2.
+ *   2. Keyword fallback `sweep|batch|bulk` — a sweep enumerates many targets WITHOUT an
+ *      "N items deferred" count (e.g. "Sweep: ~30 crawlers", #1826). Without it the sweep
+ *      scores single-item and the preflight short-circuits after the FIRST resolved target,
+ *      removing `agent:fix` and dropping the rest of the sweep. Bias-to-PROCEED holds: a
+ *      false aggregate just lets the normal fixer run (safe), never a false short-circuit.
+ *      Mirrors the same fallback in reconcile-followups.mjs / issue-fix.yml (single bug
+ *      class across the sibling aggregate detectors).
+ */
+export function isAggregate(title, body) {
+  const text = `${title}\n${body}`;
+  const m = text.match(/(\d+)\s+items?\s+deferred/i);
+  if (m && Number(m[1]) >= 2) return true;
+  return /\b(?:sweep|batch|bulk)\b/i.test(text);
 }
 
 function main() {
@@ -234,16 +249,21 @@ ${OUTCOME}`;
   }
 }
 
+// Run only as a CLI entrypoint — importing for tests (pure helpers like isAggregate above)
+// must not trigger the gh-driven gate. Mirrors reconcile-followups.mjs's guard.
+//
 // TOTAL / PROCEED-SAFE: the preflight step in issue-fix.yml has no continue-on-error and
 // every Claude step gates on `already_resolved != 'true'`. If main() ever throws (malformed
 // body, gh fault, ref error), the job would fail WITHOUT removing `agent:fix` → the issue is
 // stranded labeled-but-undispatched (the very failure mode this gate exists to prevent). So
 // any uncaught error is swallowed → emit `already_resolved=false` and exit 0 → the normal
 // fixer runs unchanged. A throw can NEVER strand the issue.
-try {
-  main();
-} catch (e) {
-  console.error('Pre-flight gate error — proceeding (normal fixer runs):', e && e.message ? e.message : e);
-  setOutput(false);
-  process.exit(0);
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  try {
+    main();
+  } catch (e) {
+    console.error('Pre-flight gate error — proceeding (normal fixer runs):', e && e.message ? e.message : e);
+    setOutput(false);
+    process.exit(0);
+  }
 }

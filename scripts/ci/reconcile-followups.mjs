@@ -62,12 +62,23 @@ const KEEP_OPEN_LABELS = new Set(['pinned', 'keep-open', 'revenue', 'tracker', '
  * These never auto-close: a prose-only sub-item contributes no gating code token, so the
  * matcher's "ALL tokens present" can be true while that sub-item is still undone — closing
  * would silently drop it. Single-item follow-ups (no count, or "1 item") are eligible.
+ *
+ * Two detectors, OR'd:
+ *   1. Numeric count `N items` with N≥2.
+ *   2. Keyword fallback `sweep|batch|bulk` — a sweep enumerates many targets WITHOUT an
+ *      "N items" count (e.g. "Sweep: ~30 crawlers", #1826). Without this it scores as
+ *      non-aggregate → `closeEligible` in decideReconcileAction can flip true and
+ *      silently auto-close a partially-resolved sweep, dropping the remaining targets
+ *      (29 of 30). Mirrors the same fallback added to issue-fix.yml / check-issue-
+ *      already-resolved.mjs (single bug class across the sibling aggregate detectors).
  * @param {string} title
  * @returns {boolean}
  */
 export function isAggregateTitle(title = '') {
-  const m = String(title).match(/\b(\d+)\s+items?\b/i);
-  return !!m && Number(m[1]) >= 2;
+  const t = String(title);
+  const m = t.match(/\b(\d+)\s+items?\b/i);
+  if (m && Number(m[1]) >= 2) return true;
+  return /\b(?:sweep|batch|bulk)\b/i.test(t);
 }
 
 /** Count of code-punctuation marks in a token (specificity proxy). */
