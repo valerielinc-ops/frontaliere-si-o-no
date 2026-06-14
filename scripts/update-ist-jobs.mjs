@@ -3,16 +3,34 @@
  * Dedicated International School of Ticino (IST) crawler runner.
  *
  * IST is part of the Inspired Education Group. Jobs are listed on the
- * group's TalentBrew/iCIMS careers portal at jobs.inspirededu.com.
+ * group's careers portal at jobs.inspirededu.com.
+ *
+ * The portal migrated from a server-rendered TalentBrew/iCIMS site to a
+ * SuccessFactors RMK / Jobs2Web (Phenom) AJAX-loaded widget (backend
+ * 174502.jobs2web.com / career2.successfactors.eu?company=inspireded).
+ * The search results are now injected client-side, so the static search
+ * HTML no longer contains any `/job/<id>` hrefs. Discovery therefore reads
+ * the portal's flat sitemap.xml, which still lists every live
+ * `/job/<City-Slug>/<id>/` URL (no API key, no headless browser — $0).
+ *
+ * The per-job detail pages still expose the same schema.org microdata
+ * (itemprop title / streetAddress / datePosted / hiringOrganization +
+ * data-careersite-propertyid description), so detail parsing is unchanged.
  *
  * Discovery flow:
- *   1. Search for Lugano-based jobs at /search/?locationsearch=Lugano
- *   2. Extract job detail URLs from search results HTML
+ *   1. Fetch https://jobs.inspirededu.com/sitemap.xml
+ *   2. Extract /job/<slug>/<id>/ URLs whose city slug maps to an IST
+ *      Swiss canton (TI / GR) — a cheap pre-filter so we only fetch
+ *      detail pages that can plausibly be IST positions.
  *   3. Fetch each job detail page, parse schema.org microdata
  *   4. Build job objects and merge into data/jobs.json
  *   5. Run the base crawler for AI localization (4 locales)
  *   6. Post-process: fix company name, location, canton
  *   7. Validate locale coverage across IT/EN/DE/FR
+ *
+ * IST commonly has zero live openings; in that case the sitemap simply
+ * contains no TI/GR slugs and the crawler legitimately keeps existing data
+ * (no error) — see fetchIstJobs / main's empty-result branch.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -51,9 +69,15 @@ const IST_KEY = 'international-school-of-ticino';
 const DEFAULT_CANTON = getCompanyDefaults(IST_KEY)?.canton || 'TI';
 const IST_COMPANY_NAME = 'International School of Ticino';
 const IST_COMPANY_HOST = 'jobs.inspirededu.com';
-const IST_SEARCH_URL = 'https://jobs.inspirededu.com/search/';
 const IST_BASE_URL = 'https://jobs.inspirededu.com';
+const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+
+// Cantons where IST (and its sister Inspired campuses that share the
+// "International School of Ticino" crawler scope) physically operate.
+// Used as a cheap sitemap-slug pre-filter; the authoritative canton is
+// re-derived from each job detail page's streetAddress.
+const IST_TARGET_CANTONS = new Set(['TI', 'GR']);
 
 const UA = process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -136,7 +160,7 @@ async function fetchHtml(url) {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        Accept: 'text/html',
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': UA,
       },
@@ -156,55 +180,80 @@ async function fetchHtml(url) {
 /* ── Discovery ─────────────────────────────────────────────── */
 
 /**
- * Search the Inspired Education careers portal for Lugano & Graubünden-based jobs
- * and filter for International School of Ticino / Swiss positions.
+ * Decode the city token from a `/job/<City-Slug>/<id>/` URL and resolve it to
+ * a canton. Inspired's sitemap encodes the location as the first segment of
+ * the job slug (e.g. `/job/Lugano-German-Teacher/...`, `/job/Chur-Maths/...`).
+ * The token may be percent-encoded (`%C3%A9`, `&apos;`) so we decode before
+ * extracting the leading word(s).
+ */
+function inferCantonFromJobUrl(jobUrl = '') {
+  let path = jobUrl;
+  try {
+    path = new URL(jobUrl, IST_BASE_URL).pathname;
+  } catch {
+    /* fall through with raw value */
+  }
+  const m = path.match(/\/job\/([^/]+)/i);
+  if (!m) return null;
+
+  let slug = m[1];
+  try {
+    slug = decodeURIComponent(slug);
+  } catch {
+    /* keep raw slug on malformed encoding */
+  }
+  slug = slug.replace(/&apos;|&#39;/g, "'").replace(/[-+]/g, ' ');
+
+  // Try the leading 1- and 2-word city candidates (e.g. "St Moritz").
+  const words = slug.split(/\s+/).filter(Boolean);
+  const candidates = [];
+  if (words[0]) candidates.push(words[0]);
+  if (words[1]) candidates.push(`${words[0]} ${words[1]}`);
+  for (const candidate of candidates) {
+    const canton = inferAnyCanton(candidate);
+    if (canton) return canton;
+  }
+  return null;
+}
+
+/**
+ * Discover live IST job-detail URLs from the careers portal sitemap.
+ *
+ * The portal's search results are AJAX-loaded (SuccessFactors RMK /
+ * Jobs2Web), so the static search HTML has no `/job/` hrefs. The flat
+ * sitemap.xml still lists every live job URL, so we read it and keep only
+ * URLs whose city slug maps to an IST canton (TI / GR). The detail fetch
+ * then re-derives the real canton from each page's streetAddress.
  */
 async function discoverIstJobUrls() {
-  console.log(`🔍 Searching IST jobs at: ${IST_SEARCH_URL}`);
+  console.log(`🔍 Reading IST job sitemap: ${IST_SITEMAP_URL}`);
+
+  const xml = await fetchHtml(IST_SITEMAP_URL);
+  if (!xml) {
+    console.warn('⚠️ Could not fetch IST sitemap.xml — keeping existing data.');
+    return [];
+  }
+
+  const locPattern = /<loc>\s*(https?:\/\/[^<]*\/job\/[^<]+?)\s*<\/loc>/gi;
+  const allJobUrls = [];
+  let match;
+  while ((match = locPattern.exec(xml)) !== null) {
+    allJobUrls.push(match[1].trim());
+  }
+  console.log(`  🗺️  Sitemap lists ${allJobUrls.length} total job URLs`);
 
   const urls = new Set();
-  const hrefPattern = /href="(\/job\/[^"]+)"/g;
-
-  // Search by Lugano location — IST is in Lugano
-  const searchUrl = `${IST_SEARCH_URL}?q=&locationsearch=Lugano&sortColumn=referencedate&sortDirection=desc`;
-  const html = await fetchHtml(searchUrl);
-  if (html) {
-    let match;
-    while ((match = hrefPattern.exec(html)) !== null) {
-      urls.add(`${IST_BASE_URL}${match[1]}`);
-    }
-  } else {
-    console.warn('⚠️ Could not fetch Lugano search results page.');
-  }
-
-  // Also check if searching for "ticino" yields additional results
-  const ticinoSearchUrl = `${IST_SEARCH_URL}?q=ticino&sortColumn=referencedate&sortDirection=desc`;
-  const ticinoHtml = await fetchHtml(ticinoSearchUrl);
-  if (ticinoHtml) {
-    const hrefPattern2 = /href="(\/job\/[^"]+)"/g;
-    let match2;
-    while ((match2 = hrefPattern2.exec(ticinoHtml)) !== null) {
-      const jobPath = match2[1];
-      if (jobPath.toLowerCase().includes('lugano') || jobPath.toLowerCase().includes('ticino')) {
-        urls.add(`${IST_BASE_URL}${jobPath}`);
-      }
-    }
-  }
-
-  // Search for Graubünden / Chur / Davos area jobs
-  for (const grQuery of ['Chur', 'Davos', 'Graubünden', 'St. Moritz']) {
-    const grSearchUrl = `${IST_SEARCH_URL}?q=&locationsearch=${encodeURIComponent(grQuery)}&sortColumn=referencedate&sortDirection=desc`;
-    const grHtml = await fetchHtml(grSearchUrl);
-    if (grHtml) {
-      const hrefPattern3 = /href="(\/job\/[^"]+)"/g;
-      let match3;
-      while ((match3 = hrefPattern3.exec(grHtml)) !== null) {
-        urls.add(`${IST_BASE_URL}${match3[1]}`);
-      }
+  for (const jobUrl of allJobUrls) {
+    const canton = inferCantonFromJobUrl(jobUrl);
+    if (canton && IST_TARGET_CANTONS.has(canton)) {
+      urls.add(jobUrl);
     }
   }
 
   console.log(`  📋 Discovered ${urls.size} TI/GR-area job URLs`);
+  if (urls.size === 0) {
+    console.log('  ℹ️ No Lugano/Ticino/Graubünden roles live right now (IST often has no openings).');
+  }
   return [...urls];
 }
 
@@ -281,6 +330,20 @@ function parseLocation(locText = '') {
   return parts[0].trim() || 'Lugano';
 }
 
+/**
+ * Extract the ISO country code from a streetAddress like "Lugano, CH" or
+ * "Como, IT". Returns the upper-cased 2-letter code, or '' when absent.
+ * Inspired's portal lists Italian border cities (e.g. Como) whose city slug
+ * maps to a Swiss frontalier canton (TI) in our location table, so we must
+ * trust the detail page's country code to reject non-CH (e.g. Como, IT) jobs.
+ */
+function parseCountryCode(locText = '') {
+  const parts = String(locText || '').split(',');
+  if (parts.length < 2) return '';
+  const tail = parts[parts.length - 1].trim().toUpperCase();
+  return /^[A-Z]{2}$/.test(tail) ? tail : '';
+}
+
 /* ── Job building ──────────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -350,6 +413,17 @@ async function fetchIstJobs() {
 
     const title = normalizeSpace(detail.title);
     const city = parseLocation(detail.location);
+
+    // Authoritative country guard: the sitemap-slug pre-filter can let in
+    // Italian border cities (e.g. "Como, IT") whose name maps to a Swiss
+    // frontalier canton. Trust the detail page's country code and drop any
+    // job that is not explicitly in Switzerland.
+    const countryCode = parseCountryCode(detail.location);
+    if (countryCode && countryCode !== 'CH') {
+      console.log(`  ⏭️  Skipped — ${city}, ${countryCode} is not in Switzerland`);
+      continue;
+    }
+
     const canton = inferCanton(city);
     const publicUrl = detail.canonicalUrl || url;
 
@@ -509,9 +583,9 @@ function updateAdapterConfig(seedUrls) {
   adapter.companyHost = IST_COMPANY_HOST;
   adapter.enabled = true;
   adapter.priority = Math.max(adapter.priority || 0, 10);
-  adapter.crawlerModes = ['html', 'jsonld'];
+  adapter.crawlerModes = ['sitemap', 'html', 'jsonld'];
   adapter.seedUrls = seedUrls;
-  adapter.notes = 'TalentBrew/iCIMS portal at jobs.inspirededu.com — search by Lugano + Graubünden locations for IST TI/GR positions.';
+  adapter.notes = 'SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR).';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
