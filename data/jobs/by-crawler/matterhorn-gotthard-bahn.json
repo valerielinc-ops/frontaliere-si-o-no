@@ -1,6 +1,6 @@
 {
   "crawlerKey": "matterhorn-gotthard-bahn",
-  "assembledAt": "2026-06-14T11:44:03.854Z",
+  "assembledAt": "2026-06-14T22:23:24.822Z",
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-7644459024cb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bvzholding.ch/Zusatzlehre-Automatiker-oder-Automatikmonteur-mwd-de-j680.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:44:01.029Z",
+      "crawledAt": "2026-06-14T22:23:21.936Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -85,6 +85,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:19:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -130,7 +131,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Instandhaltung-Polywerkstatt-Zermatt-mwd-de-j703.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:44:00.077Z",
+      "crawledAt": "2026-06-14T22:23:20.987Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -182,6 +183,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:19:31.166Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -227,7 +229,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Fahrzeugtechnik-mwd-de-j706.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:58.972Z",
+      "crawledAt": "2026-06-14T22:23:19.874Z",
       "addressLocality": "Brig, Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
@@ -324,7 +326,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j622.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:57.862Z",
+      "crawledAt": "2026-06-14T22:23:18.771Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:33:38.811Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -424,7 +427,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Instandhaltung-MGB-mwd-de-j705.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:56.763Z",
+      "crawledAt": "2026-06-14T22:23:17.679Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -475,6 +478,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:31:30.349Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -520,7 +524,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Gleisbau-Instandhaltung-mwd-de-j664.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:55.817Z",
+      "crawledAt": "2026-06-14T22:23:16.718Z",
       "addressLocality": "Herbriggen",
       "addressCountry": "CH",
       "country": "CH",
@@ -583,107 +587,6 @@
       "addressRegion": "VS"
     },
     {
-      "id": "matterhorn-gotthard-bahn-8910f75bc3ee",
-      "slug": "projektmanager-m-w-d-matterhorn-gotthard-bahn-zermatt",
-      "slugByLocale": {
-        "it": "projektmanager-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "en": "projektmanager-m-w-d-matterhorn-gotthard-bahn-zermatt",
-        "de": "lokfuhrer-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "projektmanager-m-m-j-matterhorn-gotthard-bahn-zermatt"
-      },
-      "company": "Matterhorn Gotthard Bahn",
-      "companyKey": "matterhorn-gotthard-bahn",
-      "companyDomain": "bvzholding.ch",
-      "title": "Lokführer GGB (m/w/d)",
-      "titleByLocale": {
-        "it": "Projektmanager (m/w/d)",
-        "en": "Projektmanager (m/w/d)",
-        "de": "Lokführer GGB (m/w/d)",
-        "fr": "Projektmanager (m/m/j)"
-      },
-      "description": "Dein Antrieb\nDas Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam:\n Emotionen sind unser Antrieb. Was ist dein Antrieb?\n\nDu suchst eine neue Herausforderung in einem spannenden und abwechslungsreichen Umfeld? Dann bist du bei uns genau richtig! Werde ein wichtiger Teil unseres Lokführerteams GGB. Dein Wirkungsfeld\n\n• Führen unserer Züge der Gornergrat Bahn von Zermatt auf den Gornergrat\n\n• Führen der Shuttlezüge der Matterhorn Gotthard Bahn zwischen Täsch und Zermatt\n Dein Profil\n\n• Abgeschlossene, mindestens 3-jährige Berufsausbildung oder Matura\n\n• Aufgeschlossene Persönlichkeit mit einem hohen Verantwortungs- und Sicherheitsbewusstsein\n\n• Freundliches und gepflegtes Auftreten\n\n• Wohnort im Mattertal\n Deine Vorteile\n\n• Während der Ausbildungszeit (ca. 8 Monate) wird bereits das volle Gehalt als Lokführer ausbezahlt\n\n• Unregelmässige Arbeitszeiten als Chance für eine flexible Freizeitgestaltung\n\n• Kollegiales und motiviertes Team\n\n• GA und weitere attraktive Benefits für dich und deine Familie\n\n• Den schönsten Arbeitsplatz im Oberwallis",
-      "descriptionByLocale": {
-        "it": "La tua auto Il centro di BVZ Holding è la compagnia ferroviaria Matterhorn Gotthard Bahn e i migliori marchi internazionali Gornergrat Bahn e Glacier Express. Dipendenti appassionati e qualificati costituiscono la base del nostro successo. Ogni giorno, circa 700 dipendenti sono coinvolti per offrire ai nostri ospiti un'esperienza di prima classe. Viviamo la diversità e abbiamo una cosa in comune: Le emozioni sono la nostra guida. Qual e' la tua macchina? --- Descrizione Alla ricerca di una nuova sfida in un ambiente emozionante e vario? Allora hai ragione con noi! Diventa una parte importante del nostro team di locomotive GGB. --- Il tuo campo d'azione - Guida i nostri treni del Gornergrat Bahn da Zermatt al Gornergrat - Guidare i treni navetta del Cervino Gottardo Bahn tra Täsch e Zermatt --- Il tuo profilo - Completo, almeno 3 anni di formazione professionale o Matura - Personalità aperta con un alto senso di responsabilità e sicurezza - aspetto amichevole e ben curato - Residence in Mattertal --- Cosa? - Durante il periodo di formazione (circa 8 mesi) il salario totale è già pagato come guida locomotiva - Ore lavorative irregolari come opportunità di svago flessibile - Team collaborativo e motivato - GA e altri benefici interessanti per voi e la vostra famiglia - Il posto di lavoro più bello dell'Oberwallis",
-        "en": "Your drive The centrepiece of BVZ Holding is the railway company Matterhorn Gotthard Bahn and the international top brands Gornergrat Bahn and Glacier Express. Passionate and qualified employees form the basis of our success. Every day, around 700 employees are involved to offer our guests a first-class experience. We live diversity and have one thing in common: Emotions are our drive. What's your drive? --- descrizione Looking for a new challenge in an exciting and varied environment? Then you're right with us! Become an important part of our GGB locomotive team. --- Your field of action - Guide our trains of the Gornergrat Bahn from Zermatt to the Gornergrat - Guide the shuttle trains of the Matterhorn Gotthard Bahn between Täsch and Zermatt ---\n• Your profile - Completed, at least 3-year vocational training or Matura - Open personality with a high sense of responsibility and security - Friendly and well-kept appearance - Residence in Mattertal ---\n• Cosa offriamo - During the training period (approximately 8 months) the full salary is already paid as a locomotive guide - Irregular working hours as an opportunity for flexible leisure - Collaborative and motivated team - GA and other attractive benefits for you and your family - The most beautiful workplace in the Oberwallis",
-        "de": "Dein Antrieb Das Herzstück der BVZ Holding bilden das Bahnunternehmen Matterhorn Gotthard Bahn und die internationalen Top Marken Gornergrat Bahn und Glacier Express. Leidenschaftliche und qualifizierte Mitarbeitende bilden die Grundlage unseres Erfolges. Täglich engagieren sich rund 700 Mitarbeitende, um unseren Gästen ein erstklassiges Erlebnis zu bieten. Wir leben Vielfalt und haben eines gemeinsam: Emotionen sind unser Antrieb. Was ist dein Antrieb? Du suchst eine neue Herausforderung in einem spannenden und abwechslungsreichen Umfeld? Dann bist du bei uns genau richtig! Werde ein wichtiger Teil unseres Lokführerteams GGB. Dein Wirkungsfeld\n• Führen unserer Züge der Gornergrat Bahn von Zermatt auf den Gornergrat\n• Führen der Shuttlezüge der Matterhorn Gotthard Bahn zwischen Täsch und Zermatt Dein Profil\n• Abgeschlossene, mindestens 3-jährige Berufsausbildung oder Matura\n• Aufgeschlossene Persönlichkeit mit einem hohen Verantwortungs- und Sicherheitsbewusstsein\n• Freundliches und gepflegtes Auftreten\n• Wohnort im Mattertal Deine Vorteile\n• Während der Ausbildungszeit (ca. 8 Monate) wird bereits das volle Gehalt als Lokführer ausbezahlt\n• Unregelmässige Arbeitszeiten als Chance für eine flexible Freizeitgestaltung\n• Kollegiales und motiviertes Team\n• GA und weitere attraktive Benefits für dich und deine Familie\n• Den schönsten Arbeitsplatz im Oberwallis",
-        "fr": "Votre disque La pièce maîtresse de BVZ Holding est la compagnie ferroviaire Matterhorn Gotthard Bahn et les grandes marques internationales Gornergrat Bahn et Glacier Express. Des employés passionnés et qualifiés constituent la base de notre succès. Chaque jour, environ 700 employés sont impliqués pour offrir à nos invités une expérience de première classe. Nous vivons la diversité et avons une chose en commun: Les émotions sont notre moteur. Quelle est votre conduite ? --- descrizione Vous cherchez un nouveau défi dans un environnement passionnant et varié? Alors tu as raison avec nous ! Devenez une partie importante de notre équipe de locomotives GGB. --- Votre domaine d'action - Guidez nos trains du Gornergrat Bahn de Zermatt au Gornergrat - Guidez les trains de navette du Matterhorn Gotthard Bahn entre Täsch et Zermatt ---\n• Votre profil - Achevé, au moins 3 ans de formation professionnelle ou Matura - Personnalité ouverte avec un haut sens des responsabilités et de la sécurité - Aspect amical et bien gardé - Résidence en Mattertal ---\n• Cosa offriamo - Pendant la période de formation (environ 8 mois), le salaire complet est déjà payé comme guide de locomotive - Des horaires de travail irréguliers pour des loisirs flexibles - Équipe collaborative et motivée - GA et autres avantages attrayants pour vous et votre famille - Le plus beau lieu de travail de l'Oberwallis"
-      },
-      "location": "Zermatt",
-      "canton": "VS",
-      "url": "https://jobs.bvzholding.ch/Lokfuehrer-GGB-mwd-de-j702.html",
-      "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:54.708Z",
-      "addressLocality": "Zermatt",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3920",
-      "streetAddress": "Bahnhofplatz 9",
-      "category": "Trasporti",
-      "sector": "Trasporti / Ferrovia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "validThrough": "2026-06-14",
-      "applyUrl": "https://jobs.bvzholding.ch/Lokfuehrer-GGB-mwd-de-f702.html",
-      "requirements": [
-        "Abgeschlossene, mindestens 3-jährige Berufsausbildung oder Matura",
-        "Aufgeschlossene Persönlichkeit mit einem hohen Verantwortungs- und Sicherheitsbewusstsein",
-        "Freundliches und gepflegtes Auftreten",
-        "Wohnort im Mattertal"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Abgeschlossene, mindestens 3-jährige Berufsausbildung oder Matura",
-          "Aufgeschlossene Persönlichkeit mit einem hohen Verantwortungs- und Sicherheitsbewusstsein",
-          "Freundliches und gepflegtes Auftreten",
-          "Wohnort im Mattertal",
-          "Abgeschlossene, mindestens 3-j hrige Berufsausbildung oder Matura",
-          "Aufgeschlossene Pers nlichkeit mit einem hohen Verantwortungs- und Sicherheitsbewusstsein"
-        ]
-      },
-      "_mgbMeta": {
-        "rexxId": "702",
-        "identifier": "PERS-695",
-        "hiringOrganization": "Matterhorn Gotthard Bahn"
-      },
-      "previousSlugs": [
-        "lokfuhrer-ggb-m-w-d-matterhorn-gotthard-bahn-ch",
-        "capotreno-mgbahn-m-w-d-matterhorn-gotthard-bahn-zermatt-oberwald-andermatt",
-        "train-driver-mgbahn-m-w-d-matterhorn-gotthard-bahn-zermatt-oberwald-andermatt",
-        "lokfuhrer-in-mgbahn-m-w-d-matterhorn-gotthard-bahn-ch",
-        "conducteur-de-train-mgbahn-m-w-d-matterhorn-gotthard-bahn-zermatt-oberwald-andermatt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lokfuhrer-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "en": [
-          "lokfuhrer-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
-        ],
-        "fr": [
-          "lokfuhrer-ggb-m-w-d-matterhorn-gotthard-bahn-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-13T22:39:50.943Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "projektleiter-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
@@ -714,7 +617,7 @@
       "url": "https://jobs.bvzholding.ch/Fahrleitungsmonteur-Netzelektriker-mwd-de-j689.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:53.753Z",
+      "crawledAt": "2026-06-14T22:23:15.604Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -769,6 +672,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:26:45.609Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -814,7 +718,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:52.800Z",
+      "crawledAt": "2026-06-14T22:23:14.664Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -872,6 +776,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:14:10.642Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -917,7 +822,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-mwd-de-j707.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:51.680Z",
+      "crawledAt": "2026-06-14T22:23:13.555Z",
       "addressLocality": "Andermatt, Sedrun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1013,7 +918,7 @@
       "url": "https://jobs.bvzholding.ch/Carrosserielackierer-fachmann-mwd-de-j697.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:43:50.667Z",
+      "crawledAt": "2026-06-14T22:23:12.590Z",
       "addressLocality": "Glis (Glisergrund)",
       "addressCountry": "CH",
       "country": "CH",
