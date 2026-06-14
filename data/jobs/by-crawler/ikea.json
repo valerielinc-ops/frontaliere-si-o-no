@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-06-14T11:28:17.915Z",
+  "assembledAt": "2026-06-14T22:05:36.057Z",
   "jobs": [
     {
       "id": "ikea-eaa32137dab1",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/verkaufsmitarbeiter-in-kuchen-80/24107/93268604224",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.644Z",
+      "crawledAt": "2026-06-14T22:05:33.290Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "Valais",
@@ -74,6 +74,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.442Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +119,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/technical-support-specialist-100/24107/95668035328",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T11:28:15.644Z",
+      "crawledAt": "2026-06-14T22:05:33.290Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "Bern",
@@ -144,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.444Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -188,7 +190,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/schnuppertage-fur-eine-lehrstelle-in-der-logistik-eba-efz/24107/95889313888",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.642Z",
+      "crawledAt": "2026-06-14T22:05:33.288Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -260,7 +262,7 @@
       "url": "https://jobs.ikea.com/en/job/riddes/customer-relation-mitarbeiter-in-handyman-80/24107/92199982528",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.642Z",
+      "crawledAt": "2026-06-14T22:05:33.288Z",
       "addressLocality": "Riddes",
       "postalCode": "1908",
       "addressRegion": "Valais",
@@ -327,7 +329,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/schnuppertage-im-bereich-polydesign-3d-efz/24107/96064659408",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.640Z",
+      "crawledAt": "2026-06-14T22:05:33.286Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "ZH",
@@ -398,7 +400,7 @@
       "url": "https://jobs.ikea.com/en/job/grancia/collaboratrice-tore-logistica-50/24107/96277645600",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-14T11:28:15.639Z",
+      "crawledAt": "2026-06-14T22:05:33.285Z",
       "addressLocality": "Grancia",
       "postalCode": "6916",
       "addressRegion": "Ticino",
@@ -416,6 +418,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-11T22:51:53.917Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -460,7 +463,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/service-execution-team-leader/24107/94485664624",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T11:28:15.637Z",
+      "crawledAt": "2026-06-14T22:05:33.283Z",
       "addressLocality": "Itingen",
       "postalCode": "4452",
       "addressRegion": "Basel-Landschaft",
@@ -530,7 +533,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/unit-fulfilment-solution-responsible-100/24107/96301818016",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T11:28:15.636Z",
+      "crawledAt": "2026-06-14T22:05:33.282Z",
       "addressLocality": "Itingen",
       "postalCode": "4452",
       "addressRegion": "Basel-Landschaft",
@@ -559,6 +562,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:51:53.915Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -603,7 +607,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/teamleiter-in-ikea-bistro-and-schwedenshop-80-100/24107/95954004800",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.635Z",
+      "crawledAt": "2026-06-14T22:05:33.281Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "Sankt Gallen",
@@ -651,6 +655,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.419Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -695,7 +700,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-dekorationsabteilung-80/24107/95740162544",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.634Z",
+      "crawledAt": "2026-06-14T22:05:33.280Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "Zürich",
@@ -765,7 +770,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-ikea-kuche-20-40/24107/96190654992",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.632Z",
+      "crawledAt": "2026-06-14T22:05:33.279Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "Sankt Gallen",
@@ -839,7 +844,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-wohnzimmer-und-buroabteilung-70-befristet-bis-31-juli-2027/24107/95889312960",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.631Z",
+      "crawledAt": "2026-06-14T22:05:33.277Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "Sankt Gallen",
@@ -909,7 +914,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/mitarbeiter-in-logistik-auffullteam-fruhschicht-50/24107/96233903328",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.630Z",
+      "crawledAt": "2026-06-14T22:05:33.276Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "Luzern",
@@ -970,6 +975,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.361Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1014,7 +1020,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/fulfilment-operations-coordinator-100/24107/96190655472",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.629Z",
+      "crawledAt": "2026-06-14T22:05:33.275Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "Luzern",
@@ -1040,6 +1046,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.404Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1084,7 +1091,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/fulfilment-integration-specialist-100/24107/96208223312",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.628Z",
+      "crawledAt": "2026-06-14T22:05:33.274Z",
       "addressLocality": "Itingen",
       "postalCode": "4452",
       "addressRegion": "Basel-Landschaft",
@@ -1110,6 +1117,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.374Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1151,7 +1159,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100/24107/96160624272",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.627Z",
+      "crawledAt": "2026-06-14T22:05:33.272Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -1224,7 +1232,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-restaurant-and-kuche-30-80-befristet-bis-31-januar-2027/24107/96190656896",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.626Z",
+      "crawledAt": "2026-06-14T22:05:33.272Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "4133",
       "addressRegion": "Basel-Landschaft",
@@ -1291,7 +1299,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100/24107/96290294016",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.625Z",
+      "crawledAt": "2026-06-14T22:05:33.271Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "",
       "addressRegion": "BL",
@@ -1368,7 +1376,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-in-der-markthalle-und-selbstbedienungshalle-100/24107/96224165360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.625Z",
+      "crawledAt": "2026-06-14T22:05:33.271Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "Bern",
@@ -1429,6 +1437,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:52.365Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1470,7 +1479,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/commercial-swedish-food-market-and-bistro-manager-100/24107/96251437360",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-14T11:28:15.624Z",
+      "crawledAt": "2026-06-14T22:05:33.270Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -1512,8 +1521,7 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "ikea-44df6f49d599",
@@ -1546,7 +1554,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/fulfilment-operations-flow-planner-100/24107/96301819136",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T11:28:15.623Z",
+      "crawledAt": "2026-06-14T22:05:33.269Z",
       "addressLocality": "Itingen",
       "postalCode": "4452",
       "addressRegion": "Basel-Landschaft",
@@ -1622,7 +1630,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-service-clientele-60/24107/96083391344",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T11:28:15.622Z",
+      "crawledAt": "2026-06-14T22:05:33.268Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "Vaud",
@@ -1648,6 +1656,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.305Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1692,7 +1701,7 @@
       "url": "https://jobs.ikea.com/en/job/aubonne/collaborateur-trice-cuisine-ikea-40/24107/95927883952",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T11:28:15.620Z",
+      "crawledAt": "2026-06-14T22:05:33.265Z",
       "addressLocality": "Aubonne",
       "postalCode": "1170",
       "addressRegion": "Vaud",
@@ -1710,6 +1719,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-12T22:33:18.304Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1754,7 +1764,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-ikea-bistro-and-schwedenshop-20/24107/92458887392",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.618Z",
+      "crawledAt": "2026-06-14T22:05:33.262Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -1824,7 +1834,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-wohnzimmerabteilung-40/24107/88828245904",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.618Z",
+      "crawledAt": "2026-06-14T22:05:33.262Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -1850,76 +1860,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.302Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ikea-243653a140f6",
-      "slug": "reparto-camera-da-letto-vendite-per-dipendenti-30-limitato-fino-al-31-01-2027-ikea-st-gallen",
-      "slugByLocale": {
-        "it": "reparto-camera-da-letto-vendite-per-dipendenti-30-limitato-fino-al-31-01-2027-ikea-st-gallen",
-        "en": "employee-sales-bedroom-department-30-limited-until-31-01-2027-ikea-st-gallen",
-        "de": "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch",
-        "fr": "employe-dans-le-departement-de-la-chambre-a-coucher-des-ventes-30-temporaire-jusqu-au-31-01-2027-ikea-st-gallen"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in Verkauf Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
-        "en": "Associate Sales Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
-        "de": "Mitarbeiter:in Verkauf Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
-        "fr": "Collaborateur/trice Vente Schlafzimmerabteilung 30%, befristet bis 31.01.2027"
-      },
-      "description": "Wer du bist\n\nMenschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und Englischkenntnisse sind von Vorteil.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n•Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n•Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n•Verantwortung über deinen Einkaufsbereich wahrnehmen.\n•Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n•Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n• Planung von Einrichtungslösungen.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\n\nDas wäre es von uns.\n\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-      "descriptionByLocale": {
-        "it": "Chi sei per aiutare le persone a sentirsi bene, rendere le loro scelte più facile e naturalmente vendere prodotti IKEA. Va bene? Sembra che dovresti continuare a leggere. La gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente. Come lo vedi? Vedi se ti sta bene:\n• Sei interessato ai mobili e agli arredi per la casa.\n• Hai già esperienza nelle vendite o nel servizio clienti.\n• Il contatto quotidiano con molte persone diverse ti rende divertente.\n• Sei esperto nell'utilizzo del computer e può familiarizzare rapidamente con nuovi programmi.\n• Lavorate in modo indipendente e avete la gestione del tempo sotto controllo.\n• Si parla tedesco sicuro e la conoscenza dell'inglese è un vantaggio.\n• Siete pronti a lavorare da Mo-Sa sia nei primi che negli ultimi turni. Siete responsabili di queste attività vi aspettano:\n• Formare attivamente l'esperienza di shopping IKEA. •Aggiungi i clienti sui loro acquisti e assicurati la loro soddisfazione.\n• Conoscere l'intera gamma di servizi e offrire ai visitatori.\n• Prendere la responsabilità per la vostra zona commerciale. •Lavorare con altri dipartimenti per garantire l'esperienza complessiva dello shopping.\n• Insieme al team logistico garantiscono la disponibilità dei prodotti.\n• Pianificazione di soluzioni interne. Pensi che andrebbe bene? Abbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene. Questo include dire “grazie”! Il nostro ringraziamento: · 28 giorni di vacanza (basato su un 100% di indennità) · 8 settimane di congedo parentale pagato per i padri, 20 settimane di congedo parentale pagato per le madri · Vantaggi molto attraenti · 15% di sconto sul vostro acquisto - in qualsiasi negozio IKEA · Stai venendo con il trasporto pubblico? Paghiamo tra l'85% al 100% dell'abbonamento · Accesso illimitato alla piattaforma di apprendimento LinkedIn · Pasti economici e sani nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti Vegi) · Bonus pagamento per tutti i dipendenti A IKEA ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line e essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta. Siamo noi. Sono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su \"",
-        "en": "Who you are to help people feel good, make their choices easier and of course sell IKEA products. Sounds good? Sounds like you should keep reading. People work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally. How do you see it? See if this suits you:\n• You are interested in furniture and home furnishings.\n• You already have experience in sales or customer service.\n• Daily contact with many different people makes you fun.\n• You are experienced in using the computer and can quickly familiarize yourself with new programs.\n• You work independently and have time management under control.\n• You speak safe German and knowledge of English is an advantage.\n• You are ready to work from Mo-Sa in both early and late shifts. You are responsible for these tasks await you:\n• Actively shape the IKEA shopping experience. •Advise customers on their purchases and ensure their satisfaction.\n• Know the entire range of services and offer them to visitors.\n• Take responsibility for your shopping area. •Work with other departments to ensure the overall shopping experience.\n• Together with the logistics team guarantee the availability of the products.\n• Planning of interior solutions. Do you think that would fit? We wrote above that we want our employees to be well. This includes saying “thank you”! Our thanks: · 28 days of vacation (based on a 100% allowance) · 8 weeks of paid parental leave for fathers, 20 weeks of paid parental leave for mothers · Very attractive benefits · 15% discount on your purchase – in any IKEA store · Are you coming with the public transport? We pay between 85% to 100% of the subscription · Unlimited access to the LinkedIn learning platform · Cheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for Vegi dishes) · Bonus payments for all employees At IKEA there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post. That would be it of us. That was a lot of info now. We would love to know more about you. Just click on \"",
-        "de": "Wer du bist Menschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest. Menschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst. Wie siehst du das? Schau mal, ob das zu dir passt:\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und Englischkenntnisse sind von Vorteil.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten. Du bist verantwortlich für Diese Aufgaben erwarten dich: •Das IKEA-Einkaufserlebnis aktiv mitgestalten. •Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen. •Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten. •Verantwortung über deinen Einkaufsbereich wahrnehmen. •Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen. •Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n• Planung von Einrichtungslösungen. Denkst du, das würde passen? Wir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht. Dazu gehört auch “danke” zu sagen! Unser Dankeschön: · 28 Ferientage (basierend auf einem 100%-Pensum) · 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter · Sehr attraktive Sozialleistungen · 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus · Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements · Unlimitierter Zugang zur LinkedIn-Learning-Plattform · Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte) · Bonuszahlungen für alle Mitarbeitenden Bei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können. Das wäre es von uns. Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Qui vous êtes pour aider les gens à se sentir bien, faire leurs choix plus faciles et bien sûr vendre des produits IKEA. Ça te va ? On dirait que tu devrais continuer à lire. Les gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement. Comment le voyez-vous ? Voyez si cela vous convient:\n• Vous êtes intéressé par le mobilier et l'ameublement de la maison.\n• Vous avez déjà de l'expérience dans les ventes ou le service à la clientèle.\n• Le contact quotidien avec de nombreuses personnes différentes vous rend amusant.\n• Vous êtes expérimenté dans l'utilisation de l'ordinateur et pouvez rapidement vous familiariser avec de nouveaux programmes.\n• Vous travaillez de manière indépendante et avez la gestion du temps sous contrôle.\n• Vous parlez l'allemand sûr et la connaissance de l'anglais est un avantage.\n• Vous êtes prêt à travailler à partir de Mo-Sa à la fois tôt et tard. Vous êtes responsable de ces tâches vous attendent:\n• façonner activement l'expérience d'achat IKEA. •Conseiller les clients sur leurs achats et assurer leur satisfaction.\n• Connaître toute la gamme des services et les offrir aux visiteurs.\n• Prenez la responsabilité de votre zone commerciale. •Travailler avec d'autres départements pour assurer l'expérience d'achat globale.\n• Avec l'équipe logistique garantissent la disponibilité des produits.\n• Planification des solutions intérieures. Tu crois que ça irait ? Nous avons écrit plus haut que nous voulons que nos employés soient bien. Cela inclut dire \"merci\"! Nos remerciements: · 28 jours de vacances (sur la base d'une allocation de 100%) · 8 semaines de congé parental payé pour les pères, 20 semaines de congé parental payé pour les mères · Prestations très attrayantes · 15% de réduction sur votre achat – dans n'importe quel magasin IKEA · Venez-vous avec les transports en commun? Nous payons entre 85% et 100% de l'abonnement · Accès illimité à la plateforme d'apprentissage LinkedIn · Repas sains et bon marché dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats Vegi) · Bonus pour tous les employés Chez IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste. Ce serait à nous. C'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Cliquez simplement sur \""
-      },
-      "location": "St. Gallen, Sankt Gallen, Switzerland",
-      "canton": "SG",
-      "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027/24107/93719351136",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.617Z",
-      "addressLocality": "St. Gallen",
-      "postalCode": "9015",
-      "addressRegion": "Sankt Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "TEMPORARY",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027/24107/93719351136",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T22:33:18.300Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1964,7 +1904,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-ikea-food-30-100-ab-august-2026/24107/94448099472",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.617Z",
+      "crawledAt": "2026-06-14T22:05:33.260Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "Bern",
@@ -1987,6 +1927,76 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-ikea-food-30-100-ab-august-2026-ikea-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T22:33:18.300Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ikea-243653a140f6",
+      "slug": "reparto-camera-da-letto-vendite-per-dipendenti-30-limitato-fino-al-31-01-2027-ikea-st-gallen",
+      "slugByLocale": {
+        "it": "reparto-camera-da-letto-vendite-per-dipendenti-30-limitato-fino-al-31-01-2027-ikea-st-gallen",
+        "en": "employee-sales-bedroom-department-30-limited-until-31-01-2027-ikea-st-gallen",
+        "de": "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch",
+        "fr": "employe-dans-le-departement-de-la-chambre-a-coucher-des-ventes-30-temporaire-jusqu-au-31-01-2027-ikea-st-gallen"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Mitarbeiter:in Verkauf Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
+        "en": "Associate Sales Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
+        "de": "Mitarbeiter:in Verkauf Schlafzimmerabteilung 30%, befristet bis 31.01.2027",
+        "fr": "Collaborateur/trice Vente Schlafzimmerabteilung 30%, befristet bis 31.01.2027"
+      },
+      "description": "Wer du bist\n\nMenschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und Englischkenntnisse sind von Vorteil.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n•Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n•Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n•Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n•Verantwortung über deinen Einkaufsbereich wahrnehmen.\n•Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n•Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n• Planung von Einrichtungslösungen.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\n\nDas wäre es von uns.\n\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+      "descriptionByLocale": {
+        "it": "Chi sei per aiutare le persone a sentirsi bene, rendere le loro scelte più facile e naturalmente vendere prodotti IKEA. Va bene? Sembra che dovresti continuare a leggere. La gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente. Come lo vedi? Vedi se ti sta bene:\n• Sei interessato ai mobili e agli arredi per la casa.\n• Hai già esperienza nelle vendite o nel servizio clienti.\n• Il contatto quotidiano con molte persone diverse ti rende divertente.\n• Sei esperto nell'utilizzo del computer e può familiarizzare rapidamente con nuovi programmi.\n• Lavorate in modo indipendente e avete la gestione del tempo sotto controllo.\n• Si parla tedesco sicuro e la conoscenza dell'inglese è un vantaggio.\n• Siete pronti a lavorare da Mo-Sa sia nei primi che negli ultimi turni. Siete responsabili di queste attività vi aspettano:\n• Formare attivamente l'esperienza di shopping IKEA. •Aggiungi i clienti sui loro acquisti e assicurati la loro soddisfazione.\n• Conoscere l'intera gamma di servizi e offrire ai visitatori.\n• Prendere la responsabilità per la vostra zona commerciale. •Lavorare con altri dipartimenti per garantire l'esperienza complessiva dello shopping.\n• Insieme al team logistico garantiscono la disponibilità dei prodotti.\n• Pianificazione di soluzioni interne. Pensi che andrebbe bene? Abbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene. Questo include dire “grazie”! Il nostro ringraziamento: · 28 giorni di vacanza (basato su un 100% di indennità) · 8 settimane di congedo parentale pagato per i padri, 20 settimane di congedo parentale pagato per le madri · Vantaggi molto attraenti · 15% di sconto sul vostro acquisto - in qualsiasi negozio IKEA · Stai venendo con il trasporto pubblico? Paghiamo tra l'85% al 100% dell'abbonamento · Accesso illimitato alla piattaforma di apprendimento LinkedIn · Pasti economici e sani nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti Vegi) · Bonus pagamento per tutti i dipendenti A IKEA ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line e essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta. Siamo noi. Sono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su \"",
+        "en": "Who you are to help people feel good, make their choices easier and of course sell IKEA products. Sounds good? Sounds like you should keep reading. People work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally. How do you see it? See if this suits you:\n• You are interested in furniture and home furnishings.\n• You already have experience in sales or customer service.\n• Daily contact with many different people makes you fun.\n• You are experienced in using the computer and can quickly familiarize yourself with new programs.\n• You work independently and have time management under control.\n• You speak safe German and knowledge of English is an advantage.\n• You are ready to work from Mo-Sa in both early and late shifts. You are responsible for these tasks await you:\n• Actively shape the IKEA shopping experience. •Advise customers on their purchases and ensure their satisfaction.\n• Know the entire range of services and offer them to visitors.\n• Take responsibility for your shopping area. •Work with other departments to ensure the overall shopping experience.\n• Together with the logistics team guarantee the availability of the products.\n• Planning of interior solutions. Do you think that would fit? We wrote above that we want our employees to be well. This includes saying “thank you”! Our thanks: · 28 days of vacation (based on a 100% allowance) · 8 weeks of paid parental leave for fathers, 20 weeks of paid parental leave for mothers · Very attractive benefits · 15% discount on your purchase – in any IKEA store · Are you coming with the public transport? We pay between 85% to 100% of the subscription · Unlimited access to the LinkedIn learning platform · Cheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for Vegi dishes) · Bonus payments for all employees At IKEA there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post. That would be it of us. That was a lot of info now. We would love to know more about you. Just click on \"",
+        "de": "Wer du bist Menschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest. Menschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst. Wie siehst du das? Schau mal, ob das zu dir passt:\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und Englischkenntnisse sind von Vorteil.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten. Du bist verantwortlich für Diese Aufgaben erwarten dich: •Das IKEA-Einkaufserlebnis aktiv mitgestalten. •Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen. •Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten. •Verantwortung über deinen Einkaufsbereich wahrnehmen. •Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen. •Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n• Planung von Einrichtungslösungen. Denkst du, das würde passen? Wir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht. Dazu gehört auch “danke” zu sagen! Unser Dankeschön: · 28 Ferientage (basierend auf einem 100%-Pensum) · 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter · Sehr attraktive Sozialleistungen · 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus · Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements · Unlimitierter Zugang zur LinkedIn-Learning-Plattform · Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte) · Bonuszahlungen für alle Mitarbeitenden Bei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können. Das wäre es von uns. Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+        "fr": "Qui vous êtes pour aider les gens à se sentir bien, faire leurs choix plus faciles et bien sûr vendre des produits IKEA. Ça te va ? On dirait que tu devrais continuer à lire. Les gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement. Comment le voyez-vous ? Voyez si cela vous convient:\n• Vous êtes intéressé par le mobilier et l'ameublement de la maison.\n• Vous avez déjà de l'expérience dans les ventes ou le service à la clientèle.\n• Le contact quotidien avec de nombreuses personnes différentes vous rend amusant.\n• Vous êtes expérimenté dans l'utilisation de l'ordinateur et pouvez rapidement vous familiariser avec de nouveaux programmes.\n• Vous travaillez de manière indépendante et avez la gestion du temps sous contrôle.\n• Vous parlez l'allemand sûr et la connaissance de l'anglais est un avantage.\n• Vous êtes prêt à travailler à partir de Mo-Sa à la fois tôt et tard. Vous êtes responsable de ces tâches vous attendent:\n• façonner activement l'expérience d'achat IKEA. •Conseiller les clients sur leurs achats et assurer leur satisfaction.\n• Connaître toute la gamme des services et les offrir aux visiteurs.\n• Prenez la responsabilité de votre zone commerciale. •Travailler avec d'autres départements pour assurer l'expérience d'achat globale.\n• Avec l'équipe logistique garantissent la disponibilité des produits.\n• Planification des solutions intérieures. Tu crois que ça irait ? Nous avons écrit plus haut que nous voulons que nos employés soient bien. Cela inclut dire \"merci\"! Nos remerciements: · 28 jours de vacances (sur la base d'une allocation de 100%) · 8 semaines de congé parental payé pour les pères, 20 semaines de congé parental payé pour les mères · Prestations très attrayantes · 15% de réduction sur votre achat – dans n'importe quel magasin IKEA · Venez-vous avec les transports en commun? Nous payons entre 85% et 100% de l'abonnement · Accès illimité à la plateforme d'apprentissage LinkedIn · Repas sains et bon marché dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats Vegi) · Bonus pour tous les employés Chez IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste. Ce serait à nous. C'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Cliquez simplement sur \""
+      },
+      "location": "St. Gallen, Sankt Gallen, Switzerland",
+      "canton": "SG",
+      "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027/24107/93719351136",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T22:05:33.259Z",
+      "addressLocality": "St. Gallen",
+      "postalCode": "9015",
+      "addressRegion": "Sankt Gallen",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027/24107/93719351136",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-30-befristet-bis-31-01-2027-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.300Z",
@@ -2034,7 +2044,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-textil-und-badezimmerabteilung-20-40/24107/94224892608",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.615Z",
+      "crawledAt": "2026-06-14T22:05:33.257Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "Zürich",
@@ -2104,7 +2114,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-30-60/24107/94289960816",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.613Z",
+      "crawledAt": "2026-06-14T22:05:33.254Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2136,6 +2146,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2180,7 +2191,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-kinder-und-buroabteilung-20/24107/94289962032",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.612Z",
+      "crawledAt": "2026-06-14T22:05:33.253Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "Zürich",
@@ -2250,7 +2261,7 @@
       "url": "https://jobs.ikea.com/en/job/dietlikon-dietlikon-dorf/mitarbeiter-in-verkauf-selbstbedienungshalle-40/24107/94289962064",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.610Z",
+      "crawledAt": "2026-06-14T22:05:33.249Z",
       "addressLocality": "Dietlikon",
       "postalCode": "8305",
       "addressRegion": "Zürich",
@@ -2276,76 +2287,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.294Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ikea-dd1135dc42ac",
-      "slug": "venditore-a-in-halla-market-80-90-ikea-lyssach",
-      "slugByLocale": {
-        "it": "venditore-a-in-halla-market-80-90-ikea-lyssach",
-        "en": "associate-sales-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland",
-        "de": "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch",
-        "fr": "collaborateur-trice-vente-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland"
-      },
-      "company": "IKEA",
-      "companyKey": "ikea",
-      "companyDomain": "ikea.ch",
-      "title": "Mitarbeiter:in Verkauf, Springer:in Markthalle 80-90%",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite, Springer:in Markthalle 80-90%",
-        "en": "Associate Sales, Springer:in Markthalle 80-90%",
-        "de": "Mitarbeiter:in Verkauf, Springer:in Markthalle 80-90%",
-        "fr": "Collaborateur/trice Vente, Springer:in Markthalle 80-90%"
-      },
-      "description": "Wer du bist\n\nMenschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Du liebst die Abwechslung und findest dich schnell in neuen Abteilungen zurecht.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und idealerweise auch Französisch.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n• Du bist in der Lage, körperlich anstrengende Arbeiten auszuführen.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n• Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n• Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n• Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n• Aushilfe in unterschiedlichen Abteilungen, in der Markthalle.\n• Verantwortung über deinen Einkaufsbereich wahrnehmen.\n• Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n• Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\n\nDas wäre es von uns.\n\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-      "descriptionByLocale": {
-        "it": "Chi sei per aiutare le persone a sentirsi bene, rendere le loro scelte più facile e naturalmente vendere prodotti IKEA. Va bene? Sembra che dovresti continuare a leggere. La gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente. Come lo vedi? Vedi se ti sta bene:\n• Sei interessato ai mobili e agli arredi per la casa.\n• Hai già esperienza nelle vendite o nel servizio clienti.\n• Amate la varietà e rapidamente trovare la vostra strada intorno nuovi reparti.\n• Il contatto quotidiano con molte persone diverse ti rende divertente.\n• Sei esperto nell'utilizzo del computer e può familiarizzare rapidamente con nuovi programmi.\n• Lavorate in modo indipendente e avete la gestione del tempo sotto controllo.\n• Si parla tedesco sicuro e idealmente francese.\n• Siete pronti a lavorare da Mo-Sa in entrambi i turni iniziali e tardi.\n• Siete in grado di eseguire il lavoro fisicamente impegnativo. Siete responsabili di queste attività vi aspettano:\n• Formare attivamente l'esperienza di shopping IKEA.\n• Consigliare i clienti ai loro acquisti e garantire la loro soddisfazione.\n• Conoscere l'intera gamma di servizi e offrire ai visitatori.\n• Assistenza in diversi dipartimenti, nella sala di mercato.\n• Prendere la responsabilità per la vostra zona commerciale.\n• Collaborare con altri dipartimenti per garantire l'esperienza di shopping generale.\n• Insieme al team logistico garantiscono la disponibilità dei prodotti. Pensi che andrebbe bene? Abbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene. Questo include dire “grazie”! Il nostro ringraziamento: · 28 giorni di vacanza (basato su un 100% di indennità) · 8 settimane di congedo parentale pagato per i padri, 20 settimane di congedo parentale pagato per le madri · Vantaggi molto attraenti · 15% di sconto sul vostro acquisto - in qualsiasi negozio IKEA · Stai venendo con il trasporto pubblico? Paghiamo tra l'85% al 100% dell'abbonamento · Parcheggio gratuito · Accesso illimitato alla piattaforma di apprendimento LinkedIn · Pasti economici e sani nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti Vegi) · Bonus pagamento per tutti i dipendenti A IKEA ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line e essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta. Siamo noi. Sono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su \"",
-        "en": "Who you are Help people feel good, make it easier for them to choose and of course sell IKEA products. Sounds good? Sounds like you should keep reading. People work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally. How do you see that? See if this suits you:\n• You are interested in furniture and home furnishings.\n• You already have experience in sales or customer service.\n• You love variety and quickly find your way around new departments.\n• The daily contact with many different people makes you fun.\n• You are experienced in using the computer and can quickly familiarize yourself with new programs.\n• You work independently and have time management under control.\n• You speak safe German and ideally French.\n• You are ready to work from Mo-Sa in both early and late shifts.\n• You are able to perform physically demanding work. You are responsible for These tasks await you:\n• Actively shape the IKEA shopping experience.\n• Advise customers on their purchases and ensure their satisfaction.\n• Know the entire range of services and offer them to visitors.\n• Assistance in different departments, in the market hall.\n• Take responsibility for your shopping area.\n• Collaborate with other departments to ensure the overall shopping experience.\n• Together with the logistics team guarantee the availability of the products. Do you think that would fit? We wrote above that we want our employees to be well. This includes saying “thank you”! Our thanks: · 28 holiday days (based on a 100% allowance) · 8 weeks paid parental leave for fathers, 20 weeks paid parental leave for mothers · Very attractive social benefits · 15% discount on your purchase – in every IKEA store · Are you coming with the public transport? We pay between 85% to 100% of the subscription · Free parking · Unlimited access to the LinkedIn learning platform Cheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes) · Bonus payments for all employees At IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post. That would be it of us. That was a lot of info. We would love to know more about you. Just click on \"",
-        "de": "Wer du bist Menschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest. Menschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst. Wie siehst du das? Schau mal, ob das zu dir passt:\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Du liebst die Abwechslung und findest dich schnell in neuen Abteilungen zurecht.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und idealerweise auch Französisch.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n• Du bist in der Lage, körperlich anstrengende Arbeiten auszuführen. Du bist verantwortlich für Diese Aufgaben erwarten dich:\n• Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n• Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n• Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n• Aushilfe in unterschiedlichen Abteilungen, in der Markthalle.\n• Verantwortung über deinen Einkaufsbereich wahrnehmen.\n• Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n• Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren. Denkst du, das würde passen? Wir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht. Dazu gehört auch “danke” zu sagen! Unser Dankeschön: · 28 Ferientage (basierend auf einem 100%-Pensum) · 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter · Sehr attraktive Sozialleistungen · 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus · Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements · Kostenfreie Parkmöglichkeiten · Unlimitierter Zugang zur LinkedIn-Learning-Plattform · Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte) · Bonuszahlungen für alle Mitarbeitenden Bei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können. Das wäre es von uns. Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Qui vous êtes pour aider les gens à se sentir bien, faire leurs choix plus faciles et bien sûr vendre des produits IKEA. Ça te va ? On dirait que tu devrais continuer à lire. Les gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement. Comment le voyez-vous ? Voyez si cela vous convient:\n• Vous êtes intéressé par le mobilier et l'ameublement de la maison.\n• Vous avez déjà de l'expérience dans les ventes ou le service à la clientèle.\n• Vous aimez la variété et trouvez rapidement votre chemin autour de nouveaux départements.\n• Le contact quotidien avec de nombreuses personnes différentes vous rend amusant.\n• Vous êtes expérimenté dans l'utilisation de l'ordinateur et pouvez rapidement vous familiariser avec de nouveaux programmes.\n• Vous travaillez de manière indépendante et avez la gestion du temps sous contrôle.\n• Vous parlez l'allemand en toute sécurité et idéalement le français.\n• Vous êtes prêt à travailler à partir de Mo-Sa à la fois tôt et tard.\n• Vous pouvez effectuer un travail exigeant physiquement. Vous êtes responsable de ces tâches vous attendent:\n• façonner activement l'expérience d'achat IKEA.\n• Conseiller les clients sur leurs achats et assurer leur satisfaction.\n• Connaître toute la gamme des services et les offrir aux visiteurs.\n• Assistance dans différents départements, dans la halle du marché.\n• Prenez la responsabilité de votre zone commerciale.\n• Collaborer avec d'autres départements pour assurer l'expérience d'achat globale.\n• Avec l'équipe logistique garantissent la disponibilité des produits. Tu crois que ça irait ? Nous avons écrit plus haut que nous voulons que nos employés soient bien. Cela inclut dire \"merci\"! Nos remerciements: · 28 jours de vacances (sur la base d'une allocation de 100%) · 8 semaines de congé parental payé pour les pères, 20 semaines de congé parental payé pour les mères · Prestations très attrayantes · 15% de réduction sur votre achat – dans n'importe quel magasin IKEA · Venez-vous avec les transports en commun? Nous payons entre 85% et 100% de l'abonnement · Parking gratuit · Accès illimité à la plateforme d'apprentissage LinkedIn · Repas sains et bon marché dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats Vegi) · Bonus pour tous les employés Chez IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste. Ce serait à nous. C'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Cliquez simplement sur \""
-      },
-      "location": "Lyssach, Bern, Switzerland",
-      "canton": "BE",
-      "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-80-90/24107/94448103312",
-      "source": "IKEA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.600Z",
-      "addressLocality": "Lyssach",
-      "postalCode": "3421",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Furniture",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-80-90/24107/94448103312",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T22:33:18.283Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2390,7 +2331,7 @@
       "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-40-50/24107/94448103264",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.600Z",
+      "crawledAt": "2026-06-14T22:05:33.238Z",
       "addressLocality": "Lyssach",
       "postalCode": "3421",
       "addressRegion": "Bern",
@@ -2416,6 +2357,76 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:33:18.284Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ikea-dd1135dc42ac",
+      "slug": "venditore-a-in-halla-market-80-90-ikea-lyssach",
+      "slugByLocale": {
+        "it": "venditore-a-in-halla-market-80-90-ikea-lyssach",
+        "en": "associate-sales-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland",
+        "de": "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch",
+        "fr": "collaborateur-trice-vente-springer-in-markthalle-80-90-ikea-lyssach-bern-switzerland"
+      },
+      "company": "IKEA",
+      "companyKey": "ikea",
+      "companyDomain": "ikea.ch",
+      "title": "Mitarbeiter:in Verkauf, Springer:in Markthalle 80-90%",
+      "titleByLocale": {
+        "it": "Addetto/a alle vendite, Springer:in Markthalle 80-90%",
+        "en": "Associate Sales, Springer:in Markthalle 80-90%",
+        "de": "Mitarbeiter:in Verkauf, Springer:in Markthalle 80-90%",
+        "fr": "Collaborateur/trice Vente, Springer:in Markthalle 80-90%"
+      },
+      "description": "Wer du bist\n\nMenschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest.\n\nMenschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst.\n\nWie siehst du das? Schau mal, ob das zu dir passt:\n\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Du liebst die Abwechslung und findest dich schnell in neuen Abteilungen zurecht.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und idealerweise auch Französisch.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n• Du bist in der Lage, körperlich anstrengende Arbeiten auszuführen.\n\nDu bist verantwortlich für\n\nDiese Aufgaben erwarten dich:\n\n• Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n• Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n• Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n• Aushilfe in unterschiedlichen Abteilungen, in der Markthalle.\n• Verantwortung über deinen Einkaufsbereich wahrnehmen.\n• Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n• Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\n\nDas wäre es von uns.\n\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+      "descriptionByLocale": {
+        "it": "Chi sei per aiutare le persone a sentirsi bene, rendere le loro scelte più facile e naturalmente vendere prodotti IKEA. Va bene? Sembra che dovresti continuare a leggere. La gente lavora meglio quando sta bene. In IKEA, crediamo che le sfide portino la gioia quando si ha divertimento al lavoro e raggiungere gli obiettivi insieme. Vogliamo che tu ti senta a tuo agio con noi e sia in grado di svilupparti personalmente e professionalmente. Come lo vedi? Vedi se ti sta bene:\n• Sei interessato ai mobili e agli arredi per la casa.\n• Hai già esperienza nelle vendite o nel servizio clienti.\n• Amate la varietà e rapidamente trovare la vostra strada intorno nuovi reparti.\n• Il contatto quotidiano con molte persone diverse ti rende divertente.\n• Sei esperto nell'utilizzo del computer e può familiarizzare rapidamente con nuovi programmi.\n• Lavorate in modo indipendente e avete la gestione del tempo sotto controllo.\n• Si parla tedesco sicuro e idealmente francese.\n• Siete pronti a lavorare da Mo-Sa in entrambi i turni iniziali e tardi.\n• Siete in grado di eseguire il lavoro fisicamente impegnativo. Siete responsabili di queste attività vi aspettano:\n• Formare attivamente l'esperienza di shopping IKEA.\n• Consigliare i clienti ai loro acquisti e garantire la loro soddisfazione.\n• Conoscere l'intera gamma di servizi e offrire ai visitatori.\n• Assistenza in diversi dipartimenti, nella sala di mercato.\n• Prendere la responsabilità per la vostra zona commerciale.\n• Collaborare con altri dipartimenti per garantire l'esperienza di shopping generale.\n• Insieme al team logistico garantiscono la disponibilità dei prodotti. Pensi che andrebbe bene? Abbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene. Questo include dire “grazie”! Il nostro ringraziamento: · 28 giorni di vacanza (basato su un 100% di indennità) · 8 settimane di congedo parentale pagato per i padri, 20 settimane di congedo parentale pagato per le madri · Vantaggi molto attraenti · 15% di sconto sul vostro acquisto - in qualsiasi negozio IKEA · Stai venendo con il trasporto pubblico? Paghiamo tra l'85% al 100% dell'abbonamento · Parcheggio gratuito · Accesso illimitato alla piattaforma di apprendimento LinkedIn · Pasti economici e sani nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti Vegi) · Bonus pagamento per tutti i dipendenti A IKEA ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line e essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta. Siamo noi. Sono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su \"",
+        "en": "Who you are Help people feel good, make it easier for them to choose and of course sell IKEA products. Sounds good? Sounds like you should keep reading. People work better when they are well. At IKEA, we believe that challenges bring joy when you have fun at work and achieve goals together. We want you to feel comfortable with us and to be able to develop personally and professionally. How do you see that? See if this suits you:\n• You are interested in furniture and home furnishings.\n• You already have experience in sales or customer service.\n• You love variety and quickly find your way around new departments.\n• The daily contact with many different people makes you fun.\n• You are experienced in using the computer and can quickly familiarize yourself with new programs.\n• You work independently and have time management under control.\n• You speak safe German and ideally French.\n• You are ready to work from Mo-Sa in both early and late shifts.\n• You are able to perform physically demanding work. You are responsible for These tasks await you:\n• Actively shape the IKEA shopping experience.\n• Advise customers on their purchases and ensure their satisfaction.\n• Know the entire range of services and offer them to visitors.\n• Assistance in different departments, in the market hall.\n• Take responsibility for your shopping area.\n• Collaborate with other departments to ensure the overall shopping experience.\n• Together with the logistics team guarantee the availability of the products. Do you think that would fit? We wrote above that we want our employees to be well. This includes saying “thank you”! Our thanks: · 28 holiday days (based on a 100% allowance) · 8 weeks paid parental leave for fathers, 20 weeks paid parental leave for mothers · Very attractive social benefits · 15% discount on your purchase – in every IKEA store · Are you coming with the public transport? We pay between 85% to 100% of the subscription · Free parking · Unlimited access to the LinkedIn learning platform Cheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes) · Bonus payments for all employees At IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post. That would be it of us. That was a lot of info. We would love to know more about you. Just click on \"",
+        "de": "Wer du bist Menschen beim Wohlfühlen helfen, ihnen die Auswahl erleichtern und natürlich IKEA Produkte verkaufen. Klingt gut? Klingt, als ob du weiterlesen solltest. Menschen arbeiten besser, wenn es ihnen gut geht. Bei IKEA glauben wir, dass Herausforderungen Freude machen, wenn man Spass bei der Arbeit hat und gemeinsam Ziele erreicht. Wir möchten, dass du dich bei uns wohlfühlst und dich persönlich und beruflich weiterentwickeln kannst. Wie siehst du das? Schau mal, ob das zu dir passt:\n• Du interessierst dich für Möbel und Wohnungseinrichtung.\n• Du hast bereits Erfahrung im Vertrieb oder Kundenservice.\n• Du liebst die Abwechslung und findest dich schnell in neuen Abteilungen zurecht.\n• Der tägliche Kontakt mit vielen unterschiedlichen Menschen macht dir Spass.\n• Du bist geübt im Umgang mit dem Computer und kannst dich schnell in neue Programme einarbeiten.\n• Du arbeitest selbstständig und hast das Zeitmanagement im Griff.\n• Du sprichst ein sicheres Deutsch und idealerweise auch Französisch.\n• Du bist bereit von Mo-Sa sowohl in Früh- als auch Spätschichten zu arbeiten.\n• Du bist in der Lage, körperlich anstrengende Arbeiten auszuführen. Du bist verantwortlich für Diese Aufgaben erwarten dich:\n• Das IKEA-Einkaufserlebnis aktiv mitgestalten.\n• Kund:innen bei ihrem Einkauf beraten und ihre Zufriedenheit sicherstellen.\n• Die gesamte Dienstleistungspalette kennen und den Besucherinnen und Besucher anbieten.\n• Aushilfe in unterschiedlichen Abteilungen, in der Markthalle.\n• Verantwortung über deinen Einkaufsbereich wahrnehmen.\n• Zusammenarbeit mit weiteren Abteilungen, um das gesamte Einkaufserlebnis sicherzustellen.\n• Gemeinsam mit dem Logistik-Team die Verfügbarkeit der Produkte garantieren. Denkst du, das würde passen? Wir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht. Dazu gehört auch “danke” zu sagen! Unser Dankeschön: · 28 Ferientage (basierend auf einem 100%-Pensum) · 8 Wochen bezahlte Elternzeit für Väter, 20 Wochen bezahlte Elternzeit für Mütter · Sehr attraktive Sozialleistungen · 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus · Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Abonnements · Kostenfreie Parkmöglichkeiten · Unlimitierter Zugang zur LinkedIn-Learning-Plattform · Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte) · Bonuszahlungen für alle Mitarbeitenden Bei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können. Das wäre es von uns. Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
+        "fr": "Qui vous êtes pour aider les gens à se sentir bien, faire leurs choix plus faciles et bien sûr vendre des produits IKEA. Ça te va ? On dirait que tu devrais continuer à lire. Les gens travaillent mieux quand ils sont bien. Chez IKEA, nous croyons que les défis apportent de la joie lorsque vous vous amusez au travail et atteindre des objectifs ensemble. Nous voulons que vous vous sentiez à l'aise avec nous et que vous puissiez vous développer personnellement et professionnellement. Comment le voyez-vous ? Voyez si cela vous convient:\n• Vous êtes intéressé par le mobilier et l'ameublement de la maison.\n• Vous avez déjà de l'expérience dans les ventes ou le service à la clientèle.\n• Vous aimez la variété et trouvez rapidement votre chemin autour de nouveaux départements.\n• Le contact quotidien avec de nombreuses personnes différentes vous rend amusant.\n• Vous êtes expérimenté dans l'utilisation de l'ordinateur et pouvez rapidement vous familiariser avec de nouveaux programmes.\n• Vous travaillez de manière indépendante et avez la gestion du temps sous contrôle.\n• Vous parlez l'allemand en toute sécurité et idéalement le français.\n• Vous êtes prêt à travailler à partir de Mo-Sa à la fois tôt et tard.\n• Vous pouvez effectuer un travail exigeant physiquement. Vous êtes responsable de ces tâches vous attendent:\n• façonner activement l'expérience d'achat IKEA.\n• Conseiller les clients sur leurs achats et assurer leur satisfaction.\n• Connaître toute la gamme des services et les offrir aux visiteurs.\n• Assistance dans différents départements, dans la halle du marché.\n• Prenez la responsabilité de votre zone commerciale.\n• Collaborer avec d'autres départements pour assurer l'expérience d'achat globale.\n• Avec l'équipe logistique garantissent la disponibilité des produits. Tu crois que ça irait ? Nous avons écrit plus haut que nous voulons que nos employés soient bien. Cela inclut dire \"merci\"! Nos remerciements: · 28 jours de vacances (sur la base d'une allocation de 100%) · 8 semaines de congé parental payé pour les pères, 20 semaines de congé parental payé pour les mères · Prestations très attrayantes · 15% de réduction sur votre achat – dans n'importe quel magasin IKEA · Venez-vous avec les transports en commun? Nous payons entre 85% et 100% de l'abonnement · Parking gratuit · Accès illimité à la plateforme d'apprentissage LinkedIn · Repas sains et bon marché dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats Vegi) · Bonus pour tous les employés Chez IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature complète en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste. Ce serait à nous. C'était beaucoup d'infos maintenant. Nous aimerions en savoir plus sur vous. Cliquez simplement sur \""
+      },
+      "location": "Lyssach, Bern, Switzerland",
+      "canton": "BE",
+      "url": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-80-90/24107/94448103312",
+      "source": "IKEA Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T22:05:33.237Z",
+      "addressLocality": "Lyssach",
+      "postalCode": "3421",
+      "addressRegion": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Furniture",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://jobs.ikea.com/en/job/lyssach/mitarbeiter-in-verkauf-springer-in-markthalle-80-90/24107/94448103312",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-verkauf-springer-in-markthalle-80-90-ikea-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T22:33:18.283Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2460,7 +2471,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/koch-kochin-ikea-kantine-itingen-100/24107/94796429936",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.599Z",
+      "crawledAt": "2026-06-14T22:05:33.236Z",
       "addressLocality": "Itingen",
       "postalCode": "4452",
       "addressRegion": "Basel-Landschaft",
@@ -2530,7 +2541,7 @@
       "url": "https://jobs.ikea.com/en/job/st-gallen/mitarbeiter-in-verkauf-selbstbedienungshalle-100/24107/94816828448",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.598Z",
+      "crawledAt": "2026-06-14T22:05:33.234Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9015",
       "addressRegion": "Sankt Gallen",
@@ -2597,7 +2608,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/logistikmitarbeiter-in-picking-20/24107/94976598624",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.598Z",
+      "crawledAt": "2026-06-14T22:05:33.234Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2668,7 +2679,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-ikea-bistro-and-schwedenshop-60/24107/95306254688",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.594Z",
+      "crawledAt": "2026-06-14T22:05:33.230Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2738,7 +2749,7 @@
       "url": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-teppich-und-dekorationsabteilung-20-40/24107/95356942464",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.593Z",
+      "crawledAt": "2026-06-14T22:05:33.229Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "Aargau",
@@ -2808,7 +2819,7 @@
       "url": "https://jobs.ikea.com/en/job/lucerne/mitarbeiter-in-kundenservice-40/24107/95371140896",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.592Z",
+      "crawledAt": "2026-06-14T22:05:33.227Z",
       "addressLocality": "Rothenburg",
       "postalCode": "6023",
       "addressRegion": "Luzern",
@@ -2875,7 +2886,7 @@
       "url": "https://jobs.ikea.com/en/job/itingen/mitarbeiter-in-reinigung-im-bereich-haustechnik-und-instandhaltung-100/24107/95345133776",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.587Z",
+      "crawledAt": "2026-06-14T22:05:33.221Z",
       "addressLocality": "Itingen",
       "postalCode": "",
       "addressRegion": "BL",
@@ -2946,7 +2957,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/mitarbeiter-in-ikea-kasse-20/24107/96334558608",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:28:15.564Z",
+      "crawledAt": "2026-06-14T22:05:33.189Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "4133",
       "addressRegion": "Basel-Landschaft",
@@ -3024,7 +3035,7 @@
       "url": "https://jobs.ikea.com/en/job/pratteln/store-graphic-communication-leader/24107/95327793968",
       "source": "IKEA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T11:28:15.556Z",
+      "crawledAt": "2026-06-14T22:05:33.181Z",
       "addressLocality": "Pratteln 1",
       "postalCode": "4133",
       "addressRegion": "Basel-Landschaft",
