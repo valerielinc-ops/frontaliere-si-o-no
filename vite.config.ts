@@ -208,12 +208,6 @@ export default defineConfig(({ mode }) => {
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
- // Canton-job compat bridges: recover non-Ticino job-detail 404s that
- // jobsSeoPagesPlugin's TI-only compat merge + legacyRedirectsPlugin's
- // job-path skip both leave uncovered. enforce:'post' + the existsSync
- // gap-fill guard mean it only fills paths with no enriched page. See the
- // plugin header for the full Ticino-blind-spot rationale.
- cantonJobCompatBridgePlugin(__dirname),
  // Canton-orphan redirects: emits HTTP-200 canonical-bridge HTML at every
  // /cerca-lavoro-{canton}/{foreign-editorial-slug}/ combination (TI long-
  // form slug under a non-TI section, etc.) → that canton's canonical
@@ -259,6 +253,19 @@ export default defineConfig(({ mode }) => {
  // fuelLocaleAlias (1), jobLegacySection (2), legacySectionAlt (2),
  // subSlugOnly (1), localePrefixed (2), weeklyEmployersDeep (1).
  legacyAliasPlugin(__dirname),
+ // Canton-job compat bridges: recover non-Ticino job-detail 404s that
+ // jobsSeoPagesPlugin's TI-only compat merge + legacyRedirectsPlugin's
+ // job-path skip both leave uncovered (~240k paths in the compat
+ // accumulator that Cloudflare confirms still 404 live). enforce:'post'
+ // + an existsSync gap-fill guard mean it only fills paths with no page.
+ // MUST run LAST among the page-emitting bridge plugins (after
+ // cantonOrphanRedirectsPlugin / jobOrphanBridgePlugin / location- &
+ // companyHubBridgePlugin / legacyAliasPlugin): those emit INDEXABLE
+ // enriched pages on the same non-TI canton job paths, so the thin
+ // noindex bridge must only fill what they leave behind — never run
+ // first and let their existsSync guard skip the richer page. See the
+ // plugin header for the full Ticino-blind-spot rationale.
+ cantonJobCompatBridgePlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
