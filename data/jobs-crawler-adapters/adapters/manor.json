@@ -8,8 +8,6 @@
     "sitemap"
   ],
   "seedUrls": [
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-Etudiante-20/1349411355/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-Etudiante-20/1349409755/",
     "https://positions.manor.ch/job/Sierre-Floor-Manager-100/1331582255/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Floor-Manager-%28Confection-Dames%29-100/1338265455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Charcuteries-&-Fromages%29-50/1349606855/",
@@ -160,19 +158,13 @@
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boulanger%C3%A8re-80/1355151455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boulanger%C3%A8re-80/1355152355/",
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/",
-    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-VZ-20/1354162655/"
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-VZ-20/1354162655/",
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-Etudiante-20/1349411355/",
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-Etudiante-20/1349409755/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-13T22:22:36.205Z",
+  "updatedAt": "2026-06-14T11:48:14.706Z",
   "seedMetaByUrl": {
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-Etudiante-20/1349411355/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-Etudiante-20/1349409755/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Sierre-Floor-Manager-100/1331582255/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -774,6 +766,14 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-VZ-20/1354162655/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Fruits-&-L%C3%A9gumes%29-Etudiante-20/1349411355/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-Etudiante-20/1349409755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
