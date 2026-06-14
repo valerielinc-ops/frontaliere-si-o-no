@@ -203,7 +203,20 @@ jobs:
             echo "[validate-live] homepage fetch returned empty after 4 tries — inconclusive (transient); the e2e:live smoke below exercises boot end-to-end. Skipping CDN gate."
             exit 0
           fi
-          asset="$(printf '%s' "$html" | grep -oE 'https://cdn\.frontaliereticino\.ch/assets/[^"'"'"' )]+\.(js|css)' | head -1)"
+          # NOTE: trailing `|| true` is load-bearing. The step shell runs under
+          # `set -e` + `pipefail` (GitHub default `bash -eo pipefail {0}` plus the
+          # `set -uo pipefail` above). Without the guard the `asset=$(…)` ASSIGNMENT
+          # aborts the whole step (exit 1, zero stdout) in two real cases, BEFORE the
+          # `if [ -z "$asset" ]` "nothing to verify → pass" branch can run:
+          #   1. assets served same-origin this deploy (Guard B kept dist/assets) →
+          #      grep finds no cdn ref → grep exits 1 → pipefail → assignment fails.
+          #   2. grep matches but `grep | head -1` closes the pipe early → grep gets
+          #      SIGPIPE (141) → pipefail → assignment fails (intermittent race).
+          # Both are EXPECTED states, not boot breakage. The bare grep-pipe false-
+          # failed every same-origin-assets deploy (recurring "Validation Failure
+          # (live)" #1960), gating publish/IndexNow off on a perfectly healthy site.
+          # `|| true` normalises to asset="" so the graceful pass path is reached.
+          asset="$(printf '%s' "$html" | grep -oE 'https://cdn\.frontaliereticino\.ch/assets/[^"'"'"' )]+\.(js|css)' | head -1 || true)"
           if [ -z "$asset" ]; then
             echo "[validate-live] homepage (non-empty) references no cdn.frontaliereticino.ch/assets bundle — assets served same-origin this deploy; nothing to verify."
             exit 0
