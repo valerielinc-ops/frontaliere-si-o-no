@@ -2,15 +2,23 @@
  * Giorgio Armani job parser for SAP SuccessFactors career pages.
  *
  * The Giorgio Armani careers portal runs on career5.successfactors.eu
- * (company=3397177P). The listing page is a JavaScript SPA, but individual
- * job detail pages are server-rendered HTML — this parser targets those.
+ * (company=3397177P). BOTH the listing page and the job detail pages are
+ * client-rendered SPAs — the real listing tiles and the job description are
+ * injected by JavaScript AFTER load (the listing data arrives via an in-browser
+ * DWR POST that needs runtime tokens, NOT replicable with curl). The crawler
+ * therefore renders the pages with a headless browser (Playwright) and feeds
+ * the resulting hydrated HTML (page.content()) to these parsers.
+ *
+ * Listing page (hydrated): one `tr.jobResultItem` per job, each containing
+ *   `a.jobTitle` (title + href with career_job_req_id) and a `.noteSection`
+ *   with four `.jobContentEM` spans: [reqId, "Posted on DATE", AREA, COUNTRY].
  *
  * Detail page URL pattern:
  *   https://career5.successfactors.eu/career?career_ns=job_listing
  *     &company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US
  *     &career_job_req_id={ID}&selected_lang=it_IT
  *
- * Valid pages have: <title>Career Opportunities: {Title} ({ID}) </title>
+ * Valid detail pages have: <title>Career Opportunities: {Title} ({ID}) </title>
  * Invalid pages have: <title>Career Opportunities </title>
  */
 import { JSDOM } from 'jsdom';
@@ -127,6 +135,66 @@ export function quickExtractJobMeta(html = '') {
   const country = metaMatch ? normalizeSpace(metaMatch[2]) : '';
 
   return { title, area, country };
+}
+
+/**
+ * Parse a hydrated SuccessFactors listing page into job summaries.
+ *
+ * Each job is rendered as a `tr.jobResultItem` row containing:
+ *   - `a.jobTitle` → title text + href carrying `career_job_req_id={ID}`
+ *   - `.noteSection` → "Requisition ID: <em>5103</em> - <em>Posted on …</em>
+ *                      - <em>HUMAN RESOURCES</em> - <em>Italy</em>"
+ *     where the `.jobContentEM` spans are [reqId, postedOn, area, country].
+ *
+ * Returns an array of { reqId, title, area, country, postedDate }.
+ * Designed for the HTML returned by `page.content()` after the SPA hydrates —
+ * NOT for raw curl output (which is an empty JS shell).
+ *
+ * @param {string} html
+ * @returns {Array<{reqId:string,title:string,area:string,country:string,postedDate:string}>}
+ */
+export function parseGiorgioArmaniListingHtml(html = '') {
+  const dom = new JSDOM(html);
+  const document = dom.window.document;
+  const rows = [...document.querySelectorAll('tr.jobResultItem')];
+  const out = [];
+
+  for (const row of rows) {
+    const anchor = row.querySelector('a.jobTitle');
+    if (!anchor) continue;
+    const title = normalizeSpace(anchor.textContent || '');
+    const href = anchor.getAttribute('href') || '';
+    // SF encodes some chars (e.g. career%5fns); the req id is plain digits.
+    const reqMatch = href.match(/career_job_req_id=(\d+)/i);
+    const reqId = reqMatch ? reqMatch[1] : '';
+    if (!title || !reqId) continue;
+
+    const ems = [...row.querySelectorAll('.jobContentEM')].map((e) => normalizeSpace(e.textContent || ''));
+    // Span layout: [reqId, "Posted on DATE", AREA, COUNTRY]. Country is last,
+    // area second-to-last — read from the end so an extra leading span never
+    // shifts the mapping.
+    const country = ems.length >= 1 ? ems[ems.length - 1] : '';
+    const area = ems.length >= 2 ? ems[ems.length - 2] : '';
+    let postedDate = '';
+    const postedSpan = ems.find((t) => /posted/i.test(t));
+    if (postedSpan) {
+      const m = postedSpan.match(/(\d{1,2}\/\d{1,2}\/\d{4})/);
+      if (m) postedDate = m[1];
+    }
+
+    out.push({ reqId, title, area, country, postedDate });
+  }
+
+  return out;
+}
+
+/**
+ * Detect whether a hydrated listing page rendered its job tiles.
+ * Used to poll-wait for the SPA to finish injecting `tr.jobResultItem` rows
+ * before reading `page.content()`.
+ */
+export function listingHasRenderedJobs(html = '') {
+  return /class="jobResultItem"/i.test(html) || /class="jobTitle"/i.test(html);
 }
 
 /**

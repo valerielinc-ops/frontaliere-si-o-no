@@ -34,7 +34,7 @@ import {
   parseAristonJobDetail,
   parseAristonSitemapFeed,
 } from './lib/ariston-job-parser.mjs';
-import { fetchHtml } from './lib/crawler-template.mjs';
+import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -303,7 +303,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Ariston Group crawler failed: ${error?.stack || error?.message || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'Ariston Group'));

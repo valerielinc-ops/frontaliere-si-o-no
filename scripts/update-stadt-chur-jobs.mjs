@@ -18,6 +18,7 @@ dns.setDefaultResultOrder('ipv4first');
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -471,16 +472,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  // Handle connection failures gracefully — jobs.chur.ch may block non-Swiss IPs
-  const isConnectError = err?.cause?.code === 'UND_ERR_CONNECT_TIMEOUT'
-    || err?.message?.includes('ConnectTimeoutError')
-    || err?.message?.includes('fetch failed');
-  if (isConnectError) {
-    console.warn('⚠️ Cannot connect to jobs.chur.ch — server may restrict access to Swiss IPs.');
-    console.warn('   Crawler will exit gracefully. Run manually from a Swiss network.');
-    process.exit(0);
-  }
-  console.error('❌ Fatal crawler error:', err);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Stadt Chur'));

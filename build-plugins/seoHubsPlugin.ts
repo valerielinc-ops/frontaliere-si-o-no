@@ -19,7 +19,7 @@
 
 import type fsT from 'node:fs';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1162,7 +1162,7 @@ function buildHtml(args: BuildHtmlArgs): string {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>${esc(pageTitle)}</title>
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(description)}">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
@@ -1710,7 +1710,7 @@ function buildThinCantonHubHtml(args: {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>${esc(pageTitle)}</title>
+    ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
     <meta name="description" content="${esc(intro)}">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">

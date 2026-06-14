@@ -36,10 +36,9 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isCivilServiceListing } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml as fetchHtmlResilient } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { isCrossHostRedirect } from './umantis-detail-helpers.mjs';
-import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -73,26 +72,15 @@ function normalizeSpace(s = '') {
 /* ── HTTP ─────────────────────────────────────────────────── */
 
 async function fetchHtml(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchWithRetry(async () => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, {
-        headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-      });
-      if (!res.ok) {
-        const err = new Error(`HTTP ${res.status} from ${url}`);
-        err.status = res.status;
-        err.retryable = RETRYABLE_STATUS.has(res.status);
-        throw err;
-      }
-      return await res.text();
-    } finally {
-      clearTimeout(timer);
-    }
-  }, { label: `umantis-listing ${url}` });
+  // Delegate the listing fetch to the shared resilient helper: retry/backoff +
+  // connection-level Jina clean-IP fallback + 200-challenge rescue. Previously
+  // this had retry only (no proxy), so a datacenter-egress block on the Umantis
+  // tenant threw straight through. Name/signature kept so call sites (and the
+  // detail fetch below, which keeps its bespoke redirect:'manual' dead-detail
+  // handling) are unchanged.
+  return fetchHtmlResilient(url, {
+    headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+  });
 }
 
 /* ── Newer UI extractor ──────────────────────────────────── */

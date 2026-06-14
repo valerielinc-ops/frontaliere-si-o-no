@@ -48,6 +48,7 @@ import {
   normalizeKey,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -594,8 +595,5 @@ async function main() {
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isDirectRun) {
-  main().catch((err) => {
-    console.error('❌ Banca del Sempione crawler failed:', err);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'Banca del Sempione'));
 }
