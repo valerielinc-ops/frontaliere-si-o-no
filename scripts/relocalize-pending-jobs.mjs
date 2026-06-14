@@ -97,11 +97,18 @@ function readJson(filePath) {
  * Returns true if the job has needsRetranslation flag or incomplete locale coverage.
  */
 function needsTranslation(job) {
+  // Explicit flag set by either a crawler or the assembler's locale-completeness
+  // guard (assemble-jobs-dataset.mjs flags suppressed jobs whose locale slots are
+  // still empty). Takes priority over the suppression check so that assembler-
+  // re-flagged jobs get retried: per-crawler files have no needsRetranslation
+  // (cleared by the 'gaveup' path), so reconcileRetranslationState returns 'noop'
+  // in the per-crawler context — the give-up counter is NOT advanced and the job
+  // is not immediately re-suppressed.
+  if (job.needsRetranslation) return true;
   // Gave up on this job after MAX_RETRANSLATION_ATTEMPTS failed runs. Stay out of
   // the work pool unless the source content changed since we suppressed it
   // (re-crawl brings fresh text worth a new attempt).
   if (job.localeMismatchSuppressed && !sourceChangedSinceSuppression(job)) return false;
-  if (job.needsRetranslation) return true;
   return isIncomplete(job);
 }
 
