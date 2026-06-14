@@ -47,6 +47,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
 import {  inferAnyCanton  } from './lib/target-swiss-locations.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -935,8 +936,5 @@ async function main() {
 // (not when imported by tests or other modules that want helper exports).
 const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
 if (_isMain) {
-  main().catch((err) => {
-    console.error(`❌ PostFinance crawler failed: ${err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'PostFinance'));
 }

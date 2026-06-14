@@ -26,6 +26,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -812,8 +813,5 @@ async function main() {
 const _isMain = process.argv[1] &&
   fileURLToPath(import.meta.url) === fs.realpathSync(process.argv[1]);
 if (_isMain) {
-  main().catch((err) => {
-    console.error(`❌ HES-SO Valais-Wallis crawler failed: ${err?.message || err}`);
-    process.exit(1);
-  });
+  main().catch((err) => exitCrawlerOnError(err, 'HES-SO Valais-Wallis'));
 }

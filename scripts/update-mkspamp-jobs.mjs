@@ -44,6 +44,7 @@ import {
 } from './lib/mkspamp-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -359,7 +360,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ MKS PAMP crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((error) => exitCrawlerOnError(error, 'MKS PAMP'));

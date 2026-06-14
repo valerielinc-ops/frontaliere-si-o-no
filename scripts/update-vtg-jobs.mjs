@@ -34,7 +34,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
+import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -374,7 +374,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ VTG crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'VTG'));

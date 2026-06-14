@@ -37,6 +37,7 @@ import {
 } from './lib/lis-lugano-istituti-sociali-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1212,7 +1213,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ LIS crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'LIS'));

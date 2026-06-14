@@ -47,6 +47,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -136,23 +137,10 @@ async function fetchJson(url) {
 }
 
 async function fetchText(url) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
-  }
+  return fetchHtml(url, {
+    timeoutMs: TIMEOUT_MS,
+    headers: { Accept: 'text/html' },
+  });
 }
 
 function stripHtml(html = '') {
@@ -524,7 +512,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ Kronenhof crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+main().catch((err) => exitCrawlerOnError(err, 'Kronenhof'));
