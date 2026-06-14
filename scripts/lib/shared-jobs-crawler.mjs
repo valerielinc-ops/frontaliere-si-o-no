@@ -3281,7 +3281,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
       if (!location) location = company.city || 'Ticino';
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${descriptionSeed}`) || '';
+      const inferredCanton = inferSwissTargetCanton(location) || inferSwissTargetCanton(`${title} ${descriptionSeed}`) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',
@@ -3338,7 +3338,7 @@ async function crawlGreenhouseJobs(company, source) {
     const location = normalizeSpace(j?.location?.name || j?.location || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(j?.content || j?.description || `${title}. ${location}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    const inferredCanton = inferSwissTargetCanton(location) || inferSwissTargetCanton(`${title} ${description}`) || '';
     if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
@@ -3394,7 +3394,7 @@ async function crawlLeverJobs(company, source) {
     const location = normalizeSpace(j?.categories?.location || j?.workplaceType || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(j?.descriptionPlain || j?.description || `${title}. ${location}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    const inferredCanton = inferSwissTargetCanton(location) || inferSwissTargetCanton(`${title} ${description}`) || '';
     if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
@@ -3443,7 +3443,7 @@ async function crawlSmartRecruitersJobs(company, source) {
     const location = normalizeSpace(j?.location?.city || j?.location?.region || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(`${title}. ${location}. ${normalizeSpace(j?.releasedDate || '')}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    const inferredCanton = inferSwissTargetCanton(location) || inferSwissTargetCanton(`${title} ${description}`) || '';
     if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
@@ -3648,7 +3648,7 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       source: 'Company Careers Crawler',
     };
     if (!isTargetSwissLocation(`${merged.title} ${merged.location} ${merged.description}`)) continue;
-    merged.canton = inferSwissTargetCanton(`${merged.title} ${merged.location} ${merged.description}`) || merged.canton || '';
+    merged.canton = inferSwissTargetCanton(merged.location) || inferSwissTargetCanton(`${merged.title} ${merged.description}`) || merged.canton || '';
     if (!merged.canton) {
       console.warn(`  ⚠️ Skipping job with unknown canton: "${merged.title}" (location: ${merged.location || 'unknown'})`);
       continue;
@@ -3708,7 +3708,10 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   const normalizedLocation = seedMetaRelevant && !isTargetSwissLocation(mergedLocText)
     ? seedLocation
     : location;
-  const inferredJsonLdCanton = inferSwissTargetCanton(`${title} ${normalizedLocation || location} ${addressRegion} ${description}`);
+  const inferredJsonLdCanton =
+    inferSwissTargetCanton(`${normalizedLocation || location} ${addressRegion}`) ||
+    inferSwissTargetCanton(`${title} ${description}`) ||
+    '';
 
   const job = {
     id: '',
@@ -3865,7 +3868,10 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
     return { job: null, reason: 'html_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(geoSignalExplicit) && !seedMetaRelevant) return { job: null, reason: 'html_not_target_relevant' };
-  const inferredHtmlCanton = inferSwissTargetCanton(geoSignalExplicit);
+  const inferredHtmlCanton =
+    inferSwissTargetCanton(locationMatch || '') ||
+    inferSwissTargetCanton(`${title} ${description} ${pageUrl}`) ||
+    '';
 
   // Use Migros structured data for requirements/contract when available
   const contractFromMigros = migrosData?.employmentType || '';
