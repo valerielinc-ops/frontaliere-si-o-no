@@ -1783,9 +1783,19 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     // translate-pending pipeline fills the missing locales.
     let partialDescriptionFlags = 0;
     for (const job of assembled) {
-      // Skip already-flagged and jobs the pipeline gave up on (localeMismatchSuppressed)
-      // — re-flagging suppressed jobs keeps needsRetranslation set on them.
-      if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
+      // Skip ONLY needsRetranslation — the SAME exemption the completeness test
+      // applies (tests/job-locale-completeness.test.ts skips needsRetranslation
+      // only). Do NOT also skip localeMismatchSuppressed: relocalize-pending-
+      // jobs.mjs can `delete needsRetranslation` then set
+      // localeMismatchSuppressed=true, leaving a {suppressed, flag-absent,
+      // missing-description} job that this guard would skip → never flagged →
+      // test-red AND indexed (jobsSeoPagesPlugin excludes only
+      // needsRetranslation===true). Aligning the skip-set to the test (matching
+      // the titleByLocale guard below) closes that latent class. Safe: a
+      // re-flagged suppressed job stays out of the translate work pool unless
+      // its source changed (relocalize-pending-jobs.mjs needsTranslation()), so
+      // this does not reopen the give-up loop the old skip guarded against.
+      if (job.needsRetranslation) continue;
       const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
         ? job.descriptionByLocale
         : {};
