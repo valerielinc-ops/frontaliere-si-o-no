@@ -152,6 +152,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-svizzera.title': 'No to a Switzerland of 10 Million: Vote June 14, 2026',
     'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'On Sunday, June 14, 2026, Swiss voters will decide on the UDC initiative that aims to limit the population to 10 million by 2050 and on the referendum concerning civil service.',
     'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Federal Palace in Bern with protesters and signs about the 10 million population initiative',
+    'blog.article.trump-dazi-doganali-2026.title': 'US Tariffs: \'They Won\'t Disappear with Trump\'',
+    'blog.article.trump-dazi-doganali-2026.excerpt': 'The director of the SECO, Helene Budliger Artieda, predicts that US tariffs will not disappear even after the end of Donald Trump\'s mandate.',
+    'blog.article.trump-dazi-doganali-2026.imageAlt': 'A view of Lugano with the lake and mountains',
 };
 
 export default blogMetaChEn;

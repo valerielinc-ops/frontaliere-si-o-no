@@ -152,6 +152,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-svizzera.title': 'Initiative \'Non à une Suisse de 10 millions\': vote le 14 juin 2026',
     'blog.article.iniziativa-10-milioni-svizzera.excerpt': 'Dimanche 14 juin 2026, les Suisses se prononceront sur l\'initiative de l\'UDC visant à limiter la population à 10 millions d\'ici 2050 et sur le référendum concernant le service civil.',
     'blog.article.iniziativa-10-milioni-svizzera.imageAlt': 'Palais fédéral à Berne avec manifestants et pancartes sur l\'initiative des 10 millions',
+    'blog.article.trump-dazi-doganali-2026.title': 'Dazi doganali USA:',
+    'blog.article.trump-dazi-doganali-2026.excerpt': 'La directrice de la SECO, Helene Budliger Artieda, prévoit que les droits de douane aux États-Unis ne disparaîtront pas même après la fin du mandat de Donald Trump. 📊💡⚠️',
+    'blog.article.trump-dazi-doganali-2026.imageAlt': 'Une vue de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaChFr;

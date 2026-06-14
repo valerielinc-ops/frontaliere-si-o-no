@@ -1892,6 +1892,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-dazi-doganali-2026': {
+    title: 'Dazi doganali USA: "Non scompariranno con Trump"',
+    description: 'La direttrice della SECO, Helene Budliger Artieda, prevede che i dazi doganali negli Stati Uniti non scompariranno anche dopo la fine del mandato di Donald',
+    keywords: 'frontalieri, ticino, svizzera, italia, dazi, doganali, scompariranno, trump',
+    ogTitle: 'Dazi doganali USA: "Non scompariranno con Trump"',
+    ogDescription: 'La direttrice della SECO, Helene Budliger Artieda, prevede che i dazi doganali negli Stati Uniti non scompariranno anche dopo la fine del mandato di Donald',
+    canonicalPath: '/articoli-svizzera/trump-dazi-doganali-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dazi doganali USA: \"Non scompariranno con Trump\"",
+      "description": "La direttrice della SECO, Helene Budliger Artieda, prevede che i dazi doganali negli Stati Uniti non scompariranno anche dopo la fine del mandato di Donald",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trump-dazi-doganali-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista di Lugano con il lago e le montagne"
+      },
+      "datePublished": "2026-06-14T00:20:37+00:00",
+      "dateModified": "2026-06-14T00:20:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trump-dazi-doganali-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
