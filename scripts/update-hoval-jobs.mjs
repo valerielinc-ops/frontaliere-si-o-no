@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -95,21 +96,10 @@ function normalizeKey(value = '') {
 }
 
 async function fetchText(url, timeoutMs = TIMEOUT_MS) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml,application/json',
-        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchHtml(url, {
+    timeoutMs,
+    headers: { Accept: 'text/html,application/xhtml+xml,application/json' },
+  });
 }
 
 async function fetchJson(url, timeoutMs = TIMEOUT_MS) {
@@ -411,7 +401,4 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ Hoval crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+main().catch((err) => exitCrawlerOnError(err, 'Hoval'));

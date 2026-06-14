@@ -20,6 +20,13 @@ describe('isAggregateTitle — multi-item follow-ups never auto-close', () => {
     expect(isAggregateTitle('fix(crawlers): extract shared assertJsonListShape guard')).toBe(false);
     expect(isAggregateTitle('')).toBe(false);
   });
+  it('flags sweep/batch/bulk titles as aggregate even without an "N items" count (#1826 class)', () => {
+    expect(isAggregateTitle('Sweep: ~30 crawlers need shared fetchHtml')).toBe(true);
+    expect(isAggregateTitle('follow-up(#1826): batch-fix all parser selectors')).toBe(true);
+    expect(isAggregateTitle('chore: bulk migrate job slugs')).toBe(true);
+    // word-boundary: substrings inside unrelated words don't trigger
+    expect(isAggregateTitle('fix: swept the floor reference')).toBe(false);
+  });
 });
 
 describe('isStrongAutoCloseEvidence — weak single tokens never auto-close', () => {

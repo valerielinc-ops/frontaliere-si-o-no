@@ -50,6 +50,7 @@ import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -91,17 +92,7 @@ function isTrustedDomain(rawUrl = '') {
 
 /* ── Fetch ─────────────────────────────────────────────────── */
 async function fetchHtml(url, timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally { clearTimeout(timer); }
+  return fetchHtmlShared(url, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': UA } });
 }
 
 async function fetchJobs() {
@@ -291,4 +282,4 @@ async function main() {
 }
 
 const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-if (isDirectRun) { main().catch((err) => { console.error(`❌ ${COMPANY_NAME} crawler failed:`, err); process.exit(1); }); }
+if (isDirectRun) { main().catch((err) => exitCrawlerOnError(err, COMPANY_NAME)); }
