@@ -313,7 +313,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_pwc_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No PwC jobs found after dedicated crawl.',
-    detectSourceLang: (job) => job.sourceLang || 'en',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
 

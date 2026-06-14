@@ -323,7 +323,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_hoval_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Hoval jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

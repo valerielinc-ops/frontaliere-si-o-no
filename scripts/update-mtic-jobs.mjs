@@ -346,7 +346,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_mtic_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No MTIC Group Swiss jobs found — SPS InterCert may have no current openings.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

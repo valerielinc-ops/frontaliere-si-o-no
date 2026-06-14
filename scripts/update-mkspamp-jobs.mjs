@@ -265,7 +265,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_mkspamp_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No MKS PAMP jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

@@ -259,7 +259,7 @@ function validateLocales() {
     failWhenNoJobs: false,
     maxToleratedMissingDescriptions: 10,
     noJobsMessage: 'No AGIE Charmilles jobs found after dedicated crawl.',
-    detectSourceLang: () => 'en',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
 
