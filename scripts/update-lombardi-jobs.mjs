@@ -274,7 +274,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_lombardi_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Lombardi Group jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     // Tolerate up to 2 missing/untranslated descriptions per run — Lombardi has
     // only ~3 jobs; a single AI translation failure shouldn't block the entire
     // crawler. Untranslated descriptions are retried automatically on next run.

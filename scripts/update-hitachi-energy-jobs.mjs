@@ -363,7 +363,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_hitachi_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Hitachi Energy Ticino/GR jobs found after dedicated crawl.',
-    detectSourceLang: () => 'en',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
 

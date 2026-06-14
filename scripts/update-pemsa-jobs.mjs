@@ -246,7 +246,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_pemsa_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No PEMSA jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

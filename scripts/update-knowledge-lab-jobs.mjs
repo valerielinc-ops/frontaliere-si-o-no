@@ -270,7 +270,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_knowledge_lab_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Knowledge Lab jobs found after dedicated crawl.',
-    detectSourceLang: () => 'en',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'en'),
   });
 }
 

@@ -330,7 +330,7 @@ function validateLocales() {
     failWhenNoJobs: false,
     maxToleratedMissingDescriptions: 10,
     noJobsMessage: 'No AFRY Swiss jobs found after dedicated crawl.',
-    detectSourceLang: (job) => job.sourceLang || 'de',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'de'),
   });
 }
 

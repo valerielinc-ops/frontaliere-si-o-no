@@ -574,7 +574,11 @@ function validateTichLocaleCoverage() {
     label: 'Ti.CH',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isTichJob,
-    detectSourceLang: () => 'it', // Ti.CH jobs are always in Italian (Canton Ticino government)
+    // Ti.CH jobs are virtually always Italian (Canton Ticino government), so
+    // 'it' is the right fallback — but use the per-job sourceLang the crawler
+    // already stamps (job.sourceLang) so a stray non-Italian posting isn't
+    // false-flagged as untranslated (consistency with the rest of the class).
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     deriveSlug: deriveLocalizedSlug,
     isTrustedDomain: isTrustedTichDomain,
     untrustedDomainReason: 'untrusted_domain_for_tich_job',

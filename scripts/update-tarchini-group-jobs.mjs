@@ -292,7 +292,7 @@ function validateLocales() {
     failWhenNoJobs: false,
     maxToleratedMissingDescriptions: 10,
     noJobsMessage: 'No Tarchini Group jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

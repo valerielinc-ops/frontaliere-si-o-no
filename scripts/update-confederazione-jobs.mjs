@@ -577,7 +577,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_admin_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Confederazione Ticino jobs found after dedicated crawl.',
-    detectSourceLang: (job) => job.sourceLang || 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
     maxToleratedMissingDescriptions: 20,
   });
 }

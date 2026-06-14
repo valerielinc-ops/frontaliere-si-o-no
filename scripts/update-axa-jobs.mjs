@@ -475,7 +475,7 @@ function validateLocales() {
     maxToleratedMissingDescriptions: 10,
     minDescriptionChars: 80,
     noJobsMessage: 'No AXA Svizzera jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

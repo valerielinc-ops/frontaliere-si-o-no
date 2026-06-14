@@ -395,7 +395,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_amag_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No AMAG Group jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

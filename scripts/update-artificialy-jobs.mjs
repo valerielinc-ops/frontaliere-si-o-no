@@ -292,7 +292,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_artificialy_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Artificialy Ticino/GR jobs found after dedicated crawl (site may be Cloudflare-blocked).',
-    detectSourceLang: (job) => job.sourceLang || 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 
