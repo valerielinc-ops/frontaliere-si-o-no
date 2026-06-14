@@ -1783,9 +1783,19 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     // translate-pending pipeline fills the missing locales.
     let partialDescriptionFlags = 0;
     for (const job of assembled) {
-      // Skip already-flagged and jobs the pipeline gave up on (localeMismatchSuppressed)
-      // — re-flagging suppressed jobs keeps needsRetranslation set on them.
-      if (job.needsRetranslation || job.localeMismatchSuppressed) continue;
+      // Skip ONLY needsRetranslation — the SAME exemption the completeness test
+      // applies (tests/job-locale-completeness.test.ts skips needsRetranslation
+      // only). Do NOT also skip localeMismatchSuppressed: relocalize-pending-
+      // jobs.mjs can `delete needsRetranslation` then set
+      // localeMismatchSuppressed=true, leaving a {suppressed, flag-absent,
+      // missing-description} job that this guard would skip → never flagged →
+      // test-red AND indexed (jobsSeoPagesPlugin excludes only
+      // needsRetranslation===true). Aligning the skip-set to the test (matching
+      // the titleByLocale guard below) closes that latent class. Safe: a
+      // re-flagged suppressed job stays out of the translate work pool unless
+      // its source changed (relocalize-pending-jobs.mjs needsTranslation()), so
+      // this does not reopen the give-up loop the old skip guarded against.
+      if (job.needsRetranslation) continue;
       const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
         ? job.descriptionByLocale
         : {};
@@ -1798,6 +1808,40 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     }
     if (partialDescriptionFlags > 0) {
       console.log(`  🌍 Locale completeness: flagged ${partialDescriptionFlags} jobs with partial descriptionByLocale`);
+    }
+
+    // Same contract for titleByLocale: an unflagged job is treated as
+    // fully-translated and indexed in all 4 locales, and
+    // tests/job-locale-completeness.test.ts holds it to full titleByLocale
+    // coverage. A job whose titleByLocale lost a locale (e.g. de/en/fr present,
+    // `it` dropped — Coop / Two-Spice prospective slices, the #1920 deadlock
+    // class) can pass the descriptionByLocale guard above (its descriptions are
+    // complete) yet still be title-incomplete, turning the test red and getting
+    // indexed with a source-language title fallback. Mirror the description
+    // guard so it is flagged out of the indexable set until translate-pending
+    // fills the missing locale; render already falls back to `job.title`.
+    // NOTE: skip ONLY needsRetranslation here, NOT localeMismatchSuppressed.
+    // The completeness test exempts only needsRetranslation jobs, so a
+    // localeMismatchSuppressed job with an incomplete title (the pipeline gave
+    // up reconciling its locales but never set needsRetranslation) would stay
+    // test-red. Flagging it needsRetranslation is the truthful state and routes
+    // it out of the indexable set; translate-pending may retry, and if it
+    // re-suppresses, the flag persists — stable across re-assembly.
+    let partialTitleFlags = 0;
+    for (const job of assembled) {
+      if (job.needsRetranslation) continue;
+      const titles = job.titleByLocale && typeof job.titleByLocale === 'object'
+        ? job.titleByLocale
+        : {};
+      const missingTitle = ['it', 'en', 'de', 'fr']
+        .some((locale) => !String(titles[locale] || '').trim());
+      if (missingTitle) {
+        job.needsRetranslation = true;
+        partialTitleFlags++;
+      }
+    }
+    if (partialTitleFlags > 0) {
+      console.log(`  🌍 Locale completeness: flagged ${partialTitleFlags} jobs with partial titleByLocale`);
     }
 
     // --- slugByLocale completeness backfill ---
