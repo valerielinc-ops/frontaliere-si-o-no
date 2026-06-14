@@ -208,3 +208,19 @@ jobs:
             } else {
               await github.rest.issues.createComment({ owner, repo, issue_number, body });
             }
+
+  # Blocking gate (escalation #1954, bucket reviewer-finding/cls-layout 6×/14d):
+  # forbid hard-coded AdSense <ins> in build-plugins. Only adSlotHtml() may emit
+  # the raw ad markup; its min-height/format come from the registry
+  # services/adsenseSlots.ts so the reserved space matches the real ad unit →
+  # zero CLS (the #1910 280-vs-400px regression). Zero-Claude, exits 1 on
+  # violation. Also covered by tests/check-cls-ad-slots.test.ts in the vitest gate.
+  cls-ad-slot-check:
+    if: github.event.action != 'edited'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Forbid hard-coded AdSense <ins> in build-plugins
+        run: node scripts/ci/check-cls-ad-slots.mjs
