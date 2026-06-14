@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-26T10:36:20.130Z",
-    "label": "after",
-    "total": 8543,
-    "needsRetranslation": 1513,
-    "incomplete": 461,
-    "complete": 8082,
-    "missingByLocale": {
-      "it": 273,
-      "en": 212,
-      "de": 152,
-      "fr": 257
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 70
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 62
-      },
-      {
-        "company": "Nestlé",
-        "pending": 39
-      },
-      {
-        "company": "Roche",
-        "pending": 32
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 15
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-26T15:24:59.572Z",
-    "label": "before",
-    "total": 8740,
-    "needsRetranslation": 1675,
-    "incomplete": 466,
-    "complete": 8274,
-    "missingByLocale": {
-      "it": 273,
-      "en": 213,
-      "de": 156,
-      "fr": 258
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 82
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 70
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 66
-      },
-      {
-        "company": "Nestlé",
-        "pending": 39
-      },
-      {
-        "company": "Roche",
-        "pending": 32
-      },
-      {
-        "company": "IWC",
-        "pending": 26
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "UBS",
-        "pending": 15
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-26T16:29:12.335Z",
     "label": "after",
     "total": 8740,
@@ -11333,6 +11221,120 @@
       {
         "company": "Implenia",
         "pending": 40
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-13T23:05:00.219Z",
+    "label": "before",
+    "total": 16428,
+    "needsRetranslation": 9612,
+    "suppressed": 44,
+    "incomplete": 3605,
+    "complete": 12823,
+    "missingByLocale": {
+      "it": 2820,
+      "en": 2541,
+      "de": 760,
+      "fr": 2521
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 2005
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 286
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Richemont",
+        "pending": 103
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 71
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-14T04:52:46.883Z",
+    "label": "after",
+    "total": 16428,
+    "needsRetranslation": 4591,
+    "suppressed": 44,
+    "incomplete": 3422,
+    "complete": 13006,
+    "missingByLocale": {
+      "it": 2731,
+      "en": 2436,
+      "de": 720,
+      "fr": 2409
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1970
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 286
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 58
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      },
+      {
+        "company": "Implenia",
+        "pending": 44
       }
     ]
   }
