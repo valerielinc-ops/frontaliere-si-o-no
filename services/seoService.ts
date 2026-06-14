@@ -3993,6 +3993,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caos-applicazione-decreto-omnibus': { name: 'Decreto Omnibus frontalieri', path: '/articoli-frontaliere/caos-applicazione-decreto-omnibus', parent: 'blog' },
     'blog-bce-tassi-inflazione-2023': { name: 'Fiscalità e Economia', path: '/articoli-svizzera/bce-tassi-inflazione-2023/', parent: 'blog' },
     'blog-chiasso-parita-salariale-interrogazione': { name: 'Parità salariale', path: '/articoli-frontaliere/chiasso-parita-salariale-interrogazione', parent: 'blog' },
+    'blog-tassa-prenotazione-capanne-cas': { name: 'Tassa Capanne CAS', path: '/articoli-svizzera/tassa-prenotazione-capanne-cas/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -485,6 +485,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'tassa-prenotazione-capanne-cas',
+    category: 'novita',
+    date: '2026-06-14T03:09:55.616Z',
+    image: '/images/blog/tassa-prenotazione-capanne-cas.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

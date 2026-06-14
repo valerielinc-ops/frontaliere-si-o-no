@@ -75,6 +75,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'trump-dazi-doganali-2026': { it: 'trump-dazi-doganali-2026', en: 'trump-tariffs-2026', de: 'trump-zolle-2026', fr: 'trump-droits-de-douane-2026' },
  'sciopero-femminista-vd-ne': { it: 'sciopero-femminista-vd-ne', en: 'feminist-strike-vaud-neuchatel', de: 'frauenstreik-waadt-neuenburg', fr: 'greve-feministe-vaud-neuchatel' },
  'bce-tassi-inflazione-2023': { it: 'bce-tassi-inflazione-2023', en: 'bce-interest-inflation-2023', de: 'bce-zinssatz-inflation-2023', fr: 'bce-taux-inflation-2023' },
+ 'tassa-prenotazione-capanne-cas': { it: 'tassa-prenotazione-capanne-cas', en: 'cas-hut-reservation-fee-switzerland', de: 'sac-huetten-reservierungsgebuehr-schweiz', fr: 'taxe-reservation-cabanes-cas-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
