@@ -316,7 +316,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_convit_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Convit jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

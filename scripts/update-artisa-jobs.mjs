@@ -289,7 +289,7 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_artisa_domain',
     failWhenNoJobs: true,
     noJobsMessage: 'No Artisa jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 

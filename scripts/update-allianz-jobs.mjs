@@ -404,7 +404,15 @@ function validateLocales() {
     untrustedDomainReason: 'url_not_allianz_domain',
     failWhenNoJobs: false,
     noJobsMessage: 'No Allianz Suisse jobs found after dedicated crawl.',
-    detectSourceLang: () => 'it',
+    // Allianz Suisse posts in DE/FR/IT. The job's real source language is
+    // detected per-row at crawl time (see `sourceLang: detectLang(...)` above),
+    // so the locale validator MUST use that same per-job source — not a
+    // hard-coded 'it'. With the old `() => 'it'`, a German-source job's `de`
+    // field (legitimately equal to its German source) was flagged
+    // `untranslated_description [de]`, hard-failing the crawler on a false
+    // positive (#1878/#2003). Prefer the value already stamped on the job,
+    // falling back to a fresh detection.
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
 }
 
