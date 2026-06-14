@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2793,
+ "numberOfItems": 2794,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7433,7 +7433,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2790, "name": "Dazi doganali USA: \"Non scompariranno con Trump\"", "url": `${BASE_URL}/articoli-frontaliere/trump-dazi-doganali-2026` },
           { "@type": "ListItem", "position": 2791, "name": "Guida pratica per frontalieri con figli: asili ...", "url": `${BASE_URL}/articoli-frontaliere/asilo-nido-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2792, "name": "Sciopero femminista: migliaia in piazza a Vaud ...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-femminista-vd-ne` },
-          { "@type": "ListItem", "position": 2793, "name": "Parcheggi Riservati a Cantello: Progetto Carpoo...", "url": `${BASE_URL}/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri` }
+          { "@type": "ListItem", "position": 2793, "name": "Parcheggi Riservati a Cantello: Progetto Carpoo...", "url": `${BASE_URL}/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri` },
+          { "@type": "ListItem", "position": 2794, "name": "Frontalieri: caos sull'applicazione del decreto...", "url": `${BASE_URL}/articoli-frontaliere/caos-applicazione-decreto-omnibus` }
  ]
  },
  {

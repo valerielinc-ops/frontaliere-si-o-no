@@ -8068,6 +8068,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Cantello Parking: Carpooling for Cross-Border Workers',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 free parking spaces at Gaggiolo station for those who carpool. An initiative to reduce traffic and pollution.',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Reserved parking at Cantello Gaggiolo for carpooling commuters',
+    'blog.article.caos-applicazione-decreto-omnibus.title': 'Frontalieri: chaos over Omnibus decree application',
+    'blog.article.caos-applicazione-decreto-omnibus.excerpt': 'Concerns over the implementation of the Omnibus decree cause uncertainty for cross-border workers. Urgent appeal to government and Region.',
+    'blog.article.caos-applicazione-decreto-omnibus.imageAlt': 'Border crossing between Ticino and Italy',
 };
 
 export default blogMetaEn;

@@ -8069,6 +8069,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Parcheggi Riservati a Cantello: Progetto Carpooling per Pendolari Svizzeri',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 posti auto gratuiti alla stazione di Gaggiolo per chi condivide l\'auto. Iniziativa per ridurre traffico e inquinamento.',
     'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Parcheggio riservato a Cantello Gaggiolo per pendolari che condividono l\'auto',
+    'blog.article.caos-applicazione-decreto-omnibus.title': 'Frontalieri: caos sull\'applicazione del decreto Omnibus',
+    'blog.article.caos-applicazione-decreto-omnibus.excerpt': 'Le criticità sull\'applicazione del decreto Omnibus creano incertezza per i lavoratori frontalieri. Appello urgente a governo e Regione.',
+    'blog.article.caos-applicazione-decreto-omnibus.imageAlt': 'Valico di frontiera tra Ticino e Italia',
 };
 
 export default blogMetaIt;

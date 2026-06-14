@@ -43754,6 +43754,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-caos-applicazione-decreto-omnibus': {
+    title: 'Frontalieri: caos sull\'applicazione del decreto Omnibus',
+    description: 'Caos sull\'applicazione del decreto Omnibus per i frontalieri: appello a governo e Regione per chiarezza immediata. Scopri le implicazioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caos, sull, applicazione, decreto',
+    ogTitle: 'Frontalieri: caos sull\'applicazione del decreto Omnibus',
+    ogDescription: 'Incertezza sull\'applicazione del decreto Omnibus: appello a governo e Regione per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/caos-applicazione-decreto-omnibus',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: caos sull'applicazione del decreto Omnibus",
+      "description": "Caos sull'applicazione del decreto Omnibus per i frontalieri: appello a governo e Regione per chiarezza immediata. Scopri le implicazioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/caos-applicazione-decreto-omnibus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di frontiera tra Ticino e Italia"
+      },
+      "datePublished": "2026-06-14T02:19:18+00:00",
+      "dateModified": "2026-06-14T02:19:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caos-applicazione-decreto-omnibus`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
