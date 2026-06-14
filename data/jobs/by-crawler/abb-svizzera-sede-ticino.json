@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-06-14T10:58:16.507Z",
+  "assembledAt": "2026-06-14T21:17:41.906Z",
   "jobs": [
     {
       "id": "company-nyza1u",
@@ -145,7 +145,8 @@
       "addressRegion": "SH",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "needsRetranslation": true
     },
     {
       "id": "company-tp8dhd",
@@ -1653,7 +1654,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-rdcz7r",
@@ -3300,7 +3302,8 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fv2iws",
