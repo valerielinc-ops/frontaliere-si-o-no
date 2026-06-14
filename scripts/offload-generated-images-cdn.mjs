@@ -29,9 +29,11 @@
 //   • Phase 1 (og): rewrites the emitted og:image references in dist HTML to
 //     ${CDN_BASE}/og/…, then deletes dist/og.
 //   • Phase 2 (data): injects window.__CDN_DATA_BASE__=${CDN_BASE} into every dist
-//     HTML page (read by services/cdnDataBase.ts → cdnDataUrl at runtime) AND
-//     rewrites static same-origin /data/<file> refs → ${CDN_BASE}/data/<file>, then
-//     deletes the now-CDN-served dist/data files.
+//     HTML page — read at runtime by BOTH cdnDataUrl (services/cdnDataBase.ts) and
+//     cdnImageUrl (services/cdnImageBase.ts, for the offloaded brand/logo images),
+//     so the inject is unconditional whenever CDN_BASE is valid (NOT gated on
+//     dist/data presence, #1709) — AND rewrites static same-origin /data/<file>
+//     refs → ${CDN_BASE}/data/<file>, then deletes the now-CDN-served dist/data files.
 //
 // Pages (NOT raw / NOT jsDelivr): raw is rate-limited and serves JSON as
 // text/plain; jsDelivr 403/502s on fresh orphan refs. The CDN repo's Pages site
@@ -231,8 +233,15 @@ function offloadAll(distDir, cdnBase) {
       if (out !== beforeData) dataRefRewritten++;
     }
 
-    // (3) data base inject (HTML only, idempotent)
-    if (hasData && isHtml) {
+    // (3) CDN-base inject (HTML only, idempotent). Decoupled from `hasData`
+    //     (#1709): window.__CDN_DATA_BASE__ is read by BOTH cdnDataUrl (data
+    //     offload) AND cdnImageUrl (the brand/logo/author/provider/insurer images
+    //     this script also offloads + deletes from dist). Gating the inject on
+    //     hasData meant a deploy with no dist/data would still delete the image
+    //     dirs yet never set the base → runtime cdnImageUrl() falls back to the
+    //     just-deleted same-origin path → 404 on every SPA logo. The base must be
+    //     present whenever cdnBase is valid (this script only runs then).
+    if (isHtml) {
       htmlSeen++;
       if (out.includes('__CDN_DATA_BASE__')) {
         injected++; // already present (idempotent re-run)
@@ -278,6 +287,17 @@ function offloadAll(distDir, cdnBase) {
       const leaked = ogLeaks.filter((l) => l.startsWith(t.url));
       if (leaked.length > 0) {
         kept.push(`${t.url} (${leaked.length} ref(s): ${leaked.slice(0, 3).join('; ')})`);
+        continue;
+      }
+      // #1709 safety net: the /images/* dirs are also resolved at RUNTIME via
+      // cdnImageUrl (window.__CDN_DATA_BASE__). If the base reached no HTML page,
+      // deleting them would 404 the SPA logos — keep them (mirrors the data-delete
+      // `injected === 0` guard below). /og/ is static-ref-only (rewritten above),
+      // so it's exempt. With the inject now decoupled from hasData this only fires
+      // in the degenerate no-HTML-with-<head> case, but the guard makes the latent
+      // 404 impossible by construction.
+      if (t.url.startsWith('/images/') && injected === 0) {
+        kept.push(`${t.url} (CDN base injected into 0/${htmlSeen} HTML — keeping to avoid runtime cdnImageUrl 404)`);
         continue;
       }
       const dir = path.join(distDir, ...t.dir);
