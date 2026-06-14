@@ -27,15 +27,16 @@ permissions:
   id-token: write
 
 jobs:
-  redflag-fix:
-    # Gate evento (tutti necessari):
-    #   - review autore = claude-bot (user.type=='Bot' + startsWith 'claude').
-    #   - review body contiene `🔴 Important` (finding important reale; NON il
-    #     bare 🔴 che può comparire in prosa/legenda anche in una review LGTM
-    #     pulita → falso trigger che brucerebbe un round Claude. Simmetrico col
-    #     gate di blocco in auto-merge-eval.mjs).
-    #   - PR autonoma: autore Bot OPPURE head ref `fix/*`. MAI su PR umane.
-    #   - PR non draft.
+  # Preflight (no checkout, solo gh): porta i gate evento + verifica che la PR
+  # sia ancora AZIONABILE. Race benigna — tra il `review submitted` che triggera
+  # e il checkout del job di fix, la PR può essere stata mergiata/chiusa e il suo
+  # branch auto-cancellato (delete_branch_on_merge) → il `Checkout ref: head.ref`
+  # fallirebbe secco ("branch could not be found"), run ROSSO su una PR già
+  # risolta (osservato 2026-06-14 run 27509046723, fix/crawler-source-rewrites
+  # già merged). Stessa classe della race auto-merge (#1953): un workflow su una
+  # PR già risolta esce PULITO, non fallisce. actionable=false → redflag-fix
+  # skippato (verde no-op, nessun round consumato).
+  preflight:
     if: |
       github.event.review.user.type == 'Bot' &&
       startsWith(github.event.review.user.login, 'claude') &&
@@ -43,6 +44,34 @@ jobs:
       github.event.pull_request.draft == false &&
       (github.event.pull_request.user.type == 'Bot' ||
        startsWith(github.event.pull_request.head.ref, 'fix/'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      actionable: ${{ steps.pre.outputs.actionable }}
+    steps:
+      - name: PR still actionable?
+        id: pre
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: |
+          set -uo pipefail
+          state=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo UNKNOWN)
+          if [ "$state" != "OPEN" ]; then
+            echo "PR #$PR_NUMBER non più OPEN (state=$state) → già risolta, skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if ! gh api "repos/$REPO/branches/$HEAD_REF" --jq '.name' >/dev/null 2>&1; then
+            echo "Branch '$HEAD_REF' sparito (PR risolta + delete_branch_on_merge) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "actionable=true" >> "$GITHUB_OUTPUT"
+
+  redflag-fix:
+    needs: preflight
+    if: needs.preflight.outputs.actionable == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
