@@ -254,6 +254,22 @@ async function processPR(pr) {
     }
     return;
   }
+  // SKIP rebase delle PR già pronte al merge (2026-06-15): main NON richiede
+  // branch up-to-date (branch protection `strict=false`, required_checks=[]),
+  // quindi una PR LGTM'd + vitest verde sull'head viene squash-mergiata da
+  // auto-merge ANCHE se dietro main — il rebase è inutile e DANNOSO: il merge
+  // di origin/main crea un nuovo head, il synchronize del push-PAT va
+  // `action_required`/non ricrea il check-run, il vitest verde sparisce e
+  // auto-merge-eval (gate vitest==success) si blocca per sempre (circolo vizioso
+  // osservato 00:30Z: #2026/#2028/#855 LGTM'd rebasati → action_required → stuck;
+  // più la PR aspetta, più l'autorebase la rompe). Tocchiamo solo le PR che il
+  // rebase serve DAVVERO: collision-risk (il gate collisione esige il rebase
+  // oltre l'altra PR) e stale-review (drift/conflitto). Una LGTM'd+verde senza
+  // collisione → lasciala ad auto-merge.
+  if (lgtm && headHasVitestCheck(head) && !labels.includes('collision-risk')) {
+    console.log(`PR #${num} LGTM + vitest verde sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla romperebbe il check).`);
+    return;
+  }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
 
   // Activity-guard: se l'head è stato pushato pochi minuti fa, un contributor/
