@@ -57,7 +57,6 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { getCantonDisplayName, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -769,4 +768,7 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'International School of Ticino'));
+main().catch((err) => {
+  console.error(`❌ IST crawler failed: ${err?.message || err}`);
+  process.exit(1);
+});
