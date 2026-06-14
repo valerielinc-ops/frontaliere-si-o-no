@@ -8064,6 +8064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asilo-nido-frontalieri-ticino.title': 'Praktische Anleitung für Grenzgänger mit Kindern: Tessiner Kinderkrippen',
     'blog.article.asilo-nido-frontalieri-ticino.excerpt': 'Alles, was Sie wissen müssen über Kosten, Warteliste, Zuschüsse und Alternativen für Grenzgänger mit Kindern im Vorschulalter im Tessin',
     'blog.article.asilo-nido-frontalieri-ticino.imageAlt': 'Tessiner Kindergarten mit Kindern und Erziehern im Freien',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Reservierte Parkplätze in Cantello: Carpooling für Schweizer Pendler',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 kostenlose Parkplätze am Gaggiolo Bahnhof für Personen, die das Auto teilen. Initiative zur Reduzierung von Verkehr und Luftverschmutzung.',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Reservierter Parkplatz in Cantello Gaggiolo für Pendler mit Fahrgemeinschaft',
 };
 
 export default blogMetaDe;
