@@ -1791,10 +1791,10 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       // missing-description} job that this guard would skip → never flagged →
       // test-red AND indexed (jobsSeoPagesPlugin excludes only
       // needsRetranslation===true). Aligning the skip-set to the test (matching
-      // the titleByLocale guard below) closes that latent class. Safe: a
-      // re-flagged suppressed job stays out of the translate work pool unless
-      // its source changed (relocalize-pending-jobs.mjs needsTranslation()), so
-      // this does not reopen the give-up loop the old skip guarded against.
+      // the titleByLocale guard below) closes that latent class. NOTE (PR #1990):
+      // needsTranslation() now prioritises needsRetranslation first, so suppressed
+      // re-flagged jobs DO re-enter the translate pool. The give-up counter cannot
+      // advance (per-crawler files lack needsRetranslation post-gaveup → 'noop').
       if (job.needsRetranslation) continue;
       const descriptions = job.descriptionByLocale && typeof job.descriptionByLocale === 'object'
         ? job.descriptionByLocale
