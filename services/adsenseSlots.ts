@@ -75,7 +75,9 @@ export const AD_SLOTS = {
  slot: '2093992129',
  format: 'autorelaxed',
  fullWidthResponsive: false,
- placeholderMinHeight: 400,
+ // Raised from 400→1100: lab shows render at 1166px → 766px CLS (#855/#886).
+ // 1100 reduces shift to ~66px; collapses to 0 when unfilled (offscreen guard).
+ placeholderMinHeight: 1100,
  },
  /** Job detail: between related jobs and related articles sections */
  JOBDETAIL_BETWEEN_SECTIONS: {

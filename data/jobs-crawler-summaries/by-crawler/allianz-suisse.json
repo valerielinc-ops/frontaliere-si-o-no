@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-06-14T10:50:55.036Z",
+  "generatedAt": "2026-06-14T21:23:53.184Z",
   "total": 96,
   "newCount": 1,
-  "updatedCount": 95,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 325853,
-  "avgDurationMs": 325853,
+  "unchangedCount": 94,
+  "durationMs": 323600,
+  "avgDurationMs": 323600,
   "durationHistory": [
-    325853
+    323600
   ],
   "newJobs": [
     {
@@ -46,6 +46,46 @@
   ],
   "updatedJobs": [
     {
+      "title": "Kundenberater:in Langnau i.E. (w/m/d), 80-100%",
+      "slug": "allianz-bewerbermanagement-allianz-suisse-langnau-im-emmental",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/683/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/683/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Langnau i.E.",
+      "addressLocality": "Langnau i.E.",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-14",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "id": "allianz-suisse-f541011b17fd",
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "streetAddress": "",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
       "title": "Kundenberater/in für die Agentur Murten 100%",
       "slug": "kundenberater-in-per-la-agentur-murten-100-allianz-suisse-granges-paccot",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/658/Description/4",
@@ -73,6 +113,7 @@
       "currency": "CHF",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -222,11 +263,11 @@
       "postalCode": "7000",
       "firstSeenAt": "2026-05-17T09:33:54.522Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -258,11 +299,11 @@
       "currency": "CHF",
       "postalCode": "4900",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -294,13 +335,13 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -332,8 +373,8 @@
       "currency": "CHF",
       "postalCode": "1201",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -371,11 +412,12 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -408,11 +450,11 @@
       "postalCode": "3930",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -439,18 +481,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-dcd251d59868",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -477,18 +518,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-a49a6b58005f",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "1950",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -557,11 +597,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
-      "_qualityScore": 92,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -631,11 +671,12 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -668,49 +709,11 @@
       "streetAddress": "",
       "postalCode": "1700",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Kundenberater:in Langnau i.E. (w/m/d), 80-100%",
-      "slug": "allianz-bewerbermanagement-allianz-suisse-langnau-im-emmental",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/683/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/683/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Langnau i.E.",
-      "addressLocality": "Langnau i.E.",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-14",
-      "employmentType": "full-time",
-      "contractType": "Unbefristet",
-      "validThrough": "",
-      "id": "allianz-suisse-f541011b17fd",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "streetAddress": "",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -814,13 +817,13 @@
       "currency": "CHF",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -853,12 +856,11 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -885,18 +887,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-dc9f8a0fda4a",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -927,11 +928,11 @@
       "salaryMax": 89000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 89,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1035,8 +1036,8 @@
       "currency": "CHF",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "retranslationAttempts": 0,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1074,12 +1075,11 @@
       "streetAddress": "",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1106,18 +1106,17 @@
       "contractType": "Unbefristet",
       "validThrough": "",
       "id": "allianz-suisse-7368da8b52a7",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "_qualityScore": 85,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1150,15 +1149,51 @@
       "streetAddress": "",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-11T22:12:35.243Z",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Collaborateur/trice du service interne Agence Générale Eric Marchal (f/h/d), 100%",
+      "slug": "collaborateur-trice-du-service-interne-agence-generale-eric-marchal-f-h-d-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/479/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/479/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Collaborateur/-trice du service interne",
+      "addressLocality": "Collaborateur/-trice du service interne",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-14",
+      "employmentType": "full-time",
+      "contractType": "Durée indéterminée",
+      "validThrough": "",
+      "id": "allianz-suisse-48fe5985d129",
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-06-11T22:12:35.243Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
