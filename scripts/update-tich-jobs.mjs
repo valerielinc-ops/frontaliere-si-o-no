@@ -574,7 +574,7 @@ function validateTichLocaleCoverage() {
     label: 'Ti.CH',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isTichJob,
-    detectSourceLang: () => 'it', // Ti.CH jobs are always in Italian (Canton Ticino government)
+    detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'), // Ti.CH jobs default Italian (Canton Ticino), but honour the per-job sourceLang stamped at crawl time
     deriveSlug: deriveLocalizedSlug,
     isTrustedDomain: isTrustedTichDomain,
     untrustedDomainReason: 'untrusted_domain_for_tich_job',
