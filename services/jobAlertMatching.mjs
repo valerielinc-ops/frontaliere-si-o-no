@@ -40,6 +40,8 @@ import { extractKeywords } from './newsletter-content.mjs';
  * @property {string[]}  cantons       Lowercased canton codes (cantonFilter).
  * @property {string[]}  sectors       Lowercased sector / category signals.
  * @property {string[]}  contractTypes Lowercased contract-type signals.
+ * @property {string[]}  specificJobIds    Exact job ids this alert is pinned to (hard scope).
+ * @property {string}    specificCompanyKey Exact companyKey this alert is pinned to ('' when none).
  */
 
 const uniq = (arr) => [...new Set(arr.filter(Boolean))];
@@ -131,7 +133,19 @@ export function buildAlertProfile(alert, subscriber = null) {
 
   const contractTypes = uniq((a.contractTypes || []).map((c) => String(c || '').toLowerCase()));
 
-  return { hardKeywords, softTokens, company, locations, cantons, sectors, contractTypes };
+  // 6. Job-specific scope — "notify me about THIS job/company". When set, it is a
+  //    HARD filter (only the pinned job(s)/company surface); used for the
+  //    per-job alert and to verify the canary loop. Accepts a single id/string
+  //    or an array.
+  const specificJobIds = uniq(
+    [].concat(a.specificJobId || [], a.specificJobIds || []).map((v) => String(v || '').trim()),
+  );
+  const specificCompanyKey = normalizeCompanyToken(a.specificCompanyKey);
+
+  return {
+    hardKeywords, softTokens, company, locations, cantons, sectors, contractTypes,
+    specificJobIds, specificCompanyKey,
+  };
 }
 
 /**
@@ -145,6 +159,19 @@ export function buildAlertProfile(alert, subscriber = null) {
  */
 export function scoreJobForAlert(job, profile) {
   if (!job || !profile) return 0;
+
+  // Job-specific scope: a pinned alert ("notify me about THIS job/company")
+  // surfaces ONLY the pinned job(s) / company, bypassing keyword/intent scoring.
+  const pinnedJobs = profile.specificJobIds || [];
+  const pinnedCompany = profile.specificCompanyKey || '';
+  if (pinnedJobs.length > 0 || pinnedCompany) {
+    const jobCompanyKey = normalizeCompanyToken(job.companyKey || job.company);
+    const idHit = pinnedJobs.includes(String(job.id || ''))
+      || pinnedJobs.includes(String(job.publisherJobId || ''));
+    const companyHit = Boolean(pinnedCompany && jobCompanyKey
+      && (jobCompanyKey.includes(pinnedCompany) || pinnedCompany.includes(jobCompanyKey)));
+    return (idHit || companyHit) ? 10 : 0;
+  }
 
   const localizedTitles = Object.values(job.titleByLocale || {}).join(' ');
   const titleText = `${job.title || ''} ${localizedTitles}`.toLowerCase();

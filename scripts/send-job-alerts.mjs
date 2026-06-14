@@ -25,6 +25,7 @@ import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { normalizeContract } from '../services/newsletter-content.mjs';
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
+import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -1062,7 +1063,10 @@ async function main() {
     // Enrich the alert with the subscriber's newsletter profile + its own
     // source-job signals, then score every recent job against that profile.
     const profile = buildAlertProfile(alert, subscriberProfiles.get(alert.email.toLowerCase()) || null);
-    const sorted = recentJobs
+    // Canary gate: broadcast-restricted ads only ever match the OWNER's alerts,
+    // so a test listing can't reach real alert subscribers.
+    const eligibleJobs = isOwnerEmail(alert.email) ? recentJobs : recentJobs.filter((j) => !isCanaryJob(j));
+    const sorted = eligibleJobs
       .map((job) => ({ job, score: scoreJobForAlert(job, profile) }))
       .filter((m) => m.score > 0)
       .sort((a, b) => {
