@@ -3,6 +3,25 @@ name: Issue triage (deterministic classify + route)
 on:
   issues:
     types: [opened]
+  # Self-healing sweep (job `sweep` sotto): recupera le issue orfane che il path
+  # event-driven NON triagia mai — run cancellato da burst (cancel:false droppa
+  # i pending), o issue creata da GITHUB_TOKEN (anti-ricorsione GitHub → niente
+  # `issues:[opened]`: TUTTI i monitor di fallimento). 46 orfane osservate
+  # 2026-06-14, alcune di 2 settimane (#855/#857 follow-up mai entrati in coda).
+  schedule:
+    - cron: '17 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      cap:
+        description: 'Max crawler→agent:fix per run (anti-burst)'
+        required: false
+        type: string
+        default: '5'
+      dry_run:
+        description: 'Solo log, nessuna modifica'
+        required: false
+        type: boolean
+        default: false
 
 # Anti-storm: una run triage alla volta. I monitor (post-deploy validate,
 # crawler-health) aprono issue in burst; serializzare evita race sul routing.
@@ -17,10 +36,11 @@ permissions:
 
 jobs:
   triage:
-    # Gate: issue non già triagiata (anti-loop).
-    # Nessun gate sull'autore: le issue sono per lo più auto-generate dai monitor
-    # del repo stesso. Triage è low-blast-radius (label + commento + route).
-    if: ${{ !contains(github.event.issue.labels.*.name, 'agent:triaged') }}
+    # Gate: solo eventi issue (non schedule/dispatch → quelli vanno al job sweep)
+    # + issue non già triagiata (anti-loop). Nessun gate sull'autore: le issue
+    # sono per lo più auto-generate dai monitor del repo stesso. Triage è
+    # low-blast-radius (label + commento + route).
+    if: ${{ github.event_name == 'issues' && !contains(github.event.issue.labels.*.name, 'agent:triaged') }}
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
@@ -148,3 +168,62 @@ jobs:
             GH_TOKEN="$GITHUB_PAT" gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "agent:fix" \
               || echo "::warning::agent:fix via PAT fallito (scope PAT issues:write? label assente?) — routing non applicato, triage completato."
           fi
+
+  # Self-healing del tagging: recupera le issue orfane (no agent:triaged) che il
+  # path event-driven non triagia mai (run cancellato da burst, o issue creata da
+  # GITHUB_TOKEN → anti-ricorsione). Zero-Claude (riusa il classifier). Gentle
+  # by-construction: follow-up → coda (drainer 1-alla-volta), crawler → fix
+  # capped/run, crawler-transient → solo triaged (auto-close), resto → solo
+  # triaged. Vedi scripts/ci/triage-sweep.mjs.
+  sweep:
+    if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; routing sweep inerte (solo agent:triaged)."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Alert PAT-down (dedup, zero-Claude)
+        if: env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Triage sweep (recover orphaned issues, deterministic)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          ARGS="--cap ${{ github.event.inputs.cap || '5' }}"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          node scripts/ci/triage-sweep.mjs $ARGS
