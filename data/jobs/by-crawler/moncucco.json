@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-06-13T22:21:52.383Z",
+  "assembledAt": "2026-06-14T11:47:01.411Z",
   "jobs": [
     {
       "id": "moncucco-a2843a5a57e0",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.moncucco.ch/medico_del_centro_per_cura_dell_obesita2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-13T22:21:50.993Z",
+      "crawledAt": "2026-06-14T11:47:00.042Z",
       "firstSeenAt": "2026-06-01T15:34:55.145Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -106,7 +106,7 @@
       "applyUrl": "https://www.moncucco.ch/ematologo.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-13T22:21:50.768Z",
+      "crawledAt": "2026-06-14T11:46:59.807Z",
       "previousSlugsByLocale": {
         "en": [
           "hematologist-gruppo-ospedaliero-moncucco-lugano"
@@ -129,6 +129,7 @@
         "ergoterapista-lugano-moncucco"
       ],
       "firstSeenAt": "2026-05-08T10:23:46.959Z",
+      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
