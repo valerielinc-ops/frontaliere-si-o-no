@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-06-14T10:49:46.397Z",
+  "generatedAt": "2026-06-14T21:22:40.680Z",
   "total": 28,
   "newCount": 0,
   "updatedCount": 24,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 19248,
-  "avgDurationMs": 19248,
+  "durationMs": 17589,
+  "avgDurationMs": 17589,
   "durationHistory": [
-    19248
+    17589
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -888,80 +888,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "TECHNICIEN/NE DE SERVICE GAZ - RÉGION LAUSANNE ET ENVIRONS",
-      "slug": "tecnico-a-di-servizio-gas-regione-losanna-e-dintorni-ariston-group-preverenges-ch-1028",
-      "url": "https://careers.aristongroup.com/job/Preverenges-TECHNICIENNE-DE-SERVICE-GAZ-R%C3%89GION-LAUSANNE-ET-ENVIRONS-Pr%C3%A9v-1028/1283825801/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1283825801/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Préverenges, CH, 1028",
-      "addressLocality": "Préverenges, CH, 1028",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "canton": "VD",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-13",
-      "id": "ariston-group-8d2584568ae0",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "1028",
-      "firstSeenAt": "2026-05-20T10:55:53.262Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
-      "slug": "tecnico-a-di-servizio-ol-oberwallis-ariston-group-brig-glis-ch-3902",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Brig-Glis, CH, 3902",
-      "addressLocality": "Brig-Glis, CH, 3902",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-13",
-      "id": "ariston-group-ee0aa5576140",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "3900",
-      "firstSeenAt": "2026-05-20T10:55:53.262Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "TECNICO DI SERVIZIO ENERGIE RINNOVABILI",
