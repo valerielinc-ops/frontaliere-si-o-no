@@ -310,8 +310,12 @@ async function fetchManorJobs() {
     const category = detectCategory(title);
 
     // Per-job canton inferred CH-wide from the store city; HQ default only as
-    // a last resort when the central helper cannot resolve a code.
-    const canton = inferAnyCanton(`${city} ${pageData.location || ''}`) || DEFAULT_CANTON;
+    // a last resort when the central helper cannot resolve a code. City-first
+    // (not a combined string): inferAnyCanton returns the first canton in
+    // TARGET_CANTONS array order, so a combined "city + detail location" string
+    // could let the detail location's canton override the URL-derived store
+    // city. Resolve city alone first, fall back to detail location.
+    const canton = inferAnyCanton(city) || inferAnyCanton(pageData.location || '') || DEFAULT_CANTON;
 
     // Use page description if substantial, otherwise template
     const pageDesc = (pageData.description || '').trim();

@@ -169,6 +169,6 @@ export function parseDebiopharmJobDetailPayload(detail = {}) {
     employmentType: normalizeDebiopharmEmploymentType(detail.type || ''),
     sourceLanguage: String(detail.language || 'en').trim() || 'en',
     publishedDate: String(detail.published || '').trim(),
-    inferredCanton: inferAnyCanton(`${city} ${region}`) || 'VD',
+    inferredCanton: inferAnyCanton(city) || inferAnyCanton(region) || 'VD',
   };
 }

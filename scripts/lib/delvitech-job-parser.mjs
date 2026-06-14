@@ -168,6 +168,11 @@ export function buildDelvitechLocalizedContent(detail = {}) {
 
 /** Infer canton (TI or GR) from location/detail text. Falls back to HQ canton. */
 export function inferDelvitechCanton(detail = {}) {
-  const combined = `${detail.title || ''} ${detail.location || ''} ${detail.description || ''}`;
-  return inferAnyCanton(combined) || HQ.canton;
+  // Location-first: resolve the specific location before the noisier title and
+  // description text, so it wins over inferAnyCanton's TARGET_CANTONS array-order
+  // sensitivity (a combined string could let an unrelated canton name override).
+  return inferAnyCanton(detail.location || '')
+    || inferAnyCanton(detail.title || '')
+    || inferAnyCanton(detail.description || '')
+    || HQ.canton;
 }

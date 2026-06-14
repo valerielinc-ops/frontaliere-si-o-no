@@ -29,7 +29,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
   SmartRecruitersApiError,
@@ -252,8 +252,12 @@ export async function fetchAllMigrosHqJobs() {
 
       // Default to Zürich (Migros HQ) when SR doesn't return a city; canton ZH.
       const location = listing.location || 'Zürich';
-      const canton = inferSwissTargetCanton(`${location}, ${listing.region || ''}`)
-        || inferAnyCanton(`${location}, ${listing.region || ''}`)
+      // Location-first: resolve the specific location before the broader region.
+      // inferAnyCanton already checks target cantons first internally, so a
+      // separate inferSwissTargetCanton pass is redundant; splitting the fields
+      // keeps the specific location winning over array-order sensitivity.
+      const canton = inferAnyCanton(location)
+        || inferAnyCanton(listing.region || '')
         || 'ZH';
       const descriptionText = stripHtml(listing.description || '');
       const publicUrl = listing.url || CAREER_URL;
