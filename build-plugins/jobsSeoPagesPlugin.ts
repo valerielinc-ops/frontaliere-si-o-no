@@ -11,7 +11,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildSlimSeed } from './shared/slimJobIndex';
@@ -2866,7 +2866,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(title)}</title>
  <meta name="description" content="${esc(description)}">
  <meta property="og:type" content="article">
@@ -4499,7 +4499,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -4659,7 +4659,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -4826,7 +4826,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -5005,7 +5005,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -5181,7 +5181,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -5374,7 +5374,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(pageTitle)}</title>
  <meta name="description" content="${esc(pageDesc)}">
  <meta property="og:type" content="website">
@@ -5591,7 +5591,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">
@@ -5750,7 +5750,7 @@ ${staticAnalyticsHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
- ${FAVICON_LINKS}
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
  <meta name="description" content="${esc(model.description)}">
  <meta property="og:type" content="website">

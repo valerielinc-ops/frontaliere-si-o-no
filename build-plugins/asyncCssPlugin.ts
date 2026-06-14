@@ -16,12 +16,27 @@
  */
 
 import type { Plugin } from 'vite';
+import { CDN_PRECONNECT_HINT } from './constants';
 
 export function asyncCssPlugin(): Plugin {
  return {
  name: 'async-css',
  enforce: 'post',
  transformIndexHtml(html) {
+ // Warm the cross-origin connection to the asset CDN as early as possible.
+ // On deploy builds the homepage's entry CSS/JS are rebased to ${ASSET_CDN}
+ // (renderBuiltUrl) but no `<link rel=preconnect>` to that host exists, so
+ // the async stylesheet + module chunks each wait on a fresh DNS+TCP+TLS
+ // handshake. Inject one preconnect right after the viewport meta (empty on
+ // dev / non-CDN builds, where assets stay same-origin). Mirrors the same
+ // hint the static-page templates emit via HEAD_PREFIX / per-plugin heads.
+ if (CDN_PRECONNECT_HINT) {
+ html = html.replace(
+ /(<meta name="viewport"[^>]*>)/,
+ `$1\n    ${CDN_PRECONNECT_HINT}`
+ );
+ }
+
  // Add fetchpriority="high" to the entry script for faster JS parsing
  // src may be same-origin (/assets/…) or an absolute CDN URL
  // (https://cdn.…/assets/…) when ASSET_CDN/renderBuiltUrl is active.
