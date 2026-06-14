@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-06-14T12:07:32.408Z",
+  "assembledAt": "2026-06-14T22:43:26.463Z",
   "jobs": [
     {
       "id": "sonova-69253bb7703e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Junior-Embedded-Software-Engineer-%28mfd%29/1395139533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:30.004Z",
+      "crawledAt": "2026-06-14T22:43:24.461Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,8 +47,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1395139533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.656Z",
+      "previousSlugs": [
+        "junior-embedded-software-engineer-m-f-d-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-embedded-software-engineer-m-f-d-sonova-ch"
@@ -60,9 +61,8 @@
           "junior-embedded-software-engineer-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "junior-embedded-software-engineer-m-f-d-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.656Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -109,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director%2C-Performance-Management-and-Capabilities-Building-%28Academies%29/1385671733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:30.002Z",
+      "crawledAt": "2026-06-14T22:43:24.460Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -124,8 +124,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1385671733/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.654Z",
+      "previousSlugs": [
+        "director-performance-management-and-capabilities-building-academies-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-performance-management-and-capabilities-building-academies-sonova-ch"
@@ -137,9 +138,8 @@
           "director-performance-management-and-capabilities-building-academies-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "director-performance-management-and-capabilities-building-academies-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.654Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -185,7 +185,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1240395201/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.998Z",
+      "crawledAt": "2026-06-14T22:43:24.456Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -255,7 +255,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Architect-%28mfd%29/1376923933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:29.995Z",
+      "crawledAt": "2026-06-14T22:43:24.453Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -270,8 +270,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1376923933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.645Z",
+      "previousSlugs": [
+        "data-architect-m-f-d-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "data-architect-m-f-d-sonova-ch"
@@ -280,9 +281,8 @@
           "data-architect-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "data-architect-m-f-d-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.645Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -328,7 +328,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.992Z",
+      "crawledAt": "2026-06-14T22:43:24.450Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -390,7 +390,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Patent-Engineer-%2880-100%29-%28mfd%29/1387967033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:29.989Z",
+      "crawledAt": "2026-06-14T22:43:24.447Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -405,8 +405,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1387967033/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.636Z",
+      "previousSlugs": [
+        "patent-engineer-80-100-m-f-d-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "patent-engineer-80-100-m-f-d-sonova-ch"
@@ -418,9 +419,8 @@
           "patent-engineer-80-100-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "patent-engineer-80-100-m-f-d-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.636Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -466,7 +466,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director-Customer-Support/1388469533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:29.986Z",
+      "crawledAt": "2026-06-14T22:43:24.444Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -481,8 +481,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1388469533/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.630Z",
+      "previousSlugs": [
+        "director-customer-support-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-customer-support-sonova-ch"
@@ -494,9 +495,8 @@
           "director-customer-support-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "director-customer-support-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.630Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -542,7 +542,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1388787833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.982Z",
+      "crawledAt": "2026-06-14T22:43:24.440Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -557,8 +557,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1388787833/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.625Z",
+      "previousSlugs": [
+        "technical-specialist-production-tsp-m-f-d-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "technical-specialist-production-tsp-m-f-d-sonova-ch"
@@ -567,9 +568,8 @@
           "technical-specialist-production-tsp-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "technical-specialist-production-tsp-m-f-d-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.625Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -615,7 +615,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Teamleader-Support-Specialist-%28mfd%29/1286553001/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.978Z",
+      "crawledAt": "2026-06-14T22:43:24.436Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -630,8 +630,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1286553001/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.620Z",
+      "previousSlugs": [
+        "teamleader-support-specialist-m-f-d-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleader-support-specialist-m-f-d-sonova-ch"
@@ -640,9 +641,8 @@
           "teamleader-support-specialist-m-f-d-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "teamleader-support-specialist-m-f-d-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.620Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -688,7 +688,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Produktionsmitarbeiter-Elektronikfertigung-%28SMT-AOI%29/1287531701/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.974Z",
+      "crawledAt": "2026-06-14T22:43:24.432Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -750,7 +750,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Payroll-Specialist-%28Teilzeit%29/1370691433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T12:07:29.969Z",
+      "crawledAt": "2026-06-14T22:43:24.427Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -765,8 +765,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1370691433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.611Z",
+      "previousSlugs": [
+        "payroll-specialist-teilzeit-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-specialist-teilzeit-sonova-ch"
@@ -775,9 +776,8 @@
           "payroll-specialist-teilzeit-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "payroll-specialist-teilzeit-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.611Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -823,7 +823,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Requirements-Engineer/1400286633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:29.965Z",
+      "crawledAt": "2026-06-14T22:43:24.423Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -838,8 +838,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1400286633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.608Z",
+      "previousSlugs": [
+        "requirements-engineer-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "requirements-engineer-sonova-ch"
@@ -851,9 +852,8 @@
           "requirements-engineer-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "requirements-engineer-sonova-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-13T22:42:45.608Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -899,7 +899,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Commercial-Marketing-Manager-%28mfd%29/1403711433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T12:07:29.961Z",
+      "crawledAt": "2026-06-14T22:43:24.419Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
