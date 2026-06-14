@@ -10,7 +10,7 @@
  */
 
 import type { SimulationResult } from '../types';
-import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
+import { adSlotHtml } from './lib/adSlotHtml';
 import { BASE_URL } from './constants';
 import { buildFullPath, LOCALE_CALC_PREFIX, type SalaryHubScenario } from './salaryHubScenarios';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -20,21 +20,6 @@ import { differentiateH1FromTitle } from './shared/seoContentTokens';
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
 const fmtCHF = (n: number): string => Math.round(n).toLocaleString('de-CH');
-
-function adSlotHtml(slotKey: keyof typeof AD_SLOTS): string {
-  const cfg = AD_SLOTS[slotKey];
-  const attrs = [
-    `class="adsbygoogle"`,
-    `style="display:block;min-height:${cfg.placeholderMinHeight}px"`,
-    `data-ad-client="${AD_CLIENT}"`,
-    `data-ad-slot="${cfg.slot}"`,
-    `data-ad-format="${cfg.format}"`,
-  ];
-  if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
-  if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);
-  if (cfg.fullWidthResponsive) attrs.push(`data-full-width-responsive="true"`);
-  return `<ins ${attrs.join(' ')}></ins>`;
-}
 
 // ── Article definition ──────────────────────────────────────────
 
