@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-06-14T11:37:53.323Z",
+  "assembledAt": "2026-06-14T22:10:21.642Z",
   "jobs": [
     {
       "id": "ksw-0c70271dcbf6",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -60,6 +60,7 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -104,7 +105,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020001",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -137,6 +138,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:42:33.203Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -181,7 +183,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020004",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -199,7 +201,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Zentrum für Kinder- und Jugendmedizin",
-      "firstSeenAt": "2026-06-12T22:42:33.204Z",
+      "previousSlugs": [
+        "praktikantin-praktikant-empfang-ksw-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-empfang-ksw-ch"
@@ -211,9 +215,7 @@
           "praktikantin-praktikant-empfang-ksw-ch"
         ]
       },
-      "previousSlugs": [
-        "praktikantin-praktikant-empfang-ksw-ch"
-      ],
+      "firstSeenAt": "2026-06-12T22:42:33.204Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -258,7 +260,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017738",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -335,7 +337,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017741",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -412,7 +414,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4018498",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -445,6 +447,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:28:40.332Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -489,7 +492,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4018795",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -566,7 +569,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017814",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -643,7 +646,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013949",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -720,7 +723,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014126",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -797,7 +800,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013953",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -827,6 +830,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -871,7 +875,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -904,6 +908,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T00:10:18.427Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -948,7 +953,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013672",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1029,7 +1034,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012885",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1106,7 +1111,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012294",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1138,6 +1143,7 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1182,7 +1188,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004425",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1201,6 +1207,7 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "firstSeenAt": "2026-05-21T23:01:34.943Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1245,7 +1252,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4003477",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1326,7 +1333,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4002326",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1405,7 +1412,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4003962",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1486,7 +1493,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004540",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1517,6 +1524,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:46:53.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1561,7 +1569,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004437",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1612,83 +1620,6 @@
       }
     },
     {
-      "id": "ksw-f74d075fd3d6",
-      "slug": "coordinatore-medico-di-pratica-coordinatore-di-pratica-direzione-clinica-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "it": "coordinatore-medico-di-pratica-coordinatore-di-pratica-direzione-clinica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-practice-coordinator-practice-coordinator-clinical-direction-kantonsspital-winterthur-ksw-winterthur",
-        "de": "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch",
-        "fr": "coordinateur-medical-de-pratique-coordinateur-de-pratique-direction-clinique-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Med. Praxiskoordinatorin / Praxiskoordinator praxisleitende Richtung",
-      "titleByLocale": {
-        "it": "Coordinatore Medico di Pratica / Coordinatore di Pratica Direzione Clinica",
-        "en": "Medical Practice Coordinator / Practice Coordinator Clinical Direction",
-        "de": "Med. Praxiskoordinatorin / Praxiskoordinator praxisleitende Richtung",
-        "fr": "Coordinateur Médical de Pratique / Coordinateur de Pratique Direction Clinique"
-      },
-      "description": "Die Klinik für Kardiologie umfasst drei Herzkatheterlabore und ein vielseitiges Ambulatorium mit rund 50 motivierten Mitarbeitenden. Wir suchen für das Ambulatorium per 1. September 2026 oder nach Vereinbarung eine engagierte und strukturierte Persönlichkeit. In dieser Funktion übernimmst du die fachliche und organisatorische Leitung des Teams.\n\nAufgaben:\n• Du übernimmst die Gruppenleitung und förderst die fachliche sowie persönliche Entwicklung der 13 Mitarbeiterinnen\n• Du bist für die Sicherstellung eines reibungslosen Praxisablaufs zuständig und wirkst bei Projekten und Weiterentwicklungen des Ambulatoriums mit\n• Du begleitest dein Team aktiv im Arbeitsalltag, stärkst die Zusammenarbeit durch eine offene, klare und wertschätzende Kommunikation\n• Deine Stärke ist Prozesse zu analysieren, Planungsoptimierungen zu entdecken und diese nachhaltig umzusetzen\n• Du schätzt eigenverantwortliches Arbeiten mit Gestaltungsspielraum und gehst verantwortungsvoll sowie lösungsorientiert vor\n\nProfil:\n• Abgeschlossene Weiterbildung zur/zum Med. Praxiskoordinator/in praxisleitende Richtung\n• Mehrjährige Berufserfahrung, idealerweise im kardiologischen Umfeld\n• Führungserfahrung oder ausgewiesenes Interesse an einer leitenden Funktion\n• Hohe Sozialkompetenz, Organisationsgeschick und Durchsetzungsvermögen\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Kardiologie\n• Pensum: 80%",
-      "descriptionByLocale": {
-        "it": "La Clinica per la Cardiologia comprende tre laboratori di catetere cardiaco e un paziente versatile con circa 50 dipendenti motivati. Cerchiamo una personalità dedicata e strutturata per l'ambulatorio a partire dal 1° settembre 2026 o d'accordo. In questa funzione, si prende il controllo della gestione tecnica e organizzativa del team. Compiti:\n• Si assume la direzione del gruppo e promuove lo sviluppo professionale e personale dei 13 dipendenti\n• Sei responsabile di garantire un corso di pratica regolare e partecipare a progetti e ulteriori sviluppi dell'ambulatorio\n• Accompagnate attivamente il vostro team nel lavoro quotidiano, rafforzate la cooperazione attraverso la comunicazione aperta, chiara e di valore\n• La vostra forza è quella di analizzare i processi, scoprire ottimizzazioni di pianificazione e implementarli in modo sostenibile\n• Valori il lavoro auto-responsabile con la sala giochi di design e procedi in modo responsabile e orientato alla soluzione Profilo:\n• Formazione completa per il Med. Coordinatore pratico/in direzione pratica\n• Esperienza professionale pluriennale, ideale nell'ambiente cardiologico\n• Esperienza di leadership o interesse dimostrato in una funzione senior\n• Alta competenza sociale, capacità organizzative e applicazione\n• Lavoro autonomo, strutturato e orientato alla soluzione Vantaggi: Il KSW fornisce ai dipendenti condizioni che consentono loro di soddisfare i loro obiettivi professionali e le loro esigenze personali. Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW se permette l'operazione; Ogni anno, il KSW offre 40 straordinari e 50 corsi di formazione professionale. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari; In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili nel privato e nella vita professionale quotidiana, si hanno varie offerte di conversazione disponibili. La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni; i dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti; Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e tra le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute; Il nostro centro di cura La Luna con orari generosi di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il sostegno finanziario e dipendente dal reddito fornito dal KSW per i costi della culla; In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. L'assunzione di media nella biblioteca interna è gratuita anche per i dipendenti.\n• Professione: Segretariato MPA / Dottore\n• Area: Clinica per la Cardiologia\n• Presa: 80 %",
-        "en": "The Clinic for Cardiology includes three cardiac catheter laboratories and a versatile outpatient with around 50 motivated employees. We are looking for a dedicated and structured personality for the ambulatory as of 1 September 2026 or by agreement. In this function, you take over the technical and organizational management of the team. Tasks:\n• You take over the group management and promote the professional and personal development of the 13 employees\n• You are responsible for ensuring a smooth course of practice and participate in projects and further developments of the ambulatory\n• You actively accompany your team in everyday work, strengthen cooperation through open, clear and value-aware communication\n• Your strength is to analyze processes, discover planning optimizations and implement them sustainably\n• You value self-responsible work with design playroom and proceed responsibly as well as solution-oriented Profile:\n• Completed training for the Med. Practical Coordinator/in practical direction\n• Multiannual professional experience, ideal in the cardiological environment\n• Leadership experience or proven interest in a senior function\n• High social competence, organisational skills and enforcement\n• Self-employed, structured and solution-oriented work Benefits: The KSW provides employees with conditions that enable them to meet their professional goals and personal needs. Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW if it permits the operation; Every year, the KSW offers 40 overtime and 50 professional training courses. We also support you in external developments in time and/or financial terms; In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private and in the everyday professional life, you have various conversation offers available. The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. In addition, the KSW supports annual team events financially and organizes a large staff festival for the whole house every four years; KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the event of illness or accident, KSW employees are very well secured; With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies and among the most popular health insurance companies. You can benefit from a comprehensive offer for your health; Our La Luna daycare centre with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support provided by the KSW for the crib costs; In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees.\n• Profession: MPA / Doctor's Secretariat\n• Area: Clinic for Cardiology\n• Pensum: 80 %",
-        "de": "Die Klinik für Kardiologie umfasst drei Herzkatheterlabore und ein vielseitiges Ambulatorium mit rund 50 motivierten Mitarbeitenden. Wir suchen für das Ambulatorium per 1. September 2026 oder nach Vereinbarung eine engagierte und strukturierte Persönlichkeit. In dieser Funktion übernimmst du die fachliche und organisatorische Leitung des Teams. Aufgaben:\n• Du übernimmst die Gruppenleitung und förderst die fachliche sowie persönliche Entwicklung der 13 Mitarbeiterinnen\n• Du bist für die Sicherstellung eines reibungslosen Praxisablaufs zuständig und wirkst bei Projekten und Weiterentwicklungen des Ambulatoriums mit\n• Du begleitest dein Team aktiv im Arbeitsalltag, stärkst die Zusammenarbeit durch eine offene, klare und wertschätzende Kommunikation\n• Deine Stärke ist Prozesse zu analysieren, Planungsoptimierungen zu entdecken und diese nachhaltig umzusetzen\n• Du schätzt eigenverantwortliches Arbeiten mit Gestaltungsspielraum und gehst verantwortungsvoll sowie lösungsorientiert vor Profil:\n• Abgeschlossene Weiterbildung zur/zum Med. Praxiskoordinator/in praxisleitende Richtung\n• Mehrjährige Berufserfahrung, idealerweise im kardiologischen Umfeld\n• Führungserfahrung oder ausgewiesenes Interesse an einer leitenden Funktion\n• Hohe Sozialkompetenz, Organisationsgeschick und Durchsetzungsvermögen\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Kardiologie\n• Pensum: 80%",
-        "fr": "La Clinique de cardiologie comprend trois laboratoires de cathéters cardiaques et une clinique externe polyvalente comptant environ 50 employés motivés. Nous recherchons une personnalité dédiée et structurée pour l'ambulatoire au 1er septembre 2026 ou d'un commun accord. Dans cette fonction, vous prenez en charge la gestion technique et organisationnelle de l'équipe. Tâches:\n• Vous prenez en charge la gestion de groupe et promouvoir le développement professionnel et personnel des 13 employés\n• Vous êtes chargé d'assurer un bon déroulement de la pratique et de participer aux projets et développements du système ambulatoire\n• Vous accompagnez activement votre équipe dans le travail quotidien, renforcez la coopération par une communication ouverte, claire et valorisante\n• Votre force est d'analyser les processus, de découvrir les optimisations de planification et de les mettre en œuvre de manière durable\n• Vous appréciez le travail autoréfléchissant avec la salle de jeu design et allez de façon responsable et orientée vers la solution avant le profil:\n• Formation complète pour/pour le Med.\n• Expérience professionnelle pluriannuelle, idéalement dans l'environnement cardiologique\n• Expérience de leadership ou intérêt prouvé dans une fonction senior\n• Haute compétence sociale, compétences organisationnelles et capacité d'exécution\n• Travail indépendant, structuré et orienté vers la solution Avantages: La KSW offre aux employés des conditions qui leur permettent de répondre à leurs objectifs professionnels et à leurs besoins personnels. Des horaires de travail flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW s'il permet l'opération; Chaque année, le KSW offre 40 heures supplémentaires et 50 cours de formation professionnelle. Nous vous soutenons également dans les développements extérieurs en temps et/ou en termes financiers; Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé et dans la vie professionnelle quotidienne, vous avez diverses offres de conversation disponibles. La coopération précieuse et amicale au sein des équipes et dans l'ensemble des départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. En outre, le KSW soutient financièrement les événements annuels de l'équipe et organise un grand festival du personnel pour toute la maison tous les quatre ans. Ainsi, la solution des fonds de pension avec le BVK est bien supérieure au minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés; Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies et parmi les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture généreuses est situé juste à côté de la KSW. Vous pouvez également utiliser le soutien financier lié au revenu fourni par le KSW pour les frais de literie; En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n• Profession: MPA / Secrétariat du Docteur\n• Domaine: Clinique de cardiologie\n• Pensum: 80%"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3982703",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3982703",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Klinik für Kardiologie",
-      "previousSlugs": [
-        "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
-        ],
-        "en": [
-          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
-        ],
-        "fr": [
-          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ksw-897bdaad5072",
       "slug": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
@@ -1719,7 +1650,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3968864",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1755,6 +1686,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1799,7 +1731,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3997045",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1878,7 +1810,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3979789",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1959,7 +1891,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3955737",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1989,6 +1921,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2033,7 +1966,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3966717",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2114,7 +2047,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3953747",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2199,7 +2132,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3983471",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2233,6 +2166,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2277,7 +2211,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984098",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2310,6 +2244,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2354,7 +2289,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3979211",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2387,6 +2322,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2431,7 +2367,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3981875",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2508,7 +2444,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3995361",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2585,7 +2521,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3981873",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2662,7 +2598,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3981871",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2739,7 +2675,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3981877",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2821,7 +2757,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984381",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2860,6 +2796,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2904,7 +2841,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3972052",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2981,7 +2918,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3905698",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.576Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3011,6 +2948,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3055,7 +2993,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017889",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3073,7 +3011,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "OP-Zentrum",
-      "firstSeenAt": "2026-06-12T22:42:33.203Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-ksw-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-operationstechnik-ksw-ch"
@@ -3085,9 +3025,7 @@
           "fachfrau-fachmann-operationstechnik-ksw-ch"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-ksw-ch"
-      ],
+      "firstSeenAt": "2026-06-12T22:42:33.203Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3132,7 +3070,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020178",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3162,6 +3100,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:28:09.257Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3206,7 +3145,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4019907",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3283,7 +3222,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4016135",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3360,7 +3299,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014441",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3437,7 +3376,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4015543",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3514,7 +3453,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014819",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3591,7 +3530,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014017",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3668,7 +3607,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4010951",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3747,7 +3686,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4007397",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3832,7 +3771,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4003401",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3913,7 +3852,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3996,7 +3935,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4000642",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4035,6 +3974,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4079,7 +4019,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3965279",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4117,6 +4057,7 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4161,7 +4102,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3949332",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4191,6 +4132,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.415Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4235,7 +4177,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3983829",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4319,7 +4261,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3970108",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4396,7 +4338,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3965939",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4473,7 +4415,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3989823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4506,6 +4448,7 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4550,7 +4493,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3997063",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.575Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4601,6 +4544,83 @@
       }
     },
     {
+      "id": "ksw-f74d075fd3d6",
+      "slug": "coordinatore-medico-di-pratica-coordinatore-di-pratica-direzione-clinica-kantonsspital-winterthur-ksw-winterthur",
+      "slugByLocale": {
+        "it": "coordinatore-medico-di-pratica-coordinatore-di-pratica-direzione-clinica-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medical-practice-coordinator-practice-coordinator-clinical-direction-kantonsspital-winterthur-ksw-winterthur",
+        "de": "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch",
+        "fr": "coordinateur-medical-de-pratique-coordinateur-de-pratique-direction-clinique-kantonsspital-winterthur-ksw-winterthur"
+      },
+      "company": "Kantonsspital Winterthur (KSW)",
+      "companyKey": "ksw",
+      "companyDomain": "ksw.ch",
+      "title": "Med. Praxiskoordinatorin / Praxiskoordinator praxisleitende Richtung",
+      "titleByLocale": {
+        "it": "Coordinatore Medico di Pratica / Coordinatore di Pratica Direzione Clinica",
+        "en": "Medical Practice Coordinator / Practice Coordinator Clinical Direction",
+        "de": "Med. Praxiskoordinatorin / Praxiskoordinator praxisleitende Richtung",
+        "fr": "Coordinateur Médical de Pratique / Coordinateur de Pratique Direction Clinique"
+      },
+      "description": "Die Klinik für Kardiologie umfasst drei Herzkatheterlabore und ein vielseitiges Ambulatorium mit rund 50 motivierten Mitarbeitenden. Wir suchen für das Ambulatorium per 1. September 2026 oder nach Vereinbarung eine engagierte und strukturierte Persönlichkeit. In dieser Funktion übernimmst du die fachliche und organisatorische Leitung des Teams.\n\nAufgaben:\n• Du übernimmst die Gruppenleitung und förderst die fachliche sowie persönliche Entwicklung der 13 Mitarbeiterinnen\n• Du bist für die Sicherstellung eines reibungslosen Praxisablaufs zuständig und wirkst bei Projekten und Weiterentwicklungen des Ambulatoriums mit\n• Du begleitest dein Team aktiv im Arbeitsalltag, stärkst die Zusammenarbeit durch eine offene, klare und wertschätzende Kommunikation\n• Deine Stärke ist Prozesse zu analysieren, Planungsoptimierungen zu entdecken und diese nachhaltig umzusetzen\n• Du schätzt eigenverantwortliches Arbeiten mit Gestaltungsspielraum und gehst verantwortungsvoll sowie lösungsorientiert vor\n\nProfil:\n• Abgeschlossene Weiterbildung zur/zum Med. Praxiskoordinator/in praxisleitende Richtung\n• Mehrjährige Berufserfahrung, idealerweise im kardiologischen Umfeld\n• Führungserfahrung oder ausgewiesenes Interesse an einer leitenden Funktion\n• Hohe Sozialkompetenz, Organisationsgeschick und Durchsetzungsvermögen\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Kardiologie\n• Pensum: 80%",
+      "descriptionByLocale": {
+        "it": "La Clinica per la Cardiologia comprende tre laboratori di catetere cardiaco e un paziente versatile con circa 50 dipendenti motivati. Cerchiamo una personalità dedicata e strutturata per l'ambulatorio a partire dal 1° settembre 2026 o d'accordo. In questa funzione, si prende il controllo della gestione tecnica e organizzativa del team. Compiti:\n• Si assume la direzione del gruppo e promuove lo sviluppo professionale e personale dei 13 dipendenti\n• Sei responsabile di garantire un corso di pratica regolare e partecipare a progetti e ulteriori sviluppi dell'ambulatorio\n• Accompagnate attivamente il vostro team nel lavoro quotidiano, rafforzate la cooperazione attraverso la comunicazione aperta, chiara e di valore\n• La vostra forza è quella di analizzare i processi, scoprire ottimizzazioni di pianificazione e implementarli in modo sostenibile\n• Valori il lavoro auto-responsabile con la sala giochi di design e procedi in modo responsabile e orientato alla soluzione Profilo:\n• Formazione completa per il Med. Coordinatore pratico/in direzione pratica\n• Esperienza professionale pluriennale, ideale nell'ambiente cardiologico\n• Esperienza di leadership o interesse dimostrato in una funzione senior\n• Alta competenza sociale, capacità organizzative e applicazione\n• Lavoro autonomo, strutturato e orientato alla soluzione Vantaggi: Il KSW fornisce ai dipendenti condizioni che consentono loro di soddisfare i loro obiettivi professionali e le loro esigenze personali. Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW se permette l'operazione; Ogni anno, il KSW offre 40 straordinari e 50 corsi di formazione professionale. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari; In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili nel privato e nella vita professionale quotidiana, si hanno varie offerte di conversazione disponibili. La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni; i dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti; Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e tra le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute; Il nostro centro di cura La Luna con orari generosi di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il sostegno finanziario e dipendente dal reddito fornito dal KSW per i costi della culla; In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. L'assunzione di media nella biblioteca interna è gratuita anche per i dipendenti.\n• Professione: Segretariato MPA / Dottore\n• Area: Clinica per la Cardiologia\n• Presa: 80 %",
+        "en": "The Clinic for Cardiology includes three cardiac catheter laboratories and a versatile outpatient with around 50 motivated employees. We are looking for a dedicated and structured personality for the ambulatory as of 1 September 2026 or by agreement. In this function, you take over the technical and organizational management of the team. Tasks:\n• You take over the group management and promote the professional and personal development of the 13 employees\n• You are responsible for ensuring a smooth course of practice and participate in projects and further developments of the ambulatory\n• You actively accompany your team in everyday work, strengthen cooperation through open, clear and value-aware communication\n• Your strength is to analyze processes, discover planning optimizations and implement them sustainably\n• You value self-responsible work with design playroom and proceed responsibly as well as solution-oriented Profile:\n• Completed training for the Med. Practical Coordinator/in practical direction\n• Multiannual professional experience, ideal in the cardiological environment\n• Leadership experience or proven interest in a senior function\n• High social competence, organisational skills and enforcement\n• Self-employed, structured and solution-oriented work Benefits: The KSW provides employees with conditions that enable them to meet their professional goals and personal needs. Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW if it permits the operation; Every year, the KSW offers 40 overtime and 50 professional training courses. We also support you in external developments in time and/or financial terms; In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private and in the everyday professional life, you have various conversation offers available. The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. In addition, the KSW supports annual team events financially and organizes a large staff festival for the whole house every four years; KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the event of illness or accident, KSW employees are very well secured; With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies and among the most popular health insurance companies. You can benefit from a comprehensive offer for your health; Our La Luna daycare centre with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support provided by the KSW for the crib costs; In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees.\n• Profession: MPA / Doctor's Secretariat\n• Area: Clinic for Cardiology\n• Pensum: 80 %",
+        "de": "Die Klinik für Kardiologie umfasst drei Herzkatheterlabore und ein vielseitiges Ambulatorium mit rund 50 motivierten Mitarbeitenden. Wir suchen für das Ambulatorium per 1. September 2026 oder nach Vereinbarung eine engagierte und strukturierte Persönlichkeit. In dieser Funktion übernimmst du die fachliche und organisatorische Leitung des Teams. Aufgaben:\n• Du übernimmst die Gruppenleitung und förderst die fachliche sowie persönliche Entwicklung der 13 Mitarbeiterinnen\n• Du bist für die Sicherstellung eines reibungslosen Praxisablaufs zuständig und wirkst bei Projekten und Weiterentwicklungen des Ambulatoriums mit\n• Du begleitest dein Team aktiv im Arbeitsalltag, stärkst die Zusammenarbeit durch eine offene, klare und wertschätzende Kommunikation\n• Deine Stärke ist Prozesse zu analysieren, Planungsoptimierungen zu entdecken und diese nachhaltig umzusetzen\n• Du schätzt eigenverantwortliches Arbeiten mit Gestaltungsspielraum und gehst verantwortungsvoll sowie lösungsorientiert vor Profil:\n• Abgeschlossene Weiterbildung zur/zum Med. Praxiskoordinator/in praxisleitende Richtung\n• Mehrjährige Berufserfahrung, idealerweise im kardiologischen Umfeld\n• Führungserfahrung oder ausgewiesenes Interesse an einer leitenden Funktion\n• Hohe Sozialkompetenz, Organisationsgeschick und Durchsetzungsvermögen\n• Selbständige, strukturierte und lösungsorientierte Arbeitsweise Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Kardiologie\n• Pensum: 80%",
+        "fr": "La Clinique de cardiologie comprend trois laboratoires de cathéters cardiaques et une clinique externe polyvalente comptant environ 50 employés motivés. Nous recherchons une personnalité dédiée et structurée pour l'ambulatoire au 1er septembre 2026 ou d'un commun accord. Dans cette fonction, vous prenez en charge la gestion technique et organisationnelle de l'équipe. Tâches:\n• Vous prenez en charge la gestion de groupe et promouvoir le développement professionnel et personnel des 13 employés\n• Vous êtes chargé d'assurer un bon déroulement de la pratique et de participer aux projets et développements du système ambulatoire\n• Vous accompagnez activement votre équipe dans le travail quotidien, renforcez la coopération par une communication ouverte, claire et valorisante\n• Votre force est d'analyser les processus, de découvrir les optimisations de planification et de les mettre en œuvre de manière durable\n• Vous appréciez le travail autoréfléchissant avec la salle de jeu design et allez de façon responsable et orientée vers la solution avant le profil:\n• Formation complète pour/pour le Med.\n• Expérience professionnelle pluriannuelle, idéalement dans l'environnement cardiologique\n• Expérience de leadership ou intérêt prouvé dans une fonction senior\n• Haute compétence sociale, compétences organisationnelles et capacité d'exécution\n• Travail indépendant, structuré et orienté vers la solution Avantages: La KSW offre aux employés des conditions qui leur permettent de répondre à leurs objectifs professionnels et à leurs besoins personnels. Des horaires de travail flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW s'il permet l'opération; Chaque année, le KSW offre 40 heures supplémentaires et 50 cours de formation professionnelle. Nous vous soutenons également dans les développements extérieurs en temps et/ou en termes financiers; Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé et dans la vie professionnelle quotidienne, vous avez diverses offres de conversation disponibles. La coopération précieuse et amicale au sein des équipes et dans l'ensemble des départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. En outre, le KSW soutient financièrement les événements annuels de l'équipe et organise un grand festival du personnel pour toute la maison tous les quatre ans. Ainsi, la solution des fonds de pension avec le BVK est bien supérieure au minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés; Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies et parmi les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture généreuses est situé juste à côté de la KSW. Vous pouvez également utiliser le soutien financier lié au revenu fourni par le KSW pour les frais de literie; En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n• Profession: MPA / Secrétariat du Docteur\n• Domaine: Clinique de cardiologie\n• Pensum: 80%"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ksw/job/details/3982703",
+      "source": "KSW Dedicated Parser (Solique tenant ksw)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://live.solique.ch/ksw/job/details/3982703",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Klinik für Kardiologie",
+      "previousSlugs": [
+        "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
+        ],
+        "en": [
+          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
+        ],
+        "fr": [
+          "med-praxiskoordinatorin-praxiskoordinator-praxisleitende-richtung-ksw-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ksw-31bedafd450a",
       "slug": "cucina-dietetica-cucina-dietetica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
@@ -4631,7 +4651,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017388",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4664,6 +4684,78 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:43.718Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ksw-0d3924c752bb",
+      "slug": "arztsekretarin-arztsekretar-ksw-ch-2",
+      "slugByLocale": {
+        "it": "arztsekretarin-arztsekretar-ksw-ch-2",
+        "en": "arztsekretarin-arztsekretar-ksw-ch-2",
+        "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "arztsekretarin-arztsekretar-ksw-ch-2"
+      },
+      "company": "Kantonsspital Winterthur (KSW)",
+      "companyKey": "ksw",
+      "companyDomain": "ksw.ch",
+      "title": "Arztsekretärin / Arztsekretär",
+      "titleByLocale": {
+        "it": "Segretario del Dottore",
+        "en": "Doctor's Secretary",
+        "de": "Arztsekretärin / Arztsekretär",
+        "fr": "Secrétaire du docteur"
+      },
+      "description": "(Fixe Arbeitstage Montag und Freitag. Restliche Arbeitstage flexibel.) Zur Verstärkung unseres aufgestellten Teams suchen wir eine engagierte neue Teamkollegin oder einen engagierten neuen Teamkollegen. Wir bieten dir ein vielseitiges und anspruchsvolles Aufgabengebiet. Es erwartet dich ein fröhliches, kollegiales und motiviertes Team, das ein wertschätzendes Arbeitsklima pflegt und interessante und abwechslungsreiche Arbeit erledigt, ohne Notfall-/ oder Wochenend-Dienst.\n\nAufgaben:\n• Berichte erstellen, redigieren und versenden\n• Korrespondenz via Mail und Telefon mit externen Partnern, Zuweisern, Patientinnen/Patienten und internen Ärztinnen/Ärzten\n• Vorbereitung, Koordination und Verrechnung von diversen Tumorboards. Du bist diesbezüglich erste Ansprechperson für interne und externe Anmelder\n• Eigenständige Abwicklung vielseitiger Sekretariatsaufgaben (Post, Materialbestellung, Büroorganisation)\n• Flexible, eigenverantwortliche Arbeitsweise mit eigenen Spezialaufgaben\n• Professionelle und lösungsorientierte Unterstützung unseres Ärzteteams\n• Unterstützung der Chefarztsekretärinnen bei diversen Aufgaben\n• Du unterstützt das Team bei der Planung und Durchführung von internen Fortbildungen\n\nProfil:\n• Du bringst eine medizinische oder kaufmännische Grundausbildung sowie eine Weiterbildung zur Arztsekretärin/Arztsekretär mit\n• Deine Berufserfahrung im Gesundheitswesen sowie die fundierten Kenntnisse in der Terminologie erleichtern dir den Einstieg in die neue Aufgabe\n• Du denkst vernetzt und arbeitest organisiert sowie zielgerichtet. Zu deinen Eigenschaften gehören eine exakte sowie selbstständige Arbeitsweise und eine rasche Auffassungsgabe\n• Du verfügst über gute Kommunikationsfähigkeiten und zeichnest dich durch Flexibilität, Humor und Zuverlässigkeit aus\n• Die deutsche Sprache beherrschst du stilsicher in Wort und Schrift\n• Dein Profil rundest du durch gute Anwenderkenntnisse der Microsoft Office Produkte sowie verschiedener Kliniksysteme (KISIM, Navision, IBI-Care) ab\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für med. Onkologie und Hämatologie\n• Pensum: 60-80%",
+      "descriptionByLocale": {
+        "it": "Designazione Per rafforzare il nostro team, stiamo cercando un nuovo compagno di squadra dedicato o un nuovo compagno di squadra dedicato. Vi offriamo un'area di lavoro versatile e impegnativa. Un team allegro, collegiale e motivato vi aspetta, che mantiene un prezioso ambiente di lavoro e svolge un lavoro interessante e vario senza servizio di emergenza/settimana. Mansioni - Creare, modificare e inviare report - corrispondenza via posta e telefono con partner esterni, istruttori, pazienti e medici interni - Preparazione, coordinamento e calcolo di varie tavole tumorali. Sei il primo rispondente per i candidati interni ed esterni - elaborazione indipendente di vari compiti di segreteria (post, ordine materiale, organizzazione ufficio) - Funzionamento flessibile e autoresponsabile con i propri compiti speciali - Supporto professionale e orientato alla soluzione del nostro team medico - Sostenere i medici principali in vari compiti - Lei sostiene il team nella pianificazione e nell'attuazione della formazione interna\n• Requisiti - Portate una formazione medica o commerciale di base e un'ulteriore formazione al segretario/segretario del medico con - La vostra esperienza professionale nel settore sanitario e la conoscenza approfondita della terminologia rendono più facile per voi entrare nel nuovo compito - Pensi che sia in rete e lavori organizzati e mirati. Le vostre proprietà includono un modo esatto e indipendente di lavorare e una rapida comprensione - Hai buone capacità di comunicazione e attira la tua attenzione attraverso flessibilità, umorismo e affidabilità - È possibile padroneggiare la lingua tedesca in parola e scrivere - Completa il tuo profilo con una buona conoscenza utente dei prodotti Microsoft Office e dei vari sistemi clinici (KISIM, Navision, IBI-Care) Cosa? - Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW, a condizione che consenta il funzionamento. - Annualmente, il KSW offre 40 corsi extra-tempo e 50 corsi di formazione professionale. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari. - In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili in privato e nella vita professionale quotidiana sono a vostra disposizione. - La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Il KSW supporta anche eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni. - I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti. - Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute. - Il nostro vivaio La Luna con ampie ore di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla. - In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti. Contatto - Campo di professione: MPA / Segreteria del Dottore - Area: Clinica per medicina. Oncologia e Haematologia - Penso: 60-80 %",
+        "en": "Description To strengthen our team, we are looking for a dedicated new teammate or a dedicated new teammate.\n• We offer you a versatile and demanding task area. A cheerful, collegial and motivated team awaits you, which maintains a valuable working environment and performs interesting and varied work without emergency/weekend service. Mansioni - Create, edit and send reports - correspondence via mail and telephone with external partners, instructors, patients and internal physicians - Preparation, coordination and calculation of various tumor boards. You are the first respondent for internal and external applicants - independent processing of various secretarial tasks (post, material order, office organization) - Flexible, self-responsive operation with own special tasks - Professional and solution-oriented support of our medical team - Supporting the chief physicians in various tasks - You support the team in the planning and implementation of internal training\n• Requisiti - You bring a basic medical or commercial training and a further education to the doctor's secretary/secretary with - Your professional experience in the healthcare sector as well as the well-founded knowledge of terminology make it easier for you to enter the new task - You think networked and work organized and targeted. Your properties include an exact and independent way of working and a quick understanding - You have good communication skills and draw your attention through flexibility, humor and reliability - You can master the German language in word and writing - You complete your profile with good user knowledge of Microsoft Office products and various clinic systems (KISIM, Navision, IBI-Care)\n• Cosa offriamo - Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW, provided that it permits operation. - Annually, the KSW offers 40 extra-time and 50 professional training courses. We also support you in external developments in time and/or financial terms. - In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private as well as in everyday professional life are available to you. - The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. The KSW also supports annual team events financially and organizes a large staff festival for the whole house every four years. - KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the case of illness or accident, KSW employees are very well secured. - With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies as well as the most popular health insurance companies. You can benefit from a comprehensive offer for your health. - Our La Luna nursery with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support by the KSW for the crib costs. - In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees. Contatto - Profession field: MPA / Doctor's Secretariat - Area: Clinic for med. Oncology and Haematology - Pensum: 60-80 %",
+        "de": "(Fixe Arbeitstage Montag und Freitag. Restliche Arbeitstage flexibel.) Zur Verstärkung unseres aufgestellten Teams suchen wir eine engagierte neue Teamkollegin oder einen engagierten neuen Teamkollegen. Wir bieten dir ein vielseitiges und anspruchsvolles Aufgabengebiet. Es erwartet dich ein fröhliches, kollegiales und motiviertes Team, das ein wertschätzendes Arbeitsklima pflegt und interessante und abwechslungsreiche Arbeit erledigt, ohne Notfall-/ oder Wochenend-Dienst. Aufgaben:\n• Berichte erstellen, redigieren und versenden\n• Korrespondenz via Mail und Telefon mit externen Partnern, Zuweisern, Patientinnen/Patienten und internen Ärztinnen/Ärzten\n• Vorbereitung, Koordination und Verrechnung von diversen Tumorboards. Du bist diesbezüglich erste Ansprechperson für interne und externe Anmelder\n• Eigenständige Abwicklung vielseitiger Sekretariatsaufgaben (Post, Materialbestellung, Büroorganisation)\n• Flexible, eigenverantwortliche Arbeitsweise mit eigenen Spezialaufgaben\n• Professionelle und lösungsorientierte Unterstützung unseres Ärzteteams\n• Unterstützung der Chefarztsekretärinnen bei diversen Aufgaben\n• Du unterstützt das Team bei der Planung und Durchführung von internen Fortbildungen Profil:\n• Du bringst eine medizinische oder kaufmännische Grundausbildung sowie eine Weiterbildung zur Arztsekretärin/Arztsekretär mit\n• Deine Berufserfahrung im Gesundheitswesen sowie die fundierten Kenntnisse in der Terminologie erleichtern dir den Einstieg in die neue Aufgabe\n• Du denkst vernetzt und arbeitest organisiert sowie zielgerichtet. Zu deinen Eigenschaften gehören eine exakte sowie selbstständige Arbeitsweise und eine rasche Auffassungsgabe\n• Du verfügst über gute Kommunikationsfähigkeiten und zeichnest dich durch Flexibilität, Humor und Zuverlässigkeit aus\n• Die deutsche Sprache beherrschst du stilsicher in Wort und Schrift\n• Dein Profil rundest du durch gute Anwenderkenntnisse der Microsoft Office Produkte sowie verschiedener Kliniksysteme (KISIM, Navision, IBI-Care) ab Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für med. Onkologie und Hämatologie\n• Pensum: 60-80%",
+        "fr": "Désignation des marchandises Pour renforcer notre équipe, nous cherchons un nouveau coéquipier dédié ou un nouveau coéquipier dédié. Nous vous offrons une zone de travail polyvalente et exigeante. Une équipe joyeuse, collégiale et motivée vous attend, qui maintient un environnement de travail précieux et effectue un travail intéressant et varié sans service d'urgence / week-end. Mansioni - Créer, modifier et envoyer des rapports - correspondance par courrier et par téléphone avec des partenaires externes, des instructeurs, des patients et des médecins internes - Préparation, coordination et calcul de divers tableaux tumoraux. Vous êtes le premier répondant pour les candidats internes et externes - traitement indépendant de diverses tâches de secrétariat (poste, commande matérielle, organisation des bureaux) - Fonctionnement flexible et autonome avec des tâches particulières - Soutien professionnel et axé sur la solution de notre équipe médicale - Soutenir les médecins en chef dans diverses tâches - Vous aidez l'équipe dans la planification et la mise en œuvre de la formation interne\n• Requisiti - Vous apportez une formation médicale ou commerciale de base et une formation complémentaire au secrétaire/secrétaire du médecin avec - Votre expérience professionnelle dans le secteur de la santé ainsi que la connaissance bien fondée de la terminologie vous permettent d'entrer plus facilement dans la nouvelle tâche - Vous pensez réseau et travail organisé et ciblé. Vos propriétés incluent une manière exacte et indépendante de travailler et une compréhension rapide - Vous avez de bonnes compétences en communication et attirez votre attention par la flexibilité, l'humour et la fiabilité - Vous pouvez maîtriser l'allemand en paroles et en écriture - Vous remplissez votre profil avec une bonne connaissance utilisateur des produits Microsoft Office et de divers systèmes cliniques (KISIM, Navision, IBI-Care)\n• Cosa offriamo - Des horaires flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW, à condition qu'il permette l'exploitation. - Chaque année, le KSW propose 40 formations supplémentaires et 50 formations professionnelles. Nous vous soutenons également dans les développements extérieurs en termes de temps et/ou financiers. - Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé aussi bien que dans la vie professionnelle quotidienne sont à votre disposition. - La coopération précieuse et amicale au sein des équipes et à travers les départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. Le KSW soutient également financièrement des événements d'équipe annuels et organise un grand festival du personnel pour toute la maison tous les quatre ans. - Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution des fonds de pension avec le BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés. - Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies ainsi que les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé. - Notre pépinière La Luna avec des heures d'ouverture généreuses est située juste à côté de la KSW. Vous pouvez également utiliser le soutien financier dépendant du revenu par le KSW pour les coûts du lit bébé. - En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés. Contatto - Domaine professionnel : MPA / Secrétariat du Docteur - Clinique de médecine. Oncologie et hématologie - Pensum: 60-80 %"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ksw/job/details/4014574",
+      "source": "KSW Dedicated Parser (Solique tenant ksw)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-04",
+      "applyUrl": "https://live.solique.ch/ksw/job/details/4014574",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Klinik für med. Onkologie und Hämatologie",
+      "previousSlugsByLocale": {
+        "de": [
+          "arztsekretarin-arztsekretar-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-ksw-ch"
+      ],
+      "firstSeenAt": "2026-06-04T00:15:33.566Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4708,7 +4800,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012963",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4741,6 +4833,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:20:37.293Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4785,7 +4878,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3981188",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4859,7 +4952,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3996747",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4949,7 +5042,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004434",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5026,7 +5119,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4002802",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.574Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5109,7 +5202,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017085",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.573Z",
+      "crawledAt": "2026-06-14T22:10:19.124Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5142,6 +5235,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:46:05.232Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5186,7 +5280,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014560",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.573Z",
+      "crawledAt": "2026-06-14T22:10:19.124Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5217,6 +5311,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T00:15:33.566Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -5226,77 +5321,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ksw-0d3924c752bb",
-      "slug": "arztsekretarin-arztsekretar-ksw-ch-2",
-      "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-ksw-ch-2",
-        "en": "arztsekretarin-arztsekretar-ksw-ch-2",
-        "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "arztsekretarin-arztsekretar-ksw-ch-2"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Arztsekretärin / Arztsekretär",
-      "titleByLocale": {
-        "it": "Segretario del Dottore",
-        "en": "Doctor's Secretary",
-        "de": "Arztsekretärin / Arztsekretär",
-        "fr": "Secrétaire du docteur"
-      },
-      "description": "(Fixe Arbeitstage Montag und Freitag. Restliche Arbeitstage flexibel.) Zur Verstärkung unseres aufgestellten Teams suchen wir eine engagierte neue Teamkollegin oder einen engagierten neuen Teamkollegen. Wir bieten dir ein vielseitiges und anspruchsvolles Aufgabengebiet. Es erwartet dich ein fröhliches, kollegiales und motiviertes Team, das ein wertschätzendes Arbeitsklima pflegt und interessante und abwechslungsreiche Arbeit erledigt, ohne Notfall-/ oder Wochenend-Dienst.\n\nAufgaben:\n• Berichte erstellen, redigieren und versenden\n• Korrespondenz via Mail und Telefon mit externen Partnern, Zuweisern, Patientinnen/Patienten und internen Ärztinnen/Ärzten\n• Vorbereitung, Koordination und Verrechnung von diversen Tumorboards. Du bist diesbezüglich erste Ansprechperson für interne und externe Anmelder\n• Eigenständige Abwicklung vielseitiger Sekretariatsaufgaben (Post, Materialbestellung, Büroorganisation)\n• Flexible, eigenverantwortliche Arbeitsweise mit eigenen Spezialaufgaben\n• Professionelle und lösungsorientierte Unterstützung unseres Ärzteteams\n• Unterstützung der Chefarztsekretärinnen bei diversen Aufgaben\n• Du unterstützt das Team bei der Planung und Durchführung von internen Fortbildungen\n\nProfil:\n• Du bringst eine medizinische oder kaufmännische Grundausbildung sowie eine Weiterbildung zur Arztsekretärin/Arztsekretär mit\n• Deine Berufserfahrung im Gesundheitswesen sowie die fundierten Kenntnisse in der Terminologie erleichtern dir den Einstieg in die neue Aufgabe\n• Du denkst vernetzt und arbeitest organisiert sowie zielgerichtet. Zu deinen Eigenschaften gehören eine exakte sowie selbstständige Arbeitsweise und eine rasche Auffassungsgabe\n• Du verfügst über gute Kommunikationsfähigkeiten und zeichnest dich durch Flexibilität, Humor und Zuverlässigkeit aus\n• Die deutsche Sprache beherrschst du stilsicher in Wort und Schrift\n• Dein Profil rundest du durch gute Anwenderkenntnisse der Microsoft Office Produkte sowie verschiedener Kliniksysteme (KISIM, Navision, IBI-Care) ab\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für med. Onkologie und Hämatologie\n• Pensum: 60-80%",
-      "descriptionByLocale": {
-        "it": "Designazione Per rafforzare il nostro team, stiamo cercando un nuovo compagno di squadra dedicato o un nuovo compagno di squadra dedicato. Vi offriamo un'area di lavoro versatile e impegnativa. Un team allegro, collegiale e motivato vi aspetta, che mantiene un prezioso ambiente di lavoro e svolge un lavoro interessante e vario senza servizio di emergenza/settimana. Mansioni - Creare, modificare e inviare report - corrispondenza via posta e telefono con partner esterni, istruttori, pazienti e medici interni - Preparazione, coordinamento e calcolo di varie tavole tumorali. Sei il primo rispondente per i candidati interni ed esterni - elaborazione indipendente di vari compiti di segreteria (post, ordine materiale, organizzazione ufficio) - Funzionamento flessibile e autoresponsabile con i propri compiti speciali - Supporto professionale e orientato alla soluzione del nostro team medico - Sostenere i medici principali in vari compiti - Lei sostiene il team nella pianificazione e nell'attuazione della formazione interna\n• Requisiti - Portate una formazione medica o commerciale di base e un'ulteriore formazione al segretario/segretario del medico con - La vostra esperienza professionale nel settore sanitario e la conoscenza approfondita della terminologia rendono più facile per voi entrare nel nuovo compito - Pensi che sia in rete e lavori organizzati e mirati. Le vostre proprietà includono un modo esatto e indipendente di lavorare e una rapida comprensione - Hai buone capacità di comunicazione e attira la tua attenzione attraverso flessibilità, umorismo e affidabilità - È possibile padroneggiare la lingua tedesca in parola e scrivere - Completa il tuo profilo con una buona conoscenza utente dei prodotti Microsoft Office e dei vari sistemi clinici (KISIM, Navision, IBI-Care) Cosa? - Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW, a condizione che consenta il funzionamento. - Annualmente, il KSW offre 40 corsi extra-tempo e 50 corsi di formazione professionale. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari. - In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili in privato e nella vita professionale quotidiana sono a vostra disposizione. - La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Il KSW supporta anche eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni. - I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti. - Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute. - Il nostro vivaio La Luna con ampie ore di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla. - In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti. Contatto - Campo di professione: MPA / Segreteria del Dottore - Area: Clinica per medicina. Oncologia e Haematologia - Penso: 60-80 %",
-        "en": "Description To strengthen our team, we are looking for a dedicated new teammate or a dedicated new teammate.\n• We offer you a versatile and demanding task area. A cheerful, collegial and motivated team awaits you, which maintains a valuable working environment and performs interesting and varied work without emergency/weekend service. Mansioni - Create, edit and send reports - correspondence via mail and telephone with external partners, instructors, patients and internal physicians - Preparation, coordination and calculation of various tumor boards. You are the first respondent for internal and external applicants - independent processing of various secretarial tasks (post, material order, office organization) - Flexible, self-responsive operation with own special tasks - Professional and solution-oriented support of our medical team - Supporting the chief physicians in various tasks - You support the team in the planning and implementation of internal training\n• Requisiti - You bring a basic medical or commercial training and a further education to the doctor's secretary/secretary with - Your professional experience in the healthcare sector as well as the well-founded knowledge of terminology make it easier for you to enter the new task - You think networked and work organized and targeted. Your properties include an exact and independent way of working and a quick understanding - You have good communication skills and draw your attention through flexibility, humor and reliability - You can master the German language in word and writing - You complete your profile with good user knowledge of Microsoft Office products and various clinic systems (KISIM, Navision, IBI-Care)\n• Cosa offriamo - Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW, provided that it permits operation. - Annually, the KSW offers 40 extra-time and 50 professional training courses. We also support you in external developments in time and/or financial terms. - In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private as well as in everyday professional life are available to you. - The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. The KSW also supports annual team events financially and organizes a large staff festival for the whole house every four years. - KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the case of illness or accident, KSW employees are very well secured. - With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies as well as the most popular health insurance companies. You can benefit from a comprehensive offer for your health. - Our La Luna nursery with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support by the KSW for the crib costs. - In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees. Contatto - Profession field: MPA / Doctor's Secretariat - Area: Clinic for med. Oncology and Haematology - Pensum: 60-80 %",
-        "de": "(Fixe Arbeitstage Montag und Freitag. Restliche Arbeitstage flexibel.) Zur Verstärkung unseres aufgestellten Teams suchen wir eine engagierte neue Teamkollegin oder einen engagierten neuen Teamkollegen. Wir bieten dir ein vielseitiges und anspruchsvolles Aufgabengebiet. Es erwartet dich ein fröhliches, kollegiales und motiviertes Team, das ein wertschätzendes Arbeitsklima pflegt und interessante und abwechslungsreiche Arbeit erledigt, ohne Notfall-/ oder Wochenend-Dienst. Aufgaben:\n• Berichte erstellen, redigieren und versenden\n• Korrespondenz via Mail und Telefon mit externen Partnern, Zuweisern, Patientinnen/Patienten und internen Ärztinnen/Ärzten\n• Vorbereitung, Koordination und Verrechnung von diversen Tumorboards. Du bist diesbezüglich erste Ansprechperson für interne und externe Anmelder\n• Eigenständige Abwicklung vielseitiger Sekretariatsaufgaben (Post, Materialbestellung, Büroorganisation)\n• Flexible, eigenverantwortliche Arbeitsweise mit eigenen Spezialaufgaben\n• Professionelle und lösungsorientierte Unterstützung unseres Ärzteteams\n• Unterstützung der Chefarztsekretärinnen bei diversen Aufgaben\n• Du unterstützt das Team bei der Planung und Durchführung von internen Fortbildungen Profil:\n• Du bringst eine medizinische oder kaufmännische Grundausbildung sowie eine Weiterbildung zur Arztsekretärin/Arztsekretär mit\n• Deine Berufserfahrung im Gesundheitswesen sowie die fundierten Kenntnisse in der Terminologie erleichtern dir den Einstieg in die neue Aufgabe\n• Du denkst vernetzt und arbeitest organisiert sowie zielgerichtet. Zu deinen Eigenschaften gehören eine exakte sowie selbstständige Arbeitsweise und eine rasche Auffassungsgabe\n• Du verfügst über gute Kommunikationsfähigkeiten und zeichnest dich durch Flexibilität, Humor und Zuverlässigkeit aus\n• Die deutsche Sprache beherrschst du stilsicher in Wort und Schrift\n• Dein Profil rundest du durch gute Anwenderkenntnisse der Microsoft Office Produkte sowie verschiedener Kliniksysteme (KISIM, Navision, IBI-Care) ab Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für med. Onkologie und Hämatologie\n• Pensum: 60-80%",
-        "fr": "Désignation des marchandises Pour renforcer notre équipe, nous cherchons un nouveau coéquipier dédié ou un nouveau coéquipier dédié. Nous vous offrons une zone de travail polyvalente et exigeante. Une équipe joyeuse, collégiale et motivée vous attend, qui maintient un environnement de travail précieux et effectue un travail intéressant et varié sans service d'urgence / week-end. Mansioni - Créer, modifier et envoyer des rapports - correspondance par courrier et par téléphone avec des partenaires externes, des instructeurs, des patients et des médecins internes - Préparation, coordination et calcul de divers tableaux tumoraux. Vous êtes le premier répondant pour les candidats internes et externes - traitement indépendant de diverses tâches de secrétariat (poste, commande matérielle, organisation des bureaux) - Fonctionnement flexible et autonome avec des tâches particulières - Soutien professionnel et axé sur la solution de notre équipe médicale - Soutenir les médecins en chef dans diverses tâches - Vous aidez l'équipe dans la planification et la mise en œuvre de la formation interne\n• Requisiti - Vous apportez une formation médicale ou commerciale de base et une formation complémentaire au secrétaire/secrétaire du médecin avec - Votre expérience professionnelle dans le secteur de la santé ainsi que la connaissance bien fondée de la terminologie vous permettent d'entrer plus facilement dans la nouvelle tâche - Vous pensez réseau et travail organisé et ciblé. Vos propriétés incluent une manière exacte et indépendante de travailler et une compréhension rapide - Vous avez de bonnes compétences en communication et attirez votre attention par la flexibilité, l'humour et la fiabilité - Vous pouvez maîtriser l'allemand en paroles et en écriture - Vous remplissez votre profil avec une bonne connaissance utilisateur des produits Microsoft Office et de divers systèmes cliniques (KISIM, Navision, IBI-Care)\n• Cosa offriamo - Des horaires flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW, à condition qu'il permette l'exploitation. - Chaque année, le KSW propose 40 formations supplémentaires et 50 formations professionnelles. Nous vous soutenons également dans les développements extérieurs en termes de temps et/ou financiers. - Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé aussi bien que dans la vie professionnelle quotidienne sont à votre disposition. - La coopération précieuse et amicale au sein des équipes et à travers les départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. Le KSW soutient également financièrement des événements d'équipe annuels et organise un grand festival du personnel pour toute la maison tous les quatre ans. - Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution des fonds de pension avec le BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés. - Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies ainsi que les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé. - Notre pépinière La Luna avec des heures d'ouverture généreuses est située juste à côté de la KSW. Vous pouvez également utiliser le soutien financier dépendant du revenu par le KSW pour les coûts du lit bébé. - En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés. Contatto - Domaine professionnel : MPA / Secrétariat du Docteur - Clinique de médecine. Oncologie et hématologie - Pensum: 60-80 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/4014574",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:37:50.573Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-04",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/4014574",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Klinik für med. Onkologie und Hämatologie",
-      "previousSlugsByLocale": {
-        "de": [
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch"
-      ],
-      "firstSeenAt": "2026-06-04T00:15:33.566Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
