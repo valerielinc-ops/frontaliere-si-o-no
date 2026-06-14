@@ -929,19 +929,24 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   if (t2c) return balanceMarkdownMarkers(t2c);
 
   // Tier 3b: LibreTranslate self-hosted (CI service container — unlimited, no
-  // rate limits, no shared throttle). Promoted ABOVE MyMemory ONLY for EN/DE/FR
-  // targets: once the premium tiers (DeepL/Azure/Google Cloud) are exhausted, the
-  // self-hosted instance carries the parallel load instead of MyMemory's
-  // 1-call/sec throttle, so the localization queue's concurrency delivers
-  // throughput. Gated to non-IT because LibreTranslate's IT quality is documented
-  // as weaker (typos in compounds) and IT is the funnel's primary indexed locale —
-  // for IT, MyMemory ("best EU quality") stays ahead and self-hosted LT remains a
-  // post-MyMemory fallback (Tier 4a below), preserving pre-PR IT behaviour. No-op
-  // when LIBRETRANSLATE_SELF_HOSTED_URL is unset (returns '').
-  if (targetLang !== 'it') {
-    const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-    if (t3b) return balanceMarkdownMarkers(t3b);
-  }
+  // rate limits, no shared throttle). Promoted ABOVE MyMemory for ALL target
+  // locales (incl. IT). Rationale: the premium tiers above (DeepL/Azure/Google
+  // Cloud) still run first, so the highest-quality engines handle every job while
+  // their daily quota lasts. Once those are exhausted — which happens after a
+  // few dozen jobs/run — the only realistic engines for a multi-thousand-job
+  // backlog are the unlimited ones. MyMemory cannot drain a backlog: it is capped
+  // at ~50K chars/day AND throttled to 1 call/sec GLOBALLY across all concurrent
+  // workers, so it serialises the whole localization queue at the slowest tier.
+  // The self-hosted instance has neither cap, so promoting it here lets the
+  // queue's concurrency actually deliver throughput. IT was previously kept below
+  // MyMemory (typos in compounds), but MyMemory's char-cap means it only ever
+  // handled the first ~30 IT jobs/day anyway — the rest already fell through to
+  // self-hosted LT (old Tier 4a). The downstream isIncomplete() quality gate
+  // still rejects thin/wrong-language output and re-queues the job, so quality is
+  // preserved while the queue drains. No-op when LIBRETRANSLATE_SELF_HOSTED_URL
+  // is unset (returns '').
+  const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+  if (t3b) return balanceMarkdownMarkers(t3b);
 
   // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
@@ -969,17 +974,10 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   });
   if (t2) return balanceMarkdownMarkers(t2);
 
-  // Tier 4a: LibreTranslate self-hosted — IT-target ONLY. For IT this is the
-  // first (and only) self-hosted attempt, kept below MyMemory by the EN/DE/FR
-  // gate at Tier 3b, preserving pre-PR IT order. EN/DE/FR already tried it at
-  // Tier 3b, so re-running it here would pay a second (up to 30s) timeout on a
-  // hung endpoint for no benefit — skip. No-op when self-hosted URL is unset.
-  if (targetLang === 'it') {
-    const t3bFallback = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-    if (t3bFallback) return balanceMarkdownMarkers(t3bFallback);
-  }
-
-  // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
+  // Tier 4a: LibreTranslate public instances (raced in parallel — reliable from CI).
+  // Self-hosted LT already ran for every locale at Tier 3b above, so there is no
+  // IT-only self-hosted retry here (it would pay a second up-to-30s timeout on a
+  // hung endpoint for no benefit).
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
   if (t4) return balanceMarkdownMarkers(t4);
 
