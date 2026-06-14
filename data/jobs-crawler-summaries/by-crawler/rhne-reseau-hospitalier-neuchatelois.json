@@ -1,16 +1,16 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-06-14T11:59:15.061Z",
-  "total": 4,
+  "generatedAt": "2026-06-14T23:01:25.245Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 3165,
-  "avgDurationMs": 3165,
+  "durationMs": 2906,
+  "avgDurationMs": 2906,
   "durationHistory": [
-    3165
+    2906
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559185&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T11:59:13.171Z",
+      "crawledAt": "2026-06-14T23:01:23.437Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T11:59:13.172Z",
+      "crawledAt": "2026-06-14T23:01:23.438Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -89,10 +89,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-d3d55c1a811d",
-      "slug": "collaborateur-trice-medico-administratif-ve-a-70-rhne-reseau-hospitalier-neuchatelois",
+      "slug": "70-lavoratore-medico-e-amministrativo-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
@@ -120,17 +122,19 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557742&cat=all",
       "externalId": "2557742",
       "firstSeenAt": "2026-06-08T13:36:33.554Z",
-      "_qualityScore": 81,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-7d970aefdcf8",
-      "slug": "physiotherapeute-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "fisioterapia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
@@ -158,15 +162,16 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2556528&cat=all",
       "externalId": "2556528",
       "firstSeenAt": "2026-06-02T14:27:39.363Z",
-      "_qualityScore": 81,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
