@@ -60,7 +60,10 @@ function buildCanonical(slug: string, locale: AuthorLocale): string {
 function buildDescription(author: Author): string {
   // Take the first 1-2 sentences of the bio, capped at ~160 chars to keep
   // SERP snippets clean. Falls back to role+expertise if bio is unusually short.
-  const firstSentence = author.bio.split(/(?<=[.!?])\s+/)[0] ?? author.bio;
+  // Lookbehind-free first-sentence split (Safari <16.4 compat): capture the
+  // sentence-ending punctuation, drop the following whitespace, split on a NUL
+  // sentinel absent from author bios — equivalent to the old /(?<=[.!?])\s+/ split.
+  const firstSentence = author.bio.replace(/([.!?])\s+/g, '$1\u0000').split('\u0000')[0] ?? author.bio;
   const trimmed = firstSentence.length > 160
     ? `${firstSentence.slice(0, 157).trimEnd()}…`
     : firstSentence;
