@@ -43715,6 +43715,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carpooling-cantello-parcheggi-riservati-frontalieri': {
+    title: 'Parcheggi Riservati a Cantello: Progetto Carpooling per Pendolari Svizzeri',
+    description: '11 posti auto gratuiti alla stazione di Cantello Gaggiolo per chi condivide l\'auto. Iniziativa per ridurre traffico e inquinamento. Dettagli e procedure per',
+    keywords: 'frontalieri, ticino, svizzera, italia, parcheggi, riservati, cantello, progetto',
+    ogTitle: 'Parcheggi Riservati a Cantello: Progetto Carpooling per Pendolari Svizzeri',
+    ogDescription: '11 posti auto gratuiti alla stazione di Cantello Gaggiolo per chi condivide l\'auto. Iniziativa per ridurre traffico e inquinamento. Dettagli e procedure per',
+    canonicalPath: '/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Parcheggi Riservati a Cantello: Progetto Carpooling per Pendolari Svizzeri",
+      "description": "11 posti auto gratuiti alla stazione di Cantello Gaggiolo per chi condivide l'auto. Iniziativa per ridurre traffico e inquinamento. Dettagli e procedure per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carpooling-cantello-parcheggi-riservati-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parcheggio riservato a Cantello Gaggiolo per pendolari che condividono l'auto"
+      },
+      "datePublished": "2026-06-14T01:57:47+00:00",
+      "dateModified": "2026-06-14T01:57:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-cantello-parcheggi-riservati-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

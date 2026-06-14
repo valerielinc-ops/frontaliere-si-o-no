@@ -8065,6 +8065,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asilo-nido-frontalieri-ticino.title': 'Guide for cross-border workers: Ticino childcare',
     'blog.article.asilo-nido-frontalieri-ticino.excerpt': 'Everything you need to know about costs, waiting lists, subsidies, and alternatives for cross-border workers with preschool-age children in Ticino',
     'blog.article.asilo-nido-frontalieri-ticino.imageAlt': 'Ticino nursery school with children and educators outdoors',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Cantello Parking: Carpooling for Cross-Border Workers',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 free parking spaces at Gaggiolo station for those who carpool. An initiative to reduce traffic and pollution.',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Reserved parking at Cantello Gaggiolo for carpooling commuters',
 };
 
 export default blogMetaEn;

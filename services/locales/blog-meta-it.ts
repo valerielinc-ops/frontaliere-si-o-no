@@ -8066,6 +8066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asilo-nido-frontalieri-ticino.title': 'Guida pratica per frontalieri con figli: asili nido ticinesi',
     'blog.article.asilo-nido-frontalieri-ticino.excerpt': 'Tutto quello che c\'è da sapere su costi, lista d\'attesa, sussidi e alternative per i frontalieri con figli in età prescolare in Ticino',
     'blog.article.asilo-nido-frontalieri-ticino.imageAlt': 'Scuola dell\'infanzia ticinese con bambini e educatori all\'aperto',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.title': 'Parcheggi Riservati a Cantello: Progetto Carpooling per Pendolari Svizzeri',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.excerpt': '11 posti auto gratuiti alla stazione di Gaggiolo per chi condivide l\'auto. Iniziativa per ridurre traffico e inquinamento.',
+    'blog.article.carpooling-cantello-parcheggi-riservati-frontalieri.imageAlt': 'Parcheggio riservato a Cantello Gaggiolo per pendolari che condividono l\'auto',
 };
 
 export default blogMetaIt;
