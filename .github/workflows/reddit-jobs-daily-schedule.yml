@@ -1,0 +1,95 @@
+name: Reddit Jobs Daily Schedule
+
+on:
+  schedule:
+    # 13:45 UTC = 14:45 CET / 15:45 CEST. Offset by +15 min from the FB job
+    # schedule (30 13 * * *) so the two ledger-committing workflows don't race
+    # on a push to main, and so it lands AFTER the daily crawl→translate
+    # pipeline that primes today's job set (same upstream cushion as FB).
+    # Reddit has NO server-side scheduling, so the script posts IMMEDIATELY at
+    # a conservative low volume (default 2/run, with a delay between posts) to
+    # respect each community's anti-spam rules.
+    - cron: '45 13 * * *'
+  workflow_dispatch:
+    inputs:
+      volume:
+        description: 'Posts to publish this run (Reddit is rate-limited/anti-spam — keep low)'
+        required: false
+        default: '2'
+        type: choice
+        options: ['1', '2', '5']
+      dry_run:
+        description: 'Skip Reddit API call (preview only)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+permissions:
+  contents: write  # to commit reddit-posted-jobs.json
+  issues: write
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Schedule Reddit jobs
+        env:
+          REDDIT_JOB_VOLUME: ${{ github.event.inputs.volume || '2' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node scripts/schedule-reddit-jobs-daily.mjs
+
+      - name: Commit posted-jobs tracking
+        if: success() && github.event.inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/reddit-posted-jobs.json; then
+            echo "no changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/reddit-posted-jobs.json
+          git commit -m "chore(reddit): track posted jobs [skip ci]"
+          # In-place resolver merges by job-id when another commit lands
+          # on main mid-run (e.g. a concurrent article workflow or a
+          # parallel orchestrator's ledger reset). Without this the
+          # workflow exits 1 and the ledger goes out-of-sync with what
+          # was actually posted to the Reddit communities.
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-reddit-posted-jobs-conflict.mjs && git add -A"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

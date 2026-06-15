@@ -8081,6 +8081,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Traffico pesante sull\'A2 e le « corse tra elefanti »',
     'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Interrogazione al Consiglio di Stato sul traffico pesante e sorpassi prolungati tra camion sull\'autostrada A2 in Ticino.',
     'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Traffico intenso sull\'autostrada A2 in Ticino, con camion e veicoli in sorpasso, scena realistica.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.title': 'Curiglia con Monteviasco - Interventi di sicurezza sulla provinciale 6',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.excerpt': 'Prosegue la messa in sicurezza della strada provinciale 6 a Curiglia, con interventi temporanei e l\'emergere di nuove fragilità nel versante franato.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.imageAlt': 'Strada di montagna con reti paramassi a Curiglia, Ticino.',
 };
 
 export default blogMetaIt;
