@@ -18,7 +18,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { findViolations, ALLOWED, AD_MARKER } from '../scripts/ci/check-cls-ad-slots.mjs';
+import { findViolations, ALLOWED, AD_MARKER, stripComments } from '../scripts/ci/check-cls-ad-slots.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SCRIPT = path.join(ROOT, 'scripts', 'ci', 'check-cls-ad-slots.mjs');
@@ -67,5 +67,50 @@ describe('check-cls-ad-slots — CLI gate', () => {
     } finally {
       execFileSync('git', ['rm', '-f', '--quiet', file], { cwd: ROOT });
     }
+  });
+
+  it('does NOT flag a build-plugin that names adsbygoogle only in a comment (#2127)', () => {
+    // The recurring false positive: a plain comment mentioning the loader script
+    // (`// …load adsbygoogle.js post-hydration`) tripped the bare-substring grep on
+    // PRs that never touched ad markup, failing the full-tree gate until each branch
+    // reworded prose. Comment-awareness must let this through.
+    const file = path.join(ROOT, 'build-plugins', '_clsgate_commentonly.ts');
+    fs.writeFileSync(
+      file,
+      [
+        '// Loader note: the SPA <AdSenseBanner> loads adsbygoogle.js post-hydration.',
+        '/* block comment also naming adsbygoogle should not count */',
+        'export const Y = `<div class="ad-wrap"></div>`; // trailing note: adsbygoogle',
+        '',
+      ].join('\n'),
+    );
+    try {
+      execFileSync('git', ['add', '-f', file], { cwd: ROOT });
+      expect(findViolations()).not.toContain('build-plugins/_clsgate_commentonly.ts');
+    } finally {
+      execFileSync('git', ['rm', '-f', '--quiet', file], { cwd: ROOT });
+    }
+  });
+});
+
+describe('check-cls-ad-slots — stripComments', () => {
+  it('blanks line, trailing, and block comments but keeps code', () => {
+    const src = [
+      '// pure adsbygoogle comment',
+      'const a = `<ins class="adsbygoogle">`; // trailing adsbygoogle',
+      '/* block adsbygoogle */',
+      ' * jsdoc-body adsbygoogle line',
+    ].join('\n');
+    const out = stripComments(src);
+    expect(out).toContain('<ins class="adsbygoogle">'); // real code survives
+    expect(out).not.toMatch(/pure adsbygoogle comment/);
+    expect(out).not.toMatch(/trailing adsbygoogle/);
+    expect(out).not.toMatch(/block adsbygoogle/);
+    expect(out).not.toMatch(/jsdoc-body adsbygoogle/);
+  });
+
+  it('tolerates nullish input', () => {
+    expect(stripComments(undefined)).toBe('');
+    expect(stripComments('')).toBe('');
   });
 });
