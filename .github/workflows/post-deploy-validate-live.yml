@@ -176,6 +176,23 @@ jobs:
           echo "::error::[validate-live] propagation_timeout — deploy not live within window. Skipping smoke/gates; caller will NOT rollback (live is a valid earlier build)."
           exit 1
 
+      # Purge the Cloudflare edge cache now that the new build-id is confirmed
+      # LIVE at origin (propagation succeeded above). The it-apex-html-cache
+      # rule caches HTML for 24h with override_origin; GitHub Pages can't signal
+      # Cloudflare on republish, so without this the edge would serve the prior
+      # build's HTML until the TTL lapses. Gated on propagation success so we
+      # never purge while origin still serves the OLD build (which would just
+      # re-cache stale). Non-fatal: a purge hiccup must not fail validate-live.
+      - name: Purge Cloudflare edge cache (new build is live)
+        if: steps.propagation.outcome == 'success'
+        continue-on-error: true
+        run: |
+          # Force stdout export mode (GITHUB_ENV= ) so we can eval into THIS
+          # shell; GOOGLE_APPLICATION_CREDENTIALS was set by "Prepare Firebase
+          # credentials" above. No-op (exit 0) if CF_API_TOKEN is absent.
+          eval "$(GITHUB_ENV= node scripts/load-rc-env.mjs 2>/dev/null)" || true
+          node scripts/cf-purge-cache.mjs
+
       # Verify the offloaded JS/CSS bundle actually serves from the CDN on the
       # LIVE site. Moved here from the build job: the CDN Pages build lags the
       # push, so an inline build-time poll was a flaky false-negative that blocked
