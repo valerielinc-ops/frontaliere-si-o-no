@@ -205,7 +205,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'SRK (Croce Rossa Svizzera) su delega MEBEKO',
     recognitionAuthorityUrl: 'https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri',
     cclReference: 'CCL EOC + CCL Cliniche private ticinesi',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [4, 9],
   },
   operaio: {
@@ -224,7 +224,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'Nessuna (non regolamentata)',
     recognitionAuthorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
     cclReference: 'CCL di settore (metallurgia, chimica, alimentare)',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [0, 0],
   },
   impiegato: {
@@ -237,7 +237,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'SEFRI (facoltativo)',
     recognitionAuthorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
     cclReference: 'CCL di settore (banche, commercio al dettaglio, industria)',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [2, 5],
   },
   ingegnere: {
@@ -275,7 +275,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'SEFRI (per titoli Bachelor) + CRS per formazione sanitaria',
     recognitionAuthorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
     cclReference: 'CCL Settore socio-educativo Ticino',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [3, 8],
   },
   autista: {
@@ -307,7 +307,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'SEFRI',
     recognitionAuthorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
     cclReference: 'CNM – Contratto nazionale mantello edilizia principale',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [4, 6],
   },
   cuoco: {
@@ -364,7 +364,7 @@ export const PROFESSION_FACTS: Record<ProfessionId, ProfessionFacts> = {
     recognitionAuthority: 'SEFRI + ESTI (Ispettorato federale impianti elettrici)',
     recognitionAuthorityUrl: 'https://www.esti.admin.ch/it/temi/riconoscimento-di-diplomi',
     cclReference: 'CCL Ramo installazione elettrotelecomunicazioni',
-    cclUrl: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/usuelle-arbeits--und-lohnbedingungen/gesamtarbeitsvertraege-gav.html',
+    cclUrl: 'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     recognitionLeadTimeMonths: [3, 9],
   },
 };

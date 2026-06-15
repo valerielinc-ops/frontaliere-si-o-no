@@ -138,7 +138,7 @@ const IT_AGENZIE: CareerLandingCopy = {
     },
     {
       label: 'SECO — Collocamento privato e prestito di personale',
-      href: 'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/Private_Arbeitsvermittlung_und_Personalverleih.html',
+      href: 'https://www.seco.admin.ch/it/collocamento-privato-e-fornitura-di-personale-a-prestito',
     },
     {
       label:
@@ -321,7 +321,7 @@ const IT_STAGE: CareerLandingCopy = {
     {
       label:
         'SECO — Personalfachmann / stagisti e tirocinanti (regolamento)',
-      href: 'https://www.seco.admin.ch/seco/it/home/Arbeit.html',
+      href: 'https://www.seco.admin.ch/it/lavoro',
     },
     {
       label: 'UST — Statistica degli stipendi e indennità di stage',
@@ -404,7 +404,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
     {
       label:
         'Accordo Italia-Svizzera sui frontalieri del 23 dicembre 2020 (AFC)',
-      href: 'https://www.estv.admin.ch/estv/it/home.html',
+      href: 'https://www.estv.admin.ch/it',
     },
     {
       label:
@@ -414,7 +414,7 @@ const IT_CONTRATTI: CareerLandingCopy = {
     {
       label:
         'SECO — Condizioni di lavoro e CCL',
-      href: 'https://www.seco.admin.ch/seco/it/home/Arbeit.html',
+      href: 'https://www.seco.admin.ch/it/lavoro',
     },
     {
       label:
