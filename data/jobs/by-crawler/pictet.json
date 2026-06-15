@@ -672,12 +672,12 @@
     },
     {
       "id": "pictet-d017c8910276",
-      "slug": "middle-officer-derivatives-pictet-geneva",
+      "slug": "funzionario-intermedio-derivati-pictet-group-geneva",
       "slugByLocale": {
         "en": "middle-officer-derivatives-pictet-geneva",
-        "it": "middle-officer-derivatives-pictet-geneva",
-        "de": "middle-officer-derivatives-pictet-geneva",
-        "fr": "middle-officer-derivatives-pictet-geneva"
+        "it": "funzionario-intermedio-derivati-pictet-group-geneva",
+        "de": "mittlerer-offizier-derivate-pictet-group-geneva",
+        "fr": "agent-intermediaire-produits-derives-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -733,7 +733,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-14T22:38:00.463Z"
+      "firstSeenAt": "2026-06-14T22:38:00.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-derivatives-pictet-geneva"
+        ],
+        "de": [
+          "middle-officer-derivatives-pictet-geneva"
+        ],
+        "fr": [
+          "middle-officer-derivatives-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-derivatives-pictet-geneva"
+      ]
     }
   ]
 }

@@ -429,12 +429,12 @@
     },
     {
       "id": "ksbl-1f87f6de291d",
-      "slug": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+      "slug": "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal"
+        "it": "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "sous-assistant-en-medecine-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -491,8 +491,23 @@
       },
       "firstSeenAt": "2026-06-14T22:17:45.192Z",
       "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
-      ]
+        "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+        "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
+        "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+        ],
+        "en": [
+          "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal"
+        ],
+        "fr": [
+          "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal"
+        ]
+      }
     },
     {
       "id": "ksbl-20e1c631cea0",
@@ -4977,7 +4992,7 @@
       "id": "ksbl-641e243a52bd",
       "slug": "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
         "en": "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
         "de": "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
         "fr": "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal"
@@ -5023,14 +5038,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
+        "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
+        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal"
+          "mitarbeiterin-mitarbeiter-workplace-management-a-ksbl-liestal",
+          "team-leader-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "de": [
           "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal"

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-emmental-f1b040679eb8",
-      "slug": "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
+      "slug": "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
-        "it": "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
-        "en": "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf",
-        "fr": "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
+        "it": "apprendistato-fage-per-dipl-infermiera-hf-tra-2-anni-a-spital-emmental-burgdorf-langnau",
+        "en": "apprenticeship-fage-for-dipl-nurse-hf-in-2-years-a-spital-emmental-burgdorf-langnau",
+        "fr": "apprentissage-fage-pour-dipl-infirmiere-hf-dans-2-ans-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -70,7 +70,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-14T22:40:15.736Z"
+      "firstSeenAt": "2026-06-14T22:40:15.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-fage-zur-dipl-pflegefachperson-hf-in-2-jahren-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-c2030fd2d48a",
@@ -3890,10 +3904,10 @@
       "id": "spital-emmental-0b449a0e3638",
       "slug": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
       "slugByLocale": {
-        "it": "salute-specialistica-a-spital-emmental-burgdorf",
-        "en": "specialist-health-a-spital-emmental-burgdorf",
+        "it": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+        "en": "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fr": "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675"
+        "fr": "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3942,6 +3956,9 @@
       "pensum": "70%",
       "contractDuration": "permanent",
       "previousSlugs": [
+        "salute-specialistica-a-spital-emmental-burgdorf",
+        "specialist-health-a-spital-emmental-burgdorf",
+        "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675",
         "professionista-sanitario-a-spital-emmental-burgdorf",
         "healthcare-professional-a-spital-emmental-burgdorf",
         "professionnel-de-la-sante-a-spital-emmental-burgdorf",
@@ -3949,9 +3966,7 @@
         "operatore-socio-sanitario-oss-spital-emmental-burgdorf",
         "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
         "health-professional-a-spital-emmental-burgdorf",
-        "specialiste-de-la-sante-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        "specialiste-de-la-sante-a-spital-emmental-burgdorf"
       ],
       "firstSeenAt": "2026-06-08T13:43:32.038Z",
       "salaryMin": 51500,
@@ -3965,6 +3980,17 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "salute-specialistica-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "specialist-health-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675"
+        ]
       }
     },
     {

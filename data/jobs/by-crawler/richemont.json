@@ -110,7 +110,7 @@
       "slug": "pre-heg-contabilita-richemont-villars-sur-glane",
       "slugByLocale": {
         "it": "pre-heg-contabilita-richemont-villars-sur-glane",
-        "en": "stage-pre-heg-comptabilite-richemont-villars-sur-glane",
+        "en": "pre-heg-placement-accounting-richemont-villars-sur-glane",
         "de": "praktikum-vor-heg-buchhaltung-richemont-villars-sur-glane",
         "fr": "stage-pre-heg-comptabilite-richemont-villars-sur-glane"
       },
@@ -155,7 +155,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stage-pre-heg-comptabilite-richemont-villars-sur-glane",
-        "pre-heg-placement-accounting-richemont-villars-sur-glane",
         "pre-heg-internship-accounting-richemont-villars-sur-glane",
         "pre-heg-platzierung-accounting-richemont-villars-sur-glane"
       ],
@@ -164,8 +163,8 @@
           "stage-pre-heg-comptabilite-richemont-villars-sur-glane"
         ],
         "en": [
-          "pre-heg-placement-accounting-richemont-villars-sur-glane",
-          "pre-heg-internship-accounting-richemont-villars-sur-glane"
+          "pre-heg-internship-accounting-richemont-villars-sur-glane",
+          "stage-pre-heg-comptabilite-richemont-villars-sur-glane"
         ],
         "de": [
           "pre-heg-platzierung-accounting-richemont-villars-sur-glane"
@@ -1404,7 +1403,7 @@
       "id": "richemont-07bf0a174536",
       "slug": "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
       "slugByLocale": {
-        "it": "pick-pack-capo-squadra-richemont-villars-sur-glane",
+        "it": "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "en": "movement-constructor-h-f-van-cleef-arpels-meyrin",
         "de": "bewegungsbauer-h-f-van-cleef-arpels-meyrin",
         "fr": "constructeur-mouvement-h-f-van-cleef-arpels-meyrin"
@@ -1484,7 +1483,8 @@
           "constructeur-mouvement-h-f-richemont-meyrin"
         ],
         "it": [
-          "constructeur-mouvement-h-f-richemont-meyrin"
+          "constructeur-mouvement-h-f-richemont-meyrin",
+          "pick-pack-capo-squadra-richemont-villars-sur-glane"
         ],
         "en": [
           "movement-builder-h-f-van-cleef-arpels-meyrin"
@@ -1495,11 +1495,11 @@
       },
       "previousSlugs": [
         "constructeur-mouvement-h-f-richemont-meyrin",
+        "pick-pack-capo-squadra-richemont-villars-sur-glane",
         "movement-builder-h-f-van-cleef-arpels-meyrin",
         "uhrwerkbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
-        "team-leader-picking-and-packing-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin"
+        "team-leader-picking-and-packing-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
       "salaryMin": 49500,
@@ -1663,7 +1663,7 @@
       "id": "richemont-e1ef685635e0",
       "slug": "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
       "slugByLocale": {
-        "it": "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
+        "it": "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "en": "manufacturing-processes-definition-integration-tech-team-lead-richemont-meyrin",
         "de": "leiter-des-teams-fur-definition-und-integration-von-fertigungsprozessen-richemont-meyrin",
         "fr": "responsable-de-l-equipe-technique-de-definition-et-d-integration-des-processus-de-fabrication-richemont-meyrin"
@@ -1740,17 +1740,18 @@
       },
       "previousSlugs": [
         "manufacturing-processes-definition-integration-tech-team-lead-richemont-meyrin",
+        "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue",
         "fertigungsprozesse-definition-integration-tech-team-lead-richemont-meyrin",
         "group-talent-systems-operations-project-manager-richemont-bellevue",
         "group-talent-systems-operations-projektmanager-richemont-bellevue",
         "responsabile-progetti-sste-valfleurier-buttes",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
-        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin"
+        "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-processes-definition-integration-tech-team-lead-richemont-meyrin"
+          "manufacturing-processes-definition-integration-tech-team-lead-richemont-meyrin",
+          "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
         ],
         "de": [
           "fertigungsprozesse-definition-integration-tech-team-lead-richemont-meyrin"
@@ -5781,12 +5782,12 @@
     },
     {
       "id": "richemont-ea0036f1fc4e",
-      "slug": "hris-specialist-cdd-richemont-meyrin",
+      "slug": "hris-specialista-cdd-richemont-meyrin",
       "slugByLocale": {
-        "it": "hospitality-tirocinante-richemont-meyrin",
+        "it": "hris-specialista-cdd-richemont-meyrin",
         "en": "hospitality-intern-richemont-meyrin",
-        "de": "hospitality-praktikant-richemont-meyrin",
-        "fr": "stagiaire-en-hotellerie-richemont-meyrin"
+        "de": "hris-spezialist-cdd-richemont-meyrin",
+        "fr": "specialiste-sirh-cdd-richemont-meyrin"
       },
       "company": "Richemont",
       "companyKey": "richemont",
@@ -5860,8 +5861,10 @@
       },
       "previousSlugs": [
         "specialista-hris-cdd-richemont-meyrin",
-        "hris-spezialist-cdd-richemont-meyrin",
-        "specialiste-sirh-cdd-richemont-meyrin",
+        "hospitality-tirocinante-richemont-meyrin",
+        "hris-specialist-cdd-richemont-meyrin",
+        "hospitality-praktikant-richemont-meyrin",
+        "stagiaire-en-hotellerie-richemont-meyrin",
         "ospitalita-interno-richemont-meyrin",
         "specialista-di-attivazione-cdd-jaeger-lecoultre-meyrin",
         "activations-specialist-cdd-richemont-meyrin",
@@ -5873,23 +5876,19 @@
         "stagiaire-de-reception-richemont-meyrin-505639",
         "stage-in-hospitality-richemont-meyrin",
         "responsabile-gioielli-europa-richemont-meyrin",
-        "hris-specialist-cdd-richemont-meyrin",
-        "hospitality-intern-richemont-meyrin",
-        "gioielli-manager-europa-richemont-meyrin",
-        "manager-giadelli-europe-richemont-meyrin",
-        "jewelry-manager-europe-richemont-meyrin",
-        "schmuckmanager-europa-richemont-meyrin",
-        "krankenhaus-intern-richemont-meyrin"
+        "gioielli-manager-europa-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-hris-cdd-richemont-meyrin"
+          "specialista-hris-cdd-richemont-meyrin",
+          "hospitality-tirocinante-richemont-meyrin",
+          "hris-specialist-cdd-richemont-meyrin"
         ],
         "de": [
-          "hris-spezialist-cdd-richemont-meyrin"
+          "hospitality-praktikant-richemont-meyrin"
         ],
         "fr": [
-          "specialiste-sirh-cdd-richemont-meyrin"
+          "stagiaire-en-hotellerie-richemont-meyrin"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.477Z",
