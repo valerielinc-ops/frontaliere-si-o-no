@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-14T21:28:11.993Z",
+  "generatedAt": "2026-06-15T14:09:35.640Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 19232,
-  "avgDurationMs": 19232,
+  "durationMs": 21105,
+  "avgDurationMs": 21105,
   "durationHistory": [
-    19232
+    21105
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Laborant in der Produktentwicklung (w/m/d) REF283636C",
+      "slug": "laborant-in-der-produktentwicklung-w-m-d-ref283636c-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF283636C-laborant-in-der-produktentwicklung-w-m-d-ref283636c",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000121440567-laborant-in-der-produktentwicklung-w-m-d-ref283636c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-17",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Kaufmann/-frau 2027 REF286890O",
@@ -47,44 +78,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Praktikum - Sales der Robert Bosch AG (w/m/div.) REF286882S",
-      "slug": "praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF286882S-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127726419-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "sales",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-21",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-0b75de651e5b",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-05-21T21:50:57.033Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
         "completeness": 22
       }
     },
@@ -206,9 +199,9 @@
       "companyDomain": "bosch.ch",
       "location": "Steinhausen",
       "addressLocality": "Steinhausen",
-      "addressRegion": "BE",
+      "addressRegion": "ZG",
       "addressCountry": "CH",
-      "canton": "BE",
+      "canton": "ZG",
       "country": "CH",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -270,7 +263,46 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Praktikum - Sales der Robert Bosch AG (w/m/div.) REF286882S",
+      "slug": "tirocinio-vendite-di-robert-bosch-ag-f-m-div-ref286882s-bosch-thermotechnik-ag-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF286882S-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127726419-praktikum-sales-der-robert-bosch-ag-w-m-div-ref286882s?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-21",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-0b75de651e5b",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-21T21:50:57.033Z",
+      "retranslationAttempts": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Key Account Manager – Bosch Building Technologies 100% (w/m/div.) REF287492K",
