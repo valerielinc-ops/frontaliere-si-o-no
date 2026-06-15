@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { installDomReconciliationGuard } from './services/domReconciliationGuard';
+
+// Harden the DOM against third-party mutation (Google Translate, extensions)
+// crashing React's reconciler with NotFoundError on insertBefore/removeChild.
+// Must run before any React render. See services/domReconciliationGuard.ts.
+installDomReconciliationGuard();
 
 // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
 // Vite fires this event before the error reaches React ErrorBoundary.
