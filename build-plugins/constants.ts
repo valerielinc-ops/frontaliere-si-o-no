@@ -16,6 +16,7 @@ import path from 'node:path';
 import { BOT_UA_PATTERNS } from '../services/botPatterns';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
+import { clampMetaDescription } from './shared/titleSuffix';
 
 export const BUILD_ID = String(Date.now());
 
@@ -214,7 +215,7 @@ export function buildCanonicalBridgePage(options: {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
- <meta name="description" content="${description}">
+ <meta name="description" content="${clampMetaDescription(description)}">
  <meta name="robots" content="${robotsContent}">
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
@@ -252,7 +253,11 @@ export function buildFlatRedirect(
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
  const lang = og?.lang ?? 'it';
  const title = og ? `${esc(og.title)} | Frontaliere Ticino` : 'Versione canonica disponibile | Frontaliere Ticino';
- const desc = og ? esc(og.description) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
+ // Clamp before escaping: truncating after esc() could amputate an HTML entity
+ // (e.g. "&am…"). The SERP budget applies to both the <meta description> and the
+ // og:description below. This bridge is always noindex, but clamping keeps the
+ // emit path consistent with every other generator (the deferred #2230 sibling).
+ const desc = og ? esc(clampMetaDescription(og.description)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
  const ogTags = og
  ? `
  <meta property="og:type" content="article">
