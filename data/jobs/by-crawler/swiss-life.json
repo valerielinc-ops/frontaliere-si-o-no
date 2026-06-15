@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-06-14T22:50:52.245Z",
+  "assembledAt": "2026-06-15T15:44:15.033Z",
   "jobs": [
     {
       "id": "swiss-life-d704bb7df9ab",
@@ -33,7 +33,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Immobilienberater--w-m-d----Generalagentur-Visp-Oberwallis_R11690",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:49.859Z",
+      "crawledAt": "2026-06-15T15:44:12.834Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,15 +94,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:40.576Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -140,7 +141,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Visp-Oberwallis_R09488",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:50:49.140Z",
+      "crawledAt": "2026-06-15T15:44:12.169Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -206,15 +207,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -252,7 +254,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen--Generalagentur-Visp-Oberwallis_R08506-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:48.401Z",
+      "crawledAt": "2026-06-15T15:44:11.456Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -326,15 +328,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.261Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -372,7 +375,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:47.661Z",
+      "crawledAt": "2026-06-15T15:44:10.778Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,15 +443,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:38.624Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -486,7 +490,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-de-Bagnes_R09487",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:46.908Z",
+      "crawledAt": "2026-06-15T15:44:10.083Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -554,15 +558,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.994Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -600,7 +605,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-d-Anniviers_R09486",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:50:46.160Z",
+      "crawledAt": "2026-06-15T15:44:09.371Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -662,15 +667,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:37.334Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -708,7 +714,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Sion-Valais-romand_R09485",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:45.375Z",
+      "crawledAt": "2026-06-15T15:44:08.628Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -779,15 +785,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:36.431Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -825,7 +832,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Romandie_R08713",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:50:44.636Z",
+      "crawledAt": "2026-06-15T15:44:07.884Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -894,15 +901,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:35.812Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
