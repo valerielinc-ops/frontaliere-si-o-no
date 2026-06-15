@@ -54,23 +54,25 @@ const reLeak = new RegExp(
 // covers EVERY emitted file (no dir is skipped), so a stray /images/blog
 // reference anywhere (even in the job-board corpus, which today carries none)
 // is still caught before any image is deleted.
-function walk(dir: string, fn: (fp: string) => void): void {
+function walk(dir: string, fn: (fp: string) => void, root: string = dir): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
     if (e.isDirectory()) {
-      // Mirror postWalkCoordinatorPlugin.walkHtml(): never descend into the
-      // asset/data/image subtrees. They hold only JS/CSS/fonts (assets/),
-      // CDN-offloaded *.json job payloads (data/) and *.webp/*.png/og art
-      // (images/) — none carry .html/.xml/.txt, the only extensions in
-      // SCAN_EXT this pass rewrites. Descending them stat-walked ~1.4M dirents
+      // Skip ONLY the TOP-LEVEL dist/{assets,data,images} (vite JS/CSS/fonts,
+      // CDN-offloaded *.json payloads, *.webp/*.png/og art — none carry the
+      // .html/.xml/.txt in SCAN_EXT). Descending them stat-walked ~1.4M dirents
       // per build for zero rewrites (run 27528505424: 1.59M scanned → 21k
-      // rewritten, wall 811s with cpu 374s = ~54% pure I/O wait). Skipping
-      // them collapses the walk to the content tree without changing a single
-      // rewritten byte; the coordinator already ships this exact exclusion.
-      // The dist/images/blog deletion loop below is a separate explicit
-      // readdirSync of blogDir, so this skip does not affect it.
-      if (e.name === 'assets' || e.name === 'data' || e.name === 'images') continue;
-      walk(fp, fn);
+      // rewritten, wall 811s/cpu 374s = ~54% I/O wait). We gate on `dir === root`
+      // so a NESTED dir merely sharing the name (a content slug, e.g.
+      // dist/en/data/) is STILL walked — its *.html must be scanned because the
+      // leak-guard below deletes dist/images/blog only when NO walked file keeps
+      // a same-origin /images/blog ref; a content page hidden under a nested
+      // assets|data|images dir would otherwise evade the guard and 404 after the
+      // delete. Top-level-only restores the pre-#2237 full-coverage at any depth
+      // while keeping the (huge) top-level dist/data skip. The dist/images/blog
+      // deletion loop below is a separate explicit readdirSync of blogDir.
+      if (dir === root && (e.name === 'assets' || e.name === 'data' || e.name === 'images')) continue;
+      walk(fp, fn, root);
     } else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
   }
 }
