@@ -34,6 +34,7 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
+import { assignSubjectVariant, getVariantFallback, listVariantIds } from '../services/newsletter-subject-variants.mjs';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1422,12 +1423,19 @@ async function persistDelivery(recipient, messageId, meta) {
     const deliveryDocId = `${meta.campaignId}__${email}`.replace(/[^a-z0-9@._-]+/gi, '-');
     // Store delivery as a subcollection under the subscriber doc
     await subRef.collection('campaign_deliveries').doc(deliveryDocId).set({
+      email,
       campaign_id: meta.campaignId,
       message_id: messageId || null,
       locale: recipient.locale || 'it',
       source_channel: recipient.sourceChannel || null,
       location_interest: recipient.locationInterest || null,
       sector_interest: recipient.sectorInterest || null,
+      // A/B subject test attribution — provider is authoritative here (every
+      // cascade provider), variant/subject mirror the sent email so the
+      // open-rate-by-provider×variant report has a self-contained send record.
+      provider: meta.provider || null,
+      variant: meta.variant || null,
+      subject: meta.subject || null,
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
@@ -1994,15 +2002,20 @@ async function main() {
   }
   console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
 
-  // ── Phase 3: Generate 1 AI subject per locale ──
-  console.log('✏️  Phase 3: AI subjects (1 per locale)...');
+  // ── Phase 3: Generate 1 AI subject per locale × A/B variant ──
+  // Subject-line A/B test: one subject per (locale, variant) so each subscriber
+  // gets the subject for their deterministically-assigned variant (Phase 5).
+  // Still cohort-cheap: at most locales × variants AI calls (≤8), not per-sub.
+  const variantIds = listVariantIds();
+  const subjectKey = (loc, variant) => `${loc}::${variant}`;
+  console.log(`✏️  Phase 3: AI subjects (${variantIds.length} variants/locale: ${variantIds.join(', ')})...`);
   const locales = [...new Set(subscriberData.map(d => d.locale))];
   const subjectMap = new Map();
 
   if (subjectOverride) {
-    for (const loc of locales) subjectMap.set(loc, subjectOverride);
+    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), subjectOverride);
   } else if (noAI) {
-    for (const loc of locales) subjectMap.set(loc, FALLBACK_SUBJECT[loc] || FALLBACK_SUBJECT.it);
+    for (const loc of locales) for (const v of variantIds) subjectMap.set(subjectKey(loc, v), getVariantFallback(v, loc));
   } else {
     // Pick a representative cohort per locale (the one with most members)
     const localeRepresentatives = new Map();
@@ -2014,7 +2027,9 @@ async function main() {
       }
     }
 
-    await pMap(locales, async (loc) => {
+    const localeVariantPairs = [];
+    for (const loc of locales) for (const variant of variantIds) localeVariantPairs.push({ loc, variant });
+    await pMap(localeVariantPairs, async ({ loc, variant }) => {
       const rep = localeRepresentatives.get(loc);
       const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
       const subject = await generateAISubject({
@@ -2022,11 +2037,12 @@ async function main() {
         exchangeRate,
         matchedJobs: rep?.matchedJobs || [],
         briefingSummary: briefingText,
+        variant,
       });
-      subjectMap.set(loc, subject || FALLBACK_SUBJECT[loc] || FALLBACK_SUBJECT.it);
-    }, locales.length); // All locale subjects in parallel (max 4)
+      subjectMap.set(subjectKey(loc, variant), subject || getVariantFallback(variant, loc));
+    }, Math.min(localeVariantPairs.length, AI_CONCURRENCY)); // bounded parallel AI calls
   }
-  console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([l, s]) => `${l}="${s}"`).join(', ')}`);
+  console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
   // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
   console.log('🔑 Phase 4: Autologin codes (HMAC)...');
@@ -2049,7 +2065,13 @@ async function main() {
 
   for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
-    const subject = subjectMap.get(locale);
+    // A/B test: deterministic per-subscriber variant (stable for this campaign).
+    // Fall back to the first variant's subject, then the variant fallback, so a
+    // missing (locale,variant) entry can never leave subject undefined.
+    const variant = assignSubjectVariant(subscriber.email, campaignId);
+    const subject = subjectMap.get(subjectKey(locale, variant))
+      || subjectMap.get(subjectKey(locale, variantIds[0]))
+      || getVariantFallback(variant, locale);
 
     const html = buildNewsletter({
       aiBriefing: briefing,
@@ -2074,7 +2096,7 @@ async function main() {
 
     emails.push({
       recipient: subscriber,
-      meta: { campaignId },
+      meta: { campaignId, subject, variant },
       payload: {
         from: FROM_EMAIL,
         to: [subscriber.email],
@@ -2086,6 +2108,9 @@ async function main() {
           { name: 'subscriber_locale', value: locale },
           { name: 'source_channel', value: subscriber.sourceChannel || 'newsletter_page' },
           { name: 'version', value: 'v2-ai-cohort' },
+          // A/B subject variant — read by the Resend webhook (tags.variant) and
+          // recomputed deterministically by scripts/newsletter-ab-report.mjs.
+          { name: 'variant', value: variant },
         ],
       },
     });
