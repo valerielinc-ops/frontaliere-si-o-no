@@ -81,11 +81,17 @@ async function resolveZoneId() {
   return json.result[0].id;
 }
 
-const zoneId = await resolveZoneId();
-const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, { purge_everything: true });
-if (!json?.success) {
-  console.error(`❌ purge_everything failed: ${JSON.stringify(json?.errors)}`);
-  warnStaleEdge(`purge_everything API call failed: ${JSON.stringify(json?.errors)}`);
+try {
+  const zoneId = await resolveZoneId();
+  const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, { purge_everything: true });
+  if (!json?.success) {
+    console.error(`❌ purge_everything failed: ${JSON.stringify(json?.errors)}`);
+    warnStaleEdge(`purge_everything API call failed: ${JSON.stringify(json?.errors)}`);
+    process.exit(1);
+  }
+  console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
+} catch (err) {
+  console.error(`❌ Cloudflare API request failed: ${err.message}`);
+  warnStaleEdge(`network error contacting Cloudflare API: ${err.message}`);
   process.exit(1);
 }
-console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
