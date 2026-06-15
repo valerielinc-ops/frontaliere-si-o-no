@@ -53,7 +53,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
+import { slugify, normalizeSpace, stripHtml, classAttrRx } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   decodeEntities,
@@ -257,18 +257,6 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
     });
   }
   return out;
-}
-
-/**
- * Build a regex fragment matching a `class` attribute that carries `token`
- * (a regex alternation like `tasks` or `tasks|profile`) as a whole class name,
- * tolerant of quote style and multi-class lists. Matches `class="tasks"`,
- * `class='tasks'`, `class=tasks`, `class="tasks col-6"`, `class="col-6 tasks"`.
- * Used by Template (v) so a future SVAR markup tweak (extra utility class,
- * single quotes) no longer silently matches nothing → '' → thin-source fail.
- */
-function classAttrRx(token) {
-  return `class=["']?[^"'>]*\\b(?:${token})\\b`;
 }
 
 /**

@@ -43,7 +43,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, classAttrRx } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   decodeEntities,
@@ -142,7 +142,7 @@ export function parseJobalinoListingHtml(html = '') {
     seen.add(id);
     const body = m[4];
     const pick = (cls) => {
-      const re = new RegExp(`<span\\s+class=\"${cls}\"[^>]*>([\\s\\S]*?)<\\/span>`);
+      const re = new RegExp(`<span\\s+[^>]*?${classAttrRx(cls)}[^>]*>([\\s\\S]*?)<\\/span>`);
       const x = body.match(re);
       return x ? normalizeSpace(decodeEntities(x[1].replace(/<[^>]+>/g, ' '))) : '';
     };
