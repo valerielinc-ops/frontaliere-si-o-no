@@ -35,7 +35,7 @@ import {
 import { ARTICLE_SECTIONS } from '../services/articleSections';
 import { readSvizzeraArticleUnionSlugs } from './shared/articleArchiveUnion';
 import { readArticleSlugs, readBlogUrlSlugs } from './shared/articleReaders';
-import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
+import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 import {
@@ -49,6 +49,7 @@ import {
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
+import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 import { buildDayStampIso } from './shared/buildDayStamp';
 
@@ -1974,19 +1975,31 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         fr: { datori: 'Employeurs actifs', offerte: 'Postes ouverts', topDatore: 'Top employeur', settori: 'Secteurs' },
       }[locale];
 
-      // ── settori (sectors) — reuse curated HUB_SECTORS list, link to TI hub ──
-      // For non-TI cantons we don't yet have per-canton sector landings, so the
-      // sector hub lists the curated sectors with anchors that route to the
-      // canton's job-board home filtered by `?q=<sector>`. Crawl-equivalent to
-      // the TI sectors hub minus per-sector landing depth.
+      // ── settori (sectors) — reuse curated HUB_SECTORS list ──
+      // Each sector chip must point at a CRAWLABLE target, never a `?q=`
+      // keyword-search URL: robots.txt disallows `/*?q=*`, so an internal `?q=`
+      // link is a "disallowed outlink" (SearchAtlas/GSC) and `rel="nofollow"`
+      // is banned on internal links (tests/no-internal-nofollow.test.tsx).
+      // When jobsSeoPagesPlugin emitted a per-canton sector landing for this
+      // (canton, sector) — recorded in the cross-plugin registry, so no 404 —
+      // deep-link `/{section}/{sectorSlug}/`. Otherwise fall back to the canton
+      // job-board root, an indexed, crawlable page.
       {
         const basePath = hubSlugFor(canton, locale, 'settori');
-        const items = HUB_SECTORS.map((s) => ({
-          href: `${sectionRoot}/?q=${encodeURIComponent(s[locale])}`,
-          label: s[locale],
-          emoji: sectorEmojiFor(s.key),
-          sub: { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale],
-        }));
+        const items = HUB_SECTORS.map((s) => {
+          const curatedKey = (SECTOR_HUB_KEYS as readonly string[]).includes(s.key)
+            ? (s.key as SectorHubKey)
+            : null;
+          const href = curatedKey && hasCantonSectorPage(canton, curatedKey)
+            ? `${sectionRoot}/${SECTOR_HUB_SLUG[locale][curatedKey]}/`
+            : `${sectionRoot}/`;
+          return {
+            href,
+            label: s[locale],
+            emoji: sectorEmojiFor(s.key),
+            sub: { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale],
+          };
+        });
         const html = buildThinCantonHubHtml({
           locale, hub: 'settori', canton, cantonLabel, basePath,
           totalItems: items.length, items, hasSpaBundle, entryJs, entryCss, dateStamp,
@@ -2231,15 +2244,17 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     } else if (hubKey === 'sectors') {
       pageSize = HUB_SECTORS.length;
       const sectionRoot = legacyTiSectionRoot(locale);
-      // Sectors with a curated static hub get the canonical URL; the rest
-      // fall back to `?q=` keyword search. Routing footer + SectorsHub
-      // traffic through the canonical hub avoids diluting internal link
-      // equity toward `noindex` query URLs.
+      // Sectors with a curated static hub get the canonical URL; the rest fall
+      // back to the TI job-board root. NEVER `?q=`: robots.txt disallows
+      // `/*?q=*`, so an internal `?q=` link is a "disallowed outlink"
+      // (SearchAtlas/GSC) and `rel="nofollow"` is banned on internal links
+      // (tests/no-internal-nofollow.test.tsx). The root is crawlable and
+      // indexed; there is no per-sector landing for the non-curated sectors.
       for (const sector of HUB_SECTORS) {
         const hasCuratedHub = (SECTOR_HUB_KEYS as readonly string[]).includes(sector.key);
         const href = hasCuratedHub
           ? buildSectorHubPath(locale, sector.key as SectorHubKey)
-          : `${sectionRoot}/?q=${encodeURIComponent(sector[locale])}`;
+          : `${sectionRoot}/`;
         items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
     } else if (hubKey === 'companies') {
