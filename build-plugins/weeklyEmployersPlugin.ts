@@ -99,8 +99,10 @@ import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDat
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
-// via the canonical `buildJobPostingSchema` builder.
-import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+// via the canonical `buildJobPostingSchema` builder (wrapped by
+// `buildListItemJobPosting` for list-item embedding).
+import { type JobInput } from './shared/jobPostingSchema';
+import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
 import {
@@ -3103,10 +3105,10 @@ function jobToJsonLd(
   employer: string,
   city: string,
   locale: WeeklyEmployersLocale = 'it',
-): Record<string, unknown> {
+): Record<string, unknown> | null {
   // Map the weekly-employers `CompanyCityActiveJob` shape onto the canonical
-  // `JobInput` contract and delegate to the shared builder. This keeps all
-  // mandatory-field enforcement (CLAUDE.md rule #3) in one place.
+  // `JobInput` contract and delegate to the shared list-item builder. This
+  // keeps all mandatory-field enforcement (CLAUDE.md rule #3) in one place.
   const input: JobInput = {
     id: job.slug || job.detailPath,
     slug: job.slug,
@@ -3128,15 +3130,16 @@ function jobToJsonLd(
     salaryCurrency: job.salaryCurrency,
     url: job.detailPath ? `${BASE_URL}${job.detailPath}` : undefined,
   };
-  const schema = buildJobPostingSchema(input, {
+  // Shared builder: strips `@context` (the parent ItemList declares it once),
+  // caps the description for page-weight, and NEVER throws — returns null on a
+  // too-sparse job so the caller falls back to a name+url stub (one bad job
+  // can't break the build). Replaces the previous inline buildJobPostingSchema
+  // + @context-strip, unifying the 4th copy of this pattern onto one helper.
+  return buildListItemJobPosting(input, {
     locale,
     url: `${BASE_URL}${job.detailPath}`,
     baseUrl: BASE_URL,
   });
-  // Emit the schema.org block without the `@context` (the parent graph
-  // declares it at the document level).
-  const { '@context': _omit, ...rest } = schema as unknown as Record<string, unknown>;
-  return rest;
 }
 
 export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
@@ -3349,11 +3352,17 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
     '@type': 'ItemList',
     name: h1,
     numberOfItems: stats.activeJobs.length,
-    itemListElement: stats.activeJobs.map((job, idx) => ({
-      '@type': 'ListItem',
-      position: idx + 1,
-      item: jobToJsonLd(job, employer, cityDisplay, locale),
-    })),
+    itemListElement: stats.activeJobs.map((job, idx) => {
+      const jobPosting = jobToJsonLd(job, employer, cityDisplay, locale);
+      return jobPosting
+        ? { '@type': 'ListItem', position: idx + 1, item: jobPosting }
+        : {
+            '@type': 'ListItem',
+            position: idx + 1,
+            name: job.title || OPEN_POSITION_LABEL[locale],
+            url: job.detailPath ? `${BASE_URL}${job.detailPath}` : `${BASE_URL}/`,
+          };
+    }),
   });
 
   const faqLd = inlineScriptJson({
