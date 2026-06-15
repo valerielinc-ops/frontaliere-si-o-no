@@ -12,7 +12,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
-import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -1027,12 +1027,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(metaDesc)}">
+ <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
  <link rel="canonical" href="${full}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${full}">
  <meta property="og:title" content="${esc(localizedTitle)}">
- <meta property="og:description" content="${esc(localizedDesc)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="675">
