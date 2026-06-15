@@ -962,9 +962,9 @@
     },
     {
       "id": "abbott-529fa61efee7",
-      "slug": "medical-educator-schweiz-abbott-ch",
+      "slug": "educatore-medico-svizzera-abbott-remote",
       "slugByLocale": {
-        "it": "medical-educator-schweiz-abbott-ch",
+        "it": "educatore-medico-svizzera-abbott-remote",
         "en": "medical-educator-switzerland-abbott-remote",
         "de": "medical-educator-schweiz-abbott-ch",
         "fr": "educateur-medical-suisse-abbott-remote"
@@ -1041,11 +1041,15 @@
       },
       "jobReqId": "31149502",
       "previousSlugs": [
-        "medizinpadagogin-schweiz-abbott-remote"
+        "medizinpadagogin-schweiz-abbott-remote",
+        "medical-educator-schweiz-abbott-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "medizinpadagogin-schweiz-abbott-remote"
+        ],
+        "it": [
+          "medical-educator-schweiz-abbott-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:31.584Z",
@@ -1636,10 +1640,10 @@
     },
     {
       "id": "abbott-dfc1265d86f1",
-      "slug": "senior-quality-engineer-abbott-ch",
+      "slug": "ingegnere-senior-della-qualita-abbott-zurich",
       "slugByLocale": {
         "en": "senior-quality-engineer-abbott-ch",
-        "it": "senior-quality-engineer-abbott-ch",
+        "it": "ingegnere-senior-della-qualita-abbott-zurich",
         "de": "senior-qualitat-ingenieur-abbott-zurich",
         "fr": "senior-qualite-ingenieur-abbott-zurich"
       },
@@ -1697,7 +1701,15 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-15T13:45:33.104Z"
+      "firstSeenAt": "2026-06-15T13:45:33.104Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-quality-engineer-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-quality-engineer-abbott-ch"
+      ]
     }
   ]
 }

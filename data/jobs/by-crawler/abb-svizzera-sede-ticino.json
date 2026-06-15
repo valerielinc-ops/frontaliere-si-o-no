@@ -45,8 +45,8 @@
       "slugByLocale": {
         "it": "strategy-manager-motion-business-area-abb-svizzera-sede-ticino-baden-aargau-i5zmaw",
         "en": "strategy-manager-motion-business-area-abb-svizzera-sede-ticino-baden-aargau-i5zmaw",
-        "de": "strategy-manager-motion-business-area-abb-svizzera-sede-ticino-baden-aargau-i5zmaw",
-        "fr": "strategy-manager-motion-business-area-abb-svizzera-sede-ticino-baden-aargau-i5zmaw"
+        "de": "strategiemanager-motion-business-area-abb-svizzera-sede-ticino-baden-aargau",
+        "fr": "gestionnaire-de-strategie-secteur-d-activite-motion-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {
         "it": [],
@@ -873,8 +873,8 @@
       "slugByLocale": {
         "it": "stage-in-computer-vision-per-marine-e-porti-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa",
-        "de": "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa",
-        "fr": "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa"
+        "de": "praktikum-in-computer-vision-fur-marine-und-hafen-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "stage-en-vision-informatique-pour-les-ports-et-les-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -882,6 +882,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa"
+        ],
+        "de": [
+          "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa"
+        ],
+        "fr": [
           "internship-in-computer-vision-for-marine-and-ports-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-axtjqa"
         ]
       },
@@ -1024,8 +1030,8 @@
       "slugByLocale": {
         "it": "r-d-senior-scientist-magnetici-ad-alta-potenza-a-media-tensione-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq",
-        "de": "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq",
-        "fr": "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq"
+        "de": "r-d-senior-scientist-mittelspannung-hochleistungsmagnetik-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "chercheur-principal-en-r-d-magnetics-de-puissance-elevee-a-moyenne-tension-abb-svizzera-sede-ticino-baden-daettwil"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1033,6 +1039,12 @@
       "previousSlugsByLocale": {
         "it": [
           "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq"
+        ],
+        "de": [
+          "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq"
+        ],
+        "fr": [
           "r-d-senior-scientist-medium-voltage-high-power-magnetics-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq"
         ]
       },
@@ -1325,7 +1337,7 @@
         "it": "proprietario-di-prodotto-tecnico-servizio-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
         "en": "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4",
         "de": "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4",
-        "fr": "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4"
+        "fr": "service-du-proprietaire-de-produit-technique-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1333,6 +1345,9 @@
       "previousSlugsByLocale": {
         "it": [
           "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+          "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4"
+        ],
+        "fr": [
           "technical-product-owner-service-mv-drives-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-1rq6c4"
         ]
       },
@@ -1616,7 +1631,7 @@
         "it": "risorse-umane-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95",
         "en": "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95",
         "de": "personalwesen-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95",
-        "fr": "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95"
+        "fr": "partenaire-operationnel-rh-abb-svizzera-sede-ticino-uster-zurich"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1624,10 +1639,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich"
+        ],
+        "fr": [
+          "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95"
         ]
       },
       "previousSlugs": [
-        "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich"
+        "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich",
+        "hr-business-partner-abb-svizzera-sede-ticino-uster-zurich-81ga95"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1925,8 +1944,8 @@
       "slugByLocale": {
         "it": "assemblatore-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
         "en": "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs",
-        "de": "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs",
-        "fr": "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs"
+        "de": "montage-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+        "fr": "assemblage-m-p-j-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -1934,6 +1953,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+          "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs"
+        ],
+        "de": [
+          "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs"
+        ],
+        "fr": [
           "assembler-m-w-d-80-100-abb-svizzera-sede-ticino-untersiggenthal-aargau-adhojs"
         ]
       },
@@ -2365,8 +2390,8 @@
       "slugByLocale": {
         "it": "senior-scienziato-nei-sistemi-di-distribuzione-basati-su-convertitori-80-100-abb-svizzera-sede-ticino-baden-daettwil",
         "en": "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo",
-        "de": "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo",
-        "fr": "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo"
+        "de": "senior-wissenschaftler-in-konverterbasierten-verteilungssystemen-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "aine-scientifique-en-systemes-de-distribution-bases-sur-les-convertisseurs-80-100-abb-svizzera-sede-ticino-baden"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2374,6 +2399,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo"
+        ],
+        "de": [
+          "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo"
+        ],
+        "fr": [
           "senior-scientist-in-converter-based-distribution-systems-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ennqvo"
         ]
       },
@@ -2657,8 +2688,8 @@
       "slugByLocale": {
         "it": "responsabile-vendite-abb-svizzera-sede-ticino-baden-aargau",
         "en": "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1",
-        "de": "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1",
-        "fr": "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1"
+        "de": "verkaufsleiter-abb-svizzera-sede-ticino-baden-aargau",
+        "fr": "directeur-des-ventes-abb-svizzera-sede-ticino-baden-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2666,6 +2697,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-abb-svizzera-sede-ticino-baden-aargau",
+          "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1"
+        ],
+        "de": [
+          "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1"
+        ],
+        "fr": [
           "sales-manager-abb-svizzera-sede-ticino-baden-aargau-pzt0y1"
         ]
       },
@@ -2732,8 +2769,8 @@
       "slugByLocale": {
         "it": "r-d-senior-scienziato-convertitori-elettronici-di-potenza-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb",
-        "de": "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb",
-        "fr": "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb"
+        "de": "r-d-senior-scientist-leistungselektronische-wandler-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "chercheur-principal-en-r-d-convertisseurs-electroniques-de-puissance-80-100-abb-svizzera-sede-ticino-baden-daettwil"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2741,6 +2778,12 @@
       "previousSlugsByLocale": {
         "it": [
           "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb"
+        ],
+        "de": [
+          "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb"
+        ],
+        "fr": [
           "r-d-senior-scientist-power-electronic-converters-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-ei3vxb"
         ]
       },
@@ -2806,8 +2849,8 @@
       "slugByLocale": {
         "it": "stage-in-materiali-polimerici-sostenibili-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3",
-        "de": "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3",
-        "fr": "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3"
+        "de": "praktikum-in-nachhaltigen-polymermaterialien-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "stage-en-materiaux-de-polymeres-durables-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2815,6 +2858,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3"
+        ],
+        "de": [
+          "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3"
+        ],
+        "fr": [
           "internship-in-sustainable-polymer-materials-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-an9xi3"
         ]
       },
@@ -2880,8 +2929,8 @@
       "slugByLocale": {
         "it": "stage-in-metalli-e-compositi-per-applicazioni-di-commutazione-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6",
-        "de": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6",
-        "fr": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        "de": "praktikum-in-metallen-und-verbundwerkstoffen-fur-switching-anwendungen-80-100-abb-svizzera-sede-ticino-baden-daettwil",
+        "fr": "stage-en-metaux-et-composites-pour-applications-de-commutation-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -2889,6 +2938,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        ],
+        "de": [
+          "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        ],
+        "fr": [
           "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
         ]
       },
@@ -3252,7 +3307,7 @@
         "it": "sales-service-project-execution-leader-critical-power-switzerland-austria-80-100-abb-svizzera-sede-ticino-baden-aargau-6ipf1f",
         "en": "sales-service-project-execution-leader-critical-power-switzerland-austria-80-100-abb-svizzera-sede-ticino-baden-aargau-6ipf1f",
         "de": "sales-service-project-execution-leader-critical-power-switzerland-austria-80-100-abb-svizzera-sede-ticino-baden-aargau-6ipf1f",
-        "fr": "sales-service-project-execution-leader-critical-power-switzerland-austria-80-100-abb-svizzera-sede-ticino-baden-aargau-6ipf1f"
+        "fr": "responsable-des-ventes-du-service-et-de-l-execution-de-projets-puissance-critique-suisse-autriche-80-100-abb-svizzera"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -3323,8 +3378,8 @@
       "slugByLocale": {
         "it": "internship-in-tecnologia-della-batteria-supporto-prototipante-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e",
-        "de": "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e",
-        "fr": "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e"
+        "de": "praktikum-in-der-batterietechnologie-prototyping-unterstutzung-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "fr": "stage-en-technologie-de-batterie-et-soutien-au-prototypage-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -3332,6 +3387,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e"
+        ],
+        "de": [
+          "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e"
+        ],
+        "fr": [
           "internship-in-battery-technology-prototyping-support-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-9s903e"
         ]
       },
@@ -3687,7 +3748,7 @@
       "slugByLocale": {
         "it": "capo-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "shift-leader-assembly-packaging-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
-        "de": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
+        "de": "schichtfuhrer-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "fr": "shift-leader-assemblage-emballage-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
       },
       "titleByLocale": {
@@ -3712,6 +3773,9 @@
           "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
         ],
         "it": [
+          "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
+        ],
+        "de": [
           "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
         ]
       },

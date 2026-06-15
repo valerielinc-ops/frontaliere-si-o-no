@@ -2609,8 +2609,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3458,12 +3456,12 @@
     },
     {
       "id": "csl-behring-ad5fb1f1dc37",
-      "slug": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
+      "slug": "direttore-associato-trasferimento-tecnologico-e-partenariati-esterni-csl-behring-bern",
       "slugByLocale": {
         "en": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
-        "it": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
+        "it": "direttore-associato-trasferimento-tecnologico-e-partenariati-esterni-csl-behring-bern",
         "de": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
-        "fr": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        "fr": "directeur-associe-transfert-de-technologie-et-partenariats-externes-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3519,7 +3517,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-15T14:20:57.815Z"
+      "firstSeenAt": "2026-06-15T14:20:57.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-761841153d06",

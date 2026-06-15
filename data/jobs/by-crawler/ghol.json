@@ -774,12 +774,12 @@
     },
     {
       "id": "ghol-814a2a6c3683",
-      "slug": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -830,16 +830,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T14:27:39.540Z"
+      "firstSeenAt": "2026-06-15T14:27:39.540Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     },
     {
       "id": "ghol-1be9997cdcbd",
-      "slug": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier",
+      "slug": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier",
-        "it": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier",
-        "en": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier",
-        "de": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        "it": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "clinical-respondent-specialized-in-surgical-instrumentation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "klinische-respondentin-spezialisiert-auf-chirurgische-instrumente-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -890,7 +904,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T14:27:39.539Z"
+      "firstSeenAt": "2026-06-15T14:27:39.539Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ],
+        "en": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ],
+        "de": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ]
+      },
+      "previousSlugs": [
+        "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+      ]
     }
   ]
 }

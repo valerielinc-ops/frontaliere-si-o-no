@@ -858,7 +858,6 @@
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -939,8 +938,6 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -2739,9 +2736,7 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
-        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3353,9 +3348,7 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
-        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
-        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
       "salaryMin": 49500,
@@ -6406,7 +6399,6 @@
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
-        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
         "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -6795,8 +6787,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeute-universitatsspital-basel-basel",
-        "terapeuta-del-lavoro-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6870,8 +6861,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "organisationsentwickler-in-coach-unispital-basel-ch",
-        "developpeur-entraineur-d-organisation-universitatsspital-basel-basel",
-        "organizzatore-coach-universitatsspital-basel-basel"
+        "developpeur-entraineur-d-organisation-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8058,12 +8048,12 @@
     },
     {
       "id": "unispital-basel-960383209b50",
-      "slug": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+      "slug": "medico-senior-ambulatorio-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
-        "it": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
-        "en": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
-        "fr": "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
+        "it": "medico-senior-ambulatorio-universitatsspital-basel-basel",
+        "en": "senior-physician-breast-clinic-universitatsspital-basel-basel",
+        "fr": "medecin-chef-clinique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8120,29 +8110,32 @@
       },
       "firstSeenAt": "2026-06-15T15:33:16.612Z",
       "previousSlugs": [
-        "oberarztin-oberarzt-angiologie-unispital-basel-ch",
-        "medico-senior-brustklinik-universitatsspital-basel-basel",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+        "medecin-principal-angiologie-universitatsspital-basel-basel",
+        "medico-senior-brustklinik-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
         "medecin-chef-brustklinik-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-angiologie-universitatsspital-basel-basel",
-        "medico-senior-angiologia-universitatsspital-basel-basel",
-        "senior-physician-angiology-universitatsspital-basel-basel",
-        "medecin-principal-angiologie-universitatsspital-basel-basel"
+        "oberarztin-oberarzt-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-senior-angiologia-universitatsspital-basel-basel"
+          "medico-senior-angiologia-universitatsspital-basel-basel",
+          "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
         ],
         "en": [
-          "senior-physician-angiology-universitatsspital-basel-basel"
+          "senior-physician-angiology-universitatsspital-basel-basel",
+          "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
         ],
         "de": [
           "oberarztin-oberarzt-angiologie-unispital-basel-ch"
         ],
         "fr": [
-          "medecin-principal-angiologie-universitatsspital-basel-basel"
+          "medecin-principal-angiologie-universitatsspital-basel-basel",
+          "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
         ]
       }
     },
@@ -8228,8 +8221,6 @@
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
-        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
-        "arztsekretar-in-unispital-basel-ch-2",
         "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",

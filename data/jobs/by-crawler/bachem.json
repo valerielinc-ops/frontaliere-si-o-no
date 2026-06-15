@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bachem-acfca9818d9c",
-      "slug": "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag",
+      "slug": "capo-produzione-e-tecnologia-di-processo-sisslerfeld-a-100-bachem-ag-stein-ag",
       "slugByLocale": {
         "de": "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag",
-        "it": "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag",
+        "it": "capo-produzione-e-tecnologia-di-processo-sisslerfeld-a-100-bachem-ag-stein-ag",
         "en": "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag",
-        "fr": "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag"
+        "fr": "technologie-de-fabrication-et-de-transformation-en-chef-sisslerfeld-a-100-bachem-ag-stein-ag"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T13:57:26.423Z"
+      "firstSeenAt": "2026-06-15T13:57:26.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag"
+        ],
+        "fr": [
+          "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag"
+        ]
+      },
+      "previousSlugs": [
+        "head-manufacturing-and-process-technology-sisslerfeld-a-100-bachem-stein-ag"
+      ]
     },
     {
       "id": "bachem-44266a71787a",
@@ -731,12 +742,12 @@
     },
     {
       "id": "bachem-32879ae7e70b",
-      "slug": "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf",
+      "slug": "distribuzione-del-capogruppo-a-100-durante-il-turno-turno-mattino-turno-tardo-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "group-leader-dispensing-100-m-w-d-bachem-bubendorf",
-        "it": "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf",
-        "en": "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf",
-        "fr": "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf"
+        "it": "distribuzione-del-capogruppo-a-100-durante-il-turno-turno-mattino-turno-tardo-bachem-ag-bubendorf",
+        "en": "group-leader-dispensing-a-100-in-shift-operation-early-shift-late-shift-bachem-ag-bubendorf",
+        "fr": "responsable-de-groupe-distribution-a-100-en-service-debut-fin-de-service-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -791,7 +802,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T13:57:20.621Z"
+      "firstSeenAt": "2026-06-15T13:57:20.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf"
+        ],
+        "en": [
+          "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf"
+        ],
+        "fr": [
+          "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-dispensing-a-100-im-schichtbetrieb-fruhschicht-spatschicht-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-7a54d6e11dee",
@@ -3828,12 +3853,12 @@
     },
     {
       "id": "bachem-39a816a13858",
-      "slug": "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
+      "slug": "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
+        "it": "ingegnere-di-automazione-ingegnere-di-progetto-produzione-digitale-e-laboratorio-di-dati-100-a-bachem-ag-bubendorf",
         "en": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
         "de": "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
-        "fr": "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf"
+        "fr": "ingenieur-en-automatisation-ingenieur-projet-fabrication-numerique-et-laboratoire-de-donnees-100-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -3877,12 +3902,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
-        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem"
+        "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem",
+        "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf",
+        "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem",
-          "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem"
+          "automation-engineer-project-engineer-digital-manufacturing-and-data-lab-100-a-bachem",
+          "automazione-engineer-project-engineer-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf"
+        ],
+        "fr": [
+          "ingenieur-d-automatisation-ingenieur-de-projet-digital-manufacturing-and-data-lab-100-m-w-d-bachem-ag-bubendorf"
         ]
       },
       "firstSeenAt": "2026-05-28T11:45:42.147Z",
@@ -4254,9 +4285,9 @@
     },
     {
       "id": "bachem-b285a1a1f671",
-      "slug": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
+      "slug": "content-designer-temporaneo-60-a-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
+        "it": "content-designer-temporaneo-60-a-bachem-ag-bubendorf",
         "en": "temporary-content-designer-60-bachem-bubendorf",
         "de": "temporary-content-designer-60-bachem-bubendorf",
         "fr": "designer-temporaire-de-contenu-60-a-bachem-ag-bubendorf"
@@ -4304,6 +4335,7 @@
         "temporary-content-designer-60-bachem-bubendorf",
         "temporary-content-designer-60-a-bachem-bubendorf",
         "temporanea-content-designer-60-bachem-ag-bubendorf",
+        "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf",
         "temporarer-content-designer-60-bachem-ag-bubendorf",
         "designer-de-contenu-temporaire-60-bachem-ag-bubendorf"
       ],
@@ -4311,7 +4343,8 @@
         "it": [
           "temporary-content-designer-60-bachem-bubendorf",
           "temporary-content-designer-60-a-bachem-bubendorf",
-          "temporanea-content-designer-60-bachem-ag-bubendorf"
+          "temporanea-content-designer-60-bachem-ag-bubendorf",
+          "designer-di-contenuti-temporanei-60-a-bachem-ag-bubendorf"
         ],
         "de": [
           "temporarer-content-designer-60-bachem-ag-bubendorf"
@@ -7286,9 +7319,9 @@
     },
     {
       "id": "bachem-ad565c34dfb7",
-      "slug": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+      "slug": "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
+        "it": "tecnico-di-laboratorio-r-d-lpps-tap-a-100-bachem-ag-bubendorf",
         "en": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "de": "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "fr": "technicien-de-laboratoire-r-d-lpps-taps-p-m-j-100-bachem-ag-bubendorf"
@@ -7336,13 +7369,15 @@
         "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
         "lab-technician-r-d-lpps-taps-a-100-bachem-bubendorf",
         "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
+        "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf",
         "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lab-technician-r-d-lpps-taps-w-m-d-100-bachem-bubendorf",
           "lab-technician-r-d-lpps-taps-a-100-bachem-bubendorf",
-          "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf"
+          "tecnico-di-laboratorio-r-d-lpps-tap-con-lavoro-lavoro-100-bachem-ag-bubendorf",
+          "lab-technician-r-d-lpps-taps-a-100-bachem-ag-bubendorf"
         ],
         "de": [
           "labortechniker-r-d-lpps-taps-w-m-d-100-bachem-ag-bubendorf"

@@ -7176,8 +7176,8 @@
       "slugByLocale": {
         "de": "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch",
         "it": "responsabile-alarmorganisation-m-w-d-eth-zurich",
-        "en": "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch",
-        "fr": "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
+        "en": "head-of-alarm-organization-m-f-d-eth-zurich-zurich",
+        "fr": "chef-de-l-organisation-des-alarmes-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7221,6 +7221,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "leiter-in-alarmorganisation-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
@@ -7244,12 +7250,12 @@
     },
     {
       "id": "eth-zurich-1456d58ad17a",
-      "slug": "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
+      "slug": "specialista-in-reportistica-progetti-finanziari-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
-        "it": "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
-        "en": "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch",
-        "fr": "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
+        "it": "specialista-in-reportistica-progetti-finanziari-m-f-d-eth-zurich-zurich",
+        "en": "financial-project-reporting-specialist-m-f-d-eth-zurich-zurich",
+        "fr": "specialiste-en-reporting-de-projets-financiers-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7304,7 +7310,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-15T14:48:32.104Z"
+      "firstSeenAt": "2026-06-15T14:48:32.104Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-finanzielles-projektreporting-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ef48c794a0ff",
@@ -7312,8 +7332,8 @@
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
         "it": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
+        "de": "postdoktorand-im-bereich-lichtgetriebener-co2-einscheidung-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-capture-du-co2-a-la-lumiere-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7372,12 +7392,12 @@
     },
     {
       "id": "eth-zurich-0be351dfef95",
-      "slug": "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
+      "slug": "posizione-di-dottorato-in-commercio-globale-catene-di-approvvigionamento-e-shock-climatici-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
-        "it": "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
-        "de": "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch",
-        "fr": "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
+        "it": "posizione-di-dottorato-in-commercio-globale-catene-di-approvvigionamento-e-shock-climatici-eth-zurich-zurich",
+        "de": "phd-position-im-bereich-global-trade-lieferketten-und-klimaschocks-eth-zurich-zurich",
+        "fr": "poste-de-doctorat-en-commerce-mondial-chaines-d-approvisionnement-et-chocs-climatiques-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7432,7 +7452,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-15T14:48:31.144Z"
+      "firstSeenAt": "2026-06-15T14:48:31.144Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-global-trade-supply-chains-and-climate-shocks-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-9d6058c1e308",
@@ -7440,8 +7474,8 @@
       "slugByLocale": {
         "it": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
         "en": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-light-driven-co2-capture-eth-zurich-ch"
+        "de": "postdoktorand-im-bereich-lichtgetriebener-co2-einscheidung-eth-zurich-zurich-e7d104",
+        "fr": "chercheur-postdoctoral-en-capture-du-co2-a-la-lumiere-eth-zurich-zurich-e7d104"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",

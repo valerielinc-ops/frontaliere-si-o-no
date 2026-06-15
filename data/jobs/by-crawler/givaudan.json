@@ -434,12 +434,12 @@
     },
     {
       "id": "givaudan-819659bf0e44",
-      "slug": "patent-attorney-m-f-d-givaudan-ch",
+      "slug": "avvocato-del-brevetto-m-f-d-givaudan-zug-switzerland",
       "slugByLocale": {
         "en": "patent-attorney-m-f-d-givaudan-ch",
-        "it": "patent-attorney-m-f-d-givaudan-ch",
-        "de": "patent-attorney-m-f-d-givaudan-ch",
-        "fr": "patent-attorney-m-f-d-givaudan-ch"
+        "it": "avvocato-del-brevetto-m-f-d-givaudan-zug-switzerland",
+        "de": "patentanwalt-m-w-d-givaudan-zug-switzerland",
+        "fr": "conseiller-en-brevets-m-f-d-givaudan-zug-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -494,7 +494,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T14:43:51.329Z"
+      "firstSeenAt": "2026-06-15T14:43:51.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patent-attorney-m-f-d-givaudan-ch"
+        ],
+        "de": [
+          "patent-attorney-m-f-d-givaudan-ch"
+        ],
+        "fr": [
+          "patent-attorney-m-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patent-attorney-m-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-0bd39b197183",

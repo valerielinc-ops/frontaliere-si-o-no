@@ -6608,8 +6608,8 @@
       "slugByLocale": {
         "en": "team-leader-function-validation-m-f-x-liebherr-bulle",
         "it": "capo-squadra-function-validation-m-f-x-liebherr-bulle",
-        "de": "team-leader-function-validation-m-f-x-liebherr-bulle",
-        "fr": "team-leader-function-validation-m-f-x-liebherr-bulle"
+        "de": "teamleiter-funktionsvalidierung-m-w-x-liebherr-bulle",
+        "fr": "chef-d-equipe-validation-des-fonctions-m-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6668,6 +6668,12 @@
       "firstSeenAt": "2026-06-15T14:48:44.629Z",
       "previousSlugsByLocale": {
         "it": [
+          "team-leader-function-validation-m-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "team-leader-function-validation-m-f-x-liebherr-bulle"
+        ],
+        "fr": [
           "team-leader-function-validation-m-f-x-liebherr-bulle"
         ]
       },
