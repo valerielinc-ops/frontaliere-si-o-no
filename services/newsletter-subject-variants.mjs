@@ -94,9 +94,18 @@ export function getSubjectVariant(id) {
   return SUBJECT_VARIANTS.find((v) => v.id === id) || null;
 }
 
+/** Default exploration rate for epsilon-greedy auto-promotion: with a promoted
+ * winner, a (1-epsilon) share is exploited and epsilon is explored uniformly (so
+ * the losing arm keeps getting traffic and the test stays live).
+ * (Pure constant — kept here so this browser-safe module stays the single source
+ * of truth; the assign helper imports it.) */
+export const DEFAULT_EPSILON = 0.2;
+
 // `assignSubjectVariant` (the only `node:crypto` consumer) lives in the
 // server-only ./newsletter-subject-assign.mjs to keep this module browser-safe
-// (see the header note). Import it from there in send/report scripts.
+// (see the header note). It imports SUBJECT_VARIANTS / normalizeEmail /
+// DEFAULT_EPSILON from here. Import assignSubjectVariant from the assign module
+// in the send + A/B-report scripts.
 
 /**
  * Variant-specific fallback subject for a locale, with safe degradation:
