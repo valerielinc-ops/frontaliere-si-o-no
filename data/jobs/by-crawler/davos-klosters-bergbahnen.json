@@ -126,7 +126,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:29:58.262Z",
+      "crawledAt": "2026-06-14T21:45:32.713Z",
       "previousSlugs": [
         "mitarbeiter-in-booking-office-davos-klosters-bergbahnen-davos"
       ],
@@ -139,16 +139,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:20:50.604Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },

@@ -11343,5 +11343,119 @@
         "pending": 49
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-15T12:00:10.830Z",
+    "label": "before",
+    "total": 16334,
+    "needsRetranslation": 10373,
+    "suppressed": 52,
+    "incomplete": 3482,
+    "complete": 12852,
+    "missingByLocale": {
+      "it": 2702,
+      "en": 2444,
+      "de": 735,
+      "fr": 2395
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1957
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 275
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Richemont",
+        "pending": 103
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 74
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-15T17:10:10.422Z",
+    "label": "after",
+    "total": 16334,
+    "needsRetranslation": 5555,
+    "suppressed": 80,
+    "incomplete": 3301,
+    "complete": 13033,
+    "missingByLocale": {
+      "it": 2588,
+      "en": 2068,
+      "de": 956,
+      "fr": 2011
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1938
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 275
+      },
+      {
+        "company": "Manor AG",
+        "pending": 113
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Roche",
+        "pending": 67
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 49
+      },
+      {
+        "company": "Implenia",
+        "pending": 48
+      }
+    ]
   }
 ]

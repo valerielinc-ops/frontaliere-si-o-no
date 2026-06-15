@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "fellow-cardiology-universitatsspital-basel-basel",
         "en": "fellow-cardiology-unispital-basel-ch",
-        "de": "fellow-cardiology-unispital-basel-ch",
-        "fr": "fellow-cardiology-unispital-basel-ch"
+        "de": "fellow-kardiologie-universitatsspital-basel-basel",
+        "fr": "fellow-cardiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -33,7 +33,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellow-cardiology/f71b7678-049a-46bf-980d-a82e8c913ba4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:33:16.689Z",
+      "crawledAt": "2026-06-14T22:52:28.259Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -51,34 +51,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fellow-cardiology-unispital-basel-ch",
-        "fellow-kardiologie-universitatsspital-basel-basel",
-        "fellow-cardiologie-universitatsspital-basel-basel"
+        "fellow-cardiology-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-cardiology-unispital-basel-ch"
         ],
         "de": [
-          "fellow-kardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ],
         "fr": [
-          "fellow-cardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -173,7 +168,7 @@
         "it": "fellowship-abdominelle-e-onkologische-radiologie-universitatsspital-basel",
         "en": "fellowship-abdominelle-und-onkologische-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fr": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
+        "fr": "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -197,7 +192,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-abdominelle-und-onkologische-radiologie/2d972151-90c7-41ae-9d1f-1a6228154040",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.688Z",
+      "crawledAt": "2026-06-14T22:52:28.258Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -216,8 +211,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel",
-        "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
+        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -225,21 +219,19 @@
           "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
         ],
         "fr": [
-          "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel",
           "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -249,9 +241,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -275,7 +267,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin/0c569d6e-ae5c-49ae-a32e-d8cf1ebbf701",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.687Z",
+      "crawledAt": "2026-06-14T22:52:28.257Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -294,7 +286,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -309,16 +303,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -328,7 +321,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+        "en": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
       },
@@ -354,7 +347,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-imc/08853e06-501c-44ac-bd5b-4bb2f15f2a61",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.687Z",
+      "crawledAt": "2026-06-14T22:52:28.257Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -374,7 +367,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
@@ -385,21 +377,19 @@
           "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -409,9 +399,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -435,7 +425,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fellowship-kardiothorakale-radiologie/7d2a5df8-3a9c-4809-ae18-7a2d645a88d6",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.686Z",
+      "crawledAt": "2026-06-14T22:52:28.256Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -454,7 +444,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -469,16 +461,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -757,7 +748,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/fachleitung-pflege-gynaekologisch-onkologisches-ambulatorium-brustklinik/9a25690b-04c1-4833-a685-9a1417481451",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.683Z",
+      "crawledAt": "2026-06-14T22:52:28.253Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -797,16 +788,15 @@
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -816,7 +806,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -842,7 +832,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/med-praxisassistent-in-radiologie/006d96fa-f99a-4a1b-b26e-8913e453af48",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.683Z",
+      "crawledAt": "2026-06-14T22:52:28.254Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -864,6 +854,7 @@
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
@@ -877,21 +868,19 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "en": [
-          "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -903,7 +892,7 @@
         "it": "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "en": "nds-experte-expertin-notfallpflege-nfz-universitatsspital-basel-basel",
         "de": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "fr": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+        "fr": "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -927,7 +916,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/nds-experte-expertin-notfallpflege-nfz/b3126b9f-601f-4805-ba35-7a04c8e8c3f9",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.682Z",
+      "crawledAt": "2026-06-14T22:52:28.252Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -947,7 +936,6 @@
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
@@ -958,21 +946,19 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
           "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1555,9 +1541,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1581,7 +1567,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-mri/cc023ae6-8674-4987-ae2c-dec974588731",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.677Z",
+      "crawledAt": "2026-06-14T22:52:28.247Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1600,7 +1586,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1615,16 +1603,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1634,7 +1621,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "en": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
@@ -1660,7 +1647,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/3bbd46a6-7dd5-4c18-af65-f2fe49cf4d52",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.677Z",
+      "crawledAt": "2026-06-14T22:52:28.248Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1679,7 +1666,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-cje476",
@@ -1694,21 +1680,19 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ],
         "en": [
-          "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1801,9 +1785,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1827,7 +1811,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-fh/426407f2-2235-447c-8506-c9cf7b4db0d4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.676Z",
+      "crawledAt": "2026-06-14T22:52:28.247Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1846,7 +1830,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1861,16 +1847,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2068,7 +2053,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in-case-management/7dbbc3d4-a6da-420e-aee1-863f309144a7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.674Z",
+      "crawledAt": "2026-06-14T22:52:28.245Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2105,16 +2090,15 @@
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2150,7 +2134,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/logistikerin-logistiker-efz-fachrichtung-lagertechnik-lagerlogistik-lehrstelle/b508c985-af21-4a3d-8c27-07b98f4006bc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.673Z",
+      "crawledAt": "2026-06-14T22:52:28.244Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2204,16 +2188,15 @@
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -2306,7 +2289,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2330,7 +2313,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachperson-innere-medizin-7-2/aad40bdd-8e33-4c70-86d7-202449ff707c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.672Z",
+      "crawledAt": "2026-06-14T22:52:28.243Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2349,7 +2332,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2357,21 +2341,19 @@
           "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
           "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2381,7 +2363,7 @@
       "slug": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
-        "en": "study-nurse-neurochirurgie-unispital-basel-ch",
+        "en": "study-nurse-neurosurgery-universitatsspital-basel-basel",
         "de": "study-nurse-neurochirurgie-unispital-basel-ch",
         "fr": "study-nurse-neurochirurgie-universitatsspital-basel-basel"
       },
@@ -2407,7 +2389,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/study-nurse-neurochirurgie/208eda2f-26f3-4893-b124-f6b7a63728f4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.671Z",
+      "crawledAt": "2026-06-14T22:52:28.242Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2425,29 +2407,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-neurochirurgie-unispital-basel-ch",
-        "study-nurse-neurosurgery-universitatsspital-basel-basel"
+        "study-nurse-neurochirurgie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ],
         "en": [
-          "study-nurse-neurosurgery-universitatsspital-basel-basel",
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2457,7 +2436,7 @@
       "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
+        "en": "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel"
       },
@@ -2483,7 +2462,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit/f205b09c-981b-4a92-ac3a-6212a4542e4a",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.670Z",
+      "crawledAt": "2026-06-14T22:52:28.240Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2502,8 +2481,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
-        "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2511,21 +2489,19 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2704,10 +2680,10 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "fr": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2731,7 +2707,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/physiotherapeutin-physiotherapeut/208d88dc-3d26-47ac-8c32-aa2be3047fc8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.668Z",
+      "crawledAt": "2026-06-14T22:52:28.238Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2752,7 +2728,7 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
@@ -2766,25 +2742,22 @@
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2820,7 +2793,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/administrative-r-mitarbeiter-in-patienten-services/73aaf9fa-e382-48e8-bc3a-ee8c33530b24",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.668Z",
+      "crawledAt": "2026-06-14T22:52:28.239Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2859,16 +2832,15 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2904,7 +2876,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-fuer-gesundheit-und-soziales-ags-imc/9aa9239b-11d9-4001-93ef-b932207f6dfc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.667Z",
+      "crawledAt": "2026-06-14T22:52:28.238Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2954,16 +2926,15 @@
         "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3161,7 +3132,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopaedie-traumatologie/862922f9-b1c4-48cd-9263-444dd2e1c8c1",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.663Z",
+      "crawledAt": "2026-06-14T22:52:28.234Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3195,16 +3166,15 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3240,7 +3210,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/trainee-klinikleitung-augenklinik/7f932453-6a0f-42ce-a42e-b9b65ba6477c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.662Z",
+      "crawledAt": "2026-06-14T22:52:28.232Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3278,16 +3248,15 @@
         "apprenti-klinikleitung-augenklinik-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-19T12:50:29.629Z",
-      "needsRetranslation": true,
-      "salaryMin": 52000,
-      "salaryMax": 78500,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -3323,7 +3292,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/assistentin-assistent-gesundheit-und-soziales-ags/406c8e9e-f1dd-406c-83ce-412975168325",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.662Z",
+      "crawledAt": "2026-06-14T22:52:28.232Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3383,16 +3352,15 @@
         "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3587,7 +3555,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/study-nurse-clinical-trial-coordinator-mit-labor-biobanking-erfahrung/d2a16baa-3e26-4161-902d-4fba91797976",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.659Z",
+      "crawledAt": "2026-06-14T22:52:28.230Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3616,16 +3584,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3794,12 +3761,12 @@
     },
     {
       "id": "unispital-basel-b9d4c734c71a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+      "slug": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+        "it": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3823,7 +3790,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation/fff8ce07-4eaa-477a-9ef6-5e55b44371ab",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.657Z",
+      "crawledAt": "2026-06-14T22:52:28.228Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3841,30 +3808,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4155,7 +4118,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/studienkoordinator-in-clinical-research-coordinator-thoraxchirurgie/23cca372-66af-4b9a-81f0-a92b688d1481",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.654Z",
+      "crawledAt": "2026-06-14T22:52:28.225Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4186,16 +4149,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.917Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4460,7 +4422,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachfrau-radiologiefachmann-hf-konventionelles-roentgen/9c2b0357-6593-4abd-8960-b0984113e89d",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.651Z",
+      "crawledAt": "2026-06-14T22:52:28.222Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4486,16 +4448,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4645,9 +4606,9 @@
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
+        "en": "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4671,7 +4632,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik/db6d4780-9853-463e-893a-2c0675cb15d7",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.650Z",
+      "crawledAt": "2026-06-14T22:52:28.221Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -4689,34 +4650,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
-        "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
-        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "en": [
-          "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5184,7 +5140,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5208,7 +5164,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/radiologiefachperson-mtra-oder-pflegefachperson-hf-fh/310a3bb4-6bd4-49d5-b942-e79b53ad0ea8",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.645Z",
+      "crawledAt": "2026-06-14T22:52:28.216Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5227,28 +5183,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
         ],
         "fr": [
-          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
           "pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5420,9 +5374,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+        "en": "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "fr": "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5446,7 +5400,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin/e243266f-4693-4984-bf64-d540469908c4",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.642Z",
+      "crawledAt": "2026-06-14T22:52:28.214Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5464,34 +5418,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
-        "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5603,7 +5552,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/kaderaerztin-kaderarzt-pneumologie/1d0ec746-a71c-42fb-8183-394a96839c9c",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.640Z",
+      "crawledAt": "2026-06-14T22:52:28.212Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5635,16 +5584,15 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -6636,7 +6584,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6660,7 +6608,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/dipl-expertin-experte-nds-hf-ip-intensivstation/49f607d0-1e95-48ed-85f6-2fd1b5792b03",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.629Z",
+      "crawledAt": "2026-06-14T22:52:28.202Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6679,7 +6627,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6687,21 +6636,19 @@
           "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
           "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -6795,10 +6742,10 @@
       "id": "unispital-basel-28c2fd6de85f",
       "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "fr": "ergotherapeute-universitatsspital-basel-basel"
+        "fr": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6822,7 +6769,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/ergotherapeutin-ergotherapeut/7120a19c-f854-4f10-b772-e86c17fa0d53",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.627Z",
+      "crawledAt": "2026-06-14T22:52:28.198Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6841,29 +6788,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
           "ergotherapeute-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -6872,10 +6816,10 @@
       "id": "unispital-basel-21f8e1c9d6f3",
       "slug": "organizzatore-coach-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "organizzatore-coach-universitatsspital-basel-basel",
+        "it": "organisationsentwickler-in-coach-universitatsspital-basel-basel",
         "en": "organisationsentwickler-in-coach-universitatsspital-basel-basel",
         "de": "organisationsentwickler-in-coach-unispital-basel-ch",
-        "fr": "developpeur-entraineur-d-organisation-universitatsspital-basel-basel"
+        "fr": "organisationsentwickler-in-coach-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6899,7 +6843,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/organisationsentwickler-in-coach/75744a99-8a7c-4f15-83b9-a333f71a23cc",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.627Z",
+      "crawledAt": "2026-06-14T22:52:28.199Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6918,29 +6862,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "organisationsentwickler-in-coach-unispital-basel-ch",
-        "organisationsentwickler-in-coach-universitatsspital-basel-basel"
+        "developpeur-entraineur-d-organisation-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "organisationsentwickler-in-coach-unispital-basel-ch",
-          "organisationsentwickler-in-coach-universitatsspital-basel-basel"
+          "organisationsentwickler-in-coach-unispital-basel-ch"
         ],
         "fr": [
-          "organisationsentwickler-in-coach-universitatsspital-basel-basel",
           "developpeur-entraineur-d-organisation-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.258Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -7648,9 +7589,9 @@
       "slug": "study-nurse-rheumatologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "study-nurse-rheumatologie-universitatsspital-basel-basel",
-        "en": "study-nurse-rheumatologie-unispital-basel-ch",
+        "en": "study-nurse-rheumatology-universitatsspital-basel-basel",
         "de": "study-nurse-rheumatologie-unispital-basel-ch",
-        "fr": "study-nurse-rheumatologie-unispital-basel-ch"
+        "fr": "infirmiere-rhumatologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7674,7 +7615,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/study-nurse-rheumatologie/55993d52-f176-4389-be3f-8dfb70106bdd",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.618Z",
+      "crawledAt": "2026-06-14T22:52:28.190Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7692,34 +7633,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-rheumatologie-unispital-basel-ch",
-        "study-nurse-rheumatology-universitatsspital-basel-basel",
-        "infirmiere-rhumatologie-universitatsspital-basel-basel"
+        "study-nurse-rheumatologie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "en": [
-          "study-nurse-rheumatology-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "fr": [
-          "infirmiere-rhumatologie-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -7962,9 +7898,9 @@
       "slug": "payroll-spezialist-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "payroll-spezialist-in-universitatsspital-basel-basel",
-        "en": "payroll-spezialist-in-unispital-basel-ch",
+        "en": "payroll-specialist-universitatsspital-basel-basel",
         "de": "payroll-spezialist-in-unispital-basel-ch",
-        "fr": "payroll-spezialist-in-unispital-basel-ch"
+        "fr": "specialiste-de-la-paie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7988,7 +7924,7 @@
       "url": "https://job.unispital-basel.ch/offene-stellen/payroll-spezialist-in/fa318d54-5461-477e-9cf0-5cdd6cf1cf06",
       "source": "USB Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:33:16.614Z",
+      "crawledAt": "2026-06-14T22:52:28.178Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -8006,34 +7942,29 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-spezialist-in-unispital-basel-ch",
-        "payroll-specialist-universitatsspital-basel-basel",
-        "specialiste-de-la-paie-universitatsspital-basel-basel"
+        "payroll-spezialist-in-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "en": [
-          "payroll-specialist-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "fr": [
-          "specialiste-de-la-paie-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.256Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }

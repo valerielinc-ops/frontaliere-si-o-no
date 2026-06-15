@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:06.599Z",
+      "crawledAt": "2026-06-14T22:06:41.487Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -61,17 +61,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:33.795Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -522,7 +521,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:03.795Z",
+      "crawledAt": "2026-06-14T22:06:38.414Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -539,17 +538,16 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:36:37.068Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -671,7 +669,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:03.127Z",
+      "crawledAt": "2026-06-14T22:06:37.060Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -688,17 +686,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -746,7 +743,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:02.747Z",
+      "crawledAt": "2026-06-14T22:06:38.077Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -763,17 +760,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.192Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
@@ -821,7 +817,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:02.424Z",
+      "crawledAt": "2026-06-14T22:06:37.395Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -830,17 +826,16 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:30.516Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -965,7 +960,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:01.768Z",
+      "crawledAt": "2026-06-14T22:06:36.042Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -988,17 +983,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:29.209Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1283,7 +1277,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8299376c97054350316bb0b71153af2c/ATSANN0004677/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:00.483Z",
+      "crawledAt": "2026-06-14T22:06:35.013Z",
       "_hvsMeta": {
         "number": "ATSANN0004677",
         "sysId": "8299376c97054350316bb0b71153af2c",
@@ -1303,17 +1297,16 @@
         ]
       },
       "firstSeenAt": "2026-05-21T22:41:43.801Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1836,7 +1829,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/73f1ff408315cbd017a39d20ceaad318/ATSANN0004699/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T14:37:58.226Z",
+      "crawledAt": "2026-06-14T22:06:31.938Z",
       "_hvsMeta": {
         "number": "ATSANN0004699",
         "sysId": "73f1ff408315cbd017a39d20ceaad318",
@@ -1853,17 +1846,16 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:51:57.681Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -1911,7 +1903,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1292a7c4835d8bd017a39d20ceaad3f5/ATSANN0004698/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T14:37:57.905Z",
+      "crawledAt": "2026-06-14T22:06:31.587Z",
       "_hvsMeta": {
         "number": "ATSANN0004698",
         "sysId": "1292a7c4835d8bd017a39d20ceaad3f5",
@@ -1920,17 +1912,16 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-06-01T14:51:58.054Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -2298,7 +2289,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a05ddcac9711cf90e7ce346e2153af1c/ATSANN0004704/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:37:56.286Z",
+      "crawledAt": "2026-06-14T22:06:30.912Z",
       "_hvsMeta": {
         "number": "ATSANN0004704",
         "sysId": "a05ddcac9711cf90e7ce346e2153af1c",
@@ -2307,17 +2298,16 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-06-02T13:22:19.092Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -2920,7 +2910,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/77a63b1b9715c750316bb0b71153af9c/ATSANN0004719/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T14:37:53.388Z",
+      "crawledAt": "2026-06-14T22:06:27.203Z",
       "_hvsMeta": {
         "number": "ATSANN0004719",
         "sysId": "77a63b1b9715c750316bb0b71153af9c",
@@ -2928,9 +2918,7 @@
         "famille": "Informatique",
         "site": "SION"
       },
-      "previousSlugs": [
-        "it-supporter-100-hopital-du-valais-sion"
-      ],
+      "firstSeenAt": "2026-06-11T22:49:35.418Z",
       "previousSlugsByLocale": {
         "it": [
           "it-supporter-100-hopital-du-valais-sion"
@@ -2939,18 +2927,19 @@
           "it-supporter-100-hopital-du-valais-sion"
         ]
       },
-      "firstSeenAt": "2026-06-11T22:49:35.418Z",
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "previousSlugs": [
+        "it-supporter-100-hopital-du-valais-sion"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -2998,7 +2987,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/27feeadb8399cf5417a39d20ceaad302/ATSANN0004717/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:37:53.065Z",
+      "crawledAt": "2026-06-14T22:06:27.539Z",
       "_hvsMeta": {
         "number": "ATSANN0004717",
         "sysId": "27feeadb8399cf5417a39d20ceaad302",
@@ -3021,17 +3010,16 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:48:17.299Z",
-      "needsRetranslation": true,
-      "salaryMin": 83500,
-      "salaryMax": 126500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },

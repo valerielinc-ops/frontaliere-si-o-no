@@ -512,7 +512,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:48:59.509Z",
+      "crawledAt": "2026-06-14T21:59:27.291Z",
       "previousSlugsByLocale": {
         "it": [
           "agent-customer-service-heineken-ch-luzern",
@@ -527,17 +527,16 @@
         "mitarbeiter-in-kundenservice-heineken-ch-luzern"
       ],
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
-      "needsRetranslation": true,
-      "salaryMin": 69500,
-      "salaryMax": 106000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -588,7 +587,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:48:51.380Z",
+      "crawledAt": "2026-06-14T21:59:19.324Z",
       "previousSlugs": [
         "logistiker-im-getrankelager-m-w-heineken-ch-davos"
       ],
@@ -604,17 +603,16 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -741,7 +739,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159918&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:48:35.312Z",
+      "crawledAt": "2026-06-14T21:59:03.250Z",
       "previousSlugs": [
         "customer-service-transport-manager-w-m-d-heineken-ch-luzern"
       ],
@@ -754,17 +752,16 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:29:16.912Z",
-      "needsRetranslation": true,
-      "salaryMin": 96000,
-      "salaryMax": 146000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
