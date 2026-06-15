@@ -674,7 +674,13 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   idraulici: /\bidraulic|\bsanit[aä]rinstallat|\bplumber\b|\bplombier\b|\bsanit[aä]r\b|\bheizung|\binstallatore[ -]idraulic|\bspengler/i,
   edilizia: /\bedilizia\b|\bcostruzion|\bcantiere\b|\bbaustelle|\bconstruction\b|\bbauarbeiter|\bb[aâ]timent\b|\bbauf[uü]hrer|\bcapocantiere/i,
   falegnami: /\bfalegnam|\bschreiner|\btischler|\bcarpenter\b|\bmenuisier\b|\bcharpentier\b|\bcarpentier|\bebanist/i,
-  industria: /\bindustri|\bproduzion|\bfertigung|\bmanufactur|\bproduction[ -](?:worker|operator)|\bproduktionsmitarbeiter|\boperaio\b|\boperai\b|\bproduktion\b/i,
+  // `operaio`/`operai` alone is too broad: it matches construction
+  // ("operaio edile" → edilizia), farm ("operaio agricolo" → agricoltura) and
+  // generic labour, cross-classifying them into manufacturing. Anchor the
+  // role noun to a production/factory qualifier so only genuine industrial
+  // workers count; pure production tokens (produzion/produktion/fertigung)
+  // still catch the rest.
+  industria: /\bindustri|\bproduzion|\bfertigung|\bmanufactur|\bproduction[ -](?:worker|operator)|\bproduktionsmitarbeiter|\boperai[oae]?[ -](?:di[ -])?(?:produzion|fabbrica|industri|metalmeccanic|montaggio|assemblaggio)|\bproduktion\b/i,
   orologeria: /\borolog|\buhren\b|\buhrmacher|\bwatchmak|\bhorloger|\bhorlogerie|\bwatch[ -]industry/i,
   farmaceutica: /\bfarmaceutic|\bpharma\b|\bpharmaceutical|\bpharmazeutisch|\bpharmaceutique|\bbiotech|\bgmp\b|\bqualit[aà][ -]farmac/i,
   chimica: /\bchimic|\bchemie\b|\bchemical\b|\bchimie\b|\bchemiker|\bchemist\b|\blaborant|\bchemielaborant/i,
@@ -689,8 +695,16 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   architetti: /\barchitet|\barchitect\b|\barchitekt|\barchitecte\b|\bbauzeichner|\bdisegnatore[ -]edil|\bdessinateur/i,
   agricoltura: /\bagricol|\blandwirt|\bagriculture\b|\bagriculteur|\bcontadin|\bgartenbau|\bgiardinier|\bgärtner|\bvivaist|\bviticol/i,
   energia: /\benergi|\benergy\b|\b[eé]nergie\b|\belettricit[aà][ -]produzion|\bsolare\b|\bphotovoltaik|\bfotovoltaic|\bwind[ -]energy|\bversorgung/i,
-  media: /\bmedia\b|\bgiornalist|\bjournalist|\bredattore\b|\bredaktor|\bjournaliste|\bcontent[ -]creator|\bcommunication\b|\bkommunikation\b|\bredazione\b/i,
-  tecnici: /\btecnico\b|\btecnici\b|\btechniker\b|\btechnician\b|\btechnicien\b|\bservice[ -]technician|\btechnisch|\bfachtechnik/i,
+  // bare `\bmedia\b` matches the Italian "scuola media" (middle school →
+  // scuola) and "social media" (a marketing role), plus the noun "media" =
+  // average. Negative lookbehind drops those two title contexts while keeping
+  // genuine media-industry titles ("Media Manager", "Digital Media").
+  media: /(?<!social[ -])(?<!scuola[ -])\bmedia\b|\bgiornalist|\bjournalist|\bredattore\b|\bredaktor|\bjournaliste|\bcontent[ -]creator|\bcommunication\b|\bkommunikation\b|\bredazione\b/i,
+  // `\btechnisch` is the German adjective "technical" (technische Leitung,
+  // technischer Kaufmann/Einkäufer/Zeichner) — none are technician roles. The
+  // technician role noun "Techniker" is already covered by `\btechniker\b`, so
+  // drop the bare adjective to stop cross-classifying non-technician jobs.
+  tecnici: /\btecnico\b|\btecnici\b|\btechniker\b|\btechnician\b|\btechnicien\b|\bservice[ -]technician|\bfachtechnik/i,
 };
 
 function wordCount(s: string | undefined | null): number {
