@@ -19,6 +19,7 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/stripLiteralMarkdown';
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
+import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
@@ -9657,33 +9658,61 @@ ${staticAnalyticsHtml}
  // `!has` guard so the FIRST entry (most-recent due to sort above) wins.
  // Was unconditional `set` previously, which let the LAST entry (oldest
  // after sort, but arbitrary order before sort) overwrite the winner.
- if (ej.slug && !expiredBySlug.has(ej.slug)) expiredBySlug.set(ej.slug, ej);
- // Index current-locale slug variants so DE/EN/FR soft-landing URLs
- // (e.g. /de/jobs-im-tessin/{de-slug}/) resolve to the same ejData as
- // the IT primary. Without this, expiredBySlug.get(de-slug) returns
- // undefined → emitter ships descriptionByLocale:{} on those variants,
- // forcing the SPA to fetch /data/expired-jobs.json (4.5 MB) just to
- // render the description post-hydration.
- if (ej.slugByLocale && typeof ej.slugByLocale === 'object') {
- for (const ls of Object.values(ej.slugByLocale)) {
- if (ls && typeof ls === 'string' && !expiredBySlug.has(ls)) expiredBySlug.set(ls, ej);
+ // Index the job under every slug variant it has ever carried — own slug,
+ // current-locale slugByLocale (so DE/EN/FR soft-landing URLs resolve to the
+ // same ejData as the IT primary, instead of shipping descriptionByLocale:{}
+ // and forcing a 4.5 MB SPA fetch), plus previousSlugs / previousSlugsByLocale
+ // so renamed-then-deleted jobs still get enriched pages. Shared with the
+ // uncapped slice-augmentation pass below so both derive variants identically.
+ for (const v of expiredJobSlugVariants(ej)) {
+ if (!expiredBySlug.has(v)) expiredBySlug.set(v, ej);
  }
  }
- // Also index previousSlugs so renamed-then-deleted jobs get enriched soft-landing pages
- if (Array.isArray(ej.previousSlugs)) {
- for (const ps of ej.previousSlugs) {
- if (ps && !expiredBySlug.has(ps)) expiredBySlug.set(ps, ej);
+
+ // 2b. Augment expiredBySlug from per-crawler expired SLICES (uncapped) so
+ // orphan soft-landing pages beyond the cap window in expired-jobs.json (the
+ // assembled file is capped at the 5000 most-recently-expired by
+ // assemble-jobs-dataset.mjs) still render recovered content. We retain ONLY
+ // slice entries whose slug variants back an emitted orphan page (`tracking`),
+ // so the map stays bounded to the orphan set instead of holding every
+ // historical expired job. First-write-wins (the `!has` guard) preserves the
+ // recency-sorted expired-jobs.json winners indexed above — this only fills the
+ // long tail those 5000 left empty.
+ const expiredSlicesDir = np.resolve(rootDir, 'data/jobs/expired/by-crawler');
+ // Safety valve against unbounded SSG memory growth as slices accumulate over
+ // years — caps how many long-tail entries we retain. Default is generous
+ // (well above today's ~5k) so it never bites normal coverage; lower via env if
+ // a deploy ever OOMs on the augmented map.
+ const SLICE_AUGMENT_CAP = Number(process.env.EXPIRED_SLICE_AUGMENT_CAP || 60000);
+ if (fs.existsSync(expiredSlicesDir)) {
+ const emittedSlugs = new Set(Object.keys(tracking));
+ let sliceAugmented = 0;
+ let sliceAugmentCapped = false;
+ for (const sliceFile of fs.readdirSync(expiredSlicesDir)) {
+ if (sliceAugmentCapped) break;
+ if (!sliceFile.endsWith('.json')) continue;
+ let sliceArr: any[];
+ try {
+ sliceArr = JSON.parse(fs.readFileSync(np.resolve(expiredSlicesDir, sliceFile), 'utf-8'));
+ } catch { continue; }
+ if (!Array.isArray(sliceArr)) continue;
+ for (const ej of sliceArr) {
+ const variants = expiredJobSlugVariants(ej);
+ // Skip entries that don't back an emitted orphan page — keeps the map
+ // bounded to the orphan set rather than all historical expired jobs.
+ if (!variants.some((v) => emittedSlugs.has(v))) continue;
+ for (const v of variants) {
+ if (v && !expiredBySlug.has(v)) expiredBySlug.set(v, ej);
+ }
+ sliceAugmented++;
+ if (sliceAugmented >= SLICE_AUGMENT_CAP) { sliceAugmentCapped = true; break; }
  }
  }
- // Also index previousSlugsByLocale entries
- if (ej.previousSlugsByLocale && typeof ej.previousSlugsByLocale === 'object') {
- for (const arr of Object.values(ej.previousSlugsByLocale)) {
- if (Array.isArray(arr)) {
- for (const ps of arr as string[]) {
- if (ps && !expiredBySlug.has(ps)) expiredBySlug.set(ps, ej);
+ if (sliceAugmented > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} per-crawler slice entries (uncapped) for orphan coverage beyond the expired-jobs.json cap`);
  }
- }
- }
+ if (sliceAugmentCapped) {
+ console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m EXPIRED_SLICE_AUGMENT_CAP (${SLICE_AUGMENT_CAP}) reached — long-tail orphan content beyond this is not indexed this build. Raise the cap or shard if intentional.`);
  }
  }
 
