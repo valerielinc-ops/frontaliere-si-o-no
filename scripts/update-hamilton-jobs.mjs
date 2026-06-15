@@ -199,6 +199,8 @@ async function fetchAllSwissJobs() {
   const allJobs = [];
   let offset = 0;
   let total = null;
+  let pages = 0;
+  const MAX_PAGES = 100;
 
   while (true) {
     console.log(`   📄 Fetching offset=${offset}...`);
@@ -217,7 +219,18 @@ async function fetchAllSwissJobs() {
     }
 
     offset += postings.length;
-    if (offset >= (total || allJobs.length)) break;
+    pages += 1;
+
+    // Short/empty page = genuine end. Trust `total` ONLY as a positive upper
+    // bound: a degenerate Workday response can echo total:0 with a full page,
+    // and the old `|| allJobs.length` fallback recreated total===offset →
+    // break after page 1, silently dropping postings on pages 2+.
+    if (postings.length < PAGE_SIZE) break;
+    if (total > 0 && offset >= total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`   ⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
+      break;
+    }
     await sleep(500);
   }
 
