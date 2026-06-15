@@ -19,20 +19,21 @@
  * engagementScore.js) can share it without a cross-runtime import. Uses the
  * PostHog capture HTTP API via global fetch — no posthog-node dependency.
  *
- * Env:
- *   POSTHOG_EMAIL_EXPERIMENT  '1'|'true' to enable (default: disabled → no-op)
- *   POSTHOG_PROJECT_KEY       PostHog project write key (phc_…); defaults to the
- *                             public project key already shipped in the client.
+ * Env (BOTH required to activate; absent → no-op):
+ *   POSTHOG_EMAIL_EXPERIMENT  '1'|'true' to enable
+ *   POSTHOG_PROJECT_KEY       PostHog project write key (phc_…); no hardcoded
+ *                             default (avoids a 3rd copy of the key in the repo)
  *   POSTHOG_HOST              ingestion host (default EU cloud ingest).
  */
 
-// Public project key — identical to the one embedded client-side in
-// services/posthog.ts (a project write key is not a secret; it is shipped in the
-// browser bundle). Overridable via POSTHOG_PROJECT_KEY.
-const DEFAULT_PUBLIC_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
-
+// The project key is read from POSTHOG_PROJECT_KEY only — we deliberately do NOT
+// hardcode a default copy here. The same phc_ key already lives in
+// services/posthog.ts and build-plugins/constants.ts; a third copy would make a
+// key rotation a 3-file manual edit. Since the experiment is off by default and
+// enabling it is an explicit ops action, requiring the env var alongside
+// POSTHOG_EMAIL_EXPERIMENT is no extra burden and removes the duplication.
 const POSTHOG_HOST = (process.env.POSTHOG_HOST || 'https://eu.i.posthog.com').replace(/\/$/, '');
-const POSTHOG_KEY = process.env.POSTHOG_PROJECT_KEY || DEFAULT_PUBLIC_KEY;
+const POSTHOG_KEY = process.env.POSTHOG_PROJECT_KEY || '';
 const ENABLED = ['1', 'true', 'yes'].includes(String(process.env.POSTHOG_EMAIL_EXPERIMENT || '').toLowerCase());
 
 /** Canonical event names — single source of truth for emit + analysis. */
