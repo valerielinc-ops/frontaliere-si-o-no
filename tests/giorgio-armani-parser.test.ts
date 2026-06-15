@@ -63,6 +63,12 @@ describe('listingHasRenderedJobs', () => {
   it('is false for the empty SPA shell', () => {
     expect(listingHasRenderedJobs('<html><body></body></html>')).toBe(false);
   });
+  it('stays true when SuccessFactors appends a state class to the row', () => {
+    // SF routinely renders `class="jobResultItem odd"` / `"jobTitle active"`;
+    // the gate must match the class token, not a quote-strict `class="X"`.
+    expect(listingHasRenderedJobs('<tr class="jobResultItem odd">')).toBe(true);
+    expect(listingHasRenderedJobs('<a class="jobTitle active">')).toBe(true);
+  });
 });
 
 describe('isGiorgioArmaniSwissJob (filter applied to listing rows)', () => {

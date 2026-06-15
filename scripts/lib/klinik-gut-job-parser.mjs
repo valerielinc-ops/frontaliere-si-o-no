@@ -154,7 +154,11 @@ export function parseKlinikGutListing(html = '') {
   const out = [];
   const seen = new Set();
 
-  const itemRe = /<li class="rz-infobox__item">([\s\S]*?)<\/li>/g;
+  // Match the `rz-infobox__item` class token with a word boundary rather than a
+  // quote-strict `class="rz-infobox__item"`, so a Drupal-appended state/modifier
+  // class (e.g. `rz-infobox__item rz-infobox__item--featured`) doesn't silently
+  // drop every listing row.
+  const itemRe = /<li[^>]*\brz-infobox__item\b[^>]*>([\s\S]*?)<\/li>/g;
   let im;
   while ((im = itemRe.exec(html)) !== null) {
     const block = im[1];
