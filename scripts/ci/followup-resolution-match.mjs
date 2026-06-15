@@ -149,12 +149,20 @@ export function citedTokens(body) {
 export function closingMergedPr(issueNumber, mergedPrs) {
   const n = Number(issueNumber);
   if (!Number.isInteger(n) || n <= 0 || !Array.isArray(mergedPrs)) return null;
-  const ref = new RegExp(`#${n}(?!\\d)`);
-  const kw = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b/i;
+  // Match a closing keyword IMMEDIATELY followed by a run of issue refs separated
+  // ONLY by separators (whitespace / comma / `&` / "and") — the multi-issue
+  // `Closes #a #b #c` (and `Closes #a, #b and #c`) shape. Requiring the ref to be
+  // part of that unbroken keyword-anchored list (not merely on the same line)
+  // rejects `Fixes #8 and touches #N`: the word "touches" breaks the run, so #N
+  // is NOT in the closing list (reviewer adversarial #1/#2 — a same-line match
+  // would have false-flagged it and dropped a legit agent:fix). The exact `#${n}`
+  // string compare also makes the `#2035` vs `#20350` guard fall out for free.
+  const kwList = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b\s*:?\s*((?:#\d+(?:[\s,&]+(?:and\s+)?)?)+)/ig;
   for (const pr of mergedPrs) {
     const text = `${pr?.title || ''}\n${pr?.body || ''}`;
-    for (const line of text.split('\n')) {
-      if (ref.test(line) && kw.test(line)) return pr?.number ?? null;
+    for (const m of text.matchAll(kwList)) {
+      const refs = (m[1] || '').match(/#\d+/g) || [];
+      if (refs.includes(`#${n}`)) return pr?.number ?? null;
     }
   }
   return null;

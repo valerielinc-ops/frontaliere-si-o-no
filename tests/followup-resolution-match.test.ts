@@ -281,12 +281,20 @@ describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () 
     expect(closingMergedPr(7, [{ number: 9, title: 'closed #7', body: '' }])).toBe(9);
   });
 
+  it('flags a comma/`and`-separated closing list (`Closes #a, #b and #c`)', () => {
+    expect(closingMergedPr(7, [{ number: 9, body: 'Closes #5, #6 and #7' }])).toBe(9);
+  });
+
   it('does NOT flag a bare mention without a closing keyword (Related: #N)', () => {
     expect(closingMergedPr(7, [{ number: 9, body: 'Related: #7\nSee also #7 for context' }])).toBeNull();
   });
 
   it('does NOT flag when the keyword and ref are on DIFFERENT lines', () => {
     expect(closingMergedPr(7, [{ number: 9, body: 'Closes #8\nUnrelated note about #7' }])).toBeNull();
+  });
+
+  it('does NOT flag when a word breaks the ref-run (`Fixes #8 and touches #N`) — adv #2', () => {
+    expect(closingMergedPr(2123, [{ number: 9, body: 'Fixes #8 and touches #2123 in passing' }])).toBeNull();
   });
 
   it('guards against numeric prefix collisions — #2035 must not match #20350', () => {

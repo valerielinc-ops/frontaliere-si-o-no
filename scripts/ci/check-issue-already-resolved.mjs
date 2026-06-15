@@ -238,11 +238,19 @@ ${OUTCOME}`;
   // cannot see (it reads file content, not PR cross-refs). Proceed-safe: if the PR list is
   // unreadable/unparseable we skip this signal and fall through to the token matcher.
   let closer = null;
+  const MERGED_PR_LIMIT = 50;
   try {
     const mergedPrs = JSON.parse(
-      gh(['pr', 'list', '--state', 'merged', '--search', `#${ISSUE}`, ...repoArgs,
-          '--json', 'number,title,body', '--limit', '30'], { allowFail: true }) || '[]',
+      gh(['pr', 'list', '--state', 'merged', '--search', `#${ISSUE} in:body,title`, ...repoArgs,
+          '--json', 'number,title,body', '--limit', String(MERGED_PR_LIMIT)], { allowFail: true }) || '[]',
     );
+    // Coverage cap (proceed-safe but worth surfacing): if the search saturates the
+    // limit, a declaring PR older than the 50 most-recent hits is missed → SIGNAL 1
+    // silently falls through to the token matcher / fixer. Direction is safe (never a
+    // false short-circuit), but log it so the cap isn't invisible (reviewer adv #3).
+    if (mergedPrs.length >= MERGED_PR_LIMIT) {
+      console.log(`Issue #${ISSUE}: merged-PR search hit the ${MERGED_PR_LIMIT}-result cap — a declaring PR beyond it would be missed by SIGNAL 1 (proceed-safe).`);
+    }
     closer = closingMergedPr(ISSUE, mergedPrs);
   } catch { closer = null; }
   if (closer) {
