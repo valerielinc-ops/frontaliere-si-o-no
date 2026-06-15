@@ -10,6 +10,7 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/08e4210d-ff72-4c2c-b28c-b85060b676ff",
     "https://jobs.fust.ch/offene-stellen/e-commerce-manager-in/f7cb03e6-d19a-4904-ad79-8942937d57f7",
     "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/bd046326-bdc3-42a1-8698-102757f72472",
     "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-multimedia/d940fc6e-6df8-4055-8d71-c93d4270a5b2",
@@ -52,6 +53,12 @@
     "https://jobs.fust.ch/offene-stellen/sanitaermonteur-in-kuechen-baeder/32164758-b3a5-4415-9885-a588566625f9"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/08e4210d-ff72-4c2c-b28c-b85060b676ff": {
+      "location": "Turgovia",
+      "canton": "TG",
+      "company": "Fust",
+      "contract": "A tempo indeterminato"
+    },
     "https://jobs.fust.ch/offene-stellen/e-commerce-manager-in/f7cb03e6-d19a-4904-ad79-8942937d57f7": {
       "location": "San Gallo",
       "canton": "SG",
@@ -294,5 +301,5 @@
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-06-14T21:59:55.274Z"
+  "updatedAt": "2026-06-15T14:31:09.826Z"
 }
