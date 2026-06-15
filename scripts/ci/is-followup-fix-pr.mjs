@@ -11,18 +11,27 @@
  * l'una: triage → issue-fix → pr-review), il treadmill brucia ~470 run/sett sulla quota
  * Max OAuth CONDIVISA con la sessione interattiva owner (AGENTS.md § frugalità).
  *
- * Questo gate, eseguito PRIMA dello step Claude di triage, emette `is_followup_fix=true`
- * quando la PR mergiata dichiara di chiudere/superare (`Closes`/`Fixes`/`Resolves`/
- * `Supersedes #N`) almeno una issue con label `follow-up`. Il workflow salta interamente
- * il triage → niente nipote + run Claude risparmiata. Lo scope deferred di un fix-di-
- * follow-up, se reale, appartiene alla issue follow-up PADRE (che resta aperta finché non
- * risolta del tutto): non va mintato un nipote.
+ * SEGNALE = il BRANCH della PR, non il body. La self-feed proviene dal fixer autonomo
+ * (`issue-fix.yml`), che lavora SEMPRE su un branch `fix/issue-<N>` (vedi
+ * `issue-fix.yml → "Branch isolato: git checkout -b fix/issue-$ISSUE_NUMBER"`). Se #N
+ * porta la label `follow-up`, la PR è un fix-di-follow-up → il suo merge minterebbe un
+ * NIPOTE → questo gate emette `is_followup_fix=true` e il workflow salta il triage.
  *
- * PROCEED-SAFE (direzione opposta al gate already-resolved): nel dubbio NON skippare. Se
- * il body PR è illeggibile, i ref non si parsano, o `gh issue view` fallisce → emetti
- * `false` → il triage gira normalmente. Meglio over-mintare (un follow-up in più, drenato
- * dai meccanismi di convergenza) che perdere un follow-up legittimo di una PR organica.
- * Una sola label sbagliata costa una run; un follow-up perso costa scope funnel.
+ * Perché il branch e NON il body (`Closes #N`): qualunque "closes #N" nella PROSA del
+ * body — anche dentro una frase che descrive un'ALTRA PR ("PR #2181 (closes #2177)") —
+ * verrebbe parsato come closing-ref reale (lo fa anche GitHub stesso via
+ * closingIssuesReferences) → falso positivo che SKIPPA il triage di una PR organica con
+ * scope `## Non implementato` reale (regressione osservata in prod su PR #2214, che
+ * citava "closes #2177" come esempio di validazione). Il nome del branch non è prosa:
+ * non può contenere una citazione accidentale, quindi è immune. Costo: un fix-di-
+ * follow-up fatto a mano su un branch NON-`fix/issue-*` non viene skippato (raro, basso
+ * volume, e probabilmente PORTA scope nuovo → ok triagiarlo). La self-feed ad alto
+ * volume — il fixer autonomo — è coperta al 100%.
+ *
+ * PROCEED-SAFE: nel dubbio NON skippare. Branch non-`fix/issue-*`, illeggibile, o
+ * `gh issue view` in errore → `false` → il triage gira. Meglio over-mintare (un
+ * follow-up in più, drenato dai meccanismi di convergenza) che perdere un follow-up
+ * legittimo di una PR organica.
  *
  * Output (GITHUB_OUTPUT): `is_followup_fix=true|false`.
  * Uso:  node scripts/ci/is-followup-fix-pr.mjs
@@ -33,7 +42,6 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { closedIssueRefs } from './followup-resolution-match.mjs';
 
 const PR = process.env.PR_NUMBER;
 const FOLLOWUP_LABEL = process.env.FOLLOWUP_LABEL || 'follow-up';
@@ -56,6 +64,22 @@ function setOutput(isFollowupFix) {
   }
 }
 
+/**
+ * The issue number targeted by an autonomous-fixer branch `fix/issue-<N>` (optionally
+ * with a `-slug` suffix, e.g. `fix/issue-2177-staticoverlay-hreflang`), or null.
+ *
+ * Pure (no I/O) → unit-testable. Immune to prose: a branch name cannot carry an
+ * accidental `closes #N` citation, so this never false-positives on an organic PR that
+ * merely mentions a follow-up in its body.
+ *
+ * @param {string} branch  head ref name
+ * @returns {number|null}
+ */
+export function fixIssueNumberFromBranch(branch) {
+  const m = /^fix\/issue-(\d+)(?:-|$)/.exec(String(branch || '').trim());
+  return m ? Number(m[1]) : null;
+}
+
 /** True if issue #n carries the follow-up label. Proceed-safe: unreadable → false. */
 function issueHasFollowupLabel(n) {
   const raw = gh(['issue', 'view', String(n), ...repoArgs, '--json', 'labels']);
@@ -74,48 +98,44 @@ export function main() {
     return setOutput(false);
   }
 
-  const raw = gh(['pr', 'view', String(PR), ...repoArgs, '--json', 'title,body']);
+  const raw = gh(['pr', 'view', String(PR), ...repoArgs, '--json', 'headRefName']);
   if (!raw) {
-    console.log(`PR #${PR}: body unreadable — proceed-safe (run triage).`);
+    console.log(`PR #${PR}: head ref unreadable — proceed-safe (run triage).`);
     return setOutput(false);
   }
 
-  let title = '';
-  let body = '';
+  let branch = '';
   try {
-    const pr = JSON.parse(raw);
-    title = pr.title || '';
-    body = pr.body || '';
+    branch = JSON.parse(raw).headRefName || '';
   } catch {
-    console.log(`PR #${PR}: body unparseable — proceed-safe (run triage).`);
+    console.log(`PR #${PR}: head ref unparseable — proceed-safe (run triage).`);
     return setOutput(false);
   }
 
-  const refs = closedIssueRefs(`${title}\n${body}`);
-  if (!refs.length) {
-    console.log(`PR #${PR}: no closing-keyword issue refs — organic PR, run triage.`);
+  const issueN = fixIssueNumberFromBranch(branch);
+  if (issueN === null) {
+    console.log(`PR #${PR}: branch '${branch}' is not a fix/issue-<N> fixer branch — organic PR, run triage.`);
     return setOutput(false);
   }
 
-  const followupRefs = refs.filter(issueHasFollowupLabel);
-  if (followupRefs.length) {
-    console.log(
-      `PR #${PR}: closes follow-up issue(s) ${followupRefs.map((n) => `#${n}`).join(', ')} ` +
-      `→ this is a follow-up FIX. Skipping triage to break the grandchild self-feed.`,
+  if (!issueHasFollowupLabel(issueN)) {
+    console.log(`PR #${PR}: fixes issue #${issueN} but it is not a follow-up — organic fix, run triage.`);
+    return setOutput(false);
+  }
+
+  console.log(
+    `PR #${PR}: branch '${branch}' fixes follow-up #${issueN} → this is a follow-up FIX. ` +
+    `Skipping triage to break the grandchild self-feed.`,
+  );
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    fs.appendFileSync(
+      process.env.GITHUB_STEP_SUMMARY,
+      `## Grandchild-suppression gate: PR #${PR} is a follow-up fix\n` +
+      `Branch \`${branch}\` fixes follow-up #${issueN} → triage skipped ` +
+      `(no grandchild follow-up minted, 1 Claude run saved).\n`,
     );
-    if (process.env.GITHUB_STEP_SUMMARY) {
-      fs.appendFileSync(
-        process.env.GITHUB_STEP_SUMMARY,
-        `## Grandchild-suppression gate: PR #${PR} is a follow-up fix\n` +
-        `Closes follow-up ${followupRefs.map((n) => `#${n}`).join(', ')} → triage skipped ` +
-        `(no grandchild follow-up minted, 1 Claude run saved).\n`,
-      );
-    }
-    return setOutput(true);
   }
-
-  console.log(`PR #${PR}: closes #${refs.join(', #')} but none are follow-up → organic PR, run triage.`);
-  return setOutput(false);
+  return setOutput(true);
 }
 
 // CLI entrypoint only (importing for tests must not invoke gh). Proceed-safe: any
