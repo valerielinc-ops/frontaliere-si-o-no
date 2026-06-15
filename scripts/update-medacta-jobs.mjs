@@ -491,7 +491,13 @@ async function injectMedactaJobs(alliboJobs) {
       currency: 'CHF',
       description,
       requirements: [],
-      featured: aj.isUrgent || false,
+      // `featured` is the PAID sponsored-placement flag (publisher tier='sponsored');
+      // the JobBoard renders the "Sponsorizzato" badge + top-of-list ranking boost on
+      // it. A crawled Medacta job is NEVER a paid placement, so it must stay false —
+      // mapping the ATS `isUrgent` here mislabels urgent openings as sponsored. Urgency
+      // is preserved in its own `isUrgent` field (feeds the "Ricerca urgente:" intro).
+      featured: false,
+      isUrgent: Boolean(aj.isUrgent),
       postedDate: new Date().toISOString().split('T')[0],
       url,
       source: 'Allibo ATS API + structured enrichment',
@@ -522,7 +528,10 @@ async function injectMedactaJobs(alliboJobs) {
       existing.department = departmentLabel || existing.department;
       existing.contract = canonicalContract;
       existing.companyDomain = MEDACTA_COMPANY_HOST;
-      existing.featured = aj.isUrgent || existing.featured;
+      // Force-clear any legacy fake-sponsored flag and track urgency separately
+      // (see the insert path above for the full rationale).
+      existing.featured = false;
+      existing.isUrgent = Boolean(aj.isUrgent);
       existing.crawledAt = new Date().toISOString();
       if (description && description.length > 120) existing.description = description;
       existing.titleByLocale = { ...(existing.titleByLocale || {}), ...titleByLocale };
@@ -539,7 +548,10 @@ async function injectMedactaJobs(alliboJobs) {
       existing.department = departmentLabel || existing.department;
       existing.contract = canonicalContract;
       existing.companyDomain = MEDACTA_COMPANY_HOST;
-      existing.featured = aj.isUrgent || existing.featured;
+      // Force-clear any legacy fake-sponsored flag and track urgency separately
+      // (see the insert path above for the full rationale).
+      existing.featured = false;
+      existing.isUrgent = Boolean(aj.isUrgent);
       existing.crawledAt = new Date().toISOString();
       if (description && description.length > 120) existing.description = description;
       existing.titleByLocale = { ...(existing.titleByLocale || {}), ...titleByLocale };
@@ -1093,7 +1105,8 @@ function postProcessMedactaJobs() {
       category: canonicalCategory,
       categoryLabel: departmentLabel,
       departmentLabel,
-      isUrgent: Boolean(job.featured),
+      // Read urgency from its own field, no longer from the (monetization-only) featured flag.
+      isUrgent: Boolean(job.isUrgent),
       metaDescription: job.description || '',
     });
 
