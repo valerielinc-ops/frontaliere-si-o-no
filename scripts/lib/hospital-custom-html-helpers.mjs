@@ -9,7 +9,7 @@
  * same. Keep this module DRY and importable from any hospital-specific parser.
  */
 
-import { fetchWithRetry, RETRYABLE_STATUS, isConnectionLevelFetchError } from './transient-fetch.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isConnectionLevelFetchError } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 
 export const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
@@ -135,11 +135,15 @@ export async function fetchHtml(url, { timeoutMs } = {}) {
     // 200 from a clean IP). Rather than give up (or keep retrying the same flaky
     // egress), fetch this once through the Jina Reader proxy: a reliable egress +
     // real browser that returns the page's raw HTML, so the parsers are
-    // unchanged and the data IS collected. ONLY for connection-level failures
-    // (no HTTP response received) — a non-ok HTTP status (4xx/5xx) means the
-    // server DID respond, so the egress works and Jina cannot help; those (and
-    // parse errors) are real and still propagate.
-    if (isConnectionLevelFetchError(err)) {
+    // unchanged and the data IS collected. Two cases route to the proxy: (a)
+    // connection-level failures (no HTTP response received), and (b) an
+    // IP-reputation WAF hard status (403/406/415/451, WAF_IP_BLOCK_STATUS) — the
+    // server DID respond but with an anti-bot fence keyed on the datacenter
+    // egress IP, which Jina's clean IP clears (#2025). Genuine 4xx (404/410 gone,
+    // 401 auth) are NOT in the set and still propagate; if Jina also fails it
+    // returns null → the original error re-throws, so a real break is unchanged.
+    // (Parse errors are real and still propagate.)
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
       // Retry the proxy: Jina's egress IP can be transiently 429'd or WAF-blocked
       // (200 challenge/empty body) — a retry lands on a different Jina IP and
       // usually succeeds. Returns null on exhaustion → safe-fail by re-throwing
