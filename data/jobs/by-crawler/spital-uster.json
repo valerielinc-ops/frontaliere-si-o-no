@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-uster",
-  "assembledAt": "2026-06-14T22:58:03.487Z",
+  "assembledAt": "2026-06-15T15:35:56.848Z",
   "jobs": [
     {
       "id": "spital-uster-772090f363ef",
@@ -33,7 +33,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/zivildienstler-ersatz-militaerdienst/aa169f75-c82c-4b6c-badd-5583ca81f41a",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.120Z",
+      "crawledAt": "2026-06-15T15:35:54.731Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,15 +82,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.974Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -126,7 +127,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-medizin/c24f6423-ef54-48b4-9538-32a595e12e68",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.118Z",
+      "crawledAt": "2026-06-15T15:35:54.729Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,15 +185,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.972Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -228,7 +230,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-chirurgie/1afcd168-7b56-4ad3-a292-3f7855f6c15c",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.117Z",
+      "crawledAt": "2026-06-15T15:35:54.728Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,15 +279,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.971Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -321,7 +324,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-somatik/7aab9779-bb4a-473f-9ff9-821e12db63c3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.115Z",
+      "crawledAt": "2026-06-15T15:35:54.727Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,15 +373,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.969Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -414,7 +418,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studium-hf-pflege-kjff/9afa70fb-1b76-4473-8469-e247e90ac164",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.114Z",
+      "crawledAt": "2026-06-15T15:35:54.725Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -472,15 +476,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.968Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -516,7 +521,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-anaesthesie/d212b97f-842f-40cd-ac4a-394777e8c4d7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.113Z",
+      "crawledAt": "2026-06-15T15:35:54.724Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -562,15 +567,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.967Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -606,7 +612,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-orthopaedie/b69c677a-c840-4963-82a1-7d33a84097b3",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.111Z",
+      "crawledAt": "2026-06-15T15:35:54.722Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -666,15 +672,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.965Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -710,7 +717,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/unterassistent-in-frauenklinik/5d0a760e-202b-4d1a-bd2d-c4c674d52610",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.110Z",
+      "crawledAt": "2026-06-15T15:35:54.721Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -750,15 +757,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.964Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -794,7 +802,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-anaesthesiepflege/6dba62e6-9922-49df-86b8-c9b67a04f636",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.108Z",
+      "crawledAt": "2026-06-15T15:35:54.719Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -852,15 +860,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.962Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -896,7 +905,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-geriatrische-akutrehabilitation/49c3cced-a9da-463f-9633-5fb9e597aa0e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.107Z",
+      "crawledAt": "2026-06-15T15:35:54.718Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -936,15 +945,16 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.961Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -980,7 +990,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-geriatrische-akutrehabilitation/4bca24b6-5e6e-4272-8da4-5e79aa22902d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.105Z",
+      "crawledAt": "2026-06-15T15:35:54.716Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1021,15 +1031,16 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.960Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1065,7 +1076,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/expertin-experte-nds-notfallpflege/3a1913e1-82ca-4053-83c9-e6b4025a3287",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.104Z",
+      "crawledAt": "2026-06-15T15:35:54.714Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1127,15 +1138,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.958Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1171,7 +1183,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-notfallpflege/d43ba45f-0147-4f77-b33e-2480420c3c03",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.102Z",
+      "crawledAt": "2026-06-15T15:35:54.713Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1214,15 +1226,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.957Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1258,7 +1271,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitende-aerztin-leitender-arzt-onkologie/dc39791a-5f64-4ddd-ad22-305785894681",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.100Z",
+      "crawledAt": "2026-06-15T15:35:54.711Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1313,15 +1326,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.955Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1357,7 +1371,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachpersonen-pensum-variabel-fixpool/2c7c8eb0-763e-443b-b25f-fbf0eaa4465e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.098Z",
+      "crawledAt": "2026-06-15T15:35:54.709Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1415,15 +1429,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.953Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1459,7 +1474,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachpersonen-gesundheit-medizin/77765b05-ee18-4b64-baaa-fc5df230da1d",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.096Z",
+      "crawledAt": "2026-06-15T15:35:54.707Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1508,15 +1523,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.952Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1552,7 +1568,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-frauenklinik-zueri-ost/269048af-5fa1-4a7a-bc48-0833dfbed4be",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.095Z",
+      "crawledAt": "2026-06-15T15:35:54.705Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1601,15 +1617,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.951Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1645,7 +1662,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/praktikum-pflege/00cd904e-d99c-4d6b-9c34-8e9b3caa92f0",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.093Z",
+      "crawledAt": "2026-06-15T15:35:54.704Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1691,15 +1708,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.949Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -1735,7 +1753,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/studierende-nds-hf-intensivpflege/3d7b30ff-8eb9-4ad1-bf0e-b53d91d99c2f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.091Z",
+      "crawledAt": "2026-06-15T15:35:54.702Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1790,15 +1808,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.948Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1834,7 +1853,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-allgemeine-innere-medizin-mit-schwerpunkt-geriatrie/84f56a30-7034-4bd0-b4a1-70a5622201bf",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.090Z",
+      "crawledAt": "2026-06-15T15:35:54.700Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1877,15 +1896,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.946Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1921,7 +1941,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-hf-fh-notfallpflege/acb5357b-dcea-4167-a3aa-8b88cccfde90",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.088Z",
+      "crawledAt": "2026-06-15T15:35:54.698Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1971,15 +1991,16 @@
       },
       "department": "Pflege",
       "firstSeenAt": "2026-05-26T14:04:22.945Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2015,7 +2036,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-medizin/94c71a53-6010-47ea-8989-1874bf97a8a1",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.086Z",
+      "crawledAt": "2026-06-15T15:35:54.697Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2070,15 +2091,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.943Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2114,7 +2136,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-fachexpertin-fachexperten-anaesthesiepflege-nds-hf/ab65234f-70c1-4628-ad30-b1f0f32d5c22",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.085Z",
+      "crawledAt": "2026-06-15T15:35:54.695Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2169,15 +2191,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.939Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2213,7 +2236,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/abteilungsleitung-tageskliniken-chir-med-sowie-funktionsdiagnostik/6aa0dda5-e8c3-4657-9c40-2775f9a01a17",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.083Z",
+      "crawledAt": "2026-06-15T15:35:54.693Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2271,15 +2294,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.935Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -2315,7 +2339,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-gesundheit-chirurgische-privatstation/0947be57-838c-4d0e-bfc9-31de04c20563",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.082Z",
+      "crawledAt": "2026-06-15T15:35:54.692Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2368,15 +2392,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.934Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2412,7 +2437,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-endoskopie/248e0e4c-5c12-475a-a016-a4153bf2dc64",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.080Z",
+      "crawledAt": "2026-06-15T15:35:54.690Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2473,15 +2498,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.932Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2517,7 +2543,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/sozialarbeiterin-sozialarbeiter-akutspital/3e81433a-a493-40e2-af21-ef041bfa0a96",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.078Z",
+      "crawledAt": "2026-06-15T15:35:54.688Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2565,15 +2591,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.930Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2609,7 +2636,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/mitarbeiterin-mitarbeiter-spezialreinigung/81e5c373-c0e7-4f45-904e-ea6f4119f6b7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.077Z",
+      "crawledAt": "2026-06-15T15:35:54.687Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2658,15 +2685,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.928Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2702,7 +2730,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-als-stv-abteilungsleitung-chirurgie/3000d265-c3c5-49f3-a30d-fe7aa958175f",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.074Z",
+      "crawledAt": "2026-06-15T15:35:54.685Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2753,15 +2781,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.926Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -2797,7 +2826,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-kardiologie-innere-medizin/1af85520-19da-4e95-ad1f-4e0bb3059507",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.072Z",
+      "crawledAt": "2026-06-15T15:35:54.683Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2842,15 +2871,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.922Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -2886,7 +2916,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/assistenzaerztin-assistenzarzt-altersmedizin-mit-ausbildungsziel-schwerpunkt-geriatrie/cce4b74f-4da5-4295-8b63-6d7d6f92f6ca",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.070Z",
+      "crawledAt": "2026-06-15T15:35:54.680Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2929,15 +2959,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.920Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2973,7 +3004,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pharma-assistent-in/9514c477-6310-4d27-89ee-88dc6df47555",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.068Z",
+      "crawledAt": "2026-06-15T15:35:54.678Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3022,15 +3053,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.914Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3066,7 +3098,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/arztsekretaer-in-kardiologie-med-ambulatorium/4e9a2e51-a4b7-42e1-8b50-68484c21fdba",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.067Z",
+      "crawledAt": "2026-06-15T15:35:54.676Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3118,15 +3150,16 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:04:22.911Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3162,7 +3195,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-anaesthesie/a61afddb-1752-4cf7-b791-6cf16834ca20",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.065Z",
+      "crawledAt": "2026-06-15T15:35:54.675Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3195,15 +3228,15 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:58:14.123Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -3239,7 +3272,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/medizinische-r-praxisassistent-in-und-oder-arztsekretaer-in/a581fb89-8400-467b-82be-99803d579c35",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.063Z",
+      "crawledAt": "2026-06-15T15:35:54.673Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3272,15 +3305,15 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:58:14.102Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3316,7 +3349,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-gesundheit-geriatrische-akutrehabilitation-spaet-und-nachtdienst/9b3952d9-4e49-487b-a832-3670e78d8c8e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.061Z",
+      "crawledAt": "2026-06-15T15:35:54.671Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3356,15 +3389,15 @@
         "salute-50-100-agopuntura-geriatrica-servizio-notturno-spital-uster-uster"
       ],
       "firstSeenAt": "2026-05-29T14:03:17.591Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3400,7 +3433,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/pflegefachperson-geriatrische-akutrehabilitation-spaet-und-nachtdienst/722829b3-eacd-41ab-8a8b-41d5ebf0627e",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.059Z",
+      "crawledAt": "2026-06-15T15:35:54.669Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3440,15 +3473,15 @@
         "professionisti-della-cura-50-100-agopuntura-geriatrica-servizio-tardo-e-notte-spital-uster-uster"
       ],
       "firstSeenAt": "2026-05-29T14:03:17.567Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3484,7 +3517,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/hr-administration-specialist/1cad03f6-932f-4a5c-9da2-7e87d7e84bcd",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.058Z",
+      "crawledAt": "2026-06-15T15:35:54.667Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3514,15 +3547,16 @@
         ]
       },
       "firstSeenAt": "2026-06-04T13:43:30.183Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3558,7 +3592,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/dipl-pflegefachperson-hf-chirurgie/8679ffc8-b652-462a-a211-8f0272ccc0d9",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.056Z",
+      "crawledAt": "2026-06-15T15:35:54.665Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3588,15 +3622,16 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:51:56.196Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3632,7 +3667,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leitende-aerztin-leitender-arzt-geburtshilfe-frauenklinik-zueri-ost/ef3d1b43-c62f-4ed5-902a-5ae2630dfc4b",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.054Z",
+      "crawledAt": "2026-06-15T15:35:54.664Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3667,15 +3702,16 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:41:51.773Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3711,7 +3747,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/fachperson-controlling/f1730c54-a087-4ba8-b251-e50907330d96",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.052Z",
+      "crawledAt": "2026-06-15T15:35:54.662Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3738,15 +3774,16 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:41:51.794Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3782,7 +3819,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberarzt-oberaerztin-oder-oa-i-v-orthopaedie-und-traumatologie/febabed7-05c4-4dd1-ad1c-27428bafe709",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.050Z",
+      "crawledAt": "2026-06-15T15:35:54.660Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3815,15 +3852,15 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:13:01.769Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -3859,7 +3896,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/hotelfachassistentin-hotelfachassistent/79e62008-4bdd-409f-be45-6e6480e015f7",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.047Z",
+      "crawledAt": "2026-06-15T15:35:54.657Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3887,15 +3924,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T13:01:54.095Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3931,7 +3968,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/oberaerztin-oberarzt-endokrinologie-diabetologie/0c02e80c-c133-4801-b09c-7e08d0419618",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.043Z",
+      "crawledAt": "2026-06-15T15:35:54.655Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3959,15 +3996,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T13:01:54.072Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -4003,7 +4040,7 @@
       "url": "https://jobs.spitaluster.ch/offene-stellen/leiter-in-human-resources/f77889f8-dec7-4291-ab70-802221cc01e2",
       "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:58:01.021Z",
+      "crawledAt": "2026-06-15T15:35:54.651Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4034,18 +4071,84 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-12T13:01:43.025Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "spital-uster-9a4d2675f71d",
+      "slug": "leitung-pflegeentwicklung-spital-uster-ch",
+      "slugByLocale": {
+        "de": "leitung-pflegeentwicklung-spital-uster-ch",
+        "it": "leitung-pflegeentwicklung-spital-uster-ch",
+        "en": "leitung-pflegeentwicklung-spital-uster-ch",
+        "fr": "leitung-pflegeentwicklung-spital-uster-ch"
+      },
+      "company": "Spital Uster",
+      "companyKey": "spital-uster",
+      "companyDomain": "spitaluster.ch",
+      "title": "Leitung Pflegeentwicklung",
+      "titleByLocale": {
+        "de": "Leitung Pflegeentwicklung",
+        "it": "Leitung Pflegeentwicklung",
+        "en": "Leitung Pflegeentwicklung",
+        "fr": "Leitung Pflegeentwicklung"
+      },
+      "description": "<p>Für unsere Pflegedirektion suchen wir ab 1. November 2026 oder nach Vereinbarung eine</p>\n\nAufgaben:\n• Strategische und fachliche Weiterentwicklung der Pflege, in enger Zusammenarbeit mit dem Pflegedirektor\n\n• Entwicklung, Implementierung und Überwachung von Standards und Pflegerichtlinien\n\n• Pflegefachliche Führung und sowie Gewährleistung einer evidenzbasierten, patienten- und ergebnisorientierten Pflegepraxis\n\n• Mitarbeit, Leitung, Planung und Umsetzung von pflegerischen und interprofessionellen Projekten und Arbeitsgruppen\n\n• Konzeptentwicklung unter anderem in Zusammenarbeit mit dem Qualitätsmanagement\n\n• Durchführung oder Partizipation von internen und externen Audits und Zertifizierungen\n\n• Direkte Führung sowie Coaching der Pflegeexpertinnen\n\nAnforderungen:\n• Master of Science in Nursing (MScN), sowie mehrjährige Erfahrung als Pflegeexpertin im Akutbereich\n\n• Fundierte Kenntnisse in evidenzbasierter Pflege sowie in Qualität- und Versorgungsentwicklung und klinikscher Prozessoptimierung\n\n• Ausgewiesene Erfahrung in Projekt- und Prozessmanagement\n\n• Strategisches Denkvermögen, ausgeprägte Organisationsfähigkeit und Erfahrung in interdisziplinärer Zusammenarbeit\n\n• ausgeprägte Sozialkompetenz, hohe Kommunikationsstärke, Leadership-Kompetenz und\n\n• Führungskompetenz, Selbständigkeit und Eigenverantwortung\n\n• hohe psychische Belastbarkeit\n\nWir bieten:\n• eine bestehende praxisorientierte Pflegeentwicklung sowie Experten- wie auch Pflegeteams mit einer grossen Motivation bezüglich Pflegequalität\n\n• gelebte interprofessionelle Zusammenarbeit mit den ärztlichen Partnern\n\n• aktive Mitgestaltung von Veränderungsprozessen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss",
+      "descriptionByLocale": {
+        "de": "<p>Für unsere Pflegedirektion suchen wir ab 1. November 2026 oder nach Vereinbarung eine</p>\n\nAufgaben:\n• Strategische und fachliche Weiterentwicklung der Pflege, in enger Zusammenarbeit mit dem Pflegedirektor\n\n• Entwicklung, Implementierung und Überwachung von Standards und Pflegerichtlinien\n\n• Pflegefachliche Führung und sowie Gewährleistung einer evidenzbasierten, patienten- und ergebnisorientierten Pflegepraxis\n\n• Mitarbeit, Leitung, Planung und Umsetzung von pflegerischen und interprofessionellen Projekten und Arbeitsgruppen\n\n• Konzeptentwicklung unter anderem in Zusammenarbeit mit dem Qualitätsmanagement\n\n• Durchführung oder Partizipation von internen und externen Audits und Zertifizierungen\n\n• Direkte Führung sowie Coaching der Pflegeexpertinnen\n\nAnforderungen:\n• Master of Science in Nursing (MScN), sowie mehrjährige Erfahrung als Pflegeexpertin im Akutbereich\n\n• Fundierte Kenntnisse in evidenzbasierter Pflege sowie in Qualität- und Versorgungsentwicklung und klinikscher Prozessoptimierung\n\n• Ausgewiesene Erfahrung in Projekt- und Prozessmanagement\n\n• Strategisches Denkvermögen, ausgeprägte Organisationsfähigkeit und Erfahrung in interdisziplinärer Zusammenarbeit\n\n• ausgeprägte Sozialkompetenz, hohe Kommunikationsstärke, Leadership-Kompetenz und\n\n• Führungskompetenz, Selbständigkeit und Eigenverantwortung\n\n• hohe psychische Belastbarkeit\n\nWir bieten:\n• eine bestehende praxisorientierte Pflegeentwicklung sowie Experten- wie auch Pflegeteams mit einer grossen Motivation bezüglich Pflegequalität\n\n• gelebte interprofessionelle Zusammenarbeit mit den ärztlichen Partnern\n\n• aktive Mitgestaltung von Veränderungsprozessen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss",
+        "it": "<p>Für unsere Pflegedirektion suchen wir ab 1. November 2026 oder nach Vereinbarung eine</p>\n\nAufgaben:\n• Strategische und fachliche Weiterentwicklung der Pflege, in enger Zusammenarbeit mit dem Pflegedirektor\n\n• Entwicklung, Implementierung und Überwachung von Standards und Pflegerichtlinien\n\n• Pflegefachliche Führung und sowie Gewährleistung einer evidenzbasierten, patienten- und ergebnisorientierten Pflegepraxis\n\n• Mitarbeit, Leitung, Planung und Umsetzung von pflegerischen und interprofessionellen Projekten und Arbeitsgruppen\n\n• Konzeptentwicklung unter anderem in Zusammenarbeit mit dem Qualitätsmanagement\n\n• Durchführung oder Partizipation von internen und externen Audits und Zertifizierungen\n\n• Direkte Führung sowie Coaching der Pflegeexpertinnen\n\nAnforderungen:\n• Master of Science in Nursing (MScN), sowie mehrjährige Erfahrung als Pflegeexpertin im Akutbereich\n\n• Fundierte Kenntnisse in evidenzbasierter Pflege sowie in Qualität- und Versorgungsentwicklung und klinikscher Prozessoptimierung\n\n• Ausgewiesene Erfahrung in Projekt- und Prozessmanagement\n\n• Strategisches Denkvermögen, ausgeprägte Organisationsfähigkeit und Erfahrung in interdisziplinärer Zusammenarbeit\n\n• ausgeprägte Sozialkompetenz, hohe Kommunikationsstärke, Leadership-Kompetenz und\n\n• Führungskompetenz, Selbständigkeit und Eigenverantwortung\n\n• hohe psychische Belastbarkeit\n\nWir bieten:\n• eine bestehende praxisorientierte Pflegeentwicklung sowie Experten- wie auch Pflegeteams mit einer grossen Motivation bezüglich Pflegequalität\n\n• gelebte interprofessionelle Zusammenarbeit mit den ärztlichen Partnern\n\n• aktive Mitgestaltung von Veränderungsprozessen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss",
+        "en": "<p>Für unsere Pflegedirektion suchen wir ab 1. November 2026 oder nach Vereinbarung eine</p>\n\nAufgaben:\n• Strategische und fachliche Weiterentwicklung der Pflege, in enger Zusammenarbeit mit dem Pflegedirektor\n\n• Entwicklung, Implementierung und Überwachung von Standards und Pflegerichtlinien\n\n• Pflegefachliche Führung und sowie Gewährleistung einer evidenzbasierten, patienten- und ergebnisorientierten Pflegepraxis\n\n• Mitarbeit, Leitung, Planung und Umsetzung von pflegerischen und interprofessionellen Projekten und Arbeitsgruppen\n\n• Konzeptentwicklung unter anderem in Zusammenarbeit mit dem Qualitätsmanagement\n\n• Durchführung oder Partizipation von internen und externen Audits und Zertifizierungen\n\n• Direkte Führung sowie Coaching der Pflegeexpertinnen\n\nAnforderungen:\n• Master of Science in Nursing (MScN), sowie mehrjährige Erfahrung als Pflegeexpertin im Akutbereich\n\n• Fundierte Kenntnisse in evidenzbasierter Pflege sowie in Qualität- und Versorgungsentwicklung und klinikscher Prozessoptimierung\n\n• Ausgewiesene Erfahrung in Projekt- und Prozessmanagement\n\n• Strategisches Denkvermögen, ausgeprägte Organisationsfähigkeit und Erfahrung in interdisziplinärer Zusammenarbeit\n\n• ausgeprägte Sozialkompetenz, hohe Kommunikationsstärke, Leadership-Kompetenz und\n\n• Führungskompetenz, Selbständigkeit und Eigenverantwortung\n\n• hohe psychische Belastbarkeit\n\nWir bieten:\n• eine bestehende praxisorientierte Pflegeentwicklung sowie Experten- wie auch Pflegeteams mit einer grossen Motivation bezüglich Pflegequalität\n\n• gelebte interprofessionelle Zusammenarbeit mit den ärztlichen Partnern\n\n• aktive Mitgestaltung von Veränderungsprozessen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss",
+        "fr": "<p>Für unsere Pflegedirektion suchen wir ab 1. November 2026 oder nach Vereinbarung eine</p>\n\nAufgaben:\n• Strategische und fachliche Weiterentwicklung der Pflege, in enger Zusammenarbeit mit dem Pflegedirektor\n\n• Entwicklung, Implementierung und Überwachung von Standards und Pflegerichtlinien\n\n• Pflegefachliche Führung und sowie Gewährleistung einer evidenzbasierten, patienten- und ergebnisorientierten Pflegepraxis\n\n• Mitarbeit, Leitung, Planung und Umsetzung von pflegerischen und interprofessionellen Projekten und Arbeitsgruppen\n\n• Konzeptentwicklung unter anderem in Zusammenarbeit mit dem Qualitätsmanagement\n\n• Durchführung oder Partizipation von internen und externen Audits und Zertifizierungen\n\n• Direkte Führung sowie Coaching der Pflegeexpertinnen\n\nAnforderungen:\n• Master of Science in Nursing (MScN), sowie mehrjährige Erfahrung als Pflegeexpertin im Akutbereich\n\n• Fundierte Kenntnisse in evidenzbasierter Pflege sowie in Qualität- und Versorgungsentwicklung und klinikscher Prozessoptimierung\n\n• Ausgewiesene Erfahrung in Projekt- und Prozessmanagement\n\n• Strategisches Denkvermögen, ausgeprägte Organisationsfähigkeit und Erfahrung in interdisziplinärer Zusammenarbeit\n\n• ausgeprägte Sozialkompetenz, hohe Kommunikationsstärke, Leadership-Kompetenz und\n\n• Führungskompetenz, Selbständigkeit und Eigenverantwortung\n\n• hohe psychische Belastbarkeit\n\nWir bieten:\n• eine bestehende praxisorientierte Pflegeentwicklung sowie Experten- wie auch Pflegeteams mit einer grossen Motivation bezüglich Pflegequalität\n\n• gelebte interprofessionelle Zusammenarbeit mit den ärztlichen Partnern\n\n• aktive Mitgestaltung von Veränderungsprozessen\n\n• hervorragendes Personalrestaurant sowie zahlreiche Vergünstigungen\n\n• zentrale Lage in der Nähe des Bahnhofs Uster sowie Autobahnanschluss"
+      },
+      "location": "Uster",
+      "canton": "ZH",
+      "url": "https://jobs.spitaluster.ch/offene-stellen/leitung-pflegeentwicklung/ea7dccde-a1af-4577-92ef-615038ecf705",
+      "source": "Spital Uster Dedicated Parser (Prospective tenant 1000910)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T15:35:54.629Z",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8610",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-14",
+      "applyUrl": "4794",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Pflege",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-15T15:35:54.629Z"
     }
   ]
 }
