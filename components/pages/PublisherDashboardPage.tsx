@@ -764,7 +764,7 @@ const PublisherDashboardPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => { void handleOpenCv(a.id); }}
-                              disabled={cvOpeningId === a.id}
+                              disabled={!!cvOpeningId}
                               className="text-link hover:underline disabled:opacity-60 disabled:cursor-wait"
                             >
                               {cvOpeningId === a.id ? '…' : 'CV'}
