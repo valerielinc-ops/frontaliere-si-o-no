@@ -163,10 +163,11 @@ const CLOSE_KW_LIST = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?
  * (PR title+body). Returns a deduped array of positive integers (the `#` numbers in
  * each keyword-anchored run). Empty array on non-string / no match.
  *
- * Used by the post-merge-followup grandchild-suppression gate: a merged PR that
- * closes a `follow-up`-labelled issue is itself a follow-up FIX → triaging it would
- * mint a GRANDCHILD follow-up (self-feed). The gate reads these refs, checks their
- * labels, and skips the Claude triage when any is a follow-up. Pure — no I/O.
+ * Backs `closingMergedPr` (the already-resolved gate's explicit cross-ref signal).
+ * NB: deliberately NOT used by the post-merge-followup grandchild-suppression gate —
+ * that gate anchors on the fixer BRANCH (`fix/issue-<N>`), not the body, because any
+ * "closes #N" in prose (even describing another PR) false-positives here and would skip
+ * a real organic PR's triage (regression seen on PR #2214). Pure — no I/O.
  *
  * @param {string} text  PR title + body (or any prose)
  * @returns {number[]}   deduped closed-issue numbers, in first-seen order
