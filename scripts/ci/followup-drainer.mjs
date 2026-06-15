@@ -442,15 +442,16 @@ function main() {
       continue;
     }
     // error_max_turns = turn-budget esaurito in modo DETERMINISTICO: ri-tentare
-    // lo stesso item lo riproduce. Non è non-ri-tentabile al PRIMO colpo (un cap
-    // borderline può farcela al retry), ma alla SECONDA occorrenza consecutiva
-    // (attemptOf>=1, cioè già ri-accodato una volta dopo un max-turns) è
-    // too-large → park come needs-human SUBITO, niente 3° attempt sprecato
-    // (~1 run opus). Marker `max-turns` emesso da issue-fix.yml SOLO sul subtype
-    // error_max_turns (i fail transienti hanno altro subtype → restano
-    // ri-tentabili: nessuna falsa escalation). Cap effettivo: 2 attempt invece di 3.
-    if (outcome === 'max-turns' && attemptOf(iss) >= 1) {
-      console.log(`PARK #${iss.number} → needs-human (2× error_max_turns = too-large deterministico; stop al 3° attempt sprecato)`);
+    // lo stesso item lo riproduce a parità di turni. Con il circuit-breaker
+    // (is_aggregate un item alla volta) e il cap alzato (50 turni high / 30 normal),
+    // chi esaurisce il budget al primo colpo è genuinamente too-large — il retry
+    // non lo salva. Park + needs-human SUBITO: 1 attempt invece di 2 (#2052).
+    // Marker `max-turns` emesso da issue-fix.yml SOLO sul subtype error_max_turns
+    // (i fail transienti hanno altro subtype → restano ri-tentabili: nessuna
+    // falsa escalation). Boundary: già fissato dal too-large-escalation pass
+    // (reparkGen≥1, 0 PR) — questa path abbrevia il percorso al primo colpo.
+    if (outcome === 'max-turns') {
+      console.log(`PARK #${iss.number} → needs-human (error_max_turns al 1° attempt = too-large deterministico; stop al 2° attempt sprecato)`);
       edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
       continue;
     }
