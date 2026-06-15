@@ -1872,6 +1872,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [selectedLocation, setSelectedLocation] = useState<string>('all');
  const [selectedSector, setSelectedSector] = useState<string>('all');
  const [showNewOnly, setShowNewOnly] = useState(false);
+ // INP: defer the filter atoms that feed the heavy job-filtering memos, exactly
+ // as `deferredSearchQuery` defers the search box. A filter chip/dropdown click
+ // updates the urgent atom (so the control's active highlight + the active-count
+ // badge repaint instantly) while the expensive re-filter+re-render of the whole
+ // jobs corpus runs in a non-blocking transition. Without this, every filter
+ // click synchronously re-ran all five filter tiers before the next paint —
+ // field p75 INP on the job board was 336ms (mobile 416ms). The deferred values
+ // converge to the urgent ones within a frame, so the rendered output is byte-
+ // identical; only the paint is unblocked. Feed these ONLY into the filter memos
+ // below (via passingNonSearchFilters + the cutoff), never into UI-state reads.
+ const deferredSelectedCategory = useDeferredValue(selectedCategory);
+ const deferredSelectedContract = useDeferredValue(selectedContract);
+ const deferredSelectedCompany = useDeferredValue(selectedCompany);
+ const deferredSelectedDateRange = useDeferredValue(selectedDateRange);
+ const deferredSelectedLocation = useDeferredValue(selectedLocation);
+ const deferredSelectedSector = useDeferredValue(selectedSector);
+ const deferredShowNewOnly = useDeferredValue(showNewOnly);
  const [filtersExpanded, setFiltersExpanded] = useState(false);
  const searchInputRef = useRef<HTMLInputElement>(null);
  const [linkedInAvailable, setLinkedInAvailable] = useState(false);
@@ -2819,21 +2836,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobLocSlug = slugifyLocation(job.addressLocality || job.location || '');
  if (jobLocSlug !== locationSlugFilter) return false;
  }
- if (selectedCategory !== 'all' && job.category !== selectedCategory) return false;
- if (selectedContract !== 'all' && job.contract !== selectedContract) return false;
- if (selectedCompany !== 'all' && job.company.toLowerCase() !== selectedCompany) return false;
- if (selectedLocation !== 'all' && normalizeLocalityKey(job.addressLocality || '') !== selectedLocation) return false;
- if (selectedSector !== 'all' && (job.sector || '').toLowerCase() !== selectedSector) return false;
+ if (deferredSelectedCategory !== 'all' && job.category !== deferredSelectedCategory) return false;
+ if (deferredSelectedContract !== 'all' && job.contract !== deferredSelectedContract) return false;
+ if (deferredSelectedCompany !== 'all' && job.company.toLowerCase() !== deferredSelectedCompany) return false;
+ if (deferredSelectedLocation !== 'all' && normalizeLocalityKey(job.addressLocality || '') !== deferredSelectedLocation) return false;
+ if (deferredSelectedSector !== 'all' && (job.sector || '').toLowerCase() !== deferredSelectedSector) return false;
  if (cutoff > 0) {
  const jobDate = new Date(job.crawledAt || job.postedDate).getTime();
  if (jobDate < cutoff) return false;
  }
- if (showNewOnly) {
+ if (deferredShowNewOnly) {
  const jobTs = new Date(job.crawledAt || job.postedDate).getTime();
  if (now - jobTs >= 72 * 60 * 60 * 1000) return false;
  }
  return true;
- }, [companySlugFilter, locationSlugFilter, selectedCategory, selectedContract, selectedCompany, selectedLocation, selectedSector, showNewOnly]);
+ }, [companySlugFilter, locationSlugFilter, deferredSelectedCategory, deferredSelectedContract, deferredSelectedCompany, deferredSelectedLocation, deferredSelectedSector, deferredShowNewOnly]);
 
  // strictFilteredJobs: AND-match on every search token (current behavior).
  // The OR-fallback layer below kicks in when this is empty for a
@@ -2850,14 +2867,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  '30d': 30 * 24 * 60 * 60 * 1000,
  '90d': 90 * 24 * 60 * 60 * 1000,
  };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
  const query = deferredSearchQuery.trim();
  return sortedJobs.filter((job) => {
  if (!passingNonSearchFilters(job, now, cutoff)) return false;
  if (query) return indexedQueryMatch(job, query);
  return true;
  });
- }, [sortedJobs, selectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
+ }, [sortedJobs, deferredSelectedDateRange, deferredSearchQuery, indexedQueryMatch, passingNonSearchFilters]);
 
  // Location vocabulary for the OR-fallback relevance floor. Stemmed tokens of
  // every job location currently in memory (canton-scoped + unscoped pool).
@@ -2957,7 +2974,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
  '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
  };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
 
  const scored: { job: JobListing; score: number }[] = [];
  for (const job of sortedJobs) {
@@ -2971,7 +2988,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, selectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
+ }, [strictFilteredJobs, sortedJobs, deferredSearchQuery, orFallbackQuery, searchIndex, deferredSelectedDateRange, passingNonSearchFilters, orFallbackMinScore]);
 
  // Cross-canton OR-fallback (Tier 3): only fires when strict AND the in-
  // canton OR-fallback both returned zero. Searches the unscoped locale-wide
@@ -3013,7 +3030,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
  '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
  };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
@@ -3040,7 +3057,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  scored.sort((a, b) => b.score - a.score);
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
- }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens]);
+ }, [strictFilteredJobs.length, orFallbackInCantonJobs.length, sortedJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, unscopedJobs, locale, orFallbackMinScore, searchLocationTokens]);
 
  // Tier 4 trigger: lazy-load DE/FR/EN slim indexes when all in-locale tiers
  // returned zero for a non-empty query. Same job ID across locale shards so
@@ -3196,7 +3213,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
  '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
  };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
 
  const scored: { job: JobListing; score: number }[] = [];
  for (const job of crossLocaleJobs) {
@@ -3213,7 +3230,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return scored.slice(0, MAX_FALLBACK_RESULTS).map((x) => x.job);
  }, [
  strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length,
- crossLocaleJobs, deferredSearchQuery, orFallbackQuery, selectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
+ crossLocaleJobs, deferredSearchQuery, orFallbackQuery, deferredSelectedDateRange, passingNonSearchFilters, locale, orFallbackMinScore,
  ]);
 
  // Tier 3.5 — company-hub broadening. Fires when a company filter is active
@@ -3243,7 +3260,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  all: 0, '24h': 24 * 60 * 60 * 1000, '3d': 3 * 24 * 60 * 60 * 1000,
  '7d': 7 * 24 * 60 * 60 * 1000, '30d': 30 * 24 * 60 * 60 * 1000, '90d': 90 * 24 * 60 * 60 * 1000,
  };
- const cutoff = selectedDateRange === 'all' ? 0 : now - dateRangeMs[selectedDateRange];
+ const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
 
  const scopedIds = new Set<string>();
  for (const j of sortedJobs) scopedIds.add(j.id);
@@ -3256,7 +3273,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  matches.push(job);
  }
  return matches.slice(0, MAX_FALLBACK_RESULTS);
- }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, selectedDateRange, passingNonSearchFilters]);
+ }, [companySlugFilter, deferredSearchQuery, strictFilteredJobs.length, orFallbackInCantonJobs.length, crossCantonFallbackJobs.length, unscopedJobs, sortedJobs, deferredSelectedDateRange, passingNonSearchFilters]);
 
  // filteredJobs: the tiered search result.
  //   1. strictFilteredJobs (AND across all tokens, in-canton)
