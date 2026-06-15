@@ -173,6 +173,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposizione-fonte-basilea.title': 'Basel: Approval of Source Tax Introduction',
     'blog.article.imposizione-fonte-basilea.excerpt': 'Cantonal votes in Basel have approved the introduction of source taxation, with 53.4% of votes, modifying the local tax system.',
     'blog.article.imposizione-fonte-basilea.imageAlt': 'View of Basel with fiscal and political symbols',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Vote on restrictions for foreign residents',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'The Canton of Ticino approves restrictions on foreign residents, but with limited effects, while Switzerland rejects the Swiss People\'s Party initiative with 54.79%.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landscape of lake and mountains between Switzerland and Italy near Ticino.',
 };
 
 export default blogMetaChEn;

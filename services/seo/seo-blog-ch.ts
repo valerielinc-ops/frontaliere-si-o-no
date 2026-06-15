@@ -2165,6 +2165,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocchi-immigrazione-ticino': {
+    title: 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
+    description: 'Il Canton Ticino approva il blocco migratorio con il 50.66%, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, blocco, abitanti, stranieri',
+    ogTitle: 'Ticino: blocco stranieri approvato | Frontaliere Ticino',
+    ogDescription: 'Risultati del referendum in Ticino sul blocco degli stranieri, con analisi delle implicazioni pratiche e procedure.',
+    canonicalPath: '/articoli-svizzera/blocchi-immigrazione-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: Voto al blocco degli abitanti stranieri e frontalieri",
+      "description": "Il Canton Ticino approva il blocco migratorio con il 50.66%, mentre la Svizzera respinge l'iniziativa UDC con il 54,79%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocchi-immigrazione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino."
+      },
+      "datePublished": "2026-06-15T05:54:39+00:00",
+      "dateModified": "2026-06-15T05:54:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/blocchi-immigrazione-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
