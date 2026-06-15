@@ -300,7 +300,6 @@ describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () 
 
   it('returns null on empty/invalid input (proceed-safe)', () => {
     expect(closingMergedPr(7, [])).toBeNull();
-    // @ts-expect-error — non-array
     expect(closingMergedPr(7, null)).toBeNull();
     expect(closingMergedPr(0, [{ number: 9, body: 'Closes #0' }])).toBeNull();
     expect(closingMergedPr(NaN, [{ number: 9, body: 'Closes #5' }])).toBeNull();
