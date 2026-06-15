@@ -9314,6 +9314,56 @@ ${staticAnalyticsHtml}
        cantonEditorialSection,
        `</main>`,
      ].join('\n');
+     // SearchAtlas "missing schema markup" audit (2026-06-15): secondary-canton
+     // landing pages shipped only a BreadcrumbList, while the Ticino landing
+     // (/cerca-lavoro-ticino/, owned by staticPagesPlugin via seo-pages.ts)
+     // ships CollectionPage + ItemList. Mirror TI here so every INDEXABLE canton
+     // landing carries a CollectionPage wrapping an ItemList of its most-recent
+     // jobs. Gated on `meetsThreshold` + jobs present: thin/noindex pages stay
+     // breadcrumb-only (CLAUDE.md #4 — no rich schema on thin content). Items
+     // are ListItem→url (not nested JobPosting): a partial JobPosting would
+     // violate NON-NEGOTIABLE #3 (all 9 mandatory fields), and the listing
+     // page's correct primary type is CollectionPage, exactly as TI. The list
+     // is rebuilt every deploy so the linked job URLs stay fresh (same jHref
+     // formula as the visible listing grid above).
+     const cantonCollectionLd = (meetsThreshold && cantonJobs.length > 0)
+       ? inlineScriptJson({
+           '@context': 'https://schema.org',
+           '@type': 'CollectionPage',
+           name: labels.title,
+           description: labels.lede,
+           url: canonicalUrl,
+           inLanguage: entry.locale,
+           isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+           about: { '@type': 'Thing', name: display },
+           provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+           mainEntity: {
+             '@type': 'ItemList',
+             numberOfItems: totalJobs,
+             itemListOrder: 'https://schema.org/ItemListOrderDescending',
+             itemListElement: cantonJobs.map((j, i) => {
+               const jt = j as {
+                 slugByLocale?: Record<string, string>;
+                 slug?: string;
+                 titleByLocale?: Record<string, string>;
+                 title?: string;
+                 canton?: string;
+                 location?: string;
+               };
+               const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
+               const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
+               const jSection = buildCantonAwareSection(entry.locale, jCanton);
+               const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
+               return {
+                 '@type': 'ListItem',
+                 position: i + 1,
+                 url: jHref,
+                 name: jt.titleByLocale?.[entry.locale] || jt.title || display,
+               };
+             }),
+           },
+         })
+       : '';
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
@@ -9321,7 +9371,7 @@ ${staticAnalyticsHtml}
        locale: entry.locale,
        bodyHtml,
        distDir,
-       jsonLdScripts: [cantonBreadcrumbLd],
+       jsonLdScripts: [cantonBreadcrumbLd, cantonCollectionLd].filter(Boolean),
        // T2.6 — robots set by MIN_JOBS gate above. Pages with ≥ 5 canonical
        // jobs from the cathedral flip to 'index,follow'; thin pages stay
        // 'noindex,follow' (CLAUDE.md #4 — no thin content gets indexed). The
@@ -10848,10 +10898,34 @@ ${staticAnalyticsHtml}
  })}</script>`;
 
  const jobPostingLd = (() => {
- // Only emit JobPosting when we have real job data
- const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
- const realExpiredAt = ejData?.expiredAt || '';
- if (!realTitle || !realExpiredAt || !jobCompany) return '';
+ // NON-NEGOTIABLE #3: "Source mancante → safe default, non rimozione check."
+ // SearchAtlas "missing schema" audit (2026-06-15) flagged ~50-80 indexable
+ // expired soft-landings emitting only BreadcrumbList. Emit JobPosting whenever
+ // the page has a REAL job identity — a real title AND a real employer from
+ // trustworthy crawl/search data (expired-jobs.json OR GSC). The optional
+ // fields (salary, address) are filled by buildJobPostingSchema's safe
+ // defaults; validThrough/datePosted are derived from the best real timestamp
+ // and always land in the PAST (this is an expired soft-landing) — Google's
+ // recommended handling for an expired posting, NOT a GSC error. Previously the
+ // gate required ejData.expiredAt to be present, dropping JobPosting (violating
+ // #3) for jobs whose expired entry carried only crawledAt/postedDate. Pure
+ // slug-derived orphans with no real employer stay breadcrumb-only:
+ // fabricating an employer identity would be spammy, low-quality markup.
+ // Revert-trigger (not validable pre-merge, SSG OOM): if the next deploy surfaces
+ // GSC "expired job posting" errors or a JobPosting-richness regression on these
+ // soft-landings → revert this gate to the strict `realExpiredAt`-required form.
+ const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title
+ || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '';
+ const realCompany = String(ejData?.company || gscInfo?.company || '');
+ // Derive a past validThrough from the best real signal. No real date signal
+ // at all → stay breadcrumb-only (don't fabricate a posting window from nothing).
+ const realValidThrough = (() => {
+ for (const c of [ejData?.expiredAt, ejData?.crawledAt, ejData?.postedDate]) {
+ if (c) { const d = new Date(c); if (!isNaN(d.getTime())) return d.toISOString(); }
+ }
+ return '';
+ })();
+ if (!realTitle || !realValidThrough || !realCompany) return '';
  const finalDescription = jobDescription || (() => {
  const parts: string[] = [];
  parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
@@ -10886,7 +10960,7 @@ ${staticAnalyticsHtml}
  streetAddress: ejData?.streetAddress,
  postedDate: ejData?.postedDate,
  crawledAt: ejData?.crawledAt,
- validThrough: realExpiredAt,
+ validThrough: realValidThrough,
  contract: ejData?.contract,
  salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
  salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
@@ -10905,12 +10979,12 @@ ${staticAnalyticsHtml}
  const expiredDatePosted = (() => {
  if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
  if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
- const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+ const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
  })();
  const jp: Record<string, unknown> = {
  ...expiredSchema,
  datePosted: expiredDatePosted,
- validThrough: new Date(realExpiredAt).toISOString(),
+ validThrough: new Date(realValidThrough).toISOString(),
  };
  return `<script type="application/ld+json">${inlineScriptJson(jp)}</script>`;
  })();
