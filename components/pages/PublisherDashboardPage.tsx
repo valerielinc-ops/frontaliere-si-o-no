@@ -33,6 +33,7 @@ import {
 import { useTranslation } from '@/services/i18n';
 import { useAuth } from '@/services/authService';
 import { buildPath } from '@/services/router';
+import { CV_URL_ENDPOINT } from '@/services/publisherCvEndpoint';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { getApp } from '@/services/firebase';
@@ -83,8 +84,6 @@ const RESTORE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
 const CHECKOUT_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
-const CV_URL_ENDPOINT =
-  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublisherApplicationCvUrl';
 
 /** A pasted public link is used as-is; an uploaded CV is a Storage object path
  *  (client-read-denied) that must be exchanged for a signed URL server-side. */
@@ -764,7 +763,7 @@ const PublisherDashboardPage: React.FC = () => {
                             <button
                               type="button"
                               onClick={() => { void handleOpenCv(a.id); }}
-                              disabled={cvOpeningId === a.id}
+                              disabled={!!cvOpeningId}
                               className="text-link hover:underline disabled:opacity-60 disabled:cursor-wait"
                             >
                               {cvOpeningId === a.id ? '…' : 'CV'}
