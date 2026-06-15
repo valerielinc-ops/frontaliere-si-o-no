@@ -22,6 +22,11 @@
  * React's next render re-synchronises the tree from the VDOM. For well-formed
  * callers this is a zero-behaviour-change patch: it only intercepts the
  * cross-parent case that would otherwise crash.
+ *
+ * Scope: the guard is restricted to DOM operations whose parent (`this`) lives
+ * within the React root (#root). DOM operations by third-party scripts outside
+ * that subtree (AdSense Auto Ads, Clarity, CMP iframes) fall through to native
+ * so their own lifecycle management is never silently no-opped.
  */
 
 interface GuardedNodePrototype extends Node {
@@ -37,6 +42,10 @@ export function installDomReconciliationGuard(): void {
 
   const originalRemoveChild = proto.removeChild;
   proto.removeChild = function removeChild<T extends Node>(this: Node, child: T): T {
+    const root = document.getElementById('root');
+    if (!root || !root.contains(this)) {
+      return originalRemoveChild.call(this, child) as T;
+    }
     if (child.parentNode !== this) {
       if (import.meta.env.DEV) {
         console.warn('[domGuard] removeChild skipped: node is not a child of this parent', child, this);
@@ -52,6 +61,10 @@ export function installDomReconciliationGuard(): void {
     newNode: T,
     referenceNode: Node | null,
   ): T {
+    const root = document.getElementById('root');
+    if (!root || !root.contains(this)) {
+      return originalInsertBefore.call(this, newNode, referenceNode) as T;
+    }
     if (referenceNode && referenceNode.parentNode !== this) {
       if (import.meta.env.DEV) {
         console.warn('[domGuard] insertBefore fell back to append: reference node is not a child of this parent', referenceNode, this);
