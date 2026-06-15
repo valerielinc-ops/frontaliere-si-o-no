@@ -4023,14 +4023,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  const listName = companyDisplayName
- ? `${companyDisplayName} — ${t('jobBoard.title')}`
+ ? `${companyDisplayName} — ${t('jobBoard.title', cantonI18n)}`
  : searchHeadingQuery
  ? t('jobBoard.searchPageTitle', { query: searchHeadingQuery })
  : selectedSector !== 'all'
- ? `${selectedSector} — ${t('jobBoard.title')}`
+ ? `${selectedSector} — ${t('jobBoard.title', cantonI18n)}`
  : selectedLocation !== 'all'
- ? `${selectedLocation} — ${t('jobBoard.title')}`
- : t('jobBoard.title');
+ ? `${selectedLocation} — ${t('jobBoard.title', cantonI18n)}`
+ : t('jobBoard.title', cantonI18n);
 
  const itemList = {
  '@context': 'https://schema.org',
@@ -4049,7 +4049,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.head.appendChild(script);
 
  return cleanup;
- }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, t]);
+ }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
 
  const formatSalary = (job: JobListing) => {
  if (!job.salaryMin) return null;
