@@ -119,6 +119,24 @@ describe('newsletter content v2', () => {
     expect(matched.length).toBe(2);
   });
 
+  // Regression: company logos for the manifest's self-hosted brand/logo images
+  // are offloaded out of the origin artifact to the CDN at deploy
+  // (scripts/offload-generated-images-cdn.mjs), so the origin
+  // /images/{brands,logos}/… path 404s and the email <img> shows a broken icon.
+  // matchJobsForSubscriber MUST emit the CDN host for those paths (mirrors the
+  // job-alert email fix #1705).
+  it('matchJobsForSubscriber resolves manifest logos to the CDN host, not the origin', () => {
+    const jobs = [
+      { title: 'Engineer', company: 'Tether Operations', companyKey: 'tether', location: 'Lugano', slug: 'engineer-tether', publishedAt: new Date().toISOString() },
+    ];
+
+    const [matched] = matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 1);
+    // tether → /images/brands/tether.png in data/company-logos-manifest.json
+    expect(matched.logoUrl).toBe('https://cdn.frontaliereticino.ch/images/brands/tether.png');
+    // never the bare origin (which 404s post-offload)
+    expect(matched.logoUrl.startsWith('https://frontaliereticino.ch/images/')).toBe(false);
+  });
+
   // Regression: recentlyFeaturedSlugs must never displace fresh candidates
   // just because the fresh pool is shorter than `limit`. Older logic
   // (freshPool.length >= limit ? freshPool : fullPool) wholesale fell back to

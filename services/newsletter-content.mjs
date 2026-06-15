@@ -28,6 +28,31 @@ try {
 
 // ─── Company logo resolution ─────────────────────────────────
 
+// The self-hosted brand/logo images are offloaded out of the origin artifact to
+// the dedicated CDN at deploy (#1705, scripts/offload-generated-images-cdn.mjs):
+// the manifest stores same-origin `/images/{brands,logos}/…` paths, but those
+// paths 404 at the origin once offloaded, so an email <img> pointing there shows
+// a broken icon. Rewrite offloaded paths to the stable CDN host — same fix already
+// shipped for the job-alert emails (scripts/send-job-alerts.mjs IMAGE_CDN_BASE).
+// MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in services/cdnImageBase.ts.
+const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
+const CDN_OFFLOADED_IMAGE_PREFIXES = [
+  '/images/brands/',
+  '/images/insurers/',
+  '/images/providers/',
+  '/images/logos/',
+  '/images/authors/',
+  '/images/publisher/',
+];
+
+/** Absolute URL for a same-origin image path: CDN host if offloaded, else origin. */
+function imageUrl(p) {
+  for (const prefix of CDN_OFFLOADED_IMAGE_PREFIXES) {
+    if (p.startsWith(prefix)) return `${IMAGE_CDN_BASE}${p}`;
+  }
+  return `${BASE_URL}${p}`;
+}
+
 let _logoManifest = null;
 function loadLogoManifest() {
   if (_logoManifest) return _logoManifest;
@@ -51,10 +76,10 @@ function resolveLogoUrl(job) {
   const manifest = loadLogoManifest();
   const key = job.companyKey || '';
 
-  // Self-hosted logo from manifest → absolute URL. Anything else → null
-  // (template falls back to the coloured initial-letter avatar).
+  // Self-hosted logo from manifest → absolute URL (CDN host if offloaded).
+  // Anything else → null (template falls back to the coloured initial-letter avatar).
   if (key && manifest[key]) {
-    return `${BASE_URL}${manifest[key]}`;
+    return imageUrl(manifest[key]);
   }
 
   return null;
