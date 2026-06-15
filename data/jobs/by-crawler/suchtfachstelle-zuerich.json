@@ -1,6 +1,6 @@
 {
   "crawlerKey": "suchtfachstelle-zuerich",
-  "assembledAt": "2026-06-14T23:04:39.930Z",
+  "assembledAt": "2026-06-15T23:52:42.722Z",
   "jobs": [
     {
       "id": "suchtfachstelle-zuerich-66484a5a7b3f",
@@ -34,7 +34,7 @@
       "url": "https://www.suchtfachstelle.zuerich/stellenausschreibung-fachperson-fuer-praevention-60",
       "source": "Suchtfachstelle Zürich Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:04:37.986Z",
+      "crawledAt": "2026-06-15T23:52:40.843Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,15 +71,15 @@
         "praventionsfachperson-60-suchtfachstelle-zuerich"
       ],
       "firstSeenAt": "2026-05-27T00:25:05.733Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
