@@ -1942,12 +1942,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1990,17 +1990,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
-        "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-          "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ],
         "fr": [
-          "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ]
       },
@@ -6670,10 +6667,10 @@
     },
     {
       "id": "liebherr-1483d652ed94",
-      "slug": "team-leader-function-validation-m-f-x-liebherr-bulle",
+      "slug": "capo-squadra-function-validation-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "en": "team-leader-function-validation-m-f-x-liebherr-bulle",
-        "it": "team-leader-function-validation-m-f-x-liebherr-bulle",
+        "it": "capo-squadra-function-validation-m-f-x-liebherr-bulle",
         "de": "team-leader-function-validation-m-f-x-liebherr-bulle",
         "fr": "team-leader-function-validation-m-f-x-liebherr-bulle"
       },
@@ -6732,7 +6729,15 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-15T14:48:44.629Z"
+      "firstSeenAt": "2026-06-15T14:48:44.629Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "team-leader-function-validation-m-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-function-validation-m-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-50d7814bbe0c",

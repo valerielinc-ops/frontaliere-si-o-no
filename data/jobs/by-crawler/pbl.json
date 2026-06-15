@@ -4143,12 +4143,12 @@
     },
     {
       "id": "pbl-db35f1d4a0f8",
-      "slug": "fachperson-fiat-m-w-d-60-pbl-liestal",
+      "slug": "fiat-specialista-lun-f-d-60-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "de": "fachperson-fiat-m-w-d-60-pbl-liestal",
-        "it": "fachperson-fiat-m-w-d-60-pbl-liestal",
+        "it": "fiat-specialista-lun-f-d-60-psychiatrie-baselland-liestal",
         "en": "fachperson-fiat-m-w-d-60-psychiatrie-baselland-liestal",
-        "fr": "fachperson-fiat-m-w-d-60-pbl-liestal"
+        "fr": "fiat-professionnel-m-f-d-60-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4203,7 +4203,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-14T22:27:19.531Z"
+      "firstSeenAt": "2026-06-14T22:27:19.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-fiat-m-w-d-60-pbl-liestal"
+        ],
+        "fr": [
+          "fachperson-fiat-m-w-d-60-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-fiat-m-w-d-60-pbl-liestal"
+      ]
     },
     {
       "id": "pbl-f3a1a61a1bca",
@@ -4211,8 +4222,8 @@
       "slugByLocale": {
         "de": "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal",
         "it": "studentinnen-e-studenten-per-psychiatrische-1-betreuung-m-w-d-psychiatrie-baselland-liestal",
-        "en": "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal",
-        "fr": "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal"
+        "en": "students-for-psychiatric-1-1-care-m-f-d-psychiatrie-baselland-liestal",
+        "fr": "etudiants-pour-des-soins-psychiatriques-individuels-luni-vendredi-lun-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -4257,6 +4268,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal"
+        ],
+        "en": [
+          "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal"
+        ],
+        "fr": [
           "studentinnen-und-studenten-fur-psychiatrische-1-1-betreuung-m-w-d-pbl-liestal"
         ]
       },

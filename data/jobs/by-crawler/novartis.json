@@ -3387,12 +3387,12 @@
     },
     {
       "id": "novartis-46bbfcde2c04",
-      "slug": "head-of-phenomics-novartis-ch",
+      "slug": "responsabile-phenomics-novartis-basel-city",
       "slugByLocale": {
         "en": "head-of-phenomics-novartis-ch",
-        "it": "head-of-phenomics-novartis-ch",
-        "de": "head-of-phenomics-novartis-ch",
-        "fr": "head-of-phenomics-novartis-ch"
+        "it": "responsabile-phenomics-novartis-basel-city",
+        "de": "leiter-phenomics-novartis-basel-city",
+        "fr": "responsable-phenomics-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3448,7 +3448,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-15T15:06:41.619Z"
+      "firstSeenAt": "2026-06-15T15:06:41.619Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-phenomics-novartis-ch"
+        ],
+        "de": [
+          "head-of-phenomics-novartis-ch"
+        ],
+        "fr": [
+          "head-of-phenomics-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-phenomics-novartis-ch"
+      ]
     }
   ]
 }
