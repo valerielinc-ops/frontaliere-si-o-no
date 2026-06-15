@@ -1,5 +1,12 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
+import {
+ FUEL_SECTION_SLUG,
+ FUEL_TODAY_SLUG,
+ FUEL_LOCALE_PREFIX,
+ type FuelDailyLocale,
+ type FuelType,
+} from './fuelDailyData';
 
 type SupportedLocale = CantonLocale;
 
@@ -59,6 +66,32 @@ const COMPAT_REDIRECTS: Record<string, string> = {
 };
 
 /**
+ * Fuel sub-path 404s → that fuel section's localized "today" landing, derived
+ * from FUEL_SECTION_SLUG (single source of truth) so the canonical can never
+ * drift onto a renamed/legacy alias (e.g. FR diesel is `prix-gasoil-suisse`,
+ * NOT the legacy `prix-diesel` which 301-redirects) and diesel↔diesel /
+ * benzina↔benzina is preserved (a benzina 404 must not land on the diesel page).
+ */
+const FUEL_SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = (() => {
+ const out: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = [];
+ const fuels: FuelType[] = ['diesel', 'benzina'];
+ for (const loc of ['it', 'en', 'de', 'fr'] as FuelDailyLocale[]) {
+ for (const fuel of fuels) {
+ const section = FUEL_SECTION_SLUG[loc][fuel];
+ const prefix = FUEL_LOCALE_PREFIX[loc];
+ const today = FUEL_TODAY_SLUG[loc];
+ const esc = `${prefix}/${section}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ out.push({
+ pattern: new RegExp(`^${esc}/`),
+ canonical: `${prefix}/${section}/${today}/`.replace(/\/+/g, '/'),
+ locale: loc as SupportedLocale,
+ });
+ }
+ }
+ return out;
+})();
+
+/**
  * Known site sections and their canonical landing pages.
  * Used as a fallback when a 404 path matches a section prefix but isn't
  * handled by the exact-match or job-board pattern resolvers.
@@ -100,15 +133,13 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/en\/service-comparison\//, canonical: '/en/service-comparison/', locale: 'en' },
  { pattern: /^\/de\/dienstleistungsvergleich\//, canonical: '/de/dienstleistungsvergleich/', locale: 'de' },
  { pattern: /^\/fr\/comparaison-services\//, canonical: '/fr/comparaison-services/', locale: 'fr' },
- // Fuel-price section. Station-detail leaf pages (/{locale-section}/{city}/{stations}/{slug})
- // expire as stations rotate; Google keeps the old leaves indexed. Route them to the
- // localized "today" landing (the only evergreen entry point per locale). The FR/DE/EN
- // CSV leaves use historical section slugs (benzinpreis-schweiz, prix-essence-suisse,
- // prix-gasoil-suisse) that were since renamed — map every historical alias to the live root.
- { pattern: /^\/prezzi-diesel\//, canonical: '/prezzi-diesel/oggi/', locale: 'it' },
- { pattern: /^\/de\/(?:benzinpreis-schweiz|dieselpreis-schweiz)\//, canonical: '/de/dieselpreis-schweiz/heute/', locale: 'de' },
- { pattern: /^\/en\/diesel-price-switzerland\//, canonical: '/en/diesel-price-switzerland/today/', locale: 'en' },
- { pattern: /^\/fr\/(?:prix-essence-suisse|prix-gasoil-suisse|prix-diesel)\//, canonical: '/fr/prix-diesel/aujourd-hui/', locale: 'fr' },
+ // Fuel-price sections (derived from FUEL_SECTION_SLUG — the single source of
+ // truth — so the canonical can never drift onto a renamed/legacy alias):
+ // station-detail leaves (/{locale-section}/{city}/{stations}/{slug}) expire as
+ // stations rotate; route each to its OWN "today" landing, keeping diesel↔diesel
+ // and benzina↔benzina (a benzina 404 must not land on the diesel page). See
+ // FUEL_SECTION_FALLBACKS below.
+ ...FUEL_SECTION_FALLBACKS,
  // Company-hub section. Per-company×city×week leaves (e.g. .../locarno/{company}/settimana-corrente/)
  // 404 once that company has no current-week openings; route to the hub root (IT + EN only —
  // the DE/FR hub roots are not emitted, so no fallback target exists for them).

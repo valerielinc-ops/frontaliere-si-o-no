@@ -73,10 +73,11 @@ const csvFlagIdx = process.argv.indexOf('--csv');
 const CSV_OVERRIDE = csvFlagIdx >= 0 ? process.argv[csvFlagIdx + 1] : null;
 
 // Bounded by construction: this is "URLs Google reports as 404", not the
-// discovery accumulator. A sudden jump past this ceiling means a malformed
-// export (e.g. an all-URLs sitemap) leaked in — abort rather than bloat the
-// SSG bridge set.
-const COVERAGE_SANITY_CEILING = 250_000;
+// discovery accumulator. A GSC Coverage export caps at ~1000 rows; even
+// accumulating many exports the realistic ceiling is low tens of thousands.
+// A jump past this means a malformed export (e.g. an all-URLs sitemap) leaked
+// in — abort rather than bloat the SSG bridge set toward cfHot's MAX_EMIT cap.
+const COVERAGE_SANITY_CEILING = 50_000;
 
 function normalizePath(input: string): string {
   const clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
@@ -102,11 +103,20 @@ function findCsvFiles(): { file: string; basename: string }[] {
   return out;
 }
 
+/** Rows in the GSC export, excluding the header. */
+function csvDataRowCount(file: string): number {
+  return fs.readFileSync(file, 'utf-8').split(/\r?\n/).slice(1).filter((l) => l.trim()).length;
+}
+
 function parseCsvPaths(file: string): string[] {
   const text = fs.readFileSync(file, 'utf-8');
   const out: string[] = [];
   for (const line of text.split(/\r?\n/).slice(1)) {
-    const url = line.split(',')[0]?.trim();
+    if (!line.trim()) continue;
+    // First field is the URL. Tolerate a quoted field ("https://…",…) — GSC
+    // exports the URL unquoted today, but a future quoting/escaping change must
+    // not silently drop every row (caught loudly by the zero-yield guard in main).
+    const url = (line.split(',')[0] ?? '').trim().replace(/^"|"$/g, '');
     if (!url || !url.startsWith('http')) continue;
     let pathname: string;
     try { pathname = new URL(url).pathname; } catch { continue; }
@@ -134,9 +144,11 @@ function main(): void {
   const seen = new Set<string>();
   const byKind: Record<string, number> = {};
   let totalRows = 0;
+  let rawDataRows = 0;
   const unresolved: string[] = [];
 
   for (const { file, basename } of csvs) {
+    rawDataRows += csvDataRowCount(file);
     const paths = parseCsvPaths(file);
     let resolved = 0;
     for (const p of paths) {
@@ -147,7 +159,17 @@ function main(): void {
       seen.add(p);
       resolved++;
     }
-    console.log(`[ingest-gsc-coverage] ${basename}: ${paths.length} rows → ${resolved} resolvable`);
+    console.log(`[ingest-gsc-coverage] ${basename}: ${paths.length} URL rows (${csvDataRowCount(file)} data rows) → ${resolved} resolvable`);
+  }
+
+  // Loud-fail on a silent format break: data rows present but nothing parsed as
+  // a URL means the URL column moved or the quoting changed — never write an
+  // empty/degraded coverage file on top of a working one.
+  if (rawDataRows > 0 && totalRows === 0) {
+    throw new Error(
+      `[ingest-gsc-coverage] ${rawDataRows} data rows but 0 parsed as URLs — ` +
+        `CSV format likely changed (URL column moved / quoting). Aborting, not overwriting.`,
+    );
   }
 
   console.log(

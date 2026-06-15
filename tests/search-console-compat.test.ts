@@ -140,26 +140,29 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
-  it('routes expired fuel-station leaves to the localized fuel landing', () => {
+  it('routes expired fuel-station leaves to the matching fuel landing (diesel↔diesel, benzina↔benzina)', () => {
+    // IT diesel → IT diesel today page.
     expect(resolveSearchConsoleCompatTarget('/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria')).toEqual({
       canonicalPath: '/prezzi-diesel/oggi/',
       kind: 'legacy',
       locale: 'it',
     });
-    // Historical DE/FR section slugs (benzinpreis-schweiz, prix-gasoil-suisse,
-    // prix-essence-suisse) were renamed; map every alias to the live landing.
+    // DE benzina (benzinpreis-schweiz) → DE benzina today page, NOT the diesel one.
     expect(resolveSearchConsoleCompatTarget('/de/benzinpreis-schweiz/lugano/tankstellen/socar-via-colombera')).toEqual({
-      canonicalPath: '/de/dieselpreis-schweiz/heute/',
+      canonicalPath: '/de/benzinpreis-schweiz/heute/',
       kind: 'legacy',
       locale: 'de',
     });
+    // FR diesel is `prix-gasoil-suisse` (the live section); `prix-diesel` is a
+    // legacy alias that 301-redirects, so it must NOT be the canonical target.
     expect(resolveSearchConsoleCompatTarget('/fr/prix-gasoil-suisse/mendrisio/stations/eni-via-bernasconi')).toEqual({
-      canonicalPath: '/fr/prix-diesel/aujourd-hui/',
+      canonicalPath: '/fr/prix-gasoil-suisse/aujourd-hui/',
       kind: 'legacy',
       locale: 'fr',
     });
+    // FR benzina (prix-essence-suisse) → FR benzina today page.
     expect(resolveSearchConsoleCompatTarget('/fr/prix-essence-suisse/lugano/stations/piccadilly-via-cantonale-2')).toEqual({
-      canonicalPath: '/fr/prix-diesel/aujourd-hui/',
+      canonicalPath: '/fr/prix-essence-suisse/aujourd-hui/',
       kind: 'legacy',
       locale: 'fr',
     });
