@@ -19,7 +19,7 @@ const JOBS_PATH = join(ROOT, 'data', 'jobs.json');
 const SLICES_DIR = join(ROOT, 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_LENGTH = 120;
-const MIN_CONFIDENCE = 0.50;
+const MIN_CONFIDENCE = 0.65;
 
 /** Stable composite key for a job (id may be missing on ~half the dataset) */
 function jobKey(job) {
@@ -75,7 +75,7 @@ for (const job of jobs) {
     checked++;
     const detected = detectLanguageWithConfidence(text, locale);
 
-    if (detected.confidence >= MIN_CONFIDENCE && detected.lang !== locale) {
+    if (detected.confidence >= MIN_CONFIDENCE && detected.lang !== locale && LOCALES.includes(detected.lang)) {
       const key = jobKey(job);
       flaggedKeys.add(key);
 
