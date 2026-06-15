@@ -235,6 +235,37 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     expect(text).toBe('Das Spital sorgt für die Region und ihre Menschen.');
     expect(text).not.toContain('SHOULD-NOT-APPEAR');
   });
+
+  // #2118 item 1: the quote-strict / first-attribute-only / lazy-</section>
+  // selectors were brittle. A markup tweak (extra utility class, single quotes,
+  // an attr before `class`) would silently match nothing → '' → thin-source
+  // hard-fail. These lock the hardened selectors.
+  it('Template (v) survives multi-class + single-quoted + reordered attrs', () => {
+    const TWEAKED = `<section id='tasks-profile'>
+  <div data-col="6" class='tasks col-6'><h4 class="sub-subtitle">Ihre Aufgaben</h4>
+    <ul><li>Zentrale administrative und koordinative Unterstützung im Direktionsstab.</li></ul></div>
+  <div class="col-6 profile"><h4 class="sub-subtitle">Ihr Profil</h4>
+    <ul><li>Mehrjährige Berufserfahrung in einer ähnlichen Position.</li></ul></div>
+</section>`;
+    const text = extractSoliqueDetailContent(TWEAKED);
+    expect(text).toContain('• Zentrale administrative und koordinative Unterstützung');
+    expect(text).toContain('• Mehrjährige Berufserfahrung');
+    expect(text.length).toBeGreaterThan(100);
+  });
+
+  it('Template (v) offer capture is not truncated by a nested <section>', () => {
+    const NESTED = `<section id="tasks-profile">
+  <div class="tasks"><h4 class="sub-subtitle">Ihre Aufgaben</h4>
+    <ul><li>Zentrale administrative und koordinative Unterstützung im Direktionsstab.</li></ul></div>
+</section>
+<section id="offer"><h4 class="sub-subtitle">Zusätzlich profitieren Sie von</h4>
+  <section class="benefit"><span>nested wrapper</span></section>
+  <ul><li>Attraktive Anstellungsbedingungen und Weiterbildung.</li></ul></section>`;
+    const text = extractSoliqueDetailContent(NESTED);
+    // Without balanced capture the lazy `</section>` stopped at the nested
+    // close, dropping the perks bullet after it.
+    expect(text).toContain('• Attraktive Anstellungsbedingungen');
+  });
 });
 
 // ─── JS-error-string sanitizer (issues #1682 / #1741) ────────────────────────

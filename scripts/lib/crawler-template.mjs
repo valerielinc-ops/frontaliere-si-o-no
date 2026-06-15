@@ -200,6 +200,25 @@ export function normalizeSpace(s = '') {
 }
 
 /**
+ * Build a regex fragment matching a `class` attribute that carries `token`
+ * (a regex alternation like `tasks` or `tasks|profile`) as a whole class name,
+ * tolerant of quote style and multi-class lists. Matches `class="tasks"`,
+ * `class='tasks'`, `class=tasks`, `class="tasks col-6"`, `class="col-6 tasks"`.
+ *
+ * Shared selector helper for dedicated crawler parsers (Solique, Dualoo
+ * tenants, jobalino, …): a vendor markup tweak (extra utility class, single
+ * quotes, attr reorder) must NOT silently match nothing → '' → thin-source
+ * fail → degraded/de-indexed JobPosting. Centralized here so the four+ parsers
+ * that share this construct cannot drift (issue #2118 / PR #2149).
+ *
+ * @param {string} token regex alternation of whole class names
+ * @returns {string} a regex fragment (no anchors; embed inside a larger pattern)
+ */
+export function classAttrRx(token) {
+  return `class=["']?[^"'>]*\\b(?:${token})\\b`;
+}
+
+/**
  * Bullet-preserving normalizer for descriptions.
  *
  * Collapses runs of spaces/tabs to a single space but PRESERVES newline
