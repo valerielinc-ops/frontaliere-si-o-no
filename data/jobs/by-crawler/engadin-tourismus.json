@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engadin-tourismus",
-  "assembledAt": "2026-06-14T21:49:01.345Z",
+  "assembledAt": "2026-06-15T14:38:28.531Z",
   "jobs": [
     {
       "id": "engadin-tourismus-f9482812da90",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:48:59.948Z",
+      "crawledAt": "2026-06-15T14:38:26.768Z",
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
       ],
@@ -56,16 +56,17 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       }
@@ -114,7 +115,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/guest-experience-specialist-100-m-w-d",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:48:59.698Z",
+      "crawledAt": "2026-06-15T14:38:25.749Z",
       "previousSlugs": [
         "guest-experience-specialist-100-m-w-d-tourist-information-zuoz-und-regionale-gasteberatung"
       ],
@@ -131,16 +132,16 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-26T22:43:39.462Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
