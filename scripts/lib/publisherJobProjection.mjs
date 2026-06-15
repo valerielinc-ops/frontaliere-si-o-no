@@ -39,7 +39,7 @@ export function truncatePublisherSlug(slug = '', maxLen = SLUG_MAX) {
   return (lastHyphen > 0 ? cut.slice(0, lastHyphen) : cut).replace(/-+$/g, '');
 }
 
-function distinctLocations(locations) {
+export function distinctLocations(locations) {
   if (!Array.isArray(locations)) return [];
   const seen = new Map(); // key → original label
   for (const loc of locations) {
