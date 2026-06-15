@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
+import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -166,6 +167,14 @@ const mountApp = async () => {
  document.getElementById('loading-shell')?.remove();
 };
 
-// Mount React immediately on all paths for better LCP.
-// The loading shell provides instant visual feedback while JS loads.
-void mountApp();
+// Canonical CV deep-links (/…/cv-uploads/<jobId>/<file>) are not real assets and
+// are not handled by the SPA router; intercept them here to resolve a signed,
+// owner-only download before mounting the app. On any other path this is a cheap
+// regex test that returns false and the app mounts normally.
+if (maybeHandleCvDownload()) {
+ // Handled (redirecting to the signed URL or the dashboard) — do not mount.
+} else {
+ // Mount React immediately on all paths for better LCP.
+ // The loading shell provides instant visual feedback while JS loads.
+ void mountApp();
+}
