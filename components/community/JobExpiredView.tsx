@@ -376,7 +376,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {jobLocation}
  </a>
  )}
- {expiredDate && (
+ {/* Expiry date reveals the "no longer active" status → show only after sign-in.
+     Logged-out users hit the gate first; status surfaces once authenticated. */}
+ {alreadySignedIn && expiredDate && (
  <span className="inline-flex items-center gap-1">
  <Calendar size={14} />
  {EXPIRED_AT_COPY[locale] ?? EXPIRED_AT_COPY.it} {expiredDate}
@@ -694,7 +696,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  return (
  <div className="space-y-5" data-no-auto-ads="inside">
  {backButton}
- {expiredBanner}
+ {/* Status banner ("no longer active") deferred until sign-in: a logged-out
+     visitor sees the gate, not the dead-job notice. Shown in the logged-in view. */}
 
  {/* 3-column grid: left rail | content | right rail (desktop xl only) */}
  <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
