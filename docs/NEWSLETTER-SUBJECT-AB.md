@@ -99,18 +99,38 @@ assignment, so the experiment keeps working even if PostHog is down/over-quota.
 
 #### Enabling
 
-Set on both runtimes (off → no events emitted, zero PostHog volume):
+Config resolves **env first, then Remote Config** (RC is the single source for
+both runtimes; the send CI hydrates env from RC via `load-rc-env.mjs`, the Cloud
+Functions read RC directly). Both the flag and the key must resolve, else it's a
+no-op.
 
-| Env | Where | Purpose |
-|-----|-------|---------|
-| `POSTHOG_EMAIL_EXPERIMENT=1` | send-newsletter CI env **and** Cloud Functions runtime | master switch |
-| `POSTHOG_PROJECT_KEY` | both (**required to activate**) | PostHog project write key (`phc_…`); no hardcoded default |
-| `POSTHOG_HOST` | both (optional) | defaults to `https://eu.i.posthog.com` |
+| Param | RC key | env (send CI) | Purpose |
+|-------|--------|---------------|---------|
+| master switch | `SERVER_POSTHOG_EMAIL_EXPERIMENT` | `POSTHOG_EMAIL_EXPERIMENT` | `1` = on |
+| capture key | `SERVER_POSTHOG_PROJECT_KEY` | `POSTHOG_PROJECT_KEY` | public `phc_…` project key |
+| host | `SERVER_POSTHOG_HOST` | `POSTHOG_HOST` | default `https://eu.i.posthog.com` |
 
-Both `POSTHOG_EMAIL_EXPERIMENT=1` **and** `POSTHOG_PROJECT_KEY` must be set — if
-either is missing the capture is a no-op.
+To turn it on:
+
+```bash
+# 1. publish the RC params (flag + capture key) — needs the Firebase SA
+GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
+  node scripts/set-posthog-rc.mjs
+
+# 2. redeploy Cloud Functions so the webhooks pick up the RC-aware helper
+#    (deploy-cloud-functions.yml runs on push to main touching functions/**)
+
+# 3. create the funnel insights (idempotent)
+eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
+  node scripts/load-rc-env.mjs | grep POSTHOG)" \
+  && node scripts/setup-posthog-email-funnel.mjs
+```
+
+The next scheduled send then emits `email_sent`; opens emit `email_opened`.
+Kill switch: set `SERVER_POSTHOG_EMAIL_EXPERIMENT=0` in RC (re-run step 1 after
+editing the value, or flip it in the Firebase console).
 
 ⚠️ **Quota**: the PostHog free tier (1M events/mo) is already tight and has
-caused outages. This emits only 2 events per subscriber per campaign, but keep
-it off until you actually need the PostHog UI — the Firestore report covers the
-decision for free.
+caused outages. This emits only 2 events per subscriber per campaign, but it
+still adds volume — watch the PostHog billing usage after enabling. The Firestore
+report + auto-promotion decide the winner for free regardless.

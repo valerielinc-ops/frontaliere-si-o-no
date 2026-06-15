@@ -20,7 +20,7 @@ describe('emailExperimentPostHog — disabled by default', () => {
     const fetchSpy = vi.fn();
     vi.stubGlobal('fetch', fetchSpy);
     const { captureEmailEvent, isEmailExperimentEnabled } = await import(MODULE);
-    expect(isEmailExperimentEnabled()).toBe(false);
+    expect(await isEmailExperimentEnabled()).toBe(false);
     const ok = await captureEmailEvent('email_sent', { email: 'a@b.com', variant: 'curioso', provider: 'mailjet' });
     expect(ok).toBe(false);
     expect(fetchSpy).not.toHaveBeenCalled();
@@ -75,7 +75,7 @@ describe('emailExperimentPostHog — enabled', () => {
     const fetchSpy = vi.fn(async () => ({ ok: true }));
     vi.stubGlobal('fetch', fetchSpy);
     const { captureEmailEvent, isEmailExperimentEnabled } = await import(MODULE);
-    expect(isEmailExperimentEnabled()).toBe(false);
+    expect(await isEmailExperimentEnabled()).toBe(false);
     expect(await captureEmailEvent('email_opened', { email: 'x@y.com' })).toBe(false);
     expect(fetchSpy).not.toHaveBeenCalled();
   });

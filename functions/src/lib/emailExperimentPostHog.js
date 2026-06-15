@@ -19,22 +19,21 @@
  * engagementScore.js) can share it without a cross-runtime import. Uses the
  * PostHog capture HTTP API via global fetch — no posthog-node dependency.
  *
- * Env (BOTH required to activate; absent → no-op):
- *   POSTHOG_EMAIL_EXPERIMENT  '1'|'true' to enable
- *   POSTHOG_PROJECT_KEY       PostHog project write key (phc_…); no hardcoded
- *                             default (avoids a 3rd copy of the key in the repo)
- *   POSTHOG_HOST              ingestion host (default EU cloud ingest).
+ * Config resolution (env first, then Remote Config) — BOTH the flag and the key
+ * must resolve, else it is a no-op:
+ *   POSTHOG_EMAIL_EXPERIMENT / RC SERVER_POSTHOG_EMAIL_EXPERIMENT  '1'|'true'
+ *   POSTHOG_PROJECT_KEY      / RC SERVER_POSTHOG_PROJECT_KEY       phc_… (public)
+ *   POSTHOG_HOST             / RC SERVER_POSTHOG_HOST              ingest host
+ *
+ * The send-newsletter CI run hydrates process.env from Remote Config via
+ * load-rc-env.mjs, so it never touches RC here. The Cloud Functions runtime has
+ * no such env, so it falls back to reading Remote Config directly — the same
+ * idiom as recaptchaVerification.js. The project key is public (already shipped
+ * client-side), so storing it in RC is not a secret leak and keeps a single
+ * source of truth (no hardcoded copy in this file).
  */
 
-// The project key is read from POSTHOG_PROJECT_KEY only — we deliberately do NOT
-// hardcode a default copy here. The same phc_ key already lives in
-// services/posthog.ts and build-plugins/constants.ts; a third copy would make a
-// key rotation a 3-file manual edit. Since the experiment is off by default and
-// enabling it is an explicit ops action, requiring the env var alongside
-// POSTHOG_EMAIL_EXPERIMENT is no extra burden and removes the duplication.
-const POSTHOG_HOST = (process.env.POSTHOG_HOST || 'https://eu.i.posthog.com').replace(/\/$/, '');
-const POSTHOG_KEY = process.env.POSTHOG_PROJECT_KEY || '';
-const ENABLED = ['1', 'true', 'yes'].includes(String(process.env.POSTHOG_EMAIL_EXPERIMENT || '').toLowerCase());
+import { getRemoteConfigValue } from '../remoteConfigSecrets.js';
 
 /** Canonical event names — single source of truth for emit + analysis. */
 export const EMAIL_EXPERIMENT_EVENTS = Object.freeze({
@@ -42,9 +41,46 @@ export const EMAIL_EXPERIMENT_EVENTS = Object.freeze({
   OPENED: 'email_opened', // conversion: subscriber opened the email
 });
 
-/** @returns {boolean} whether server-side experiment capture is active. */
-export function isEmailExperimentEnabled() {
-  return ENABLED && !!POSTHOG_KEY;
+const truthy = (v) => ['1', 'true', 'yes'].includes(String(v || '').toLowerCase());
+
+let _configPromise = null;
+/**
+ * Resolve { enabled, key, host }. env wins; missing pieces fall back to Remote
+ * Config (Cloud Functions runtime). Cached after the first resolution.
+ */
+async function resolveConfig() {
+  if (_configPromise) return _configPromise;
+  _configPromise = (async () => {
+    let flag = process.env.POSTHOG_EMAIL_EXPERIMENT || '';
+    let key = process.env.POSTHOG_PROJECT_KEY || '';
+    let host = process.env.POSTHOG_HOST || '';
+    if (!flag || !key) {
+      // Functions runtime: no env → read Remote Config (recaptcha idiom).
+      try {
+        if (!flag) flag = await getRemoteConfigValue('SERVER_POSTHOG_EMAIL_EXPERIMENT').catch(() => '');
+        if (!key) key = await getRemoteConfigValue('SERVER_POSTHOG_PROJECT_KEY').catch(() => '');
+        if (!host) host = await getRemoteConfigValue('SERVER_POSTHOG_HOST').catch(() => '');
+      } catch {
+        // RC unavailable → stay disabled.
+      }
+    }
+    return {
+      enabled: truthy(flag) && !!key,
+      key,
+      host: (host || 'https://eu.i.posthog.com').replace(/\/$/, ''),
+    };
+  })();
+  return _configPromise;
+}
+
+/** Reset the cached config (tests only). */
+export function _resetEmailExperimentConfig() {
+  _configPromise = null;
+}
+
+/** @returns {Promise<boolean>} whether capture is active (env or Remote Config). */
+export async function isEmailExperimentEnabled() {
+  return (await resolveConfig()).enabled;
 }
 
 /**
@@ -58,13 +94,15 @@ export function isEmailExperimentEnabled() {
  */
 export async function captureEmailEvent(event, props = {}) {
   const { email, variant, provider, campaignId, locale } = props;
-  if (!isEmailExperimentEnabled() || !email) return false;
+  if (!email) return false;
+  const { enabled, key, host } = await resolveConfig();
+  if (!enabled) return false;
   try {
-    const res = await fetch(`${POSTHOG_HOST}/capture/`, {
+    const res = await fetch(`${host}/capture/`, {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        api_key: POSTHOG_KEY,
+        api_key: key,
         event,
         distinct_id: String(email).toLowerCase(),
         properties: {

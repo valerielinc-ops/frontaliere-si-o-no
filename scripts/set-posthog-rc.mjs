@@ -5,7 +5,7 @@
  * CI runs of `articles-performance-snapshot.yml` (and any other PostHog-aware
  * workflow). Companion to scripts/set-adsense-rc.mjs.
  *
- * Safe to re-run: writes/overwrites only the two SERVER_POSTHOG_* params and
+ * Safe to re-run: writes/overwrites only the SERVER_POSTHOG_* params and
  * publishes a new RC template version.
  *
  * Auth:
@@ -21,9 +21,15 @@
  * the project gets re-keyed.
  */
 
+// value + description per param. None are secrets: project ids and the EU host
+// are discoverable from the dashboard URL, and the phc_ project key is a public
+// write key already shipped in the browser bundle (services/posthog.ts).
 const RC_PARAMS = {
-  SERVER_POSTHOG_PROJECT_ID: '157802',
-  SERVER_POSTHOG_HOST: 'https://eu.posthog.com',
+  SERVER_POSTHOG_PROJECT_ID: { value: '157802', description: 'PostHog project ID for HogQL queries (set 2026-05-07)' },
+  SERVER_POSTHOG_HOST: { value: 'https://eu.posthog.com', description: 'PostHog API host (eu | us). Default eu (set 2026-05-07)' },
+  // Subject A/B email experiment — server-side capture (functions + send CI).
+  SERVER_POSTHOG_PROJECT_KEY: { value: 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT', description: 'PostHog public project (capture) key for server-side email_sent/email_opened events (set 2026-06-15)' },
+  SERVER_POSTHOG_EMAIL_EXPERIMENT: { value: '1', description: 'Master switch for the subject A/B PostHog capture; "1" = on (set 2026-06-15)' },
 };
 
 function bail(msg) {
@@ -46,22 +52,19 @@ async function main() {
   template.parameters = template.parameters || {};
 
   let changed = 0;
-  for (const [key, value] of Object.entries(RC_PARAMS)) {
+  for (const [key, { value, description }] of Object.entries(RC_PARAMS)) {
     const existing = template.parameters[key]?.defaultValue?.value;
     if (existing === value) continue;
     template.parameters[key] = {
       defaultValue: { value },
       valueType: 'STRING',
-      description:
-        key === 'SERVER_POSTHOG_PROJECT_ID'
-          ? 'PostHog project ID for HogQL queries (set 2026-05-07)'
-          : 'PostHog API host (eu | us). Default eu (set 2026-05-07)',
+      description,
     };
     changed++;
   }
 
   if (changed === 0) {
-    console.log('ℹ️  Both SERVER_POSTHOG_* params already up-to-date. Nothing to publish.');
+    console.log('ℹ️  All SERVER_POSTHOG_* params already up-to-date. Nothing to publish.');
     return;
   }
 
