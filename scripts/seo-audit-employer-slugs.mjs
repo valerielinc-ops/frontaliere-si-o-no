@@ -18,11 +18,21 @@ mkdirSync(OUT_DIR, { recursive: true });
 
 const REGISTRY_FILE = 'data/all-known-job-slugs.json';
 
+// Cloudflare in front of the live site returns 403 to requests carrying
+// undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
+// runners). A descriptive UA — same convention as canary-article-content.mjs
+// and probe-5xx.mjs — clears the bot check so the audit reaches the real
+// origin instead of failing on the sitemap/page fetch.
+const USER_AGENT = 'FrontaliereTicino-SeoAudit/1.0 (+https://frontaliereticino.ch)';
+
 // Cities featured on weekly-employers hub
 const CITIES = ['ticino', 'lugano', 'mendrisio', 'bellinzona', 'chiasso', 'locarno', 'stabio'];
 
 async function fetchText(url) {
-  const res = await fetch(url, { redirect: 'follow' });
+  const res = await fetch(url, {
+    redirect: 'follow',
+    headers: { 'User-Agent': USER_AGENT },
+  });
   return { status: res.status, text: await res.text() };
 }
 

@@ -20,6 +20,13 @@ const BASE = 'https://frontaliereticino.ch';
 const OUT_DIR = '.orchestration/audit';
 mkdirSync(OUT_DIR, { recursive: true });
 
+// Cloudflare in front of the live site returns 403 to requests carrying
+// undici's default (empty) User-Agent from datacenter IPs (GitHub Actions
+// runners). A descriptive UA — same convention as canary-article-content.mjs
+// and probe-5xx.mjs — clears the bot check so the audit reaches the real
+// origin instead of failing on the sitemap/page fetch.
+const USER_AGENT = 'FrontaliereTicino-SeoAudit/1.0 (+https://frontaliereticino.ch)';
+
 const SITEMAPS = [
   'annual-report', 'border-wait-map', 'border-wait', 'career-landings',
   'comparisons', 'cost-of-living', 'faq-hub', 'fuel-daily',
@@ -34,7 +41,10 @@ const SAMPLE_PER_SITEMAP = 20;
 
 async function fetchText(url, attempt = 1) {
   try {
-    const res = await fetch(url, { redirect: 'follow' });
+    const res = await fetch(url, {
+      redirect: 'follow',
+      headers: { 'User-Agent': USER_AGENT },
+    });
     return { status: res.status, text: await res.text(), url: res.url };
   } catch (e) {
     if (attempt < 3) {
