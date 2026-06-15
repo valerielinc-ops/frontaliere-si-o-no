@@ -225,6 +225,46 @@ jobs:
         # Best-effort: never fails the job.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.claude_review.outputs.execution_file }}" "issue-fix"
 
+      - name: Mark error_max_turns (granular telemetry, pre-backstop)
+        # Quando la run Claude muore `error_max_turns` (turn budget esaurito) NON
+        # lascia un marker FIX_OUTCOME del fixer → il backstop sotto posta un
+        # generico `no-pr-unspecified` che il drainer IGNORA (BACKSTOP_MARKER) →
+        # l'item viene trattato come orfano ri-tentabile e ri-accodato fino a
+        # MAX_ATTEMPTS, bruciando ~3 run opus su un item che esaurisce il budget
+        # in modo DETERMINISTICO (ri-tentarlo lo riproduce). Questo step rileva
+        # SPECIFICAMENTE il subtype `error_max_turns` dall'execution file e posta
+        # un marker granulare `max-turns` (senza BACKSTOP_MARKER → il drainer lo
+        # VEDE) così il drainer può parkare dopo 2 occorrenze (vedi
+        # followup-drainer.mjs). Subtype-gated: i fail transienti (altro subtype)
+        # NON ricevono il marker → restano ri-tentabili (nessuna falsa
+        # escalation). Gira PRIMA del backstop così quest'ultimo trova il marker
+        # e si salta. Best-effort, mai fa fallire il job.
+        if: always() && steps.claude_review.outcome == 'failure' && steps.preflight.outputs.already_resolved != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE: ${{ github.event.issue.number }}
+          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+        run: |
+          set -uo pipefail
+          if [ -z "${EXEC_FILE:-}" ] || [ ! -f "$EXEC_FILE" ]; then echo "no execution file → skip"; exit 0; fi
+          SUBTYPE=$(node -e "
+            const fs=require('fs');
+            try {
+              const raw=fs.readFileSync(process.env.EXEC_FILE,'utf8').trim();
+              let msgs;
+              try { msgs=JSON.parse(raw); } catch { msgs=raw.split(/\r?\n/).filter(Boolean).map((l)=>{try{return JSON.parse(l);}catch{return null;}}).filter(Boolean); }
+              if (!Array.isArray(msgs)) msgs=[msgs];
+              const r=[...msgs].reverse().find((m)=>m&&m.type==='result');
+              process.stdout.write(String((r&&r.subtype)||''));
+            } catch { process.stdout.write(''); }
+          " 2>/dev/null || true)
+          echo "claude result subtype: '${SUBTYPE:-<none>}'"
+          if [ "$SUBTYPE" = "error_max_turns" ]; then
+            # Marker granulare SENZA la stringa BACKSTOP_MARKER ('post-step
+            # deterministico') → latestFixOutcomeFromComments del drainer lo legge.
+            gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: max-turns -->\n_Run terminata error_max_turns (turn budget esaurito) — telemetria granulare per il drainer._')" || true
+          fi
+
       - name: Emit FIX_OUTCOME telemetry (deterministic backstop)
         # Skip on short-circuit: the pre-flight gate already posted the granular
         # `<!-- FIX_OUTCOME: already-fixed -->` marker; this coarse backstop would
