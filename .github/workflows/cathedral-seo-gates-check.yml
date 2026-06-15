@@ -107,8 +107,22 @@ jobs:
           # `--max-old-space-size=12288 --expose-gc`, which REPLACES any value
           # exported from the workflow env (npm-script inline assignment wins).
           # The previous `18432` here was dead config — silently overridden to
-          # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway. deploy.yml
-          # builds the same dist at 12288 with no override; matching that.
+          # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway.
+          #
+          # The two knobs below are deploy.yml's documented OOM controls
+          # (deploy.yml:481 + :532, build OOM #1290) — they cap the DOMINANT
+          # memory term, not the dataset size. deploy fits the full SEO build
+          # at 12288 BECAUSE of these; the dedup prep above is a smaller,
+          # complementary reduction. Keep both in sync with deploy.yml.
+          #
+          # Cap the post-walk worker pool so it doesn't structured-clone the
+          # full ~247K-path list into cpus()-many workers at once (the #1290
+          # blowup). Output-identical — only fewer parallel workers.
+          POST_WALK_WORKERS: '2'
+          # Force sequential plugin closeBundle: peak heap = max(single plugin)
+          # instead of Σ(overlap) → eliminates the parallel-build OOM. Always
+          # sequential here (scheduled/dispatch gate run, never parallel).
+          SEQUENTIAL_PROFILE: '1'
         run: |
           set -euo pipefail
           npm run build:ci &
