@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-06-14T21:25:33.121Z",
-  "total": 15,
+  "generatedAt": "2026-06-15T14:12:21.768Z",
+  "total": 14,
   "newCount": 0,
-  "updatedCount": 15,
-  "removedCount": 0,
+  "updatedCount": 14,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5717,
-  "avgDurationMs": 5717,
+  "durationMs": 4292,
+  "avgDurationMs": 4292,
   "durationHistory": [
-    5717
+    4292
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -531,7 +531,9 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Psycholog:in in WB zur/zum Psychotherapeuten:in oder Psy- chotherapeut:in, 60%",
       "slug": "psycholog-in-wb-zur-zum-psychotherapeuten-in-o-psy-chotherapeut-in-60-berit-klinik-wattwil",
@@ -555,21 +557,22 @@
       "sourceLang": "de",
       "postedDate": "2026-05-29",
       "validThrough": "",
-      "needsRetranslation": true,
       "_meta": {
         "sourceFilename": "stelleninserat_psycholog_in_oder_psychotherapeut_in__60__763bf28b90.pdf"
       },
       "id": "berit-klinik-2e837e5b0f2b",
       "firstSeenAt": "2026-05-29T22:13:44.514Z",
-      "_qualityScore": 85,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
