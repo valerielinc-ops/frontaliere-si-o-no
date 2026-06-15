@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-06-15T15:02:30.102Z",
+  "generatedAt": "2026-06-15T23:22:57.612Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16034,
-  "avgDurationMs": 16034,
+  "durationMs": 15864,
+  "avgDurationMs": 15864,
   "durationHistory": [
-    16034
+    15864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -281,44 +281,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Disegnatore elettromeccanico (M/F/X)",
-      "slug": "disegnatore-elettromeccanico-m-f-x-lombardi-giubiasco",
-      "url": "https://lombardi.group/eng/careers/job?id=114228",
-      "applyUrl": "https://lombardi.group/eng/careers/job?id=114228",
-      "company": "Lombardi Group",
-      "companyKey": "lombardi-group",
-      "companyDomain": "lombardi.group",
-      "location": "Giubiasco",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "drafting",
-      "sector": "Ingegneria civile",
-      "source": "lombardi-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-14",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "lombardi-group-33df023f225f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Arch. Frizzi 15",
-      "postalCode": "6648",
-      "firstSeenAt": "2026-04-28T22:14:03.078Z",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
