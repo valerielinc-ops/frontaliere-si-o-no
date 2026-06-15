@@ -7,7 +7,6 @@ import {
   parseWorkflow,
   compareCallerVsCallee,
   checkRepo,
-  // @ts-expect-error — .mjs guardrail script has no .d.ts; runtime ESM import is fine under vitest.
 } from '../scripts/check-workflow-permissions-parity.mjs';
 
 // vitest runs with cwd at the repo root; import.meta.url is not a file:// URL

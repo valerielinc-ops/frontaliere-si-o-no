@@ -250,16 +250,29 @@ service cloud.firestore {
     // explicit-consent flag is required (GDPR: forwarding PII to a third-party
     // employer is a distinct processing purpose from the site's silent consent).
     match /applications/{appId} {
-      allow read: if isSignedIn() && request.auth.uid == resource.data.publisherUid;
+      // The owning publisher reads applicants; the candidate reads their own
+      // submissions (denormalised candidateUid) to list them in their profile.
+      allow read: if isSignedIn() && (
+        request.auth.uid == resource.data.publisherUid
+        || request.auth.uid == resource.data.candidateUid
+      );
       // Anonymous candidates may submit, but only a well-formed, consented payload:
       // required fields present + explicit consent. (Volume/abuse throttling is
       // enforced upstream by reCAPTCHA on the form, not expressible in rules.)
+      // candidateUid is optional (logged-out applicants omit/null it) but, when
+      // present, MUST be the caller's own uid — a candidate can't attribute an
+      // application to someone else.
       allow create: if request.resource.data.consentGiven == true
         && request.resource.data.consentText is string
         && request.resource.data.jobId is string
         && request.resource.data.publisherUid is string
         && request.resource.data.candidateEmail is string
-        && request.resource.data.candidateName is string;
+        && request.resource.data.candidateName is string
+        && (
+          !('candidateUid' in request.resource.data)
+          || request.resource.data.candidateUid == null
+          || (isSignedIn() && request.resource.data.candidateUid == request.auth.uid)
+        );
       // No client update/delete — retention purge handled by a Cloud Function.
     }
   }

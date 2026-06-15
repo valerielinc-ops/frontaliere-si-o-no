@@ -11,7 +11,6 @@ vi.mock('../scripts/lib/jina-proxy.mjs', async (importOriginal) => {
   return { ...actual, fetchHtmlViaJinaWithRetry };
 });
 
-// @ts-expect-error — JS module without types
 import { fetchHtml } from '../scripts/lib/crawler-template.mjs';
 
 // A realistic target page body (>200 chars, no error markers) — passes detectJinaErrorBody.

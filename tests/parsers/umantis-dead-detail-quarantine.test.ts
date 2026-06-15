@@ -72,7 +72,7 @@ describe('fetchUmantisDetailResult — dead-detail detection', () => {
     );
     vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
 
-    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 });
+    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 } as any);
     expect(out.deadDetail).toBe(true);
     expect(out.html).toBe('');
     // Only the initial probe — the cross-host redirect is never followed.
@@ -84,7 +84,7 @@ describe('fetchUmantisDetailResult — dead-detail detection', () => {
     const fetchMock = vi.fn(async () => res({ status: 200, body: html }));
     vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
 
-    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 });
+    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 } as any);
     expect(out.deadDetail).toBe(false);
     expect(out.html).toContain('Aufgaben');
   });
@@ -100,7 +100,7 @@ describe('fetchUmantisDetailResult — dead-detail detection', () => {
     });
     vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
 
-    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 });
+    const out = await fetchUmantisDetailResult(BASE, 123, { lang: 'ger', delayMs: 0 } as any);
     expect(out.deadDetail).toBe(false);
     expect(out.html).toContain('followed body');
     expect(fetchMock).toHaveBeenCalledTimes(2);
@@ -112,7 +112,7 @@ describe('fetchUmantisDetailResult — dead-detail detection', () => {
     );
     vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
 
-    const out = await fetchUmantisDetailContentResult(BASE, 123, { lang: 'ger', delayMs: 0 });
+    const out = await fetchUmantisDetailContentResult(BASE, 123, { lang: 'ger', delayMs: 0 } as any);
     expect(out.deadDetail).toBe(true);
     expect(out.content).toBe('');
   });

@@ -9,7 +9,6 @@
  * only blowing up the live workflow.
  */
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error - plain ESM script without type declarations
 import {
   parseLatestUnemployment,
   extractRate,

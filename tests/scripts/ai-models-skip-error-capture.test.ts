@@ -26,7 +26,7 @@ describe('ai-models pre-flight skip error-capture', () => {
         chain: [model],
         retries: 0,
         maxTokens: 8,
-      });
+      } as Parameters<typeof aiModels.callLLM>[1]);
     } catch (e) {
       caught = e as Error;
     }
@@ -53,7 +53,7 @@ describe('ai-models pre-flight skip error-capture', () => {
           chain: [model],
           retries: 0,
           maxTokens: 8,
-        });
+        } as Parameters<typeof aiModels.callLLM>[1]);
       } catch (e) {
         caught = e as Error;
       }

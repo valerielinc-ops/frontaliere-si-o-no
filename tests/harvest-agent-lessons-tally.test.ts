@@ -9,7 +9,6 @@
  * Il segnale legittimo (🔴/🟡 ricorrente su PR distinte) resta intatto.
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { tallyFindings, detectSeverity, bucketFinding } from '../scripts/ci/harvest-agent-lessons.mjs';
 
 type Review = { author: { login: string }; body: string };

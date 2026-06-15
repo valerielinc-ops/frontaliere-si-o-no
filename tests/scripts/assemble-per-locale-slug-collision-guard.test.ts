@@ -13,12 +13,19 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — assemble-jobs-dataset.mjs has no .d.ts companion
 import { applyPerLocaleSlugCollisionGuard } from '../../scripts/assemble-jobs-dataset.mjs';
+
+type LocaleMap = { it?: string; en?: string; de?: string; fr?: string };
+type JobFixture = {
+  slugByLocale?: LocaleMap;
+  titleByLocale?: LocaleMap;
+  needsRetranslation?: boolean;
+  [key: string]: unknown;
+};
 
 describe('applyPerLocaleSlugCollisionGuard', () => {
   it('drops EN slug + title when it collides with another job IT base in same canton', () => {
-    const jobA = {
+    const jobA: JobFixture = {
       url: 'https://employer.example/jobs/a',
       canton: 'AG',
       slug: 'ingegnere-di-calcolo-meccanica-strutturale-m-f-d-acme-corp-leibstadt',
@@ -35,7 +42,7 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
         fr: 'Projektmanager (m/m/j)',
       },
     };
-    const jobB = {
+    const jobB: JobFixture = {
       url: 'https://employer.example/jobs/b',
       canton: 'AG',
       slug: 'projektmanager-m-w-d-acme-corp-leibstadt',
@@ -66,7 +73,7 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
   });
 
   it('does NOT flag a self-match (locale slug equals job own IT base)', () => {
-    const job = {
+    const job: JobFixture = {
       url: 'https://employer.example/jobs/x',
       canton: 'ZH',
       slug: 'my-role-acme-corp-zurich',
@@ -122,7 +129,7 @@ describe('applyPerLocaleSlugCollisionGuard', () => {
       url: 'owner', canton: 'AG', slug: 'shared-slug-acme-corp-aarau',
       slugByLocale: { it: 'shared-slug-acme-corp-aarau' },
     };
-    const claimants = Array.from({ length: 25 }, (_, i) => ({
+    const claimants: JobFixture[] = Array.from({ length: 25 }, (_, i) => ({
       url: `claimant-${i}`,
       canton: 'AG',
       slug: `unique-${i}-acme-corp-aarau`,
@@ -182,7 +189,7 @@ describe('applyPerLocaleSlugCollisionGuard — post-guard fallback safety (#1072
   };
 
   it('after the guard drops a colliding locale slug, the fallback effective slug stays unique in every locale', () => {
-    const jobA = {
+    const jobA: JobFixture = {
       url: 'https://employer.example/jobs/a',
       canton: 'AG',
       slug: 'ingegnere-di-calcolo-meccanica-strutturale-acme-corp-leibstadt',
@@ -227,7 +234,7 @@ describe('applyPerLocaleSlugCollisionGuard — post-guard fallback safety (#1072
       slug: 'projektmanager-acme-corp-leibstadt',
       slugByLocale: { it: 'projektmanager-acme-corp-leibstadt' },
     };
-    const jobA = {
+    const jobA: JobFixture = {
       url: 'https://employer.example/jobs/a',
       canton: 'AG',
       slug: 'ingegnere-a-acme-corp-leibstadt',
@@ -237,7 +244,7 @@ describe('applyPerLocaleSlugCollisionGuard — post-guard fallback safety (#1072
       },
       titleByLocale: { en: 'Hallucinated A' },
     };
-    const jobC = {
+    const jobC: JobFixture = {
       url: 'https://employer.example/jobs/c',
       canton: 'AG',
       slug: 'ingegnere-c-acme-corp-leibstadt',

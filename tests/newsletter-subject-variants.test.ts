@@ -101,16 +101,16 @@ describe('getVariantStyleDirective', () => {
 });
 
 describe('buildSubjectPrompt variant injection', () => {
-  const baseCtx = { subscriber: { locale: 'it' }, exchangeRate: { rate: 0.94 }, matchedJobs: [] };
+  const baseCtx = { subscriber: { locale: 'it' }, exchangeRate: { rate: 0.94 }, matchedJobs: [], briefingSummary: '' };
 
   it('injects the variant directive into the system prompt', () => {
     const variantId = SUBJECT_VARIANTS[0].id;
-    const { system } = buildSubjectPrompt({ ...baseCtx, variant: variantId });
+    const { system } = buildSubjectPrompt({ ...baseCtx, variant: variantId } as Parameters<typeof buildSubjectPrompt>[0]);
     expect(system).toContain(getVariantStyleDirective(variantId, 'it'));
   });
 
   it('leaves the prompt directive-free when no variant is given', () => {
-    const { system } = buildSubjectPrompt(baseCtx);
+    const { system } = buildSubjectPrompt(baseCtx as Parameters<typeof buildSubjectPrompt>[0]);
     for (const v of SUBJECT_VARIANTS) {
       expect(system).not.toContain(getVariantStyleDirective(v.id, 'it'));
     }

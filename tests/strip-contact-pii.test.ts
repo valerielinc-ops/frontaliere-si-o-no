@@ -135,7 +135,6 @@ describe('stripContactPII', () => {
 
   it('passes through empty / non-string input unchanged', () => {
     expect(stripContactPII('')).toBe('');
-    // @ts-expect-error runtime guard for non-string callers
     expect(stripContactPII(undefined)).toBe(undefined);
   });
 });

@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .mjs crawler lib, no type declarations
 import { parseOnlyfyListing } from '../scripts/lib/onlyfy-listing-common.mjs';
 
 // Redesigned onlyfy.jobs card markup (2026). Both spitex-zuerich and

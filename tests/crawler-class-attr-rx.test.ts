@@ -10,7 +10,6 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .mjs crawler lib, no type declarations
 import { classAttrRx } from '../scripts/lib/crawler-template.mjs';
 
 const rx = (token: string) => new RegExp(`${classAttrRx(token)}[^>]*>`);

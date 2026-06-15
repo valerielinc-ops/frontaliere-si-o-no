@@ -4,7 +4,6 @@ import {
   isIncomplete,
   snapshotCompanySignatures,
   changedSlugsSince,
-  // @ts-expect-error — plain .mjs script, no type declarations
 } from '../scripts/relocalize-pending-jobs.mjs';
 
 /**
@@ -23,9 +22,16 @@ import {
  * text on IT/EN/FR pages. These tests pin both halves.
  */
 
+type JobWithReconcileState = Record<string, unknown> & {
+  needsRetranslation?: boolean;
+  localeMismatchSuppressed?: boolean;
+  localeMismatchSuppressedLen?: number;
+  retranslationAttempts?: number;
+};
+
 // A job that is permanently incomplete: the EN locale is missing entirely, so
 // isIncomplete() always returns true no matter how many times we "translate".
-function stuckJob() {
+function stuckJob(): JobWithReconcileState {
   return {
     slug: 'stuck-job',
     sourceLang: 'de',
@@ -86,7 +92,7 @@ describe('reconcileRetranslationState — give-up convergence', () => {
   });
 
   it('a flagged job that is now complete is cleared (not suppressed), regardless of attempted', () => {
-    const job = {
+    const job: JobWithReconcileState = {
       slug: 'recovered',
       sourceLang: 'it',
       description: 'Descrizione completa della posizione lavorativa presso un ospedale ticinese con molte responsabilità cliniche e gestionali quotidiane.',
