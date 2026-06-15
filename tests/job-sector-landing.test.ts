@@ -347,6 +347,33 @@ describe('jobSectorLanding — sector match regex', () => {
     expect(jobMatchesSector({ title: 'Apprentissage de commerce' }, 'apprendistato')).toBe(true);
     expect(jobMatchesSector({ title: 'Senior backend developer' }, 'apprendistato')).toBe(false);
   });
+
+  it('media matcher is anchored to media-industry titles, not "scuola media" / "social media"', () => {
+    expect(jobMatchesSector({ title: 'Media Manager azienda editoriale' }, 'media')).toBe(true);
+    expect(jobMatchesSector({ title: 'Digital Media Specialist' }, 'media')).toBe(true);
+    expect(jobMatchesSector({ title: 'Giornalista redazione Ticino' }, 'media')).toBe(true);
+    // false positives the tightened regex must now reject:
+    expect(jobMatchesSector({ title: 'Docente scuola media' }, 'media')).toBe(false);
+    expect(jobMatchesSector({ title: 'Social Media Manager' }, 'media')).toBe(false);
+  });
+
+  it('industria matcher requires a production qualifier on "operaio", not generic labour', () => {
+    expect(jobMatchesSector({ title: 'Operaio di produzione metalli' }, 'industria')).toBe(true);
+    expect(jobMatchesSector({ title: 'Operaio metalmeccanico CNC' }, 'industria')).toBe(true);
+    expect(jobMatchesSector({ title: 'Produktionsmitarbeiter Schicht' }, 'industria')).toBe(true);
+    // generic / non-manufacturing operaio must no longer land on industria:
+    expect(jobMatchesSector({ title: 'Operaio edile cantiere' }, 'industria')).toBe(false);
+    expect(jobMatchesSector({ title: 'Operaio agricolo stagionale' }, 'industria')).toBe(false);
+  });
+
+  it('tecnici matcher keeps technician role nouns but drops the German adjective "technisch"', () => {
+    expect(jobMatchesSector({ title: 'Tecnico di manutenzione' }, 'tecnici')).toBe(true);
+    expect(jobMatchesSector({ title: 'Techniker Instandhaltung EFZ' }, 'tecnici')).toBe(true);
+    expect(jobMatchesSector({ title: 'Service technician field' }, 'tecnici')).toBe(true);
+    // "technisch" as an adjective (non-technician role) must no longer match:
+    expect(jobMatchesSector({ title: 'Technischer Kaufmann Einkauf' }, 'tecnici')).toBe(false);
+    expect(jobMatchesSector({ title: 'Technische Leitung Reinigung' }, 'tecnici')).toBe(false);
+  });
 });
 
 describe('jobSectorLanding — counts and filtering', () => {
