@@ -170,6 +170,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.title': 'Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni',
     'blog.article.votazioni-federali-giugno-2026.excerpt': 'Il 14 giugno 2026 gli svizzeri votano su limitare l’accesso al servizio civile e sull’iniziativa “No a una Svizzera da 10 milioni!”. Scopri dettagli, procedure e scadenze.',
     'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Scheda elettorale svizzera con bandiera federale sullo sfondo',
+    'blog.article.imposizione-fonte-basilea.title': 'Basel: approvata l\'introduzione dell\'imposizione alla fonte',
+    'blog.article.imposizione-fonte-basilea.excerpt': 'Le votazioni cantonali a Basilea hanno approvato l\'introduzione dell\'imposizione alla fonte, con il 53,4% dei voti, modificando il sistema fiscale locale.',
+    'blog.article.imposizione-fonte-basilea.imageAlt': 'Vista di Basilea con simboli fiscali e politici',
 };
 
 export default blogMetaChIt;
