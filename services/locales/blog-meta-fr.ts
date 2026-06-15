@@ -8084,6 +8084,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.messa-in-sicurezza-provinciale-curiglia.title': 'Curiglia avec Monteviasco : travaux de sécurité sur la 6',
     'blog.article.messa-in-sicurezza-provinciale-curiglia.excerpt': 'La sécurisation de la route provinciale 6 à Curiglia se poursuit, avec des interventions temporaires et l’émergence de nouvelles fragilités sur le versant effondré.',
     'blog.article.messa-in-sicurezza-provinciale-curiglia.imageAlt': 'Route de montagne avec filets de sécurité à Curiglia, Ticino.',
+    'blog.article.grandine-gt86-trd-perdita-totale.title': 'Grêle GT86 TRD : que faire si l’assurance la déclare perte',
+    'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'La grêle qui s’est abattue sur le canton du Tessin a gravement endommagé une Toyota GT86 TRD. L’assurance propose une perte totale : voici quoi faire.',
+    'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'Voiture GT86 TRD endommagée par la grêle dans le Tessin près du lac',
 };
 
 export default blogMetaFr;
