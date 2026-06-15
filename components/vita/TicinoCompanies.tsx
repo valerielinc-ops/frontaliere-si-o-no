@@ -840,7 +840,7 @@ const TicinoCompanies: React.FC = () => {
  )}
  <div className="flex-1 min-w-0">
  <h3 className="font-bold text-sm text-strong truncate">{company.name}</h3>
- <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${SECTOR_COLORS[company.sector]}15`, color: SECTOR_COLORS[company.sector] }}>
+ <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-[color:var(--sector-bg)] text-[color:var(--sector-fg)]" style={{ ['--sector-bg']: `${SECTOR_COLORS[company.sector]}15`, ['--sector-fg']: SECTOR_COLORS[company.sector] } as React.CSSProperties}>
  {company.sector}
  </span>
  </div>
@@ -885,7 +885,7 @@ const TicinoCompanies: React.FC = () => {
  {/* MAP (right) */}
  <div className="w-full lg:w-[55%] xl:w-[60%] lg:sticky lg:top-4 lg:self-start">
  <div className="rounded-2xl overflow-hidden border-2 border-edge shadow-lg" tabIndex={0} aria-label="Mappa aziende in Ticino">
- <MapContainer center={mapCenter} zoom={10} style={{ height: 'min(600px, 70vh)', width: '100%' }} scrollWheelZoom={true}>
+ <MapContainer center={mapCenter} zoom={10} className="h-[min(600px,70vh)] w-full" scrollWheelZoom={true}>
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -902,7 +902,7 @@ const TicinoCompanies: React.FC = () => {
  )}
  <div>
  <h3 className="font-bold text-base m-0 text-strong">{company.name}</h3>
- <span className="text-xs font-semibold" style={{ color: SECTOR_COLORS[company.sector] }}>{company.sector}</span>
+ <span className="text-xs font-semibold text-[color:var(--sector-fg)]" style={{ ['--sector-fg']: SECTOR_COLORS[company.sector] } as React.CSSProperties}>{company.sector}</span>
  </div>
  </div>
  <p className="text-[13px] text-subtle mt-0 mb-2">{company.description}</p>

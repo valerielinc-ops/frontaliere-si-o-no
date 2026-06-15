@@ -1018,8 +1018,8 @@ const UserProfile: React.FC = () => {
  </div>
  <div className="w-full bg-on-accent/20 rounded-full h-2 overflow-hidden">
  <div
- className="bg-surface rounded-full h-2 transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${completeness / 100})` }}
+ className="bg-surface rounded-full h-2 transition-transform duration-500 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${completeness / 100})` } as React.CSSProperties}
  />
  </div>
  {completeness < 100 && (
@@ -1637,11 +1637,7 @@ const UserProfile: React.FC = () => {
 
  <div
  id="profile-privacy-content"
- className={`grid ${prefersReducedMotion ? '' : 'transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]'}`}
- style={{
- gridTemplateRows: privacyOpen ? '1fr' : '0fr',
- opacity: privacyOpen ? 1 : 0,
- }}
+ className={`grid ${privacyOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'} ${prefersReducedMotion ? '' : 'transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]'}`}
  >
  <div className="overflow-hidden space-y-3 mt-3">
  {/* Privacy note */}

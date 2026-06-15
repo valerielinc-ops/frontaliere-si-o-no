@@ -401,15 +401,15 @@ const SalarySurvey: React.FC = () => {
  {/* Simple bar chart */}
  <div className="mt-4 h-8 bg-surface-raised rounded-full overflow-hidden relative">
  <div
- className="absolute inset-y-0 left-0 bg-gradient-to-r from-info/40 to-info rounded-full"
+ className="absolute inset-y-0 bg-gradient-to-r from-info/40 to-info rounded-full left-[var(--bar-l)] w-[var(--bar-w)]"
  style={{
- left: `${(agg.p25 / agg.p75) * 30}%`,
- width: `${Math.max(20, ((agg.p75 - agg.p25) / agg.p75) * 100)}%`,
- }}
+ ['--bar-l']: `${(agg.p25 / agg.p75) * 30}%`,
+ ['--bar-w']: `${Math.max(20, ((agg.p75 - agg.p25) / agg.p75) * 100)}%`,
+ } as React.CSSProperties}
  />
  <div
- className="absolute inset-y-0 w-1 bg-info rounded"
- style={{ left: `${(agg.median / agg.p75) * 70}%` }}
+ className="absolute inset-y-0 w-1 bg-info rounded left-[var(--bar-l)]"
+ style={{ ['--bar-l']: `${(agg.median / agg.p75) * 70}%` } as React.CSSProperties}
  />
  </div>
  </div>

@@ -617,12 +617,11 @@ const MobileCalcLayout: React.FC<Props> = ({
  {/* Sheet */}
  <div
  ref={sheetRef}
- className={`fixed inset-x-0 bottom-0 z-[70] transition-transform duration-500 ease-out ${
+ className={`fixed inset-x-0 bottom-0 z-[70] transition-transform duration-500 ease-out max-h-[85vh] ${
  sheetOpen ? 'translate-y-0' : 'translate-y-full'
  }`}
- style={{ maxHeight: '85vh' }}
  >
- <div className="bg-surface rounded-t-3xl shadow-2xl border-t border-edge flex flex-col" style={{ maxHeight: '85vh' }}>
+ <div className="bg-surface rounded-t-3xl shadow-2xl border-t border-edge flex flex-col max-h-[85vh]">
  {/* Handle + header */}
  <div className="flex-shrink-0 pt-3 pb-2 px-4">
  <div className="w-10 h-1 bg-surface-raised rounded-full mx-auto mb-3" />

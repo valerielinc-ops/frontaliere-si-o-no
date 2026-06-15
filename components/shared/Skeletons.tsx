@@ -38,7 +38,7 @@ export const SkeletonChart: React.FC = () => (
  </div>
  <div className="flex items-end gap-3 h-48">
  {[60, 80, 45, 90, 70, 55, 85].map((h, i) => (
- <div key={i} className={`${pulse} flex-1 rounded-t-lg`} style={{ height: `${h}%` }} />
+ <div key={i} className={`${pulse} flex-1 rounded-t-lg h-[var(--bar-h)]`} style={{ ['--bar-h']: `${h}%` } as React.CSSProperties} />
  ))}
  </div>
  <div className="flex justify-between mt-2">

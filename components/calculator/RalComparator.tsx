@@ -402,7 +402,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <div className="bg-gradient-to-r from-danger-strong via-danger-strong to-danger-strong h-1.5 relative">
  <div className="absolute inset-0 flex items-center justify-center">
- <div className="w-3 h-3 bg-surface" style={{ clipPath: 'polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%)' }} />
+ <div className="w-3 h-3 bg-surface [clip-path:polygon(35%_0,_65%_0,_65%_35%,_100%_35%,_100%_65%,_65%_65%,_65%_100%,_35%_100%,_35%_65%,_0_65%,_0_35%,_35%_35%)]" />
  </div>
  </div>
  <div className="p-5 space-y-4">
@@ -513,7 +513,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  </div>
  )}
  {/* Inline ad between comparator and related tools */}
- <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-6" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
  <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
  </div>
  );

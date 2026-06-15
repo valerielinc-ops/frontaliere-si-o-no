@@ -184,10 +184,10 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="flex rounded-full h-3 overflow-hidden bg-surface-raised">
  {result.totalMonthlyPensionCHF > 0 && (
  <>
- <div className="bg-accent-strong h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.lppMonthlyPension / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="LPP" />
- <div className="bg-danger-strong h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.avsPensionCHF / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="AVS" />
+ <div className="bg-accent-strong h-full transition-transform duration-500 w-full origin-left [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${result.lppMonthlyPension / result.totalMonthlyPensionCHF})` } as React.CSSProperties} title="LPP" />
+ <div className="bg-danger-strong h-full transition-transform duration-500 w-full origin-left [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${result.avsPensionCHF / result.totalMonthlyPensionCHF})` } as React.CSSProperties} title="AVS" />
  {inputs.hasItalianContributions && (
- <div className="bg-success-strong h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${(result.italianPensionEUR / 1.06) / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="INPS" />
+ <div className="bg-success-strong h-full transition-transform duration-500 w-full origin-left [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${(result.italianPensionEUR / 1.06) / result.totalMonthlyPensionCHF})` } as React.CSSProperties} title="INPS" />
  )}
  </>
  )}
@@ -519,8 +519,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  </div>
  <div className="mt-2 w-full bg-surface-raised rounded-full h-2 overflow-hidden">
  <div 
- className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${Math.min(result.yearsOfContributions.switzerland / 44, 1)})` }}
+ className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${Math.min(result.yearsOfContributions.switzerland / 44, 1)})` } as React.CSSProperties}
  />
  </div>
  </div>

@@ -334,12 +334,12 @@ const WeeklyQuiz: React.FC = () => {
  {/* Score bar */}
  <div className="w-full max-w-xs mx-auto h-4 bg-surface-raised rounded-full overflow-hidden mb-6">
  <div
- className={`h-full rounded-full transition-transform duration-1000 origin-left ${
+ className={`h-full rounded-full transition-transform duration-1000 origin-left [transform:var(--bar-sx)] ${
  percentage === 100 ? 'bg-gradient-to-r from-warning to-warning' :
  percentage >= 60 ? 'bg-gradient-to-r from-success to-success-strong' :
  'bg-gradient-to-r from-danger to-warning-strong'
  }`}
- style={{ transform: `scaleX(${percentage / 100})` }}
+ style={{ ['--bar-sx']: `scaleX(${percentage / 100})` } as React.CSSProperties}
  />
  </div>
 
@@ -421,8 +421,8 @@ const WeeklyQuiz: React.FC = () => {
  </div>
  <div className="w-full h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-300 origin-left"
- style={{ transform: `scaleX(${(currentIndex + 1) / questions.length})` }}
+ className="h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-300 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${(currentIndex + 1) / questions.length})` } as React.CSSProperties}
  />
  </div>
  </div>

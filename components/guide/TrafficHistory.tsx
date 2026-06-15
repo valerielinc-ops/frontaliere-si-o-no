@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react';
+import { useState, useMemo, useEffect, useCallback, type CSSProperties } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Clock, MapPin, AlertTriangle, TrendingUp, TrendingDown, Minus, Info, Database, Cpu, Loader2 } from 'lucide-react';
 import { borderCrossings } from '@/data/borderCrossings';
@@ -367,8 +367,8 @@ export default function TrafficHistory() {
  <span className="w-10 text-sm font-medium text-subtle">{d.name}</span>
  <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
  <div
- className={`h-full w-full rounded-full transition-transform ${d.avg > 18 ? 'bg-danger-strong' : d.avg > 10 ? 'bg-warning' : 'bg-success-strong'}`}
- style={{ transform: `scaleX(${Math.min(d.avg / 30, 1)})`, transformOrigin: 'left' }}
+ className={`h-full w-full rounded-full transition-transform origin-left [transform:var(--sx)] ${d.avg > 18 ? 'bg-danger-strong' : d.avg > 10 ? 'bg-warning' : 'bg-success-strong'}`}
+ style={{ ['--sx']: `scaleX(${Math.min(d.avg / 30, 1)})` } as CSSProperties}
  />
  </div>
  <div className="flex items-center gap-1 w-16 text-right">
