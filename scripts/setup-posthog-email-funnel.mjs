@@ -35,25 +35,27 @@ if (!key || !project) {
 
 const headers = { Authorization: `Bearer ${key}`, 'content-type': 'application/json' };
 
-function funnelFilters(breakdown) {
+// PostHog deprecated insight creation via legacy `filters`; use the typed
+// `query` (InsightVizNode → FunnelsQuery) format instead.
+function funnelQuery(breakdown) {
   return {
-    insight: 'FUNNELS',
-    events: [
-      { id: 'email_sent', name: 'email_sent', type: 'events', order: 0 },
-      { id: 'email_opened', name: 'email_opened', type: 'events', order: 1 },
-    ],
-    breakdown,
-    breakdown_type: 'event',
-    funnel_viz_type: 'steps',
-    funnel_window_interval: 3,
-    funnel_window_interval_unit: 'day',
-    date_from: '-60d',
+    kind: 'InsightVizNode',
+    source: {
+      kind: 'FunnelsQuery',
+      series: [
+        { kind: 'EventsNode', event: 'email_sent', name: 'email_sent' },
+        { kind: 'EventsNode', event: 'email_opened', name: 'email_opened' },
+      ],
+      breakdownFilter: { breakdowns: [{ property: breakdown, type: 'event' }] },
+      funnelsFilter: { funnelWindowInterval: 3, funnelWindowIntervalUnit: 'day' },
+      dateRange: { date_from: '-60d' },
+    },
   };
 }
 
 const INSIGHTS = [
-  { name: 'Email subject A/B — open rate by variant', filters: funnelFilters('subject_variant') },
-  { name: 'Email subject A/B — open rate by provider', filters: funnelFilters('email_provider') },
+  { name: 'Email subject A/B — open rate by variant', query: funnelQuery('subject_variant') },
+  { name: 'Email subject A/B — open rate by provider', query: funnelQuery('email_provider') },
 ];
 
 async function findByName(name) {
@@ -64,7 +66,7 @@ async function findByName(name) {
   return (data.results || []).find((i) => i.name === name) || null;
 }
 
-async function createInsight({ name, filters }) {
+async function createInsight({ name, query }) {
   const existing = await findByName(name);
   if (existing) {
     console.log(`↩︎  Exists: "${name}" → ${host}/project/${project}/insights/${existing.short_id}`);
@@ -73,7 +75,7 @@ async function createInsight({ name, filters }) {
   const res = await fetch(`${host}/api/projects/${project}/insights/`, {
     method: 'POST',
     headers,
-    body: JSON.stringify({ name, filters, saved: true }),
+    body: JSON.stringify({ name, query, saved: true }),
   });
   if (!res.ok) throw new Error(`create "${name}" ${res.status}: ${(await res.text()).slice(0, 400)}`);
   const created = await res.json();
