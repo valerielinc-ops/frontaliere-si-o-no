@@ -43,7 +43,7 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
 // stays within TITLE_MAX_CHARS (70). See build-plugins/shared/titleSuffix.ts.
-import { buildTitleWithBrand } from './shared/titleSuffix';
+import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
@@ -4516,13 +4516,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(seoData.desc)}">
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(seoData.ogD)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
@@ -4627,13 +4627,13 @@ ${hubChromeSplit.bodyHtml}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(seoData.desc)}">
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(seoData.ogD)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
@@ -4666,13 +4666,13 @@ ${hrefTags}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(seoData.desc)}">
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(seoData.ogD)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">

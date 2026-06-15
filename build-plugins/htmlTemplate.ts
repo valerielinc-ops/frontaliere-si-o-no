@@ -9,6 +9,7 @@
  */
 import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
+import { clampMetaDescription } from './shared/titleSuffix';
 
 /**
  * Common <head> prefix: charset + viewport + favicon + security meta.
@@ -196,6 +197,11 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  } = opts;
 
  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
+ // Clamp the <meta name="description"> / og:description to the SERP snippet
+ // budget (word-aware, ≤160 char). JSON-LD `description` in jsonLdScripts is
+ // untouched. Mirrors the runtime clamp in services/seoService.ts so the
+ // static HTML and the JS-rendered DOM expose the same complete snippet.
+ const metaDescription = clampMetaDescription(description);
  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
  // Escape `<` in each (already-serialized) JSON-LD string so a "</script>" in
  // arbitrary content (titles, names) can't break out of the inline tag and
@@ -254,13 +260,13 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <head>
  ${HEAD_PREFIX}
  <title>${esc(title)}</title>
- <meta name="description" content="${esc(description)}">
+ <meta name="description" content="${esc(metaDescription)}">
  <meta name="robots" content="${robots}">
  <meta property="og:type" content="${ogType}">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${ogLocale}">
  <meta property="og:title" content="${esc(title)}">
- <meta property="og:description" content="${esc(description)}">
+ <meta property="og:description" content="${esc(metaDescription)}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${esc(ogImage ?? `${BASE_URL}/og-image.png`)}">
  <meta property="og:image:width" content="${ogImageWidth ?? 1200}">
