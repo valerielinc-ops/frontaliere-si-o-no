@@ -25,7 +25,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, classAttrRx } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -137,7 +137,7 @@ async function fetchDualooDetail(detailUrl) {
     const html = await fetchHtml(detailUrl);
     const sections = [];
     const grab = (cls, label) => {
-      const rx = new RegExp(`class="${cls}"[^>]*>([\\s\\S]*?)</div>`, 'i');
+      const rx = new RegExp(`${classAttrRx(cls)}[^>]*>([\\s\\S]*?)</div>`, 'i');
       const mm = html.match(rx);
       if (!mm) return;
       const text = mm[1]
