@@ -8076,6 +8076,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-vota-si-blocco-abitanti.title': 'Tessin stimmt gegen Zuwanderung: Was ändert sich für Grenzgänger',
     'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Der Kanton Tessin hat die SVP-Initiative gegen Zuwanderung mit 50,66% der Stimmen angenommen. Was bedeutet dies für Grenzgänger und den Tessiner Arbeitsmarkt.',
     'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Panoramablick auf Lugano und den Luganersee',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Starker Verkehr auf der A2 und die \'Elefantenrennen\'',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Frage an den Staatsrat zum starken Verkehr und verlängerten Überholmanövern zwischen Lastwagen auf der Autobahn A2 im Tessin.',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Stau auf der A2 in Tessin mit LKWs und Überholvorgängen, realistische Szene.',
 };
 
 export default blogMetaDe;

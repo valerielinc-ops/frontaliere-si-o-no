@@ -8078,6 +8078,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-vota-si-blocco-abitanti.title': 'Tessin: les frontaliers pénalisés?',
     'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Le Canton Tessin a voté en faveur de l\'initiative UDC contre l\'immigration avec 50,66% des voix. Qu\'est-ce que cela signifie pour les frontaliers et le marché du travail tessinois.',
     'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Vue panoramique de Lugano et du lac de Lugano',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Trafic lourd sur l\'A2 et « courses entre éléphants »',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Interpellation au Conseil d\'Etat sur le trafic lourd et les dépassements prolongés entre camions sur l\'autoroute A2 en Tessin.',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Circulation intense sur l\'autoroute A2 du Tessin avec camions et dépassements, scène réaliste.',
 };
 
 export default blogMetaFr;
