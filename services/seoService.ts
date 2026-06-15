@@ -4388,6 +4388,22 @@ function getOgLocale(): string {
  * instead of ?lang= query parameters.
  */
 function updateHreflangTags(route: import('./router').AppRoute): void {
+ // Static-overlay landing pages (recency/today landings, fuel-daily,
+ // border-wait, salary-stats, profession-canton, publisher ads, …) do NOT
+ // carry their specific slug in AppRoute — `buildPath(route, locale)` would
+ // collapse to the generic tab root (e.g. `/cerca-lavoro-ticino/` instead of
+ // `/cerca-lavoro-ticino/oggi/`). Rebuilding hreflang from that root would
+ // emit a self-reference that points away from the actual URL, which is
+ // exactly the SearchAtlas `no_self_ref_hreflang` flag (612 pages).
+ //
+ // The build plugins already emit a correct, self-referential, 4-locale +
+ // x-default hreflang block for these pages (via the shared
+ // `renderHreflangTags()` helper). Leave that server-rendered block intact
+ // rather than clobbering it with route-derived paths the route can't
+ // reconstruct. Same rationale as the canonical/og:url path above, which
+ // uses `window.location.pathname` for staticOverlay routes.
+ if (route.staticOverlay) return;
+
  // Remove existing hreflang tags
  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
 
