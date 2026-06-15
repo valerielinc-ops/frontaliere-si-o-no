@@ -164,6 +164,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-prenotazione-capanne-cas.title': 'Capanne CAS: arriva la tassa di prenotazione di 10 franchi',
     'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'Il Club Alpino Svizzero introduce una tassa di 10 franchi per notte nelle capanne custodite per contrastare il 40% di cancellazioni dell\'ultimo minuto.',
     'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Capanna alpina svizzera in alta quota',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud approva salario minimo costituzionale ma rifiuta legge specifica',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1% a favore dell\'iniziativa costituzionale, 47,5% contro la legge operativa con 23 CHF/ora. Vaud diventa sesto cantone con salario minimo.',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Vista panoramica di Losanna con edifici e bandiere svizzere',
 };
 
 export default blogMetaChIt;

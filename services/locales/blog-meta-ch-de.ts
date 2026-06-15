@@ -164,6 +164,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-prenotazione-capanne-cas.title': 'CAS-Hütten: 10 Franken Gebühr bei Reservierung',
     'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'Der Schweizer Alpenverein führt eine Reservierungsgebühr von 10 Franken pro Nacht in den Hütten ein, um die hohe Stornierungsquote von 40% zu reduzieren.',
     'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Schweizer Alphütte im Hochgebirge',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud sagt Ja zum verfassungsmäßigen Mindestlohn, Nein zum spezifischen Gesetz',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1 % für die Verfassungsinitiative, 47,5 % gegen das Ausführungsgesetz mit 23 Franken/Stunde. Vaud wird der sechste Kanton mit Mindestlohn.',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Panoramablick auf Lausanne mit Gebäuden und Schweizer Fahnen',
 };
 
 export default blogMetaChDe;

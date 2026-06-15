@@ -2048,6 +2048,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salario-minimo-vaud-si-ma-cantone-sesto': {
+    title: 'Vaud approva salario minimo costituzionale ma rifiuta legge specifica',
+    description: 'Il cantone di Vaud ha approvato con il 49,1% l\'iniziativa costituzionale per il salario minimo ma ha rifiutato la legge specifica di 23 CHF/ora. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vaud, approva, salario, minimo',
+    ogTitle: 'Vaud approva salario minimo costituzionale ma rifiuta legge operativa',
+    ogDescription: 'Il cantone di Vaud ha approvato con il 49,1% l\'iniziativa costituzionale per il salario minimo ma ha rifiutato la legge specifica di 23 CHF/ora.',
+    canonicalPath: '/articoli-svizzera/salario-minimo-vaud-si-ma-cantone-sesto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vaud approva salario minimo costituzionale ma rifiuta legge specifica",
+      "description": "Il cantone di Vaud ha approvato con il 49,1% l'iniziativa costituzionale per il salario minimo ma ha rifiutato la legge specifica di 23 CHF/ora. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salario-minimo-vaud-si-ma-cantone-sesto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Losanna con edifici e bandiere svizzere"
+      },
+      "datePublished": "2026-06-15T02:59:03+00:00",
+      "dateModified": "2026-06-15T02:59:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salario-minimo-vaud-si-ma-cantone-sesto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -164,6 +164,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-prenotazione-capanne-cas.title': 'SAC Huts: New 10 CHF Booking Fee to Stop Cancellations',
     'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'The Swiss Alpine Club is introducing a 10 CHF fee per night in staffed huts to combat the 40% rate of last-minute cancellations.',
     'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Swiss alpine hut in high altitude',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud backs constitutional min wage, rejects specific law',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49.1% in favor of the constitutional initiative, 47.5% against the operational law at 23 francs/hour. Vaud becomes the sixth canton with a minimum wage.',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Panoramic view of Lausanne with buildings and Swiss flags',
 };
 
 export default blogMetaChEn;

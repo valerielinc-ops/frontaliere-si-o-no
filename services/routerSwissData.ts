@@ -76,6 +76,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'sciopero-femminista-vd-ne': { it: 'sciopero-femminista-vd-ne', en: 'feminist-strike-vaud-neuchatel', de: 'frauenstreik-waadt-neuenburg', fr: 'greve-feministe-vaud-neuchatel' },
  'bce-tassi-inflazione-2023': { it: 'bce-tassi-inflazione-2023', en: 'bce-interest-inflation-2023', de: 'bce-zinssatz-inflation-2023', fr: 'bce-taux-inflation-2023' },
  'tassa-prenotazione-capanne-cas': { it: 'tassa-prenotazione-capanne-cas', en: 'cas-hut-reservation-fee-switzerland', de: 'sac-huetten-reservierungsgebuehr-schweiz', fr: 'taxe-reservation-cabanes-cas-suisse' },
+ 'salario-minimo-vaud-si-ma-cantone-sesto': { it: 'salario-minimo-vaud-si-ma-cantone-sesto', en: 'minimum-wage-vd-yes-but-canton-sixth', de: 'mindestlohn-wd-ja-aber-der-sechste-kanton', fr: 'salaire-minimum-vd-oui-mais-la-sixieme-canton' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
