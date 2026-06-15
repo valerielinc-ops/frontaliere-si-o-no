@@ -39,6 +39,7 @@
  *       GITHUB_REPOSITORY. Richiede `gh` + `git` in un checkout full-history.
  */
 import { execFileSync } from 'node:child_process';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 const DRY = process.argv.includes('--dry-run');
@@ -212,6 +213,86 @@ function commentConflictOnce(num, branch) {
   gh(['pr', 'comment', String(num), '--repo', REPO, '--body', body], { json: false, allowFail: true });
 }
 
+// --- AUTO-RESOLVE conflitti import-union (la classe #1 dei conflitti cross-PR) -
+// Quando due PR toccano gli `import` dello stesso file, `git merge origin/main`
+// produce un conflitto di SOLE righe import (entrambi i lati aggiungono import
+// DISTINTI). È risolvibile in modo sicuro per UNIONE (tieni entrambi). Osservato
+// #2057: `import {FX_HREF,...} from './comparatorHref'` (PR) vs `import
+// {cantonGrossSalaryBand} from './cantonSalaryIndex'` (main) → stuck CONFLICTING
+// finché un umano non l'ha risolto a mano. Questo automatizza ESATTAMENTE quel
+// caso, restando STRETTO: risolve solo se OGNI hunk di OGNI file conflittuale è
+// import-only-additivo; qualunque altro conflitto → return false → il chiamante
+// aborta e flagga stale-review (recycle). Guard anti-collisione: se l'unione
+// importerebbe lo STESSO binding due volte (stesso simbolo, path diversi) →
+// non-sicuro → false. Il push post-resolve passa comunque dal gate vitest di
+// auto-merge-eval: una risoluzione errata non mergia (test rossi).
+
+/** Risolve i conflitti import-only nel testo di UN file. Ritorna il testo
+ * risolto, o null se un hunk NON è import-only (→ non sicuro da auto-risolvere).
+ * Un lato "import-only" = ogni riga è `import ...`, commento, o vuota. */
+export function resolveImportConflictsInText(text) {
+  const lines = text.split('\n');
+  const out = [];
+  const importedBindings = new Set();
+  const collectBindings = (impLines) => {
+    for (const l of impLines) {
+      const m = /import\s+(?:type\s+)?\{([^}]*)\}/.exec(l);
+      if (m) for (const b of m[1].split(',').map((s) => s.trim().split(/\s+as\s+/)[0].trim()).filter(Boolean)) {
+        if (importedBindings.has(b)) return false; // stesso binding 2× → collisione, non-sicuro
+        importedBindings.add(b);
+      }
+    }
+    return true;
+  };
+  const isImportOnly = (block) =>
+    block.every((l) => l.trim() === '' || /^\s*import\s/.test(l) || /^\s*\/\//.test(l) || /^\s*\*/.test(l));
+  for (let i = 0; i < lines.length; i++) {
+    if (!lines[i].startsWith('<<<<<<<')) { out.push(lines[i]); continue; }
+    // raccogli hunk: <<<<<<< … ======= … >>>>>>>
+    const ours = []; const theirs = []; let sep = false; let closed = false;
+    let j = i + 1;
+    for (; j < lines.length; j++) {
+      if (lines[j].startsWith('=======')) { sep = true; continue; }
+      if (lines[j].startsWith('>>>>>>>')) { closed = true; break; }
+      (sep ? theirs : ours).push(lines[j]);
+    }
+    if (!closed) return null; // marker malformato → non toccare
+    if (!isImportOnly(ours) || !isImportOnly(theirs)) return null; // non import-only → non sicuro
+    // union dedup-ata, preservando l'ordine (ours poi theirs non già presenti)
+    const seen = new Set();
+    const union = [];
+    for (const l of [...ours, ...theirs]) {
+      const key = l.trim();
+      if (key === '') continue;
+      if (seen.has(key)) continue;
+      seen.add(key); union.push(l);
+    }
+    if (!collectBindings(union)) return null; // collisione di binding → non sicuro
+    out.push(...union);
+    i = j; // salta al >>>>>>>
+  }
+  return out.join('\n');
+}
+
+/** Applica resolveImportConflictsInText a tutti i file in conflitto. true se TUTTI
+ * risolti in modo sicuro (import-only) + `git add`-ati; false se almeno uno non è
+ * auto-risolvibile (il chiamante deve `git merge --abort`). */
+function resolveImportUnionConflicts() {
+  const raw = git(['diff', '--name-only', '--diff-filter=U'], { allowFail: true }) || '';
+  const files = raw.split('\n').map((s) => s.trim()).filter(Boolean);
+  if (!files.length) return false;
+  for (const f of files) {
+    let resolved;
+    try { resolved = resolveImportConflictsInText(readFileSync(f, 'utf8')); }
+    catch { return false; }
+    if (resolved === null) { console.log(`  conflitto non import-only in ${f} → non auto-risolvibile`); return false; }
+    try { writeFileSync(f, resolved); } catch { return false; }
+    git(['add', f], { allowFail: true });
+  }
+  console.log(`auto-resolve: ${files.length} file conflitto import-union risolti per unione`);
+  return true;
+}
+
 async function processPR(pr) {
   const num = pr.number;
   const branch = pr.headRefName;
@@ -254,6 +335,47 @@ async function processPR(pr) {
     }
     return;
   }
+  // CONFLITTO con main: va gestito PRIMA dello skip wave-11. Senza questo, una
+  // PR lgtm+verde+CONFLICTING veniva skippata (lo skip presume "auto-merge la
+  // mergia così com'è" — ma auto-merge NON mergia un conflitto) → restava stuck
+  // senza stale-review, quindi nemmeno recycle la prendeva (gap #2057, ferma
+  // 2.5h, label vuote). Qui: TENTA l'auto-resolve import-union (la classe #1 dei
+  // conflitti cross-PR, es. #2057: due PR aggiungono import distinti allo stesso
+  // file → unione sicura); se non auto-risolvibile → stale-review (recycle).
+  // Solo behind>0 può confliggere (behind===0 già gestito sopra).
+  {
+    const mc = await mergeableState(num);
+    if (mc === 'CONFLICTING') {
+      if (DRY) { console.log(`[dry] #${num} CONFLICTING → tenta auto-resolve import-union, else stale-review`); return; }
+      let done = false;
+      git(['fetch', 'origin', branch, 'main'], { allowFail: true });
+      const co = git(['checkout', '-B', branch, `origin/${branch}`], { allowFail: true });
+      if (co !== null) {
+        git(['config', 'user.name', 'Valerie Linc']);
+        git(['config', 'user.email', 'valerielinc@gmail.com']);
+        const mg = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
+        if (mg === null && resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+          const pushed = git(['push', authedUrl(), `${branch}:${branch}`], { allowFail: true });
+          if (pushed !== null) {
+            // Push OK: la PR è ora mergeable. Dispatch tests (gate vitest di
+            // auto-merge-eval valida la risoluzione: se l'unione fosse errata i
+            // test falliscono e non si mergia). LGTM carry-forward.
+            console.log(`✅ PR #${num}: conflitto import-union AUTO-RISOLTO + pushato → mergeable; dispatch tests.`);
+            dispatchTests(num, branch);
+            done = true;
+          }
+        }
+        if (!done) git(['merge', '--abort'], { allowFail: true });
+      }
+      if (!done) {
+        console.log(`PR #${num} CONFLICTING non auto-risolvibile (non import-only) → stale-review + comment (recycle).`);
+        ensureStaleLabel(num);
+        commentConflictOnce(num, branch);
+      }
+      return;
+    }
+  }
+
   // SKIP rebase delle PR già pronte al merge (2026-06-15): main NON richiede
   // branch up-to-date (branch protection `strict=false`, required_checks=[]),
   // quindi una PR LGTM'd + vitest verde sull'head viene squash-mergiata da
@@ -315,12 +437,18 @@ async function processPR(pr) {
 
   const merged = git(['merge', '--no-edit', 'origin/main'], { allowFail: true });
   if (merged === null) {
-    // Conflitto a runtime (mergeable era ottimista o è cambiato).
-    console.log(`PR #${num}: merge origin/main ha conflitto → abort + stale-review + comment.`);
-    git(['merge', '--abort'], { allowFail: true });
-    ensureStaleLabel(num);
-    commentConflictOnce(num, branch);
-    return;
+    // Conflitto a runtime (mergeable era ottimista o è cambiato tra check e
+    // merge). Tenta l'auto-resolve import-union come nel path CONFLICTING; se
+    // non import-only → abort + stale-review.
+    if (resolveImportUnionConflicts() && git(['commit', '--no-edit'], { allowFail: true }) !== null) {
+      console.log(`PR #${num}: conflitto runtime AUTO-RISOLTO (import-union) → proseguo col push.`);
+    } else {
+      console.log(`PR #${num}: merge origin/main ha conflitto non auto-risolvibile → abort + stale-review + comment.`);
+      git(['merge', '--abort'], { allowFail: true });
+      ensureStaleLabel(num);
+      commentConflictOnce(num, branch);
+      return;
+    }
   }
 
   // Push via PAT. TOCTOU: tra mergeable-check e push un nuovo commit potrebbe
@@ -405,4 +533,8 @@ async function main() {
   console.log('autorebase scan completo.');
 }
 
-main();
+// Esegui solo come CLI (non quando importato dai test → resolveImportConflictsInText
+// testabile in isolamento, come classify-issue.mjs / alert-pat-down.mjs).
+if (process.argv[1] && process.argv[1].endsWith('pr-autorebase.mjs')) {
+  main();
+}
