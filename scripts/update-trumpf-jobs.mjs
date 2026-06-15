@@ -169,9 +169,10 @@ async function fetchPortalJobs(portal) {
   const PAGE_SIZE = 20;
   const allJobs = [];
   let offset = 0;
-  let total = Infinity;
+  let pages = 0;
+  const MAX_PAGES = 100;
 
-  while (offset < total) {
+  while (true) {
     const body = JSON.stringify({
       appliedFacets: {},
       limit: PAGE_SIZE,
@@ -192,11 +193,21 @@ async function fetchPortalJobs(portal) {
 
     if (!res.ok) throw new Error(`Workday API error for ${portal}: ${res.status}`);
     const data = await res.json();
-    total = data.total || 0;
+    const total = data.total || 0;
     const postings = assertJsonListShape(data, { key: 'jobPostings', source: `trumpf:${portal}` });
     allJobs.push(...postings.map((p) => ({ ...p, portal })));
+    pages += 1;
 
-    if (postings.length === 0) break;
+    // Stop on a short/empty page (genuine end of results). Trust `total` as a
+    // positive upper bound ONLY: a Workday query can echo total:0 on a full
+    // page, and the old `while (offset < total)` then stopped after page 1,
+    // silently dropping every posting on pages 2+. A page cap bounds the loop.
+    if (postings.length < PAGE_SIZE) break;
+    if (total > 0 && offset + postings.length >= total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
+      break;
+    }
     offset += postings.length;
   }
   return allJobs;

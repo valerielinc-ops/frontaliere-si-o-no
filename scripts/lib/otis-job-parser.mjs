@@ -282,9 +282,16 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
       const listings = parseOtisWorkdayListings(data);
       allJobs.push(...listings);
 
+      const rawCount = Array.isArray(data.jobPostings) ? data.jobPostings.length : 0;
       const total = data.total || 0;
       offset += limit;
-      hasMore = offset < total && listings.length > 0;
+      // Real terminator: a RAW page shorter than the limit (genuine end of
+      // results). Use the raw page length, NOT the Swiss-filtered `listings`,
+      // or a full raw page with 0 Swiss-after-filter would stop pagination and
+      // drop Swiss postings on later pages. Trust `total` as a positive upper
+      // bound ONLY: a Workday query can echo total:0 on a full page. A page cap
+      // bounds the loop if a tenant never shortens.
+      hasMore = rawCount >= limit && (total <= 0 || offset < total) && offset < 1000;
     }
 
     clearTimeout(timer);
