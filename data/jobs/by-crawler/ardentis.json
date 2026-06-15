@@ -3307,10 +3307,10 @@
     },
     {
       "id": "ardentis-5d77dccd8221",
-      "slug": "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey",
+      "slug": "assistente-dentale-100-clinica-di-vevey-gare-ardentis-vevey",
       "slugByLocale": {
-        "it": "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey",
-        "en": "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey",
+        "it": "assistente-dentale-100-clinica-di-vevey-gare-ardentis-vevey",
+        "en": "dental-assistant-100-clinic-of-vevey-gare-ardentis-vevey",
         "de": "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey",
         "fr": "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey"
       },
@@ -3367,7 +3367,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey"
+        ],
+        "en": [
+          "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-dentaire-100-clinique-de-vevey-gare-ardentis-vevey"
+      ]
     }
   ]
 }

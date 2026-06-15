@@ -1498,7 +1498,6 @@
         "uhrwerkbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
         "team-leader-picking-and-packing-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -1603,7 +1602,6 @@
         "responsabile-progetti-sste-valfleurier-buttes",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue",
         "gruppentalent-system-operations-projektmanager-richemont-bellevue-377ed5",
-        "responsabile-del-team-di-definizione-e-integrazione-dei-processi-di-produzione-richemont-meyrin",
         "responsabile-progetti-sistemi-e-operazioni-talent-di-gruppo-richemont-bellevue"
       ],
       "previousSlugsByLocale": {
@@ -1945,12 +1943,9 @@
         "responsabile-team-tech-acquisti-a-monte-richemont-meyrin",
         "upstream-procurement-product-tech-team-lead-richemont-meyrin",
         "conduce-il-team-di-tecnologia-di-prodotto-richemont-meyrin",
-        "riferimento-cao-plm-fao-creo-windchill-panerai-neuchatel",
         "produkt-tech-team-lead-richemont-meyrin",
         "produktleiter-upstream-beschaffung-tech-team-richemont-meyrin",
         "responsable-equipe-tech-achats-en-amont-richemont-meyrin",
-        "cad-plm-fao-referenz-creo-windchill-panerai-neuchatel",
-        "cao-plm-fao-reference-creo-windchill-panerai-neuchatel",
         "responsabile-team-prodotto-tech-approvvigionamenti-upstream-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -5547,7 +5542,6 @@
         "stage-in-hospitality-richemont-meyrin",
         "responsabile-gioielli-europa-richemont-meyrin",
         "gioielli-manager-europa-richemont-meyrin",
-        "hris-specialist-cdd-richemont-meyrin",
         "manager-giadelli-europe-richemont-meyrin"
       ],
       "previousSlugsByLocale": {
@@ -8620,7 +8614,7 @@
       "id": "richemont-d9664a82260d",
       "slug": "stage-retail-partner-retail-excellence-piaget-plan-les-ouates",
       "slugByLocale": {
-        "fr": "retail-partner-retail-excellence-intern-richemont-plan-les-ouates",
+        "fr": "stagiaire-en-excellence-retail-partenaires-piaget-plan-les-ouates",
         "it": "stage-retail-partner-retail-excellence-piaget-plan-les-ouates",
         "de": "praktikum-retail-partner-retail-excellence-piaget-plan-les-ouates",
         "en": "retail-partner-retail-excellence-intern-richemont-plan-les-ouates"
@@ -8668,6 +8662,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "retail-partner-retail-excellence-intern-richemont-plan-les-ouates"
+        ],
+        "fr": [
           "retail-partner-retail-excellence-intern-richemont-plan-les-ouates"
         ]
       },
@@ -16258,9 +16255,9 @@
       "slug": "pulitore-di-gioielli-richemont-morbio-inferiore",
       "slugByLocale": {
         "it": "pulitore-di-gioielli-richemont-morbio-inferiore",
-        "en": "pulitore-di-gioielli-richemont-morbio-inferiore",
-        "de": "pulitore-di-gioielli-richemont-morbio-inferiore",
-        "fr": "pulitore-di-gioielli-richemont-morbio-inferiore"
+        "en": "jewelry-cleaner-buccellati-morbio-inferiore",
+        "de": "schmuckreiniger-buccellati-morbio-inferiore",
+        "fr": "nettoyant-pour-bijoux-buccellati-morbio-inferiore"
       },
       "company": "Buccellati",
       "companyKey": "richemont",
@@ -16320,12 +16317,12 @@
     },
     {
       "id": "richemont-d82582a2cf6f",
-      "slug": "constructeur-mouvement-h-f-richemont-villeret",
+      "slug": "costruttore-di-movimento-m-f-montblanc-villeret",
       "slugByLocale": {
         "fr": "constructeur-mouvement-h-f-richemont-villeret",
-        "it": "constructeur-mouvement-h-f-richemont-villeret",
-        "en": "constructeur-mouvement-h-f-richemont-villeret",
-        "de": "constructeur-mouvement-h-f-richemont-villeret"
+        "it": "costruttore-di-movimento-m-f-montblanc-villeret",
+        "en": "movement-builder-m-f-montblanc-villeret",
+        "de": "bewegungsaufbauer-m-w-montblanc-villeret"
       },
       "company": "Montblanc",
       "companyKey": "richemont",
@@ -16381,7 +16378,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-15T15:26:37.811Z"
+      "firstSeenAt": "2026-06-15T15:26:37.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "constructeur-mouvement-h-f-richemont-villeret"
+        ],
+        "en": [
+          "constructeur-mouvement-h-f-richemont-villeret"
+        ],
+        "de": [
+          "constructeur-mouvement-h-f-richemont-villeret"
+        ]
+      },
+      "previousSlugs": [
+        "constructeur-mouvement-h-f-richemont-villeret"
+      ]
     },
     {
       "id": "richemont-7f1a350d8cc1",

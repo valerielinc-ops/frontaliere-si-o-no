@@ -3809,8 +3809,6 @@
         "canevas-epfl-leer-epfl-sion",
         "administrative-assistent-professor-s-secretary-60-80-epfl-sion",
         "canevas-epfl-vide-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistante-administrative-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",
@@ -3996,12 +3994,12 @@
     },
     {
       "id": "epfl-b186740ffea3",
-      "slug": "operations-manager-epfl-ai-center-epfl-lausanne",
+      "slug": "responsabile-operativo-epfl-ai-center-epfl-lausanne",
       "slugByLocale": {
         "fr": "operations-manager-epfl-ai-center-epfl-lausanne",
-        "it": "operations-manager-epfl-ai-center-epfl-lausanne",
+        "it": "responsabile-operativo-epfl-ai-center-epfl-lausanne",
         "en": "operations-manager-epfl-ai-center-epfl-lausanne",
-        "de": "operations-manager-epfl-ai-center-epfl-lausanne"
+        "de": "betriebsleiter-epfl-ki-zentrum-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4059,7 +4057,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-15T14:41:11.538Z"
+      "firstSeenAt": "2026-06-15T14:41:11.538Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-manager-epfl-ai-center-epfl-lausanne"
+        ],
+        "de": [
+          "operations-manager-epfl-ai-center-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "operations-manager-epfl-ai-center-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-02e7f23933d5",
@@ -4453,11 +4462,11 @@
     },
     {
       "id": "epfl-32a07c57c7fa",
-      "slug": "adjoint-e-relations-estudiantines-80-100-epfl-lausanne",
+      "slug": "assistente-per-le-relazioni-studenti-80-100-epfl-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-relations-estudiantines-80-100-epfl-lausanne",
-        "it": "adjoint-e-relations-estudiantines-80-100-epfl-lausanne",
-        "en": "adjoint-e-relations-estudiantines-80-100-epfl-lausanne",
+        "it": "assistente-per-le-relazioni-studenti-80-100-epfl-lausanne",
+        "en": "student-relations-assistant-80-100-epfl-lausanne",
         "de": "adjoint-e-relations-estudiantines-80-100-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4516,7 +4525,18 @@
       },
       "postalCode": "1003",
       "addressRegion": "VD",
-      "firstSeenAt": "2026-06-15T14:41:07.256Z"
+      "firstSeenAt": "2026-06-15T14:41:07.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "adjoint-e-relations-estudiantines-80-100-epfl-lausanne"
+        ],
+        "en": [
+          "adjoint-e-relations-estudiantines-80-100-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "adjoint-e-relations-estudiantines-80-100-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-45d21591dca0",
@@ -4748,8 +4768,6 @@
         "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-la-78lgov",
-        "postdoc-position-zu-ki-ausrichtung-und-sicherer-ki-bei-epfl-dlab-verfugbar-epfl-lausanne",
-        "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-aab331",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne"
       ],
       "salaryMin": 49500,

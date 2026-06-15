@@ -2802,8 +2802,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100",
         "it": "assistent-in-gesundheit-e-soziales-o-pflegehelferin-pflegehelfer-srk-100-interdisziplinare-akutstation-asana-spital-ag-menziken-leuggern",
-        "en": "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100",
-        "fr": "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100"
+        "en": "health-and-social-care-assistant-or-nursing-assistant-srk-100-interdisciplinary-acute-care-unit-asana-spital-ag-menziken",
+        "fr": "assistant-de-sante-et-de-soins-sociaux-ou-assistant-infirmier-srk-100-unite-interdisciplinaire-de-soins-actifs-asana"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2848,6 +2848,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100"
+        ],
+        "fr": [
           "assistent-in-gesundheit-und-soziales-oder-pflegehelferin-pflegehelfer-srk-100"
         ]
       },
