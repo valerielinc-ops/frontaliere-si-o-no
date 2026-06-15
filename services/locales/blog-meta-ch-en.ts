@@ -170,6 +170,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.title': 'Federal vote Jun 14 2026: civil service & 10‑million initiative',
     'blog.article.votazioni-federali-giugno-2026.excerpt': 'On June 14 2026, Swiss voters will decide on limiting access to civilian service and on the initiative “No to a Switzerland of 10 million!”. Find details, procedures and deadlines.',
     'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Swiss ballot paper with federal flag in the background',
+    'blog.article.imposizione-fonte-basilea.title': 'Basel: Approval of Source Tax Introduction',
+    'blog.article.imposizione-fonte-basilea.excerpt': 'Cantonal votes in Basel have approved the introduction of source taxation, with 53.4% of votes, modifying the local tax system.',
+    'blog.article.imposizione-fonte-basilea.imageAlt': 'View of Basel with fiscal and political symbols',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Vote on restrictions for foreign residents',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'The Canton of Ticino approves restrictions on foreign residents, but with limited effects, while Switzerland rejects the Swiss People\'s Party initiative with 54.79%.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landscape of lake and mountains between Switzerland and Italy near Ticino.',
 };
 
 export default blogMetaChEn;

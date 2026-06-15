@@ -170,6 +170,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.title': 'Bundesabstimmung 14.6.2026: Zivildienst & 10-Mio-Initiative',
     'blog.article.votazioni-federali-giugno-2026.excerpt': 'Am 14. Juni 2026 stimmen die Schweizer über die Beschränkung des Zivildienstzugangs und über die Initiative «Nein zu einer Schweiz mit 10 Millionen!» ab. Erfahren Sie Details, Verfahren und Fristen.',
     'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Schweizer Stimmzettel mit Schweizer Flagge im Hintergrund',
+    'blog.article.imposizione-fonte-basilea.title': 'Basel: Einführung der Steuer auf die Quelle genehmigt',
+    'blog.article.imposizione-fonte-basilea.excerpt': 'Die Kantonsabstimmungen in Basel haben die Einführung der Steuer auf die Quelle genehmigt, mit 53,4 % der Stimmen, wodurch das lokale Steuersystem geändert wird.',
+    'blog.article.imposizione-fonte-basilea.imageAlt': 'Blick auf Basel mit Steuer- und Politik-Symbolen',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Tessin: Abstimmung zum Grenzgänger- und Ausländerstopp',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'Der Kanton Tessin stimmt dem Ausländer- und Grenzgängerstopp zu, allerdings mit begrenzten Effekten, während die Schweiz die SVP-Initiative mit 54,79 % ablehnt.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landschaft mit See und Bergen zwischen Schweiz und Italien in der Nähe des Tessins.',
 };
 
 export default blogMetaChDe;

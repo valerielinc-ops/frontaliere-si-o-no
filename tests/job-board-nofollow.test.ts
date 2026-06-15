@@ -42,12 +42,16 @@ function extractAnchorOpeningTags(source: string): string[] {
 }
 
 /**
- * An anchor is "outbound" when it has `target="_blank"`. Internal SPA
- * navigations never use _blank in this codebase — they use onClick handlers
- * that call `nav.navigateTo(...)` and `e.preventDefault()`.
+ * An anchor is "outbound" when it can open in a new tab — either a literal
+ * `target="_blank"` or a conditional `target={cond ? undefined : '_blank'}`
+ * that resolves to `_blank` for the external case. The header apply links use
+ * the conditional form: external jobs open applyUrl in a new tab (outbound,
+ * must carry nofollow), in-house publisher ads scroll to the on-page
+ * #candidatura form (internal, no _blank). Either way, if `_blank` can appear
+ * the anchor must declare nofollow. Internal SPA navigations never use _blank.
  */
 function isOutboundAnchor(tag: string): boolean {
-  return /target="_blank"/.test(tag);
+  return /target="_blank"/.test(tag) || /target=\{[^}]*'_blank'[^}]*\}/.test(tag);
 }
 
 describe('JobBoard outbound ATS links carry nofollow', () => {
@@ -73,13 +77,16 @@ describe('JobBoard outbound ATS links carry nofollow', () => {
     );
   });
 
-  it('the header logo and title apply links carry nofollow', () => {
-    // Pull the two `applyUrl` blocks tagged with the header analytics events.
+  it('the header logo and title apply links carry nofollow when outbound', () => {
+    // Header logo + title route in-house ads to the on-page #candidatura form
+    // and external jobs to applyUrl in a new tab; the outbound (_blank) case
+    // must still carry nofollow. Pull the two conditional blocks by their
+    // header analytics events.
     const logoBlockMatch = source.match(
-      /href=\{applyUrl\}\s+target="_blank"\s+rel="([^"]+)"\s+onClick=\{\(\) => Analytics\.trackSelectContent\('job_board_apply_header_logo'/,
+      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_logo/,
     );
     const titleBlockMatch = source.match(
-      /href=\{applyUrl\}\s+target="_blank"\s+rel="([^"]+)"\s+onClick=\{\(\) => Analytics\.trackSelectContent\('job_board_apply_header_title'/,
+      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_title/,
     );
 
     expect(logoBlockMatch?.[1]).toBe('nofollow noopener noreferrer');

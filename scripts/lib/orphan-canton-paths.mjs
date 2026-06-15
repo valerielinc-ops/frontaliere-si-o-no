@@ -47,8 +47,14 @@ const LOCALE_URL_PREFIX = Object.freeze({
 });
 
 // Alternate prefix tokens we may see on inbound GSC paths — keep in sync with
-// the regexes in scripts/ingest-gsc-job-orphans.mjs:JOB_PATH_PATTERNS.
-const INBOUND_PREFIX_ALTERNATES = '(?:cerca-lavoro|find-jobs|find-job|job-search|jobs-im|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)';
+// the DE section prefixes in scripts/ingest-gsc-job-orphans.mjs
+// (`SECTION_PREFIX.de` + `entry.dePrefix` from data/canton-url-slugs.json).
+// DE canton sections come in three prefix shapes: `jobs-im-<slug>` (TI legacy +
+// AG/JU/TG/VS), `jobs-in-der-<slug>` (VD → waadt), and `jobs-in-<slug>` for
+// every default canton (GR, ZH, BE, …) plus the `jobs-in-schweiz` aggregate.
+// `jobs-in-der` MUST precede `jobs-in` so the alternation captures `waadt`
+// rather than greedily swallowing `der-waadt` (which would fail to resolve).
+const INBOUND_PREFIX_ALTERNATES = '(?:cerca-lavoro|find-jobs|find-job|job-search|jobs-im|jobs-in-der|jobs-in|jobsuche|stellenangebote|recherche-emploi|trouver-emploi|emplois)';
 
 const INBOUND_PATH_RE = new RegExp(
   `^(?:/(?:en|de|fr))?/${INBOUND_PREFIX_ALTERNATES}-([a-z-]+)/[^/]+/?$`,
