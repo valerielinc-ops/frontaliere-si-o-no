@@ -39,6 +39,11 @@ const RC_TO_ENV = {
   GOOGLE_MAPS_API_KEY:            ['GOOGLE_MAPS_API_KEY'],
   TOMTOM_API_KEY:             ['TOMTOM_API_KEY'],
   HERE_API_KEY:               ['HERE_API_KEY'],
+  // HERE Cost Management Usage API (OAuth access key) — reconciles the routing
+  // budget counter with real billed usage. Server-only, never client-visible.
+  HERE_OAUTH_KEY_ID:          ['HERE_OAUTH_KEY_ID'],
+  HERE_OAUTH_KEY_SECRET:      ['HERE_OAUTH_KEY_SECRET'],
+  HERE_REALM_ID:              ['HERE_REALM_ID'],
   GA_MEASUREMENT_ID:              ['GA_MEASUREMENT_ID'],
   RECAPTCHA_SITE_KEY:             ['RECAPTCHA_SITE_KEY'],
   TWELVEDATA_API_KEY:             ['TWELVEDATA_API_KEY'],
