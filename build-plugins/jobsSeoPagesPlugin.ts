@@ -10888,6 +10888,16 @@ ${staticAnalyticsHtml}
  const lastmod = (safeIsoDate(ejData?.expiredAt) || '').slice(0, 10) || dateStamp;
  expiredSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${altLinks}\n${xDefault}\n <lastmod>${lastmod}</lastmod>\n <changefreq>monthly</changefreq>\n <priority>0.3</priority>\n </url>`);
  }
+ // Bound the WriteCollector background-flush backlog INSIDE this
+ // ~150k-page expired-soft-landing loop. Previously the only
+ // awaitDrainSlot ran AFTER the whole loop, so _pendingFlushes
+ // accumulated unbounded during the emit (observed 65 in-flight ×
+ // 5000-entry batches of large soft-landing HTML ≈ 12 GB) and the
+ // deploy build OOM'd in this exact phase (run 27520709430,
+ // "Ineffective mark-compacts near heap limit"). Draining each
+ // iteration caps peak at ~7 batches (~1 GB); mirrors the
+ // awaitDrainSlot(6) the active-jobs emit loops already use.
+ await collector.awaitDrainSlot(6);
  }
 
  // Write expired jobs sitemap
@@ -10962,6 +10972,10 @@ ${staticAnalyticsHtml}
  _writtenPaths.add(indexFile);
  crossLocaleExpiredCount++;
  recordEmit('cross-locale-expired-bridge', __tCrossLocaleExpired);
+ // Sibling backpressure (AGENTS.md #6): same unbounded background-flush
+ // risk as the expired-soft-landing loop above — drain INSIDE the emit
+ // loop so _pendingFlushes can't balloon during the cross-locale sweep.
+ await collector.awaitDrainSlot(6);
  }
  }
  }
