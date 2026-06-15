@@ -37,12 +37,23 @@ explores uniformly so the losing arm keeps getting traffic and the test stays
 live (and can flip if the winner changes). With no significant winner it is a
 pure even split — so "on by default" changes nothing until the data earns it.
 
-The promoted variant is decided **globally** (pooled across providers), because
-the variant is assigned *before* the cascade picks a provider — we can't route a
-subscriber to a provider, so per-provider promotion isn't actionable at
-assignment time. The per-provider report stays the analysis lens; true
-per-provider promotion (swapping the subject at send time once the provider is
-known) is a deeper follow-up that would touch the funnel-critical cascade.
+Promotion is **per provider**, applied in two stages so it survives the fact
+that the cascade only picks a provider at send time:
+
+1. **Assembly time** — each subscriber is assigned the *global* winner (pooled
+   across providers) as the default, baked into the email subject. We can't route
+   a subscriber to a provider, so this is the best variant we can pre-commit.
+2. **Send time** — once the cascade chooses the provider, a `finalizeForProvider`
+   hook swaps the subject to **that provider's** winner (epsilon-greedy), falling
+   back to the global winner when a provider has no significant winner yet. The
+   body HTML is variant-independent, so only the subject + the `variant` tag
+   change; the final variant is read back from the payload for the delivery
+   record + PostHog event. The hook is opt-in and never throws — on any issue the
+   assembly-time global variant is sent unchanged (job-alert sends pass no hook).
+
+So `byProvider[p] ?? global` decides each email's variant, and the per-provider
+report measures whether the per-provider split actually beats the global one.
+(The legacy Resend-only fallback path keeps the assembly-time global variant.)
 
 | Env | Default | Purpose |
 |-----|---------|---------|

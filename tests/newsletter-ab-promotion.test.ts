@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES } = await import('@/services/newsletter-ab-stats.mjs');
+const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES, resolveWinnersByProvider } = await import('@/services/newsletter-ab-stats.mjs');
 const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
 const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 const { previousCampaignIds } = await import('@/scripts/lib/newsletter-ab-data.mjs');
@@ -29,6 +29,42 @@ describe('pickWinner', () => {
   it('honors custom gates', () => {
     const tight = pickWinner({ a: { sends: 100, opens: 40 }, b: { sends: 100, opens: 20 } }, { minSendsPerArm: 500 });
     expect(tight.winner).toBeNull(); // 100 < 500
+  });
+});
+
+describe('resolveWinnersByProvider', () => {
+  it('picks a winner per provider and a global fallback', () => {
+    const cells = {
+      // mailjet: curioso clearly wins (significant, well sampled)
+      mailjet: { concreto: { sends: 1000, opens: 200 }, curioso: { sends: 1000, opens: 320 } },
+      // mailgun: concreto clearly wins
+      mailgun: { concreto: { sends: 1000, opens: 340 }, curioso: { sends: 1000, opens: 210 } },
+      // mailtrap: thin → no per-provider winner
+      mailtrap: { concreto: { sends: 30, opens: 12 }, curioso: { sends: 25, opens: 6 } },
+    };
+    const { byProvider, global } = resolveWinnersByProvider(cells);
+    expect(byProvider.mailjet).toBe('curioso');
+    expect(byProvider.mailgun).toBe('concreto');
+    expect(byProvider.mailtrap).toBeNull(); // insufficient sample
+    // global pools everything; both arms are close once pooled → may be null,
+    // but must be one of the known values or null (never throws / undefined)
+    expect([null, 'concreto', 'curioso']).toContain(global);
+  });
+
+  it('returns empty winners for empty cells', () => {
+    expect(resolveWinnersByProvider({})).toEqual({ byProvider: {}, global: null });
+  });
+
+  it('global fallback covers a provider with no significant winner', () => {
+    const cells = {
+      // global signal: concreto wins big when pooled
+      mailjet: { concreto: { sends: 2000, opens: 700 }, curioso: { sends: 2000, opens: 400 } },
+      // thin provider → null locally, should rely on global at send time
+      maileroo: { concreto: { sends: 10, opens: 5 }, curioso: { sends: 10, opens: 1 } },
+    };
+    const { byProvider, global } = resolveWinnersByProvider(cells);
+    expect(byProvider.maileroo).toBeNull();
+    expect(global).toBe('concreto'); // the send pipeline uses byProvider[p] ?? global
   });
 });
 

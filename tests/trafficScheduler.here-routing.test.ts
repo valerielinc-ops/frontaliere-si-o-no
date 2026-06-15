@@ -270,6 +270,79 @@ describe('applyWebcamTrafficSanity', () => {
   });
 });
 
+// ─── HERE monthly budget guard ───────────────────────────────────
+
+describe('computeHereBudgetDecision', () => {
+  let computeHereBudgetDecision: (input: {
+    storedMonth?: string;
+    storedCount?: number;
+    month: string;
+    callsThisRun: number;
+    budget: number;
+  }) => { allowed: boolean; count: number };
+
+  beforeEach(async () => {
+    vi.resetModules();
+    ({ computeHereBudgetDecision } = await import(
+      '../functions/src/trafficSchedulerCore.js'
+    ));
+  });
+
+  it('allows the first run of a fresh month (no stored doc)', () => {
+    expect(
+      computeHereBudgetDecision({ month: '2026-06', callsThisRun: 52, budget: 4500 }),
+    ).toEqual({ allowed: true, count: 52 });
+  });
+
+  it('accumulates within the same month', () => {
+    expect(
+      computeHereBudgetDecision({
+        storedMonth: '2026-06',
+        storedCount: 4000,
+        month: '2026-06',
+        callsThisRun: 52,
+        budget: 4500,
+      }),
+    ).toEqual({ allowed: true, count: 4052 });
+  });
+
+  it('resets the count when the month rolls over', () => {
+    expect(
+      computeHereBudgetDecision({
+        storedMonth: '2026-05',
+        storedCount: 4490,
+        month: '2026-06',
+        callsThisRun: 52,
+        budget: 4500,
+      }),
+    ).toEqual({ allowed: true, count: 52 });
+  });
+
+  it('rejects a run that would push the month total over budget', () => {
+    expect(
+      computeHereBudgetDecision({
+        storedMonth: '2026-06',
+        storedCount: 4490,
+        month: '2026-06',
+        callsThisRun: 52,
+        budget: 4500,
+      }),
+    ).toEqual({ allowed: false, count: 4490 });
+  });
+
+  it('allows a run that lands exactly on the budget', () => {
+    expect(
+      computeHereBudgetDecision({
+        storedMonth: '2026-06',
+        storedCount: 4448,
+        month: '2026-06',
+        callsThisRun: 52,
+        budget: 4500,
+      }),
+    ).toEqual({ allowed: true, count: 4500 });
+  });
+});
+
 // ─── resolveTrafficProvider priority ─────────────────────────────
 
 describe('resolveTrafficProvider', () => {

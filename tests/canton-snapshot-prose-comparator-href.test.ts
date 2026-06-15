@@ -11,11 +11,13 @@ import {
 } from '@/build-plugins/shared/cantonSnapshotProse';
 
 const IT_CANONICAL = {
-  fx: '/comparatori/cambio-valuta/',
+  // IT FX now points at the DIRECT canonical (no 301-redirect hop via the
+  // /comparatori/cambio-valuta/ bridge), sourced from the comparatorHref SSOT (#1997).
+  fx: '/compara-servizi/cambio-franco-euro/',
   health: '/compara-servizi/confronta-casse-malati/',
   fuel: '/prezzi-benzina/oggi/',
 };
-const IT_DEAD = ['/comparatori/casse-malati/', '/prezzi-benzina-svizzera/'];
+const IT_DEAD = ['/comparatori/casse-malati/', '/prezzi-benzina-svizzera/', '/comparatori/cambio-valuta/'];
 
 describe('canton snapshot prose IT comparator cross-links (#1997)', () => {
   const html = buildSnapshotProseBlock({
