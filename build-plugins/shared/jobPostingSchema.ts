@@ -457,7 +457,7 @@ function resolveBaseSalary(job: JobInput): BaseSalarySchema {
         : Math.round(min * 1.2);
     currency = String(job.salaryCurrency || 'CHF').toUpperCase();
   } else {
-    const band = resolveSalaryBand(job.sector || job.category || '');
+    const band = resolveSalaryBand(job.sector || job.category || '', resolveCanton(job));
     min = band.minValue;
     max = band.maxValue;
     currency = band.currency;

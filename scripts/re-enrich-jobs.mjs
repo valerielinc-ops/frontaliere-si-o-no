@@ -808,12 +808,14 @@ function normalizeCategoryForJob(job) {
   return current;
 }
 
-// --- Salary estimation: unified Ticino-adjusted estimation ---
-// Uses shared module derived from salaryData.ts medians × 0.90 Ticino factor
-import { estimateTicinoSalary } from './lib/salary-estimation.mjs';
+// --- Salary estimation: canton-aware (BFS Grossregion-scaled) estimation ---
+// Scales the Ticino USTAT sector structure to the job's canton via the
+// official BFS LSE Grossregion medians. Jobs without a canton default to
+// Ticino (factor 1.0). Reported salaries from the posting text still win.
+import { estimateSwissSalary } from './lib/salary-estimation.mjs';
 
 function estimateSalaryFromSectors(job) {
-  return estimateTicinoSalary(job);
+  return estimateSwissSalary(job);
 }
 
 // --- Company address lookup ---
