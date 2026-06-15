@@ -24,6 +24,7 @@
  */
 
 import { CALC_HREF as SHARED_CALC_HREF } from './calcHref';
+import { FX_HREF, HEALTH_HREF } from './comparatorHref';
 
 export type ListingProseLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -71,18 +72,8 @@ const LABELS: Record<ListingProseLocale, ListingProseLabels> = {
 // Re-exported single source (jobBoardCommuterContext) — the old local table
 // pointed at '/' and sent users to the homepage instead of the simulator.
 const CALC_HREF: Record<ListingProseLocale, string> = SHARED_CALC_HREF;
-const FX_HREF: Record<ListingProseLocale, string> = {
-  it: '/comparatori/cambio-valuta/',
-  en: '/en/comparators/currency-exchange/',
-  de: '/de/vergleiche/wechselkurs/',
-  fr: '/fr/comparateurs/change-devises/',
-};
-const HEALTH_HREF: Record<ListingProseLocale, string> = {
-  it: '/compara-servizi/confronta-casse-malati/',
-  en: '/en/comparators/health-insurance/',
-  de: '/de/vergleiche/krankenkassen/',
-  fr: '/fr/comparateurs/caisses-maladie/',
-};
+// FX_HREF / HEALTH_HREF come from the shared comparatorHref SSOT (canonical,
+// curl-verified-200). Local copies had drifted to a dead orphan scheme (#1997).
 
 const CALC_LABEL: Record<ListingProseLocale, string> = {
   it: 'calcolatore stipendio netto frontaliere',

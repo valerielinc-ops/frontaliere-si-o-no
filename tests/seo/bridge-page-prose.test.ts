@@ -41,6 +41,15 @@ import {
   type BridgePageKind,
   type BridgePageLocale,
 } from '../../build-plugins/shared/bridgePageProse';
+// Comparator hrefs derive from the SSOT (#1997) — import them so the
+// canonical-path allowlist below can NEVER drift from the real emitted values
+// (the stale hard-coded orphan scheme `/comparatori/cambio-valuta/` etc. was
+// exactly the bug this test must guard, not reproduce).
+import {
+  FX_HREF,
+  HEALTH_HREF,
+  FUEL_HREF,
+} from '../../build-plugins/shared/comparatorHref';
 
 // The default behaviour of renderBridgePageProse is now to return only the
 // `<!--EJP_STRIPPED-->` marker (STRIP_BRIDGE_PAGE_PROSE=1, default ON, dist
@@ -132,23 +141,19 @@ describe('bridgePageProse helper', () => {
     // The cross-link block must point at site-relative paths (calculator,
     // FX, health, fuel, jobs). Detect any href that escapes the site or
     // points at an undefined route.
+    // FX / health / fuel comparator hrefs: derived from the SSOT (cannot drift).
+    const SSOT_COMPARATOR_HREFS = new Set<string>([
+      ...Object.values(FX_HREF),
+      ...Object.values(HEALTH_HREF),
+      ...Object.values(FUEL_HREF),
+    ]);
+    // Calculator + job-search hrefs are local to bridgePageProse (not part of
+    // the comparator SSOT) → keep explicit patterns for them.
     const ALLOWED_PATH_PATTERNS = [
       /^\/(?:[a-z]{2}\/)?calcola-stipendio\/$/,
       /^\/(?:[a-z]{2}\/)?calculate-salary\/$/,
       /^\/(?:[a-z]{2}\/)?gehalt-berechnen\/$/,
       /^\/(?:[a-z]{2}\/)?calculer-salaire\/$/,
-      /^\/comparatori\/cambio-valuta\/$/,
-      /^\/en\/comparators\/currency-exchange\/$/,
-      /^\/de\/vergleiche\/wechselkurs\/$/,
-      /^\/fr\/comparateurs\/change-devises\/$/,
-      /^\/compara-servizi\/confronta-casse-malati\/$/,
-      /^\/en\/comparators\/health-insurance\/$/,
-      /^\/de\/vergleiche\/krankenkassen\/$/,
-      /^\/fr\/comparateurs\/caisses-maladie\/$/,
-      /^\/prezzi-benzina\/oggi\/$/,
-      /^\/en\/gasoline-price-switzerland\/$/,
-      /^\/de\/benzinpreis-schweiz\/$/,
-      /^\/fr\/prix-essence-suisse\/$/,
       /^\/cerca-lavoro-ticino\/$/,
       /^\/en\/find-jobs-ticino\/$/,
       /^\/de\/jobs-im-tessin\/$/,
@@ -161,7 +166,9 @@ describe('bridgePageProse helper', () => {
           (m) => m[1],
         );
         for (const href of hrefs) {
-          const ok = ALLOWED_PATH_PATTERNS.some((re) => re.test(href));
+          const ok =
+            SSOT_COMPARATOR_HREFS.has(href) ||
+            ALLOWED_PATH_PATTERNS.some((re) => re.test(href));
           expect(
             ok,
             `locale=${locale} kind=${kind}: unexpected href "${href}"`,

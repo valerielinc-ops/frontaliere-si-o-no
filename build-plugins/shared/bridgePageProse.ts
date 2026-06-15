@@ -45,6 +45,7 @@
  */
 
 import { EJP_STRIPPED_MARKER } from './ejpMarker';
+import { FX_HREF, HEALTH_HREF, FUEL_HREF } from './comparatorHref';
 
 // Local feature flag: skip the prose entirely on bridge pages (slug rename
 // / legacy alias redirects). Default ON because bridges are pure redirect
@@ -90,26 +91,9 @@ const CALCULATOR_HREF: Record<BridgeProseLocale, string> = {
   fr: '/fr/calculer-salaire/',
 };
 
-const FX_HREF: Record<BridgeProseLocale, string> = {
-  it: '/comparatori/cambio-valuta/',
-  en: '/en/comparators/currency-exchange/',
-  de: '/de/vergleiche/wechselkurs/',
-  fr: '/fr/comparateurs/change-devises/',
-};
-
-const HEALTH_HREF: Record<BridgeProseLocale, string> = {
-  it: '/compara-servizi/confronta-casse-malati/',
-  en: '/en/comparators/health-insurance/',
-  de: '/de/vergleiche/krankenkassen/',
-  fr: '/fr/comparateurs/caisses-maladie/',
-};
-
-const FUEL_HREF: Record<BridgeProseLocale, string> = {
-  it: '/prezzi-benzina/oggi/',
-  en: '/en/gasoline-price-switzerland/',
-  de: '/de/benzinpreis-schweiz/',
-  fr: '/fr/prix-essence-suisse/',
-};
+// FX_HREF / HEALTH_HREF / FUEL_HREF come from the shared comparatorHref SSOT
+// (canonical, curl-verified-200 paths) — see the import above. Local copies had
+// drifted to a dead orphan scheme (/en/comparators/… 404, #1997).
 
 const JOBS_HREF: Record<BridgeProseLocale, string> = {
   it: '/cerca-lavoro-ticino/',
