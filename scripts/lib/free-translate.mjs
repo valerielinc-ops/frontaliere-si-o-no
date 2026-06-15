@@ -669,44 +669,52 @@ async function translateWithAzure(text, sourceLang, targetLang) {
       const translated = [];
       for (const chunk of chunks) {
         const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${sourceLang}&to=${targetLang}`;
-        // Region resilience: Azure "global"/multi-service resources require the
-        // region header to be `global`, while regional resources need their exact
-        // region. Try the configured region first; on a 401 (auth/region mismatch)
-        // retry ONCE with `global` before giving up. The warn-logging below reveals
-        // the true error/region in CI so the default never has to be guessed again.
-        const regionsToTry = AZURE_REGION === 'global' ? ['global'] : [AZURE_REGION, 'global'];
-        let res;
-        for (let r = 0; r < regionsToTry.length; r++) {
-          const region = regionsToTry[r];
-          res = await fetch(url, {
-            method: 'POST',
-            headers: {
-              'Ocp-Apim-Subscription-Key': key,
-              'Ocp-Apim-Subscription-Region': region,
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify([{ Text: chunk }]),
-            signal: AbortSignal.timeout(TIMEOUT_MS),
-          });
-          // Only the 401 case is worth retrying with a different region; any other
-          // status (ok / quota / 4xx / 5xx) is handled by the logic below.
-          if (res.status !== 401 || r === regionsToTry.length - 1) break;
-          console.warn(`[azure] 401 with region="${region}" — retrying once with region="global"`);
+        // Single call with the configured region. A 401/403 is an auth/credential
+        // failure (bad or revoked key) — NOT something a different region header can
+        // fix (live run 27544487773 proved BOTH westeurope AND global return 401 for
+        // an invalid key), so we no longer waste a second `global` retry on auth
+        // failures. The key is exhausted for the rest of the run instead (see below),
+        // making this self-healing: a VALID key returns 200, is never exhausted, and
+        // a renewed key in Remote Config re-enables Azure with zero code change.
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Ocp-Apim-Subscription-Key': key,
+            'Ocp-Apim-Subscription-Region': AZURE_REGION,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify([{ Text: chunk }]),
+          signal: AbortSignal.timeout(TIMEOUT_MS),
+        });
+        if (res.status === 401 || res.status === 403) {
+          // Auth failure: invalid/missing/revoked credentials. Exhaust this key for
+          // the rest of the process run (mirrors the DeepL `_deeplExhaustedKeys`
+          // pattern) so every remaining job skips it instead of burning a failed
+          // HTTP call. Log the status + body snippet ONCE — on the first exhaustion
+          // of a given key (the #2106 [azure] diagnostic is preserved for a future
+          // bad key) — but never spam it for subsequent skipped jobs.
+          if (!_azureExhaustedKeys.has(key)) {
+            const snippet = (await res.text().catch(() => '')).slice(0, 200);
+            console.warn(`[azure] HTTP ${res.status} (key #${idx + 1}, region="${AZURE_REGION}"): ${snippet}`);
+            console.log(`🔑 Azure key #${idx + 1} auth failure (${res.status}) — exhausting for the rest of the run`);
+          }
+          _azureExhaustedKeys.add(key);
+          _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
+          throw Object.assign(new Error('Azure auth'), { quotaExhausted: true });
         }
-        if (res.status === 403 || res.status === 429) {
+        if (res.status === 429) {
           _azureExhaustedKeys.add(key);
           _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
           console.log(`🔑 Azure key #${idx + 1} quota exhausted — rotating`);
           throw Object.assign(new Error('Azure quota'), { quotaExhausted: true });
         }
         if (!res.ok) {
-          // Surface the exact failure (e.g. 401 region mismatch, 400 bad lang) so a
-          // region-misconfigured key no longer looks "active" while translating
-          // nothing. Bump the tier error counter, then preserve cascade flow by
-          // returning '' (do not throw).
+          // Other failure (e.g. 400 bad lang). Bump the tier error counter, then
+          // preserve cascade flow by returning '' (do not throw, do not exhaust —
+          // a 400 is request-specific, not a dead key).
           const snippet = (await res.text().catch(() => '')).slice(0, 200);
           _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
-          console.warn(`[azure] HTTP ${res.status} (key #${idx + 1}, region="${regionsToTry[regionsToTry.length - 1]}"): ${snippet}`);
+          console.warn(`[azure] HTTP ${res.status} (key #${idx + 1}, region="${AZURE_REGION}"): ${snippet}`);
           return '';
         }
         const data = await res.json();
