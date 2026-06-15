@@ -36,7 +36,20 @@
  *   junior = "Senza funzione di quadro" (no management function)
  *   mid    = avg("Quadri inferiori" + "Responsabile esecuzione lavori")
  *   senior = "Quadri superiori e medi" (upper/middle management)
+ *
+ * ── Switzerland-wide generalization (June 2026) ─────────────────────────────
+ *   estimateSwissSalary(job) scales this Ticino USTAT sector structure to the
+ *   job's canton using the official BFS LSE Grossregion medians
+ *   (data/swiss-canton-salary-index.json). Ticino factor = 1.0, so
+ *   estimateTicinoSalary() — kept as a TI-pinned wrapper — stays byte-identical.
  */
+
+import {
+  getCantonSalaryFactor,
+  isBorderCanton,
+  getCantonSectorFloor,
+  normalizeSalaryCantonCode,
+} from './swiss-canton-salary.mjs';
 
 // ── Ticino sector salary medians (annual gross CHF) ────────────────────────
 // USTAT 2024 official data, p50 by NOGA 2008 sector × position level.
@@ -118,23 +131,33 @@ function roundTo500(value) {
 }
 
 /**
- * Estimate salary range for a job based on category and title seniority.
- * Uses per-sector USTAT p25/p75 interquartile ratios for min/max spread,
- * with CCL minimum salary floors as hard lower bounds.
+ * Estimate a salary range for a job, scaled to the job's Swiss canton.
  *
- * The frontalieri discount (fronR) is applied by default because this platform
- * targets cross-border workers (Permit G). USTAT data shows frontalieri earn
- * on average 89% of the Ticino total, but the gap varies by sector:
- *   - IT: 86%, Finance: 99%, Healthcare: 101%, Construction: 97%
- * Set options.applyFrontialieriDiscount = false to get the total-population estimate.
+ * The Ticino USTAT sector structure (per-sector p25/p75 interquartile spread,
+ * seniority levels, frontalieri ratio) is the shape; the canton's official BFS
+ * LSE Grossregion median sets the level via
+ *   factor = grossregionMedian(canton) / ticinoMedian
+ * (data/swiss-canton-salary-index.json). Ticino factor = 1.0.
  *
- * @param {object} job - Job object with category and title fields
+ * The frontalieri discount (fronR) is applied only for BORDER cantons, where
+ * Permit G commuters actually work; USTAT shows frontalieri earn on average
+ * ~89% of the Ticino total, varying by sector (IT 86%, Finance 99%,
+ * Healthcare 101%, Construction 97%). Interior cantons (no cross-border
+ * workforce) use the full resident median. Lower bounds come from the Ticino
+ * CCL floor table for TI, or national GAV floors + the cantonal statutory
+ * minimum wage for other cantons.
+ *
+ * @param {object} job - Job with category, title and (optionally) canton fields
  * @param {object} [options] - Optional settings
- * @param {boolean} [options.applyFrontialieriDiscount=true] - Apply frontalieri wage adjustment
- * @returns {{ minValue: number, maxValue: number, level: string, sectorName: string, frontialieriAdjusted: boolean }}
+ * @param {boolean} [options.applyFrontialieriDiscount=true] - Apply the border-canton frontalieri wage adjustment
+ * @returns {{ minValue: number, maxValue: number, level: string, sectorName: string, frontialieriAdjusted: boolean, canton: string, cantonFactor: number }}
  */
-export function estimateTicinoSalary(job, options = {}) {
+export function estimateSwissSalary(job, options = {}) {
   const { applyFrontialieriDiscount = true } = options;
+  const canton = normalizeSalaryCantonCode(job?.canton);
+  const factor = getCantonSalaryFactor(canton);
+  const border = isBorderCanton(canton);
+
   const cat = String(job?.category || 'other').toLowerCase();
   const sectorName = CATEGORY_TO_SECTOR[cat] || 'Logistics';
   const sector = TICINO_SECTOR_MEDIANS[sectorName] || TICINO_SECTOR_MEDIANS.Logistics;
@@ -147,20 +170,51 @@ export function estimateTicinoSalary(job, options = {}) {
   if (LEVEL_JUNIOR_RE.test(title)) level = 'junior';
   else if (LEVEL_SENIOR_RE.test(title)) level = 'senior';
 
-  const rawMedian = sector[level];
-  // Apply per-sector frontalieri discount from USTAT residency data
-  const fronR = applyFrontialieriDiscount ? (sector.fronR || 0.89) : 1.0;
+  // Scale the Ticino sector median to the canton wage level.
+  const rawMedian = sector[level] * factor;
+  // Frontalieri discount only where cross-border workers actually commute.
+  const applyDiscount = applyFrontialieriDiscount && border;
+  const fronR = applyDiscount ? (sector.fronR || 0.89) : 1.0;
   const median = roundTo500(rawMedian * fronR);
 
   // Per-sector interquartile ratios from USTAT p25/p75 data
   const p25ratio = sector.p25r || 0.80;
   const p75ratio = sector.p75r || 1.25;
-  const cclFloor = CCL_MINIMUM_FLOORS[sectorName] || CCL_MINIMUM_FLOORS._default;
+  // Ticino keeps its richer CCL floor table; other cantons use national GAV
+  // floors + their statutory minimum wage (or the universal sanity floor).
+  const floor = canton === 'TI'
+    ? (CCL_MINIMUM_FLOORS[sectorName] || CCL_MINIMUM_FLOORS._default)
+    : getCantonSectorFloor(sectorName, canton);
 
-  const minValue = Math.max(roundTo500(median * p25ratio), cclFloor);
+  const minValue = Math.max(roundTo500(median * p25ratio), floor);
   const maxValue = roundTo500(median * p75ratio);
 
-  return { minValue, maxValue, level, sectorName, frontialieriAdjusted: applyFrontialieriDiscount && fronR < 1.0 };
+  return {
+    minValue,
+    maxValue,
+    level,
+    sectorName,
+    frontialieriAdjusted: applyDiscount && fronR < 1.0,
+    canton,
+    cantonFactor: factor,
+  };
+}
+
+/**
+ * Ticino-pinned salary estimate. Backward-compatible wrapper that ignores
+ * job.canton and always uses the Ticino model (factor 1.0) — output is
+ * byte-identical to the pre-June-2026 estimator. Prefer estimateSwissSalary()
+ * for canton-aware estimates.
+ *
+ * @param {object} job - Job object with category and title fields
+ * @param {object} [options] - Optional settings
+ * @param {boolean} [options.applyFrontialieriDiscount=true] - Apply frontalieri wage adjustment
+ * @returns {{ minValue: number, maxValue: number, level: string, sectorName: string, frontialieriAdjusted: boolean }}
+ */
+export function estimateTicinoSalary(job, options = {}) {
+  const { minValue, maxValue, level, sectorName, frontialieriAdjusted } =
+    estimateSwissSalary({ ...job, canton: 'TI' }, options);
+  return { minValue, maxValue, level, sectorName, frontialieriAdjusted };
 }
 
 export { TICINO_SECTOR_MEDIANS, CATEGORY_TO_SECTOR, CCL_MINIMUM_FLOORS, LEVEL_JUNIOR_RE, LEVEL_SENIOR_RE, roundTo500 };

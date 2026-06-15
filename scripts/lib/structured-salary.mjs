@@ -1,4 +1,4 @@
-import { estimateTicinoSalary } from './salary-estimation.mjs';
+import { estimateSwissSalary } from './salary-estimation.mjs';
 
 function toFiniteNumber(value) {
   const n = Number(value);
@@ -10,7 +10,9 @@ function roundToHundreds(value) {
 }
 
 function inferSalaryRange(job) {
-  const estimated = estimateTicinoSalary(job);
+  // Canton-aware: jobs outside Ticino are scaled to their BFS Grossregion
+  // wage level. Jobs without a canton default to Ticino (factor 1.0).
+  const estimated = estimateSwissSalary(job);
   return {
     min: estimated.minValue,
     max: estimated.maxValue,

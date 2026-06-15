@@ -13,6 +13,13 @@
  * `minValue > 0` and `maxValue >= minValue`.
  */
 
+import {
+  cantonSalaryFactor,
+  normalizeSalaryCantonCode,
+  STATUTORY_MIN_WAGE_ANNUAL,
+  UNIVERSAL_FLOOR_ANNUAL,
+} from './cantonSalaryIndex';
+
 export interface SalaryBand {
   /** Annual minimum in CHF (integer, > 0). */
   readonly minValue: number;
@@ -122,13 +129,32 @@ export function normaliseSectorKey(sector: string | undefined | null): string {
 }
 
 /**
- * Resolve a realistic salary band for a given sector with a hard floor
- * at `TICINO_MIN_ANNUAL_CHF`. Never returns `minValue <= 0`.
+ * Resolve a realistic salary band for a given sector, optionally scaled to a
+ * Swiss canton. Never returns `minValue <= 0`.
+ *
+ * The base bands are Ticino medians. For Ticino (or when no canton is given)
+ * the result is byte-identical to the legacy behaviour: floored at
+ * `TICINO_MIN_ANNUAL_CHF`. For other cantons the band is scaled by the
+ * official BFS wage factor (grossregionMedian / ticinoMedian) and floored at
+ * the cantonal statutory minimum wage (or the universal sanity floor).
  */
-export function resolveSalaryBand(sector: string | undefined | null): SalaryBand {
+export function resolveSalaryBand(
+  sector: string | undefined | null,
+  canton?: string | undefined | null,
+): SalaryBand {
   const key = normaliseSectorKey(sector);
   const band = key && SECTOR_MEDIAN_SALARY_CHF[key] ? SECTOR_MEDIAN_SALARY_CHF[key] : DEFAULT_SALARY_BAND;
-  const min = Math.max(band.minValue, TICINO_MIN_ANNUAL_CHF);
-  const max = Math.max(band.maxValue, min + 1);
+  const code = canton ? normalizeSalaryCantonCode(canton) : 'TI';
+
+  if (code === 'TI') {
+    const min = Math.max(band.minValue, TICINO_MIN_ANNUAL_CHF);
+    const max = Math.max(band.maxValue, min + 1);
+    return { minValue: min, maxValue: max, currency: 'CHF' };
+  }
+
+  const factor = cantonSalaryFactor(code);
+  const floor = STATUTORY_MIN_WAGE_ANNUAL[code] || UNIVERSAL_FLOOR_ANNUAL;
+  const min = Math.max(Math.round((band.minValue * factor) / 100) * 100, floor);
+  const max = Math.max(Math.round((band.maxValue * factor) / 100) * 100, min + 1);
   return { minValue: min, maxValue: max, currency: 'CHF' };
 }

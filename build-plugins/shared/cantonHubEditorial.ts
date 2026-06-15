@@ -36,6 +36,12 @@
 
 import { paginatedPath } from '../seoHubsData';
 import type { HubLocale as ArchiveHubLocale } from '../seoHubsData';
+import { cantonFaqMedianAnnual } from './cantonSalaryIndex';
+
+/** Format a CHF integer with the '.' thousands separator used in this editorial. */
+function fmtChfDot(n: number): string {
+  return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
 
 export interface CantonHubEditorialOpts {
   /** Canton code, e.g. 'TI', 'ZH', 'GE', or AGGREGATE_KEY for the federal hub. */
@@ -182,6 +188,8 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
     );
   } else {
     const cantonOrCh = display === 'Svizzera' ? 'in Svizzera' : `nel Canton ${display}`;
+    const cantonOrSwiss = display === 'Svizzera' ? 'svizzero' : `del Canton ${display}`;
+    const faqSalary = cantonFaqMedianAnnual(display);
     const summary = `Domande frequenti sulla ricerca lavoro ${cantonOrCh}`;
     out.push(
       `<details class="s-01GpQM"><summary class="s-qAjSfB">${esc(summary)}</summary><div class="s-4vhLHi">` +
@@ -189,7 +197,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
       `<p class="s-F2hp6o"><strong>${esc(`Come posso cercare lavoro ${cantonOrCh} come frontaliere?`)}</strong> Usa il motore di ricerca integrato per filtrare le posizioni per settore (banca, pharma, IT, edilizia, sanità), tipo di contratto (tempo indeterminato, determinato, part-time), località e data di pubblicazione. Ogni annuncio include il collegamento diretto alla candidatura sul sito aziendale.</p>` +
       `<p class="s-F2hp6o"><strong>Serve il permesso G per candidarsi?</strong> I frontalieri con permesso G (Grenzgängerbewilligung) possono candidarsi a qualsiasi posizione in Svizzera. Il permesso viene richiesto dal datore di lavoro dopo l'assunzione. Per i dettagli, consulta la <a class="s-676LjN" href="/guida-frontaliere/permessi-di-lavoro/">guida permessi di lavoro</a>.</p>` +
       `<p class="s-F2hp6o"><strong>${esc(`Quali sono i settori con più domanda ${cantonOrCh}?`)}</strong> I settori con maggiore domanda per frontalieri nel 2026 sono: servizi finanziari e bancari, farmaceutico e chimico, IT e software, edilizia e impiantistica, sanità e assistenza, ristorazione e turismo, logistica e trasporti.</p>` +
-      `<p class="s-F2hp6o"><strong>${esc(`Qual è lo stipendio medio per un frontaliere ${cantonOrCh}?`)}</strong> Lo stipendio mediano lordo svizzero è di circa CHF 78.000-85.000 annui, variabile per settore e cantone: IT/Software CHF 95.000+, Banca/Finanza CHF 110.000+, Pharma CHF 105.000+, Commercio CHF 55.000. Usa il <a class="s-676LjN" href="/calcola-stipendio/">simulatore fiscale</a> per calcolare il netto.</p>` +
+      `<p class="s-F2hp6o"><strong>${esc(`Qual è lo stipendio medio per un frontaliere ${cantonOrCh}?`)}</strong> ${esc(`Lo stipendio mediano lordo ${cantonOrSwiss} è di circa CHF ${fmtChfDot(faqSalary.medianLow)}-${fmtChfDot(faqSalary.medianHigh)} annui (fonte BFS, rilevazione struttura salari ${display === 'Svizzera' ? 'nazionale' : `Grossregion del Canton ${display}`}), variabile per settore: IT/Software CHF ${fmtChfDot(faqSalary.it)}+, Banca/Finanza CHF ${fmtChfDot(faqSalary.finance)}+, Pharma CHF ${fmtChfDot(faqSalary.pharma)}+, Commercio CHF ${fmtChfDot(faqSalary.retail)}.`)} Usa il <a class="s-676LjN" href="/calcola-stipendio/">simulatore fiscale</a> per calcolare il netto.</p>` +
       `<p class="s-F2hp6o"><strong>Come attivare le notifiche per nuove offerte?</strong> Imposta i tuoi criteri di ricerca (settore, località, parole chiave) e attiva le allerte e-mail: riceverai una notifica automatica quando vengono pubblicate nuove posizioni corrispondenti.</p>` +
       `<p class="s-fb-foD">Fonte: <a class="s-676LjN" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-676LjN" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
       `</div></details>`,
