@@ -100,6 +100,24 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/en\/service-comparison\//, canonical: '/en/service-comparison/', locale: 'en' },
  { pattern: /^\/de\/dienstleistungsvergleich\//, canonical: '/de/dienstleistungsvergleich/', locale: 'de' },
  { pattern: /^\/fr\/comparaison-services\//, canonical: '/fr/comparaison-services/', locale: 'fr' },
+ // Fuel-price section. Station-detail leaf pages (/{locale-section}/{city}/{stations}/{slug})
+ // expire as stations rotate; Google keeps the old leaves indexed. Route them to the
+ // localized "today" landing (the only evergreen entry point per locale). The FR/DE/EN
+ // CSV leaves use historical section slugs (benzinpreis-schweiz, prix-essence-suisse,
+ // prix-gasoil-suisse) that were since renamed — map every historical alias to the live root.
+ { pattern: /^\/prezzi-diesel\//, canonical: '/prezzi-diesel/oggi/', locale: 'it' },
+ { pattern: /^\/de\/(?:benzinpreis-schweiz|dieselpreis-schweiz)\//, canonical: '/de/dieselpreis-schweiz/heute/', locale: 'de' },
+ { pattern: /^\/en\/diesel-price-switzerland\//, canonical: '/en/diesel-price-switzerland/today/', locale: 'en' },
+ { pattern: /^\/fr\/(?:prix-essence-suisse|prix-gasoil-suisse|prix-diesel)\//, canonical: '/fr/prix-diesel/aujourd-hui/', locale: 'fr' },
+ // Company-hub section. Per-company×city×week leaves (e.g. .../locarno/{company}/settimana-corrente/)
+ // 404 once that company has no current-week openings; route to the hub root (IT + EN only —
+ // the DE/FR hub roots are not emitted, so no fallback target exists for them).
+ { pattern: /^\/aziende-che-assumono\//, canonical: '/aziende-che-assumono/', locale: 'it' },
+ { pattern: /^\/en\/companies-hiring\//, canonical: '/en/companies-hiring/', locale: 'en' },
+ // Legacy flat `/lavoro/` job-detail prefix (pre per-canton structure). Route to the
+ // localized job-board listing root.
+ { pattern: /^\/lavoro\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
+ { pattern: /^\/en\/lavoro\//, canonical: '/en/find-jobs-ticino/', locale: 'en' },
 ];
 
 export type SearchConsoleCompatKind = 'search' | 'expired-job' | 'company' | 'legacy';
@@ -157,6 +175,13 @@ const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
 // committed 404-path corpus is large (605k+ entries → multi-second loops).
 const COMPANY_COMPAT_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(azienda|company|unternehmen|entreprise)-(.+)$`);
 const JOB_BOARD_SECTION_COMPAT_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/([^/]+)\\/?$`);
+// Listing pagination leaves (e.g. /de/jobs-im-tessin/alle/page-1022) — historical deep
+// page numbers Google still crawls after the listing shrank. Capture group 2 = the canton
+// section in the URL → canonicalize to that listing root (NOT a re-derived TI fallback).
+const JOB_BOARD_PAGINATION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(?:alle|tutti|tutte|all|tous|toutes)\\/page-\\d+\\/?$`);
+// Expired job-detail leaves with a trailing numeric job id (e.g. /de/jobs-im-tessin/<slug>/3594).
+// Two segments after the section, so the single-segment job pattern above never matches them.
+const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/[^/]+\\/\\d+\\/?$`);
 
 export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
@@ -202,6 +227,28 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  // bridges, #2041). The matched section IS the canton Google/the user
  // referenced and is always resolvable, so it is the authoritative signal.
  const urlSection = jobSectionMatch[2];
+ const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ return {
+ canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
+ kind: 'expired-job',
+ locale,
+ };
+ }
+
+ const paginationMatch = path.match(JOB_BOARD_PAGINATION_PATTERN);
+ if (paginationMatch) {
+ const urlSection = paginationMatch[2];
+ const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ return {
+ canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ const trailingIdMatch = path.match(JOB_BOARD_TRAILING_ID_PATTERN);
+ if (trailingIdMatch) {
+ const urlSection = trailingIdMatch[2];
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),

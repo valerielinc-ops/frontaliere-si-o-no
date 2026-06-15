@@ -110,6 +110,102 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  it('routes listing pagination leaves to the canton listing root', () => {
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/alle/page-1022')).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/trouver-emploi-tessin/tous/page-454')).toEqual({
+      canonicalPath: '/fr/trouver-emploi-tessin/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/find-jobs-ticino/all/page-510')).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('routes expired job-detail leaves with a trailing numeric id to the listing', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/de/jobs-im-tessin/arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch/3594',
+      ),
+    ).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'expired-job',
+      locale: 'de',
+    });
+  });
+
+  it('routes expired fuel-station leaves to the localized fuel landing', () => {
+    expect(resolveSearchConsoleCompatTarget('/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria')).toEqual({
+      canonicalPath: '/prezzi-diesel/oggi/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // Historical DE/FR section slugs (benzinpreis-schweiz, prix-gasoil-suisse,
+    // prix-essence-suisse) were renamed; map every alias to the live landing.
+    expect(resolveSearchConsoleCompatTarget('/de/benzinpreis-schweiz/lugano/tankstellen/socar-via-colombera')).toEqual({
+      canonicalPath: '/de/dieselpreis-schweiz/heute/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/prix-gasoil-suisse/mendrisio/stations/eni-via-bernasconi')).toEqual({
+      canonicalPath: '/fr/prix-diesel/aujourd-hui/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/prix-essence-suisse/lugano/stations/piccadilly-via-cantonale-2')).toEqual({
+      canonicalPath: '/fr/prix-diesel/aujourd-hui/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+  });
+
+  it('routes expired company-hub week leaves to the hub root', () => {
+    expect(
+      resolveSearchConsoleCompatTarget('/aziende-che-assumono/locarno/amministrazione-cantonale-ticino/settimana-corrente'),
+    ).toEqual({
+      canonicalPath: '/aziende-che-assumono/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(
+      resolveSearchConsoleCompatTarget('/en/companies-hiring/lugano/lis-lugano-istituti-sociali/current-week'),
+    ).toEqual({
+      canonicalPath: '/en/companies-hiring/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('routes legacy flat /lavoro/ job URLs to the localized listing', () => {
+    expect(resolveSearchConsoleCompatTarget('/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino')).toEqual({
+      canonicalPath: '/cerca-lavoro-ticino/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino')).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('covers every URL in the bounded GSC Coverage 404 export', () => {
+    const coverage = JSON.parse(
+      readFileSync(path.resolve(__dirname, '..', 'data', 'gsc-coverage-404s.json'), 'utf-8')
+    );
+    expect(Array.isArray(coverage.paths)).toBe(true);
+    expect(coverage.paths.length).toBeGreaterThan(0);
+    for (const value of coverage.paths) {
+      expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+    }
+  });
+
   it('still returns null for truly unknown paths', () => {
     expect(resolveSearchConsoleCompatTarget('/totally-unknown-path')).toBeNull();
     expect(resolveSearchConsoleCompatTarget('/en/unknown-section/something')).toBeNull();
