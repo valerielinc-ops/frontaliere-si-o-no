@@ -2892,7 +2892,7 @@ const App: React.FC = () => {
    );
  })()}
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
- <div className="hidden md:flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+ <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
  <a
  href={buildPath({ activeTab: 'chi-siamo' as any })}
  onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
@@ -3116,135 +3116,8 @@ const App: React.FC = () => {
  </a>
  </div>
 
- {/* Mobile footer accordion — grouped links for scanability */}
- <div className="md:hidden space-y-1 mt-2">
- {/* Info & Legal */}
- <details className="group border-b border-edge/50">
- <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
- <span>Informazioni</span>
- <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
- </summary>
- <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
- <a href={buildPath({ activeTab: 'correzioni' as any })} onClick={(e) => { e.preventDefault(); navigateTo('correzioni' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><ScrollText className="w-3.5 h-3.5 shrink-0" />Correzioni</a>
-<a href={buildPath({ activeTab: 'metodologia' as any })} onClick={(e) => { e.preventDefault(); navigateTo('metodologia' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Info className="w-3.5 h-3.5 shrink-0" />Metodologia</a>
- <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
- <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
- <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
- <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
- <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline">{t('footer.apiStatus')}</a>
- <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 min-h-[44px] no-underline">{t('partners.footerLink')}</a>
- <a href={buildPath({ activeTab: 'for-employers' as any })} onClick={(e) => { e.preventDefault(); navigateTo('for-employers' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-success py-1.5 min-h-[44px] no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('publisherLanding.footerLink')}</a>
- </div>
- </details>
- {/* Strumenti */}
- <details className="group border-b border-edge/50">
- <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
- <span>Strumenti</span>
- <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
- </summary>
- <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
- <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
- <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
- <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
- <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
- <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
- <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
- <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline">{t('consulting.footerLink')}</a>
- <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
- </div>
- </details>
- {/* Contenuti */}
- <details className="group border-b border-edge/50">
- <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
- <span>Contenuti</span>
- <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
- </summary>
- <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
- <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
- <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 min-h-[44px] no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
- <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-info py-1.5 min-h-[44px] no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
- <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-warning py-1.5 min-h-[44px] no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
- <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-body py-1.5 min-h-[44px] no-underline">{t('sitemap.title')}</a>
- </div>
- </details>
- {/* Social */}
- <div className="py-3">
- <a
- href="https://www.facebook.com/profile.php?id=61588174947294"
- target="_blank"
- rel="noopener noreferrer"
- className="inline-flex items-center gap-1.5 text-xs text-subtle hover:text-accent no-underline"
- aria-label={t('footer.followFacebook')}
- >
- <Facebook className="w-3.5 h-3.5" />
- Facebook
- </a>
- </div>
- {/* Mobile sitemap accordion */}
- <details className="group border-t border-edge/50">
- <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
- <span>Mappa del sito</span>
- <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
- </summary>
- <nav aria-label="Mappa del sito mobile" className="pb-4">
- <div className="grid grid-cols-2 gap-4 text-left">
- <div>
- <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.simulator')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['whatif', 'payslip', 'ral', 'bonus', 'parental-leave', 'residency', 'salary-quiz'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })} onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'whatif' ? 'simulator.whatif' : sub === 'payslip' ? 'strumenti.payslip' : sub === 'ral' ? 'comparators.ral' : sub === 'bonus' ? 'comparators.bonus' : sub === 'parental-leave' ? 'comparators.parentalLeave' : sub === 'residency' ? 'comparators.residency' : 'salaryQuiz.navLabel')}</a></li>
- ))}
- </ul>
- </div>
- <div>
- <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.confronti')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['exchange', 'banks', 'health', 'mobile', 'shopping', 'cost-of-living', 'jobs', 'renovation'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })} onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(`comparators.${sub === 'cost-of-living' ? 'costOfLiving' : sub}`)}</a></li>
- ))}
- </ul>
- </div>
- <div>
- <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-success no-underline hover:underline">{t('nav.fisco')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['tax-return', 'withholding-rates', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'tax-credit'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-muted hover:text-success no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
- ))}
- </ul>
- </div>
- <div>
- <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.guida')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['first-day', 'permits', 'border', 'unemployment', 'car-transfer', 'car-cost', 'permit-compare', 'border-map'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'guida', guidaSubTab: sub })} onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'first-day' ? 'guide.tabs.firstDay' : sub === 'permits' ? 'guide.tabs.permits' : sub === 'border' ? 'guide.tabs.border' : sub === 'unemployment' ? 'guide.tabs.unemployment' : sub === 'car-transfer' ? 'guide.tabs.carTransfer' : sub === 'car-cost' ? 'strumenti.carCost' : sub === 'permit-compare' ? 'strumenti.permitCompare' : 'comparators.borderMap')}</a></li>
- ))}
- </ul>
- </div>
- <div>
- <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-warning no-underline hover:underline">{t('nav.vita')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-muted hover:text-warning no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
- ))}
- </ul>
- </div>
- <div>
- <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.stats')}</a>
- <ul className="mt-1 space-y-0.5 list-none p-0">
- {(['jobs-observatory', 'livability', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices'] as const).map((sub) => (
- <li key={sub}><a href={buildPath({ activeTab: 'stats', statsSubTab: sub })} onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'jobs-observatory' ? 'stats.tabJobsObservatory' : sub === 'livability' ? 'strumenti.livability' : sub === 'salary-compare' ? 'strumenti.salaryCompare' : sub === 'traffic-history' ? 'stats.trafficHistory' : sub === 'unemployment' ? 'stats.tabUnemployment' : sub === 'mortgage' ? 'stats.tabMortgage' : 'stats.tabFuelPrices')}</a></li>
- ))}
- </ul>
- </div>
- </div>
- </nav>
- </details>
- </div>
-
  {/* SEO Sitemap — desktop: full grid, mobile: collapsed accordion */}
- <nav aria-label="Mappa del sito" className="hidden md:block mt-6 pt-4 border-t border-edge/50">
+ <nav aria-label="Mappa del sito" className="mt-6 pt-4 border-t border-edge/50">
  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
  {/* Calcolatore */}
  <div>
