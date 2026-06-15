@@ -28,7 +28,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          # Nessun uso della git history: il job legge solo il working tree
+          # (`git diff --quiet data/url-first-seen.json`), poi `checkout -b`
+          # + commit + push di un branch FRESCO (PR, mai push su main, nessun
+          # rebase né `git show <commit>:<file>`). Il `fetch-depth: 0` qui era
+          # cargo-cult: scaricava ~11GB di `.git` per nulla. `filter:
+          # blob:none` prende commit-graph + blob HEAD e differisce i blob
+          # storici (lazy) → checkout molto più rapido senza perdere capacità.
           fetch-depth: 0
+          filter: blob:none
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
