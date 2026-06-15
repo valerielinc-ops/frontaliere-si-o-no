@@ -41,6 +41,35 @@ export const EMAIL_EXPERIMENT_EVENTS = Object.freeze({
   OPENED: 'email_opened', // conversion: subscriber opened the email
 });
 
+/**
+ * Providers excluded from the A/B experiment. `mailtrap` is a sandbox/testing
+ * ESP that reports ~0 opens (it doesn't track real opens / may not deliver), so
+ * its data would pollute the open-rate comparison. Excluded both from event
+ * capture (no email_sent/email_opened) and from the Firestore winner resolution
+ * (see scripts/lib/newsletter-ab-data.mjs). Single source of truth.
+ */
+export const EXPERIMENT_EXCLUDED_PROVIDERS = new Set(['mailtrap']);
+
+/**
+ * Read the variant persisted on the SEND doc for (email, campaignId). The send
+ * pipeline writes it at `${campaignId}__${email}` (double underscore); the ESP
+ * webhooks write their own delivery doc at a different id, so non-Resend opens
+ * have no variant of their own — look it up here so email_opened carries it.
+ * Never throws.
+ * @param {FirebaseFirestore.DocumentReference} subscriberRef  newsletter_subscribers/{email}
+ * @returns {Promise<string|null>}
+ */
+export async function lookupSentVariant(subscriberRef, campaignId, email) {
+  try {
+    if (!subscriberRef || !campaignId || !email) return null;
+    const docId = `${campaignId}__${email}`.replace(/[^a-z0-9@._-]+/gi, '-');
+    const snap = await subscriberRef.collection('campaign_deliveries').doc(docId).get();
+    return snap.exists ? (snap.data()?.variant || null) : null;
+  } catch {
+    return null;
+  }
+}
+
 const truthy = (v) => ['1', 'true', 'yes'].includes(String(v || '').toLowerCase());
 
 let _configPromise = null;
@@ -95,6 +124,7 @@ export async function isEmailExperimentEnabled() {
 export async function captureEmailEvent(event, props = {}) {
   const { email, variant, provider, campaignId, locale } = props;
   if (!email) return false;
+  if (provider && EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) return false; // e.g. mailtrap sandbox
   const { enabled, key, host } = await resolveConfig();
   if (!enabled) return false;
   try {
