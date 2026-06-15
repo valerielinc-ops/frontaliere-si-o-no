@@ -36,7 +36,7 @@ import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubj
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
-import { pickWinner } from '../services/newsletter-ab-stats.mjs';
+import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
 import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
@@ -1425,34 +1425,40 @@ const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE !== 'false';
 const AB_PROMOTE_LOOKBACK = Math.max(1, Number(process.env.NEWSLETTER_AB_LOOKBACK || 2));
 
 /**
- * Resolve the variant to auto-promote for this campaign by pooling the open
- * rates of the previous `AB_PROMOTE_LOOKBACK` campaigns. Returns the winning
- * variant id, or null to keep an even split. Never throws → failure = no promo.
+ * Resolve auto-promotion winners for this campaign by pooling the previous
+ * `AB_PROMOTE_LOOKBACK` campaigns. Returns a per-provider winner map plus a
+ * global fallback: the send pipeline promotes `byProvider[p] ?? global` for the
+ * provider that actually sends. Never throws → failure = no promotion.
+ *
+ * @returns {Promise<{byProvider:Record<string,string|null>, global:string|null}>}
  */
-async function resolvePromotedVariant(database, campaignId) {
-  if (!AB_AUTOPROMOTE || !database) return null;
+async function resolveWinnersForCampaign(database, campaignId) {
+  if (!AB_AUTOPROMOTE || !database) return { byProvider: {}, global: null };
   try {
     const ids = previousCampaignIds(campaignId, AB_PROMOTE_LOOKBACK);
-    const pooled = {};
+    const pooledCells = {};
     for (const cid of ids) {
-      const { byVariant } = await loadCampaignVariantTotals(database, cid);
-      for (const [v, t] of Object.entries(byVariant)) {
-        pooled[v] ??= { sends: 0, opens: 0 };
-        pooled[v].sends += t.sends;
-        pooled[v].opens += t.opens;
+      const { cells } = await loadCampaignVariantTotals(database, cid);
+      for (const [provider, variants] of Object.entries(cells)) {
+        pooledCells[provider] ??= {};
+        for (const [v, c] of Object.entries(variants)) {
+          pooledCells[provider][v] ??= { sends: 0, opens: 0 };
+          pooledCells[provider][v].sends += c.sends;
+          pooledCells[provider][v].opens += c.opens;
+        }
       }
     }
-    const { winner, openRates, pValue, reason } = pickWinner(pooled);
-    const rates = Object.fromEntries(Object.entries(openRates).map(([k, v]) => [k, `${(v * 100).toFixed(1)}%`]));
-    if (winner) {
-      console.log(`🏆 Auto-promote "${winner}" (p=${pValue?.toFixed(3)}, ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s); rates=${JSON.stringify(rates)}`);
+    const { byProvider, global } = resolveWinnersByProvider(pooledCells);
+    const perProvider = Object.entries(byProvider).filter(([, w]) => w).map(([p, w]) => `${p}:${w}`);
+    if (global || perProvider.length) {
+      console.log(`🏆 Auto-promote (ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s): global=${global || 'none'}${perProvider.length ? `, per-provider=${perProvider.join(',')}` : ''}`);
     } else {
-      console.log(`⚖️  Auto-promote: even split (${reason}); rates=${JSON.stringify(rates)}`);
+      console.log('⚖️  Auto-promote: even split (no significant winner yet)');
     }
-    return winner;
+    return { byProvider, global };
   } catch (e) {
     console.warn('⚠️ Auto-promote skipped:', e?.message);
-    return null;
+    return { byProvider: {}, global: null };
   }
 }
 
@@ -1590,7 +1596,15 @@ async function sendEmailBatchResend(emails, apiKey) {
 }
 
 
-async function sendEmailBatch(emails, apiKey) {
+async function sendEmailBatch(emails, apiKey, finalizeForProvider) {
+  // After a per-provider subject swap, the final variant/subject live on the
+  // payload (the source of truth for what was actually sent) — read them there
+  // so the delivery record + PostHog event reflect the provider's variant.
+  const persistSent = async (item, res) => {
+    const variant = item.payload?.tags?.find((t) => t.name === 'variant')?.value || item.meta?.variant;
+    const subject = item.payload?.subject || item.meta?.subject;
+    await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider, variant, subject });
+  };
   // Single provider mode: force a specific provider via cascade
   if (IS_SINGLE_PROVIDER) {
     console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
@@ -1599,9 +1613,8 @@ async function sendEmailBatch(emails, apiKey) {
       concurrency: 1,
       delayMs: 1000,
       forceProvider: EMAIL_PROVIDER,
-      onSent: async (item, res) => {
-        await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
-      },
+      finalizeForProvider,
+      onSent: persistSent,
     });
     logProviderSummary();
     return result;
@@ -1613,9 +1626,8 @@ async function sendEmailBatch(emails, apiKey) {
     const result = await sendEmailCascade(emails, {
       concurrency: 1,
       delayMs: 1000,
-      onSent: async (item, res) => {
-        await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
-      },
+      finalizeForProvider,
+      onSent: persistSent,
     });
     logProviderSummary();
     return result;
@@ -2120,8 +2132,11 @@ async function main() {
   const emails = [];
 
   // Auto-promotion: bias the variant split toward the recent winner (on by
-  // default; null = even split until a significant winner exists).
-  const promotedVariant = await resolvePromotedVariant(db, campaignId);
+  // default; null/empty = even split until a significant winner exists). The
+  // global winner is the assembly-time default; the per-provider winner is
+  // applied at send time once the provider is known (finalizeForProvider below).
+  const winners = await resolveWinnersForCampaign(db, campaignId);
+  const promotedVariant = winners.global;
 
   for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
@@ -2230,7 +2245,29 @@ async function main() {
     process.exit(1);
   }
 
-  const { sent, failed } = await sendEmailBatch(cappedEmails, apiKey);
+  // Per-provider auto-promotion: once the cascade picks the provider, swap the
+  // subject to that provider's winning variant (epsilon-greedy). The body HTML is
+  // variant-independent, so only the subject + the `variant` tag change. Reads
+  // everything from the self-describing payload so it can run inside the generic
+  // cascade. Never throws → on any issue the assembly-time (global) variant stays.
+  const finalizeForProvider = (payload, provider) => {
+    try {
+      const email = payload?.to?.[0];
+      if (!email) return;
+      const promoted = winners.byProvider[provider] ?? winners.global;
+      if (!promoted) return; // nothing significant for this provider → keep default
+      const loc = payload.tags?.find((t) => t.name === 'subscriber_locale')?.value || 'it';
+      const variant = assignSubjectVariant(email, campaignId, { promotedVariant: promoted, epsilon: DEFAULT_EPSILON });
+      payload.subject = subjectMap.get(subjectKey(loc, variant))
+        || subjectMap.get(subjectKey(loc, variantIds[0]))
+        || getVariantFallback(variant, loc);
+      const vtag = payload.tags?.find((t) => t.name === 'variant');
+      if (vtag) vtag.value = variant;
+      else payload.tags?.push({ name: 'variant', value: variant });
+    } catch { /* leave payload unchanged */ }
+  };
+
+  const { sent, failed } = await sendEmailBatch(cappedEmails, apiKey, finalizeForProvider);
 
   // ── Track only confirmed-sent emails for resume ──
   const sentEmailList = sent.map(e => normalizeEmail(e.recipient.email));
