@@ -332,7 +332,7 @@ Le choix entre LAMal et SSN est l'une des décisions financières les plus impor
 
 **Trois étapes concrètes à suivre maintenant :**
 
-1. **Calculez votre point d'équilibre personnel** en utilisant notre [comparateur LAMal](/fr/comparateurs/assurance-maladie) qui compare les primes des 14 caisses-maladie du Tessin avec le coût du SSN pour votre profil spécifique
+1. **Calculez votre point d'équilibre personnel** en utilisant notre [comparateur LAMal](/fr/comparaison-services/comparer-caisses-maladie/) qui compare les primes des 14 caisses-maladie du Tessin avec le coût du SSN pour votre profil spécifique
 2. **Consultez un professionnel** (conseiller fiscal ou consultant en assurance) pour évaluer l'impact fiscal sur votre déclaration de revenus
 3. **Respectez le délai de 3 mois** — marquez la date dans votre calendrier et ne procrastinez pas
 
