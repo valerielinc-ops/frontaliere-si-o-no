@@ -375,6 +375,24 @@ function pruneEnrichedEntries(state, eligibleKeys, prunableLocales) {
   return evicted;
 }
 
+/**
+ * Persist only the BOUNDED scalar counters from getAiStats() into the committed
+ * data-file head. `getAiStats().errors` is an unbounded array: each fully-failed
+ * `callLLM` pushes a ~12 KB summary joining every model's error (ai-models.mjs
+ * line ~2762). On a run where all free AI models are down, thousands of clusters
+ * × 2 attempts accumulate thousands of such strings, and `saveEnriched` (called
+ * on every partial save) embeds the whole array → the file balloons to hundreds
+ * of MB and the commit ceiling-gate (assert-file-size-ceiling.mjs / #1576/#1658)
+ * refuses to stage it, failing the snapshot. `modelStats` here is write-only
+ * diagnostic metadata (no reader parses it), so we keep only the small scalar
+ * counters and drop every unbounded/array field. Issue #2131.
+ */
+function summarizeAiStats(stats) {
+  if (!stats || typeof stats !== 'object') return {};
+  const { calls, successes, retries, fallbacks, exhausted, providerCooldowns } = stats;
+  return { calls, successes, retries, fallbacks, exhausted, providerCooldowns };
+}
+
 function saveEnriched(state) {
   const byLocale = {};
   for (const e of Object.values(state.entries)) {
@@ -387,7 +405,7 @@ function saveEnriched(state) {
   // file bounded well under GitHub's 100 MB hard push limit (#1576).
   const head = {
     generatedAt: new Date().toISOString(),
-    modelStats: getAiStats(),
+    modelStats: summarizeAiStats(getAiStats()),
     totalEnriched: Object.keys(state.entries).length,
     byLocale,
   };
