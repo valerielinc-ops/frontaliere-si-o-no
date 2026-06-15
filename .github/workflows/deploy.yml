@@ -1001,10 +1001,36 @@ jobs:
             echo "::error::CDN push failed but dist/assets URLs are already rebased to the CDN (no fallback) — failing deploy (last good stays live)"; exit 1
           fi
           # Guard B: any surviving SAME-ORIGIN /assets/ reference in dist HTML?
-          # Extension/path coverage is a SUPERSET of the offload script's Phase 3
-          # (offloadAssetRefs ASSET_FILE) — else a same-origin ref of a type Phase 3
-          # misses would also evade this guard and 404 after delete.
-          if grep -rlE "[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)" --include='*.html' dist 2>/dev/null | head -1 | grep -q .; then
+          # The offload step (which already read+rewrote every CONTENT html in a
+          # top-level-only walk) emitted its verdict to
+          # $RUNNER_TEMP/assets-same-origin.marker using the SAME superset regex
+          # (ASSETS_SAME_ORIGIN_RX, a 1:1 port of the ERE below) — covering every
+          # content *.html at ANY depth. Reuse it instead of re-reading the whole
+          # ~470k-file HTML corpus a second time (~6min). The marker does NOT cover
+          # the three TOP-LEVEL dist/{assets,data,images} dirs that walk skips
+          # (vite assets / *.json / binary — no *.html by construction), so belt-
+          # grep just those three roots here (cheap, near-empty) to keep coverage
+          # IDENTICAL to the original full-tree grep. FAIL-SAFE: a missing marker
+          # (offload crashed mid-walk) falls back to the original full-tree grep,
+          # so this guard is NEVER weaker than before.
+          ASSET_RX="[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)"
+          marker="${RUNNER_TEMP:-/tmp}/assets-same-origin.marker"
+          if [ -f "$marker" ]; then
+            if [ "$(head -1 "$marker")" = "CLEAN" ]; then
+              # marker covered the content tree (any depth); belt-grep only the
+              # top-level roots walk skipped — normally zero *.html, so near-instant.
+              leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist/assets dist/data dist/images 2>/dev/null | head -1)"
+              [ -n "$leak" ] && echo "marker=CLEAN but a top-level assets|data|images *.html still has a same-origin /assets/ ref: $leak"
+            else
+              leak="$(tail -n +2 "$marker" | head -1)"
+              echo "offload marker reports surviving same-origin /assets/ ref(s):"
+              tail -n +2 "$marker" | head -8
+            fi
+          else
+            echo "offload marker absent — falling back to full-tree grep (Guard B)"
+            leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist 2>/dev/null | head -1)"
+          fi
+          if [ -n "$leak" ]; then
             echo "⚠️ some dist HTML still references same-origin /assets/ (not CDN-rebased) — KEEPING dist/assets (no breakage, no asset reduction this round)"
             exit 0
           fi
