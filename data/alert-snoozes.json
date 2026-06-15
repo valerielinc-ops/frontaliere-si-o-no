@@ -2,9 +2,14 @@
   "version": 1,
   "snoozes": {
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 33,
-      "lastSeen": "2026-06-14",
-      "snoozedUntil": "2026-06-21"
+      "consecutiveDays": 34,
+      "lastSeen": "2026-06-15",
+      "snoozedUntil": "2026-06-22"
+    },
+    "B.6.embedding-store-outdated": {
+      "consecutiveDays": 1,
+      "lastSeen": "2026-06-15",
+      "snoozedUntil": null
     }
   }
 }
