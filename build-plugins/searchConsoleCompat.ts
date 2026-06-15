@@ -228,8 +228,19 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  const locale = inferLocale(path);
 
  if (/\/(ricerca|search|suche|recherche)-/.test(path)) {
+ // Canton-aware: a search-style slug under a known job-board section
+ // (e.g. /cerca-lavoro-berna/ricerca-offerte-...) must canonicalize to THAT
+ // canton's listing, not the locale's TI default — otherwise every
+ // ricerca-/suche-/search-/recherche- job slug drifts onto Ticino (the exact
+ // wrong-canton regression #2041 fixed in the expired-job branch below).
+ // Falls back to the locale listing root only when the path isn't under a
+ // recognized section.
+ const sectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
+ const canonicalPath = sectionMatch
+ ? `${JOB_BOARD_PREFIX_BY_LOCALE[locale]}/${sectionMatch[2]}/`.replace(/\/+/g, '/')
+ : listingPathForLocale(locale);
  return {
- canonicalPath: listingPathForLocale(locale),
+ canonicalPath,
  kind: 'search',
  locale,
  };

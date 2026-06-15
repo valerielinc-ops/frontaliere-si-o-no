@@ -19,6 +19,29 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Regression: a search-style slug under a NON-Ticino canton section must
+  // canonicalize to that canton's listing, not drift onto Ticino. The search
+  // branch runs before the expired-job branch, so without canton-awareness
+  // every ricerca-/suche-/search-/recherche- job slug (≈29% of the coverage
+  // cohort) would land on /cerca-lavoro-ticino/ (the #2041 wrong-canton bug).
+  it('keeps the URL canton for search-style slugs under non-Ticino sections', () => {
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-berna/ricerca-offerte-lavoro-software-plc-ingegnere')).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/',
+      kind: 'search',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-schweiz/suche-asset-ostermundigen')).toEqual({
+      canonicalPath: '/de/jobs-in-schweiz/',
+      kind: 'search',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/trouver-emploi-suisse/recherche-ingenieur-metier-rolex')).toEqual({
+      canonicalPath: '/fr/trouver-emploi-suisse/',
+      kind: 'search',
+      locale: 'fr',
+    });
+  });
+
   it('fixes non-Italian company URLs with the wrong azienda prefix', () => {
     expect(resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/azienda-medacta-international-sa')).toEqual({
       canonicalPath: '/de/jobs-im-tessin/unternehmen-medacta-international-sa/',
@@ -206,6 +229,21 @@ describe('Search Console 404 compatibility resolver', () => {
     expect(coverage.paths.length).toBeGreaterThan(0);
     for (const value of coverage.paths) {
       expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+    }
+
+    // Section-preservation guard (not just non-null): every coverage URL under a
+    // per-canton job-board section must canonicalize to the SAME section — no
+    // wrong-canton drift. Excludes company-hub leaves (azienda-/company-/… →
+    // canton-independent TI hub by design). Catches the search-branch shadowing
+    // regression the plain non-null assertion above would miss.
+    const SECTION_RE =
+      /^(?:\/(?:en|de|fr))?\/((?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|trouver-emploi|recherche-emploi|emplois)-[a-z-]+)\//;
+    const COMPANY_SLUG_RE = /\/(?:azienda|company|unternehmen|entreprise)-/;
+    for (const value of coverage.paths) {
+      const m = value.match(SECTION_RE);
+      if (!m || COMPANY_SLUG_RE.test(value)) continue;
+      const res = resolveSearchConsoleCompatTarget(value);
+      expect(res?.canonicalPath, value).toContain(`/${m[1]}/`);
     }
   });
 
