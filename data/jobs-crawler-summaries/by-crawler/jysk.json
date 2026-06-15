@@ -1,18 +1,19 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-06-15T14:52:26.836Z",
+  "generatedAt": "2026-06-15T23:12:52.406Z",
   "total": 16,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 47466,
-  "avgDurationMs": 47466,
+  "durationMs": 40978,
+  "avgDurationMs": 40978,
   "durationHistory": [
-    47466
+    40978
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-wlx1yr",
       "slug": "verkaufer-in-con-lagerverantwortung-a-80-in-der-filiale-seewen-schwyz-jysk-seewen-schwyz-wlx1yr",
@@ -32,16 +33,20 @@
       "crawledAt": "2026-06-15T14:52:26.308Z",
       "firstSeenAt": "2026-06-15T14:52:26.308Z",
       "sourceLang": "de",
-      "_qualityScore": 80,
+      "employmentType": "FULL_TIME",
+      "postalCode": "4500",
+      "addressLocality": "Seewen-Schwyz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "addressRegion": "SO",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-t9nhwx",
       "slug": "facility-coordinatore-a-80-jysk-zofingen-t9nhwx",
