@@ -28,6 +28,7 @@ import {
 } from './seoContentTokens';
 import { calculateSimulation } from '../../services/calculationService';
 import { DEFAULT_INPUTS } from '../../constants';
+import { HEALTH_HREF } from './comparatorHref';
 
 export type SalaryLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -654,7 +655,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'CHF 70,000 in Lugano nets ~EUR 47,000 in pocket after travel + LAMal: weigh it against an EUR 40,000 Milan offer to see the true margin.',
       ctaPrimary: { label: 'Open the comparison', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'Compare specific offers', href: '/en/comparators/compare-job-offers/' },
+      ctaSecondary: { label: 'Compare specific offers', href: '/en/service-comparison/compare-job-offers/' },
       table: {
         caption: 'Equivalent role: Ticino vs Lombardy (senior developer)',
         headers: ['Line', 'Ticino', 'Italy'],
@@ -895,7 +896,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'The real Swiss-vs-Italian gap is 40-60% wider than the gross suggests: compare actual nets before signing.',
       ctaPrimary: { label: 'Calculate net from gross', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'Compare two offers', href: '/en/comparators/compare-job-offers/' },
+      ctaSecondary: { label: 'Compare two offers', href: '/en/service-comparison/compare-job-offers/' },
       table: {
         caption: 'Gross → estimated net (single A0, Lugano)',
         headers: ['CHF gross', 'Monthly net', 'Annual net', 'Net in EUR'],
@@ -1723,7 +1724,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Above CHF 80,000 gross, Permit B pays ~CHF 3,000/year less tax. Below that, Permit G keeps its edge thanks to flexibility + optional Italian SSN.',
       ctaPrimary: { label: 'Calculate G vs B scenarios', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'LAMal vs SSN comparison', href: '/en/comparators/compare-health-insurance/' },
+      ctaSecondary: { label: 'LAMal vs SSN comparison', href: HEALTH_HREF.en },
       table: {
         caption: 'Annual net Permit G vs B · within 20 km (single, A0N, Lugano)',
         headers: ['Line', 'Permit G (Italy)', 'Permit B (CH)', 'Δ favour B'],
@@ -1838,7 +1839,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'For new cross-border workers over 20 km, Permit B is almost always more convenient. Check feasibility: Swiss residence, language, stable contract, B-permit requirements.',
       ctaPrimary: { label: 'Calculate G over 20 km vs B', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'LAMal vs SSN comparison', href: '/en/comparators/compare-health-insurance/' },
+      ctaSecondary: { label: 'LAMal vs SSN comparison', href: HEALTH_HREF.en },
       table: {
         caption: 'Annual net G (over 20 km) vs B · 2026 (single, A0N)',
         headers: ['Line', 'Permit G (>20 km)', 'Permit B (CH)', 'Δ favour B'],
