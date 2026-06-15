@@ -8078,6 +8078,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-vota-si-blocco-abitanti.title': 'Ticino approva il blocco degli abitanti: cosa cambia per i frontalieri',
     'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Il Canton Ticino ha votato a favore dell\'iniziativa UDC contro l\'immigrazione con il 50.66% dei voti. Cosa significa per i frontalieri e il mercato del lavoro ticinese.',
     'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Vista panoramica di Lugano e del lago di Lugano',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Traffico pesante sull\'A2 e le « corse tra elefanti »',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Interrogazione al Consiglio di Stato sul traffico pesante e sorpassi prolungati tra camion sull\'autostrada A2 in Ticino.',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Traffico intenso sull\'autostrada A2 in Ticino, con camion e veicoli in sorpasso, scena realistica.',
 };
 
 export default blogMetaIt;

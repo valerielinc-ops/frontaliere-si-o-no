@@ -8077,6 +8077,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-vota-si-blocco-abitanti.title': 'Ticino approves resident cap: impact on cross-border workers',
     'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'The Canton of Ticino has voted in favour of the UDC initiative against immigration with 50.66% of the votes. What it means for cross-border workers and the Ticino labour market.',
     'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Panoramic view of Lugano and Lake Lugano',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Heavy Traffic on A2 and \'Elephant Races\'',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Question to the Council of State on heavy traffic and prolonged overtaking among trucks on the A2 highway in Ticino.',
+    'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Heavy traffic on Ticino\'s A2 motorway with trucks and vehicles overtaking, realistic scene.',
 };
 
 export default blogMetaEn;
