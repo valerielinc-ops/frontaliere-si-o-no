@@ -32,6 +32,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
   H1_STYLE,
@@ -387,6 +388,8 @@ interface RenderInputs {
   topCities: RankedCity[];
   topSectors: RankedSector[];
   hiringHubHref: string;
+  /** Absolute path per locale for the same canton (self-ref + 4 locales + x-default). */
+  hreflangPaths: HreflangPaths;
   distDir?: string;
 }
 
@@ -519,6 +522,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     title,
     description,
     canonicalUrl: `${BASE_URL}${inp.canonicalPath}`,
+    hreflangHtml: renderHreflangTags(inp.hreflangPaths),
     bodyHtml: main,
     jsonLdScripts: [breadcrumbLd],
     ogLocale: OG_LOCALE[inp.locale],
@@ -650,9 +654,27 @@ export async function emitChCantonSnapshotPages(
     }
     result.cantonsEmitted.push({ code: cantonCode, jobsCount: cantonJobs.length });
 
+    // Build the 4-locale path map ONCE per canton so every emitted locale
+    // page ships a complete, self-referential hreflang block (self-ref + 4
+    // locales + x-default via the shared renderHreflangTags helper). Each
+    // locale uses its own canton slug; fall back to the IT path for any
+    // locale whose slug is missing so HreflangPaths is always complete.
+    const itSlug = getCantonUrlSlugLocal(slugFile, cantonCode, 'it');
+    const hreflangPaths: HreflangPaths | null = itSlug
+      ? (() => {
+          const itPath = buildCantonSnapshotPath('it', itSlug);
+          const paths = { it: itPath, en: itPath, de: itPath, fr: itPath };
+          for (const loc of LOCALES) {
+            const slug = getCantonUrlSlugLocal(slugFile, cantonCode, loc);
+            if (slug) paths[loc] = buildCantonSnapshotPath(loc, slug);
+          }
+          return paths;
+        })()
+      : null;
+
     for (const locale of LOCALES) {
       const cantonSlug = getCantonUrlSlugLocal(slugFile, cantonCode, locale);
-      if (!cantonSlug) continue;
+      if (!cantonSlug || !hreflangPaths) continue;
       const cantonName = getCantonDisplayName(cantonCode, locale);
       const canonicalPath = buildCantonSnapshotPath(locale, cantonSlug);
 
@@ -677,6 +699,7 @@ export async function emitChCantonSnapshotPages(
         topCities: stats.topCities,
         topSectors: stats.topSectors,
         hiringHubHref,
+        hreflangPaths,
         distDir: opts.distDir,
       });
 
