@@ -6840,9 +6840,9 @@
       "slug": "operatorin-operator-technik-80-luks-luzern-2",
       "slugByLocale": {
         "it": "operatorin-operator-technik-80-luks-luzern-2",
-        "en": "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
+        "en": "operatorin-operator-technik-80-luks-luzern-2",
         "de": "operatorin-operator-technik-80-luks-luzern",
-        "fr": "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "operatorin-operator-technik-80-luks-luzern-2"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -6891,11 +6891,13 @@
         "operations-technician-80-luzerner-kantonsspital-luks-luzern",
         "operator-operator-technik-80-luzerner-kantonsspital-luks-luzern",
         "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+        "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
         "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+        "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern",
         "operatorin-operator-technik-80-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern"
       ],
@@ -6906,14 +6908,16 @@
           "technical-operator-80-luzerner-kantonsspital-luks-luzern-e4aad4",
           "operations-technician-80-luzerner-kantonsspital-luks-luzern",
           "operator-operator-technik-80-luzerner-kantonsspital-luks-luzern",
-          "technical-operator-80-luzerner-kantonsspital-luks-luzern"
+          "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+          "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
           "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
           "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
           "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
-          "operateur-technique-80-luzerner-kantonsspital-luks-luzern"
+          "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+          "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern"
         ],
         "it": [
           "operatorin-operator-technik-80-luks-luzern"
@@ -17557,9 +17561,9 @@
       "slug": "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
         "it": "responsabile-physiotherapie-auch-jobsharing-moglich-100-luzerner-kantonsspital-luks-stans",
-        "en": "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "en": "physiotherapy-manager-also-part-time-possible-luzerner-kantonsspital-luks-stans",
         "de": "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
-        "fr": "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans"
+        "fr": "responsable-de-physiotherapie-teletravail-partiel-possible-luzerner-kantonsspital-luks-stans"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -17604,9 +17608,9 @@
       "previousSlugs": [
         "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
         "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans",
+        "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans",
+        "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans",
         "responsabile-fisioterapia-anche-con-lavoro-a-turni-luzerner-kantonsspital-luks-stans",
-        "physiotherapy-manager-also-part-time-possible-luzerner-kantonsspital-luks-stans",
-        "responsable-de-physiotherapie-teletravail-partiel-possible-luzerner-kantonsspital-luks-stans",
         "responsable-de-la-kinesitherapie-possibilite-de-travail-partage-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
@@ -17615,10 +17619,12 @@
           "capo-capo-di-fisioterapia-possibilita-di-lavoro-in-condivisione-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
-          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
+          "head-of-physiotherapy-job-sharing-possible-100-luzerner-kantonsspital-luks-stans"
         ],
         "fr": [
-          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans"
+          "leiter-in-physiotherapie-auch-jobsharing-moglich-100-luks-stans",
+          "responsable-de-la-kinesitherapie-possibilite-de-travail-en-partage-100-luzerner-kantonsspital-luks-stans"
         ]
       },
       "firstSeenAt": "2026-06-10T12:32:08.449Z",
@@ -17991,9 +17997,9 @@
       "slug": "segretario-medico-segretario-medico-mba-histology-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "segretario-medico-segretario-medico-mba-histology-100-temporaneo-fino-al-31-12-2026-luzerner-kantonsspital-luks-luzern",
-        "en": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
+        "en": "medical-secretary-medical-secretary-mba-histology-100-temporary-until-31-12-2026-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
-        "fr": "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
+        "fr": "secretaire-medical-secretaire-medical-mba-histologie-100-temporaire-jusqu-au-31-12-2026-luzerner-kantonsspital-luks"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18043,6 +18049,12 @@
         "it": [
           "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern",
           "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luzerner-kantonsspital-luks-luzern"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-mba-histologie-100-befristet-bis-31-12-2026-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-06-11T13:03:49.199Z",
@@ -18369,9 +18381,9 @@
       "slug": "arztsekretarin-arztsekretar-mba-zytologie-e-empfang-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "arztsekretarin-arztsekretar-mba-zytologie-e-empfang-100-luzerner-kantonsspital-luks-luzern",
-        "en": "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern",
+        "en": "medical-secretary-mba-cytology-and-reception-100-luzerner-kantonsspital-luks-luzern",
         "de": "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern",
-        "fr": "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern"
+        "fr": "secretaire-medical-mba-cytologie-et-reception-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18418,6 +18430,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern"
+        ],
+        "fr": [
           "arztsekretarin-arztsekretar-mba-zytologie-und-empfang-100-luks-luzern"
         ]
       },
@@ -18745,9 +18763,9 @@
       "slug": "pharma-assistentin-pharma-assistent-o-drogistin-drogist-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "pharma-assistentin-pharma-assistent-o-drogistin-drogist-100-luzerner-kantonsspital-luks-luzern",
-        "en": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern",
+        "en": "pharmaceutical-assistant-pharmaceutical-assistant-or-drogist-drogist-100-luzerner-kantonsspital-luks-luzern",
         "de": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern",
-        "fr": "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern"
+        "fr": "assistant-pharmaceutique-assistant-pharmaceutique-ou-drogiste-drogiste-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18794,6 +18812,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern"
+        ],
+        "en": [
+          "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern"
+        ],
+        "fr": [
           "pharma-assistentin-pharma-assistent-oder-drogistin-drogist-100-luks-luzern"
         ]
       },
@@ -18903,9 +18927,9 @@
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
+        "en": "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18952,6 +18976,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
+        ],
+        "fr": [
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ]
       },

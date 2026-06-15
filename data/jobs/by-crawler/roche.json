@@ -13368,7 +13368,7 @@
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
         "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -13409,8 +13409,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategischer-account-executive-pathologielabor-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13420,7 +13419,6 @@
           "strategischer-account-executive-pathologielabor-roche-basel"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -40158,9 +40156,9 @@
     },
     {
       "id": "roche-61c948c56d8a",
-      "slug": "gestione-account-chiave-m-w-d-roche-basel",
+      "slug": "key-account-manager-conti-pubblici-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "gestione-account-chiave-m-w-d-roche-basel",
+        "it": "key-account-manager-conti-pubblici-d-f-m-roche-france",
         "en": "key-account-manager-m-w-d-roche-ch",
         "de": "sachbearbeiter-m-w-d-roche-france",
         "fr": "key-account-manager-m-w-d-roche-ch"
@@ -40205,7 +40203,7 @@
       "previousSlugs": [
         "key-account-manager-comptes-publics-d-f-m-roche-ch",
         "key-account-manager-m-w-d-roche-ch",
-        "key-account-manager-conti-pubblici-d-f-m-roche-france",
+        "gestione-account-chiave-m-w-d-roche-basel",
         "key-account-manager-istologia-e-sequenziamento-roche-basel",
         "key-account-manager-histology-sequencing-roche-ch",
         "key-account-manager-histologie-und-sequenzierung-roche-basel",
@@ -40220,7 +40218,7 @@
         "it": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch",
           "key-account-manager-m-w-d-roche-ch",
-          "key-account-manager-conti-pubblici-d-f-m-roche-france"
+          "gestione-account-chiave-m-w-d-roche-basel"
         ],
         "en": [
           "key-account-manager-comptes-publics-d-f-m-roche-ch"
@@ -53370,12 +53368,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -53415,16 +53413,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -76149,7 +76144,7 @@
         "it": "fabbrica-virtuale-xr-lead-m-f-d-roche-basel",
         "en": "virtual-factory-xr-lead-m-w-d-roche-ch",
         "de": "virtual-factory-xr-lead-m-w-d-roche-ch",
-        "fr": "virtual-factory-xr-lead-m-w-d-roche-ch"
+        "fr": "usine-virtuelle-xr-plomb-m-f-d-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -76193,6 +76188,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "virtual-factory-xr-lead-m-w-d-roche-ch"
+        ],
+        "fr": [
           "virtual-factory-xr-lead-m-w-d-roche-ch"
         ]
       },
@@ -76808,7 +76806,7 @@
       "slugByLocale": {
         "it": "ricercatore-di-design-roche-basel",
         "en": "design-researcher-roche-ch",
-        "de": "design-researcher-roche-ch",
+        "de": "designforscher-roche-basel",
         "fr": "design-researcher-roche-basel"
       },
       "company": "Roche",
@@ -76853,6 +76851,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "design-researcher-roche-ch"
+        ],
+        "de": [
           "design-researcher-roche-ch"
         ]
       },
@@ -76956,7 +76957,7 @@
       "slugByLocale": {
         "it": "data-architetto-rdt-biometrics-and-clinical-evidence-roche-basel",
         "en": "data-architect-rdt-biometrics-and-clinical-evidence-roche-ch",
-        "de": "data-architect-rdt-biometrics-and-clinical-evidence-roche-ch",
+        "de": "data-architect-rdt-biometrie-und-klinische-evidenz-roche-basel",
         "fr": "data-architecte-rdt-biometrics-and-clinical-evidence-roche-basel"
       },
       "company": "Roche",
@@ -77004,6 +77005,9 @@
           "data-architect-rdt-biometrics-and-clinical-evidence-roche-ch"
         ],
         "fr": [
+          "data-architect-rdt-biometrics-and-clinical-evidence-roche-ch"
+        ],
+        "de": [
           "data-architect-rdt-biometrics-and-clinical-evidence-roche-ch"
         ]
       },
@@ -78978,7 +78982,7 @@
       "slugByLocale": {
         "it": "persone-e-cultura-business-partner-roche-basel",
         "en": "people-culture-business-partner-roche-ch",
-        "de": "people-culture-business-partner-roche-ch",
+        "de": "people-culture-geschaftspartner-roche-basel",
         "fr": "people-culture-business-partner-roche-ch"
       },
       "company": "Roche",
@@ -79023,6 +79027,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "people-culture-business-partner-roche-ch"
+        ],
+        "de": [
           "people-culture-business-partner-roche-ch"
         ]
       },
@@ -82748,7 +82755,7 @@
       "slugByLocale": {
         "it": "solution-architetto-dia-r-d-roche-basel",
         "en": "solution-architect-dia-r-d-roche-ch",
-        "de": "solution-architect-dia-r-d-roche-ch",
+        "de": "losungsarchitekt-dia-r-d-roche-basel",
         "fr": "solution-architecte-dia-r-d-roche-basel"
       },
       "company": "Roche",
@@ -82796,6 +82803,9 @@
           "solution-architect-dia-r-d-roche-ch"
         ],
         "fr": [
+          "solution-architect-dia-r-d-roche-ch"
+        ],
+        "de": [
           "solution-architect-dia-r-d-roche-ch"
         ]
       },
@@ -88574,12 +88584,12 @@
     },
     {
       "id": "roche-daf6ab838353",
-      "slug": "senior-research-engineer-microfluidic-systems-r-d-roche-ch",
+      "slug": "senior-ricerca-ingegnere-microfluidic-systems-r-d-roche-santa-clara",
       "slugByLocale": {
         "en": "senior-research-engineer-microfluidic-systems-r-d-roche-ch",
-        "it": "senior-research-engineer-microfluidic-systems-r-d-roche-ch",
-        "de": "senior-research-engineer-microfluidic-systems-r-d-roche-ch",
-        "fr": "senior-research-engineer-microfluidic-systems-r-d-roche-ch"
+        "it": "senior-ricerca-ingegnere-microfluidic-systems-r-d-roche-santa-clara",
+        "de": "senior-forschung-ingenieur-microfluidic-systems-r-d-roche-santa-clara",
+        "fr": "senior-recherche-ingenieur-microfluidic-systems-r-d-roche-santa-clara"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -88635,7 +88645,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-14T22:50:18.018Z"
+      "firstSeenAt": "2026-06-14T22:50:18.018Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-research-engineer-microfluidic-systems-r-d-roche-ch"
+        ],
+        "de": [
+          "senior-research-engineer-microfluidic-systems-r-d-roche-ch"
+        ],
+        "fr": [
+          "senior-research-engineer-microfluidic-systems-r-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-research-engineer-microfluidic-systems-r-d-roche-ch"
+      ]
     },
     {
       "id": "roche-22bcc7eb0d87",

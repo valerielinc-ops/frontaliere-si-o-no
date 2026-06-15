@@ -23,9 +23,12 @@
       "employmentType": "40 - 50%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-14T22:13:41.107Z",
-      "slug": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
+      "slug": "dipendenti-nella-gastronomia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        "de": "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur",
+        "it": "dipendenti-nella-gastronomia-kantonsspital-graubunden-chur",
+        "en": "employees-in-gastronomy-kantonsspital-graubunden-chur",
+        "fr": "salaries-dans-la-gastronomie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Gastronomie",
@@ -56,7 +59,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-12T22:43:01.949Z"
+      "firstSeenAt": "2026-06-12T22:43:01.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-gastronomie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10074077",
@@ -146,9 +157,11 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-14T22:13:41.107Z",
-      "slug": "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur",
+      "slug": "specializzato-per-l-allattamento-specialista-in-allattamento-unita-di-cura-intensiva-per-bambini-kantonsspital",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur",
+        "it": "specializzato-per-l-allattamento-specialista-in-allattamento-unita-di-cura-intensiva-per-bambini-kantonsspital",
+        "fr": "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Kinderintensivstation",
@@ -179,7 +192,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-11T13:00:19.279Z"
+      "firstSeenAt": "2026-06-11T13:00:19.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-kinderintensivstation-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10070436",
@@ -202,9 +223,12 @@
       "employmentType": "70 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-14T22:13:41.107Z",
-      "slug": "stv-teamleiter-in-restaurant-h-kantonsspital-graubunden-chur",
+      "slug": "stv-team-leader-in-ristorante-h-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "stv-teamleiter-in-restaurant-h-kantonsspital-graubunden-chur"
+        "de": "stv-teamleiter-in-restaurant-h-kantonsspital-graubunden-chur",
+        "it": "stv-team-leader-in-ristorante-h-kantonsspital-graubunden-chur",
+        "en": "stv-team-leader-in-restaurant-h-kantonsspital-graubunden-chur",
+        "fr": "chef-d-equipe-stv-au-restaurant-h-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Stv. Teamleiter:in Restaurant H",
@@ -235,7 +259,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-10T23:00:07.686Z"
+      "firstSeenAt": "2026-06-10T23:00:07.686Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-in-restaurant-h-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiter-in-restaurant-h-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10056930",
@@ -6400,7 +6432,7 @@
       "slug": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-        "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+        "it": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "en": "professional-cook-cook-kantonsspital-graubunden-chur",
         "fr": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur"
       },
@@ -6430,6 +6462,7 @@
       "previousSlugs": [
         "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
         "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+        "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur"
@@ -6439,7 +6472,8 @@
           "apprenticeship-as-a-chef-kantonsspital-graubunden-chur"
         ],
         "it": [
-          "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+          "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+          "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
         ],
         "fr": [
           "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
