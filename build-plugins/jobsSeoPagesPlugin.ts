@@ -9760,15 +9760,23 @@ ${staticAnalyticsHtml}
  // Skip entries that don't back an emitted orphan page — keeps the map
  // bounded to the orphan set rather than all historical expired jobs.
  if (!variants.some((v) => emittedSlugs.has(v))) continue;
+ // Count only slug-variant entries actually inserted into the map — NOT
+ // every processed `ej`. With the known 63-way previousSlug collisions a
+ // job whose variants are all already indexed (by 2a or an earlier slice)
+ // adds nothing to the map, so it must not advance the counter: otherwise
+ // the counter inflates past the real retained-entry count and trips
+ // SLICE_AUGMENT_CAP early, truncating readdirSync mid-stream (which
+ // crawler-slices survive then depends on arbitrary filesystem order).
+ // The cap bounds SSG memory (map size), so the counter must track map
+ // growth, not iterations.
  for (const v of variants) {
- if (v && !expiredBySlug.has(v)) expiredBySlug.set(v, ej);
+ if (v && !expiredBySlug.has(v)) { expiredBySlug.set(v, ej); sliceAugmented++; }
  }
- sliceAugmented++;
  if (sliceAugmented >= SLICE_AUGMENT_CAP) { sliceAugmentCapped = true; break; }
  }
  }
  if (sliceAugmented > 0) {
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} per-crawler slice entries (uncapped) for orphan coverage beyond the expired-jobs.json cap`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Augmented expiredBySlug with ${sliceAugmented} per-crawler slice slug-variant entries (uncapped) for orphan coverage beyond the expired-jobs.json cap`);
  }
  if (sliceAugmentCapped) {
  console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m EXPIRED_SLICE_AUGMENT_CAP (${SLICE_AUGMENT_CAP}) reached — long-tail orphan content beyond this is not indexed this build. Raise the cap or shard if intentional.`);
