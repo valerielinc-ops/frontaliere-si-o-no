@@ -113,15 +113,24 @@ function chip(label) {
  * @param {string} [args.locale]       it|en|de|fr (defaults to it).
  * @param {string} args.adUrl          absolute URL to the specific /lavoro/<slug>/ page (with UTM).
  * @param {string} args.unsubscribeUrl absolute unsubscribe URL.
+ * @param {string} [args.locationLabel] the SAME location the CTA slug is built from
+ *   (caller passes the distinctLocations-derived label). Keeps the card's city and
+ *   the CTA's target page consistent for bare-string / empty-first location shapes.
  * @returns {{ subject: string, html: string }}
  */
-export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsubscribeUrl }) {
+export function buildBlastEmail({ ad, recipientEmail, locale = 'it', adUrl, unsubscribeUrl, locationLabel }) {
   const loc = LOCALES.includes(locale) ? locale : 'it';
   const s = STR[loc];
   const title = String(ad?.title || '').trim();
   const company = String(ad?.company?.name || '').trim();
-  const firstLoc = Array.isArray(ad?.locations) && ad.locations[0]
-    ? String(ad.locations[0].label || '').trim() : '';
+  // Prefer the caller-provided label (derived via distinctLocations, identical to
+  // the CTA slug) so the card city never diverges from the linked page; fall back
+  // to the raw first-location label only when not supplied.
+  const firstLoc = String(
+    locationLabel != null && String(locationLabel).trim()
+      ? locationLabel
+      : (Array.isArray(ad?.locations) && ad.locations[0] ? (ad.locations[0].label ?? ad.locations[0]) : ''),
+  ).trim();
   const logoUrl = String(ad?.company?.logoUrl || '').trim();
   const logoOk = /^https:\/\/\S+$/i.test(logoUrl);
   const initial = (company || title || '?')[0].toUpperCase();

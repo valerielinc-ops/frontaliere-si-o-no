@@ -92,6 +92,20 @@ describe('buildBlastEmail', () => {
     const { html } = buildBlastEmail({ ...ARGS, ad: { ...AD, salaryMin: null, salaryMax: null } });
     expect(html).not.toContain('Retribuzione:');
   });
+
+  it('uses the caller-provided locationLabel for the card city (matches CTA slug)', () => {
+    // Degenerate shapes where ad.locations[0].label is empty but the CTA slug
+    // (and thus locationLabel) resolves to a real city — card must show it.
+    const bareString = buildBlastEmail({ ...ARGS, ad: { ...AD, locations: ['Lugano'] }, locationLabel: 'Lugano' });
+    expect(bareString.html).toContain('Lugano');
+    const emptyFirst = buildBlastEmail({ ...ARGS, ad: { ...AD, locations: [{ label: '  ' }, { label: 'Bellinzona' }] }, locationLabel: 'Bellinzona' });
+    expect(emptyFirst.html).toContain('Bellinzona');
+  });
+
+  it('falls back to the raw first location when no locationLabel passed', () => {
+    const { html } = buildBlastEmail({ ...ARGS, locationLabel: undefined });
+    expect(html).toContain('Lugano');
+  });
 });
 
 // Regression for the reviewer 🔴 (#2084): the CTA slug must match the emitted
