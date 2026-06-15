@@ -4,6 +4,19 @@ const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES, resolveWinnersByPro
 const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
 const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 const { previousCampaignIds } = await import('@/scripts/lib/newsletter-ab-data.mjs');
+const { buildDeliveryDocId } = await import('@/functions/src/lib/deliveryDocId.js');
+
+describe('buildDeliveryDocId', () => {
+  it('builds the canonical double-underscore send-doc id (email lowercased)', () => {
+    expect(buildDeliveryDocId('weekly_2026-06-15', 'User@Example.com')).toBe('weekly_2026-06-15__user@example.com');
+  });
+  it('differs from a webhook single-underscore id (so the report can dedup)', () => {
+    const canonical = buildDeliveryDocId('weekly_2026-06-15', 'a@b.com');
+    const webhookId = 'weekly_2026-06-15_a@b.com'; // single underscore (non-Resend webhook form)
+    expect(canonical).not.toBe(webhookId);
+    expect(canonical.includes('__')).toBe(true);
+  });
+});
 
 describe('pickWinner', () => {
   it('returns no winner when a sample is below the gate', () => {
