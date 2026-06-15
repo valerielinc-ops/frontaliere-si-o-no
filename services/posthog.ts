@@ -11,6 +11,7 @@
  */
 
 import { createExceptionFilter } from './posthog-error-filter';
+import { isLikelyBot } from './botPatterns';
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
@@ -20,6 +21,13 @@ let _loading: Promise<void> | null = null;
 
 async function ensurePostHog(): Promise<any> {
  if (_posthog) return _posthog;
+ // Bot gate: never init PostHog for bot sessions. Returning before _loading is
+ // set means no $pageview / $pageleave / session-replay / explicit captures ever
+ // fire for bots — the single biggest lever on event volume against the
+ // free-tier 1M/mo cap. The check is cheap and only runs until a real user's
+ // _posthog instance is cached (after which the early `if (_posthog)` returns).
+ // captureEvent / capturePageView call through here, so they become no-ops too.
+ if (isLikelyBot()) return null;
  if (_loading) {
  await _loading;
  return _posthog;
