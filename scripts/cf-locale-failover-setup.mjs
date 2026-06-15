@@ -29,13 +29,25 @@
  *    edge once a new build is confirmed live, so the long TTL never serves
  *    stale content across deploys.
  *
+ * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
+ *    `description`; foreign rules on the entrypoint preserved). Currently one:
+ *    locale-bot-throttle-noindex-scrapers — blocks non-search scraper bots
+ *    (Amazonbot + SEO tools) on the /en|/de|/fr paths ONLY. The
+ *    WAF runs BEFORE the Worker, so a challenged request never invokes it —
+ *    the only free lever to keep daily invocations under the now-ENFORCED 100k
+ *    cap (Origin Rules host-override, the no-Worker alternative, is Enterprise-
+ *    only). Real search + AI-search crawlers are deliberately NOT matched, so
+ *    the visibility channel keeps getting live locale content (#1867).
+ *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
- * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + zone read.
+ * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
+ * Services:Edit (WAF custom rules) + zone read.
  * Locally:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json \
  *     node scripts/load-rc-env.mjs)" && node scripts/cf-locale-failover-setup.mjs
  *
  * Flags: --dry-run (report drift, change nothing) · --routes-only · --rule-only
+ *        (cache+firewall) · --cache-only · --firewall-only
  * Exit: 0 = converged (or already in shape), 1 = API/auth error.
  */
 
@@ -43,6 +55,54 @@ const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 const WORKER_SCRIPT = 'frontaliere-locale-router';
 const CACHE_PHASE = 'http_request_cache_settings';
+const FIREWALL_PHASE = 'http_request_firewall_custom';
+
+// Non-visibility crawlers throttled on the locale paths ONLY. The Worker's free
+// 100k invocations/day cap is now ENFORCED (observed flat at ~103k, locale 404
+// over-cap — see locale-router.js header + issue #1867); the WAF runs BEFORE the
+// Worker, so blocking a request here means it never invokes the Worker.
+//
+// Scope = exactly the two crawlers the owner approved carving out of the verified
+// crawler allowlist (the foreign skip rule "Allowlist verified SEO + AI crawlers"
+// that precedes this one): Amazonbot (Amazon/Alexa — ~15k/day, the biggest
+// non-search chunk per #1867) and Bytespider (ByteDance/TikTok). Neither is an
+// organic-search or AI-search visibility channel for an Italian cross-border-jobs
+// audience. Every real visibility crawler (Googlebot, Bingbot, AdSense, GPTBot,
+// ClaudeBot, PerplexityBot, Google-Extended, Applebot, DuckDuckBot, Yandex,
+// cohere, verified SEO tools, …) is deliberately NOT in this list, so it never
+// matches this rule and keeps flowing through the allowlist untouched.
+//
+// CRITICAL — this rule is PREPENDED (see assertFirewallRules) so it runs BEFORE
+// the allowlist skip rule. Amazonbot/Bytespider are IN that allowlist (explicit
+// UA + cf.client.bot), so an APPENDED rule never fires (the skip short-circuits
+// first — observed: Amazonbot → 404 reached the Worker). Running first blocks
+// them before the skip, WITHOUT editing the owner's allowlist (which still allows
+// them on IT paths, since this rule is locale-scoped). action = block (not
+// managed_challenge: that lets CF-verified bots pass). Fully reversible: remove
+// the rule or prune a UA.
+const LOCALE_BOT_THROTTLE_UAS = [
+  'Amazonbot',
+  'Bytespider',
+];
+
+const LOCALE_PATH_MATCH =
+  '(starts_with(http.request.uri.path, "/en/") or ' +
+  'starts_with(http.request.uri.path, "/de/") or ' +
+  'starts_with(http.request.uri.path, "/fr/") or ' +
+  'http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"})';
+
+const MANAGED_FIREWALL_RULES = [
+  {
+    description: 'locale-bot-throttle-noindex-scrapers (managed by scripts/cf-locale-failover-setup.mjs)',
+    action: 'block',
+    expression:
+      '(http.host eq "frontaliereticino.ch" and ' +
+      LOCALE_PATH_MATCH +
+      ' and (' +
+      LOCALE_BOT_THROTTLE_UAS.map((ua) => `http.user_agent contains "${ua}"`).join(' or ') +
+      '))',
+  },
+];
 
 // Shared cache settings for both managed rules: make matching requests
 // eligible for the edge cache with a 24h Edge TTL (override_origin — the
@@ -99,8 +159,18 @@ const MANAGED_CACHE_RULES = [
 
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
-const DO_ROUTES = !args.has('--rule-only');
-const DO_RULE = !args.has('--routes-only');
+// Section gating. --routes-only / --rule-only kept for back-compat (--rule-only
+// = cache + firewall, skip routes). --cache-only / --firewall-only isolate a
+// single ruleset so a targeted live apply never touches a sibling's drift.
+const ONLY =
+  (args.has('--routes-only') && 'routes') ||
+  (args.has('--cache-only') && 'cache') ||
+  (args.has('--firewall-only') && 'firewall') ||
+  (args.has('--rule-only') && 'rule') ||
+  null;
+const DO_ROUTES = ONLY === null || ONLY === 'routes';
+const DO_CACHE = ONLY === null || ONLY === 'rule' || ONLY === 'cache';
+const DO_FIREWALL = ONLY === null || ONLY === 'rule' || ONLY === 'firewall';
 
 function bail(msg) {
   console.error(`❌ ${msg}`);
@@ -222,7 +292,56 @@ async function assertCacheRules(zoneId) {
   console.log('cache rules: applied');
 }
 
+function fwShape(r) {
+  // Canonical comparable form for a firewall rule — only OUR contract fields,
+  // in order (CF re-emits normalized/extra fields we ignore).
+  return `${r.action} ${r.enabled === false ? '0' : '1'} ${r.expression} ${r.description || ''}`;
+}
+
+async function assertFirewallRules(zoneId) {
+  // The custom-firewall entrypoint may not exist on a zone with no custom rules
+  // — GET then answers 404; the PUT below creates it.
+  const { status, json } = await cf('GET', `/zones/${zoneId}/rulesets/phases/${FIREWALL_PHASE}/entrypoint`);
+  if (status !== 404 && !json?.success) bail(`Cannot read ${FIREWALL_PHASE} entrypoint: ${JSON.stringify(json?.errors)}`);
+  const existing = status === 404 ? [] : (json.result.rules || []);
+  const stripped = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
+
+  const managedDescriptions = new Set(MANAGED_FIREWALL_RULES.map((s) => s.description));
+  const desiredManaged = MANAGED_FIREWALL_RULES.map((spec) => ({
+    description: spec.description,
+    expression: spec.expression,
+    action: spec.action,
+    enabled: true,
+  }));
+  // Foreign rules (e.g. the owner's verified-crawler allowlist + Ghana
+  // mitigation) are preserved verbatim, in their existing order. OUR rules are
+  // PREPENDED: this block rule MUST run before the allowlist skip, else the skip
+  // short-circuits Amazonbot/Bytespider (both allowlisted) and our rule never
+  // fires. Order-sensitive — that's why we compare the full list, not per-rule.
+  const foreign = stripped.filter((r) => !managedDescriptions.has(r.description));
+  const desired = [...desiredManaged, ...foreign];
+
+  const same =
+    desired.length === stripped.length &&
+    desired.every((r, i) => fwShape(r) === fwShape(stripped[i]));
+  if (same) {
+    console.log('firewall rules: all in shape (managed rules prepended)');
+    return;
+  }
+  console.log(
+    `firewall rules: drift — applying ${desiredManaged.length} managed rule(s) ahead of ${foreign.length} foreign rule(s)${DRY_RUN ? ' (dry-run)' : ''}`,
+  );
+  if (DRY_RUN) return;
+
+  const { json: put } = await cf('PUT', `/zones/${zoneId}/rulesets/phases/${FIREWALL_PHASE}/entrypoint`, {
+    rules: desired,
+  });
+  if (!put?.success) bail(`PUT ${FIREWALL_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
+  console.log('firewall rules: applied');
+}
+
 const zoneId = await resolveZoneId();
 if (DO_ROUTES) await assertFailOpenRoutes(zoneId);
-if (DO_RULE) await assertCacheRules(zoneId);
+if (DO_CACHE) await assertCacheRules(zoneId);
+if (DO_FIREWALL) await assertFirewallRules(zoneId);
 console.log(DRY_RUN ? 'dry-run complete' : 'failover config converged');
