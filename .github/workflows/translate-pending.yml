@@ -190,8 +190,10 @@ jobs:
       # mark-locale-mismatched-jobs / isIncomplete detector re-flags any bad
       # output on the next run, so worst case is a no-op, never a regression.
       # Gate: set LOCAL_MT_DISABLE=1 (repo/workflow var) to skip entirely.
+      # always() so Argos is installed even if the cascade step errored — the
+      # mop-up below (also always()) needs it to translate the leftovers.
       - name: Install Argos Translate (local MT engine)
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
           python3 -m pip install --quiet --upgrade pip
@@ -201,8 +203,13 @@ jobs:
           # pairs through English). Idempotent + retried inside the script.
           python3 scripts/local-mt-translate.py --install
 
+      # always() so the local-MT mop-up still runs even if "Phase 2: Translate
+      # pending jobs" (the cascade) errored or was cut by its time budget — the
+      # mop-up is the safety net that translates whatever the cascade couldn't,
+      # and its results are committed by the always()-guarded commit step below.
+      # Still continue-on-error so a mop-up failure can never fail the workflow.
       - name: "Phase 2 mop-up: local MT (Argos Translate, in-process)"
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
