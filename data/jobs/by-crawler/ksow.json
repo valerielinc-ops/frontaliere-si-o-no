@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksow",
-  "assembledAt": "2026-06-14T22:21:20.714Z",
+  "assembledAt": "2026-06-15T23:19:28.676Z",
   "jobs": [
     {
       "id": "ksow-553b13e21c9c",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fmh-allgemeine-innere-medizin-ca/1rn6v8yexqoha8aa0h3j3v8fwsaljtvz2lq36nnjyhbnst2trkc5tt3golid0m7f",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:18.614Z",
+      "crawledAt": "2026-06-15T23:19:26.681Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -69,6 +69,7 @@
           "Charge de travail : jours fériés individuels et week-ends par an"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
@@ -81,15 +82,15 @@
         "facharzt-fmh-allgemeine-innere-medizin-a-ca-10-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:31.266Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -125,7 +126,7 @@
       "url": "https://link.ostendis.com/publication/physiotherapeut-in-fh/a6efg0x6if55x3bdlwflcg4mxfhjffmtjnm5uw3koat4yk6k46zwti4vfj3n5085",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:16.952Z",
+      "crawledAt": "2026-06-15T23:19:25.148Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -161,6 +162,7 @@
           "Esprit d'équipe et ouverture"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "physiotherapeut-in-fh-a-80-ksow-sarnen"
@@ -173,15 +175,15 @@
         "physiotherapeut-in-fh-a-80-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:27.865Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -217,7 +219,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-in-anaesthesiepflege-nds-hf/hchi3byoxnduiomr2q4tb57d5q2hclz4a4rlhxrx251bbwzfp46rw7d7eza4dy67",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:15.317Z",
+      "crawledAt": "2026-06-15T23:19:23.566Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -256,6 +258,7 @@
           "Plaisir pour la collaboration interdisciplinaire"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
@@ -268,15 +271,15 @@
         "dipl-experte-in-anasthesiepflege-nds-hf-70-100-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:26.168Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -312,7 +315,7 @@
       "url": "https://link.ostendis.com/publication/hebamme-hf-als-beleghebamme/sps0tnlmko6qyyzaidf5ejsnjh7al617qbyx6zmrt55d5etvj0mii5e50rdf3bib",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:13.680Z",
+      "crawledAt": "2026-06-15T23:19:22.021Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -351,6 +354,7 @@
           "Activité en tant que sage-femme indépendante"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
@@ -367,15 +371,15 @@
         "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -411,7 +415,7 @@
       "url": "https://link.ostendis.com/publication/medizinischen-praxisassistent-in-arztsekretaer-in-kardiologie/kw35cynp40el68mt1mz2we0kmenedovs1oke05mtly4bp51ycqhei2d2ipcn33t2",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:12.059Z",
+      "crawledAt": "2026-06-15T23:19:20.459Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -459,6 +463,7 @@
           "Réalisation autonome d'examens médicaux"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
@@ -471,15 +476,15 @@
         "medizinischen-praxisassistent-in-arztsekretar-in-40-100-kardiologie-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:20.839Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -515,7 +520,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf/zvlnudeefxpj3lstnn3rdi0v7fzfv2o6zek40f7yq80ioqeoz2vdodv14sbiie2l",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:10.440Z",
+      "crawledAt": "2026-06-15T23:19:18.904Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -558,6 +563,7 @@
           "Esprit d'équipe, flexibilité et plaisir à travailler dans un environnement dynamique"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
@@ -570,15 +576,15 @@
         "dipl-fachperson-operationstechnik-hf-a-50-100-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:17.375Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -614,7 +620,7 @@
       "url": "https://link.ostendis.com/publication/lagerungspfleger-in/yaqj7d7po5spp85wtqx7hjpqaayw4gehzssx738m7stclh6jo3eyv4afnghcohrd",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:08.794Z",
+      "crawledAt": "2026-06-15T23:19:17.297Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -652,6 +658,7 @@
           "Personnalité flexible et orientée service"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "lagerungspfleger-in-a-60-100-ksow-sarnen"
@@ -664,15 +671,15 @@
         "lagerungspfleger-in-a-60-100-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:15.614Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -708,7 +715,7 @@
       "url": "https://link.ostendis.com/publication/techn-sterilisationsassistent-in-befristet/rfpa5h3aw8vi46v8rsi32eyl2x5kkjolkqxz333k3ce3025g2ag5gq44iz2bitgm",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:03.595Z",
+      "crawledAt": "2026-06-15T23:19:14.537Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -749,6 +756,7 @@
           "Bonnes connaissances en allemand et compétences informatiques"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
@@ -761,15 +769,15 @@
         "techn-sterilisationsassistent-in-50-befristet-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:55.270Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -805,7 +813,7 @@
       "url": "https://link.ostendis.com/publication/oberarzt-leitender-arzt-gastroenterologie/2yph4crwy1zhmnm3ych5gvhtd5rs22y4wom17lshe3x7mbquftb50ie3c4vrlie7",
       "source": "Kantonsspital Obwalden Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:21:00.981Z",
+      "crawledAt": "2026-06-15T23:19:12.526Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -848,6 +856,7 @@
           "Haute compétence sociale ainsi qu'une communication précieuse"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
@@ -860,15 +869,15 @@
         "oberarzt-leitender-arzt-gastroenterologie-20-ksow-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:04:50.682Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
