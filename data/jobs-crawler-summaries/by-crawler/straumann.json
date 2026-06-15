@@ -1,18 +1,19 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-06-15T15:47:14.270Z",
+  "generatedAt": "2026-06-15T23:50:59.087Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6901,
-  "avgDurationMs": 6901,
+  "durationMs": 6783,
+  "avgDurationMs": 6783,
   "durationHistory": [
-    6901
+    6783
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-415c14e24da0",
       "slug": "so-n-ce-3-0-project-gig-straumann-ch",
@@ -25,7 +26,7 @@
       "url": "https://careers.straumann.com/global/en/job/P-100087/so-n-ce-3-0-project-gig",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:11.890Z",
+      "crawledAt": "2026-06-15T23:50:56.714Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "postalCode": "4002",
@@ -40,16 +41,15 @@
       "featured": false,
       "postedDate": "2026-06-15",
       "applyUrl": "https://careers.straumann.com/global/en/job/P-100087/so-n-ce-3-0-project-gig",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-06-15T15:47:11.890Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-cf4a93d7d5b6",
       "slug": "master-data-steward-straumann-ch",
@@ -62,7 +62,7 @@
       "url": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T15:47:11.005Z",
+      "crawledAt": "2026-06-15T23:50:55.921Z",
       "addressLocality": "Villeret",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,7 +75,6 @@
       "featured": false,
       "postedDate": "2026-06-04",
       "applyUrl": "https://careers.straumann.com/global/en/job/21172/master-data-steward",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.720Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -97,7 +96,7 @@
       "url": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:11.420Z",
+      "crawledAt": "2026-06-15T23:50:56.334Z",
       "addressLocality": "Villeret",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +109,6 @@
       "featured": false,
       "postedDate": "2026-06-03",
       "applyUrl": "https://careers.straumann.com/global/en/job/21030/procurement-business-partner-villeret",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -132,7 +130,7 @@
       "url": "https://careers.straumann.com/global/en/job/21128/senior-manager-post-market-clinical-follow-up",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:10.267Z",
+      "crawledAt": "2026-06-15T23:50:55.190Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "postalCode": "4002",
@@ -168,7 +166,7 @@
       "url": "https://careers.straumann.com/global/en/job/20937/senior-global-growth-lead-single-tooth-solutions-sdis-temporary",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:09.923Z",
+      "crawledAt": "2026-06-15T23:50:54.847Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "postalCode": "4002",
@@ -204,7 +202,7 @@
       "url": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:10.656Z",
+      "crawledAt": "2026-06-15T23:50:55.560Z",
       "addressLocality": "Berneck",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,7 +236,7 @@
       "url": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:09.543Z",
+      "crawledAt": "2026-06-15T23:50:54.503Z",
       "addressLocality": "Rheinfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,7 +249,6 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://careers.straumann.com/global/en/job/20367/mitarbeiter-supply-chain-management-w-m-d",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.722Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -273,7 +270,7 @@
       "url": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T15:47:09.148Z",
+      "crawledAt": "2026-06-15T23:50:54.176Z",
       "addressLocality": "Villeret",
       "addressCountry": "CH",
       "country": "CH",
@@ -286,7 +283,6 @@
       "featured": false,
       "postedDate": "2026-03-17",
       "applyUrl": "https://careers.straumann.com/global/en/job/20068/collaborateur-service-infrastructure",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.722Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -308,7 +304,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T15:47:08.683Z",
+      "crawledAt": "2026-06-15T23:50:53.740Z",
       "addressLocality": "Villeret",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,7 +317,6 @@
       "featured": false,
       "postedDate": "2026-01-08",
       "applyUrl": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T07:55:16.721Z",
       "_qualityScore": 74,
       "_qualityBreakdown": {
