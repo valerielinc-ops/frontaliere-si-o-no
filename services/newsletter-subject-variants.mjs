@@ -88,24 +88,42 @@ export function getSubjectVariant(id) {
   return SUBJECT_VARIANTS.find((v) => v.id === id) || null;
 }
 
+/** Default exploration rate for epsilon-greedy auto-promotion: with a promoted
+ * winner, a (1-epsilon) share is exploited and epsilon is explored uniformly (so
+ * the losing arm keeps getting traffic and the test stays live). */
+export const DEFAULT_EPSILON = 0.2;
+
 /**
  * Deterministically assign a variant id for (email, campaignId).
  * Stable for the lifetime of a campaign (so a subscriber never flip-flops across
  * the daily cron re-runs of one weekly campaign) and rotates across campaigns
  * (so the same subscriber isn't always in the same bucket).
  *
+ * Without a `promotedVariant` the split is uniform (the pure A/B baseline). With
+ * one, it is epsilon-greedy: a deterministic (1-epsilon) share is sent the
+ * winner, the rest explores uniformly — so auto-promotion biases toward the
+ * winner while still measuring every arm.
+ *
  * @param {string} email
  * @param {string} campaignId
- * @param {Array}  [variants=SUBJECT_VARIANTS]
+ * @param {{variants?:Array, promotedVariant?:string|null, epsilon?:number}|Array} [opts]
+ *        (an array is accepted for backward compat = the variants list)
  * @returns {string} variant id
  */
-export function assignSubjectVariant(email, campaignId, variants = SUBJECT_VARIANTS) {
+export function assignSubjectVariant(email, campaignId, opts = {}) {
+  const o = Array.isArray(opts) ? { variants: opts } : (opts || {});
+  const { variants = SUBJECT_VARIANTS, promotedVariant = null, epsilon = DEFAULT_EPSILON } = o;
   const list = variants?.length ? variants : SUBJECT_VARIANTS;
   const key = `${normalizeEmail(email)}|${String(campaignId || '')}`;
   const digest = createHash('sha256').update(key).digest();
-  // Use a 4-byte unsigned int for a clean modulo with no first-byte skew.
-  const n = digest.readUInt32BE(0);
-  return list[n % list.length].id;
+  // Independent digest slices: one for the uniform pick, one for the explore/
+  // exploit draw — both deterministic so a subscriber is stable within a campaign.
+  const uniformPick = list[digest.readUInt32BE(0) % list.length].id;
+
+  const promoted = list.find((v) => v.id === promotedVariant);
+  if (!promoted) return uniformPick; // no promotion → pure A/B split
+  const draw = digest.readUInt32BE(4) / 0xffffffff; // [0,1)
+  return draw >= epsilon ? promoted.id : uniformPick; // exploit vs explore
 }
 
 /**
