@@ -3995,6 +3995,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-chiasso-parita-salariale-interrogazione': { name: 'Parità salariale', path: '/articoli-frontaliere/chiasso-parita-salariale-interrogazione', parent: 'blog' },
     'blog-tassa-prenotazione-capanne-cas': { name: 'Tassa Capanne CAS', path: '/articoli-svizzera/tassa-prenotazione-capanne-cas/', parent: 'blog' },
     'blog-ticino-vota-si-blocco-abitanti': { name: 'Novità Ticino', path: '/articoli-frontaliere/ticino-vota-si-blocco-abitanti', parent: 'blog' },
+    'blog-salario-minimo-vaud-si-ma-cantone-sesto': { name: 'Salario minimo Vaud', path: '/articoli-svizzera/salario-minimo-vaud-si-ma-cantone-sesto/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

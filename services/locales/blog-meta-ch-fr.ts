@@ -164,6 +164,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-prenotazione-capanne-cas.title': 'Cabanes CAS : taxe de réservation de 10 francs par nuit',
     'blog.article.tassa-prenotazione-capanne-cas.excerpt': 'Le Club Alpin Suisse introduit une taxe de 10 francs par nuit dans les cabanes gardiennées pour contrer les 40 % d\'annulations de dernière minute.',
     'blog.article.tassa-prenotazione-capanne-cas.imageAlt': 'Cabane alpine suisse en haute altitude',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud approuve le salaire minimum mais rejette la loi',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1 % en faveur de l\'initiative constitutionnelle, 47,5 % contre la loi opérationnelle à 23 CHF/h. Vaud devient le sixième canton avec un salaire minimum.',
+    'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Vue panoramique de Lausanne avec des bâtiments et des drapeaux suisses',
 };
 
 export default blogMetaChFr;
