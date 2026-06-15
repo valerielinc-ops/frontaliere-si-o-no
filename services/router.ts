@@ -55,6 +55,7 @@ import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../bu
 import { NURSING_LANDING_ROUTES, isNursingLandingPath, parseNursingLandingPath } from '../build-plugins/nursingLandingsData';
 import { CAREER_LANDING_ROUTES, isCareerLandingPath, parseCareerLandingPath } from '../build-plugins/careerLandingsData';
 import { PROFESSION_LANDING_ROUTES, isProfessionLandingPath, parseProfessionLandingPath } from '../build-plugins/professionLandingsData';
+import { isProfessionCantonPath, parseProfessionCantonPath } from '../build-plugins/professionCantonData';
 import {
   COST_OF_LIVING_LANDING_ROUTES,
   isCostOfLivingLandingPath,
@@ -2524,6 +2525,16 @@ export function parsePath(pathname: string): ParseResult {
      if (parsed) {
        return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
      }
+   }
+ }
+
+ // Per-canton profession landings (/lavoro-{canton}-{role}/ + locale variants).
+ // Build-time static HTML (gated on real job count); staticOverlay hydrates to
+ // the job board so the SPA doesn't replace the per-canton/profession content.
+ if (isProfessionCantonPath(pathname)) {
+   const parsed = parseProfessionCantonPath(pathname);
+   if (parsed) {
+     return { route: { activeTab: 'job-board', staticOverlay: true }, locale: parsed.locale as Locale };
    }
  }
 

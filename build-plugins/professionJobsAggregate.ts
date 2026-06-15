@@ -321,10 +321,66 @@ export function aggregateProfessionJobs(
   return out;
 }
 
+// ── Per-canton aggregation (profession × canton landings) ────────────────────
+
+/** Half-canton URL-group collapse: AI/AR -> APPENZELLO, BL/BS -> BASILEA. */
+const CANTON_URL_GROUP: Record<string, string> = { AI: 'APPENZELLO', AR: 'APPENZELLO', BL: 'BASILEA', BS: 'BASILEA' };
+
+function jobCantonUrlKey(job: JobRecord): string {
+  const code = resolveJobCanton(job as { canton?: string; location?: string });
+  if (!code) return '';
+  return CANTON_URL_GROUP[code] ?? code;
+}
+
+let _cantonSnapshotCache: Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> | null = null;
+let _cantonCacheRootDir: string | null = null;
+
+/**
+ * Aggregate jobs.json into per-(canton, profession) snapshots — the data source
+ * for the per-canton profession landings. Unlike aggregateProfessionJobs (which
+ * pins to TI), this groups every active job by its canton (half-cantons collapse
+ * to the URL group) and builds a profession snapshot per canton from the REAL
+ * jobs in that canton: topEmployers, median salary and live counts are all
+ * corpus-derived, so each canton page shows genuine local employers.
+ *
+ * Returns `Record<cantonUrlKey, Record<ProfessionId, snapshot>>`. Cached per rootDir.
+ */
+export function aggregateProfessionJobsByCanton(
+  rootDir: string,
+  now: number = Date.now(),
+): Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> {
+  if (_cantonSnapshotCache && _cantonCacheRootDir === rootDir) return _cantonSnapshotCache;
+
+  const allJobs = loadJobs(rootDir);
+  const byCanton = new Map<string, JobRecord[]>();
+  for (const job of allJobs) {
+    const key = jobCantonUrlKey(job);
+    if (!key) continue;
+    const list = byCanton.get(key);
+    if (list) list.push(job);
+    else byCanton.set(key, [job]);
+  }
+
+  const out: Record<string, Record<ProfessionId, ProfessionJobsSnapshot>> = {};
+  for (const [cantonKey, jobs] of byCanton.entries()) {
+    const perProfession = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
+    for (const id of PROFESSION_IDS) {
+      perProfession[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now);
+    }
+    out[cantonKey] = perProfession;
+  }
+
+  _cantonSnapshotCache = out;
+  _cantonCacheRootDir = rootDir;
+  return out;
+}
+
 /** Test/CI helper — clear the module-level cache. */
 export function _resetProfessionJobsAggregateCache(): void {
   _snapshotCache = null;
   _cacheRootDir = null;
+  _cantonSnapshotCache = null;
+  _cantonCacheRootDir = null;
 }
 
 // ── Job-board URL builder ────────────────────────────────────────────────────
