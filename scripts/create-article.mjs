@@ -2431,11 +2431,32 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   // second pass. The hard quality gate is preserved: if every attempt still
   // yields zero verdicts we throw exactly as before (never publish unverified).
   const FACTCHECK_INFRA_RETRIES = 3;
+  // Cap on retry-after-derived backoff between outer fact-check attempts.
+  // The per-model retry inside ai-models.mjs already honours the retry-after
+  // header during its own loop; this cap guards the outer loop that fires when
+  // ALL models have exhausted their per-model retries.
+  const FACTCHECK_429_BACKOFF_CAP_MS = 30_000;
+  let fcLastRejectMsgs = [];
   for (let fcAttempt = 1; fcAttempt <= FACTCHECK_INFRA_RETRIES && modelResults.length === 0; fcAttempt++) {
     if (fcAttempt > 1) {
       console.error(`  🔁 Fact-check: nessun verdetto al tentativo ${fcAttempt - 1} (checker giù/JSON invalido) — ri-eseguo solo la verifica (${fcAttempt}/${FACTCHECK_INFRA_RETRIES})...`);
-      await new Promise(r => setTimeout(r, 1500));
+      // If the previous attempt failed with 429 rate-limit errors, a 1500ms
+      // wait won't clear the limit — read retry-after from the error body when
+      // present, otherwise fall back to 10s. Always cap at 30s to avoid stall.
+      const has429 = fcLastRejectMsgs.some(m => m.includes('429'));
+      let backoffMs = 1500;
+      if (has429) {
+        let retryAfterMs = 10_000;
+        for (const msg of fcLastRejectMsgs) {
+          const m = msg.match(/"retry[_-]after"\s*:\s*(\d+)/i);
+          if (m) retryAfterMs = Math.max(retryAfterMs, Number(m[1]) * 1000);
+        }
+        backoffMs = Math.min(retryAfterMs, FACTCHECK_429_BACKOFF_CAP_MS);
+        console.error(`  ⏱️  Fact-check: 429 rate-limit rilevato — backoff ${backoffMs}ms (cap ${FACTCHECK_429_BACKOFF_CAP_MS}ms)`);
+      }
+      await new Promise(r => setTimeout(r, backoffMs));
     }
+    fcLastRejectMsgs = [];
 
     // Query up to 2 models in parallel for consensus
     const modelsToQuery = verificationModels.slice(0, 2);
@@ -2448,6 +2469,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
         modelResults.push({ model: modelsToQuery[i], ...s.value });
       } else {
         const reason = s.status === 'rejected' ? s.reason?.message : 'no result';
+        fcLastRejectMsgs.push(reason || '');
         console.error(`  ⚠️  LLM fact-check (${modelsToQuery[i]}): fallito — ${reason}`);
       }
     }
@@ -2458,6 +2480,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
         const fallback = await _runSingleFactCheck(verificationModels[2], prompt, { isEvergreen });
         if (fallback) modelResults.push({ model: verificationModels[2], ...fallback });
       } catch (err) {
+        fcLastRejectMsgs.push(err.message || '');
         console.error(`  ⚠️  LLM fact-check fallback (${verificationModels[2]}): ${err.message}`);
       }
     }
