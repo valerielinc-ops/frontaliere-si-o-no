@@ -31,17 +31,19 @@ const FILE = path.resolve(process.cwd(), 'data', 'seo-404-compat-paths.json');
 const STRICT = process.env.PRUNE_404_STRICT === '1';
 
 async function main(): Promise<void> {
-  // Dynamic import: the resolver statically pulls in data/jobs.json (via
-  // slugCantonIndex). If that dataset isn't assembled in this job, we CANNOT
-  // validate resolvability — skip gracefully (exit 0) rather than crash, so the
-  // step is safe to add to any data-refresh workflow. Workflows that want the
-  // prune to actually run must assemble jobs first. In STRICT mode the same
-  // unavailability is fatal (the caller cannot tolerate an unvalidated file).
+  // Dynamic import, kept defensive: the resolver now only statically imports the
+  // committed data/canton-url-slugs.json (since #2041 it no longer pulls in the
+  // CI-assembled data/jobs.json — per-canton job paths canonicalize to the canton
+  // in the URL, not via the slug→canton index). If the import fails for any
+  // reason we CANNOT validate resolvability — skip gracefully (exit 0) rather than
+  // crash, so the step is safe to add to any data-refresh workflow. In STRICT
+  // mode the same unavailability is fatal (the caller cannot tolerate an
+  // unvalidated file).
   let resolveSearchConsoleCompatTarget: (p: string) => unknown | null;
   try {
     ({ resolveSearchConsoleCompatTarget } = await import('../build-plugins/searchConsoleCompat'));
   } catch (err) {
-    const msg = `[prune-404-compat] resolver unavailable (likely data/jobs.json not assembled)`;
+    const msg = `[prune-404-compat] resolver unavailable (import failed)`;
     if (STRICT) {
       console.error(
         `${msg} — STRICT mode: refusing to leave data/seo-404-compat-paths.json unvalidated. ${

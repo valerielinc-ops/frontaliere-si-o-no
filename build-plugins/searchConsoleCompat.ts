@@ -1,27 +1,19 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
-import { getCantonForSlug } from './shared/slugCantonIndex';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 
 type SupportedLocale = CantonLocale;
 
-// Legacy TI sections — preserved here for byte-identical default behavior
-// (listing fallback when no slug is present). Per-slug job redirects use
-// `inferTargetSection()` below which inspects the slug-registry/jobs cantons.
+// Legacy TI sections — the listing fallback used for `search` and `company`
+// compat targets (canton-independent). Per-canton job-detail paths instead
+// canonicalize to the canton section already present in the URL (see the
+// `expired-job` branch in resolveSearchConsoleCompatTarget), so they never
+// fall back to TI.
 const JOB_BOARD_SECTION_BY_LOCALE: Record<SupportedLocale, string> = {
  it: 'cerca-lavoro-ticino', // cathedral-allow: TI legacy section (it)
  en: 'find-jobs-ticino', // cathedral-allow: TI legacy section (en)
  de: 'jobs-im-tessin', // cathedral-allow: TI legacy section (de)
  fr: 'trouver-emploi-tessin', // cathedral-allow: TI legacy section (fr)
 };
-
-/**
- * Pick the canton-aware job-board section a slug should redirect to.
- * Falls back to TI for unknown slugs (byte-identical legacy behavior).
- */
-function inferTargetSection(slug: string, locale: SupportedLocale): string {
- const canton = getCantonForSlug(slug);
- return resolveCantonSection(locale, canton);
-}
 
 const JOB_BOARD_PREFIX_BY_LOCALE: Record<SupportedLocale, string> = {
  it: '',
@@ -137,17 +129,6 @@ function listingPathForLocale(locale: SupportedLocale): string {
  return `${prefix}/${section}/`.replace(/\/+/g, '/');
 }
 
-/**
- * Job-board listing path for the canton inferred from a slug.
- * Falls back to TI (byte-identical legacy behavior) when the slug isn't
- * registered or maps to TI.
- */
-function listingPathForSlug(slug: string, locale: SupportedLocale): string {
- const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
- const section = inferTargetSection(slug, locale);
- return `${prefix}/${section}/`.replace(/\/+/g, '/');
-}
-
 // Build regex segment that matches ANY known job-board section (TI legacy
 // + every per-canton section across all 4 locales). Pre-computed once.
 const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
@@ -213,9 +194,17 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
 
  const jobSectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
  if (jobSectionMatch) {
- const slug = jobSectionMatch[3] || '';
+ // Canonicalize to the canton listing already encoded IN THE URL (capture
+ // group 2), not one re-derived from the slug. The slug here is the *expired*
+ // job slug — absent from the slug→canton index, so getCantonForSlug() used
+ // to return 'TI', drifting a /cerca-lavoro-san-gallo/<expired>/ recovery
+ // page onto /cerca-lavoro-ticino/ (wrong-canton UX on the ~8.6k CF-hot 404
+ // bridges, #2041). The matched section IS the canton Google/the user
+ // referenced and is always resolvable, so it is the authoritative signal.
+ const urlSection = jobSectionMatch[2];
+ const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
- canonicalPath: listingPathForSlug(slug, locale),
+ canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
  kind: 'expired-job',
  locale,
  };

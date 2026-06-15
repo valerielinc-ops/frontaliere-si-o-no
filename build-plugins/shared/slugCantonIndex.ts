@@ -2,9 +2,10 @@
  * Slug → canton reverse index, built once at module load from
  * `data/slug-registry.json` + `data/jobs.json`.
  *
- * Used by redirect/bridge plugins (searchConsoleCompat, legacyRedirectsPlugin,
- * jobOrphanBridgePlugin) to infer which canton section a given job-slug should
- * redirect to.
+ * Used by jobOrphanBridgePlugin to infer which canton section a *matched/current*
+ * job-slug should redirect to. (searchConsoleCompat no longer uses it: since
+ * #2041 per-canton job paths canonicalize to the canton already present in the
+ * URL rather than re-deriving it from the — often expired — slug.)
  *
  * Behavior contract (TI invariance):
  * - If a slug is unknown, return 'TI' so the redirect target is byte-identical

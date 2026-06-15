@@ -35,6 +35,23 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // #2041 — expired non-Ticino job paths must canonicalize to the canton in the
+  // URL, NOT drift onto Ticino. The slug is gone from the slug→canton index, so
+  // the old getCantonForSlug()-based inference fell back to TI; the canton is
+  // already in the URL and is the authoritative signal.
+  it('keeps the URL canton for expired non-Ticino job-detail URLs (no TI drift)', () => {
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-san-gallo/expired-vendita-slug/')).toEqual({
+      canonicalPath: '/cerca-lavoro-san-gallo/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/find-jobs-zurich/expired-developer-slug/')).toEqual({
+      canonicalPath: '/en/find-jobs-zurich/',
+      kind: 'expired-job',
+      locale: 'en',
+    });
+  });
+
   // Full-coverage scan over the committed 404 export. This file is an unbounded
   // GSC-orphan accumulator (~306k paths, ~31MB at time of writing) so the loop
   // cost scales with data size; the default 15s vitest budget overflows under CI
