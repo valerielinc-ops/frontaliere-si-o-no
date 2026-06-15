@@ -3242,6 +3242,7 @@ Regeln:
  'publisherApply.cvPlaceholder': 'https://… (Drive, LinkedIn, eigene Website)',
  'publisherApply.cvUpload': 'Oder Lebenslauf hochladen (PDF oder Word, max. 5 MB)',
  'publisherApply.cvUploading': 'Wird hochgeladen…',
+ 'publisherApply.cvRemove': 'Entfernen',
  'publisherApply.cvError': 'Hochladen fehlgeschlagen. Verwenden Sie eine PDF- oder Word-Datei unter 5 MB oder fügen Sie einen Link ein.',
  'publisherApply.message': 'Nachricht (optional)',
  'publisherApply.consent': 'Ich willige ein, dass meine Kontaktdaten zur Prüfung meiner Bewerbung an den Arbeitgeber gesendet werden, gemäss dessen Datenschutzerklärung.',
