@@ -262,6 +262,34 @@ describe('JS-error-string sanitizer (issues #1682 / #1741)', () => {
     warn.mockRestore();
   });
 
+  it('sanitizes a curly-quoted error string `“location” is not defined` (smart-quote variant, #1849 item 2)', () => {
+    // A tenant emitting `&ldquo;`/`&rdquo;` yields U+201C/U+201D curly quotes that
+    // decodeEntities leaves as-is — must still be caught, not leaked into the slug.
+    const curlyListing = `
+<div class="job"><div class="job-group">
+  <h3 class="jobtitle">Pflegefachperson HF</h3>
+  <div class="location">&ldquo;location&rdquo; is not defined</div>
+  <div class="link"><a id="201820" href="job/details/201820">Details</a></div>
+</div></div>`;
+    const rows = parseSoliqueListing(curlyListing);
+    const broken = rows.find((r: { id: string }) => r.id === '201820');
+    expect(broken).toBeDefined();
+    expect(broken!.location).toBe('');
+    expect(broken!.location).not.toContain('not defined');
+  });
+
+  it('sanitizes a curly-quoted error string in API listing location (#1849 item 2)', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const rows = parseSoliqueApiListing(
+      { jobs: [{ title: { value: 'Test Job', id: '201821' }, location: { value: '“location” is not defined' } }] },
+      'svar',
+      'de',
+    );
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('');
+    warn.mockRestore();
+  });
+
   it('drops a job whose TITLE is JS-error-shaped (would otherwise leak into the slug) — SSR listing', () => {
     const brokenTitle = `
 <div class="job"><div class="job-group">
