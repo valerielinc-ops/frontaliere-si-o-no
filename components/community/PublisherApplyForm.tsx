@@ -10,8 +10,8 @@
  * from the site's silent analytics/ads consent (no cookie banner involved).
  */
 
-import React, { useState } from 'react';
-import { Send, CheckCircle, AlertTriangle } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Send, CheckCircle, AlertTriangle, FileText } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { recaptchaService } from '@/services/recaptchaService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
@@ -19,6 +19,8 @@ import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { getApp } from '@/services/firebase';
+import { useAuth, getAuthEmail, getUserDisplayName } from '@/services/authService';
+import { trackPublisherApplyClick } from '@/services/publisherAnalyticsService';
 
 interface PublisherApplyFormProps {
   jobId: string;
@@ -32,6 +34,7 @@ const labelClass = 'block text-sm font-medium text-body mb-1.5';
 
 const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publisherUid, jobTitle }) => {
   const { t } = useTranslation();
+  const { user } = useAuth();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -41,6 +44,27 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
   // CV file upload (optional, either-or with the manual URL field above).
   const [cvUploading, setCvUploading] = useState(false);
   const [cvUploadError, setCvUploadError] = useState(false);
+  // Storage object path of an uploaded CV (e.g. `cv-uploads/<jobId>/…`). Kept
+  // separate from the pasted-link `cvUrl` field: at submit we prefer the upload.
+  // The forward Cloud Function signs this path into a time-limited read URL —
+  // the client never reads the object (storage.rules denies client reads), so
+  // getDownloadURL() would 403 here; we store the path and let the server sign.
+  const [cvPath, setCvPath] = useState('');
+  const [cvFileName, setCvFileName] = useState('');
+
+  // Prefill name/email for a logged-in user (no clobber once they start typing).
+  // Email is always reliable; name only from a real display name (never the
+  // email-prefix fallback getUserDisplayName() returns for nameless accounts).
+  useEffect(() => {
+    if (!user) return;
+    const authEmail = getAuthEmail(user);
+    if (authEmail) setEmail((prev) => prev || authEmail);
+    const display = getUserDisplayName(user);
+    const emailLocalPart = authEmail ? authEmail.split('@')[0] : '';
+    if (display && display !== 'Utente' && display !== emailLocalPart) {
+      setName((prev) => prev || display);
+    }
+  }, [user]);
 
   // Validate type/size, upload to Firebase Storage, then set cvUrl to the
   // download URL so the existing applications-doc write carries it through.
@@ -59,19 +83,33 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
     setCvUploadError(false);
     setCvUploading(true);
     try {
-      const { getStorage, ref, uploadBytes, getDownloadURL } = await import('firebase/storage');
+      const { getStorage, ref, uploadBytes } = await import('firebase/storage');
       const storage = getStorage(await getApp());
       const safeName = file.name.replace(/[^\w.\-]+/g, '_').slice(-100);
       const path = `cv-uploads/${jobId}/${Date.now()}-${safeName}`;
-      const snap = await uploadBytes(ref(storage, path), file, { contentType: file.type || 'application/octet-stream' });
-      const url = await getDownloadURL(snap.ref);
-      setCvUrl(url);
+      // Reliable content-type: fall back to the extension when the browser
+      // reports none, so the upload still satisfies the storage.rules
+      // `application/.*|text/.*` content-type guard.
+      const contentType =
+        file.type || (/\.pdf$/i.test(file.name) ? 'application/pdf' : 'application/octet-stream');
+      const snap = await uploadBytes(ref(storage, path), file, { contentType });
+      // Store the object path, NOT a download URL: storage.rules denies client
+      // reads, so getDownloadURL() would 403 (the old bug that failed every
+      // upload). The forward Cloud Function signs this path server-side.
+      setCvPath(snap.ref.fullPath);
+      setCvFileName(file.name);
+      setCvUrl('');
     } catch (error) {
       setCvUploadError(true);
       reportCaughtError(error, 'publisherApply.cvUpload');
     } finally {
       setCvUploading(false);
     }
+  };
+
+  const clearUploadedCv = () => {
+    setCvPath('');
+    setCvFileName('');
   };
 
   const valid =
@@ -95,12 +133,18 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
         candidateName: name.trim(),
         candidateEmail: email.trim(),
         message: message.trim() || null,
-        cvUrl: cvUrl.trim() || null,
+        // Prefer an uploaded file (a Storage object path the CF will sign) over a
+        // pasted public link; either is fine, both optional.
+        cvUrl: cvPath || cvUrl.trim() || null,
         consentGiven: true,
         consentText,
         createdAt: serverTimestamp(),
       });
       Analytics.trackUIInteraction('publisher', 'apply', 'submit', 'success');
+      // A submitted application is the strongest apply signal — count it as an
+      // apply click so the publisher's conversion rate reflects direct-scroll
+      // applicants too (session-debounced: no double-count with the page CTAs).
+      void trackPublisherApplyClick(jobId);
       setStatus('success');
     } catch (error) {
       setStatus('error');
@@ -136,22 +180,36 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
         <label htmlFor="apply-cv" className={labelClass}>{t('publisherApply.cv')}</label>
         <input id="apply-cv" type="url" value={cvUrl} onChange={e => setCvUrl(e.target.value)} placeholder={t('publisherApply.cvPlaceholder')} className={inputClass} />
         <div className="mt-2">
-          <label htmlFor="apply-cv-file" className="inline-flex items-center gap-2 text-sm text-link cursor-pointer">
-            <input
-              id="apply-cv-file"
-              type="file"
-              accept=".pdf,.doc,.docx,application/pdf"
-              onChange={e => { void handleCvFile(e); }}
-              disabled={cvUploading}
-              className="block text-sm text-body file:mr-3 file:rounded-xl file:border file:border-edge file:bg-surface file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-link hover:file:bg-surface-alt file:cursor-pointer disabled:opacity-60"
-            />
-            {cvUploading && (
-              <span className="inline-flex items-center gap-1.5 text-xs text-subtle" role="status" aria-live="polite">
-                <span className="animate-spin rounded-full h-3.5 w-3.5 border-2 border-edge border-t-accent" />
-                {t('publisherApply.cvUploading')}
-              </span>
-            )}
-          </label>
+          {cvFileName ? (
+            <div className="inline-flex items-center gap-2 rounded-xl border border-edge bg-surface px-3 py-1.5 text-sm text-strong">
+              <FileText className="w-4 h-4 text-link flex-shrink-0" />
+              <span className="truncate max-w-[200px]">{cvFileName}</span>
+              <button
+                type="button"
+                onClick={clearUploadedCv}
+                className="text-xs text-subtle hover:text-danger underline underline-offset-2"
+              >
+                {t('publisherApply.cvRemove')}
+              </button>
+            </div>
+          ) : (
+            <label htmlFor="apply-cv-file" className="inline-flex items-center gap-2 text-sm text-link cursor-pointer">
+              <input
+                id="apply-cv-file"
+                type="file"
+                accept=".pdf,.doc,.docx,application/pdf"
+                onChange={e => { void handleCvFile(e); }}
+                disabled={cvUploading}
+                className="block text-sm text-body file:mr-3 file:rounded-xl file:border file:border-edge file:bg-surface file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-link hover:file:bg-surface-alt file:cursor-pointer disabled:opacity-60"
+              />
+              {cvUploading && (
+                <span className="inline-flex items-center gap-1.5 text-xs text-subtle" role="status" aria-live="polite">
+                  <span className="animate-spin rounded-full h-3.5 w-3.5 border-2 border-edge border-t-accent" />
+                  {t('publisherApply.cvUploading')}
+                </span>
+              )}
+            </label>
+          )}
           <p className="mt-1 text-xs text-muted">{t('publisherApply.cvUpload')}</p>
           {cvUploadError && (
             <p className="mt-1 text-xs text-danger">{t('publisherApply.cvError')}</p>
