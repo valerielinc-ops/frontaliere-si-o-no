@@ -19,6 +19,7 @@
 
 import { assignSubjectVariant } from '../../services/newsletter-subject-assign.mjs';
 import { EXPERIMENT_EXCLUDED_PROVIDERS } from '../../functions/src/lib/emailExperimentPostHog.js';
+import { buildDeliveryDocId } from '../../functions/src/lib/deliveryDocId.js';
 
 /** Thrown when the single-field collectionGroup index is missing. */
 export class MissingIndexError extends Error {
@@ -75,6 +76,11 @@ export async function loadCampaignVariantTotals(db, campaignId) {
     if (!d.sent_at) continue; // only count real sends
     const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
     if (!email) continue;
+    // Count ONLY the canonical send-path doc. Non-Resend webhooks write their
+    // own delivery doc (single-underscore id) and stamp sent_at on the provider
+    // 'send' event → without this filter every such subscriber is double-counted
+    // (and the webhook doc has no variant → mis-attributed).
+    if (doc.id !== buildDeliveryDocId(campaignId, email)) continue;
     const provider = d.provider || 'unknown';
     if (EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) continue; // e.g. mailtrap sandbox — untracked opens pollute the rate
     // Persisted variant is authoritative; recompute only as a legacy fallback.

@@ -38,6 +38,7 @@ import { getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services
 import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 import { pickWinner, resolveWinnersByProvider } from '../services/newsletter-ab-stats.mjs';
 import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
+import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
@@ -1470,7 +1471,7 @@ async function persistDelivery(recipient, messageId, meta) {
   try {
     const email = normalizeEmail(recipient.email);
     const subRef = db.collection('newsletter_subscribers').doc(email);
-    const deliveryDocId = `${meta.campaignId}__${email}`.replace(/[^a-z0-9@._-]+/gi, '-');
+    const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
     // Store delivery as a subcollection under the subscriber doc
     await subRef.collection('campaign_deliveries').doc(deliveryDocId).set({
       email,

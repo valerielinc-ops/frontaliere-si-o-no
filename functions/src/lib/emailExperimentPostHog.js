@@ -34,6 +34,7 @@
  */
 
 import { getRemoteConfigValue } from '../remoteConfigSecrets.js';
+import { buildDeliveryDocId } from './deliveryDocId.js';
 
 /** Canonical event names — single source of truth for emit + analysis. */
 export const EMAIL_EXPERIMENT_EVENTS = Object.freeze({
@@ -62,7 +63,7 @@ export const EXPERIMENT_EXCLUDED_PROVIDERS = new Set(['mailtrap']);
 export async function lookupSentVariant(subscriberRef, campaignId, email) {
   try {
     if (!subscriberRef || !campaignId || !email) return null;
-    const docId = `${campaignId}__${email}`.replace(/[^a-z0-9@._-]+/gi, '-');
+    const docId = buildDeliveryDocId(campaignId, email);
     const snap = await subscriberRef.collection('campaign_deliveries').doc(docId).get();
     return snap.exists ? (snap.data()?.variant || null) : null;
   } catch {
