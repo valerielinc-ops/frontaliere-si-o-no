@@ -282,6 +282,20 @@ jobs:
             return 0   # never let a single fail short-circuit the chain (rc is in the result file)
           }
 
+          # Pre-seed every validator's result file as FAILED (rc=99). run_validator
+          # OVERWRITES it ("> $RESDIR/$name") with the real row on completion. If a
+          # validator's background subshell is signal-killed AFTER node exits but
+          # BEFORE the awk write (OOM-cgroup kill, runner timeout, /tmp full), the
+          # rc=99 seed survives → the validator counts as FAIL and the gate exits 1,
+          # instead of silently vanishing from the summary (the serial pre-PR code
+          # wrote the row inline, so this kill-window class did not exist — restoring
+          # the "gate exact" guarantee). Format matches the awk row so the summary
+          # parser (grep -oE 'rc=[0-9]+$') reads it.
+          for vn in validate:translation-completeness validate:crawler-summaries \
+                    validate:third-party-secrets gate:seo-source; do
+            printf '%-40s %7.2f rc=%d\n' "$vn" 0 99 > "$RESDIR/$vn"
+          done
+
           # These four validators are independent processes with no shared state
           # and no dist dependency, so run them CONCURRENTLY on the 4-vCPU runner.
           # Wall drops from sum(~6.8min serial) to the slowest single gate
