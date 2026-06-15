@@ -38,7 +38,7 @@ const ALL_TOOLS: ToolDef[] = [
  { id: 'tredicesima', icon: '🎁', slug: '/calcolo-tredicesima-frontaliere', tab: 'calculator', subTab: 'tredicesima', titleKey: 'toolOfWeek.tools.tredicesima', descKey: 'toolOfWeek.tools.tredicesimalDesc', color: 'from-warning-strong to-warning-strong' },
  { id: 'cost-of-living', icon: '🏠', slug: '/compara-servizi/costo-della-vita/', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-info-strong to-accent-strong' },
  { id: 'tax-return', icon: '📋', slug: '/fisco/dichiarazione', tab: 'fisco', subTab: 'tax-return', titleKey: 'toolOfWeek.tools.taxReturn', descKey: 'toolOfWeek.tools.taxReturnDesc', color: 'from-surface-alt0 to-surface-inverted' },
- { id: 'banks', icon: '🏧', slug: '/comparatori/banche', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-info-strong to-success-strong' },
+ { id: 'banks', icon: '🏧', slug: '/compara-servizi/confronta-banche/', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-info-strong to-success-strong' },
  { id: 'payslip', icon: '💰', slug: '/calcola-stipendio/busta-paga', tab: 'calculator', subTab: 'payslip', titleKey: 'toolOfWeek.tools.payslip', descKey: 'toolOfWeek.tools.payslipDesc', color: 'from-success-strong to-success-strong' },
 ];
 
