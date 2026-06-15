@@ -33,6 +33,7 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { isSwissLocationText } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -47,18 +48,13 @@ const BRACCO_API_BASE = 'https://bracco.wd103.myworkdayjobs.com/wday/cxs/bracco/
 const BRACCO_PUBLIC_BASE = 'https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Switzerland detection — keyword-based, NOT brittle Workday location UUIDs.
-// Workday recycles/renames location facet IDs whenever Bracco restructures sites
-// (the old Cadempino/Plan-les-Ouates UUIDs would vanish from the facet list → 0
-// jobs). We instead fetch all Bracco postings and keep the ones whose location
-// text resolves to Switzerland, so the crawler self-heals when Bracco adds/renames
-// CH locations.
-const SWISS_LOCATION_RE =
-  /\b(switzerland|schweiz|suisse|svizzera|cadempino|plan-les-ouates|plan les ouates|gen(?:eva|ève|f)|lugano|mendrisio|manno|bellinzona|locarno|chiasso|zurich|zürich|bern|berne|basel|b[âa]le|ticino)\b/i;
-
-function isSwissLocationText(text = '') {
-  return SWISS_LOCATION_RE.test(String(text || ''));
-}
+// Switzerland detection — text-based via the authoritative shared helper
+// (isSwissLocationText: country tokens + all-26-canton BFS municipality data),
+// NOT brittle Workday location UUIDs. Workday recycles/renames location facet
+// IDs whenever Bracco restructures sites (the old Cadempino/Plan-les-Ouates
+// UUIDs would vanish from the facet list → 0 jobs). We instead fetch all Bracco
+// postings and keep the ones whose location text resolves to Switzerland, so the
+// crawler self-heals when Bracco adds/renames CH locations.
 
 // ─────────────────────────────────────────────────────────────
 // Helpers

@@ -46,6 +46,7 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { isSwissLocationText } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -60,17 +61,13 @@ const FNZ_API_BASE = 'https://fnz.wd3.myworkdayjobs.com/wday/cxs/fnz/fnz_careers
 const FNZ_PUBLIC_BASE = 'https://fnz.wd3.myworkdayjobs.com/en/fnz_careers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Switzerland detection — keyword-based, NOT brittle Workday location UUIDs.
-// Workday recycles/renames location facet IDs whenever FNZ restructures sites
-// (the old Chiasso/Geneva UUIDs vanished from the facet list → 0 jobs). We
-// instead fetch all FNZ postings and keep the ones whose location text resolves
-// to Switzerland, so the crawler self-heals when FNZ adds/renames CH locations.
-const SWISS_LOCATION_RE =
-  /\b(switzerland|schweiz|suisse|svizzera|chiasso|gen(?:eva|ève|f)|lugano|mendrisio|manno|bellinzona|locarno|zurich|zürich|bern|berne|basel|b[âa]le|ticino)\b/i;
-
-function isSwissLocationText(text = '') {
-  return SWISS_LOCATION_RE.test(String(text || ''));
-}
+// Switzerland detection — text-based via the authoritative shared helper
+// (isSwissLocationText: country tokens + all-26-canton BFS municipality data),
+// NOT brittle Workday location UUIDs. Workday recycles/renames location facet
+// IDs whenever FNZ restructures sites (the old Chiasso/Geneva UUIDs vanished
+// from the facet list → 0 jobs). We instead fetch all FNZ postings and keep the
+// ones whose location text resolves to Switzerland, so the crawler self-heals
+// when FNZ adds/renames CH locations.
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

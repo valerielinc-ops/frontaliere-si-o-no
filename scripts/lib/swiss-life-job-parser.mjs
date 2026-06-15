@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isCantonRelevant } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -42,17 +42,16 @@ const WORKDAY_API_BASE =
 const WORKDAY_PUBLIC_BASE =
   'https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site';
 
-// Valais detection — keyword-based, NOT brittle Workday location UUIDs.
-// Workday recycles/renames location facet IDs whenever Swiss Life restructures
-// its general agencies (the old Sion/Visp/Martigny UUIDs would vanish from the
-// facet list → 0 jobs, the silent slow death that broke fnz for 7 runs). We
-// instead fetch ALL postings and keep the ones whose location text resolves to
-// Valais, so the crawler self-heals when Swiss Life adds/renames VS locations.
-const VALAIS_LOCATION_RE =
-  /\b(valais|wallis|vallese|sion|sitten|visp|vi[eè]ge|martigny|sierre|siders|monthey|brig(?:ue)?|brig-glis|naters|conthey|fully|bagnes|savi[eè]se|v[eé]troz|crans-montana|leukerbad|saas-fee|zermatt|verbier)\b/i;
-
+// Valais detection — text-based via the authoritative shared helper
+// (isCantonRelevant(text, 'VS'): canton names + all VS BFS municipalities/aliases
+// + code patterns), NOT brittle Workday location UUIDs. Workday recycles/renames
+// location facet IDs whenever Swiss Life restructures its general agencies (the
+// old Sion/Visp/Martigny UUIDs would vanish from the facet list → 0 jobs, the
+// silent slow death that broke fnz for 7 runs). We instead fetch ALL postings and
+// keep the ones whose location text resolves to Valais, so the crawler self-heals
+// when Swiss Life adds/renames VS locations.
 function isValaisLocationText(text = '') {
-  return VALAIS_LOCATION_RE.test(String(text || ''));
+  return isCantonRelevant(String(text || ''), 'VS');
 }
 
 const PAGE_SIZE = 20;
