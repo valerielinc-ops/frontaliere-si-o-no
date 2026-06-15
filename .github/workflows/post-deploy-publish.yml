@@ -69,9 +69,9 @@ jobs:
           fi
 
       # Hydrate the runner env with secrets pulled from Firebase Remote
-      # Config so the social-media post steps below see FB / LinkedIn
-      # tokens as `process.env.*`.
-      - name: Load secrets from Remote Config (FB + LinkedIn tokens)
+      # Config so the social-media post steps below see FB / LinkedIn /
+      # Reddit tokens as `process.env.*`.
+      - name: Load secrets from Remote Config (FB + LinkedIn + Reddit tokens)
         run: node scripts/load-rc-env.mjs
 
       # Small JSON artifacts only — NO github-pages download here.
@@ -191,6 +191,27 @@ jobs:
           ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
         run: |
           node scripts/post-to-linkedin.mjs \
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
+
+      - name: Post to Reddit Communities
+        if: |
+          success() &&
+          inputs.deploy_event_name == 'workflow_dispatch' &&
+          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
+          steps.wait_live_meta.outcome == 'success'
+        continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
+          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
+          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
+          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
+          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
+        run: |
+          node scripts/post-to-reddit.mjs \
             "$ARTICLE_ID" \
             "$ARTICLE_URL" \
             "$OG_TITLE" \
