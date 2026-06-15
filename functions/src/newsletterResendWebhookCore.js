@@ -2,6 +2,7 @@ import admin from 'firebase-admin';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
+import { buildDeliveryDocId as buildCanonicalDeliveryDocId } from './lib/deliveryDocId.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -100,7 +101,8 @@ function extractTagMap(tags) {
 }
 
 function buildDeliveryDocId(email, campaignId) {
- return `${campaignId}__${normalizeEmail(email)}`.replace(/[^a-z0-9@._-]+/gi, '-');
+ // Delegate to the shared canonical builder (single source of truth).
+ return buildCanonicalDeliveryDocId(campaignId, email);
 }
 
 function buildSubscriberUpdate(eventType, data, currentStatus) {
