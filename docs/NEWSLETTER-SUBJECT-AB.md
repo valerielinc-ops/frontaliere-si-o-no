@@ -83,7 +83,16 @@ events; immune to the per-provider webhook doc-id divergence.
 
 Disabled by default. When enabled, the send path emits `email_sent` (exposure,
 carries `subject_variant` + `email_provider`) and the webhooks emit
-`email_opened` on open. Both share `distinct_id = email`, so in PostHog:
+`email_opened` on open — also carrying `subject_variant` (non-Resend providers
+don't have it in their webhook payload, so it's looked up from the send doc via
+`lookupSentVariant`) so the breakdown works on either step. Both share
+`distinct_id = email`, so in PostHog:
+
+> **Excluded providers.** `mailtrap` (sandbox/testing ESP, reports ~0 real opens)
+> is excluded from the experiment — see `EXPERIMENT_EXCLUDED_PROVIDERS`. Its sends
+> emit no events and the Firestore report drops its data, so it can't deflate the
+> open-rate comparison. (Note: if mailtrap is also a non-delivering sandbox in the
+> live cascade, that's a separate deliverability concern, out of scope here.)
 
 1. Build a **Funnel**: step 1 `email_sent` → step 2 `email_opened`.
 2. **Filter the whole funnel to one `campaign_id`** (analyze one weekly campaign

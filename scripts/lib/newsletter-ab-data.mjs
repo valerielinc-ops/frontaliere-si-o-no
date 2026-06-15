@@ -18,6 +18,7 @@
  */
 
 import { assignSubjectVariant } from '../../services/newsletter-subject-assign.mjs';
+import { EXPERIMENT_EXCLUDED_PROVIDERS } from '../../functions/src/lib/emailExperimentPostHog.js';
 
 /** Thrown when the single-field collectionGroup index is missing. */
 export class MissingIndexError extends Error {
@@ -75,6 +76,7 @@ export async function loadCampaignVariantTotals(db, campaignId) {
     const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
     if (!email) continue;
     const provider = d.provider || 'unknown';
+    if (EXPERIMENT_EXCLUDED_PROVIDERS.has(provider)) continue; // e.g. mailtrap sandbox — untracked opens pollute the rate
     // Persisted variant is authoritative; recompute only as a legacy fallback.
     const variant = d.variant || assignSubjectVariant(email, campaignId);
     if (d.variant && d.variant !== assignSubjectVariant(email, campaignId)) mismatchVariant++;

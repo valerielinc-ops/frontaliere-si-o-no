@@ -58,6 +58,21 @@ describe('emailExperimentPostHog — enabled', () => {
     expect(body.properties.campaign_id).toBe('weekly_2026-06-15');
   });
 
+  it('no-ops for an excluded provider (e.g. mailtrap sandbox) even when enabled', async () => {
+    vi.resetModules();
+    vi.stubEnv('POSTHOG_EMAIL_EXPERIMENT', '1');
+    vi.stubEnv('POSTHOG_PROJECT_KEY', 'phc_test_key');
+    const fetchSpy = vi.fn(async () => ({ ok: true }));
+    vi.stubGlobal('fetch', fetchSpy);
+    const { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, EXPERIMENT_EXCLUDED_PROVIDERS } = await import(MODULE);
+    expect(EXPERIMENT_EXCLUDED_PROVIDERS.has('mailtrap')).toBe(true);
+    const ok = await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
+      email: 'a@b.com', variant: 'concreto', provider: 'mailtrap', campaignId: 'weekly_2026-06-15',
+    });
+    expect(ok).toBe(false);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it('still no-ops when email (distinct_id) is missing', async () => {
     vi.resetModules();
     vi.stubEnv('POSTHOG_EMAIL_EXPERIMENT', 'true');
