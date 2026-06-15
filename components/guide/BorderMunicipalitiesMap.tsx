@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import React, { useState, useMemo, useCallback, useEffect, useDeferredValue } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { borderCrossings } from '@/data/borderCrossings';
 import { MUNICIPALITIES, findMunicipality, type Municipality } from '@/data/municipalities';
@@ -34,6 +34,21 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const [sortDir, setSortDir] = useState<SortDir>('asc');
  const [compareMunicipality, setCompareMunicipality] = useState<string>('');
  const [mobileSettingsOpen, setMobileSettingsOpen] = useState(false);
+ // INP: the salary slider fires onChange on every drag tick, and the province/
+ // sort/compare controls each trigger a full re-derive — calculateMunicipalityTaxImpact
+ // across every municipality, a re-sort, and a re-render of both the SVG map and the
+ // table. Field p75 INP on /vivere-in-ticino/comuni-di-frontiera/ was 944ms (p90 2040ms),
+ // the worst surface on the site, equally bad on mobile + desktop (CPU-bound, not network).
+ // Defer the inputs that feed those heavy memos so the control itself (slider thumb,
+ // dropdown value, sort arrow) repaints instantly while the recompute runs in a
+ // non-blocking transition. The deferred values converge within a frame, so the rendered
+ // map/table is byte-identical — only the paint is unblocked. Feed these ONLY into the
+ // derived memos below, never into the controlled `value=`/active-state reads.
+ const deferredSalary = useDeferredValue(salary);
+ const deferredFilterProvince = useDeferredValue(filterProvince);
+ const deferredSortField = useDeferredValue(sortField);
+ const deferredSortDir = useDeferredValue(sortDir);
+ const deferredCompareMunicipality = useDeferredValue(compareMunicipality);
  // Prefill salary from user profile
  useEffect(() => {
  if (userProfile?.grossSalary) {
@@ -49,30 +64,30 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  const { rate: exchangeRate } = useExchangeRate();
 
  const filtered = useMemo(() => {
- return filterProvince === 'all' ? MUNICIPALITIES : MUNICIPALITIES.filter(m => m.province === filterProvince);
- }, [filterProvince]);
+ return deferredFilterProvince === 'all' ? MUNICIPALITIES : MUNICIPALITIES.filter(m => m.province === deferredFilterProvince);
+ }, [deferredFilterProvince]);
 
  // Calculate tax for all municipalities
  const municipalitiesWithTax = useMemo<MunicipalityWithTax[]>(() => {
  return filtered.map(m => ({
  ...m,
- taxResult: calculateMunicipalityTaxImpact(salary, exchangeRate, m.irpefAddizionale, m.fascia),
+ taxResult: calculateMunicipalityTaxImpact(deferredSalary, exchangeRate, m.irpefAddizionale, m.fascia),
  }));
- }, [filtered, salary, exchangeRate]);
+ }, [filtered, deferredSalary, exchangeRate]);
 
  // Sort municipalities
  const sortedMunicipalities = useMemo(() => {
  return [...municipalitiesWithTax].sort((a, b) => {
  let cmp = 0;
- switch (sortField) {
+ switch (deferredSortField) {
  case 'name': cmp = a.name.localeCompare(b.name, 'it'); break;
  case 'tax': cmp = a.taxResult.finalItalianTaxEUR - b.taxResult.finalItalianTaxEUR; break;
  case 'addizionale': cmp = a.irpefAddizionale - b.irpefAddizionale; break;
  case 'distance': cmp = a.distanceKm - b.distanceKm; break;
  }
- return sortDir === 'asc' ? cmp : -cmp;
+ return deferredSortDir === 'asc' ? cmp : -cmp;
  });
- }, [municipalitiesWithTax, sortField, sortDir]);
+ }, [municipalitiesWithTax, deferredSortField, deferredSortDir]);
 
  // User's municipality from profile
  const userMunicipality = useMemo(() => {
@@ -82,14 +97,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  // Compare municipality (either from profile or manual selection)
  const compareWith = useMemo(() => {
- if (compareMunicipality) return findMunicipality(compareMunicipality) || null;
+ if (deferredCompareMunicipality) return findMunicipality(deferredCompareMunicipality) || null;
  return userMunicipality;
- }, [compareMunicipality, userMunicipality]);
+ }, [deferredCompareMunicipality, userMunicipality]);
 
  const compareTaxResult = useMemo(() => {
  if (!compareWith) return null;
- return calculateMunicipalityTaxImpact(salary, exchangeRate, compareWith.irpefAddizionale, compareWith.fascia);
- }, [compareWith, salary, exchangeRate]);
+ return calculateMunicipalityTaxImpact(deferredSalary, exchangeRate, compareWith.irpefAddizionale, compareWith.fascia);
+ }, [compareWith, deferredSalary, exchangeRate]);
 
  // Cheapest municipality
  const cheapest = useMemo(() => {
