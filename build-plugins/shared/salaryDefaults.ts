@@ -15,9 +15,8 @@
 
 import {
   cantonSalaryFactor,
+  cantonSectorFloor,
   normalizeSalaryCantonCode,
-  STATUTORY_MIN_WAGE_ANNUAL,
-  UNIVERSAL_FLOOR_ANNUAL,
 } from './cantonSalaryIndex';
 
 export interface SalaryBand {
@@ -104,6 +103,26 @@ export const SECTOR_MEDIAN_SALARY_CHF: Record<string, SalaryBand> = {
 };
 
 /**
+ * Map a normalised sector slug (the keys of `SECTOR_MEDIAN_SALARY_CHF`) to the
+ * canonical GAV sector name used as a key in `NATIONAL_SECTOR_GAV_FLOOR_ANNUAL`
+ * (`Construction` / `Hospitality`) — the only two sectors that carry a national
+ * GAV minimum-wage floor. Every other slug is absent here, so it resolves to
+ * `''`, which `cantonSectorFloor` treats as "no GAV floor" (gav = 0) → the
+ * statutory / universal floor only, i.e. the legacy behaviour for those sectors.
+ *
+ * Mirrors `CATEGORY_TO_SECTOR` + the GAV floor table in
+ * scripts/lib/salary-estimation.mjs, so the `.ts` build fallback and the `.mjs`
+ * estimation pipeline floor Edilizia/Ristorazione (Construction/Hospitality)
+ * identically for non-TI cantons.
+ */
+const SLUG_TO_GAV_SECTOR: Record<string, string> = {
+  edilizia: 'Construction',
+  construction: 'Construction',
+  ristorazione: 'Hospitality',
+  hospitality: 'Hospitality',
+};
+
+/**
  * Neutral fallback band for unclassified roles. Conservative — roughly
  * matches a Ticino entry-level service role.
  */
@@ -136,7 +155,9 @@ export function normaliseSectorKey(sector: string | undefined | null): string {
  * the result is byte-identical to the legacy behaviour: floored at
  * `TICINO_MIN_ANNUAL_CHF`. For other cantons the band is scaled by the
  * official BFS wage factor (grossregionMedian / ticinoMedian) and floored at
- * the cantonal statutory minimum wage (or the universal sanity floor).
+ * the national GAV sector floor (Construction / Hospitality), the cantonal
+ * statutory minimum wage, or the universal sanity floor — whichever is highest
+ * (`cantonSectorFloor`), mirroring the `.mjs` estimation pipeline.
  */
 export function resolveSalaryBand(
   sector: string | undefined | null,
@@ -153,7 +174,11 @@ export function resolveSalaryBand(
   }
 
   const factor = cantonSalaryFactor(code);
-  const floor = STATUTORY_MIN_WAGE_ANNUAL[code] || UNIVERSAL_FLOOR_ANNUAL;
+  // Floor at max(national GAV sector floor for Construction/Hospitality,
+  // cantonal statutory minimum, universal sanity floor) — mirrors the .mjs
+  // getCantonSectorFloor path so an Edilizia/Ristorazione job in a non-TI
+  // canton can never fall below its GAV floor in the build fallback.
+  const floor = cantonSectorFloor(SLUG_TO_GAV_SECTOR[key] || '', code);
   const min = Math.max(Math.round((band.minValue * factor) / 100) * 100, floor);
   const max = Math.max(Math.round((band.maxValue * factor) / 100) * 100, min + 1);
   return { minValue: min, maxValue: max, currency: 'CHF' };

@@ -29,6 +29,7 @@ import {
   getCantonSalaryFactor,
   isBorderCanton,
 } from '../scripts/lib/swiss-canton-salary.mjs';
+import { resolveSalaryBand } from '@/build-plugins/shared/salaryDefaults';
 
 describe('swiss-canton-salary index parity (TS literals === JSON)', () => {
   it('grossregion medians match', () => {
@@ -73,5 +74,37 @@ describe('swiss-canton-salary .mjs accessors agree with the .ts twin', () => {
     expect(getCantonSalaryFactor('')).toBe(1);
     expect(getCantonSalaryFactor('XX')).toBe(1);
     expect(cantonSalaryFactor(null)).toBe(1);
+  });
+});
+
+describe('resolveSalaryBand applies the national GAV sector floor (non-TI)', () => {
+  // GAV-floored sectors (Construction / Hospitality) under both their IT and EN
+  // slugs. The build fallback (.ts) must never emit a non-TI baseSalary below
+  // the national GAV floor — mirroring scripts/lib/salary-estimation.mjs's
+  // getCantonSectorFloor path so the two estimation paths can't diverge.
+  const GAV_SLUGS: Array<[string, keyof typeof NATIONAL_SECTOR_GAV_FLOOR_ANNUAL]> = [
+    ['edilizia', 'Construction'],
+    ['construction', 'Construction'],
+    ['ristorazione', 'Hospitality'],
+    ['hospitality', 'Hospitality'],
+  ];
+  const nonTiCantons = Object.keys(json.cantonToGrossregion).filter((c) => c !== 'TI');
+
+  for (const [slug, sector] of GAV_SLUGS) {
+    for (const code of nonTiCantons) {
+      it(`${slug} in ${code} never falls below the ${sector} GAV floor`, () => {
+        const band = resolveSalaryBand(slug, code);
+        expect(band.minValue).toBeGreaterThanOrEqual(NATIONAL_SECTOR_GAV_FLOOR_ANNUAL[sector]);
+      });
+    }
+  }
+
+  it('non-GAV sectors are unaffected (statutory/universal floor only)', () => {
+    // 'logistica' carries no GAV floor → floored at the cantonal statutory
+    // minimum (or universal), exactly as before the GAV wiring.
+    const band = resolveSalaryBand('logistica', 'GE');
+    expect(band.minValue).toBeGreaterThanOrEqual(
+      STATUTORY_MIN_WAGE_ANNUAL.GE ?? UNIVERSAL_FLOOR_ANNUAL,
+    );
   });
 });
