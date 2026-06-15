@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
 const { pickWinner, twoProportionTest, DEFAULT_WINNER_GATES } = await import('@/services/newsletter-ab-stats.mjs');
-const { assignSubjectVariant, DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
+const { DEFAULT_EPSILON, listVariantIds } = await import('@/services/newsletter-subject-variants.mjs');
+const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 const { previousCampaignIds } = await import('@/scripts/lib/newsletter-ab-data.mjs');
 
 describe('pickWinner', () => {

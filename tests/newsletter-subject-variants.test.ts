@@ -5,11 +5,11 @@ const {
   DEFAULT_VARIANT_ID,
   listVariantIds,
   getSubjectVariant,
-  assignSubjectVariant,
   getVariantFallback,
   getVariantStyleDirective,
   normalizeEmail,
 } = await import('@/services/newsletter-subject-variants.mjs');
+const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 
 const { buildSubjectPrompt } = await import('@/services/newsletter-content.mjs');
 
