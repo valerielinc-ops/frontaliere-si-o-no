@@ -989,6 +989,52 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
  stats: 'seo.stats.description',
  vita: 'seo.vita.description',
  blog: 'seo.blog.description',
+ // SPA section landings that previously fell through to the generic
+ // buildLocalizedSeoFallbackDescription() in en/de/fr, producing duplicate
+ // meta descriptions (SearchAtlas non_unique_meta_desc). Each now resolves
+ // a unique, section-specific description key in all 4 locales.
+ whatif: 'seo.whatif.description',
+ ral: 'seo.ral.description',
+ bonus: 'seo.bonus.description',
+ 'parental-leave': 'seo.parentalLeave.description',
+ salaryQuiz: 'seo.salaryQuiz.description',
+ jobs: 'seo.jobs.description',
+ 'tax-return-italia': 'seo.taxReturnItalia.description',
+ 'tax-return-svizzera': 'seo.taxReturnSvizzera.description',
+ nursery: 'seo.nursery.description',
+ renovation: 'seo.renovation.description',
+ quiz: 'seo.quiz.description',
+ firstDay: 'seo.firstDay.description',
+ border: 'seo.border.description',
+ unemployment: 'seo.unemployment.description',
+ 'border-map': 'seo.borderMap.description',
+ livingCH: 'seo.livingCH.description',
+ livingIT: 'seo.livingIT.description',
+ companies: 'seo.companies.description',
+ schools: 'seo.schools.description',
+ places: 'seo.places.description',
+ municipalities: 'seo.municipalities.description',
+ calendar: 'seo.calendar.description',
+ morning: 'seo.morning.description',
+ ristorni: 'seo.ristorni.description',
+ trafficHistory: 'seo.trafficHistory.description',
+ unemploymentStats: 'seo.unemploymentStats.description',
+ mortgageComparison: 'seo.mortgageComparison.description',
+ glossario: 'seo.glossario.description',
+ faq: 'seo.faq.description',
+ dialetto: 'seo.dialetto.description',
+ sitemap: 'seo.sitemap.description',
+ contracts: 'seo.contracts.description',
+ 'tfr-calculator': 'seo.tfrCalculator.description',
+ 'permit-quiz': 'seo.permitQuiz.description',
+ tredicesima: 'seo.tredicesima.description',
+ 'weekly-digest': 'seo.weeklyDigest.description',
+ 'tool-of-week': 'seo.toolOfWeek.description',
+ feedback: 'seo.feedback.description',
+ forum: 'seo.forum.description',
+ dashboard: 'seo.dashboard.description',
+ gamification: 'seo.gamification.description',
+ privacy: 'seo.privacy.description',
 };
 
 function translateIfExists(key: string | undefined): string | null {
@@ -4388,6 +4434,22 @@ function getOgLocale(): string {
  * instead of ?lang= query parameters.
  */
 function updateHreflangTags(route: import('./router').AppRoute): void {
+ // Static-overlay landing pages (recency/today landings, fuel-daily,
+ // border-wait, salary-stats, profession-canton, publisher ads, …) do NOT
+ // carry their specific slug in AppRoute — `buildPath(route, locale)` would
+ // collapse to the generic tab root (e.g. `/cerca-lavoro-ticino/` instead of
+ // `/cerca-lavoro-ticino/oggi/`). Rebuilding hreflang from that root would
+ // emit a self-reference that points away from the actual URL, which is
+ // exactly the SearchAtlas `no_self_ref_hreflang` flag (612 pages).
+ //
+ // The build plugins already emit a correct, self-referential, 4-locale +
+ // x-default hreflang block for these pages (via the shared
+ // `renderHreflangTags()` helper). Leave that server-rendered block intact
+ // rather than clobbering it with route-derived paths the route can't
+ // reconstruct. Same rationale as the canonical/og:url path above, which
+ // uses `window.location.pathname` for staticOverlay routes.
+ if (route.staticOverlay) return;
+
  // Remove existing hreflang tags
  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
 

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-06-14T22:59:04.923Z",
+  "assembledAt": "2026-06-15T15:40:51.560Z",
   "jobs": [
     {
       "id": "wuerth-international-282c8e472e82",
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_SBRechnungswesen.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:59:02.384Z",
+      "crawledAt": "2026-06-15T15:40:49.406Z",
       "previousSlugs": [
         "sachbearbeiter-in-rechnungswesen-a-80-100-wuerth-international-chur"
       ],
@@ -63,16 +63,16 @@
         ]
       },
       "firstSeenAt": "2026-05-05T11:39:02.805Z",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
+      "salaryMin": 165000,
+      "salaryMax": 290000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
+          "minValue": 165000,
+          "maxValue": 290000,
           "unitText": "YEAR"
         }
       }

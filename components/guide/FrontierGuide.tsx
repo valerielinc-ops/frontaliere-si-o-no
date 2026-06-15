@@ -2771,7 +2771,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 arbeit.swiss</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.arbeit')}</div>
  </a>
- <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
+ <a href="https://www.seco.admin.ch/it/assicurazione-disoccupazione-servizio-pubblico-collocamento" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
  <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 SECO</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.seco')}</div>
  </a>
