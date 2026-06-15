@@ -229,6 +229,13 @@ export const AI_MODELS = Object.freeze({
   // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773). No longer served on this NVIDIA account. Dropped from DEFAULT_CHAIN in the same change.
   NV_LLAMA_3_1_8B:   'nvidia/meta/llama-3.1-8b-instruct',
   // NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
+  // NV_MISTRAL_SM_4 / NV_NEMOTRON_NANO_9B added — verified translating de↔it 2026-06-15 via
+  // live integrate.api.nvidia.com calls (replacements for the NV_NEMOTRON_70B/49B that 404'd
+  // on this account in #2196). Neither matches NVIDIA_ALLOW_FAMILY_RE (no nemotron-at-slash /
+  // llama-3.x token), so dynamic discovery does NOT auto-inject them — the static pin is
+  // genuinely additive and survives a discovery timeout/outage. NVIDIA NIM = free tier.
+  NV_MISTRAL_SM_4:      'nvidia/mistralai/mistral-small-4-119b-2603',     // API: mistralai/mistral-small-4-119b-2603 — fast (<1s), clean it/de
+  NV_NEMOTRON_NANO_9B:  'nvidia/nvidia/nvidia-nemotron-nano-9b-v2',       // API: nvidia/nvidia-nemotron-nano-9b-v2 — correct it/de, slower (~29s)
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
   HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
   HF_LLAMA_3_3_70B:'hf/meta-llama/Llama-3.3-70B-Instruct',
@@ -456,6 +463,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CF_GLM_47_FLASH,    // 69. GLM 4.7 Flash           (Cloudflare Workers AI)
   // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773); no longer served on this NVIDIA account
   AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
+  AI_MODELS.NV_MISTRAL_SM_4,     // 71b. Mistral Small 4 119B  (NVIDIA NIM — added, verified translating it↔de 2026-06-15; fast <1s)
+  AI_MODELS.NV_NEMOTRON_NANO_9B, // 71c. Nemotron Nano 9B v2   (NVIDIA NIM — added, verified translating it↔de 2026-06-15; slower ~29s)
   // AI_MODELS.NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
   // AI_MODELS.CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
