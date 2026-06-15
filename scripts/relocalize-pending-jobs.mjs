@@ -62,7 +62,7 @@ function parseMaxJobs() {
     const val = Number(args[idx + 1]);
     if (!isNaN(val) && val > 0) return val;
   }
-  return Number(process.env.RELOCALIZE_MAX_JOBS) || 200;
+  return Number(process.env.RELOCALIZE_MAX_JOBS) || 100;
 }
 
 const MAX_JOBS = parseMaxJobs();
@@ -397,19 +397,14 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     JOBS_SKIP_CRAWL_CHANGE_SUMMARY: '1',
     // Ensure AI translation is NOT skipped in the translation pipeline
     SKIP_AI_TRANSLATION: '0',
-    // Translation throughput knob. The backfill-localization queue defaults to
-    // concurrency=2 in localize-existing mode (shared-jobs-crawler.mjs ~5045),
-    // the dominant wall-time cost of translate-pending (~240min for ~100 jobs at
-    // ~47s/job; per-company crawler boot is only ~1.2s). A live run at
-    // concurrency=6 measured FLAT throughput (~53s/job) because MyMemory's
-    // module-level rate-limit throttle serialised the workers — concurrency alone
-    // is not the lever. Set to 5 to respect MyMemory's documented "max 5
-    // concurrent" ceiling; the real gains come from the cascade-level fixes
-    // shipped alongside: (a) a race-free 1s-spaced slot in mymemory-translate.mjs
-    // and (b) promoting the unlimited self-hosted LibreTranslate above MyMemory
-    // in free-translate.mjs so the parallel load lands on a no-throttle tier.
-    // Env-overridable so the workflow can dial it back under provider rate-limit.
-    JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '5',
+    // Translation throughput knob. Set to 2 to match the 2-core GitHub runner:
+    // self-hosted LibreTranslate (Argos Translate, CPU-bound) degrades under
+    // concurrency > 2 on a 2-core box — each overloaded request pays the full
+    // LIBRETRANSLATE_TIMEOUT_MS before falling through to the next tier. At
+    // concurrency=2 the runner's cores are fully utilised without thrashing.
+    // Higher concurrency values measured flat or negative throughput on 2-core
+    // hardware (#2018 → #2044 revert). Env-overridable for local/stronger runners.
+    JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
   };
 
   console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);
