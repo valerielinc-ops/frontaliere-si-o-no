@@ -5,12 +5,15 @@
   "enabled": true,
   "priority": 10,
   "crawlerModes": [
+    "sitemap",
     "html",
     "jsonld"
   ],
   "seedUrls": [
-    "https://jobs.inspirededu.com/job/Lugano-German-Teacher/1359419457/"
+    "https://jobs.inspirededu.com/sitemap.xml",
+    "https://jobs.inspirededu.com/search-jobs/results?Location=Lugano&CurrentPage=1",
+    "https://jobs.inspirededu.com/search-jobs/results?Location=Chur&CurrentPage=1"
   ],
-  "notes": "TalentBrew/iCIMS portal at jobs.inspirededu.com — search by Lugano + Graubünden locations for IST TI/GR positions.",
-  "updatedAt": "2026-06-10T22:52:37.544Z"
+  "notes": "SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR). seedUrls are stable location entry points, not per-job URLs (those 404 once a posting is filled). IST often has zero live TI/GR openings, in which case the crawler legitimately keeps existing data with no error.",
+  "updatedAt": "2026-06-15T16:52:58.581Z"
 }
