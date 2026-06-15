@@ -19,7 +19,9 @@ const FORBIDDEN = [
 // hardcode is correct legacy preservation. New canton-aware code should
 // import resolveCantonSection() from build-plugins/shared/cantonSection.
 const ALLOWLIST = [
-  // ── Canton-section helper itself: defines the TI legacy section table ──
+  // ── Canton-section typed shim: the TI legacy section table now lives in
+  //    shared/cantonResolvers.mjs (inline cathedral-allow markers); this file
+  //    only quotes the literals inside the legacyTiSectionRoot() docblock. ──
   'build-plugins/shared/cantonSection.ts',
 
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
