@@ -18,6 +18,14 @@ import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const RETENTION_DAYS = 90;
+// Same bucket the client uploads CVs to (storage.rules cv-uploads/**). The admin
+// app may be initialised without an explicit storageBucket, so name it here.
+const STORAGE_BUCKET =
+  process.env.FIREBASE_STORAGE_BUCKET ||
+  process.env.STORAGE_BUCKET ||
+  'frontaliere-ticino.firebasestorage.app';
+// V4 signed-URL max lifetime is 7 days; the publisher should review promptly.
+const CV_SIGNED_URL_TTL_MS = 7 * 86400000;
 
 function db() {
   return admin.firestore();
@@ -25,6 +33,32 @@ function db() {
 
 function esc(s) {
   return String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+/**
+ * Resolve the candidate CV reference into a clickable link for the publisher.
+ * - A pasted public link (http/https) is used as-is.
+ * - An uploaded file is stored as a Storage object path (storage.rules denies
+ *   client reads, so the client never holds a download URL); sign a short-lived
+ *   read URL here with the Admin SDK. Signing failures degrade gracefully to
+ *   null (CV omitted) rather than blocking the forward email.
+ * @param {string|null|undefined} cvRef
+ * @returns {Promise<string|null>}
+ */
+export async function resolveCvLink(cvRef) {
+  const v = String(cvRef ?? '').trim();
+  if (!v) return null;
+  if (/^https?:\/\//i.test(v)) return v;
+  try {
+    const [url] = await admin
+      .storage()
+      .bucket(STORAGE_BUCKET)
+      .file(v)
+      .getSignedUrl({ action: 'read', expires: Date.now() + CV_SIGNED_URL_TTL_MS });
+    return url;
+  } catch (e) {
+    return null;
+  }
 }
 
 /**
@@ -64,11 +98,12 @@ export async function handleForwardApplication(appData, appId) {
   const resend = new Resend(resendApiKey);
 
   const jobTitle = job.title || '';
+  const cvLink = await resolveCvLink(appData.cvUrl);
   const html =
     `<h2>Nuova candidatura — ${esc(jobTitle)}</h2>` +
     `<p><strong>Nome:</strong> ${esc(appData.candidateName)}</p>` +
     `<p><strong>Email:</strong> ${esc(appData.candidateEmail)}</p>` +
-    (appData.cvUrl ? `<p><strong>CV:</strong> <a href="${esc(appData.cvUrl)}">${esc(appData.cvUrl)}</a></p>` : '') +
+    (cvLink ? `<p><strong>CV:</strong> <a href="${esc(cvLink)}">Apri il CV del candidato</a></p>` : '') +
     (appData.message ? `<p><strong>Messaggio:</strong><br>${esc(appData.message)}</p>` : '') +
     `<hr><p style="font-size:12px;color:#666">Candidatura inviata tramite Frontaliere Ticino con consenso esplicito del candidato (${esc(appData.consentText || 'consenso registrato')}).</p>`;
 

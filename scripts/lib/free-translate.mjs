@@ -319,17 +319,36 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
     body.append('preserve_formatting', '1');
     body.append('split_sentences', 'nonewlines');
 
-    const res = await fetch('https://api-free.deepl.com/v2/translate', {
-      method: 'POST',
-      headers: {
-        'Authorization': `DeepL-Auth-Key ${apiKey}`,
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: body.toString(),
-      signal: AbortSignal.timeout(TIMEOUT_MS),
-    });
-    if (res.status === 456 || res.status === 429) {
-      throw Object.assign(new Error(`DeepL ${res.status}`), { quotaExhausted: true });
+    // 429 is a *transient* rate-limit, not a permanent quota wall — retry the
+    // same key a few times with a short backoff before giving up. 456 is the
+    // real monthly-quota-exceeded signal and must NOT be retried.
+    const MAX_429_RETRIES = 2;
+    let res;
+    for (let rl = 0; ; rl++) {
+      res = await fetch('https://api-free.deepl.com/v2/translate', {
+        method: 'POST',
+        headers: {
+          'Authorization': `DeepL-Auth-Key ${apiKey}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: body.toString(),
+        signal: AbortSignal.timeout(TIMEOUT_MS),
+      });
+      if (res.status === 456) {
+        // Real monthly quota exhausted → mark key exhausted for the run.
+        throw Object.assign(new Error('DeepL 456'), { quotaExhausted: true });
+      }
+      if (res.status === 429) {
+        if (rl < MAX_429_RETRIES) {
+          console.warn(`[deepl] 429 rate-limited — backing off (retry ${rl + 1}/${MAX_429_RETRIES})`);
+          await delay(1000 * (rl + 1)); // ~1s, then ~2s
+          continue;
+        }
+        // Still rate-limited after retries → fall through to the next tier WITHOUT
+        // marking the key exhausted (it may recover for later jobs).
+        throw Object.assign(new Error('DeepL 429 rate-limited'), { rateLimited: true });
+      }
+      break;
     }
     if (!res.ok) return '';
     const data = await res.json();
@@ -369,6 +388,13 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
         _cascadeStats.tierErrors.deepl = (_cascadeStats.tierErrors.deepl || 0) + 1;
         console.log(`🔑 DeepL key #${idx + 1} quota exhausted — rotating to next key`);
         continue;
+      }
+      if (err?.rateLimited) {
+        // Transient 429 after retries — do NOT exhaust the key (it may recover for
+        // later jobs). Fall through to the next tier for THIS job only.
+        _cascadeStats.tierErrors.deepl = (_cascadeStats.tierErrors.deepl || 0) + 1;
+        console.log(`⏳ DeepL key #${idx + 1} rate-limited (transient) — falling through to next tier, key NOT exhausted`);
+        return '';
       }
       return ''; // network error, don't retry with other keys
     }
@@ -623,23 +649,46 @@ async function translateWithAzure(text, sourceLang, targetLang) {
       const translated = [];
       for (const chunk of chunks) {
         const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${sourceLang}&to=${targetLang}`;
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: {
-            'Ocp-Apim-Subscription-Key': key,
-            'Ocp-Apim-Subscription-Region': AZURE_REGION,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify([{ Text: chunk }]),
-          signal: AbortSignal.timeout(TIMEOUT_MS),
-        });
+        // Region resilience: Azure "global"/multi-service resources require the
+        // region header to be `global`, while regional resources need their exact
+        // region. Try the configured region first; on a 401 (auth/region mismatch)
+        // retry ONCE with `global` before giving up. The warn-logging below reveals
+        // the true error/region in CI so the default never has to be guessed again.
+        const regionsToTry = AZURE_REGION === 'global' ? ['global'] : [AZURE_REGION, 'global'];
+        let res;
+        for (let r = 0; r < regionsToTry.length; r++) {
+          const region = regionsToTry[r];
+          res = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Ocp-Apim-Subscription-Key': key,
+              'Ocp-Apim-Subscription-Region': region,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify([{ Text: chunk }]),
+            signal: AbortSignal.timeout(TIMEOUT_MS),
+          });
+          // Only the 401 case is worth retrying with a different region; any other
+          // status (ok / quota / 4xx / 5xx) is handled by the logic below.
+          if (res.status !== 401 || r === regionsToTry.length - 1) break;
+          console.warn(`[azure] 401 with region="${region}" — retrying once with region="global"`);
+        }
         if (res.status === 403 || res.status === 429) {
           _azureExhaustedKeys.add(key);
           _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
           console.log(`🔑 Azure key #${idx + 1} quota exhausted — rotating`);
           throw Object.assign(new Error('Azure quota'), { quotaExhausted: true });
         }
-        if (!res.ok) return '';
+        if (!res.ok) {
+          // Surface the exact failure (e.g. 401 region mismatch, 400 bad lang) so a
+          // region-misconfigured key no longer looks "active" while translating
+          // nothing. Bump the tier error counter, then preserve cascade flow by
+          // returning '' (do not throw).
+          const snippet = (await res.text().catch(() => '')).slice(0, 200);
+          _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
+          console.warn(`[azure] HTTP ${res.status} (key #${idx + 1}, region="${regionsToTry[regionsToTry.length - 1]}"): ${snippet}`);
+          return '';
+        }
         const data = await res.json();
         const t = data?.[0]?.translations?.[0]?.text || '';
         if (!t) return '';

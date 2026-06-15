@@ -192,6 +192,21 @@ const CITY_MATCH_BOOST = 1000;
 // load" report. The haystack is a pure function of (job, locale), so cache it on
 // a WeakMap (auto-evicts with the job object, no leak). Re-derived only when the
 // locale changes, since the localized title/description differ per locale.
+//
+// Reference stability — WeakMap hit-rate analysis:
+// The cache key is the job object reference. References are stable because
+// `unscopedJobs` and `crossLocaleJobs` are React state populated once per
+// session via one-shot guards (searchBroadenFetchAttempted,
+// companyBroadenFetchAttempted, crossLocaleFetchAttempted). React never
+// recreates state values on re-render; the same JobListing objects live in
+// state until unmount or an explicit setState call. Therefore:
+//   • After the first scan (initial state set), every subsequent recompute of
+//     crossCantonFallbackJobs / crossLocaleFallbackJobs (triggered by query /
+//     filter / date-range changes) hits the cache — O(1) lookup, no rebuild.
+//   • The only expected misses are (a) first scan after the pool loads
+//     (cold-start, unavoidable) and (b) locale changes, where the localized
+//     title/description differ so a fresh haystack is correct.
+// The perf fix from PR #2062 does fire in the live render path.
 const broadenHaystackCache = new WeakMap<JobListing, { locale: string; hay: string }>();
 function getBroadenHaystack(job: JobListing, locale: string): string {
   const cached = broadenHaystackCache.get(job);
@@ -4716,6 +4731,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  return;
  }
+ // External publisher ads: count the apply click too (session-debounced, so it
+ // never double-counts with the header logo/title links). No-op for crawled jobs.
+ trackPublisherApplyClick(job as { publisherJobId?: string | null });
  if (job.url) window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
  };
 
@@ -6741,6 +6759,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -6768,6 +6787,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
