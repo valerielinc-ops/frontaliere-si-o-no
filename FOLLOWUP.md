@@ -2,6 +2,16 @@
 
 Contratto operativo per `post-merge-followup.yml`. Triage automatico post-merge: estrae lavoro residuo da PR body + reviewer comments, lo raccoglie in **una sola issue aggregata** con label `follow-up` per evitare evaporazione dello scope deferred.
 
+## Gate grandchild-suppression (zero-Claude, PRIMA del triage)
+
+`post-merge-followup.yml` gira su OGNI PR mergiata dall'owner — **incluse le PR che FIXANO un follow-up**. Senza guardia il loop è self-perpetuante by-construction:
+
+> follow-up #A → fix PR → merge → reviewer lascia un 🟡 → **nuovo follow-up #B (nipote)** → fix PR → … all'infinito.
+
+Con ~357 PR mergiate/7gg e ~156 follow-up auto-generate/7gg (×~3 run Claude l'una: triage → `issue-fix` → `pr-review-loop`), il treadmill brucia **~470 run Claude/sett** sulla quota Max OAuth **condivisa** con la sessione interattiva owner (vedi `AGENTS.md → Auth automazioni & frugalità quota`).
+
+Lo step deterministico `scripts/ci/is-followup-fix-pr.mjs` (zero-Claude) gira **prima** dello step Claude e lo **salta interamente** (`if: steps.gchild.outputs.is_followup_fix != 'true'`) quando la PR mergiata dichiara di chiudere/superare (`Closes`/`Fixes`/`Resolves`/`Supersedes #N`) almeno una issue con label `follow-up`. Effetto: niente nipote + run Claude risparmiata. Lo scope deferred di un fix-di-follow-up, se reale, appartiene alla issue follow-up **padre** (resta aperta finché non risolta del tutto) — non va mintato un nipote. Parsing close-keyword = `closedIssueRefs()` in `scripts/ci/followup-resolution-match.mjs`, **stessa** regex di `closingMergedPr` (single source, AGENTS.md #6). **Proceed-safe** (direzione opposta al gate already-resolved): body illeggibile / ref non parsati / `gh issue view` in errore → `false` → triage gira (mai perdere un follow-up di PR organica).
+
 ## Scopo
 
 Ogni 🟡 nit, ❓ q del reviewer bot e voce `## Non implementato` del PR body DEVE risultare in: (a) un item nella issue aggregata `follow-up` della PR, (b) drop motivato, o (c) — se è pura verifica del sito live senza file da editare — una voce nella checklist `Live-verification` batchata del commento di chiusura (nessuna issue, nessun fixer; vedi `## Filtro scopo → Hard-exclude: live-verification-only item`). Nessun silent ignore. Filtra via scopo progetto (vedi `REVIEW.md` → "Scopo progetto").

@@ -49,8 +49,26 @@ jobs:
         with:
           node-version: '22'
 
+      # Grandchild-suppression gate (zero-Claude, deterministico). Una PR che
+      # FIXA un follow-up, se triagiata, può generare un follow-up NIPOTE (il
+      # reviewer lascia un 🟡 sul fix → nuovo follow-up) → self-feed infinito.
+      # Questo step salta interamente il triage Claude quando la PR mergiata
+      # chiude/supera una issue `follow-up`. Proceed-safe: nel dubbio emette
+      # false → triage gira (mai perdere un follow-up di PR organica).
+      # Vedi scripts/ci/is-followup-fix-pr.mjs + FOLLOWUP.md.
+      - name: Grandchild-suppression gate
+        id: gchild
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number || github.event.inputs.pr_number }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/is-followup-fix-pr.mjs
+
       - name: Run Claude follow-up triage
         id: followup
+        # Skip quando la PR è essa stessa un fix-di-follow-up (rompe il self-feed
+        # nipote + risparmia la run Claude sulla quota Max condivisa).
+        if: steps.gchild.outputs.is_followup_fix != 'true'
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

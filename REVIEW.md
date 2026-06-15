@@ -22,6 +22,15 @@ Non passa nessuno → drop. Non importante per questo progetto.
 | 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
 
+### Disposizione 🟡 al review-time (anti-treadmill follow-up)
+
+Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**, così `post-merge-followup` non deve indovinarla e non minta un follow-up di basso valore (il treadmill follow-up brucia ~470 run Claude/sett sulla quota Max condivisa — vedi `FOLLOWUP.md → Gate grandchild-suppression`):
+
+- **Nit non-funnel** (stile/leggibilità/naming/maintenance-debt senza impatto monetizzazione/traffico) → suffissa **`— deferred, non funnel-critical`**. `post-merge-followup` lo droppa senza issue (eccezione esistente in `AGENTS.md → Post-merge feedback handling`). NON diventa follow-up.
+- **Nit funnel-critical E azionabile** (cambia un comportamento su monetizzazione/traffico/correttezza) → resta candidate follow-up normale. Questi sono gli UNICI 🟡 che devono mintare. Se il fix è banale e isolato, preferisci dirlo come 🔴-soft "fixa in-PR prima di `## LGTM`" invece di deferirlo (un fix in-PR = zero run treadmill; un follow-up = ~3 run).
+
+Razionale: la disposizione esplicita sposta il triage del nit **a sinistra** (al review, gratis) invece che **a destra** (minting → `agent:fix` → `pr-review`). Non bloccare l'auto-merge sui nit non-funnel: bloccare ogni nit aggiungerebbe cicli `pr-review-loop` su 357 PR/sett (quota-shift, non quota-saving). Il blocco merge resta solo su 🔴 + process.
+
 ## IGNORA (anche se veri)
 
 - Security (XSS/injection/secret leak/path traversal) — out of scope

@@ -7,6 +7,7 @@ import {
   mostSpecificToken,
   detectAlreadyResolved,
   closingMergedPr,
+  closedIssueRefs,
 } from '../scripts/ci/followup-resolution-match.mjs';
 
 // Locks the conservative matcher shared by the issue-fix.yml pre-flight gate
@@ -303,5 +304,43 @@ describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () 
     expect(closingMergedPr(7, null)).toBeNull();
     expect(closingMergedPr(0, [{ number: 9, body: 'Closes #0' }])).toBeNull();
     expect(closingMergedPr(NaN, [{ number: 9, body: 'Closes #5' }])).toBeNull();
+  });
+});
+
+// Powers the post-merge-followup grandchild-suppression gate
+// (is-followup-fix-pr.mjs): a merged PR closing a `follow-up` issue is a
+// follow-up FIX → skip triage so it can't mint a grandchild follow-up.
+// MUST agree with closingMergedPr on what a "closing ref" is (shared regex).
+describe('closedIssueRefs (closing-keyword issue refs in a PR body)', () => {
+  it('extracts a single closing ref', () => {
+    expect(closedIssueRefs('Fixes #1834')).toEqual([1834]);
+  });
+
+  it('extracts every ref in a multi-issue closing list (`Closes #a #b #c`)', () => {
+    expect(closedIssueRefs('Closes #100 #2035 #2036')).toEqual([100, 2035, 2036]);
+  });
+
+  it('extracts comma/`and`-separated lists and dedupes', () => {
+    expect(closedIssueRefs('Closes #5, #6 and #7\nCloses #6')).toEqual([5, 6, 7]);
+  });
+
+  it('handles all closing-keyword variants (close/fix/resolve/supersede)', () => {
+    expect(closedIssueRefs('Supersedes #2031')).toEqual([2031]);
+    expect(closedIssueRefs('Resolved #7 in passing')).toEqual([7]);
+    expect(closedIssueRefs('closed #9')).toEqual([9]);
+  });
+
+  it('ignores bare mentions without a closing keyword', () => {
+    expect(closedIssueRefs('Related: #7\nSee also #8 for context')).toEqual([]);
+  });
+
+  it('stops the run at a word break (`Fixes #8 and touches #N`) — only #8 closes', () => {
+    expect(closedIssueRefs('Fixes #8 and touches #2123 in passing')).toEqual([8]);
+  });
+
+  it('returns [] on non-string / empty input (proceed-safe)', () => {
+    expect(closedIssueRefs('')).toEqual([]);
+    expect(closedIssueRefs(null as unknown as string)).toEqual([]);
+    expect(closedIssueRefs(undefined as unknown as string)).toEqual([]);
   });
 });
