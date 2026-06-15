@@ -100,8 +100,21 @@ function log(msg) {
 function walk(dir, fn) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
-    if (e.isDirectory()) walk(fp, fn);
-    else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
+    if (e.isDirectory()) {
+      // Same exclusion as postWalkCoordinatorPlugin.walkHtml() and
+      // blogImageCdnFinalizePlugin: never descend into assets/data/images for
+      // the CONTENT-rewrite pass. The CDN refs this pass rewrites (/assets/,
+      // /og/, /data/, /images/brands… , __CDN_DATA_BASE__) live in the page
+      // HTML of the content tree — NOT in files under those subtrees (assets/=
+      // JS/CSS/fonts, data/=*.json offload payloads, images/=binary art), none
+      // of which carry the .html/.xml/.txt in SCAN_EXT. dist/data alone is
+      // ~1.04M dirs (run note): descending it stat-walked the whole tree for
+      // zero rewrites. The data-delete pass below uses the separate walkAll(),
+      // so dist/data is still fully enumerated for unreferenced-JSON cleanup —
+      // this skip only affects the content-rewrite walk, byte-identically.
+      if (e.name === 'assets' || e.name === 'data' || e.name === 'images') continue;
+      walk(fp, fn);
+    } else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
   }
 }
 
