@@ -13,7 +13,7 @@ import { normalizeStructuredData } from './seo/schema-normalizers';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
-import { buildTitleWithBrand, buildJobTitleWithLocation } from '../build-plugins/shared/titleSuffix';
+import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription } from '../build-plugins/shared/titleSuffix';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -4226,7 +4226,14 @@ export async function updateMetaTags(section: string): Promise<void> {
  const metaTitle = serpVariant.title;
  const metaDescription = serpVariant.description;
  const metaOgTitle = metaTitle;
- const metaOgDescription = metaDescription;
+ // <meta name="description"> + og:description are clamped to the SERP snippet
+ // budget (≤160 char, word-aware). The full `metaDescription` is kept for the
+ // JSON-LD `description` clones below (schema has no length cap). Same clamp
+ // runs in the static emit (build-plugins/htmlTemplate.ts) so the JS-rendered
+ // DOM and the static HTML expose an identical, non-truncated snippet.
+ // Closes SearchAtlas audit 141162 meta_desc_invalid_length (487 SSG pages).
+ const clampedMetaDescription = clampMetaDescription(metaDescription);
+ const metaOgDescription = clampedMetaDescription;
  const metaKeywords = jobSeo
  ? jobSeo.keywords
  : (isBlogArticle && locale !== 'it' && hasLocalizedTitle)
@@ -4243,7 +4250,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  document.title = metaTitle;
 
  // Update or create meta tags
- updateOrCreateMetaTag('name', 'description', metaDescription);
+ updateOrCreateMetaTag('name', 'description', clampedMetaDescription);
  updateOrCreateMetaTag('name', 'keywords', metaKeywords);
 
  // Bing & AI-friendly directives: allow large snippets and image previews.

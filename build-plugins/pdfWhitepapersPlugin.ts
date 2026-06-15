@@ -1,4 +1,5 @@
 import path from 'path';
+import { clampMetaDescription } from './shared/titleSuffix';
 import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
@@ -478,13 +479,13 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(guide.title)} | Frontaliere Ticino</title>
-<meta name="description" content="${esc(guide.subtitle)}">
+<meta name="description" content="${esc(clampMetaDescription(guide.subtitle))}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <link rel="canonical" href="${canonical}">
 ${hreflangLinks}
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(guide.title)}">
-<meta property="og:description" content="${esc(guide.subtitle)}">
+<meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle))}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Frontaliere Ticino">
 <meta property="og:image" content="${BASE_URL}/icons/icon-512x512.png">

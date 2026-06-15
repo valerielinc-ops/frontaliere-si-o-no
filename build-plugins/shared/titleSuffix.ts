@@ -69,6 +69,34 @@ export function truncateHeadline(headline: string, max: number): string {
 }
 
 /**
+ * SERP meta-description budget. Google truncates the snippet at ~155-160 char
+ * on desktop; past this the tail (often the CTA/long-tail keywords) is dropped
+ * from the displayed snippet, costing CTR. Generators should aim under this;
+ * the render-layer clamp ({@link clampMetaDescription}) is the safety net.
+ */
+export const META_DESCRIPTION_MAX_CHARS = 160;
+
+/**
+ * Clamp a `<meta name="description">` / `og:description` string to the SERP
+ * snippet budget. Collapses internal whitespace, then word-aware truncates
+ * with "…" via {@link truncateHeadline}. Applied at BOTH render layers (static
+ * SSG emit in `htmlTemplate.ts` and the runtime head update in `seoService.ts`)
+ * so a crawler — whether it reads the static HTML or the JS-rendered DOM — sees
+ * a complete, non-truncated snippet. Only the META TAGS are clamped: JSON-LD
+ * `description` keeps the full text (schema has no length cap).
+ *
+ * Closes the SearchAtlas audit 141162 `meta_desc_invalid_length` gap (487 SSG
+ * pages, e.g. career landings emitting 253-char descriptions).
+ */
+export function clampMetaDescription(
+  description: string,
+  max = META_DESCRIPTION_MAX_CHARS,
+): string {
+  const normalized = String(description || '').replace(/\s+/g, ' ').trim();
+  return truncateHeadline(normalized, max);
+}
+
+/**
  * Build the final <title> string per the universal policy.
  *
  * Order of preference:

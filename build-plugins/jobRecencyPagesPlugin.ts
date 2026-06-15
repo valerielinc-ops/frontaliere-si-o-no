@@ -10,6 +10,7 @@
  */
 
 import type { Plugin } from 'vite';
+import { clampMetaDescription } from './shared/titleSuffix';
 import {
   BASE_URL,
   FAVICON_LINKS,
@@ -285,12 +286,12 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
-    <meta name="description" content="${esc(model.description)}">
+    <meta name="description" content="${esc(clampMetaDescription(model.description))}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(model.title)}">
-    <meta property="og:description" content="${esc(model.description)}">
+    <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
