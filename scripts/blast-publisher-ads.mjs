@@ -19,7 +19,7 @@
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
-import { slugifyPublisher, truncatePublisherSlug } from './lib/publisherJobProjection.mjs';
+import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -95,10 +95,11 @@ async function main() {
 
     // Link to the SPECIFIC ad page (first location), slug derived exactly like
     // publisherJobProjection so it matches the emitted /lavoro/<slug>/ page —
-    // not the generic /lavoro alias the old bare email used. Locale-prefixed
-    // per recipient, with email UTM tags.
-    const firstLocationLabel = Array.isArray(ad.locations) && ad.locations[0]
-      ? String(ad.locations[0].label || '').trim() : '';
+    // not the generic /lavoro alias the old bare email used. Reuses the SAME
+    // distinctLocations() the projection uses (handles bare-string locations and
+    // skips empty entries) so the slug provably matches the live page; falls
+    // back to the job-board listing if the ad somehow has no usable location.
+    const firstLocationLabel = distinctLocations(ad.locations)[0]?.text || '';
     const adBaseSlug = truncatePublisherSlug(
       slugifyPublisher(`${ad.title}-${firstLocationLabel}-${ad.company?.name || ''}`),
     );

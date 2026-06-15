@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
+import {
+  distinctLocations,
+  slugifyPublisher,
+  truncatePublisherSlug,
+  publisherJobToRecords,
+} from '../scripts/lib/publisherJobProjection.mjs';
 
 const AD = {
   title: 'Specialista Marketing Digitale',
@@ -85,5 +91,40 @@ describe('buildBlastEmail', () => {
   it('omits the salary chip when no salary data', () => {
     const { html } = buildBlastEmail({ ...ARGS, ad: { ...AD, salaryMin: null, salaryMax: null } });
     expect(html).not.toContain('Retribuzione:');
+  });
+});
+
+// Regression for the reviewer 🔴 (#2084): the CTA slug must match the emitted
+// /lavoro/<slug>/ page across ALL location shapes distinctLocations supports,
+// or the "Candidati ora" button 404s for real (non-canary) ads.
+describe('blast CTA slug matches the projected ad page (distinctLocations parity)', () => {
+  // Replicates the slug derivation in blast-publisher-ads.mjs.
+  const blastSlug = (ad: Record<string, unknown>) => {
+    const label = distinctLocations(ad.locations)[0]?.text || '';
+    return truncatePublisherSlug(slugifyPublisher(`${ad.title}-${label}-${(ad.company as { name?: string })?.name || ''}`));
+  };
+  const pub = (locations: unknown) => ({
+    id: 'pub1', publisherUid: 'u', status: 'paid', tier: 'sponsored',
+    title: 'Specialista Marketing', description: 'parola '.repeat(60).trim(),
+    sourceLang: 'it', company: { name: 'Acme SA' }, locations,
+    apply: { mode: 'external_url', url: 'https://acme.ch/jobs' }, paidAt: '2026-06-15T00:00:00Z', createdAt: '2026-06-15T00:00:00Z',
+  });
+  const projectedSlug = (locations: unknown) =>
+    publisherJobToRecords(pub(locations), { nowIso: '2026-06-15T00:00:00Z' })[0]?.slug;
+
+  it('object location', () => {
+    const locs = [{ label: 'Lugano', canton: 'TI' }];
+    expect(blastSlug(pub(locs))).toBe(projectedSlug(locs));
+  });
+
+  it('bare-string location (the .label-undefined case)', () => {
+    const locs = ['Lugano'];
+    expect(blastSlug(pub(locs))).toBe(projectedSlug(locs));
+  });
+
+  it('empty first entry → picks the first non-empty (distinctLocations skip)', () => {
+    const locs = [{ label: '  ' }, { label: 'Bellinzona', canton: 'TI' }];
+    expect(blastSlug(pub(locs))).toBe(projectedSlug(locs));
+    expect(blastSlug(pub(locs))).toContain('bellinzona');
   });
 });
