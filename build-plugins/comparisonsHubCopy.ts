@@ -134,7 +134,7 @@ const IT: ComparisonsHubCopy = {
   tTaxColItTotal: 'Prelievo IT (IRPEF + addizionali, franchigia €10.000)',
   tTaxColNetDelta: 'Delta netto',
   tTaxFooter:
-    'Fonte: AFC — Tariffario 2026 imposta alla fonte Canton Ticino ([estv.admin.ch](https://www.estv.admin.ch/estv/it/home.html)); Agenzia delle Entrate — Convenzione CH-IT del 23/12/2020 art. 3 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)); Decreto Legge 84/2024 (franchigia €10.000). L\'imposta totale italiana comprende IRPEF nazionale + addizionale regionale + addizionale comunale medie Lombardia.',
+    'Fonte: AFC — Tariffario 2026 imposta alla fonte Canton Ticino ([estv.admin.ch](https://www.estv.admin.ch/it)); Agenzia delle Entrate — Convenzione CH-IT del 23/12/2020 art. 3 ([agenziaentrate.gov.it](https://www.agenziaentrate.gov.it/)); Decreto Legge 84/2024 (franchigia €10.000). L\'imposta totale italiana comprende IRPEF nazionale + addizionale regionale + addizionale comunale medie Lombardia.',
   tTaxScenarios: [
     { label: 'Single, CHF 70.000 lordi, residenza Como (<20 km)', chPct: '~18,4%', itPct: '~22,1%', delta: '+€2.850/anno a favore CH' },
     { label: 'Sposato con 2 figli, CHF 95.000 lordi, residenza Varese (<20 km)', chPct: '~16,2%', itPct: '~24,8%', delta: '+€8.200/anno a favore CH' },
