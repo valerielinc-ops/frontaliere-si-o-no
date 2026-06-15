@@ -83,6 +83,14 @@ const RESTORE_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/restorePublisherAd';
 const CHECKOUT_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
+const CV_URL_ENDPOINT =
+  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublisherApplicationCvUrl';
+
+/** A pasted public link is used as-is; an uploaded CV is a Storage object path
+ *  (client-read-denied) that must be exchanged for a signed URL server-side. */
+function isExternalCvLink(cvUrl: string): boolean {
+  return /^https?:\/\//i.test(cvUrl);
+}
 
 // How long after a content edit the "changes pending publication (~1–2h)" hint
 // stays visible. The slice sync (~hourly) + deploy propagates the edit within
@@ -162,10 +170,34 @@ const PublisherDashboardPage: React.FC = () => {
   const [archivingId, setArchivingId] = useState<string | null>(null);
   const [restoringId, setRestoringId] = useState<string | null>(null);
   const [resumingCheckoutId, setResumingCheckoutId] = useState<string | null>(null);
+  const [cvOpeningId, setCvOpeningId] = useState<string | null>(null);
 
   useEffect(() => {
     Analytics.trackPageView('/i-miei-annunci/', 'Publisher Dashboard');
   }, []);
+
+  // Uploaded CVs live at a client-read-denied Storage path; exchange it for a
+  // server-signed URL, then open it. Pasted public links open directly (handled
+  // inline in the render via a plain anchor).
+  const handleOpenCv = async (appId: string) => {
+    if (!user || cvOpeningId) return;
+    setCvOpeningId(appId);
+    try {
+      const idToken = await user.getIdToken();
+      const res = await fetch(CV_URL_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${idToken}` },
+        body: JSON.stringify({ appId }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; url?: string };
+      if (data.ok && data.url) window.open(data.url, '_blank', 'noopener,noreferrer');
+      else reportCaughtError(new Error(`cv_url_failed:${res.status}`), 'publisherDashboard.openCv');
+    } catch (error) {
+      reportCaughtError(error, 'publisherDashboard.openCv');
+    } finally {
+      setCvOpeningId(null);
+    }
+  };
 
   const handleManageBilling = async () => {
     if (!user || billingBusy) return;
@@ -726,7 +758,18 @@ const PublisherDashboardPage: React.FC = () => {
                       {a.cvUrl && (
                         <>
                           {' · '}
-                          <a href={a.cvUrl} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">CV</a>
+                          {isExternalCvLink(a.cvUrl) ? (
+                            <a href={a.cvUrl} target="_blank" rel="noopener noreferrer" className="text-link hover:underline">CV</a>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() => { void handleOpenCv(a.id); }}
+                              disabled={cvOpeningId === a.id}
+                              className="text-link hover:underline disabled:opacity-60 disabled:cursor-wait"
+                            >
+                              {cvOpeningId === a.id ? '…' : 'CV'}
+                            </button>
+                          )}
                         </>
                       )}
                     </div>

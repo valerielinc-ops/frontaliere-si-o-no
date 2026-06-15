@@ -14,6 +14,7 @@
  */
 
 import admin from 'firebase-admin';
+import { randomUUID } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
@@ -49,14 +50,34 @@ export async function resolveCvLink(cvRef) {
   const v = String(cvRef ?? '').trim();
   if (!v) return null;
   if (/^https?:\/\//i.test(v)) return v;
+  const file = admin.storage().bucket(STORAGE_BUCKET).file(v);
+  // Preferred: a short-lived V4 signed URL (GDPR-friendly expiry). Requires the
+  // runtime service account to hold `iam.serviceAccounts.signBlob`
+  // (roles/iam.serviceAccountTokenCreator); when that permission is missing,
+  // getSignedUrl throws — log it so the silent-failure mode is detectable.
   try {
-    const [url] = await admin
-      .storage()
-      .bucket(STORAGE_BUCKET)
-      .file(v)
-      .getSignedUrl({ action: 'read', expires: Date.now() + CV_SIGNED_URL_TTL_MS });
+    const [url] = await file.getSignedUrl({
+      action: 'read',
+      expires: Date.now() + CV_SIGNED_URL_TTL_MS,
+    });
     return url;
   } catch (e) {
+    console.error('[resolveCvLink] getSignedUrl failed', e);
+  }
+  // Fallback (no signBlob IAM needed): mint a Firebase download-token URL from the
+  // object metadata. The token is the same capability already implied by emailing
+  // a link, so CV delivery keeps working even when signing is not configured.
+  try {
+    const [meta] = await file.getMetadata();
+    let token = meta?.metadata?.firebaseStorageDownloadTokens;
+    token = token ? String(token).split(',')[0] : '';
+    if (!token) {
+      token = randomUUID();
+      await file.setMetadata({ metadata: { firebaseStorageDownloadTokens: token } });
+    }
+    return `https://firebasestorage.googleapis.com/v0/b/${STORAGE_BUCKET}/o/${encodeURIComponent(v)}?alt=media&token=${token}`;
+  } catch (e) {
+    console.error('[resolveCvLink] download-token fallback failed', e);
     return null;
   }
 }
@@ -121,6 +142,48 @@ export async function handleForwardApplication(appData, appId) {
     { merge: true },
   );
   return { ok: true, forwarded: true };
+}
+
+/** Verify the Firebase ID token in the Authorization header; null if invalid. */
+async function verifyCaller(req) {
+  const header = req.get('Authorization') || req.get('authorization') || '';
+  const m = header.match(/^Bearer\s+(.+)$/i);
+  if (!m) return null;
+  try {
+    return await admin.auth().verifyIdToken(m[1]);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Mint a download link for an application's uploaded CV, for the authenticated
+ * publisher who owns the target application. The client never reads cv-uploads/**
+ * directly (storage.rules denies client reads), so the dashboard CV link cannot
+ * be the raw object path — it calls this endpoint to obtain a server-signed URL.
+ * @param {import('express').Request} req
+ * @returns {Promise<{status:number, body:object}>}
+ */
+export async function handleGetApplicationCvUrl(req) {
+  if (req.method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
+  const decoded = await verifyCaller(req);
+  if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
+
+  const appId = String((req.body && req.body.appId) || '').trim();
+  if (!appId) return { status: 400, body: { ok: false, error: 'no_app_id' } };
+
+  const appSnap = await db().collection('applications').doc(appId).get();
+  if (!appSnap.exists) return { status: 404, body: { ok: false, error: 'application_not_found' } };
+  const appData = appSnap.data();
+  // Only the publisher who owns the application may read the candidate's CV
+  // (mirrors firestore.rules `applications` read guard: uid == publisherUid).
+  if (appData.publisherUid !== decoded.uid) {
+    return { status: 403, body: { ok: false, error: 'forbidden' } };
+  }
+
+  const url = await resolveCvLink(appData.cvUrl);
+  if (!url) return { status: 404, body: { ok: false, error: 'cv_unavailable' } };
+  return { status: 200, body: { ok: true, url } };
 }
 
 /**

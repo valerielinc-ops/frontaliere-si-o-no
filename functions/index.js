@@ -24,7 +24,11 @@ import { handleCreatePublisherCheckout, handleStripeWebhook, handleCreateBilling
 import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated } from 'firebase-functions/v2/firestore';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
-import { handleForwardApplication, purgeOldApplications } from './src/publisherApplicationsCore.js';
+import {
+  handleForwardApplication,
+  handleGetApplicationCvUrl,
+  purgeOldApplications,
+} from './src/publisherApplicationsCore.js';
 import { sendRenewalReminders } from './src/publisherRenewalCore.js';
 import { handleVerifyPublisherDomain } from './src/publisherDomainVerifyCore.js';
 import { enforceFreeTierCap } from './src/publisherFreeCapCore.js';
@@ -839,6 +843,33 @@ export const verifyPublisherDomain = onRequest(
  res.status(status).json(body);
  } catch (error) {
  console.error('[verifyPublisherDomain]', error instanceof Error ? error.message : String(error));
+ res.status(500).json({ ok: false, error: 'internal_error' });
+ }
+ },
+);
+
+// Mint a download link for an application's uploaded CV. Authenticated; the
+// publisher dashboard calls this because cv-uploads/** is client-read-denied
+// (storage.rules), so the raw object path stored in the doc isn't directly
+// fetchable — the server signs a read URL here.
+export const getPublisherApplicationCvUrl = onRequest(
+ {
+ region: 'europe-west6',
+ memory: '256MiB',
+ timeoutSeconds: 30,
+ cors: [
+ 'https://frontaliereticino.ch',
+ 'https://frontaliere-ticino.web.app',
+ 'https://frontaliere-ticino.firebaseapp.com',
+ /^http:\/\/localhost(:\d+)?$/,
+ ],
+ },
+ async (req, res) => {
+ try {
+ const { status, body } = await handleGetApplicationCvUrl(req);
+ res.status(status).json(body);
+ } catch (error) {
+ console.error('[getPublisherApplicationCvUrl]', error instanceof Error ? error.message : String(error));
  res.status(500).json({ ok: false, error: 'internal_error' });
  }
  },
