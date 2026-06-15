@@ -8074,6 +8074,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: Question on Pay Equity and Salary Transparency',
     'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Three city councilors demand clear data on salaries, gender distribution, and the pay gap within the municipal administration.',
     'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'View of Chiasso with the border crossing and town hall, symbolizing the call for pay transparency.',
+    'blog.article.ticino-vota-si-blocco-abitanti.title': 'Ticino approves resident cap: impact on cross-border workers',
+    'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'The Canton of Ticino has voted in favour of the UDC initiative against immigration with 50.66% of the votes. What it means for cross-border workers and the Ticino labour market.',
+    'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Panoramic view of Lugano and Lake Lugano',
 };
 
 export default blogMetaEn;

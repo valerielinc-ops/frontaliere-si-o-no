@@ -8073,6 +8073,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: Anfrage zu Lohngleichheit und Transparenz',
     'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Drei Gemeinderäte verlangen klare Daten zu Gehältern, Geschlechterverteilung und Lohnunterschieden in der Gemeindeverwaltung.',
     'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'Blick auf Chiasso mit dem Grenzübergang und dem Rathaus, Symbol für den Aufruf nach Lohngerechtigkeit.',
+    'blog.article.ticino-vota-si-blocco-abitanti.title': 'Tessin stimmt gegen Zuwanderung: Was ändert sich für Grenzgänger',
+    'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Der Kanton Tessin hat die SVP-Initiative gegen Zuwanderung mit 50,66% der Stimmen angenommen. Was bedeutet dies für Grenzgänger und den Tessiner Arbeitsmarkt.',
+    'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Panoramablick auf Lugano und den Luganersee',
 };
 
 export default blogMetaDe;

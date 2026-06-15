@@ -43832,6 +43832,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-vota-si-blocco-abitanti': {
+    title: 'Ticino approva il blocco degli abitanti: cosa cambia per i frontalieri',
+    description: 'Il Canton Ticino ha votato a favore dell\'iniziativa UDC contro l\'immigrazione. Analisi delle implicazioni per i frontalieri e il mercato del lavoro ticinese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, approva, blocco, abitanti, cosa',
+    ogTitle: 'Ticino approva il blocco degli abitanti: cosa cambia per i frontalieri',
+    ogDescription: 'Il Canton Ticino ha approvato l\'iniziativa contro l\'immigrazione. Implicazioni per i frontalieri e il mercato del lavoro locale.',
+    canonicalPath: '/articoli-frontaliere/ticino-vota-si-blocco-abitanti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino approva il blocco degli abitanti: cosa cambia per i frontalieri",
+      "description": "Il Canton Ticino ha votato a favore dell'iniziativa UDC contro l'immigrazione. Analisi delle implicazioni per i frontalieri e il mercato del lavoro ticinese.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-vota-si-blocco-abitanti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano e del lago di Lugano"
+      },
+      "datePublished": "2026-06-15T02:21:14+00:00",
+      "dateModified": "2026-06-15T02:21:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-vota-si-blocco-abitanti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
