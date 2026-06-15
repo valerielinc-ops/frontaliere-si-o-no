@@ -56,6 +56,13 @@ import {
   staticPagesFlushed,
   professionLandingsFlushed,
 } from './shared/buildSignals';
+import {
+  injectBlockAfterMain,
+  type InjectionOutcome,
+} from './shared/injectAfterMain';
+
+/** Idempotency marker for the AE-3 profession-links block. */
+const AE3_MARKER = 'data-ae3-profession-links';
 
 interface InjectionTarget {
   readonly indexPath: string;
@@ -147,38 +154,17 @@ function renderBlock(target: InjectionTarget): string {
  *
  * The third return tuple element reports `'inserted' | 'duplicate' | 'no-anchor'`
  * so the plugin can hard-fail on `'no-anchor'` and silently no-op on `'duplicate'`.
+ *
+ * Thin wrapper over the shared {@link injectBlockAfterMain} (the insertion logic
+ * is shared with the per-canton profession-links injector — CLAUDE.md regola #6).
  */
-export type InjectionOutcome = 'inserted' | 'duplicate' | 'no-anchor';
+export type { InjectionOutcome };
 
 export function injectAe3Block(
   html: string,
   block: string,
 ): { html: string; outcome: InjectionOutcome } {
-  if (html.includes('data-ae3-profession-links')) {
-    return { html, outcome: 'duplicate' };
-  }
-
-  const mainOpen = html.match(/<main\b[^>]*>/);
-  if (mainOpen && mainOpen.index !== undefined) {
-    const insertAt = mainOpen.index + mainOpen[0].length;
-    return {
-      html: html.slice(0, insertAt) + block + html.slice(insertAt),
-      outcome: 'inserted',
-    };
-  }
-  if (html.includes('</main>')) {
-    return {
-      html: html.replace('</main>', `${block}</main>`),
-      outcome: 'inserted',
-    };
-  }
-  if (html.includes('</body>')) {
-    return {
-      html: html.replace('</body>', `${block}</body>`),
-      outcome: 'inserted',
-    };
-  }
-  return { html, outcome: 'no-anchor' };
+  return injectBlockAfterMain(html, block, AE3_MARKER);
 }
 
 interface PatchResult {
