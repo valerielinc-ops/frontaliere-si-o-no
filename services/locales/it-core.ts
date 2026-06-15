@@ -308,6 +308,8 @@ const translations: Record<string, string> = {
  'salaryCompare.tabProfessions': 'Per Professione',
  'salaryCompare.searchProfession': 'Cerca professione...',
  'salaryCompare.allSectors': 'Tutti i settori',
+ 'salaryCompare.canton': 'Cantone',
+ 'salaryCompare.cantonAll': 'Svizzera (media nazionale)',
  'salaryCompare.salaryRange': 'Range salariale',
  'salaryCompare.median': 'Mediano',
  'salaryCompare.professions': 'Professioni',
@@ -3430,6 +3432,9 @@ Regole:
  'publisher.published.publishAnother': 'Pubblica un altro annuncio',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3520.title': 'Stipendi per cantone',
+ 'whatsNew.v3520.cantonSalary.title': 'Confronto stipendi cantone per cantone',
+ 'whatsNew.v3520.cantonSalary.desc': 'Il confronto stipendi ora ha un selettore per cantone: scegli un cantone svizzero e le cifre lorde e nette si adattano al livello salariale reale di quella regione, sulla base delle mediane ufficiali BFS (rilevazione struttura salari). Predefinito: media nazionale svizzera.',
  'whatsNew.v3510.title': 'Annunci sponsorizzati potenziati',
  'whatsNew.v3510.sponsoredUpgrade.title': 'Pagina annuncio premium, logo e candidatura diretta',
  'whatsNew.v3510.sponsoredUpgrade.desc': 'Gli annunci sponsorizzati ora salgono in cima ai risultati di ricerca, mostrano il logo aziendale e hanno una pagina dedicata rinnovata con sezioni ed elenchi formattati. Nuovo editor con anteprima per le aziende e bottone Candidati che apre il modulo di candidatura.',

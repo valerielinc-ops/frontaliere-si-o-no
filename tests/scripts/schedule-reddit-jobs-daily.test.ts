@@ -113,7 +113,7 @@ function hoursAgo(n: number, base: Date = NOW): string {
 const CONFIG: RedditConfig = {
   schemaVersion: 1,
   subreddits: {
-    frontalieri: {
+    frontaliere: {
       allowsAutomation: true,
       minPostIntervalHours: 6,
       flairId: null,
@@ -128,7 +128,7 @@ const CONFIG: RedditConfig = {
       topics: ['jobs', 'articles'],
     },
   },
-  routing: { jobs: ['frontalieri', 'Ticino'], articles: ['frontalieri', 'Ticino'] },
+  routing: { jobs: ['frontaliere', 'Ticino'], articles: ['frontaliere', 'Ticino'] },
 };
 
 function makeJob(id: string, ageDays: number, overrides: Partial<JobLike> = {}): JobLike {
@@ -184,7 +184,7 @@ function makeFetchMock() {
         JSON.stringify({
           json: {
             errors: [],
-            data: { id: 'abc', name: 't3_abc', url: 'https://reddit.com/r/frontalieri/comments/abc/' },
+            data: { id: 'abc', name: 't3_abc', url: 'https://reddit.com/r/frontaliere/comments/abc/' },
           },
         }),
         { status: 200 },
@@ -207,7 +207,7 @@ const CREDS = {
 describe('eligibleSubsForTopic', () => {
   it('returns only allowsAutomation:true subs routed for the topic', () => {
     const out = eligibleSubsForTopic(CONFIG, 'jobs');
-    expect(out.map((s) => s.name)).toEqual(['frontalieri']);
+    expect(out.map((s) => s.name)).toEqual(['frontaliere']);
     expect(out[0].config.allowsAutomation).toBe(true);
   });
 
@@ -230,39 +230,39 @@ describe('eligibleSubsForTopic', () => {
 describe('isRateLimited', () => {
   it('is true when the last post is within minIntervalHours of now', () => {
     const posted: PostedEntry[] = [
-      { id: 'x', url: 'u', subreddit: 'frontalieri', ts: hoursAgo(2) },
+      { id: 'x', url: 'u', subreddit: 'frontaliere', ts: hoursAgo(2) },
     ];
-    expect(isRateLimited(posted, 'frontalieri', 6, NOW)).toBe(true);
+    expect(isRateLimited(posted, 'frontaliere', 6, NOW)).toBe(true);
   });
 
   it('is false when the last post is older than minIntervalHours', () => {
     const posted: PostedEntry[] = [
-      { id: 'x', url: 'u', subreddit: 'frontalieri', ts: hoursAgo(10) },
+      { id: 'x', url: 'u', subreddit: 'frontaliere', ts: hoursAgo(10) },
     ];
-    expect(isRateLimited(posted, 'frontalieri', 6, NOW)).toBe(false);
+    expect(isRateLimited(posted, 'frontaliere', 6, NOW)).toBe(false);
   });
 
   it('is false when the sub was never posted to', () => {
     const posted: PostedEntry[] = [
       { id: 'x', url: 'u', subreddit: 'other', ts: hoursAgo(1) },
     ];
-    expect(isRateLimited(posted, 'frontalieri', 6, NOW)).toBe(false);
+    expect(isRateLimited(posted, 'frontaliere', 6, NOW)).toBe(false);
   });
 
   it('is false when minIntervalHours is 0/undefined (limit disabled)', () => {
     const posted: PostedEntry[] = [
-      { id: 'x', url: 'u', subreddit: 'frontalieri', ts: hoursAgo(0.1) },
+      { id: 'x', url: 'u', subreddit: 'frontaliere', ts: hoursAgo(0.1) },
     ];
-    expect(isRateLimited(posted, 'frontalieri', 0, NOW)).toBe(false);
-    expect(isRateLimited(posted, 'frontalieri', undefined, NOW)).toBe(false);
+    expect(isRateLimited(posted, 'frontaliere', 0, NOW)).toBe(false);
+    expect(isRateLimited(posted, 'frontaliere', undefined, NOW)).toBe(false);
   });
 
   it('uses the most recent entry when several exist', () => {
     const posted: PostedEntry[] = [
-      { id: 'old', url: 'u', subreddit: 'frontalieri', ts: hoursAgo(20) },
-      { id: 'new', url: 'u', subreddit: 'frontalieri', ts: hoursAgo(1) },
+      { id: 'old', url: 'u', subreddit: 'frontaliere', ts: hoursAgo(20) },
+      { id: 'new', url: 'u', subreddit: 'frontaliere', ts: hoursAgo(1) },
     ];
-    expect(isRateLimited(posted, 'frontalieri', 6, NOW)).toBe(true);
+    expect(isRateLimited(posted, 'frontaliere', 6, NOW)).toBe(true);
   });
 });
 
@@ -275,10 +275,10 @@ describe('run() — DRY_RUN', () => {
     const cfg: RedditConfig = {
       schemaVersion: 1,
       subreddits: {
-        frontalieri: { allowsAutomation: true, minPostIntervalHours: 0 },
+        frontaliere: { allowsAutomation: true, minPostIntervalHours: 0 },
         Ticino: { allowsAutomation: false, minPostIntervalHours: 24 },
       },
-      routing: { jobs: ['frontalieri', 'Ticino'], articles: ['frontalieri'] },
+      routing: { jobs: ['frontaliere', 'Ticino'], articles: ['frontaliere'] },
     };
     const tmp = setupTmp({ jobs: [makeJob('A', 1), makeJob('B', 2)], config: cfg });
     const fetchSpy = vi.fn<typeof fetch>();
@@ -297,7 +297,7 @@ describe('run() — DRY_RUN', () => {
     expect(result.payloads).toHaveLength(2);
     // Recency: A (1 day ago) before B (2 days ago).
     expect(result.payloads[0].jobId).toBe('A');
-    expect(result.payloads[0].subreddit).toBe('frontalieri');
+    expect(result.payloads[0].subreddit).toBe('frontaliere');
     expect(result.payloads[0].kind).toBe('self');
 
     expect(loadLedger(tmp).posted).toHaveLength(0);
@@ -326,7 +326,7 @@ describe('run() — real posting', () => {
     const ledger = loadLedger(tmp);
     expect(ledger.posted).toHaveLength(1);
     expect(ledger.posted[0].id).toBe('A');
-    expect(ledger.posted[0].subreddit).toBe('frontalieri');
+    expect(ledger.posted[0].subreddit).toBe('frontaliere');
     expect(ledger.posted[0].redditPostId).toBe('t3_abc');
   });
 
@@ -335,7 +335,7 @@ describe('run() — real posting', () => {
     const tmp = setupTmp({
       jobs: [makeJob('A', 1), makeJob('B', 2)],
       posted: [
-        { id: 'A', url: 'u', subreddit: 'frontalieri', ts: daysAgo(5) },
+        { id: 'A', url: 'u', subreddit: 'frontaliere', ts: daysAgo(5) },
       ],
     });
     const fetchSpy = makeFetchMock();
@@ -394,7 +394,7 @@ describe('re-exported helpers', () => {
   it('loadSubreddits reads the controlled config from a temp repoRoot', () => {
     const tmp = setupTmp({ jobs: [] });
     const cfg = loadSubreddits(tmp);
-    expect(cfg.routing.jobs).toEqual(['frontalieri', 'Ticino']);
-    expect(cfg.subreddits.frontalieri.allowsAutomation).toBe(true);
+    expect(cfg.routing.jobs).toEqual(['frontaliere', 'Ticino']);
+    expect(cfg.subreddits.frontaliere.allowsAutomation).toBe(true);
   });
 });

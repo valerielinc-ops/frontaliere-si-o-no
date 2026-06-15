@@ -289,6 +289,8 @@ const enCore: Record<string, string> = {
  'salaryCompare.tabProfessions': 'By Profession',
  'salaryCompare.searchProfession': 'Search profession...',
  'salaryCompare.allSectors': 'All sectors',
+ 'salaryCompare.canton': 'Canton',
+ 'salaryCompare.cantonAll': 'Switzerland (national average)',
  'salaryCompare.salaryRange': 'Salary Range',
  'salaryCompare.median': 'Median',
  'salaryCompare.professions': 'Professions',
@@ -3340,6 +3342,9 @@ Rules:
  'publisher.published.publishAnother': 'Post another ad',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3520.title': 'Salaries by canton',
+ 'whatsNew.v3520.cantonSalary.title': 'Canton-by-canton salary comparison',
+ 'whatsNew.v3520.cantonSalary.desc': 'The salary comparison now has a canton selector: pick a Swiss canton and the gross and net figures adapt to that region’s real wage level, based on official BFS medians (Swiss earnings structure survey). Default: Swiss national average.',
  'whatsNew.v3510.title': 'Sponsored listings upgraded',
  'whatsNew.v3510.sponsoredUpgrade.title': 'Premium ad page, logo and direct application',
  'whatsNew.v3510.sponsoredUpgrade.desc': 'Sponsored listings now rise to the top of search results, show the company logo and get a refreshed dedicated page with formatted sections and lists. New editor with preview for employers, and an Apply button that opens the application form.',
