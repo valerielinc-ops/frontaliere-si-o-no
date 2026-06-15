@@ -74,7 +74,18 @@ const TAXONOMY = [
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
-  { key: 'i18n-naming', re: /locale|i18n|translat|canton-?aware|naming|brand/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
+  // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
+  // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
+  // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
+  // `translat` swallowed the ENTIRE translate pipeline (a high-volume active area),
+  // `naming` matched any "naming" (e.g. ad-container naming), `brand` matched
+  // "branded"/"branding" — so heterogeneous, unrelated findings false-clustered here
+  // and tripped a phantom `recurringDespiteRule` escalation (issue #2122, 15 hits / 0
+  // real naming defects). Deliberately NO replacement topic-bucket for the translate
+  // pipeline: those findings are genuine process-failures (unvalidated-claim,
+  // sibling-class-fix, pr-body-contract) and now route to THOSE buckets, or fall to
+  // the fingerprint safety-net — which clusters only on truly-repeated lead-phrases.
+  { key: 'i18n-naming', re: /locale segment|locale-?prefix|canton-?aware (slug|naming|url)|translated? brand|brand.*translat|translation key|missing (locale|translation)|untranslated/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
   { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'] },
   // PROCESS-failure-mode buckets (see family note above):
   { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'] },
