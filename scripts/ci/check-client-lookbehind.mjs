@@ -28,6 +28,7 @@
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -78,7 +79,15 @@ function gitGrepLines(glob) {
     );
     return out.split('\n').filter(Boolean);
   } catch (e) {
-    if (e && e.status === 1 && !e.stderr?.toString().trim()) return [];
+    // Same hardening as check-cls-ad-slots (#2010): exit 1 with no stdout/stderr is
+    // the one legitimate no-match (clean); exit ≥2/128, any stderr, or an anomalous
+    // exit-1-with-stdout re-throws so the gate fails loudly instead of silently
+    // returning [] on a tree it never inspected. Shared classifier in
+    // scripts/ci/lib/git-grep.mjs (single source of truth → no drift). NB: unlike
+    // the cls gate there is no positive-control canary here — a zero-match result
+    // is THIS gate's expected clean state, so no guaranteed-present token exists to
+    // assert against; the strict exit-code/stderr check is the available defense.
+    if (isGitGrepNoMatch(e)) return [];
     throw e;
   }
 }

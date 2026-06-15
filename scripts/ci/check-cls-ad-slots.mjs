@@ -35,6 +35,7 @@
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -78,9 +79,11 @@ function gitGrepFiles(marker, pathspec) {
     );
     return out.split('\n').map((s) => s.trim()).filter(Boolean);
   } catch (e) {
-    // git grep exits 1 when there are NO matches — that is a CLEAN result, not an
-    // error. Any other failure (no git, bad pathspec) re-throws.
-    if (e && e.status === 1 && !e.stderr?.toString().trim()) return [];
+    // git grep exits 1 ONLY when there are no matches (clean) — and only with no
+    // stdout/stderr. Exit ≥2/128, a bad pathspec, or any stderr is a real failure
+    // and re-throws, so the gate fails loudly instead of a silent false-clean
+    // (#2010). Shared classifier — see scripts/ci/lib/git-grep.mjs.
+    if (isGitGrepNoMatch(e)) return [];
     throw e;
   }
 }
@@ -96,9 +99,27 @@ export function findViolations() {
   // default fnmatch makes the `/` after `**` literal, so it matches ONLY nested
   // (lib/, shared/) files and silently SKIPS every top-level build-plugins/*.ts
   // (where #1910's hard-coded <ins> lived). Filtering extensions in JS avoids it.
-  const matches = gitGrepFiles(AD_MARKER, 'build-plugins/').filter(
-    (f) => f.endsWith('.ts') || f.endsWith('.tsx'),
-  );
+  const raw = gitGrepFiles(AD_MARKER, 'build-plugins/');
+
+  // Positive control against a silent false-clean (#2010): the sanctioned emitter
+  // build-plugins/lib/adSlotHtml.ts — plus the ad-loader infra in constants.ts /
+  // htmlTemplate.ts — ALWAYS contains the `adsbygoogle` literal, so a healthy
+  // checkout can NEVER grep zero matches here. An empty result therefore means git
+  // grep did not actually inspect the tree (e.g. a git build that exits 1 with
+  // empty stderr on a usage error, which gitGrepFiles would otherwise read as a
+  // legitimate no-match) — refuse to report clean; fail loudly so the gate can't
+  // pass blind on an un-inspected tree. This is the funnel-critical case the
+  // exit-code check alone can't catch.
+  if (raw.length === 0) {
+    throw new Error(
+      'check-cls-ad-slots: git grep returned ZERO `adsbygoogle` matches in ' +
+        'build-plugins/ — impossible while the sanctioned emitter adSlotHtml.ts ' +
+        'exists. The gate could not inspect the tree; refusing a false-clean. ' +
+        'Check git availability / the build-plugins/ pathspec.',
+    );
+  }
+
+  const matches = raw.filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
   return [...new Set(matches)].filter((f) => !ALLOWED.has(f)).sort();
 }
 
