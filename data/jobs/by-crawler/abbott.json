@@ -1556,12 +1556,12 @@
     },
     {
       "id": "abbott-eb83c34212fb",
-      "slug": "quality-engineer-abbott-ch",
+      "slug": "quality-ingegnere-abbott-zurich",
       "slugByLocale": {
         "en": "quality-engineer-abbott-ch",
-        "it": "quality-engineer-abbott-ch",
-        "de": "quality-engineer-abbott-ch",
-        "fr": "quality-engineer-abbott-ch"
+        "it": "quality-ingegnere-abbott-zurich",
+        "de": "qualitat-ingenieur-abbott-zurich",
+        "fr": "qualite-ingenieur-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1618,7 +1618,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-15T13:45:33.917Z"
+      "firstSeenAt": "2026-06-15T13:45:33.917Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-engineer-abbott-ch"
+        ],
+        "de": [
+          "quality-engineer-abbott-ch"
+        ],
+        "fr": [
+          "quality-engineer-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-engineer-abbott-ch"
+      ]
     },
     {
       "id": "abbott-dfc1265d86f1",
@@ -1626,8 +1640,8 @@
       "slugByLocale": {
         "en": "senior-quality-engineer-abbott-ch",
         "it": "senior-quality-engineer-abbott-ch",
-        "de": "senior-quality-engineer-abbott-ch",
-        "fr": "senior-quality-engineer-abbott-ch"
+        "de": "senior-qualitat-ingenieur-abbott-zurich",
+        "fr": "senior-qualite-ingenieur-abbott-zurich"
       },
       "company": "Abbott",
       "companyKey": "abbott",

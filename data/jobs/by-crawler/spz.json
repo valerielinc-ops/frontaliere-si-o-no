@@ -3032,9 +3032,9 @@
       "slug": "drogist-in-o-fachfrau-mann-gesundheit-in-beratender-funktion-per-kontinenz-e-alltagshilfen-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "it": "drogist-in-o-fachfrau-mann-gesundheit-in-beratender-funktion-per-kontinenz-e-alltagshilfen-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und",
+        "en": "druggist-or-specialist-in-health-in-an-advisory-role-for-continence-and-everyday-help-schweizer-paraplegiker-zentrum-spz",
         "de": "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und",
-        "fr": "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
+        "fr": "droguiste-ou-specialiste-en-sante-a-titre-consultatif-pour-les-aides-a-la-continence-et-a-la-vie-quotidienne-schweizer"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3080,6 +3080,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
+        ],
+        "en": [
+          "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
+        ],
+        "fr": [
           "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
         ]
       },
@@ -3166,12 +3172,12 @@
     },
     {
       "id": "spz-6d478e976a75",
-      "slug": "platform-engineer-automation-spz-nottwil",
+      "slug": "automazione-degli-ingegneri-di-piattaforma-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "platform-engineer-automation-spz-nottwil",
-        "it": "platform-engineer-automation-spz-nottwil",
+        "it": "automazione-degli-ingegneri-di-piattaforma-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "platform-engineer-automation-spz-nottwil",
-        "fr": "platform-engineer-automation-spz-nottwil"
+        "fr": "automatisation-des-ingenieurs-de-plate-forme-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3226,7 +3232,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-14T23:00:07.891Z"
+      "firstSeenAt": "2026-06-14T23:00:07.891Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "platform-engineer-automation-spz-nottwil"
+        ],
+        "fr": [
+          "platform-engineer-automation-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "platform-engineer-automation-spz-nottwil"
+      ]
     },
     {
       "id": "spz-508771ed50c7",
@@ -3234,8 +3251,8 @@
       "slugByLocale": {
         "de": "leiter-in-medizinische-applikationen-spz-nottwil",
         "it": "leiter-in-medizinische-applikationen-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "leiter-in-medizinische-applikationen-spz-nottwil",
-        "fr": "leiter-in-medizinische-applikationen-spz-nottwil"
+        "en": "head-of-medical-applications-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "chef-des-applications-medicales-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3280,6 +3297,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-medizinische-applikationen-spz-nottwil"
+        ],
+        "en": [
+          "leiter-in-medizinische-applikationen-spz-nottwil"
+        ],
+        "fr": [
           "leiter-in-medizinische-applikationen-spz-nottwil"
         ]
       },
