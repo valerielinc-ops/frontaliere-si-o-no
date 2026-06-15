@@ -17,7 +17,7 @@
  * assigned variant is then no longer a pure function of (email, campaignId).
  */
 
-import { assignSubjectVariant } from '../../services/newsletter-subject-variants.mjs';
+import { assignSubjectVariant } from '../../services/newsletter-subject-assign.mjs';
 
 /** Thrown when the single-field collectionGroup index is missing. */
 export class MissingIndexError extends Error {
