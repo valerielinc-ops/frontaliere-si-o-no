@@ -3329,6 +3329,7 @@ Regole:
  'publisherApply.cvPlaceholder': 'https://… (Drive, LinkedIn, sito personale)',
  'publisherApply.cvUpload': 'Oppure carica il CV (PDF o Word, max 5 MB)',
  'publisherApply.cvUploading': 'Caricamento…',
+ 'publisherApply.cvRemove': 'Rimuovi',
  'publisherApply.cvError': 'Caricamento non riuscito. Usa un PDF o Word sotto i 5 MB, oppure incolla un link.',
  'publisherApply.message': 'Messaggio (opzionale)',
  'publisherApply.consent': 'Acconsento all\'invio dei miei dati di contatto al datore di lavoro per valutare la mia candidatura, secondo la sua informativa privacy.',
