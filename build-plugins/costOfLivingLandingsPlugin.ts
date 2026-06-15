@@ -216,7 +216,9 @@ export function renderEmployerGrid(
       name: e.name,
       openings: e.count ?? undefined,
     } satisfies EmployerCardEmployer,
-    href: `${buildCityJobBoardUrl(locale, cityId)}?q=${encodeURIComponent(e.name)}`,
+    // Crawlable city job-board page, never a robots-disallowed `?q=` URL
+    // (rel="nofollow" banned on internal links — see no-internal-nofollow test).
+    href: buildCityJobBoardUrl(locale, cityId),
   }));
 
   const listHtml = renderEmployerCardListHtml(items, {
