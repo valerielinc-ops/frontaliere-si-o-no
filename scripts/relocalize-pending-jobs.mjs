@@ -34,6 +34,7 @@ import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
+import { markRunStart } from './lib/translate-run-clock.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1129,6 +1130,13 @@ const invokedDirectly = (() => {
 })();
 
 if (invokedDirectly) {
+  // Publish the run start so the local-MT mop-up (a separate process in a later
+  // workflow step) can bound itself ELAPSED-AWARE to the SAME run start rather
+  // than getting a fresh full budget — preventing cascade-overflow + mop-up +
+  // commit from approaching the 350min job timeout (#2212). Done here, inside the
+  // direct-invocation guard, so importing this module (e.g. from the mop-up) does
+  // NOT overwrite the marker with the importer's start time.
+  markRunStart(RUN_START_MS);
   main().catch((err) => {
     console.error('❌ Re-localization failed:', err?.message || err);
     process.exit(1);
