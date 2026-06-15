@@ -27,17 +27,25 @@
  *      clears needsRetranslation via the imported reconcileRetranslationState
  *      ONLY when the locale actually became complete.
  *
- * Wall-clock budget: stops queuing NEW work after LOCAL_MT_TIME_BUDGET_MS
- * (default 280min) so the workflow's commit step runs before the 350min job
- * timeout. The Python call itself is bounded by the batch already assembled.
+ * Wall-clock budget (ELAPSED-AWARE, #2212): the effective budget is the SMALLER
+ * of (a) LOCAL_MT_TIME_BUDGET_MS, a per-step ceiling fresh from THIS process's
+ * start, and (b) the time left until a run-wide deadline (LOCAL_MT_MOPUP_DEADLINE_MS,
+ * default 320min) measured from the SHARED run start the cascade published
+ * (scripts/lib/translate-run-clock.mjs). Mirroring the cascade's own elapsed-aware
+ * budget, this prevents a cascade that overflowed its 250min gate + a fresh full
+ * mop-up + commit/scatter/slug/deploy from approaching the 350min job timeout and
+ * losing uncommitted incremental writes. When no run-start marker exists (local
+ * run / cascade skipped) the reference falls back to this process's own start, so
+ * standalone behaviour is unchanged (bounded purely by LOCAL_MT_TIME_BUDGET_MS).
  *
  * Usage:
  *   node scripts/local-mt-mopup.mjs [--max-jobs N] [--dry-run]
  * Env:
- *   LOCAL_MT_MAX_JOBS        — cap jobs processed (default 2000; --max-jobs wins)
- *   LOCAL_MT_TIME_BUDGET_MS  — wall-clock budget (default 280*60*1000)
- *   LOCAL_MT_PYTHON          — python interpreter (default 'python3')
- *   LOCAL_MT_DRY_RUN=1       — scan + report only, no Python call, no writes
+ *   LOCAL_MT_MAX_JOBS          — cap jobs processed (default 2000; --max-jobs wins)
+ *   LOCAL_MT_TIME_BUDGET_MS    — per-step wall-clock ceiling (default 280*60*1000)
+ *   LOCAL_MT_MOPUP_DEADLINE_MS — run-wide deadline from run start (default 320*60*1000)
+ *   LOCAL_MT_PYTHON            — python interpreter (default 'python3')
+ *   LOCAL_MT_DRY_RUN=1         — scan + report only, no Python call, no writes
  */
 
 import fs from 'node:fs';
@@ -46,6 +54,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
+import { readRunStartMs } from './lib/translate-run-clock.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -58,7 +67,21 @@ const MIN_DESC_CHARS = 120;
 const MIN_TITLE_CHARS = 3;
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
-const TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280 * 60 * 1000;
+// Per-step ceiling: a fresh budget measured from THIS process's start.
+const STATIC_TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280 * 60 * 1000;
+// Run-wide deadline measured from the run start the cascade published. Bounds the
+// mop-up relative to the SAME reference the cascade uses, leaving ~30min under the
+// 350min job timeout for commit/scatter/slug/deploy.
+const MOPUP_DEADLINE_MS = Number(process.env.LOCAL_MT_MOPUP_DEADLINE_MS) || 320 * 60 * 1000;
+// Effective budget is ELAPSED-AWARE (#2212): the smaller of the per-step ceiling
+// and the time LEFT until the run-wide deadline. Falls back to this process's own
+// start when no run-start marker exists (local run / cascade skipped), so the
+// standalone budget stays exactly LOCAL_MT_TIME_BUDGET_MS.
+const RUN_START_MS = readRunStartMs() ?? Date.now();
+const TIME_BUDGET_MS = Math.min(
+  STATIC_TIME_BUDGET_MS,
+  Math.max(0, MOPUP_DEADLINE_MS - (Date.now() - RUN_START_MS)),
+);
 // Reserve 5min after the spawn kill for the JSON-write phase.
 // spawnSync timeout = TIME_BUDGET_MS - WRITE_RESERVE_MS so that when ETIMEDOUT
 // fires, Date.now()-started is still < TIME_BUDGET_MS and budgetOk() stays true.
@@ -146,6 +169,17 @@ function normalizeCompanyKey(value = '') {
 }
 
 async function main() {
+  // Elapsed-aware early-out (#2212): if the cascade already consumed the run-wide
+  // window, there is no time to safely run a Python batch (spawn timeout =
+  // TIME_BUDGET_MS - WRITE_RESERVE_MS would be non-positive, which spawnSync
+  // treats as "no timeout" = unbounded). Step aside so the always()-guarded commit
+  // step runs well before the 350min job timeout instead of risking a kill.
+  if (TIME_BUDGET_MS <= WRITE_RESERVE_MS) {
+    const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
+    console.log(`⏰ [local-mt] Run-wide budget effectively exhausted (${Math.round(TIME_BUDGET_MS / 1000)}s left of the ${Math.round(MOPUP_DEADLINE_MS / 60000)}min deadline, ~${elapsedMin}min elapsed) — skipping mop-up so the commit step runs before the job timeout. Leftovers stay flagged for the next run.`);
+    return;
+  }
+
   console.log('🔍 [local-mt] Scanning per-crawler slices for translation gaps...\n');
 
   if (!fs.existsSync(BY_CRAWLER_DIR)) {
