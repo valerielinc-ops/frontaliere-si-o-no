@@ -124,6 +124,8 @@ Una riga/finding:
 
 Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 
+**Marker `🔴 Important` = stringa esatta, MAI bold.** Scrivi `🔴 Important` (emoji + spazio + parola piana), non `🔴 **Important**` né `🔴 __Important__`. È un marker leggibile da gate deterministici (`pr-redflag-fixer.yml` per auto-fixare il 🔴, `auto-merge-eval.mjs` per bloccare il merge). Un bold rompeva il match literal e lasciava la PR bloccata col 🔴 mai indirizzato (PR #2211 round-2). I gate ora sono resi tolleranti al markdown (regex `🔴\s*\*{0,2}\s*Important`), ma tieni comunque il formato piano: è la sorgente del problema, la tolleranza è solo cintura.
+
 **Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating, "Great work but". No hedging.
 
 **Keep:** linea esatta, simboli in backtick, fix concreto, *perché* solo se non ovvio.

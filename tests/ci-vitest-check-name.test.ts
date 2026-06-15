@@ -38,9 +38,14 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
       ['pr-autorebase.mjs', AUTOREBASE],
       ['auto-merge-eval.mjs', AUTO_MERGE_EVAL],
     ] as const) {
-      expect(src, `${name} non importa VITEST_CHECK_NAME`).toContain(
-        "import { VITEST_CHECK_NAME } from './lib/constants.mjs'",
-      );
+      // Tollerante ai co-import dallo STESSO modulo (es. auto-merge-eval.mjs
+      // importa anche REDFLAG_IMPORTANT_RE): l'intento è "VITEST_CHECK_NAME viene
+      // da constants.mjs", non "è l'UNICO named import". Un match esatto sulla
+      // riga rompeva legittimamente all'aggiunta di un secondo import condiviso.
+      expect(
+        /import\s*\{[^}]*\bVITEST_CHECK_NAME\b[^}]*\}\s*from\s*'\.\/lib\/constants\.mjs'/.test(src),
+        `${name} non importa VITEST_CHECK_NAME da './lib/constants.mjs'`,
+      ).toBe(true);
       // Nessun literal hardcoded dentro un `select(.name == "...")` (eseguibile).
       expect(
         src.includes('select(.name == "vitest (unit + integration)")'),
