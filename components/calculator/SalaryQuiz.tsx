@@ -231,8 +231,7 @@ export default function SalaryQuiz() {
  {/* Progress bar */}
  <div className="h-2 bg-surface-raised rounded-full mb-8 overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${progressWidth === '25%' ? 0.25 : progressWidth === '50%' ? 0.5 : progressWidth === '75%' ? 0.75 : 1})` }}
+ className={`h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-500 origin-left ${progressWidth === '25%' ? 'scale-x-[0.25]' : progressWidth === '50%' ? 'scale-x-[0.5]' : progressWidth === '75%' ? 'scale-x-[0.75]' : 'scale-x-100'}`}
  />
  </div>
 
@@ -331,12 +330,10 @@ export default function SalaryQuiz() {
  <p className="text-on-accent/80 text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
  <div className="relative h-3 bg-on-accent/20 rounded-full">
  <div
- className="absolute h-full bg-on-accent/60 rounded-full"
- style={{ left: '0%', width: '100%' }}
+ className="absolute h-full bg-on-accent/60 rounded-full left-0 w-full"
  />
  <div
- className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-surface rounded-full shadow-lg border-2 border-success"
- style={{ left: '50%', transform: 'translate(-50%, -50%)' }}
+ className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-surface rounded-full shadow-lg border-2 border-success left-1/2"
  />
  </div>
  <div className="flex justify-between mt-2 text-xs text-on-accent/80">

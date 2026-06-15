@@ -334,8 +334,8 @@ export default function CarCostCalculator() {
  <span className="w-6 text-center">🇮🇹</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-success-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent"
- style={{ width: `${Math.min((result.italy.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
+ className="h-full bg-success-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent w-[var(--bar-w)]"
+ style={{ ['--bar-w']: `${Math.min((result.italy.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` } as React.CSSProperties}
  >
  € {result.italy.total.toLocaleString()}
  </div>
@@ -345,8 +345,8 @@ export default function CarCostCalculator() {
  <span className="w-6 text-center">🇨🇭</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-danger-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent"
- style={{ width: `${Math.min((result.switzerland.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
+ className="h-full bg-danger-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent w-[var(--bar-w)]"
+ style={{ ['--bar-w']: `${Math.min((result.switzerland.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` } as React.CSSProperties}
  >
  CHF {result.switzerland.total.toLocaleString()}
  </div>

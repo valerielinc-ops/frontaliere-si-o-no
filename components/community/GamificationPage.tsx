@@ -83,7 +83,7 @@ const GamificationPage: React.FC = () => {
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{unlockedCount}<span className="text-sm text-on-accent/70">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
  </div>
  <div className="w-full max-w-xs bg-on-accent/20 rounded-full h-1.5 mt-3">
- <div className="bg-surface rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
+ <div className="bg-surface rounded-full h-1.5 transition-transform duration-500 w-full origin-left [transform:var(--sx)]" style={{ ['--sx']: `scaleX(${xpProgressPct / 100})` } as React.CSSProperties} />
  </div>
  <div className="text-xs text-on-accent/80 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
  </div>
@@ -160,7 +160,7 @@ const GamificationPage: React.FC = () => {
  {!isUnlocked && achievement.requiredCount > 1 && (
  <div className="flex items-center gap-2 mt-2">
  <div className="flex-1 bg-surface-raised rounded-full h-1.5">
- <div className="bg-warning-strong rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
+ <div className="bg-warning-strong rounded-full h-1.5 transition-transform duration-300 w-full origin-left [transform:var(--sx)]" style={{ ['--sx']: `scaleX(${progress})` } as React.CSSProperties} />
  </div>
  <span className="text-sm text-muted font-bold">{count}/{achievement.requiredCount}</span>
  </div>

@@ -227,8 +227,8 @@ const RistorniTracker: React.FC = () => {
  <span className="text-sm font-bold text-subtle w-12">{rate.year}</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-info-strong to-success-strong rounded-full flex items-center justify-end pr-2"
- style={{ width: `${Math.min(100, (rate.totalMillions / 120) * 100)}%` }}
+ className="h-full bg-gradient-to-r from-info-strong to-success-strong rounded-full flex items-center justify-end pr-2 w-[var(--bar-w)]"
+ style={{ ['--bar-w']: `${Math.min(100, (rate.totalMillions / 120) * 100)}%` } as React.CSSProperties}
  >
  <span className="text-xs font-bold text-on-accent">€{rate.totalMillions}M</span>
  </div>

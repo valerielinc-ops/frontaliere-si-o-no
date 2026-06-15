@@ -23,7 +23,7 @@ export default function LivabilityMap({ municipalities }: { municipalities: Scor
  <MapContainer
  center={center}
  zoom={10}
- style={{ height: '100%', width: '100%' }}
+ className="h-full w-full"
  scrollWheelZoom={true}
  >
  <TileLayer

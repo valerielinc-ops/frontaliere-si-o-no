@@ -526,8 +526,8 @@ const SwissTaxReturn: React.FC = () => {
  </div>
  <div className="w-full bg-surface-raised rounded-full h-2 mb-6 overflow-hidden">
  <div
- className="bg-danger-strong-hover h-2 rounded-full transition-transform duration-300 origin-left"
- style={{ transform: `scaleX(${checkedDocs.size / SWISS_DOCUMENTS.length})` }}
+ className="bg-danger-strong-hover h-2 rounded-full transition-transform duration-300 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${checkedDocs.size / SWISS_DOCUMENTS.length})` } as React.CSSProperties}
  />
  </div>
  <div className="space-y-3">

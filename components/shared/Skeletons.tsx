@@ -38,7 +38,7 @@ export const SkeletonChart: React.FC = () => (
  </div>
  <div className="flex items-end gap-3 h-48">
  {[60, 80, 45, 90, 70, 55, 85].map((h, i) => (
- <div key={i} className={`${pulse} flex-1 rounded-t-lg`} style={{ height: `${h}%` }} />
+ <div key={i} className={`${pulse} flex-1 rounded-t-lg h-[var(--bar-h)]`} style={{ ['--bar-h']: `${h}%` } as React.CSSProperties} />
  ))}
  </div>
  <div className="flex justify-between mt-2">
@@ -459,7 +459,7 @@ export const SkeletonPageShell: React.FC = () => {
  return (
  <div className="min-h-screen relative flex flex-col font-sans text-strong overflow-hidden">
  {/* Background gradient — matches real layout + loading shell */}
- <div className="absolute inset-0 bg-gradient-to-br from-info-subtle via-surface-alt to-success-subtle -z-20" style={{ contain: 'strict' }} />
+ <div className="absolute inset-0 bg-gradient-to-br from-info-subtle via-surface-alt to-success-subtle -z-20 [contain:strict]" />
 
  {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
  <nav className="sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm">
@@ -517,7 +517,7 @@ export const SkeletonPageShell: React.FC = () => {
  </main>
 
  {/* Mobile bottom nav — matches loading shell fixed h-14, hidden md+ */}
- <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 border-t border-edge/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+ <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 border-t border-edge/50 md:hidden h-14 grid grid-cols-6 items-center pb-[env(safe-area-inset-bottom)]">
  {Array.from({ length: 6 }).map((_, i) => (
  <div key={i} className="flex flex-col items-center gap-0.5">
  <div className="w-5 h-5 bg-surface-raised rounded" />

@@ -225,8 +225,8 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-accent-strong to-accent-strong rounded-full transition-transform duration-1000 origin-left"
- style={{ transform: `scaleX(${bPercent / 100})` }}
+ className="h-full bg-gradient-to-r from-accent-strong to-accent-strong rounded-full transition-transform duration-1000 origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${bPercent / 100})` } as React.CSSProperties}
  />
  </div>
  </div>
@@ -241,8 +241,8 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-success-strong to-success-strong rounded-full transition-transform duration-1000 origin-left"
- style={{ transform: `scaleX(${gPercent / 100})` }}
+ className="h-full bg-gradient-to-r from-success-strong to-success-strong rounded-full transition-transform duration-1000 origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${gPercent / 100})` } as React.CSSProperties}
  />
  </div>
  </div>
@@ -361,8 +361,8 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${progress / 100})` }}
+ className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${progress / 100})` } as React.CSSProperties}
  />
  </div>
  </div>

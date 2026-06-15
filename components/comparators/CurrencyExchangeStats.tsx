@@ -513,8 +513,8 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
  <div className="h-3 bg-gradient-to-r from-danger via-warning to-success rounded-full relative">
  <div
- className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-surface border-2 border-heading rounded-full shadow-lg"
- style={{ left: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` }}
+ className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-surface border-2 border-heading rounded-full shadow-lg left-[var(--marker-l)]"
+ style={{ ['--marker-l']: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` } as React.CSSProperties}
  />
  </div>
  <div className="text-center text-xs font-bold text-subtle">

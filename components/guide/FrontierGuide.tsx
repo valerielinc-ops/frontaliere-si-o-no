@@ -1106,7 +1106,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <MapContainer
  center={[46.0, 9.2]}
  zoom={8}
- style={{ height: '100%', width: '100%' }}
+ className="h-full w-full"
  >
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -1298,7 +1298,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <LazyLeafletMap>
  {({ MapContainer, TileLayer, Marker, Popup, L }) => (
  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-edge">
- <MapContainer center={[45.87, 8.95]} zoom={10} style={{ height: '100%', width: '100%' }}>
+ <MapContainer center={[45.87, 8.95]} zoom={10} className="h-full w-full">
  <TileLayer
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -2760,7 +2760,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </InfoCard>
 
  {/* NASPI Calculator */}
- <Suspense fallback={<div style={{ minHeight: 600 }} aria-hidden="true" />}>
+ <Suspense fallback={<div className="min-h-[600px]" aria-hidden="true" />}>
  <NaspiCalculator />
  </Suspense>
 

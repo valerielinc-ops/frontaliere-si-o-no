@@ -267,9 +267,8 @@ const ConsultingPage: React.FC = () => {
  </button>
  </div>
  <div
- className="calendly-inline-widget rounded-2xl overflow-hidden border border-edge"
+ className="calendly-inline-widget rounded-2xl overflow-hidden border border-edge min-w-[320px] h-[700px]"
  data-url={selectedTier === 'premium' ? CALENDLY_PREMIUM : CALENDLY_BASE}
- style={{ minWidth: '320px', height: '700px' }}
  />
  </div>
  )}

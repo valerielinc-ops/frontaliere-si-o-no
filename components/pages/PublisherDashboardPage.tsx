@@ -136,12 +136,12 @@ function FunnelBar({
       </span>
       <div className="relative h-2.5 flex-1 rounded-full bg-surface-raised overflow-hidden">
         <div
-          className={`absolute inset-y-0 left-0 rounded-full ${tone} origin-left transition-transform duration-700 ease-out`}
+          className={`absolute inset-y-0 left-0 rounded-full ${tone} origin-left transition-transform duration-700 ease-out w-[var(--bar-w)] [transform:var(--bar-sx)] [transition-delay:var(--bar-delay)]`}
           style={{
-            width: `${Math.max(pct, value > 0 ? 4 : 0)}%`,
-            transform: mounted ? 'scaleX(1)' : 'scaleX(0)',
-            transitionDelay: `${delayMs}ms`,
-          }}
+            ['--bar-w']: `${Math.max(pct, value > 0 ? 4 : 0)}%`,
+            ['--bar-sx']: mounted ? 'scaleX(1)' : 'scaleX(0)',
+            ['--bar-delay']: `${delayMs}ms`,
+          } as React.CSSProperties}
         />
       </div>
       <span className="text-sm font-semibold tabular-nums text-strong w-12 text-right shrink-0">
@@ -563,10 +563,10 @@ const PublisherDashboardPage: React.FC = () => {
                 return (
                   <article
                     key={r.id}
-                    className={`relative rounded-2xl border bg-surface p-5 animate-fade-in-up ${
+                    className={`relative rounded-2xl border bg-surface p-5 animate-fade-in-up [animation-delay:var(--card-delay)] [animation-fill-mode:both] ${
                       sponsored ? 'border-warning-border' : 'border-edge'
                     }`}
-                    style={{ animationDelay: `${Math.min(i * 60, 360)}ms`, animationFillMode: 'both' }}
+                    style={{ ['--card-delay']: `${Math.min(i * 60, 360)}ms` } as React.CSSProperties}
                   >
                     {isBest && (
                       <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-warning text-on-accent shadow-sm">

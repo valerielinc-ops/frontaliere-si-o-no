@@ -379,8 +379,8 @@ const CostOfLiving: React.FC = () => {
  <span className="text-xs w-4 text-center">🇨🇭</span>
  <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
  <div
- className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${maxVal > 0 ? (valCH_EUR / maxVal) : 0})` }}
+ className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${maxVal > 0 ? (valCH_EUR / maxVal) : 0})` } as React.CSSProperties}
  />
  </div>
  </div>
@@ -388,8 +388,8 @@ const CostOfLiving: React.FC = () => {
  <span className="text-xs w-4 text-center">🇮🇹</span>
  <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
  <div
- className="bg-success-strong h-full rounded-full transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${maxVal > 0 ? (valIT_EUR / maxVal) : 0})` }}
+ className="bg-success-strong h-full rounded-full transition-transform duration-500 origin-left [transform:var(--bar-sx)]"
+ style={{ ['--bar-sx']: `scaleX(${maxVal > 0 ? (valIT_EUR / maxVal) : 0})` } as React.CSSProperties}
  />
  </div>
  </div>

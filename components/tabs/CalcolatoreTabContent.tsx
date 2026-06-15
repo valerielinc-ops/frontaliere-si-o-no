@@ -186,7 +186,7 @@ export default function CalcolatoreTabContent() {
      and undersized once the real JobBoard CTA + line-clamp-2 WeeklyFact rendered.
      Skeleton fallback inside enlarged to four h-[44px] slots so the fallback itself
      also fills the reserved space, preventing a 32px upward shift when fallback shows. */}
- <div className="md:hidden space-y-2 mt-6 min-h-[192px]" style={{ minHeight: 192 }}>
+ <div className="md:hidden space-y-2 mt-6 min-h-[192px]">
  {/* SilentErrorBoundary stays mounted across the showDeferredHomeWidgets
  flip (fired at idle ~2.3s via requestIdleCallback). Previously it lived
  only in the `true` branch, so the idle flip mounted/unmounted the whole
@@ -253,7 +253,7 @@ export default function CalcolatoreTabContent() {
  </div>
  )}
  {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
- <Suspense fallback={<div style={{ minHeight: AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight, contain: 'content' }} className="mt-6 mb-4" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight}px` } as React.CSSProperties} className="mt-6 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
  adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
@@ -302,7 +302,7 @@ export default function CalcolatoreTabContent() {
  {/* Homepage end-of-page multiplex — only shown after a result so we don't
   * compete with the hero/input on first paint. Backfills the home undermonetization
   * (only HOMEPAGE_MID_DISPLAY was previously firing here, €0.21/30d). */}
- <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="mt-8 mb-4" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
  adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
@@ -317,7 +317,7 @@ export default function CalcolatoreTabContent() {
 
  // ── Sub-calculator views — each gets a bottom AdSense multiplex ──
  const adBottom = (
- <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="mt-8 mb-4" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
  <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
  </Suspense>
  );

@@ -195,7 +195,7 @@ export default function LivabilityIndex() {
 
  {/* Content */}
  {viewMode === 'table' ? (
- <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}> <div className="overflow-x-auto">
+ <div className="bg-surface rounded-xl shadow overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_500px]"> <div className="overflow-x-auto">
  <table className="w-full text-sm">
  <thead className="bg-surface-alt">
  <tr>
@@ -228,7 +228,7 @@ export default function LivabilityIndex() {
  <td className="py-2.5 px-3 text-right">
  <div className="flex items-center justify-end gap-2">
  <div className="w-16 bg-surface-raised rounded-full h-2 overflow-hidden">
- <div className={`h-full rounded-full ${scoreBarColor(m.score)}`} style={{ width: `${m.score * 100}%` }} />
+ <div className={`h-full rounded-full w-[var(--bar-w)] ${scoreBarColor(m.score)}`} style={{ ['--bar-w']: `${m.score * 100}%` } as React.CSSProperties} />
  </div>
  <span className="font-mono font-bold text-heading w-10 text-right">
  {(m.score * 100).toFixed(0)}
@@ -270,7 +270,7 @@ export default function LivabilityIndex() {
  )}
  </div>
  ) : (
- <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ height: '500px' }}>
+ <div className="bg-surface rounded-xl shadow overflow-hidden h-[500px]">
  <React.Suspense fallback={<div className="flex items-center justify-center h-full text-muted">Loading map…</div>}>
  <LeafletMap municipalities={filtered} />
  </React.Suspense>

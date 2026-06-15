@@ -191,7 +191,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  {/* MAP — immediately visible on mobile */}
  <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
- <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+ <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -578,7 +578,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  <div className="space-y-4">
  {/* Map */}
  <div className="rounded-xl overflow-hidden border border-edge h-full min-h-[500px]">
- <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+ <MapContainer center={center} zoom={8} className="h-full w-full" scrollWheelZoom={true}>
  <TileLayer
  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
