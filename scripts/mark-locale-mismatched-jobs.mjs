@@ -7,7 +7,7 @@
  * Detection mirrors tests/job-locale-consistency.test.ts: we use
  * `detectLanguageWithConfidence` from scripts/lib/detect-language.mjs and
  * flag any description ≥120 chars where the detected language differs from
- * the stored locale with confidence ≥0.50.
+ * the stored locale with confidence ≥0.65.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -32,7 +32,7 @@ for (const job of jobs) {
     const description = String(job.descriptionByLocale?.[locale] || '').trim();
     if (description.length < 120) continue;
     const detected = detectLanguageWithConfidence(description, locale);
-    if (detected.confidence >= 0.5 && detected.lang !== locale) {
+    if (detected.confidence >= 0.65 && detected.lang !== locale && LOCALES.includes(detected.lang)) {
       jobHasMismatch = true;
       break;
     }

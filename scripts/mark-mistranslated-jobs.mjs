@@ -3,7 +3,7 @@
  * mark-mistranslated-jobs.mjs
  *
  * Scans `data/jobs.json` for jobs whose `descriptionByLocale[locale]` carries
- * text in the wrong language (per `detectLanguageWithConfidence` at ≥0.50
+ * text in the wrong language (per `detectLanguageWithConfidence` at ≥0.65
  * confidence) and flags those jobs with `needsRetranslation = true` in the
  * matching `data/jobs/by-crawler/*.json` slice. The daily
  * `translate-pending-jobs` cron then picks them up and re-translates.
@@ -34,7 +34,7 @@ function main() {
       const desc = String(job.descriptionByLocale?.[locale] || '').trim();
       if (desc.length < 120) continue;
       const detected = detectLanguageWithConfidence(desc, locale);
-      if (detected.confidence >= 0.50 && detected.lang !== locale) {
+      if (detected.confidence >= 0.65 && detected.lang !== locale && LOCALES.includes(detected.lang)) {
         offending.add(job.slug);
         break;
       }
