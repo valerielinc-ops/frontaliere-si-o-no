@@ -407,8 +407,8 @@ export default function SalaryCompare() {
  <span className="text-xs flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
  <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-danger-strong rounded-full"
- style={{ width: (r.chNetEUR / maxVal) * 100 + '%' }}
+ className="h-full bg-danger-strong rounded-full w-[var(--bar-w)]"
+ style={{ ['--bar-w']: (r.chNetEUR / maxVal) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  </div>
@@ -416,8 +416,8 @@ export default function SalaryCompare() {
  <span className="text-xs flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
  <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-success-strong rounded-full"
- style={{ width: (r.itNet / maxVal) * 100 + '%' }}
+ className="h-full bg-success-strong rounded-full w-[var(--bar-w)]"
+ style={{ ['--bar-w']: (r.itNet / maxVal) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  </div>
@@ -695,11 +695,8 @@ export default function SalaryCompare() {
  </span>
  <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
  <div
- className="h-full bg-danger-strong rounded-full"
- style={{
- width:
- (r.chNetEUR / maxVal) * 100 + '%',
- }}
+ className="h-full bg-danger-strong rounded-full w-[var(--bar-w)]"
+ style={{ ['--bar-w']: (r.chNetEUR / maxVal) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  <span className="w-20 text-right text-xs font-mono text-subtle">
@@ -712,11 +709,8 @@ export default function SalaryCompare() {
  </span>
  <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
  <div
- className="h-full bg-success-strong rounded-full"
- style={{
- width:
- (r.itNet / maxVal) * 100 + '%',
- }}
+ className="h-full bg-success-strong rounded-full w-[var(--bar-w)]"
+ style={{ ['--bar-w']: (r.itNet / maxVal) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  <span className="w-20 text-right text-xs font-mono text-subtle">
@@ -802,18 +796,12 @@ export default function SalaryCompare() {
  </div>
  <div className="relative h-2 bg-surface-raised rounded-full">
  <div
- className="absolute h-full bg-danger rounded-full"
- style={{
- left: (ch[0] / ch[2]) * 100 + '%',
- width:
- ((ch[2] - ch[0]) / ch[2]) * 100 + '%',
- }}
+ className="absolute h-full bg-danger rounded-full left-[var(--bar-l)] w-[var(--bar-w)]"
+ style={{ ['--bar-l']: (ch[0] / ch[2]) * 100 + '%', ['--bar-w']: ((ch[2] - ch[0]) / ch[2]) * 100 + '%' } as React.CSSProperties}
  />
  <div
- className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-danger rounded-full border-2 border-surface"
- style={{
- left: (ch[1] / ch[2]) * 100 + '%',
- }}
+ className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-danger rounded-full border-2 border-surface left-[var(--bar-l)]"
+ style={{ ['--bar-l']: (ch[1] / ch[2]) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  <div className="flex justify-between text-xs text-muted mt-0.5 font-mono">
@@ -835,18 +823,12 @@ export default function SalaryCompare() {
  </div>
  <div className="relative h-2 bg-surface-raised rounded-full">
  <div
- className="absolute h-full bg-success rounded-full"
- style={{
- left: (it[0] / it[2]) * 100 + '%',
- width:
- ((it[2] - it[0]) / it[2]) * 100 + '%',
- }}
+ className="absolute h-full bg-success rounded-full left-[var(--bar-l)] w-[var(--bar-w)]"
+ style={{ ['--bar-l']: (it[0] / it[2]) * 100 + '%', ['--bar-w']: ((it[2] - it[0]) / it[2]) * 100 + '%' } as React.CSSProperties}
  />
  <div
- className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-success rounded-full border-2 border-surface"
- style={{
- left: (it[1] / it[2]) * 100 + '%',
- }}
+ className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 bg-success rounded-full border-2 border-surface left-[var(--bar-l)]"
+ style={{ ['--bar-l']: (it[1] / it[2]) * 100 + '%' } as React.CSSProperties}
  />
  </div>
  <div className="flex justify-between text-xs text-muted mt-0.5 font-mono">

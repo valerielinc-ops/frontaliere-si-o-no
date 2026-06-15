@@ -222,8 +222,8 @@ const FirstDayGuide: React.FC = () => {
  </div>
  <div className="w-full h-3 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 ease-out origin-left"
- style={{ transform: `scaleX(${progress / 100})` }}
+ className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 ease-out origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${progress / 100})` } as React.CSSProperties}
  />
  </div>
  {completedCount === CHECKLIST_STEPS.length && (

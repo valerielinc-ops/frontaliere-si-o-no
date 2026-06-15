@@ -248,8 +248,8 @@ const GamificationWidget: React.FC = () => {
  <div className="mt-2">
  <div className="w-full bg-surface-raised rounded-full h-1.5 overflow-hidden">
  <div
- className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${xpProgressPct / 100})` }}
+ className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${xpProgressPct / 100})` } as React.CSSProperties}
  />
  </div>
  <div className="flex justify-between text-xs text-muted mt-0.5">

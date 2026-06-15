@@ -60,8 +60,8 @@ export default function SupermarketMap({ supermarkets }: Props) {
  <div className="text-xs mt-1">
  {/* Dynamic chain color — must use inline style as value comes from runtime map */}
  <span
- className="inline-block w-2.5 h-2.5 rounded-full mr-1"
- style={{ backgroundColor: CHAIN_COLORS[s.chain] || MAP_COLORS.neutral }}
+ className="inline-block w-2.5 h-2.5 rounded-full mr-1 bg-[color:var(--chain-bg)]"
+ style={{ ['--chain-bg']: CHAIN_COLORS[s.chain] || MAP_COLORS.neutral } as React.CSSProperties}
  />
  {s.chain}
  </div>

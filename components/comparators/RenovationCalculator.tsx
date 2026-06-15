@@ -271,12 +271,12 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
  {/* Progress bar */}
  <div className="w-full bg-surface-raised rounded-full h-2 overflow-hidden">
  <div
- className={`h-2 rounded-full transition-transform origin-left ${
+ className={`h-2 rounded-full transition-transform origin-left [transform:var(--bar-sx)] ${
  statusColor === 'emerald' ? 'bg-success-strong' :
  statusColor === 'amber' ? 'bg-warning-strong' :
  'bg-danger-strong'
  }`}
- style={{ transform: `scaleX(${coveragePct / 100})` }}
+ style={{ ['--bar-sx']: `scaleX(${coveragePct / 100})` } as React.CSSProperties}
  />
  </div>
 

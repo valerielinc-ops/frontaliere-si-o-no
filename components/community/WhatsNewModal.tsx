@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo, type MouseEvent } from 'react';
+import { useState, useEffect, useCallback, useMemo, type MouseEvent, type CSSProperties } from 'react';
 import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, CheckCircle2 } from 'lucide-react';
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -1971,8 +1971,8 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
  <div className="flex items-center gap-2 mt-0.5">
  <div className="flex-1 bg-surface-raised rounded-full h-1.5 overflow-hidden">
  <div
- className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left"
- style={{ transform: `scaleX(${xpProgressPct / 100})` }}
+ className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left [transform:var(--sx)]"
+ style={{ ['--sx']: `scaleX(${xpProgressPct / 100})` } as CSSProperties}
  />
  </div>
  <span className="text-[10px] text-muted font-medium whitespace-nowrap">{state.xp} XP</span>

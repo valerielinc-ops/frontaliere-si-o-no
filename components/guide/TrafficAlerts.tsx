@@ -398,7 +398,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <MapContainer
  center={mapCenter}
  zoom={11}
- style={{ height: '100%', width: '100%' }}
+ className="h-full w-full"
  scrollWheelZoom={true}
  >
  <TileLayer
@@ -515,11 +515,11 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Right column — sticky map */}
  <div className="sticky top-4 space-y-3 self-start">
- <div className="rounded-xl overflow-hidden border-2 border-edge shadow-lg" style={{ height: '70vh', minHeight: '500px' }}>
+ <div className="rounded-xl overflow-hidden border-2 border-edge shadow-lg h-[70vh] min-h-[500px]">
  <MapContainer
  center={mapCenter}
  zoom={11}
- style={{ height: '100%', width: '100%' }}
+ className="h-full w-full"
  scrollWheelZoom={true}
  >
  <TileLayer

@@ -411,7 +411,7 @@ const ShoppingCalculator: React.FC = () => {
  </div>
 
  {/* Map */}
- <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ minHeight: 480 }}>
+ <div className="bg-surface rounded-xl shadow overflow-hidden min-h-[480px]">
  <Suspense
  fallback={
  <div className="flex items-center justify-center h-[480px]">
@@ -433,8 +433,8 @@ const ShoppingCalculator: React.FC = () => {
  {filteredSupermarkets.map(s => (
  <div key={s.id} className="flex items-center gap-3 p-3 bg-surface-alt rounded-lg border border-edge">
  <div
- className="w-3 h-3 rounded-full flex-shrink-0"
- style={{ backgroundColor: CHAIN_COLORS[s.chain] || '#94a3b8' }}
+ className="w-3 h-3 rounded-full flex-shrink-0 bg-[color:var(--dot-bg)]"
+ style={{ ['--dot-bg']: CHAIN_COLORS[s.chain] || '#94a3b8' } as React.CSSProperties}
  />
  <div className="min-w-0">
  <div className="font-bold text-sm text-heading truncate">{s.name}</div>
@@ -497,7 +497,7 @@ const ShoppingCalculator: React.FC = () => {
  <span className="font-bold text-success">-{zc.savingsPercent}%</span>
  </div>
  <div className="h-3 bg-surface-raised rounded-full overflow-hidden">
- <div className="h-full bg-success-strong rounded-full transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${Math.min(barWidth, 100) / 100})`, transformOrigin: 'left' }} />
+ <div className="h-full bg-success-strong rounded-full transition-transform duration-300 w-full origin-left [transform:var(--bar-sx)]" style={{ ['--bar-sx']: `scaleX(${Math.min(barWidth, 100) / 100})` } as React.CSSProperties} />
  </div>
  </div>
  <div className="grid grid-cols-2 gap-4 text-sm">
@@ -509,7 +509,7 @@ const ShoppingCalculator: React.FC = () => {
  <span className="text-muted text-xs">{t('shopping.netConvenience')}</span>
  <div className="font-bold text-warning">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
  <div className="h-2 bg-surface-raised rounded-full overflow-hidden mt-1">
- <div className="h-full bg-warning-strong rounded-full" style={{ width: `${Math.min(netWidth, 100)}%` }} />
+ <div className="h-full bg-warning-strong rounded-full w-[var(--bar-w)]" style={{ ['--bar-w']: `${Math.min(netWidth, 100)}%` } as React.CSSProperties} />
  </div>
  </div>
  </div>

@@ -152,10 +152,10 @@ const HealthPremiumStats: React.FC = () => {
  <span className="w-8 font-bold text-body text-right">{c.canton}</span>
  <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
  <div
- className={`h-full rounded-full transition-transform origin-left ${
+ className={`h-full rounded-full transition-transform origin-left [transform:var(--bar-sx)] ${
  i < 5 ? 'bg-success-strong' : i >= cantonAverages.length - 5 ? 'bg-danger-strong' : 'bg-accent-strong'
  }`}
- style={{ transform: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` }}
+ style={{ ['--bar-sx']: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` } as React.CSSProperties}
  />
  </div>
  <span className="w-16 text-right font-bold text-body">{c.avg} CHF</span>

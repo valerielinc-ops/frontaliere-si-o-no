@@ -87,11 +87,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  Analytics.trackSelectContent('news_article', art.id);
  Analytics.trackUIInteraction('newsfeed', 'ticker', 'headline', 'open_article', art.id);
  }}
- className="absolute inset-0 flex items-center font-medium text-body hover:text-accent transition-colors duration-300 ease-out"
+ className="absolute inset-0 flex items-center font-medium text-body hover:text-accent transition-colors duration-300 ease-out [transform:var(--tx)] opacity-[var(--op)]"
  style={{
- transform: `translateX(${(i - idx) * 100}%)`,
- opacity: i === idx ? 1 : 0,
- }}
+ ['--tx']: `translateX(${(i - idx) * 100}%)`,
+ ['--op']: i === idx ? 1 : 0,
+ } as React.CSSProperties}
  tabIndex={i === idx ? 0 : -1}
  {...(i !== idx ? { inert: true } : {})}
  >

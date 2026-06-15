@@ -70,7 +70,7 @@ export class ChunkLoadErrorBoundary extends Component<Props, State> {
   render(): ReactNode {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
+        <div className="p-8 text-center">
           <p>Aggiornamento del sito in corso&hellip;</p>
         </div>
       );

@@ -798,7 +798,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Moved to Statistics subtab */}
 
  {/* Inline ad between comparison and educational section */}
- <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-6" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
 
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">
@@ -833,7 +833,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </>
  ) : (
- <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-accent" size={32} /></div>}>
+ <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center [contain:layout]"><RefreshCw className="animate-spin text-accent" size={32} /></div>}>
  <LazyCurrencyExchangeStats historyData={historyData} currentRate={realRate} period={historyPeriod} />
  </Suspense>
  )}
@@ -857,10 +857,10 @@ const CurrencyExchange: React.FC = () => {
  </div>
 
  <PartnerRecommendations context="exchange" />
- <Suspense fallback={<div className="min-h-[180px]" style={{ contain: 'layout' }} />}>
+ <Suspense fallback={<div className="min-h-[180px] [contain:layout]" />}>
  <LeadMagnetCTA variant="generic" delay={0} />
  </Suspense>
- <Suspense fallback={<div className="min-h-[100px]" style={{ contain: 'layout' }} />}>
+ <Suspense fallback={<div className="min-h-[100px] [contain:layout]" />}>
  <RelatedTools context="exchange" />
  </Suspense>
  </div>

@@ -1737,7 +1737,7 @@ const App: React.FC = () => {
   *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
   *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
  <div className={`${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
- <div className="absolute inset-0 bg-surface-alt -z-20" style={{ contain: 'strict' }}></div>
+ <div className="absolute inset-0 bg-surface-alt -z-20 [contain:strict]"></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
  {linkedInCallbackProcessing && (

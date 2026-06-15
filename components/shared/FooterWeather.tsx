@@ -36,16 +36,16 @@ function getWeatherEmoji(code: number, isDay: boolean): string {
 }
 
 function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
- if (code === 0 || code === 1) return <Sun style={{ width: size, height: size }} className="text-warning" />;
- if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
- if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
- if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-muted" />;
- if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-accent" />;
- if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-accent" />;
- if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-accent" />;
- if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-link" />;
- if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-warning" />;
- return <Sun style={{ width: size, height: size }} className="text-warning" />;
+ if (code === 0 || code === 1) return <Sun size={size} className="text-warning" />;
+ if (code === 2) return <Cloud size={size} className="text-muted" />;
+ if (code === 3) return <Cloud size={size} className="text-muted" />;
+ if (code >= 45 && code <= 48) return <CloudFog size={size} className="text-muted" />;
+ if (code >= 51 && code <= 57) return <CloudDrizzle size={size} className="text-accent" />;
+ if (code >= 61 && code <= 67) return <CloudRain size={size} className="text-accent" />;
+ if (code >= 71 && code <= 77) return <CloudSnow size={size} className="text-accent" />;
+ if (code >= 80 && code <= 86) return <CloudRain size={size} className="text-link" />;
+ if (code >= 95 && code <= 99) return <CloudLightning size={size} className="text-warning" />;
+ return <Sun size={size} className="text-warning" />;
 }
 
 function getTempColor(temp: number): string {

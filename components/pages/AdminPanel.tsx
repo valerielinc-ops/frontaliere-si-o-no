@@ -3088,8 +3088,7 @@ export default function AdminPanel() {
  <iframe
  srcDoc={nlPreviewHtml}
  title="Newsletter preview"
- className="w-full border-0"
- style={{ height: '680px' }}
+ className="w-full border-0 h-[680px]"
  sandbox="allow-same-origin"
  />
  </div>
@@ -3172,8 +3171,7 @@ export default function AdminPanel() {
 </body>
 </html>`}
  title="Confirmation email preview"
- className="w-full border border-edge rounded-lg"
- style={{ height: '720px' }}
+ className="w-full border border-edge rounded-lg h-[720px]"
  sandbox="allow-same-origin"
  />
  <div className="bg-surface-alt rounded-lg p-3 space-y-2">

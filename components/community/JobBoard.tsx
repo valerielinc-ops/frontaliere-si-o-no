@@ -6161,7 +6161,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  collapsing). This kills both the ~92px gate push when the late teaser
  text arrived (0.054 CLS/view) and the reverse collapse for
  description-less jobs. */}
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ height: 'clamp(0px, calc(100svh - 540px), 80px)' }}>
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]">
  {descriptionPreview ? (
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
@@ -7680,7 +7680,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <React.Fragment key={job.id || job.slug || idx}>
  {renderJobCard(job)}
  {showAd && isMobile && (
- <div key={`infeed-m-${idx}-${adRefreshKey}`} style={{ minHeight: '280px' }}>
+ <div key={`infeed-m-${idx}-${adRefreshKey}`} className="min-h-[280px]">
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
  adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
@@ -7691,7 +7691,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  )}
  {showAd && !isMobile && (
- <div key={`infeed-d-${idx}-${adRefreshKey}`} style={{ minHeight: '220px' }}>
+ <div key={`infeed-d-${idx}-${adRefreshKey}`} className="min-h-[220px]">
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
  adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
@@ -7742,7 +7742,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {enableJobAlerts && filteredJobs.length >= 3 && (
- <Suspense fallback={<div className="mt-6 rounded-2xl border border-edge bg-surface-raised animate-pulse" style={{ minHeight: '280px' }} aria-hidden="true" />}>
+ <Suspense fallback={<div className="mt-6 rounded-2xl border border-edge bg-surface-raised animate-pulse min-h-[280px]" aria-hidden="true" />}>
  <JobAlertEndCard keyword={deferredSearchQuery.trim()} />
  </Suspense>
  )}

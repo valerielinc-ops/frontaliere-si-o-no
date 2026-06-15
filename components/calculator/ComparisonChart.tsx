@@ -48,7 +48,7 @@ const CustomTooltip = ({ active, payload, label, isDarkMode, currency ="CHF" }: 
  {payload.map((entry: any, index: number) => (
  <div key={index} className="flex items-center justify-between gap-4 text-xs">
  <div className="flex items-center gap-2">
- <div className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
+ <div className="w-2.5 h-2.5 rounded-full shadow-sm bg-[color:var(--dot-bg)]" style={{ ['--dot-bg']: entry.color || entry.fill || entry.stroke } as React.CSSProperties} />
  <span className={`font-bold ${isDarkMode ? 'text-body' : 'text-subtle'}`}>{entry.name}</span>
  </div>
  <span className={`font-mono font-bold ${isDarkMode ? 'text-heading' : 'text-strong'} tabular-nums`}>
@@ -69,7 +69,7 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
  <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 pt-4 px-2">
  {payload.map((entry: any, index: number) => (
  <div key={`item-${index}`} className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
+ <div className="w-3 h-3 rounded-full bg-[color:var(--dot-bg)]" style={{ ['--dot-bg']: entry.color || entry.fill || entry.stroke } as React.CSSProperties} />
  <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-muted' : 'text-subtle'}`}>
  {entry.value}
  </span>
@@ -296,7 +296,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  )}
 
  {activeTab === 'breakdown' ? (
- <div className="w-full flex flex-col md:flex-row gap-4" style={{ height: 320 }}>
+ <div className="w-full flex flex-col md:flex-row gap-4 h-[320px]">
  <div className="flex-1 flex flex-col items-center relative">
  <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.resident_ch')}</h4>
  <div className="w-full h-full relative">
