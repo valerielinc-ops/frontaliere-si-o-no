@@ -1478,7 +1478,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  canonicalPath: '/supporto/',
  structuredData: {
  "@context": "https://schema.org",
- "@type": "WebPage",
+ // SearchAtlas "missing schema markup" (2026-06-15): the support/feedback
+ // page is a contact surface, so ContactPage is the correct type (the audit
+ // expects ContactPage here, not a generic WebPage).
+ "@type": "ContactPage",
  "name": "Aiutaci a Migliorare - Segnalazioni e Suggerimenti",
  "url": `${BASE_URL}/supporto`,
  "description": "Segnala bug e suggerisci funzionalità per il simulatore fiscale frontalieri Svizzera-Italia su GitHub",
@@ -9179,7 +9182,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  structuredData: [
  {
  "@context": "https://schema.org",
- "@type": "WebPage",
+ // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
+ // page is an About page (mirrors the /about/ alias which already uses
+ // AboutPage), not a generic WebPage. AboutPage is the correct type for a
+ // methodology/about-us page and is what the audit expects.
+ "@type": "AboutPage",
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
  "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
