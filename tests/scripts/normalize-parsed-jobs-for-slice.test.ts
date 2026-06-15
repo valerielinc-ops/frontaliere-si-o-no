@@ -9,6 +9,17 @@
 import { describe, it, expect } from 'vitest';
 import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset.mjs';
 
+interface JobLike {
+  location?: string;
+  canton?: string;
+  addressLocality?: string;
+  addressCountry?: string;
+  country?: string;
+  addressRegion?: string;
+  postalCode?: string;
+  streetAddress?: string;
+}
+
 describe('normalizeParsedJobsForSlice', () => {
   it('cleans leaked body text out of location (mirrors assemble-time net)', () => {
     // Sentence-boundary cut at the first '.'; "Availability" prose is dropped.
@@ -25,22 +36,22 @@ describe('normalizeParsedJobsForSlice', () => {
   });
 
   it('preserves a clean city location', () => {
-    const jobs = [{ location: 'Lugano', addressLocality: 'Lugano' }];
+    const jobs: JobLike[] = [{ location: 'Lugano', addressLocality: 'Lugano' }];
     normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].location).toBe('Lugano');
     expect(jobs[0].addressLocality).toBe('Lugano');
   });
 
   it('backfills addressLocality from location when missing', () => {
-    const jobs = [{ location: 'Bellinzona' }];
+    const jobs: JobLike[] = [{ location: 'Bellinzona' }];
     const report = normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].addressLocality).toBe('Bellinzona');
     expect(report.localityBackfilled).toBe(1);
   });
 
   it('backfills addressLocality from location when it is an empty/whitespace string', () => {
-    const empty = [{ location: 'Lugano', addressLocality: '' }];
-    const ws = [{ location: 'Locarno', addressLocality: '   ' }];
+    const empty: JobLike[] = [{ location: 'Lugano', addressLocality: '' }];
+    const ws: JobLike[] = [{ location: 'Locarno', addressLocality: '   ' }];
     const r1 = normalizeParsedJobsForSlice(empty);
     const r2 = normalizeParsedJobsForSlice(ws);
     expect(empty[0].addressLocality).toBe('Lugano');
@@ -50,7 +61,7 @@ describe('normalizeParsedJobsForSlice', () => {
   });
 
   it('defaults addressCountry/country to CH and addressRegion to canton', () => {
-    const jobs = [{ location: 'Sion', canton: 'vs' }];
+    const jobs: JobLike[] = [{ location: 'Sion', canton: 'vs' }];
     const report = normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].addressCountry).toBe('CH');
     expect(jobs[0].country).toBe('CH');
@@ -60,14 +71,14 @@ describe('normalizeParsedJobsForSlice', () => {
   });
 
   it('never forges postalCode or streetAddress', () => {
-    const jobs = [{ location: 'Lugano', canton: 'TI' }];
+    const jobs: JobLike[] = [{ location: 'Lugano', canton: 'TI' }];
     normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].postalCode).toBeUndefined();
     expect(jobs[0].streetAddress).toBeUndefined();
   });
 
   it('does not overwrite an existing addressCountry/addressRegion', () => {
-    const jobs = [{ location: 'Genève', canton: 'GE', addressCountry: 'FR', addressRegion: 'XX' }];
+    const jobs: JobLike[] = [{ location: 'Genève', canton: 'GE', addressCountry: 'FR', addressRegion: 'XX' }];
     normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].addressCountry).toBe('FR');
     expect(jobs[0].addressRegion).toBe('XX');

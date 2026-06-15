@@ -8,7 +8,6 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { latestFixOutcomeFromComments, NON_RETRYABLE, isAgeOutEligible } from '../scripts/ci/followup-drainer.mjs';
 
 type Comment = { body?: string; createdAt?: string };

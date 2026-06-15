@@ -6707,6 +6707,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
  publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
  jobTitle={String(selectedJob.title || '')}
+ jobSlug={String(selectedJob.slug || '')}
  />
  </div>
  ) : (
@@ -6993,6 +6994,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
  publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
  jobTitle={String(selectedJob.title || '')}
+ jobSlug={String(selectedJob.slug || '')}
  />
  </div>
  )}

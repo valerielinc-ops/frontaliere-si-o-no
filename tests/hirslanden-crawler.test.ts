@@ -267,7 +267,6 @@ describe('Hirslanden Klinik crawler parser', () => {
 
     it('returns null for empty/invalid input', () => {
       expect(parseDetailPage('')).toBeNull();
-      // @ts-expect-error testing non-string input
       expect(parseDetailPage(null)).toBeNull();
     });
 

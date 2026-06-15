@@ -23,7 +23,6 @@ vi.mock('@/scripts/lib/pdf-job-content.mjs', async (importOriginal) => {
   return { ...actual, extractPdfJobContentFromUrl };
 });
 
-// @ts-expect-error — JS module without types
 import { fetchAllCsvpPoschiavoJobs } from '@/scripts/lib/csvp-poschiavo-job-parser.mjs';
 
 const LISTING_HTML = `

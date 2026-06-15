@@ -43,9 +43,7 @@ describe('isAcceptableTranslation length-ratio gate', () => {
   it('rejects empty / whitespace / nullish translations', () => {
     expect(isAcceptableTranslation(source, '')).toBe(false);
     expect(isAcceptableTranslation(source, '   ')).toBe(false);
-    // @ts-expect-error runtime guard for nullish input
     expect(isAcceptableTranslation(source, null)).toBe(false);
-    // @ts-expect-error runtime guard for undefined input
     expect(isAcceptableTranslation(source, undefined)).toBe(false);
   });
 

@@ -47,7 +47,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       priority: 2, // caller asks priority:high
       labels: ['Bug'],
       workflow: 'Update Nestlé',
-    });
+    } as any);
 
     expect(res?.number).toBe(42);
     const labels = createCallLabels();
@@ -80,7 +80,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       priority: 2,
       labels: ['Bug'],
       workflow: 'Update Nestlé',
-    });
+    } as any);
 
     // It must have edited the issue to add priority:high and remove crawler-transient.
     const editCalls = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'edit');
@@ -103,7 +103,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       description: 'boom',
       priority: 2,
       labels: ['Bug'],
-    });
+    } as any);
 
     const labels = createCallLabels();
     expect(labels).toContain('priority:high');
@@ -123,7 +123,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       priority: 2,
       labels: ['Bug'],
       consecutiveGate: -1, // opt out
-    });
+    } as any);
 
     const labels = createCallLabels();
     expect(labels).toContain('priority:high');
@@ -145,7 +145,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       description: 'fetch failed',
       priority: 2,
       labels: ['Bug'],
-    });
+    } as any);
 
     const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
     const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
@@ -171,7 +171,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       description: 'fetch failed',
       priority: 2,
       labels: ['Bug'],
-    });
+    } as any);
 
     const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
     const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
@@ -197,7 +197,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       description: 'fetch failed',
       priority: 2,
       labels: ['Bug'],
-    });
+    } as any);
 
     const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
     const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';
@@ -221,7 +221,7 @@ describe('github-issue-creator crawler-failure consecutive gate', () => {
       description: 'bucket recurs',
       priority: 2,
       labels: ['follow-up'],
-    });
+    } as any);
 
     const listCall = ghCalls().find((a) => a[0] === 'issue' && a[1] === 'list');
     const searchArg = listCall?.[listCall.indexOf('--search') + 1] ?? '';

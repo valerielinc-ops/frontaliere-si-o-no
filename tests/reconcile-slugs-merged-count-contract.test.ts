@@ -1,10 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-// @ts-expect-error — .mjs ESM module, no type declarations
 import { reconcileOrphanSlugs, reconcileExpiredSlugs } from '../scripts/reconcile-job-slugs.mjs';
 
 const root = path.resolve(__dirname, '..');
+
+type ActiveJob = Record<string, unknown> & { previousSlugs?: string[] };
 
 // Regression guard for the silently-dead writeJson gate in
 // assemble-jobs-dataset.mjs: the reconcile functions return `mergedCount`,
@@ -17,7 +18,7 @@ const root = path.resolve(__dirname, '..');
 
 describe('reconcile slug functions — mergedCount return contract', () => {
   it('reconcileOrphanSlugs returns numeric `mergedCount`, never `merged`', () => {
-    const res = reconcileOrphanSlugs([], [], {}, { dryRun: true });
+    const res = reconcileOrphanSlugs([], [], [], { dryRun: true });
     expect(typeof res.mergedCount).toBe('number');
     expect('merged' in res).toBe(false);
   });
@@ -39,7 +40,7 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
   it('reconcileOrphanSlugs merges a high-Jaccard orphan and returns numeric `mergedCount`, no `merged`', () => {
     // 4-token active slug vs 3-token orphan subset → Jaccard 3/4 = 0.75 ≥ 0.70
     // (no recognizable companyKey in the slug → full-set scan, threshold 0.70).
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         slug: 'elettricista-cantiere-notturno-rotazione',
         company: 'Test Co',
@@ -56,7 +57,7 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
   });
 
   it('reconcileExpiredSlugs reaches the main-loop return with non-empty input — numeric `mergedCount`, no `merged`', () => {
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         slug: 'magazziniere-turni-deposito-regionale',
         company: 'Test Co',
@@ -85,7 +86,7 @@ describe('reconcile slug functions — main-loop return contract (non-empty inpu
 describe('reconcile slug functions — Strategy B (title-only) candidate union (#907)', () => {
   it('reconcileOrphanSlugs merges a divergent-slug / matching-title orphan via Strategy B', () => {
     // Active job: IT slug, but a DE title that matches the orphan's title.
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         slug: 'sviluppatore-software-backend',
         company: 'Acme',
@@ -117,7 +118,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
   });
 
   it('reconcileExpiredSlugs merges a divergent-slug / matching-title expired job via Strategy B', () => {
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         slug: 'contabile-fornitori-pagamenti',
         company: 'Beta',
@@ -168,7 +169,7 @@ describe('reconcile slug functions — Strategy B (title-only) candidate union (
 // only engages at orphanTitleTokens.size >= 3 (reconcile-job-slugs.mjs).
 describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axis)', () => {
   it('does NOT merge an orphan whose title matches two cross-company jobs equally', () => {
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         url: 'https://x/jobs/sviluppatore-software-backend-acme',
         slug: 'sviluppatore-software-backend-acme',
@@ -218,7 +219,7 @@ describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axi
   // Control: a single unambiguous title match still merges (the widened
   // `if (bestJob)` trigger must not over-block the Strategy B happy path).
   it('still merges when the title match is unambiguous (single candidate)', () => {
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         url: 'https://x/jobs/sviluppatore-software-backend-acme',
         slug: 'sviluppatore-software-backend-acme',
@@ -282,7 +283,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     // behavior `matchCount` stays 1 → guard skipped → merge. A broadened
     // `if (bestJob)` slug trigger would risk over-blocking; this asserts it does
     // not, so the existing slug redirect path is preserved.
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         slug: 'idraulico-manutenzione-impianti-industriali',
         company: 'Aqua',
@@ -314,7 +315,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     // via the generic cross-locale title "Software Entwickler Backend". The
     // enriched orphan company ("Acme Solutions") differs from the candidate's
     // company ("globex") → the title-match company guard must refuse the merge.
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         url: 'https://x/jobs/software-entwickler-globex',
         slug: 'software-entwickler-backend-globex',
@@ -351,7 +352,7 @@ describe('reconcile slug functions — PR #971 reviewer 🔴 regression guards',
     // Jaccard would score 1/3 = 0.33 < 0.80 and WRONGLY reject this same-company
     // orphan (losing the redirect → 404). The asymmetric containment check
     // (shared company token ⇒ compatible) must let it merge.
-    const activeJobs = [
+    const activeJobs: ActiveJob[] = [
       {
         url: 'https://x/jobs/software-entwickler-acme',
         slug: 'software-entwickler-backend-acme',

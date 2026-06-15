@@ -25,7 +25,6 @@ vi.mock('@/scripts/lib/pdf-job-content.mjs', async (importOriginal) => {
   return { ...actual, extractPdfJobContentFromUrl };
 });
 
-// @ts-expect-error — JS module without types
 import { fetchAllCsvmMustairJobs, parseCsvmListing } from '@/scripts/lib/csvm-mustair-job-parser.mjs';
 
 // Two EasyBlog posts: a real job (with attached PDF) and an archive item that

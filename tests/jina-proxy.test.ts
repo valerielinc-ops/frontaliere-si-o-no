@@ -10,7 +10,6 @@
  */
 
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { detectJinaErrorBody, fetchViaJinaWithRetry, fetchHtmlViaJinaWithRetry, jinaBreakerOpen, looksLikeAntiBotChallenge, rescueHtmlIfChallenged, __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
 
 describe('detectJinaErrorBody', () => {
@@ -213,13 +212,13 @@ describe('Jina egress circuit breaker (#1461 item 2)', () => {
 
     // 3 exhausting calls (retries:0 → 1 attempt each) push the counter to 3.
     for (let i = 0; i < 3; i += 1) {
-      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 } as any)).toBeNull();
     }
     expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(jinaBreakerOpen()).toBe(true);
 
     // 4th call: breaker open → fast-fail, NO new fetch attempt.
-    expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+    expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 } as any)).toBeNull();
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
 
@@ -230,7 +229,7 @@ describe('Jina egress circuit breaker (#1461 item 2)', () => {
     let i = 0;
     global.fetch = vi.fn(async () => ({ ok: true, text: async () => bodies[i++] })) as any;
     for (const expectNull of [true, false, true, false, true]) {
-      const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 });
+      const html = await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 } as any);
       expect(html === null).toBe(expectNull);
     }
     expect(jinaBreakerOpen()).toBe(false);
@@ -240,7 +239,7 @@ describe('Jina egress circuit breaker (#1461 item 2)', () => {
     process.env.JOBS_JINA_BREAKER_THRESHOLD = '2';
     global.fetch = vi.fn(async () => ({ ok: true, text: async () => CHALLENGE })) as any;
     // One exhaustion from each helper → counter reaches 2.
-    expect(await fetchHtmlViaJinaWithRetry('https://example.test/a', { timeoutMs: 50, retries: 0 })).toBeNull();
+    expect(await fetchHtmlViaJinaWithRetry('https://example.test/a', { timeoutMs: 50, retries: 0 } as any)).toBeNull();
     const blockedFetch = vi.fn(async () => new Response(CHALLENGE, { status: 200 }));
     const r1 = await fetchViaJinaWithRetry('https://example.test/b', { attempts: 1, retryDelayMs: 0, fetchImpl: blockedFetch });
     expect(detectJinaErrorBody(await r1.text())).toMatch(/error\/challenge marker/);
@@ -259,7 +258,7 @@ describe('Jina egress circuit breaker (#1461 item 2)', () => {
     const fetchMock = vi.fn(async () => ({ ok: true, text: async () => CHALLENGE }));
     global.fetch = fetchMock as any;
     for (let i = 0; i < 12; i += 1) {
-      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 })).toBeNull();
+      expect(await fetchHtmlViaJinaWithRetry('https://example.test/jobs', { timeoutMs: 50, retries: 0 } as any)).toBeNull();
     }
     expect(jinaBreakerOpen()).toBe(false);
     expect(fetchMock).toHaveBeenCalledTimes(12);

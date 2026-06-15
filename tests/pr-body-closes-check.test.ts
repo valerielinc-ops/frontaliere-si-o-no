@@ -10,7 +10,6 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { checkClosesLines } from '../scripts/lib/pr-body-closes-check.mjs';
 
 describe('checkClosesLines', () => {

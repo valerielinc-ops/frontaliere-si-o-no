@@ -8,7 +8,6 @@
  */
 import { describe, it, expect } from 'vitest';
 
-// @ts-expect-error — .mjs module without type declarations
 import { estimateSwissSalary, estimateTicinoSalary } from '../scripts/lib/salary-estimation.mjs';
 
 const SWE = { title: 'Software Engineer', category: 'tech' };

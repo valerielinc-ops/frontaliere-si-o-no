@@ -3,7 +3,6 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-// @ts-expect-error — JS module without types
 import {
   runStandardCrawlerPipeline,
   exitCrawlerOnError,

@@ -127,7 +127,7 @@ describe('lever-client.fetchLeverJobs', () => {
       ]));
     vi.stubGlobal('fetch', fetchMock);
 
-    const jobs = await fetchLeverJobs('acme', { companyName: 'Acme' });
+    const jobs = await fetchLeverJobs('acme', { companyName: 'Acme' } as any);
     expect(jobs.length).toBeGreaterThanOrEqual(1);
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });

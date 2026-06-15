@@ -19,7 +19,7 @@ import {
  Shield, Save, CheckCircle2, MapPin, Heart, Baby, Loader2, Edit3, Sparkles,
  Plus, Trash2, Calculator, BookOpen, ArrowRightLeft, Award,
  AlertCircle, Building2, Navigation, Globe, Banknote,
- Clock, FileCheck, Mail,
+ Clock, FileCheck, Mail, ExternalLink,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -35,6 +35,14 @@ import { DEFAULT_INPUTS } from '@/constants';
 import type { SimulationInputs } from '@/types';
 
 // ─── Types ───────────────────────────────────────────────────
+
+/** A candidate's own application to a sponsored ad, surfaced in the profile. */
+interface MyApplication {
+ id: string;
+ jobTitle: string;
+ jobSlug: string;
+ appliedAtMs: number;
+}
 
 export interface FamilyMember {
  id: string;
@@ -448,6 +456,45 @@ const UserProfile: React.FC = () => {
        if (!cancelled) setHasPublisherAds(!snap.empty);
      } catch {
        // best-effort: no shortcut if the lookup fails
+     }
+   })();
+   return () => { cancelled = true; };
+ }, [user]);
+ // The user's own applications to sponsored ads (in-house / forward-email apply
+ // modes write an `applications` doc carrying the denormalised candidateUid +
+ // jobTitle + jobSlug). Only paid/sponsored ads expose the in-house form, so
+ // every doc here is a sponsored offer by construction.
+ const [myApplications, setMyApplications] = useState<MyApplication[]>([]);
+ useEffect(() => {
+   if (!user) { setMyApplications([]); return; }
+   let cancelled = false;
+   (async () => {
+     try {
+       const db = await initFirestore();
+       if (!db) return;
+       const { collection, query, where, orderBy, limit, getDocs } = await import('firebase/firestore');
+       const snap = await getDocs(
+         query(
+           collection(db, 'applications'),
+           where('candidateUid', '==', user.uid),
+           orderBy('createdAt', 'desc'),
+           limit(20),
+         ),
+       );
+       if (cancelled) return;
+       const apps: MyApplication[] = snap.docs.map((d) => {
+         const data = d.data() as Record<string, unknown>;
+         const ts = data.createdAt as { toMillis?: () => number } | undefined;
+         return {
+           id: d.id,
+           jobTitle: typeof data.jobTitle === 'string' ? data.jobTitle : '',
+           jobSlug: typeof data.jobSlug === 'string' ? data.jobSlug : '',
+           appliedAtMs: ts?.toMillis ? ts.toMillis() : 0,
+         };
+       });
+       setMyApplications(apps);
+     } catch {
+       // best-effort: hide the section if the lookup fails (missing index, etc.)
      }
    })();
    return () => { cancelled = true; };
@@ -1193,6 +1240,55 @@ const UserProfile: React.FC = () => {
  </div>
  );
  })()}
+
+ {/* ─── My applications to sponsored ads ─────────────────── */}
+ {myApplications.length > 0 && (
+ <div className="mx-6 mt-4 p-4 rounded-2xl border border-edge bg-surface-alt">
+ <h3 className="text-sm font-bold text-strong flex items-center gap-2">
+ <Briefcase size={16} className="text-accent" />
+ {t('profile.applications.title')}
+ </h3>
+ <p className="text-xs text-subtle mt-0.5">{t('profile.applications.subtitle')}</p>
+ <ul className="mt-3 space-y-2">
+ {myApplications.map((app) => {
+ const dateLabel = app.appliedAtMs
+ ? new Date(app.appliedAtMs).toLocaleDateString(
+ locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB',
+ { day: 'numeric', month: 'long', year: 'numeric' },
+ )
+ : '';
+ const title = app.jobTitle || t('profile.applications.untitled');
+ const inner = (
+ <>
+ <span className="flex-1 min-w-0">
+ <span className="block text-sm font-medium text-strong truncate">{title}</span>
+ {dateLabel && (
+ <span className="block text-xs text-muted">{t('profile.applications.appliedOn')} {dateLabel}</span>
+ )}
+ </span>
+ {app.jobSlug && <ExternalLink size={14} className="text-link flex-shrink-0 mt-0.5" />}
+ </>
+ );
+ return (
+ <li key={app.id}>
+ {app.jobSlug ? (
+ <a
+ href={buildPath({ activeTab: 'job-board', jobSlug: app.jobSlug }, locale)}
+ className="flex items-start gap-2 p-3 rounded-xl border border-edge bg-surface hover:border-info-border transition-[border-color]"
+ >
+ {inner}
+ </a>
+ ) : (
+ <div className="flex items-start gap-2 p-3 rounded-xl border border-edge bg-surface">
+ {inner}
+ </div>
+ )}
+ </li>
+ );
+ })}
+ </ul>
+ </div>
+ )}
 
  {/* Profile data form */}
  <div className="p-6 space-y-5">

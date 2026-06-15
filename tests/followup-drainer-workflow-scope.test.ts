@@ -9,7 +9,6 @@
  * solo quando il body cita workflow path E nessun file di codice non-workflow.
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { detectWorkflowScoped } from '../scripts/ci/followup-drainer.mjs';
 
 describe('detectWorkflowScoped — scoped (park preemptivo)', () => {

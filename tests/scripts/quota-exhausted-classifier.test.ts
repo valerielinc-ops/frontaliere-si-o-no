@@ -85,7 +85,7 @@ describe('callLLM exhaustion cause classification (end-to-end)', () => {
 
     let caught: any;
     try {
-      await aiModels.callLLM([{ role: 'user', content: "Reply 'ok'." }], { chain: [model], retries: 0, maxTokens: 8 });
+      await aiModels.callLLM([{ role: 'user', content: "Reply 'ok'." }], { chain: [model], retries: 0, maxTokens: 8 } as Parameters<typeof aiModels.callLLM>[1]);
     } catch (e) {
       caught = e;
     }
@@ -102,7 +102,7 @@ describe('callLLM exhaustion cause classification (end-to-end)', () => {
       const model = 'groq/llama-3.3-70b-versatile'; // skip reason: "no API key for provider groq"
       let caught: any;
       try {
-        await aiModels.callLLM([{ role: 'user', content: "Reply 'ok'." }], { chain: [model], retries: 0, maxTokens: 8 });
+        await aiModels.callLLM([{ role: 'user', content: "Reply 'ok'." }], { chain: [model], retries: 0, maxTokens: 8 } as Parameters<typeof aiModels.callLLM>[1]);
       } catch (e) {
         caught = e;
       }

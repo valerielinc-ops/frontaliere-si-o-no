@@ -5,7 +5,6 @@ import {
   isGeberitJob,
   isTrustedDomain,
   fetchAllGeberitJobs,
-  // @ts-expect-error mjs module, no type declarations
 } from '../scripts/lib/geberit-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -153,7 +152,7 @@ describe('fetchAllGeberitJobs (SuccessFactors RMK search API)', () => {
       ok: true,
       status: 200,
       json: async () => ({ '@odata.count': records.length, value: records }),
-    });
+    } as unknown as Response);
   }
 
   it('maps an RMK record to a job with the REAL (non-synthetic) description', async () => {
@@ -191,7 +190,7 @@ describe('fetchAllGeberitJobs (SuccessFactors RMK search API)', () => {
   });
 
   it('returns [] (no throw) when the API errors', async () => {
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, json: async () => ({}) });
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue({ ok: false, status: 503, json: async () => ({}) } as unknown as Response);
     const jobs = await fetchAllGeberitJobs();
     expect(jobs).toEqual([]);
   });

@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error — plain ESM module without type declarations
 import { buildAlertProfile, scoreJobForAlert } from '../services/jobAlertMatching.mjs';
 
 /** Minimal job fixture matching the data/jobs.json shape the matcher reads. */

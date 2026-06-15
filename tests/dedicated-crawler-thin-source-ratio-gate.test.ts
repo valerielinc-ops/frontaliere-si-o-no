@@ -96,7 +96,7 @@ function runGuard(jobsPath: string) {
     checkSlug: false,
     untranslatedCheck: false,
     isTrustedDomain: () => true,
-  });
+  } as Parameters<typeof validateDedicatedLocaleCoverage>[0]);
 }
 
 describe('validateDedicatedLocaleCoverage — ratio-gated thin-source abort', () => {

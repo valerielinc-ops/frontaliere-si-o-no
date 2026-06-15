@@ -7,7 +7,6 @@
  */
 
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 
 describe('classifyIssue', () => {

@@ -41,9 +41,7 @@ describe('assertCompatFloor', () => {
   });
 
   it('coerces non-numeric counts to 0 (defensive)', () => {
-    // @ts-expect-error testing defensive coercion
     expect(() => assertCompatFloor(undefined, undefined)).not.toThrow();
-    // @ts-expect-error testing defensive coercion
     expect(() => assertCompatFloor(NaN, NaN)).not.toThrow();
   });
 });

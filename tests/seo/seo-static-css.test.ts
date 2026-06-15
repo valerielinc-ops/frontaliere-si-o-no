@@ -45,7 +45,7 @@ describe('seo-static.css', () => {
     expect(rule, '.related-search-cluster rule must exist in seo-static.css').toBeDefined();
 
     const decls = new Map<string, string>();
-    rule!.walkDecls((d) => decls.set(d.prop.toLowerCase(), d.value));
+    rule!.walkDecls((d) => { decls.set(d.prop.toLowerCase(), d.value); });
 
     // No hide vector may reappear: any single one of these blanks the page
     // pre-hydration again.

@@ -58,6 +58,7 @@ describe('newsletterConfirmationEmail', () => {
       resendApiKey: 'key',
       secret: 'secret',
       db: undefined,
+      purpose: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('invalid_email');
@@ -74,6 +75,7 @@ describe('newsletterConfirmationEmail', () => {
       resendApiKey: '',
       secret: 'secret',
       db: undefined,
+      purpose: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('missing_resend_api_key');
@@ -90,6 +92,7 @@ describe('newsletterConfirmationEmail', () => {
       resendApiKey: 'key',
       secret: '',
       db: undefined,
+      purpose: undefined,
     });
     expect(result.success).toBe(false);
     expect(result.error).toBe('missing_newsletter_secret');

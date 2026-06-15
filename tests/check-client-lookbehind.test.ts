@@ -9,7 +9,6 @@
  * #1996 fix left describing the old removed regex.
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — .mjs without types
 import { lineHasClientLookbehind, findViolations } from '../scripts/ci/check-client-lookbehind.mjs';
 
 describe('check-client-lookbehind — predicate', () => {

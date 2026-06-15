@@ -42,7 +42,6 @@ describe('extractJobPostingDescription (JSON-LD)', () => {
   it('returns empty string when no JobPosting present', () => {
     expect(extractJobPostingDescription('<html>nothing</html>')).toBe('');
     expect(extractJobPostingDescription('')).toBe('');
-    // @ts-expect-error guard against non-string input
     expect(extractJobPostingDescription(null)).toBe('');
   });
 });
@@ -63,7 +62,6 @@ describe('extractMicrodataDescription (itemprop)', () => {
   it('returns empty string when there is no itemprop=description', () => {
     expect(extractMicrodataDescription('<div>JS shell only</div>')).toBe('');
     expect(extractMicrodataDescription('')).toBe('');
-    // @ts-expect-error guard against non-string input
     expect(extractMicrodataDescription(undefined)).toBe('');
   });
 });

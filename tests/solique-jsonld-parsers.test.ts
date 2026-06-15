@@ -1,7 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-// @ts-expect-error — plain .mjs crawler libs, no type declarations
 import { parseSoliqueListing, parseSoliqueApiListing, extractSoliqueDetailContent } from '../scripts/lib/solique-common.mjs';
-// @ts-expect-error — plain .mjs
 import { extractJobPostingLd, jobPostingDescriptionText, jobPostingAddress } from '../scripts/lib/jsonld-jobposting.mjs';
 
 const SOLIQUE_SSR = `

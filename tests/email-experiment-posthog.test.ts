@@ -47,9 +47,9 @@ describe('emailExperimentPostHog — enabled', () => {
 
     expect(ok).toBe(true);
     expect(fetchSpy).toHaveBeenCalledTimes(1);
-    const [url, opts] = fetchSpy.mock.calls[0];
+    const [url, opts] = fetchSpy.mock.calls[0] as unknown as [string, { body: string }];
     expect(url).toBe('https://ph.example.com/capture/');
-    const body = JSON.parse(opts.body);
+    const body = JSON.parse(opts!.body);
     expect(body.api_key).toBe('phc_test_key');
     expect(body.event).toBe('email_opened');
     expect(body.distinct_id).toBe('mario@example.com'); // lowercased
