@@ -167,6 +167,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud approuve le salaire minimum mais rejette la loi',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1 % en faveur de l\'initiative constitutionnelle, 47,5 % contre la loi opérationnelle à 23 CHF/h. Vaud devient le sixième canton avec un salaire minimum.',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Vue panoramique de Lausanne avec des bâtiments et des drapeaux suisses',
+    'blog.article.votazioni-federali-giugno-2026.title': 'Votations fédérales 14/06/2026 : service civil et initiative 10M',
+    'blog.article.votazioni-federali-giugno-2026.excerpt': 'Le 14 juin 2026, les Suisses votent sur la limitation de l’accès au service civil et sur l’initiative « Non à une Suisse de 10 millions ! ». Découvrez les détails, les procédures et les délais.',
+    'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Bulletin de vote suisse avec drapeau fédéral en arrière-plan',
 };
 
 export default blogMetaChFr;

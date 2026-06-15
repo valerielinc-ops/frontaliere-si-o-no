@@ -167,6 +167,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud backs constitutional min wage, rejects specific law',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49.1% in favor of the constitutional initiative, 47.5% against the operational law at 23 francs/hour. Vaud becomes the sixth canton with a minimum wage.',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Panoramic view of Lausanne with buildings and Swiss flags',
+    'blog.article.votazioni-federali-giugno-2026.title': 'Federal vote Jun 14 2026: civil service & 10‑million initiative',
+    'blog.article.votazioni-federali-giugno-2026.excerpt': 'On June 14 2026, Swiss voters will decide on limiting access to civilian service and on the initiative “No to a Switzerland of 10 million!”. Find details, procedures and deadlines.',
+    'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Swiss ballot paper with federal flag in the background',
 };
 
 export default blogMetaChEn;
