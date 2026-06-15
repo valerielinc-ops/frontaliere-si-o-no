@@ -1520,7 +1520,9 @@ async function sendEmailBatchResend(emails, apiKey) {
 
       if (msgId) {
         sent.push(item);
-        await persistDelivery(item.recipient, msgId, item.meta);
+        // Legacy Resend-only path: stamp provider so the A/B report buckets these
+        // under 'resend' instead of 'unknown' (cascade paths spread res.provider).
+        await persistDelivery(item.recipient, msgId, { ...item.meta, provider: 'resend' });
       } else {
         // Resend returned no ID for this email — treat as failed
         failed.push(item);

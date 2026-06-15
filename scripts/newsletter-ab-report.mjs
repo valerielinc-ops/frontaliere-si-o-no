@@ -42,7 +42,10 @@ function argValue(flag) {
 function currentWeeklyCampaignId() {
   const now = new Date();
   const monday = new Date(now);
-  monday.setDate(now.getDate() - now.getDay() + 1);
+  // (getDay()+6)%7 = days since Monday — identical to send-newsletter.mjs. The
+  // naive `getDate()-getDay()+1` resolves to NEXT Monday on Sundays, which would
+  // pick a campaign id that was never sent → "No sends found" on Sunday runs.
+  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
   return `weekly_${monday.toISOString().slice(0, 10)}`;
 }
 
