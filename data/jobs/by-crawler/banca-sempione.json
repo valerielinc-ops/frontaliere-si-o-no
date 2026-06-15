@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-06-14T21:26:15.092Z",
+  "assembledAt": "2026-06-15T13:59:29.410Z",
   "jobs": [
     {
       "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
@@ -95,16 +95,16 @@
       },
       "needsRetranslation": true,
       "id": "banca-sempione-f9feccc2fb3b",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
+          "minValue": 113000,
+          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },
@@ -230,16 +230,16 @@
       },
       "needsRetranslation": true,
       "id": "banca-sempione-f45acac33926",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
+          "minValue": 113000,
+          "maxValue": 198500,
           "unitText": "YEAR"
         }
       },
