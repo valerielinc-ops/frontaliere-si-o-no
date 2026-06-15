@@ -496,7 +496,7 @@ function isRateLimitedError(msg) {
   return false;
 }
 
-async function sendSingle(email, forceProvider) {
+async function sendSingle(email, forceProvider, finalizeForProvider) {
   const errors = [];
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -507,6 +507,12 @@ async function sendSingle(email, forceProvider) {
     if (remainingQuota(provider.id) <= 0) continue;
 
     try {
+      // Optional hook: let the caller finalize the payload for the provider that
+      // is actually about to send (e.g. swap the subject to that provider's A/B
+      // winner). Must never throw — on error we send the payload unchanged.
+      if (typeof finalizeForProvider === 'function') {
+        try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
+      }
       const result = await SEND_FNS[provider.id](email);
       incrementCounter(provider.id, 1);
       return result;
@@ -527,7 +533,7 @@ async function sendSingle(email, forceProvider) {
  * Waits until at least `delayMs` has elapsed since the last send to the same provider,
  * then delegates to the provider loop in sendSingle.
  */
-async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider) {
   // Determine which provider will be tried first (the one with remaining quota)
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -553,7 +559,7 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
 
   // Slot already reserved above (advances even on throw), so no post-hoc clock
   // bump is needed — the worker's try/catch handles a thrown send.
-  const result = await sendSingle(email, forceProvider);
+  const result = await sendSingle(email, forceProvider, finalizeForProvider);
   // If a different provider ended up sending, reserve its slot too.
   if (result?.provider && result.provider !== nextProvider?.id) {
     const now = Date.now();
@@ -576,10 +582,13 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
  * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
+ * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
+ *   the provider is chosen: (payload, providerId) => void. May mutate the payload
+ *   (e.g. swap the subject for that provider). Must not throw.
  * @returns {{ sent: Array, failed: Array }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, forceProvider, onSent } = opts;
+  const { concurrency = 1, delayMs = 1000, forceProvider, onSent, finalizeForProvider } = opts;
   const sent = [];
   const failed = [];
 
@@ -608,7 +617,7 @@ export async function sendEmailCascade(emails, opts = {}) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs);
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider);
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {

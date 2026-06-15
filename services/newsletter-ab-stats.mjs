@@ -75,3 +75,30 @@ export function pickWinner(byVariant, gates = {}) {
   }
   return { winner: best, openRates, pValue: test.pValue, reason: 'significant' };
 }
+
+/**
+ * Resolve a winning variant per provider plus a global fallback, from a
+ * provider × variant cell map (`cells[provider][variant] = {sends,opens}`).
+ *
+ * Each provider gets its own significant winner (or null); `global` is the
+ * winner across all providers pooled. The send pipeline promotes
+ * `byProvider[p] ?? global` for the provider that actually sends — so a provider
+ * with thin data still benefits from the global signal instead of going even.
+ *
+ * @param {Record<string,Record<string,{sends:number,opens:number}>>} cells
+ * @param {{minSendsPerArm?:number, alpha?:number}} [gates]
+ * @returns {{byProvider:Record<string,string|null>, global:string|null}}
+ */
+export function resolveWinnersByProvider(cells, gates = {}) {
+  const byProvider = {};
+  const globalByVariant = {};
+  for (const [provider, variants] of Object.entries(cells || {})) {
+    byProvider[provider] = pickWinner(variants, gates).winner;
+    for (const [v, c] of Object.entries(variants)) {
+      globalByVariant[v] ??= { sends: 0, opens: 0 };
+      globalByVariant[v].sends += c.sends;
+      globalByVariant[v].opens += c.opens;
+    }
+  }
+  return { byProvider, global: pickWinner(globalByVariant, gates).winner };
+}
