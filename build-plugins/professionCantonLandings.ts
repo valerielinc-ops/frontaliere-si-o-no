@@ -47,6 +47,7 @@ import {
   SALARY_STATS_FACTOR_CODE,
 } from './salaryStatsData';
 import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from './professionCantonData';
+import { resolveProfessionCantonsFlushed } from './shared/buildSignals';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -380,11 +381,19 @@ export function professionCantonLandings(rootDir: string): Plugin {
     apply: 'build',
     enforce: 'post',
     async closeBundle() {
-      if (process.env.SKIP_PROFESSION_CANTONS === '1') return;
+      if (process.env.SKIP_PROFESSION_CANTONS === '1') {
+        // Unblock the downstream links injector — nothing to link this build.
+        resolveProfessionCantonsFlushed([]);
+        return;
+      }
       const distDir = np.resolve(rootDir, 'dist');
       const res = await emitProfessionCantonPages({ rootDir, distDir });
       // eslint-disable-next-line no-console
       console.log(`[profession-cantons] emitted ${res.pagesWritten} pages (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate)`);
+      // Hand the emitted canonical paths to professionCantonLandingsLinksPlugin
+      // so it can de-orphan exactly the pages that shipped (CLAUDE.md regola #5:
+      // close orphans with real internal links, not by relaxing the gate).
+      resolveProfessionCantonsFlushed(res.emittedPaths);
     },
   };
 }

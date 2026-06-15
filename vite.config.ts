@@ -75,6 +75,7 @@ import { nursingLandingsPlugin } from './build-plugins/nursingLandingsPlugin';
 import { careerLandingsPlugin } from './build-plugins/careerLandingsPlugin';
 import { professionLandingsPlugin } from './build-plugins/professionLandingsPlugin';
 import { professionLandingsLinksPlugin } from './build-plugins/professionLandingsLinksPlugin';
+import { professionCantonLandingsLinksPlugin } from './build-plugins/professionCantonLandingsLinksPlugin';
 import { salaryHubIndexLinkPlugin } from './build-plugins/salaryHubIndexLinkPlugin';
 import { comparisonsHubPlugin } from './build-plugins/comparisonsHubPlugin';
 import { comparisonsHubLinksPlugin } from './build-plugins/comparisonsHubLinksPlugin';
@@ -279,6 +280,13 @@ export default defineConfig(({ mode }) => {
  // the target HTML files already exist on disk. Idempotent via
  // `data-ae3-profession-links` marker.
  professionLandingsLinksPlugin(__dirname),
+ // Per-canton profession landings orphan fix — inject a "jobs by canton and
+ // profession" block into each locale HTML sitemap page (main-nav reachable)
+ // so the ~332 /lavoro-{canton}-{role}/ pages reach BFS depth ≤ 3 instead of
+ // shipping unreachable (audit:max-bfs-depth hard-fail). Awaits explicit
+ // signals from professionCantonLandings (emitted paths) + staticPagesPlugin
+ // (sitemap-page HTML). Idempotent via `data-profession-cantons-links`.
+ professionCantonLandingsLinksPlugin(__dirname),
  // Salary-hub orphan fix — patch the calculator hub (/calcola-stipendio/
  // + 3 locale twins) with a single anchor to /calcola-stipendio/scenari/
  // (and locale variants) so BFS from `/` reaches every one of the 1 732
