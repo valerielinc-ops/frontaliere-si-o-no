@@ -13,20 +13,32 @@
  *     else the job-board root (`weeklyEmployersPlugin`, `jobMarketSnapshotPlugin`,
  *     `nursing/career/costOfLiving/professionLandingsPlugin`).
  *
- * The pattern matched is the template-literal emission `?q=${…}` / `&q=${…}`,
- * so the `?q=` tokens inside explanatory comments do not trip the guard, and
- * external ATS URLs (literal `?q=&…`) and the JSON-LD SearchAction template
- * (`?q={search_term_string}`) are not template-literal emissions either.
+ * A disallowed outlink is emitted dynamically in one of two forms, both matched
+ * here:
+ *   1. template-literal interpolation — `?q=${…}` / `&q=${…}`;
+ *   2. string-concat — `'?q=' + …` / `"&q=" + …` / `` `?q=` + … `` (a string or
+ *      template literal closed right after `q=`, then concatenated).
+ * Matching both pre-empts a reintroduction via the alternate (concat) form
+ * slipping past a template-literal-only guard.
  *
+ * `?q=` tokens inside explanatory comments, external ATS URLs (literal `?q=&…`),
+ * and the JSON-LD SearchAction template (`?q={search_term_string}`) stay inert:
+ * none is followed by `${` or by a closing quote/backtick then `+`.
+ *
+ * Scope is the whole `build-plugins/` tree (walked recursively) plus the
+ * `App.tsx` footer — i.e. every known chip emitter, not just `seoHubsPlugin.ts`.
  * The footer (App.tsx) is additionally covered behaviourally by
- * `tests/regression/footer-canton-scoped-seo-hubs.test.tsx`.
+ * `tests/regression/footer-canton-scoped-seo-hubs.test.tsx`, whose assertions
+ * inspect rendered hrefs and so catch any construction form.
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
 
 const ROOT = path.resolve(__dirname, '..', '..');
-const Q_EMIT_RX = /[?&]q=\$\{/;
+// 1. `?q=${…}` (template-literal interpolation); 2. `'?q=' +` / `"&q=" +` /
+// `` `?q=` + `` (string-concat). See file header for why literals/comments stay inert.
+const Q_EMIT_RX = /[?&]q=(?:\$\{|['"`]\s*\+)/;
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of readdirSync(dir)) {
@@ -38,7 +50,7 @@ function walk(dir: string, out: string[] = []): string[] {
 }
 
 describe('no build-plugin emits a robots-disallowed ?q= outlink', () => {
-  it('no `?q=${…}` / `&q=${…}` href in build-plugins/ or App.tsx', () => {
+  it('no `?q=`/`&q=` outlink (interpolated or string-concat) in build-plugins/ or App.tsx', () => {
     const files = [...walk(path.join(ROOT, 'build-plugins')), path.join(ROOT, 'App.tsx')];
     const offenders: string[] = [];
     for (const file of files) {
