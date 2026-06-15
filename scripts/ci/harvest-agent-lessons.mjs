@@ -176,6 +176,19 @@ for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
     // Counting them inflates no-pr-unspecified → feedback loop: escalation keeps
     // re-firing even after the backstop fix (PR #1067) landed.
     if (String(c.body || '').includes('post-step deterministico')) continue;
+    // SAME feedback-loop, `already-fixed` flavour: the zero-Claude pre-flight gate
+    // (check-issue-already-resolved.mjs, structural fix #1647) and the scheduled
+    // reconciler (reconcile-followups.mjs) BOTH post `<!-- FIX_OUTCOME: already-fixed -->`
+    // when they short-circuit a done-but-open follow-up WITHOUT ever spending a Claude
+    // run. Counting those as burn makes the structural fix re-escalate ITSELF (#2123:
+    // bucket re-fired at 10/14d even though the gate had already shipped). Only a
+    // marker from a genuine Claude fixer run is recurring-burn signal → skip the
+    // deterministic short-circuit comments (carry the `<!-- reconcile-bot -->` marker
+    // and the "Pre-flight (auto, zero-Claude)" / "Reconcile (auto)" signature).
+    const cb = String(c.body || '');
+    if (cb.includes('reconcile-bot') ||
+        cb.includes('Pre-flight (auto, zero-Claude)') ||
+        cb.includes('Reconcile (auto)')) continue;
     const k = `fix-outcome:${code}`;
     if (seenThisIssue.has(k)) continue;
     seenThisIssue.add(k);
