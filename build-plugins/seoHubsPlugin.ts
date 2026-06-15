@@ -18,6 +18,7 @@
  */
 
 import type fsT from 'node:fs';
+import { clampMetaDescription } from './shared/titleSuffix';
 import type npT from 'node:path';
 import { ADSENSE_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import {
@@ -1164,13 +1165,13 @@ function buildHtml(args: BuildHtmlArgs): string {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(description)}">
+    <meta name="description" content="${esc(clampMetaDescription(description))}">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(description)}">
+    <meta property="og:description" content="${esc(clampMetaDescription(description))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <link rel="canonical" href="${canonicalUrl}">
@@ -1747,13 +1748,13 @@ function buildThinCantonHubHtml(args: {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}<title>${esc(pageTitle)}</title>
-    <meta name="description" content="${esc(intro)}">
+    <meta name="description" content="${esc(clampMetaDescription(intro))}">
     <meta name="robots" content="index,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
     <meta property="og:title" content="${esc(pageTitle)}">
-    <meta property="og:description" content="${esc(intro)}">
+    <meta property="og:description" content="${esc(clampMetaDescription(intro))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <link rel="canonical" href="${canonicalUrl}">
@@ -2556,9 +2557,9 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const customDesc = `Indice delle offerte di lavoro nel cantone Ticino pubblicate ${r.descLabel}. ${recentJobs.length} posizioni aperte aggiornate quotidianamente.`;
       const patched = html
         .replace(/<title>[^<]*<\/title>/, `<title>${esc(customTitle)}</title>`)
-        .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(customDesc)}">`)
+        .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(clampMetaDescription(customDesc))}">`)
         .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(customTitle)}">`)
-        .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(customDesc)}">`)
+        .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(clampMetaDescription(customDesc))}">`)
         .replace(/<h1 [^>]*>[^<]*<\/h1>/, (match) => match.replace(/>[^<]*</, `>${esc(customH1)}<`))
         // The regex pattern matches the ORIGINAL inline-styled <p> emitted by
         // earlier passes (font-size:16px... preserved as inline because this

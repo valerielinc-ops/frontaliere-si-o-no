@@ -28,7 +28,7 @@ import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
-import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { buildTitleWithBrand, composeSerpJobTitle, JOB_TITLE_CITY_CONNECTOR, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
 import { stripLeadingSectionLabel } from './shared/jobDescription/parser';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import {
@@ -2916,12 +2916,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(title)}</title>
- <meta name="description" content="${esc(description)}">
+ <meta name="description" content="${esc(clampMetaDescription(description))}">
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(ogTitle)}">
- <meta property="og:description" content="${esc(description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(description))}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <meta property="og:image:width" content="1200">
@@ -4590,12 +4590,12 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -4750,12 +4750,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -4917,12 +4917,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5096,12 +5096,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5272,12 +5272,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5465,12 +5465,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(pageTitle)}</title>
- <meta name="description" content="${esc(pageDesc)}">
+ <meta name="description" content="${esc(clampMetaDescription(pageDesc))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(pageOgTitle)}">
- <meta property="og:description" content="${esc(pageOgDesc)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(pageOgDesc))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5682,12 +5682,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5841,12 +5841,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(model.description)}">
+ <meta name="description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(model.description)}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -10290,7 +10290,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width, initial-scale=1">
  ${FAVICON_LINKS}
  <title>${pageTitle}</title>
- <meta name="description" content="${pageDesc}">${robotsTag}
+ <meta name="description" content="${clampMetaDescription(pageDesc)}">${robotsTag}
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">
