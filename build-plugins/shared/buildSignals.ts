@@ -49,10 +49,28 @@ function makeSignal(): { promise: Promise<void>; resolve: () => void } {
   };
 }
 
+/** Like {@link makeSignal} but carries a value to the awaiting consumer. */
+function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } {
+  let resolveFn: (v: T) => void = () => {};
+  const promise = new Promise<T>((resolve) => {
+    resolveFn = resolve;
+  });
+  let resolved = false;
+  return {
+    promise,
+    resolve: (v: T) => {
+      if (resolved) return;
+      resolved = true;
+      resolveFn(v);
+    },
+  };
+}
+
 const staticPagesSignal = makeSignal();
 const professionLandingsSignal = makeSignal();
 const salaryHubSignal = makeSignal();
 const jobsSeoPagesSignal = makeSignal();
+const professionCantonsSignal = makeValueSignal<readonly string[]>();
 
 /** Resolves when {@link staticPagesPlugin} has flushed all its queued writes. */
 export const staticPagesFlushed: Promise<void> = staticPagesSignal.promise;
@@ -93,4 +111,19 @@ export function resolveSalaryHubFlushed(): void {
 export const jobsSeoPagesFlushed: Promise<void> = jobsSeoPagesSignal.promise;
 export function resolveJobsSeoPagesFlushed(): void {
   jobsSeoPagesSignal.resolve();
+}
+
+/**
+ * Resolves with the list of canonical paths {@link professionCantonLandings}
+ * actually wrote this build (job-floor gated → a data-dependent subset of the
+ * enumerated routes). Consumed by {@link professionCantonLandingsLinksPlugin},
+ * which injects a "same role, other cantons" link block into the per-locale
+ * HTML sitemap pages so BFS-from-`/` reaches every emitted page at depth ≤ 3
+ * (closing the `sitemap-profession-cantons.xml` orphan tier flagged by
+ * `audit:max-bfs-depth`).
+ */
+export const professionCantonsFlushed: Promise<readonly string[]> =
+  professionCantonsSignal.promise;
+export function resolveProfessionCantonsFlushed(paths: readonly string[]): void {
+  professionCantonsSignal.resolve(paths);
 }
