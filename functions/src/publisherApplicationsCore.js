@@ -157,10 +157,40 @@ async function verifyCaller(req) {
 }
 
 /**
- * Mint a download link for an application's uploaded CV, for the authenticated
- * publisher who owns the target application. The client never reads cv-uploads/**
- * directly (storage.rules denies client reads), so the dashboard CV link cannot
- * be the raw object path — it calls this endpoint to obtain a server-signed URL.
+ * Resolve the publisher who owns a CV reference, and the CV object path/link, for
+ * an authenticated caller. Two addressing modes:
+ *   - { appId }: look up the application; owner is application.publisherUid.
+ *   - { cvPath: 'cv-uploads/<jobId>/<file>' }: owner is the publisher of <jobId>
+ *     (publisher_jobs/<jobId>.publisherUid). Lets a canonical CV deep-link
+ *     (/i-miei-annunci/cv-uploads/…) resolve without first knowing the appId.
+ * Returns { ownerUid, cvRef } or { error }.
+ */
+async function resolveCvOwnerAndRef({ appId, cvPath }) {
+  if (appId) {
+    const appSnap = await db().collection('applications').doc(appId).get();
+    if (!appSnap.exists) return { error: 'application_not_found' };
+    const appData = appSnap.data();
+    return { ownerUid: appData.publisherUid, cvRef: appData.cvUrl };
+  }
+  if (cvPath) {
+    // Strict shape: cv-uploads/<jobId>/<file> with no traversal. The <jobId>
+    // segment is the ownership authority (same job that the upload was scoped to).
+    const m = /^cv-uploads\/([^/]+)\/([^/]+)$/.exec(cvPath);
+    if (!m || cvPath.includes('..')) return { error: 'bad_cv_path' };
+    const jobId = m[1];
+    const jobSnap = await db().collection('publisher_jobs').doc(jobId).get();
+    if (!jobSnap.exists) return { error: 'job_not_found' };
+    return { ownerUid: jobSnap.data().publisherUid, cvRef: cvPath };
+  }
+  return { error: 'no_target' };
+}
+
+/**
+ * Mint a download link for an uploaded CV, for the authenticated publisher who
+ * owns it. The client never reads cv-uploads/** directly (storage.rules denies
+ * client reads), so neither the dashboard CV link nor the canonical CV deep-link
+ * can be the raw object path — both call this endpoint for a server-signed URL.
+ * Accepts { appId } (dashboard) or { cvPath } (deep-link interceptor).
  * @param {import('express').Request} req
  * @returns {Promise<{status:number, body:object}>}
  */
@@ -170,18 +200,21 @@ export async function handleGetApplicationCvUrl(req) {
   if (!decoded) return { status: 401, body: { ok: false, error: 'unauthenticated' } };
 
   const appId = String((req.body && req.body.appId) || '').trim();
-  if (!appId) return { status: 400, body: { ok: false, error: 'no_app_id' } };
+  const cvPath = String((req.body && req.body.cvPath) || '').trim();
+  if (!appId && !cvPath) return { status: 400, body: { ok: false, error: 'no_target' } };
 
-  const appSnap = await db().collection('applications').doc(appId).get();
-  if (!appSnap.exists) return { status: 404, body: { ok: false, error: 'application_not_found' } };
-  const appData = appSnap.data();
-  // Only the publisher who owns the application may read the candidate's CV
-  // (mirrors firestore.rules `applications` read guard: uid == publisherUid).
-  if (appData.publisherUid !== decoded.uid) {
+  const { ownerUid, cvRef, error } = await resolveCvOwnerAndRef({ appId, cvPath });
+  if (error) {
+    const status = error === 'bad_cv_path' || error === 'no_target' ? 400 : 404;
+    return { status, body: { ok: false, error } };
+  }
+  // Only the owning publisher may read the candidate's CV (mirrors the
+  // firestore.rules `applications` read guard: uid == publisherUid).
+  if (ownerUid !== decoded.uid) {
     return { status: 403, body: { ok: false, error: 'forbidden' } };
   }
 
-  const url = await resolveCvLink(appData.cvUrl);
+  const url = await resolveCvLink(cvRef);
   if (!url) return { status: 404, body: { ok: false, error: 'cv_unavailable' } };
   return { status: 200, body: { ok: true, url } };
 }
