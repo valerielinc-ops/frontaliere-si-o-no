@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3905698",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.032Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -63,16 +63,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -82,9 +81,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -108,7 +107,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -127,7 +126,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -141,16 +142,15 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -263,7 +263,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020001",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -296,16 +296,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:42:33.203Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -495,7 +494,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4018498",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -528,16 +527,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:28:40.332Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1035,7 +1033,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013953",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1065,28 +1063,27 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1110,7 +1107,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1129,30 +1126,26 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T00:10:18.427Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1319,8 +1312,8 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -1346,7 +1339,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012294",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1366,29 +1359,26 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-06-01T15:16:02.879Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -1509,7 +1499,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004425",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1528,16 +1518,15 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "firstSeenAt": "2026-05-21T23:01:34.943Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -1814,7 +1803,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004540",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1845,16 +1834,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:46:53.993Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2103,7 +2091,7 @@
       "slug": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
         "de": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "fr": "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth"
       },
@@ -2129,7 +2117,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3968864",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2151,7 +2139,7 @@
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-rad",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
         "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur",
-        "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth"
+        "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2160,21 +2148,19 @@
           "medico-tecnico-radiologo-hf-mtr-hf-per-il-reparto-di-radiologia-interventistica-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle-radiologie-kantonsspital-winterth",
           "medical-radiology-technician-hf-mtr-hf-for-interventional-radiology-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2536,7 +2522,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3983471",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2570,16 +2556,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2615,7 +2600,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984098",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2648,16 +2633,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2693,7 +2677,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3979211",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2726,16 +2710,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -3161,7 +3144,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984381",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.031Z",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3200,16 +3183,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3399,7 +3381,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020178",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.030Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3429,16 +3411,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:28:09.257Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3948,7 +3929,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4000642",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.030Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3987,16 +3968,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -4032,7 +4012,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3965279",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.030Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4070,16 +4050,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4115,7 +4094,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3949332",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.030Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4145,16 +4124,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.415Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4428,7 +4406,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3989823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.030Z",
+      "crawledAt": "2026-06-14T22:10:19.126Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4461,16 +4439,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -4506,7 +4483,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017388",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.029Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4539,16 +4516,15 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:43.718Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4584,7 +4560,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017085",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.029Z",
+      "crawledAt": "2026-06-14T22:10:19.124Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4617,16 +4593,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:46:05.232Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4733,7 +4708,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012963",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.029Z",
+      "crawledAt": "2026-06-14T22:10:19.125Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4766,16 +4741,15 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:20:37.293Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5052,7 +5026,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014560",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:58:41.028Z",
+      "crawledAt": "2026-06-14T22:10:19.124Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -5083,16 +5057,89 @@
         ]
       },
       "firstSeenAt": "2026-06-04T00:15:33.566Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ksw-abd6244ea1c1",
+      "slug": "infermiere-esperto-in-geriatria-per-acuti-kantonsspital-winterthur-ksw-winterthur",
+      "slugByLocale": {
+        "it": "infermiere-esperto-in-geriatria-per-acuti-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegeexpertin-pflegeexperte-akutgeriatrie-ksw-ch",
+        "de": "pflegeexpertin-pflegeexperte-akutgeriatrie-ksw-ch",
+        "fr": "expert-e-en-soins-infirmiers-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
+      },
+      "company": "Kantonsspital Winterthur (KSW)",
+      "companyKey": "ksw",
+      "companyDomain": "ksw.ch",
+      "title": "Pflegeexpertin / Pflegeexperte Akutgeriatrie",
+      "titleByLocale": {
+        "it": "Infermiere esperto in geriatria per acuti",
+        "en": "Pflegeexpertin / Pflegeexperte Akutgeriatrie",
+        "de": "Pflegeexpertin / Pflegeexperte Akutgeriatrie",
+        "fr": "Expert(e) en soins infirmiers en gériatrie aiguë"
+      },
+      "description": "Möchtest du im Job-Sharing und im Rahmen eines Shared Governance Modells ein engagiertes, humorvolles und fachkompetentes Team mitführen? Bist du eigeninitiativ und motiviert, die Pflege in der Akutgeriatrie aktiv mitzugestalten und deine Expertise in die Weiterentwicklung einer evidenzbasierten, patientenzentrierten Praxis einzubringen? Schlägt dein Herz für die Betreuung älterer Menschen? Dann freuen wir uns auf deine Bewerbung.\n\nAufgaben:\n• Fachliche Verantwortung für die Weiterentwicklung der Pflegepraxis in der Akutgeriatrie\n• Mitwirkung an der strategischen Ausrichtung im interprofessionellen Behandlungsteam\n• Befähigung und Unterstützung von Mitarbeitenden in komplexen Versorgungssituationen\n• Implementierung und Evaluation evidenzbasierter Richtlinien sowie kritische Reflexion bestehender Pflegepraxis mit Initiierung gezielter Verbesserungsmassnahmen\n• Engagement im Fachteam der Pflege Medizin\n\nProfil:\n• Teamplayerin / Teamplayer mit einer patientenzentrierten Haltung\n• Abgeschlossener Master of Science in Nursing (MScN) oder Master of Advanced Studies (MAS) in Gerontologischer Pflege\n• Fundierte klinische Erfahrung im Akutspital\n• Ausgeprägte Kompetenzen in klinischer Entscheidungsfindung, Beratung und Leadership\n• Bereitschaft zur Tätigkeit im Schichtdienst, um deine klinische Expertise praxisnah einzubringen\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Pflege Medizin\n• Pensum: 90-100%",
+      "descriptionByLocale": {
+        "it": "Vuoi un team dedicato, divertente ed esperto in una condivisione del lavoro e un modello di governance condiviso? Sei auto-iniziativa e motivata a plasmare attivamente la cura in Akutgeriatrie e portare la tua esperienza nell'ulteriore sviluppo di una pratica basata sulle prove, concentrata sul paziente? Il tuo cuore dorme per la cura delle persone anziane? Allora non vediamo l'ora della vostra applicazione. Compiti:\n• Responsabilità speciale per l'ulteriore sviluppo della pratica della cura in Akutgeriatrie\n• Partecipazione all'orientamento strategico nel team di trattamento interprofessionale\n• La capacità e il supporto dei dipendenti in situazioni di approvvigionamento complesse\n• Attuazione e valutazione delle linee guida basate sulle prove e riflessione critica delle pratiche di cura esistenti con l'avvio di misure mirate di miglioramento\n• Engagement nel team di assistenza medica Profilo:\n• Teamplayer con un atteggiamento paziente-centrico\n• Master of Science in Nursing (MScN) o Master of Advanced Studies (MAS) in Gerontological Care\n• Trovata esperienza clinica nell'ospedale acuto\n• Competenze eccezionali nel processo decisionale clinico, consulenza e leadership\n• Volontà di lavorare nel lavoro a turni per portare la vostra esperienza clinica in pratica Vantaggi: Il KSW fornisce ai dipendenti condizioni che permettono loro di soddisfare i loro obiettivi professionali e le loro esigenze personali. Ore di lavoro flessibili e scorrevoli, ufficio domestico e un generoso congedo di maternità e livelli di occupazione adattati a diverse situazioni di vita – questo è tutto possibile al KSW, a condizione che consenta il funzionamento; Ogni anno, il KSW offre 40 corsi di formazione professionale avanzati e 50. Vi sosteniamo anche negli sviluppi esterni nel tempo e/o nei termini finanziari; In situazioni eccezionali, ad esempio malattia più lunga, forte peso personale o esperienze difficili in privato e nella vita professionale quotidiana sono a vostra disposizione. La preziosa e amichevole collaborazione all'interno delle squadre e nei dipartimenti è caratterizzata dal clima di lavoro al KSW. Come segno di una forte idea di squadra, il \"Du\" è stato introdotto come standard al KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande festival del personale per tutta la casa ogni quattro anni; i dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione dei fondi pensione con il BVK è ben al di sopra del minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben protetti; Con sconti su abbonamenti di fitness, opzioni di formazione interna e offerte di corso, sconti in farmacie e tra le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute; Il nostro centro di cura La Luna con orari generosi di apertura si trova proprio accanto al KSW. È inoltre possibile utilizzare il sostegno finanziario e dipendente dal reddito fornito dalla KSW per i costi della culla; In collaborazione con partner culturali di Winterthur e dintorni offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti.\n• Campo professionale: professioni di cura\n• Area: Medicina della cura\n• Pensum: 90-100 %",
+        "en": "Do you want to bring a dedicated, humorous and expertly-competent team together in a job sharing and a shared governance model? Are you self-initiative and motivated to actively shape the care in Akutgeriatrie and bring your expertise into the further development of an evidence-based, patient-centered practice? Does your heart sleep for the care of older people? Then we look forward to your application. Tasks:\n• Special responsibility for the further development of care practice in Akutgeriatrie\n• Participation in the strategic orientation in the interprofessional treatment team\n• The ability and support of employees in complex supply situations\n• Implementation and evaluation of evidence-based guidelines and critical reflection of existing nursing practices with the initiation of targeted improvement measures\n• Engagement in the medical care team Profile:\n• Teamplayer with a patient-centric attitude\n• Complete Master of Science in Nursing (MScN) or Master of Advanced Studies (MAS) in Gerontological Care\n• Finded clinical experience in the acute hospital\n• Outstanding competencies in clinical decision-making, advice and leadership\n• Willingness to work in shiftwork to bring your clinical expertise into practice Benefits: The KSW provides employees with conditions that enable them to meet their professional goals and personal needs. Flexible, sliding working hours, home office as well as a generous maternity leave and levels of employment adapted to different situations of life – this is all possible at the KSW, provided that it allows operation; Every year, the KSW offers 40 advanced and 50 professional training courses. We also support you in external developments in time and/or financial terms; In exceptional situations, e.g. longer illness, strong personal burden or difficult experiences in the private as well as in everyday professional life are available to you. The valuable and friendly cooperation within the teams and across the departments is characterized by the working climate at the KSW. As a sign for a strong team idea, the \"Du\" was introduced as a standard at the KSW. In addition, the KSW supports annual team events financially and organizes a large staff festival for the whole house every four years; KSW employees benefit from very good social benefits. Thus, the pension funds solution with the BVK is far above the statutory minimum. Even in the case of illness or accident, KSW employees are very well secured; With discounts on fitness subscriptions, internal training options and course offers, discounts in pharmacies and among the most popular health insurance companies. You can benefit from a comprehensive offer for your health; Our La Luna daycare centre with generous opening hours is located right next to the KSW. You can also use the income-dependent, financial support provided by the KSW for the crib costs; In cooperation with cultural partners in and around Winterthur we regularly offer discounts for concerts and theatre performances. The borrowing of media in the in-house library is also free for employees.\n• Professional field: care professions\n• Area: Care Medicine\n• Pensum: 90-100 %",
+        "de": "Möchtest du im Job-Sharing und im Rahmen eines Shared Governance Modells ein engagiertes, humorvolles und fachkompetentes Team mitführen? Bist du eigeninitiativ und motiviert, die Pflege in der Akutgeriatrie aktiv mitzugestalten und deine Expertise in die Weiterentwicklung einer evidenzbasierten, patientenzentrierten Praxis einzubringen? Schlägt dein Herz für die Betreuung älterer Menschen? Dann freuen wir uns auf deine Bewerbung. Aufgaben:\n• Fachliche Verantwortung für die Weiterentwicklung der Pflegepraxis in der Akutgeriatrie\n• Mitwirkung an der strategischen Ausrichtung im interprofessionellen Behandlungsteam\n• Befähigung und Unterstützung von Mitarbeitenden in komplexen Versorgungssituationen\n• Implementierung und Evaluation evidenzbasierter Richtlinien sowie kritische Reflexion bestehender Pflegepraxis mit Initiierung gezielter Verbesserungsmassnahmen\n• Engagement im Fachteam der Pflege Medizin Profil:\n• Teamplayerin / Teamplayer mit einer patientenzentrierten Haltung\n• Abgeschlossener Master of Science in Nursing (MScN) oder Master of Advanced Studies (MAS) in Gerontologischer Pflege\n• Fundierte klinische Erfahrung im Akutspital\n• Ausgeprägte Kompetenzen in klinischer Entscheidungsfindung, Beratung und Leadership\n• Bereitschaft zur Tätigkeit im Schichtdienst, um deine klinische Expertise praxisnah einzubringen Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: Pflegeberufe\n• Bereich: Pflege Medizin\n• Pensum: 90-100%",
+        "fr": "Voulez-vous réunir une équipe dévouée, humoristique et experte dans un partage d'emplois et un modèle de gouvernance partagée? Êtes-vous auto-initiative et motivée à façonner activement les soins à Akutgeriatrie et à apporter votre expertise dans le développement d'une pratique basée sur des preuves, centrée sur le patient? Votre cœur dort-il pour les personnes âgées? Ensuite, nous attendons avec impatience votre candidature. Tâches :\n• Responsabilité spéciale pour le développement de la pratique des soins à Akutgeriatrie\n• Participation à l'orientation stratégique de l'équipe interprofessionnelle de traitement\n• Capacité et soutien des employés dans des situations d'approvisionnement complexes\n• Mise en oeuvre et évaluation de directives fondées sur des données probantes et reflet critique des pratiques en matière de soins infirmiers avec le lancement de mesures d'amélioration ciblées\n• Engagement dans l'équipe de soins médicaux Profil :\n• Teamplayer avec une attitude centrée sur le patient\n• Maîtrise complète en sciences infirmières (MScN) ou maîtrise en études supérieures (MAS) en soins gérontologiques\n• Expérience clinique acquise à l'hôpital aigu\n• Compétences exceptionnelles en matière de prise de décisions, de conseils et de leadership cliniques\n• Volonté de travailler par équipes pour mettre votre expertise clinique en pratique Avantages: Le KSW fournit aux employés des conditions qui leur permettent de répondre à leurs objectifs professionnels et à leurs besoins personnels. Des horaires de travail flexibles et glissants, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés aux différentes situations de la vie – tout cela est possible au KSW, à condition qu'il permette le fonctionnement; Chaque année, le KSW propose 40 formations avancées et 50 formations professionnelles. Nous vous soutenons également dans les développements extérieurs en termes de temps et/ou financiers; Dans des situations exceptionnelles, par exemple une maladie plus longue, un lourd fardeau personnel ou des expériences difficiles dans le privé ainsi que dans la vie professionnelle quotidienne sont à votre disposition. La coopération précieuse et amicale au sein des équipes et à travers les départements se caractérise par le climat de travail au KSW. Comme signe d'une forte idée d'équipe, le \"Du\" a été introduit comme standard au KSW. En outre, le KSW soutient financièrement les événements annuels de l'équipe et organise un grand festival du personnel pour toute la maison tous les quatre ans. Ainsi, la solution des fonds de pension avec le BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien protégés; Avec des réductions sur les abonnements de fitness, des options de formation interne et des offres de cours, des réductions dans les pharmacies et parmi les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture généreuses est situé juste à côté de la KSW. Vous pouvez également utiliser le soutien financier lié au revenu fourni par le KSW pour les frais de literie; En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés.\n• Domaine professionnel : professions de soins\n• Domaine: Médecine des soins\n• Pensum: 90-100 %"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ksw/job/details/3955737",
+      "source": "KSW Dedicated Parser (Solique tenant ksw)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T22:10:19.127Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-10",
+      "applyUrl": "https://live.solique.ch/ksw/job/details/3955737",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege Medizin",
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-akutgeriatrie-ksw-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-akutgeriatrie-ksw-ch"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-akutgeriatrie-ksw-ch"
+        ]
+      },
+      "firstSeenAt": "2026-05-10T21:55:26.417Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }

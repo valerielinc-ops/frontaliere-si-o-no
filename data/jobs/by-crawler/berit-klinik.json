@@ -287,20 +287,19 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Mitarbeiter:In Restaurant 60–80%",
@@ -877,20 +876,19 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Op Dispo Wattwil 50–70%",
@@ -939,20 +937,19 @@
       },
       "id": "berit-klinik-d8e0f1afab48",
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Mpa Arztsekret Rin Wattwil 40%",
@@ -1001,20 +998,19 @@
       },
       "id": "berit-klinik-b5f5dfcffd62",
       "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
+          "minValue": 70500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }

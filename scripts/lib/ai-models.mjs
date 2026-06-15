@@ -225,10 +225,17 @@ export const AI_MODELS = Object.freeze({
   FW_MIXTRAL_8X7B: 'fireworks/accounts/fireworks/models/mixtral-8x7b-instruct',
 
   // ── NVIDIA NIM (OpenAI-compatible, free tier inference) ──
-  NV_NEMOTRON_70B:   'nvidia/nvidia/llama-3.1-nemotron-70b-instruct',   // API: nvidia/llama-3.1-nemotron-70b-instruct
-  NV_NEMOTRON_49B:   'nvidia/nvidia/llama-3.3-nemotron-super-49b-v1',   // API: nvidia/llama-3.3-nemotron-super-49b-v1
+  // NV_NEMOTRON_70B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773). No longer served on this NVIDIA account; was already out of DEFAULT_CHAIN (see "NV_NEMOTRON_70B removed" comment in the chain). The bare-"nemotron" token in NVIDIA_ALLOW_FAMILY_RE was re-injecting it via discovery, so a dead static id here is moot, but removing it keeps the catalog honest.
+  // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773). No longer served on this NVIDIA account. Dropped from DEFAULT_CHAIN in the same change.
   NV_LLAMA_3_1_8B:   'nvidia/meta/llama-3.1-8b-instruct',
   // NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
+  // NV_MISTRAL_SM_4 / NV_NEMOTRON_NANO_9B added — verified translating de↔it 2026-06-15 via
+  // live integrate.api.nvidia.com calls (replacements for the NV_NEMOTRON_70B/49B that 404'd
+  // on this account in #2196). Neither matches NVIDIA_ALLOW_FAMILY_RE (no nemotron-at-slash /
+  // llama-3.x token), so dynamic discovery does NOT auto-inject them — the static pin is
+  // genuinely additive and survives a discovery timeout/outage. NVIDIA NIM = free tier.
+  NV_MISTRAL_SM_4:      'nvidia/mistralai/mistral-small-4-119b-2603',     // API: mistralai/mistral-small-4-119b-2603 — fast (<1s), clean it/de
+  NV_NEMOTRON_NANO_9B:  'nvidia/nvidia/nvidia-nemotron-nano-9b-v2',       // API: nvidia/nvidia-nemotron-nano-9b-v2 — correct it/de, slower (~29s)
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
   HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
   HF_LLAMA_3_3_70B:'hf/meta-llama/Llama-3.3-70B-Instruct',
@@ -261,7 +268,7 @@ export const AI_MODELS = Object.freeze({
   CF_QWEN3_30B:        'cf/@cf/qwen/qwen3-30b-a3b-fp8',
   CF_GPT_OSS_120B:     'cf/@cf/openai/gpt-oss-120b',
   CF_GPT_OSS_20B:      'cf/@cf/openai/gpt-oss-20b',
-  CF_GEMMA_3_12B:      'cf/@cf/google/gemma-3-12b-it',
+  // CF_GEMMA_3_12B removed — Cloudflare Workers AI HTTP 400 "Model has been deprecated: This model was deprecated on 2026-05-30." (2026-06-15, run 27544487773). OpenRouter mirror OR_GEMMA_3_12B remains available.
   CF_GLM_47_FLASH:     'cf/@cf/zai-org/glm-4.7-flash',
   // CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GEMMA_4_26B removed — returns empty responses (model loads but won't generate, 2026-04)
@@ -446,7 +453,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.MISTRAL_8B,         // 65. Ministral 8B latest    (Mistral AI direct)
   AI_MODELS.OR_DOLPHIN_24B,     // 66. Dolphin Mistral 24B     (OpenRouter free — replaces Mistral Nemo)
   // OR_MISTRAL_NEMO removed from OpenRouter free list (2026-04)
-  AI_MODELS.CF_GEMMA_3_12B,     // 67. Gemma 3 12B             (Cloudflare Workers AI)
+  // CF_GEMMA_3_12B removed — Cloudflare Workers AI HTTP 400 "Model has been deprecated: This model was deprecated on 2026-05-30." (2026-06-15, run 27544487773); OR_GEMMA_3_12B mirror still in chain
   AI_MODELS.CB_LLAMA_3_1_8B,    // 68. Llama 3.1 8B           (Cerebras - ultra fast)
   // TGT_QWEN_2_5_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // TGT_MISTRAL_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
@@ -454,8 +461,10 @@ export const DEFAULT_CHAIN = [
   // FW_MIXTRAL_8X7B removed — Fireworks AI HTTP 404 (model not found 2026-03)
   // NV_NEMOTRON_70B removed — NVIDIA NIM HTTP 404 (model not found 2026-03)
   AI_MODELS.CF_GLM_47_FLASH,    // 69. GLM 4.7 Flash           (Cloudflare Workers AI)
-  AI_MODELS.NV_NEMOTRON_49B,     // 70. Nemotron 49B           (NVIDIA NIM direct)
+  // NV_NEMOTRON_49B removed — NVIDIA NIM HTTP 404 "Not Found for account" (2026-06-15, run 27544487773); no longer served on this NVIDIA account
   AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
+  AI_MODELS.NV_MISTRAL_SM_4,     // 71b. Mistral Small 4 119B  (NVIDIA NIM — added, verified translating it↔de 2026-06-15; fast <1s)
+  AI_MODELS.NV_NEMOTRON_NANO_9B, // 71c. Nemotron Nano 9B v2   (NVIDIA NIM — added, verified translating it↔de 2026-06-15; slower ~29s)
   // AI_MODELS.NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
   // AI_MODELS.CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
@@ -978,7 +987,13 @@ function _decayScore(score, lastUsedISO) {
  * and isolates providers so one failure can't block the others.
  * Call from initScoreStore() (or before the first callLLM()).
  */
-const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
+// `reward` / `parse` added 2026-06-15 (run 27544487773): NVIDIA discovery was
+// auto-injecting nvidia/nemotron-4-340b-reward (a REWARD model → HTTP 404 + wrong
+// type) and nvidia/nemotron-parse (a DOCUMENT PARSER → HTTP 400 "Content cannot be
+// a plain string. The model does not support text input."). Both matched the bare
+// "nemotron" token in NVIDIA_ALLOW_FAMILY_RE but are not chat models. `embed` /
+// `rerank` (the other non-chat types) were already covered above.
+const NON_CHAT_MODEL_RE = /whisper|tts|text-to-speech|\bspeech\b|\baudio\b|embed|moderation|guard|\bocr\b|playai|rerank|reranking|\breward\b|\bparse\b|stable-diffusion|sdxl|\bflux\b|nemoretriever/i;
 
 // NVIDIA's /v1/models lists its ENTIRE historical NIM catalog with no
 // free/served flag, and the bulk of it (legacy + vision + code-only families:
