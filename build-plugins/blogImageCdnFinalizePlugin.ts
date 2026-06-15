@@ -57,8 +57,21 @@ const reLeak = new RegExp(
 function walk(dir: string, fn: (fp: string) => void): void {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const fp = path.join(dir, e.name);
-    if (e.isDirectory()) walk(fp, fn);
-    else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
+    if (e.isDirectory()) {
+      // Mirror postWalkCoordinatorPlugin.walkHtml(): never descend into the
+      // asset/data/image subtrees. They hold only JS/CSS/fonts (assets/),
+      // CDN-offloaded *.json job payloads (data/) and *.webp/*.png/og art
+      // (images/) — none carry .html/.xml/.txt, the only extensions in
+      // SCAN_EXT this pass rewrites. Descending them stat-walked ~1.4M dirents
+      // per build for zero rewrites (run 27528505424: 1.59M scanned → 21k
+      // rewritten, wall 811s with cpu 374s = ~54% pure I/O wait). Skipping
+      // them collapses the walk to the content tree without changing a single
+      // rewritten byte; the coordinator already ships this exact exclusion.
+      // The dist/images/blog deletion loop below is a separate explicit
+      // readdirSync of blogDir, so this skip does not affect it.
+      if (e.name === 'assets' || e.name === 'data' || e.name === 'images') continue;
+      walk(fp, fn);
+    } else if (SCAN_EXT.has(path.extname(e.name))) fn(fp);
   }
 }
 
