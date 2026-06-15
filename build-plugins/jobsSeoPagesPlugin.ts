@@ -10804,7 +10804,7 @@ ${staticAnalyticsHtml}
  // Bot-gated Auto Ads loader (meta + adsense-loader) ONLY on real-traffic
  // expired pages (__slKeepProse): immediate Auto Ads (anchor/vignette/in-page)
  // for the crawler-first-paint→quick-bounce window, instead of waiting for the
- // SPA's <AdSenseBanner> to load adsbygoogle.js post-hydration (a lost-impression
+ // SPA's <AdSenseBanner> to load the AdSense ads script post-hydration (a lost-impression
  // gap on dead-job-link bounces — same class as #1904). Loader is idempotent +
  // bot-gated, so it coexists with the SPA banner and never inflates AD_REQUESTS.
  // Gated to has-traffic so the ~250 B snippet only lands on pages with users.
