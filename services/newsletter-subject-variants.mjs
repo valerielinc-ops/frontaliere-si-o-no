@@ -21,7 +21,13 @@
  * text that could drift.
  */
 
-import { createHash } from 'node:crypto';
+// NOTE: this module is browser-safe by construction — it is reachable from the
+// client bundle (services/newsletterPreview.ts → services/newsletter-content.mjs
+// → getVariantStyleDirective). It must therefore NOT import any `node:` builtin.
+// The lone crypto-dependent helper (`assignSubjectVariant`, server-only: send +
+// A/B report) lives in ./newsletter-subject-assign.mjs so `node:crypto` never
+// leaks into the SPA graph (a static `node:crypto` import here makes rollup fail
+// the whole client build: "createHash is not exported by __vite-browser-external").
 
 /** Lowercase+trim — must match scripts/send-newsletter.mjs normalizeEmail. */
 export function normalizeEmail(raw) {
@@ -88,25 +94,9 @@ export function getSubjectVariant(id) {
   return SUBJECT_VARIANTS.find((v) => v.id === id) || null;
 }
 
-/**
- * Deterministically assign a variant id for (email, campaignId).
- * Stable for the lifetime of a campaign (so a subscriber never flip-flops across
- * the daily cron re-runs of one weekly campaign) and rotates across campaigns
- * (so the same subscriber isn't always in the same bucket).
- *
- * @param {string} email
- * @param {string} campaignId
- * @param {Array}  [variants=SUBJECT_VARIANTS]
- * @returns {string} variant id
- */
-export function assignSubjectVariant(email, campaignId, variants = SUBJECT_VARIANTS) {
-  const list = variants?.length ? variants : SUBJECT_VARIANTS;
-  const key = `${normalizeEmail(email)}|${String(campaignId || '')}`;
-  const digest = createHash('sha256').update(key).digest();
-  // Use a 4-byte unsigned int for a clean modulo with no first-byte skew.
-  const n = digest.readUInt32BE(0);
-  return list[n % list.length].id;
-}
+// `assignSubjectVariant` (the only `node:crypto` consumer) lives in the
+// server-only ./newsletter-subject-assign.mjs to keep this module browser-safe
+// (see the header note). Import it from there in send/report scripts.
 
 /**
  * Variant-specific fallback subject for a locale, with safe degradation:

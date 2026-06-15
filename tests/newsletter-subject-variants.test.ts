@@ -5,11 +5,14 @@ const {
   DEFAULT_VARIANT_ID,
   listVariantIds,
   getSubjectVariant,
-  assignSubjectVariant,
   getVariantFallback,
   getVariantStyleDirective,
   normalizeEmail,
 } = await import('@/services/newsletter-subject-variants.mjs');
+
+// assignSubjectVariant lives in the server-only module (node:crypto) so the
+// variants module stays browser-safe — see newsletter-subject-assign.mjs.
+const { assignSubjectVariant } = await import('@/services/newsletter-subject-assign.mjs');
 
 const { buildSubjectPrompt } = await import('@/services/newsletter-content.mjs');
 

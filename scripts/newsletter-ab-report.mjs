@@ -29,7 +29,8 @@
  * Read-only — never writes to Firestore.
  */
 
-import { assignSubjectVariant, listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { assignSubjectVariant } from '../services/newsletter-subject-assign.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
