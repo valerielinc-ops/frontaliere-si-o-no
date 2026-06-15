@@ -31,6 +31,12 @@ const DEEPL_API_KEYS = [
 ].filter(Boolean);
 let _deeplKeyIndex = 0;
 let _deeplExhaustedKeys = new Set();
+// Per-run 429 circuit-breaker: after DEEPL_429_CB_THRESHOLD total 429s the flag is set
+// and all subsequent _callDeepLWithKey calls throw rateLimited immediately, avoiding
+// the O(N×3s) wall-clock blowup on a sustained rate-limit across many chunks/jobs.
+let _deepl429TotalCount = 0;
+const DEEPL_429_CB_THRESHOLD = 5;
+let _deeplRateLimitedGlobal = false;
 // Azure Translator (F0 Free tier: 2M chars/month, excellent quality)
 const AZURE_TRANSLATOR_KEYS = [
   (process.env.AZURE_TRANSLATOR_KEY || '').trim(),
@@ -311,6 +317,12 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
   const chunks = clean.length <= MAX_CHUNK ? [clean] : chunkText(clean, MAX_CHUNK);
   const translated = [];
 
+  // Circuit-breaker: if a previous call already triggered the global flag, fail fast
+  // without burning an HTTP round-trip (and its 15s timeout).
+  if (_deeplRateLimitedGlobal) {
+    throw Object.assign(new Error('DeepL 429 rate-limited'), { rateLimited: true });
+  }
+
   for (const chunk of chunks) {
     const body = new URLSearchParams();
     body.append('text', chunk);
@@ -339,6 +351,14 @@ async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
         throw Object.assign(new Error('DeepL 456'), { quotaExhausted: true });
       }
       if (res.status === 429) {
+        _deepl429TotalCount++;
+        if (_deepl429TotalCount >= DEEPL_429_CB_THRESHOLD) {
+          // Sustained rate-limit: set the global flag so every subsequent chunk and
+          // job skips DeepL entirely instead of accumulating more backoff delay.
+          _deeplRateLimitedGlobal = true;
+          console.warn(`[deepl] circuit-breaker: ${_deepl429TotalCount} total 429s this run — bypassing all further DeepL calls`);
+          throw Object.assign(new Error('DeepL 429 rate-limited'), { rateLimited: true });
+        }
         if (rl < MAX_429_RETRIES) {
           console.warn(`[deepl] 429 rate-limited — backing off (retry ${rl + 1}/${MAX_429_RETRIES})`);
           await delay(1000 * (rl + 1)); // ~1s, then ~2s
