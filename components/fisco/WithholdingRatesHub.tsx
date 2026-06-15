@@ -168,7 +168,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  label: 'Imposta alla fonte – AFC (Confederazione)',
- url: 'https://www.estv.admin.ch/estv/it/home/direkte-bundessteuer/quellensteuer.html',
+ url: 'https://www.estv.admin.ch/it/imposta-alla-fonte',
  detail: 'Quadro federale sulla ritenuta alla fonte, normativa e circolari aggiornate.',
  },
  ],
@@ -277,7 +277,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  label: 'Withholding tax – FTA (Swiss Confederation)',
- url: 'https://www.estv.admin.ch/estv/en/home/direkte-bundessteuer/quellensteuer.html',
+ url: 'https://www.estv.admin.ch/en/tax-at-source',
  detail: 'Federal framework on withholding tax, regulations and updated circulars.',
  },
  ],
@@ -386,7 +386,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  label: 'Quellensteuer – ESTV (Bund)',
- url: 'https://www.estv.admin.ch/estv/de/home/direkte-bundessteuer/quellensteuer.html',
+ url: 'https://www.estv.admin.ch/de/quellensteuer',
  detail: 'Bundesrechtlicher Rahmen zur Quellensteuer, Verordnungen und aktuelle Rundschreiben.',
  },
  ],
@@ -495,7 +495,7 @@ const COPY_BY_LOCALE: Record<Locale, Copy> = {
  },
  {
  label: 'Impot a la source – AFC (Confederation)',
- url: 'https://www.estv.admin.ch/estv/fr/home/direkte-bundessteuer/quellensteuer.html',
+ url: 'https://www.estv.admin.ch/fr/impot-a-la-source',
  detail: 'Cadre federal de l impot a la source, reglements et circulaires a jour.',
  },
  ],
