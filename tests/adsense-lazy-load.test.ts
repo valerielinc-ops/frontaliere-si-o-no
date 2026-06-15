@@ -116,6 +116,20 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     expect(ADSENSE_LOADER_CONTENT).toContain('s.onload');
     expect(ADSENSE_LOADER_CONTENT).toContain('adsbygoogle');
   });
+
+  it('guards loadScript() against duplicate injection via DOM check (AdSenseBanner idle-race fix)', () => {
+    // On soft-landing pages, both adsense-loader.js and AdSenseBanner.tsx can fire
+    // their rIC idle fallbacks. AdSenseBanner uses timeout:1500 (registered at
+    // component mount, ~100ms after page load), while the static loader uses
+    // timeout:2500 (registered at observe() time, before SPA hydration). In the
+    // race window (~1700–2500ms from page load) AdSenseBanner may create the
+    // <script> element first; without this DOM check the static loader would then
+    // create a second one (its closure `loaded` flag is still false). The guard
+    // mirrors the existing check in AdSenseBanner.tsx:loadAdSenseScript().
+    expect(ADSENSE_LOADER_CONTENT).toContain(
+      'script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]',
+    );
+  });
 });
 
 describe('AdSense lazy loading — static SEO shell', () => {
