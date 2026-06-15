@@ -98,7 +98,8 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       // upload). The forward Cloud Function signs this path server-side.
       setCvPath(snap.ref.fullPath);
       setCvFileName(file.name);
-      setCvUrl('');
+      // Keep any pasted link intact: `cvPath || cvUrl.trim()` at submit already
+      // prefers the upload, and "Rimuovi" should restore the text field as typed.
     } catch (error) {
       setCvUploadError(true);
       reportCaughtError(error, 'publisherApply.cvUpload');
