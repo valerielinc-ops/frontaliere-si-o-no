@@ -1,6 +1,6 @@
 {
   "crawlerKey": "modellstation-somosa",
-  "assembledAt": "2026-06-14T22:30:27.173Z",
+  "assembledAt": "2026-06-15T15:05:17.230Z",
   "jobs": [
     {
       "id": "modellstation-somosa-f65bc46c69f6",
@@ -34,7 +34,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/eine-oberaerztin-einen-oberarzt-60-80",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:30:25.096Z",
+      "crawledAt": "2026-06-15T15:05:15.040Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,15 +60,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:25.265Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -105,7 +105,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/praktikum-fuer-studierende-sozialpaedagogik",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:30:24.556Z",
+      "crawledAt": "2026-06-15T15:05:14.479Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,15 +133,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:24.688Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -178,7 +178,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/sozialpaedagoge-sozialpaedagogin-fuer-unser-wohntraining-60-70-2",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:30:24.015Z",
+      "crawledAt": "2026-06-15T15:05:13.915Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -212,15 +212,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T06:05:24.107Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
