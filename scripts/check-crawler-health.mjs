@@ -119,6 +119,16 @@ const EMPTY_OK_CRAWLERS = new Set([
   // manufacturer simply has no current openings. Healthy, re-arms when a
   // vacancy is published.
   'linnea',
+  // Giorgio Armani S.p.A. (SuccessFactors SPA, company=3397177P): the dedicated
+  // crawler renders the hydrated listing (~34 jobs) correctly and is scoped to
+  // Switzerland-based roles only (TI/GR). The Italian luxury house posts almost
+  // exclusively Italy roles; Swiss openings are sporadic boutique/outlet spots
+  // (history: Armani Outlet Mendrisio req 5074, expired 2026-06-08). The listing
+  // parser + Swiss filter are healthy — they discover the full listing and
+  // correctly classify all current rows as non-Swiss. Same legitimately-empty
+  // regional-filter case as manor/alten-switzerland/fusalp/bracco. Re-arms when
+  // a CH listing reappears.
+  'giorgio-armani',
   // Fusalp (French apparel brand, WelcomeKit portal https://fusalp.welcomekit.co):
   // the crawler is scoped to Swiss roles only and skips France/EU listings.
   // Fusalp posts mostly French jobs (Annecy HQ, Lyon/Paris/Nice boutiques) with
@@ -128,12 +138,29 @@ const EMPTY_OK_CRAWLERS = new Set([
   // case as manor and alten-switzerland. Re-arms when a CH listing appears.
   'fusalp',
   // Bracco Suisse S.A.: the Workday API (bracco.wd103.myworkdayjobs.com) returns
-  // 100+ jobs globally but currently 0 at the two Swiss sites the crawler is
-  // scoped to (Cadempino TI + Plan-les-Ouates GE — location facets verified
-  // returning total:0). A small medical-imaging subsidiary legitimately has no
-  // Swiss openings for weeks; parser is healthy and re-arms when a CH role
-  // appears. Same regional-filter case as manor/alten-switzerland.
+  // 100+ jobs globally but only sporadic openings at the two Swiss sites the
+  // crawler is scoped to (Cadempino TI + Plan-les-Ouates GE). The crawler fetches
+  // every posting and keeps Swiss ones by location text (no brittle location
+  // UUIDs). A small medical-imaging subsidiary legitimately has no Swiss openings
+  // for weeks; parser is healthy and re-arms when a CH role appears. Same
+  // regional-filter case as manor/alten-switzerland.
   'bracco',
+  // FNZ (Switzerland) AG: the Workday API (fnz.wd3.myworkdayjobs.com) lists
+  // ~120 jobs globally (UK/Czechia/India/Ireland…) but only sporadic Swiss roles
+  // at Chiasso (TI) / Geneva (GE). The crawler now fetches every posting and
+  // keeps Swiss ones by location text (no brittle location UUIDs — the old
+  // hardcoded city facet IDs silently rotted to total:0, the original break).
+  // Zero Swiss openings is a legitimate state; parser is healthy and re-arms when
+  // a CH role appears. Same regional-filter case as manor/bracco.
+  'fnz',
+  // International School of Ticino (jobs.inspirededu.com, Inspired Education
+  // group): the crawler discovers postings via the group sitemap and keeps only
+  // those whose city maps to IST cantons (TI/GR). The group posts campus jobs
+  // worldwide; IST Lugano/Chur openings are sporadic. Zero live TI/GR positions
+  // is a legitimate state (verified: the TalentBrew search returns "no open
+  // positions match" for Lugano/Chur); parser is healthy and re-arms when an IST
+  // role appears. Same legitimately-empty regional-filter case as manor/fusalp.
+  'international-school-of-ticino',
   // Schweizer Paraplegiker-Gruppe (Umantis tenant 2782) and Universitäre
   // Psychiatrische Dienste Bern / UPD (Umantis tenant 2908): both listing
   // endpoints (/Jobs/All) still return ~10 jobs, but the per-job detail URLs

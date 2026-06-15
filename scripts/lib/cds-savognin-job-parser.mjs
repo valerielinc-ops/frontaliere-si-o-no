@@ -10,16 +10,32 @@
  * Public career site:
  *   https://cds-savognin.ch/DE/stellen.html
  *
- * The page is a single HTML file with one section per vacancy:
+ * The 2026 CMS redesign moved open vacancies into a "news" teaser widget
+ * (`<section id="teaserText">`). The listing is rendered by a paginated
+ * AJAX endpoint that the page calls on load and via the "Weitere News"
+ * button:
+ *
+ *   POST https://cds-savognin.ch/sites/el_news-ajax.php
+ *        start=0&limit=N&language=DE&url=stellen&page=6&read=1
+ *
+ * returning one `<div class="news-item">` per vacancy:
+ *
+ *   <h4>{title}</h4>
+ *   <div><p>{pensum + start-date summary}</p></div>
+ *   <a class="mehrLesen" href="/DE/aktuelles/{NNN}.html">Weiterlesen</a>
+ *
+ * The numeric ID (NNN) is the CMS news ID — stable across crawls — and we
+ * use it as the canonical jobId. Each vacancy's detail page
+ * (`/DE/aktuelles/{NNN}.html`) still carries the original editor markup:
  *
  *   <h3 id="subtitle_DE:{NNN}:text:idtext">{title}</h3>
  *   <div id="text1_DE:{NNN}:text:idtext">{pensum + start-date snippet}</div>
  *   <div id="text2_DE:{NNN}:text:idtext">{contact + apply CTA}</div>
  *   [optional] <a class="filelink pdfLink" href="/uploads/files/…pdf">…</a>
  *
- * The numeric ID (NNN) is stable across crawls (CMS internal ID) — we
- * use it as the canonical jobId. The site also runs Weglot for
- * EN/IT translations; we always read the DE source page (canonical).
+ * so we fetch each detail page and reuse `parseCdsSavogninListing` to get
+ * the richer body + PDF. The site also runs Weglot for EN/IT translations;
+ * we always read the DE source (canonical).
  *
  * Spontaneous-applications blocks are filtered out (no real vacancy).
  */
@@ -34,6 +50,7 @@ import {
   detectHealthcareCategory,
   detectHealthcareExperienceLevel,
   detectHealthcareEmploymentType,
+  USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -43,7 +60,13 @@ export const CDS_SAVOGNIN_KEY = 'cds-savognin';
 export const CDS_SAVOGNIN_COMPANY_NAME = 'Center da Sanadad Savognin';
 export const CDS_SAVOGNIN_COMPANY_DOMAIN = 'cds-savognin.ch';
 
-const PUBLIC_CAREER_URL = 'https://cds-savognin.ch/DE/stellen.html';
+const SITE_ORIGIN = 'https://cds-savognin.ch';
+const PUBLIC_CAREER_URL = `${SITE_ORIGIN}/DE/stellen.html`;
+// Paginated AJAX endpoint that renders the vacancy "news" widget (2026 CMS
+// redesign). `page=6` / `url=stellen` are the CMS handles for the Stellen page,
+// read directly off the page's `.show_more` button data-attributes.
+const NEWS_AJAX_URL = `${SITE_ORIGIN}/sites/el_news-ajax.php`;
+const NEWS_AJAX_LIMIT = 50; // generous cap — far above the handful of vacancies
 const DEFAULT_CITY = 'Savognin';
 const DEFAULT_CANTON = 'GR';
 const DEFAULT_POSTAL = '7460';
@@ -149,6 +172,55 @@ export function parseCdsSavogninListing(html = '') {
   return out;
 }
 
+/**
+ * Parse the vacancy "news" widget markup (initial page or AJAX response).
+ *
+ * Each vacancy is a `<div class="news-item">` containing an `<h4>` title, a
+ * short `<div><p>` summary and a `<a class="mehrLesen" href="/DE/aktuelles/
+ * {id}.html">` detail link. The numeric id in that href is the canonical
+ * (stable) CMS news id.
+ *
+ * Spontaneous-application teasers are filtered out (no real vacancy).
+ */
+export function parseCdsSavogninNewsItems(html = '') {
+  if (!html || typeof html !== 'string') return [];
+
+  const out = [];
+  const seen = new Set();
+
+  const itemRe = /<div[^>]*\bclass="[^"]*\bnews-item\b[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*\bclass="[^"]*\bnews-item\b|<div[^>]*\bclass="loading\b|$)/gi;
+  let m;
+  while ((m = itemRe.exec(html)) !== null) {
+    const block = m[1];
+
+    const linkMatch = block.match(/<a[^>]*class="[^"]*\bmehrLesen\b[^"]*"[^>]*href="([^"]*\/aktuelles\/(\d+)\.html)"/i);
+    if (!linkMatch) continue;
+    const id = linkMatch[2];
+    if (seen.has(id)) continue;
+
+    const titleMatch = block.match(/<h4[^>]*>([\s\S]*?)<\/h4>/i);
+    const title = titleMatch
+      ? normalizeSpace(decodeEntities(String(titleMatch[1]).replace(/<[^>]+>/g, '')))
+      : '';
+    if (!title || title.length < 3) continue;
+    if (SPONTANEOUS_RE.test(title)) continue;
+
+    seen.add(id);
+
+    const detailUrl = linkMatch[1].startsWith('http')
+      ? linkMatch[1]
+      : `${SITE_ORIGIN}${linkMatch[1].startsWith('/') ? '' : '/'}${linkMatch[1]}`;
+
+    // Short summary that follows the <h4> (best-effort fallback body).
+    const summaryMatch = block.match(/<\/h4>\s*<div[^>]*>([\s\S]*?)<\/div>/i);
+    const summary = summaryMatch ? htmlToText(summaryMatch[1]) : '';
+
+    out.push({ id, title, summary, detailUrl });
+  }
+
+  return out;
+}
+
 /* ── Description fallback ──────────────────────────────────── */
 
 function buildFallbackDescription(title) {
@@ -159,6 +231,53 @@ function buildFallbackDescription(title) {
   ].join('\n');
 }
 
+/* ── Listing fetch (AJAX news widget) ──────────────────────── */
+
+/**
+ * Fetch the vacancy "news" widget markup via the paginated AJAX endpoint
+ * (POST). Falls back to the inline first batch rendered on the static
+ * stellen.html page if the endpoint is unavailable.
+ */
+async function fetchCdsSavogninNewsHtml(timeoutMs) {
+  const body = new URLSearchParams({
+    start: '0',
+    limit: String(NEWS_AJAX_LIMIT),
+    language: 'DE',
+    url: 'stellen',
+    page: '6',
+    read: '1',
+  }).toString();
+
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(NEWS_AJAX_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Accept: 'text/html,application/xhtml+xml,*/*',
+          'User-Agent': USER_AGENT,
+          'X-Requested-With': 'XMLHttpRequest',
+          Referer: PUBLIC_CAREER_URL,
+        },
+        body,
+        signal: controller.signal,
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} from ${NEWS_AJAX_URL}`);
+      const text = await res.text();
+      if (text && text.includes('news-item')) return text;
+    } finally {
+      clearTimeout(timer);
+    }
+  } catch (err) {
+    console.warn(`  ⚠️ News AJAX endpoint failed (${err?.message || err}); falling back to inline listing.`);
+  }
+
+  // Fallback: the static stellen.html page embeds the first batch inline.
+  return fetchHtml(PUBLIC_CAREER_URL, { timeoutMs });
+}
+
 /* ── Main fetch ────────────────────────────────────────────── */
 
 export async function fetchAllCdsSavogninJobs() {
@@ -167,18 +286,41 @@ export async function fetchAllCdsSavogninJobs() {
   console.log(`🏥 Fetching ${CDS_SAVOGNIN_COMPANY_NAME} jobs`);
   console.log(`   Source: ${PUBLIC_CAREER_URL} (custom HTML, DE source)\n`);
 
-  let html;
+  let listingHtml;
   try {
-    html = await fetchHtml(PUBLIC_CAREER_URL, { timeoutMs });
+    listingHtml = await fetchCdsSavogninNewsHtml(timeoutMs);
   } catch (err) {
     throw new Error(`Failed to fetch CDS Savognin career page: ${err?.message || err}`);
   }
 
-  const listings = parseCdsSavogninListing(html);
-  console.log(`  📋 Found ${listings.length} vacancies\n`);
-  if (listings.length === 0) {
+  const newsItems = parseCdsSavogninNewsItems(listingHtml);
+  console.log(`  📋 Found ${newsItems.length} vacancies\n`);
+  if (newsItems.length === 0) {
     console.warn('⚠️ No job listings parsed from CDS Savognin page.');
     return [];
+  }
+
+  // Enrich each vacancy from its detail page (still carries the original
+  // editor markup that parseCdsSavogninListing understands). Fall back to the
+  // listing summary if a detail page is unreachable or yields no block.
+  const listings = [];
+  for (const item of newsItems) {
+    let listing = null;
+    try {
+      const detailHtml = await fetchHtml(item.detailUrl, { timeoutMs });
+      const blocks = parseCdsSavogninListing(detailHtml);
+      // Prefer the block whose CMS id matches; else take the first real block.
+      listing = blocks.find((b) => b.id === item.id) || blocks[0] || null;
+    } catch (err) {
+      console.warn(`  ⚠️ Detail fetch failed for ${item.id} (${err?.message || err}); using listing summary.`);
+    }
+
+    if (listing) {
+      // Keep the canonical news id (stable jobId) from the listing link.
+      listings.push({ ...listing, id: item.id });
+    } else {
+      listings.push({ id: item.id, title: item.title, body: item.summary || '', pdfUrl: '' });
+    }
   }
 
   const todayIso = new Date().toISOString().slice(0, 10);
@@ -186,7 +328,7 @@ export async function fetchAllCdsSavogninJobs() {
 
   for (const listing of listings) {
     const title = listing.title;
-    const url = `${PUBLIC_CAREER_URL}#subtitle_DE_${listing.id}`;
+    const url = `${SITE_ORIGIN}/DE/aktuelles/${listing.id}.html`;
 
     let description = listing.body && listing.body.split(/\s+/).length >= 30
       ? listing.body

@@ -249,6 +249,22 @@ export function isTargetSwissLocation(text = '', { includeGrigioni = true } = {}
   return false;
 }
 
+// Country-level word tokens that identify Switzerland without a city/canton.
+const SWISS_COUNTRY_RE = /\b(switzerland|schweiz|suisse|svizzera|swiss)\b/i;
+
+// Authoritative "is this free-text location in Switzerland?" check, used by the
+// nationwide Workday crawlers (fnz, bracco) instead of hand-rolled per-crawler
+// city allowlists (which drift and miss cantons). True when the text mentions
+// the country, a BFS-known Swiss municipality/alias (all 26 cantons), or any
+// inferable canton.
+export function isSwissLocationText(text = '') {
+  const s = String(text || '');
+  if (!s.trim()) return false;
+  if (SWISS_COUNTRY_RE.test(s)) return true;
+  if (findSwissCityInText(s)) return true;
+  return Boolean(inferAnyCanton(s));
+}
+
 // ─── Swiss municipality existence check ──────────────────────────────────
 // Fast offline check: is a city name present in any of the 2,110 BFS
 // municipalities or their aliases, across all 26 cantons?
