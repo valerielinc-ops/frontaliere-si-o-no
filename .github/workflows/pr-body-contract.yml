@@ -224,3 +224,18 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Forbid hard-coded AdSense <ins> in build-plugins
         run: node scripts/ci/check-cls-ad-slots.mjs
+
+  # Blocking gate (#1996 → #1999): forbid regex lookbehind ((?<=/(?<!) in
+  # client-bundled source. Older Safari/WebKit throws "invalid group specifier
+  # name" at parse time → crashed job-detail render for Google Jobs traffic (lost
+  # ad impressions). build-plugins/ + scripts/ are build-time (Node) → exempt.
+  # Comment-aware; zero-Claude. Also covered by tests/check-client-lookbehind.test.ts.
+  client-lookbehind-check:
+    if: github.event.action != 'edited'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Forbid regex lookbehind in client-bundled source
+        run: node scripts/ci/check-client-lookbehind.mjs
