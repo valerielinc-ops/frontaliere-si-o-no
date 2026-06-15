@@ -33,7 +33,7 @@
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
 import { execFileSync } from 'node:child_process';
-import { VITEST_CHECK_NAME } from './lib/constants.mjs';
+import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -182,7 +182,12 @@ function main() {
   const body = lastBot.body || '';
   // Valuta PRIMA il contenuto (vale a qualunque commit): LGTM + niente 🔴.
   if (!body.includes('## LGTM')) return fail(`Ultima review claude-bot senza '## LGTM' — skip.`);
-  if (body.includes('🔴 Important')) return fail(`Ultima review claude-bot contiene '🔴 Important' — skip (no merge).`);
+  // Marker 🔴-Important tollerante al markdown del reviewer: il literal `'🔴 Important'`
+  // manca il bold `🔴 **Important` (drift osservato su PR #2211 round-2). Stessa classe
+  // della detection brittle in pr-redflag-fixer.yml; qui è belt-and-suspenders (il
+  // requisito `## LGTM` sopra è il gate primario), ma un reviewer che driftasse a
+  // LGTM+🔴-bold mergerebbe una PR con un 🔴 reale non indirizzato → blocca comunque.
+  if (REDFLAG_IMPORTANT_RE.test(body)) return fail(`Ultima review claude-bot contiene un finding '🔴 Important' — skip (no merge).`);
   // L'LGTM deve valere per l'HEAD corrente. Se è su un commit precedente,
   // accettalo SOLO se l'head è un rebase di solo-merge-di-main: il contributo
   // proprio della PR è byte-identico a quello approvato → carry-forward, ZERO
