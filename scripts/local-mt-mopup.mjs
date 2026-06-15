@@ -59,6 +59,10 @@ const MIN_TITLE_CHARS = 3;
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 const TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280 * 60 * 1000;
+// Reserve 5min after the spawn kill for the JSON-write phase.
+// spawnSync timeout = TIME_BUDGET_MS - WRITE_RESERVE_MS so that when ETIMEDOUT
+// fires, Date.now()-started is still < TIME_BUDGET_MS and budgetOk() stays true.
+const WRITE_RESERVE_MS = 5 * 60 * 1000;
 
 function parseFlag(name) {
   return process.argv.slice(2).includes(name);
@@ -226,14 +230,21 @@ async function main() {
     encoding: 'utf-8',
     maxBuffer: 256 * 1024 * 1024,
     stdio: ['pipe', 'pipe', 'inherit'],
+    timeout: TIME_BUDGET_MS - WRITE_RESERVE_MS,
   });
 
-  if (proc.error) {
+  const timedOut = proc.error?.code === 'ETIMEDOUT';
+  if (proc.error && !timedOut) {
     console.error(`❌ [local-mt] Failed to spawn Python worker: ${proc.error.message}`);
     process.exitCode = 1;
     return;
   }
-  if (proc.status !== 0) {
+  if (timedOut) {
+    // Process stalled: killed by the timeout guard. Fall through to parse
+    // whatever partial stdout was captured before the kill so partial results
+    // are committed rather than lost.
+    console.warn(`⏰ [local-mt] Python worker killed after ${Math.round(TIME_BUDGET_MS / 60000)}min timeout — will commit partial results.`);
+  } else if (proc.status !== 0) {
     console.error(`❌ [local-mt] Python worker exited with status ${proc.status}.`);
     process.exitCode = 1;
     return;

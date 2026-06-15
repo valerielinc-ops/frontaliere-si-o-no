@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-06-14T22:05:03.339Z",
+  "assembledAt": "2026-06-15T14:46:11.229Z",
   "jobs": [
     {
       "id": "kanton-gr-8ba2e44bad5e",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:53.014Z",
+      "crawledAt": "2026-06-15T14:46:01.079Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -94,15 +94,16 @@
         "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -139,7 +140,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:52.349Z",
+      "crawledAt": "2026-06-15T14:46:00.439Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -200,15 +201,16 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -245,7 +247,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:51.684Z",
+      "crawledAt": "2026-06-15T14:45:59.800Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -306,15 +308,16 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -351,7 +354,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:51.021Z",
+      "crawledAt": "2026-06-15T14:45:59.159Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -412,15 +415,16 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -457,7 +461,7 @@
       "url": "https://apply.refline.ch/514915/2727/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:50.356Z",
+      "crawledAt": "2026-06-15T14:45:58.517Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -493,15 +497,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:22:28.368Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -538,7 +542,7 @@
       "url": "https://apply.refline.ch/514915/2739/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:49.695Z",
+      "crawledAt": "2026-06-15T14:45:57.880Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -574,15 +578,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:44.203Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -619,7 +623,7 @@
       "url": "https://apply.refline.ch/514915/2721/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:49.029Z",
+      "crawledAt": "2026-06-15T14:45:57.241Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -649,15 +653,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:43.585Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -694,7 +698,7 @@
       "url": "https://apply.refline.ch/514915/2731/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:48.364Z",
+      "crawledAt": "2026-06-15T14:45:56.602Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -723,15 +727,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:42.955Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -768,7 +772,7 @@
       "url": "https://apply.refline.ch/514915/2734/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:47.698Z",
+      "crawledAt": "2026-06-15T14:45:55.963Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -798,15 +802,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:42.336Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -843,7 +847,7 @@
       "url": "https://apply.refline.ch/514915/2719/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:47.029Z",
+      "crawledAt": "2026-06-15T14:45:55.324Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -879,15 +883,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:41.713Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -924,7 +928,7 @@
       "url": "https://apply.refline.ch/514915/2735/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:46.364Z",
+      "crawledAt": "2026-06-15T14:45:54.685Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -954,15 +958,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:41.092Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -999,7 +1003,7 @@
       "url": "https://apply.refline.ch/514915/2729/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:45.697Z",
+      "crawledAt": "2026-06-15T14:45:54.044Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1035,15 +1039,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T12:52:40.462Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -1080,7 +1084,7 @@
       "url": "https://apply.refline.ch/514915/2728/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:45.033Z",
+      "crawledAt": "2026-06-15T14:45:53.405Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1113,15 +1117,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T12:52:39.845Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1158,7 +1162,7 @@
       "url": "https://apply.refline.ch/514915/2699/pub/11/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:44.368Z",
+      "crawledAt": "2026-06-15T14:45:52.766Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1221,15 +1225,16 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1266,7 +1271,7 @@
       "url": "https://apply.refline.ch/514915/2717/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:43.705Z",
+      "crawledAt": "2026-06-15T14:45:52.127Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1299,15 +1304,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:18:55.064Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1344,7 +1349,7 @@
       "url": "https://apply.refline.ch/514915/2724/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:43.033Z",
+      "crawledAt": "2026-06-15T14:45:51.476Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1374,15 +1379,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:54.404Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
+      "salaryMin": 60000,
+      "salaryMax": 102000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
+          "minValue": 60000,
+          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -1419,7 +1424,7 @@
       "url": "https://apply.refline.ch/514915/2725/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:42.370Z",
+      "crawledAt": "2026-06-15T14:45:50.836Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1450,15 +1455,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:53.758Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -1495,7 +1501,7 @@
       "url": "https://apply.refline.ch/514915/2722/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:41.705Z",
+      "crawledAt": "2026-06-15T14:45:50.197Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1536,15 +1542,15 @@
       "localeMismatchSuppressedLen": 2187,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-06-10T12:18:53.114Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1581,7 +1587,7 @@
       "url": "https://apply.refline.ch/514915/2726/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:41.042Z",
+      "crawledAt": "2026-06-15T14:45:49.558Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1617,15 +1623,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:52.468Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1662,7 +1669,7 @@
       "url": "https://apply.refline.ch/514915/2723/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:40.378Z",
+      "crawledAt": "2026-06-15T14:45:48.919Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1695,15 +1702,15 @@
       "localeMismatchSuppressedLen": 2032,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-06-10T12:18:51.817Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1740,7 +1747,7 @@
       "url": "https://apply.refline.ch/514915/2720/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:39.713Z",
+      "crawledAt": "2026-06-15T14:45:48.279Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1771,15 +1778,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T12:18:51.173Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -1816,7 +1823,7 @@
       "url": "https://apply.refline.ch/514915/2714/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:39.039Z",
+      "crawledAt": "2026-06-15T14:45:47.627Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1852,15 +1859,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:50.511Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1897,7 +1904,7 @@
       "url": "https://apply.refline.ch/514915/2715/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:38.373Z",
+      "crawledAt": "2026-06-15T14:45:46.987Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1927,15 +1934,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.867Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1972,7 +1980,7 @@
       "url": "https://apply.refline.ch/514915/2716/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:37.707Z",
+      "crawledAt": "2026-06-15T14:45:46.348Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2002,15 +2010,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:49.215Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2047,7 +2055,7 @@
       "url": "https://apply.refline.ch/514915/2709/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:37.041Z",
+      "crawledAt": "2026-06-15T14:45:45.707Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2077,15 +2085,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.927Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2122,7 +2131,7 @@
       "url": "https://apply.refline.ch/514915/2712/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:36.377Z",
+      "crawledAt": "2026-06-15T14:45:45.066Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2152,15 +2161,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:47.260Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2197,7 +2207,7 @@
       "url": "https://apply.refline.ch/514915/2704/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:35.046Z",
+      "crawledAt": "2026-06-15T14:45:43.783Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2227,15 +2237,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:18:42.742Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2272,7 +2282,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:04:34.376Z",
+      "crawledAt": "2026-06-15T14:45:43.132Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2336,15 +2346,16 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
