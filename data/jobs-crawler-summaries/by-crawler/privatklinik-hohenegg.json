@@ -1,16 +1,16 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-06-14T22:36:27.266Z",
+  "generatedAt": "2026-06-15T15:03:14.997Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3205,
-  "avgDurationMs": 3205,
+  "durationMs": 3720,
+  "avgDurationMs": 3720,
   "durationHistory": [
-    3205
+    3720
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,7 +27,7 @@
       "url": "https://apply.refline.ch/640332/0053/pub/4/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:36:24.730Z",
+      "crawledAt": "2026-06-15T15:03:12.064Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://apply.refline.ch/640332/0061/pub/1/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:36:25.166Z",
+      "crawledAt": "2026-06-15T15:03:12.546Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -95,48 +95,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "privatklinik-hohenegg-85d3502fdbb6",
-      "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
-      "company": "Privatklinik Hohenegg",
-      "companyKey": "privatklinik-hohenegg",
-      "companyDomain": "hohenegg.ch",
-      "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
-      "location": "Meilen",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/640332/0038/pub/12/index.html",
-      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T11:52:22.411Z",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8706",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/640332/0038/pub/12/index.html",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "firstSeenAt": "2026-06-10T12:43:00.781Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
