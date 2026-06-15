@@ -147,7 +147,7 @@ export const AI_MODELS = Object.freeze({
   GROQ_LLAMA_3_3:   'groq/llama-3.3-70b-versatile',
   GROQ_LLAMA_3_1_8B:'groq/llama-3.1-8b-instant',
   GROQ_QWEN3_32B:   'groq/qwen/qwen3-32b',
-  GROQ_KIMI_K2:     'groq/moonshotai/kimi-k2-instruct',
+  // GROQ_KIMI_K2 removed — Groq HTTP 404 "model `moonshotai/kimi-k2-instruct` does not exist" (2026-06-15). Was already out of DEFAULT_CHAIN (HTTP 413, see below) and its last runtime user (create-article MIN_WORDS_MODEL_ROTATION) was repointed to GROQ_GPT_OSS_120B. A dead id here only resurfaces as a 404 via Groq discovery.
   GROQ_GPT_OSS_120B:'groq/openai/gpt-oss-120b',
   GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
   // Discovered 2026-05-18: full compound family (non-mini variant of compound-beta).
