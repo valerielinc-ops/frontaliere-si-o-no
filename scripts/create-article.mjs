@@ -1252,7 +1252,7 @@ const NEWS_SOURCES_SVIZZERA = [
   // Federal administration / statistics / labour (national policy)
   'https://www.admin.ch/gov/it/pagina-iniziale/documentazione/comunicati-stampa.html',  // admin.ch press (HTML — RSS WAF-blocked)
   'https://www.bfs.admin.ch/bfs/it/home/attualita/comunicati-stampa.html',               // BFS Federal Statistical Office (HTML)
-  'https://www.seco.admin.ch/seco/it/home/seco/nsb-news.html',                            // SECO economy/labour (HTML)
+  'https://www.seco.admin.ch/it/comunicati-stampa',                            // SECO economy/labour (HTML)
   'https://www.bag.admin.ch/it/overview/news',                                            // BAG federal health (HTML)
   // English/business national coverage of CH
   'https://lenews.ch/feed/',                                                              // Le News (English, living/working in CH)
