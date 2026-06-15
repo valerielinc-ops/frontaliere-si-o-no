@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
- * monitor-cls-posthog.mjs — continuous real-user CLS monitor.
+ * monitor-cls-posthog.mjs — real-user CLS/INP monitor.
  *
  * Polls PostHog `$web_vitals` events every N minutes and emits one stdout
- * line per (window, key path) with the p75 CLS computed from the last
+ * line per (window, key path) with the p75 CLS or INP computed from the last
  * `WINDOW_HOURS` of real traffic. Designed to run inside a Monitor wrapper
- * so each emission becomes a notification — useful right after a CLS-fix
+ * so each emission becomes a notification — useful right after a perf-fix
  * deploy when you want to see field data converge in real time without
  * staring at PostHog dashboards.
  *
@@ -13,13 +13,15 @@
  * before the rolling p75 starts shifting. CrUX (the source PSI uses) lags
  * by 28 days, so this is the only way to see same-day field movement.
  *
- * Tracks two URL families plus the origin baseline:
- *   /                                    homepage
- *   /cerca-lavoro-ticino/*               job board (jobs_index + leaves)
- *   <origin>                             whole-site fallback
+ * Tracks URL families (metric selected via --metric):
+ *   /                                             homepage
+ *   /cerca-lavoro-ticino/*                        job board (jobs_index + leaves)
+ *   /vivere-in-ticino/comuni-di-frontiera/        comuni-di-frontiera (INP target p75 944→<200ms)
+ *   <origin>                                      whole-site fallback
  *
  * Usage:
- *   node scripts/monitor-cls-posthog.mjs                          # 15-min polls, 1h window, runs forever
+ *   node scripts/monitor-cls-posthog.mjs                          # CLS, 15-min polls, 1h window
+ *   node scripts/monitor-cls-posthog.mjs --metric=INP             # INP mode (ms); comuni-di-frontiera target
  *   node scripts/monitor-cls-posthog.mjs --interval=300           # 5-min polls
  *   node scripts/monitor-cls-posthog.mjs --window=2 --once        # 2h window, single emission then exit
  *
@@ -42,8 +44,13 @@ const args = process.argv.slice(2);
 const ONCE = args.includes('--once');
 const intervalArg = args.find((a) => a.startsWith('--interval='));
 const windowArg = args.find((a) => a.startsWith('--window='));
+const metricArg = args.find((a) => a.startsWith('--metric='));
 const POLL_INTERVAL_S = intervalArg ? parseInt(intervalArg.slice('--interval='.length), 10) : 900;
 const WINDOW_HOURS = windowArg ? parseFloat(windowArg.slice('--window='.length)) : 1;
+const METRIC = metricArg ? metricArg.slice('--metric='.length).toUpperCase() : 'CLS';
+const WEB_VITAL_PROP = `$web_vitals_${METRIC}_value`;
+// INP is in ms (integer display); CLS is a unitless ratio (3 decimals)
+const METRIC_DECIMALS = METRIC === 'INP' ? 0 : 3;
 
 async function hogql(query) {
   const r = await fetch(`${HOST}/api/projects/${PID}/query/`, {
@@ -57,40 +64,48 @@ async function hogql(query) {
 
 const QUERIES = {
   homepage: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS p75
+    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
-      AND properties.$web_vitals_CLS_value IS NOT NULL
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
       AND properties.$pathname = '/'
   `,
   jobs_root: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS p75
+    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
-      AND properties.$web_vitals_CLS_value IS NOT NULL
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
       AND properties.$pathname = '/cerca-lavoro-ticino/'
   `,
   jobs_leaves: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS p75
+    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
-      AND properties.$web_vitals_CLS_value IS NOT NULL
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
       AND properties.$pathname LIKE '/cerca-lavoro-ticino/%'
   `,
-  origin_all: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.$web_vitals_CLS_value)) AS p75
+  comuni_frontiera: `
+    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
-      AND properties.$web_vitals_CLS_value IS NOT NULL
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
+      AND properties.$pathname = '/vivere-in-ticino/comuni-di-frontiera/'
+  `,
+  origin_all: `
+    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    FROM events
+    WHERE event = '$web_vitals'
+      AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
   `,
 };
 
-function fmt(n) {
-  return n == null || Number.isNaN(n) ? 'n/a  ' : n.toFixed(3);
+function fmt(n, decimals = 3) {
+  return n == null || Number.isNaN(n) ? 'n/a  ' : n.toFixed(decimals);
 }
 
 async function tick() {
@@ -107,13 +122,13 @@ async function tick() {
   }
   // One concise stdout line — Monitor turns this into a notification
   const cells = Object.entries(out.results)
-    .map(([k, v]) => v.error ? `${k}=ERR` : `${k}=${fmt(v.p75)}(n=${v.n})`)
+    .map(([k, v]) => v.error ? `${k}=ERR` : `${k}=${fmt(v.p75, METRIC_DECIMALS)}(n=${v.n})`)
     .join('  ');
-  console.log(`[${out.ts}] CLSp75/${WINDOW_HOURS}h  ${cells}`);
+  console.log(`[${out.ts}] ${METRIC}p75/${WINDOW_HOURS}h  ${cells}`);
 }
 
 await tick();
 if (ONCE) process.exit(0);
 
-console.error(`monitor-cls-posthog: polling every ${POLL_INTERVAL_S}s, ${WINDOW_HOURS}h rolling window`);
+console.error(`monitor-cls-posthog: polling every ${POLL_INTERVAL_S}s, ${WINDOW_HOURS}h rolling window, metric=${METRIC}`);
 setInterval(tick, POLL_INTERVAL_S * 1000);
