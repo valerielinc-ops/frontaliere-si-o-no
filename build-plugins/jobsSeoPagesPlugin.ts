@@ -9313,6 +9313,56 @@ ${staticAnalyticsHtml}
        cantonEditorialSection,
        `</main>`,
      ].join('\n');
+     // SearchAtlas "missing schema markup" audit (2026-06-15): secondary-canton
+     // landing pages shipped only a BreadcrumbList, while the Ticino landing
+     // (/cerca-lavoro-ticino/, owned by staticPagesPlugin via seo-pages.ts)
+     // ships CollectionPage + ItemList. Mirror TI here so every INDEXABLE canton
+     // landing carries a CollectionPage wrapping an ItemList of its most-recent
+     // jobs. Gated on `meetsThreshold` + jobs present: thin/noindex pages stay
+     // breadcrumb-only (CLAUDE.md #4 — no rich schema on thin content). Items
+     // are ListItem→url (not nested JobPosting): a partial JobPosting would
+     // violate NON-NEGOTIABLE #3 (all 9 mandatory fields), and the listing
+     // page's correct primary type is CollectionPage, exactly as TI. The list
+     // is rebuilt every deploy so the linked job URLs stay fresh (same jHref
+     // formula as the visible listing grid above).
+     const cantonCollectionLd = (meetsThreshold && cantonJobs.length > 0)
+       ? inlineScriptJson({
+           '@context': 'https://schema.org',
+           '@type': 'CollectionPage',
+           name: labels.title,
+           description: labels.lede,
+           url: canonicalUrl,
+           inLanguage: entry.locale,
+           isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+           about: { '@type': 'Thing', name: display },
+           provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+           mainEntity: {
+             '@type': 'ItemList',
+             numberOfItems: totalJobs,
+             itemListOrder: 'https://schema.org/ItemListOrderDescending',
+             itemListElement: cantonJobs.map((j, i) => {
+               const jt = j as {
+                 slugByLocale?: Record<string, string>;
+                 slug?: string;
+                 titleByLocale?: Record<string, string>;
+                 title?: string;
+                 canton?: string;
+                 location?: string;
+               };
+               const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
+               const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
+               const jSection = buildCantonAwareSection(entry.locale, jCanton);
+               const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
+               return {
+                 '@type': 'ListItem',
+                 position: i + 1,
+                 url: jHref,
+                 name: jt.titleByLocale?.[entry.locale] || jt.title || display,
+               };
+             }),
+           },
+         })
+       : '';
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
@@ -9320,7 +9370,7 @@ ${staticAnalyticsHtml}
        locale: entry.locale,
        bodyHtml,
        distDir,
-       jsonLdScripts: [cantonBreadcrumbLd],
+       jsonLdScripts: [cantonBreadcrumbLd, cantonCollectionLd].filter(Boolean),
        // T2.6 — robots set by MIN_JOBS gate above. Pages with ≥ 5 canonical
        // jobs from the cathedral flip to 'index,follow'; thin pages stay
        // 'noindex,follow' (CLAUDE.md #4 — no thin content gets indexed). The
