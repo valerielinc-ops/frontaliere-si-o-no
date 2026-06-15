@@ -331,6 +331,31 @@ function main() {
     }
   }
 
+  // --- TOO-LARGE ESCALATION (no cooldown) ------------------------------------
+  // Un follow-up parkato che ha GIÀ avuto un giro di parked-retry (reparkGen≥1)
+  // col fixer migliorato e NON ha MAI prodotto una PR = pure-run-death
+  // (error_max_turns ripetuto / too-large). NON va ri-tentato: ~3 run opus per
+  // generazione bruciati per nulla (#1806/#1823/#1688/#1911 osservati parked
+  // gen-1 PR-ever:0, 10 fail issue-fix/4h). Escala a `needs-human` SUBITO —
+  // è la decisione "smetti di ritentare", l'OPPOSTO di un re-queue, quindi NON
+  // deve essere gated dal cooldown del re-queue (bug wave12: il cooldown 2gg
+  // teneva questi item parked-e-riciclati invece di escalarli). Gira sempre;
+  // needs-human li toglie dal reparkable → mai più ri-bruciati. WF-scope esclusi.
+  {
+    const tooLarge = listIssues(LBL_PARKED)
+      .filter((iss) => has(iss, 'follow-up'))
+      .filter((iss) => !has(iss, LBL_FIX) && !has(iss, LBL_QUEUED) && !has(iss, 'needs-human'))
+      .filter((iss) => reparkGenOf(iss) >= 1)
+      .filter((iss) => !isWorkflowScoped(iss.number))
+      .filter((iss) => !hasFixPREver(iss.number));
+    for (const iss of tooLarge) {
+      if (DRY) { console.log(`[dry] too-large #${iss.number} (gen ${reparkGenOf(iss)}, 0 PR) → needs-human`); continue; }
+      edit(iss.number, { add: ['needs-human'], remove: [] });
+      console.log(`TOO-LARGE #${iss.number} → needs-human (gen ${reparkGenOf(iss)}, mai una PR = error_max_turns/too-large; stop al burn opus) — "${iss.title?.slice(0, 45)}"`);
+    }
+    if (tooLarge.length) console.log(`too-large escalation: ${tooLarge.length} → needs-human (no re-queue, no cooldown).`);
+  }
+
   // --- PARKED-RETRY: ri-accoda i parked ritentabili --------------------------
   // Ortogonale allo slot (sposta solo fu-parked→queued; il drain promuove dopo).
   if (RETRY_COOLDOWN_DAYS > 0) {
@@ -344,29 +369,13 @@ function main() {
       .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.updatedAt) - Date.parse(b.updatedAt));
     let retried = 0;
     let skippedWf = 0;
-    let escalatedTooLarge = 0;
     for (const iss of reparkable) {
       if (retried >= RETRY_MAX_PER_RUN) {
-        console.log(`parked-retry: cap ${RETRY_MAX_PER_RUN}/run raggiunto, ${reparkable.length - retried - skippedWf - escalatedTooLarge} rinviati al prossimo tick (no silent cap).`);
+        console.log(`parked-retry: cap ${RETRY_MAX_PER_RUN}/run raggiunto, ${reparkable.length - retried - skippedWf} rinviati al prossimo tick (no silent cap).`);
         break;
       }
       if (isWorkflowScoped(iss.number)) { skippedWf++; continue; } // capability-guard → resta parked
-      // TOO-LARGE: un follow-up che ha GIÀ avuto un giro di parked-retry (gen≥1)
-      // col fixer migliorato e NON ha ancora MAI prodotto una PR = pure-run-death
-      // (error_max_turns ripetuto / too-large). Ri-tentarlo per la generazione
-      // residua = altri ~3 run opus bruciati per nulla (#1801/#1734/#1822 falliti
-      // ai cap GIÀ bumpati 40/50). Escala a needs-human (visibile, escluso dai
-      // retry futuri perché needs-human esce dal filtro reparkable) invece di
-      // ri-accodare. gen≥1: la PRIMA parkata ottiene comunque una chance col
-      // fixer migliorato (potrebbe essere parkato pre-improvement); si escala
-      // solo se ANCHE quella chance non ha prodotto nulla.
-      if (reparkGenOf(iss) >= 1 && !hasFixPREver(iss.number)) {
-        if (DRY) { console.log(`[dry] too-large #${iss.number} (gen ${reparkGenOf(iss)}, 0 PR) → needs-human, no re-queue`); escalatedTooLarge++; continue; }
-        edit(iss.number, { add: ['needs-human'], remove: [] });
-        console.log(`TOO-LARGE #${iss.number} → needs-human (gen ${reparkGenOf(iss)}, mai una PR = error_max_turns/too-large; stop al burn opus, escala a umano) — "${iss.title?.slice(0, 45)}"`);
-        escalatedTooLarge++;
-        continue;
-      }
+      // (too-large escalation gestita dal pass dedicato sopra, no cooldown)
       const gen = reparkGenOf(iss) + 1;
       const prevGen = reparkGenOf(iss) ? `fu-reparked:${reparkGenOf(iss)}` : null;
       const prevAttempt = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
@@ -383,7 +392,6 @@ function main() {
       retried++;
     }
     if (skippedWf) console.log(`parked-retry: ${skippedWf} skip WF-scope (capability-guard → restano parked/age-out).`);
-    if (escalatedTooLarge) console.log(`parked-retry: ${escalatedTooLarge} escalati needs-human (too-large: 0 PR mai prodotta → stop al burn opus).`);
   }
 
   // Tutto (rescue + drain) gira SOLO a slot issue-fix libero: così il rescue non
