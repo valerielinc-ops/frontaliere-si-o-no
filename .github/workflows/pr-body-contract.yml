@@ -145,10 +145,16 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          # Storia completa: serve il merge-base con la base branch per il
-          # three-dot diff dello script (repo grande ma fetch ~40s, accettabile
-          # per un check che pre-empta un round review+fix da ~2 run Claude).
+          # Storia completa (commit-graph + merge-base con la base branch) serve
+          # per il three-dot diff dello script. `fetch-depth: 0` full però
+          # scaricava ~11GB di blob storici → 143s misurati (il commento "~40s"
+          # era ottimistico). `filter: blob:none`: commit-graph + blob HEAD, i
+          # blob storici lazy-fetch — il diff name-status usa solo i tree
+          # (presenti) e legge il contenuto dei soli file cambiati (pochi blob
+          # on-demand). La sticky `<!-- sibling-check -->` che il reviewer
+          # consuma arriva ~100s prima.
           fetch-depth: 0
+          filter: blob:none
       - name: Surface sibling candidates
         id: sib
         env:
