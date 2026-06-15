@@ -292,6 +292,8 @@ const deCore: Record<string, string> = {
  'salaryCompare.tabProfessions': 'Nach Beruf',
  'salaryCompare.searchProfession': 'Beruf suchen...',
  'salaryCompare.allSectors': 'Alle Branchen',
+ 'salaryCompare.canton': 'Kanton',
+ 'salaryCompare.cantonAll': 'Schweiz (nationaler Durchschnitt)',
  'salaryCompare.salaryRange': 'Gehaltsspanne',
  'salaryCompare.median': 'Median',
  'salaryCompare.professions': 'Berufe',
@@ -3343,6 +3345,9 @@ Regeln:
  'publisher.published.publishAnother': 'Weiteres Inserat aufgeben',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3520.title': 'Löhne nach Kanton',
+ 'whatsNew.v3520.cantonSalary.title': 'Lohnvergleich Kanton für Kanton',
+ 'whatsNew.v3520.cantonSalary.desc': 'Der Lohnvergleich hat jetzt eine Kantonsauswahl: Wählen Sie einen Schweizer Kanton und die Brutto- und Nettowerte passen sich dem realen Lohnniveau dieser Region an, basierend auf offiziellen BFS-Medianen (Lohnstrukturerhebung). Standard: Schweizer Landesdurchschnitt.',
  'whatsNew.v3510.title': 'Gesponserte Inserate verbessert',
  'whatsNew.v3510.sponsoredUpgrade.title': 'Premium-Anzeigenseite, Logo und Direktbewerbung',
  'whatsNew.v3510.sponsoredUpgrade.desc': 'Gesponserte Inserate erscheinen jetzt ganz oben in den Suchergebnissen, zeigen das Firmenlogo und erhalten eine überarbeitete Seite mit formatierten Abschnitten und Listen. Neuer Editor mit Vorschau für Arbeitgeber und ein Bewerben-Button, der das Bewerbungsformular öffnet.',
