@@ -167,6 +167,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud approva salario minimo costituzionale ma rifiuta legge specifica',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1% a favore dell\'iniziativa costituzionale, 47,5% contro la legge operativa con 23 CHF/ora. Vaud diventa sesto cantone con salario minimo.',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Vista panoramica di Losanna con edifici e bandiere svizzere',
+    'blog.article.votazioni-federali-giugno-2026.title': 'Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni',
+    'blog.article.votazioni-federali-giugno-2026.excerpt': 'Il 14 giugno 2026 gli svizzeri votano su limitare l’accesso al servizio civile e sull’iniziativa “No a una Svizzera da 10 milioni!”. Scopri dettagli, procedure e scadenze.',
+    'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Scheda elettorale svizzera con bandiera federale sullo sfondo',
 };
 
 export default blogMetaChIt;

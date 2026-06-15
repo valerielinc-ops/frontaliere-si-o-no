@@ -2087,6 +2087,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-federali-giugno-2026': {
+    title: 'Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni',
+    description: 'Il 14 giugno 2026 gli svizzeri votano su servizio civile e iniziativa 10 milioni. Scopri dettagli, procedure per votare dall’estero e scadenze. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, giugno, servizio',
+    ogTitle: 'Votazioni federali giugno 2026 servizio civile iniziativa 10 milioni',
+    ogDescription: 'Dettagli sulle votazioni del 14 giugno 2026: servizio civile, iniziativa 10 milioni, come votare dall’estero.',
+    canonicalPath: '/articoli-svizzera/votazioni-federali-giugno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni",
+      "description": "Il 14 giugno 2026 gli svizzeri votano su servizio civile e iniziativa 10 milioni. Scopri dettagli, procedure per votare dall’estero e scadenze. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-federali-giugno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scheda elettorale svizzera con bandiera federale sullo sfondo"
+      },
+      "datePublished": "2026-06-15T04:33:25+00:00",
+      "dateModified": "2026-06-15T04:33:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-federali-giugno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

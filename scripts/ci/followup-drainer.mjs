@@ -441,6 +441,19 @@ function main() {
       edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
       continue;
     }
+    // error_max_turns = turn-budget esaurito in modo DETERMINISTICO: ri-tentare
+    // lo stesso item lo riproduce. Non è non-ri-tentabile al PRIMO colpo (un cap
+    // borderline può farcela al retry), ma alla SECONDA occorrenza consecutiva
+    // (attemptOf>=1, cioè già ri-accodato una volta dopo un max-turns) è
+    // too-large → park come needs-human SUBITO, niente 3° attempt sprecato
+    // (~1 run opus). Marker `max-turns` emesso da issue-fix.yml SOLO sul subtype
+    // error_max_turns (i fail transienti hanno altro subtype → restano
+    // ri-tentabili: nessuna falsa escalation). Cap effettivo: 2 attempt invece di 3.
+    if (outcome === 'max-turns' && attemptOf(iss) >= 1) {
+      console.log(`PARK #${iss.number} → needs-human (2× error_max_turns = too-large deterministico; stop al 3° attempt sprecato)`);
+      edit(iss.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_FIX, LBL_QUEUED] });
+      continue;
+    }
     // rescue/park per età-tentativi (run davvero morta, nessun verdetto)
     const attempt = attemptOf(iss) + 1;
     const prevAttemptLabel = attemptOf(iss) ? `fu-attempt:${attemptOf(iss)}` : null;
