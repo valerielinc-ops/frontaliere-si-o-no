@@ -8075,6 +8075,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: interrogation sur l\'égalité salariale et la transparence',
     'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Trois conseillers municipaux demandent des données claires sur les salaires, la répartition par genre et l\'écart salarial au sein de l\'administration communale.',
     'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'Vue de Chiasso avec le passage frontalier et l\'hôtel de ville, symbole de la demande de transparence salariale.',
+    'blog.article.ticino-vota-si-blocco-abitanti.title': 'Tessin: les frontaliers pénalisés?',
+    'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Le Canton Tessin a voté en faveur de l\'initiative UDC contre l\'immigration avec 50,66% des voix. Qu\'est-ce que cela signifie pour les frontaliers et le marché du travail tessinois.',
+    'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Vue panoramique de Lugano et du lac de Lugano',
 };
 
 export default blogMetaFr;

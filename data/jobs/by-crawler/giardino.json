@@ -7,7 +7,7 @@
       "slug": "commissione-di-rang-giardino-group-ascona",
       "slugByLocale": {
         "it": "commissione-di-rang-giardino-group-ascona",
-        "en": "rang-clerk-giardino-group-ascona",
+        "en": "waitress-giardino-group-ascona",
         "de": "commise-de-rang-giardino-group-ascona",
         "fr": "commis-de-rang-giardino-group-ascona"
       },
@@ -71,14 +71,16 @@
         ]
       },
       "previousSlugs": [
-        "commis-de-rang-giardino-group-ascona"
+        "commis-de-rang-giardino-group-ascona",
+        "rang-clerk-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-de-rang-giardino-group-ascona"
         ],
         "en": [
-          "commis-de-rang-giardino-group-ascona"
+          "commis-de-rang-giardino-group-ascona",
+          "rang-clerk-giardino-group-ascona"
         ],
         "de": [
           "commis-de-rang-giardino-group-ascona"
@@ -103,7 +105,7 @@
       "slug": "capo-di-grado-giardino-group-ascona",
       "slugByLocale": {
         "it": "capo-di-grado-giardino-group-ascona",
-        "en": "chief-of-rank-giardino-group-ascona",
+        "en": "chef-de-rang-head-waiter-giardino-group-ascona",
         "de": "chef-de-rang-giardino-group-ascona",
         "fr": "user-safety-safe-giardino-group-ascona"
       },
@@ -198,21 +200,22 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-giardino-group-ascona"
+        "chef-de-rang-giardino-group-ascona",
+        "chief-of-rank-giardino-group-ascona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-giardino-group-ascona"
         ],
         "en": [
-          "chef-de-rang-giardino-group-ascona"
+          "chef-de-rang-giardino-group-ascona",
+          "chief-of-rank-giardino-group-ascona"
         ],
         "fr": [
           "chef-de-rang-giardino-group-ascona"
         ]
       },
       "firstSeenAt": "2026-06-09T22:25:38.938Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {

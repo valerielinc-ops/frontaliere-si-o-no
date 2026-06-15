@@ -1,0 +1,19 @@
+{
+  "id": "ticino-vota-si-blocco-abitanti",
+  "slug": "ticino-vota-si-blocco-abitanti",
+  "publishedAt": "2026-06-15T02:21:16.138Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "comozero.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 121.81523324444446,
+    "confidence": 1,
+    "finalScore": 121.81523324444446,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 121.81523324444446,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
