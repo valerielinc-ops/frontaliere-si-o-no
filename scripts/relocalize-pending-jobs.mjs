@@ -427,8 +427,14 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // instead of a fresh 250min that could blow past the 350min job timeout. The
     // shared crawler reads this and stops queuing new jobs once exceeded; jobs
     // already localized are written incrementally per-company, so nothing is lost.
+    // max(1, …) NOT max(0, …): the shared crawler treats 0 as "no budget =
+    // unlimited" (raw > 0 ? raw : 0), so collapsing to 0 past the deadline would
+    // make a late company run UNLIMITED into the 350min job timeout (review #2205
+    // 🔴 round 2). Flooring at 1ms means "already exceeded → defer every job",
+    // i.e. a company that starts past the deadline does nothing and leaves its
+    // jobs for the next run, never an unbounded run.
     JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
-      Math.max(0, CASCADE_LOCALIZATION_DEADLINE_MS - (Date.now() - RUN_START_MS)),
+      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (Date.now() - RUN_START_MS)),
     ),
   };
 
@@ -892,13 +898,17 @@ async function main() {
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
-    // Time budget: stop before starting a new company if we're close to the limit.
-    // This lets the workflow commit step run before the GitHub Actions timeout kills it.
+    // Time budget: stop before starting a new company once we pass the cascade
+    // deadline (250min), so no company is started that would only immediately
+    // defer (its per-call budget would be ~0) and so ~100min is left for the
+    // Argos mop-up + the always()-guarded commit/scatter/slug/deploy steps before
+    // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
+    // window where late companies could still run — review #2205 🔴 round 2.)
     const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > TIME_BUDGET_MS) {
+    if (elapsedMs > CASCADE_LOCALIZATION_DEADLINE_MS) {
       const elapsedMin = Math.round(elapsedMs / 60_000);
-      console.log(`\n⏰ Time budget reached (${elapsedMin}min elapsed) — stopping to allow commit step to run.`);
-      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining.`);
+      console.log(`\n⏰ Cascade deadline reached (${elapsedMin}min elapsed) — stopping to leave room for mop-up + commit.`);
+      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
       break;
     }
 
