@@ -1,15 +1,22 @@
 /**
- * cfHot404BridgePlugin — recover the non-Ticino job 404s Cloudflare confirms
- * are actually hit, at their exact path, with a hard emit cap.
+ * cfHot404BridgePlugin — recover the 404s confirmed by Cloudflare edge traffic
+ * AND/OR Google Search Console's Coverage report, at their exact path, with a
+ * hard emit cap.
  *
  * Background: jobsSeoPagesPlugin's compat merge only handles Ticino sections,
  * and legacyRedirectsPlugin skips every job path — so non-Ticino job-detail
  * URLs that Google indexed (now expired) 404 live. PR #2000 tried to emit a
  * bridge at EVERY such compat path (~241k) and OOM'd the SSG build (reverted
- * in #2031). This is the bounded replacement: emit a bridge ONLY for the
- * paths `scripts/build-cf-hot-404s.mjs` recorded as actually hit at the edge
- * (`data/cf-hot-404s.json`, ranked by hit count, already capped), and apply a
- * second HARD CAP here so the page count can never blow up the build again.
+ * in #2031). This is the bounded replacement: emit a bridge ONLY for paths in
+ * two bounded, capped lists —
+ *   - `data/cf-hot-404s.json`     (scripts/build-cf-hot-404s.mjs: edge-hit, ranked)
+ *   - `data/gsc-coverage-404s.json` (scripts/ingest-gsc-coverage-404s.ts: the
+ *     GSC "Not found (404)" Coverage export — confirmed-indexed URLs that may
+ *     have no recent edge hit, so the CF sweep never surfaced them)
+ * — unioned (max hit count per path), and apply a second HARD CAP here so the
+ * page count can never blow up the build again. Any resolvable category is
+ * recovered (expired job, pagination, fuel-station, company hub, legacy URL);
+ * the resolver gate + existsSync gap-fill keep richer pages winning.
  *
  * Path-keyed (one page per hit URL, at the exact indexed/hit canton path — no
  * slug-collision loss). noindex canonical bridge → live listing for the
@@ -42,21 +49,49 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
     enforce: 'post',
     async closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
       const hotFile = path.resolve(rootDir, 'data/cf-hot-404s.json');
-      if (!fs.existsSync(hotFile) || !fs.existsSync(distDir)) return;
+      // Second bounded source: URLs Google's Coverage report flags as 404.
+      // These are confirmed-indexed-but-gone URLs that may have NO recent
+      // Cloudflare edge hit (so build-cf-hot-404s.mjs's traffic sweep never
+      // saw them), yet are exactly the cohort we want to recover. Any category
+      // is welcome here — the resolver + existsSync gap-fill + hard cap below
+      // keep it safe — not just the non-TI job-detail paths CF analytics feeds.
+      const coverageFile = path.resolve(rootDir, 'data/gsc-coverage-404s.json');
 
-      let hot: HotPath[] = [];
-      try {
-        const raw = JSON.parse(fs.readFileSync(hotFile, 'utf-8'));
-        hot = Array.isArray(raw?.paths) ? raw.paths : [];
-      } catch {
-        return; // unreadable hot-list — leave dist untouched
+      // Union both sources, keeping the max hit count per path. GSC-sourced
+      // paths have no edge-hit count, so they get a synthetic floor (>= MIN_HITS
+      // noise floor) so they outrank one-hit bot probes but stay below genuinely
+      // hot CF paths when the hard cap bites.
+      const GSC_SYNTHETIC_HITS = 2;
+      const hitsByPath = new Map<string, number>();
+      const addPath = (p: unknown, h: number): void => {
+        if (typeof p !== 'string' || !p.startsWith('/')) return;
+        const norm = p.replace(/\/+$/, '') || '/';
+        const prev = hitsByPath.get(norm) ?? 0;
+        if (h > prev) hitsByPath.set(norm, h);
+      };
+      if (fs.existsSync(hotFile)) {
+        try {
+          const raw = JSON.parse(fs.readFileSync(hotFile, 'utf-8'));
+          for (const h of (Array.isArray(raw?.paths) ? raw.paths : []) as HotPath[]) {
+            addPath(h?.path, h?.hits || 0);
+          }
+        } catch { /* unreadable hot-list — fall through to coverage source */ }
       }
-      if (hot.length === 0) return;
+      if (fs.existsSync(coverageFile)) {
+        try {
+          const raw = JSON.parse(fs.readFileSync(coverageFile, 'utf-8'));
+          for (const p of (Array.isArray(raw?.paths) ? raw.paths : []) as unknown[]) {
+            addPath(p, GSC_SYNTHETIC_HITS);
+          }
+        } catch { /* unreadable coverage list — use whatever the hot-list gave */ }
+      }
+      if (hitsByPath.size === 0) return;
 
       // Highest-traffic first, then hard-cap.
-      const ordered = [...hot]
-        .filter((h) => h && typeof h.path === 'string' && h.path.startsWith('/'))
+      const ordered = [...hitsByPath.entries()]
+        .map(([p, h]) => ({ path: p, hits: h }))
         .sort((a, b) => (b.hits || 0) - (a.hits || 0))
         .slice(0, MAX_EMIT);
 
@@ -97,7 +132,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
       if (emitted > 0) {
         console.log(
-          `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare-confirmed non-Ticino job 404s ` +
+          `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
             `(cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved).`,
         );
       }

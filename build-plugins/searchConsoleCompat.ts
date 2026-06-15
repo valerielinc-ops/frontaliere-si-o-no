@@ -1,5 +1,12 @@
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
+import {
+ FUEL_SECTION_SLUG,
+ FUEL_TODAY_SLUG,
+ FUEL_LOCALE_PREFIX,
+ type FuelDailyLocale,
+ type FuelType,
+} from './fuelDailyData';
 
 type SupportedLocale = CantonLocale;
 
@@ -59,6 +66,32 @@ const COMPAT_REDIRECTS: Record<string, string> = {
 };
 
 /**
+ * Fuel sub-path 404s → that fuel section's localized "today" landing, derived
+ * from FUEL_SECTION_SLUG (single source of truth) so the canonical can never
+ * drift onto a renamed/legacy alias (e.g. FR diesel is `prix-gasoil-suisse`,
+ * NOT the legacy `prix-diesel` which 301-redirects) and diesel↔diesel /
+ * benzina↔benzina is preserved (a benzina 404 must not land on the diesel page).
+ */
+const FUEL_SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = (() => {
+ const out: Array<{ pattern: RegExp; canonical: string; locale: SupportedLocale }> = [];
+ const fuels: FuelType[] = ['diesel', 'benzina'];
+ for (const loc of ['it', 'en', 'de', 'fr'] as FuelDailyLocale[]) {
+ for (const fuel of fuels) {
+ const section = FUEL_SECTION_SLUG[loc][fuel];
+ const prefix = FUEL_LOCALE_PREFIX[loc];
+ const today = FUEL_TODAY_SLUG[loc];
+ const esc = `${prefix}/${section}`.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+ out.push({
+ pattern: new RegExp(`^${esc}/`),
+ canonical: `${prefix}/${section}/${today}/`.replace(/\/+/g, '/'),
+ locale: loc as SupportedLocale,
+ });
+ }
+ }
+ return out;
+})();
+
+/**
  * Known site sections and their canonical landing pages.
  * Used as a fallback when a 404 path matches a section prefix but isn't
  * handled by the exact-match or job-board pattern resolvers.
@@ -100,6 +133,22 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/en\/service-comparison\//, canonical: '/en/service-comparison/', locale: 'en' },
  { pattern: /^\/de\/dienstleistungsvergleich\//, canonical: '/de/dienstleistungsvergleich/', locale: 'de' },
  { pattern: /^\/fr\/comparaison-services\//, canonical: '/fr/comparaison-services/', locale: 'fr' },
+ // Fuel-price sections (derived from FUEL_SECTION_SLUG — the single source of
+ // truth — so the canonical can never drift onto a renamed/legacy alias):
+ // station-detail leaves (/{locale-section}/{city}/{stations}/{slug}) expire as
+ // stations rotate; route each to its OWN "today" landing, keeping diesel↔diesel
+ // and benzina↔benzina (a benzina 404 must not land on the diesel page). See
+ // FUEL_SECTION_FALLBACKS below.
+ ...FUEL_SECTION_FALLBACKS,
+ // Company-hub section. Per-company×city×week leaves (e.g. .../locarno/{company}/settimana-corrente/)
+ // 404 once that company has no current-week openings; route to the hub root (IT + EN only —
+ // the DE/FR hub roots are not emitted, so no fallback target exists for them).
+ { pattern: /^\/aziende-che-assumono\//, canonical: '/aziende-che-assumono/', locale: 'it' },
+ { pattern: /^\/en\/companies-hiring\//, canonical: '/en/companies-hiring/', locale: 'en' },
+ // Legacy flat `/lavoro/` job-detail prefix (pre per-canton structure). Route to the
+ // localized job-board listing root.
+ { pattern: /^\/lavoro\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },
+ { pattern: /^\/en\/lavoro\//, canonical: '/en/find-jobs-ticino/', locale: 'en' },
 ];
 
 export type SearchConsoleCompatKind = 'search' | 'expired-job' | 'company' | 'legacy';
@@ -157,6 +206,13 @@ const JOB_BOARD_SECTION_PATTERN_SEGMENT: string = (() => {
 // committed 404-path corpus is large (605k+ entries → multi-second loops).
 const COMPANY_COMPAT_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(azienda|company|unternehmen|entreprise)-(.+)$`);
 const JOB_BOARD_SECTION_COMPAT_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/([^/]+)\\/?$`);
+// Listing pagination leaves (e.g. /de/jobs-im-tessin/alle/page-1022) — historical deep
+// page numbers Google still crawls after the listing shrank. Capture group 2 = the canton
+// section in the URL → canonicalize to that listing root (NOT a re-derived TI fallback).
+const JOB_BOARD_PAGINATION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/(?:alle|tutti|tutte|all|tous|toutes)\\/page-\\d+\\/?$`);
+// Expired job-detail leaves with a trailing numeric job id (e.g. /de/jobs-im-tessin/<slug>/3594).
+// Two segments after the section, so the single-segment job pattern above never matches them.
+const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/[^/]+\\/\\d+\\/?$`);
 
 export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
@@ -172,8 +228,19 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  const locale = inferLocale(path);
 
  if (/\/(ricerca|search|suche|recherche)-/.test(path)) {
+ // Canton-aware: a search-style slug under a known job-board section
+ // (e.g. /cerca-lavoro-berna/ricerca-offerte-...) must canonicalize to THAT
+ // canton's listing, not the locale's TI default — otherwise every
+ // ricerca-/suche-/search-/recherche- job slug drifts onto Ticino (the exact
+ // wrong-canton regression #2041 fixed in the expired-job branch below).
+ // Falls back to the locale listing root only when the path isn't under a
+ // recognized section.
+ const sectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
+ const canonicalPath = sectionMatch
+ ? `${JOB_BOARD_PREFIX_BY_LOCALE[locale]}/${sectionMatch[2]}/`.replace(/\/+/g, '/')
+ : listingPathForLocale(locale);
  return {
- canonicalPath: listingPathForLocale(locale),
+ canonicalPath,
  kind: 'search',
  locale,
  };
@@ -202,6 +269,28 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
  // bridges, #2041). The matched section IS the canton Google/the user
  // referenced and is always resolvable, so it is the authoritative signal.
  const urlSection = jobSectionMatch[2];
+ const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ return {
+ canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
+ kind: 'expired-job',
+ locale,
+ };
+ }
+
+ const paginationMatch = path.match(JOB_BOARD_PAGINATION_PATTERN);
+ if (paginationMatch) {
+ const urlSection = paginationMatch[2];
+ const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ return {
+ canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
+ kind: 'legacy',
+ locale,
+ };
+ }
+
+ const trailingIdMatch = path.match(JOB_BOARD_TRAILING_ID_PATTERN);
+ if (trailingIdMatch) {
+ const urlSection = trailingIdMatch[2];
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
  return {
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
