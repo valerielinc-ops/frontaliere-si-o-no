@@ -192,6 +192,21 @@ const CITY_MATCH_BOOST = 1000;
 // load" report. The haystack is a pure function of (job, locale), so cache it on
 // a WeakMap (auto-evicts with the job object, no leak). Re-derived only when the
 // locale changes, since the localized title/description differ per locale.
+//
+// Reference stability — WeakMap hit-rate analysis:
+// The cache key is the job object reference. References are stable because
+// `unscopedJobs` and `crossLocaleJobs` are React state populated once per
+// session via one-shot guards (searchBroadenFetchAttempted,
+// companyBroadenFetchAttempted, crossLocaleFetchAttempted). React never
+// recreates state values on re-render; the same JobListing objects live in
+// state until unmount or an explicit setState call. Therefore:
+//   • After the first scan (initial state set), every subsequent recompute of
+//     crossCantonFallbackJobs / crossLocaleFallbackJobs (triggered by query /
+//     filter / date-range changes) hits the cache — O(1) lookup, no rebuild.
+//   • The only expected misses are (a) first scan after the pool loads
+//     (cold-start, unavoidable) and (b) locale changes, where the localized
+//     title/description differ so a fresh haystack is correct.
+// The perf fix from PR #2062 does fire in the live render path.
 const broadenHaystackCache = new WeakMap<JobListing, { locale: string; hay: string }>();
 function getBroadenHaystack(job: JobListing, locale: string): string {
   const cached = broadenHaystackCache.get(job);
