@@ -153,6 +153,7 @@ import {
 import { archiveRemovedJobsToSlice } from './expired-jobs-archive.mjs';
 import {
   RETRYABLE_STATUS,
+  WAF_IP_BLOCK_STATUS,
   isTransientFetchError,
   isConnectionLevelFetchError,
   fetchWithRetry,
@@ -161,7 +162,7 @@ import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
-export { RETRYABLE_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
+export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -505,17 +506,27 @@ export async function fetchHtml(url, options = {}) {
     // Genuine pages pass through unchanged (zero cost).
     return await rescueHtmlIfChallenged(html, url, { timeoutMs });
   } catch (err) {
-    // Connection-level failure after retries: the runner's datacenter egress
-    // can't reach an otherwise-healthy site (~1-3% of fetches/wave; the sites
-    // return 200 from a clean IP). Fetch once through the Jina Reader proxy
-    // (reliable egress + real browser → raw HTML) so the data IS collected
-    // rather than failing. ONLY for connection-level failures (no HTTP response
-    // ever received) — a non-ok HTTP status (503/4xx/5xx) means the server DID
-    // respond, so the egress works and Jina cannot help; routing those through
-    // the proxy would just add a pointless request. HTTP/parse errors propagate.
+    // Route to the Jina Reader proxy (reliable egress + real browser → raw HTML)
+    // so the data IS collected rather than failing. Two distinct cases qualify:
+    //
+    //  1. Connection-level failure (no HTTP response ever received): the runner's
+    //     datacenter egress can't reach an otherwise-healthy site (~1-3% of
+    //     fetches/wave; sites return 200 from a clean IP).
+    //
+    //  2. IP-reputation WAF hard status (403/406/415/451): the server DID respond,
+    //     but with an anti-bot fence keyed on the DATACENTER egress IP, not on the
+    //     content — the same source returns a normal 200/301 to a residential/Jina
+    //     IP (observed: air-zermatt.ch/jobs → HTTP 415 from CI, 301→200 from a
+    //     clean IP, #2025). The earlier "a 4xx means egress works, Jina can't
+    //     help" reasoning does NOT hold for this class: Jina's clean IP clears the
+    //     fence. Genuine 4xx (404/410 gone, 401 auth) are NOT in the set — Jina
+    //     can't help there, so they propagate unchanged. If Jina also fails it
+    //     returns null and the ORIGINAL error re-throws, so behaviour for a real
+    //     break is unchanged (just one extra proxy attempt).
+    //
     // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
     // corrupt a JSON response.)
-    if (isConnectionLevelFetchError(err)) {
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
       // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
       // WAF-blocked (200 challenge/empty body) — a retry lands on a different
       // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by
@@ -664,6 +675,18 @@ export async function runStandardCrawlerPipeline(config) {
     if (isConnectionLevelFetchError(err)) {
       console.log(
         `\n⚠️ ${companyLabel}: connection-level fetch failure after retries + proxy fallback (${err.message}). Keeping existing jobs.`,
+      );
+      return;
+    }
+    // Anti-bot fence exhausted across realistic-UA + Jina clean IP + Playwright
+    // (err.antiBotExhausted, set by the jobup feed client). The clean Jina IP
+    // being blocked too makes this an IP-reputation/WAF transient, not a source
+    // change — same soft-exit semantics as a connection-level failure: keep the
+    // existing slice, no de-index, no "Crawler Failure" issue every run. A
+    // persistent outage is still caught by the crawler-health monitor.
+    if (err?.antiBotExhausted) {
+      console.log(
+        `\n⚠️ ${companyLabel}: anti-bot fence exhausted (UA + Jina + Playwright) for ${err.message}. Keeping existing jobs.`,
       );
       return;
     }

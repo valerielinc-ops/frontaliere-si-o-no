@@ -408,6 +408,54 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
     if (ivSections.length) return ivSections.join('\n\n');
   }
 
+  // Template (v): the "section/tasks-profile" redesign (SVAR, 2026-06 — #2034).
+  // Solique rebuilt the detail page around `<section id="…">` blocks: the job
+  // body now lives in `<div class="tasks">` (Aufgaben) and `<div class="profile">`
+  // (Profil) inside `<section id="tasks-profile">`, each opened by an
+  // `<h4 class="sub-subtitle">` heading, with the perks list in
+  // `<section id="offer">`. NONE of templates (i)-(iv) match this layout, so
+  // before this handler every SVAR job extracted to '' → the thin-source guard
+  // saw 10/10 thin → hard-failed the whole run and filed a "Crawler Failure"
+  // issue every crawl.
+  //
+  // GATED on `sections.length === 0` so it is a pure FALLBACK: the established
+  // tenants (emmental/oberengadin/adullam/ipw) already populate `sections` from
+  // (i)-(iv) and never reach here, so their extraction stays byte-identical.
+  // This gate (not a structural exclusion) is what keeps them apart — note
+  // emmental ALSO wraps its body in `<div class="tasks">`, but that div nests
+  // `<div class="title-green">` blocks captured by (i), so emmental never
+  // arrives with an empty `sections`.
+  if (sections.length === 0) {
+    const vSections = [];
+    // `tasks`/`profile` divs: capture up to the next tasks/profile div or the
+    // enclosing </section>. Same bullet/`<br>` flattening as the other templates.
+    for (const cls of ['tasks', 'profile']) {
+      const m = cleaned.match(
+        new RegExp(`<div\\s+class="${cls}"[^>]*>([\\s\\S]*?)(?=<div\\s+class="(?:tasks|profile)"|<\\/section)`, 'i'),
+      );
+      if (!m) continue;
+      let body = m[1]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li\s*>/gi, '')
+        .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+        .replace(/<[^>]+>/g, ' ');
+      body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+      if (body && body.length > 5) vSections.push(body);
+    }
+    // Perks list (`<section id="offer">`) — short, optional.
+    const offerSec = cleaned.match(/<section\s+id="offer"[^>]*>([\s\S]*?)<\/section>/i);
+    if (offerSec) {
+      let body = offerSec[1]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li\s*>/gi, '')
+        .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
+        .replace(/<[^>]+>/g, ' ');
+      body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
+      if (body && body.length > 25) vSections.push(body);
+    }
+    if (vSections.length) return vSections.join('\n\n');
+  }
+
   return sections.join('\n\n');
 }
 

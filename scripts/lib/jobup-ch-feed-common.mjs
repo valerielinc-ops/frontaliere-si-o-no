@@ -257,6 +257,17 @@ async function fetchFeed(url) {
           console.warn(`[jobup] Playwright body did not parse as JSON: ${parseErr?.message || parseErr}`);
         }
       }
+      // Every layer (realistic-UA fetch → Jina clean IP → headless Playwright)
+      // hit the anti-bot fence. That the CLEAN Jina IP was also blocked makes
+      // this an IP-reputation/WAF mood transient, not a source removal — the
+      // same class as a connection-level egress failure. Mark it so the pipeline
+      // soft-exits (keep existing slice, no de-index, no "Crawler Failure" issue
+      // every run) instead of hard-failing on the raw HTTP status (#2029 ehnv:
+      // the jobup mask is ALSO empty — jobcount:0 — from a clean IP, so even a
+      // successful fetch yields 0 jobs; bricking the run on the 403 only spams
+      // issues). The crawler-health monitor (3 consecutive 0-job runs) still
+      // surfaces a persistent outage, so nothing is silently buried.
+      err.antiBotExhausted = true;
     }
     throw err;
   }

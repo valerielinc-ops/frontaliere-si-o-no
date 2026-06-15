@@ -30,7 +30,7 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
 import { rescueHtmlIfChallenged, fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
-import { isConnectionLevelFetchError } from './transient-fetch.mjs';
+import { isConnectionLevelFetchError, WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 
@@ -451,16 +451,24 @@ async function fetchPage(url, timeoutMs, userAgent) {
       redirect: 'follow',
     });
     clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    if (!res.ok) {
+      const err = new Error(`HTTP ${res.status} from ${url}`);
+      err.status = res.status;
+      throw err;
+    }
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.
     return await rescueHtmlIfChallenged(await res.text(), url, { timeoutMs });
   } catch (err) {
     clearTimeout(timer);
-    // Connection-level failure (no HTTP response received — datacenter egress
-    // IP blocked, DNS failure, socket reset): re-fetch via Jina clean-IP proxy.
-    // Root cause of #1680: careers.mediclinic.com unreachable from CI runner.
-    // HTTP errors (err.status set) are NOT proxied — the server did respond.
-    if (isConnectionLevelFetchError(err)) {
+    // Re-fetch via the Jina clean-IP proxy for two cases: (a) connection-level
+    // failure (no HTTP response received — datacenter egress IP blocked, DNS
+    // failure, socket reset; root cause of #1680: careers.mediclinic.com
+    // unreachable from CI), and (b) an IP-reputation WAF hard status
+    // (403/406/415/451, WAF_IP_BLOCK_STATUS) — the server DID respond but with
+    // an anti-bot fence keyed on the datacenter IP that Jina's clean IP clears
+    // (#2025). Genuine 4xx (404/410 gone, 401 auth) are NOT in the set and still
+    // propagate; if Jina also fails it returns null → original error re-throws.
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
       const html = await fetchHtmlViaJinaWithRetry(url, { timeoutMs });
       if (html != null) return html;
     }
