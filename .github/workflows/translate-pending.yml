@@ -13,8 +13,8 @@ on:
   workflow_dispatch:
     inputs:
       max_jobs:
-        description: 'Max jobs to translate (drain-all default; lower it for targeted runs)'
-        default: '10000'
+        description: 'Max jobs to translate'
+        default: '100'
       company_key:
         description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
         default: ''
@@ -63,11 +63,6 @@ jobs:
           LT_LOAD_ONLY: it,en,de,fr
           LT_SUGGESTIONS: "false"
           LT_DISABLE_WEB_UI: "true"
-          # Let the single self-hosted instance serve the localization queue's
-          # concurrency (JOBS_AI_LOCALIZATION_CONCURRENCY=6) in parallel instead
-          # of serialising requests on one worker. Argos is CPU-bound; the GitHub
-          # runner has 2-4 cores, so 4 threads saturates them without thrashing.
-          LT_THREADS: "4"
         options: >-
           --health-cmd "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:5000/languages')\" || exit 1"
           --health-interval 15s
@@ -183,20 +178,7 @@ jobs:
           # Self-hosted LibreTranslate from service container — unlimited, no API key needed
           JOBS_LIBRETRANSLATE_ENDPOINT: 'http://localhost:5000/translate'
           LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
-          # Drive the localization pool at its max (clamped to [1,6] in
-          # shared-jobs-crawler.mjs). Without this, LOCALIZE_EXISTING_ONLY mode
-          # defaults to 2 — half the throughput. Closes #1696 (concurrency 2→6).
-          # Safe now that self-hosted LT (unlimited, parallel) is the workhorse:
-          # it replaces MyMemory's global 1-call/sec throttle that previously
-          # serialised every worker. See free-translate.mjs Tier 3b.
-          JOBS_AI_LOCALIZATION_CONCURRENCY: '6'
-        # --max-jobs fallback raised 100 → 10000 so a SINGLE successful run drains
-        # the entire pending backlog instead of nibbling 100/run while crawlers add
-        # more. The shared `jobs-data-pipeline` concurrency group means most queued
-        # runs get cancelled (queue-dedup) — harmless only if the one that DOES run
-        # clears everything. With self-hosted LT + concurrency 6 the full backlog
-        # fits well inside the 350-min timeout. Manual/dispatch runs can override.
-        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '10000' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
+        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
