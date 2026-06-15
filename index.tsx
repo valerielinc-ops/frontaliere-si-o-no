@@ -108,6 +108,17 @@ const mountApp = async () => {
  // 1. Fade out the static HTML content quickly
  // 2. Let React render (which replaces the content)
  // 3. Fade the new React content back in
+ //
+ // CLS fix (#886/#855): createRoot().render() momentarily EMPTIES #root before
+ // the React tree paints, collapsing its height. Static SEO blocks injected as
+ // siblings AFTER #root (hp-seo-block / hp-related-guides / hp-lang-switch /
+ // hp-canton-nav) then jump UP to Y=0 (measured dY up to −914px ≈ 0.8 CLS) and
+ // back down once React re-renders. The opacity crossfade hid the FLASH but not
+ // the layout SHIFT. Reserve #root's prerendered height as a min-height floor so
+ // its transient collapse can't move the blocks below; released after the React
+ // content paints (heights match — same page — so the release is shift-free).
+ const reservedRootHeight = rootElement.offsetHeight;
+ if (reservedRootHeight > 0) rootElement.style.minHeight = `${reservedRootHeight}px`;
  rootElement.style.transition = 'opacity 80ms ease-out';
  rootElement.style.opacity = '0';
 
@@ -137,10 +148,13 @@ const mountApp = async () => {
  // Fade the React content back in
  rootElement.style.transition = 'opacity 120ms ease-in';
  rootElement.style.opacity = '1';
- // Clean up inline styles after the transition completes
+ // Clean up inline styles after the transition completes. Release the
+ // reserved min-height now that the React content has painted and set its
+ // own height (same page → heights match → no shift on release).
  rootElement.addEventListener('transitionend', () => {
  rootElement.style.transition = '';
  rootElement.style.opacity = '';
+ rootElement.style.minHeight = '';
  }, { once: true });
  }
 
