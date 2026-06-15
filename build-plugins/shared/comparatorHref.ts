@@ -12,8 +12,8 @@
  * `undefined` at a consumer's module-init and crash the FULL build (the #1938
  * calcHref incident). A leaf makes the cycle impossible by construction.
  *
- * WHY it exists (#1997): the comparator hrefs were hard-coded + duplicated across
- * 5+ prose modules and DRIFTED into a dead orphan scheme — `/en/comparators/…`,
+ * WHY it exists (#1997): the comparator hrefs were hard-coded and duplicated
+ * across five or more prose modules and DRIFTED into a dead orphan scheme — `/en/comparators/…`,
  * `/de/vergleiche/…`, `/fr/comparateurs/…` — that NO plugin emits (404 on
  * indexed pages, link-equity loss). The real comparator pages are emitted (and
  * curl-verified 200) at the `/{…}/service-comparison/…` (EN) /
