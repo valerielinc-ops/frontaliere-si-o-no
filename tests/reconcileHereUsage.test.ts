@@ -51,6 +51,38 @@ describe('sumRoutingTransactions', () => {
     expect(sumRoutingTransactions(null).total).toBe(0);
     expect(sumRoutingTransactions({ usage: [] }).total).toBe(0);
   });
+
+  it('parses the real v2 Usage API `items` shape and excludes non-routing rows', () => {
+    // Verbatim shape returned by GET /v2/usage/realms/org899238099 (June 2026):
+    // a Data IO (DataStorage / GB) row that must be ignored + the routing row.
+    const payload = {
+      total: 2,
+      limit: 100,
+      nextOffset: 0,
+      items: [
+        {
+          realmId: 'org899238099',
+          category: 'DataStorage',
+          name: 'Data IO',
+          valueDriver: 'GB',
+          usageValue: 3497,
+          billableValue: 0,
+        },
+        {
+          realmId: 'org899238099',
+          category: 'LocationServices',
+          featureId: 'hrn:here:service::olp-here:routing-8:traffic',
+          name: 'Time Aware Routing',
+          valueDriver: 'Transactions',
+          usageValue: 6350,
+          billableValue: 6350,
+        },
+      ],
+    };
+    const { total, breakdown } = sumRoutingTransactions(payload);
+    expect(total).toBe(6350);
+    expect(breakdown).toEqual([{ name: 'Time Aware Routing', value: 6350 }]);
+  });
 });
 
 describe('buildHereOAuthHeader', () => {
