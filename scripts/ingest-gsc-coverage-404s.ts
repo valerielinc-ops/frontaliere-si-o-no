@@ -202,7 +202,10 @@ function main(): void {
   let compatUnion: string[] = [];
   if (ALSO_COMPAT) {
     prevCompat = readPaths(COMPAT_PATH);
-    compatUnion = Array.from(new Set([...prevCompat.map(normalizePath), ...seen])).sort();
+    // Use coverageUnion (full accumulated coverage set) not just `seen` (current CSV batch):
+    // on subsequent runs without new CSVs the existing 999 coverage paths would otherwise
+    // be silently skipped, leaving TI paths without rich soft-landings.
+    compatUnion = Array.from(new Set([...prevCompat.map(normalizePath), ...coverageUnion])).sort();
     assertCompatFloor(prevCompat.length, compatUnion.length, { floor: COMPAT_PATHS_SANITY_FLOOR });
     console.log(
       `[ingest-gsc-coverage] compat accumulator: ${prevCompat.length} → ${compatUnion.length} ` +
