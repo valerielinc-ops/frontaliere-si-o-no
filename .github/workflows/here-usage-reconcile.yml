@@ -1,0 +1,81 @@
+name: Reconcile HERE Usage Budget
+
+# Reads HERE's real billed routing usage (Cost Management Usage API) and seeds
+# the Firestore budget counter (meta/hereTransactionBudget) so the pre-run guard
+# in trafficSchedulerCore.js gates on the real month-to-date spend, not just the
+# attempts it counted since deploy. Closes the drift from mid-month rollout and
+# HERE-side retries. See scripts/reconcile-here-usage.mjs.
+#
+# Requires OAuth credentials in Remote Config: HERE_OAUTH_KEY_ID,
+# HERE_OAUTH_KEY_SECRET, HERE_REALM_ID. Until those are provisioned the job
+# skips cleanly (exit 2 → treated as no-op, not a failure).
+
+on:
+  schedule:
+    # Twice daily (UTC). Usage data lags, so a morning + evening read keeps the
+    # counter aligned without hammering the API.
+    - cron: '0 5,17 * * *'
+  workflow_dispatch:
+    inputs:
+      set:
+        description: 'Manual seed: month-to-date transactions from the Usage Dashboard (leave empty for live API mode)'
+        required: false
+        default: ''
+
+concurrency:
+  group: here-usage-reconcile
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Reconcile HERE usage
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MANUAL_SET: ${{ github.event.inputs.set }}
+        run: |
+          ARGS="--alert"
+          if [ -n "$MANUAL_SET" ]; then
+            ARGS="$ARGS --set $MANUAL_SET"
+          fi
+          set +e
+          node scripts/reconcile-here-usage.mjs $ARGS
+          code=$?
+          set -e
+          if [ "$code" = "2" ]; then
+            echo "::notice::HERE OAuth credentials not provisioned yet — reconciliation skipped (no-op)."
+            exit 0
+          fi
+          exit $code
