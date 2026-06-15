@@ -4,6 +4,16 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import { buildCanonicalBridgePage, buildFlatRedirect } from '@/build-plugins/constants';
+import { META_DESCRIPTION_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
+
+// A 240-char description well past the SERP snippet budget.
+const OVER_BUDGET_DESC =
+  'Guida completa al frontaliere in Ticino nel 2026: permesso G, tassazione alla fonte, calcolo del netto in busta paga, assicurazione malattia, assegni familiari e tutte le differenze rispetto al lavoro in Italia che devi conoscere prima di iniziare.';
+
+function metaDescriptionContent(html: string): string {
+  const m = html.match(/<meta name="description" content="([^"]*)">/);
+  return m ? m[1] : '';
+}
 
 describe('SEO builder noindex guards', () => {
   it('flat alias pages use a canonical bridge without JS redirect or meta refresh', () => {
@@ -41,6 +51,32 @@ describe('SEO builder noindex guards', () => {
         noindex: false,
       });
       expect(html).toContain('content="index,follow"');
+    });
+  });
+
+  describe('meta description is clamped to the SERP budget (#2230)', () => {
+    it('buildCanonicalBridgePage clamps an over-budget description', () => {
+      expect(OVER_BUDGET_DESC.length).toBeGreaterThan(META_DESCRIPTION_MAX_CHARS);
+      const html = buildCanonicalBridgePage({
+        canonicalUrl: 'https://frontaliereticino.ch/test/',
+        pathLabel: '/test/',
+        description: OVER_BUDGET_DESC,
+        // default noindex=false → indexable: the latent offender from #2230.
+      });
+      const desc = metaDescriptionContent(html);
+      expect(desc.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+      expect(desc.endsWith('…')).toBe(true);
+    });
+
+    it('buildFlatRedirect clamps an over-budget og description', () => {
+      const html = buildFlatRedirect(
+        'https://frontaliereticino.ch/articoli-frontaliere/test/',
+        '/articoli-frontaliere/test/',
+        { title: 'Test', description: OVER_BUDGET_DESC, image: 'https://frontaliereticino.ch/og.png' },
+      );
+      const desc = metaDescriptionContent(html);
+      expect(desc.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+      expect(desc.endsWith('…')).toBe(true);
     });
   });
 
