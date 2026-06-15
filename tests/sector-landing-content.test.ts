@@ -80,7 +80,7 @@ describe('Phase 3B — sector landing prosa block (data layer)', () => {
     expect(block.html).toMatch(/\bclass="[^"]*\bsector-intro\b[^"]*"/);
   });
 
-  it('uses curated copy for the 3 active sector hubs in IT', () => {
+  it('uses curated copy where sector-descriptions.json provides it, non-thin fallback otherwise', () => {
     const data = loadSectorProseData(ROOT_DIR);
     for (const sector of SECTOR_HUB_KEYS) {
       const block = buildSectorProse(
@@ -89,7 +89,19 @@ describe('Phase 3B — sector landing prosa block (data layer)', () => {
         SECTOR_HUB_DISPLAY.it[sector],
         data,
       );
-      expect(block.curated).toBe(true);
+      const entry = data[sector]?.it;
+      const hasCuratedData = !!(
+        entry && entry.intro && entry.salaryRange && entry.requirements && entry.trend
+      );
+      // Sectors backed by curated data MUST render the curated block (no silent
+      // downgrade to fallback for an entry that exists).
+      if (hasCuratedData) {
+        expect(block.curated, `${sector} has curated data but rendered fallback`).toBe(true);
+      }
+      // Every sector — curated or fallback — must clear the thin-content floor
+      // (CLAUDE.md rule #4: never indexed thin content). The expanded funnel
+      // sectors lean on the ≥210-word fallback until curated copy is authored.
+      expect(block.wordCount, `${sector} prose is thin`).toBeGreaterThanOrEqual(200);
     }
   });
 });
