@@ -1,10 +1,11 @@
 {
   "schemaVersion": 1,
   "subreddits": {
+    "frontaliere": { "displayName":"r/frontaliere", "topics":["jobs","articles"], "allowsAutomation": true, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/frontaliere/about/rules/", "minPostIntervalHours": 6, "notes":"OWN community (moderated by us). Primary automation target since we set the rules." },
+    "FrontaliereTicino": { "displayName":"r/FrontaliereTicino", "topics":["jobs","articles"], "allowsAutomation": false, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/FrontaliereTicino/about/rules/", "minPostIntervalHours": 6, "notes":"OWN community (moderated by us). Secondary channel — flip allowsAutomation to true to also post here." },
     "Ticino": { "displayName":"r/Ticino", "topics":["jobs","articles"], "allowsAutomation": false, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/Ticino/about/rules/", "minPostIntervalHours": 24, "notes":"Local Ticino community. Self-promo/job spam restricted — requires manual mod approval before enabling automation." },
     "italiansinswitzerland": { "displayName":"r/italiansinswitzerland", "topics":["jobs","articles"], "allowsAutomation": false, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/italiansinswitzerland/about/rules/", "minPostIntervalHours": 24, "notes":"Italian-speaking expats in CH — strong audience fit. Confirm self-promo policy with mods first." },
-    "Svizzera": { "displayName":"r/Svizzera", "topics":["articles"], "allowsAutomation": false, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/Svizzera/about/rules/", "minPostIntervalHours": 48, "notes":"General Swiss-Italian sub. Articles only; no job dumping." },
-    "frontalieri": { "displayName":"r/frontalieri", "topics":["jobs","articles"], "allowsAutomation": true, "flairId": null, "flairText": null, "rulesUrl":"", "minPostIntervalHours": 6, "notes":"OWN community to create/control (see docs). Safe default automation target since we set the rules. Create it if it does not exist." }
+    "Svizzera": { "displayName":"r/Svizzera", "topics":["articles"], "allowsAutomation": false, "flairId": null, "flairText": null, "rulesUrl":"https://www.reddit.com/r/Svizzera/about/rules/", "minPostIntervalHours": 48, "notes":"General Swiss-Italian sub. Articles only; no job dumping." }
   },
-  "routing": { "jobs": ["frontalieri","Ticino","italiansinswitzerland"], "articles": ["frontalieri","Ticino","italiansinswitzerland","Svizzera"] }
+  "routing": { "jobs": ["frontaliere","FrontaliereTicino","Ticino","italiansinswitzerland"], "articles": ["frontaliere","FrontaliereTicino","Ticino","italiansinswitzerland","Svizzera"] }
 }

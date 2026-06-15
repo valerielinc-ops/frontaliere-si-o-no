@@ -17,7 +17,7 @@ Si rapporta al workflow Facebook così: condivide lo stesso punto di ancoraggio 
 |------|-------|
 | `scripts/lib/reddit-client.mjs` | Client OAuth2 di Reddit: grant via refresh-token (preferito) con fallback al password-grant per "script app"; token endpoint in Basic-auth; header `User-Agent` obbligatorio. |
 | `scripts/lib/reddit-templates.mjs` | Builder dei post in italiano (titolo + corpo markdown per le offerte, titolo + link per gli articoli). |
-| `data/reddit-subreddits.json` | Configurazione dei subreddit: `displayName`, `topics`, `allowsAutomation`, `flairId`, `flairText`, `rulesUrl`, `minPostIntervalHours`, `notes`, più `routing` per `jobs`/`articles`. Solo `frontalieri` ha `allowsAutomation: true` di default. |
+| `data/reddit-subreddits.json` | Configurazione dei subreddit: `displayName`, `topics`, `allowsAutomation`, `flairId`, `flairText`, `rulesUrl`, `minPostIntervalHours`, `notes`, più `routing` per `jobs`/`articles`. Solo `frontaliere` (community propria) ha `allowsAutomation: true` di default; `FrontaliereTicino` è un secondo canale proprio pronto da attivare. |
 | `scripts/post-to-reddit.mjs` | Pubblicazione di un singolo **articolo**. CLI: `node scripts/post-to-reddit.mjs <article-id> <article-url> <og-title> <og-description> [category] [--dry-run]`. Soft-fail (exit 0). |
 | `scripts/schedule-reddit-jobs-daily.mjs` | Pubblicazione giornaliera delle **offerte**. Env: `REDDIT_JOB_VOLUME` (default 2), `REDDIT_POST_DELAY_MS` (default 5000), `DRY_RUN`. Aggiorna `data/reddit-posted-jobs.json`. |
 | `scripts/lib/resolve-reddit-posted-jobs-conflict.mjs` | Merge-driver per risolvere i conflitti git sul ledger (unione per job id). |
@@ -68,7 +68,7 @@ Imposta questi parametri in Firebase Remote Config (i secret con prefisso `SERVE
 ## Regole delle community & anti-spam
 
 - **Regola 9:1 di Reddit.** L'autopromozione deve restare minoritaria: per ogni post promozionale dovresti avere ~9 contributi non promozionali (commenti, risposte, contenuti utili). Spammare offerte/link viola questa regola e porta a shadowban o ban.
-- **La maggior parte dei subreddit vieta lo spam di offerte.** Community come r/Ticino, r/Svizzera, r/italiansinswitzerland proibiscono il posting automatico di annunci e richiedono l'**approvazione dei moderatori**. Per questo `allowsAutomation` è `false` di default su tutti i subreddit tranne il nostro **r/frontalieri** (safe-by-default: si auto-pubblica solo sulla nostra community finché un umano non ottiene il permesso dei mod altrove).
+- **La maggior parte dei subreddit vieta lo spam di offerte.** Community come r/Ticino, r/Svizzera, r/italiansinswitzerland proibiscono il posting automatico di annunci e richiedono l'**approvazione dei moderatori**. Per questo `allowsAutomation` è `false` di default su tutti i subreddit tranne la nostra community **r/frontaliere** (safe-by-default: si auto-pubblica solo sulla nostra community finché un umano non ottiene il permesso dei mod altrove). Anche **r/FrontaliereTicino** è di nostra proprietà ed è già presente nel routing come secondo canale, ma lasciato `allowsAutomation: false` finché non si decide di usarlo.
 - **Nessuno scheduling lato server.** Reddit non offre code di pubblicazione programmata: lo script pubblica **subito**, a basso volume (default 2/run) e con un `REDDIT_POST_DELAY_MS` (default 5000 ms) tra un post e l'altro.
 
 ### Abilitare un subreddit di terze parti (passi manuali)
@@ -79,11 +79,11 @@ Imposta questi parametri in Firebase Remote Config (i secret con prefisso `SERVE
 4. In `data/reddit-subreddits.json` imposta `allowsAutomation: true` per quel subreddit e compila `flairId`/`flairText` e `rulesUrl`.
 5. Aggiungi il subreddit alle liste `routing.jobs` e/o `routing.articles` secondo i `topics`.
 
-## Gestire una community propria (r/frontalieri)
+## Gestire una community propria (r/frontaliere)
 
 Il canale sicuro e controllato è un subreddit di nostra proprietà:
 
-1. Crea il subreddit (es. r/frontalieri) dal tuo account; diventi automaticamente moderatore.
+1. Il subreddit **r/frontaliere** è già stato creato dal nostro account, che ne è moderatore (esiste anche **r/FrontaliereTicino**, secondo canale).
 2. Definisci regole e flair coerenti con i contenuti (offerte + articoli).
 3. Poiché ne sei mod, l'automazione è consentita senza dipendere dall'approvazione di terzi: è l'unico subreddit con `allowsAutomation: true` di default.
 4. Mantieni un rapporto sano contenuti utili / promozioni anche qui, per far crescere la community e non scoraggiare gli iscritti.
@@ -151,5 +151,6 @@ https://frontaliereticino.ch/blog/richiesta-permesso-g-step-by-step-2026
 - **Access token a vita breve (~1 h).** Il client deve rinnovarlo a ogni run; con il password-grant questo richiede credenziali valide, con il refresh-token grant richiede un `REDDIT_REFRESH_TOKEN` non revocato.
 - **Rischio anti-spam / ban.** Volume alto, mancato rispetto della regola 9:1 o posting in subreddit non consenzienti possono portare a shadowban o ban dell'account.
 - **Nessuno scheduling nativo.** A differenza di Facebook, Reddit pubblica subito: il throttling è solo client-side (volume basso + delay).
-- **Dipendenza dall'approvazione dei mod.** L'espansione oltre r/frontalieri richiede il permesso esplicito dei moderatori di ogni subreddit.
+- **Dipendenza dall'approvazione dei mod.** L'espansione oltre r/frontaliere richiede il permesso esplicito dei moderatori di ogni subreddit.
+- **Approvazione Data API (Responsible Builder Policy, dal 11-nov-2025).** Reddit richiede l'approvazione preventiva di una *Data Access Request* prima di poter creare l'app API (anche script/personale). Finché non è approvata, gli script restano in soft-skip.
 - **Flair id da scoprire manualmente.** I `flairId`/`flairText` richiesti da molte community vanno recuperati a mano e inseriti in `data/reddit-subreddits.json`.
