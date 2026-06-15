@@ -4,26 +4,36 @@ import * as path from 'node:path';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
-function walkHtml(dir: string, out: string[] = []): string[] {
-  if (!fs.existsSync(dir)) return out;
+// Bounded sample size — large enough to catch regressions across the early
+// emitters without walking the whole tree.
+const SAMPLE_LIMIT = 1500;
+
+// Walk dist for .html files but STOP as soon as `limit` are collected. The
+// previous impl walked the ENTIRE tree and only THEN sliced to 1500 — fine when
+// dist was small, but after the cathedral + locale-shard expansion dist holds
+// ~2M files (locale shards are rehydrated into dist for validate-dist), so
+// enumerating all of them blew the 60s ceiling and the test TIMED OUT (gate:
+// seo-source red, no assertion ever reached). Short-circuiting yields the SAME
+// first-N depth-first sample without the full-tree enumeration — O(limit)
+// readdir/reads instead of O(all files).
+function walkHtml(dir: string, out: string[] = [], limit = SAMPLE_LIMIT): string[] {
+  if (out.length >= limit || !fs.existsSync(dir)) return out;
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (out.length >= limit) break;
     const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) walkHtml(full, out);
+    if (entry.isDirectory()) walkHtml(full, out, limit);
     else if (entry.name.endsWith('.html')) out.push(full);
   }
   return out;
 }
 
 describe('every page with hreflang ALSO emits x-default', () => {
-  // 60s ceiling: cathedral expansion → ~200k dist files; reading 1k of
-  // them I/O-bound takes 8-15s on cold cache. Tight default (15s) would
-  // race on slower CI runners.
+  // 60s ceiling kept as a safety margin; with the short-circuited walk the test
+  // reads only SAMPLE_LIMIT files (~seconds) regardless of total dist size.
   it('checks dist for hreflang completeness', { timeout: 60_000 }, () => {
     if (!fs.existsSync(DIST)) return;
-    // Bounded sample — large enough to catch regressions across all
-    // emitters (job-detail, hubs, landings, bridges) without walking
-    // the whole tree, which would dominate the test wall time.
-    const sample = walkHtml(DIST).slice(0, 1500);
+    // Bounded sample — the walk already stops at SAMPLE_LIMIT (see walkHtml).
+    const sample = walkHtml(DIST);
     const offenders: string[] = [];
     for (const file of sample) {
       const html = fs.readFileSync(file, 'utf-8');

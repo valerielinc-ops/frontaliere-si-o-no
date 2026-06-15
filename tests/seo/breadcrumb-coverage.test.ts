@@ -64,24 +64,26 @@ function walkHtml(dir: string): string[] {
   const stack: string[] = [dir];
   while (stack.length) {
     const cur = stack.pop() as string;
-    let entries: string[];
+    let entries: import('node:fs').Dirent[];
     try {
-      entries = readdirSync(cur);
+      // withFileTypes → one readdir syscall per dir instead of readdir + a
+      // statSync per entry. validate-dist rehydrates the locale shards into
+      // dist (~2M files); the old per-entry statSync doubled the syscall count
+      // on the whole tree and was the heaviest unbounded full-dist walk in
+      // gate:seo-source. This test must read EVERY indexable page (it asserts
+      // breadcrumb coverage across all of dist), so it cannot be sampled like
+      // cathedral-hreflang-x-default — the win here is a leaner walk, not a
+      // smaller sample. Coverage is byte-for-byte unchanged.
+      entries = readdirSync(cur, { withFileTypes: true });
     } catch {
       continue;
     }
-    for (const name of entries) {
-      const full = join(cur, name);
-      let st;
-      try {
-        st = statSync(full);
-      } catch {
-        continue;
-      }
-      if (st.isDirectory()) {
-        if (name === 'assets' || name === 'node_modules') continue;
+    for (const ent of entries) {
+      const full = join(cur, ent.name);
+      if (ent.isDirectory()) {
+        if (ent.name === 'assets' || ent.name === 'node_modules') continue;
         stack.push(full);
-      } else if (st.isFile() && full.endsWith('.html')) {
+      } else if (ent.isFile() && full.endsWith('.html')) {
         out.push(full);
       }
     }
