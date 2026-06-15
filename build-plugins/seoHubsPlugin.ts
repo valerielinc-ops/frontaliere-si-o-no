@@ -1736,7 +1736,14 @@ function buildThinCantonHubHtml(args: {
           itemListElement: items.slice(0, 25).map((it, i) => ({
             '@type': 'ListItem',
             position: i + 1,
-            url: it.href.startsWith('http') ? it.href : `${BASE_URL}${it.href}`,
+            // PR #2229 adversarial-check #3: harden href→absolute. Already-
+            // absolute (http/https) and protocol-relative (//) URLs pass
+            // through; root-relative paths get the origin prepended; any other
+            // shape (rare bare slug) is rooted with a leading slash so we never
+            // emit a malformed `${BASE_URL}foo` or double-origin URL.
+            url: /^(https?:)?\/\//.test(it.href)
+              ? it.href
+              : `${BASE_URL}${it.href.startsWith('/') ? '' : '/'}${it.href}`,
             name: it.label,
           })),
         },
