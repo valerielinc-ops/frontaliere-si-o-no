@@ -4,16 +4,23 @@ on:
   # ─── Scheduled runs (UTC) ──────────────────────────────────────────
   # Cron times are in UTC.  Europe/Rome is UTC+1 (CET) or UTC+2 (CEST).
   # The ranges below cover both winter and summer offsets.
+  #
+  # HERE bills 2 "Time Aware Routing" transactions per crossing (52/run for 26
+  # crossings); the free tier is 5 000/month. Frequency is concentrated at the
+  # two commute peaks (where wait times actually move) and thinned everywhere
+  # else so the month's runs spread evenly under budget. A hard in-code monthly
+  # cap (HERE_MONTHLY_BUDGET in trafficSchedulerCore.js) is the backstop that
+  # guarantees we never exceed the free tier regardless of scheduling variance.
   schedule:
     # ── Weekdays (Mon–Fri) ──
-    # Morning commute peak ≈ CET 04:00–10:00 → every 10 min
-    - cron: '*/15 3-8 * * 1-5'
-    # Midday off-peak ≈ CET 10:00–15:00 → every hour
-    - cron: '0 8-13 * * 1-5'
-    # Evening return peak ≈ CET 15:00–20:00 → every 15 min
-    - cron: '*/15 13-17 * * 1-5'
-    # ── Weekends (Sat–Sun) → every 2h to conserve HERE quota ──
-    - cron: '0 4,6,8,10,12,14,16,18 * * 0,6'
+    # Morning commute peak ≈ CET 05:00–09:00 → every 30 min
+    - cron: '*/30 4-7 * * 1-5'
+    # Midday off-peak sanity check ≈ CET 12:00
+    - cron: '0 11 * * 1-5'
+    # Evening return peak ≈ CET 15:00–19:00 → every 30 min
+    - cron: '*/30 14-17 * * 1-5'
+    # ── Weekends (Sat–Sun) → every 4h to conserve HERE quota ──
+    - cron: '0 6,10,14,18 * * 0,6'
   workflow_dispatch: {}
 
 concurrency:

@@ -23,6 +23,14 @@ const TOMTOM_CALCULATE_ROUTE_URL = 'https://api.tomtom.com/routing/1/calculateRo
 const HERE_ROUTER_URL = 'https://router.hereapi.com/v8/routes';
 const TT_FLOW_URL = 'https://api.tomtom.com/traffic/services/4/flowSegmentData/relative0';
 const MAX_FLOW_DELAY_MIN = 45;
+// HERE "Time Aware Routing" free tier is 5 000 transactions / calendar month
+// (Base Plan v6.0 Tier 1, 0–5000 = €0; May 2026 over-ran to 8 962 → first
+// invoice). Each crossing costs 2 transactions (crossing segment +
+// approach segment), so a full run of 26 crossings = 52. We hard-cap monthly
+// HERE usage below the free tier and skip further runs once the budget is
+// exhausted — the deterministic guarantee that we never pay, independent of how
+// GitHub schedules the cron. Override via the HERE_MONTHLY_BUDGET env var.
+const HERE_MONTHLY_BUDGET = Number(process.env.HERE_MONTHLY_BUDGET || 4500);
 const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
 const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
 const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
@@ -333,6 +341,68 @@ export function ensureAdminApp() {
  return admin;
 }
 
+// ─── HERE monthly budget guard ─────────────────────────────────
+
+/**
+ * Pure budget-decision logic (no I/O — unit-testable).
+ *
+ * Given the persisted `{ storedMonth, storedCount }`, the current `month`, the
+ * number of calls this run wants, and the monthly `budget`, decides whether the
+ * run may proceed and what the new running count should be. A month change
+ * resets the count to 0. The reservation is rejected when it would push the
+ * month total *over* the budget (`>`), so a run that lands exactly on the budget
+ * is still allowed.
+ *
+ * @param {{ storedMonth?: string, storedCount?: number, month: string, callsThisRun: number, budget: number }} input
+ * @returns {{ allowed: boolean, count: number }}
+ */
+export function computeHereBudgetDecision({ storedMonth, storedCount, month, callsThisRun, budget }) {
+ const current = storedMonth === month ? Number(storedCount || 0) : 0;
+ if (current + callsThisRun > budget) {
+ return { allowed: false, count: current };
+ }
+ return { allowed: true, count: current + callsThisRun };
+}
+
+/**
+ * Atomically reserves `callsThisRun` HERE transactions against the current
+ * calendar month's budget (Firestore doc `meta/hereTransactionBudget`).
+ *
+ * Returns `{ allowed, count, month }`. When `allowed` is false the caller MUST
+ * NOT issue HERE requests this run — the free-tier budget is exhausted. The
+ * reservation is conservative (counts attempted calls, not billed ones) so we
+ * always land *under* the real HERE meter.
+ *
+ * @param {number} callsThisRun
+ * @returns {Promise<{ allowed: boolean, count: number, month: string }>}
+ */
+export async function reserveHereTransactionBudget(callsThisRun) {
+ const adm = ensureAdminApp();
+ const db = adm.firestore();
+ const ref = db.collection('meta').doc('hereTransactionBudget');
+ // Calendar month in Europe/Rome (en-CA gives YYYY-MM-DD → slice to YYYY-MM).
+ const month = new Date()
+ .toLocaleDateString('en-CA', { timeZone: 'Europe/Rome', year: 'numeric', month: '2-digit', day: '2-digit' })
+ .slice(0, 7);
+
+ return db.runTransaction(async (tx) => {
+ const snap = await tx.get(ref);
+ const data = snap.exists ? snap.data() : {};
+ const { allowed, count } = computeHereBudgetDecision({
+ storedMonth: data.month,
+ storedCount: data.count,
+ month,
+ callsThisRun,
+ budget: HERE_MONTHLY_BUDGET,
+ });
+
+ if (allowed) {
+ tx.set(ref, { month, count, updatedAt: adm.firestore.Timestamp.now() });
+ }
+ return { allowed, count, month };
+ });
+}
+
 // ─── Firestore persistence ─────────────────────────────────────
 
 /**
@@ -400,6 +470,34 @@ export async function runTrafficCollection(options = {}) {
  if (!provider) {
  console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
  return { collected: 0, errors: 0 };
+ }
+
+ // HERE bills every routing call as a "Time Aware Routing" transaction. Reserve
+ // this run's calls against the monthly free-tier budget before issuing any —
+ // if the month is exhausted, skip the run entirely so we never get billed.
+ // Other providers (TomTom/Google) have their own free tiers and are unmetered here.
+ if (provider === 'here') {
+ const callsThisRun = BORDER_CROSSINGS.length * 2; // crossing + approach segment per crossing
+ let budget;
+ try {
+ budget = await reserveHereTransactionBudget(callsThisRun);
+ } catch (err) {
+ // Budget bookkeeping is a backstop, not the primary control (the cron is
+ // also throttled). On a transient Firestore error, proceed rather than
+ // freeze live data — the next run re-checks.
+ console.warn(`⚠️ HERE budget check failed (${err.message}) — proceeding without reservation`);
+ budget = null;
+ }
+ if (budget && !budget.allowed) {
+ console.warn(
+ `🛑 HERE monthly budget reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
+ `— skipping run to stay in the free tier. Live data keeps the last snapshot.`,
+ );
+ return { collected: 0, errors: 0, skipped: 'here-budget' };
+ }
+ if (budget) {
+ console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
+ }
  }
 
  console.log(`🚦 Starting traffic collection for ${BORDER_CROSSINGS.length} crossings via ${provider}…`);
