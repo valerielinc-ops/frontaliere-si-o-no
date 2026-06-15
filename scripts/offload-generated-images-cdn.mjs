@@ -137,6 +137,14 @@ function walkAll(dir, fn) {
 // extension set spans every image type those dirs hold (incl. .ico/.gif).
 const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg|ico|gif))";
 const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
+// Guard-B parity: the SUPERSET regex the deploy "Drop dist/assets" step used to
+// grep for, ported 1:1 from its bash ERE. A same-origin /assets/<file>.<ext> ref
+// that SURVIVES the rewrite below (e.g. emitted by a custom SSG path that didn't
+// go through ASSET_FILE) must KEEP dist/assets — exactly the Drop step's Guard B.
+// Non-global (stateless .test); applied to HTML only at the callsite to match
+// grep's --include='*.html'. This regex is now the SOLE authority for that gate
+// (the Drop step reads the marker we emit), kept byte-faithful to the old grep.
+const ASSETS_SAME_ORIGIN_RX = /["'(]\/?assets\/[^"'() ]*\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)/;
 const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 
 // ── Single-pass offload over dist HTML/XML/TXT ───────────────────────────────
@@ -215,6 +223,7 @@ function offloadAll(distDir, cdnBase) {
   let injected = 0;
   let htmlSeen = 0;
   const ogLeaks = [];
+  const assetsLeaks = [];
 
   walk(distDir, (fp) => {
     scanned++;
@@ -235,6 +244,11 @@ function offloadAll(distDir, cdnBase) {
     const beforeAssets = out;
     out = out.replace(assetReAbs, assetRepl).replace(assetReRel, assetRepl);
     if (out !== beforeAssets) assetRewritten++;
+    // Guard-B parity: record any same-origin /assets/ ref that SURVIVES the
+    // rewrite (HTML only — matches the Drop step's --include='*.html'). The data
+    // rewrite + CDN-base inject below never touch /assets/ refs, so the set is
+    // final here. The deploy Drop step keeps dist/assets iff this list is non-empty.
+    if (isHtml && ASSETS_SAME_ORIGIN_RX.test(out)) assetsLeaks.push(path.relative(distDir, fp));
 
     // (2b) data refs: rewrite same-origin /data/<file> (present in dist/data) → CDN
     //      in HTML ONLY (JSON-LD contentUrl + download hrefs). XML sitemap refs are
@@ -287,6 +301,23 @@ function offloadAll(distDir, cdnBase) {
       while ((m = reDataKeep.exec(out))) dataReferenced.add(decodeURIComponent('/data/' + m[1].split('?')[0]));
     }
   });
+
+  // Emit the same-origin /assets/ verdict so the deploy "Drop dist/assets" step
+  // can SKIP its redundant full-tree grep (it reads this marker, and falls back
+  // to the grep if the marker is absent — e.g. this script crashed mid-walk).
+  // ASSETS_SAME_ORIGIN_RX is the single source of truth for that gate. CI-only
+  // (RUNNER_TEMP set); local runs skip it (the workflow's grep fallback covers it).
+  const runnerTmp = process.env.RUNNER_TEMP;
+  if (runnerTmp) {
+    const markerPath = path.join(runnerTmp, 'assets-same-origin.marker');
+    if (assetsLeaks.length > 0) {
+      fs.writeFileSync(markerPath, 'LEAK\n' + assetsLeaks.join('\n') + '\n');
+      log(`assets guard: ${assetsLeaks.length} same-origin /assets/ ref(s) survive in HTML — Drop step will KEEP dist/assets (e.g. ${assetsLeaks.slice(0, 3).join(', ')})`);
+    } else {
+      fs.writeFileSync(markerPath, 'CLEAN\n');
+      log('assets guard: no same-origin /assets/ refs survive — Drop step may drop dist/assets');
+    }
+  }
 
   // ── Guarded deletes ──
   // og + thumbnails: delete each offloaded dir UNLESS a same-origin ref to THAT
