@@ -30,6 +30,7 @@ import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
 import { companyHubBridgePlugin } from './build-plugins/companyHubBridgePlugin';
 import { legacyAliasPlugin } from './build-plugins/legacyAliasPlugin';
+import { cfHot404BridgePlugin } from './build-plugins/cfHot404BridgePlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -252,6 +253,13 @@ export default defineConfig(({ mode }) => {
  // fuelLocaleAlias (1), jobLegacySection (2), legacySectionAlt (2),
  // subSlugOnly (1), localePrefixed (2), weeklyEmployersDeep (1).
  legacyAliasPlugin(__dirname),
+ // CF-hot 404 bridges: recover the non-Ticino job-detail 404s Cloudflare
+ // confirms are actually hit (data/cf-hot-404s.json, ranked + capped). The
+ // bounded, traffic-targeted replacement for the reverted full-symmetry
+ // sweep (#2000 → OOM → #2031). enforce:'post' + existsSync gap-fill +
+ // LAST in the page-emitter order (after jobOrphan/hub/legacyAlias) so it
+ // only fills paths with no richer page. Hard MAX_EMIT cap in the plugin.
+ cfHot404BridgePlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.

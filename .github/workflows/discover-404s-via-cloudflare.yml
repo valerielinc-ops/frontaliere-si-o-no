@@ -82,6 +82,18 @@ jobs:
             --min-count="$MIN_COUNT" \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
+      - name: Refresh CF-hot 404 list (bounded bridge recovery)
+        env:
+          # CF_API_TOKEN persisted to $GITHUB_ENV by the load-rc-env step above.
+          CF_API_TOKEN: ${{ env.CF_API_TOKEN }}
+        # Accumulate the non-Ticino job 404s Cloudflare confirms are actually
+        # hit, ranked by hit count and hard-capped → cfHot404BridgePlugin emits
+        # a bounded set of bridge pages (the traffic-targeted replacement for
+        # the reverted #2000 full-symmetry sweep that OOM'd the SSG build).
+        run: |
+          node scripts/build-cf-hot-404s.mjs \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
         if: ${{ inputs.dry_run != true }}
         # Same gate as discover-404s.yml: the sweep appends raw 404 URLs; any the
@@ -101,8 +113,9 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-          # Stage only the file this workflow owns.
+          # Stage only the files this workflow owns.
           git add data/seo-404-compat-paths.json || true
+          git add data/cf-hot-404s.json || true
 
           if git diff --cached --quiet; then
             echo "📭 No changes to commit"
@@ -115,7 +128,9 @@ jobs:
           Automated sweep of real status-404 hits from Cloudflare's
           httpRequestsAdaptiveGroups. Recurring 404 paths the resolver can map
           are added to seo-404-compat-paths.json so the next build generates a
-          soft-landing/bridge page at those URLs."
+          soft-landing/bridge page at those URLs. Also refreshes
+          cf-hot-404s.json — the bounded, hit-ranked list of non-Ticino job
+          404s that cfHot404BridgePlugin recovers as bridge pages."
 
           # data/seo-404-compat-paths.json is shared with discover-404s.yml and
           # sync-gsc-orphans.yml; the rebase-retry helper 3-way set-merges the
