@@ -35,7 +35,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
+          # Partial clone: il checkout `fetch-depth: 0` full scaricava ~11GB di
+          # history (.git, repo a heavy churn su data/jobs) → 184s misurati, il
+          # 54% del run-time della review (Claude pass: ~150s). `filter:
+          # blob:none` prende solo commit-graph + blob HEAD (working tree per
+          # `rg`/`Read`), defer dei blob storici (lazy-fetch on-demand se mai
+          # servono `git blame`/`git log -L`/`git show` — strumenti opzionali,
+          # REVIEW.md non li richiede). Feedback review ~3min prima. fetch-depth
+          # resta 0: serve il commit-graph completo per la lazy-fetch.
           fetch-depth: 0
+          filter: blob:none
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
