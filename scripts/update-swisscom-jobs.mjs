@@ -156,13 +156,20 @@ async function fetchJson(url, options = {}) {
 
 /**
  * List all Swiss Swisscom jobs via Workday API, then keep CH-wide (all 26 cantons).
- * Workday caps limit at 20, so we paginate with offset.
+ * Workday caps limit at 20, so we paginate with offset. We stop on a short/empty
+ * page (the genuine end of results) and use the first page's `total` only as a
+ * positive upper bound: an unfiltered Workday query (appliedFacets:{}) can echo
+ * total:0 alongside a full page of postings, so we never break on
+ * `length >= total` when total is 0 (that would drop every posting on pages 2+).
+ * A page cap bounds the loop if a tenant never shortens.
  */
 async function listTicinoJobs() {
   const allPostings = [];
   let offset = 0;
   const limit = 20;
   let total = 0;
+  let pages = 0;
+  const MAX_PAGES = 100;
 
   while (true) {
     const body = JSON.stringify({
@@ -188,8 +195,15 @@ async function listTicinoJobs() {
     }
 
     allPostings.push(...data.jobPostings);
+    pages += 1;
 
-    if (allPostings.length >= total || data.jobPostings.length < limit) {
+    // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
+    // positive: an unfiltered query echoing total:0 with a full page must not
+    // break here, or every posting on pages 2+ is silently dropped.
+    if (data.jobPostings.length < limit) break;
+    if (total > 0 && allPostings.length >= total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;
     }
     offset += limit;

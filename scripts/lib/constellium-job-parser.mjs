@@ -177,6 +177,8 @@ function isSwissLocation(locationsText = '') {
 async function listSwissJobs() {
   const allPostings = [];
   let offset = 0;
+  let pages = 0;
+  const MAX_PAGES = 100;
 
   while (true) {
     const body = JSON.stringify({
@@ -197,8 +199,16 @@ async function listSwissJobs() {
     }
 
     allPostings.push(...data.jobPostings);
+    pages += 1;
 
-    if (allPostings.length >= (data.total || 0) || data.jobPostings.length < PAGE_SIZE) {
+    // Stop on a short/empty page (genuine end of results). Trust `total` as a
+    // positive upper bound ONLY: an unfiltered Workday query (appliedFacets:{})
+    // can echo total:0 with a full page, so `length >= 0` must not break here or
+    // every posting on pages 2+ is silently dropped.
+    if (data.jobPostings.length < PAGE_SIZE) break;
+    if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`\u26a0\ufe0f Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;
     }
     offset += PAGE_SIZE;

@@ -284,7 +284,11 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
 
       const total = data.total || 0;
       offset += limit;
-      hasMore = offset < total && listings.length > 0;
+      // Trust `total` as a positive upper bound ONLY: a Workday query can echo
+      // total:0 on a full page, so `offset < 0` must not stop pagination after
+      // page 1. Real terminator: a page that yields no further listings. A page
+      // cap bounds the loop if a tenant never shortens.
+      hasMore = listings.length > 0 && (total <= 0 || offset < total) && offset < 1000;
     }
 
     clearTimeout(timer);

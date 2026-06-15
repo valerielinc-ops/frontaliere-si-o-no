@@ -3154,7 +3154,12 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       break;
     }
     const postings = assertJsonListShape(payload, { key: 'jobPostings', source: `workday:${company?.name || source?.endpoint || ''}` });
-    total = Number(payload?.total || postings.length || 0);
+    // Trust the API `total` only as a positive upper bound. An unfiltered Workday
+    // query (appliedFacets:{}) can echo total:0 with a full page; the old
+    // `|| postings.length` fallback made total === page length, so the
+    // `offset < total` guard below stopped after page 1, silently dropping
+    // every posting on pages 2+. The short-page break is the genuine terminator.
+    total = Number(payload?.total) || 0;
     for (const p of postings) {
       const title = normalizeSpace(p?.title || '');
       if (!title || title.length < 6 || isLikelyGenericCareerTitle(title)) continue;
@@ -3305,8 +3310,9 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       });
     }
     offset += limit;
-    if (postings.length < limit) break;
-  } while (offset < total && offset < 200);
+    if (postings.length < limit) break;            // genuine end of results
+    if (total > 0 && offset >= total) break;        // positive upper bound only
+  } while (offset < 200);                            // page-cap (existing safety bound)
 
   collected.skippedKnown = skippedKnown;
   return collected;
