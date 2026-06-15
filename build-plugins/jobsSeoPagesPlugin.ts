@@ -24,6 +24,7 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
+import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { EJP_STRIPPED_MARKER } from './shared/ejpMarker';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
@@ -6745,6 +6746,10 @@ ${staticAnalyticsHtml}
  for (const sector of SECTOR_HUB_KEYS) {
  const sJobs = bySector.get(sector) ?? [];
  if (sJobs.length < MIN_JOBS_PER_CANTON_SECTOR) continue;
+ // Source of truth for seoHubsPlugin's canton `settori` hub: record that a
+ // crawlable `/{section}/{sectorSlug}/` page exists for this (canton, sector)
+ // so the hub deep-links it instead of a robots-disallowed `?q=` URL.
+ markCantonSectorPage(canton, sector);
  const sSorted = [...sJobs].sort((a: any, b: any) => {
  const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
  const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
