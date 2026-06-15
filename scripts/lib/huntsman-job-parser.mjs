@@ -151,7 +151,9 @@ async function fetchJson(url, options = {}) {
 async function listSwissJobs() {
   const allPostings = [];
   let offset = 0;
+  let pages = 0;
   const limit = 20;
+  const MAX_PAGES = 100;
 
   while (true) {
     const body = JSON.stringify({
@@ -172,15 +174,21 @@ async function listSwissJobs() {
     }
 
     allPostings.push(...data.jobPostings);
+    pages += 1;
 
-    if (allPostings.length >= (data.total || 0) || data.jobPostings.length < limit) {
+    // Stop on a short/empty page (genuine end of results). Trust `total` as a
+    // positive upper bound ONLY: a degenerate Workday response can echo total:0
+    // alongside a full page, so `length >= 0` must not break here or every
+    // posting on pages 2+ is silently dropped.
+    if (data.jobPostings.length < limit) break;
+    if ((data.total || 0) > 0 && allPostings.length >= data.total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
       break;
     }
     offset += limit;
 
-    if (data.jobPostings.length === limit) {
-      await new Promise((r) => setTimeout(r, 500));
-    }
+    await new Promise((r) => setTimeout(r, 500));
   }
 
   return allPostings;
