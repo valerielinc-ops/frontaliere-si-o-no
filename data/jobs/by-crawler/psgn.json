@@ -458,8 +458,8 @@
       "id": "psgn-b76ce5dee90d",
       "slug": "neuropsicologo-neuropsicologo-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
-        "it": "neuropsicologo-neuropsicologo-psychiatrie-st-gallen-wil-sg",
-        "en": "neuropsychologist-neuropsychologist-psychiatrie-st-gallen-wil-sg",
+        "it": "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg",
+        "en": "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg",
         "de": "neuropsychologin-neuropsychologe-psgn-wil-sg",
         "fr": "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg"
       },
@@ -505,15 +505,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "neuropsychologin-neuropsychologe-psgn-wil-sg",
-        "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg"
+        "neuropsychologist-neuropsychologist-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-psgn-wil-sg",
-          "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg"
+          "neuropsychologin-neuropsychologe-psgn-wil-sg"
         ],
         "en": [
-          "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg"
+          "neuropsychologist-neuropsychologist-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-11T23:17:50.723Z",
@@ -535,7 +534,7 @@
       "slug": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
-        "en": "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
+        "en": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
         "de": "pflegepraktikant-in-psgn-wil-sg",
         "fr": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
       },
@@ -581,7 +580,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegepraktikant-in-psgn-wil-sg",
-        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
+        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+        "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -589,7 +589,7 @@
           "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
+          "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-11T13:27:08.370Z",
