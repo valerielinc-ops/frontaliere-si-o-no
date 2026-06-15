@@ -293,7 +293,9 @@ function renderEmployerGrid(
       name: e.name,
       openings: e.count ?? undefined,
     } satisfies EmployerCardEmployer,
-    href: `${buildCareerJobBoardUrl(locale)}?q=${encodeURIComponent(e.name)}`,
+    // Crawlable job-board root, never a robots-disallowed `?q=` URL
+    // (rel="nofollow" banned on internal links — see no-internal-nofollow test).
+    href: buildCareerJobBoardUrl(locale),
   }));
 
   const listHtml = renderEmployerCardListHtml(items, {

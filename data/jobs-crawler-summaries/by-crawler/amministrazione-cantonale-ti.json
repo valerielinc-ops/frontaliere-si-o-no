@@ -1,49 +1,18 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-14T23:05:45.723Z",
+  "generatedAt": "2026-06-15T15:46:01.137Z",
   "total": 18,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 19385,
-  "avgDurationMs": 19385,
+  "unchangedCount": 16,
+  "durationMs": 22708,
+  "avgDurationMs": 22708,
   "durationHistory": [
-    19385
+    22708
   ],
-  "newJobs": [
-    {
-      "id": "company-213hqw",
-      "slug": "vicedirettore-trice-organizzazione-sociopsichiatrica-cantonale-presso-l-organizzazione-sociopsichiatrica-cantonale-direzione-mendrisio-socio",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Vicedirettore/trice Organizzazione sociopsichiatrica cantonale presso l'Organizzazione sociopsichiatrica cantonale, Direzione, Mendrisio",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-14",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4206",
-      "source": "Company Careers Crawler",
-      "salaryMin": 98621,
-      "salaryMax": 158999,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-06-14T23:05:40.223Z",
-      "firstSeenAt": "2026-06-14T23:05:40.223Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 19
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-213hqy",
@@ -121,6 +90,44 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-213hqw",
+      "slug": "vicedirettore-trice-organizzazione-sociopsichiatrica-cantonale-presso-l-organizzazione-sociopsichiatrica-cantonale-direzione-mendrisio-socio-213hqw",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Vicedirettore/trice Organizzazione sociopsichiatrica cantonale presso l'Organizzazione sociopsichiatrica cantonale, Direzione, Mendrisio",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-14",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4206",
+      "source": "Company Careers Crawler",
+      "salaryMin": 98621,
+      "salaryMax": 158999,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-06-14T23:05:40.223Z",
+      "firstSeenAt": "2026-06-14T23:05:40.223Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "retranslationAttempts": 1,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-213i9r",
       "slug": "assistente-di-polizia-i-a-tempo-pieno-100-presso-la-polizia-cantonale-gendarmeria-v-reparto-stradale-sezione-operativa-centrale-del-traffico-213i9r",

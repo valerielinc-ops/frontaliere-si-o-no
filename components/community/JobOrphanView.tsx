@@ -359,13 +359,16 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
 
  const jobHeaderCard = (
  <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden">
- {/* Amber status bar */}
+ {/* Amber status bar — reveals the "no longer available" status. Deferred until
+     sign-in: a logged-out visitor sees the gate first, the notice only after login. */}
+ {alreadySignedIn && (
  <div className="bg-warning-subtle border-b border-warning-border px-5 py-2.5 flex items-center gap-2">
  <Briefcase size={14} className="text-warning shrink-0" />
  <span className="text-sm text-warning">
  {BANNER_COPY[locale] ?? BANNER_COPY.it}
  </span>
  </div>
+ )}
  {/* Title + metadata */}
  <div className="px-4 py-3 sm:px-5 sm:py-4">
  <h1 className="text-xl font-bold font-display text-heading leading-snug">

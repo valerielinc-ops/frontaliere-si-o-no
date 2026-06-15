@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fielmann",
-  "assembledAt": "2026-06-14T21:50:55.529Z",
+  "assembledAt": "2026-06-15T14:19:50.006Z",
   "jobs": [
     {
       "id": "fielmann-03f9e929dcfb",
@@ -34,7 +34,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Zug/Augenoptiker--w-m-_R-2833",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:50.158Z",
+      "crawledAt": "2026-06-15T14:19:45.156Z",
       "addressLocality": "Zug",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,15 +53,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2833",
       "firstSeenAt": "2026-06-10T22:38:52.120Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -99,7 +99,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Wil/Augenoptiker--w-m-_R-2832",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:49.441Z",
+      "crawledAt": "2026-06-15T14:19:44.453Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -129,15 +129,15 @@
         "augenoptiker-w-m-d-fielmann-ch"
       ],
       "firstSeenAt": "2026-06-10T22:38:51.433Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -175,7 +175,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/St-Gallen/Augenoptiker--w-m-_R-2831",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:48.695Z",
+      "crawledAt": "2026-06-15T14:19:43.751Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,15 +208,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:14:16.197Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -254,7 +254,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Frauenfeld/Augenoptiker--w-m-_R-2829",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:47.951Z",
+      "crawledAt": "2026-06-15T14:19:43.044Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -295,15 +295,15 @@
         "ottico-ottico-f-m-d-fielmann-group-frauenfeld"
       ],
       "firstSeenAt": "2026-05-13T11:02:40.405Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -341,7 +341,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Burgdorf/Augenoptiker--w-m-_R-2825",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:47.203Z",
+      "crawledAt": "2026-06-15T14:19:42.341Z",
       "addressLocality": "Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -383,15 +383,15 @@
         "opticien-w-m-d-fielmann-group-burgdorf"
       ],
       "firstSeenAt": "2026-05-13T11:02:39.684Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -429,7 +429,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Buchs/Augenoptiker--w-m-_R-2824",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:46.459Z",
+      "crawledAt": "2026-06-15T14:19:41.626Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -461,15 +461,15 @@
         "projektleiter-m-d-fielmann-group-buchs"
       ],
       "firstSeenAt": "2026-05-13T11:02:38.918Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -507,7 +507,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Chur/Augenoptiker--w-m-_R-2814",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:45.743Z",
+      "crawledAt": "2026-06-15T14:19:40.927Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -539,15 +539,15 @@
         "projektleiter-m-d-fielmann-group-chur"
       ],
       "firstSeenAt": "2026-05-13T11:02:38.198Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -585,7 +585,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Altdorf/Augenoptiker--w-m-_R-28050",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:45.010Z",
+      "crawledAt": "2026-06-15T14:19:40.194Z",
       "addressLocality": "Altdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -617,15 +617,15 @@
         "projektleiter-m-d-fielmann-group-altdorf"
       ],
       "firstSeenAt": "2026-05-13T11:02:36.677Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -663,7 +663,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Brig-Glis/Augenoptiker--w-m-_R-19541-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:44.249Z",
+      "crawledAt": "2026-06-15T14:19:39.470Z",
       "addressLocality": "Brig-Glis",
       "addressCountry": "CH",
       "country": "CH",
@@ -695,15 +695,15 @@
         "projektleiter-m-d-fielmann-group-brig-glis"
       ],
       "firstSeenAt": "2026-05-13T11:02:35.951Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -741,7 +741,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Luzern/Augenoptiker--w-m-_R-17099",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:43.522Z",
+      "crawledAt": "2026-06-15T14:19:38.785Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -784,15 +784,15 @@
         "ottico-fielmann-group-luzern"
       ],
       "firstSeenAt": "2026-05-13T11:02:35.234Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -830,7 +830,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Liestal/Augenoptiker--w-m-_R-13829",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:42.760Z",
+      "crawledAt": "2026-06-15T14:19:38.080Z",
       "addressLocality": "Liestal",
       "addressCountry": "CH",
       "country": "CH",
@@ -862,15 +862,15 @@
         "projektleiter-m-d-fielmann-group-liestal"
       ],
       "firstSeenAt": "2026-05-13T11:02:34.469Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -908,7 +908,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Sursee/Augenoptiker--w-m-_R-13742-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:42.032Z",
+      "crawledAt": "2026-06-15T14:19:37.222Z",
       "addressLocality": "Sursee",
       "addressCountry": "CH",
       "country": "CH",
@@ -940,15 +940,15 @@
         "projektleiter-m-d-fielmann-group-sursee"
       ],
       "firstSeenAt": "2026-05-13T11:02:33.743Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -986,7 +986,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Schwyz/Augenoptiker--w-m-_R-13286",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:41.320Z",
+      "crawledAt": "2026-06-15T14:19:36.514Z",
       "addressLocality": "Schwyz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1028,15 +1028,15 @@
         "opticien-w-m-d-fielmann-group-schwyz"
       ],
       "firstSeenAt": "2026-05-13T11:02:33.028Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -1074,7 +1074,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Blach/Augenoptiker--w-m-_R-13285-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:40.601Z",
+      "crawledAt": "2026-06-15T14:19:35.795Z",
       "addressLocality": "Bülach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1116,15 +1116,15 @@
         "opticien-w-m-d-fielmann-group-bulach"
       ],
       "firstSeenAt": "2026-05-13T11:02:32.305Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1162,7 +1162,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Biel/Augenoptiker--w-m-_R-13283",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:39.896Z",
+      "crawledAt": "2026-06-15T14:19:34.919Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1194,15 +1194,15 @@
         "projektleiter-m-d-fielmann-group-biel"
       ],
       "firstSeenAt": "2026-05-13T11:02:31.545Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1240,7 +1240,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Thun/Augenoptiker--w-m-_R-13282",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:39.173Z",
+      "crawledAt": "2026-06-15T14:19:34.153Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1282,15 +1282,15 @@
         "opticien-w-m-d-fielmann-group-thun"
       ],
       "firstSeenAt": "2026-05-13T11:02:30.807Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1328,7 +1328,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Thalwil/Augenoptiker--w-m-_R-10714",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:38.469Z",
+      "crawledAt": "2026-06-15T14:19:33.468Z",
       "addressLocality": "Thalwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,15 +1360,15 @@
         "projektleiter-m-d-fielmann-group-thalwil"
       ],
       "firstSeenAt": "2026-05-13T11:02:30.075Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1406,7 +1406,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Uster/Augenoptiker--w-m-_R-10444",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:37.757Z",
+      "crawledAt": "2026-06-15T14:19:32.708Z",
       "addressLocality": "Uster",
       "addressCountry": "CH",
       "country": "CH",
@@ -1448,15 +1448,15 @@
         "opticien-w-m-d-fielmann-group-uster"
       ],
       "firstSeenAt": "2026-05-13T11:02:29.299Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1494,7 +1494,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Augenoptiker--w-m-_R-10393-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:37.021Z",
+      "crawledAt": "2026-06-15T14:19:31.997Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1536,15 +1536,15 @@
         "opticien-w-m-d-fielmann-group-aarau"
       ],
       "firstSeenAt": "2026-05-13T11:02:28.504Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -1582,7 +1582,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Rapperswil/Augenoptiker--w-m-_R-10092",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:36.279Z",
+      "crawledAt": "2026-06-15T14:19:31.301Z",
       "addressLocality": "Rapperswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1624,15 +1624,15 @@
         "opticien-w-m-d-fielmann-group-rapperswil"
       ],
       "firstSeenAt": "2026-05-13T11:02:27.757Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1670,7 +1670,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Olten/Augenoptiker--w-m-_R-10091",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:35.542Z",
+      "crawledAt": "2026-06-15T14:19:30.590Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1712,15 +1712,15 @@
         "opticien-w-m-d-fielmann-group-olten"
       ],
       "firstSeenAt": "2026-05-13T11:02:26.825Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1758,7 +1758,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Langenthal/Augenoptiker--w-m-_R-10082",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:34.806Z",
+      "crawledAt": "2026-06-15T14:19:29.850Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1788,15 +1788,15 @@
         "augenoptiker-w-m-d-fielmann-ch"
       ],
       "firstSeenAt": "2026-06-12T22:21:37.352Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1834,7 +1834,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Augenoptiker--w-m-_R-10081",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:33.941Z",
+      "crawledAt": "2026-06-15T14:19:29.167Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1866,15 +1866,15 @@
         "projektleiter-m-d-fielmann-group-basel"
       ],
       "firstSeenAt": "2026-05-13T11:02:25.313Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -1912,7 +1912,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Bern/Hrakustiker--w-m-d-_R-53196",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:33.202Z",
+      "crawledAt": "2026-06-15T14:19:28.446Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1939,15 +1939,15 @@
         "projektmanager-m-d-fielmann-group-bern"
       ],
       "firstSeenAt": "2026-05-13T11:02:23.848Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1985,7 +1985,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Bern/Hrakustikermeister--w-m-d-_R-60169",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:32.460Z",
+      "crawledAt": "2026-06-15T14:19:27.748Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2023,15 +2023,15 @@
         "horakustikermeister-w-m-d-fielmann-ch"
       ],
       "firstSeenAt": "2026-05-13T11:02:23.108Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -2069,7 +2069,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Bachelor-of-Science-FHNW-in-Optometrie--w-m-d---schweizweit_R-60320",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:31.741Z",
+      "crawledAt": "2026-06-15T14:19:27.036Z",
       "addressLocality": "Basel Steinenvorstadt",
       "addressCountry": "CH",
       "country": "CH",
@@ -2096,15 +2096,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:13:58.237Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -2142,7 +2142,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/Bachelor-of-Science-FHNW-en-Optomtrie--h-f-d---dans-tout-la-Suisse_R-60328",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:30.989Z",
+      "crawledAt": "2026-06-15T14:19:26.310Z",
       "addressLocality": "Basel Steinenvorstadt",
       "addressCountry": "CH",
       "country": "CH",
@@ -2169,15 +2169,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:13:57.488Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -2215,7 +2215,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Wdenswil/Augenoptiker--w-m-d-_R-60519",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:30.231Z",
+      "crawledAt": "2026-06-15T14:19:25.598Z",
       "addressLocality": "Wädenswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2269,15 +2269,15 @@
         "opticien-w-m-d-fielmann-group-wadenswil"
       ],
       "firstSeenAt": "2026-05-13T11:02:20.402Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2315,7 +2315,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Martigny/Opticien--f-h-_R-13287",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:29.497Z",
+      "crawledAt": "2026-06-15T14:19:24.885Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -2353,15 +2353,15 @@
         "optician-e-h-d-fielmann-group-martigny"
       ],
       "firstSeenAt": "2026-05-13T11:02:19.380Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2393,12 +2393,13 @@
         "de": "Wir bei Fielmann sind mehr als Kolleginnen und Kollegen – wir sind ein Team. Unser Zusammenhalt macht uns stark. Durch neue Impulse entwickeln wir uns weiter. Mit Ihrem Einsatz wachsen wir – mal schneller, mal mit Bedacht. Gemeinsam finden wir das richtige Tempo und setzen die Massstäbe von morgen. Wir geben alles – Ihre Vorteile\n• Attraktive, leistungsgerechte Vergütung, 13. Gehalt\n• Mitarbeiterrabatte für Sie und Ihre Familie, Mitarbeiteraktien sowie zahlreiche weitere Benefits (z.B. Halbtax Schweizerische Bundesbahn SBB​, AMAG, Sunrise, UBS etc.​ )\n• Fachliche und persönliche Entwicklungsmöglichkeiten in unserem Weiterbildungszentrum Olten sowie über E-Learning\n• Familiärer Teamspirit und ein digitales Arbeitsumfeld\n• Sicherer Arbeitsplatz mit umfangreichen Sozialleistungen Wir setzen gemeinsam die Massstäbe von morgen – Ihre Aufgaben\n• Setzen Sie sich für die Zufriedenheit unserer Kundinnen und Kunden ein\n• Beraten Sie individuell mit augenoptischer Fachkompetenz\n• Führen Sie mit modernster Technik Refraktionen präzise durch\n• Passen Sie Kontaktlinsen fachkundig an\n• Unterstützen Sie bei der Betreuung unserer Auszubildenden und geben Sie Ihr Fachwissen weiter Sie begeistern uns – Ihr Profil\n• Sie besitzen eine höhere Fachausbildung im Bereich Optik, als Optometrist, diplomierter Augenoptiker oder Augenoptikermeister mit gleichgestelltem Abschluss.\n• Der empathische Umgang mit Menschen bereitet Ihnen Freude\n• Sie arbeiten selbstständig und verantwortungsbewusst\n• Als Teamplayer schätzen Sie eine kooperative Zusammenarbeit\n• Neuen Technologien gegenüber sind Sie aufgeschlossen Klingt nach einem Job in der Augenoptik, in dem Sie Ihre Stärken zeigen können? Dann freuen wir uns auf Ihre vollständige Bewerbung inklusive Diplomen, Zeugnissen und möglichem Eintrittstermin – online oder unter personal_ch@fielmann.com . Die Fielmann-Gruppe ist weltweit das drittgrösste Unternehmen der augenoptischen Branche. Das börsennotierte Familienunternehmen mit Sitz in Hamburg versorgt über ein Omnichannel-Geschäftsmodell seine Kunden mit Brillen, Kontaktlinsen und Hörsystemen. Mehr als 45 Fachgeschäfte befinden sich in der Schweiz und mit rund 180 Lernenden sind wir einer der grössten Ausbildner der Branche.",
         "fr": "Chez Fielmann, nous sommes plus que des collègues – nous sommes une équipe. Notre cohésion nous rend forts. Grâce à de nouvelles impulsions, nous nous développons. Avec votre utilisation nous grandissons – parfois plus vite, parfois avec soin. Ensemble, nous trouvons le bon rythme et nous fixons les normes de demain. Nous donnons tout – vos avantages\n• Une rémunération attrayante et orientée vers la performance, 13.\n• Remises aux salariés pour vous et votre famille, parts des salariés ainsi que de nombreux autres avantages (par exemple, semi-taxe CFF, AMAG, Sunrise, UBS, etc.)\n• Possibilités de perfectionnement professionnel et personnel dans notre centre de formation Olten et via e-learning\n• L'esprit d'équipe familiale et un environnement de travail numérique\n• Un lieu de travail sûr avec des avantages sociaux étendus Nous avons mis en place les standards de demain – Vos tâches\n• Installez-vous pour la satisfaction de nos clients\n• Conseillez individuellement avec une expertise optique\n• Conduisez\n• Personnalisez vos lentilles de contact avec la technologie la plus avancée\n• Soutenez nos stagiaires et donnez-nous votre expertise – Votre profil\n• Ils ont un niveau supérieur de formation professionnelle dans le domaine de l'optique, des optométristes, des opticiens diplômés ou des opticiens avec un diplôme égal.\n• L'empathie des gens vous prépare la joie\n• Ils travaillent de manière indépendante et responsable\n• En tant que joueur d'équipe, vous apprécierez une collaboration coopérative\n• Nouvelles technologies êtes-vous ouvert d'esprit Klint après un travail dans l'optique où vous pouvez montrer vos forces? Ensuite, nous attendons avec impatience votre candidature complète, y compris les diplômes, les certificats et la date d'entrée possible – en ligne ou à personal ch@fielmann.com . Le Groupe Fielmann est la troisième entreprise dans l'industrie de l'optique oculaire au monde. La société familiale cotée basée à Hambourg fournit à ses clients des lunettes, des lentilles de contact et des systèmes auditifs via un modèle d'affaires omnicanal. Plus de 45 magasins spécialisés sont situés en Suisse et avec environ 180 apprenants, nous sommes l'un des plus grands formateurs de l'industrie."
       },
+      "needsRetranslation": true,
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Zofingen/Optometrist-Augenoptikermeister--w-m-d-_R-60947",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:28.780Z",
+      "crawledAt": "2026-06-15T14:19:24.188Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2436,15 +2437,15 @@
         "optometrist-augenoptikermeister-w-m-d-fielmann-ch"
       ],
       "firstSeenAt": "2026-05-13T11:02:18.634Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -2479,7 +2480,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Hrakustikermeister--w-m-d-_R-61125",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:28.070Z",
+      "crawledAt": "2026-06-15T14:19:23.459Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2520,15 +2521,15 @@
         "horakustikermeister-w-m-d-fielmann-group-aarau-2"
       ],
       "firstSeenAt": "2026-05-13T11:02:17.170Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -2566,7 +2567,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Basel/XMLNAME--Senior--Architekt---Projektleiter-Retail--Schweiz---w-m-d-_R-61433",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:27.355Z",
+      "crawledAt": "2026-06-15T14:19:22.519Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2601,15 +2602,15 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:02:14.713Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
       },
@@ -2641,12 +2642,13 @@
         "de": "Mansion - Formare gli apprentisti e le apprentiste nell'atelier central di formazione di Olten - Sviluppare professionalmente e didatticamente le unità di formazione teoriche e pratiche - Organizzare e condurre le unità di formazione con gli apprentisti e le apprentiste - Supportare i responsabili della formazione in branch\n• Anforderungen - Formazione completata in ottica vontalmica - Esperienza nel consiglio della clientela, nell'atelier e nella direzione e formazione degli apprentisti e delle apprentiste - Apprezzamento per le interazioni empatiche con i giovani - Buone capacitatà comunicative, preferibilmente in più lingual (fr/de/it/en) - Lavoro autonomo e strapturato, consapevole delle propriet responsabilità - Assertività e resistenza - Spirito di squadra e lavoro in cooperazione - Apertura alle nuove tecnology Cosa offeriamo - Faire Vergütung, 13. Gehalt, Transportbeihilfe - Interessante Arbeitszeit, Montag bis Freitag - Mit Rabatt für sich und Ihre Familie - Erste Vor-Ort-Ausbildung durch unsere Fachkräfte - Großes Ausbildungsangebot in unserem regionalen Weiterbildungszentrum in Olten - Familienfreundliche Teams und eine digitale Arbeitsumgebung - Sichere Post und viele soziale Vorteile Contattoo Se questa descrizione di lavoro in ottica corrisponde alle die konkurrieren, siamo lieti diricevere la tua candidura comprese le das qualiche e Certificatei, e la tua possibile data di inizio - inviacela online o scrivaci a personal\\ ch@fielmann.com Il Gruppo Fielmann è la terza più grande compagnia mondiale del settore dell'ottica. L'impresa vertraute Quoteta in borsa, il cui quartier generale si trova ad Amburgo, utilizza un modello commercial omnicanale per fornire ai suoi clienti occhiali, lenti a contatto e sistemi auditivi. La Svizzera ospita più di 45 boutique specializzate; con i nostri circa 180 apprentisti, siamo uno dei primi formatori del settore.",
         "fr": "Chez Fielmann, plus que de simples collègues, nous sommes les membres d’une même équipe. Notre force naît de notre cohésion. Des impulsions nouvelles nous permettent de nous développer. Votre engagement nous aide à grandir – tantôt rapidement, tantôt avec prudence. Ensemble, nous trouvons le bon tempo et créons les standards de demain. Nous faisons tout notre possible – les avantages dont vous bénéficierez\n• Une rémunération juste, un 13e salaire, indemnité de transport\n• Des horaires de travail intéressants, du lundi au vendredi\n• Des rabais collaborateur pour vous-même ainsi que votre famille\n• Une formation initiale réalisée sur place par nos formateurs et formatrices spécialisés\n• Une vaste offre de formation à notre centre régional de formation continue d’Olten\n• Des équipes à l’esprit familial et un environnement de travail numérique\n• Un poste sûr et de nombreuses prestations sociales Nous établissons ensemble les standards de demain – vos missions\n• Soyez responsable de la formation de nos apprenties et apprentis à notre atelier central de formation d’Olten.\n• Chargez-vous de l’élaboration professionnelle et pédagogique d’unités de formation théoriques et pratiques.\n• Organisez les différentes unités de formation et menez-les à bien avec les apprenties et apprentis.\n• Apportez votre soutien à nos responsables de formation en succursale. Vous nous enthousiasmez – votre profil\n• Vous avez mené à bien votre formation en optique ophtalmique\n• Vous disposez d’expérience en conseil de la clientèle, en atelier ainsi qu’en direction et encadrement des apprenties et apprentis\n• Vous appréciez les interactions empathiques avec les jeunes\n• Vous êtes doué(e) de bonnes capacités de communication, si possible dans plusieurs langues (fr/de/it/en)\n• Vous travaillez en autonomie et de manière structurée, conscient(e) de vos responsabilités\n• Vous êtes assertif (ou assertive) et résistant\n• Vous avez l’esprit d’équipe et prisez le travail en coopération\n• Vous êtes ouvert(e) aux nouvelles technologies Est-ce la description d’un emploi en optique qui vous permettrait de mettre vos atouts en avant ? Dans ce cas, nous serons heureux de recevoir votre candidature complète, comprenant vos diplômes et certificats et indiquant votre possible date d’entrée en fonction – soumettez-la en ligne ou en écrivant à personal_ch@fielmann.com . Le Groupe Fielmann est la troisième plus grande compagnie mondiale du secteur de l’optique. L’entreprise familiale cotée en bourse, dont le siège social est sis à Hambourg, emploie un modèle commercial omnicanal pour approvisionner ses clients en lunettes, lentilles de contact et systèmes auditifs. La Suisse abrite plus de 45 boutiques spécialisées ; avec nos quelque 180 apprentis, nous sommes l’un des premiers formateurs de la branche."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Olten/Formateur-ou-formatrice-spcialis-e--en-optique--h-f-d-_R-54472",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:26.600Z",
+      "crawledAt": "2026-06-15T14:19:21.820Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -2679,15 +2681,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:41:53.165Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -2725,7 +2727,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Aarau/Hrakustikermeister--w-m-d-_R-61458",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:25.853Z",
+      "crawledAt": "2026-06-15T14:19:21.131Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -2769,15 +2771,15 @@
         "horakustikermeister-w-m-d-fielmann-group-aarau-2"
       ],
       "firstSeenAt": "2026-05-19T22:13:24.580Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
       },
@@ -2815,7 +2817,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Lausanne/Optomtriste-Matre-opticien-ne---h-f-d-_R-52919",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:25.120Z",
+      "crawledAt": "2026-06-15T14:19:20.417Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2848,15 +2850,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:54:34.334Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2894,7 +2896,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Genve/Opticien--f-m-_R-4091",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:24.387Z",
+      "crawledAt": "2026-06-15T14:19:19.690Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -2934,15 +2936,15 @@
         "optimierung-n-h-f-d-fielmann-group-geneve"
       ],
       "firstSeenAt": "2026-05-13T11:02:12.496Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2980,7 +2982,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Sion/Opticien--f-h-_R-13288-1",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:50:23.647Z",
+      "crawledAt": "2026-06-15T14:19:18.978Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -3022,15 +3024,15 @@
         "optimierung-n-h-f-d-fielmann-group-geneve"
       ],
       "firstSeenAt": "2026-05-13T11:02:13.280Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -3068,7 +3070,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Zrich/Augenoptiker--w-m-_R-2809",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:22.924Z",
+      "crawledAt": "2026-06-15T14:19:18.053Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3124,15 +3126,15 @@
         "opticien-w-m-d-fielmann-group-wadenswil"
       ],
       "firstSeenAt": "2026-05-13T11:02:37.448Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3170,7 +3172,7 @@
       "url": "https://fielmann.wd3.myworkdayjobs.com/en/External/job/Winterthur/Kundenberater-Augenoptik-100---w-m-_R-14729",
       "source": "Fielmann Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:50:21.284Z",
+      "crawledAt": "2026-06-15T14:19:16.560Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -3205,15 +3207,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:57:01.394Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },

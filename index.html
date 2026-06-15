@@ -32,9 +32,12 @@
     <meta name="citation_date" content="2026-03-03" />
     <meta name="citation_online_date" content="2024-01-01" />
     <meta name="citation_keywords" content="frontaliere, cross-border worker, Grenzgänger, imposta alla fonte, withholding tax, IRPEF, Canton Ticino, LAMal, AVS, LPP, Permit G, fiscal simulation, Swiss-Italian taxation 2026" />
-    <!-- AI-readable knowledge files -->
-    <link rel="ai-knowledge" href="/llms-full.txt" type="text/plain" />
-    <link rel="ai-plugin" href="/.well-known/ai-plugin.json" type="application/json" />
+    <!-- AI-readable knowledge files served at their conventional well-known paths:
+         /llms-full.txt and /.well-known/ai-plugin.json (auto-discovered, no <link> hint needed).
+         Removed the previous <link rel="ai-knowledge"> / rel="ai-plugin"> tags: those rel
+         values are not in the HTML link-relations registry, so validators/crawlers flag them
+         as an invalid rel attribute on every page. -->
+
     
     <!-- Hreflang for multilingual SEO -->
     <link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/" />
