@@ -79,7 +79,13 @@ describe('critical CSS single source of truth (#1586)', () => {
     // brace; the now-dangling closing brace is harmless (the matcher requires a
     // `selector{…}` shape, so an orphan `}` never matches). A global pass
     // unwraps nested at-rules too (`@supports{@media{#root{…}}}`).
-    const cssUnwrapped = cssNoComments.replace(/@[a-z-]+[^{}]*\{/gi, '');
+    // The prelude class EXCLUDES `;` so at-STATEMENTS (`@import …;`,
+    // `@custom-variant …;`, `@charset …;`, `@layer a,b;`) — which `index.css`
+    // opens with — stop the strip at their `;` instead of greedily consuming
+    // forward to the next `{` and swallowing the following rule's selector
+    // (which would silently skip a bare `#root{min-height:100vh}` placed right
+    // after an at-statement → the same #1586/#2162 false negative we close).
+    const cssUnwrapped = cssNoComments.replace(/@[a-z-]+[^{};]*\{/gi, '');
     const unscopedRootBlocks = [...cssUnwrapped.matchAll(/([^{};]+)\{([^}]*)\}/g)].filter(
       (m) => {
         const selectors = m[1].split(',').map((s) => s.trim());
