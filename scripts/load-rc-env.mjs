@@ -94,6 +94,14 @@ const RC_TO_ENV = {
   LINKEDIN_SIGNIN_ACCESS_TOKEN:   ['LINKEDIN_SIGNIN_ACCESS_TOKEN'],
   LINKEDIN_SIGNIN_REFRESH_TOKEN:  ['LINKEDIN_SIGNIN_REFRESH_TOKEN'],
 
+  // Reddit auto-posting (jobs + articles to communities)
+  REDDIT_CLIENT_ID:               ['REDDIT_CLIENT_ID'],
+  REDDIT_USERNAME:                ['REDDIT_USERNAME'],
+  REDDIT_USER_AGENT:              ['REDDIT_USER_AGENT'],
+  SERVER_REDDIT_CLIENT_SECRET:    ['REDDIT_CLIENT_SECRET'],
+  SERVER_REDDIT_PASSWORD:         ['REDDIT_PASSWORD'],
+  SERVER_REDDIT_REFRESH_TOKEN:    ['REDDIT_REFRESH_TOKEN'],
+
   // Linear API (issue creation on CI failure)
 
   // LLM providers (AI model chain for articles + crawlers)
