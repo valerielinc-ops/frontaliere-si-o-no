@@ -146,24 +146,53 @@ export function citedTokens(body) {
  * @param {Array<{number?: number, title?: string, body?: string}>} mergedPrs
  * @returns {number|null}  the declaring PR number, or null
  */
+// Match a closing keyword IMMEDIATELY followed by a run of issue refs separated
+// ONLY by separators (whitespace / comma / `&` / "and") — the multi-issue
+// `Closes #a #b #c` (and `Closes #a, #b and #c`) shape. Requiring the ref to be
+// part of that unbroken keyword-anchored list (not merely on the same line)
+// rejects `Fixes #8 and touches #N`: the word "touches" breaks the run, so #N
+// is NOT in the closing list (reviewer adversarial #1/#2 — a same-line match
+// would have false-flagged it and dropped a legit agent:fix). Single source of
+// truth: `closedIssueRefs` (the grandchild-suppression gate) and `closingMergedPr`
+// (the already-resolved gate) MUST agree byte-for-byte on what a "closing ref" is
+// (AGENTS.md #6 — a regex duplicated literally in ≥2 files → ONE shared module).
+const CLOSE_KW_LIST = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b\s*:?\s*((?:#\d+(?:[\s,&]+(?:and\s+)?)?)+)/ig;
+
+/**
+ * Every issue number declared closed/superseded by a closing-keyword list in `text`
+ * (PR title+body). Returns a deduped array of positive integers (the `#` numbers in
+ * each keyword-anchored run). Empty array on non-string / no match.
+ *
+ * Backs `closingMergedPr` (the already-resolved gate's explicit cross-ref signal).
+ * NB: deliberately NOT used by the post-merge-followup grandchild-suppression gate —
+ * that gate anchors on the fixer BRANCH (`fix/issue-<N>`), not the body, because any
+ * "closes #N" in prose (even describing another PR) false-positives here and would skip
+ * a real organic PR's triage (regression seen on PR #2214). Pure — no I/O.
+ *
+ * @param {string} text  PR title + body (or any prose)
+ * @returns {number[]}   deduped closed-issue numbers, in first-seen order
+ */
+export function closedIssueRefs(text) {
+  if (typeof text !== 'string' || !text) return [];
+  const out = [];
+  const seen = new Set();
+  for (const m of text.matchAll(CLOSE_KW_LIST)) {
+    for (const ref of (m[1] || '').match(/#\d+/g) || []) {
+      const n = Number(ref.slice(1));
+      if (Number.isInteger(n) && n > 0 && !seen.has(n)) { seen.add(n); out.push(n); }
+    }
+  }
+  return out;
+}
+
 export function closingMergedPr(issueNumber, mergedPrs) {
   const n = Number(issueNumber);
   if (!Number.isInteger(n) || n <= 0 || !Array.isArray(mergedPrs)) return null;
-  // Match a closing keyword IMMEDIATELY followed by a run of issue refs separated
-  // ONLY by separators (whitespace / comma / `&` / "and") — the multi-issue
-  // `Closes #a #b #c` (and `Closes #a, #b and #c`) shape. Requiring the ref to be
-  // part of that unbroken keyword-anchored list (not merely on the same line)
-  // rejects `Fixes #8 and touches #N`: the word "touches" breaks the run, so #N
-  // is NOT in the closing list (reviewer adversarial #1/#2 — a same-line match
-  // would have false-flagged it and dropped a legit agent:fix). The exact `#${n}`
-  // string compare also makes the `#2035` vs `#20350` guard fall out for free.
-  const kwList = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b\s*:?\s*((?:#\d+(?:[\s,&]+(?:and\s+)?)?)+)/ig;
+  // The exact `#${n}` string compare also makes the `#2035` vs `#20350` guard fall
+  // out for free (closedIssueRefs returns parsed integers, compared exactly).
   for (const pr of mergedPrs) {
-    const text = `${pr?.title || ''}\n${pr?.body || ''}`;
-    for (const m of text.matchAll(kwList)) {
-      const refs = (m[1] || '').match(/#\d+/g) || [];
-      if (refs.includes(`#${n}`)) return pr?.number ?? null;
-    }
+    const refs = closedIssueRefs(`${pr?.title || ''}\n${pr?.body || ''}`);
+    if (refs.includes(n)) return pr?.number ?? null;
   }
   return null;
 }

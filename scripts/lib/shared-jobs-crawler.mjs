@@ -5164,6 +5164,26 @@ async function main() {
       if (selectedQueue.length > 0) {
         console.log(`🌐 Backfill localization queue: ${selectedQueue.length}/${queue.length} jobs (concurrency=${localizationConcurrency})`);
       }
+      // Opt-in wall-clock budget for the AI-localization loop. Default UNSET /
+      // 0 / non-finite ⇒ NO budget (unlimited) so the 300+ normal dedicated
+      // crawlers (which never set it and finish in minutes) are UNAFFECTED.
+      // When set (translate-pending sets ~280min, well under its 350min job
+      // timeout), once elapsed wall-clock since loop start exceeds it we STOP
+      // starting NEW jobs: the per-item callback early-returns the job UNCHANGED
+      // (still flagged needsRetranslation/incomplete so the next run retries it)
+      // instead of calling the AI. In-flight items finish normally. This keeps
+      // the step from being killed at the hard job timeout, which would skip the
+      // commit step and LOSE work. Jobs localized BEFORE the budget hit keep
+      // their results (returned by the pipeline + captured by the per-company
+      // incremental fs.writeFileSync in relocalize-pending-jobs.mjs).
+      const rawLocalizationTimeBudgetMs = Number(process.env.JOBS_AI_LOCALIZATION_TIME_BUDGET_MS);
+      const localizationTimeBudgetMs =
+        Number.isFinite(rawLocalizationTimeBudgetMs) && rawLocalizationTimeBudgetMs > 0
+          ? rawLocalizationTimeBudgetMs
+          : 0;
+      const localizationLoopStart = Date.now();
+      let localizationDeferredCount = 0;
+      let localizationBudgetLogged = false;
       const enrichedMap = new Map();
       if (selectedQueue.length > 0) {
         // Load registry once for post-AI pinning enforcement: mergeAndDeduplicate
@@ -5177,6 +5197,20 @@ async function main() {
         const localizedEntries = await runWithConcurrency(
           selectedQueue.map((job, index) => ({ job, index })),
           async ({ job, index }) => {
+            // Wall-clock budget guard: once the budget is exceeded, stop
+            // starting NEW jobs — return the job UNCHANGED (no AI call) so it
+            // stays flagged needsRetranslation/incomplete and the next run
+            // retries it. In-flight items already past this check finish.
+            if (localizationTimeBudgetMs > 0
+                && (Date.now() - localizationLoopStart) > localizationTimeBudgetMs) {
+              localizationDeferredCount++;
+              if (!localizationBudgetLogged) {
+                localizationBudgetLogged = true;
+                const budgetMin = Math.round(localizationTimeBudgetMs / 60_000);
+                console.log(`⏰ [localize] time budget ${budgetMin}min reached — ${selectedQueue.length - index} jobs deferred to next run`);
+              }
+              return { fp: fingerprintJob(job), enriched: job };
+            }
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
             }
