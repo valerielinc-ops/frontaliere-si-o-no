@@ -19,6 +19,29 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Regression: a search-style slug under a NON-Ticino canton section must
+  // canonicalize to that canton's listing, not drift onto Ticino. The search
+  // branch runs before the expired-job branch, so without canton-awareness
+  // every ricerca-/suche-/search-/recherche- job slug (≈29% of the coverage
+  // cohort) would land on /cerca-lavoro-ticino/ (the #2041 wrong-canton bug).
+  it('keeps the URL canton for search-style slugs under non-Ticino sections', () => {
+    expect(resolveSearchConsoleCompatTarget('/cerca-lavoro-berna/ricerca-offerte-lavoro-software-plc-ingegnere')).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/',
+      kind: 'search',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-in-schweiz/suche-asset-ostermundigen')).toEqual({
+      canonicalPath: '/de/jobs-in-schweiz/',
+      kind: 'search',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/trouver-emploi-suisse/recherche-ingenieur-metier-rolex')).toEqual({
+      canonicalPath: '/fr/trouver-emploi-suisse/',
+      kind: 'search',
+      locale: 'fr',
+    });
+  });
+
   it('fixes non-Italian company URLs with the wrong azienda prefix', () => {
     expect(resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/azienda-medacta-international-sa')).toEqual({
       canonicalPath: '/de/jobs-im-tessin/unternehmen-medacta-international-sa/',
@@ -108,6 +131,120 @@ describe('Search Console 404 compatibility resolver', () => {
       kind: 'legacy',
       locale: 'it',
     });
+  });
+
+  it('routes listing pagination leaves to the canton listing root', () => {
+    expect(resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/alle/page-1022')).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    expect(resolveSearchConsoleCompatTarget('/fr/trouver-emploi-tessin/tous/page-454')).toEqual({
+      canonicalPath: '/fr/trouver-emploi-tessin/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/find-jobs-ticino/all/page-510')).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('routes expired job-detail leaves with a trailing numeric id to the listing', () => {
+    expect(
+      resolveSearchConsoleCompatTarget(
+        '/de/jobs-im-tessin/arztsekretar-in-oder-mpa-80-frauenklinik-zuri-ost-spital-uster-ch/3594',
+      ),
+    ).toEqual({
+      canonicalPath: '/de/jobs-im-tessin/',
+      kind: 'expired-job',
+      locale: 'de',
+    });
+  });
+
+  it('routes expired fuel-station leaves to the matching fuel landing (diesel↔diesel, benzina↔benzina)', () => {
+    // IT diesel → IT diesel today page.
+    expect(resolveSearchConsoleCompatTarget('/prezzi-diesel/lugano/stazioni/eni-strada-per-gandria')).toEqual({
+      canonicalPath: '/prezzi-diesel/oggi/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    // DE benzina (benzinpreis-schweiz) → DE benzina today page, NOT the diesel one.
+    expect(resolveSearchConsoleCompatTarget('/de/benzinpreis-schweiz/lugano/tankstellen/socar-via-colombera')).toEqual({
+      canonicalPath: '/de/benzinpreis-schweiz/heute/',
+      kind: 'legacy',
+      locale: 'de',
+    });
+    // FR diesel is `prix-gasoil-suisse` (the live section); `prix-diesel` is a
+    // legacy alias that 301-redirects, so it must NOT be the canonical target.
+    expect(resolveSearchConsoleCompatTarget('/fr/prix-gasoil-suisse/mendrisio/stations/eni-via-bernasconi')).toEqual({
+      canonicalPath: '/fr/prix-gasoil-suisse/aujourd-hui/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+    // FR benzina (prix-essence-suisse) → FR benzina today page.
+    expect(resolveSearchConsoleCompatTarget('/fr/prix-essence-suisse/lugano/stations/piccadilly-via-cantonale-2')).toEqual({
+      canonicalPath: '/fr/prix-essence-suisse/aujourd-hui/',
+      kind: 'legacy',
+      locale: 'fr',
+    });
+  });
+
+  it('routes expired company-hub week leaves to the hub root', () => {
+    expect(
+      resolveSearchConsoleCompatTarget('/aziende-che-assumono/locarno/amministrazione-cantonale-ticino/settimana-corrente'),
+    ).toEqual({
+      canonicalPath: '/aziende-che-assumono/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(
+      resolveSearchConsoleCompatTarget('/en/companies-hiring/lugano/lis-lugano-istituti-sociali/current-week'),
+    ).toEqual({
+      canonicalPath: '/en/companies-hiring/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('routes legacy flat /lavoro/ job URLs to the localized listing', () => {
+    expect(resolveSearchConsoleCompatTarget('/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino')).toEqual({
+      canonicalPath: '/cerca-lavoro-ticino/',
+      kind: 'legacy',
+      locale: 'it',
+    });
+    expect(resolveSearchConsoleCompatTarget('/en/lavoro/prompt-engineer-da-remoto-thun-frontaliere-ticino')).toEqual({
+      canonicalPath: '/en/find-jobs-ticino/',
+      kind: 'legacy',
+      locale: 'en',
+    });
+  });
+
+  it('covers every URL in the bounded GSC Coverage 404 export', () => {
+    const coverage = JSON.parse(
+      readFileSync(path.resolve(__dirname, '..', 'data', 'gsc-coverage-404s.json'), 'utf-8')
+    );
+    expect(Array.isArray(coverage.paths)).toBe(true);
+    expect(coverage.paths.length).toBeGreaterThan(0);
+    for (const value of coverage.paths) {
+      expect(resolveSearchConsoleCompatTarget(value), value).not.toBeNull();
+    }
+
+    // Section-preservation guard (not just non-null): every coverage URL under a
+    // per-canton job-board section must canonicalize to the SAME section — no
+    // wrong-canton drift. Excludes company-hub leaves (azienda-/company-/… →
+    // canton-independent TI hub by design). Catches the search-branch shadowing
+    // regression the plain non-null assertion above would miss.
+    const SECTION_RE =
+      /^(?:\/(?:en|de|fr))?\/((?:cerca-lavoro|find-jobs?|job-search|jobs-i[mn]|jobsuche|stellenangebote|trouver-emploi|recherche-emploi|emplois)-[a-z-]+)\//;
+    const COMPANY_SLUG_RE = /\/(?:azienda|company|unternehmen|entreprise)-/;
+    for (const value of coverage.paths) {
+      const m = value.match(SECTION_RE);
+      if (!m || COMPANY_SLUG_RE.test(value)) continue;
+      const res = resolveSearchConsoleCompatTarget(value);
+      expect(res?.canonicalPath, value).toContain(`/${m[1]}/`);
+    }
   });
 
   it('still returns null for truly unknown paths', () => {
