@@ -9341,7 +9341,16 @@ ${staticAnalyticsHtml}
              '@type': 'ItemList',
              numberOfItems: totalJobs,
              itemListOrder: 'https://schema.org/ItemListOrderDescending',
-             itemListElement: cantonJobs.map((j, i) => {
+             // PR #2229 adversarial-check #2: skip jobs whose slug is empty —
+             // their href would degrade to the bare canton section and collide
+             // with this listing page itself. numberOfItems still reports the
+             // real total (schema.org subset pattern).
+             itemListElement: cantonJobs
+               .filter((j) => {
+                 const jt = j as { slugByLocale?: Record<string, string>; slug?: string };
+                 return Boolean(jt.slugByLocale?.[entry.locale] || jt.slug);
+               })
+               .map((j, i) => {
                const jt = j as {
                  slugByLocale?: Record<string, string>;
                  slug?: string;
@@ -10977,9 +10986,20 @@ ${staticAnalyticsHtml}
  // Expired-specific datePosted: when no crawl data exists, estimate as
  // 30 days before expiredAt so the posting window looks natural.
  const expiredDatePosted = (() => {
+ const raw = (() => {
  if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
  if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
  const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+ })();
+ // PR #2229 adversarial-check #1: when the only timestamp is postedDate,
+ // realValidThrough === postedDate === raw → a zero/negative posting window
+ // that Google rejects (validThrough must be AFTER datePosted). Clamp
+ // datePosted to 30 days before validThrough when it would not strictly
+ // precede it.
+ if (!(new Date(raw).getTime() < new Date(realValidThrough).getTime())) {
+ const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+ }
+ return raw;
  })();
  const jp: Record<string, unknown> = {
  ...expiredSchema,
