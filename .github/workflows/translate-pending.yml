@@ -178,6 +178,17 @@ jobs:
           # Self-hosted LibreTranslate from service container — unlimited, no API key needed
           JOBS_LIBRETRANSLATE_ENDPOINT: 'http://localhost:5000/translate'
           LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
+          # Fast-fail the self-hosted LibreTranslate fetch. Measured: on the 2-core
+          # GitHub runner the Argos /translate endpoint overwhelmingly times out — run
+          # 27459918472 (max-jobs 100, default concurrency) logged 525 self-hosted
+          # timeout errors vs only 73 jobs cleared, burning ~262min of a 329min run
+          # waiting out the 30s default bound (free-translate.mjs LIBRETRANSLATE_TIMEOUT_MS).
+          # LT self-hosted contributes ~nothing, so failing it in 5s instead of 30s
+          # reclaims ~85% of that wasted time for the tiers that actually work (premium
+          # + MyMemory + public LT). The cascade order is unchanged; jobs LT can't serve
+          # fall through exactly as before, just sooner. Bounded downside: the rare LT
+          # call that would have succeeded in 5-30s now falls to MyMemory (which works).
+          LIBRETRANSLATE_TIMEOUT_MS: '5000'
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
@@ -199,6 +210,10 @@ jobs:
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
         env:
           LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
+          # Same fast-fail rationale as Phase 2 above — the self-hosted LT endpoint
+          # times out ~always on the 2-core runner; 5s instead of 30s avoids burning
+          # the step's budget on the dead tier before the working cascade tiers run.
+          LIBRETRANSLATE_TIMEOUT_MS: '5000'
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
