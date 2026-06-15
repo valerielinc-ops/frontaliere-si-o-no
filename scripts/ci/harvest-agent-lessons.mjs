@@ -14,6 +14,11 @@
 //   - appends `has_novel=<bool>` and `novel_count=<n>` to $GITHUB_OUTPUT
 //
 // Env knobs: WINDOW_DAYS (14), THRESHOLD (3), MAX_PRS (40), MAX_ISSUES (120).
+//
+// Pure helpers (detectSeverity / tallyFindings / bucketFinding / issueClass /
+// severityLabelForCount / parseEscalationKey) are exported and unit-tested; the
+// gh-scanning + escalation-emit side effects live in main(), run only when this
+// file is invoked as a script (guard at bottom) so importing it is free.
 
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -24,6 +29,10 @@ const THRESHOLD = Number(process.env.THRESHOLD || 3);
 const MAX_PRS = Number(process.env.MAX_PRS || 40);
 const MAX_ISSUES = Number(process.env.MAX_ISSUES || 120);
 const OUT = process.env.HARVEST_OUT || 'harvest-clusters.json';
+// EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
+// is evidence the prose rule isn't preventing the mistake → escalate to a
+// structural fix instead of writing another line nobody follows.
+const EFFICACY_FACTOR = Number(process.env.EFFICACY_FACTOR || 2);
 
 const sinceMs = Date.now() - WINDOW_DAYS * 86_400_000;
 const sinceDay = new Date(sinceMs).toISOString().slice(0, 10);
@@ -65,7 +74,18 @@ const TAXONOMY = [
   { key: 'auto-ads', re: /auto ?ads|adsense|anchor ad|vignette|in-page ad/i, docKeys: ['auto ads', 'adsense'] },
   { key: 'canonical-sitemap', re: /canonical|sitemap|noindex|cross-section/i, docKeys: ['canonical', 'sitemap', 'noindex'] },
   { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|\bpat\b|credential|secret|branch protection|push.*workflow/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
-  { key: 'i18n-naming', re: /locale|i18n|translat|canton-?aware|naming|brand/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
+  // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
+  // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
+  // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
+  // `translat` swallowed the ENTIRE translate pipeline (a high-volume active area),
+  // `naming` matched any "naming" (e.g. ad-container naming), `brand` matched
+  // "branded"/"branding" — so heterogeneous, unrelated findings false-clustered here
+  // and tripped a phantom `recurringDespiteRule` escalation (issue #2122, 15 hits / 0
+  // real naming defects). Deliberately NO replacement topic-bucket for the translate
+  // pipeline: those findings are genuine process-failures (unvalidated-claim,
+  // sibling-class-fix, pr-body-contract) and now route to THOSE buckets, or fall to
+  // the fingerprint safety-net — which clusters only on truly-repeated lead-phrases.
+  { key: 'i18n-naming', re: /locale segment|locale-?prefix|canton-?aware (slug|naming|url)|translated? brand|brand.*translat|translation key|missing (locale|translation)|untranslated/i, docKeys: ['locale', 'i18n', 'canton-aware'] },
   { key: 'router-nav', re: /router|parsepath|staticoverlay|window\.location/i, docKeys: ['router', 'staticoverlay', 'parsepath'] },
   // PROCESS-failure-mode buckets (see family note above):
   { key: 'pr-body-contract', re: /implementato|non implementato|completeness contract|sezioni? (obbligatori|mancant)|## fix\b|## verify\b/i, docKeys: ['completeness contract', 'non implementato'] },
@@ -97,35 +117,54 @@ function fingerprintFinding(text) {
   const lead = words.slice(0, 4);
   return lead.length >= 3 ? `fp:${lead.join('-')}` : null; // too short → still drop
 }
-function bucketFinding(text) {
+export function bucketFinding(text) {
   for (const t of TAXONOMY) if (t.re.test(text)) return t.key;
   return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
 }
 
-// ---- 1. Reviewer findings on recently-merged PRs ----
-const findingExamples = {}; // bucket -> [{pr, severity, snippet}]
-const findingCounts = {};
-const mergedPrs = ghJson(['pr', 'list', '--state', 'merged', '--search', `merged:>=${sinceDay}`,
-  '--limit', String(MAX_PRS), '--json', 'number']) || [];
-for (const { number } of mergedPrs) {
-  const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
-  const reviews = data?.reviews || [];
-  for (const r of reviews) {
-    if (r.author?.login !== 'claude') continue;
-    const lines = String(r.body || '').split('\n');
-    for (const line of lines) {
-      const sev = line.includes('🔴') ? '🔴' : line.includes('🟡') ? '🟡' : line.includes('❓') ? '❓' : null;
-      if (!sev) continue;
-      const bucket = bucketFinding(line);
-      if (!bucket) continue;
-      findingCounts[bucket] = (findingCounts[bucket] || 0) + 1;
-      (findingExamples[bucket] ||= []).push({ pr: number, severity: sev, snippet: line.trim().slice(0, 160) });
+// Severities that count as a CONFIRMED recurring mistake. `❓` is an
+// adversarial-uncertainty note ("couldn't verify X") — the reviewer doing due
+// diligence on a PR that legitimately touches the topic, NOT the agent
+// repeating a documented error. Counting `❓` (and counting every matching LINE
+// rather than every distinct PR) inflated TOPIC buckets with non-defects and
+// mis-fired escalations: `auto-ads` reached 7 from a negation substring match
+// ("non SEO/AdSense", #2114) plus the three `❓` adversarial lines of a single
+// PR (#2086) — none of them a rule violation (#2124). So: count only confirmed
+// severities, at most once per (PR, bucket).
+const COUNTABLE_SEVERITIES = new Set(['🔴', '🟡']);
+export function detectSeverity(line) {
+  return line.includes('🔴') ? '🔴' : line.includes('🟡') ? '🟡' : line.includes('❓') ? '❓' : null;
+}
+
+// Pure tally: reviewer-PRs → { counts, examples } per bucket. Mirrors the
+// per-issue dedup already used for fix-outcome markers below: one PR with N
+// matching lines in the same bucket counts ONCE (the lesson is "N distinct PRs
+// got <topic> wrong", not "N lines"). `❓`/uncountable severities are skipped.
+// `bucketOf` is injectable for testing.
+export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
+  const counts = {};
+  const examples = {};
+  for (const { number, reviews } of prs || []) {
+    const seenBuckets = new Set(); // per-PR dedup across all its reviews
+    for (const r of reviews || []) {
+      if (r.author?.login !== 'claude') continue;
+      for (const line of String(r.body || '').split('\n')) {
+        const sev = detectSeverity(line);
+        if (!sev || !COUNTABLE_SEVERITIES.has(sev)) continue;
+        const bucket = bucketOf(line);
+        if (!bucket) continue;
+        if (seenBuckets.has(bucket)) continue;
+        seenBuckets.add(bucket);
+        counts[bucket] = (counts[bucket] || 0) + 1;
+        (examples[bucket] ||= []).push({ pr: number, severity: sev, snippet: line.trim().slice(0, 160) });
+      }
     }
   }
+  return { counts, examples };
 }
 
 // ---- 2. Recurring issue classes (created in window) ----
-function issueClass(title, labels) {
+export function issueClass(title, labels) {
   const t = title || '';
   if (/^Crawler Failure/i.test(t)) return 'issue:crawler-failure';
   if (/Validation Failure|Publish post-deploy/i.test(t)) return 'issue:validation-failure';
@@ -135,73 +174,10 @@ function issueClass(title, labels) {
   if (names.includes('revenue') || names.includes('rpm-canary')) return 'issue:revenue';
   return null;
 }
-const issueCounts = {};
-const issueExamples = {};
-const allIssues = ghJson(['issue', 'list', '--state', 'all', '--search', `created:>=${sinceDay}`,
-  '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
-for (const it of allIssues) {
-  const cls = issueClass(it.title, it.labels);
-  if (!cls) continue;
-  issueCounts[cls] = (issueCounts[cls] || 0) + 1;
-  (issueExamples[cls] ||= []).push({ issue: it.number, title: (it.title || '').slice(0, 80) });
-}
-
-// ---- 3. issue-fix outcomes via FIX_OUTCOME markers in issue comments ----
-// Marker contract (issue-fix.yml prompt): the fixer's terminal comment starts
-// with `<!-- FIX_OUTCOME: <code> -->`. We bucket the blocked/no-pr codes since
-// those are the recurring-burn signal; `pr-created` is the healthy path.
-const outcomeCounts = {};
-const outcomeExamples = {};
-const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
-  '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number']) || [];
-for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
-  const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
-  const comments = data?.comments || [];
-  // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
-  // a 3 tentativi) può postare lo STESSO marker N volte. Contarli tutti gonfia
-  // il bucket (3 run di UNA issue → conta 3) e fa scattare l'escalation su una
-  // soglia di issue-distinte falsata — è esattamente ciò che ha prodotto #1478.
-  // La lezione cercata è «N issue DISTINTE bloccate da questo esito», non «N
-  // commenti» → conta ogni codice al più una volta per issue. (Il re-queue è
-  // ora fermato alla sorgente in followup-drainer.mjs, ma il dedup rende il
-  // conteggio robusto anche allo storico e a ri-tentativi manuali.)
-  const seenThisIssue = new Set();
-  for (const c of comments) {
-    const m = String(c.body || '').match(/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i);
-    if (!m) continue;
-    const code = m[1].toLowerCase();
-    if (code === 'pr-created') continue; // healthy
-    // Backstop-emitted fallbacks (issue-fix.yml "post-step deterministico") tag
-    // crashed/max_turns runs — expected catch-all, not a doc-rule violation.
-    // Counting them inflates no-pr-unspecified → feedback loop: escalation keeps
-    // re-firing even after the backstop fix (PR #1067) landed.
-    if (String(c.body || '').includes('post-step deterministico')) continue;
-    // SAME feedback-loop, `already-fixed` flavour: the zero-Claude pre-flight gate
-    // (check-issue-already-resolved.mjs, structural fix #1647) and the scheduled
-    // reconciler (reconcile-followups.mjs) BOTH post `<!-- FIX_OUTCOME: already-fixed -->`
-    // when they short-circuit a done-but-open follow-up WITHOUT ever spending a Claude
-    // run. Counting those as burn makes the structural fix re-escalate ITSELF (#2123:
-    // bucket re-fired at 10/14d even though the gate had already shipped). Only a
-    // marker from a genuine Claude fixer run is recurring-burn signal → skip the
-    // deterministic short-circuit comments (carry the `<!-- reconcile-bot -->` marker
-    // and the "Pre-flight (auto, zero-Claude)" / "Reconcile (auto)" signature).
-    const cb = String(c.body || '');
-    if (cb.includes('reconcile-bot') ||
-        cb.includes('Pre-flight (auto, zero-Claude)') ||
-        cb.includes('Reconcile (auto)')) continue;
-    const k = `fix-outcome:${code}`;
-    if (seenThisIssue.has(k)) continue;
-    seenThisIssue.add(k);
-    outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
-    (outcomeExamples[k] ||= []).push({ issue: number });
-  }
-}
 
 // ---- Dedup vs existing doc-contracts ----
 const DOC_FILES = ['AGENTS.md', 'ISSUES.md', 'REVIEW.md', 'FOLLOWUP.md'];
-let corpus = '';
-for (const f of DOC_FILES) { try { corpus += '\n' + fs.readFileSync(f, 'utf-8').toLowerCase(); } catch { /* ignore */ } }
-function alreadyDocumented(bucketKey) {
+export function alreadyDocumented(bucketKey, corpus) {
   const tax = TAXONOMY.find((t) => t.key === bucketKey);
   if (tax) return tax.docKeys.some((k) => corpus.includes(k.toLowerCase()));
   // Non-taxonomy keys (issue-class / fix-outcome codes): check hyphen, space
@@ -211,66 +187,7 @@ function alreadyDocumented(bucketKey) {
   return variants.some((v) => corpus.includes(v));
 }
 
-// ---- Assemble clusters above threshold + novel ----
-// EFFICACY_FACTOR: a documented pattern that STILL recurs at ≥ THRESHOLD×factor
-// is evidence the prose rule isn't preventing the mistake → escalate to a
-// structural fix instead of writing another line nobody follows.
-const EFFICACY_FACTOR = Number(process.env.EFFICACY_FACTOR || 2);
-const clusters = [];
-// `driver`: clusters that can drive a doc-rule proposal (an agent repeating a
-// mistake or hitting a wall). issue-class counts are operational VOLUME handled
-// by triage/monitors, not instruction signal → included as context, never a
-// proposal driver (novel stays false for them).
-function consider(source, counts, examples, { driver }) {
-  for (const [key, count] of Object.entries(counts)) {
-    if (count < THRESHOLD) continue;
-    const documented = alreadyDocumented(key);
-    // Documented + still recurring hard = the rule exists but isn't working.
-    const recurringDespiteRule = driver && documented && count >= THRESHOLD * EFFICACY_FACTOR;
-    clusters.push({ source, key, count, driver, novel: driver && !documented,
-      recurringDespiteRule, alreadyDocumented: documented,
-      examples: (examples[key] || []).slice(0, 5) });
-  }
-}
-consider('reviewer-finding', findingCounts, findingExamples, { driver: true });
-consider('fix-outcome', outcomeCounts, outcomeExamples, { driver: true });
-consider('issue-class', issueCounts, issueExamples, { driver: false });
-
-clusters.sort((a, b) => b.count - a.count);
-const novel = clusters.filter((c) => c.novel);
-const escalations = clusters.filter((c) => c.recurringDespiteRule);
-
-const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
-  efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
-  novelClusters: novel.length, escalationClusters: escalations.length, clusters };
-fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
-
-// ---- Human summary ----
-console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), threshold ≥${THRESHOLD}`);
-console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}`);
-if (!clusters.length) console.log('No recurring clusters above threshold.');
-for (const c of clusters) {
-  const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
-  console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}` +
-    (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
-}
-console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
-
-if (process.env.GITHUB_OUTPUT) {
-  fs.appendFileSync(process.env.GITHUB_OUTPUT,
-    `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n` +
-    `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n`);
-}
-
-// ---- Escalation issues: DETERMINISTIC + dedup-by-construction (zero Claude) ----
-// Previously the Claude step was told to open one escalation issue per
-// `recurringDespiteRule` cluster and dedup by re-searching the title. That
-// soft, LLM-driven dedup drifted (same bucket filed under `source/key` AND
-// `source:key`) and re-fired every run → duplicate escalations piled up
-// (i18n-naming ×4, blocked-workflows-scope ×5, …). Emit them from code with a
-// SINGLE canonical title + the hardened code-level dedup in
-// github-issue-creator.mjs (comments on the open canonical instead of
-// duplicating). The Claude step now handles ONLY novel doc-rule proposals.
+// ---- Escalation issue title/body helpers (DETERMINISTIC, see emit note) ----
 function escalationTitle(c) {
   return `escalation(harvester): ${c.source}/${c.key} ricorre nonostante regola`;
 }
@@ -309,57 +226,188 @@ function escalationBody(c) {
   ].join('\n');
 }
 
-// Gate: emit only when explicitly enabled (the workflow sets this). Keeps local
-// dry-runs and tests from minting real GitHub issues.
-if (process.env.HARVEST_EMIT_ESCALATIONS === 'true') {
-  // 1. EMIT/UPDATE: una issue canonica per bucket attivo. createGithubIssue
-  //    dedupa (commenta sul canonico se esiste). Poi bump SEVERITÀ in base al
-  //    count (recidiva → severity sale, non si accumula un'altra issue).
-  for (const c of escalations) {
-    try {
-      const res = await createGithubIssue({
-        title: escalationTitle(c),
-        description: escalationBody(c),
-        priority: 2,
-        labels: ['follow-up'],
-        workflow: 'Lessons harvester',
-      });
-      const num = res?.number;
-      if (num) {
-        const sev = severityLabelForCount(c.count);
-        const drop = sev === 'severity:high' ? 'severity:medium' : 'severity:high';
-        try {
-          gh(['label', 'create', sev, '--color', sev === 'severity:high' ? 'B60205' : 'D93F0B', '-f']);
-        } catch { /* label esiste già */ }
-        try {
-          gh(['issue', 'edit', String(num), '--add-label', sev, '--remove-label', drop]);
-        } catch (e) { process.stderr.write(`sev bump #${num} fallito: ${e.message}\n`); }
-      }
-    } catch (err) {
-      process.stderr.write(`escalation emit failed for ${c.source}/${c.key}: ${err.message}\n`);
+async function main() {
+  // ---- 1. Reviewer findings on recently-merged PRs ----
+  const mergedPrs = ghJson(['pr', 'list', '--state', 'merged', '--search', `merged:>=${sinceDay}`,
+    '--limit', String(MAX_PRS), '--json', 'number']) || [];
+  const prReviews = [];
+  for (const { number } of mergedPrs) {
+    const data = ghJson(['pr', 'view', String(number), '--json', 'reviews']);
+    prReviews.push({ number, reviews: data?.reviews || [] });
+  }
+  const { counts: findingCounts, examples: findingExamples } = tallyFindings(prReviews);
+
+  // ---- 2. Recurring issue classes (created in window) ----
+  const issueCounts = {};
+  const issueExamples = {};
+  const allIssues = ghJson(['issue', 'list', '--state', 'all', '--search', `created:>=${sinceDay}`,
+    '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
+  for (const it of allIssues) {
+    const cls = issueClass(it.title, it.labels);
+    if (!cls) continue;
+    issueCounts[cls] = (issueCounts[cls] || 0) + 1;
+    (issueExamples[cls] ||= []).push({ issue: it.number, title: (it.title || '').slice(0, 80) });
+  }
+
+  // ---- 3. issue-fix outcomes via FIX_OUTCOME markers in issue comments ----
+  // Marker contract (issue-fix.yml prompt): the fixer's terminal comment starts
+  // with `<!-- FIX_OUTCOME: <code> -->`. We bucket the blocked/no-pr codes since
+  // those are the recurring-burn signal; `pr-created` is the healthy path.
+  const outcomeCounts = {};
+  const outcomeExamples = {};
+  const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
+    '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number']) || [];
+  for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
+    const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
+    const comments = data?.comments || [];
+    // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
+    // a 3 tentativi) può postare lo STESSO marker N volte. Contarli tutti gonfia
+    // il bucket (3 run di UNA issue → conta 3) e fa scattare l'escalation su una
+    // soglia di issue-distinte falsata — è esattamente ciò che ha prodotto #1478.
+    // La lezione cercata è «N issue DISTINTE bloccate da questo esito», non «N
+    // commenti» → conta ogni codice al più una volta per issue. (Il re-queue è
+    // ora fermato alla sorgente in followup-drainer.mjs, ma il dedup rende il
+    // conteggio robusto anche allo storico e a ri-tentativi manuali.)
+    // Lo stesso principio dedup-per-sorgente vale per i reviewer-finding sopra,
+    // dove la chiave è la PR (vedi tallyFindings).
+    const seenThisIssue = new Set();
+    for (const c of comments) {
+      const m = String(c.body || '').match(/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i);
+      if (!m) continue;
+      const code = m[1].toLowerCase();
+      if (code === 'pr-created') continue; // healthy
+      // Backstop-emitted fallbacks (issue-fix.yml "post-step deterministico") tag
+      // crashed/max_turns runs — expected catch-all, not a doc-rule violation.
+      // Counting them inflates no-pr-unspecified → feedback loop: escalation keeps
+      // re-firing even after the backstop fix (PR #1067) landed.
+      if (String(c.body || '').includes('post-step deterministico')) continue;
+      const k = `fix-outcome:${code}`;
+      if (seenThisIssue.has(k)) continue;
+      seenThisIssue.add(k);
+      outcomeCounts[k] = (outcomeCounts[k] || 0) + 1;
+      (outcomeExamples[k] ||= []).push({ issue: number });
     }
   }
 
-  // 2. SELF-HEAL CLOSE: un'escalation aperta il cui bucket NON è più tra quelli
-  //    attivi (sceso sotto soglia per un'intera finestra) → il pattern si è
-  //    fermato: chiudila (drena il ratchet; riapribile, riemerge se ricorre).
-  //    Search via la frase senza parentesi (le `(` rompono gh search → era il
-  //    blind-spot del monitoring) e filtro per titolo esatto.
-  const liveKeys = new Set(escalations.map((c) => `${c.source}/${c.key}`));
-  const openEsc = (ghJson([
-    'issue', 'list', '--state', 'open', '--search', 'ricorre nonostante regola in:title',
-    '--json', 'number,title', '--limit', '100',
-  ]) || []).filter((i) => parseEscalationKey(i.title));
-  for (const iss of openEsc) {
-    const key = parseEscalationKey(iss.title);
-    if (liveKeys.has(key)) continue; // ancora attivo → lascia aperta
-    try {
-      gh(['issue', 'comment', String(iss.number), '--body',
-        `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
-      gh(['issue', 'close', String(iss.number), '--reason', 'completed']);
-      console.log(`SELF-HEAL close #${iss.number} — bucket ${key} quiet`);
-    } catch (e) {
-      process.stderr.write(`self-heal close #${iss.number} fallito: ${e.message}\n`);
+  // ---- Dedup vs existing doc-contracts ----
+  let corpus = '';
+  for (const f of DOC_FILES) { try { corpus += '\n' + fs.readFileSync(f, 'utf-8').toLowerCase(); } catch { /* ignore */ } }
+
+  // ---- Assemble clusters above threshold + novel ----
+  const clusters = [];
+  // `driver`: clusters that can drive a doc-rule proposal (an agent repeating a
+  // mistake or hitting a wall). issue-class counts are operational VOLUME handled
+  // by triage/monitors, not instruction signal → included as context, never a
+  // proposal driver (novel stays false for them).
+  function consider(source, counts, examples, { driver }) {
+    for (const [key, count] of Object.entries(counts)) {
+      if (count < THRESHOLD) continue;
+      const documented = alreadyDocumented(key, corpus);
+      // Documented + still recurring hard = the rule exists but isn't working.
+      const recurringDespiteRule = driver && documented && count >= THRESHOLD * EFFICACY_FACTOR;
+      clusters.push({ source, key, count, driver, novel: driver && !documented,
+        recurringDespiteRule, alreadyDocumented: documented,
+        examples: (examples[key] || []).slice(0, 5) });
     }
   }
+  consider('reviewer-finding', findingCounts, findingExamples, { driver: true });
+  consider('fix-outcome', outcomeCounts, outcomeExamples, { driver: true });
+  consider('issue-class', issueCounts, issueExamples, { driver: false });
+
+  clusters.sort((a, b) => b.count - a.count);
+  const novel = clusters.filter((c) => c.novel);
+  const escalations = clusters.filter((c) => c.recurringDespiteRule);
+
+  const result = { generatedForWindowDays: WINDOW_DAYS, threshold: THRESHOLD,
+    efficacyFactor: EFFICACY_FACTOR, since: sinceDay, totalClusters: clusters.length,
+    novelClusters: novel.length, escalationClusters: escalations.length, clusters };
+  fs.writeFileSync(OUT, JSON.stringify(result, null, 2));
+
+  // ---- Human summary ----
+  console.log(`Lessons harvest — window ${WINDOW_DAYS}d (since ${sinceDay}), threshold ≥${THRESHOLD}`);
+  console.log(`Merged PRs scanned: ${mergedPrs.length} · issues scanned: ${allIssues.length} · fix-issues: ${fixIssues.length}`);
+  if (!clusters.length) console.log('No recurring clusters above threshold.');
+  for (const c of clusters) {
+    const tag = c.novel ? 'NOVEL' : c.recurringDespiteRule ? 'ESCALATE' : 'documented';
+    console.log(`  [${tag}] ${c.source}/${c.key} ×${c.count}` +
+      (c.examples?.length ? `  e.g. ${c.examples.map((e) => '#' + (e.pr || e.issue)).join(',')}` : ''));
+  }
+  console.log(`\n→ novel recurring clusters: ${novel.length} · escalations (documented-but-recurring): ${escalations.length}`);
+
+  if (process.env.GITHUB_OUTPUT) {
+    fs.appendFileSync(process.env.GITHUB_OUTPUT,
+      `has_novel=${novel.length > 0}\nnovel_count=${novel.length}\n` +
+      `has_escalation=${escalations.length > 0}\nescalation_count=${escalations.length}\n`);
+  }
+
+  // ---- Escalation issues: DETERMINISTIC + dedup-by-construction (zero Claude) ----
+  // Previously the Claude step was told to open one escalation issue per
+  // `recurringDespiteRule` cluster and dedup by re-searching the title. That
+  // soft, LLM-driven dedup drifted (same bucket filed under `source/key` AND
+  // `source:key`) and re-fired every run → duplicate escalations piled up
+  // (i18n-naming ×4, blocked-workflows-scope ×5, …). Emit them from code with a
+  // SINGLE canonical title + the hardened code-level dedup in
+  // github-issue-creator.mjs (comments on the open canonical instead of
+  // duplicating). The Claude step now handles ONLY novel doc-rule proposals.
+  // Gate: emit only when explicitly enabled (the workflow sets this). Keeps local
+  // dry-runs and tests from minting real GitHub issues.
+  if (process.env.HARVEST_EMIT_ESCALATIONS === 'true') {
+    // 1. EMIT/UPDATE: una issue canonica per bucket attivo. createGithubIssue
+    //    dedupa (commenta sul canonico se esiste). Poi bump SEVERITÀ in base al
+    //    count (recidiva → severity sale, non si accumula un'altra issue).
+    for (const c of escalations) {
+      try {
+        const res = await createGithubIssue({
+          title: escalationTitle(c),
+          description: escalationBody(c),
+          priority: 2,
+          labels: ['follow-up'],
+          workflow: 'Lessons harvester',
+        });
+        const num = res?.number;
+        if (num) {
+          const sev = severityLabelForCount(c.count);
+          const drop = sev === 'severity:high' ? 'severity:medium' : 'severity:high';
+          try {
+            gh(['label', 'create', sev, '--color', sev === 'severity:high' ? 'B60205' : 'D93F0B', '-f']);
+          } catch { /* label esiste già */ }
+          try {
+            gh(['issue', 'edit', String(num), '--add-label', sev, '--remove-label', drop]);
+          } catch (e) { process.stderr.write(`sev bump #${num} fallito: ${e.message}\n`); }
+        }
+      } catch (err) {
+        process.stderr.write(`escalation emit failed for ${c.source}/${c.key}: ${err.message}\n`);
+      }
+    }
+
+    // 2. SELF-HEAL CLOSE: un'escalation aperta il cui bucket NON è più tra quelli
+    //    attivi (sceso sotto soglia per un'intera finestra) → il pattern si è
+    //    fermato: chiudila (drena il ratchet; riapribile, riemerge se ricorre).
+    //    Search via la frase senza parentesi (le `(` rompono gh search → era il
+    //    blind-spot del monitoring) e filtro per titolo esatto.
+    const liveKeys = new Set(escalations.map((c) => `${c.source}/${c.key}`));
+    const openEsc = (ghJson([
+      'issue', 'list', '--state', 'open', '--search', 'ricorre nonostante regola in:title',
+      '--json', 'number,title', '--limit', '100',
+    ]) || []).filter((i) => parseEscalationKey(i.title));
+    for (const iss of openEsc) {
+      const key = parseEscalationKey(iss.title);
+      if (liveKeys.has(key)) continue; // ancora attivo → lascia aperta
+      try {
+        gh(['issue', 'comment', String(iss.number), '--body',
+          `🌱 Self-heal: il bucket \`${key}\` non ricorre più sopra soglia nella finestra ${WINDOW_DAYS}gg (dal ${sinceDay}) → il pattern si è fermato. Chiusa dal lessons-harvester. Riemergerà in automatico se torna a ricorrere.`]);
+        gh(['issue', 'close', String(iss.number), '--reason', 'completed']);
+        console.log(`SELF-HEAL close #${iss.number} — bucket ${key} quiet`);
+      } catch (e) {
+        process.stderr.write(`self-heal close #${iss.number} fallito: ${e.message}\n`);
+      }
+    }
+  }
+}
+
+// Run only as a script, never on import (lets the test import the pure helpers
+// above without firing gh / writing files). Same guard convention as
+// auto-merge-eval.mjs.
+if (process.argv[1]?.endsWith('harvest-agent-lessons.mjs')) {
+  await main();
 }
