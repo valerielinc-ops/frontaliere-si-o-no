@@ -21,28 +21,35 @@
  * `cf: { cacheEverything, cacheTtl }` on the origin fetch — keyed on the
  * origin-{loc} URL, tiered across colos.
  *
- * Cache API (caches.default): WRITE-ONLY, apex-keyed, for the over-cap
- * failover. A routed Worker is invoked on EVERY matching request — the edge
- * cache cannot answer in front of it ("Workers run before the cache"), so on
- * the free plan nothing here reduces the 100k/day invocation count. What CAN
- * answer without the Worker is the fail-open path: when the daily cap is
- * exceeded and the route is configured `request_limit_fail_open: true`,
- * Cloudflare bypasses the Worker and the request flows through the normal CDN
- * pipeline. cache.put() below stores every shard 200 under its PUBLIC apex
- * URL so that pipeline finds it (a zone Cache Rule marks /en|/de|/fr eligible
- * for cache lookup — see scripts/cf-locale-failover-setup.mjs, re-run by
- * deploy-worker.yml after every deploy). Net effect over cap: warm pages keep
- * serving 200 (stale ≤24h) instead of error 1027 on everything.
+ * Cache API (caches.default): apex-keyed. WRITTEN on every happy-path shard
+ * 200 (below); READ only when the origin fails (5xx / timeout / network) to
+ * serve a stale copy — see serveStaleOnError + the cache.match() note below.
+ * The stored copy does double duty: (1) stale-if-error (serve last-good 200
+ * instead of propagating an origin 5xx to crawlers/users), and (2) the over-cap
+ * fail-open path on the free plan — when the daily cap is exceeded and the
+ * route is configured `request_limit_fail_open: true`, Cloudflare bypasses the
+ * Worker and the request flows through the normal CDN pipeline, which finds
+ * this apex-keyed copy (a zone Cache Rule marks /en|/de|/fr eligible for cache
+ * lookup — see scripts/cf-locale-failover-setup.mjs, re-run by deploy-worker.yml
+ * after every deploy). A routed Worker is invoked on EVERY matching request —
+ * the edge cache cannot answer in front of it ("Workers run before the cache")
+ * — so this never reduces invocation count; it only changes WHAT is served on
+ * error (last-good 200 vs an error page).
  *
  * Cache API history (#1791/#1814/#1830/#1842): every Cache API op is logged in
  * zone analytics as a synthetic `requestSource: edgeWorkerCacheAPI` row —
  * cache.match() MISSes as phantom 504s (misread as an outage, three PR cycles
- * burned) and cache.put()s as 204s. This Worker therefore: (a) never calls
- * cache.match() — the request path stays single-consumer, no tee (the put copy
- * is built from an explicit arrayBuffer, not a stream tee, so the #1791
- * deadlock class is structurally impossible); (b) tolerates the returning 204
- * put rows because monitoring filters `requestSource: "eyeball"` since #1842
- * (scripts/lib/cf-analytics.mjs). Keep both properties when touching this.
+ * burned) and cache.put()s as 204s. This Worker therefore: (a) calls
+ * cache.match() ONLY on the origin-error path (serveStaleOnError), never on the
+ * happy path — there the origin has already failed, so there is no live origin
+ * body to tee: the request path stays single-consumer and the #1791 deadlock
+ * class (a slow eyeball consumer stalling a tee'd cache branch) remains
+ * structurally impossible; the happy-path put copy is likewise built from an
+ * explicit arrayBuffer, not a stream tee. The extra phantom-504 match rows are
+ * bounded by the origin failure rate (~0.02%, ~50/day zone-wide) and filtered
+ * out by the `requestSource: "eyeball"` monitoring since #1842
+ * (scripts/lib/cf-analytics.mjs); (b) tolerates the returning 204 put rows for
+ * the same reason. Keep both properties when touching this.
  *
  * Asset/data/og refs in shard HTML are CDN-absolute (since #1665), so those
  * requests bypass this Worker entirely.
@@ -147,6 +154,39 @@ async function fetchOriginWithRetry(upstream, request, cfOpts) {
   throw lastErr;
 }
 
+// Stale-if-error. When the shard origin fails (5xx after retries, or a thrown
+// timeout/network error), serve the last-good apex-keyed copy that the happy
+// path stored in caches.default — instead of propagating the error to a
+// crawler (SEO) or user (revenue). This is the ONLY place the Worker reads the
+// Cache API; the header cache.match() note explains why doing so here is free
+// of the #1791 deadlock class (no live origin body to tee on the error path).
+//
+// "while-revalidate" half: the returned copy carries short Cache-Control so it
+// is re-checked soon, and because the Worker runs on every request the NEXT
+// request re-fetches the origin and, on recovery, re-stores a fresh copy via
+// the happy-path cache.put — no explicit background revalidation needed.
+//
+// Returns a 200 Response on HIT, or null on MISS / cache error so the caller
+// falls back to surfacing the origin error. Only meaningful for GET (the cache
+// holds GET 200s); callers guard on method.
+async function serveStaleOnError(url, reason) {
+  try {
+    const cached = await caches.default.match(
+      new Request(url.toString(), { method: 'GET' }),
+    );
+    if (cached) {
+      const headers = new Headers(cached.headers);
+      // Short TTLs: a stale page must be re-checked soon, not held for hours.
+      headers.set('Cache-Control', 'public, max-age=60, s-maxage=120');
+      headers.set('X-Served-Stale', reason);
+      return new Response(cached.body, { status: 200, statusText: 'OK', headers });
+    }
+  } catch {
+    // caches.default unavailable / match threw — treat as a MISS.
+  }
+  return null;
+}
+
 export default {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
@@ -178,13 +218,26 @@ export default {
         cacheTtl: ORIGIN_CACHE_TTL,
       });
     } catch {
-      // Every attempt timed out / threw — no origin response. Short Retry-After:
+      // Every attempt timed out / threw — no origin response. Prefer a last-good
+      // stale copy (stale-if-error) over an error page. Short Retry-After:
       // measured failure rate at this layer is ~0.02% (50×503/day zone-wide),
       // and CF's tiered cache absorbs repeats, so a transient blip self-heals.
+      if (request.method === 'GET') {
+        const stale = await serveStaleOnError(url, 'origin-timeout');
+        if (stale) return stale;
+      }
       return new Response('Shard origin unavailable', {
         status: 503,
         headers: { 'Retry-After': '30' },
       });
+    }
+
+    // Stale-if-error: origin answered but with a 5xx after retries. Serve the
+    // last-good cached copy instead of propagating the error to crawler/user.
+    // Falls through to return the 5xx as-is on a cache MISS.
+    if (request.method === 'GET' && resp.status >= 500) {
+      const stale = await serveStaleOnError(url, `origin-${resp.status}`);
+      if (stale) return stale;
     }
 
     // GitHub Pages 301s a dir path without trailing slash (e.g. /en/lavoro ->
