@@ -1707,6 +1707,41 @@ function buildThinCantonHubHtml(args: {
     ],
   });
 
+  // SearchAtlas "missing schema markup" audit (2026-06-15): secondary-canton
+  // thin hubs (/cerca-lavoro-<canton>/tutti/page-N/, /settori/, /aziende/)
+  // shipped only a BreadcrumbList. These are index,follow self-canonical
+  // listing pages, so CollectionPage is the correct primary type (same fix as
+  // the canton landing in jobsSeoPagesPlugin). Emit a CollectionPage wrapping
+  // an ItemList of the page's items (job links for `tutti`, sector/company
+  // links for `settori`/`aziende`). The ItemList is CAPPED at 25 elements
+  // (numberOfItems still reports the real total) to bound bytes: `tutti/page-N`
+  // carries 100 items × ~2.8k pages, and the full list would breach the
+  // ~200 KB page-weight cap + add build-memory pressure on the OOM-prone SSG.
+  // Items are ListItem→url (not nested JobPosting): a partial JobPosting would
+  // violate NON-NEGOTIABLE #3 (all 9 mandatory fields). Empty pages emit no
+  // CollectionPage (breadcrumb-only), matching the thin-content guard.
+  const collectionLd = items.length === 0
+    ? ''
+    : inlineScriptJson({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: h1,
+        description: intro,
+        url: canonicalUrl,
+        inLanguage: locale,
+        isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: totalItems,
+          itemListElement: items.slice(0, 25).map((it, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: it.href.startsWith('http') ? it.href : `${BASE_URL}${it.href}`,
+            name: it.label,
+          })),
+        },
+      });
+
   return `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -1724,7 +1759,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <link rel="canonical" href="${canonicalUrl}">
     ${SEO_STATIC_CSS_LINK}
-    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
+    <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
