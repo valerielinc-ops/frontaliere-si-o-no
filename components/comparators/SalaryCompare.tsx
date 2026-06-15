@@ -12,6 +12,8 @@ import {
  type SalaryLevel,
 } from '@/data/salaryData';
 import { lazyRetry } from '@/services/lazyRetry';
+import { cantonGrossScale, SALARY_CANTON_CODES, NATIONAL_CANTON } from '@/services/cantonSalary';
+import { getCantonLabel, type CantonLocale } from '@/services/cantonList';
 
 const SalarySurvey = lazyRetry(() => import('@/components/community/SalarySurvey'));
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
@@ -59,10 +61,11 @@ function calcNetIT(gross: number): number {
 type InternalTab = 'sectors' | 'professions' | 'survey';
 
 export default function SalaryCompare() {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
  const { rate: exchangeRate } = useExchangeRate();
  const [selectedSector, setSelectedSector] = useState<string | null>(null);
  const [selectedLevel, setSelectedLevel] = useState<SalaryLevel>('mid');
+ const [selectedCanton, setSelectedCanton] = useState<string>(NATIONAL_CANTON);
  const [activeTab, setActiveTab] = useState<InternalTab>('sectors');
  const [expandedSectors, setExpandedSectors] = useState<Set<string>>(new Set());
  const [profSearch, setProfSearch] = useState('');
@@ -71,13 +74,20 @@ export default function SalaryCompare() {
  const profName = (id: string) => t('salaryCompare.prof.' + id);
  const levelLabel = (level: SalaryLevel) => t('salaryCompare.' + level);
 
+ // Per-canton scaling: national-CH gross figures are scaled to the selected
+ // canton via the official BFS index. The national sentinel keeps scale 1.0,
+ // so the default view is unchanged.
+ const cantonScale = cantonGrossScale(selectedCanton);
+ const scaleCh = (v: number) => Math.round(v * cantonScale);
+ const cantonColLabel = selectedCanton === NATIONAL_CANTON ? 'CH' : selectedCanton;
+
  // ── Sector overview data ──
  const sectorTableData = useMemo(() => {
  const sectors = selectedSector
  ? SALARY_DATA.filter((s) => s.id === selectedSector)
  : SALARY_DATA;
  return sectors.map((s) => {
- const chGross = getSectorMedian(s, selectedLevel, 'ch');
+ const chGross = scaleCh(getSectorMedian(s, selectedLevel, 'ch'));
  const itGross = getSectorMedian(s, selectedLevel, 'it');
  const chNet = calcNetCH(chGross);
  const itNet = calcNetIT(itGross);
@@ -91,7 +101,7 @@ export default function SalaryCompare() {
  professions: s.professions,
  };
  });
- }, [selectedSector, selectedLevel, t, exchangeRate]);
+ }, [selectedSector, selectedLevel, t, exchangeRate, cantonScale]);
 
  // ── All professions flat for search tab ──
  const allProfessions = useMemo(() => {
@@ -167,11 +177,11 @@ export default function SalaryCompare() {
  startY: 28,
  head: [[
  t('salaryCompare.professions'),
- 'CH Min', 'CH ' + t('salaryCompare.median'), 'CH Max',
+ cantonColLabel + ' Min', cantonColLabel + ' ' + t('salaryCompare.median'), cantonColLabel + ' Max',
  'IT Min', 'IT ' + t('salaryCompare.median'), 'IT Max',
  ]],
  body: sector.professions.map((p) => {
- const ch = p.ch[selectedLevel];
+ const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number];
  const it = p.it[selectedLevel];
  return [
  profName(p.id),
@@ -284,6 +294,29 @@ export default function SalaryCompare() {
  </select>
  </div>
 
+ {/* Canton filter — scales national CH figures to the selected canton */}
+ <div className="flex-1 min-w-[180px]">
+ <label
+ htmlFor="sc-canton"
+ className="block text-sm font-medium text-body mb-1"
+ >
+ {t('salaryCompare.canton')}
+ </label>
+ <select
+ id="sc-canton"
+ value={selectedCanton}
+ onChange={(e) => setSelectedCanton(e.target.value)}
+ className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-heading"
+ >
+ <option value={NATIONAL_CANTON}>{t('salaryCompare.cantonAll')}</option>
+ {SALARY_CANTON_CODES.map((code) => (
+ <option key={code} value={code}>
+ {getCantonLabel(code, locale as CantonLocale)}
+ </option>
+ ))}
+ </select>
+ </div>
+
  {activeTab === 'professions' && (
  <div className="flex-1 min-w-[180px]">
  <label
@@ -389,7 +422,7 @@ export default function SalaryCompare() {
  </div>
  </div>
  <div className="flex justify-between text-xs font-mono text-muted mt-0.5">
- <span>CH {'\u20AC'}{r.chNetEUR.toLocaleString()}</span>
+ <span>{cantonColLabel} {'\u20AC'}{r.chNetEUR.toLocaleString()}</span>
  <span>IT {'\u20AC'}{r.itNet.toLocaleString()}</span>
  </div>
  </div>
@@ -429,7 +462,7 @@ export default function SalaryCompare() {
  )}
  <div className="grid grid-cols-2 gap-2">
  {r.professions.map((p) => {
- const ch = p.ch[selectedLevel]; // [min, median, max]
+ const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number]; // [min, median, max]
  const it = p.it[selectedLevel]; // [min, median, max]
  const chNet = calcNetCH(ch[1]);
  const itNet = calcNetIT(it[1]);
@@ -572,7 +605,7 @@ export default function SalaryCompare() {
  </tr>
  )}
  {r.professions.map((p) => {
- const ch = p.ch[selectedLevel];
+ const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number];
  const it = p.it[selectedLevel];
  return (
  <tr
@@ -717,7 +750,7 @@ export default function SalaryCompare() {
  </p>
  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
  {filteredProfessions.map((p) => {
- const ch = p.ch[selectedLevel];
+ const ch = p.ch[selectedLevel].map(scaleCh) as [number, number, number];
  const it = p.it[selectedLevel];
  const chNetMedian = calcNetCH(ch[1]);
  const itNetMedian = calcNetIT(it[1]);
