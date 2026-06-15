@@ -305,6 +305,23 @@ function patchSitemapIndex(distDir: string, dateStamp: string): void {
   }
 }
 
+/** Drop the <sitemap> entry for this family from the index (zero-emit build). */
+function removeSitemapFromIndex(distDir: string): void {
+  const indexPath = np.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    const idx = fs.readFileSync(indexPath, 'utf-8');
+    if (!idx.includes(SITEMAP_FILE)) return;
+    const cleaned = idx.replace(
+      new RegExp(`\\s*<sitemap>\\s*<loc>[^<]*${SITEMAP_FILE}</loc>\\s*<lastmod>[^<]*</lastmod>\\s*</sitemap>`),
+      '',
+    );
+    fs.writeFileSync(indexPath, cleaned, 'utf-8');
+  } catch (err) {
+    console.warn('[profession-cantons] failed to prune sitemap index', err);
+  }
+}
+
 export async function emitProfessionCantonPages(opts: { rootDir: string; distDir: string }): Promise<ProfessionCantonEmitResult> {
   const result: ProfessionCantonEmitResult = { pagesWritten: 0, pagesSkippedForJobs: 0, pagesSkippedForWordCount: 0, emittedPaths: [] };
   const byCanton = aggregateProfessionJobsByCanton(opts.rootDir);
@@ -319,15 +336,23 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
         result.pagesSkippedForJobs++;
         continue;
       }
-      for (const locale of PROFESSION_LOCALES) {
-        const { html, words } = renderProfessionCantonPage({ locale, cantonKey, id, snapshot, distDir: opts.distDir });
-        if (words < MIN_INDEXABLE_WORDS) {
-          result.pagesSkippedForWordCount++;
-          continue;
-        }
-        const canonicalPath = buildProfessionCantonPath(locale, cantonKey, id);
+      // Render all 4 locales first and emit ALL-OR-NOTHING: every emitted page
+      // links its 4-locale hreflang cluster, so a single locale dropping below
+      // the words gate while the others ship would dangle hreflang at a missing
+      // target. With liveCount≥MIN_JOBS the templated prose clears the gate on
+      // every locale in practice; this guard makes it safe regardless.
+      const rendered = PROFESSION_LOCALES.map((locale) => ({
+        locale,
+        ...renderProfessionCantonPage({ locale, cantonKey, id, snapshot, distDir: opts.distDir }),
+      }));
+      if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
+        result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;
+        continue;
+      }
+      for (const r of rendered) {
+        const canonicalPath = buildProfessionCantonPath(r.locale, cantonKey, id);
         const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
-        collector.add(np.join(outDir, 'index.html'), html);
+        collector.add(np.join(outDir, 'index.html'), r.html);
         result.pagesWritten++;
         result.emittedPaths.push(canonicalPath);
       }
@@ -337,10 +362,14 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
   await collector.flush();
 
   cleanSitemapFiles(opts.distDir, [SITEMAP_FILE]);
+  const dateStamp = buildDayStampIso();
   if (result.emittedPaths.length > 0) {
-    const dateStamp = buildDayStampIso();
     fs.writeFileSync(np.join(opts.distDir, SITEMAP_FILE), buildSitemap(result.emittedPaths, dateStamp), 'utf-8');
     patchSitemapIndex(opts.distDir, dateStamp);
+  } else {
+    // Zero pages this build: drop any dangling <loc> a prior build left in the
+    // sitemap index (the .xml itself was just removed by cleanSitemapFiles).
+    removeSitemapFromIndex(opts.distDir);
   }
   return result;
 }

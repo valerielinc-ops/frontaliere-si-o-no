@@ -11,6 +11,7 @@ import {
   buildProfessionCantonPath,
 } from '../build-plugins/professionCantonData';
 import { renderProfessionCantonPage } from '../build-plugins/professionCantonLandings';
+import { grossregionFromDisplay } from '../build-plugins/shared/cantonSalaryIndex';
 import { parsePath } from '../services/router';
 
 const SNAP = {
@@ -55,6 +56,13 @@ describe('professionCanton — router integration', () => {
       expect(route.staticOverlay).toBe(true);
       expect(route.activeTab).toBe('job-board');
     }
+  });
+});
+
+describe('half-canton group display names resolve to their region (no national fallback)', () => {
+  it('Basilea/Basel/Bâle → nordwest; Appenzello/Appenzell → ostschweiz', () => {
+    for (const d of ['Basilea', 'Basel', 'Bâle']) expect(grossregionFromDisplay(d)).toBe('nordwest');
+    for (const d of ['Appenzello', 'Appenzell']) expect(grossregionFromDisplay(d)).toBe('ostschweiz');
   });
 });
 

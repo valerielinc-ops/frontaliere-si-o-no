@@ -152,6 +152,11 @@ reg('nordwest', [
 reg('ostschweiz', [
   'glarona', 'glarus', 'glaris',
   'sciaffusa', 'schaffhausen', 'schaffhouse',
+  // Bare half-canton-group display forms (AI+AR both Ostschweiz) — 'appenzello'
+  // (IT) was present but 'appenzell' (EN/DE/FR group display) was not, so those
+  // locale pages fell back to the national median in the prose/FAQ band while
+  // tiles used Ostschweiz. Twin of the BASILEA fix. See PR #2095 review.
+  'appenzell',
   'appenzello esterno', 'appenzell ausserrhoden', 'appenzell a.rh.', 'appenzell rhodes-extérieures', 'appenzello',
   'appenzello interno', 'appenzell innerrhoden', 'appenzell i.rh.',
   'san gallo', 'st. gallen', 'st.gallen', 'sankt gallen', 'saint-gall', 'saint gall',
