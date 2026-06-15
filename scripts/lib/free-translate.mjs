@@ -110,18 +110,20 @@ const LIBRETRANSLATE_PUBLIC = [
 // Self-hosted LibreTranslate — runs as a service container in CI (translate-pending.yml).
 // Unlimited capacity, no API key, no rate limits. Set via LIBRETRANSLATE_SELF_HOSTED_URL env.
 const LIBRETRANSLATE_SELF_HOSTED = (process.env.LIBRETRANSLATE_SELF_HOSTED_URL || '').trim();
-// Bounded timeout for the self-hosted fetch. Default 30s matches the prior hardcoded bound
-// and covers the ~30s first-call model-load in CI: translate-pending.yml's readiness probe
-// (/languages) is distinct from model-in-memory, so the first /translate still pays the
-// warmup. Lowering the default below ~30s here would abort CI's first call mid-load → '' →
-// next tier → the self-hosted tier never warms up (the workflow callers don't set
-// LIBRETRANSLATE_TIMEOUT_MS, so the default is the effective value there). Override via
-// LIBRETRANSLATE_TIMEOUT_MS only for reachable-but-hung REMOTE endpoints where a fast-fail
-// is wanted. A non-numeric or ≤0 override falls back to the default instead of
-// AbortSignal.timeout(NaN) (coerces to 0ms → immediate abort of every self-hosted call).
+// Warmup tracker for the self-hosted LT container: the Argos Translate model loads into RAM
+// on the FIRST /translate call (~30s in CI even after the /languages readiness probe, which
+// warms the HTTP layer but not the model). After that first success all calls complete in <1s.
+// Strategy: first call always uses a 30s warmup window to avoid aborting model-load; after the
+// first success, subsequent calls use LIBRETRANSLATE_TIMEOUT_MS (default 10s) for fast-fail on
+// an overloaded/hung endpoint — critical for 2-core runners where CPU-bound LT degrades
+// under concurrency > 2 (each stalled request would otherwise burn the full timeout before
+// falling through to the next tier). In CI, translate-pending.yml overrides
+// LIBRETRANSLATE_TIMEOUT_MS to '5000' for tighter fail-fast; that only applies to warm calls.
+// A non-numeric or ≤0 override falls back to the 10s default (guards AbortSignal.timeout(NaN)).
 // AbortError is caught by the try/catch in translateWithLibreTranslateSelfHosted → '' → next tier.
+let _ltWarmupDone = false;
 const _ltTimeoutRaw = parseInt(process.env.LIBRETRANSLATE_TIMEOUT_MS || '', 10);
-const LIBRETRANSLATE_TIMEOUT_MS = Number.isFinite(_ltTimeoutRaw) && _ltTimeoutRaw > 0 ? _ltTimeoutRaw : 30000;
+const LIBRETRANSLATE_TIMEOUT_MS = Number.isFinite(_ltTimeoutRaw) && _ltTimeoutRaw > 0 ? _ltTimeoutRaw : 10000;
 
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
@@ -530,12 +532,15 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
   const q = normalizeSpace(text);
   if (!q || sourceLang === targetLang) return '';
 
+  // First call uses a 30s warmup window regardless of LIBRETRANSLATE_TIMEOUT_MS.
+  // Subsequent calls use the configured fast-fail timeout (see _ltWarmupDone above).
+  const timeout = _ltWarmupDone ? LIBRETRANSLATE_TIMEOUT_MS : 30000;
   try {
     const res = await fetch(`${LIBRETRANSLATE_SELF_HOSTED}/translate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
-      signal: AbortSignal.timeout(LIBRETRANSLATE_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeout),
     });
     if (!res.ok) {
       console.warn(`⚠️  LibreTranslate self-hosted: HTTP ${res.status}`);
@@ -543,7 +548,10 @@ async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLan
     }
     const data = await res.json();
     const translated = normalizeSpace(data?.translatedText || '');
-    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) {
+      _ltWarmupDone = true;
+      return translated;
+    }
     return '';
   } catch (err) {
     console.warn(`⚠️  LibreTranslate self-hosted error: ${err?.message || err}`);
