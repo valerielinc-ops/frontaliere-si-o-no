@@ -798,7 +798,7 @@ const CurrencyExchange: React.FC = () => {
  {/* Moved to Statistics subtab */}
 
  {/* Inline ad between comparison and educational section */}
- <Suspense fallback={<div style={{ ['--ph-min-h']: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight } as React.CSSProperties} className="my-6 min-h-[var(--ph-min-h)] [contain:content]" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
 
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">
