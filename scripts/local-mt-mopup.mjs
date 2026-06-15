@@ -59,6 +59,10 @@ const MIN_TITLE_CHARS = 3;
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 const TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280 * 60 * 1000;
+// Reserve 5min after the spawn kill for the JSON-write phase.
+// spawnSync timeout = TIME_BUDGET_MS - WRITE_RESERVE_MS so that when ETIMEDOUT
+// fires, Date.now()-started is still < TIME_BUDGET_MS and budgetOk() stays true.
+const WRITE_RESERVE_MS = 5 * 60 * 1000;
 
 function parseFlag(name) {
   return process.argv.slice(2).includes(name);
@@ -226,7 +230,7 @@ async function main() {
     encoding: 'utf-8',
     maxBuffer: 256 * 1024 * 1024,
     stdio: ['pipe', 'pipe', 'inherit'],
-    timeout: TIME_BUDGET_MS,
+    timeout: TIME_BUDGET_MS - WRITE_RESERVE_MS,
   });
 
   const timedOut = proc.error?.code === 'ETIMEDOUT';
