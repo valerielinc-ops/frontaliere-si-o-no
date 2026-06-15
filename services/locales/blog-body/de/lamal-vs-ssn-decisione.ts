@@ -332,7 +332,7 @@ Die Wahl zwischen KVG und SSN ist eine der wichtigsten finanziellen Entscheidung
 
 **Drei konkrete Schritte jetzt:**
 
-1. **Berechnen Sie Ihren persönlichen Break-Even** mit unserem [KVG-Vergleichsrechner](/de/vergleiche/krankenversicherung), der die Prämien aller 14 Krankenkassen im Tessin mit den SSN-Kosten für Ihr spezifisches Profil vergleicht
+1. **Berechnen Sie Ihren persönlichen Break-Even** mit unserem [KVG-Vergleichsrechner](/de/service-vergleich/krankenkassen-vergleichen/), der die Prämien aller 14 Krankenkassen im Tessin mit den SSN-Kosten für Ihr spezifisches Profil vergleicht
 2. **Konsultieren Sie einen Fachmann** (Steuerberater oder Versicherungsberater) zur Bewertung der steuerlichen Auswirkungen
 3. **Halten Sie die 3-Monats-Frist ein** — tragen Sie das Datum in den Kalender ein und schieben Sie es nicht auf
 
