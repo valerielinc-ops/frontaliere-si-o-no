@@ -7,6 +7,15 @@
  * - services/personalizationScoring.ts (behavior matching)
  */
 
+// The stemmer lives in services/searchStem.mjs — the single source of truth
+// shared with the static cluster matcher (build-plugins/
+// relatedSearchClustersPlugin.ts) and its off-thread postings worker
+// (relatedSearchPostingsWorker.mjs), so the SPA and the statically-emitted slug
+// landing stem queries/jobs identically. Re-exported so existing
+// `from '@/services/textUtils'` imports keep working.
+import { stemSearchToken } from './searchStem.mjs';
+export { stemSearchToken } from './searchStem.mjs';
+
 /** Normalize text for search: lowercase, strip diacritics, strip non-alphanumeric. */
 export function normalizeSearchText(value: string): string {
  return String(value || '')
@@ -16,23 +25,6 @@ export function normalizeSearchText(value: string): string {
  .replace(/[^a-z0-9\s]/g, ' ')
  .replace(/\s+/g, ' ')
  .trim();
-}
-
-/**
- * Light Italian/multilingual stemmer: strips up to two trailing vowels so
- * plural/feminine variants collapse to a common stem. Tokens shorter than
- * 4 chars are left untouched (avoid over-stemming "ai", "the", "or").
- *
- * Examples:
- *   pulizie / pulizia → pulizi      case / casa → cas      cassa → cass
- *   infermieri / infermiere / infermiera → infermier
- *   sviluppatori / sviluppatore → sviluppator
- *   ingegneri / ingegnere → ingegner
- */
-export function stemSearchToken(token: string): string {
- if (token.length <= 3) return token;
- const stem = token.replace(/[aeiou]{1,2}$/, '');
- return stem.length >= 3 ? stem : token;
 }
 
 /**

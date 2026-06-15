@@ -185,6 +185,26 @@ const BROADEN_BELOW = 10;
 // dominate token-hit score so city-relevant listings lead the broadened tail.
 const CITY_MATCH_BOOST = 1000;
 
+// Memoized stemmed haystack for the broaden tiers (cross-canton / cross-locale).
+// Those tiers scan the locale-wide unscoped pool (thousands of jobs) and used to
+// rebuild `buildStemmedHaystack(...)` inline on EVERY render while a seeded
+// 0-result landing broadens — the dominant cost behind the "expansion is slow to
+// load" report. The haystack is a pure function of (job, locale), so cache it on
+// a WeakMap (auto-evicts with the job object, no leak). Re-derived only when the
+// locale changes, since the localized title/description differ per locale.
+const broadenHaystackCache = new WeakMap<JobListing, { locale: string; hay: string }>();
+function getBroadenHaystack(job: JobListing, locale: string): string {
+  const cached = broadenHaystackCache.get(job);
+  if (cached && cached.locale === locale) return cached.hay;
+  const description = job.descriptionByLocale?.[locale] ?? job.description;
+  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
+  const hay = buildStemmedHaystack(
+    `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
+  );
+  broadenHaystackCache.set(job, { locale, hay });
+  return hay;
+}
+
 // Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
 // These are locations outside Switzerland that should never appear on a Swiss job board.
 const FOREIGN_LOCATION_KEYWORDS = [
@@ -2988,11 +3008,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (scopedIds.has(job.id)) continue;
  if (isForeignLocation(job.addressLocality || job.location || '')) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- const haystack = buildStemmedHaystack(
- `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
- );
+ const haystack = getBroadenHaystack(job, locale);
  let score = 0;
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
@@ -3171,11 +3187,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  for (const job of crossLocaleJobs) {
  if (isForeignLocation(job.addressLocality || job.location || '')) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
- const description = job.descriptionByLocale?.[locale] ?? job.description;
- const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- const haystack = buildStemmedHaystack(
- `${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description || ''}`,
- );
+ const haystack = getBroadenHaystack(job, locale);
  let score = 0;
  for (const t of queryTokens) {
  if (haystack.includes(` ${t}`)) score++;
