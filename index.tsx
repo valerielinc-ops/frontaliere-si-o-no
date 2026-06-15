@@ -151,7 +151,12 @@ const mountApp = async () => {
  // Clean up inline styles after the transition completes. Release the
  // reserved min-height now that the React content has painted and set its
  // own height (same page → heights match → no shift on release).
+ // Safety timeout: if transitionend doesn't fire (prefers-reduced-motion,
+ // DOM removal, browser quirk) the minHeight floor would persist for the
+ // whole SPA session, pushing AdSense units off-viewport on shorter pages.
+ const t = setTimeout(() => { rootElement.style.minHeight = ''; }, 200);
  rootElement.addEventListener('transitionend', () => {
+ clearTimeout(t);
  rootElement.style.transition = '';
  rootElement.style.opacity = '';
  rootElement.style.minHeight = '';
