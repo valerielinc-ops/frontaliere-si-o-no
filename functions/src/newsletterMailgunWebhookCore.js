@@ -1,7 +1,7 @@
 import admin from 'firebase-admin';
 import crypto from 'crypto';
 import { refreshEngagementScore } from './lib/engagementScore.js';
-import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
+import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS, lookupSentVariant } from './lib/emailExperimentPostHog.js';
 
 /**
  * Mailgun webhook handler — receives delivery events and stores them in Firestore.
@@ -171,7 +171,8 @@ async function persistMailgunEvent(db, eventData) {
  });
 
  if (type === 'open') {
- await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailgun', campaignId });
+ const variant = await lookupSentVariant(subscriberRef, campaignId, email);
+ await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailgun', campaignId, variant });
  }
  return { processed: true, type, email, campaignId };
 }
