@@ -124,6 +124,8 @@ async function main() {
         locale,
         adUrl: adUrlFor(locale),
         unsubscribeUrl: `${SITE}/?action=unsubscribe&email=${encodeURIComponent(r.email)}`,
+        // Same label the CTA slug is built from → card city and linked page agree.
+        locationLabel: firstLocationLabel,
       });
       try {
         const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html });
