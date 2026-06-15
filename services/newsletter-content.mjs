@@ -8,6 +8,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -778,6 +779,10 @@ export function buildSubjectPrompt(ctx) {
     fr: `Use "tu" voice, never "nous"`,
   };
 
+  // A/B test: bias the subject toward the assigned variant's style (concrete vs
+  // curious). Empty string when ctx.variant is unset/unknown → prompt unchanged.
+  const variantDirective = getVariantStyleDirective(ctx.variant, locale);
+
   const system = [
     `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
     `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
@@ -785,6 +790,7 @@ export function buildSubjectPrompt(ctx) {
     ``,
     `PROVEN PATTERNS (pick one and adapt — stay in ${langName}):`,
     examples,
+    ...(variantDirective ? [``, variantDirective] : []),
     ``,
     `RULES:`,
     `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
