@@ -494,6 +494,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'salario-minimo-vaud-si-ma-cantone-sesto',
+    category: 'pratico',
+    date: '2026-06-15T02:59:03.623Z',
+    image: '/images/blog/salario-minimo-vaud-si-ma-cantone-sesto.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

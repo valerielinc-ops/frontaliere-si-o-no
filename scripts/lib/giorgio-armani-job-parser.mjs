@@ -195,9 +195,16 @@ export function parseGiorgioArmaniListingHtml(html = '') {
  * Detect whether a hydrated listing page rendered its job tiles.
  * Used to poll-wait for the SPA to finish injecting `tr.jobResultItem` rows
  * before reading `page.content()`.
+ *
+ * Matches the class token with a word boundary rather than a quote-strict
+ * `class="jobResultItem"`, so the gate stays aligned with the class-agnostic
+ * `querySelectorAll('tr.jobResultItem')` used by `parseGiorgioArmaniListingHtml`.
+ * SuccessFactors routinely appends state classes (e.g. `jobResultItem odd`);
+ * a quote-strict match would silently fail and trigger a `did-not-hydrate`
+ * preserve (stale data) instead of reading the rendered rows.
  */
 export function listingHasRenderedJobs(html = '') {
-  return /class="jobResultItem"/i.test(html) || /class="jobTitle"/i.test(html);
+  return /\bjobResultItem\b/i.test(html) || /\bjobTitle\b/i.test(html);
 }
 
 /**
