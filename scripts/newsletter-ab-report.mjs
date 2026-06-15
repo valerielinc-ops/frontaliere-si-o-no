@@ -10,10 +10,10 @@
  * Design — immune to the per-provider webhook inconsistencies:
  *  - DENOMINATOR (sends) comes from the send-time `campaign_deliveries` docs,
  *    where `provider` is authoritative for every cascade provider.
- *  - VARIANT is RE-COMPUTED deterministically via assignSubjectVariant(email,
- *    campaignId) — so it never depends on what a given provider's webhook stored
- *    (only Resend reads tags.variant). The persisted `variant` is used only as a
- *    cross-check.
+ *  - VARIANT comes from the PERSISTED `variant` on the send doc (authoritative,
+ *    written at send time for every provider), recomputed deterministically only
+ *    as a legacy fallback. Persisted-first is required once auto-promotion biases
+ *    the split (the variant is then no longer a pure function of email+campaign).
  *  - NUMERATOR (opens) is an OR of signals so no provider is under-counted:
  *      (a) `opened_at` on the send doc (Resend + any same-doc provider), plus
  *      (b) an 'open' event in the subscriber `events` subcollection for this
@@ -29,7 +29,9 @@
  * Read-only — never writes to Firestore.
  */
 
-import { assignSubjectVariant, listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
+import { loadCampaignVariantTotals, MissingIndexError } from './lib/newsletter-ab-data.mjs';
 
 const args = process.argv.slice(2);
 const JSON_OUT = args.includes('--json');
@@ -61,30 +63,6 @@ async function initFirebase() {
   return a.firestore();
 }
 
-/** Standard normal CDF (Abramowitz–Stegun erf approximation). */
-function normalCdf(z) {
-  const t = 1 / (1 + 0.2316419 * Math.abs(z));
-  const d = 0.3989423 * Math.exp(-z * z / 2);
-  const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
-  return z > 0 ? 1 - p : p;
-}
-
-/**
- * Two-proportion z-test (two-sided). Returns { z, pValue } or null if either
- * sample is empty.
- */
-function twoProportionTest(a, b) {
-  if (!a.sends || !b.sends) return null;
-  const p1 = a.opens / a.sends;
-  const p2 = b.opens / b.sends;
-  const pPool = (a.opens + b.opens) / (a.sends + b.sends);
-  const se = Math.sqrt(pPool * (1 - pPool) * (1 / a.sends + 1 / b.sends));
-  if (se === 0) return { z: 0, pValue: 1 };
-  const z = (p1 - p2) / se;
-  const pValue = 2 * (1 - normalCdf(Math.abs(z)));
-  return { z, pValue };
-}
-
 const pct = (n, d) => (d > 0 ? (100 * n / d) : 0);
 
 async function main() {
@@ -97,66 +75,21 @@ async function main() {
 
   const db = await initFirebase();
 
-  // Both queries filter on `campaign_id` only (single-field collectionGroup
-  // index) and refine in memory — avoids requiring a composite index. If the
-  // single-field collectionGroup index is missing, Firestore returns a
-  // FAILED_PRECONDITION with a one-click creation URL, surfaced below.
-  const runQuery = async (group, label) => {
-    try {
-      return await db.collectionGroup(group).where('campaign_id', '==', campaignId).get();
-    } catch (e) {
-      if (String(e?.message || '').includes('index')) {
-        console.error(`❌ Missing Firestore collectionGroup index for "${group}.campaign_id".`);
-        console.error(`   Create it via the link in this error, then re-run:\n   ${e.message}`);
-        process.exit(2);
-      }
-      throw e;
+  // Shared loader (same logic the auto-promotion resolver uses). Open detection
+  // ORs send-doc opened_at with per-campaign open events → immune to the
+  // per-provider delivery-doc-id divergence.
+  let cells;
+  let totalSends;
+  let mismatchVariant;
+  try {
+    ({ cells, totalSends, mismatchVariant } = await loadCampaignVariantTotals(db, campaignId));
+  } catch (e) {
+    if (e instanceof MissingIndexError) {
+      console.error(`❌ ${e.message}.`);
+      console.error(`   Create the single-field collectionGroup index via the link in this error, then re-run:\n   ${e.original?.message || ''}`);
+      process.exit(2);
     }
-  };
-
-  // ── 1. Sends (denominator) + same-doc opens ──
-  const sendSnap = await runQuery('campaign_deliveries', 'sends');
-
-  // ── 2. Opens (numerator) from the events subcollection for this campaign ──
-  // Every provider writes an 'open' event with provider + campaign_id, even when
-  // its delivery-doc id diverges from the send doc.
-  const openSnap = await runQuery('events', 'opens');
-
-  const openedEmails = new Set();
-  const openedMsgIds = new Set();
-  for (const doc of openSnap.docs) {
-    const d = doc.data();
-    if (d.event_type !== 'open') continue; // refine in memory (no composite index)
-    const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
-    if (email) openedEmails.add(email);
-    if (d.message_id) openedMsgIds.add(String(d.message_id));
-  }
-
-  // cells[provider][variant] = { sends, opens }
-  const cells = {};
-  const ensure = (provider, variant) => {
-    cells[provider] ??= {};
-    cells[provider][variant] ??= { sends: 0, opens: 0 };
-    return cells[provider][variant];
-  };
-
-  let totalSends = 0;
-  let mismatchVariant = 0;
-  for (const doc of sendSnap.docs) {
-    const d = doc.data();
-    if (!d.sent_at) continue; // only count real sends
-    const email = (d.email || doc.ref.parent?.parent?.id || '').toLowerCase();
-    if (!email) continue;
-    const provider = d.provider || 'unknown';
-    // Variant is recomputed (source of truth); cross-check against persisted.
-    const variant = assignSubjectVariant(email, campaignId);
-    if (d.variant && d.variant !== variant) mismatchVariant++;
-
-    const cell = ensure(provider, variant);
-    cell.sends++;
-    const opened = !!d.opened_at || openedEmails.has(email) || (d.message_id && openedMsgIds.has(String(d.message_id)));
-    if (opened) cell.opens++;
-    totalSends++;
+    throw e;
   }
 
   if (totalSends === 0) {
