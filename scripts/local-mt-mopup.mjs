@@ -226,14 +226,21 @@ async function main() {
     encoding: 'utf-8',
     maxBuffer: 256 * 1024 * 1024,
     stdio: ['pipe', 'pipe', 'inherit'],
+    timeout: TIME_BUDGET_MS,
   });
 
-  if (proc.error) {
+  const timedOut = proc.error?.code === 'ETIMEDOUT';
+  if (proc.error && !timedOut) {
     console.error(`❌ [local-mt] Failed to spawn Python worker: ${proc.error.message}`);
     process.exitCode = 1;
     return;
   }
-  if (proc.status !== 0) {
+  if (timedOut) {
+    // Process stalled: killed by the timeout guard. Fall through to parse
+    // whatever partial stdout was captured before the kill so partial results
+    // are committed rather than lost.
+    console.warn(`⏰ [local-mt] Python worker killed after ${Math.round(TIME_BUDGET_MS / 60000)}min timeout — will commit partial results.`);
+  } else if (proc.status !== 0) {
     console.error(`❌ [local-mt] Python worker exited with status ${proc.status}.`);
     process.exitCode = 1;
     return;
