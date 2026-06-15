@@ -67,13 +67,16 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
 
-      - name: Reassemble dataset (rolls recovered slices into expired-jobs.json)
+      - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
         if: ${{ inputs.dry_run != true }}
+        # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
+        # that the vitest gate reads. These are deploy-assembled, not committed by
+        # the --slice-only commit below. We deliberately do NOT run
+        # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
+        # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
+        # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
+        # job — this workflow only recovers expired slice content.
         run: node scripts/assemble-jobs-dataset.mjs
-
-      - name: Reconcile orphan + expired slugs with active jobs
-        if: ${{ inputs.dry_run != true }}
-        run: node scripts/reconcile-job-slugs.mjs
 
       - name: Test gate (bot-direct-to-main — never poison main with a bad dump)
         if: ${{ inputs.dry_run != true }}
