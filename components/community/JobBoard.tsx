@@ -4693,6 +4693,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing) => {
  Analytics.trackSelectContent('job_board_apply', `${job.company}_${job.title}`);
+ // In-house / forward-email publisher ads apply via the on-page
+ // PublisherApplyForm (#candidatura), NOT an external URL. For these,
+ // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
+ // job.url in a new tab just re-shows the listing ("returns to the ad"
+ // bug). Scroll to the in-page form instead.
+ const mode = (job as { applyMode?: string }).applyMode;
+ if (mode === 'in_house' || mode === 'forward_email') {
+ trackPublisherApplyClick(job as { publisherJobId?: string | null });
+ document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ return;
+ }
  if (job.url) window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
  };
 
@@ -6494,6 +6505,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ];
  const hybridLayoutEnabled = false;
  const applyUrl = buildReferralUrl(selectedJob.applyUrl || selectedJob.url || '', selectedJob);
+ const applyMode = (selectedJob as { applyMode?: string }).applyMode;
+ const isInHouseApply = applyMode === 'in_house' || applyMode === 'forward_email';
+ const scrollToCandidatura = () => {
+ document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ };
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
@@ -6707,10 +6723,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <header className="rounded-3xl border border-edge bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-4 sm:p-6">
  <div className="flex items-start gap-3 sm:gap-4">
  <a
- href={applyUrl}
- target="_blank"
+ href={isInHouseApply ? '#candidatura' : applyUrl}
+ target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
- onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
+ onClick={(e) => {
+ if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
+ Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`);
+ }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
  >
@@ -6731,10 +6750,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="min-w-0">
  <h1 className="text-2xl md:text-3xl font-extrabold font-display text-heading leading-tight">
  <a
- href={applyUrl}
- target="_blank"
+ href={isInHouseApply ? '#candidatura' : applyUrl}
+ target={isInHouseApply ? undefined : '_blank'}
  rel="nofollow noopener noreferrer"
- onClick={() => Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`)}
+ onClick={(e) => {
+ if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
+ Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`);
+ }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
  {selectedJobTitle}
@@ -6928,6 +6950,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </dl>
  {salaryEstimateWidget}
  </section>
+
+ {/* In-house / forward-email publisher ads: candidate applies via this
+  *   on-page form (writes the `applications` doc → CF emails the publisher).
+  *   The /lavoro/<slug>/candidatura/ deep-link (router + useEffect ~2668)
+  *   and every apply CTA scroll here. Anchor offset clears the sticky nav. */}
+ {isInHouseApply && (
+ <div id="candidatura" className="scroll-mt-24">
+ <PublisherApplyForm
+ jobId={String((selectedJob as { publisherJobId?: string }).publisherJobId || '')}
+ publisherUid={String((selectedJob as { publisherUid?: string }).publisherUid || '')}
+ jobTitle={String(selectedJob.title || '')}
+ />
+ </div>
+ )}
 
  {/* In-article ad — mobile/tablet only (desktop has sidebar ad) */}
  {!isDesktopLg && (
