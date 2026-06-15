@@ -356,13 +356,39 @@ export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://
  */
 export const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 export const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
+
+/**
+ * Client-side bot-detection literals shared by every static inline script.
+ *
+ * `BOT_PATTERNS_LITERAL` serialises services/botPatterns.ts `BOT_UA_PATTERNS`.
+ * `BOT_GATE_FN` is the inline-JS twin of services/botPatterns.ts `isLikelyBot()`
+ * — a function-expression string returning `true` for bot sessions. It is the
+ * SINGLE source for the bot gate in BOTH static inline scripts below
+ * (`ADSENSE_LOADER_CONTENT` + `POSTHOG_INIT_CONTENT`), so the logic is never
+ * copy-pasted. Behaviour is kept aligned with the TS `isLikelyBot()` by
+ * tests/bot-gate-parity.test.ts (same UA matrix, identical verdicts).
+ *
+ * Why a string and not the TS function: these run inside externalised plain-JS
+ * assets emitted at build time (no module graph), so the detection must be
+ * embedded literally. botPatterns.ts stays the source of truth for the pattern
+ * list; only the wrapper logic is necessarily re-expressed here.
+ */
+const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
+export const BOT_GATE_FN = `function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return true;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return true;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return true;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return true;if(navigator.plugins&&navigator.plugins.length===0)return true;if(typeof navigator.permissions==='undefined')return true;}return false;}`;
+
 /**
  * Plain JS body for the PostHog snippet — written to dist/assets/posthog-init.js
  * by staticScriptsPlugin. The previous inline version was 1.2 KB embedded in every
  * static page using ANALYTICS_SNIPPET (~14k bridges + ~600 static-pages = ~17 MB).
  * After externalising, per-page cost drops from ~1.2 KB → ~80 B (the <script src> tag).
+ *
+ * BOT GATE: the entire stub-install + `posthog.init` runs only when `BOT_GATE_FN`
+ * reports a real user. On static pages this snippet sets `capture_pageview:true`,
+ * so without the gate every bot hit on a bridge/landing page fired a $pageview —
+ * a large slice of the free-tier 1M/mo event budget at zero analytics value.
+ * Mirrors the SPA gate in services/posthog.ts `ensurePostHog()`.
  */
-export const POSTHOG_INIT_CONTENT = `!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});`;
+export const POSTHOG_INIT_CONTENT = `if(!(${BOT_GATE_FN})()){!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags identify setPersonProperties group resetGroups reset opt_in_capturing opt_out_capturing".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);posthog.init('${POSTHOG_KEY}',{api_host:'${POSTHOG_HOST}',capture_pageview:true,capture_pageleave:true,autocapture:false,persistence:'localStorage'});}`;
 export const POSTHOG_INIT_FILENAME = 'posthog-init.js';
 export const POSTHOG_SNIPPET = `<script src="/assets/${POSTHOG_INIT_FILENAME}"></script>`;
 
@@ -397,14 +423,15 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
 /**
  * Inline lazy-loader injected at the bottom of every static page (and also
  * emitted from index.html). Runs once per page and:
- *  0. Bot gate: if the UA matches a BOT_UA_PATTERNS substring or
- *     navigator.webdriver === true, the loader returns immediately. This is
- *     the static-HTML counterpart to `<AdSenseBanner>`'s SKIP_FOR_BOT and
- *     extends the bot filter to Auto Ads (Anchor / In-page / Vignette) which
- *     are injected by adsbygoogle.js itself, bypassing the React component.
- *     ~95% of revenue comes from those Auto Ads formats — without this gate,
- *     bots still triggered the script load and inflated AD_REQUESTS at near-
- *     zero RPM. See services/botPatterns.ts for the shared pattern source.
+ *  0. Bot gate: `BOT_GATE_FN` (shared with POSTHOG_INIT_CONTENT, the inline-JS
+ *     twin of services/botPatterns.ts `isLikelyBot()`) returns true for bots —
+ *     the loader then returns immediately. This is the static-HTML counterpart
+ *     to `<AdSenseBanner>`'s SKIP_FOR_BOT and extends the bot filter to Auto Ads
+ *     (Anchor / In-page / Vignette) which are injected by adsbygoogle.js itself,
+ *     bypassing the React component. ~95% of revenue comes from those Auto Ads
+ *     formats — without this gate, bots still triggered the script load and
+ *     inflated AD_REQUESTS at near-zero RPM. See services/botPatterns.ts for the
+ *     shared pattern source.
  *  1. Watches every <ins class="adsbygoogle"> with IntersectionObserver
  *     (rootMargin 200px) — on first visible slot, loads adsbygoogle.js.
  *  2. Falls back to requestIdleCallback for pages without manual slots so Auto
@@ -421,14 +448,13 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *     runs in a post-hydration effect (already after LCP), so it needs no gate.
  *  3. On script load, pushes {} for every slot currently in the DOM.
  */
-const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
 /**
  * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
  * by staticScriptsPlugin. This was the LARGEST inline script in every static page:
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-export const ADSENSE_LOADER_CONTENT = `(function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return;if(navigator.plugins&&navigator.plugins.length===0)return;if(typeof navigator.permissions==='undefined')return;}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
+export const ADSENSE_LOADER_CONTENT = `(function(){if((${BOT_GATE_FN})())return;var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
