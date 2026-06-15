@@ -456,7 +456,7 @@ body.modal-open .google-auto-placed {
   pointer-events: none !important;
 }
 
-/* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D) ═════════════
+/* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D / #2190) ════
    Google Auto Ads inject `.google-auto-placed` divs anywhere on the page,
    bypassing our React component reservation. We can't pre-reserve space
    (the shift has already happened by the time the class lands in the DOM),
@@ -464,13 +464,19 @@ body.modal-open .google-auto-placed {
      1. Cap their max-height so the shift is bounded.
      2. Use `contain: layout` so the shift does NOT propagate up to siblings
         — only the local container reflows.
-     3. Set an `aspect-ratio` hint so the browser allocates rough space when
-        the iframe is being measured (browser still picks max-content if
-        unset, which is what causes the violent shift).
-     4. Collapse fully when ad failed to fill so empty space doesn't sit. */
+     3. Set an `aspect-ratio` hint + `min-height` reserve so the browser
+        allocates the expected in-page ad height before the iframe fills.
+        aspect-ratio: 4/1 alone allocated only ~97px at 390px viewport;
+        min-height: 250px raises the floor to a typical medium-rectangle
+        (300×250), eliminating the 97→250px growth phase that caused
+        CLS ~0.18 on #main-content at ~2.3s (#2190).
+     4. Collapse fully when ad failed to fill so empty space doesn't sit.
+        min-height: 0 in the collapse rule overrides the base min-height
+        so unfilled/empty containers vanish rather than leaving a 250px gap. */
 .google-auto-placed {
   contain: layout;
   aspect-ratio: 4 / 1;
+  min-height: 250px;
 }
 @media (max-width: 767px) {
   .google-auto-placed {
@@ -480,6 +486,7 @@ body.modal-open .google-auto-placed {
   /* Collapse auto-ad containers that fail to fill */
   .google-auto-placed:empty,
   .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    min-height: 0;
     max-height: 0;
     margin: 0;
     padding: 0;
@@ -492,6 +499,7 @@ body.modal-open .google-auto-placed {
   }
   .google-auto-placed:empty,
   .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    min-height: 0;
     max-height: 0;
     margin: 0;
     padding: 0;
