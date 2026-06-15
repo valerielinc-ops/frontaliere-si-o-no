@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { applyTarget, renderBody } from '../build-plugins/publisherAdPagesPlugin';
+import { applyTarget, renderBody, resolveSlugCollisions } from '../build-plugins/publisherAdPagesPlugin';
 
 const BASE_REC = {
   title: 'Prompt engineer da remoto',
@@ -80,5 +80,54 @@ describe('renderBody — sponsored /lavoro/ page', () => {
     expect(free).toContain('data:image/svg+xml'); // initials badge
     expect(free).toContain('href="https://acme.ch/jobs/1"');
     expect(free).not.toContain('Sponsorizzato');
+  });
+});
+
+describe('resolveSlugCollisions — distinct-ad baseSlug guard (monetization)', () => {
+  it('no collision: distinct slugs all pass through, deterministic order', () => {
+    const recs = [
+      { slug: 'a', publisherJobId: 'p1' },
+      { slug: 'b', publisherJobId: 'p2' },
+    ];
+    const { toEmit, collisions } = resolveSlugCollisions(recs);
+    expect(toEmit).toHaveLength(2);
+    expect(collisions).toHaveLength(0);
+  });
+
+  it('two DISTINCT paid ads on the same slug → first wins, loser skipped + reported', () => {
+    const recs = [
+      { slug: 'cameriere-lugano-bar', publisherJobId: 'pubA', title: 'Cameriere', company: 'Bar' },
+      { slug: 'cameriere-lugano-bar', publisherJobId: 'pubB', title: 'Cameriere', company: 'Bar' },
+    ];
+    const { toEmit, collisions } = resolveSlugCollisions(recs);
+    expect(toEmit.map((r) => r.publisherJobId)).toEqual(['pubA']); // first-in-slice wins
+    expect(collisions).toEqual([{ slug: 'cameriere-lugano-bar', winner: 'pubA', loser: 'pubB' }]);
+  });
+
+  it('SAME ad re-listed at the same slug is idempotent, not a collision', () => {
+    const recs = [
+      { slug: 's', publisherJobId: 'p1' },
+      { slug: 's', publisherJobId: 'p1' },
+    ];
+    const { toEmit, collisions } = resolveSlugCollisions(recs);
+    expect(toEmit).toHaveLength(2);
+    expect(collisions).toHaveLength(0);
+  });
+
+  it('falls back to id then title|company when publisherJobId is absent', () => {
+    const recs = [
+      { slug: 's', id: 'idA', title: 'T', company: 'C' },
+      { slug: 's', id: 'idB', title: 'T', company: 'C' }, // distinct id → collision
+    ];
+    const { toEmit, collisions } = resolveSlugCollisions(recs);
+    expect(toEmit.map((r) => r.id)).toEqual(['idA']);
+    expect(collisions).toEqual([{ slug: 's', winner: 'idA', loser: 'idB' }]);
+  });
+
+  it('slugless records pass through untouched (emit loop skips them later)', () => {
+    const recs = [{ slug: '', publisherJobId: 'p1' }, { publisherJobId: 'p2' }];
+    const { toEmit, collisions } = resolveSlugCollisions(recs);
+    expect(toEmit).toHaveLength(2);
+    expect(collisions).toHaveLength(0);
   });
 });

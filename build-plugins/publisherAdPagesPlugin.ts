@@ -244,6 +244,60 @@ ${ctaHtml(rec, locale)}
 }
 
 /**
+ * Distinct-ad baseSlug collision guard (monetization-critical).
+ *
+ * Two DISTINCT paid ads whose `title-location-company` slugify to the same
+ * baseSlug both resolve to `/lavoro/<slug>/`. WriteCollector dedups by path
+ * (Map, last-add-wins — see batchWrite.ts), so the LATER record would SILENTLY
+ * overwrite the earlier ad's page. Because the sponsor-blast email re-derives
+ * the SAME slug independently (scripts/blast-publisher-ads.mjs, identical
+ * slugifyPublisher inputs), the losing ad's CTA recipients would land on the
+ * WRONG ad's page — a paying advertiser's traffic sent to a competitor.
+ *
+ * The slug cannot be disambiguated here: the blast script derives the URL from
+ * the same inputs with no shared state, so a plugin-only suffix would make the
+ * email 404 instead of mislink. So we resolve DETERMINISTICALLY (first record in
+ * slice order wins — stable across builds regardless of slice ordering churn)
+ * and surface every collision LOUDLY so the owner renames the colliding source
+ * ad. Returns the records to emit plus the collisions that were skipped.
+ *
+ * Note: sibling SSG plugins (jobsSeoPagesPlugin, careerLandingsPlugin) consume
+ * the ALREADY slug-deduped assembled dataset (assemble-jobs-dataset.mjs slug
+ * dedup + per-locale collision guard); this plugin is the only one reading the
+ * RAW by-crawler slice, so the exposure is specific to it.
+ */
+export function resolveSlugCollisions(records: AdRecord[]): {
+  toEmit: AdRecord[];
+  collisions: Array<{ slug: string; winner: string; loser: string }>;
+} {
+  const identityOf = (r: AdRecord): string =>
+    String(r.publisherJobId || r.id || `${r.title ?? ''}|${r.company ?? ''}`);
+  const owner = new Map<string, string>(); // slug → identity of the first claimant
+  const toEmit: AdRecord[] = [];
+  const collisions: Array<{ slug: string; winner: string; loser: string }> = [];
+  for (const rec of records) {
+    const slug = String(rec.slug || '').trim();
+    if (!slug) {
+      toEmit.push(rec); // slugless: the emit loop skips it anyway, keep behaviour identical
+      continue;
+    }
+    const identity = identityOf(rec);
+    const prev = owner.get(slug);
+    if (prev === undefined) {
+      owner.set(slug, identity);
+      toEmit.push(rec);
+    } else if (prev === identity) {
+      // Same ad re-listed at the same slug (one ad × location = one record, so
+      // this shouldn't happen) — idempotent, keep it, not a collision.
+      toEmit.push(rec);
+    } else {
+      collisions.push({ slug, winner: prev, loser: identity });
+    }
+  }
+  return { toEmit, collisions };
+}
+
+/**
  * Minimal 200-status shell behind the in-house apply CTA. The route is mapped
  * by services/router.ts WITHOUT staticOverlay, so the SPA replaces this body
  * with the job detail view + PublisherApplyForm on hydrate. Always noindex —
@@ -289,13 +343,26 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
         return;
       }
 
+      // Resolve distinct-ad baseSlug collisions BEFORE emitting: keep the first
+      // claimant per slug and loudly skip the losers so a later paid ad never
+      // silently overwrites an earlier ad's page (see resolveSlugCollisions).
+      const { toEmit, collisions } = resolveSlugCollisions(records);
+      for (const c of collisions) {
+        console.warn(
+          `\x1b[31m[publisher-ad-pages]\x1b[0m ⚠️ baseSlug collision on /lavoro/${c.slug}/ — ` +
+          `paid ad ${c.loser} collides with already-emitted ${c.winner}; skipping the loser so ` +
+          `it cannot overwrite the first ad's page. Its sponsor-blast CTA currently links to the ` +
+          `other ad — disambiguate the source ad title/location/company.`,
+        );
+      }
+
       const dateStamp = new Date().toISOString().slice(0, 10);
       const collector = new WriteCollector({ distDir, pluginName: 'publisherAdPagesPlugin' });
       const sitemapEntries: Array<{ canonical: string; alternates: string[] }> = [];
       let pagesWritten = 0;
       let thinSkipped = 0;
 
-      for (const rec of records) {
+      for (const rec of toEmit) {
         const slug = String(rec.slug || '').trim();
         if (!slug) continue;
 
@@ -405,7 +472,7 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
 
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin) — flushed ${written} files.`,
+        `\x1b[36m[publisher-ad-pages]\x1b[0m ${records.length} ad record(s) → ${pagesWritten} pages (${thinSkipped} noindex-thin${collisions.length ? `, ${collisions.length} slug-collision skipped` : ''}) — flushed ${written} files.`,
       );
     },
   };
