@@ -87,10 +87,10 @@ describe('profession aggregate FeaturedJob projection', () => {
   // contain all 26 cantons, but the profession landings at
   // `/lavoro-ticino-{profession}/` are editorially TI-themed: section
   // titles say "Chi assume in Ticino" / "Principali datori di lavoro in
-  // Ticino", and every employer chip points at `/cerca-lavoro-ticino/?q=…`.
+  // Ticino", and every employer chip points at the TI job-board root.
   // Without filtering, non-TI employers (Luzerner Psychiatrie, Psychiatrie
   // Baselland, Stiftung Bachtelen, Universitäts-Kinderspital Zürich, …)
-  // surfaced as "TI employers" with TI-search links that returned zero
+  // surfaced as "TI employers" with TI links that returned zero
   // results (visible 2026-05-20 on /lavoro-ticino-educatore/). Lock the
   // canton filter so this can't silently regress.
   it('aggregateProfessionJobs filters jobs to canton TI before aggregation', async () => {
