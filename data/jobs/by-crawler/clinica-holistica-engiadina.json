@@ -117,8 +117,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als-oberpsychologin",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:22:02.990Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-14T21:34:35.359Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachpsychologin-fachpsychologe-80-100-bei-hinreichender-eignung-anstellung-als"
@@ -129,15 +128,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:16:28.785Z",
-      "salaryMin": 110500,
-      "salaryMax": 154000,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 110500,
-          "maxValue": 154000,
+          "minValue": 95000,
+          "maxValue": 132500,
           "unitText": "YEAR"
         }
       }
@@ -187,8 +186,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/node/293",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:22:00.902Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-14T21:34:32.857Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "somatische-arztin-oder-somatischer-arzt-facharzttitel-allgemeinmedizin-innere-medizin"
@@ -199,15 +197,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:16:26.552Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -257,8 +255,7 @@
       "applyUrl": "https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd",
       "source": "Clinica Holistica Engiadina Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:21:58.518Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-06-14T21:34:30.464Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "hilfskoch-kuchenhilfe-m-w-d-clinica-holistica-engiadina-susch"
@@ -269,15 +266,15 @@
         ]
       },
       "firstSeenAt": "2026-05-20T05:16:24.218Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
+      "salaryMin": 53500,
+      "salaryMax": 67000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
+          "minValue": 53500,
+          "maxValue": 67000,
           "unitText": "YEAR"
         }
       }

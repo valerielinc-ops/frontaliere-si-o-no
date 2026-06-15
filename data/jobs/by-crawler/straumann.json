@@ -253,7 +253,7 @@
       "url": "https://careers.straumann.com/global/en/job/P-100083/product-manufacturing-engineer-medical-devices-80-100-galvosurge",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:10.656Z",
+      "crawledAt": "2026-06-14T22:49:06.243Z",
       "addressLocality": "Berneck",
       "addressCountry": "CH",
       "country": "CH",
@@ -315,16 +315,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.719Z",
-      "needsRetranslation": true,
-      "salaryMin": 64500,
-      "salaryMax": 87000,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 87000,
+          "minValue": 55500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -362,7 +361,7 @@
       "url": "https://careers.straumann.com/global/en/job/21128/senior-manager-post-market-clinical-follow-up",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:10.267Z",
+      "crawledAt": "2026-06-14T22:49:05.957Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "postalCode": "4002",
@@ -423,16 +422,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:55:16.706Z",
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }

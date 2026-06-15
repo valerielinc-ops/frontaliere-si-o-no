@@ -417,7 +417,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1965/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.562Z",
+      "crawledAt": "2026-06-14T23:00:03.692Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -480,16 +480,15 @@
         ]
       },
       "firstSeenAt": "2026-05-30T00:37:33.432Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -3231,7 +3230,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3255/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.561Z",
+      "crawledAt": "2026-06-14T23:00:03.691Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -3260,16 +3259,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -4872,7 +4870,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1815/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -4921,16 +4919,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5415,8 +5412,8 @@
       "id": "spital-thurgau-e4dcde94c1f6",
       "slug": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "neuropsicologo-a-spital-thurgau-stgag-munsterlingen",
-        "en": "neuropsychologist-spital-thurgau-stgag-munsterlingen",
+        "it": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+        "en": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
         "de": "neuropsychologen-in-stgag-ch",
         "fr": "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
       },
@@ -5442,7 +5439,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3625/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -5466,7 +5463,7 @@
         "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
         "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
+        "neuropsychologist-spital-thurgau-stgag-munsterlingen",
         "psicologo-spital-thurgau-stgag-diessenhofen",
         "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
         "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
@@ -5483,25 +5480,22 @@
           "neuropsychologen-in-stgag-ch",
           "neuropsicologo-a-spital-thurgau-stgag-munsterlingen-b3fd65",
           "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen"
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
         ],
         "en": [
-          "neuropsychologen-in-spital-thurgau-stgag-munsterlingen",
           "neuropsychologist-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-12T12:03:26.832Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5637,7 +5631,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3622/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "postalCode": "8590",
@@ -5668,16 +5662,15 @@
         "mpa-arztsekretarin-stgag-ch"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.977Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -5713,7 +5706,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3610/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -5741,16 +5734,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.132Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -6071,9 +6063,9 @@
       "slug": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-stgag-ch",
+        "en": "dipl-nursing-professional-woman-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-pflegefachmann-frau-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-stgag-ch"
+        "fr": "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -6097,7 +6089,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3608/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.691Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -6119,9 +6111,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-stgag-ch",
         "dipl-care-professional-spital-thurgau-stgag-munsterlingen-7f8c85",
-        "dipl-nursing-professional-woman-spital-thurgau-stgag-munsterlingen",
-        "dipl-professionnel-de-soins-spital-thurgau-stgag-munsterlingen-7f8c85",
-        "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen"
+        "dipl-professionnel-de-soins-spital-thurgau-stgag-munsterlingen-7f8c85"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6129,26 +6119,23 @@
         ],
         "en": [
           "dipl-care-professional-spital-thurgau-stgag-munsterlingen-7f8c85",
-          "dipl-nursing-professional-woman-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-stgag-ch"
         ],
         "fr": [
           "dipl-professionnel-de-soins-spital-thurgau-stgag-munsterlingen-7f8c85",
-          "dipl-professionnels-des-soins-infirmiers-femmes-spital-thurgau-stgag-munsterlingen",
           "dipl-pflegefachmann-frau-stgag-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T14:47:16.696Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -7367,7 +7354,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3246/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.560Z",
+      "crawledAt": "2026-06-14T23:00:03.691Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -7401,16 +7388,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -7751,9 +7737,9 @@
       "slug": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "en": "dipl-radiology-specialist-spital-thurgau-stgag-chur",
         "de": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
+        "fr": "dipl-specialiste-de-radiologie-spital-thurgau-stgag-chur"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -7777,7 +7763,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3661/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Chur",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -7801,9 +7787,8 @@
         "dipl-radiologiefachfrau-mann-hf-spital-thurgau-stgag-chur",
         "dipl-specialista-di-radiologia-spital-thurgau-stgag-chur",
         "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
-        "dipl-radiology-specialist-spital-thurgau-stgag-chur",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-chur"
+        "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen",
+        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7814,7 +7799,6 @@
         "en": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen",
-          "dipl-radiology-specialist-spital-thurgau-stgag-chur",
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ],
         "de": [
@@ -7823,21 +7807,19 @@
         "fr": [
           "dipl-radiologiefachfrau-mann-hf-stgag-ch",
           "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-chur",
           "dipl-radiologiefachfrau-mann-hf-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -8356,7 +8338,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3648/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -8395,16 +8377,15 @@
         ]
       },
       "firstSeenAt": "2026-05-29T00:40:28.280Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -9736,7 +9717,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/2535/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -9766,16 +9747,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -9799,11 +9779,11 @@
         "de": "Ernährungsberater/-in HF/BSc",
         "fr": "Ernährungsberater/-in HF/BSc"
       },
-      "description": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG).\n\n• Standort: Klinik St. Katharinental, Diessenhofen\n• Abteilung: Übriges akademisches Personal\n• Bereich: Klinik St. Katharinental\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet",
+      "description": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG).\n\n• Standort: Klinik St. Katharinental, Diessenhofen\n• Abteilung: Übriges akademisches Personal\n• Bereich: Klinik St. Katharinental\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
       "descriptionByLocale": {
         "it": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG). Standort: Klinik St. Katharinental, Diessenhofen Abteilung: Übriges akademisches Personal Bereich: Klinik St. Katharinental Pensum: Teilzeit Anstellungsverhältnis: Unbefristet Eintrittsdatum: 01.06.2026",
         "en": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG). Standort: Klinik St. Katharinental, Diessenhofen Abteilung: Übriges akademisches Personal Bereich: Klinik St. Katharinental Pensum: Teilzeit Anstellungsverhältnis: Unbefristet Eintrittsdatum: 01.06.2026",
-        "de": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG).\n• Standort: Klinik St. Katharinental, Diessenhofen\n• Abteilung: Übriges akademisches Personal\n• Bereich: Klinik St. Katharinental\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet",
+        "de": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG).\n• Standort: Klinik St. Katharinental, Diessenhofen\n• Abteilung: Übriges akademisches Personal\n• Bereich: Klinik St. Katharinental\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
         "fr": "Ernährungsberater/-in HF/BSc — Spital Thurgau (STGAG). Standort: Klinik St. Katharinental, Diessenhofen Abteilung: Übriges akademisches Personal Bereich: Klinik St. Katharinental Pensum: Teilzeit Anstellungsverhältnis: Unbefristet Eintrittsdatum: 01.06.2026"
       },
       "location": "Diessenhofen",
@@ -9811,7 +9791,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3514/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -9845,16 +9825,15 @@
         "facharzt-arztin-per-radiologie-con-schwerpunkt-abdominelle-radiologie-oa-o-oa-mbf-spital-thurgau-stgag-kantonsspital-mun"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -9890,7 +9869,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1666/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -9925,16 +9904,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -10056,7 +10034,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/2393/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.559Z",
+      "crawledAt": "2026-06-14T23:00:03.690Z",
       "addressLocality": "Diessenhofen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -10087,16 +10065,15 @@
         "unterassistent-in-stgag-ch"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.983Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -10262,7 +10239,7 @@
       "descriptionByLocale": {
         "it": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "en": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "de": "Fachmann/-frau Gesundheit EFZ — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.09.2026",
+        "de": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Zur Ergänzung unseres multiprofessionellen Teams auf der Station für Traumafolgestörungen und transkultureller Psychotherapie (PT3) suchen wir ab 1. September 2026 oder nach Vereinbarung eine/n Fachmann/-frau Gesundheit EFZ 50% Bist du interessiert Teil eines innovativen Behandlungsteams zu werden und arbeitest gerne selbständig und verantwortungsbewusst? Dann ist dies genau die richtige Stelle für dich! Unser interdisziplinäres Behandlungsangebot richtet sich an Erwachsene im Alter von 18 bis 60 Jahren. Wir arbeiten mit einer evidenzbasierten, systemisch-lösungsorientierten Grundhaltung und beziehen Verhaltens- sowie milieutherapeutische Ansätze mit ein. Die Therapieangebote werden individuell auf die Problemstellungen und auf die eigenen Lösungsansätze der Patientinnen und Patienten abgestimmt. Du übernimmst Du unterstützt die diplomierte Pflegefachperson in den verschiedenen Aufgaben der Pflege und Betreuung unserer Patientinnen und Patienten Du übernimmst zudem abwechslungsreiche allgemeine, administrative und organisatorische Aufgaben für die Station Du beteiligst dich aktiv an der Weiterentwicklung des Teams und des therapeutischen Konzeptes Du bist in der Lage, Ihr Fachwissen in diesen verschiedenen Bereichen anzuwenden und zu erweitern Du hast eine abgeschlossene Ausbildung als Fachfrau/-mann Gesundheit EFZ Du bringst evtl. bereits schon Erfahrung in der psychiatrischen Arbeit mit Du besitzt Einfühlungsvermögen im Umgang mit psychisch erkrankten Menschen Du bist flexibel, belastbar, selbständig und teamfähig\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet"
       },
       "location": "Münsterlingen",
@@ -10270,7 +10247,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3664/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.558Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -10308,15 +10285,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T13:45:45.632Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -10866,7 +10843,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3659/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.558Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "postalCode": "8590",
@@ -10905,16 +10882,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T13:42:37.321Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -10999,9 +10975,9 @@
       "slug": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
       "slugByLocale": {
         "it": "dipl-specialista-di-radiologia-spital-thurgau-stgag-munsterlingen-9a9ff8",
-        "en": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
+        "en": "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "de": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
-        "fr": "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
+        "fr": "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -11025,7 +11001,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3655/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.558Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11050,9 +11026,8 @@
         "dipl-specialista-di-radiologia-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "dipl-radiologiefachmann-frau-hf-stgag-ch",
         "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
-        "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8",
-        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen",
+        "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11064,7 +11039,6 @@
         "en": [
           "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
           "dipl-radiology-specialist-spital-thurgau-stgag-munsterlingen-9a9ff8",
-          "dipl-radiology-specialist-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
         ],
         "de": [
@@ -11073,21 +11047,19 @@
         "fr": [
           "dipl-radiologiefachmann-frau-hf-stgag-ch-2",
           "dipl-specialiste-de-radiologie-spital-thurgau-stgag-munsterlingen-9a9ff8",
-          "dipl-specialiste-de-radiologie-spital-thurgau-stgag-kantonsspital-frauenfeld",
           "dipl-radiologiefachmann-frau-hf-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.616Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11208,7 +11180,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3660/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.558Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Chur",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11247,16 +11219,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:05.617Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11292,7 +11263,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/1500/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.558Z",
+      "crawledAt": "2026-06-14T23:00:03.689Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11332,16 +11303,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.977Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11603,7 +11573,7 @@
       "descriptionByLocale": {
         "it": "Die Psychiatrischen Dienste Thurgau bieten im Kanton eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Du arbeitest auf der Station Forensik 2, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB untergebracht sind. Die Station bietet eine fördernde und aktivierende Tagesstruktur und strebt einen konstruktiven, gewaltfreien und wertschätzenden Umgang miteinander an. Zur Ergänzung des Pflegeteams suchen wir ab Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangregelunge Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen/ Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbständigkeit, Belastbarkeit und Teamfähigkeit Interesse an der Mitgestaltung eines positiven Arbeitsklimas\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "en": "Die Psychiatrischen Dienste Thurgau bieten im Kanton eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Du arbeitest auf der Station Forensik 2, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB untergebracht sind. Die Station bietet eine fördernde und aktivierende Tagesstruktur und strebt einen konstruktiven, gewaltfreien und wertschätzenden Umgang miteinander an. Zur Ergänzung des Pflegeteams suchen wir ab Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangregelunge Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen/ Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbständigkeit, Belastbarkeit und Teamfähigkeit Interesse an der Mitgestaltung eines positiven Arbeitsklimas\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
+        "de": "Die Psychiatrischen Dienste Thurgau bieten im Kanton eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Du arbeitest auf der Station Forensik 2, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB untergebracht sind. Die Station bietet eine fördernde und aktivierende Tagesstruktur und strebt einen konstruktiven, gewaltfreien und wertschätzenden Umgang miteinander an. Zur Ergänzung des Pflegeteams suchen wir ab Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangregelunge Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen/ Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbständigkeit, Belastbarkeit und Teamfähigkeit Interesse an der Mitgestaltung eines positiven Arbeitsklimas\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Die Psychiatrischen Dienste Thurgau bieten im Kanton eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Du arbeitest auf der Station Forensik 2, auf der vorwiegend Patienten/-innen nach Artikel 59 STGB, bei entsprechender Indikationsstellung auch nach Artikel 60 STGB untergebracht sind. Die Station bietet eine fördernde und aktivierende Tagesstruktur und strebt einen konstruktiven, gewaltfreien und wertschätzenden Umgang miteinander an. Zur Ergänzung des Pflegeteams suchen wir ab Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Suchst du ein Arbeitsumfeld, das mehr ist als nur ein Ort des täglichen Wirkens? Bei uns erlebst du ein inspirierendes Arbeitsklima. Unsere Unternehmenskultur zeichnet sich durch Zusammenhalt, Respekt und Wertschätzung aus. Du übernimmst Professionelle Betreuung unserer Patienten/-innen als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangregelunge Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen/ Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbständigkeit, Belastbarkeit und Teamfähigkeit Interesse an der Mitgestaltung eines positiven Arbeitsklimas\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet"
       },
       "location": "Münsterlingen",
@@ -11611,7 +11581,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/2268/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.557Z",
+      "crawledAt": "2026-06-14T23:00:03.688Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11669,15 +11639,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T22:46:00.094Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11713,7 +11683,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3505/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.557Z",
+      "crawledAt": "2026-06-14T23:00:03.688Z",
       "addressLocality": "Kantonsspital Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11742,16 +11712,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
-      "salaryMin": 79000,
-      "salaryMax": 120000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -11787,7 +11756,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3487/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.557Z",
+      "crawledAt": "2026-06-14T23:00:03.688Z",
       "addressLocality": "Kantonsspital Frauenfeld",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11816,16 +11785,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11853,7 +11821,7 @@
       "descriptionByLocale": {
         "it": "Zur Verstärkung unserer Pflegeteams in der Psychiatrischen Klinik Münsterlingen und in der ambulanten Erwachsenenpsychiatrie suchen wir für den Mitarbeiterpool eine/n Dipl. Pflegefachmann/-frau im Mitarbeiterpool Stundenlohn 10-100% Die Psychiatrischen Dienste Thurgau sind Teil der Spital Thurgau AG, und bieten im Kanton Thurgau eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Sie übernehmen Als Pool-Mitarbeitende werden Sie während arbeitsintensiven Phasen und bei Personalengpässen eingesetzt. Dies verlangt eine hohe Flexibilität. Im Rahmen Ihres Einsatzes werden Sie auf allen Stationen der Psychiatrischen Klinik und der ambulanten Erwachsenenpsychiatrie eingesetzt. Wir wenden uns an Pflegefachkräfte mit Berufserfahrung in der Psychiatrie, die als Nebentätigkeit oder nach einer beruflichen Auszeit, Mutterschaft oder Ähnlichem wieder im Beruf arbeiten möchten und bereit sind, auch kurzfristig Einsätze von unter-schiedlicher Dauer gemäss den persönlichen Vorstellungen zu leisten. Sie arbeiten im Stundenlohn mit einem wechselnden Pensum je nach Bedarf der jeweiligen Stationen. Gerne erläutern wir Ihnen im Rahmen eines Vorstellunggespräches die Modalitäten der Anstellung und der Einsatzplanung. 8596 Münsterlingen, Schweiz Die Psychiatrische Klinik Münsterlingen (PKM) ist zusammen mit der Ambulanten Erwachsenenpsychiatrie (AEP) für die psychiatrische und psychotherapeutische Versorgung der erwachsenen Bevölkerung im Thurgau zuständig. Mit über 280 Betten und spezialisierten Angeboten in den Schwerpunktbereichen Psychotherapie, Allgemein- und Akutpsychiatrie, Abhängigkeitserkrankungen, Alterspsychiatrie und Forensik bieten wir evidenzbasierte und qualitativ optimale Therapien für das gesamte Spektrum von psychiatrischen Erkrankungen an. Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen die PKM als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "en": "Zur Verstärkung unserer Pflegeteams in der Psychiatrischen Klinik Münsterlingen und in der ambulanten Erwachsenenpsychiatrie suchen wir für den Mitarbeiterpool eine/n Dipl. Pflegefachmann/-frau im Mitarbeiterpool Stundenlohn 10-100% Die Psychiatrischen Dienste Thurgau sind Teil der Spital Thurgau AG, und bieten im Kanton Thurgau eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Sie übernehmen Als Pool-Mitarbeitende werden Sie während arbeitsintensiven Phasen und bei Personalengpässen eingesetzt. Dies verlangt eine hohe Flexibilität. Im Rahmen Ihres Einsatzes werden Sie auf allen Stationen der Psychiatrischen Klinik und der ambulanten Erwachsenenpsychiatrie eingesetzt. Wir wenden uns an Pflegefachkräfte mit Berufserfahrung in der Psychiatrie, die als Nebentätigkeit oder nach einer beruflichen Auszeit, Mutterschaft oder Ähnlichem wieder im Beruf arbeiten möchten und bereit sind, auch kurzfristig Einsätze von unter-schiedlicher Dauer gemäss den persönlichen Vorstellungen zu leisten. Sie arbeiten im Stundenlohn mit einem wechselnden Pensum je nach Bedarf der jeweiligen Stationen. Gerne erläutern wir Ihnen im Rahmen eines Vorstellunggespräches die Modalitäten der Anstellung und der Einsatzplanung. 8596 Münsterlingen, Schweiz Die Psychiatrische Klinik Münsterlingen (PKM) ist zusammen mit der Ambulanten Erwachsenenpsychiatrie (AEP) für die psychiatrische und psychotherapeutische Versorgung der erwachsenen Bevölkerung im Thurgau zuständig. Mit über 280 Betten und spezialisierten Angeboten in den Schwerpunktbereichen Psychotherapie, Allgemein- und Akutpsychiatrie, Abhängigkeitserkrankungen, Alterspsychiatrie und Forensik bieten wir evidenzbasierte und qualitativ optimale Therapien für das gesamte Spektrum von psychiatrischen Erkrankungen an. Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen die PKM als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "de": "Dipl. Pflegefachmann/-frau im Mitarbeiterpool Stundenlohn — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.08.2026",
+        "de": "Zur Verstärkung unserer Pflegeteams in der Psychiatrischen Klinik Münsterlingen und in der ambulanten Erwachsenenpsychiatrie suchen wir für den Mitarbeiterpool eine/n Dipl. Pflegefachmann/-frau im Mitarbeiterpool Stundenlohn 10-100% Die Psychiatrischen Dienste Thurgau sind Teil der Spital Thurgau AG, und bieten im Kanton Thurgau eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Sie übernehmen Als Pool-Mitarbeitende werden Sie während arbeitsintensiven Phasen und bei Personalengpässen eingesetzt. Dies verlangt eine hohe Flexibilität. Im Rahmen Ihres Einsatzes werden Sie auf allen Stationen der Psychiatrischen Klinik und der ambulanten Erwachsenenpsychiatrie eingesetzt. Wir wenden uns an Pflegefachkräfte mit Berufserfahrung in der Psychiatrie, die als Nebentätigkeit oder nach einer beruflichen Auszeit, Mutterschaft oder Ähnlichem wieder im Beruf arbeiten möchten und bereit sind, auch kurzfristig Einsätze von unter-schiedlicher Dauer gemäss den persönlichen Vorstellungen zu leisten. Sie arbeiten im Stundenlohn mit einem wechselnden Pensum je nach Bedarf der jeweiligen Stationen. Gerne erläutern wir Ihnen im Rahmen eines Vorstellunggespräches die Modalitäten der Anstellung und der Einsatzplanung. 8596 Münsterlingen, Schweiz Die Psychiatrische Klinik Münsterlingen (PKM) ist zusammen mit der Ambulanten Erwachsenenpsychiatrie (AEP) für die psychiatrische und psychotherapeutische Versorgung der erwachsenen Bevölkerung im Thurgau zuständig. Mit über 280 Betten und spezialisierten Angeboten in den Schwerpunktbereichen Psychotherapie, Allgemein- und Akutpsychiatrie, Abhängigkeitserkrankungen, Alterspsychiatrie und Forensik bieten wir evidenzbasierte und qualitativ optimale Therapien für das gesamte Spektrum von psychiatrischen Erkrankungen an. Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen die PKM als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet",
         "fr": "Zur Verstärkung unserer Pflegeteams in der Psychiatrischen Klinik Münsterlingen und in der ambulanten Erwachsenenpsychiatrie suchen wir für den Mitarbeiterpool eine/n Dipl. Pflegefachmann/-frau im Mitarbeiterpool Stundenlohn 10-100% Die Psychiatrischen Dienste Thurgau sind Teil der Spital Thurgau AG, und bieten im Kanton Thurgau eine integrierte psychiatrische Versorgung aller Altersstufen und für alle Störungsbilder an. Sie übernehmen Als Pool-Mitarbeitende werden Sie während arbeitsintensiven Phasen und bei Personalengpässen eingesetzt. Dies verlangt eine hohe Flexibilität. Im Rahmen Ihres Einsatzes werden Sie auf allen Stationen der Psychiatrischen Klinik und der ambulanten Erwachsenenpsychiatrie eingesetzt. Wir wenden uns an Pflegefachkräfte mit Berufserfahrung in der Psychiatrie, die als Nebentätigkeit oder nach einer beruflichen Auszeit, Mutterschaft oder Ähnlichem wieder im Beruf arbeiten möchten und bereit sind, auch kurzfristig Einsätze von unter-schiedlicher Dauer gemäss den persönlichen Vorstellungen zu leisten. Sie arbeiten im Stundenlohn mit einem wechselnden Pensum je nach Bedarf der jeweiligen Stationen. Gerne erläutern wir Ihnen im Rahmen eines Vorstellunggespräches die Modalitäten der Anstellung und der Einsatzplanung. 8596 Münsterlingen, Schweiz Die Psychiatrische Klinik Münsterlingen (PKM) ist zusammen mit der Ambulanten Erwachsenenpsychiatrie (AEP) für die psychiatrische und psychotherapeutische Versorgung der erwachsenen Bevölkerung im Thurgau zuständig. Mit über 280 Betten und spezialisierten Angeboten in den Schwerpunktbereichen Psychotherapie, Allgemein- und Akutpsychiatrie, Abhängigkeitserkrankungen, Alterspsychiatrie und Forensik bieten wir evidenzbasierte und qualitativ optimale Therapien für das gesamte Spektrum von psychiatrischen Erkrankungen an. Eine wertschätzende Kultur verbunden mit einer hervorragenden Aus- und Weiterbildung machen die PKM als Teil der Psychiatrischen Dienste Thurgau zu einer höchst attraktiven Arbeitgeberin. Wir bevorzugen Direktbewerbungen, Stellenvermittler verzichten bitte auf eine Kontaktaufnahme. ALLE UNSERE OFFENEN STELLEN\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Teilzeit\n• Befristung: Unbefristet"
       },
       "location": "Münsterlingen",
@@ -11861,7 +11829,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3360/Description/1?lang=ger",
       "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:32:02.557Z",
+      "crawledAt": "2026-06-14T23:00:03.688Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "postalCode": "8596",
@@ -11902,15 +11870,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -11992,6 +11960,89 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-thurgau-39f64cefd83d",
+      "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+      "slugByLocale": {
+        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "fr": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+      },
+      "company": "Spital Thurgau (STGAG)",
+      "companyKey": "spital-thurgau",
+      "companyDomain": "stgag.ch",
+      "title": "Dipl. Pflegefachmann/-frau Forensik",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachmann/-frau Forensik",
+        "en": "Dipl. Pflegefachmann/-frau Forensik",
+        "de": "Dipl. Pflegefachmann/-frau Forensik",
+        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+      },
+      "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.07.2026",
+      "descriptionByLocale": {
+        "it": "Für die Station Forensik 3 suchen wir per 1. Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Bei uns kommst du in ein multiprofessionelles Team, in dem du unsere Patienten auf ihrem Weg in ein Leben nach der Massnahme hin begleitest. In deiner Bezugspflegearbeit sind sie in alle Prozesse der Behandlung mit eingebunden. Ein regelmässiger und wertschätzender Austausch im Team sowie mit den Patienten ist uns ein grosses Anliegen. Deine fachliche Qualifikation kannst du durch Fort- und Weiterbildungen stets auf einem hohen Niveau halten. Wir freuen uns auf deine Bewerbung! Du übernimmst Die Professionelle Pflege und Betreuung unserer Patienten/-innen Als Bezugsperson die Planung/Durchführung aller Schritte des Pflegeprozesses Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangsregelungen Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen und Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "en": "Für die Station Forensik 3 suchen wir per 1. Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Bei uns kommst du in ein multiprofessionelles Team, in dem du unsere Patienten auf ihrem Weg in ein Leben nach der Massnahme hin begleitest. In deiner Bezugspflegearbeit sind sie in alle Prozesse der Behandlung mit eingebunden. Ein regelmässiger und wertschätzender Austausch im Team sowie mit den Patienten ist uns ein grosses Anliegen. Deine fachliche Qualifikation kannst du durch Fort- und Weiterbildungen stets auf einem hohen Niveau halten. Wir freuen uns auf deine Bewerbung! Du übernimmst Die Professionelle Pflege und Betreuung unserer Patienten/-innen Als Bezugsperson die Planung/Durchführung aller Schritte des Pflegeprozesses Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangsregelungen Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen und Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "de": "Für die Station Forensik 3 suchen wir per 1. Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Bei uns kommst du in ein multiprofessionelles Team, in dem du unsere Patienten auf ihrem Weg in ein Leben nach der Massnahme hin begleitest. In deiner Bezugspflegearbeit sind sie in alle Prozesse der Behandlung mit eingebunden. Ein regelmässiger und wertschätzender Austausch im Team sowie mit den Patienten ist uns ein grosses Anliegen. Deine fachliche Qualifikation kannst du durch Fort- und Weiterbildungen stets auf einem hohen Niveau halten. Wir freuen uns auf deine Bewerbung! Du übernimmst Die Professionelle Pflege und Betreuung unserer Patienten/-innen Als Bezugsperson die Planung/Durchführung aller Schritte des Pflegeprozesses Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangsregelungen Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen und Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Für die Station Forensik 3 suchen wir per 1. Juli 2026 oder nach Vereinbarung eine/n Dipl. Pflegefachmann/-frau Forensik 80-100% Bei uns kommst du in ein multiprofessionelles Team, in dem du unsere Patienten auf ihrem Weg in ein Leben nach der Massnahme hin begleitest. In deiner Bezugspflegearbeit sind sie in alle Prozesse der Behandlung mit eingebunden. Ein regelmässiger und wertschätzender Austausch im Team sowie mit den Patienten ist uns ein grosses Anliegen. Deine fachliche Qualifikation kannst du durch Fort- und Weiterbildungen stets auf einem hohen Niveau halten. Wir freuen uns auf deine Bewerbung! Du übernimmst Die Professionelle Pflege und Betreuung unserer Patienten/-innen Als Bezugsperson die Planung/Durchführung aller Schritte des Pflegeprozesses Mitwirkung bei massnahmerelevanten Entscheidungen wie Lockerungen und Ausgangsregelungen Planung und Durchführung von milieutherapeutischen Aktivitäten Koordination der Abläufe und Aufgaben mit vor- und nachbetreuenden Institutionen und Personen Abgeschlossene Ausbildung als Pflegefachmann/-frau HF/FH mit Schwerpunkt Psychiatrie, Berufserfahrung von Vorteil Engagement für persönliche Fort- oder Weiterbildung zur Erhaltung eines aktuellen Wissensstandes Flexibilität, Selbstständigkeit, Belastbarkeit und Teamfähigkeit\n• Bereich: Pflege (inkl. Hebamme)\n• Art: Vollzeit\n• Befristung: Unbefristet"
+      },
+      "location": "Münsterlingen",
+      "canton": "TG",
+      "url": "https://rekrutierung.stgag.ch/Vacancies/3442/Description/1?lang=ger",
+      "source": "STGAG Dedicated Parser (embedded JSON @ stgag.ch/jobs/)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-14T23:00:03.688Z",
+      "addressLocality": "Münsterlingen",
+      "addressRegion": "TG",
+      "postalCode": "8596",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3442/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege (inkl. Hebamme)",
+      "contractDuration": "permanent",
+      "previousSlugs": [
+        "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch",
+          "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+          "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-12T13:01:39.781Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }

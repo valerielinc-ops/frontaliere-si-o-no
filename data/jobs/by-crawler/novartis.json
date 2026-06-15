@@ -840,7 +840,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-Data-Governance--Anonymization-and-Quality_REQ-10078395",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:07:11.549Z",
+      "crawledAt": "2026-06-14T22:32:34.389Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -864,16 +864,15 @@
         ]
       },
       "firstSeenAt": "2026-05-22T23:04:31.726Z",
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 129500,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },

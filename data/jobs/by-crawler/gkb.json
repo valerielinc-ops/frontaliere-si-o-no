@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:43:15.653Z",
+      "crawledAt": "2026-06-14T21:54:50.425Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -65,16 +65,15 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -111,7 +110,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:43:14.818Z",
+      "crawledAt": "2026-06-14T21:54:49.800Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -132,16 +131,15 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-06-03T13:43:29.166Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -154,7 +152,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
+        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -178,7 +176,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1938/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:43:13.981Z",
+      "crawledAt": "2026-06-14T21:54:49.246Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -199,29 +197,26 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
+        "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ],
         "fr": [
-          "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T13:43:28.315Z",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -258,7 +253,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:43:13.157Z",
+      "crawledAt": "2026-06-14T21:54:48.601Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -290,16 +285,15 @@
         "it-controlling-und-governance-manager-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
-      "needsRetranslation": true,
-      "salaryMin": 92000,
-      "salaryMax": 156500,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 156500,
+          "minValue": 79500,
+          "maxValue": 135000,
           "unitText": "YEAR"
         }
       },

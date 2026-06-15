@@ -6837,7 +6837,7 @@
       "url": "https://jobs.usz.ch/offene-stellen/clinical-fellowship-in-robotic-lymphatic-microsurgery-lymphatic-biology/86d81491-6515-49b6-a5b5-6c648922c17f",
       "source": "USZ Dedicated Parser (Prospective API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:44:39.539Z",
+      "crawledAt": "2026-06-14T22:48:43.368Z",
       "addressLocality": "Campus",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6867,16 +6867,15 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:26:35.475Z",
-      "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -12914,7 +12913,7 @@
       "url": "https://jobs.usz.ch/offene-stellen/leiter-in-zentrales-kapazitaetsmanagement/00ae849a-122a-40b3-9c8e-e4affb21ca8d",
       "source": "USZ Dedicated Parser (Prospective API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:44:39.382Z",
+      "crawledAt": "2026-06-14T22:48:43.203Z",
       "addressLocality": "Campus",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -12940,16 +12939,15 @@
         ]
       },
       "firstSeenAt": "2026-06-09T12:28:29.286Z",
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }

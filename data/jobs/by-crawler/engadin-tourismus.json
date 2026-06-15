@@ -46,7 +46,7 @@
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:38:26.768Z",
+      "crawledAt": "2026-06-14T21:48:59.948Z",
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus"
       ],
@@ -56,17 +56,16 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:09:22.701Z",
-      "needsRetranslation": true,
-      "salaryMin": 48000,
-      "salaryMax": 73000,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
