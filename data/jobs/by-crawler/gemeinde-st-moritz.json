@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-06-14T21:57:44.109Z",
+  "assembledAt": "2026-06-15T14:27:04.001Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:57:41.549Z",
+      "crawledAt": "2026-06-15T14:27:01.633Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,15 +66,15 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:17:01.704Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -111,7 +111,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/abteilungsleiter-in-hochbau-100",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:57:39.780Z",
+      "crawledAt": "2026-06-15T14:26:59.679Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,19 +141,84 @@
         ]
       },
       "firstSeenAt": "2026-05-21T11:58:30.323Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "gemeinde-st-moritz-8ee8533e73fe",
+      "slug": "wichtige-kontakte-gemeinde-st-moritz-ch",
+      "slugByLocale": {
+        "de": "wichtige-kontakte-gemeinde-st-moritz-ch",
+        "it": "wichtige-kontakte-gemeinde-st-moritz-ch",
+        "en": "wichtige-kontakte-gemeinde-st-moritz-ch",
+        "fr": "wichtige-kontakte-gemeinde-st-moritz-ch"
+      },
+      "company": "Gemeinde St. Moritz",
+      "companyKey": "gemeinde-st-moritz",
+      "companyDomain": "gemeinde-stmoritz.ch",
+      "title": "Wichtige Kontakte",
+      "titleByLocale": {
+        "de": "Wichtige Kontakte",
+        "it": "Wichtige Kontakte",
+        "en": "Wichtige Kontakte",
+        "fr": "Wichtige Kontakte"
+      },
+      "description": "• News\n\n• Agenda\n\n• Gemeindewahlen 2026\n\n• Amtliche Anzeigen\n\n• Referendum\n\n• Letzte Posts\n\n• Aktuelle Projekte\n• Alterszentrum Du Lac\n\n• Wohnungsbau Baufeld B\n\n• Infrastrukturgebäude Camping\n\n• Wohnungsbau Parzelle 442 Signal\n\n• Arealentwicklung Islas\n\n• Neubau Fuss- und Velobrücke Punt da Piz\n\n• Erweiterung Kita\n\n• Bildungszentrum Grevas\n\n• Reithalle St. Moritz\n\n• Abstimmungsresultate\n\n• Protokolle\n\n• Livestreams\n\n• Offene Stellen\n\n• Medien\n\n• Aktuelles\n\nZurück zur Liste\n OFFENE STELLEN 15. Juni 2026\n\nBistromitarbeiter 60 - 80% (m/w/d) unbefristet\n Für das OVAVERVA Bistro suchen wir ab sofort oder nach Vereinbarung einen Bistromitarbeiter 60 - 80% (m/w/d) unbefristet.\n\nBeim OVAVERVA Bistro handelt es sich um ein Selbstbedienungs-Restaurant mit attraktiven Dienstzeiten. Das Bistro ist täglich von 09:00 – 21:00 Uhr geöffnet. Als teamorientierte Persönlichkeit unterstützen Sie Ihre Kolleginnen und Kollegen in der Küche, Service und im Office und erreichen so eine hohe Gästezufriedenheit.\n\nStelleninserat herunterladen",
+      "descriptionByLocale": {
+        "de": "• News\n\n• Agenda\n\n• Gemeindewahlen 2026\n\n• Amtliche Anzeigen\n\n• Referendum\n\n• Letzte Posts\n\n• Aktuelle Projekte\n• Alterszentrum Du Lac\n\n• Wohnungsbau Baufeld B\n\n• Infrastrukturgebäude Camping\n\n• Wohnungsbau Parzelle 442 Signal\n\n• Arealentwicklung Islas\n\n• Neubau Fuss- und Velobrücke Punt da Piz\n\n• Erweiterung Kita\n\n• Bildungszentrum Grevas\n\n• Reithalle St. Moritz\n\n• Abstimmungsresultate\n\n• Protokolle\n\n• Livestreams\n\n• Offene Stellen\n\n• Medien\n\n• Aktuelles\n\nZurück zur Liste\n OFFENE STELLEN 15. Juni 2026\n\nBistromitarbeiter 60 - 80% (m/w/d) unbefristet\n Für das OVAVERVA Bistro suchen wir ab sofort oder nach Vereinbarung einen Bistromitarbeiter 60 - 80% (m/w/d) unbefristet.\n\nBeim OVAVERVA Bistro handelt es sich um ein Selbstbedienungs-Restaurant mit attraktiven Dienstzeiten. Das Bistro ist täglich von 09:00 – 21:00 Uhr geöffnet. Als teamorientierte Persönlichkeit unterstützen Sie Ihre Kolleginnen und Kollegen in der Küche, Service und im Office und erreichen so eine hohe Gästezufriedenheit.\n\nStelleninserat herunterladen",
+        "it": "• News\n\n• Agenda\n\n• Gemeindewahlen 2026\n\n• Amtliche Anzeigen\n\n• Referendum\n\n• Letzte Posts\n\n• Aktuelle Projekte\n• Alterszentrum Du Lac\n\n• Wohnungsbau Baufeld B\n\n• Infrastrukturgebäude Camping\n\n• Wohnungsbau Parzelle 442 Signal\n\n• Arealentwicklung Islas\n\n• Neubau Fuss- und Velobrücke Punt da Piz\n\n• Erweiterung Kita\n\n• Bildungszentrum Grevas\n\n• Reithalle St. Moritz\n\n• Abstimmungsresultate\n\n• Protokolle\n\n• Livestreams\n\n• Offene Stellen\n\n• Medien\n\n• Aktuelles\n\nZurück zur Liste\n OFFENE STELLEN 15. Juni 2026\n\nBistromitarbeiter 60 - 80% (m/w/d) unbefristet\n Für das OVAVERVA Bistro suchen wir ab sofort oder nach Vereinbarung einen Bistromitarbeiter 60 - 80% (m/w/d) unbefristet.\n\nBeim OVAVERVA Bistro handelt es sich um ein Selbstbedienungs-Restaurant mit attraktiven Dienstzeiten. Das Bistro ist täglich von 09:00 – 21:00 Uhr geöffnet. Als teamorientierte Persönlichkeit unterstützen Sie Ihre Kolleginnen und Kollegen in der Küche, Service und im Office und erreichen so eine hohe Gästezufriedenheit.\n\nStelleninserat herunterladen",
+        "en": "• News\n\n• Agenda\n\n• Gemeindewahlen 2026\n\n• Amtliche Anzeigen\n\n• Referendum\n\n• Letzte Posts\n\n• Aktuelle Projekte\n• Alterszentrum Du Lac\n\n• Wohnungsbau Baufeld B\n\n• Infrastrukturgebäude Camping\n\n• Wohnungsbau Parzelle 442 Signal\n\n• Arealentwicklung Islas\n\n• Neubau Fuss- und Velobrücke Punt da Piz\n\n• Erweiterung Kita\n\n• Bildungszentrum Grevas\n\n• Reithalle St. Moritz\n\n• Abstimmungsresultate\n\n• Protokolle\n\n• Livestreams\n\n• Offene Stellen\n\n• Medien\n\n• Aktuelles\n\nZurück zur Liste\n OFFENE STELLEN 15. Juni 2026\n\nBistromitarbeiter 60 - 80% (m/w/d) unbefristet\n Für das OVAVERVA Bistro suchen wir ab sofort oder nach Vereinbarung einen Bistromitarbeiter 60 - 80% (m/w/d) unbefristet.\n\nBeim OVAVERVA Bistro handelt es sich um ein Selbstbedienungs-Restaurant mit attraktiven Dienstzeiten. Das Bistro ist täglich von 09:00 – 21:00 Uhr geöffnet. Als teamorientierte Persönlichkeit unterstützen Sie Ihre Kolleginnen und Kollegen in der Küche, Service und im Office und erreichen so eine hohe Gästezufriedenheit.\n\nStelleninserat herunterladen",
+        "fr": "• News\n\n• Agenda\n\n• Gemeindewahlen 2026\n\n• Amtliche Anzeigen\n\n• Referendum\n\n• Letzte Posts\n\n• Aktuelle Projekte\n• Alterszentrum Du Lac\n\n• Wohnungsbau Baufeld B\n\n• Infrastrukturgebäude Camping\n\n• Wohnungsbau Parzelle 442 Signal\n\n• Arealentwicklung Islas\n\n• Neubau Fuss- und Velobrücke Punt da Piz\n\n• Erweiterung Kita\n\n• Bildungszentrum Grevas\n\n• Reithalle St. Moritz\n\n• Abstimmungsresultate\n\n• Protokolle\n\n• Livestreams\n\n• Offene Stellen\n\n• Medien\n\n• Aktuelles\n\nZurück zur Liste\n OFFENE STELLEN 15. Juni 2026\n\nBistromitarbeiter 60 - 80% (m/w/d) unbefristet\n Für das OVAVERVA Bistro suchen wir ab sofort oder nach Vereinbarung einen Bistromitarbeiter 60 - 80% (m/w/d) unbefristet.\n\nBeim OVAVERVA Bistro handelt es sich um ein Selbstbedienungs-Restaurant mit attraktiven Dienstzeiten. Das Bistro ist täglich von 09:00 – 21:00 Uhr geöffnet. Als teamorientierte Persönlichkeit unterstützen Sie Ihre Kolleginnen und Kollegen in der Küche, Service und im Office und erreichen so eine hohe Gästezufriedenheit.\n\nStelleninserat herunterladen"
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
+      "source": "Gemeinde St. Moritz Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T14:26:57.886Z",
+      "addressLocality": "St. Moritz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7500",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-15T14:26:57.886Z"
     }
   ]
 }
