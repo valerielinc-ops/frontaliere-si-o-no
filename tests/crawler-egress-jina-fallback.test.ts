@@ -59,6 +59,25 @@ describe('fetchHtml egress proxy fallback (gating + safe-fail)', () => {
     await expect(fetchHtml('https://example.test/jobs', { retries: 0 })).rejects.toThrow(/503/);
     expect(fetchHtmlViaJinaWithRetry).not.toHaveBeenCalled();
   });
+
+  // IP-reputation WAF class (#2025): a hard 4xx keyed on the datacenter egress
+  // IP (air-zermatt.ch → 415 from CI, 200 from a clean IP). Jina's clean IP
+  // clears it, so these route through the proxy.
+  for (const status of [403, 406, 415, 451]) {
+    it(`routes an IP-WAF HTTP ${status} through the proxy helper`, async () => {
+      global.fetch = vi.fn(async () => ({ ok: false, status, text: async () => '' })) as any;
+      fetchHtmlViaJinaWithRetry.mockResolvedValue(REAL_HTML);
+      const html = await fetchHtml('https://example.test/jobs', { retries: 0 });
+      expect(html).toContain('/job/Lugano-Nurse/123456/');
+      expect(fetchHtmlViaJinaWithRetry).toHaveBeenCalledOnce();
+    });
+  }
+
+  it('safe-fails (re-throws original WAF status) when the proxy helper returns null', async () => {
+    global.fetch = vi.fn(async () => ({ ok: false, status: 415, text: async () => '' })) as any;
+    fetchHtmlViaJinaWithRetry.mockResolvedValue(null);
+    await expect(fetchHtml('https://example.test/jobs', { retries: 0 })).rejects.toThrow(/415/);
+  });
 });
 
 describe('fetchHtmlViaJinaWithRetry', () => {

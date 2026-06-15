@@ -29,6 +29,22 @@
  */
 export const RETRYABLE_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
 
+/**
+ * HTTP statuses that signal an IP-reputation WAF / anti-bot fence keyed on the
+ * DATACENTER egress IP rather than on the request content — the same source
+ * returns a normal 200/301 to a residential / Jina clean IP. The HTML fetch
+ * helpers (`fetchHtml` in crawler-template + hospital-custom-html-helpers,
+ * `fetchPage` in hirslanden) route these through the Jina Reader proxy as a
+ * clean-IP fallback before giving up. Shared here (single source of truth) so
+ * the three fetch sites can't drift — AGENTS.md #6.
+ *
+ * 404/410 (gone) and 401 (auth) are deliberately EXCLUDED: those are genuine,
+ * content-level responses Jina cannot clear. 403 (forbidden/anti-bot), 406
+ * (not-acceptable UA gate), 415 (unsupported-media-type WAF reply, #2025) and
+ * 451 (legal block) are the observed IP-block class.
+ */
+export const WAF_IP_BLOCK_STATUS = new Set([403, 406, 415, 451]);
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
