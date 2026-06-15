@@ -286,10 +286,34 @@ a.seo-entity-card:focus-visible {
    the tall tree and drops it back down — a ~0.79–0.86 layout shift. Reserving
    at least one viewport keeps #root from collapsing below the fold, so the SEO
    block stays at/below the fold throughout the swap and its shift no longer
-   intersects the viewport. Gap-risk-free: the hydrated homepage is ~7300–8100px,
-   always far exceeding 100vh, so the reservation is never visible. */
+   intersects the viewport. On a normally-rendered (SPA-owned) page the hydrated
+   tree inside #root is ~7300–8100px, always far exceeding 100vh, so the
+   reservation is never visible.
+
+   SCOPING — the 100vh reservation MUST be gated to SPA-owned pages only.
+   This is the SAME class of bug that #1586 fixed for the first-paint critical
+   CSS (see tests/build-plugins/criticalCssRootHeight.test.ts + App.tsx:1582,
+   where the SPA wrapper drops `min-h-screen` when `staticOverlay` is true):
+   an UNCONDITIONAL `#root{min-height:100vh}` carves a ~770px empty band on
+   staticOverlay pages. #2162 reintroduced it here in index.css (out of that
+   test's scope) to fix the homepage flash, regressing staticOverlay above-fold.
+   On `staticOverlay` pages (company / sector / weekly / health / border hubs)
+   the SPA renders only the nav chrome inside #root (~57px) and the real
+   content is a visible static `<main class="seo-static-content">` sibling
+   AFTER #root. There, an unconditional 100vh on #root reserves a full empty
+   viewport above the content, pushing the H1 below the fold (live above-fold
+   regression caught by spa-hydration-contract-live.spec.ts after #2162).
+   The reservation only ever protects the prerendered footer SEO block
+   (`.seo-footer-block`, emitted solely on the SPA-owned homepage / calculator
+   / job-board pages — never on staticOverlay hubs), so gate it on the presence
+   of that block: pages without it have nothing to protect and must keep their
+   static content flowing right below the 57px header. `:has()` matches from
+   the initial prerendered HTML (the block is a static sibling), so the gate is
+   live before JS and the homepage flash protection is preserved. */
 #root {
   display: flow-root;
+}
+body:has(.seo-footer-block) #root {
   min-height: 100vh;
 }
 
