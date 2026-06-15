@@ -394,6 +394,11 @@ export default defineConfig(({ mode }) => {
  emptyOutDir: false,
  // No error tracking service (Sentry etc.) — sourcemaps not needed
  sourcemap: false,
+ // Rollup's default reportCompressedSize gzip-compresses EVERY emitted JS/CSS
+ // chunk purely to print the "gzip: NN kB" console column. With the many vendor
+ // splits + per-locale data chunks that's pure wall-time on the build job for
+ // zero emitted bytes (console output only). Disable it.
+ reportCompressedSize: false,
  // seo-blog-N.ts chunks are pure data objects (~600kB raw, ~66kB gzip).
  // They exceed the default 500kB warning but gzip well and load lazily.
  // This limit acknowledges that data chunks behave differently from code chunks.

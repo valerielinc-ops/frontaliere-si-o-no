@@ -256,14 +256,18 @@ jobs:
         # 26592389280).
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: Run source validators sequentially
+      - name: Run source validators (parallel — 4 vCPU)
         run: |
-          : > /tmp/source-val-results.txt
+          RESDIR=/tmp/source-val-results.d
+          rm -rf "$RESDIR"; mkdir -p "$RESDIR"
 
-          # Run a single validator and append one row to
-          # /tmp/source-val-results.txt: "<name>  <wall_s>  rc=<code>".
-          # The summary block at the end reads this file to print the
-          # per-gate ✅/❌ table.
+          # Run ONE validator in the background and record its result row to its
+          # OWN file ("$RESDIR/<name>": "<name>  <wall_s>  rc=<code>"). Each
+          # validator writes a distinct file, so concurrent runs never interleave
+          # into a shared results file (which would corrupt the pass/fail summary
+          # and could MASK a failure — gate must stay exact). The summary below
+          # cats these files; a failing validator's full log is dumped (after the
+          # wait, sequentially) so parallel failures stay readable.
           run_validator() {
             local name=$1 logfile=$2; shift 2
             local start end rc
@@ -274,26 +278,60 @@ jobs:
             set -e
             end=$(date +%s.%N)
             awk -v n="$name" "BEGIN{printf \"%-40s %7.2f rc=%d\n\", n, $end-$start, $rc}" \
-              >> /tmp/source-val-results.txt
-            if [ "$rc" -ne 0 ]; then
-              echo "──── $name failed (rc=$rc) ────"
-              cat "$logfile"
-              echo "──── end $name ────"
-            fi
-            return 0   # never let a single fail short-circuit the chain
+              > "$RESDIR/$name"
+            return 0   # never let a single fail short-circuit the chain (rc is in the result file)
           }
 
-          # Order: cheap dist-readers first (they fail fast and surface a
-          # clean error), then the expensive source-only walk (gate:seo-source
-          # ~110s, no dist dependency).
+          # Pre-seed every validator's result file as FAILED (rc=99). run_validator
+          # OVERWRITES it ("> $RESDIR/$name") with the real row on completion. If a
+          # validator's background subshell is signal-killed AFTER node exits but
+          # BEFORE the awk write (OOM-cgroup kill, runner timeout, /tmp full), the
+          # rc=99 seed survives → the validator counts as FAIL and the gate exits 1,
+          # instead of silently vanishing from the summary (the serial pre-PR code
+          # wrote the row inline, so this kill-window class did not exist — restoring
+          # the "gate exact" guarantee). Format matches the awk row so the summary
+          # parser (grep -oE 'rc=[0-9]+$') reads it.
+          for vn in validate:translation-completeness validate:crawler-summaries \
+                    validate:third-party-secrets gate:seo-source; do
+            printf '%-40s %7.2f rc=%d\n' "$vn" 0 99 > "$RESDIR/$vn"
+          done
+
+          # These four validators are independent processes with no shared state
+          # and no dist dependency, so run them CONCURRENTLY on the 4-vCPU runner.
+          # Wall drops from sum(~6.8min serial) to the slowest single gate
+          # (gate:seo-source ~110s). The old "cheap-first fail-fast" ordering is
+          # moot when all four run together.
+          pids=()
           run_validator validate:translation-completeness /tmp/v10.log \
-            node scripts/validate-translation-completeness.mjs
+            node scripts/validate-translation-completeness.mjs & pids+=("$!")
           run_validator validate:crawler-summaries        /tmp/v11.log \
-            npm run validate:crawler-summaries
+            npm run validate:crawler-summaries & pids+=("$!")
           run_validator validate:third-party-secrets      /tmp/v12.log \
-            npm run validate:third-party-secrets
+            npm run validate:third-party-secrets & pids+=("$!")
           run_validator gate:seo-source                   /tmp/v27.log \
-            npm run gate:seo-source
+            npm run gate:seo-source & pids+=("$!")
+          for p in "${pids[@]}"; do wait "$p" || true; done
+
+          # Merge the per-validator result files into the single results file the
+          # summary block consumes (order-independent; sorted below).
+          cat "$RESDIR"/* > /tmp/source-val-results.txt 2>/dev/null || true
+
+          # Dump each FAILED validator's full log sequentially (readable — no
+          # parallel interleave), keyed off the recorded rc.
+          for rf in "$RESDIR"/*; do
+            grep -q 'rc=0$' "$rf" && continue
+            vname=$(basename "$rf")
+            case "$vname" in
+              validate:translation-completeness) vlog=/tmp/v10.log ;;
+              validate:crawler-summaries)        vlog=/tmp/v11.log ;;
+              validate:third-party-secrets)      vlog=/tmp/v12.log ;;
+              gate:seo-source)                   vlog=/tmp/v27.log ;;
+              *)                                 vlog="" ;;
+            esac
+            echo "──── $vname failed ────"
+            [ -n "$vlog" ] && cat "$vlog" 2>/dev/null || true
+            echo "──── end $vname ────"
+          done
 
           # ── 3. Print summary table + decide pass/fail ──
           echo ""
@@ -482,8 +520,13 @@ jobs:
           # (see scripts/audit-all.mjs REGISTRY). Single dist walk, in-process
           # JSON-LD parse — removes 34 s of standalone wall time from the
           # parallel pool. Removed from spawn pool.
+          # `-- --json` makes the gate ALSO emit the baseline-candidate JSON
+          # into g19.log (printed by audit-bfs-depth.mjs MODE_JSON branch BEFORE
+          # the baseline gate's exit, so the gate semantics are unchanged). The
+          # informational dump step below reuses that JSON instead of paying a
+          # second full dist BFS walk (~4min). The gate still ratchets identically.
           spawn_capped audit:max-bfs-depth           /tmp/g19.log \
-            npm run audit:max-bfs-depth
+            npm run audit:max-bfs-depth -- --json
           # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
           # audit:salary-landing-template all migrated into `npm run audit:all`
           # above (single Node process, single dist walk). Removed from the
@@ -563,15 +606,27 @@ jobs:
           echo "the gate after a deliberate improvement. Counts must only"
           echo "ever DECREASE — this gate is a ratchet."
           echo "──────────────────────────────────────────────────────────────"
-          node scripts/audit-bfs-depth.mjs --max-depth=4 --dist=dist --json || true
+          # Reuse the JSON the audit:max-bfs-depth gate already emitted into
+          # /tmp/g19.log (it now runs with `-- --json`). The JSON is the
+          # contiguous `{ … }` block printed before any gate stderr — extract it
+          # instead of paying a second full dist BFS walk (~4min saved). The
+          # gate runs --max-depth defaulting to the baseline's maxDepth=4, so the
+          # emitted counts match the old standalone `--max-depth=4` dump exactly.
+          if [ -f /tmp/g19.log ] && grep -q '^{$' /tmp/g19.log; then
+            sed -n '/^{$/,/^}$/p' /tmp/g19.log
+          else
+            echo "(bfs gate JSON not found in /tmp/g19.log — gate may have crashed before emit)"
+          fi
           echo "══════════════════════════════════════════════════════════════"
 
       - name: Build size summary
         run: |
           echo "=== Recovered dist size summary ==="
           du -sh dist/
-          echo "HTML files (top 10 by size):"
-          find dist -name "*.html" -exec du -sh {} + | sort -rh | head -10 || true
+          # The per-HTML `find … -exec du -sh {} +` over ~132k+ files (top-10 by
+          # size) was ~2min of pure stat-walk for observability that nothing
+          # consumes — dropped. Per-plugin byte attribution already lives in the
+          # build job's "Audit dist bytes" step. Keep the cheap sitemap listing.
           echo "Sitemaps:"
           find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh || true
 
