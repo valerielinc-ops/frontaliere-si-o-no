@@ -18,6 +18,8 @@
 
 import { matchSubscribersForAd } from '../services/publisherBlastMatch.mjs';
 import { OWNER_EMAIL, isCanaryJob } from './lib/canaryAd.mjs';
+import { buildBlastEmail } from '../services/publisherBlastEmail.mjs';
+import { slugifyPublisher, truncatePublisherSlug, distinctLocations } from './lib/publisherJobProjection.mjs';
 
 const SEND = process.argv.includes('--send');
 const PER_AD_CAP = 200;   // max recipients per ad
@@ -35,10 +37,6 @@ async function initDb() {
     });
   }
   return { admin: a, db: a.firestore() };
-}
-
-function esc(s) {
-  return String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 }
 
 async function main() {
@@ -95,13 +93,21 @@ async function main() {
       continue;
     }
 
-    const subject = `Nuova offerta: ${ad.title}`;
-    const adHtml = (email) =>
-      `<h2>${esc(ad.title)}</h2>` +
-      `<p>${esc(ad.company?.name || '')}${ad.sector ? ' · ' + esc(ad.sector) : ''}</p>` +
-      `<p><a href="${SITE}/lavoro">Vedi l'offerta su Frontaliere Ticino</a></p>` +
-      `<hr><p style="font-size:12px;color:#666">Ricevi questa email perché corrisponde alle tue ricerche di lavoro su Frontaliere Ticino. ` +
-      `<a href="${SITE}/?action=unsubscribe&email=${encodeURIComponent(email)}">Disiscriviti</a>.</p>`;
+    // Link to the SPECIFIC ad page (first location), slug derived exactly like
+    // publisherJobProjection so it matches the emitted /lavoro/<slug>/ page —
+    // not the generic /lavoro alias the old bare email used. Reuses the SAME
+    // distinctLocations() the projection uses (handles bare-string locations and
+    // skips empty entries) so the slug provably matches the live page; falls
+    // back to the job-board listing if the ad somehow has no usable location.
+    const firstLocationLabel = distinctLocations(ad.locations)[0]?.text || '';
+    const adBaseSlug = truncatePublisherSlug(
+      slugifyPublisher(`${ad.title}-${firstLocationLabel}-${ad.company?.name || ''}`),
+    );
+    const BLAST_UTM = 'utm_source=newsletter&utm_medium=email&utm_campaign=sponsored_blast';
+    const adUrlFor = (locale) => {
+      const prefix = locale === 'it' ? '' : `/${locale}`;
+      return `${SITE}${prefix}/lavoro/${adBaseSlug}/?${BLAST_UTM}`;
+    };
 
     let adSent = 0;
     let interrupted = false;
@@ -111,8 +117,16 @@ async function main() {
         interrupted = true;
         break;
       }
+      const locale = ['it', 'en', 'de', 'fr'].includes(r.locale) ? r.locale : 'it';
+      const { subject, html } = buildBlastEmail({
+        ad,
+        recipientEmail: r.email,
+        locale,
+        adUrl: adUrlFor(locale),
+        unsubscribeUrl: `${SITE}/?action=unsubscribe&email=${encodeURIComponent(r.email)}`,
+      });
       try {
-        const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html: adHtml(r.email) });
+        const { error } = await resend.emails.send({ from: FROM_EMAIL, to: r.email, subject, html });
         if (!error) { adSent++; sentTotal++; }
       } catch (e) {
         console.error(`[blast] send failed to ${r.email}: ${e?.message || e}`);
