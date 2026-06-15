@@ -173,6 +173,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposizione-fonte-basilea.title': 'Basile : imposition à la source approuvée',
     'blog.article.imposizione-fonte-basilea.excerpt': 'Les votes cantonaux de Basilea ont approuvé l\'introduction de l\'imposition à la source, avec 53,4 % des voix, modifiant le système fiscal local.',
     'blog.article.imposizione-fonte-basilea.imageAlt': 'Vue de Bâle avec symboles fiscaux et politiques',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Vote sur le blocage des étrangers et frontaliers',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'Le Canton du Ticino approuve le blocage des étrangers, mais avec des effets limités, tandis que la Suisse rejette l\'initiative de l\'UDC avec 54,79 %.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paysage de lac et montagnes entre la Suisse et l\'Italie près du Tessin.',
 };
 
 export default blogMetaChFr;

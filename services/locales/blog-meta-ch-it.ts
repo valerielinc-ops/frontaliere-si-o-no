@@ -173,6 +173,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposizione-fonte-basilea.title': 'Basel: approvata l\'introduzione dell\'imposizione alla fonte',
     'blog.article.imposizione-fonte-basilea.excerpt': 'Le votazioni cantonali a Basilea hanno approvato l\'introduzione dell\'imposizione alla fonte, con il 53,4% dei voti, modificando il sistema fiscale locale.',
     'blog.article.imposizione-fonte-basilea.imageAlt': 'Vista di Basilea con simboli fiscali e politici',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'Il Canton Ticino approva il blocco degli abitanti stranieri, ma con effetti limitati, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino.',
 };
 
 export default blogMetaChIt;
