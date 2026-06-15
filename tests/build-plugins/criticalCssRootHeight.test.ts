@@ -54,6 +54,41 @@ describe('critical CSS single source of truth (#1586)', () => {
     expect(CRITICAL_CSS).toMatch(/body\{[^}]*min-height:100vh\}/);
   });
 
+  it('forbids an UNSCOPED #root{min-height:100vh} in index.css (#2162 regression)', () => {
+    // #2162 reintroduced the #1586 bug in the main stylesheet (out of the
+    // CRITICAL_CSS scope above): a bare `#root{...min-height:100vh}` rule
+    // carves a ~770px empty band on staticOverlay pages, pushing the H1 below
+    // the fold (caught live by spa-hydration-contract-live.spec.ts). A 100vh
+    // reservation on #root is allowed ONLY when scoped to SPA-owned pages
+    // (e.g. `body:has(.seo-footer-block) #root{min-height:100vh}`), so the
+    // staticOverlay hubs — which have no footer block — keep their static
+    // content flowing right below the chrome.
+    const indexCss = readFileSync(resolve(ROOT, 'index.css'), 'utf-8');
+    // Match a rule whose selector list ENDS in a bare `#root` (no descendant
+    // combinator prefix like `body:has(...) #root`) and whose body forces a
+    // full-viewport min-height. We strip comments first so the documentation
+    // block above the rule (which legitimately mentions the pattern) is ignored.
+    const cssNoComments = indexCss.replace(/\/\*[\s\S]*?\*\//g, '');
+    const unscopedRootBlocks = [...cssNoComments.matchAll(/([^{};]+)\{([^}]*)\}/g)].filter(
+      (m) => {
+        const selectors = m[1].split(',').map((s) => s.trim());
+        const body = m[2];
+        const forcesFullViewport = /min-height\s*:\s*100(vh|dvh|svh|lvh)/i.test(body);
+        if (!forcesFullViewport) return false;
+        // A selector is "unscoped #root" when its last compound is exactly
+        // `#root` AND nothing precedes it (no descendant/child combinator).
+        return selectors.some((sel) => /^#root$/.test(sel));
+      },
+    );
+    expect(
+      unscopedRootBlocks.length,
+      'index.css must not force min-height:100vh on a bare `#root` selector. ' +
+        'Scope it to SPA-owned pages instead, e.g. ' +
+        '`body:has(.seo-footer-block) #root{min-height:100vh}` (see #1586/#2162 ' +
+        'and the comment above the #root rule).',
+    ).toBe(0);
+  });
+
   it('carries the @font-face metric overrides (CLS stabilization)', () => {
     // These were missing from the old ogPagesPlugin copy; the shared constant
     // must keep them so OG/article pages get the same font-metric CLS guard as
