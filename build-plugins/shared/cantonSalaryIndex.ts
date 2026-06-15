@@ -140,6 +140,11 @@ reg('mittelland', [
   'giura', 'jura',
 ]);
 reg('nordwest', [
+  // Bare half-canton-group display forms (BL+BS both Nordwest) — without these
+  // the localized group name "Basilea"/"Basel"/"Bâle" missed the table and the
+  // prose/FAQ salary band silently fell back to the national median while the
+  // page tiles used Nordwest (intra-page inconsistency). See PR #2085 review.
+  'basilea', 'basel', 'bâle', 'bale',
   'basilea città', 'basilea citta', 'basilea-città', 'basel-stadt', 'basel stadt', 'bâle-ville', 'bale-ville',
   'basilea campagna', 'basilea-campagna', 'basel-landschaft', 'basel landschaft', 'bâle-campagne', 'bale-campagne',
   'argovia', 'aargau', 'argovie',
