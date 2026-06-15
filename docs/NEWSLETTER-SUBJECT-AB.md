@@ -21,6 +21,38 @@ two independent readouts: a **free Firestore report** and an optional
    send doc.
 4. **Measurement** — opens are recorded by the ESP webhooks. The winner is read
    two ways (below).
+5. **Auto-promotion** — the next send biases toward the recent winner (below).
+
+## Auto-promotion (on by default)
+
+`send-newsletter.mjs` resolves a *promoted variant* before assembling a campaign:
+it pools the open rates of the previous `NEWSLETTER_AB_LOOKBACK` campaigns
+(default 2) and, **only** if every arm cleared the sample gate
+(`DEFAULT_WINNER_GATES.minSendsPerArm`, default 200) **and** the best vs runner-up
+is significant (z-test, p<0.05), declares a winner.
+
+When a winner exists, assignment becomes **epsilon-greedy**: a `1-ε` share
+(ε=`DEFAULT_EPSILON`, 0.2 → 90% for two arms) is sent the winner, the rest still
+explores uniformly so the losing arm keeps getting traffic and the test stays
+live (and can flip if the winner changes). With no significant winner it is a
+pure even split — so "on by default" changes nothing until the data earns it.
+
+The promoted variant is decided **globally** (pooled across providers), because
+the variant is assigned *before* the cascade picks a provider — we can't route a
+subscriber to a provider, so per-provider promotion isn't actionable at
+assignment time. The per-provider report stays the analysis lens; true
+per-provider promotion (swapping the subject at send time once the provider is
+known) is a deeper follow-up that would touch the funnel-critical cascade.
+
+| Env | Default | Purpose |
+|-----|---------|---------|
+| `NEWSLETTER_AB_AUTOPROMOTE` | on | set `false` to force an even split (kill switch) |
+| `NEWSLETTER_AB_LOOKBACK` | `2` | how many prior campaigns to pool for the winner |
+
+The persisted `variant` on each send doc is authoritative — once promotion skews
+the split, the variant is no longer a pure function of `(email, campaignId)`, so
+the report and resolver both read the persisted value (recompute is a legacy
+fallback only).
 
 ## Reading the result
 

@@ -34,7 +34,9 @@ import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
-import { assignSubjectVariant, getVariantFallback, listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { assignSubjectVariant, getVariantFallback, listVariantIds, DEFAULT_EPSILON } from '../services/newsletter-subject-variants.mjs';
+import { pickWinner } from '../services/newsletter-ab-stats.mjs';
+import { loadCampaignVariantTotals, previousCampaignIds } from './lib/newsletter-ab-data.mjs';
 import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
@@ -1413,6 +1415,46 @@ async function persistCampaignSends(campaignId, newlySentEmails) {
   }
 }
 
+// ─── Subject A/B auto-promotion ─────────────────────────────
+// On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
+// until a recent campaign has a statistically significant winner with enough
+// sample (pickWinner gates), in which case the assignment biases toward it
+// epsilon-greedily while still exploring the other arm.
+const AB_AUTOPROMOTE = process.env.NEWSLETTER_AB_AUTOPROMOTE !== 'false';
+const AB_PROMOTE_LOOKBACK = Math.max(1, Number(process.env.NEWSLETTER_AB_LOOKBACK || 2));
+
+/**
+ * Resolve the variant to auto-promote for this campaign by pooling the open
+ * rates of the previous `AB_PROMOTE_LOOKBACK` campaigns. Returns the winning
+ * variant id, or null to keep an even split. Never throws → failure = no promo.
+ */
+async function resolvePromotedVariant(database, campaignId) {
+  if (!AB_AUTOPROMOTE || !database) return null;
+  try {
+    const ids = previousCampaignIds(campaignId, AB_PROMOTE_LOOKBACK);
+    const pooled = {};
+    for (const cid of ids) {
+      const { byVariant } = await loadCampaignVariantTotals(database, cid);
+      for (const [v, t] of Object.entries(byVariant)) {
+        pooled[v] ??= { sends: 0, opens: 0 };
+        pooled[v].sends += t.sends;
+        pooled[v].opens += t.opens;
+      }
+    }
+    const { winner, openRates, pValue, reason } = pickWinner(pooled);
+    const rates = Object.fromEntries(Object.entries(openRates).map(([k, v]) => [k, `${(v * 100).toFixed(1)}%`]));
+    if (winner) {
+      console.log(`🏆 Auto-promote "${winner}" (p=${pValue?.toFixed(3)}, ε=${DEFAULT_EPSILON}) from last ${ids.length} campaign(s); rates=${JSON.stringify(rates)}`);
+    } else {
+      console.log(`⚖️  Auto-promote: even split (${reason}); rates=${JSON.stringify(rates)}`);
+    }
+    return winner;
+  } catch (e) {
+    console.warn('⚠️ Auto-promote skipped:', e?.message);
+    return null;
+  }
+}
+
 // ─── Resend API ─────────────────────────────────────────────
 
 async function persistDelivery(recipient, messageId, meta) {
@@ -2076,12 +2118,17 @@ async function main() {
   const metrics = loadDashboardMetrics();
   const emails = [];
 
+  // Auto-promotion: bias the variant split toward the recent winner (on by
+  // default; null = even split until a significant winner exists).
+  const promotedVariant = await resolvePromotedVariant(db, campaignId);
+
   for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
     const briefing = briefingMap.get(cohortKey);
-    // A/B test: deterministic per-subscriber variant (stable for this campaign).
-    // Fall back to the first variant's subject, then the variant fallback, so a
-    // missing (locale,variant) entry can never leave subject undefined.
-    const variant = assignSubjectVariant(subscriber.email, campaignId);
+    // A/B test: deterministic per-subscriber variant (stable for this campaign),
+    // epsilon-greedy when a winner is promoted. Fall back to the first variant's
+    // subject, then the variant fallback, so a missing (locale,variant) entry
+    // can never leave subject undefined.
+    const variant = assignSubjectVariant(subscriber.email, campaignId, { promotedVariant, epsilon: DEFAULT_EPSILON });
     const subject = subjectMap.get(subjectKey(locale, variant))
       || subjectMap.get(subjectKey(locale, variantIds[0]))
       || getVariantFallback(variant, locale);
