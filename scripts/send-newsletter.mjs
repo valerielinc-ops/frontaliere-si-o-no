@@ -35,6 +35,7 @@ import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, direct
 import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, companyPageUrl, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { assignSubjectVariant, getVariantFallback, listVariantIds } from '../services/newsletter-subject-variants.mjs';
+import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { calculateEngagementScore, refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1464,6 +1465,16 @@ async function persistDelivery(recipient, messageId, meta) {
     if (FieldValue) {
       await refreshEngagementScore(subRef, FieldValue);
     }
+    // A/B exposure event (no-op unless POSTHOG_EMAIL_EXPERIMENT enabled). Ties to
+    // the email_opened conversion in PostHog by distinct_id (email); carries the
+    // variant + provider for the funnel breakdown.
+    await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
+      email,
+      variant: meta.variant,
+      provider: meta.provider,
+      campaignId: meta.campaignId,
+      locale: recipient.locale,
+    });
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
   }
