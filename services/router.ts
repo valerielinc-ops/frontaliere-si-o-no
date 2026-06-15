@@ -48,7 +48,7 @@ import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plu
 import { FUEL_DAILY_ROUTES, isFuelDailyPath } from '../build-plugins/fuelDailyData';
 import { HEALTH_PREMIUMS_ROUTES, isHealthPremiumsPath } from '../build-plugins/healthPremiumsData';
 import { JOB_MARKET_SNAPSHOT_ROUTES, isJobMarketSnapshotPath } from '../build-plugins/jobMarketSnapshotData';
-import { SALARY_STATS_ROUTES, isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
+import { isSalaryStatsPath, parseSalaryStatsPath } from '../build-plugins/salaryStatsData';
 import { parseOrphanLandingPath as ORPHAN_LANDING_ROUTES } from '../build-plugins/orphanQueryData';
 import { WEEKLY_EMPLOYERS_ROUTES, parseCompanyCityPath, parseWeeklyEmployersPath, parseWeeklyEmployersTopHubPath } from '../build-plugins/weeklyEmployersData';
 import { BORDER_WAIT_ROUTES, isBorderWaitPath, parseBorderWaitPath } from '../build-plugins/borderWaitData';
@@ -2278,7 +2278,7 @@ export function parsePath(pathname: string): ParseResult {
  // Per-canton salary statistics landings (F-salary) — /stipendi-{canton}/ +
  // localised variants. Build-time static HTML; staticOverlay keeps the
  // per-canton salary content visible (hydrates to the salary-compare sub-tab).
- if (SALARY_STATS_ROUTES.includes(pathname.endsWith('/') ? pathname : `${pathname}/`) || isSalaryStatsPath(pathname)) {
+ if (isSalaryStatsPath(pathname)) {
    const parsed = parseSalaryStatsPath(pathname);
    return { route: { activeTab: 'stats', statsSubTab: 'salary-compare', staticOverlay: true }, locale: (parsed?.locale ?? locale) as Locale };
  }

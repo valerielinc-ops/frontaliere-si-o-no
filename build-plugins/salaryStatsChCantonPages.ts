@@ -12,10 +12,15 @@
  * distDir passed through. Pure/deterministic so output is stable.
  */
 import type { Plugin } from 'vite';
+import fs from 'node:fs';
+import np from 'node:path';
 
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { renderHreflangTags, type HreflangPaths } from './shared/hreflang';
+import { buildDayStampIso } from './shared/buildDayStamp';
+import { cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { CALC_HREF } from './shared/calcHref';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import {
@@ -27,8 +32,6 @@ import {
   GROSSREGION_MEDIAN_MONTHLY,
   NATIONAL_MEDIAN_MONTHLY,
   CANTON_TO_GROSSREGION,
-  cantonGrossSalaryBand,
-  cantonFaqMedianAnnual,
 } from './shared/cantonSalaryIndex';
 import {
   SALARY_STATS_LOCALES,
@@ -229,8 +232,23 @@ export function renderSalaryStatsPage(opts: {
   const vsNational = Math.round((monthly / NATIONAL_MEDIAN_MONTHLY) * 100);
   const monthlyStr = `CHF ${fmtChf(monthly, locale)}`;
 
-  const band = cantonGrossSalaryBand(cantonName);
-  const faq = cantonFaqMedianAnnual(cantonName);
+  // Derive the gross/net band + sector figures from the SAME region median as
+  // the headline tile (via cantonKey → BFS code → Grossregion), NOT from the
+  // localized display name — the half-canton groups (APPENZELLO/BASILEA) have
+  // no bare display form in the index's display→region table, which would
+  // silently fall back to national figures and make a single page show
+  // inconsistent numbers. Formulas mirror cantonSalaryIndex.cantonGrossSalaryBand
+  // / cantonFaqMedianAnnual (anchored to the national-average band).
+  const natScale = monthly / NATIONAL_MEDIAN_MONTHLY;
+  const r5000 = (n: number) => Math.round((n * natScale) / 5000) * 5000;
+  const r1000 = (n: number) => Math.round((n * natScale) / 1000) * 1000;
+  const r100 = (n: number) => Math.round((n * natScale) / 100) * 100;
+  const band = {
+    grossLow: r5000(85000), grossHigh: r5000(110000),
+    netSingleLow: r100(5400), netSingleHigh: r100(6600),
+    netCoupleLow: r100(5800), netCoupleHigh: r100(7200),
+  };
+  const faq = { it: r1000(95000), finance: r1000(110000), pharma: r1000(105000), retail: r1000(55000) };
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_STYLE}">
   <a href="${homeHref}" class="${BREADCRUMB_LINK_STYLE}">${esc(c.breadcrumbHome)}</a>
@@ -309,7 +327,7 @@ ${prose}`;
     name: c.metaTitle(cantonName),
     description: c.metaDesc(cantonName, monthlyStr),
     creator: { '@type': 'GovernmentOrganization', name: 'Bundesamt für Statistik (BFS)', url: 'https://www.bfs.admin.ch' },
-    spatialCoverage: { '@type': 'AdministrativeArea', name: `Canton ${cantonName}, Switzerland` },
+    spatialCoverage: { '@type': 'AdministrativeArea', name: `${cantonName}, ${c.breadcrumbCh}` },
     variableMeasured: 'Gross monthly salary (median)',
     measurementTechnique: 'BFS Lohnstrukturerhebung (LSE) 2024, Grossregion median',
     url: `${BASE_URL}${canonicalPath}`,
@@ -326,11 +344,20 @@ ${prose}`;
     mainEntity: faqItems,
   };
 
+  // hreflang cluster: this canton's 4 locale variants + x-default (it).
+  const hreflangPaths = {
+    it: buildSalaryStatsPath('it', SALARY_STATS_CANTON_SLUGS[cantonKey].it),
+    en: buildSalaryStatsPath('en', SALARY_STATS_CANTON_SLUGS[cantonKey].en),
+    de: buildSalaryStatsPath('de', SALARY_STATS_CANTON_SLUGS[cantonKey].de),
+    fr: buildSalaryStatsPath('fr', SALARY_STATS_CANTON_SLUGS[cantonKey].fr),
+  } as HreflangPaths;
+
   const html = buildSeoPageHtml({
     locale,
     title: c.metaTitle(cantonName),
     description: c.metaDesc(cantonName, monthlyStr),
     canonicalUrl: `${BASE_URL}${canonicalPath}`,
+    hreflangHtml: renderHreflangTags(hreflangPaths),
     bodyHtml: main,
     jsonLdScripts: [JSON.stringify(breadcrumbLd), JSON.stringify(datasetLd), JSON.stringify(faqLd)],
     ogLocale: OG_LOCALE[locale],
@@ -344,14 +371,51 @@ ${prose}`;
 export interface SalaryStatsEmitResult {
   pagesWritten: number;
   pagesSkippedForWordCount: number;
+  /** Canonical paths actually written (index,follow) — feed the sitemap. */
+  emittedPaths: string[];
+}
+
+const SITEMAP_FILE = 'sitemap-salary-stats.xml';
+
+/** Build the sitemap-salary-stats.xml body from the emitted canonical paths. */
+function buildSalaryStatsSitemap(paths: readonly string[], dateStamp: string): string {
+  const entries = paths
+    .map(
+      (p) =>
+        `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+    )
+    .join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+}
+
+/** Add (or refresh the lastmod of) sitemap-salary-stats.xml in the sitemap index. */
+function patchSitemapIndex(distDir: string, dateStamp: string): void {
+  const indexPath = np.join(distDir, 'sitemap.xml');
+  if (!fs.existsSync(indexPath)) return;
+  try {
+    let idx = fs.readFileSync(indexPath, 'utf-8');
+    if (!idx.includes(SITEMAP_FILE)) {
+      idx = idx.replace(
+        '</sitemapindex>',
+        `  <sitemap>\n    <loc>${BASE_URL}/${SITEMAP_FILE}</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
+      );
+    } else {
+      idx = idx.replace(
+        new RegExp(`(<loc>${BASE_URL.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}/${SITEMAP_FILE}</loc>\\s*<lastmod>)\\d{4}-\\d{2}-\\d{2}(</lastmod>)`),
+        `$1${dateStamp}$2`,
+      );
+    }
+    fs.writeFileSync(indexPath, idx, 'utf-8');
+  } catch (err) {
+    console.warn('[salary-stats] failed to patch sitemap index', err);
+  }
 }
 
 export async function emitChCantonSalaryStatsPages(opts: {
   distDir: string;
 }): Promise<SalaryStatsEmitResult> {
-  const result: SalaryStatsEmitResult = { pagesWritten: 0, pagesSkippedForWordCount: 0 };
+  const result: SalaryStatsEmitResult = { pagesWritten: 0, pagesSkippedForWordCount: 0, emittedPaths: [] };
   const collector = new WriteCollector({ distDir: opts.distDir, pluginName: 'salaryStatsChCantonPages' });
-  const npMod = await import('node:path');
 
   for (const locale of SALARY_STATS_LOCALES) {
     for (const cantonKey of SALARY_STATS_CANTON_KEYS) {
@@ -362,13 +426,29 @@ export async function emitChCantonSalaryStatsPages(opts: {
         continue;
       }
       const canonicalPath = buildSalaryStatsPath(locale, cantonSlug);
-      const outDir = npMod.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
-      collector.add(npMod.join(outDir, 'index.html'), html);
+      const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+      collector.add(np.join(outDir, 'index.html'), html);
       result.pagesWritten++;
+      result.emittedPaths.push(canonicalPath);
     }
   }
 
   await collector.flush();
+
+  // Sitemap: write sitemap-salary-stats.xml + register it in the index, like
+  // the sibling canton-landing families (jobMarketSnapshot / healthPremiums /
+  // fuelDaily). Without this the index,follow pages never enter any sitemap.
+  cleanSitemapFiles(opts.distDir, [SITEMAP_FILE]);
+  if (result.emittedPaths.length > 0) {
+    const dateStamp = buildDayStampIso();
+    fs.writeFileSync(
+      np.join(opts.distDir, SITEMAP_FILE),
+      buildSalaryStatsSitemap(result.emittedPaths, dateStamp),
+      'utf-8',
+    );
+    patchSitemapIndex(opts.distDir, dateStamp);
+  }
+
   return result;
 }
 
@@ -379,8 +459,7 @@ export function salaryStatsChCantonPages(rootDir: string): Plugin {
     enforce: 'post',
     async closeBundle() {
       if (process.env.SKIP_SALARY_STATS === '1') return;
-      const npMod = await import('node:path');
-      const distDir = npMod.resolve(rootDir, 'dist');
+      const distDir = np.resolve(rootDir, 'dist');
       const res = await emitChCantonSalaryStatsPages({ distDir });
       // eslint-disable-next-line no-console
       console.log(`[salary-stats] emitted ${res.pagesWritten} pages (${res.pagesSkippedForWordCount} skipped for word count)`);

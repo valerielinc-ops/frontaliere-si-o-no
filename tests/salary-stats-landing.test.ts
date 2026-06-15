@@ -71,17 +71,34 @@ describe('salaryStats — router integration', () => {
 });
 
 describe('salaryStats — page render', () => {
-  it('renders an indexable page per canton with the canton name + median', () => {
+  it('every (canton × locale) page clears the indexable-words gate (no router-route-without-page 404)', () => {
+    let rendered = 0;
     for (const locale of SALARY_STATS_LOCALES) {
-      for (const key of SALARY_STATS_CANTON_KEYS.slice(0, 4)) {
+      for (const key of SALARY_STATS_CANTON_KEYS) {
         const slug = SALARY_STATS_CANTON_SLUGS[key][locale];
         const { html, words } = renderSalaryStatsPage({ locale, cantonKey: key, cantonSlug: slug, distDir: '' });
         expect(words).toBeGreaterThanOrEqual(50);
         expect(html).toContain('CHF');
         expect(html).toContain(buildSalaryStatsPath(locale, slug));
+        // hreflang cluster present (all 4 locale variants cross-linked).
+        // The HTML minifier strips attribute quotes, so match unquoted.
+        expect(html).toMatch(/hreflang=["']?en["']?/);
+        expect(html).toMatch(/hreflang=["']?x-default["']?/);
         // No dark: color prefixes (CLAUDE.md non-negotiable).
         expect(html).not.toMatch(/\bdark:[a-z-]/);
+        rendered++;
       }
     }
+    expect(rendered).toBe(96);
+  });
+
+  it('half-canton groups get region figures, not silent national fallback', () => {
+    // APPENZELLO → Ostschweiz median 6623 (≈94% of national 7024) — diverges
+    // enough that the gross band must scale BELOW the national anchor. Before
+    // the fix the display name "Appenzello" missed the display→region table and
+    // the band silently fell back to the national 110'000 high.
+    const { html } = renderSalaryStatsPage({ locale: 'it', cantonKey: 'APPENZELLO', cantonSlug: 'appenzello', distDir: '' });
+    expect(html).toContain('94%'); // vs-national tile (region median path)
+    expect(html).toContain("105'000"); // gross-band high = round5000(110000 × 6623/7024), region-scaled
   });
 });
