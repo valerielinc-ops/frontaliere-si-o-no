@@ -1,6 +1,6 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-06-14T22:16:08.921Z",
+  "assembledAt": "2026-06-15T14:54:58.790Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-d80ce36d545a",
@@ -47,17 +47,17 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:16:06.799Z",
+      "crawledAt": "2026-06-15T14:54:56.533Z",
       "needsRetranslation": true,
-      "salaryMin": 70500,
-      "salaryMax": 98500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
@@ -121,7 +121,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:16:06.799Z",
+      "crawledAt": "2026-06-15T14:54:56.533Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
@@ -150,15 +150,15 @@
         "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
       ],
-      "salaryMin": 70500,
-      "salaryMax": 98500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 98500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },

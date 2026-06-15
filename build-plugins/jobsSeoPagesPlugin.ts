@@ -128,6 +128,7 @@ import {
 } from '../services/seo/meta-descriptions';
 import { COMPANY_HQ_ADDRESSES } from './shared/companyHqAddresses';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+import { buildListItemJobPosting } from './shared/jobPostingListItem';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
@@ -4354,7 +4355,24 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  description: string;
  isPartOf: string;
  breadcrumbs: Array<{ name: string; item: string }>;
- items: Array<{ title: string; href: string }>;
+ // Job-link items (LandingJobLink-shaped). The extra optional fields feed a
+ // full JobPosting embedded inside each ItemList ListItem (see below).
+ items: Array<{
+ title: string;
+ href: string;
+ company?: string;
+ location?: string;
+ addressLocality?: string;
+ canton?: string;
+ datePosted?: string;
+ contract?: string;
+ salaryMin?: number | null;
+ salaryMax?: number | null;
+ titleByLocale?: Partial<Record<string, string>>;
+ companyDomain?: string;
+ logo?: string | null;
+ url?: string;
+ }>;
  }) => {
  const breadcrumbLd = inlineScriptJson({
  '@context': 'https://schema.org',
@@ -4375,17 +4393,41 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  inLanguage: options.locale,
  isPartOf: options.isPartOf,
  });
+ // Embed a full JobPosting inside each ListItem (richer than a name+url stub),
+ // mirroring weeklyEmployersPlugin's company×city hubs. `buildListItemJobPosting`
+ // never throws and caps the description, so a sparse job falls back to a plain
+ // name+url stub and the page stays under the 195 KB weight budget. The
+ // authoritative per-job JobPosting still lives on each linked detail page.
  const itemListLd = options.items.length > 0
  ? inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'ItemList',
  name: options.name,
- itemListElement: options.items.slice(0, 10).map((item, index) => ({
- '@type': 'ListItem',
- position: index + 1,
- name: item.title,
- url: item.href,
- })),
+ itemListElement: options.items.slice(0, 10).map((item, index) => {
+ const abs = item.url
+ || (/^https?:\/\//.test(item.href) ? item.href : `${BASE_URL}${item.href}`);
+ const jobPosting = buildListItemJobPosting(
+ {
+ title: item.title,
+ titleByLocale: item.titleByLocale,
+ company: item.company,
+ companyDomain: item.companyDomain,
+ companyLogoUrl: item.logo,
+ location: item.location,
+ addressLocality: item.addressLocality,
+ canton: item.canton,
+ datePosted: item.datePosted,
+ contract: item.contract,
+ salaryMin: item.salaryMin,
+ salaryMax: item.salaryMax,
+ url: abs,
+ },
+ { locale: options.locale, url: abs, baseUrl: BASE_URL },
+ );
+ return jobPosting
+ ? { '@type': 'ListItem', position: index + 1, item: jobPosting }
+ : { '@type': 'ListItem', position: index + 1, name: item.title, url: item.href };
+ }),
  })
  : '';
  return { breadcrumbLd, collectionLd, itemListLd };
@@ -6036,12 +6078,41 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
- '@type': 'ListItem',
- position: i + 1,
- name: String(job?.titleByLocale?.[locale] || job.title || ''),
- url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
- })),
+ // Embed a full JobPosting per item (capped description, never throws → falls
+ // back to a name+url stub). Mirrors the editorial-landing ItemList; the
+ // authoritative per-job JobPosting still lives on each linked detail page.
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => {
+ const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
+ const jobPosting = buildListItemJobPosting(
+ {
+ title: jobTitle,
+ titleByLocale: job?.titleByLocale,
+ description: typeof job?.description === 'string' ? job.description : undefined,
+ company: job?.company,
+ companyDomain: job?.companyDomain,
+ city: job?.city,
+ location: job?.location,
+ addressLocality: job?.addressLocality,
+ addressRegion: job?.addressRegion,
+ canton: job?.canton ?? canton,
+ postalCode: job?.postalCode,
+ streetAddress: job?.streetAddress,
+ datePosted: job?.datePosted ?? job?.postedDate,
+ crawledAt: job?.crawledAt,
+ employmentType: job?.employmentType,
+ contract: job?.contract,
+ salaryMin: typeof job?.salaryMin === 'number' ? job.salaryMin : null,
+ salaryMax: typeof job?.salaryMax === 'number' ? job.salaryMax : null,
+ salaryCurrency: job?.salaryCurrency,
+ url: abs,
+ },
+ { locale, url: abs, baseUrl: BASE_URL },
+ );
+ return jobPosting
+ ? { '@type': 'ListItem', position: i + 1, item: jobPosting }
+ : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
+ }),
  });
  const listHtml = jobCardListBody(cappedJobs, locale);
  const backLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
@@ -6816,12 +6887,41 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
- '@type': 'ListItem',
- position: i + 1,
- name: String(job?.titleByLocale?.[locale] || job.title || ''),
- url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
- })),
+ // Embed a full JobPosting per item (capped description, never throws → falls
+ // back to a name+url stub). Mirrors the editorial-landing ItemList; the
+ // authoritative per-job JobPosting still lives on each linked detail page.
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => {
+ const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
+ const jobPosting = buildListItemJobPosting(
+ {
+ title: jobTitle,
+ titleByLocale: job?.titleByLocale,
+ description: typeof job?.description === 'string' ? job.description : undefined,
+ company: job?.company,
+ companyDomain: job?.companyDomain,
+ city: job?.city,
+ location: job?.location,
+ addressLocality: job?.addressLocality,
+ addressRegion: job?.addressRegion,
+ canton: job?.canton ?? canton,
+ postalCode: job?.postalCode,
+ streetAddress: job?.streetAddress,
+ datePosted: job?.datePosted ?? job?.postedDate,
+ crawledAt: job?.crawledAt,
+ employmentType: job?.employmentType,
+ contract: job?.contract,
+ salaryMin: typeof job?.salaryMin === 'number' ? job.salaryMin : null,
+ salaryMax: typeof job?.salaryMax === 'number' ? job.salaryMax : null,
+ salaryCurrency: job?.salaryCurrency,
+ url: abs,
+ },
+ { locale, url: abs, baseUrl: BASE_URL },
+ );
+ return jobPosting
+ ? { '@type': 'ListItem', position: i + 1, item: jobPosting }
+ : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
+ }),
  });
  const sUniqueCompanies = [...new Set(cappedJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const sUniqueLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -7015,12 +7115,41 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
- '@type': 'ListItem',
- position: i + 1,
- name: String(job?.titleByLocale?.[locale] || job.title || ''),
- url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
- })),
+ // Embed a full JobPosting per item (capped description, never throws → falls
+ // back to a name+url stub). Mirrors the editorial-landing ItemList; the
+ // authoritative per-job JobPosting still lives on each linked detail page.
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => {
+ const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
+ const jobPosting = buildListItemJobPosting(
+ {
+ title: jobTitle,
+ titleByLocale: job?.titleByLocale,
+ description: typeof job?.description === 'string' ? job.description : undefined,
+ company: job?.company,
+ companyDomain: job?.companyDomain,
+ city: job?.city,
+ location: job?.location,
+ addressLocality: job?.addressLocality,
+ addressRegion: job?.addressRegion,
+ canton: job?.canton ?? canton,
+ postalCode: job?.postalCode,
+ streetAddress: job?.streetAddress,
+ datePosted: job?.datePosted ?? job?.postedDate,
+ crawledAt: job?.crawledAt,
+ employmentType: job?.employmentType,
+ contract: job?.contract,
+ salaryMin: typeof job?.salaryMin === 'number' ? job.salaryMin : null,
+ salaryMax: typeof job?.salaryMax === 'number' ? job.salaryMax : null,
+ salaryCurrency: job?.salaryCurrency,
+ url: abs,
+ },
+ { locale, url: abs, baseUrl: BASE_URL },
+ );
+ return jobPosting
+ ? { '@type': 'ListItem', position: i + 1, item: jobPosting }
+ : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
+ }),
  });
  // Light Organization JSON-LD — derived from job data (no curated overlay).
  const companyLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
@@ -7242,12 +7371,41 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
- '@type': 'ListItem',
- position: i + 1,
- name: String(job?.titleByLocale?.[locale] || job.title || ''),
- url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
- })),
+ // Embed a full JobPosting per item (capped description, never throws → falls
+ // back to a name+url stub). Mirrors the editorial-landing ItemList; the
+ // authoritative per-job JobPosting still lives on each linked detail page.
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => {
+ const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+ const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
+ const jobPosting = buildListItemJobPosting(
+ {
+ title: jobTitle,
+ titleByLocale: job?.titleByLocale,
+ description: typeof job?.description === 'string' ? job.description : undefined,
+ company: job?.company,
+ companyDomain: job?.companyDomain,
+ city: job?.city,
+ location: job?.location,
+ addressLocality: job?.addressLocality,
+ addressRegion: job?.addressRegion,
+ canton: job?.canton ?? canton,
+ postalCode: job?.postalCode,
+ streetAddress: job?.streetAddress,
+ datePosted: job?.datePosted ?? job?.postedDate,
+ crawledAt: job?.crawledAt,
+ employmentType: job?.employmentType,
+ contract: job?.contract,
+ salaryMin: typeof job?.salaryMin === 'number' ? job.salaryMin : null,
+ salaryMax: typeof job?.salaryMax === 'number' ? job.salaryMax : null,
+ salaryCurrency: job?.salaryCurrency,
+ url: abs,
+ },
+ { locale, url: abs, baseUrl: BASE_URL },
+ );
+ return jobPosting
+ ? { '@type': 'ListItem', position: i + 1, item: jobPosting }
+ : { '@type': 'ListItem', position: i + 1, name: jobTitle, url: abs };
+ }),
  });
  const orgLdObj: Record<string, unknown> = {
  '@context': 'https://schema.org',
