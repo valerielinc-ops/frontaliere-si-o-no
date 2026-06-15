@@ -220,7 +220,9 @@ export function isArtificialyTicinoRelevant(job = {}) {
  * Infer canton from job data via the BFS municipality dataset.
  */
 export function inferArtificialyCanton(job = {}) {
-  return inferAnyCanton(`${job.location || ''} ${job.region || ''}`);
+  // Location-first: resolve the specific location before the broader region,
+  // so it wins over inferAnyCanton's TARGET_CANTONS array-order sensitivity.
+  return inferAnyCanton(job.location || '') || inferAnyCanton(job.region || '');
 }
 
 /**

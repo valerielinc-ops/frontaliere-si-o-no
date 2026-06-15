@@ -343,6 +343,8 @@ export function isEngelvoelkersTicinoRelevant(location = '', company = '') {
 
 /** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
 export function inferEngelvoelkersCanton(location = '', company = '') {
-  const combined = `${location} ${company}`;
-  return inferAnyCanton(combined) || HQ.canton;
+  // Location-first: resolve the location before the company name (which may embed
+  // a different city), so it wins over inferAnyCanton's TARGET_CANTONS array-order
+  // sensitivity (a combined string could let the company's city override).
+  return inferAnyCanton(location) || inferAnyCanton(company) || HQ.canton;
 }

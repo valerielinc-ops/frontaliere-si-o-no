@@ -104,7 +104,10 @@ export function isGiorgioArmaniSwissJob(title = '', country = '') {
  * Infer canton from job title or location text via the BFS municipality dataset.
  */
 export function inferGiorgioArmaniCanton(title = '', location = '') {
-  return inferAnyCanton(`${title} ${location}`);
+  // Location-first: the location field is authoritative; resolve it before the
+  // title so a city named in the title can't override it via inferAnyCanton's
+  // TARGET_CANTONS array-order sensitivity.
+  return inferAnyCanton(location) || inferAnyCanton(title);
 }
 
 /**

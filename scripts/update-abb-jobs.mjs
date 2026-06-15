@@ -463,9 +463,14 @@ function postProcessAbbJobs() {
       fixed += 1;
     }
 
-    const inferredCanton = inferAnyCanton(
-      [job?.canton, job?.location, job?.region, job?.title].filter(Boolean).join(' ')
-    );
+    // Precedence-first: resolve each field alone in priority order (explicit
+    // canton, then location, region, title) rather than joining them into one
+    // string, where inferAnyCanton's TARGET_CANTONS array order — not field
+    // priority — would decide which canton wins.
+    const inferredCanton = inferAnyCanton(job?.canton || '')
+      || inferAnyCanton(job?.location || '')
+      || inferAnyCanton(job?.region || '')
+      || inferAnyCanton(job?.title || '');
     if (inferredCanton && inferredCanton !== job.canton) {
       job.canton = inferredCanton;
       fixed += 1;

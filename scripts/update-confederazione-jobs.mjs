@@ -216,7 +216,11 @@ function parseApiJob(j = {}) {
   // A single-canton region label like "Ticino (TI)" is used only as last resort.
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
-  const canton = normalizedLocation.canton || inferAnyCanton(`${locationRaw} ${normalizedLocation.location || ''} ${normalizedLocation.addressLocality || ''}`) || cantonFromRegion || '';
+  const canton = normalizedLocation.canton
+    || inferAnyCanton(locationRaw)
+    || inferAnyCanton(normalizedLocation.location || '')
+    || inferAnyCanton(normalizedLocation.addressLocality || '')
+    || cantonFromRegion || '';
 
   // Department info
   const department = (attrs.verwaltungseinheit || [])[0] || '';
