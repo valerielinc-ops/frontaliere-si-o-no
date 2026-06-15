@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-06-15T14:49:49.444Z",
+  "assembledAt": "2026-06-15T23:07:10.213Z",
   "jobs": [
     {
       "id": "heineken-ch-b178feb93410",
@@ -48,7 +48,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:49:47.414Z",
+      "crawledAt": "2026-06-15T23:07:08.250Z",
       "previousSlugs": [
         "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
       ],
@@ -124,7 +124,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=152911&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:49:39.535Z",
+      "crawledAt": "2026-06-15T23:06:59.297Z",
       "previousSlugs": [
         "logistiker-in-getrankelager-100-heineken-ch-luzern",
         "logistica-negozio-100-heineken-switzerland-luzern"
@@ -162,7 +162,7 @@
       "slug": "logistician-heineken-switzerland-denges",
       "slugByLocale": {
         "it": "logistician-heineken-switzerland-denges",
-        "en": "logisticsian-heineken-switzerland-denges",
+        "en": "logistician-heineken-ch-denges",
         "de": "logistician-heineken-ch-denges",
         "fr": "logistician-heineken-ch-denges"
       },
@@ -202,9 +202,10 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154479&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T14:49:31.320Z",
+      "crawledAt": "2026-06-15T23:06:51.290Z",
       "previousSlugs": [
         "logistician-heineken-ch-denges",
+        "logisticsian-heineken-switzerland-denges",
         "logistik-heineken-switzerland-denges",
         "logistiker-heineken-switzerland-denges"
       ],
@@ -213,6 +214,7 @@
           "logistician-heineken-ch-denges"
         ],
         "en": [
+          "logisticsian-heineken-switzerland-denges",
           "logistician-heineken-ch-denges"
         ],
         "de": [
@@ -282,7 +284,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=155984&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:49:23.357Z",
+      "crawledAt": "2026-06-15T23:06:43.477Z",
       "previousSlugs": [
         "truck-driver-heineken-ch-baltschieder"
       ],
@@ -358,7 +360,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:49:15.042Z",
+      "crawledAt": "2026-06-15T23:06:35.677Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern"
       ],
@@ -434,7 +436,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=154093&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:49:07.529Z",
+      "crawledAt": "2026-06-15T23:06:27.743Z",
       "previousSlugs": [
         "teamleiter-in-kundenservice-center-sales-80-100-heineken-ch-luzern"
       ],
@@ -510,7 +512,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:59:27.291Z",
+      "crawledAt": "2026-06-15T23:06:19.631Z",
       "previousSlugsByLocale": {
         "it": [
           "agent-customer-service-heineken-ch-luzern",
@@ -525,16 +527,17 @@
         "mitarbeiter-in-kundenservice-heineken-ch-luzern"
       ],
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -585,7 +588,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159424&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:59:19.324Z",
+      "crawledAt": "2026-06-15T23:06:11.544Z",
       "previousSlugs": [
         "logistiker-im-getrankelager-m-w-heineken-ch-davos"
       ],
@@ -601,16 +604,17 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:01:22.291Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }
@@ -661,7 +665,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159426&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T14:48:43.282Z",
+      "crawledAt": "2026-06-15T23:06:03.208Z",
       "firstSeenAt": "2026-06-12T22:29:24.985Z",
       "previousSlugsByLocale": {
         "it": [
@@ -737,7 +741,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=159918&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:59:03.250Z",
+      "crawledAt": "2026-06-15T23:05:56.205Z",
       "previousSlugs": [
         "customer-service-transport-manager-w-m-d-heineken-ch-luzern"
       ],
@@ -750,16 +754,17 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:29:16.912Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
