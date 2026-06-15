@@ -404,6 +404,12 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // concurrency=2 the runner's cores are fully utilised without thrashing.
     // Higher concurrency values measured flat or negative throughput on 2-core
     // hardware (#2018 → #2044 revert). Env-overridable for local/stronger runners.
+    // REVERT-TRIGGER: this combined state (concurrency 2 + warmup-aware LT timeout
+    // in free-translate.mjs + max-jobs default 100) is NOT measured pre-merge — the
+    // instrumented run (wall-clock, needsRetranslation/complete Δ) is deferred to the
+    // next live translate-pending.yml. If that scheduled run shows wall-clock ≥ the
+    // prior baseline OR fewer jobs completed/run, revert this knob (and the warmup
+    // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
   };
 
