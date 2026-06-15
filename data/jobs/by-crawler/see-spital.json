@@ -1,6 +1,6 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-06-14T22:46:51.005Z",
+  "assembledAt": "2026-06-15T15:28:44.473Z",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
@@ -33,7 +33,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:48.456Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:42.440Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -64,15 +65,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:09.180Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -109,7 +110,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/391/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:47.398Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:41.524Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -156,15 +158,15 @@
         "dipl-pflegefachperson-hf-fur-den-pflegepool-max-60-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:56:08.177Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -202,7 +204,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-14T22:46:46.377Z",
+      "crawledAt": "2026-06-15T15:28:40.550Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -232,15 +234,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:07.176Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -277,7 +279,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:45.302Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:39.576Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -333,15 +336,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:06.182Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -378,7 +381,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:44.239Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:38.620Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -430,15 +434,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:05.177Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -475,7 +479,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/285/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:43.193Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:37.642Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -524,15 +529,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:04.181Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -569,7 +574,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/888/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:42.111Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:36.690Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -623,15 +629,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:03.180Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -668,7 +674,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/696/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:41.058Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:35.737Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -739,15 +746,15 @@
         "dipl-professionnel-de-soins-hf-chirurgie-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:56:02.178Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -784,7 +791,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/782/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:39.995Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:34.802Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -842,15 +850,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -887,7 +895,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/957/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:38.936Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:33.861Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -970,15 +979,15 @@
         "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "firstSeenAt": "2026-05-26T14:56:00.275Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1015,7 +1024,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1028/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:37.879Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:32.921Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1070,15 +1080,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.812Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1115,7 +1125,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1058/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:36.852Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:31.961Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1164,15 +1175,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:59.370Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -1209,7 +1220,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/470/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:35.807Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:31.033Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1267,15 +1279,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:58.768Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1312,7 +1324,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/972/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:34.734Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:30.093Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1373,15 +1386,15 @@
         "dipl-pflegefachperson-hf-excellence-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:58.325Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1419,7 +1432,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-06-14T22:46:33.694Z",
+      "crawledAt": "2026-06-15T15:28:29.148Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1478,15 +1491,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.723Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1523,7 +1536,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:32.639Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:28.254Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1581,15 +1595,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:57.138Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1626,7 +1640,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:31.571Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:27.305Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1673,15 +1688,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:56.535Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1718,7 +1733,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:30.524Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:26.358Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1782,15 +1798,15 @@
         "assistant-en-medecine-interne-nephrologie-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:55.950Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1827,7 +1843,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1032/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:29.459Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:25.400Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1884,15 +1901,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.490Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1929,7 +1946,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:28.416Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:24.464Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1987,15 +2005,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:55.019Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2032,7 +2050,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/313/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:27.351Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:23.503Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2088,15 +2107,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.834Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2133,7 +2152,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1144/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:26.283Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:22.551Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2191,15 +2211,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:53.373Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -2236,7 +2256,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1240/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:25.245Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:21.592Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2291,15 +2312,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2336,7 +2357,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1225/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:24.188Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:20.626Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2406,15 +2428,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:50.484Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2451,7 +2473,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1248/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:23.117Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:19.665Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2509,15 +2532,15 @@
         "klinische-r-fachspezialist-in-physician-associate-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:49.412Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2554,7 +2577,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1206/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:22.045Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:18.727Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2612,15 +2636,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:48.823Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2657,7 +2681,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1247/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:20.995Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:17.783Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2712,15 +2737,15 @@
         "op-lagerungspfleger-in-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:47.293Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2757,7 +2782,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1219/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:19.949Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:16.837Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2815,15 +2841,15 @@
         "dipl-expert-in-notfallpflege-nds-oder-dipl-pflegefachperson-hf-mit-notfallerfahrung-see"
       ],
       "firstSeenAt": "2026-05-26T14:55:46.690Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2860,7 +2886,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1257/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:18.913Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:15.894Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2918,15 +2945,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:46.089Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -2963,7 +2990,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1254/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:17.832Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:14.960Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3018,15 +3046,15 @@
         "wundexpert-in-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.594Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3063,7 +3091,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:16.770Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:14.024Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3124,15 +3153,15 @@
         "radiologiefachfrau-mann-hf-see-spital-ch"
       ],
       "firstSeenAt": "2026-05-26T14:55:44.131Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3169,7 +3198,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1253/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:15.689Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:13.050Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3241,15 +3271,15 @@
         "personnel-de-nuit-centre-de-sommeil-see-spital-horgen"
       ],
       "firstSeenAt": "2026-05-26T14:55:43.643Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3286,7 +3316,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1236/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:14.617Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:12.098Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3339,15 +3370,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:43.177Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3385,7 +3416,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-14T22:46:13.525Z",
+      "crawledAt": "2026-06-15T15:28:11.137Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3420,15 +3451,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:14:39.886Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3465,7 +3496,8 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1261/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:46:12.462Z",
+      "needsRetranslation": true,
+      "crawledAt": "2026-06-15T15:28:10.205Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3500,15 +3532,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:02:37.747Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3546,7 +3578,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-14T22:46:11.391Z",
+      "crawledAt": "2026-06-15T15:28:09.237Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3579,15 +3611,15 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:35:21.904Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3625,7 +3657,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-06-14T22:46:10.347Z",
+      "crawledAt": "2026-06-15T15:28:08.257Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3658,15 +3690,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T13:30:56.810Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
