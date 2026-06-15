@@ -260,6 +260,42 @@ export function parseSoliqueApiListing(data, soliqueTenant, lang = 'de') {
 }
 
 /**
+ * Build a regex fragment matching a `class` attribute that carries `token`
+ * (a regex alternation like `tasks` or `tasks|profile`) as a whole class name,
+ * tolerant of quote style and multi-class lists. Matches `class="tasks"`,
+ * `class='tasks'`, `class=tasks`, `class="tasks col-6"`, `class="col-6 tasks"`.
+ * Used by Template (v) so a future SVAR markup tweak (extra utility class,
+ * single quotes) no longer silently matches nothing → '' → thin-source fail.
+ */
+function classAttrRx(token) {
+  return `class=["']?[^"'>]*\\b(?:${token})\\b`;
+}
+
+/**
+ * Return the inner HTML of the first `<section>` whose `id` attribute carries
+ * `idValue` (quote-agnostic), balancing nested `<section>` tags so a nested
+ * `<section>` inside the block does not truncate the capture. The lazy
+ * `[\s\S]*?</section>` idiom stops at the FIRST close tag, which a nested
+ * section would shadow; this walks open/close tags tracking depth instead.
+ * Returns '' when no matching open tag is found, and the remainder of the
+ * string when the section is left unclosed (better a long capture than '').
+ */
+function extractBalancedSectionById(html, idValue) {
+  const open = new RegExp(`<section\\s+[^>]*id=["']?${idValue}\\b[^>]*>`, 'i').exec(html);
+  if (!open) return '';
+  const start = open.index + open[0].length;
+  const tagRx = /<(\/?)section\b[^>]*>/gi;
+  tagRx.lastIndex = start;
+  let depth = 1;
+  let m;
+  while ((m = tagRx.exec(html))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return html.slice(start, m.index);
+  }
+  return html.slice(start);
+}
+
+/**
  * Pull a substantive description text from a Solique detail page. Covers the
  * "intro+title-green" template (Spital Emmental), the "offer-section" template
  * (SVAR), the job-panel template (Oberengadin), and the "job-introduction +
@@ -429,9 +465,14 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
     const vSections = [];
     // `tasks`/`profile` divs: capture up to the next tasks/profile div or the
     // enclosing </section>. Same bullet/`<br>` flattening as the other templates.
+    // Selectors are quote-agnostic and multi-class tolerant (`classAttrRx`) so a
+    // markup tweak (`class="tasks col-6"`, single quotes) keeps matching.
     for (const cls of ['tasks', 'profile']) {
       const m = cleaned.match(
-        new RegExp(`<div\\s+class="${cls}"[^>]*>([\\s\\S]*?)(?=<div\\s+class="(?:tasks|profile)"|<\\/section)`, 'i'),
+        new RegExp(
+          `<div\\s+[^>]*?${classAttrRx(cls)}[^>]*>([\\s\\S]*?)(?=<div\\s+[^>]*?${classAttrRx('tasks|profile')}|<\\/section)`,
+          'i',
+        ),
       );
       if (!m) continue;
       let body = m[1]
@@ -442,10 +483,12 @@ export function extractSoliqueDetailContent(html = '', opts = {}) {
       body = normalizeSpace(decodeEntities(body)).replace(/\s*•\s*/g, '\n• ');
       if (body && body.length > 5) vSections.push(body);
     }
-    // Perks list (`<section id="offer">`) — short, optional.
-    const offerSec = cleaned.match(/<section\s+id="offer"[^>]*>([\s\S]*?)<\/section>/i);
-    if (offerSec) {
-      let body = offerSec[1]
+    // Perks list (`<section id="offer">`) — short, optional. Quote-agnostic id
+    // and nesting-balanced (a nested `<section>` inside the perks block must not
+    // truncate the lazy `</section>` capture).
+    const offerInner = extractBalancedSectionById(cleaned, 'offer');
+    if (offerInner) {
+      let body = offerInner
         .replace(/<li[^>]*>/gi, '\n• ')
         .replace(/<\/li\s*>/gi, '')
         .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
