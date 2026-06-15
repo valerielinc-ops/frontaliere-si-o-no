@@ -60,11 +60,17 @@ const FNZ_API_BASE = 'https://fnz.wd3.myworkdayjobs.com/wday/cxs/fnz/fnz_careers
 const FNZ_PUBLIC_BASE = 'https://fnz.wd3.myworkdayjobs.com/en/fnz_careers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Swiss location IDs in Workday (from locationMainGroup facet)
-const SWISS_LOCATION_IDS = [
-  '35010ebf970510015744b49951f30000', // Chiasso - Switzerland
-  '7ddfe84896541000f65839218e0f0000', // Geneva - Switzerland
-];
+// Switzerland detection — keyword-based, NOT brittle Workday location UUIDs.
+// Workday recycles/renames location facet IDs whenever FNZ restructures sites
+// (the old Chiasso/Geneva UUIDs vanished from the facet list → 0 jobs). We
+// instead fetch all FNZ postings and keep the ones whose location text resolves
+// to Switzerland, so the crawler self-heals when FNZ adds/renames CH locations.
+const SWISS_LOCATION_RE =
+  /\b(switzerland|schweiz|suisse|svizzera|chiasso|gen(?:eva|ève|f)|lugano|mendrisio|manno|bellinzona|locarno|zurich|zürich|bern|berne|basel|b[âa]le|ticino)\b/i;
+
+function isSwissLocationText(text = '') {
+  return SWISS_LOCATION_RE.test(String(text || ''));
+}
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -167,17 +173,25 @@ async function fetchJson(url, options = {}) {
 }
 
 /**
- * List all Swiss FNZ jobs via Workday API.
- * Uses pagination (limit/offset) in case there are more than 20.
+ * List candidate Swiss FNZ postings via Workday API.
+ *
+ * We do NOT filter by Workday location facet IDs (they go stale whenever FNZ
+ * restructures sites). Instead we page through ALL postings and keep:
+ *   - single-location postings whose locationsText resolves to Switzerland;
+ *   - multi-location postings (e.g. "2 Locations") whose Swiss membership can
+ *     only be confirmed from the detail page → handed downstream for resolution.
+ * Pagination uses limit/offset; we trust the first page's `total` because later
+ * pages may echo total:0.
  */
 async function listSwissJobs() {
-  const allPostings = [];
+  const candidates = [];
   let offset = 0;
+  let total = null;
   const limit = 20;
 
   while (true) {
     const body = JSON.stringify({
-      appliedFacets: { locations: SWISS_LOCATION_IDS },
+      appliedFacets: {},
       limit,
       offset,
       searchText: '',
@@ -193,15 +207,22 @@ async function listSwissJobs() {
       break;
     }
 
-    allPostings.push(...data.jobPostings);
+    if (total === null) total = data.total || 0;
 
-    if (allPostings.length >= (data.total || 0) || data.jobPostings.length < limit) {
-      break;
+    for (const posting of data.jobPostings) {
+      const locText = posting.locationsText || '';
+      // Multi-location postings ("N Locations") hide individual sites — keep as
+      // candidate and let fetchFnzJobs() confirm via the detail page.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+        candidates.push(posting);
+      }
     }
-    offset += limit;
+
+    offset += data.jobPostings.length;
+    if (data.jobPostings.length < limit || offset >= total) break;
   }
 
-  return allPostings;
+  return candidates;
 }
 
 /**
@@ -287,7 +308,7 @@ function buildPublicUrl(externalPath) {
 async function fetchFnzJobs() {
   console.log(`🔍 Fetching FNZ jobs from Workday API`);
   console.log(`   API: ${FNZ_API_BASE}/jobs`);
-  console.log(`   Swiss locations: Chiasso (TI), Geneva (GE)\n`);
+  console.log(`   Keeping Swiss locations (Chiasso TI / Geneva GE / other CH) by location text\n`);
 
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
@@ -312,21 +333,27 @@ async function fetchFnzJobs() {
       continue;
     }
 
-    // Parse location — handle "2 Locations" multi-location jobs
-    let locationRaw = info.location || listing.locationsText || '';
-    let city = parseWorkdayLocation(locationRaw);
+    // Resolve the Swiss city. Multi-location postings ("N Locations") only
+    // reveal their real sites here, so we must confirm Switzerland membership
+    // from the detail page rather than assuming a Swiss fallback.
+    const additionalLocations = Array.isArray(info.additionalLocations)
+      ? info.additionalLocations.map((l) => (typeof l === 'string' ? l : l?.descriptor || ''))
+      : [];
+    const locationCandidates = [
+      info.location || '',
+      ...additionalLocations,
+      listing.locationsText || '',
+    ];
 
-    // For multi-location jobs, try to find Swiss city from additional locations
-    if (!city && detail?.jobPostingInfo?.additionalLocations) {
-      for (const addLoc of detail.jobPostingInfo.additionalLocations) {
-        const desc = addLoc?.descriptor || '';
-        if (desc.toLowerCase().includes('switzerland') || desc.toLowerCase().includes('chiasso') || desc.toLowerCase().includes('geneva')) {
-          city = parseWorkdayLocation(desc);
-          break;
-        }
-      }
+    const swissLoc = locationCandidates.find((l) => isSwissLocationText(l));
+    if (!swissLoc) {
+      console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+      continue;
     }
-    if (!city) city = 'Chiasso'; // fallback to primary Swiss office
+
+    let city = parseWorkdayLocation(swissLoc);
+    // Bare country descriptor ("Switzerland") or empty → default to primary office.
+    if (!city || /switzerland|schweiz|suisse|svizzera/i.test(city)) city = 'Chiasso';
 
     const canton = inferCanton(city);
 
@@ -491,8 +518,10 @@ function updateAdapterConfig() {
   adapter.enabled = true;
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['api'];
-  adapter.seedUrls = [`${FNZ_PUBLIC_BASE}?locations=${SWISS_LOCATION_IDS.join('&locations=')}`];
-  adapter.notes = 'Workday REST API at fnz.wd3.myworkdayjobs.com — Swiss locations (Chiasso TI + Geneva GE).';
+  // No location facet UUIDs in the seed: those go stale when FNZ restructures
+  // sites. The runner fetches all postings and keeps Swiss ones by location text.
+  adapter.seedUrls = [FNZ_PUBLIC_BASE];
+  adapter.notes = 'Workday REST API at fnz.wd3.myworkdayjobs.com — all postings fetched, Swiss ones (Chiasso TI / Geneva GE / other CH) kept by location text (no brittle location UUIDs).';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });

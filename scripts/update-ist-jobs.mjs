@@ -74,6 +74,17 @@ const IST_BASE_URL = 'https://jobs.inspirededu.com';
 const IST_SITEMAP_URL = 'https://jobs.inspirededu.com/sitemap.xml';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
+// Stable discovery seeds recorded in the adapter config. These are
+// location-scoped entry points (sitemap + TalentBrew location search) that
+// stay valid as postings rotate — NOT the per-job `/job/<id>/` URLs, which
+// 404 the moment a posting is filled (the prior single-job seed was the
+// original source of the recurring 0-job health-check flag).
+const IST_DISCOVERY_SEED_URLS = [
+  IST_SITEMAP_URL,
+  'https://jobs.inspirededu.com/search-jobs/results?Location=Lugano&CurrentPage=1',
+  'https://jobs.inspirededu.com/search-jobs/results?Location=Chur&CurrentPage=1',
+];
+
 // Cantons where IST (and its sister Inspired campuses that share the
 // "International School of Ticino" crawler scope) physically operate.
 // Used as a cheap sitemap-slug pre-filter; the authoritative canton is
@@ -572,7 +583,7 @@ async function mergeIstJobs(discoveredJobs) {
 
 /* ── Adapter management ────────────────────────────────────── */
 
-function updateAdapterConfig(seedUrls) {
+function updateAdapterConfig() {
   const adapterPath = path.join(ADAPTERS_DIR, `${IST_KEY}.json`);
 
   const adapter = fs.existsSync(adapterPath)
@@ -585,13 +596,13 @@ function updateAdapterConfig(seedUrls) {
   adapter.enabled = true;
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['sitemap', 'html', 'jsonld'];
-  adapter.seedUrls = seedUrls;
-  adapter.notes = 'SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR).';
+  adapter.seedUrls = IST_DISCOVERY_SEED_URLS;
+  adapter.notes = 'SuccessFactors RMK / Jobs2Web portal at jobs.inspirededu.com — search is AJAX-loaded, so discovery reads sitemap.xml and keeps /job/<City>/<id>/ URLs whose city maps to IST cantons (TI/GR). seedUrls are stable location entry points, not per-job URLs (those 404 once a posting is filled). IST often has zero live TI/GR openings, in which case the crawler legitimately keeps existing data with no error.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-  console.log(`📝 Adapter ${IST_KEY} updated with ${seedUrls.length} seed URLs.`);
+  console.log(`📝 Adapter ${IST_KEY} updated with ${IST_DISCOVERY_SEED_URLS.length} stable seed URLs.`);
 }
 
 /* ── Base crawler (AI localization only) ───────────────────── */
@@ -714,13 +725,16 @@ async function main() {
     console.log('\n⚠️ No IST jobs discovered.');
     console.log('   The careers portal may have no TI/GR openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    // Refresh adapter metadata even on the empty path so its stable discovery
+    // seeds never drift back to a frozen per-job URL between live openings.
+    updateAdapterConfig();
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
   }
 
   // Phase 2: Update adapter config
-  updateAdapterConfig(discoveredJobs.map(j => j.url));
+  updateAdapterConfig();
 
   // Phase 3: Merge into data/jobs.json
   await mergeIstJobs(discoveredJobs);

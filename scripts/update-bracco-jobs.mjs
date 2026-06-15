@@ -47,11 +47,18 @@ const BRACCO_API_BASE = 'https://bracco.wd103.myworkdayjobs.com/wday/cxs/bracco/
 const BRACCO_PUBLIC_BASE = 'https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-// Swiss location IDs in Workday
-const SWISS_LOCATION_IDS = [
-  '9f72af9e9f0e1008c408607b37a00000', // CHE - Plan-les-Ouates
-  '9f72af9e9f0e1008c40856e1a7d40000', // CHE - Cadempino
-];
+// Switzerland detection — keyword-based, NOT brittle Workday location UUIDs.
+// Workday recycles/renames location facet IDs whenever Bracco restructures sites
+// (the old Cadempino/Plan-les-Ouates UUIDs would vanish from the facet list → 0
+// jobs). We instead fetch all Bracco postings and keep the ones whose location
+// text resolves to Switzerland, so the crawler self-heals when Bracco adds/renames
+// CH locations.
+const SWISS_LOCATION_RE =
+  /\b(switzerland|schweiz|suisse|svizzera|cadempino|plan-les-ouates|plan les ouates|gen(?:eva|ève|f)|lugano|mendrisio|manno|bellinzona|locarno|chiasso|zurich|zürich|bern|berne|basel|b[âa]le|ticino)\b/i;
+
+function isSwissLocationText(text = '') {
+  return SWISS_LOCATION_RE.test(String(text || ''));
+}
 
 // ─────────────────────────────────────────────────────────────
 // Helpers
@@ -160,17 +167,25 @@ async function fetchJson(url, options = {}) {
 }
 
 /**
- * List all Swiss Bracco jobs via Workday API.
- * Uses pagination (limit/offset) in case there are more than 20.
+ * List candidate Swiss Bracco postings via Workday API.
+ *
+ * We do NOT filter by Workday location facet IDs (they go stale whenever Bracco
+ * restructures sites). Instead we page through ALL postings and keep:
+ *   - single-location postings whose locationsText resolves to Switzerland;
+ *   - multi-location postings (e.g. "2 Locations") whose Swiss membership can
+ *     only be confirmed from the detail page → handed downstream for resolution.
+ * Pagination uses limit/offset; we trust the first page's `total` because later
+ * pages may echo total:0.
  */
 async function listSwissJobs() {
-  const allPostings = [];
+  const candidates = [];
   let offset = 0;
+  let total = null;
   const limit = 20;
 
   while (true) {
     const body = JSON.stringify({
-      appliedFacets: { locations: SWISS_LOCATION_IDS },
+      appliedFacets: {},
       limit,
       offset,
       searchText: '',
@@ -186,15 +201,22 @@ async function listSwissJobs() {
       break;
     }
 
-    allPostings.push(...data.jobPostings);
+    if (total === null) total = data.total || 0;
 
-    if (allPostings.length >= (data.total || 0) || data.jobPostings.length < limit) {
-      break;
+    for (const posting of data.jobPostings) {
+      const locText = posting.locationsText || '';
+      // Multi-location postings ("N Locations") hide individual sites — keep as
+      // candidate and let fetchBraccoJobs() confirm via the detail page.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+        candidates.push(posting);
+      }
     }
-    offset += limit;
+
+    offset += data.jobPostings.length;
+    if (data.jobPostings.length < limit || offset >= total) break;
   }
 
-  return allPostings;
+  return candidates;
 }
 
 /**
@@ -294,6 +316,7 @@ function buildPublicUrl(externalPath) {
 async function fetchBraccoJobs() {
   console.log(`🔍 Fetching Bracco Suisse S.A. jobs from Workday API`);
   console.log(`   API: ${BRACCO_API_BASE}/jobs`);
+  console.log(`   Keeping Swiss locations (Cadempino TI / Plan-les-Ouates GE / other CH) by location text\n`);
 
   const listings = await listSwissJobs();
   if (!listings || listings.length === 0) {
@@ -318,10 +341,29 @@ async function fetchBraccoJobs() {
       continue;
     }
 
-    const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayLocation(locationRaw);
+    // Resolve the Swiss city. Multi-location postings ("N Locations") only
+    // reveal their real sites here, so we must confirm Switzerland membership
+    // from the detail page rather than assuming a Swiss fallback.
+    const additionalLocations = Array.isArray(info.additionalLocations)
+      ? info.additionalLocations.map((l) => (typeof l === 'string' ? l : l?.descriptor || ''))
+      : [];
+    const locationCandidates = [
+      info.location || '',
+      ...additionalLocations,
+      listing.locationsText || '',
+    ];
+
+    const swissLoc = locationCandidates.find((l) => isSwissLocationText(l));
+    if (!swissLoc) {
+      console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
+      continue;
+    }
+
+    let city = parseWorkdayLocation(swissLoc);
+    // Bare country descriptor ("Switzerland") or empty → default to primary office.
+    if (!city || /switzerland|schweiz|suisse|svizzera/i.test(city)) city = 'Cadempino';
     const canton = inferCanton(city);
-    const country = info.country?.descriptor === 'Switzerland' ? 'CH' : 'CH';
+    const country = 'CH';
 
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
@@ -492,8 +534,10 @@ function updateAdapterConfig() {
   adapter.enabled = true;
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['api'];
-  adapter.seedUrls = [`${BRACCO_PUBLIC_BASE}?locations=${SWISS_LOCATION_IDS.join('&locations=')}`];
-  adapter.notes = 'Workday REST API at bracco.wd103.myworkdayjobs.com — Swiss locations (Cadempino TI + Plan-les-Ouates GE).';
+  // No location facet UUIDs in the seed: those go stale when Bracco restructures
+  // sites. The runner fetches all postings and keeps Swiss ones by location text.
+  adapter.seedUrls = [BRACCO_PUBLIC_BASE];
+  adapter.notes = 'Workday REST API at bracco.wd103.myworkdayjobs.com — all postings fetched, Swiss ones (Cadempino TI / Plan-les-Ouates GE / other CH) kept by location text (no brittle location UUIDs).';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
