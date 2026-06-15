@@ -78,6 +78,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'tassa-prenotazione-capanne-cas': { it: 'tassa-prenotazione-capanne-cas', en: 'cas-hut-reservation-fee-switzerland', de: 'sac-huetten-reservierungsgebuehr-schweiz', fr: 'taxe-reservation-cabanes-cas-suisse' },
  'salario-minimo-vaud-si-ma-cantone-sesto': { it: 'salario-minimo-vaud-si-ma-cantone-sesto', en: 'minimum-wage-vd-yes-but-canton-sixth', de: 'mindestlohn-wd-ja-aber-der-sechste-kanton', fr: 'salaire-minimum-vd-oui-mais-la-sixieme-canton' },
  'votazioni-federali-giugno-2026': { it: 'votazioni-federali-giugno-2026', en: 'federal-votes-june-2026', de: 'eidgenoessische-abstimmung-juni-2026', fr: 'votations-federales-juin-2026' },
+ 'imposizione-fonte-basilea': { it: 'imposizione-fonte-basilea', en: 'source-tax-basel', de: 'quelle-steuer-basel', fr: 'impot-source-basel' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
