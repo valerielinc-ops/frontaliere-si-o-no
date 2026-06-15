@@ -4716,6 +4716,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  document.getElementById('candidatura')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
  return;
  }
+ // External publisher ads: count the apply click too (session-debounced, so it
+ // never double-counts with the header logo/title links). No-op for crawled jobs.
+ trackPublisherApplyClick(job as { publisherJobId?: string | null });
  if (job.url) window.open(buildReferralUrl(job.url, job), '_blank', 'noopener,noreferrer');
  };
 
@@ -6741,6 +6744,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-surface/90 flex items-center justify-center overflow-hidden border border-edge shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-info"
@@ -6768,6 +6772,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`);
+ trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
  >
