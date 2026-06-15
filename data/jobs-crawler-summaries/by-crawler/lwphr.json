@@ -1,16 +1,16 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-06-14T22:33:58.992Z",
-  "total": 14,
+  "generatedAt": "2026-06-15T15:31:41.640Z",
+  "total": 13,
   "newCount": 0,
-  "updatedCount": 14,
-  "removedCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5511,
-  "avgDurationMs": 5511,
+  "durationMs": 3963,
+  "avgDurationMs": 3963,
   "durationHistory": [
-    5511
+    3963
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -368,38 +368,6 @@
       }
     },
     {
-      "title": "WEB DEVELOPER",
-      "slug": "web-developer-lwp-ledermann-wieting-partners-lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/web_developer.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "lwphr-a98139780e6c",
-      "firstSeenAt": "2026-04-13T22:04:42.089Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "title": "CONSULENTE VENDITA",
       "slug": "consulente-vendita-lwp-ledermann-wieting-partners-mendrisio",
       "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_vendita__lamal.pdf",
@@ -464,6 +432,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "WEB DEVELOPER",
+      "slug": "web-sviluppatore-lwp-ledermann-wieting-partners-lugano",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/web_developer.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "lwphr-a98139780e6c",
+      "firstSeenAt": "2026-04-13T22:04:42.089Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }

@@ -1,7 +1,607 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-06-14T22:28:40.767Z",
+  "assembledAt": "2026-06-15T15:19:56.624Z",
   "jobs": [
+    {
+      "title": "MACCHINISTA/AUTISTA",
+      "slug": "macchinista-autista-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/macchinista-autista-2679036/",
+      "applyUrl": "https://www.pemsa.ch/it/job/macchinista-autista-2679036/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "cantiere",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di macchinista/autista\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantieri svizzeri\n·uso macchine da cantiere/gommati/cingolati/escavatori\n·In possesso del CQC con comprovata esperienza nella conduzione di veicoli pesanti\n·in possesso delle patenti per la conduzione di macchine da cantiere\n·controlli pre-operativi sulle attrezzature\n·individuazione impianti sotterranei\n·installazione apparecchiature e/o accessori particolari ai macchinari\n·serietà e affidabilità\n·disponibilità immediata\n·automunito",
+      "titleByLocale": {
+        "it": "MACCHINISTA/AUTISTA",
+        "en": "MACCHINISTA/AUTISTA",
+        "de": "MACCHINISTA/AUTISTA",
+        "fr": "MACCHINISTA/AUTISTA"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di macchinista/autista\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantieri svizzeri\n·uso macchine da cantiere/gommati/cingolati/escavatori\n·In possesso del CQC con comprovata esperienza nella conduzione di veicoli pesanti\n·in possesso delle patenti per la conduzione di macchine da cantiere\n·controlli pre-operativi sulle attrezzature\n·individuazione impianti sotterranei\n·installazione apparecchiature e/o accessori particolari ai macchinari\n·serietà e affidabilità\n·disponibilità immediata\n·automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MACCHINISTA/AUTISTA in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MACCHINISTA/AUTISTA in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MACCHINISTA/AUTISTA à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "macchinista-autista-pemsa-locarno",
+        "en": "macchinista-autista-pemsa-locarno",
+        "de": "macchinista-autista-pemsa-locarno",
+        "fr": "macchinista-autista-pemsa-locarno"
+      },
+      "id": "pemsa-069bda07f59d",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "MURATORE/CARPENTIERE",
+      "slug": "muratore-carpentiere-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/muratore-carpentiere-2679030/",
+      "applyUrl": "https://www.pemsa.ch/it/job/muratore-carpentiere-2679030/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·lavori in muratura\n·lavorazione del tondino per cemento armato, casseratura e legatura ferro\n·uso attrezzi e macchinari da cantiere\n·conoscenza preparazione materiali\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
+      "titleByLocale": {
+        "it": "MURATORE/CARPENTIERE",
+        "en": "MURATORE/CARPENTIERE",
+        "de": "MURATORE/CARPENTIERE",
+        "fr": "MURATORE/CARPENTIERE"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·lavori in muratura\n·lavorazione del tondino per cemento armato, casseratura e legatura ferro\n·uso attrezzi e macchinari da cantiere\n·conoscenza preparazione materiali\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MURATORE/CARPENTIERE in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MURATORE/CARPENTIERE in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MURATORE/CARPENTIERE à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "muratore-carpentiere-pemsa-locarno",
+        "en": "muratore-carpentiere-pemsa-locarno",
+        "de": "muratore-carpentiere-pemsa-locarno",
+        "fr": "muratore-carpentiere-pemsa-locarno"
+      },
+      "id": "pemsa-7c8d1f2c879a",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "LATTONIERI",
+      "slug": "lattonieri-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/lattonieri-2679025/",
+      "applyUrl": "https://www.pemsa.ch/it/job/lattonieri-2679025/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di lattoniere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza pregressa nella mansione\n·lattoneria tetti a falde e tetti piani\n·impermeabilizzazione tetti piani\n·manutenzione e riparazione\n·lettura dei disegni\n·disponibilità immediata\n·automunito",
+      "titleByLocale": {
+        "it": "LATTONIERI",
+        "en": "LATTONIERI",
+        "de": "LATTONIERI",
+        "fr": "LATTONIERI"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di lattoniere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza pregressa nella mansione\n·lattoneria tetti a falde e tetti piani\n·impermeabilizzazione tetti piani\n·manutenzione e riparazione\n·lettura dei disegni\n·disponibilità immediata\n·automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a LATTONIERI in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als LATTONIERI in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil LATTONIERI à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "lattonieri-pemsa-locarno",
+        "en": "lattonieri-pemsa-locarno",
+        "de": "lattonieri-pemsa-locarno",
+        "fr": "lattonieri-pemsa-locarno"
+      },
+      "id": "pemsa-6b5a59a1db86",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "MONTATORE DI PANNELLI SOLARI",
+      "slug": "montatore-di-pannelli-solari-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022/",
+      "applyUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "meccanica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·Installazione e fissaggio di pannelli solari\n·Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
+      "titleByLocale": {
+        "it": "MONTATORE DI PANNELLI SOLARI",
+        "en": "MONTATORE DI PANNELLI SOLARI",
+        "de": "MONTATORE DI PANNELLI SOLARI",
+        "fr": "MONTATORE DI PANNELLI SOLARI"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di montatore di pannelli solari\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·Installazione e fissaggio di pannelli solari\n·Installazione e montaggio di strutture fotovoltaiche su diversi tipi di tetti\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a MONTATORE DI PANNELLI SOLARI in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als MONTATORE DI PANNELLI SOLARI in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil MONTATORE DI PANNELLI SOLARI à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "montatore-di-pannelli-solari-pemsa-locarno",
+        "en": "montatore-di-pannelli-solari-pemsa-locarno",
+        "de": "montatore-di-pannelli-solari-pemsa-locarno",
+        "fr": "montatore-di-pannelli-solari-pemsa-locarno"
+      },
+      "id": "pemsa-05431b6639a0",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "CARPENTIERE TETTI",
+      "slug": "carpentiere-tetti-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/carpentiere-tetti-2679017/",
+      "applyUrl": "https://www.pemsa.ch/it/job/carpentiere-tetti-2679017/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di carpentiere tetti\n\n## Missione :\n• missione di lunga durata nella zona Sopraceneri\n\n## Profilo :\n·uso macchinari per lavorazione del legno\n·posa struttura portante\n·posa elementi prefabbricati in legno\n·posa velux e pergolati\n·copertura tetto\n·isolazione\n·perlinatura\n·manutenzione copertura\n·disponibilità immediata\n·automunito\n·serietà e affidabilità",
+      "titleByLocale": {
+        "it": "CARPENTIERE TETTI",
+        "en": "CARPENTIERE TETTI",
+        "de": "CARPENTIERE TETTI",
+        "fr": "CARPENTIERE TETTI"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di carpentiere tetti\n\n## Missione :\n• missione di lunga durata nella zona Sopraceneri\n\n## Profilo :\n·uso macchinari per lavorazione del legno\n·posa struttura portante\n·posa elementi prefabbricati in legno\n·posa velux e pergolati\n·copertura tetto\n·isolazione\n·perlinatura\n·manutenzione copertura\n·disponibilità immediata\n·automunito\n·serietà e affidabilità",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a CARPENTIERE TETTI in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als CARPENTIERE TETTI in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil CARPENTIERE TETTI à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "carpentiere-tetti-pemsa-locarno",
+        "en": "carpentiere-tetti-pemsa-locarno",
+        "de": "carpentiere-tetti-pemsa-locarno",
+        "fr": "carpentiere-tetti-pemsa-locarno"
+      },
+      "id": "pemsa-595fc0709f0b",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "GRUISTA",
+      "slug": "gruista-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/gruista-2679014/",
+      "applyUrl": "https://www.pemsa.ch/it/job/gruista-2679014/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gruista\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• patente SUVA\n• esperienza su cantieri svizzeri\n• disponibilità immediata\n• automunito",
+      "titleByLocale": {
+        "it": "GRUISTA",
+        "en": "GRUISTA",
+        "de": "GRUISTA",
+        "fr": "GRUISTA"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di gruista\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• patente SUVA\n• esperienza su cantieri svizzeri\n• disponibilità immediata\n• automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a GRUISTA in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als GRUISTA in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil GRUISTA à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "gruista-pemsa-locarno",
+        "en": "gruista-pemsa-locarno",
+        "de": "gruista-pemsa-locarno",
+        "fr": "gruista-pemsa-locarno"
+      },
+      "id": "pemsa-0e4dc58b657b",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "Cartongessista – Gessatore",
+      "slug": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/cartongessista-gessatore-2679001/",
+      "applyUrl": "https://www.pemsa.ch/it/job/cartongessista-gessatore-2679001/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-30",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cartongessista – Gessatore\n\n## Missione :\n• Lavoro temporaneo di lunga durata tramite agenzia\n• Montaggio della struttura metallica e della posa dei pannelli\n• Realizzazione di controsoffitti, isolamento termico ed acustico\n• Stuccatura e lisciatura con gesso, per interni pronti alla tinteggiatura\n\n## Profilo :\n• Esperienza pregressa nel settore\n• Lavorare in maniera autonoma dalla posa della struttura, alle finiture\n• Utilizzo di strumenti come avvitatori, livelle laser, taglierini, stucchi e spatole\n• Conoscenze dei materiali e DPI\n• Automunito",
+      "titleByLocale": {
+        "it": "Cartongessista – Gessatore",
+        "en": "Cartongessista – Gessatore",
+        "de": "Cartongessista – Gessatore",
+        "fr": "Cartongessista – Gessatore"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Cartongessista – Gessatore\n\n## Missione :\n• Lavoro temporaneo di lunga durata tramite agenzia\n• Montaggio della struttura metallica e della posa dei pannelli\n• Realizzazione di controsoffitti, isolamento termico ed acustico\n• Stuccatura e lisciatura con gesso, per interni pronti alla tinteggiatura\n\n## Profilo :\n• Esperienza pregressa nel settore\n• Lavorare in maniera autonoma dalla posa della struttura, alle finiture\n• Utilizzo di strumenti come avvitatori, livelle laser, taglierini, stucchi e spatole\n• Conoscenze dei materiali e DPI\n• Automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Cartongessista – Gessatore in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Cartongessista – Gessatore in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Cartongessista – Gessatore à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "en": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "fr": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
+      },
+      "id": "pemsa-20e598c085ec",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "Idraulico",
+      "slug": "idraulico-pemsa-mendrisio",
+      "url": "https://www.pemsa.ch/it/job/idraulico-2678940/",
+      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2678940/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-15",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico\n\n## Missione :\n• Posa canali di ventilazione staffaggi inclusi;\n• Posa impianti sanitari e riscaldamento;\n\n## Profilo :\n• Comprovata esperienza di almeno 4 anni sui cantier svizzeri;\n• Ottima conoscenza dei materiali del settore;\n• Esperienza in lavori in soletta costituirà titolo preferenziale;\n• Residenza entro 25Km dal luogo d’incarico;",
+      "titleByLocale": {
+        "it": "Idraulico",
+        "en": "Idraulico",
+        "de": "Idraulico",
+        "fr": "Idraulico"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Idraulico\n\n## Missione :\n• Posa canali di ventilazione staffaggi inclusi;\n• Posa impianti sanitari e riscaldamento;\n\n## Profilo :\n• Comprovata esperienza di almeno 4 anni sui cantier svizzeri;\n• Ottima conoscenza dei materiali del settore;\n• Esperienza in lavori in soletta costituirà titolo preferenziale;\n• Residenza entro 25Km dal luogo d’incarico;",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Idraulico in Mendrisio. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Idraulico in Mendrisio. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Idraulico à Mendrisio. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "idraulico-pemsa-mendrisio",
+        "en": "idraulico-pemsa-mendrisio",
+        "de": "idraulico-pemsa-mendrisio",
+        "fr": "idraulico-pemsa-mendrisio"
+      },
+      "id": "pemsa-3b0c7725462f",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "IDRAULICO",
+      "slug": "idraulico-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/idraulico-2678912/",
+      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2678912/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-12",
+      "description": "Pemsa è una società leader nel settore delle risorse umane specializzata nel reclutamento e nella selezione di professionisti nei campi della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria in Svizzera. Grazie ad un consolidato know-how tecnico e ad un’approfondita conoscenza del mercato svizzero del lavoro, Pemsa si distingue per la capacità di creare un legame solido tra le esigenze aziendali e le competenze dei candidati. La nostra offerta si caratterizza per la precisione nell’identificazione dei profili più qualificati, il supporto dedicato durante tutto il processo di inserimento e un impegno costante nella valorizzazione del capitale umano, favorendo la crescita professionale e la presenza sostenibile sul territorio.\n\n## Missione:\n• Installazione impianti sanitari, rubbinetteria, arredo bagno\n• Installazione impianti riscaldamento pavimento, pompe di calore e centrali termiche\n• Esperienza in soletta costituirà titolo preferenziale\n\n## Profilo:\n• Esperienza professionale minima di 3 anni sul mercato svizzero , comprovata da referenze o incarichi precedenti.\n• Disponibilità a recarsi sul luogo di lavoro in un raggio massimo di 20 km dalla propria residenza , garantendo puntualità e continuità operativa.\n• Conoscenza approfondita della lettura di disegni tecnici , capacità necessaria per interpretare correttamente le specifiche progettuali e operare con precisione tecnica.\n• Possesso di patente di guida valida in Svizzera , requisito essenziale per spostamenti e attività correlate.\n\n## Ton interlocuteur/trice :\nIl nostro team dedicato Pemsa è a tua disposizione per accompagnarti durante ogni fase del processo di selezione. Con un approccio personale e professionale, garantiamo un supporto concreto e trasparente, focalizzato sulle tue competenze e aspirazioni. Siamo impegnati a valorizzare ogni candidatura in linea con i requisiti tecnici e professionali richiesti, facilitando un’esperienza positiva e mirata verso il successo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "titleByLocale": {
+        "it": "IDRAULICO",
+        "en": "IDRAULICO",
+        "de": "IDRAULICO",
+        "fr": "IDRAULICO"
+      },
+      "descriptionByLocale": {
+        "it": "Pemsa è una società leader nel settore delle risorse umane specializzata nel reclutamento e nella selezione di professionisti nei campi della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria in Svizzera. Grazie ad un consolidato know-how tecnico e ad un’approfondita conoscenza del mercato svizzero del lavoro, Pemsa si distingue per la capacità di creare un legame solido tra le esigenze aziendali e le competenze dei candidati. La nostra offerta si caratterizza per la precisione nell’identificazione dei profili più qualificati, il supporto dedicato durante tutto il processo di inserimento e un impegno costante nella valorizzazione del capitale umano, favorendo la crescita professionale e la presenza sostenibile sul territorio.\n\n## Missione:\n• Installazione impianti sanitari, rubbinetteria, arredo bagno\n• Installazione impianti riscaldamento pavimento, pompe di calore e centrali termiche\n• Esperienza in soletta costituirà titolo preferenziale\n\n## Profilo:\n• Esperienza professionale minima di 3 anni sul mercato svizzero , comprovata da referenze o incarichi precedenti.\n• Disponibilità a recarsi sul luogo di lavoro in un raggio massimo di 20 km dalla propria residenza , garantendo puntualità e continuità operativa.\n• Conoscenza approfondita della lettura di disegni tecnici , capacità necessaria per interpretare correttamente le specifiche progettuali e operare con precisione tecnica.\n• Possesso di patente di guida valida in Svizzera , requisito essenziale per spostamenti e attività correlate.\n\n## Ton interlocuteur/trice :\nIl nostro team dedicato Pemsa è a tua disposizione per accompagnarti durante ogni fase del processo di selezione. Con un approccio personale e professionale, garantiamo un supporto concreto e trasparente, focalizzato sulle tue competenze e aspirazioni. Siamo impegnati a valorizzare ogni candidatura in linea con i requisiti tecnici e professionali richiesti, facilitando un’esperienza positiva e mirata verso il successo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a IDRAULICO in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als IDRAULICO in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil IDRAULICO à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "idraulico-pemsa-lugano",
+        "en": "idraulico-pemsa-lugano",
+        "de": "idraulico-pemsa-lugano",
+        "fr": "idraulico-pemsa-lugano"
+      },
+      "id": "pemsa-bb3b3c28c389",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
+    {
+      "title": "Installatore Idraulico",
+      "slug": "installatore-idraulico-pemsa-mendrisio",
+      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2678909/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2678909/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-15",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-30",
+      "description": "Pemsa è il partner leader in Svizzera per il reclutamento di professionisti qualificati nei settori della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria. Con un'approfondita conoscenza tecnica e una rete consolidata di collaborazioni, Pemsa garantisce soluzioni di placement altamente performanti e su misura per ogni esigenza aziendale. La nostra esperienza pluriennale e la competenza del nostro team ci permettono di valorizzare il capitale umano proponendo candidati specializzati e motivati, contribuendo così al successo e alla crescita sostenibile dei nostri clienti. Scegliere Pemsa significa affidarsi a un'agenzia che valorizza il talento tecnico e promuove un ambiente di lavoro innovativo e stimolante per i professionisti del settore.\n\n## Missione:\n• Posa e installazione di impianti sanitari e di riscaldamento conformemente alle normative svizzere vigenti.\n• Installazione impianti termoidraulici per garantire efficienza e sicurezza degli impianti.\n• Controllo qualità e verifica funzionale degli impianti installati in cantiere, rispettando tempistiche e standard tecnici.\n• Gestione autonoma delle attività di posa impianti con particolare attenzione al rispetto delle normative di sicurezza e ambiente in Svizzera.\n\n## Profilo:\n• Almeno 4 anni di esperienza professionale documentabile nel settore degli impianti sanitari e di riscaldamento in Svizzera, con ottima conoscenza delle normative locali (criterio indispensabile).\n• Residenza a massimo 20 km dal luogo di lavoro, per garantire puntualità e flessibilità negli orari (criterio indispensabile).\n• Possesso di patente di guida valida per veicoli leggeri (categoria B), dato il trasporto di materiali e attrezzature sul cantiere (criterio indispensabile).\n• Competenza comprovata nella posa di impianti sanitari e di riscaldamento, inclusa la lettura di disegni tecnici e schema idraulici.\n• Ottime capacità di problem solving tecnico e attitudine al lavoro di squadra in ambiente di cantiere.\n• Conoscenza dei principi di sicurezza sul lavoro secondo la legislazione svizzera e uso corretto dei dispositivi di protezione individuale (DPI).\n• Capacità di organizzazione autonoma del lavoro e gestione efficiente dei materiali e attrezzature.\n• Gradita iscrizione a corsi professionali specifici e aggiornamenti tecnici nel settore impiantistico (bonus).\n\n## Ton interlocuteur/trice :\nIl nostro team di recruiter esperti Pemsa ti accompagnerà con professionalità e trasparenza durante tutto il processo di candidatura, garantendo un supporto personalizzato e risposte rapide. Offriamo una consulenza mirata per valorizzare le tue competenze tecniche nel settore impiantistico, mettendoti in contatto con aziende leader nel mercato svizzero, attente alla qualità e allo sviluppo professionale del personale.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "titleByLocale": {
+        "it": "Installatore Idraulico",
+        "en": "Installatore Idraulico",
+        "de": "Installatore Idraulico",
+        "fr": "Installatore Idraulico"
+      },
+      "descriptionByLocale": {
+        "it": "Pemsa è il partner leader in Svizzera per il reclutamento di professionisti qualificati nei settori della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria. Con un'approfondita conoscenza tecnica e una rete consolidata di collaborazioni, Pemsa garantisce soluzioni di placement altamente performanti e su misura per ogni esigenza aziendale. La nostra esperienza pluriennale e la competenza del nostro team ci permettono di valorizzare il capitale umano proponendo candidati specializzati e motivati, contribuendo così al successo e alla crescita sostenibile dei nostri clienti. Scegliere Pemsa significa affidarsi a un'agenzia che valorizza il talento tecnico e promuove un ambiente di lavoro innovativo e stimolante per i professionisti del settore.\n\n## Missione:\n• Posa e installazione di impianti sanitari e di riscaldamento conformemente alle normative svizzere vigenti.\n• Installazione impianti termoidraulici per garantire efficienza e sicurezza degli impianti.\n• Controllo qualità e verifica funzionale degli impianti installati in cantiere, rispettando tempistiche e standard tecnici.\n• Gestione autonoma delle attività di posa impianti con particolare attenzione al rispetto delle normative di sicurezza e ambiente in Svizzera.\n\n## Profilo:\n• Almeno 4 anni di esperienza professionale documentabile nel settore degli impianti sanitari e di riscaldamento in Svizzera, con ottima conoscenza delle normative locali (criterio indispensabile).\n• Residenza a massimo 20 km dal luogo di lavoro, per garantire puntualità e flessibilità negli orari (criterio indispensabile).\n• Possesso di patente di guida valida per veicoli leggeri (categoria B), dato il trasporto di materiali e attrezzature sul cantiere (criterio indispensabile).\n• Competenza comprovata nella posa di impianti sanitari e di riscaldamento, inclusa la lettura di disegni tecnici e schema idraulici.\n• Ottime capacità di problem solving tecnico e attitudine al lavoro di squadra in ambiente di cantiere.\n• Conoscenza dei principi di sicurezza sul lavoro secondo la legislazione svizzera e uso corretto dei dispositivi di protezione individuale (DPI).\n• Capacità di organizzazione autonoma del lavoro e gestione efficiente dei materiali e attrezzature.\n• Gradita iscrizione a corsi professionali specifici e aggiornamenti tecnici nel settore impiantistico (bonus).\n\n## Ton interlocuteur/trice :\nIl nostro team di recruiter esperti Pemsa ti accompagnerà con professionalità e trasparenza durante tutto il processo di candidatura, garantendo un supporto personalizzato e risposte rapide. Offriamo una consulenza mirata per valorizzare le tue competenze tecniche nel settore impiantistico, mettendoti in contatto con aziende leader nel mercato svizzero, attente alla qualità e allo sviluppo professionale del personale.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Installatore Idraulico in Mendrisio. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Installatore Idraulico in Mendrisio. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore Idraulico à Mendrisio. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "installatore-idraulico-pemsa-mendrisio",
+        "en": "installatore-idraulico-pemsa-mendrisio",
+        "de": "installatore-idraulico-pemsa-mendrisio",
+        "fr": "installatore-idraulico-pemsa-mendrisio"
+      },
+      "id": "pemsa-b19ddadbf55d",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
+    },
     {
       "title": "ADDETTO/A PULIZIE ORDINARIE",
       "slug": "addetto-a-pulizie-ordinarie-pemsa-lugano",
@@ -343,66 +943,6 @@
         "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
       },
       "id": "pemsa-0698f0bf0be6",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-12T12:47:46.667Z"
-    },
-    {
-      "title": "IDRAULICO",
-      "slug": "idraulico-pemsa-mendrisio",
-      "url": "https://www.pemsa.ch/it/job/idraulico-2678624/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2678624/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-12",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-07-10",
-      "description": "Pemsa si posiziona come partner leader nel mercato svizzero per il reclutamento nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. La nostra esperienza pluriennale e la profonda conoscenza delle specificità tecniche e normative svizzere ci permettono di offrire ai nostri clienti soluzioni di placement altamente qualificate e personalizzate. Con un approccio orientato alla valorizzazione del capitale umano, Pemsa sostiene sia le aziende che i candidati, garantendo un abbinamento perfetto tra esigenze operative e competenze professionali. Scegliere Pemsa significa affidarsi a una rete di esperti impegnati a elevare la qualità e l’efficacia del processo di selezione, contribuendo alla crescita sostenibile dei team di lavoro in ambienti competitivi e tecnologicamente avanzati.\n\n## Missione:\n• Installazione, manutenzione e riparazione di impianti sanitari e sistemi di riscaldamento secondo le normative svizzere vigenti.\n• Conoscenza tecnica dei materiali specifici per gli impianti sanitari e termici, garantendo la qualità e la durata degli interventi.\n• Interventi tempestivi e precisi nel raggio massimo di 20 km dalla residenza del candidato per garantire efficacia e tempestività nei servizi offerti.\n\n## Profilo:\n• Esperienza minima di 4 anni in Svizzera , comprovata nel settore degli impianti sanitari e riscaldamento.\n• Residenza entro 20 km dal luogo di lavoro, per una gestione ottimale delle tempistiche e delle emergenze.\n• Padronanza dell’italiano a livello madrelingua , indispensabile per una comunicazione efficace all’interno del team e con i clienti.\n• Possesso di patente di guida valida in Svizzera , requisito essenziale per gli spostamenti sul cantiere.\n• Eccellente conoscenza tecnica dei materiali utilizzati nel settore, per garantire la qualità e la sicurezza degli impianti installati.\n• Capacità comprovata nella realizzazione e manutenzione di impianti sanitari e riscaldamento , con attenzione alle normative svizzere e agli standard di efficienza energetica.\n• Gradito, ma non obbligatorio: conoscenze aggiuntive nelle tecniche di termoregolazione e sistemi innovativi di riscaldamento.\n\n## Ton interlocuteur/trice :\nEn tant que consultant(e) dédié(e) chez Pemsa, je vous accompagne tout au long de votre processus de candidature avec professionnalisme et transparence. Mon objectif est de comprendre vos compétences techniques et aspirations personnelles pour vous proposer des opportunités qui valorisent votre parcours et favorisent votre épanouissement professionnel. Intégrer notre réseau, c’est accéder à un savoir-faire reconnu sur le marché suisse et bénéficier d’un accompagnement personnalisé dans un secteur en constante évolution.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "IDRAULICO",
-        "en": "IDRAULICO",
-        "de": "IDRAULICO",
-        "fr": "IDRAULICO"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa si posiziona come partner leader nel mercato svizzero per il reclutamento nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. La nostra esperienza pluriennale e la profonda conoscenza delle specificità tecniche e normative svizzere ci permettono di offrire ai nostri clienti soluzioni di placement altamente qualificate e personalizzate. Con un approccio orientato alla valorizzazione del capitale umano, Pemsa sostiene sia le aziende che i candidati, garantendo un abbinamento perfetto tra esigenze operative e competenze professionali. Scegliere Pemsa significa affidarsi a una rete di esperti impegnati a elevare la qualità e l’efficacia del processo di selezione, contribuendo alla crescita sostenibile dei team di lavoro in ambienti competitivi e tecnologicamente avanzati. ## Missione:\n• Installazione, manutenzione e riparazione di impianti sanitari e sistemi di riscaldamento secondo le normative svizzere vigenti.\n• Conoscenza tecnica dei materiali specifici per gli impianti sanitari e termici, garantendo la qualità e la durata degli interventi.\n• Interventi tempestivi e precisi nel raggio massimo di 20 km dalla residenza del candidato per garantire efficacia e tempestività nei servizi offerti. ## Profilo:\n• Esperienza minima di 4 anni in Svizzera , comprovata nel settore degli impianti sanitari e riscaldamento.\n• Residenza entro 20 km dal luogo di lavoro, per una gestione ottimale delle tempistiche e delle emergenze.\n• Padronanza dell’italiano a livello madrelingua , indispensabile per una comunicazione efficace all’interno del team e con i clienti.\n• Possesso di patente di guida valida in Svizzera , requisito essenziale per gli spostamenti sul cantiere.\n• Eccellente conoscenza tecnica dei materiali utilizzati nel settore, per garantire la qualità e la sicurezza degli impianti installati.\n• Capacità comprovata nella realizzazione e manutenzione di impianti sanitari e riscaldamento , con attenzione alle normative svizzere e agli standard di efficienza energetica.\n• Gradito, ma non obbligatorio: conoscenze aggiuntive nelle tecniche di termoregolazione e sistemi innovativi di riscaldamento. ## Ton interlocuteur/trice : En tant que consultant(e) dédié(e) chez Pemsa, je vous accompagne tout au long de votre processus de candidature avec professionnalisme et transparence. Mon objectif est de comprendre vos compétences techniques et aspirations personnelles pour vous proposer des opportunités qui valorisent votre parcours et favorisent votre épanouissement professionnel. Intégrer notre réseau, c’est accéder à un savoir-faire reconnu sur le marché suisse et bénéficier d’un accompagnement personnalisé dans un secteur en constante évolution. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a IDRAULICO in Mendrisio. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als IDRAULICO in Mendrisio. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil IDRAULICO à Mendrisio. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
-      },
-      "slugByLocale": {
-        "it": "idraulico-pemsa-mendrisio",
-        "en": "idraulico-pemsa-mendrisio",
-        "de": "idraulico-pemsa-mendrisio",
-        "fr": "idraulico-pemsa-mendrisio"
-      },
-      "id": "pemsa-ca9b553a1259",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1023,68 +1563,6 @@
       "firstSeenAt": "2026-06-09T12:03:43.610Z"
     },
     {
-      "title": "CARPENTIERE TETTI",
-      "slug": "carpentiere-tetti-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/carpentiere-tetti-2677994/",
-      "applyUrl": "https://www.pemsa.ch/it/job/carpentiere-tetti-2677994/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di carpentiere tetti\n\n## Missione :\n• missione di lunga durata nella zona Sopraceneri\n\n## Profilo :\n·uso macchinari per lavorazione del legno\n·posa struttura portante\n·posa elementi prefabbricati in legno\n·posa velux e pergolati\n·copertura tetto\n·isolazione\n·perlinatura\n·manutenzione copertura\n·disponibilità immediata\n·automunito\n·serietà e affidabilità",
-      "titleByLocale": {
-        "it": "CARPENTIERE TETTI",
-        "en": "CHAPTER TETTI",
-        "de": "KAPITEL TETTI",
-        "fr": "CHAPITRE TETTI"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di carpentiere tetti ## Missione :\n• missione di lunga durata nella zona Sopraceneri ## Profilo : ·uso macchinari per lavorazione del legno ·posa struttura portante ·posa elementi prefabbricati in legno ·posa velux e pergolati ·copertura tetto ·isolazione ·perlinatura ·manutenzione copertura ·disponibilità immediata ·automunito ·serietà e affidabilità",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the location of carpenter roofs Mission:\n• Long-term mission in the Sopraceneri area Profile : · use woodworking machinery ·holder structure · wooden prefabricated elements · velux and pergola · roof cover ·insulation ·perlination ·maintenance cover ·immediate availability ·self-municipal ·Seriity and reliability",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan bei, um Schreinerdächer zu finden Mission:\n• Langzeitmission in der Region Sopraceneri Profil : · Verwendung von Holzbearbeitungsmaschinen ·Inhaberstruktur · vorgefertigte Holzelemente · Velux und Pergola · Dachdeckung ·Isolierung ·Perlinierung ·Instandhaltungsdeckung · Sofortige Verfügbarkeit ·Selbstverwaltung · Seriity und Zuverlässigkeit",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour l'emplacement des toits de charpentier Mission :\n• Mission à long terme dans la région de Sopraceneri Profil : · utiliser des machines de travail du bois structure du support · Éléments préfabriqués en bois · velux et pergola · couverture de toit ·insulation la perlination couverture d'entretien disponibilité immédiate · automunicipalité Série et fiabilité"
-      },
-      "slugByLocale": {
-        "it": "carpentiere-tetti-pemsa-locarno",
-        "en": "chapter-tetti-pemsa-locarno",
-        "de": "kapitel-tetti-pemsa-locarno",
-        "fr": "chapitre-tetti-pemsa-locarno"
-      },
-      "id": "pemsa-dc223c12b133",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z",
-      "previousSlugs": [
-        "carpentiere-tetti-pemsa-locarno-30ggqk"
-      ]
-    },
-    {
       "title": "PITTORE",
       "slug": "pittore-pemsa-locarno",
       "url": "https://www.pemsa.ch/it/job/pittore-2677991/",
@@ -1144,73 +1622,6 @@
       "firstSeenAt": "2026-06-09T12:03:43.610Z"
     },
     {
-      "title": "LATTONIERI",
-      "slug": "lattonieri-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/lattonieri-2677988/",
-      "applyUrl": "https://www.pemsa.ch/it/job/lattonieri-2677988/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di lattoniere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza pregressa nella mansione\n·lattoneria tetti a falde e tetti piani\n·impermeabilizzazione tetti piani\n·manutenzione e riparazione\n·lettura dei disegni\n·disponibilità immediata\n·automunito",
-      "titleByLocale": {
-        "it": "LATTONIERI",
-        "en": "sheet metal worker",
-        "de": "SPENGLER",
-        "fr": "TIN MAKERS"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di lattoniere ## Missione :\n• missione lunga durata nel Sopraceneri ## Profilo : ·esperienza pregressa nella mansione ·lattoneria tetti a falde e tetti piani ·impermeabilizzazione tetti piani ·manutenzione e riparazione ·lettura dei disegni ·disponibilità immediata ·automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you're a motivated and enthusiastic person, join the clan for the position of lactoniere Mission:\n• Long-term mission in Sopraceneri Profile : · previous experience in the job ·lactonery roofs and flat roofs · waterproofing flat roofs · maintenance and repair ·reading of drawings ·immediate availability ·self-municipal",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für die Position des lactoniere bei Mission:\n• Langzeitmission in Sopraceneri Profil : · Vorkenntnisse im Job ·Lackier- und Flachdächer · Abdichtung von Flachdächern · Wartung und Reparatur ·Zeichnungen lesen · Sofortige Verfügbarkeit ·Selbstverwaltung",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour la position de lactonière Mission :\n• Mission à long terme à Sopraceneri Profil : · expérience antérieure dans l'emploi toits en lactonerie et toits plats · toitures planes étanches · entretien et réparation la lecture des dessins disponibilité immédiate · automunicipalité"
-      },
-      "slugByLocale": {
-        "it": "lattonieri-pemsa-locarno",
-        "en": "sheet-metal-worker-pemsa-locarno",
-        "de": "spengler-pemsa-locarno",
-        "fr": "tin-makers-pemsa-locarno"
-      },
-      "id": "pemsa-c27d686e88cf",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z",
-      "previousSlugs": [
-        "tin-makers-pemsa-locarno-oah52n",
-        "sheet-metal-worker-pemsa-locarno-oah52n",
-        "sheet-metal-worker-pemsa-lugano",
-        "lattoniere-pemsa-lugano",
-        "spengler-pemsa-lugano",
-        "ferblantier-pemsa-lugano"
-      ]
-    },
-    {
       "title": "IDRAULICO",
       "slug": "idraulico-pemsa-locarno",
       "url": "https://www.pemsa.ch/it/job/idraulico-2677985/",
@@ -1252,65 +1663,6 @@
         "fr": "idraulement-pemsa-locarno"
       },
       "id": "pemsa-4c44a1e77c78",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-06-09T12:03:43.610Z"
-    },
-    {
-      "title": "MURATORE/CARPENTIERE",
-      "slug": "muratore-carpentiere-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/muratore-carpentiere-2677982/",
-      "applyUrl": "https://www.pemsa.ch/it/job/muratore-carpentiere-2677982/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-24",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere\n\n## Missione :\n• missione lunga durata nel Sopraceneri\n\n## Profilo :\n·esperienza su cantiere svizzeri\n·capacità di lavoro in squadra\n·lavori in muratura\n·lavorazione del tondino per cemento armato, casseratura e legatura ferro\n·uso attrezzi e macchinari da cantiere\n·conoscenza preparazione materiali\n·non soffrire di vertigini\n·disponibilità immediata\n·flessibile a spostamenti\n·automunito",
-      "titleByLocale": {
-        "it": "MURATORE/CARPENTIERE",
-        "en": "MURDER",
-        "de": "MORD",
-        "fr": "MURDER"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere ## Missione :\n• missione lunga durata nel Sopraceneri ## Profilo : ·esperienza su cantiere svizzeri ·capacità di lavoro in squadra ·lavori in muratura ·lavorazione del tondino per cemento armato, casseratura e legatura ferro ·uso attrezzi e macchinari da cantiere ·conoscenza preparazione materiali ·non soffrire di vertigini ·disponibilità immediata ·flessibile a spostamenti ·automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you're a motivated and enthusiastic person, join the clan for the location of a mason/carpenter Mission:\n• Long-term mission in Sopraceneri Profile : · experience on Swiss construction site ·ability of teamwork ·masonry work ·work of the tondino for reinforced concrete, iron casserole and ligature · use of tools and machinery ·knowledge preparation materials ·do not suffer from dizziness ·immediate availability ·flexible to travel ·self-municipal",
-        "de": "Wollen Sie die Freiheit der Leiharbeit und die Sicherheit einer Dauerarbeit? Seit 30 Jahren erleben wir Hunderte von Unternehmen aus den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden dich nicht anlügen, aber wir fordern. Also, wenn Sie eine motivierte und enthusiastische Person sind, treten Sie dem Clan für den Standort eines Maurers / Schreiners bei Mission:\n• Langzeitmission in Sopraceneri Profil : · Erfahrung auf der Schweizer Baustelle · Fähigkeit zur Teamarbeit ·Mauerarbeiten ·Arbeit des Tondinos für Stahlbeton, Eisenauflauf und Ligatur · Einsatz von Werkzeugen und Maschinen ·Wissensvorbereitungsmaterialien · nicht unter Schwindel leiden · Sofortige Verfügbarkeit ·flexibel zu reisen ·Selbstverwaltung",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour l'emplacement d'un maçon / charpentier Mission :\n• Mission à long terme à Sopraceneri Profil : · expérience sur le chantier suisse la capacité de travailler en équipe; Maçonnerie travail du tondino pour le béton armé, la cassole de fer et la ligature · utilisation d'outils et de machines ·matériaux de préparation des connaissances ne souffrez pas de vertiges disponibilité immédiate souple pour voyager · automunicipalité"
-      },
-      "slugByLocale": {
-        "it": "muratore-carpentiere-pemsa-locarno",
-        "en": "murder-pemsa-locarno",
-        "de": "mord-pemsa-locarno",
-        "fr": "murder-pemsa-locarno"
-      },
-      "id": "pemsa-89bea8d2489d",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1624,47 +1976,48 @@
       "firstSeenAt": "2026-06-08T13:32:20.839Z"
     },
     {
-      "title": "Idraulico",
-      "slug": "idraulico-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/idraulico-2677766/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-2677766/",
+      "title": "QUADRISTA CABALTORE",
+      "slug": "quadrista-cabaltore-pemsa-mezzovico",
+      "url": "https://www.pemsa.ch/it/job/quadrista-cabaltore-2676561/",
+      "applyUrl": "https://www.pemsa.ch/it/job/quadrista-cabaltore-2676561/",
       "company": "PEMSA",
       "companyKey": "pemsa",
       "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
+      "location": "Mezzovico",
+      "addressLocality": "Mezzovico",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "impiantistica",
+      "category": "edilizia",
       "sector": "Edilizia e tecnica",
       "source": "pemsa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-08",
+      "postedDate": "2026-05-29",
       "employmentType": "full-time",
       "contractType": "temporary",
-      "validThrough": "2026-06-23",
-      "description": "Pemsa è il partner di riferimento in Svizzera per il reclutamento specializzato nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Grazie alla nostra profonda conoscenza del mercato e delle esigenze tecniche specifiche di questi ambiti, offriamo soluzioni di placement altamente qualificate e su misura, facilitando l’incontro tra aziende leader e professionisti tecnici esperti. Il nostro approccio combina competenza tecnica dettagliata e orientamento alla crescita di carriera, garantendo così un contributo concreto alla valorizzazione delle risorse umane e al successo delle imprese clienti.\n\n## Missione:\n• Installazione e posa professionale di impianti di riscaldamento a pavimento, garantendo il rispetto degli standard qualitativi svizzeri.\n• Montaggio e manutenzione di centrali termiche con attenzione particolare all’efficienza energetica e sicurezza operativa.\n• Gestione accurata dei materiali termoidraulici, assicurando un utilizzo ottimale e conforme alle specifiche tecniche del settore edilizio svizzero.\n• Intervento tempestivo e qualificato presso cantieri entro un raggio massimo di 20 km dalla residenza del candidato, rispettando tempi e qualità.\n• Collaborazione interfunzionale con team tecnici specializzati per garantire un’installazione coordinata e conforme ai progetti approvati.\n• Applicazione delle normative svizzere vigenti in materia di tecnica del riscaldamento e sicurezza sul lavoro.\n\n## Profilo:\n• Esperienza minima di 5 anni maturata sul territorio svizzero nel settore dell’installazione di impianti termoidraulici.\n• Padronanza della lingua italiana a livello madrelingua, essenziale per una comunicazione efficace e precisa con il team e i clienti.\n• Possesso di patente di guida valida in Svizzera per la conduzione di veicoli utilitari.\n• Eccellente conoscenza tecnica dei materiali utilizzati negli impianti di riscaldamento, inclusa la selezione, la manutenzione e la posa.\n• Competenza comprovata nella posa di impianti di riscaldamento a pavimento e centrali termiche, con attenzione al dettaglio e agli standard qualitativi richiesti dal mercato svizzero.\n• Disponibilità a lavorare entro un raggio massimo di 20 km dalla propria abitazione, per garantire efficienza e puntualità nell’intervento.\n• Competenze aggiuntive utili (ma non indispensabili):\n• • Lettura e interpretazione di disegni tecnici, per assicurare la corretta esecuzione dei lavori secondo le specifiche progettuali.\n\n## Ton interlocuteur/trice :\nIl nostro team Pemsa ti accompagnerà con competenza e dedizione lungo tutto il processo di selezione, offrendo supporto personalizzato e consulenza specialistica mirata alle tue aspirazioni professionali nel settore tecnico ed edilizio. Siamo riconosciuti per la nostra capacità di valorizzare le competenze tecniche e per il rapporto di fiducia che instauriamo con i nostri candidati e le aziende partner, garantendo un ambiente lavorativo stimolante e opportunità di crescita continue.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "validThrough": "2026-06-21",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B – automunito.",
       "titleByLocale": {
-        "it": "Idraulico",
-        "en": "Hydraulic",
-        "de": "Hydraulik",
-        "fr": "Hydraulique"
+        "it": "QUADRISTA CABALTORE",
+        "en": "QUADRISTA CABALTORE",
+        "de": "QUADRISTA CABALTORE",
+        "fr": "QUADRISTA CABALTORE"
       },
       "descriptionByLocale": {
-        "it": "Pemsa è il partner di riferimento in Svizzera per il reclutamento specializzato nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Grazie alla nostra profonda conoscenza del mercato e delle esigenze tecniche specifiche di questi ambiti, offriamo soluzioni di placement altamente qualificate e su misura, facilitando l’incontro tra aziende leader e professionisti tecnici esperti. Il nostro approccio combina competenza tecnica dettagliata e orientamento alla crescita di carriera, garantendo così un contributo concreto alla valorizzazione delle risorse umane e al successo delle imprese clienti. ## Missione:\n• Installazione e posa professionale di impianti di riscaldamento a pavimento, garantendo il rispetto degli standard qualitativi svizzeri.\n• Montaggio e manutenzione di centrali termiche con attenzione particolare all’efficienza energetica e sicurezza operativa.\n• Gestione accurata dei materiali termoidraulici, assicurando un utilizzo ottimale e conforme alle specifiche tecniche del settore edilizio svizzero.\n• Intervento tempestivo e qualificato presso cantieri entro un raggio massimo di 20 km dalla residenza del candidato, rispettando tempi e qualità.\n• Collaborazione interfunzionale con team tecnici specializzati per garantire un’installazione coordinata e conforme ai progetti approvati.\n• Applicazione delle normative svizzere vigenti in materia di tecnica del riscaldamento e sicurezza sul lavoro. ## Profilo:\n• Esperienza minima di 5 anni maturata sul territorio svizzero nel settore dell’installazione di impianti termoidraulici.\n• Padronanza della lingua italiana a livello madrelingua, essenziale per una comunicazione efficace e precisa con il team e i clienti.\n• Possesso di patente di guida valida in Svizzera per la conduzione di veicoli utilitari.\n• Eccellente conoscenza tecnica dei materiali utilizzati negli impianti di riscaldamento, inclusa la selezione, la manutenzione e la posa.\n• Competenza comprovata nella posa di impianti di riscaldamento a pavimento e centrali termiche, con attenzione al dettaglio e agli standard qualitativi richiesti dal mercato svizzero.\n• Disponibilità a lavorare entro un raggio massimo di 20 km dalla propria abitazione, per garantire efficienza e puntualità nell’intervento.\n• Competenze aggiuntive utili (ma non indispensabili):\n• • Lettura e interpretazione di disegni tecnici, per assicurare la corretta esecuzione dei lavori secondo le specifiche progettuali. ## Ton interlocuteur/trice : Il nostro team Pemsa ti accompagnerà con competenza e dedizione lungo tutto il processo di selezione, offrendo supporto personalizzato e consulenza specialistica mirata alle tue aspirazioni professionali nel settore tecnico ed edilizio. Siamo riconosciuti per la nostra capacità di valorizzare le competenze tecniche e per il rapporto di fiducia che instauriamo con i nostri candidati e le aziende partner, garantendo un ambiente lavorativo stimolante e opportunità di crescita continue. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is the leading partner in Switzerland for recruitment specialized in construction, civil engineering, electricity, building technology and industry. Thanks to our deep knowledge of the market and the specific technical needs of these areas, we offer highly qualified and tailor-made placement solutions, facilitating the meeting between leading companies and expert technical professionals. Our approach combines detailed technical expertise and career growth orientation, thus ensuring a concrete contribution to the valorisation of human resources and the success of customer enterprises. Mission:\n• Professional installation and installation of floor heating systems, ensuring compliance with Swiss quality standards.\n• Installation and maintenance of thermal power stations with particular attention to energy efficiency and operational safety.\n• Accurate management of thermohydraulic materials, ensuring optimum use and complying with the technical specifications of the Swiss building industry.\n• Timely and qualified intervention at yards within a maximum radius of 20 km from the candidate's residence, respecting times and quality.\n• Interfunctional collaboration with specialized technical teams to ensure a coordinated installation and compliant with approved projects.\n• Application of Swiss legislation in force on heating and safety at work. Profile:\n• Minimum experience of 5 years matured on the Swiss territory in the installation of thermohydraulic plants.\n• Italian language teaching mother tongue, essential for effective and precise communication with team and customers.\n• Possess of valid driving licence in Switzerland for the management of utilitarian vehicles.\n• Excellent technical knowledge of the materials used in heating systems, including selection, maintenance and laying.\n• Competence proven in laying floor heating systems and thermal power stations, with attention to detail and quality standards required by the Swiss market.\n• Availability to work within a maximum radius of 20 km from your home, to ensure efficiency and punctuality in the operation.\n• Useful additional skills (but not indispensable):\n• • Reading and interpreting technical drawings, to ensure the correct execution of the works according to the design specifications. Ton interlocuteur/trice: Our Pemsa team will accompany you with expertise and dedication throughout the selection process, offering personalized support and specialist advice aimed at your professional aspirations in the technical and construction industry. We are recognized for our ability to value the technical skills and the relationship of trust we establish with our candidates and partner companies, ensuring a stimulating working environment and continuous growth opportunities. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa ist der führende Partner in der Schweiz für Rekrutierung, spezialisiert auf Bau, Tiefbau, Elektrizität, Gebäudetechnik und Industrie. Dank unserer fundierten Kenntnis des Marktes und der spezifischen technischen Anforderungen dieser Bereiche bieten wir hochqualifizierte und maßgeschneiderte Platzierungslösungen, die das Treffen zwischen führenden Unternehmen und erfahrenen technischen Fachleuten erleichtern. Unser Ansatz verbindet detailliertes technisches Know-how und Karriereorientierung und stellt so einen konkreten Beitrag zur Verwertung von Human Resources und zum Erfolg von Kundenunternehmen sicher. Mission:\n• Professionelle Installation und Installation von Fußbodenheizungen, um die Einhaltung der Schweizer Qualitätsstandards zu gewährleisten.\n• Installation und Wartung von Wärmekraftwerken mit besonderem Augenmerk auf Energieeffizienz und Betriebssicherheit.\n• Präzises Management thermohydraulischer Materialien, optimale Nutzung und Einhaltung der technischen Spezifikationen der Schweizer Bauindustrie.\n• Rechtzeitige und qualifizierte Intervention in Werften innerhalb eines maximalen Radius von 20 km vom Wohnsitz des Kandidaten, unter Beachtung der Zeiten und Qualität.\n• Interfunktionale Zusammenarbeit mit spezialisierten technischen Teams, um eine koordinierte Installation und die Einhaltung genehmigter Projekte zu gewährleisten.\n• Anwendung der geltenden Schweizer Rechtsvorschriften über Heizung und Sicherheit am Arbeitsplatz. Profil:\n• Mindesterfahrung von 5 Jahren gereift auf dem Schweizer Territorium in der Installation von thermohydraulischen Anlagen.\n• Italienisch Sprachunterricht Muttersprache, unerlässlich für eine effektive und präzise Kommunikation mit Team und Kunden.\n• Besitz eines gültigen Führerscheins in der Schweiz für das Management von Nutzfahrzeugen.\n• Ausgezeichnete technische Kenntnisse der in Heizungssystemen verwendeten Materialien, einschließlich Auswahl, Wartung und Verlegung.\n• Bewährte Kompetenz in der Verlegung von Fußbodenheizungen und Wärmekraftwerken, mit Liebe zum Detail und Qualitätsstandards, die der Schweizer Markt verlangt.\n• Verfügbarkeit für die Arbeit in einem maximalen Radius von 20 km von zu Hause, um Effizienz und Pünktlichkeit im Betrieb zu gewährleisten.\n• Nützliche zusätzliche Fähigkeiten (aber nicht unverzichtbar):\n• Lesen und Interpretieren von technischen Zeichnungen, um die korrekte Ausführung der Arbeiten gemäß den Designspezifikationen zu gewährleisten. Tonnen Gesprächspartner/Trike: Unser Pemsa-Team begleitet Sie mit Fachwissen und Engagement während des gesamten Auswahlprozesses und bietet Ihnen personalisierte Unterstützung und fachliche Beratung, die auf Ihre beruflichen Ansprüche in der Technik- und Baubranche ausgerichtet sind. Wir sind anerkannt für unsere Fähigkeit, die technischen Fähigkeiten und das Vertrauensverhältnis, das wir mit unseren Kandidaten und Partnerunternehmen aufbauen, zu schätzen, um ein anregendes Arbeitsumfeld und kontinuierliche Wachstumschancen zu gewährleisten. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "fr": "Pemsa est le principal partenaire en Suisse pour le recrutement spécialisé dans la construction, le génie civil, l'électricité, la technologie du bâtiment et l'industrie. Grâce à notre connaissance approfondie du marché et aux besoins techniques spécifiques de ces domaines, nous proposons des solutions de placement hautement qualifiées et sur-mesure, facilitant la rencontre entre les grandes entreprises et les professionnels techniques experts. Notre approche combine une expertise technique détaillée et une orientation vers la croissance de carrière, assurant ainsi une contribution concrète à la valorisation des ressources humaines et au succès des entreprises clientes. Mission :\n• Installation professionnelle et installation de systèmes de chauffage au sol, garantissant le respect des normes de qualité suisses.\n• Installation et entretien de centrales thermiques avec une attention particulière à l'efficacité énergétique et à la sécurité opérationnelle.\n• Gestion précise des matériaux thermohydrauliques, assurant une utilisation optimale et conforme aux spécifications techniques de l'industrie du bâtiment suisse.\n• Intervention rapide et qualifiée dans les chantiers dans un rayon maximal de 20 km de la résidence du candidat, en respectant les temps et la qualité.\n• Collaboration interfonctionnelle avec des équipes techniques spécialisées pour assurer une installation coordonnée et conforme aux projets approuvés.\n• Application de la législation suisse en vigueur en matière de chauffage et de sécurité au travail. Profil :\n• Expérience minimale de 5 ans sur le territoire suisse dans l'installation de plantes thermohydrauliques.\n• L'enseignement de la langue maternelle en italien, essentiel pour une communication efficace et précise avec l'équipe et les clients.\n• Possède un permis de conduire valide en Suisse pour la gestion des véhicules utilitaires.\n• Excellente connaissance technique des matériaux utilisés dans les systèmes de chauffage, y compris la sélection, l'entretien et la pose.\n• Compétence prouvée dans la pose de systèmes de chauffage au sol et de centrales thermiques, avec une attention aux normes de détail et de qualité requises par le marché suisse.\n• Disponibilité pour travailler dans un rayon maximum de 20 km de votre maison, pour assurer efficacité et ponctualité dans l'opération.\n• Compétences complémentaires utiles (mais non indispensables):\n• La lecture et l'interprétation de dessins techniques, afin d'assurer la bonne exécution des travaux selon les spécifications de conception. Ton interlocuteur/chaîne: Notre équipe Pemsa vous accompagnera avec expertise et dévouement tout au long du processus de sélection, offrant un support personnalisé et des conseils spécialisés destinés à vos aspirations professionnelles dans l'industrie technique et de la construction. Nous sommes reconnus pour notre capacité à valoriser les compétences techniques et la relation de confiance que nous établissons avec nos candidats et les entreprises partenaires, assurant un environnement de travail stimulant et des possibilités de croissance continue. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B – automunito.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a QUADRISTA CABALTORE in Mezzovico. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als QUADRISTA CABALTORE in Mezzovico. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil QUADRISTA CABALTORE à Mezzovico. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
       },
       "slugByLocale": {
-        "it": "idraulico-pemsa-lugano",
-        "en": "hydraulic-pemsa-lugano",
-        "de": "hydraulik-pemsa-lugano",
-        "fr": "hydraulique-pemsa-lugano"
+        "it": "quadrista-cabaltore-pemsa-mezzovico",
+        "en": "quadrista-cabaltore-pemsa-mezzovico",
+        "de": "quadrista-cabaltore-pemsa-mezzovico",
+        "fr": "quadrista-cabaltore-pemsa-mezzovico"
       },
-      "id": "pemsa-a1292c2d87a4",
+      "id": "pemsa-dba48bf4a511",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1680,7 +2033,7 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "firstSeenAt": "2026-06-08T13:32:20.839Z"
+      "firstSeenAt": "2026-06-15T15:19:56.623Z"
     },
     {
       "title": "IINSTALLATORE IDRAULICO",
