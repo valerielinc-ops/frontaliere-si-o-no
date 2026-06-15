@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/",
+    "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/",
     "https://www.rhb.ch/it/job/spezialist-in-kundeninformation-50-60_2026-2211/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-autoverlad-selfranga-50-100_2026-2213/",
     "https://www.rhb.ch/it/job/spezialist-in-trassen-und-netzressourcenplanung-50-100_2026-2212/",
@@ -15,11 +17,17 @@
     "https://www.rhb.ch/it/job/spezialist-in-vertriebssysteme-50-100_2026-2208/",
     "https://www.rhb.ch/it/job/projektleiter-in-bahndienst-80-100_2026-2210/",
     "https://www.rhb.ch/it/job/spezialist-in-rechnungswesen-50-100_2026-2207/",
-    "https://www.rhb.ch/it/job/mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100_2026-2206/",
-    "https://www.rhb.ch/it/job/spezialist-in-arbeitssicherheit-50-100_2026-2144/",
-    "https://www.rhb.ch/it/job/elektriker-in-im-ereignismanagement-50-80_2026-2201/"
+    "https://www.rhb.ch/it/job/mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100_2026-2206/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/projektleiter-in-logistik-und-support-50-100_2026-2215/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/spezialist-in-kundeninformation-50-60_2026-2211/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -51,16 +59,8 @@
     "https://www.rhb.ch/it/job/mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100_2026-2206/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/spezialist-in-arbeitssicherheit-50-100_2026-2144/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/elektriker-in-im-ereignismanagement-50-80_2026-2201/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-06-14T21:50:37.841Z"
+  "updatedAt": "2026-06-15T14:36:51.876Z"
 }
