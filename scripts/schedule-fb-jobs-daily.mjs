@@ -30,14 +30,30 @@
  * git untouched.
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import {
+  stripHtml,
+  stripLeadingSectionLabel,
+  stripDiacritics,
+  truncateBody,
+  selectUnpostedJobs,
+  buildJobUrl,
+  loadLedger,
+  appendLedger,
+} from './lib/social-post-utils.mjs';
+
+// Re-export the channel-agnostic helpers so existing importers (e.g. the FB
+// scheduler test) can keep importing them directly from this module.
+export {
+  selectUnpostedJobs,
+  buildJobUrl,
+} from './lib/social-post-utils.mjs';
+
 // ── Constants ───────────────────────────────────────────────
 
-const SITE_URL = 'https://frontaliereticino.ch';
-const JOB_BOARD_PREFIX_IT = '/cerca-lavoro-ticino/';
 const GRAPH_API_VERSION = 'v21.0';
 const GRAPH_BASE = `https://graph.facebook.com/${GRAPH_API_VERSION}`;
 
@@ -118,71 +134,8 @@ function placeIdsPath(repoRoot) {
 }
 
 // ── Sanitization helpers ────────────────────────────────────
-
-function stripHtml(s) {
-  if (!s || typeof s !== 'string') return '';
-  return s
-    .replace(/<[^>]+>/g, ' ')                  // HTML tags
-    // Markdown headings — match at line start (multiline) AND inline
-    // (after whitespace) so leftovers from HTML→text flattening like
-    // "Avviare... ## Tasks - Si installa..." are also cleaned.
-    .replace(/(^|\s)#{1,6}\s+/gm, '$1')
-    .replace(/\*\*([^*]+)\*\*/g, '$1')         // markdown bold
-    .replace(/\*([^*]+)\*/g, '$1')             // markdown italic
-    .replace(/(^|\s)[-*+]\s+/gm, '$1')         // markdown list bullets
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/\s+/g, ' ')
-    .trim();
-}
-
-// Section labels that often leak into the body when a job description
-// uses HTML headings/lists. Stripped only when they appear at the very start
-// of the body, optionally followed by `:` or `-`.
-const LEADING_SECTION_LABELS = [
-  'descrizione',
-  'description',
-  'descrição',
-  'beschreibung',
-  'beschrijving',
-  'mansioni',
-  'compiti',
-  'profilo',
-  'profile',
-  'profil',
-  'requisiti',
-  'requirements',
-  'about us',
-  'chi siamo',
-  'who we are',
-  'job description',
-  'about the job',
-  'company description',
-  "l'offerta",
-  'l offerta',
-  'la posizione',
-  'le tue mansioni',
-  'i tuoi compiti',
-  'le tue responsabilità',
-];
-
-function stripLeadingSectionLabel(s) {
-  if (!s) return '';
-  const sorted = [...LEADING_SECTION_LABELS].sort((a, b) => b.length - a.length);
-  const escaped = sorted.map(l => l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-  const re = new RegExp(`^(?:${escaped.join('|')})\\s*[:\\-–—]?\\s+`, 'i');
-  return s.replace(re, '').trim();
-}
-
-function stripDiacritics(s) {
-  if (!s) return '';
-  // Strip U+0300–U+036F (Combining Diacritical Marks) after NFD decomposition.
-  return s.normalize('NFD').replace(/[̀-ͯ]/g, '');
-}
+// Generic sanitizers (stripHtml, stripLeadingSectionLabel, stripDiacritics)
+// live in ./lib/social-post-utils.mjs. FB-specific helpers stay below.
 
 function sanitizeHashtagWord(s) {
   if (!s) return '';
@@ -230,42 +183,6 @@ export function pickNextSlots(volume, occupied, now) {
     }
   }
   return slots;
-}
-
-/**
- * Filter never-posted jobs from `jobs`, sort by recency descending, take
- * top `limit`. Mirrors the selection rule of submit-google-indexing-jobs.
- *
- * @param {Array<object>} jobs
- * @param {Set<string>} postedSet — set of jobIds already posted
- * @param {number} limit
- */
-export function selectUnpostedJobs(jobs, postedSet, limit) {
-  if (!Array.isArray(jobs)) return [];
-  const list = jobs.filter((j) => {
-    if (!j || !j.id) return false;
-    if (postedSet.has(j.id)) return false;
-    // Skip jobs flagged by the translate-pending workflow as still
-    // needing translation. Without this, the FB scheduler picks up
-    // German/French source titles and emits e.g. "Verkäufer*in" or
-    // "Transportdisponent*in" as the post headline — wrong language
-    // for an Italian audience. CLAUDE.md documents this same flag for
-    // locale-completeness checks.
-    if (j.needsRetranslation === true) return false;
-    return true;
-  });
-  list.sort((a, b) => recencyTs(b) - recencyTs(a));
-  return list.slice(0, Math.max(0, limit | 0));
-}
-
-function recencyTs(job) {
-  const candidates = [job?.firstSeenAt, job?.crawledAt, job?.postedDate];
-  for (const c of candidates) {
-    if (!c) continue;
-    const t = Date.parse(c);
-    if (Number.isFinite(t)) return t;
-  }
-  return 0;
 }
 
 /**
@@ -343,27 +260,6 @@ function formatNum(n) {
   return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
 }
 
-function truncateBody(text, maxLen) {
-  if (!text) return '';
-  if (text.length <= maxLen) return text;
-  // Try to truncate at last sentence break before maxLen.
-  const window = text.slice(0, maxLen);
-  const lastSentence = Math.max(
-    window.lastIndexOf('.'),
-    window.lastIndexOf('!'),
-    window.lastIndexOf('?'),
-  );
-  if (lastSentence >= Math.floor(maxLen * 0.5)) {
-    return window.slice(0, lastSentence + 1).trim();
-  }
-  // Fall back to last space.
-  const lastSpace = window.lastIndexOf(' ');
-  if (lastSpace >= Math.floor(maxLen * 0.5)) {
-    return window.slice(0, lastSpace).trim() + '…';
-  }
-  return window.trim() + '…';
-}
-
 /**
  * Up to 5 hashtags. Always ends with #frontalieri #lavoroticino. Adds
  * #[Role] (if a role keyword matches the title), #[City] (first word of
@@ -424,38 +320,15 @@ export function buildJobHashtags(job) {
   return deduped.join(' ');
 }
 
-/**
- * Build the URL pointed at by the FB post. IT locale only, since the FB
- * Page is Italian-language. Slug source order: slugByLocale.it → slug.
- */
-export function buildJobUrl(job) {
-  const slug = job?.slugByLocale?.it || job?.slug;
-  if (!slug) return null;
-  return `${SITE_URL}${JOB_BOARD_PREFIX_IT}${slug}/`;
-}
-
 // ── Posted-jobs ledger I/O ──────────────────────────────────
 
 /**
  * Read `data/fb-posted-jobs.json`. Returns `{schemaVersion:1, posted:[]}`
  * on missing file, malformed JSON, or shape mismatch — never throws.
+ * Fixed-path wrapper around the generic `loadLedger`.
  */
 export function loadPosted(repoRoot) {
-  const file = postedPath(repoRoot);
-  try {
-    if (!existsSync(file)) return { schemaVersion: 1, posted: [] };
-    const raw = readFileSync(file, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.posted)) {
-      return { schemaVersion: 1, posted: [] };
-    }
-    return {
-      schemaVersion: Number(parsed.schemaVersion) || 1,
-      posted: parsed.posted,
-    };
-  } catch {
-    return { schemaVersion: 1, posted: [] };
-  }
+  return loadLedger(postedPath(repoRoot));
 }
 
 /**
@@ -567,15 +440,10 @@ export function lookupPlaceId(location, placeIds) {
 /**
  * Append entries to the ledger and write it back. Trims to last
  * POSTED_TRIM_LIMIT entries. Each entry: {id, url, ts, fbPostId}.
+ * Fixed-path wrapper around the generic `appendLedger`.
  */
 export function appendPosted(repoRoot, entries) {
-  if (!Array.isArray(entries) || entries.length === 0) return;
-  const file = postedPath(repoRoot);
-  const current = loadPosted(repoRoot);
-  const merged = current.posted.concat(entries);
-  const trimmed = merged.slice(Math.max(0, merged.length - POSTED_TRIM_LIMIT));
-  const out = { schemaVersion: 1, posted: trimmed };
-  writeFileSync(file, JSON.stringify(out, null, 2) + '\n', 'utf-8');
+  appendLedger(postedPath(repoRoot), entries, POSTED_TRIM_LIMIT);
 }
 
 // ── Pre-flight: occupied scheduled-posts ────────────────────
