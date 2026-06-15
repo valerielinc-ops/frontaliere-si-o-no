@@ -12,6 +12,8 @@ import { parsePath, buildPath } from '@/services/router';
 import {
   SECTOR_HUB_KEYS,
   SECTOR_HUB_SLUG,
+  SECTOR_HUB_DISPLAY,
+  SECTOR_MATCHERS,
   allSectorHubPaths,
   buildSectorHubPath,
   buildSectorHubSeo,
@@ -26,8 +28,9 @@ import {
 const YEAR = 2026;
 
 describe('jobSectorLanding — paths', () => {
-  it('exposes exactly 10 sector keys', () => {
-    expect(SECTOR_HUB_KEYS).toEqual([
+  it('preserves the original 10 keys and exposes ≥40 exhaustive funnel sectors', () => {
+    // URL stability: the original indexed sector slugs must never disappear.
+    for (const k of [
       'infermieri',
       'case-anziani',
       'educatori',
@@ -38,7 +41,29 @@ describe('jobSectorLanding — paths', () => {
       'oss',
       'logistica',
       'apprendistato',
-    ]);
+    ] as const) {
+      expect(SECTOR_HUB_KEYS, `original key ${k} must remain`).toContain(k);
+    }
+    // No duplicate keys.
+    expect(new Set(SECTOR_HUB_KEYS).size).toBe(SECTOR_HUB_KEYS.length);
+    // Funnel coverage gate (mirrors the live sectors-landing-live.spec.ts
+    // ≥40-link contract). #2128 removed the ?q= fallbacks, so the catalogue
+    // must surface ≥40 real crawlable sector-hub landings instead. Asserting
+    // it here catches a shrink pre-merge, not just post-deploy.
+    expect(SECTOR_HUB_KEYS.length).toBeGreaterThanOrEqual(40);
+    // Every key must carry exhaustive slug + display (×4 locales) + matcher, and
+    // slugs must be unique per locale (else routing/canonical collisions).
+    for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+      const slugs = SECTOR_HUB_KEYS.map((k) => SECTOR_HUB_SLUG[loc][k]);
+      for (const k of SECTOR_HUB_KEYS) {
+        expect(SECTOR_HUB_SLUG[loc][k], `slug ${loc}/${k}`).toBeTruthy();
+        expect(SECTOR_HUB_DISPLAY[loc][k], `display ${loc}/${k}`).toBeTruthy();
+      }
+      expect(new Set(slugs).size, `duplicate slug in locale ${loc}`).toBe(slugs.length);
+    }
+    for (const k of SECTOR_HUB_KEYS) {
+      expect(SECTOR_MATCHERS[k], `matcher ${k}`).toBeInstanceOf(RegExp);
+    }
   });
 
   it('builds canonical path per locale (IT)', () => {
@@ -69,11 +94,12 @@ describe('jobSectorLanding — paths', () => {
     expect(buildSectorHubPath('fr', 'ristorazione')).toBe('/fr/trouver-emploi-tessin/restauration/');
   });
 
-  it('produces exactly 40 paths (10 sectors × 4 locales)', () => {
+  it('produces SECTOR_HUB_KEYS.length × 4 unique paths', () => {
     const paths = allSectorHubPaths();
-    expect(paths).toHaveLength(40);
+    const expected = SECTOR_HUB_KEYS.length * 4;
+    expect(paths).toHaveLength(expected);
     const unique = new Set(paths.map((p) => p.path));
-    expect(unique.size).toBe(40);
+    expect(unique.size).toBe(expected);
     for (const p of paths) expect(p.path.endsWith('/')).toBe(true);
   });
 
