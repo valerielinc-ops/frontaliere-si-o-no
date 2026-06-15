@@ -10869,10 +10869,34 @@ ${staticAnalyticsHtml}
  })}</script>`;
 
  const jobPostingLd = (() => {
- // Only emit JobPosting when we have real job data
- const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
- const realExpiredAt = ejData?.expiredAt || '';
- if (!realTitle || !realExpiredAt || !jobCompany) return '';
+ // NON-NEGOTIABLE #3: "Source mancante → safe default, non rimozione check."
+ // SearchAtlas "missing schema" audit (2026-06-15) flagged ~50-80 indexable
+ // expired soft-landings emitting only BreadcrumbList. Emit JobPosting whenever
+ // the page has a REAL job identity — a real title AND a real employer from
+ // trustworthy crawl/search data (expired-jobs.json OR GSC). The optional
+ // fields (salary, address) are filled by buildJobPostingSchema's safe
+ // defaults; validThrough/datePosted are derived from the best real timestamp
+ // and always land in the PAST (this is an expired soft-landing) — Google's
+ // recommended handling for an expired posting, NOT a GSC error. Previously the
+ // gate required ejData.expiredAt to be present, dropping JobPosting (violating
+ // #3) for jobs whose expired entry carried only crawledAt/postedDate. Pure
+ // slug-derived orphans with no real employer stay breadcrumb-only:
+ // fabricating an employer identity would be spammy, low-quality markup.
+ // Revert-trigger (not validable pre-merge, SSG OOM): if the next deploy surfaces
+ // GSC "expired job posting" errors or a JobPosting-richness regression on these
+ // soft-landings → revert this gate to the strict `realExpiredAt`-required form.
+ const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title
+ || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '';
+ const realCompany = String(ejData?.company || gscInfo?.company || '');
+ // Derive a past validThrough from the best real signal. No real date signal
+ // at all → stay breadcrumb-only (don't fabricate a posting window from nothing).
+ const realValidThrough = (() => {
+ for (const c of [ejData?.expiredAt, ejData?.crawledAt, ejData?.postedDate]) {
+ if (c) { const d = new Date(c); if (!isNaN(d.getTime())) return d.toISOString(); }
+ }
+ return '';
+ })();
+ if (!realTitle || !realValidThrough || !realCompany) return '';
  const finalDescription = jobDescription || (() => {
  const parts: string[] = [];
  parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
@@ -10907,7 +10931,7 @@ ${staticAnalyticsHtml}
  streetAddress: ejData?.streetAddress,
  postedDate: ejData?.postedDate,
  crawledAt: ejData?.crawledAt,
- validThrough: realExpiredAt,
+ validThrough: realValidThrough,
  contract: ejData?.contract,
  salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
  salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
@@ -10926,12 +10950,12 @@ ${staticAnalyticsHtml}
  const expiredDatePosted = (() => {
  if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
  if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
- const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+ const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
  })();
  const jp: Record<string, unknown> = {
  ...expiredSchema,
  datePosted: expiredDatePosted,
- validThrough: new Date(realExpiredAt).toISOString(),
+ validThrough: new Date(realValidThrough).toISOString(),
  };
  return `<script type="application/ld+json">${inlineScriptJson(jp)}</script>`;
  })();
