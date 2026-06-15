@@ -46,27 +46,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
-      # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
-      # or generated media lands on disk. Mirror deploy.yml's cleanup: delete
-      # toolchains this repo never uses (Android SDK, .NET, Haskell, CodeQL,
-      # Swift, Boost). Node 22, npm cache, and Python tooling stay intact.
-      - name: Free disk space (remove unused toolchains)
-        shell: bash
-        run: |
-          echo "::group::Disk usage BEFORE cleanup"
-          df -h /
-          echo "::endgroup::"
-          sudo rm -rf /usr/local/lib/android &
-          sudo rm -rf /usr/share/dotnet &
-          sudo rm -rf /opt/ghc &
-          sudo rm -rf /usr/local/share/boost &
-          sudo rm -rf /opt/hostedtoolcache/CodeQL &
-          sudo rm -rf /usr/share/swift &
-          wait
-          echo "::group::Disk usage AFTER cleanup"
-          df -h /
-          echo "::endgroup::"
-
+      # NOTE: the deploy.yml-style "Free disk space" toolchain cleanup was
+      # removed here (2026-06-15). It cost ~260s of pure overhead per run and is
+      # unnecessary for THIS workflow: article generation only commits source +
+      # generated thumbnails (a few MB) and dispatches deploy.yml — it never runs
+      # the multi-GB Vite/Pages build, so the ubuntu-latest default free space
+      # (~25 GB on /) is ample. The heavy cleanup stays in deploy.yml where the
+      # 9 GB+ dist actually lands. Saves ~260s × ~48 runs/day ≈ 3.5h runner/day.
       - name: Checkout
         uses: actions/checkout@v5
         with:

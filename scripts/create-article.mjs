@@ -923,7 +923,7 @@ const MIN_WORDS_MODEL_ROTATION = [
   AI_MODELS.GPT_4_1,                 // attempt 2: gpt-4.1 (GitHub Models, different daily limit)
   'gemini',                          // attempt 3: gemini-2.5-flash (Google, different provider)
   AI_MODELS.GPT_4_1_NANO,             // attempt 4: gpt-4.1-nano (GitHub Models — GPT_5_NANO killed 2026-05-18)
-  AI_MODELS.GROQ_KIMI_K2,            // attempt 5: Kimi K2 (Groq, different provider)
+  AI_MODELS.GROQ_GPT_OSS_120B,       // attempt 5: GPT-OSS 120B (Groq — GROQ_KIMI_K2 swapped 2026-06-15: dead HTTP 404 "moonshotai/kimi-k2-instruct does not exist"; a dead model here triggered the full free-tier fallback cascade, ~11min wasted per pick)
   GH_MODEL_LIGHT,                    // attempt 6: gpt-4o-mini (then expansion fallback)
 ];
 
@@ -2422,28 +2422,44 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
 
   const modelResults = [];
 
-  // Query up to 2 models in parallel for consensus
-  const modelsToQuery = verificationModels.slice(0, 2);
-  const promises = modelsToQuery.map(model => _runSingleFactCheck(model, prompt, { isEvergreen }));
-  const settled = await Promise.allSettled(promises);
-
-  for (let i = 0; i < settled.length; i++) {
-    const s = settled[i];
-    if (s.status === 'fulfilled' && s.value) {
-      modelResults.push({ model: modelsToQuery[i], ...s.value });
-    } else {
-      const reason = s.status === 'rejected' ? s.reason?.message : 'no result';
-      console.error(`  ⚠️  LLM fact-check (${modelsToQuery[i]}): fallito — ${reason}`);
+  // Bounded retry on TRANSIENT checker-infrastructure failure (2026-06-15).
+  // Observed waste: when all verifier models momentarily fail to PRODUCE a
+  // verdict (rate-limit burst or "risposta non JSON"), the caller used to throw
+  // → which regenerates the ENTIRE article (~60-90s) even though the article
+  // itself may be perfectly fine. Re-running just the fact-check (~5s) is far
+  // cheaper and the most common cause (non-JSON output) usually clears on a
+  // second pass. The hard quality gate is preserved: if every attempt still
+  // yields zero verdicts we throw exactly as before (never publish unverified).
+  const FACTCHECK_INFRA_RETRIES = 3;
+  for (let fcAttempt = 1; fcAttempt <= FACTCHECK_INFRA_RETRIES && modelResults.length === 0; fcAttempt++) {
+    if (fcAttempt > 1) {
+      console.error(`  🔁 Fact-check: nessun verdetto al tentativo ${fcAttempt - 1} (checker giù/JSON invalido) — ri-eseguo solo la verifica (${fcAttempt}/${FACTCHECK_INFRA_RETRIES})...`);
+      await new Promise(r => setTimeout(r, 1500));
     }
-  }
 
-  // If both primary models failed, try fallback
-  if (modelResults.length === 0 && verificationModels.length > 2) {
-    try {
-      const fallback = await _runSingleFactCheck(verificationModels[2], prompt, { isEvergreen });
-      if (fallback) modelResults.push({ model: verificationModels[2], ...fallback });
-    } catch (err) {
-      console.error(`  ⚠️  LLM fact-check fallback (${verificationModels[2]}): ${err.message}`);
+    // Query up to 2 models in parallel for consensus
+    const modelsToQuery = verificationModels.slice(0, 2);
+    const promises = modelsToQuery.map(model => _runSingleFactCheck(model, prompt, { isEvergreen }));
+    const settled = await Promise.allSettled(promises);
+
+    for (let i = 0; i < settled.length; i++) {
+      const s = settled[i];
+      if (s.status === 'fulfilled' && s.value) {
+        modelResults.push({ model: modelsToQuery[i], ...s.value });
+      } else {
+        const reason = s.status === 'rejected' ? s.reason?.message : 'no result';
+        console.error(`  ⚠️  LLM fact-check (${modelsToQuery[i]}): fallito — ${reason}`);
+      }
+    }
+
+    // If both primary models failed, try fallback
+    if (modelResults.length === 0 && verificationModels.length > 2) {
+      try {
+        const fallback = await _runSingleFactCheck(verificationModels[2], prompt, { isEvergreen });
+        if (fallback) modelResults.push({ model: verificationModels[2], ...fallback });
+      } catch (err) {
+        console.error(`  ⚠️  LLM fact-check fallback (${verificationModels[2]}): ${err.message}`);
+      }
     }
   }
 
@@ -2606,7 +2622,10 @@ function normalizeFactCheckIssues(issues, { isEvergreen = false } = {}) {
 async function _runSingleFactCheck(model, prompt, opts = {}) {
   const raw = await callLLM(
     [{ role: 'user', content: prompt }],
-    { model, temperature: 0.0, maxTokens: 4000, timeout: 120_000 }
+    // Fact-check output is a compact JSON issues list (rarely >1500 tokens).
+    // 60s is ample for any responsive model; a checker that hasn't replied in
+    // 60s is stalled — fail over fast instead of burning the old 120s budget.
+    { model, temperature: 0.0, maxTokens: 4000, timeout: 60_000 }
   );
 
   const jsonMatch = raw.match(/\{[\s\S]*\}/);
@@ -2677,7 +2696,11 @@ async function callLLM(messages, opts = {}) {
   const isBody2Check = opts.jsonMode && messages.some(m => m.content?.includes('body2'));
   for (let attempt = 1; attempt <= maxBody2Retries; attempt++) {
     const modelUsedRef = { model: null };
-    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 120_000, ...opts, modelUsedRef });
+    // Default per-call ceiling 90s (was 120s, 2026-06-15). 90s still comfortably
+    // covers a legit large generation (≤8000 tokens) on any responsive free-tier
+    // model; it only abandons true hangs ~30s sooner. Callers that need more pass
+    // an explicit `timeout` via opts (it wins over this default through ...opts).
+    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, ...opts, modelUsedRef });
     if (isBody2Check) {
       let itContent = null;
       try {
@@ -6947,6 +6970,25 @@ function gitAddAll(data) {
 // ── Main ────────────────────────────────────────────────────
 const MAX_DUPLICATE_RETRIES = 8;
 
+// Global wall-clock budget (2026-06-15). The generator has no overall deadline,
+// so a pathological run (slow free-tier models + fact-check treadmill) can balloon
+// to ~57min — past which the 30-min cron's next run cancels it anyway (5/60 runs
+// observed cancelled). This budget caps the runaway TAIL: once exceeded we stop
+// STARTING new topic attempts (an in-flight generation always finishes and may
+// still publish); if nothing was produced the run exits with no changes and the
+// self-trigger chain simply advances to the next run. It is deliberately generous
+// (default 30min) so it never truncates a healthy ~15-20min run — it only fires on
+// the pathological tail. Env-overridable for tuning without a code change.
+const RUN_WALL_BUDGET_MS = Math.max(
+  5 * 60_000,
+  Number.parseInt(process.env.CREATE_ARTICLE_MAX_WALL_MS || String(30 * 60_000), 10) || (30 * 60_000),
+);
+const RUN_START_MS = Date.now();
+/** True once the global wall-clock budget is spent (used to stop new topic attempts). */
+function wallBudgetExceeded() {
+  return (Date.now() - RUN_START_MS) > RUN_WALL_BUDGET_MS;
+}
+
 async function main() {
   // Positional <url> = first non-flag argv (so `--section=` can precede it).
   let url = process.argv.slice(2).find((a) => !a.startsWith('--'));
@@ -7155,6 +7197,12 @@ async function main() {
         }
 
         for (let attempt = 1; attempt <= MAX_DUPLICATE_RETRIES; attempt++) {
+          // Wall-clock budget guard: stop starting NEW topic attempts once the
+          // global budget is spent (an already-started generation finished above).
+          if (wallBudgetExceeded()) {
+            console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — interrompo i tentativi ${pool.name}; l'articolo è deferito al prossimo run.`);
+            break;
+          }
           try {
             // Filter out already-tried URLs.
             const availableHeadlines = pool.headlines.filter(h => !triedUrls.has(h.url));
@@ -7446,7 +7494,9 @@ async function main() {
     const candidateSuccess = false;
 
     // ── Phase 2: Evergreen fallback — only reached if news scan produced nothing usable ──
-    if (!newsSuccess && !candidateSuccess) {
+    if (!newsSuccess && !candidateSuccess && wallBudgetExceeded()) {
+      console.error(`⏱️  Budget wall-clock (${Math.round(RUN_WALL_BUDGET_MS / 60000)}min) superato — salto il fallback evergreen; nessun articolo questo run (deferito al prossimo).`);
+    } else if (!newsSuccess && !candidateSuccess) {
       console.error('📚 Fase 2: Fallback evergreen — generazione articolo SEO long-tail...\n');
 
       // Pick an evergreen topic based on week number, with rotation on duplicate.
