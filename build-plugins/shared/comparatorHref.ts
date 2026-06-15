@@ -42,6 +42,17 @@ export const HEALTH_HREF: Record<ComparatorHrefLocale, string> = {
   fr: '/fr/comparaison-services/comparer-caisses-maladie/',
 };
 
+/** Job-offers comparator. Slugs composed from the authoritative `confronti` +
+ * `jobs` keys in shared/hubChrome.ts HUB_SLUGS (same scheme as FX/HEALTH); IT/EN
+ * mirror the already-live CTAs. DE leaf is `stellenangebote-vergleichen`, NOT the
+ * orphan `jobangebote-vergleichen` that the pre-SSOT CTAs had drifted onto. */
+export const JOBS_HREF: Record<ComparatorHrefLocale, string> = {
+  it: '/compara-servizi/confronta-offerte-lavoro/',
+  en: '/en/service-comparison/compare-job-offers/',
+  de: '/de/service-vergleich/stellenangebote-vergleichen/',
+  fr: '/fr/comparaison-services/comparer-offres-emploi/',
+};
+
 /** Fuel-price tracker. curl-verified 200 (2026-06-15) — note the per-locale
  * "today" leaf segment; the bare `/…/gasoline-price-switzerland/` form 404s. */
 export const FUEL_HREF: Record<ComparatorHrefLocale, string> = {

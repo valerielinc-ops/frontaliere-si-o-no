@@ -28,7 +28,7 @@ import {
 } from './seoContentTokens';
 import { calculateSimulation } from '../../services/calculationService';
 import { DEFAULT_INPUTS } from '../../constants';
-import { HEALTH_HREF } from './comparatorHref';
+import { HEALTH_HREF, JOBS_HREF } from './comparatorHref';
 
 export type SalaryLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -625,7 +625,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'CHF 70.000 a Lugano valgono ~EUR 47.000 netti in tasca dopo trasporto + LAMal: confrontalo con un\'offerta da EUR 40.000 a Milano per capire il vero margine.',
       ctaPrimary: { label: 'Apri il confronto', href: '/calcola-stipendio/' },
-      ctaSecondary: { label: 'Confronta offerte specifiche', href: '/compara-servizi/confronta-offerte-lavoro/' },
+      ctaSecondary: { label: 'Confronta offerte specifiche', href: JOBS_HREF.it },
       table: {
         caption: 'Ruolo equivalente in Ticino vs Lombardia (sviluppatore senior)',
         headers: ['Voce', 'Ticino', 'Italia'],
@@ -655,7 +655,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'CHF 70,000 in Lugano nets ~EUR 47,000 in pocket after travel + LAMal: weigh it against an EUR 40,000 Milan offer to see the true margin.',
       ctaPrimary: { label: 'Open the comparison', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'Compare specific offers', href: '/en/service-comparison/compare-job-offers/' },
+      ctaSecondary: { label: 'Compare specific offers', href: JOBS_HREF.en },
       table: {
         caption: 'Equivalent role: Ticino vs Lombardy (senior developer)',
         headers: ['Line', 'Ticino', 'Italy'],
@@ -685,7 +685,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'CHF 70.000 in Lugano ergeben ~EUR 47.000 netto nach Pendel + LAMal: vergleichen Sie mit EUR 40.000 in Mailand, um die echte Marge zu sehen.',
       ctaPrimary: { label: 'Vergleich öffnen', href: '/de/gehalt-berechnen/' },
-      ctaSecondary: { label: 'Spezifische Angebote vergleichen', href: '/de/comparators/jobangebote-vergleichen/' },
+      ctaSecondary: { label: 'Spezifische Angebote vergleichen', href: JOBS_HREF.de },
       table: {
         caption: 'Gleichwertige Rolle: Tessin vs. Lombardei (Senior-Entwickler)',
         headers: ['Position', 'Tessin', 'Italien'],
@@ -715,7 +715,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'CHF 70 000 à Lugano valent ~EUR 47 000 nets après transport + LAMal : comparez avec une offre EUR 40 000 à Milan pour la vraie marge.',
       ctaPrimary: { label: 'Ouvrir la comparaison', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Comparer des offres précises', href: '/fr/comparators/comparer-offres-emploi/' },
+      ctaSecondary: { label: 'Comparer des offres précises', href: JOBS_HREF.fr },
       table: {
         caption: 'Rôle équivalent : Tessin vs Lombardie (dév. senior)',
         headers: ['Poste', 'Tessin', 'Italie'],
@@ -867,7 +867,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'Tra RAL svizzera ed equivalente italiano lo scarto reale è 40-60% maggiore di quello sui lordi: confronta i netti veri prima di firmare.',
       ctaPrimary: { label: 'Calcola il netto dalla RAL', href: '/calcola-stipendio/' },
-      ctaSecondary: { label: 'Confronta due offerte', href: '/compara-servizi/confronta-offerte-lavoro/' },
+      ctaSecondary: { label: 'Confronta due offerte', href: JOBS_HREF.it },
       table: {
         caption: 'Conversione RAL → netto stimato (single A0, Lugano)',
         headers: ['RAL CHF', 'Netto mensile', 'Netto annuo', 'Netto in EUR'],
@@ -896,7 +896,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'The real Swiss-vs-Italian gap is 40-60% wider than the gross suggests: compare actual nets before signing.',
       ctaPrimary: { label: 'Calculate net from gross', href: '/en/calculate-salary/' },
-      ctaSecondary: { label: 'Compare two offers', href: '/en/service-comparison/compare-job-offers/' },
+      ctaSecondary: { label: 'Compare two offers', href: JOBS_HREF.en },
       table: {
         caption: 'Gross → estimated net (single A0, Lugano)',
         headers: ['CHF gross', 'Monthly net', 'Annual net', 'Net in EUR'],
@@ -925,7 +925,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'Die echte Differenz Schweiz vs. Italien ist 40-60 % grösser als der Brutto-Vergleich vermuten lässt — vergleichen Sie die echten Nettos vor der Unterschrift.',
       ctaPrimary: { label: 'Netto vom Brutto berechnen', href: '/de/gehalt-berechnen/' },
-      ctaSecondary: { label: 'Zwei Angebote vergleichen', href: '/de/comparators/jobangebote-vergleichen/' },
+      ctaSecondary: { label: 'Zwei Angebote vergleichen', href: JOBS_HREF.de },
       table: {
         caption: 'Brutto → geschätztes Netto (ledig A0, Lugano)',
         headers: ['CHF brutto', 'Netto/Monat', 'Netto/Jahr', 'Netto in EUR'],
@@ -954,7 +954,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
       ],
       advice: 'L\'écart réel Suisse vs Italie est 40-60 % plus grand que ne le suggère le brut — comparez les vrais nets avant de signer.',
       ctaPrimary: { label: 'Calculer le net depuis le brut', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Comparer deux offres', href: '/fr/comparators/comparer-offres-emploi/' },
+      ctaSecondary: { label: 'Comparer deux offres', href: JOBS_HREF.fr },
       table: {
         caption: 'Brut → net estimé (célibataire A0, Lugano)',
         headers: ['CHF brut', 'Net/mois', 'Net/an', 'Net en EUR'],
@@ -1752,7 +1752,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Ab CHF 80.000 brutto zahlt die B-Bewilligung ~CHF 3.000/Jahr weniger Steuern. Darunter behält die G-Bewilligung den Vorteil dank Flexibilität + optionalem italienischem SSN.',
       ctaPrimary: { label: 'G vs B Szenarien berechnen', href: '/de/gehalt-berechnen/' },
-      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: '/de/comparators/krankenkassen-vergleichen/' },
+      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: HEALTH_HREF.de },
       table: {
         caption: 'Jahresnetto G vs B · bis 20 km (ledig, A0N, Lugano)',
         headers: ['Position', 'G (Italien)', 'B (CH)', 'Δ zugunsten B'],
@@ -1780,7 +1780,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Au-dessus de CHF 80 000 brut, le permis B paie ~CHF 3 000/an d\'impôts en moins. En-dessous, le G garde l\'avantage grâce à flexibilité + SSN italien optionnel.',
       ctaPrimary: { label: 'Calculer scénarios G vs B', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: '/fr/comparators/comparer-caisses-maladie/' },
+      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: HEALTH_HREF.fr },
       table: {
         caption: 'Net annuel Permis G vs B · moins 20 km (célibataire, A0N, Lugano)',
         headers: ['Poste', 'Permis G (Italie)', 'Permis B (CH)', 'Δ en faveur B'],
@@ -1867,7 +1867,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Für neue Grenzgänger über 20 km ist die B-Bewilligung fast immer günstiger. Machbarkeit prüfen: CH-Wohnsitz, Sprache, stabiler Vertrag, B-Bewilligungsanforderungen.',
       ctaPrimary: { label: 'G über 20 km vs B berechnen', href: '/de/gehalt-berechnen/' },
-      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: '/de/comparators/krankenkassen-vergleichen/' },
+      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: HEALTH_HREF.de },
       table: {
         caption: 'Jahresnetto G (über 20 km) vs B · 2026 (ledig, A0N)',
         headers: ['Position', 'G (>20 km)', 'B (CH)', 'Δ zugunsten B'],
@@ -1895,7 +1895,7 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
       ],
       advice: 'Pour les nouveaux frontaliers au-delà de 20 km, le permis B est presque toujours plus avantageux. Vérifiez faisabilité : résidence CH, langue, contrat stable, exigences permis B.',
       ctaPrimary: { label: 'Calculer G plus 20 km vs B', href: '/fr/calculer-salaire/' },
-      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: '/fr/comparators/comparer-caisses-maladie/' },
+      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: HEALTH_HREF.fr },
       table: {
         caption: 'Net annuel G (plus 20 km) vs B · 2026 (célibataire, A0N)',
         headers: ['Poste', 'Permis G (>20 km)', 'Permis B (CH)', 'Δ en faveur B'],
