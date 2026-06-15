@@ -153,6 +153,14 @@ jobs:
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
           # dead on the runner. The cascade now uses premium tiers + MyMemory + PUBLIC
           # LibreTranslate, which were already doing all the real work.
+          # Wall-clock budget for the in-process AI-localization loop inside the shared
+          # crawler. 280min — matching the Argos mop-up (LOCAL_MT_TIME_BUDGET_MS) and
+          # well under this job's timeout-minutes:350 — leaves headroom for assemble,
+          # scatter, mop-up and the always()-guarded commit steps to run. Once exceeded,
+          # the crawler stops starting NEW jobs (leaving them flagged for the next run)
+          # so the step returns NORMALLY instead of being killed at the 350min timeout
+          # (a killed job does not reliably run the later commit step → lost work).
+          JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: '16800000'  # 280 * 60 * 1000
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
@@ -160,7 +168,12 @@ jobs:
         run: node scripts/log-translation-stats.mjs after
 
       - name: Scatter changes back to per-crawler slices
-        if: inputs.skip_translate != true
+        # always()-guarded so partial work is scattered to per-crawler slices for
+        # the commit step even if the translate step errored or was cut short by
+        # the wall-clock budget. relocalize already writes slices incrementally
+        # per-company, but this final scatter captures anything the in-process
+        # retry pass left only in data/jobs.json.
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
 
       # ── Phase 2 mop-up: in-process, unlimited, $0 local MT ───────────────
