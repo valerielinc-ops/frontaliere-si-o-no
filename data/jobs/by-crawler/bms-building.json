@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-06-14T21:28:51.735Z",
+  "assembledAt": "2026-06-15T22:42:22.167Z",
   "jobs": [
     {
       "id": "bms-building-ae3058c9552a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/170-teamleitung-ausstellung-baeder-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:48.751Z",
+      "crawledAt": "2026-06-15T22:42:18.989Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -93,15 +93,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:40.640Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -138,7 +139,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/169-conducteur-poids-lourds-a-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:47.818Z",
+      "crawledAt": "2026-06-15T22:42:17.992Z",
       "addressLocality": "Aigle",
       "addressCountry": "CH",
       "country": "CH",
@@ -197,15 +198,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:39.692Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -242,7 +244,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/168-contremaitre-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:46.894Z",
+      "crawledAt": "2026-06-15T22:42:17.000Z",
       "addressLocality": "Carouge",
       "addressCountry": "CH",
       "country": "CH",
@@ -305,15 +307,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:38.740Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -350,7 +353,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/166-responsable-de-site-showroom-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:45.980Z",
+      "crawledAt": "2026-06-15T22:42:15.988Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,15 +398,16 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:14:18.040Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -440,7 +444,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/165-responsable-de-site-100-h/f/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:45.019Z",
+      "crawledAt": "2026-06-15T22:42:15.042Z",
       "addressLocality": "Bussigny-près-Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -484,15 +488,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T22:47:36.767Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -529,7 +533,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/164-representant-specialiste-bois-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:43.980Z",
+      "crawledAt": "2026-06-15T22:42:13.939Z",
       "addressLocality": "Payerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -588,15 +592,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:35.661Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -633,7 +638,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/163-logistik-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:42.978Z",
+      "crawledAt": "2026-06-15T22:42:12.980Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -690,15 +695,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:34.692Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -735,7 +741,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/162-kundenberatung-im-baubedarf-shop-w/m/d-80/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:41.995Z",
+      "crawledAt": "2026-06-15T22:42:12.018Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -798,15 +804,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:33.730Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -843,7 +850,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/161-kundenberatung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:41.049Z",
+      "crawledAt": "2026-06-15T22:42:11.064Z",
       "addressLocality": "Hägendorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,15 +911,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:32.738Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -949,7 +957,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/160-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:40.063Z",
+      "crawledAt": "2026-06-15T22:42:10.126Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1010,15 +1018,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:31.749Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -1055,7 +1064,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/159-kundenberatung-aussendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:39.091Z",
+      "crawledAt": "2026-06-15T22:42:09.165Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -1102,15 +1111,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:30.753Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -1147,7 +1157,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/158-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:38.163Z",
+      "crawledAt": "2026-06-15T22:42:08.168Z",
       "addressLocality": "Reinach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1208,15 +1218,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:29.767Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -1253,7 +1264,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/157-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:37.097Z",
+      "crawledAt": "2026-06-15T22:42:07.035Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -1312,15 +1323,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:28.641Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1357,7 +1369,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/156-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:35.928Z",
+      "crawledAt": "2026-06-15T22:42:06.089Z",
       "addressLocality": "St. Gallen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1410,15 +1422,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:27.675Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1455,7 +1468,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/155-consulente-vendita-showroom-cucine-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-14T21:28:34.964Z",
+      "crawledAt": "2026-06-15T22:42:05.136Z",
       "addressLocality": "Arbedo-Castione",
       "addressCountry": "CH",
       "country": "CH",
@@ -1501,6 +1514,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:26.709Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1546,7 +1560,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/154-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:34.051Z",
+      "crawledAt": "2026-06-15T22:42:04.194Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1610,15 +1624,16 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:13:23.664Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -1655,7 +1670,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/153-conseiller-de-vente-shop-sanitaire-technique-du-batiment-outillage-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:33.115Z",
+      "crawledAt": "2026-06-15T22:42:03.232Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1702,15 +1717,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:24.756Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -1747,7 +1763,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/152-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:32.183Z",
+      "crawledAt": "2026-06-15T22:42:02.210Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -1792,15 +1808,16 @@
         ]
       },
       "firstSeenAt": "2026-05-19T11:14:15.539Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -1837,7 +1854,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/150-assistant-mecanique-avec-permis-pl-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:31.240Z",
+      "crawledAt": "2026-06-15T22:42:01.170Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -1883,15 +1900,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:22.800Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1928,7 +1946,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/146-key-account-management-innenausbau-m/w/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:30.309Z",
+      "crawledAt": "2026-06-15T22:42:00.185Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1988,15 +2006,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:21.751Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -2033,7 +2052,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/144-health-safety-managerin-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:29.258Z",
+      "crawledAt": "2026-06-15T22:41:59.043Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -2089,15 +2108,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:20.637Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -2134,7 +2154,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/142-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:28.306Z",
+      "crawledAt": "2026-06-15T22:41:58.058Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -2179,15 +2199,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:19.648Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -2224,7 +2245,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:27.231Z",
+      "crawledAt": "2026-06-15T22:41:56.934Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -2315,15 +2336,15 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:06:00.404Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2360,7 +2381,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/136-koordinator-interner-verkaufsberater-holz-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:26.255Z",
+      "crawledAt": "2026-06-15T22:41:55.946Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -2418,15 +2439,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:17.416Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2463,7 +2485,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/135-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:25.312Z",
+      "crawledAt": "2026-06-15T22:41:54.955Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2510,15 +2532,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:16.424Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -2555,7 +2578,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/123-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:24.266Z",
+      "crawledAt": "2026-06-15T22:41:53.817Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -2613,15 +2636,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:15.287Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2658,7 +2682,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/118-conseiller-de-vente-interne-bois-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:23.213Z",
+      "crawledAt": "2026-06-15T22:41:52.684Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -2702,15 +2726,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:14.143Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -2747,7 +2772,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/116-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:22.177Z",
+      "crawledAt": "2026-06-15T22:41:51.698Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -2803,15 +2828,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:13.165Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -2848,7 +2874,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/112-sachbearbeitung-innendienst-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:21.189Z",
+      "crawledAt": "2026-06-15T22:41:50.704Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -2904,15 +2930,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:12.179Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
@@ -2949,7 +2976,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/106-teamleitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:20.239Z",
+      "crawledAt": "2026-06-15T22:41:49.724Z",
       "addressLocality": "Hunzenschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3008,15 +3035,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:11.173Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
@@ -3053,7 +3081,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/101-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:19.138Z",
+      "crawledAt": "2026-06-15T22:41:48.602Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -3100,15 +3128,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:10.000Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3145,7 +3174,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/100-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:16.900Z",
+      "crawledAt": "2026-06-15T22:41:47.498Z",
       "addressLocality": "Wil",
       "addressCountry": "CH",
       "country": "CH",
@@ -3192,15 +3221,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:08.803Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3237,7 +3267,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/96-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:15.860Z",
+      "crawledAt": "2026-06-15T22:41:46.399Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3296,15 +3326,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:07.660Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -3341,7 +3372,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/90-koordinator-interner-verkaufsberater-holz-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:14.915Z",
+      "crawledAt": "2026-06-15T22:41:45.445Z",
       "addressLocality": "Kerzers",
       "addressCountry": "CH",
       "country": "CH",
@@ -3385,15 +3416,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:06.617Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -3430,7 +3462,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/89-coordinateur-conseiller-de-vente-interne-bois-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T21:28:13.971Z",
+      "crawledAt": "2026-06-15T22:41:44.490Z",
       "addressLocality": "Kerzers",
       "addressCountry": "CH",
       "country": "CH",
@@ -3473,15 +3505,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:05.638Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -3518,7 +3551,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/81-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:13.005Z",
+      "crawledAt": "2026-06-15T22:41:43.506Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -3572,15 +3605,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:04.634Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3617,7 +3651,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/36-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:11.948Z",
+      "crawledAt": "2026-06-15T22:41:42.260Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -3669,15 +3703,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:03.506Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       },
@@ -3714,7 +3749,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/18-fachberatung-ausstellung-sanitaer-und-platten-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:28:10.933Z",
+      "crawledAt": "2026-06-15T22:41:41.281Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -3767,15 +3802,16 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:47:02.527Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },
