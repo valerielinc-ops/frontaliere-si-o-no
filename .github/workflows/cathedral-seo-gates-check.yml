@@ -67,13 +67,48 @@ jobs:
       - name: Assemble jobs dataset
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
+      # ── Pre-build data prep — MUST mirror deploy.yml's build job ──────────
+      # The gates audit `dist/`, so this workflow has to emit the SAME dist
+      # deploy.yml ships. deploy dedups + migrates + cleans the dataset BEFORE
+      # build:ci; this workflow used to skip that and build the raw assembled
+      # dataset, which (a) audited a dist that never deploys — wrong gate
+      # inputs (duplicate job titles, stale sitemap entries, unmigrated
+      # canonicals) — and (b) emitted ~920 extra (cross-crawler duplicate /
+      # expired) job pages × 4 locales, pushing the full SEO build past the
+      # 16 GB runner's RAM → OOM (exit 134) before the gates step ran (issue
+      # #2121). deploy.yml builds the deduped set (≈11.2k jobs) and fits;
+      # building the raw set (≈12.1k) does not. Steps below are the
+      # page-shaping subset of deploy.yml's build job, in the same order.
+      # Keep in sync with deploy.yml. None require secrets.
+      - name: Housekeeping (cross-crawler dedup + locale hardening)
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: Refresh weekly-employers footer link list
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
+      - name: Mine all job slugs for comprehensive 404 coverage
+        run: node scripts/mine-all-job-slugs.mjs
+
+      - name: Canton-aware migration of slug registry
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+
       - name: Build dist (full SEO output)
         env:
           # Critical: this workflow MUST run with every SEO plugin enabled.
           # Inheriting FAST_BUILD=1 from .claude/settings.json would silently
           # skip half the SEO landings (see CLAUDE.md "FAST_BUILD trap").
           FAST_BUILD: ''
-          NODE_OPTIONS: '--max-old-space-size=18432'
+          # No NODE_OPTIONS override here: `build:ci` sets its own inline
+          # `--max-old-space-size=12288 --expose-gc`, which REPLACES any value
+          # exported from the workflow env (npm-script inline assignment wins).
+          # The previous `18432` here was dead config — silently overridden to
+          # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway. deploy.yml
+          # builds the same dist at 12288 with no override; matching that.
         run: |
           set -euo pipefail
           npm run build:ci &
