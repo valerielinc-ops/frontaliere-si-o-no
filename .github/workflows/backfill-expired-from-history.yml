@@ -1,0 +1,120 @@
+name: Backfill Expired Jobs From History
+
+# Recovers job content for "empty orphan" soft-landing pages.
+#
+# When a job disappears from a crawler's source (listing pulled, PDF removed) or
+# its slug churns, it can drop out of the by-crawler slice WITHOUT being archived
+# into data/jobs/expired/by-crawler/. Google keeps the old URL indexed, so the
+# soft-landing page renders with only a slug-derived title and NO description —
+# thin content with zero SEO value. `scripts/backfill-expired-from-history.mjs`
+# walks git history, finds those dropped jobs by id, and re-archives the most
+# recent version (full title/description/salary/slugByLocale) into the expired
+# slice. The build plugin (jobsSeoPagesPlugin) then resolves the orphan slug to
+# that recovered content via its slug-variant index — including the long tail
+# beyond the 5000-entry expired-jobs.json cap, which it now reads from the
+# uncapped per-crawler slices directly.
+#
+# Needs full git history (fetch-depth: 0) — the by-crawler slices are walked
+# commit-by-commit. Runs monthly as a safety net; the crawler pipeline archives
+# most drops in real time, so each run typically recovers only the few that
+# slipped through since the last one.
+on:
+  schedule:
+    - cron: '0 4 1 * *'  # 1st of each month, 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      max_commits:
+        description: 'Cap history depth per slice (0 = unbounded)'
+        required: false
+        type: string
+        default: '0'
+      dry_run:
+        description: 'Dry run (no file writes, just report)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout (full history — required to walk by-crawler slices)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Recover dropped jobs from history into expired slices
+        run: node scripts/backfill-expired-from-history.mjs
+        env:
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
+          MAX_COMMITS: ${{ inputs.max_commits || '0' }}
+
+      - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
+        if: ${{ inputs.dry_run != true }}
+        # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
+        # that the vitest gate reads. These are deploy-assembled, not committed by
+        # the --slice-only commit below. We deliberately do NOT run
+        # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
+        # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
+        # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
+        # job — this workflow only recovers expired slice content.
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Test gate (bot-direct-to-main — never poison main with a bad dump)
+        if: ${{ inputs.dry_run != true }}
+        # A workflow that pushes data straight to main is held to the same test
+        # gate as a PR (AGENTS.md). Recovered expired entries must keep the
+        # structured-data + snapshot invariants green before commit.
+        run: npm test
+
+      - name: Commit and push
+        if: ${{ inputs.dry_run != true }}
+        id: commit
+        # --slice-only already covers data/jobs/expired/by-crawler/. The
+        # monolithic data/expired-jobs.json is assembled at deploy, not committed
+        # per-crawler — the build plugin reads the uncapped slices directly.
+        run: |
+          SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
+            "chore(data): backfill dropped jobs from history for orphan coverage"
+        env:
+          SKIP_AI_TRANSLATION: '1'
+
+      - name: Trigger deploy if data changed
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
+        run: bash scripts/lib/trigger-deploy.sh
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
