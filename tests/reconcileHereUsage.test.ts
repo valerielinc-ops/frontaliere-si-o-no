@@ -116,8 +116,18 @@ describe('buildHereOAuthHeader', () => {
 });
 
 describe('month window math', () => {
-  it('monthBounds returns the 1st of the month as start', () => {
-    expect(monthBounds('2026-06').start).toBe('2026-06-01T00:00:00');
+  it('monthBounds start is the UTC instant of 00:00 Europe/Rome on the 1st', () => {
+    // June 2026 is CEST (UTC+2): Rome midnight = UTC 22:00 of the previous day.
+    expect(monthBounds('2026-06').start).toBe('2026-05-31T22:00:00');
+    // January 2026 is CET (UTC+1): Rome midnight = UTC 23:00 of the previous day.
+    expect(monthBounds('2026-01').start).toBe('2025-12-31T23:00:00');
+  });
+
+  it('monthBounds startDate <= endDate holds at Rome month boundary (00:00-02:00 Rome, UTC still prev day)', () => {
+    // At 00:30 Rome on July 1 (= 2026-06-30T22:30:00 UTC), start must be < end.
+    const { start } = monthBounds('2026-07');
+    const endAtBoundary = '2026-06-30T22:30:00'; // UTC, within the boundary window
+    expect(start <= endAtBoundary).toBe(true);
   });
 
   it('currentMonthKey returns a YYYY-MM string', () => {
