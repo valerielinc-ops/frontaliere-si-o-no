@@ -153,14 +153,12 @@ jobs:
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
           # dead on the runner. The cascade now uses premium tiers + MyMemory + PUBLIC
           # LibreTranslate, which were already doing all the real work.
-          # Wall-clock budget for the in-process AI-localization loop inside the shared
-          # crawler. 280min — matching the Argos mop-up (LOCAL_MT_TIME_BUDGET_MS) and
-          # well under this job's timeout-minutes:350 — leaves headroom for assemble,
-          # scatter, mop-up and the always()-guarded commit steps to run. Once exceeded,
-          # the crawler stops starting NEW jobs (leaving them flagged for the next run)
-          # so the step returns NORMALLY instead of being killed at the 350min timeout
-          # (a killed job does not reliably run the later commit step → lost work).
-          JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: '16800000'  # 280 * 60 * 1000
+          # NB: the AI-localization wall-clock budget is set DYNAMICALLY per-company by
+          # relocalize-pending-jobs.mjs (JOBS_AI_LOCALIZATION_TIME_BUDGET_MS = remaining
+          # time until its 250min run-wide cascade deadline), so it is intentionally NOT
+          # hard-coded here — a static value reset the budget per company and could blow
+          # past the 350min job timeout (review #2205 🔴). The cascade stops by ~250min,
+          # leaving ~100min for the mop-up + always()-guarded commit/scatter/slug/deploy.
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
@@ -211,6 +209,12 @@ jobs:
       - name: "Phase 2 mop-up: local MT (Argos Translate, in-process)"
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
+        env:
+          # Bound the mop-up to the window left after the cascade's ~250min deadline
+          # (80min) so it self-stops + commits partial well before the 350min job
+          # timeout — instead of being externally killed mid-batch and losing its
+          # work (observed in validation run 27544487773). Default would be 280min.
+          LOCAL_MT_TIME_BUDGET_MS: '4800000'  # 80 * 60 * 1000
         run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
       - name: Commit translations
