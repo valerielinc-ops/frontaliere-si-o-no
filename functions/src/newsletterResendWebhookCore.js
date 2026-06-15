@@ -1,6 +1,7 @@
 import admin from 'firebase-admin';
 import { Resend } from 'resend';
 import { refreshEngagementScore } from './lib/engagementScore.js';
+import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 
 function normalizeEmail(value) {
  return String(value || '').trim().toLowerCase();
@@ -289,6 +290,9 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  occurred_at: occurredAt,
  });
 
+ if (type === 'open') {
+ await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'resend', campaignId, variant, locale });
+ }
  return { handled: true, email, type, campaignId };
 }
 
