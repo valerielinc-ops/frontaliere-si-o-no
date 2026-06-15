@@ -107,13 +107,18 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Amazon / Alexa — welcome, but rate-limited: Amazonbot honors Crawl-delay
-# (per Amazon's crawler docs) and was fetching ~24k locale-shard pages/day,
-# each one a Cloudflare Worker invocation against the free-tier 100k/day cap.
-# 10s ≈ max 8.6k fetches/day, plenty for Alexa/Rufus freshness on this site.
+# Amazon / Alexa (Rufus) — blocked. Not an organic-search, AI-search, or
+# referral channel for an Italian cross-border-worker audience: brings no SEO
+# traffic, no clicks, no monetizable traffic, only ~15-24k fetches/day of load
+# (was the biggest non-search chunk per #1867). The free-tier Worker cap that
+# first forced a Crawl-delay is now moot (Workers Paid), but the block stays on
+# value grounds. Enforced for the /en /de /fr shards by a Cloudflare WAF rule
+# (scripts/cf-locale-failover-setup.mjs) since Amazonbot honors this directive
+# site-wide anyway. AI-search/citation crawlers (GPTBot, ClaudeBot, OAI-
+# SearchBot, PerplexityBot, Google-Extended) stay welcomed above — they DO feed
+# the visibility channel.
 User-agent: Amazonbot
-Allow: /
-Crawl-delay: 10
+Disallow: /
 
 # Apple
 User-agent: Applebot
@@ -122,9 +127,14 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# Bytedance
+# Bytedance (TikTok / Doubao) — blocked. Training/scraper crawler with no
+# organic-search, AI-search, or referral visibility for this audience: no SEO
+# traffic, no clicks, no monetizable traffic. Bytespider commonly ignores
+# robots.txt, so this directive is best-effort; hard enforcement on the
+# /en /de /fr shards is via the Cloudflare WAF rule
+# (scripts/cf-locale-failover-setup.mjs).
 User-agent: Bytespider
-Allow: /
+Disallow: /
 
 # Cohere
 User-agent: cohere-ai
@@ -195,11 +205,12 @@ Allow: /
 
 # ─── SEO-tool crawlers — blocked ──────────────────────────────────────────
 # Backlink/keyword-tool crawlers bring zero search or AI visibility and no
-# referral traffic; on the /en /de /fr locale shards every fetch is a
-# Cloudflare Worker invocation that counts against the free-tier 100k/day cap
-# (AhrefsBot alone: ~10k fetches/day measured 2026-06-11). All of these honor
-# robots.txt. Ad-verification crawlers (IAS, proximic) stay ALLOWED — they
-# validate inventory for AdSense advertisers (~95% of revenue).
+# referral traffic — no SEO, no clicks, no monetizable traffic — and they
+# expose our backlink profile to competitors. Blocked on value grounds
+# regardless of the Worker cap (now moot under Workers Paid; AhrefsBot alone was
+# ~10k fetches/day measured 2026-06-11). All of these honor robots.txt. Ad-
+# verification crawlers (IAS, proximic) stay ALLOWED — they validate inventory
+# for AdSense advertisers (~95% of revenue).
 
 User-agent: AhrefsBot
 Disallow: /

@@ -32,12 +32,13 @@
  * 3. FIREWALL RULES — the managed entries in MANAGED_FIREWALL_RULES (keyed by
  *    `description`; foreign rules on the entrypoint preserved). Currently one:
  *    locale-bot-throttle-noindex-scrapers — blocks non-search scraper bots
- *    (Amazonbot + SEO tools) on the /en|/de|/fr paths ONLY. The
- *    WAF runs BEFORE the Worker, so a challenged request never invokes it —
- *    the only free lever to keep daily invocations under the now-ENFORCED 100k
- *    cap (Origin Rules host-override, the no-Worker alternative, is Enterprise-
- *    only). Real search + AI-search crawlers are deliberately NOT matched, so
- *    the visibility channel keeps getting live locale content (#1867).
+ *    (Amazonbot + Bytespider) on the /en|/de|/fr paths ONLY. Kept on value
+ *    grounds: these bring no SEO traffic, no clicks, no monetizable traffic.
+ *    (It also kept Worker invocations under the old free 100k/day cap — now moot
+ *    under Workers Paid — since the WAF runs BEFORE the Worker; that's a bonus,
+ *    no longer the reason.) Real search + AI-search crawlers are deliberately
+ *    NOT matched, so the visibility channel keeps getting live locale content
+ *    (#1867).
  *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + Zone→Firewall
@@ -57,10 +58,14 @@ const WORKER_SCRIPT = 'frontaliere-locale-router';
 const CACHE_PHASE = 'http_request_cache_settings';
 const FIREWALL_PHASE = 'http_request_firewall_custom';
 
-// Non-visibility crawlers throttled on the locale paths ONLY. The Worker's free
-// 100k invocations/day cap is now ENFORCED (observed flat at ~103k, locale 404
-// over-cap — see locale-router.js header + issue #1867); the WAF runs BEFORE the
-// Worker, so blocking a request here means it never invokes the Worker.
+// Non-visibility crawlers blocked on the locale paths ONLY. These bring no SEO
+// traffic, no clicks, and no monetizable traffic for this audience (owner value
+// policy), so they stay blocked. The block originally also relieved the free
+// Worker 100k invocations/day cap (see locale-router.js header + issue #1867);
+// that cap is now moot (account moved to Workers Paid), but the WAF rule is kept
+// purely on value grounds. The WAF runs BEFORE the Worker, so blocking a request
+// here also means it never invokes the Worker — a free bonus, no longer the
+// reason.
 //
 // Scope = exactly the two crawlers the owner approved carving out of the verified
 // crawler allowlist (the foreign skip rule "Allowlist verified SEO + AI crawlers"
