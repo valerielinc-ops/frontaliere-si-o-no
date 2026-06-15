@@ -3,11 +3,11 @@
  * monitor-cls-posthog.mjs — real-user CLS/INP monitor.
  *
  * Polls PostHog `$web_vitals` events every N minutes and emits one stdout
- * line per (window, key path) with the p75 CLS or INP computed from the last
- * `WINDOW_HOURS` of real traffic. Designed to run inside a Monitor wrapper
- * so each emission becomes a notification — useful right after a perf-fix
- * deploy when you want to see field data converge in real time without
- * staring at PostHog dashboards.
+ * line per (window, key path) with the p75/p90 CLS or INP computed from the
+ * last `WINDOW_HOURS` of real traffic. Designed to run inside a Monitor
+ * wrapper so each emission becomes a notification — useful right after a
+ * perf-fix deploy when you want to see field data converge in real time
+ * without staring at PostHog dashboards.
  *
  * Field data lags lab data: needs ~10-30 min of fresh post-deploy traffic
  * before the rolling p75 starts shifting. CrUX (the source PSI uses) lags
@@ -15,15 +15,18 @@
  *
  * Tracks URL families (metric selected via --metric):
  *   /                                             homepage
- *   /cerca-lavoro-ticino/*                        job board (jobs_index + leaves)
+ *   /cerca-lavoro-ticino/*                        job board (all + mobile breakdown)
  *   /vivere-in-ticino/comuni-di-frontiera/        comuni-di-frontiera (INP target p75 944→<200ms)
  *   <origin>                                      whole-site fallback
  *
  * Usage:
  *   node scripts/monitor-cls-posthog.mjs                          # CLS, 15-min polls, 1h window
- *   node scripts/monitor-cls-posthog.mjs --metric=INP             # INP mode (ms); comuni-di-frontiera target
+ *   node scripts/monitor-cls-posthog.mjs --metric=INP             # INP mode (ms); p75/p90 + mobile breakdown
  *   node scripts/monitor-cls-posthog.mjs --interval=300           # 5-min polls
  *   node scripts/monitor-cls-posthog.mjs --window=2 --once        # 2h window, single emission then exit
+ *
+ * Revert-trigger (INP, job board): if jobs_root p75 >= 200ms after ~1-2 weeks
+ * of post-deploy traffic → consider reverting PR #2220.
  *
  * Env (loaded via load-rc-env.mjs):
  *   POSTHOG_PERSONAL_API_KEY  — required
@@ -64,7 +67,9 @@ async function hogql(query) {
 
 const QUERIES = {
   homepage: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
@@ -72,23 +77,51 @@ const QUERIES = {
       AND properties.$pathname = '/'
   `,
   jobs_root: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
       AND properties.${WEB_VITAL_PROP} IS NOT NULL
       AND properties.$pathname = '/cerca-lavoro-ticino/'
   `,
+  jobs_root_mobile: `
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
+    FROM events
+    WHERE event = '$web_vitals'
+      AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
+      AND properties.$pathname = '/cerca-lavoro-ticino/'
+      AND properties.$device_type = 'Mobile'
+  `,
   jobs_leaves: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
       AND properties.${WEB_VITAL_PROP} IS NOT NULL
       AND properties.$pathname LIKE '/cerca-lavoro-ticino/%'
   `,
+  jobs_leaves_mobile: `
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
+    FROM events
+    WHERE event = '$web_vitals'
+      AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
+      AND properties.${WEB_VITAL_PROP} IS NOT NULL
+      AND properties.$pathname LIKE '/cerca-lavoro-ticino/%'
+      AND properties.$device_type = 'Mobile'
+  `,
   comuni_frontiera: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
@@ -96,7 +129,9 @@ const QUERIES = {
       AND properties.$pathname = '/vivere-in-ticino/comuni-di-frontiera/'
   `,
   origin_all: `
-    SELECT count() AS n, quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75
+    SELECT count() AS n,
+           quantile(0.75)(toFloat(properties.${WEB_VITAL_PROP})) AS p75,
+           quantile(0.90)(toFloat(properties.${WEB_VITAL_PROP})) AS p90
     FROM events
     WHERE event = '$web_vitals'
       AND timestamp > now() - INTERVAL ${WINDOW_HOURS} HOUR
@@ -105,7 +140,7 @@ const QUERIES = {
 };
 
 function fmt(n, decimals = 3) {
-  return n == null || Number.isNaN(n) ? 'n/a  ' : n.toFixed(decimals);
+  return n == null || Number.isNaN(n) ? 'n/a' : n.toFixed(decimals);
 }
 
 async function tick() {
@@ -114,17 +149,21 @@ async function tick() {
   for (const [k, q] of Object.entries(QUERIES)) {
     try {
       const r = await hogql(q.trim());
-      const row = r.results?.[0] || [0, null];
-      out.results[k] = { n: row[0], p75: row[1] };
+      const row = r.results?.[0] || [0, null, null];
+      out.results[k] = { n: row[0], p75: row[1], p90: row[2] };
     } catch (e) {
       out.results[k] = { error: e.message.slice(0, 80) };
     }
   }
   // One concise stdout line — Monitor turns this into a notification
   const cells = Object.entries(out.results)
-    .map(([k, v]) => v.error ? `${k}=ERR` : `${k}=${fmt(v.p75, METRIC_DECIMALS)}(n=${v.n})`)
+    .map(([k, v]) =>
+      v.error
+        ? `${k}=ERR`
+        : `${k}=${fmt(v.p75, METRIC_DECIMALS)}/${fmt(v.p90, METRIC_DECIMALS)}(n=${v.n})`,
+    )
     .join('  ');
-  console.log(`[${out.ts}] ${METRIC}p75/${WINDOW_HOURS}h  ${cells}`);
+  console.log(`[${out.ts}] ${METRIC}p75p90/${WINDOW_HOURS}h  ${cells}`);
 }
 
 await tick();
