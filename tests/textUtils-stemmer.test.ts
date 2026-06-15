@@ -45,6 +45,38 @@ describe('stemSearchToken — Italian plural / gender collapse', () => {
   });
 });
 
+describe('stemSearchToken — derivational root reduction (deeper than vowel strip)', () => {
+  it('collapses the -istic-/-ist- adjectival family onto the noun root', () => {
+    // The reported case: a query token "infermieristiche" must reach the same
+    // root as the job word "infermiere" so nursing jobs match on the domain
+    // word, not just on generic co-occurring words.
+    expect(stemSearchToken('infermieristiche')).toBe('infermier');
+    expect(stemSearchToken('infermieristico')).toBe('infermier');
+    expect(stemSearchToken('infermieristica')).toBe('infermier');
+    // …and the plain noun forms already collapse there via the vowel strip.
+    expect(stemSearchToken('infermiere')).toBe('infermier');
+    expect(stemSearchToken('infermieri')).toBe('infermier');
+  });
+
+  it('strips -zione / -aggio / -mento nominalizations to a shared prefix', () => {
+    expect(stemSearchToken('educazione')).toBe('educ');
+    expect(stemSearchToken('magazzinaggio')).toBe('magazzin');
+    expect(stemSearchToken('allenamento')).toBe('allen');
+  });
+
+  it('guards against over-stemming short words (residual ≥ 4)', () => {
+    // "vita" must NOT lose "-ita" → "v"; the residual-length guard skips it.
+    expect(stemSearchToken('vita')).toBe('vit');
+    // "uso" (≤3) untouched.
+    expect(stemSearchToken('uso')).toBe('uso');
+  });
+
+  it('does not merge distinct consonant stems after derivational strip', () => {
+    // casa/cassa still distinct (no derivational suffix applies).
+    expect(stemSearchToken('casa')).not.toBe(stemSearchToken('cassa'));
+  });
+});
+
 describe('buildStemmedHaystack — word-boundary anchored stemmed haystack', () => {
   it('wraps result in spaces and stems each word', () => {
     // ufficio → uffic (greedy strip 'io'), centrale → central

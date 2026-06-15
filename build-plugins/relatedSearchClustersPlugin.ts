@@ -67,6 +67,7 @@ import {
   getSearchSlugPrefix,
   stripSearchQueryBoilerplate,
 } from '../services/relatedSearchClusters';
+import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import {
   AGGREGATE_KEY,
   resolveCantonSection,
@@ -164,18 +165,32 @@ function normalizeText(value: string): string {
     .replace(/[̀-ͯ]/g, '');
 }
 
-/** Tokenize a query string into [normalized, length>=2] tokens. */
+/**
+ * Tokenize a query string into [normalized, length>=2, stemmed] tokens.
+ * Stemming (shared with the SPA via services/searchStem.mjs) collapses
+ * derivational/plural variants onto a root so a slug query like
+ * `…-cure-infermieristiche-…` matches "infermiere" jobs — the static page no
+ * longer needs the SPA to over-recover after hydration.
+ */
 function tokenizeQuery(query: string): string[] {
   return normalizeText(query)
     .split(/[^a-z0-9]+/)
-    .filter((tok) => tok.length >= 2);
+    .filter((tok) => tok.length >= 2)
+    .map(stemSearchToken);
 }
 
-/** Build the per-locale normalized haystack once and cache it on the job. */
+/**
+ * Build the per-locale normalized + STEMMED haystack once and cache it on the
+ * job. The haystack is stemmed identically to the query tokens (and to the SPA
+ * and the off-thread postings worker, all via stemHaystack/stemSearchToken in
+ * services/searchStem.mjs) so substring matching aligns on roots, not surface
+ * forms. The gram/postings index is built from this haystack, so the worker
+ * MUST apply the same stemHaystack step to stay byte-identical.
+ */
 function buildJobHaystack(job: RawJob, locale: Locale): string {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
   const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`);
+  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`));
 }
 
 /** Detect a known city in a sample term (longest match wins). */
@@ -233,6 +248,10 @@ const CACHE_KEY_INPUTS = [
   'build-plugins/shared/titleSuffix.ts',
   'build-plugins/shared/jobBoardCommuterContext.ts',
   'services/relatedSearchClusters.ts',
+  // Stemmer shared with the SPA + postings worker: a change here alters which
+  // jobs each cluster page matches, so it must bust the emit cache.
+  'services/searchStem.mjs',
+  'build-plugins/relatedSearchPostingsWorker.mjs',
 ];
 
 // v2 (2026-05-07) invalidates v1 entries that were saved before the
@@ -266,7 +285,13 @@ const CACHE_KEY_INPUTS = [
 // sitemap-jobs.xml (written by jobsSeoPagesPlugin, which lists them as
 // self-canonical TI before our overwrite). Old caches lack the field → bump
 // invalidates them so the next build re-emits and repopulates it.
-const CACHE_VERSION = 'v6';
+//
+// v7 (2026-06-15) routes the matcher through the shared root stemmer
+// (services/searchStem.mjs): query tokens AND job haystacks are now stemmed, so
+// the AND/OR job set for every cluster page changes (e.g. `…-infermieristiche-…`
+// now matches "infermiere" jobs). Old v6 caches hold the un-stemmed pages —
+// bump invalidates them so the next build re-emits with root matching.
+const CACHE_VERSION = 'v7';
 
 /**
  * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 45,000 to

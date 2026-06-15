@@ -56,9 +56,12 @@ function makeCandidate(sampleTerm: string): CandidateEntry {
 }
 
 describe('OR-fill relevance floor — TokenIndex.matchingJobs', () => {
+  // matchingJobs now receives the STEMMED tokens that tokenizeQuery emits
+  // (job haystacks are stemmed too), so pass the stems 'responsabil'/'neurolog'
+  // exactly as the plugin would after PR #search-root-stemming.
   it('minOrScore=2 drops single-token OR matches (keeps only the AND core)', () => {
     const index = new TokenIndex(JOBS);
-    const matching = index.matchingJobs('it', ['responsabile', 'neurologia'], 30, 2);
+    const matching = index.matchingJobs('it', ['responsabil', 'neurolog'], 30, 2);
     // Only the job matching BOTH tokens survives — the single-token
     // "responsabile"/"neurologia" listings are below the floor.
     expect(ids(matching)).toEqual(['and']);
@@ -66,7 +69,7 @@ describe('OR-fill relevance floor — TokenIndex.matchingJobs', () => {
 
   it('minOrScore=1 recovers single-token OR matches', () => {
     const index = new TokenIndex(JOBS);
-    const matching = index.matchingJobs('it', ['responsabile', 'neurologia'], 30, 1);
+    const matching = index.matchingJobs('it', ['responsabil', 'neurolog'], 30, 1);
     expect(ids(matching)).toEqual(['and', 'neuroOnly', 'respOnly']);
   });
 });
@@ -89,6 +92,43 @@ describe('OR-fill relevance floor — buildClusterContext derivation', () => {
     const ctx = buildClusterContext(makeCandidate('infermiere Lugano'), index, JOBS);
     expect(ctx).not.toBeNull();
     expect(ids(ctx!.matchingJobs)).toEqual(['infOnly']);
+  });
+});
+
+/**
+ * Root-stemming recall (PR #search-root-stemming). The reported case:
+ * `/cerca-lavoro-svizzera/ricerca-…-cure-infermieristiche-…/` returned the
+ * relevant "Infermiere/a" jobs only by accident (via co-occurring generic
+ * words) because the static matcher did NOT stem — "infermieristiche" never
+ * substring-matched "infermiere". Now query tokens AND job haystacks share the
+ * root stemmer, so the adjectival form reaches the noun root, while distinct
+ * surface forms ("specialista" vs "specializzato") stay distinct.
+ */
+describe('Root-stemming recall + precision (static matcher)', () => {
+  const ROOT_JOBS: RawJob[] = [
+    { id: 'n1', title: 'Infermiere specializzato', company: 'EOC', location: 'Lugano', canton: 'TI' },
+    { id: 'n2', title: 'Infermiera cure intensive', company: 'Clinica', location: 'Lugano', canton: 'TI' },
+    { id: 'bk', title: 'Specialista panetteria artigianale', company: 'Forno', location: 'Lugano', canton: 'TI' },
+    { id: 'ts', title: 'Tecnico specializzato impianti', company: 'AIL', location: 'Lugano', canton: 'TI' },
+    { id: 'en', title: 'Ingegnere di rete', company: 'Swisscom', location: 'Lugano', canton: 'TI' },
+  ];
+
+  it('an "-istiche" adjectival query reaches the noun-root "infermiere" jobs', () => {
+    const index = new TokenIndex(ROOT_JOBS);
+    // Full static path: tokenizeQuery stems "infermieristiche" → "infermier",
+    // buildJobHaystack stems "Infermiere"/"Infermiera" → "infermier".
+    const ctx = buildClusterContext(makeCandidate('infermieristiche'), index, ROOT_JOBS);
+    expect(ctx).not.toBeNull();
+    expect(ids(ctx!.matchingJobs)).toEqual(['n1', 'n2']);
+  });
+
+  it('stems gender/number of "specializzato" but does NOT over-merge "specialista"', () => {
+    const index = new TokenIndex(ROOT_JOBS);
+    // 'specializzato'/'specializzata' → 'specializzat'; 'specialista' → 'special'.
+    // So a "specializzato" query matches the two specialized roles, never the
+    // bakery "Specialista" — stemming broadens within a lemma, not across lemmas.
+    const matching = index.matchingJobs('it', ['specializzat'], 30, 1);
+    expect(ids(matching)).toEqual(['n1', 'ts']);
   });
 });
 
