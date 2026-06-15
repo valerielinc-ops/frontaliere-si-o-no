@@ -297,10 +297,11 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
 
     const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
     // Some Workday tenants (e.g. logitech.wd5) return `total: 0` on every
-    // page after the first, which would otherwise trip the
-    // `yielded >= total` early-exit below after page 1. Trust only the
-    // first page's total; rely on `postings.length < pageSize` / empty
-    // payload to detect the genuine end of pagination.
+    // page after the first — and an unfiltered query can even report total:0
+    // on page 0 alongside a full page of postings. Trust only the first page's
+    // total, and use it as a positive upper bound: rely on
+    // `postings.length < pageSize` / empty payload to detect the genuine end of
+    // pagination so a degenerate total:0 never short-circuits after page 1.
     if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
       total = data.total;
     }
@@ -312,7 +313,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       yielded += 1;
     }
 
-    if (yielded >= total) return;
+    if (total > 0 && yielded >= total) return;
     if (postings.length < pageSize) return;
 
     offset += pageSize;

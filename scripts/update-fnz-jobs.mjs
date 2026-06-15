@@ -177,14 +177,19 @@ async function fetchJson(url, options = {}) {
  *   - single-location postings whose locationsText resolves to Switzerland;
  *   - multi-location postings (e.g. "2 Locations") whose Swiss membership can
  *     only be confirmed from the detail page → handed downstream for resolution.
- * Pagination uses limit/offset; we trust the first page's `total` because later
- * pages may echo total:0.
+ * Pagination uses limit/offset and stops on a short/empty page (the genuine end
+ * of results). The first page's `total` is used only as a positive upper bound:
+ * an unfiltered Workday query can echo total:0 alongside a full page of postings,
+ * so we never break on `offset >= total` when total is 0 (that would drop every
+ * posting on pages 2+). A page cap bounds the loop if a tenant never shortens.
  */
 async function listSwissJobs() {
   const candidates = [];
   let offset = 0;
   let total = null;
+  let pages = 0;
   const limit = 20;
+  const MAX_PAGES = 100;
 
   while (true) {
     const body = JSON.stringify({
@@ -205,6 +210,7 @@ async function listSwissJobs() {
     }
 
     if (total === null) total = data.total || 0;
+    pages += 1;
 
     for (const posting of data.jobPostings) {
       const locText = posting.locationsText || '';
@@ -216,7 +222,15 @@ async function listSwissJobs() {
     }
 
     offset += data.jobPostings.length;
-    if (data.jobPostings.length < limit || offset >= total) break;
+    // Stop on a short/empty page. Trust `total` as an upper bound ONLY when
+    // positive: an unfiltered query echoing total:0 with a full page must not
+    // break here, or every posting on pages 2+ is silently dropped.
+    if (data.jobPostings.length < limit) break;
+    if (total > 0 && offset >= total) break;
+    if (pages >= MAX_PAGES) {
+      console.warn(`⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
+      break;
+    }
   }
 
   return candidates;
