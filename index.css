@@ -277,9 +277,20 @@ a.seo-entity-card:focus-visible {
    / ~0.42 (mobile) at ~0.5s (Playwright live attribution, 2026-06-15).
    `display: flow-root` makes #root its own BFC so the inner margin can never
    escape to <body>, keeping the static and hydrated phases vertically
-   consistent. Pure CSS, no effect on React rendering. */
+   consistent. Pure CSS, no effect on React rendering.
+
+   `min-height: 100vh` addresses the dominant homepage shift: during the
+   createRoot().render() clear-then-paint, #root momentarily collapses toward
+   0 height, which pulls the static `aside#hp-seo-block` (sibling after #root)
+   up into the viewport (measured previousRect.top ≈72px) before React paints
+   the tall tree and drops it back down — a ~0.79–0.86 layout shift. Reserving
+   at least one viewport keeps #root from collapsing below the fold, so the SEO
+   block stays at/below the fold throughout the swap and its shift no longer
+   intersects the viewport. Gap-risk-free: the hydrated homepage is ~7300–8100px,
+   always far exceeding 100vh, so the reservation is never visible. */
 #root {
   display: flow-root;
+  min-height: 100vh;
 }
 
 /* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
