@@ -146,6 +146,21 @@ describe('Klinik Gut crawler parser', () => {
       // @ts-expect-error intentional bad input
       expect(parseKlinikGutListing(null)).toEqual([]);
     });
+
+    it('still parses rows when Drupal appends a modifier class', () => {
+      // e.g. `class="rz-infobox__item rz-infobox__item--featured"`; the item
+      // regex must match the class token, not a quote-strict `class="X"`.
+      const html = LISTING_HTML.replace(
+        /class="rz-infobox__item"/g,
+        'class="rz-infobox__item rz-infobox__item--featured"',
+      );
+      const rows = parseKlinikGutListing(html);
+      expect(rows.length).toBe(2);
+      expect(rows.map((r) => r.id)).toEqual([
+        'wahlstudienjahr-praktisches-jahr',
+        'dipl-pflegefachperson-hf',
+      ]);
+    });
   });
 
   describe('parseKlinikGutDetail', () => {
