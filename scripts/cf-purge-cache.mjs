@@ -43,6 +43,23 @@ if (!token) {
   process.exit(0);
 }
 
+// Surface a purge failure in the GitHub Actions run UI. The validate-live step
+// (post-deploy-validate-live.yml) wires this with `continue-on-error: true` —
+// a purge hiccup must not fail the deploy — but that ALSO swallows the non-zero
+// exit, so without an explicit annotation the failure is invisible in the run
+// summary: a revoked/mis-scoped token or a persistent CF API error would leave
+// the edge serving stale HTML for up to the 24h Edge TTL with NO active signal
+// (it would only surface by reading the validate-live logs). Crawlers that
+// ignore the short browser max-age=600 could index that stale HTML → SEO drift
+// for the whole window. A `::warning::` line on stdout is rendered as a run
+// annotation even under continue-on-error, making the failure visible without
+// making the deploy fatal (the intentional design). See issue #2067.
+function warnStaleEdge(reason) {
+  console.log(
+    `::warning title=Cloudflare cache purge failed::${reason} — edge may serve STALE HTML for up to 24h (Edge TTL) until the next deploy purges it. Re-run the purge or check CF_API_TOKEN scope (Zone→Cache Purge).`,
+  );
+}
+
 async function cf(method, path, body) {
   const res = await fetch(`${REST_BASE}${path}`, {
     method,
@@ -58,6 +75,7 @@ async function resolveZoneId() {
   const { json } = await cf('GET', `/zones?name=${encodeURIComponent(ZONE_NAME)}`);
   if (!json?.success || !json.result?.length) {
     console.error(`❌ Cannot resolve zone id for ${ZONE_NAME} (token scope?).`);
+    warnStaleEdge(`could not resolve zone id for ${ZONE_NAME} (token scope?)`);
     process.exit(1);
   }
   return json.result[0].id;
@@ -67,6 +85,7 @@ const zoneId = await resolveZoneId();
 const { json } = await cf('POST', `/zones/${zoneId}/purge_cache`, { purge_everything: true });
 if (!json?.success) {
   console.error(`❌ purge_everything failed: ${JSON.stringify(json?.errors)}`);
+  warnStaleEdge(`purge_everything API call failed: ${JSON.stringify(json?.errors)}`);
   process.exit(1);
 }
 console.log(`✅ Cloudflare edge cache purged (zone ${zoneId}).`);
