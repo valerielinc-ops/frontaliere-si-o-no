@@ -391,7 +391,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  { label: t('permitCompare.docs.linkCh'), url: 'https://www.ch.ch/it/stranieri-in-svizzera/lavorare-in-svizzera/' },
  { label: t('permitCompare.docs.linkAire'), url: 'https://www.esteri.it/it/servizi-consolari-e-visti/italiani-all-estero/aire_0/' },
  { label: t('permitCompare.docs.linkInps'), url: 'https://www.inps.it/it/it/inps-comunica/dossier/la-naspi/naspi-per-lavoratori-migranti.html' },
- { label: t('permitCompare.docs.linkFaq'), url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/faq-frontaliere' },
+ { label: t('permitCompare.docs.linkFaq'), url: 'https://www4.ti.ch/dfe/dc/dichiarazione/imposte-alla-fonte-1/informazioni-sullimposte-alla-fonte' },
  ],
  [t]
  );
