@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2800,
+ "numberOfItems": 2805,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7440,7 +7440,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2797, "name": "Capanne CAS: arriva la tassa di prenotazione di...", "url": `${BASE_URL}/articoli-frontaliere/tassa-prenotazione-capanne-cas` },
           { "@type": "ListItem", "position": 2798, "name": "Ticino approva il blocco degli abitanti: cosa c...", "url": `${BASE_URL}/articoli-frontaliere/ticino-vota-si-blocco-abitanti` },
           { "@type": "ListItem", "position": 2799, "name": "Vaud approva salario minimo costituzionale ma r...", "url": `${BASE_URL}/articoli-frontaliere/salario-minimo-vaud-si-ma-cantone-sesto` },
-          { "@type": "ListItem", "position": 2800, "name": "Traffico pesante sull'A2 e le « corse tra elefa...", "url": `${BASE_URL}/articoli-frontaliere/traffico-pesante-autostrada-a2-ticino` }
+          { "@type": "ListItem", "position": 2800, "name": "Traffico pesante sull'A2 e le « corse tra elefa...", "url": `${BASE_URL}/articoli-frontaliere/traffico-pesante-autostrada-a2-ticino` },
+          { "@type": "ListItem", "position": 2801, "name": "Votazioni federali del 14 giugno 2026: servizio...", "url": `${BASE_URL}/articoli-frontaliere/votazioni-federali-giugno-2026` },
+          { "@type": "ListItem", "position": 2802, "name": "Curiglia con Monteviasco - Interventi di sicure...", "url": `${BASE_URL}/articoli-frontaliere/messa-in-sicurezza-provinciale-curiglia` },
+          { "@type": "ListItem", "position": 2803, "name": "Basel: approvata l'introduzione dell'imposizion...", "url": `${BASE_URL}/articoli-frontaliere/imposizione-fonte-basilea` },
+          { "@type": "ListItem", "position": 2804, "name": "Grandine sulla GT86 TRD: come agire se l'assicu...", "url": `${BASE_URL}/articoli-frontaliere/grandine-gt86-trd-perdita-totale` },
+          { "@type": "ListItem", "position": 2805, "name": "Ticino: Voto al blocco degli abitanti stranieri...", "url": `${BASE_URL}/articoli-frontaliere/blocchi-immigrazione-ticino` }
  ]
  },
  {

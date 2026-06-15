@@ -8079,6 +8079,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Starker Verkehr auf der A2 und die \'Elefantenrennen\'',
     'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Frage an den Staatsrat zum starken Verkehr und verlängerten Überholmanövern zwischen Lastwagen auf der Autobahn A2 im Tessin.',
     'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Stau auf der A2 in Tessin mit LKWs und Überholvorgängen, realistische Szene.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.title': 'Curiglia mit Monteviasco – Sicherheitsmaßnahmen auf der Landstraße 6',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.excerpt': 'Die Sicherung der Landstraße 6 in Curiglia geht weiter, mit temporären Eingriffen und dem Auftreten neuer Fragilitäten im abgestürzten Hang.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.imageAlt': 'Bergstraße mit Schutznetzen in Curiglia, Ticino.',
+    'blog.article.grandine-gt86-trd-perdita-totale.title': 'Hagel auf GT86 TRD: Was tun bei Totalschaden durch Versicherung',
+    'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'Ein Hagelsturm im Kanton Tessin hat eine Toyota GT86 TRD schwer beschädigt. Die Versicherung bietet eine Totalschadenentschädigung an: Hier erfahren Sie, was zu tun ist.',
+    'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'GT86 TRD Auto durch Hagel im Tessin am See beschädigt',
 };
 
 export default blogMetaDe;

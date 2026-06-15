@@ -16,9 +16,13 @@
  *
  * Output is byte-identical: the helper functions below are verbatim copies
  * of their counterparts in relatedSearchClustersPlugin.ts. Pure JS, no I/O,
- * no .ts imports — boots without tsx loader.
+ * no .ts imports — boots without tsx loader. The stemming step is imported
+ * from services/searchStem.mjs (also pure JS) so it can NEVER drift from the
+ * plugin's `stemHaystack`; the queried `tokens` arrive already stemmed by the
+ * plugin's tokenizeQuery, so the haystack here must be stemmed identically.
  */
 import { parentPort, workerData } from 'node:worker_threads';
+import { stemHaystack } from '../services/searchStem.mjs';
 
 if (!parentPort) {
   throw new Error('[relatedSearchPostingsWorker] must be spawned via worker_threads');
@@ -39,7 +43,7 @@ function normalizeText(value) {
 function buildJobHaystack(job, locale) {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
   const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`);
+  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`));
 }
 
 /** @param {string} value */

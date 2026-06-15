@@ -167,6 +167,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud approva salario minimo costituzionale ma rifiuta legge specifica',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1% a favore dell\'iniziativa costituzionale, 47,5% contro la legge operativa con 23 CHF/ora. Vaud diventa sesto cantone con salario minimo.',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Vista panoramica di Losanna con edifici e bandiere svizzere',
+    'blog.article.votazioni-federali-giugno-2026.title': 'Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni',
+    'blog.article.votazioni-federali-giugno-2026.excerpt': 'Il 14 giugno 2026 gli svizzeri votano su limitare l’accesso al servizio civile e sull’iniziativa “No a una Svizzera da 10 milioni!”. Scopri dettagli, procedure e scadenze.',
+    'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Scheda elettorale svizzera con bandiera federale sullo sfondo',
+    'blog.article.imposizione-fonte-basilea.title': 'Basel: approvata l\'introduzione dell\'imposizione alla fonte',
+    'blog.article.imposizione-fonte-basilea.excerpt': 'Le votazioni cantonali a Basilea hanno approvato l\'introduzione dell\'imposizione alla fonte, con il 53,4% dei voti, modificando il sistema fiscale locale.',
+    'blog.article.imposizione-fonte-basilea.imageAlt': 'Vista di Basilea con simboli fiscali e politici',
+    'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
+    'blog.article.blocchi-immigrazione-ticino.excerpt': 'Il Canton Ticino approva il blocco degli abitanti stranieri, ma con effetti limitati, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%.',
+    'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino.',
 };
 
 export default blogMetaChIt;

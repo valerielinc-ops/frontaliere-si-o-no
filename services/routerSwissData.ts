@@ -77,6 +77,9 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'bce-tassi-inflazione-2023': { it: 'bce-tassi-inflazione-2023', en: 'bce-interest-inflation-2023', de: 'bce-zinssatz-inflation-2023', fr: 'bce-taux-inflation-2023' },
  'tassa-prenotazione-capanne-cas': { it: 'tassa-prenotazione-capanne-cas', en: 'cas-hut-reservation-fee-switzerland', de: 'sac-huetten-reservierungsgebuehr-schweiz', fr: 'taxe-reservation-cabanes-cas-suisse' },
  'salario-minimo-vaud-si-ma-cantone-sesto': { it: 'salario-minimo-vaud-si-ma-cantone-sesto', en: 'minimum-wage-vd-yes-but-canton-sixth', de: 'mindestlohn-wd-ja-aber-der-sechste-kanton', fr: 'salaire-minimum-vd-oui-mais-la-sixieme-canton' },
+ 'votazioni-federali-giugno-2026': { it: 'votazioni-federali-giugno-2026', en: 'federal-votes-june-2026', de: 'eidgenoessische-abstimmung-juni-2026', fr: 'votations-federales-juin-2026' },
+ 'imposizione-fonte-basilea': { it: 'imposizione-fonte-basilea', en: 'source-tax-basel', de: 'quelle-steuer-basel', fr: 'impot-source-basel' },
+ 'blocchi-immigrazione-ticino': { it: 'blocchi-immigrazione-ticino', en: 'immigration-block-ticino', de: 'einwanderungsblock-tessin', fr: 'blocage-immigration-tessin' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

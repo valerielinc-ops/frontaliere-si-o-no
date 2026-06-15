@@ -25623,6 +25623,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'messa-in-sicurezza-provinciale-curiglia',
+ category: 'pratico',
+ date: '2026-06-15T04:58:09.486Z',
+ image: '/images/blog/messa-in-sicurezza-provinciale-curiglia.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'grandine-gt86-trd-perdita-totale',
+ category: 'pratico',
+ date: '2026-06-15T05:44:43.468Z',
+ image: '/images/blog/grandine-gt86-trd-perdita-totale.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

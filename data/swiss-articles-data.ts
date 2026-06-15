@@ -503,6 +503,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'votazioni-federali-giugno-2026',
+    category: 'novita',
+    date: '2026-06-15T04:33:25.023Z',
+    image: '/images/blog/votazioni-federali-giugno-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'imposizione-fonte-basilea',
+    category: 'fiscale',
+    date: '2026-06-15T05:26:26.152Z',
+    image: '/images/blog/imposizione-fonte-basilea.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'blocchi-immigrazione-ticino',
+    category: 'fiscale',
+    date: '2026-06-15T05:54:39.916Z',
+    image: '/images/blog/blocchi-immigrazione-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

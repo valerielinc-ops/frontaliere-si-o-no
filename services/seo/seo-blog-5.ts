@@ -43910,6 +43910,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-messa-in-sicurezza-provinciale-curiglia': {
+    title: 'Curiglia con Monteviasco - Interventi di sicurezza sulla provinciale 6',
+    description: 'Prosegue la messa in sicurezza della strada provinciale 6 a Curiglia, con lavori in corso e emergenza di fragilità. Ultima data: 16 giugno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, curiglia, monteviasco, interventi, sicurezza',
+    ogTitle: 'Interventi sulla provinciale 6 a Curiglia',
+    ogDescription: 'Aggiornamenti sui lavori di messa in sicurezza e nuove fragilità emerse a Curiglia, con scadenza prevista il 16 giugno.',
+    canonicalPath: '/articoli-frontaliere/messa-in-sicurezza-provinciale-curiglia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Curiglia con Monteviasco - Interventi di sicurezza sulla provinciale 6",
+      "description": "Prosegue la messa in sicurezza della strada provinciale 6 a Curiglia, con lavori in corso e emergenza di fragilità. Ultima data: 16 giugno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/messa-in-sicurezza-provinciale-curiglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna con reti paramassi a Curiglia, Ticino."
+      },
+      "datePublished": "2026-06-15T04:58:09+00:00",
+      "dateModified": "2026-06-15T04:58:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/messa-in-sicurezza-provinciale-curiglia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-grandine-gt86-trd-perdita-totale': {
+    title: 'Grandine sulla GT86 TRD: come agire se l\'assicurazione la dichiara perdita',
+    description: 'Danni da grandine sulla tua auto in Ticino? Ecco come contestare la perdita totale e ottenere il massimo risarcimento. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, grandine, sulla, gt86, agire',
+    ogTitle: 'Danni da grandine e perdita totale auto',
+    ogDescription: 'Come agire se l\'assicurazione propone la perdita totale dopo danni da grandine in Ticino.',
+    canonicalPath: '/articoli-frontaliere/grandine-gt86-trd-perdita-totale',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Grandine sulla GT86 TRD: come agire se l'assicurazione la dichiara perdita",
+      "description": "Danni da grandine sulla tua auto in Ticino? Ecco come contestare la perdita totale e ottenere il massimo risarcimento. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grandine-gt86-trd-perdita-totale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto GT86 TRD danneggiata da grandine in Ticino vicino al lago"
+      },
+      "datePublished": "2026-06-15T05:44:43+00:00",
+      "dateModified": "2026-06-15T05:44:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grandine-gt86-trd-perdita-totale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

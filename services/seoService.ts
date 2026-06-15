@@ -3997,6 +3997,11 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-vota-si-blocco-abitanti': { name: 'Novità Ticino', path: '/articoli-frontaliere/ticino-vota-si-blocco-abitanti', parent: 'blog' },
     'blog-salario-minimo-vaud-si-ma-cantone-sesto': { name: 'Salario minimo Vaud', path: '/articoli-svizzera/salario-minimo-vaud-si-ma-cantone-sesto/', parent: 'blog' },
     'blog-traffico-pesante-autostrada-a2-ticino': { name: 'Mobilità', path: '/articoli-frontaliere/traffico-pesante-autostrada-a2-ticino', parent: 'blog' },
+    'blog-votazioni-federali-giugno-2026': { name: 'Votazioni federali', path: '/articoli-svizzera/votazioni-federali-giugno-2026/', parent: 'blog' },
+    'blog-messa-in-sicurezza-provinciale-curiglia': { name: 'Pratico', path: '/articoli-frontaliere/messa-in-sicurezza-provinciale-curiglia', parent: 'blog' },
+    'blog-imposizione-fonte-basilea': { name: 'Fiscale', path: '/articoli-svizzera/imposizione-fonte-basilea/', parent: 'blog' },
+    'blog-grandine-gt86-trd-perdita-totale': { name: 'auto danneggiata', path: '/articoli-frontaliere/grandine-gt86-trd-perdita-totale', parent: 'blog' },
+    'blog-blocchi-immigrazione-ticino': { name: 'Politica migratoria', path: '/articoli-svizzera/blocchi-immigrazione-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -36,6 +36,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -60,6 +61,10 @@ const FLOORS = Number.isFinite(SINGLE_FLOOR) && SINGLE_FLOOR > 0
   : [1, 2, 3, 5, 10];
 
 // ── Match helpers (duplicated from plugin)
+// Stemming is imported from the shared services/searchStem.mjs (plain JS,
+// node-importable) so the profiler's AND/OR buckets stem queries + haystacks
+// exactly like the production plugin (PR #search-root-stemming) — otherwise the
+// measured match distribution would drift from reality.
 function normalizeText(value) {
   return String(value || '')
     .toLowerCase()
@@ -70,7 +75,8 @@ function normalizeText(value) {
 function tokenizeQuery(query) {
   return normalizeText(query)
     .split(/[^a-z0-9]+/)
-    .filter((tok) => tok.length >= 2);
+    .filter((tok) => tok.length >= 2)
+    .map(stemSearchToken);
 }
 
 // Boilerplate strip — keep in sync with services/relatedSearchClusters.ts
@@ -129,7 +135,7 @@ function queryMatchScore(haystack, queryTokens) {
 function buildJobHaystack(job, locale) {
   const title = job.titleByLocale?.[locale] ?? job.title ?? '';
   const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`);
+  return stemHaystack(normalizeText(`${title} ${job.company ?? ''} ${job.location ?? ''} ${description}`));
 }
 
 function jobIdentity(job) {

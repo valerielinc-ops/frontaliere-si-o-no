@@ -2087,6 +2087,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-federali-giugno-2026': {
+    title: 'Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni',
+    description: 'Il 14 giugno 2026 gli svizzeri votano su servizio civile e iniziativa 10 milioni. Scopri dettagli, procedure per votare dall’estero e scadenze. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, federali, giugno, servizio',
+    ogTitle: 'Votazioni federali giugno 2026 servizio civile iniziativa 10 milioni',
+    ogDescription: 'Dettagli sulle votazioni del 14 giugno 2026: servizio civile, iniziativa 10 milioni, come votare dall’estero.',
+    canonicalPath: '/articoli-svizzera/votazioni-federali-giugno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni federali del 14 giugno 2026: servizio civile e iniziativa 10 milioni",
+      "description": "Il 14 giugno 2026 gli svizzeri votano su servizio civile e iniziativa 10 milioni. Scopri dettagli, procedure per votare dall’estero e scadenze. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-federali-giugno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scheda elettorale svizzera con bandiera federale sullo sfondo"
+      },
+      "datePublished": "2026-06-15T04:33:25+00:00",
+      "dateModified": "2026-06-15T04:33:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-federali-giugno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposizione-fonte-basilea': {
+    title: 'Basel: approvata l\'introduzione dell\'imposizione alla fonte',
+    description: 'Le votazioni a Basilea hanno approvato l\'imposizione alla fonte con il 53,4%, influenzando aziende e frontalieri. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, basel, approvata, introduzione, dell',
+    ogTitle: 'Basel approva imposizione alla fonte',
+    ogDescription: 'Votazioni a Basilea: approvata l\'imposizione alla fonte con il 53,4%, nuovi investimenti e riforme fiscali.',
+    canonicalPath: '/articoli-svizzera/imposizione-fonte-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Basel: approvata l'introduzione dell'imposizione alla fonte",
+      "description": "Le votazioni a Basilea hanno approvato l'imposizione alla fonte con il 53,4%, influenzando aziende e frontalieri. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposizione-fonte-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Basilea con simboli fiscali e politici"
+      },
+      "datePublished": "2026-06-15T05:26:26+00:00",
+      "dateModified": "2026-06-15T05:26:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposizione-fonte-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-blocchi-immigrazione-ticino': {
+    title: 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
+    description: 'Il Canton Ticino approva il blocco migratorio con il 50.66%, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, blocco, abitanti, stranieri',
+    ogTitle: 'Ticino: blocco stranieri approvato | Frontaliere Ticino',
+    ogDescription: 'Risultati del referendum in Ticino sul blocco degli stranieri, con analisi delle implicazioni pratiche e procedure.',
+    canonicalPath: '/articoli-svizzera/blocchi-immigrazione-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino: Voto al blocco degli abitanti stranieri e frontalieri",
+      "description": "Il Canton Ticino approva il blocco migratorio con il 50.66%, mentre la Svizzera respinge l'iniziativa UDC con il 54,79%. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocchi-immigrazione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino."
+      },
+      "datePublished": "2026-06-15T05:54:39+00:00",
+      "dateModified": "2026-06-15T05:54:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/blocchi-immigrazione-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
