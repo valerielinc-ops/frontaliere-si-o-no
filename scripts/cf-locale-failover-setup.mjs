@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
- * cf-locale-failover-setup.mjs — idempotent Cloudflare config for the
- * locale-router over-cap failover. Run after EVERY `wrangler deploy` of the
- * Worker (deploy-worker.yml wires it in; manual deploys: run it yourself —
- * see LOCALE-SHARD-CLOUDFLARE-RUNBOOK §2.4).
+ * cf-locale-failover-setup.mjs — idempotent Cloudflare cache config for the
+ * apex zone. Run after EVERY `wrangler deploy` of the locale-router Worker
+ * (deploy-worker.yml wires it in; manual deploys: run it yourself — see
+ * LOCALE-SHARD-CLOUDFLARE-RUNBOOK §2.4). Safe to re-run any time; idempotent.
  *
  * What it asserts (and why it must re-run post-deploy):
  *
@@ -15,17 +15,19 @@
  *    `wrangler deploy` re-syncs routes from wrangler.toml, which cannot
  *    express this flag — so a deploy can silently reset it to fail closed.
  *
- * 2. CACHE RULE — zone rule (marker: RULE_DESCRIPTION) that makes the apex
- *    locale paths ELIGIBLE for cache. Extensionless HTML is not looked up in
- *    the edge cache by default, so without this rule the apex-keyed entries
- *    the Worker writes via cache.put() are unreachable exactly on the
- *    fail-open path they exist for. Write-side TTLs on this rule only matter
- *    for fail-open MISSes that reach the main GitHub Pages origin (which has
- *    no /en|/de|/fr content since the locale sharding): 3xx-5xx → value 0
- *    (no-cache) so a transient fail-open 404 never outlives the cap window.
- *    Scoped to http.host == apex so the Worker's own subrequests to the
- *    origin-{loc} shard hosts (already cached via cf.cacheEverything) are
- *    untouched.
+ * 2. CACHE RULES — the managed entries in MANAGED_CACHE_RULES (each keyed by
+ *    its `description` marker; foreign rules on the same entrypoint preserved):
+ *    a) locale-shard-failover-cache — makes the apex /en|/de|/fr paths
+ *       ELIGIBLE for cache so the apex-keyed entries the Worker writes via
+ *       cache.put() are reachable on the fail-open path. 3xx-5xx → TTL 0 so a
+ *       transient fail-open 404 never outlives the cap window.
+ *    b) it-apex-html-cache — caches the IT/apex HTML (the ~95% Worker-
+ *       passthrough bulk, previously cf-cache-status=DYNAMIC i.e. uncached).
+ *       Query-string requests bypass (no cache pollution); 3xx-5xx → TTL 0.
+ *    Both override Edge TTL to 24h; the deploy-time purge (scripts/
+ *    cf-purge-cache.mjs, wired in post-deploy-validate-live.yml) clears the
+ *    edge once a new build is confirmed live, so the long TTL never serves
+ *    stale content across deploys.
  *
  * Auth: CF_API_TOKEN — needs Zone→Workers Routes:Edit (already required by
  * deploy-worker.yml) + Zone→Zone Settings/Cache Rules:Edit + zone read.
@@ -40,17 +42,15 @@
 const REST_BASE = 'https://api.cloudflare.com/client/v4';
 const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
 const WORKER_SCRIPT = 'frontaliere-locale-router';
-const RULE_DESCRIPTION = 'locale-shard-failover-cache (managed by scripts/cf-locale-failover-setup.mjs)';
 const CACHE_PHASE = 'http_request_cache_settings';
 
-const RULE_EXPRESSION =
-  '(http.host eq "frontaliereticino.ch" and ' +
-  '(starts_with(http.request.uri.path, "/en/") or ' +
-  'starts_with(http.request.uri.path, "/de/") or ' +
-  'starts_with(http.request.uri.path, "/fr/") or ' +
-  'http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"}))';
-
-const RULE_ACTION_PARAMETERS = {
+// Shared cache settings for both managed rules: make matching requests
+// eligible for the edge cache with a 24h Edge TTL (override_origin — the
+// origin sends max-age=600, which would otherwise cap edge entries; the
+// deploy-time purge in scripts/cf-purge-cache.mjs keeps them fresh). 3xx-5xx
+// responses get TTL 0 so a transient redirect/404 never outlives a build.
+// Browser TTL respects the origin so clients still revalidate per max-age.
+const CACHE_ACTION_PARAMETERS = {
   cache: true,
   edge_ttl: {
     mode: 'override_origin',
@@ -59,6 +59,43 @@ const RULE_ACTION_PARAMETERS = {
   },
   browser_ttl: { mode: 'respect_origin' },
 };
+
+// Every cache rule this script owns, keyed by description (the idempotency
+// marker — foreign rules sharing the entrypoint are preserved untouched).
+const MANAGED_CACHE_RULES = [
+  {
+    // Locale-shard over-cap failover: extensionless HTML is not edge-cache
+    // looked-up by default, so without this the apex-keyed entries the Worker
+    // writes via cache.put() are unreachable on the fail-open path.
+    description: 'locale-shard-failover-cache (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression:
+      '(http.host eq "frontaliereticino.ch" and ' +
+      '(starts_with(http.request.uri.path, "/en/") or ' +
+      'starts_with(http.request.uri.path, "/de/") or ' +
+      'starts_with(http.request.uri.path, "/fr/") or ' +
+      'http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"}))',
+    action_parameters: CACHE_ACTION_PARAMETERS,
+  },
+  {
+    // IT/apex HTML edge cache: the IT bulk (~95% traffic) is Worker-passthrough
+    // and was served cf-cache-status=DYNAMIC (every hit reached GitHub Pages).
+    // Cache GET page requests with NO query string (so ?q= search / ?debug=
+    // variations bypass and never pollute the cache), excluding the locale
+    // shards (handled above), /api/, and the shard root paths. Bundled JS/CSS
+    // live on the gray-cloud cdn.* host (Fastly) and never reach this zone, so
+    // no asset-extension exclusion is needed here.
+    description: 'it-apex-html-cache (managed by scripts/cf-locale-failover-setup.mjs)',
+    expression:
+      '(http.host eq "frontaliereticino.ch" and http.request.method eq "GET" ' +
+      'and http.request.uri.query eq "" ' +
+      'and not starts_with(http.request.uri.path, "/en/") ' +
+      'and not starts_with(http.request.uri.path, "/de/") ' +
+      'and not starts_with(http.request.uri.path, "/fr/") ' +
+      'and not starts_with(http.request.uri.path, "/api/") ' +
+      'and not http.request.uri.path in {"/en" "/de" "/fr" "/en.html" "/de.html" "/fr.html"})',
+    action_parameters: CACHE_ACTION_PARAMETERS,
+  },
+];
 
 const args = new Set(process.argv.slice(2));
 const DRY_RUN = args.has('--dry-run');
@@ -117,62 +154,75 @@ async function assertFailOpenRoutes(zoneId) {
 // API-added defaults, so a stringify comparison would flag drift on every
 // run and re-PUT the entrypoint forever (never converging to "in shape").
 // Extra/unknown fields CF adds are tolerated; only OUR contract is checked.
-function ruleInShape(current) {
+function ruleInShape(current, desired) {
   if (!current || current.enabled === false) return false;
-  if (current.expression !== RULE_EXPRESSION) return false;
+  if (current.expression !== desired.expression) return false;
   const p = current.action_parameters || {};
-  if (p.cache !== true) return false;
+  const want = desired.action_parameters;
+  if (p.cache !== want.cache) return false;
   const e = p.edge_ttl || {};
-  if (e.mode !== 'override_origin' || e.default !== 86400) return false;
-  const noCache3xx5xx = (e.status_code_ttl || []).find(
-    (s) => s.status_code_range && s.status_code_range.from === 300 && s.status_code_range.to === 599,
+  if (e.mode !== want.edge_ttl.mode || e.default !== want.edge_ttl.default) return false;
+  const wantStatus = want.edge_ttl.status_code_ttl[0];
+  const gotStatus = (e.status_code_ttl || []).find(
+    (s) =>
+      s.status_code_range &&
+      s.status_code_range.from === wantStatus.status_code_range.from &&
+      s.status_code_range.to === wantStatus.status_code_range.to,
   );
-  if (!noCache3xx5xx || noCache3xx5xx.value !== 0) return false;
-  if ((p.browser_ttl || {}).mode !== 'respect_origin') return false;
+  if (!gotStatus || gotStatus.value !== wantStatus.value) return false;
+  if ((p.browser_ttl || {}).mode !== want.browser_ttl.mode) return false;
   return true;
 }
 
-async function assertCacheRule(zoneId) {
+async function assertCacheRules(zoneId) {
   // The entrypoint ruleset may not exist yet on a zone with no cache rules —
   // GET then answers 404; PUT below creates it.
   const { status, json } = await cf('GET', `/zones/${zoneId}/rulesets/phases/${CACHE_PHASE}/entrypoint`);
   if (status !== 404 && !json?.success) bail(`Cannot read ${CACHE_PHASE} entrypoint: ${JSON.stringify(json?.errors)}`);
   const existing = status === 404 ? [] : (json.result.rules || []);
 
-  const desired = {
-    description: RULE_DESCRIPTION,
-    expression: RULE_EXPRESSION,
-    action: 'set_cache_settings',
-    action_parameters: RULE_ACTION_PARAMETERS,
-    enabled: true,
-  };
+  // Build the desired rule list IN PLACE: every foreign rule preserved at its
+  // position, each managed rule updated where present or appended otherwise.
+  // Strip read-only per-rule fields (id, ref, version, last_updated) — the PUT
+  // replaces the rule list wholesale and rejects unknown/read-only keys.
+  const rules = existing.map(({ id, ref, version, last_updated, ...rest }) => rest);
+  let drift = 0;
+  for (const spec of MANAGED_CACHE_RULES) {
+    const desired = {
+      description: spec.description,
+      expression: spec.expression,
+      action: 'set_cache_settings',
+      action_parameters: spec.action_parameters,
+      enabled: true,
+    };
+    const idx = rules.findIndex((r) => r.description === spec.description);
+    const current = idx >= 0 ? existing[idx] : null;
+    if (ruleInShape(current, desired)) {
+      console.log(`cache rule "${spec.description.split(' ')[0]}": already in shape`);
+      continue;
+    }
+    drift++;
+    console.log(
+      `cache rule "${spec.description.split(' ')[0]}": ${current ? 'drift — updating' : 'missing — creating'}${DRY_RUN ? ' (dry-run)' : ''}`,
+    );
+    if (idx >= 0) rules[idx] = desired;
+    else rules.push(desired);
+  }
 
-  const idx = existing.findIndex((r) => r.description === RULE_DESCRIPTION);
-  const current = idx >= 0 ? existing[idx] : null;
-
-  if (ruleInShape(current)) {
-    console.log('cache rule: already in shape');
+  if (drift === 0) {
+    console.log('cache rules: all in shape');
     return;
   }
-  console.log(`cache rule: ${current ? 'drift — updating' : 'missing — creating'}${DRY_RUN ? ' (dry-run)' : ''}`);
   if (DRY_RUN) return;
-
-  // Preserve every foreign rule untouched; replace/append only ours. Strip
-  // read-only per-rule fields (id, ref, version, last_updated) — the PUT
-  // replaces the rule list wholesale and rejects unknown/read-only keys.
-  const keep = existing
-    .filter((_, i) => i !== idx)
-    .map(({ id, ref, version, last_updated, ...rest }) => rest);
-  const rules = idx >= 0 ? [...keep.slice(0, idx), desired, ...keep.slice(idx)] : [...keep, desired];
 
   const { json: put } = await cf('PUT', `/zones/${zoneId}/rulesets/phases/${CACHE_PHASE}/entrypoint`, {
     rules,
   });
   if (!put?.success) bail(`PUT ${CACHE_PHASE} entrypoint failed: ${JSON.stringify(put?.errors)}`);
-  console.log('cache rule: applied');
+  console.log('cache rules: applied');
 }
 
 const zoneId = await resolveZoneId();
 if (DO_ROUTES) await assertFailOpenRoutes(zoneId);
-if (DO_RULE) await assertCacheRule(zoneId);
+if (DO_RULE) await assertCacheRules(zoneId);
 console.log(DRY_RUN ? 'dry-run complete' : 'failover config converged');
