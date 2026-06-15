@@ -69,7 +69,18 @@ describe('critical CSS single source of truth (#1586)', () => {
     // full-viewport min-height. We strip comments first so the documentation
     // block above the rule (which legitimately mentions the pattern) is ignored.
     const cssNoComments = indexCss.replace(/\/\*[\s\S]*?\*\//g, '');
-    const unscopedRootBlocks = [...cssNoComments.matchAll(/([^{};]+)\{([^}]*)\}/g)].filter(
+    // Unwrap at-rule blocks (@media/@supports/@container/@layer/…) so their
+    // inner rules are exposed to the bare-`#root` check below. Without this the
+    // naive block matcher swallows a nested rule: for
+    // `@media (…){ #root{min-height:100vh} }` it captures `@media (…)` as the
+    // selector and the inner `#root` never reaches `/^#root$/` → a silent false
+    // negative that would let the #1586/#2162 CLS regression back in through a
+    // media-query wrapper. We strip only each at-rule's prelude + its opening
+    // brace; the now-dangling closing brace is harmless (the matcher requires a
+    // `selector{…}` shape, so an orphan `}` never matches). A global pass
+    // unwraps nested at-rules too (`@supports{@media{#root{…}}}`).
+    const cssUnwrapped = cssNoComments.replace(/@[a-z-]+[^{}]*\{/gi, '');
+    const unscopedRootBlocks = [...cssUnwrapped.matchAll(/([^{};]+)\{([^}]*)\}/g)].filter(
       (m) => {
         const selectors = m[1].split(',').map((s) => s.trim());
         const body = m[2];
