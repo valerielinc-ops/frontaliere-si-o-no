@@ -122,6 +122,53 @@ export function citedTokens(body) {
 }
 
 /**
+ * Explicit cross-reference signal: is this issue declared resolved by a MERGED PR?
+ *
+ * Orthogonal to the token matcher (which reads file CONTENT). Here the signal is a human/
+ * agent DECLARATION: a merged PR whose title/body names this issue on a line that also
+ * carries a closing/supersede keyword (`Closes`/`Fixes`/`Resolves`/`Supersedes #N`). This
+ * catches two done-but-open classes the verbatim-token matcher structurally cannot:
+ *   1. The multi-issue `Closes #a #b #c` gotcha (AGENTS.md): GitHub auto-closes ONLY the
+ *      first issue after a closing keyword, so `#b`/`#c` stay OPEN despite being declared
+ *      done in the merged PR (PR #1320: 9 issues on one line → 8 left open, manual cleanup).
+ *   2. `Supersedes #N` — deliberately non-auto-closing by GitHub, but an explicit "this PR
+ *      makes the issue moot" declaration.
+ *
+ * SAFE / bias-to-PROCEED: this is an EXPLICIT author declaration, not a content heuristic —
+ * far stronger than a coincidental token hit, and the caller still only short-circuits to an
+ * advisory `maybe-resolved` (never auto-closes; human confirms). A merged PR is required
+ * (a closed-unmerged PR's `Closes` is void). The `#N(?!\d)` guard prevents `#2035` matching
+ * `#20350`; requiring a keyword on the SAME line avoids bare `Related: #N` mentions.
+ *
+ * Pure: the caller injects the merged-PR list (the gate fetches it via `gh pr list`).
+ *
+ * @param {number|string} issueNumber
+ * @param {Array<{number?: number, title?: string, body?: string}>} mergedPrs
+ * @returns {number|null}  the declaring PR number, or null
+ */
+export function closingMergedPr(issueNumber, mergedPrs) {
+  const n = Number(issueNumber);
+  if (!Number.isInteger(n) || n <= 0 || !Array.isArray(mergedPrs)) return null;
+  // Match a closing keyword IMMEDIATELY followed by a run of issue refs separated
+  // ONLY by separators (whitespace / comma / `&` / "and") — the multi-issue
+  // `Closes #a #b #c` (and `Closes #a, #b and #c`) shape. Requiring the ref to be
+  // part of that unbroken keyword-anchored list (not merely on the same line)
+  // rejects `Fixes #8 and touches #N`: the word "touches" breaks the run, so #N
+  // is NOT in the closing list (reviewer adversarial #1/#2 — a same-line match
+  // would have false-flagged it and dropped a legit agent:fix). The exact `#${n}`
+  // string compare also makes the `#2035` vs `#20350` guard fall out for free.
+  const kwList = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b\s*:?\s*((?:#\d+(?:[\s,&]+(?:and\s+)?)?)+)/ig;
+  for (const pr of mergedPrs) {
+    const text = `${pr?.title || ''}\n${pr?.body || ''}`;
+    for (const m of text.matchAll(kwList)) {
+      const refs = (m[1] || '').match(/#\d+/g) || [];
+      if (refs.includes(`#${n}`)) return pr?.number ?? null;
+    }
+  }
+  return null;
+}
+
+/**
  * Core resolution check: does the cited file's CURRENT content already contain the
  * prescribed fix? Pure — the caller injects file access.
  *

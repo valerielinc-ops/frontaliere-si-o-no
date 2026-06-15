@@ -71,8 +71,24 @@ export function currentMonthKey(now = new Date()) {
 }
 
 export function monthBounds(monthKey) {
-  // monthKey = 'YYYY-MM'. Returns ISO start (1st 00:00:00) and end (now).
-  const start = `${monthKey}-01T00:00:00`;
+  // monthKey = 'YYYY-MM'. Returns ISO start (UTC) and end (UTC now).
+  // start = UTC instant of 00:00:00 Europe/Rome on the 1st of the month,
+  // matching currentMonthKey() which also uses Europe/Rome. This ensures
+  // startDate ≤ endDate even in the ~1-2h window where Rome's calendar is
+  // ahead of UTC at the month turn (e.g. 00:30 Rome = 22:30 UTC prev day).
+  const [y, m] = monthKey.split('-').map(Number);
+  const nominalUtcMidnight = new Date(Date.UTC(y, m - 1, 1));
+  // "sv" Intl format → "YYYY-MM-DD HH:MM:SS" in Rome TZ (safe for Date parsing).
+  const romeClock = new Intl.DateTimeFormat('sv', {
+    timeZone: 'Europe/Rome',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false,
+  }).format(nominalUtcMidnight).replace(' ', 'T');
+  // Treating romeClock as UTC gives: nominalUtcMidnight + romeOffset.
+  // Subtracting romeOffset yields the UTC instant of Rome midnight.
+  const romeOffsetMs = new Date(romeClock + 'Z').getTime() - nominalUtcMidnight.getTime();
+  const start = new Date(nominalUtcMidnight.getTime() - romeOffsetMs).toISOString().slice(0, 19);
   const end = new Date().toISOString().slice(0, 19);
   return { start, end };
 }

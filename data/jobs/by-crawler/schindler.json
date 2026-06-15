@@ -180,7 +180,6 @@
         "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
         "manager-per-cookie-einwilligungen-schindler-basel",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-for-cookie-permissions-schindler-st-gallen",
         "manager-per-cookie-einwilligungen-schindler-bern-8f3fzf",
         "manager-per-cookie-einwilligungen-schindler-bern-2",
@@ -871,10 +870,10 @@
       "id": "schindler-654f5a32cbca",
       "slug": "manager-per-cookie-einwilligungen-schindler-bern",
       "slugByLocale": {
-        "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "de": "manager-fur-cookie-einwilligungen-schindler-bern",
         "it": "manager-per-cookie-einwilligungen-schindler-bern",
-        "en": "manager-for-cookie-permissions-schindler-st-gallen",
-        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
+        "en": "manager-per-cookie-einwilligungen-schindler-bern",
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -882,16 +881,16 @@
       "title": "Manager für Cookie-Einwilligungen",
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
-        "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager for cookie permissions",
-        "fr": "Gestionnaire pour les autorisations de cookies"
+        "it": "Responsabile Consenso Cookie",
+        "en": "Cookie Consent Manager",
+        "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz Die Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist. Schnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in St. Gallen",
-        "it": "Mobility | dal 1874 | in tutto il mondo in uso Lo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) a Berna",
-        "en": "Mobility | since 1874 | worldwide in use The Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) in Bern",
-        "fr": "Mobilité à travers le monde depuis 1874 L'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement. Schnupperlehre als Kaufmann*frau EFZ (Leehrstart 2027) à Berne"
+        "de": "Descrizione\n\nMobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Kaufmann*frau EFZ (Lehrstart 2027) in Bern",
+        "it": "Mobilität | dal 1874 | in tutto il mondo in uso La formazione professionale di Schindler allena più di 300 studenti in tutta la Svizzera - quindi non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere un professionista altamente qualificato alla fine del vostro apprendistato. Schnupperlehre come uomo d'affari*donna EFZ (inizio di formazione 2027) a Berna",
+        "en": "Descrizione Mobilität | since 1874 | worldwide in use The Schindler Vocational Training trains more than 300 learners throughout Switzerland – so you are never alone. Our entire team is committed to you every day so that you are a highly qualified professional at the end of your apprenticeship. Schnupperlehre as a businessman*woman EFZ (training start 2027) in Bern",
+        "fr": "La formation professionnelle Schindler forme plus de 300 apprenants en Suisse – vous n'êtes donc jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un professionnel hautement qualifié à la fin de votre apprentissage. Schnupperlehre en tant qu'homme d'affaires* femme EFZ (formation début 2027) à Berne"
       },
       "location": "Bern",
       "canton": "BE",
@@ -923,12 +922,21 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern"
         ],
         "de": [
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "manager-fur-cookie-einwilligungen-schindler-st-gallen"
+        ],
+        "en": [
+          "manager-for-cookie-permissions-schindler-st-gallen"
+        ],
+        "fr": [
+          "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern"
         ]
       },
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
+        "manager-for-cookie-permissions-schindler-st-gallen",
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-st-gallen",
         "manager-per-cookie-einwilligungen-schindler-basel",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
@@ -942,9 +950,7 @@
         "manager-per-cookie-einwilligungen-schindler-st-gallen-oi7jl7",
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny",
-        "manager-per-cookie-einwilligungen-schindler-ebikon"
+        "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1162,7 +1168,6 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
         "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-basel",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
@@ -1640,7 +1645,6 @@
       "previousSlugs": [
         "manager-fur-cookie-einwilligungen-schindler-basel",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bussigny",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bussigny",
         "manager-for-cookie-permissions-schindler-bussigny",
         "manager-fur-cookie-einwilligungen-schindler-bussigny",
@@ -1656,7 +1660,8 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-55kbk7",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5c82e",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5b1st",
-        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny"
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-bussigny",
+        "manager-fur-cookie-einwilligungen-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
