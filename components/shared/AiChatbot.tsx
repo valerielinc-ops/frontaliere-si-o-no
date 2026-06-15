@@ -706,8 +706,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  {!isOpen && !popupBlocked && (
  <button
  onClick={handleToggle}
- className={`fixed right-3 md:right-4 z-[53] w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent hover:bg-accent-hover text-on-accent shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group ${hasBottomOverlay ? 'bottom-48 md:bottom-6' : 'bottom-[4.5rem] md:bottom-6'}`}
- style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
+ className={`fixed right-3 md:right-4 z-[53] w-12 h-12 md:w-14 md:h-14 rounded-full bg-accent hover:bg-accent-hover text-on-accent shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group mb-[env(safe-area-inset-bottom,0px)] ${hasBottomOverlay ? 'bottom-48 md:bottom-6' : 'bottom-[4.5rem] md:bottom-6'}`}
  aria-label={t('chatbot.openLabel')}
  >
  <MessageCircle size={20} className="md:w-6 md:h-6 group-hover:scale-110 transition-transform" />

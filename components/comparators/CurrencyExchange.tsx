@@ -833,7 +833,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </>
  ) : (
- <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-accent" size={32} /></div>}>
+ <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center [contain:layout]"><RefreshCw className="animate-spin text-accent" size={32} /></div>}>
  <LazyCurrencyExchangeStats historyData={historyData} currentRate={realRate} period={historyPeriod} />
  </Suspense>
  )}
@@ -857,10 +857,10 @@ const CurrencyExchange: React.FC = () => {
  </div>
 
  <PartnerRecommendations context="exchange" />
- <Suspense fallback={<div className="min-h-[180px]" style={{ contain: 'layout' }} />}>
+ <Suspense fallback={<div className="min-h-[180px] [contain:layout]" />}>
  <LeadMagnetCTA variant="generic" delay={0} />
  </Suspense>
- <Suspense fallback={<div className="min-h-[100px]" style={{ contain: 'layout' }} />}>
+ <Suspense fallback={<div className="min-h-[100px] [contain:layout]" />}>
  <RelatedTools context="exchange" />
  </Suspense>
  </div>

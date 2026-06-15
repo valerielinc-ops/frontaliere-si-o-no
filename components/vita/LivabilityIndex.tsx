@@ -195,7 +195,7 @@ export default function LivabilityIndex() {
 
  {/* Content */}
  {viewMode === 'table' ? (
- <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}> <div className="overflow-x-auto">
+ <div className="bg-surface rounded-xl shadow overflow-hidden [content-visibility:auto] [contain-intrinsic-size:auto_500px]"> <div className="overflow-x-auto">
  <table className="w-full text-sm">
  <thead className="bg-surface-alt">
  <tr>

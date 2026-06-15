@@ -1857,7 +1857,7 @@ function BlogArticles({
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
  {/* Hero image */}
- <div className="relative overflow-hidden" style={{ aspectRatio: '2/1', contain: 'layout' }}>
+ <div className="relative overflow-hidden aspect-[2/1] [contain:layout]">
  {(() => {
  const responsive = imageFallbackMap[article.image] ? null : getResponsiveImageSet(article.image);
  return (
@@ -2621,7 +2621,7 @@ function BlogArticles({
 
  {/* Article grid — newspaper 3-column layout */}
  {pageArticles.length > 1 && (
- <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 [content-visibility:auto] [contain-intrinsic-size:auto_600px]" aria-live="polite">
  {pageArticles.slice(1, isMobile ? undefined : 1 + gridRevealCount).map((article, idx) => (
  <Fragment key={article.id}>
  <a
