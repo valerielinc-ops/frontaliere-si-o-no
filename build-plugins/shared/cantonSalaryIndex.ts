@@ -140,6 +140,11 @@ reg('mittelland', [
   'giura', 'jura',
 ]);
 reg('nordwest', [
+  // Bare half-canton-group display forms (BL+BS both Nordwest) — without these
+  // the localized group name "Basilea"/"Basel"/"Bâle" missed the table and the
+  // prose/FAQ salary band silently fell back to the national median while the
+  // page tiles used Nordwest (intra-page inconsistency). See PR #2085 review.
+  'basilea', 'basel', 'bâle', 'bale',
   'basilea città', 'basilea citta', 'basilea-città', 'basel-stadt', 'basel stadt', 'bâle-ville', 'bale-ville',
   'basilea campagna', 'basilea-campagna', 'basel-landschaft', 'basel landschaft', 'bâle-campagne', 'bale-campagne',
   'argovia', 'aargau', 'argovie',
@@ -147,6 +152,11 @@ reg('nordwest', [
 reg('ostschweiz', [
   'glarona', 'glarus', 'glaris',
   'sciaffusa', 'schaffhausen', 'schaffhouse',
+  // Bare half-canton-group display forms (AI+AR both Ostschweiz) — 'appenzello'
+  // (IT) was present but 'appenzell' (EN/DE/FR group display) was not, so those
+  // locale pages fell back to the national median in the prose/FAQ band while
+  // tiles used Ostschweiz. Twin of the BASILEA fix. See PR #2095 review.
+  'appenzell',
   'appenzello esterno', 'appenzell ausserrhoden', 'appenzell a.rh.', 'appenzell rhodes-extérieures', 'appenzello',
   'appenzello interno', 'appenzell innerrhoden', 'appenzell i.rh.',
   'san gallo', 'st. gallen', 'st.gallen', 'sankt gallen', 'saint-gall', 'saint gall',
