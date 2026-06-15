@@ -10123,7 +10123,7 @@ ${staticAnalyticsHtml}
  // window.__STATIC_BODY_HTML__ exactly as before. Saves ~3-5 KB × 98k pages ≈ ~400 MB dist.
  const buildSoftLandingHtml = (locale: string, pageTitle: string, pageDesc: string, robotsTag: string,
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
- staticBody: string): string => {
+ staticBody: string, adSnippet: string): string => {
  // Sub-phase profiler: ph:ejp:shell measured at 48.7s (45% of expired-
  // soft-landing) in run 26469566046. Break it down so the next round
  // can target either the template assembly (likely cheap) or minifyHtml
@@ -10162,6 +10162,7 @@ ${hreflangLinks}
  ${jsonLdScripts}
  <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${spaBundleCss}
 ${staticAnalyticsHtml}
+ ${adSnippet}
  </head>
  <body>
  <div id="root">
@@ -10801,10 +10802,18 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
  const __tEjpShell = phaseTimer();
+ // Bot-gated Auto Ads loader (meta + adsense-loader) ONLY on real-traffic
+ // expired pages (__slKeepProse): immediate Auto Ads (anchor/vignette/in-page)
+ // for the crawler-first-paint→quick-bounce window, instead of waiting for the
+ // SPA's <AdSenseBanner> to load the AdSense ads script post-hydration (a lost-impression
+ // gap on dead-job-link bounces — same class as #1904). Loader is idempotent +
+ // bot-gated, so it coexists with the SPA banner and never inflates AD_REQUESTS.
+ // Gated to has-traffic so the ~250 B snippet only lands on pages with users.
+ const __slAdSnippet = __slKeepProse ? ADSENSE_SNIPPET : '';
  const __slFullHtml = buildSoftLandingHtml(
  locale, pageTitle, pageDesc, expiredRobotsTag,
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
- staticBody
+ staticBody, __slAdSnippet
  );
  // Tiered emission for soft-landings. Same filter + evidence flow as
  // previousSlug bridges: URL with traffic stays full; URL without and

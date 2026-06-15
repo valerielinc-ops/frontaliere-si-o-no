@@ -163,6 +163,36 @@ jobs:
         if: inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
 
+      # ── Phase 2 mop-up: in-process, unlimited, $0 local MT ───────────────
+      # The cascade above burns premium/public-LibreTranslate/MyMemory quota
+      # first (all rate-limited / external). This step finishes whatever it left
+      # incomplete using Argos Translate loaded as a DIRECT PYTHON LIBRARY — no
+      # HTTP server, no healthcheck race (the failure mode that made the old
+      # self-hosted LibreTranslate service 100% dead: 1483 timeouts / 0 hits).
+      # Models load ONCE per process; unlimited throughput, no external API.
+      # ADDITIVE + SAFE: continue-on-error so a model-download/CDN hiccup can
+      # never fail the run; it only ever FILLS genuinely-missing locale fields
+      # (never overwrites a good translation) and clears needsRetranslation only
+      # when the locale actually became complete. The downstream
+      # mark-locale-mismatched-jobs / isIncomplete detector re-flags any bad
+      # output on the next run, so worst case is a no-op, never a regression.
+      # Gate: set LOCAL_MT_DISABLE=1 (repo/workflow var) to skip entirely.
+      - name: Install Argos Translate (local MT engine)
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --upgrade pip
+          # argostranslate pulls ctranslate2 + sentencepiece (the int8 CPU runtime).
+          python3 -m pip install --quiet argostranslate
+          # Download the it/en/de/fr xx<->en packages once (Argos pivots the cross
+          # pairs through English). Idempotent + retried inside the script.
+          python3 scripts/local-mt-translate.py --install
+
+      - name: "Phase 2 mop-up: local MT (Argos Translate, in-process)"
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
+
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
