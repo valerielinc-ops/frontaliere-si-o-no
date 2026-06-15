@@ -3914,29 +3914,33 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // depth-1 via the NAV_LABELS "Articoli Svizzera" entry; this CTA + page
  // navigator then close the path to the hub and its articles. Without it the
  // whole sitemap-blog-ch.xml shard ships orphan (audit-bfs-depth hard-fail).
- const svIntro = locale === 'en'
+ // Use a non-narrowed alias so TS does not treat `locale` as the literal
+ // `'it'` here (TS narrows `string` via the `else if (locale !== 'it')`
+ // guard at line 2674 that precedes this branch in the else-if chain).
+ const loc: string = locale;
+ const svIntro = loc === 'en'
    ? `<p class="s-6g7z41"><strong>Swiss Articles</strong> is the Switzerland-wide editorial section of Frontaliere Ticino: news, analysis and guides about living and working across all of Switzerland, beyond Canton Ticino. Topics span federal and cantonal taxation, health-insurance premiums (LAMal/KVG), cost of living, the labour market and legislative updates relevant to Italian residents and cross-border workers. Every article cites primary sources and links directly to the platform's calculators so you can move from the news to a personalised estimate in a few clicks.</p>`
-   : locale === 'de'
+   : loc === 'de'
    ? `<p class="s-6g7z41"><strong>Schweiz-Artikel</strong> ist die schweizweite Redaktionssektion von Frontaliere Ticino: Nachrichten, Analysen und Ratgeber zum Leben und Arbeiten in der ganzen Schweiz, über den Kanton Tessin hinaus. Die Themen reichen von der eidgenössischen und kantonalen Besteuerung über Krankenkassenprämien (KVG/LAMal) und Lebenshaltungskosten bis zum Arbeitsmarkt und zu Gesetzesänderungen, die für in Italien wohnhafte Personen und Grenzgänger relevant sind. Jeder Artikel zitiert Primärquellen und verlinkt direkt auf die Rechner der Plattform.</p>`
-   : locale === 'fr'
+   : loc === 'fr'
    ? `<p class="s-6g7z41"><strong>Articles Suisse</strong> est la section éditoriale couvrant toute la Suisse de Frontaliere Ticino : actualités, analyses et guides sur la vie et le travail dans l'ensemble du pays, au-delà du Canton du Tessin. Les thèmes couvrent la fiscalité fédérale et cantonale, les primes d'assurance maladie (LAMal/KVG), le coût de la vie, le marché du travail et les évolutions législatives pertinentes pour les résidents italiens et les frontaliers. Chaque article cite ses sources primaires et renvoie directement aux calculateurs de la plateforme.</p>`
    : `<p class="s-6g7z41"><strong>Articoli Svizzera</strong> è la sezione editoriale nazionale di Frontaliere Ticino: notizie, analisi e guide sulla vita e sul lavoro in tutta la Svizzera, oltre il Canton Ticino. I temi spaziano dalla fiscalità federale e cantonale ai premi delle casse malati (LAMal), dal costo della vita al mercato del lavoro fino agli aggiornamenti legislativi rilevanti per i residenti italiani e i lavoratori frontalieri. Ogni articolo cita le fonti primarie e collega direttamente ai simulatori della piattaforma, così da passare dalla notizia alla stima numerica in pochi click.</p>`;
  editorialBlocks.push(svIntro);
  const svArchiveBase = svizzeraArchiveBases[locale as ArchiveHubLocale] ?? '/articoli-svizzera/tutti/';
- const svCtaLabel = locale === 'en' ? 'View the full Switzerland archive →'
-   : locale === 'de' ? 'Vollständiges Schweiz-Archiv ansehen →'
-   : locale === 'fr' ? 'Voir toutes les archives Suisse →'
+ const svCtaLabel = loc === 'en' ? 'View the full Switzerland archive →'
+   : loc === 'de' ? 'Vollständiges Schweiz-Archiv ansehen →'
+   : loc === 'fr' ? 'Voir toutes les archives Suisse →'
    : 'Vedi l\'archivio completo Svizzera →';
  editorialBlocks.push(
  `<p class="s-_TvFy0"><a class="s-277ZFO" href="${svArchiveBase}">${esc(svCtaLabel)}</a></p>`,
  );
  // Deep-link navigator — one anchor per archive page so every page-K is
  // reachable at depth-2 from `/` even when the section grows past one page.
- const svNavLabel = locale === 'en' ? 'Browse the full Switzerland article archive by page'
-   : locale === 'de' ? 'Vollständiges Schweiz-Artikelarchiv nach Seite durchsuchen'
-   : locale === 'fr' ? 'Parcourir toutes les archives Suisse par page'
+ const svNavLabel = loc === 'en' ? 'Browse the full Switzerland article archive by page'
+   : loc === 'de' ? 'Vollständiges Schweiz-Artikelarchiv nach Seite durchsuchen'
+   : loc === 'fr' ? 'Parcourir toutes les archives Suisse par page'
    : 'Sfoglia tutto l\'archivio articoli Svizzera per pagina';
- const svPageWord = locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : locale === 'fr' ? 'Page' : 'Pagina';
+ const svPageWord = loc === 'en' ? 'Page' : loc === 'de' ? 'Seite' : loc === 'fr' ? 'Page' : 'Pagina';
  if (svizzeraArticlesTotalPages > 1) {
  const svPageAnchors: string[] = [];
  for (let p = 1; p <= svizzeraArticlesTotalPages; p++) {
@@ -3946,19 +3950,19 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<nav class="s-rzdYWi" aria-label="${esc(svNavLabel)}"><p class="s-AYnHp_">${esc(svNavLabel)}:</p>${svPageAnchors.join('')}</nav>`,
  );
  }
- const svBody = locale === 'en'
+ const svBody = loc === 'en'
    ? [
        `<h2 class="s-o3IET6">What this section covers</h2>`,
        `The Switzerland section complements the Ticino-focused cross-border articles with a nationwide perspective: cantonal tax comparisons, health-premium trends across cantons, cost-of-living shifts in the main Swiss cities, and federal labour-market and legislative news. It is the right starting point when a decision depends on where in Switzerland you work or plan to move, not only on the Ticino border region.`,
        `Each article links to the relevant tool — the <a class="s-OsohZU" href="/en/calculate-salary/">salary simulator</a>, the LAMal-vs-SSN comparator and the cost-of-living pages — so you can turn a general update into a personalised, number-backed decision.`,
      ]
-   : locale === 'de'
+   : loc === 'de'
    ? [
        `<h2 class="s-o3IET6">Was diese Sektion abdeckt</h2>`,
        `Die Schweiz-Sektion ergänzt die auf das Tessin fokussierten Grenzgänger-Artikel um eine landesweite Perspektive: kantonale Steuervergleiche, Entwicklung der Krankenkassenprämien über die Kantone, Lebenshaltungskosten in den grossen Schweizer Städten sowie eidgenössische Arbeitsmarkt- und Gesetzesnachrichten. Sie ist der richtige Ausgangspunkt, wenn eine Entscheidung davon abhängt, wo in der Schweiz Sie arbeiten oder hinziehen möchten.`,
        `Jeder Artikel verlinkt auf das passende Tool — den <a class="s-OsohZU" href="/de/gehalt-berechnen/">Lohnsimulator</a>, den KVG/SSN-Vergleicher und die Lebenshaltungskosten-Seiten — damit aus einer allgemeinen Information eine personalisierte, zahlenbasierte Entscheidung wird.`,
      ]
-   : locale === 'fr'
+   : loc === 'fr'
    ? [
        `<h2 class="s-o3IET6">Ce que couvre cette section</h2>`,
        `La section Suisse complète les articles frontaliers centrés sur le Tessin par une perspective nationale : comparaisons fiscales cantonales, évolution des primes d'assurance maladie entre cantons, coût de la vie dans les principales villes suisses, ainsi que l'actualité fédérale du marché du travail et de la législation. C'est le bon point de départ lorsqu'une décision dépend de l'endroit où vous travaillez ou comptez vous installer en Suisse.`,

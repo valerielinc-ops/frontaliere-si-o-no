@@ -143,7 +143,6 @@ describe('Klinik Gut crawler parser', () => {
 
     it('returns empty on empty/invalid HTML', () => {
       expect(parseKlinikGutListing('')).toEqual([]);
-      // @ts-expect-error intentional bad input
       expect(parseKlinikGutListing(null)).toEqual([]);
     });
 
@@ -179,7 +178,6 @@ describe('Klinik Gut crawler parser', () => {
 
     it('returns an empty body on empty/invalid HTML', () => {
       expect(parseKlinikGutDetail('').body).toBe('');
-      // @ts-expect-error intentional bad input
       expect(parseKlinikGutDetail(null).body).toBe('');
     });
   });

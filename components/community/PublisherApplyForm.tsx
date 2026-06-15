@@ -26,13 +26,17 @@ interface PublisherApplyFormProps {
   jobId: string;
   publisherUid: string;
   jobTitle: string;
+  /** Job-board slug of the target ad, denormalised onto the application so the
+   *  candidate's profile can deep-link back to the offer without loading the
+   *  full jobs dataset (and even after the ad later expires). */
+  jobSlug?: string;
 }
 
 const inputClass =
   'w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-strong focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]';
 const labelClass = 'block text-sm font-medium text-body mb-1.5';
 
-const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publisherUid, jobTitle }) => {
+const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publisherUid, jobTitle, jobSlug }) => {
   const { t } = useTranslation();
   const { user } = useAuth();
   const [name, setName] = useState('');
@@ -131,6 +135,13 @@ const PublisherApplyForm: React.FC<PublisherApplyFormProps> = ({ jobId, publishe
       await addDoc(collection(db, 'applications'), {
         jobId,
         publisherUid,
+        // Denormalised so the candidate's profile can list the offer (title +
+        // deep-link) without resolving the live jobs dataset, and survives the
+        // ad later expiring. Optional — anonymous (logged-out) applicants write
+        // candidateUid: null; firestore.rules forbids spoofing another's uid.
+        candidateUid: user?.uid || null,
+        jobTitle: jobTitle || null,
+        jobSlug: jobSlug || null,
         candidateName: name.trim(),
         candidateEmail: email.trim(),
         message: message.trim() || null,

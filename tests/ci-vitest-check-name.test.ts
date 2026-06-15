@@ -1,7 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-// @ts-expect-error — modulo .mjs senza tipi
 import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
 
 /**

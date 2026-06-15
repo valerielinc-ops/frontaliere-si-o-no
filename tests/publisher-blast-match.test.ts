@@ -2,7 +2,6 @@ import { describe, it, expect } from 'vitest';
 import {
   scoreSubscriberForAd,
   matchSubscribersForAd,
-  // @ts-expect-error mjs module, no type declarations
 } from '../services/publisherBlastMatch.mjs';
 
 const fisioAd = {

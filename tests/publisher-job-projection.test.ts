@@ -6,11 +6,9 @@ import {
   slugifyPublisher,
   truncatePublisherSlug,
   PUBLISHER_SOURCE_KEY,
-  // @ts-expect-error mjs module, no type declarations
 } from '../scripts/lib/publisherJobProjection.mjs';
 import {
   detectBoilerplateDescriptions,
-  // @ts-expect-error mjs module, no type declarations
 } from '../scripts/assemble-jobs-dataset.mjs';
 
 const NOW = '2026-06-10T10:00:00.000Z';

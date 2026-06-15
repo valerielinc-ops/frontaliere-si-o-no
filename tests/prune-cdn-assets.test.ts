@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error — plain .mjs CI helper, no type declarations
 import { planJanitor } from '@/scripts/ci/cdn-prune-plan.mjs';
 
 const DAY = 86_400_000;

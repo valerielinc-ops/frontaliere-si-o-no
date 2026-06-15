@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — plain .mjs parser module, no type declarations
 import {
   parseGiorgioArmaniListingHtml,
   listingHasRenderedJobs,

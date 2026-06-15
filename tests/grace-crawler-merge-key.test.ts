@@ -17,7 +17,6 @@
  * key.
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error - .mjs file with implicit exports
 import { jobMatchKey } from '../scripts/update-grace-jobs.mjs';
 
 describe('Grace La Margna jobMatchKey', () => {

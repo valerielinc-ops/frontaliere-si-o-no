@@ -6,7 +6,6 @@ import {
   suggestedActionText,
   mostSpecificToken,
   detectAlreadyResolved,
-  // @ts-expect-error — plain .mjs module, no types
 } from '../scripts/ci/followup-resolution-match.mjs';
 
 // Locks the conservative matcher shared by the issue-fix.yml pre-flight gate
@@ -236,9 +235,7 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
   // ── Total / defensive: a malformed body or faulty resolver must never throw. ──────
   it('does NOT throw on a malformed / non-string body → proceed', () => {
     const io = { fileExists: () => true, readFile: () => 'whatever' };
-    // @ts-expect-error — deliberately passing junk to prove it is swallowed.
     expect(() => detectAlreadyResolved(null, io)).not.toThrow();
-    // @ts-expect-error
     expect(detectAlreadyResolved(undefined, io).resolved).toBe(false);
     // @ts-expect-error
     expect(detectAlreadyResolved({ not: 'a string' }, io).resolved).toBe(false);
@@ -258,7 +255,6 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
   it('does NOT throw when io is missing/partial → proceed', () => {
     // @ts-expect-error — missing readFile
     expect(detectAlreadyResolved(body, {}).resolved).toBe(false);
-    // @ts-expect-error — no io at all
     expect(() => detectAlreadyResolved(body, undefined)).not.toThrow();
   });
 });

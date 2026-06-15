@@ -7,7 +7,6 @@
  * anti-collisione: stesso binding da path diversi → null (non sicuro).
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { resolveImportConflictsInText } from '../scripts/ci/pr-autorebase.mjs';
 
 const conflict = (ours: string, theirs: string, pre = '', post = '') =>

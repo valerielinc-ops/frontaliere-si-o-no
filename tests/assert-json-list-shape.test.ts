@@ -4,7 +4,6 @@ import {
   assertJsonListShapeMultiKey,
   assertRssChannelItems,
   describeJsonShape,
-  // @ts-expect-error — plain .mjs crawler lib, no type declarations
 } from '../scripts/lib/assert-json-list-shape.mjs';
 
 /**

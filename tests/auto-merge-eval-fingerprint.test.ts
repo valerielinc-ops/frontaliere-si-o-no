@@ -6,7 +6,6 @@
  * (token-lever #1). Un file dati grosso senza `.patch` NON deve forzare il bail.
  */
 import { describe, it, expect } from 'vitest';
-// @ts-expect-error — modulo .mjs senza tipi
 import { codeContributionFingerprint, NON_REVIEWABLE_FINGERPRINT_RE } from '../scripts/ci/auto-merge-eval.mjs';
 
 type F = { filename: string; status: string; patch?: string };
