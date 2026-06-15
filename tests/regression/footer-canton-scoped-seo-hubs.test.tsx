@@ -192,6 +192,25 @@ describe('Regression: canton-scoped footer SEO hubs (#959)', () => {
     expect(hubSlugFor('BASILEA', 'it', 'tutti')).toBe('/cerca-lavoro-basilea/tutti/');
   });
 
+  it('c — emits NO `?q=` "disallowed outlink" chips on a non-TI canton route', () => {
+    // robots.txt disallows `/*?q=*`, and rel="nofollow" is banned on internal
+    // links (tests/no-internal-nofollow.test.tsx). So the footer sector chips
+    // must route through the canton `settori` hub, never a `?q=` search URL —
+    // otherwise SearchAtlas/GSC flag them as "disallowed outlinks".
+    mockBasilea();
+    render(<App />);
+    const hrefs = Array.from(getFooterHubsNav().querySelectorAll('a')).map(
+      (a) => a.getAttribute('href') ?? '',
+    );
+    const qLinks = hrefs.filter((h) => /[?&]q=/.test(h));
+    expect(
+      qLinks,
+      `Footer emitted robots-disallowed ?q= outlinks: ${qLinks.join(', ')}`,
+    ).toHaveLength(0);
+    // The sector chips fall back to the canton `settori` hub instead.
+    expect(hrefs).toContain(hubSlugFor('BASILEA', 'it', 'settori'));
+  });
+
   it('TI route keeps the legacy Ticino city chips (no over-suppression)', () => {
     mockTicino();
     render(<App />);
@@ -200,5 +219,10 @@ describe('Regression: canton-scoped footer SEO hubs (#959)', () => {
     );
     // On the Ticino route the footer must still carry Ticino city chips.
     expect(hrefs.some((h) => /\/cerca-lavoro-ticino\/[a-z-]+\/$/.test(h))).toBe(true);
+    // …and still emit no robots-disallowed `?q=` outlinks: top sectors without
+    // a curated TI hub (pulizie/edilizia/banca) route to the settori hub, not
+    // a `?q=` search URL.
+    const qLinks = hrefs.filter((h) => /[?&]q=/.test(h));
+    expect(qLinks, `TI footer emitted ?q= outlinks: ${qLinks.join(', ')}`).toHaveLength(0);
   });
 });

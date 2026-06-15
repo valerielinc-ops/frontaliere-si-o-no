@@ -2779,17 +2779,20 @@ const App: React.FC = () => {
              if (!sector) return null;
              const label = sector[hubLoc] || sector.it;
              // Prefer the canonical static sector hub (`/cerca-lavoro-ticino/infermieri/`)
-             // when one exists for this key; fall back to a `?q=` keyword search for
-             // sectors without a curated hub. Routing footer traffic through the
-             // canonical hub avoids diluting internal SEO equity to non-indexable
-             // query URLs and gives users the richer landing page.
-             // buildSectorHubPath only emits Ticino sector hubs, so on a
-             // non-TI canton page route the sector chip through that canton's
-             // section search instead of leaking to a TI hub URL.
+             // when one exists for this key. Otherwise route to the section's
+             // `settori` hub (hubs.sectorsAll) — a crawlable, indexed page that
+             // itself deep-links the per-canton sector landings. NEVER a `?q=`
+             // keyword search: robots.txt disallows `/*?q=*`, so an internal
+             // `?q=` link is a "disallowed outlink" (SearchAtlas/GSC) and
+             // `rel="nofollow"` is banned on internal links
+             // (tests/no-internal-nofollow.test.tsx). buildSectorHubPath only
+             // emits Ticino sector hubs, so on a non-TI canton page the chip
+             // routes through that canton's `settori` hub instead of leaking to
+             // a TI hub URL.
              const hasHub = !isCantonScoped && (SECTOR_HUB_KEYS as readonly string[]).includes(sk);
              const href = hasHub
                ? buildSectorHubPath(hubLoc, sk as SectorHubKey)
-               : `${sectionRoot}/?q=${encodeURIComponent(label)}`;
+               : hubs.sectorsAll;
              return (
                <li key={sk}>
                  <a
