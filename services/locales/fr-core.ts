@@ -292,6 +292,8 @@ const frCore: Record<string, string> = {
  'salaryCompare.tabProfessions': 'Par Profession',
  'salaryCompare.searchProfession': 'Rechercher profession...',
  'salaryCompare.allSectors': 'Tous les secteurs',
+ 'salaryCompare.canton': 'Canton',
+ 'salaryCompare.cantonAll': 'Suisse (moyenne nationale)',
  'salaryCompare.salaryRange': 'Fourchette salariale',
  'salaryCompare.median': 'Médian',
  'salaryCompare.professions': 'Professions',
@@ -3343,6 +3345,9 @@ Règles :
  'publisher.published.publishAnother': 'Publier une autre annonce',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3520.title': 'Salaires par canton',
+ 'whatsNew.v3520.cantonSalary.title': 'Comparaison des salaires canton par canton',
+ 'whatsNew.v3520.cantonSalary.desc': 'La comparaison des salaires a désormais un sélecteur de canton : choisissez un canton suisse et les montants bruts et nets s’adaptent au niveau réel des salaires de cette région, sur la base des médianes officielles OFS (enquête sur la structure des salaires). Par défaut : moyenne nationale suisse.',
  'whatsNew.v3510.title': 'Annonces sponsorisées améliorées',
  'whatsNew.v3510.sponsoredUpgrade.title': 'Page d’annonce premium, logo et candidature directe',
  'whatsNew.v3510.sponsoredUpgrade.desc': 'Les annonces sponsorisées remontent désormais en tête des résultats de recherche, affichent le logo de l’entreprise et bénéficient d’une page dédiée repensée avec sections et listes mises en forme. Nouvel éditeur avec aperçu pour les employeurs et bouton Postuler qui ouvre le formulaire de candidature.',
