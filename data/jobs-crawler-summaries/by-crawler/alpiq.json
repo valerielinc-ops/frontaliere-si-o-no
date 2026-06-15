@@ -1,18 +1,52 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-06-15T13:48:48.047Z",
+  "generatedAt": "2026-06-15T22:28:30.373Z",
   "total": 4,
-  "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 3,
+  "newCount": 1,
+  "updatedCount": 2,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 3383,
-  "avgDurationMs": 3383,
+  "durationMs": 3026,
+  "avgDurationMs": 3026,
   "durationHistory": [
-    3383
+    3026
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "alpiq-db020f933edf",
+      "slug": "senior-quantitative-analyst-alpiq-olten",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Senior Quantitative Analyst",
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9542",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9542&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-15T22:28:28.384Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "alpiq-70d91ad872b7",
@@ -38,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T13:48:45.833Z",
+      "crawledAt": "2026-06-15T22:28:28.382Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-30T09:56:14.281Z",
       "_qualityScore": 54,
@@ -48,9 +82,7 @@
         "translation": 15,
         "completeness": 14
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
       "id": "alpiq-c0ef4d9c8b9f",
       "slug": "product-manager-trading-and-origination-all-100-alpiq-olten",
@@ -59,11 +91,11 @@
       "companyDomain": "alpiq.com",
       "title": "Product Manager - Trading and Origination (all) 100%",
       "location": "Olten",
-      "canton": "SO",
+      "canton": "",
       "postalCode": "4600",
       "streetAddress": "",
       "addressLocality": "Olten",
-      "addressRegion": "SO",
+      "addressRegion": "",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "category": "energy",
@@ -75,19 +107,18 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-30T09:56:14.282Z",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "country": "CH",
+      "crawledAt": "2026-06-15T22:28:28.384Z",
       "firstSeenAt": "2026-05-30T09:56:14.282Z",
-      "_qualityScore": 86,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "alpiq-3452a89e108f",
       "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
