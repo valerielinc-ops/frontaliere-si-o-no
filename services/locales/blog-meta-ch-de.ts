@@ -167,6 +167,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.title': 'Vaud sagt Ja zum verfassungsmäßigen Mindestlohn, Nein zum spezifischen Gesetz',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.excerpt': '49,1 % für die Verfassungsinitiative, 47,5 % gegen das Ausführungsgesetz mit 23 Franken/Stunde. Vaud wird der sechste Kanton mit Mindestlohn.',
     'blog.article.salario-minimo-vaud-si-ma-cantone-sesto.imageAlt': 'Panoramablick auf Lausanne mit Gebäuden und Schweizer Fahnen',
+    'blog.article.votazioni-federali-giugno-2026.title': 'Bundesabstimmung 14.6.2026: Zivildienst & 10-Mio-Initiative',
+    'blog.article.votazioni-federali-giugno-2026.excerpt': 'Am 14. Juni 2026 stimmen die Schweizer über die Beschränkung des Zivildienstzugangs und über die Initiative «Nein zu einer Schweiz mit 10 Millionen!» ab. Erfahren Sie Details, Verfahren und Fristen.',
+    'blog.article.votazioni-federali-giugno-2026.imageAlt': 'Schweizer Stimmzettel mit Schweizer Flagge im Hintergrund',
 };
 
 export default blogMetaChDe;
