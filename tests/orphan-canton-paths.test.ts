@@ -17,6 +17,26 @@ describe('orphan-canton-paths — inferCantonFromPath', () => {
     expect(inferCantonFromPath('/de/jobs-im-tessin/foo/')).toBe('TI');
   });
 
+  it('reverse-resolves DE `jobs-in-<canton>` sections (default cantons)', () => {
+    // Regression (#2015): INBOUND_PREFIX_ALTERNATES only had `jobs-im`, so the
+    // canton-aware DE sections emitted as `jobs-in-<slug>` (GR/ZH/BE/…) were
+    // invisible to inferCantonFromPath → orphans fell back to all-Ticino.
+    expect(inferCantonFromPath('/de/jobs-in-graubunden/foo/')).toBe('GR');
+    expect(inferCantonFromPath('/de/jobs-in-zurich/foo/')).toBe('ZH');
+  });
+
+  it('reverse-resolves DE `jobs-in-der-<canton>` sections (e.g. Waadt/VD)', () => {
+    // `jobs-in-der` must win over `jobs-in` so the capture is `waadt`, not the
+    // unresolvable `der-waadt`.
+    expect(inferCantonFromPath('/de/jobs-in-der-waadt/foo/')).toBe('VD');
+  });
+
+  it('returns null for the DE aggregate section (not a single canton)', () => {
+    // `/de/jobs-in-schweiz/` resolves to _AGGREGATE_, which is not a canton →
+    // callers fall back to the slug heuristic.
+    expect(inferCantonFromPath('/de/jobs-in-schweiz/foo/')).toBeNull();
+  });
+
   it('reverse-resolves the IT grigioni segment (no locale prefix)', () => {
     expect(inferCantonFromPath('/cerca-lavoro-grigioni/foo/')).toBe('GR');
   });
