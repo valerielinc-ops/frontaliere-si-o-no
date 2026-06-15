@@ -413,12 +413,15 @@ describe('renderWeeklyEmployersPage', () => {
     expect(html).toContain('"@type":"FAQPage"');
   });
 
-  it('renders a newcomer WITHOUT a brand hub as a ?q= job-board link (no dead <strong>)', () => {
+  it('renders a newcomer WITHOUT a brand hub as a crawlable job-board link (no ?q=, no dead <strong>)', () => {
     // Regression for PR #1099: newcomers used to render as a bare un-linked
     // <strong> company name. They now render as clickable employer cards via
-    // `employerHref` — brand hub when known, `?q=` job-board fallback otherwise.
+    // `employerHref` — brand hub when known, the canton job-board ROOT
+    // otherwise. The fallback is NOT a `?q=` keyword URL: robots.txt disallows
+    // `/*?q=*` so an internal `?q=` link is a "disallowed outlink", and
+    // rel="nofollow" is banned on internal links (no-internal-nofollow test).
     // This exercises the no-brand branch (employerKey undefined → no matching
-    // hub → fallback), the exact case the PR fixed.
+    // hub → crawlable root fallback).
     const newcomerName = 'Zzqx Newcomer GmbH';
     const stats = {
       city: 'lugano' as WeeklyEmployersCity,
@@ -441,10 +444,10 @@ describe('renderWeeklyEmployersPage', () => {
       today: new Date('2026-04-20T12:00:00Z'),
       indexable: true,
     });
-    // (a) the newcomer card is a job-board link pre-filtered on the employer.
-    const encoded = encodeURIComponent(newcomerName);
-    expect(html).toContain(`?q=${encoded}`);
-    expect(html).toMatch(new RegExp(`<a href="[^"]*\\?q=${encoded.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^"]*"`));
+    // (a) the newcomer card is a crawlable job-board link (canton root), and
+    // carries NO robots-disallowed `?q=` query string anywhere in the page.
+    expect(html).not.toMatch(/[?&]q=/);
+    expect(html).toMatch(/<a href="\/cerca-lavoro-ticino\/"/);
     // (b) the employer name is never emitted as an un-linked <strong>.
     expect(html).not.toContain(`<strong>${newcomerName}</strong>`);
     expect(html).not.toMatch(/<strong>Zzqx Newcomer GmbH/);

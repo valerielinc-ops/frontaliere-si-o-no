@@ -1517,7 +1517,9 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
       const sectorKey = ROLE_TO_SECTOR_HUB_SNAP[roleSlug.toLowerCase()];
       const url = sectorKey && (SECTOR_HUB_KEYS as readonly string[]).includes(sectorKey)
         ? `${BASE_URL}${buildSectorHubPath(locale, sectorKey)}`
-        : `${jobBoardSearchBaseSnapshot[locale]}?q=${encodeURIComponent(roleSlug || r.name)}`;
+        // Crawlable TI job-board root, never a robots-disallowed `?q=` URL
+        // (rel="nofollow" is banned on internal links).
+        : jobBoardSearchBaseSnapshot[locale];
       return { name: r.name, added: r.added, url };
     }),
     locale === 'it' ? 'annunci' : locale === 'de' ? 'Anzeigen' : locale === 'fr' ? 'annonces' : 'postings',

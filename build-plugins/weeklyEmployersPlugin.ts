@@ -2643,12 +2643,15 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   const jobBoardSection = weeklyJobBoardSection(locale, cityCanton);
 
   // Every employer surfaced on the page gets a link: a curated brand hub when
-  // one exists, otherwise the job-board pre-filtered by the company name. This
-  // keeps the top-companies cards, the newcomers cards, and the advice banner
-  // all clickable (no dead `<strong>` company names).
+  // one exists, otherwise the canton job-board root (a crawlable, indexed
+  // page). NOT a `?q=` keyword search — robots.txt disallows `/*?q=*`, so an
+  // internal `?q=` link is a "disallowed outlink" (SearchAtlas/GSC), and
+  // rel="nofollow" is banned on internal links (tests/no-internal-nofollow).
+  // This keeps the top-companies cards, the newcomers cards, and the advice
+  // banner all clickable (no dead `<strong>` company names).
   const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-  const companyFallbackHref = (employer: string): string =>
-    `${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(employer)}`.replace(/\/\/+/g, '/');
+  const companyFallbackHref = (_employer: string): string =>
+    `${localePrefix}/${jobBoardSection}/`.replace(/\/\/+/g, '/');
   const employerHref = (employerKey: string | undefined, employer: string): string =>
     employerBrandPath(employerKey, employer, knownSlugs) ?? companyFallbackHref(employer);
 
@@ -2807,8 +2810,8 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     fr: cityJobBoardPath,
   };
   // Map common role slugs to a SECTOR_HUB_KEY. Promotes the role link to
-  // the canonical sector hub when available (closes the link-equity leak
-  // toward `noindex` `?q=` URLs); falls back to keyword search otherwise.
+  // the canonical sector hub when available; falls back to the city job-board
+  // root (crawlable) — never a robots-disallowed `?q=` keyword URL.
   const ROLE_TO_SECTOR_HUB: Record<string, SectorHubKey> = {
     infermiere: 'infermieri', infermieri: 'infermieri', nurse: 'infermieri', nurses: 'infermieri',
     pflegefachperson: 'infermieri', pflegepersonal: 'infermieri', infirmier: 'infermieri', infirmiere: 'infermieri',
@@ -2835,7 +2838,7 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
             const sectorKey = ROLE_TO_SECTOR_HUB[roleSlug.toLowerCase()];
             const roleHref = sectorKey && (SECTOR_HUB_KEYS as readonly string[]).includes(sectorKey)
               ? buildSectorHubPath(locale, sectorKey)
-              : `${jobBoardSearchBase[locale]}?q=${encodeURIComponent(roleSlug || r.role)}`;
+              : jobBoardSearchBase[locale];
             return `<li><a class="s-QTUjw9" href="${esc(roleHref)}">${esc(r.role)}</a> — ${esc(copy.jobsCountLabel(r.count))}</li>`;
           })
           .join('')}</ul>`
@@ -3479,7 +3482,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // (which embeds `employer`) is in play.
   const ccEmployerHref =
     employerBrandPath(stats.employerKey, employer, knownSlugs) ??
-    `${weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city))}?q=${encodeURIComponent(employer)}`;
+    weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city));
   const ccAdviceHtml =
     ccHasPositiveDelta && employer
       ? esc(ccAdviceText).replace(
@@ -3496,7 +3499,7 @@ export function renderCompanyCityPage(inp: CompanyCityPageInputs): string {
   // Phase 6 (Cathedral): per-company×city CTA points at the city's canton-
   // resolved job board (TI cities → legacy slug, byte-identical).
   const ccJobBoardPath = weeklyEmployersJobBoardPath(locale, cityWeeklyEmployerCanton(city));
-  const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}?city=${esc(city)}&q=${encodeURIComponent(employer)}" class="s-cta" style="font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
+  const ccCtaHtml = `<p class="s-ziawP1"><a href="${esc(ccJobBoardPath)}" class="s-cta" style="font-size:15px">${esc(ccTileLabels.cityCta(`${employer} · ${cityDisplay}`))} →</a></p>`;
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="breadcrumb">
@@ -4247,7 +4250,7 @@ export function renderTopCompaniesSectionForTest(
   }
   const items = topCompanies.map((c, idx) => {
     const companyFallbackHref =
-      (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+      (`${localePrefix}/${jobBoardSection}/`).replace(/\/\/+/g, '/');
     const deltaLabel =
       !hasHistoricalDelta
         ? null

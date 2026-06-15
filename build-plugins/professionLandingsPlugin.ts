@@ -58,7 +58,6 @@ import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
   buildProfessionLandingPath,
-  professionRoleKeyword,
   PROFESSION_FACTS,
   type ProfessionLocale,
   type ProfessionId,
@@ -194,13 +193,11 @@ function renderFeaturedJobs(
     locale,
     emptyStateHtml: emptyHtml,
   });
-  // Deep-link the "see all" CTA to the job board pre-filtered on the
-  // profession (JobBoard reads `?q=` from the URL). Trailing slash stays on
-  // the path, before the query string.
-  const searchTerm = professionRoleKeyword(locale, id);
-  const ctaHref = searchTerm
-    ? `${buildJobBoardUrl(locale)}?q=${encodeURIComponent(searchTerm)}`
-    : buildJobBoardUrl(locale);
+  // Link the "see all" CTA to the job-board root (crawlable, indexed). NOT a
+  // `?q=` keyword deep-link: robots.txt disallows `/*?q=*`, so an internal
+  // `?q=` link is a "disallowed outlink" (SearchAtlas/GSC) and rel="nofollow"
+  // is banned on internal links (tests/no-internal-nofollow.test.tsx).
+  const ctaHref = buildJobBoardUrl(locale);
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
@@ -231,7 +228,9 @@ function renderEmployerGrid(
       name: r.name,
       openings: r.count ?? undefined,
     } satisfies EmployerCardEmployer,
-    href: `${buildJobBoardUrl(locale)}?q=${encodeURIComponent(r.name)}`,
+    // Crawlable job-board root, never a robots-disallowed `?q=` URL
+    // (rel="nofollow" banned on internal links — see no-internal-nofollow test).
+    href: buildJobBoardUrl(locale),
   }));
 
   const listHtml = renderEmployerCardListHtml(items, {
