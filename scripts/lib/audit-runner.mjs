@@ -208,10 +208,29 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
   const progressInterval = Math.max(1, Math.floor(files.length / 20));
 
   let scanned = 0;
-  for (const file of files) {
-    let html;
-    try { html = await readFile(file, 'utf8'); }
-    catch (err) {
+  // Bounded read-ahead: overlap each file's disk read with the previous file's
+  // (CPU-bound, single-threaded) collect pass. We keep READAHEAD reads in flight
+  // and await them in order. This is a PURE I/O-scheduling change — collect()
+  // still runs on every file's exact html string in the SAME order, so every
+  // auditor's accumulator and report() verdict is byte-identical to the serial
+  // loop. Read promises settle to {html} | {err} so a read that rejects while
+  // waiting its turn in the queue never becomes an unhandled rejection; the
+  // ENOENT-skip / non-ENOENT-throw behaviour is preserved at await time.
+  const READAHEAD = 8;
+  const inflight = [];
+  let nextIdx = 0;
+  const fillQueue = () => {
+    while (inflight.length < READAHEAD && nextIdx < files.length) {
+      const file = files[nextIdx++];
+      inflight.push({ file, p: readFile(file, 'utf8').then((html) => ({ html }), (err) => ({ err })) });
+    }
+  };
+  fillQueue();
+  while (inflight.length > 0) {
+    const { file, p } = inflight.shift();
+    fillQueue(); // keep the next read pre-issued while we process this one
+    const { html, err } = await p;
+    if (err) {
       if (err.code !== 'ENOENT') throw err;
       continue;
     }
@@ -220,9 +239,9 @@ export async function runAudits({ distDir, auditors, verbose = true, writeReport
       const beforeHtml = strict ? html : null;
       try {
         auditor.collect(file, html);
-      } catch (err) {
-        console.error(`[audit-runner] ${auditor.name} threw on ${file}: ${err.message}`);
-        throw err;
+      } catch (e) {
+        console.error(`[audit-runner] ${auditor.name} threw on ${file}: ${e.message}`);
+        throw e;
       }
       if (strict && html !== beforeHtml) {
         throw new Error(`[audit-runner] auditor ${auditor.name} mutated html for ${file}`);
