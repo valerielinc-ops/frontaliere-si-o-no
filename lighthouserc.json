@@ -3,7 +3,9 @@
     "collect": {
       "numberOfRuns": 3,
       "settings": {
-        "preset": "desktop"
+        "preset": "desktop",
+        "maxWaitForLoad": 60000,
+        "chromeFlags": "--disable-dev-shm-usage --no-sandbox --disable-gpu"
       }
     },
     "assert": {
