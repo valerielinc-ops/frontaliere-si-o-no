@@ -1,5 +1,6 @@
 import admin from 'firebase-admin';
 import { refreshEngagementScore } from './lib/engagementScore.js';
+import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 
 /**
  * Mailtrap webhook handler — receives delivery events and stores them in Firestore.
@@ -157,6 +158,9 @@ async function persistMailtrapEvent(db, eventData) {
  occurred_at: occurredAt,
  });
 
+ if (type === 'open') {
+ await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailtrap', campaignId });
+ }
  return { processed: true, type, email, campaignId };
 }
 
