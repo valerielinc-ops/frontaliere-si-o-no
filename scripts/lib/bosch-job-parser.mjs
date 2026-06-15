@@ -135,7 +135,10 @@ export function parseBoschJobDetail(html = '') {
     field,
     applyUrl,
     description: sections.join('\n\n').trim(),
-    canton: inferAnyCanton(`${title} ${location}`) || HQ.canton,
+    // Location-first: the location field is authoritative; resolve it before the
+    // job title so a canton/city name in the title can't override the real
+    // location via inferAnyCanton's TARGET_CANTONS array-order sensitivity.
+    canton: inferAnyCanton(location) || inferAnyCanton(title) || HQ.canton,
   };
 }
 

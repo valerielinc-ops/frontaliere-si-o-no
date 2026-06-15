@@ -113,7 +113,10 @@ async function main() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     // Prefer detail city (from full location text) over listing city
     const city = detail.city || raw.city || 'Ticino';
-    const canton = inferAnyCanton(`${city} ${raw.location}`) || detail.canton || DEFAULT_CANTON;
+    // City-first: resolve the (detail-preferred) city alone before the raw
+    // listing location, so the more authoritative city wins over the array-order
+    // sensitivity of a combined string.
+    const canton = inferAnyCanton(city) || inferAnyCanton(raw.location) || detail.canton || DEFAULT_CANTON;
     const jobSlug = slugify(`${raw.title}-otis-${safeLocationToken(city, 'Ticino')}`);
     parsedJobs.push({
       id: `otis-${urlHash}`,

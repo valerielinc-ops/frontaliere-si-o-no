@@ -316,8 +316,11 @@ function buildJobFromApi(listing) {
   const locationName = normalizeSpace(loc.locationName || '');
   const apiZipCode = String(loc.zipCode || loc.postalCode || '').trim();
 
-  // Use the state abbreviation if available (e.g., "VS" for Valais)
-  const canton = stateAbbr || inferAnyCanton(city + ' ' + state) || 'VS';
+  // Use the state abbreviation if available (e.g., "VS" for Valais).
+  // City-first: resolve the specific city before the broader state, so it wins
+  // over inferAnyCanton's TARGET_CANTONS array-order sensitivity (a combined
+  // "city + state" string could let the state's canton override the city).
+  const canton = stateAbbr || inferAnyCanton(city) || inferAnyCanton(state) || 'VS';
   const postalCode = inferPostalCode(city, apiZipCode);
   const location = city || state || 'Verbier';
 
