@@ -6,6 +6,7 @@ import {
   suggestedActionText,
   mostSpecificToken,
   detectAlreadyResolved,
+  closingMergedPr,
   // @ts-expect-error — plain .mjs module, no types
 } from '../scripts/ci/followup-resolution-match.mjs';
 
@@ -260,5 +261,52 @@ describe('detectAlreadyResolved (end-to-end matcher)', () => {
     expect(detectAlreadyResolved(body, {}).resolved).toBe(false);
     // @ts-expect-error — no io at all
     expect(() => detectAlreadyResolved(body, undefined)).not.toThrow();
+  });
+});
+
+describe('closingMergedPr (explicit done-but-open via merged PR cross-ref)', () => {
+  it('flags the multi-issue `Closes #a #b #c` gotcha — GitHub closed only #a, #b/#c stay open', () => {
+    const prs = [{ number: 1320, title: 'fix: x', body: 'Closes #100 #2035 #2036' }];
+    expect(closingMergedPr(2035, prs)).toBe(1320);
+    expect(closingMergedPr(2036, prs)).toBe(1320);
+  });
+
+  it('flags `Supersedes #N` (GitHub never auto-closes supersede)', () => {
+    expect(closingMergedPr(2031, [{ number: 2042, body: 'Supersedes #2031 — memory-safe retry' }])).toBe(2042);
+  });
+
+  it('accepts the closing-keyword variants on the same line as the ref', () => {
+    expect(closingMergedPr(7, [{ number: 9, body: 'Fixes #7' }])).toBe(9);
+    expect(closingMergedPr(7, [{ number: 9, body: 'Resolved #7 in passing' }])).toBe(9);
+    expect(closingMergedPr(7, [{ number: 9, title: 'closed #7', body: '' }])).toBe(9);
+  });
+
+  it('flags a comma/`and`-separated closing list (`Closes #a, #b and #c`)', () => {
+    expect(closingMergedPr(7, [{ number: 9, body: 'Closes #5, #6 and #7' }])).toBe(9);
+  });
+
+  it('does NOT flag a bare mention without a closing keyword (Related: #N)', () => {
+    expect(closingMergedPr(7, [{ number: 9, body: 'Related: #7\nSee also #7 for context' }])).toBeNull();
+  });
+
+  it('does NOT flag when the keyword and ref are on DIFFERENT lines', () => {
+    expect(closingMergedPr(7, [{ number: 9, body: 'Closes #8\nUnrelated note about #7' }])).toBeNull();
+  });
+
+  it('does NOT flag when a word breaks the ref-run (`Fixes #8 and touches #N`) — adv #2', () => {
+    expect(closingMergedPr(2123, [{ number: 9, body: 'Fixes #8 and touches #2123 in passing' }])).toBeNull();
+  });
+
+  it('guards against numeric prefix collisions — #2035 must not match #20350', () => {
+    expect(closingMergedPr(2035, [{ number: 9, body: 'Closes #20350' }])).toBeNull();
+    expect(closingMergedPr(35, [{ number: 9, body: 'Closes #2035' }])).toBeNull();
+  });
+
+  it('returns null on empty/invalid input (proceed-safe)', () => {
+    expect(closingMergedPr(7, [])).toBeNull();
+    // @ts-expect-error — non-array
+    expect(closingMergedPr(7, null)).toBeNull();
+    expect(closingMergedPr(0, [{ number: 9, body: 'Closes #0' }])).toBeNull();
+    expect(closingMergedPr(NaN, [{ number: 9, body: 'Closes #5' }])).toBeNull();
   });
 });

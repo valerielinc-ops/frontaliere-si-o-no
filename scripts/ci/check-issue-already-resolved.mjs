@@ -54,7 +54,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { detectAlreadyResolved } from './followup-resolution-match.mjs';
+import { detectAlreadyResolved, closingMergedPr } from './followup-resolution-match.mjs';
 
 const DRY_RUN = process.env.DRY_RUN === '1';
 const ISSUE = process.env.ISSUE_NUMBER;
@@ -210,6 +210,60 @@ function main() {
     return;
   }
 
+  // Side-effects shared by every short-circuit path: advisory comment (with a
+  // signal-specific `reason` line), drop `agent:fix` (no re-dispatch), tag
+  // `maybe-resolved`. Never closes the issue — human confirms (FOLLOWUP.md).
+  function shortCircuit(reason, evidenceMd) {
+    if (!DRY_RUN) {
+      const comment = `${MARKER}
+${reason}
+${evidenceMd ? `\n${evidenceMd}\n` : ''}
+Rimossa la label \`agent:fix\` (no re-dispatch). **Non chiudo** la issue: verifica e chiudi a mano se lo scope è davvero coperto; se invece il fix serve ancora, ri-aggiungi \`agent:fix\`. Gate strutturale #1647.
+
+${OUTCOME}`;
+      gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', comment], { allowFail: true });
+      // Remove agent:fix so the fixer is not re-dispatched; add maybe-resolved advisory.
+      gh(['issue', 'edit', ISSUE, ...repoArgs, '--remove-label', 'agent:fix'], { allowFail: true });
+      gh(['label', 'create', LABEL, '--color', 'c5def5',
+          '--description', 'Reconcile bot: cited code present in file — likely done-but-open',
+          ...repoArgs], { allowFail: true });
+      gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LABEL], { allowFail: true });
+    }
+    setOutput(true);
+  }
+
+  // SIGNAL 1 (explicit declaration): a MERGED PR names this issue with a closing/supersede
+  // keyword. Catches the multi-issue `Closes #a #b #c` gotcha (GitHub closes only #a → the
+  // rest stay open) and `Supersedes #N`, which the verbatim-token matcher structurally
+  // cannot see (it reads file content, not PR cross-refs). Proceed-safe: if the PR list is
+  // unreadable/unparseable we skip this signal and fall through to the token matcher.
+  let closer = null;
+  const MERGED_PR_LIMIT = 50;
+  try {
+    const mergedPrs = JSON.parse(
+      gh(['pr', 'list', '--state', 'merged', '--search', `#${ISSUE} in:body,title`, ...repoArgs,
+          '--json', 'number,title,body', '--limit', String(MERGED_PR_LIMIT)], { allowFail: true }) || '[]',
+    );
+    // Coverage cap (proceed-safe but worth surfacing): if the search saturates the
+    // limit, a declaring PR older than the 50 most-recent hits is missed → SIGNAL 1
+    // silently falls through to the token matcher / fixer. Direction is safe (never a
+    // false short-circuit), but log it so the cap isn't invisible (reviewer adv #3).
+    if (mergedPrs.length >= MERGED_PR_LIMIT) {
+      console.log(`Issue #${ISSUE}: merged-PR search hit the ${MERGED_PR_LIMIT}-result cap — a declaring PR beyond it would be missed by SIGNAL 1 (proceed-safe).`);
+    }
+    closer = closingMergedPr(ISSUE, mergedPrs);
+  } catch { closer = null; }
+  if (closer) {
+    console.log(`Issue #${ISSUE}: MERGED PR #${closer} explicitly closes/supersedes it (done-but-open) → short-circuit, skip Claude fixer.`);
+    shortCircuit(
+      `⏭️ **Pre-flight (auto, zero-Claude)**: la PR **#${closer}** (già mergiata) dichiara esplicitamente di chiudere/superare questa issue (\`Closes\`/\`Supersedes #${ISSUE}\`) ma GitHub non l'ha auto-chiusa — probabile **done-but-open** (es. \`Closes #a #b\` multi-issue: chiude solo la prima). Salto il fixer autonomo per non sprecare quota Max OAuth.`,
+      `- dichiarata risolta da #${closer} (merged)`,
+    );
+    return;
+  }
+
+  // SIGNAL 2 (content match): every distinctive token prescribed in `Suggested action` is
+  // already present verbatim in a cited file on main.
   const { resolved, evidence } = detectAlreadyResolved(body, io);
   if (!resolved) {
     console.log('No strong already-resolved signal — proceeding (normal fixer runs).');
@@ -217,29 +271,12 @@ function main() {
     return;
   }
 
-  // STRONG signal: short-circuit.
   const ev = evidence.slice(0, 6).map((e) => `- \`${e.tok}\` già presente in \`${e.file}\``).join('\n');
   console.log(`Issue #${ISSUE}: STRONG already-resolved signal (${evidence.length} token match) → short-circuit, skip Claude fixer.`);
-
-  if (!DRY_RUN) {
-    const comment = `${MARKER}
-⏭️ **Pre-flight (auto, zero-Claude)**: i token prescritti da questa follow-up risultano **già presenti verbatim** nei file citati — probabile **already-fixed / done-but-open** (coperto da una PR successiva senza \`Closes #${ISSUE}\`). Salto il fixer autonomo per non sprecare quota Max OAuth.
-
-${ev}
-
-Rimossa la label \`agent:fix\` (no re-dispatch). **Non chiudo** la issue: verifica e chiudi a mano se lo scope è davvero coperto; se invece il fix serve ancora, ri-aggiungi \`agent:fix\`. Segnalazione deterministica (presenza verbatim del token nella regione \`Suggested action\`), gate strutturale #1647.
-
-${OUTCOME}`;
-    gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', comment], { allowFail: true });
-    // Remove agent:fix so the fixer is not re-dispatched; add maybe-resolved advisory.
-    gh(['issue', 'edit', ISSUE, ...repoArgs, '--remove-label', 'agent:fix'], { allowFail: true });
-    gh(['label', 'create', LABEL, '--color', 'c5def5',
-        '--description', 'Reconcile bot: cited code present in file — likely done-but-open',
-        ...repoArgs], { allowFail: true });
-    gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', LABEL], { allowFail: true });
-  }
-
-  setOutput(true);
+  shortCircuit(
+    `⏭️ **Pre-flight (auto, zero-Claude)**: i token prescritti da questa follow-up risultano **già presenti verbatim** nei file citati — probabile **already-fixed / done-but-open** (coperto da una PR successiva senza \`Closes #${ISSUE}\`). Salto il fixer autonomo per non sprecare quota Max OAuth.`,
+    ev,
+  );
 
   if (process.env.GITHUB_STEP_SUMMARY) {
     fs.appendFileSync(
