@@ -88,15 +88,19 @@ const JS_ERROR_RX = /^(?:"?\w[\w.]*"?\s+is\s+not\s+defined|referenceerror(?:\s*:
  */
 function sanitizeField(value) {
   if (!value) return value;
-  // Normalize smart/curly double quotes (U+201C/U+201D) to straight quotes
-  // BEFORE the JS_ERROR_RX test (#1849 item 2). `decodeEntities` only straightens
-  // `&quot;` → `"`; a tenant emitting `&ldquo;`/`&rdquo;` yields curly quotes that
-  // neither the leading/trailing quote strip below nor JS_ERROR_RX's `"?` anchor
-  // cover, so `“location” is not defined` would bypass the guard and leak the
-  // error string into the slug. We normalize only the value used for the test —
-  // the returned `value` keeps its original quotes when it is NOT error-shaped.
+  // Normalize smart/curly/guillemet quotes to straight quotes BEFORE the
+  // JS_ERROR_RX test (#1849 item 2). `decodeEntities` only straightens
+  // `&quot;` → `"`; a tenant emitting `&ldquo;`/`&rdquo;` (`“”`), `&lsquo;`/`&rsquo;`
+  // (`‘’`) or `&laquo;`/`&raquo;` (`«»`) — all in the entity table at
+  // `hospital-custom-html-helpers.mjs` — yields fancy quotes that neither the
+  // leading/trailing quote strip below nor JS_ERROR_RX's `"?` anchor cover, so
+  // `“location” is not defined` (or the single/guillemet variants) would bypass
+  // the guard and leak the error string into the slug. Cover the full class so a
+  // future quote variant does not re-open the same whack-a-mole (#1682/#1741).
+  // We normalize only the value used for the test — the returned `value` keeps
+  // its original quotes when it is NOT error-shaped.
   const trimmed = String(value)
-    .replace(/[“”]/g, '"')
+    .replace(/[“”‘’«»]/g, '"')
     .trim()
     .replace(/^["']+|["']+$/g, '')
     .trim();

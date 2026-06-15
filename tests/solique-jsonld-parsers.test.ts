@@ -290,6 +290,31 @@ describe('JS-error-string sanitizer (issues #1682 / #1741)', () => {
     warn.mockRestore();
   });
 
+  it('sanitizes single-curly `‘location’ is not defined` and guillemet `«location» is not defined` (#1849 item 2)', () => {
+    // `decodeEntities` emits `‘’` (lsquo/rsquo) and `«»` (laquo/raquo) too — the
+    // same whack-a-mole class as the double-curly variant. All must be caught.
+    const singleListing = `
+<div class="job"><div class="job-group">
+  <h3 class="jobtitle">Pflegefachperson HF</h3>
+  <div class="location">&lsquo;location&rsquo; is not defined</div>
+  <div class="link"><a id="201830" href="job/details/201830">Details</a></div>
+</div></div>`;
+    const guillemetListing = `
+<div class="job"><div class="job-group">
+  <h3 class="jobtitle">Pflegefachperson HF</h3>
+  <div class="location">&laquo;location&raquo; is not defined</div>
+  <div class="link"><a id="201831" href="job/details/201831">Details</a></div>
+</div></div>`;
+    const single = parseSoliqueListing(singleListing).find((r: { id: string }) => r.id === '201830');
+    const guillemet = parseSoliqueListing(guillemetListing).find((r: { id: string }) => r.id === '201831');
+    expect(single).toBeDefined();
+    expect(single!.location).toBe('');
+    expect(single!.location).not.toContain('not defined');
+    expect(guillemet).toBeDefined();
+    expect(guillemet!.location).toBe('');
+    expect(guillemet!.location).not.toContain('not defined');
+  });
+
   it('drops a job whose TITLE is JS-error-shaped (would otherwise leak into the slug) — SSR listing', () => {
     const brokenTitle = `
 <div class="job"><div class="job-group">
