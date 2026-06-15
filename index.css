@@ -267,6 +267,32 @@ a.seo-entity-card:focus-visible {
   outline-offset: 2px;
 }
 
+/* ── CLS: establish a block formatting context on #root ─────────────────────
+   The prerendered static fallback inside #root starts with a <main> whose
+   first text child carries a default top margin and (unlike the hydrated
+   React <main>, which has py-4 padding) no padding-top. That margin collapses
+   out through #root to <body>, offsetting the whole document ~16px. When
+   createRoot().render() swaps in the padded React tree the collapse vanishes
+   and everything jumps up — measured as a BODY layout shift of ~0.30 (desktop)
+   / ~0.42 (mobile) at ~0.5s (Playwright live attribution, 2026-06-15).
+   `display: flow-root` makes #root its own BFC so the inner margin can never
+   escape to <body>, keeping the static and hydrated phases vertically
+   consistent. Pure CSS, no effect on React rendering.
+
+   `min-height: 100vh` addresses the dominant homepage shift: during the
+   createRoot().render() clear-then-paint, #root momentarily collapses toward
+   0 height, which pulls the static `aside#hp-seo-block` (sibling after #root)
+   up into the viewport (measured previousRect.top ≈72px) before React paints
+   the tall tree and drops it back down — a ~0.79–0.86 layout shift. Reserving
+   at least one viewport keeps #root from collapsing below the fold, so the SEO
+   block stays at/below the fold throughout the swap and its shift no longer
+   intersects the viewport. Gap-risk-free: the hydrated homepage is ~7300–8100px,
+   always far exceeding 100vh, so the reservation is never visible. */
+#root {
+  display: flow-root;
+  min-height: 100vh;
+}
+
 /* ── Footer SEO content blocks (homepage / calculator / job-board) ──────────
    Substantive prerendered content injected as sibling of #root so React
    hydration leaves it untouched. Sits below the footer; presented as a
