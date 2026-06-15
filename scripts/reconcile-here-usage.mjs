@@ -146,13 +146,19 @@ async function getHereAccessToken({ keyId, keySecret }) {
  * Sums "Transactions" usage across routing services from a Usage API payload.
  * Pure — unit-testable. Prefers billableValue (what HERE charges) and falls
  * back to usageValue.
+ *
+ * The live v2 Usage API returns rows under `items` (verified against
+ * org899238099: `{total, limit, items:[{name, valueDriver, billableValue,…}]}`).
+ * `usage` / bare-array shapes are also accepted for forward/back-compat.
  */
 export function sumRoutingTransactions(usagePayload) {
-  const rows = Array.isArray(usagePayload?.usage)
-    ? usagePayload.usage
-    : Array.isArray(usagePayload)
-      ? usagePayload
-      : [];
+  const rows = Array.isArray(usagePayload?.items)
+    ? usagePayload.items
+    : Array.isArray(usagePayload?.usage)
+      ? usagePayload.usage
+      : Array.isArray(usagePayload)
+        ? usagePayload
+        : [];
   let total = 0;
   const breakdown = [];
   for (const row of rows) {
