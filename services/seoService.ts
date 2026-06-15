@@ -3998,6 +3998,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salario-minimo-vaud-si-ma-cantone-sesto': { name: 'Salario minimo Vaud', path: '/articoli-svizzera/salario-minimo-vaud-si-ma-cantone-sesto/', parent: 'blog' },
     'blog-traffico-pesante-autostrada-a2-ticino': { name: 'Mobilità', path: '/articoli-frontaliere/traffico-pesante-autostrada-a2-ticino', parent: 'blog' },
     'blog-votazioni-federali-giugno-2026': { name: 'Votazioni federali', path: '/articoli-svizzera/votazioni-federali-giugno-2026/', parent: 'blog' },
+    'blog-messa-in-sicurezza-provinciale-curiglia': { name: 'Pratico', path: '/articoli-frontaliere/messa-in-sicurezza-provinciale-curiglia', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8080,6 +8080,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-pesante-autostrada-a2-ticino.title': 'Heavy Traffic on A2 and \'Elephant Races\'',
     'blog.article.traffico-pesante-autostrada-a2-ticino.excerpt': 'Question to the Council of State on heavy traffic and prolonged overtaking among trucks on the A2 highway in Ticino.',
     'blog.article.traffico-pesante-autostrada-a2-ticino.imageAlt': 'Heavy traffic on Ticino\'s A2 motorway with trucks and vehicles overtaking, realistic scene.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.title': 'Curiglia with Monteviasco: Safety work on provincial road 6',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.excerpt': 'Safety measures for provincial road 6 in Curiglia continue, with temporary interventions and the emergence of new weaknesses in the landslide-affected slope.',
+    'blog.article.messa-in-sicurezza-provinciale-curiglia.imageAlt': 'Mountain road with safety nets in Curiglia, Ticino.',
 };
 
 export default blogMetaEn;
