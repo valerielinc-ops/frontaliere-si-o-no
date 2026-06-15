@@ -13,12 +13,19 @@
  * never prevented it. This gate makes the antipattern impossible by construction.
  *
  * INVARIANT: across all tracked build-plugins TS/TSX files, the ONLY one
- * allowed to contain the raw `adsbygoogle` ins literal is the sanctioned emitter
- * `build-plugins/lib/adSlotHtml.ts`. Every other plugin MUST call
+ * allowed to contain the raw `adsbygoogle` ins literal IN CODE is the sanctioned
+ * emitter `build-plugins/lib/adSlotHtml.ts`. Every other plugin MUST call
  * `adSlotHtml('SLOT_KEY')`, whose `min-height`/`data-ad-format` come from the
  * canonical registry `services/adsenseSlots.ts` (each slot's `placeholderMinHeight`
  * reserves exactly the real ad height → zero CLS). New slots are added to the
  * registry, not hand-rolled in a plugin.
+ *
+ * Comment-aware (PR #2127): the marker is matched only after comments are
+ * stripped, so a plugin that merely *names* adsbygoogle in a comment (e.g. a
+ * `// …load adsbygoogle.js…` note) is NOT a violation. The bare-substring grep
+ * used to flag those, failing the full-tree gate on every PR until each branch
+ * reworded prose — whack-a-mole with no CLS impact. Mirrors the comment-awareness
+ * in the sibling gate check-client-lookbehind.mjs.
  *
  * This is a full-tree invariant (not diff-scoped): the baseline is already clean
  * (only adSlotHtml.ts matches today), so any future hard-coded `<ins>` — whether
@@ -33,6 +40,7 @@
  * Zero dependencies (git in PATH only); inspects tracked files via `git grep`.
  */
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isGitGrepNoMatch } from './lib/git-grep.mjs';
@@ -89,8 +97,59 @@ function gitGrepFiles(marker, pathspec) {
 }
 
 /**
+ * Strip JS/TS comments so the gate matches the `adsbygoogle` literal only in real
+ * CODE, never in prose that merely *mentions* it. THE recurring false positive
+ * (PR #2127): a plain `// …load adsbygoogle.js post-hydration` note in
+ * jobsSeoPagesPlugin.ts tripped the bare-substring grep on PRs that never touched
+ * ad markup — and because the gate is full-tree, EVERY open PR branched off that
+ * main failed until each one reworded the comment. Whack-a-mole, not a real CLS
+ * regression. Comment-awareness kills the whole class; mirrors the same defense
+ * already in check-client-lookbehind.mjs.
+ *
+ * Block comments are removed first (multiline C-style), then the `//` tail of
+ * each line. Pure → unit-testable. NB: like the sibling gate it splits on `//`, so a
+ * literal `//` inside a same-line string can over-strip — acceptable: a hard-coded
+ * `<ins class="adsbygoogle">` template carries no `//`, so no false NEGATIVE.
+ *
+ * @param {string} src file contents
+ * @returns {string} src with comments blanked out
+ */
+export function stripComments(src) {
+  const noBlock = String(src ?? '').replace(/\/\*[\s\S]*?\*\//g, '');
+  return noBlock
+    .split(/\r?\n/)
+    .map((line) => {
+      const trimmed = line.trimStart();
+      if (trimmed.startsWith('//') || trimmed.startsWith('*')) return ''; // whole-line comment
+      return line.split('//')[0]; // drop trailing line comment
+    })
+    .join('\n');
+}
+
+/**
+ * True iff a candidate file's CODE (comments stripped) still contains the
+ * `adsbygoogle` literal — i.e. a genuinely hard-coded ad slot, not a comment that
+ * names it. Reading is cheap: only files that already grep-hit the marker reach
+ * here. A tracked-but-unreadable file (race) is treated as a hit so the gate fails
+ * loud rather than silently clearing a file it could not inspect (mirrors the
+ * #2010 no-false-clean discipline).
+ *
+ * @param {string} file repo-relative path
+ * @returns {boolean}
+ */
+function fileHasMarkerInCode(file) {
+  let src;
+  try {
+    src = fs.readFileSync(file, 'utf-8');
+  } catch {
+    return true;
+  }
+  return stripComments(src).includes(AD_MARKER);
+}
+
+/**
  * Tracked build-plugin TS/TSX files that contain the raw `adsbygoogle` ins
- * literal but are NOT the sanctioned emitter — i.e. hard-coded ad slots.
+ * literal IN CODE but are NOT the sanctioned emitter — i.e. hard-coded ad slots.
  * Returns a sorted, de-duplicated list (empty = clean).
  */
 export function findViolations() {
@@ -119,8 +178,17 @@ export function findViolations() {
     );
   }
 
-  const matches = raw.filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
-  return [...new Set(matches)].filter((f) => !ALLOWED.has(f)).sort();
+  // Candidates: tracked build-plugin TS/TSX that grep-hit the marker, minus the
+  // sanctioned infra. The grep is a coarse first pass (it matches comments too);
+  // the precise test is `fileHasMarkerInCode` below — the marker must survive
+  // comment-stripping to count, so a comment naming adsbygoogle no longer fails the
+  // gate (PR #2127). The full-tree positive control above still uses the coarse
+  // `raw`, so the no-false-clean canary (#2010) is unaffected.
+  const candidates = raw.filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
+  return [...new Set(candidates)]
+    .filter((f) => !ALLOWED.has(f))
+    .filter(fileHasMarkerInCode)
+    .sort();
 }
 
 function main() {
