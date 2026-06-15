@@ -195,6 +195,46 @@ describe('Solique listing parsers (consolidated solique-common)', () => {
     const text = extractSoliqueDetailContent(SOLIQUE_DETAIL);
     expect(text).toBe('');
   });
+
+  // Template (v): the "section/tasks-profile" redesign (SVAR, #2034). Before the
+  // handler the body extracted to '' for every job → thin-source guard saw 10/10
+  // thin → hard-failed the whole run.
+  const SVAR_REDESIGN_DETAIL = `<section id="intro"><h2 class="subtitle">Wir suchen</h2>
+<div>per sofort eine/n Administrative/n Mitarbeiter/in (m/w/d).</div></section>
+<section id="tasks-profile">
+  <div class="tasks"><h4 class="sub-subtitle">Ihre Aufgaben</h4>
+    <ul><li>Zentrale administrative und koordinative Unterstützung im Direktionsstab.</li>
+    <li>Terminorganisation und -koordination für den CEO.</li></ul></div>
+  <div class="profile"><h4 class="sub-subtitle">Ihr Profil</h4>
+    <ul><li>Mehrjährige Berufserfahrung in einer ähnlichen Position.</li>
+    <li>Hohes Engagement und Loyalität.</li></ul></div>
+</section>
+<section id="offer"><h4 class="sub-subtitle">Zusätzlich profitieren Sie von</h4>
+  <ul><li>Attraktive Anstellungsbedingungen und Weiterbildung.</li></ul></section>
+<section id="contacts"><div class="contact-name">Frau X</div></section>`;
+
+  it('extracts the section/tasks-profile redesign (Template v, SVAR #2034)', () => {
+    const text = extractSoliqueDetailContent(SVAR_REDESIGN_DETAIL);
+    expect(text).toContain('Ihre Aufgaben');
+    expect(text).toContain('• Zentrale administrative und koordinative Unterstützung');
+    expect(text).toContain('Ihr Profil');
+    expect(text).toContain('• Mehrjährige Berufserfahrung');
+    expect(text).toContain('• Attraktive Anstellungsbedingungen');
+    // Well above the thin-source threshold the guard checks.
+    expect(text.length).toBeGreaterThan(100);
+  });
+
+  it('Template (v) is a pure fallback — never fires when (i)-(iv) already matched', () => {
+    // A page carrying an established Template (i) `intro` block PLUS a stray
+    // tasks div must extract ONLY via the established template — Template (v) is
+    // gated on `sections.length === 0`, so the tasks div is never captured.
+    const HYBRID = `<div class="intro">Das Spital sorgt für die Region und ihre Menschen.</div>
+<div class="tasks"><h4 class="sub-subtitle">SHOULD-NOT-APPEAR</h4>
+<ul><li>body that must be ignored</li></ul></div>`;
+    const text = extractSoliqueDetailContent(HYBRID);
+    expect(text).toBe('Das Spital sorgt für die Region und ihre Menschen.');
+    expect(text).not.toContain('SHOULD-NOT-APPEAR');
+  });
 });
 
 // ─── JS-error-string sanitizer (issues #1682 / #1741) ────────────────────────

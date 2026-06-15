@@ -56,6 +56,31 @@ describe('runStandardCrawlerPipeline — connection-level fetch guard', () => {
       }),
     ).rejects.toThrow(/404/);
   });
+
+  it('preserves existing jobs when fetchJobs throws an anti-bot-exhausted error (#2029)', async () => {
+    // The jobup feed client marks err.antiBotExhausted=true after the full
+    // cascade (realistic UA → Jina clean IP → Playwright) all hit the WAF fence.
+    // The clean Jina IP being blocked too makes it an IP-reputation transient,
+    // not a source change → soft-exit (keep slice), same as connection-level.
+    const root = makeRoot();
+    const err = new Error('HTTP 403 from https://www.jobup.ch/masks/ehnv/list_ehnv.asp') as Error & {
+      status?: number;
+      antiBotExhausted?: boolean;
+    };
+    err.status = 403;
+    err.antiBotExhausted = true;
+    await expect(
+      runStandardCrawlerPipeline({
+        companyKey: 'test-co',
+        companyLabel: 'Test Co',
+        isCompanyJob: () => false,
+        fetchJobs: async () => {
+          throw err;
+        },
+        root,
+      }),
+    ).resolves.toBeUndefined();
+  });
 });
 
 describe('exitCrawlerOnError — custom-main terminal catch', () => {
