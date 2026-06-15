@@ -80,6 +80,10 @@ const RC_TO_ENV = {
   SERVER_POSTHOG_PERSONAL_API_KEY: ['POSTHOG_PERSONAL_API_KEY'],
   SERVER_POSTHOG_PROJECT_ID:       ['POSTHOG_PROJECT_ID'],
   SERVER_POSTHOG_HOST:             ['POSTHOG_HOST'],
+  // PostHog server-side capture for the subject A/B email experiment
+  // (send-newsletter CI emits email_sent; Cloud Functions read RC directly).
+  SERVER_POSTHOG_PROJECT_KEY:      ['POSTHOG_PROJECT_KEY'],
+  SERVER_POSTHOG_EMAIL_EXPERIMENT: ['POSTHOG_EMAIL_EXPERIMENT'],
 
   // LinkedIn auto-posting (Company Page articles)
   LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
