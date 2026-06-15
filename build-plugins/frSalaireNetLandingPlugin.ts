@@ -60,6 +60,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { FX_HREF } from './shared/comparatorHref';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -207,9 +208,9 @@ const TOP_CANTONS: ReadonlyArray<CantonCard> = [
 
 const INTERNAL_LINKS: ReadonlyArray<{ href: string; label: string }> = [
   { href: '/fr/calculer-salaire/', label: 'Calculateur salaire net frontalier (simulation complète)' },
-  { href: '/fr/comparateurs/change-devises/', label: 'Comparateur change CHF / EUR (meilleurs taux)' },
+  { href: FX_HREF.fr, label: 'Comparateur change CHF / EUR (meilleurs taux)' },
   { href: '/fr/guide-frontalier/guide-complet-calcul-salaire-frontalier-2026/', label: 'Guide complet: salaire frontalier 2026' },
-  { href: '/fr/comparateurs/', label: 'Tous les comparateurs frontaliers (banques, assurance, mobile)' },
+  { href: '/fr/comparaisons-frontaliers/', label: 'Tous les comparateurs frontaliers (banques, assurance, mobile)' },
 ];
 
 // ── Template B above-the-fold renderers ──────────────────────────

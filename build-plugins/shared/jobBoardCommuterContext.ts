@@ -201,18 +201,9 @@ const COPY: Record<CommuterLocale, CommuterCopy> = {
 // and crashed the full build (deploy run 27401576244). See calcHref.ts.
 export { CALC_HREF } from './calcHref';
 import { CALC_HREF } from './calcHref';
-const FX_HREF: Record<CommuterLocale, string> = {
-  it: '/comparatori/cambio-valuta/',
-  en: '/en/comparators/currency-exchange/',
-  de: '/de/vergleiche/wechselkurs/',
-  fr: '/fr/comparateurs/change-devises/',
-};
-const HEALTH_HREF: Record<CommuterLocale, string> = {
-  it: '/compara-servizi/confronta-casse-malati/',
-  en: '/en/comparators/health-insurance/',
-  de: '/de/vergleiche/krankenkassen/',
-  fr: '/fr/comparateurs/caisses-maladie/',
-};
+// FX_HREF / HEALTH_HREF come from the shared comparatorHref SSOT (canonical,
+// curl-verified-200). Local copies had drifted to a dead orphan scheme (#1997).
+import { FX_HREF, HEALTH_HREF } from './comparatorHref';
 
 function buildCommuterParagraph(locale: CommuterLocale, location: string, row: CityCommuteRow | null): string {
   const loc = location;

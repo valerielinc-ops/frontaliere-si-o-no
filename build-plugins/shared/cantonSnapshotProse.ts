@@ -44,6 +44,7 @@
 // a local copy here let the DE cross-link drift to a dead /de/lohnrechner/
 // (404) and EN/FR to 301-redirect hops (#1948).
 import { CALC_HREF } from './calcHref';
+import { FX_HREF, HEALTH_HREF, FUEL_HREF } from './comparatorHref';
 
 export type SnapshotLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -143,32 +144,14 @@ function buildParagraphs(opts: SnapshotProseOpts): ProseParagraphs {
   const sectorClause = topSectorLabel ? ` ${topSectorLabel}` : '';
   const cityClause = topCityName ? ` ${topCityName}` : '';
 
-  // FX / health-insurance / fuel hrefs reuse the canonical paths used
-  // elsewhere on the site so internal-link equity stays inside the same
-  // routing graph. The calculator path comes from the shared CALC_HREF SSOT.
-  const FX: Record<SnapshotLocale, string> = {
-    it: '/comparatori/cambio-valuta/',
-    en: '/en/comparators/currency-exchange/',
-    de: '/de/vergleiche/wechselkurs/',
-    fr: '/fr/comparateurs/change-devises/',
-  };
-  const HEALTH: Record<SnapshotLocale, string> = {
-    it: '/compara-servizi/confronta-casse-malati/',
-    en: '/en/comparators/health-insurance/',
-    de: '/de/vergleiche/krankenkassen/',
-    fr: '/fr/comparateurs/caisses-maladie/',
-  };
-  const FUEL: Record<SnapshotLocale, string> = {
-    it: '/prezzi-benzina/oggi/',
-    en: '/en/gasoline-price-switzerland/',
-    de: '/de/benzinpreis-schweiz/',
-    fr: '/fr/prix-essence-suisse/',
-  };
-
+  // Calculator + FX / health / fuel comparator hrefs all come from shared leaf
+  // SSOTs (calcHref / comparatorHref) so internal-link equity stays on the
+  // canonical, curl-verified-200 routing graph and can't drift to dead orphan
+  // schemes again (#1948/#1997).
   const calcHref = CALC_HREF[locale];
-  const fxHref = FX[locale];
-  const healthHref = HEALTH[locale];
-  const fuelHref = FUEL[locale];
+  const fxHref = FX_HREF[locale];
+  const healthHref = HEALTH_HREF[locale];
+  const fuelHref = FUEL_HREF[locale];
 
   if (locale === 'en') {
     const headings = 'Reading this snapshot as a cross-border worker';

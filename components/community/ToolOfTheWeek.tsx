@@ -31,12 +31,12 @@ interface ToolDef {
 
 const ALL_TOOLS: ToolDef[] = [
  { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-accent-strong to-accent-strong' },
- { id: 'exchange', icon: '💱', slug: '/comparatori/cambio-valuta', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-success-strong to-info-strong' },
- { id: 'health', icon: '🏥', slug: '/comparatori/casse-malati', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-danger-strong to-danger-strong' },
+ { id: 'exchange', icon: '💱', slug: '/compara-servizi/cambio-franco-euro/', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-success-strong to-info-strong' },
+ { id: 'health', icon: '🏥', slug: '/compara-servizi/confronta-casse-malati/', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-danger-strong to-danger-strong' },
  { id: 'pension', icon: '🏦', slug: '/fisco/pensione', tab: 'fisco', subTab: 'pension', titleKey: 'toolOfWeek.tools.pension', descKey: 'toolOfWeek.tools.pensionDesc', color: 'from-info-strong to-info-strong' },
  { id: 'permit-quiz', icon: '❓', slug: '/quiz-permesso-b-o-g', tab: 'guida', subTab: 'permit-quiz', titleKey: 'toolOfWeek.tools.permitQuiz', descKey: 'toolOfWeek.tools.permitQuizDesc', color: 'from-info-strong to-info-strong' },
  { id: 'tredicesima', icon: '🎁', slug: '/calcolo-tredicesima-frontaliere', tab: 'calculator', subTab: 'tredicesima', titleKey: 'toolOfWeek.tools.tredicesima', descKey: 'toolOfWeek.tools.tredicesimalDesc', color: 'from-warning-strong to-warning-strong' },
- { id: 'cost-of-living', icon: '🏠', slug: '/comparatori/costo-vita', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-info-strong to-accent-strong' },
+ { id: 'cost-of-living', icon: '🏠', slug: '/compara-servizi/costo-della-vita/', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-info-strong to-accent-strong' },
  { id: 'tax-return', icon: '📋', slug: '/fisco/dichiarazione', tab: 'fisco', subTab: 'tax-return', titleKey: 'toolOfWeek.tools.taxReturn', descKey: 'toolOfWeek.tools.taxReturnDesc', color: 'from-surface-alt0 to-surface-inverted' },
  { id: 'banks', icon: '🏧', slug: '/comparatori/banche', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-info-strong to-success-strong' },
  { id: 'payslip', icon: '💰', slug: '/calcola-stipendio/busta-paga', tab: 'calculator', subTab: 'payslip', titleKey: 'toolOfWeek.tools.payslip', descKey: 'toolOfWeek.tools.payslipDesc', color: 'from-success-strong to-success-strong' },
