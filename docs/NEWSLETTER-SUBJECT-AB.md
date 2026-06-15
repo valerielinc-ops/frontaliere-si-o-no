@@ -43,8 +43,24 @@ carries `subject_variant` + `email_provider`) and the webhooks emit
 `email_opened` on open. Both share `distinct_id = email`, so in PostHog:
 
 1. Build a **Funnel**: step 1 `email_sent` → step 2 `email_opened`.
-2. **Breakdown by** `subject_variant` (and/or `email_provider`).
-3. PostHog reports conversion (= open rate) per arm with significance.
+2. **Filter the whole funnel to one `campaign_id`** (analyze one weekly campaign
+   at a time). This is required for correct attribution — see the box below.
+3. **Breakdown by** `subject_variant` (and/or `email_provider`).
+4. PostHog reports conversion (= open rate) per arm with significance.
+
+> **Attribution — must scope per campaign.** PostHog links step 1 → step 2 by
+> *person* within the conversion window, not by matching `campaign_id`. With
+> weekly campaigns, a conversion window longer than 7 days could let an
+> `email_opened` from a *later* campaign convert an earlier `email_sent`, and the
+> variant breakdown takes the value from step 1 → the open gets attributed to the
+> wrong campaign's variant. Two guards (do both):
+> - **Filter the funnel to a single `campaign_id`** (step 2 above) — both events
+>   carry it, so only same-campaign sent+open pairs enter the funnel.
+> - **Set the conversion window to ≤ 3 days** (well under the weekly cadence).
+>
+> Within one campaign a subscriber has exactly one variant (assignment is
+> `hash(email, campaignId)`), so once scoped per campaign the per-arm open rate
+> is exact.
 
 The variant is **not** assigned by a PostHog feature flag — our hash owns
 assignment, so the experiment keeps working even if PostHog is down/over-quota.
@@ -56,8 +72,11 @@ Set on both runtimes (off → no events emitted, zero PostHog volume):
 | Env | Where | Purpose |
 |-----|-------|---------|
 | `POSTHOG_EMAIL_EXPERIMENT=1` | send-newsletter CI env **and** Cloud Functions runtime | master switch |
-| `POSTHOG_PROJECT_KEY` | both (optional) | defaults to the public client key |
+| `POSTHOG_PROJECT_KEY` | both (**required to activate**) | PostHog project write key (`phc_…`); no hardcoded default |
 | `POSTHOG_HOST` | both (optional) | defaults to `https://eu.i.posthog.com` |
+
+Both `POSTHOG_EMAIL_EXPERIMENT=1` **and** `POSTHOG_PROJECT_KEY` must be set — if
+either is missing the capture is a no-op.
 
 ⚠️ **Quota**: the PostHog free tier (1M events/mo) is already tight and has
 caused outages. This emits only 2 events per subscriber per campaign, but keep

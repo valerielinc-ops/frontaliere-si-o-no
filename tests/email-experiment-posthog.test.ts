@@ -61,6 +61,7 @@ describe('emailExperimentPostHog — enabled', () => {
   it('still no-ops when email (distinct_id) is missing', async () => {
     vi.resetModules();
     vi.stubEnv('POSTHOG_EMAIL_EXPERIMENT', 'true');
+    vi.stubEnv('POSTHOG_PROJECT_KEY', 'phc_test_key');
     const fetchSpy = vi.fn(async () => ({ ok: true }));
     vi.stubGlobal('fetch', fetchSpy);
     const { captureEmailEvent } = await import(MODULE);
@@ -68,9 +69,21 @@ describe('emailExperimentPostHog — enabled', () => {
     expect(fetchSpy).not.toHaveBeenCalled();
   });
 
+  it('no-ops when the key is missing even if the flag is on', async () => {
+    vi.resetModules();
+    vi.stubEnv('POSTHOG_EMAIL_EXPERIMENT', '1'); // no POSTHOG_PROJECT_KEY
+    const fetchSpy = vi.fn(async () => ({ ok: true }));
+    vi.stubGlobal('fetch', fetchSpy);
+    const { captureEmailEvent, isEmailExperimentEnabled } = await import(MODULE);
+    expect(isEmailExperimentEnabled()).toBe(false);
+    expect(await captureEmailEvent('email_opened', { email: 'x@y.com' })).toBe(false);
+    expect(fetchSpy).not.toHaveBeenCalled();
+  });
+
   it('never throws when fetch rejects', async () => {
     vi.resetModules();
     vi.stubEnv('POSTHOG_EMAIL_EXPERIMENT', '1');
+    vi.stubEnv('POSTHOG_PROJECT_KEY', 'phc_test_key');
     vi.stubGlobal('fetch', vi.fn(async () => { throw new Error('network down'); }));
     const { captureEmailEvent } = await import(MODULE);
     await expect(captureEmailEvent('email_opened', { email: 'x@y.com' })).resolves.toBe(false);
