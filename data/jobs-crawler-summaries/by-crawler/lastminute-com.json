@@ -1,18 +1,60 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-06-15T14:50:38.308Z",
-  "total": 1,
-  "newCount": 1,
+  "generatedAt": "2026-06-15T23:20:37.765Z",
+  "total": 2,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36141,
-  "avgDurationMs": 36141,
+  "durationMs": 25269,
+  "avgDurationMs": 25269,
   "durationHistory": [
-    36141
+    25269
   ],
   "newJobs": [
+    {
+      "id": "company-er6fyj",
+      "slug": "data-ingegnere-chiasso",
+      "company": "lastminute.com",
+      "title": "Data Engineer",
+      "location": "Chiasso",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000132224083&jobName=Data+Engineer",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "crawledAt": "2026-06-15T23:20:37.053Z",
+      "firstSeenAt": "2026-06-15T23:20:37.053Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chiasso",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 23,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-2oxpfe",
       "slug": "responsabile-globale-payroll-e-sistemi-hr-chiasso",
