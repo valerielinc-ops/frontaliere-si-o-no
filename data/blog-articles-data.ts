@@ -25605,6 +25605,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ticino-vota-si-blocco-abitanti',
+ category: 'novita',
+ date: '2026-06-15T02:21:14.263Z',
+ image: '/images/blog/ticino-vota-si-blocco-abitanti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

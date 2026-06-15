@@ -8075,6 +8075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-parita-salariale-interrogazione.title': 'Chiasso: interrogazione su parità salariale e trasparenza retributiva',
     'blog.article.chiasso-parita-salariale-interrogazione.excerpt': 'Tre consiglieri comunali chiedono dati chiari su stipendi, distribuzione di genere e divario retributivo nell\'amministrazione comunale.',
     'blog.article.chiasso-parita-salariale-interrogazione.imageAlt': 'Vista di Chiasso con il valico di confine e l\'edificio del municipio, simbolo della richiesta di trasparenza salariale.',
+    'blog.article.ticino-vota-si-blocco-abitanti.title': 'Ticino approva il blocco degli abitanti: cosa cambia per i frontalieri',
+    'blog.article.ticino-vota-si-blocco-abitanti.excerpt': 'Il Canton Ticino ha votato a favore dell\'iniziativa UDC contro l\'immigrazione con il 50.66% dei voti. Cosa significa per i frontalieri e il mercato del lavoro ticinese.',
+    'blog.article.ticino-vota-si-blocco-abitanti.imageAlt': 'Vista panoramica di Lugano e del lago di Lugano',
 };
 
 export default blogMetaIt;
