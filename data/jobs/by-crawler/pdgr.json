@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-06-14T22:26:33.829Z",
+  "assembledAt": "2026-06-15T15:03:55.401Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:27.378Z",
+      "crawledAt": "2026-06-15T15:03:48.850Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -68,15 +68,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:12.618Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -113,7 +113,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:26.327Z",
+      "crawledAt": "2026-06-15T15:03:47.814Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -147,15 +147,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -192,7 +192,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:25.251Z",
+      "crawledAt": "2026-06-15T15:03:46.768Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -255,15 +255,16 @@
         "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -300,7 +301,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:24.173Z",
+      "crawledAt": "2026-06-15T15:03:45.685Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -353,15 +354,16 @@
         "resident-psychiatrist-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -398,7 +400,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:23.120Z",
+      "crawledAt": "2026-06-15T15:03:44.593Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -432,15 +434,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:08.282Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -477,7 +479,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:22.065Z",
+      "crawledAt": "2026-06-15T15:03:43.486Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -514,15 +516,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:52:07.219Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -559,7 +561,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:20.985Z",
+      "crawledAt": "2026-06-15T15:03:42.426Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -628,15 +630,16 @@
         "medecin-principal-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -673,7 +676,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:19.906Z",
+      "crawledAt": "2026-06-15T15:03:41.386Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -737,15 +740,16 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -782,7 +786,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:18.809Z",
+      "crawledAt": "2026-06-15T15:03:40.348Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -836,15 +840,16 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -881,7 +886,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:17.749Z",
+      "crawledAt": "2026-06-15T15:03:39.307Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -938,15 +943,16 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -983,7 +989,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:16.676Z",
+      "crawledAt": "2026-06-15T15:03:38.240Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1033,15 +1039,16 @@
         "dipl-pflegefachperson-hf-fh-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1078,7 +1085,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:14.606Z",
+      "crawledAt": "2026-06-15T15:03:36.185Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1138,15 +1145,15 @@
         "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -1183,7 +1190,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:13.549Z",
+      "crawledAt": "2026-06-15T15:03:35.162Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1219,15 +1226,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:51:57.235Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1264,7 +1271,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:12.505Z",
+      "crawledAt": "2026-06-15T15:03:34.111Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1318,15 +1325,16 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1363,7 +1371,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:11.449Z",
+      "crawledAt": "2026-06-15T15:03:33.041Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1439,15 +1447,16 @@
         "arztsekretar-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1484,7 +1493,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:10.386Z",
+      "crawledAt": "2026-06-15T15:03:32.006Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1542,15 +1551,16 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1587,7 +1597,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:09.336Z",
+      "crawledAt": "2026-06-15T15:03:30.948Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1645,15 +1655,16 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1690,7 +1701,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:07.232Z",
+      "crawledAt": "2026-06-15T15:03:28.849Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1744,121 +1755,16 @@
         "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "pdgr-e3ae150d4acd",
-      "slug": "specialista-in-salute-psychiatrische-dienste-graubunden-cazis",
-      "slugByLocale": {
-        "it": "specialista-in-salute-psychiatrische-dienste-graubunden-cazis",
-        "en": "healthcare-specialist-psychiatrische-dienste-graubunden-cazis",
-        "de": "fachperson-gesundheit-psychiatrische-dienste-graubunden-cazis",
-        "fr": "specialiste-en-sante-psychiatrische-dienste-graubunden-cazis"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Fachperson Gesundheit",
-      "titleByLocale": {
-        "it": "Specialista in Salute",
-        "en": "Healthcare Specialist",
-        "de": "Fachperson Gesundheit",
-        "fr": "Spécialiste en Santé"
-      },
-      "description": "Ihre Umgebung:\nSie arbeiten in einem interprofessionellen Team aus Medizin, Pflege, Therapie und Sozialdienst auf der halboffen geführten forensisch-psychiatrischen Station Selva mit 14 Betten. Die forensisch-psychiatrische Station dient der psychiatrischen und psychotherapeutischen Behandlung von psychisch kranken Straftätern.\n\nIhre Aufgaben:\n- Sie arbeiten mit Dipl. Pflegefachpersonen HF in der ganzheitlichen Betreuung und Behandlung von psychisch erkrankten Menschen im stationären Bereich\n\n- Sie bringen hohe Bereitschaft mit, sich mit der forensischen Psychiatrie auseinanderzusetzen\n\n- Sie gestalten die Betreuung und Behandlung, entsprechend den Entwicklungen und Trends in der Psychiatrie\n\n- Sie stellen eine offene und konstruktive Kommunikation sicher\n\nUnser Anforderungsprofil:\n- Sie sind Fachfrau / Fachmann Gesundheit und haben Erfahrung in der psychiatrischen Pflege und Betreuung oder das Interesse, sich das erforderliche Wissen anzueignen\n\n- Ihnen ist es genauso wichtig wie uns, unsere Patientinnen und Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz sowie Freude an Teamarbeit\n\n- Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit\n\nWir bieten Ihnen:\n- Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen\n\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
-      "descriptionByLocale": {
-        "it": "Descrizione - Lavorerai in un team interprofessionale composto da medici, infermieri, terapeuti e servizi sociali nella nostra struttura semichiusa per la salute mentale forense Selva con 14 posti letto - La struttura forense-psichiatrica offre trattamenti psichiatrici e psicoterapici per pazienti criminali con problemi mentali ## Le tue responsabilità - Collaborerai con infermieri diplomati HF nella cura e assistenza globale di persone con problemi mentali in ambito ospedaliero - Mostrerai alta disponibilità nel confrontarti con la psichiatria forense - Adatterai la cura e l'assistenza in base agli sviluppi e alle tendenze nella psichiatria - Garantirai una comunicazione aperta e costruttiva ## Il nostro profilo richiesto - Sei un professionista della salute con esperienza in assistenza e cura psichiatrica o l'interesse a acquisire le competenze necessarie - Ti importa quanto a noi curare i nostri pazienti sia clinicamente che personalmente - Possiedi alta competenza sociale e di sé, e apprezzi il lavoro di squadra - Mostri un alto senso di responsabilità, resistenza e flessibilità ## Cosa ti offriamo - Lavorerai in un'azienda orientata al futuro e innovativa - Assumerai un incarico vario e responsabile in un team motivato e interprofessionale - Potrai usufruire del nostro programma di formazione interna – supportiamo anche i tuoi obiettivi di formazione esterna - Godi di un equilibrio ottimale tra lavoro e vita con modelli di lavoro part-time, 6 settimane di ferie e vacanze non retribuite",
-        "en": "Description - You will work in an interdisciplinary team consisting of doctors, nurses, therapists, and social services in our semi-open forensic-psychiatric ward Selva with 14 beds - The forensic-psychiatric ward provides psychiatric and psychotherapeutic treatment for mentally ill criminals ## Your\n• Responsibilities - You will collaborate with HF-diploma nurses in the holistic care and treatment of mentally ill people in the inpatient setting - You will bring high willingness to deal with forensic psychiatry - You will adapt the care and treatment according to the developments and trends in psychiatry - You will ensure open and constructive communication ## Our\n• Requirements\n• Profile - You are a healthcare professional with experience in psychiatric care and support or the interest to acquire the necessary knowledge - It is as important to you as to us to treat our patients both clinically and personally - You have high social and self-competence and enjoy teamwork - You bring a high degree of responsibility, resilience, and flexibility ## What We Offer You - You will work in a future-oriented and innovative company - You will take on a varied and responsible task in a motivated, interdisciplinary team - You will benefit from our internal training and further education program – we also support your external training and further education goals - You will enjoy an optimal work-life balance with part-time work models, 6 weeks of vacation, and unpaid leave",
-        "de": "Ihre Umgebung: Sie arbeiten in einem interprofessionellen Team aus Medizin, Pflege, Therapie und Sozialdienst auf der halboffen geführten forensisch-psychiatrischen Station Selva mit 14 Betten. Die forensisch-psychiatrische Station dient der psychiatrischen und psychotherapeutischen Behandlung von psychisch kranken Straftätern. \n• Ihre Aufgaben: - Sie arbeiten mit Dipl. Pflegefachpersonen HF in der ganzheitlichen Betreuung und Behandlung von psychisch erkrankten Menschen im stationären Bereich - Sie bringen hohe Bereitschaft mit, sich mit der forensischen Psychiatrie auseinanderzusetzen - Sie gestalten die Betreuung und Behandlung, entsprechend den Entwicklungen und Trends in der Psychiatrie - Sie stellen eine offene und konstruktive Kommunikation sicher Unser Anforderungsprofil: - Sie sind Fachfrau / Fachmann Gesundheit und haben Erfahrung in der psychiatrischen Pflege und Betreuung oder das Interesse, sich das erforderliche Wissen anzueignen - Ihnen ist es genauso wichtig wie uns, unsere Patientinnen und Patienten sowohl medizinisch und pflegerisch bestens zu behandeln als auch individuell persönlich zu betreuen - Sie verfügen über eine hohe Sozial- und Selbstkompetenz sowie Freude an Teamarbeit - Sie bringen ein hohes Mass an Verantwortungsbewusstsein, Belastbarkeit und Flexibilität mit \n• Wir bieten Ihnen: - Sie arbeiten in einem zukunftsorientierten und innovativen Unternehmen - Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team - Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fort- und Weiterbildungsanliegen - Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahlten Urlauben eine optimale Work-Life-Balance",
-        "fr": "Description - Vous travaillerez dans une équipe pluriprofessionnelle composée de médecins, d'infirmiers, de thérapeutes et de services sociaux dans notre service semi-ouvert de psychiatrie forensique Selva avec 14 lits - Le service de psychiatrie forensique offre des traitements psychiatriques et psychothérapeutiques pour les criminels atteints de troubles mentaux ## Vos Responsabilités - Vous collaborerez avec des infirmiers diplômés HF dans la prise en charge globale et le traitement des personnes atteintes de troubles mentaux en milieu hospitalier - Vous apporterez une haute volonté de vous familiariser avec la psychiatrie forensique - Vous adapterez la prise en charge et le traitement en fonction des évolutions et des tendances en psychiatrie - Vous garantirez une communication ouverte et constructive ## Notre Profil Requis - Vous êtes un professionnel de la santé avec une expérience en soins et prise en charge psychiatriques ou l'intérêt d'acquérir les connaissances nécessaires - Il est aussi important pour vous que pour nous de traiter nos patients à la fois cliniquement et personnellement - Vous disposez d'une haute compétence sociale et personnelle et appréciez le travail d'équipe - Vous apportez un haut niveau de responsabilité, de résilience et de flexibilité ## Ce Que Nous Vous Offrons - Vous travaillerez dans une entreprise orientée vers l'avenir et innovante - Vous assumerez une tâche variée et responsable dans une équipe motivée et pluriprofessionnelle - Vous bénéficierez de notre programme de formation interne – nous soutenons également vos objectifs de formation et de perfectionnement externes - Vous profiterez d'un équilibre optimal entre vie professionnelle et vie personnelle avec des modèles de travail à temps partiel, 6 semaines de vacances et des congés non rémunérés"
-      },
-      "location": "Cazis",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:06.199Z",
-      "addressLocality": "Cazis",
-      "postalCode": "7408",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-26",
-      "applyUrl": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Professionista della salute con esperienza in assistenza e cura psichiatrica",
-          "Alta competenza sociale e di sé",
-          "Apprezzamento del lavoro di squadra",
-          "Alto senso di responsabilità, resistenza e flessibilità"
-        ],
-        "en": [
-          "Healthcare professional with experience in psychiatric care and support",
-          "High social and self-competence",
-          "Enjoyment of teamwork",
-          "High degree of responsibility, resilience, and flexibility"
-        ],
-        "fr": [
-          "Professionnel de la santé avec expérience en soins et prise en charge psychiatriques",
-          "Haute compétence sociale et personnelle",
-          "Appréciation du travail d'équipe",
-          "Haut niveau de responsabilité, de résilience et de flexibilité"
-        ]
-      },
-      "department": "Erwachsenenpsychiatrie",
-      "facility": "Forensische Psychiatrie",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachperson-gesundheit-pdgr-ch"
-        ],
-        "it": [
-          "fachperson-gesundheit-pdgr-ch-2",
-          "fachperson-gesundheit-pdgr-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-gesundheit-pdgr-ch",
-        "fachperson-gesundheit-pdgr-ch-2",
-        "dipartimento-di-salute-psychiatrische-dienste-graubunden-chur",
-        "department-of-health-psychiatrische-dienste-graubunden-chur",
-        "fachperson-gesundheit-psychiatrische-dienste-graubunden-chur",
-        "departement-de-la-sante-psychiatrische-dienste-graubunden-chur",
-        "assistente-sanitaria-psychiatrische-dienste-graubunden-chur",
-        "healthcare-assistant-psychiatrische-dienste-graubunden-chur",
-        "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -1895,7 +1801,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:04.147Z",
+      "crawledAt": "2026-06-15T15:03:26.780Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1959,15 +1865,16 @@
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2004,7 +1911,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:01.993Z",
+      "crawledAt": "2026-06-15T15:03:24.652Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2059,15 +1966,16 @@
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-19T23:09:39.059Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2104,7 +2012,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:26:00.908Z",
+      "crawledAt": "2026-06-15T15:03:23.590Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2148,15 +2056,15 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-31T23:14:00.955Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -2193,7 +2101,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:58.792Z",
+      "crawledAt": "2026-06-15T15:03:21.500Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2235,15 +2143,16 @@
         "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2280,7 +2189,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:57.743Z",
+      "crawledAt": "2026-06-15T15:03:20.468Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2332,15 +2241,15 @@
         "supervisore-psychiatrische-dienste-graubunden-landquart-v9qbdw"
       ],
       "firstSeenAt": "2026-04-23T10:37:07.337Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2377,7 +2286,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:55.638Z",
+      "crawledAt": "2026-06-15T15:03:18.340Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2420,15 +2329,15 @@
         "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-05-11T12:18:40.276Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2465,7 +2374,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:54.621Z",
+      "crawledAt": "2026-06-15T15:03:17.313Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2508,15 +2417,15 @@
         "tete-de-textile-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-13T11:40:26.413Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -2553,7 +2462,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-22/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:53.566Z",
+      "crawledAt": "2026-06-15T15:03:16.258Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2605,15 +2514,15 @@
         "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-27T23:56:51.956Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2650,7 +2559,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:52.483Z",
+      "crawledAt": "2026-06-15T15:03:15.231Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2685,15 +2594,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:55:50.615Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -2730,7 +2639,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-3-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:51.425Z",
+      "crawledAt": "2026-06-15T15:03:14.197Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2765,15 +2674,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:55:49.537Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2810,7 +2719,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:49.293Z",
+      "crawledAt": "2026-06-15T15:03:12.071Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2870,15 +2779,15 @@
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-23T11:27:47.548Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
@@ -2888,10 +2797,10 @@
       "id": "pdgr-79ffc180b41a",
       "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
-        "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2915,7 +2824,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:48.211Z",
+      "crawledAt": "2026-06-15T15:03:11.020Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2938,26 +2847,29 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
+          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
           "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:09.668Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -2994,7 +2906,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:47.149Z",
+      "crawledAt": "2026-06-15T15:03:09.940Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3039,15 +2951,15 @@
         "responsable-controle-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-28T13:42:08.598Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -3055,12 +2967,12 @@
     },
     {
       "id": "pdgr-7d82aa45ee20",
-      "slug": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+      "slug": "ergotherapeut-in-pdgr-ch",
       "slugByLocale": {
-        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "it": "ergotherapeut-in-pdgr-ch",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
-        "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
+        "fr": "ergotherapeut-in-pdgr-ch"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3084,7 +2996,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:46.119Z",
+      "crawledAt": "2026-06-15T15:03:08.916Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3106,26 +3018,30 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "ergotherapeut-in-pdgr-ch"
+        "ergotherapist-psychiatrische-dienste-graubunden-chur",
+        "ergotherapeute-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ergotherapist-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ],
         "fr": [
+          "ergotherapeute-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:07.525Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3162,7 +3078,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-5-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:45.057Z",
+      "crawledAt": "2026-06-15T15:03:07.887Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3191,15 +3107,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:47:59.290Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3236,7 +3152,7 @@
       "url": "https://www.pdgr.ch/jobs/peer-mitarbeiter-in-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:44.026Z",
+      "crawledAt": "2026-06-15T15:03:06.833Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3266,15 +3182,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T15:43:13.056Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3311,7 +3227,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-4-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:41.879Z",
+      "crawledAt": "2026-06-15T15:03:04.737Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3341,15 +3257,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T00:36:44.087Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3386,7 +3302,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-3-15/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:39.784Z",
+      "crawledAt": "2026-06-15T15:03:02.610Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3416,15 +3332,15 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T13:17:15.249Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -3461,7 +3377,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:25:38.743Z",
+      "crawledAt": "2026-06-15T15:03:01.513Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3491,19 +3407,236 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T13:17:14.131Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 48000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-09c3ab3dcea3",
+      "slug": "sporttherapeut-in-pdgr-ch",
+      "slugByLocale": {
+        "de": "sporttherapeut-in-pdgr-ch",
+        "it": "sporttherapeut-in-pdgr-ch",
+        "en": "sporttherapeut-in-psychiatrische-dienste-graubunden-cazis",
+        "fr": "sporttherapeut-in-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Sporttherapeut/in",
+      "titleByLocale": {
+        "de": "Sporttherapeut/in",
+        "en": "Sporttherapeut/in",
+        "it": "Sporttherapeut/in",
+        "fr": "Sporttherapeut/in"
+      },
+      "description": "Ihre Umgebung:\nSie arbeiten im Therapeutischen Dienst der Klinik Beverin in Cazis. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie leiten die Sporttherapie am Standort Beverin\n\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit an einer staatlicher Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nSie arbeiten im Therapeutischen Dienst der Klinik Beverin in Cazis. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie leiten die Sporttherapie am Standort Beverin\n\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit an einer staatlicher Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nSie arbeiten im Therapeutischen Dienst der Klinik Beverin in Cazis. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie leiten die Sporttherapie am Standort Beverin\n\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit an einer staatlicher Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nSie arbeiten im Therapeutischen Dienst der Klinik Beverin in Cazis. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie leiten die Sporttherapie am Standort Beverin\n\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit an einer staatlicher Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nSie arbeiten im Therapeutischen Dienst der Klinik Beverin in Cazis. Dabei erwartet Sie ein kollegiales Umfeld mit guter Zusammenarbeit und engem Austausch.\n\nIhre Aufgaben:\n- Sie leiten die Sporttherapie am Standort Beverin\n\n- Sie orientieren sich an den Behandlungszielen der Patientinnen und Patienten und begleiten und behandeln psychisch kranke Menschen mit sporttherapeutischen Methoden\n\n- Sie führen sporttherapeutische Aktivitäten (Spielsport, Funktionelles Training, Fitness, Pilates, etc.) im Einzel- und Gruppensetting durch\n\n- Sie arbeiten interdiziplinär mit den verschiedenen Stationen zusammen\n\n- Sie dokumentieren Therapieverläufe im klinikinternen elektronischen Patienten Dossier\n\nUnser Anforderungsprofil:\n- Sie haben einen Bachelor- oder Masterabschluss in Sport- und Bewegungswissenschaften oder Sport, Bewegung und Gesundheit an einer staatlicher Hochschule, Fachhochschule oder Universität\n\n- Sie verfügen über Erfahrung, Menschen mit psychischen Erkrankungen anzuleiten und zu begleiten\n\n- Sie haben Kenntnisse und Fähigkeiten im administrativen Bereich\n\n- Sie sind eine innovative, kreative und selbständig arbeitende Persönlichkeit\n\n- Sie haben ein hohes Mass an Empowerment und bringen fachliche Fähigkeiten mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interdisziplinären Team\n\n- Sie können Ihre Ideen einbringen und Ihr Aufgabenfeld mitgestalten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, regelmässigen Arbeitszeiten und unbezahlten Urlauben eine optimale Work-Life-Balance"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/sporttherapeut-in-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T15:03:00.461Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://www.pdgr.ch/jobs/sporttherapeut-in-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Therapeutischer Dienst",
+      "pensumMin": 40,
+      "pensumMax": 40,
+      "pensum": "40%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-15T15:03:00.461Z"
+    },
+    {
+      "id": "pdgr-56d442eb828c",
+      "slug": "kochin-koch-pdgr-ch",
+      "slugByLocale": {
+        "de": "kochin-koch-pdgr-ch",
+        "it": "kochin-koch-pdgr-ch",
+        "en": "kochin-koch-pdgr-ch",
+        "fr": "kochin-koch-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Köchin / Koch",
+      "titleByLocale": {
+        "de": "Köchin / Koch",
+        "it": "Köchin / Koch",
+        "en": "Köchin / Koch",
+        "fr": "Köchin / Koch"
+      },
+      "description": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Therapiehaus Fürstenwald in Chur, eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie bereiten ausgewogene Mahlzeiten für den Externats- und Internatsbetrieb selbständig zu\n\n- Sie übernehmen die Verantwortung für die Menüplanung unter Berücksichtigung von Ernährungsrichtlinien, Allergien, Unverträglichkeiten sowie diätetischen Vorgaben\n\n- Sie gehen fachgerecht mit frischen und regionalen Produkten um und stellen eine hohe Speisenqualität sicher\n\n- Sie sind verantwortlich für die Bestellung und Bewirtschaftung von Lebensmitteln und Verbrauchsmaterialien\n\n- Sie stellen die Einhaltung von Hygiene-, Qualitäts- und Sicherheitsstandards gemäss den geltenden Richtlinien sicher\n\n- Sie organisieren und koordinieren die täglichen Arbeitsabläufe in Zusammenarbeit mit der Küchenmitarbeiterin bzw. dem Küchenmitarbeiter\n\n- Sie unterstützen und instruieren Hilfsmitarbeitende sowie Praktikantinnen und Praktikanten fachlich\n\n- Sie arbeiten eng mit den pädagogischen, therapeutischen und betreuenden Fachpersonen zusammen\n\n- Sie tragen zu einer wertschätzenden Esskultur für Kinder und Jugendliche bei\n\n- Sie arbeiten von Montag bis Freitag jeweils während ca. 5 bis 6 Stunden\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Köchin / Koch EFZ und bringen idealerweise bereits Berufserfahrung mit\n\n- Eine Weiterbildung als Diätköchin / Diätkoch oder Erfahrung im Bereich Sonderkost und Ernährung ist von Vorteil\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie arbeiten selbständig, strukturiert und verantwortungsbewusst\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über ein ausgeprägtes Dienstleistungsbewusstsein\n\n- Sie schätzen die Zusammenarbeit in einem kleinen Team und übernehmen gerne fachliche Verantwortung\n\n- Sie sind bereit, bei Bedarf Einsätze in unseren beiden Küchen am Standort der Klinik Waldhaus in Chur oder Klinik Beverin in Cazis zu leisten\n\n- Sie verfügen über gute EDV-Anwenderkenntnisse\n\n- Sie begegnen Kindern und Jugendlichen mit Wertschätzung, Geduld und Verständnis\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer modernen Küche mit top motivierten Mitarbeitenden\n\n- Sie wirken bei kulinarischen Projekten mit und bringen Ihre fachlichen und persönlichen Stärken mit ein\n\n- Es erwarten Sie attraktive Anstellungsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Therapiehaus Fürstenwald in Chur, eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie bereiten ausgewogene Mahlzeiten für den Externats- und Internatsbetrieb selbständig zu\n\n- Sie übernehmen die Verantwortung für die Menüplanung unter Berücksichtigung von Ernährungsrichtlinien, Allergien, Unverträglichkeiten sowie diätetischen Vorgaben\n\n- Sie gehen fachgerecht mit frischen und regionalen Produkten um und stellen eine hohe Speisenqualität sicher\n\n- Sie sind verantwortlich für die Bestellung und Bewirtschaftung von Lebensmitteln und Verbrauchsmaterialien\n\n- Sie stellen die Einhaltung von Hygiene-, Qualitäts- und Sicherheitsstandards gemäss den geltenden Richtlinien sicher\n\n- Sie organisieren und koordinieren die täglichen Arbeitsabläufe in Zusammenarbeit mit der Küchenmitarbeiterin bzw. dem Küchenmitarbeiter\n\n- Sie unterstützen und instruieren Hilfsmitarbeitende sowie Praktikantinnen und Praktikanten fachlich\n\n- Sie arbeiten eng mit den pädagogischen, therapeutischen und betreuenden Fachpersonen zusammen\n\n- Sie tragen zu einer wertschätzenden Esskultur für Kinder und Jugendliche bei\n\n- Sie arbeiten von Montag bis Freitag jeweils während ca. 5 bis 6 Stunden\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Köchin / Koch EFZ und bringen idealerweise bereits Berufserfahrung mit\n\n- Eine Weiterbildung als Diätköchin / Diätkoch oder Erfahrung im Bereich Sonderkost und Ernährung ist von Vorteil\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie arbeiten selbständig, strukturiert und verantwortungsbewusst\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über ein ausgeprägtes Dienstleistungsbewusstsein\n\n- Sie schätzen die Zusammenarbeit in einem kleinen Team und übernehmen gerne fachliche Verantwortung\n\n- Sie sind bereit, bei Bedarf Einsätze in unseren beiden Küchen am Standort der Klinik Waldhaus in Chur oder Klinik Beverin in Cazis zu leisten\n\n- Sie verfügen über gute EDV-Anwenderkenntnisse\n\n- Sie begegnen Kindern und Jugendlichen mit Wertschätzung, Geduld und Verständnis\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer modernen Küche mit top motivierten Mitarbeitenden\n\n- Sie wirken bei kulinarischen Projekten mit und bringen Ihre fachlichen und persönlichen Stärken mit ein\n\n- Es erwarten Sie attraktive Anstellungsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Therapiehaus Fürstenwald in Chur, eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie bereiten ausgewogene Mahlzeiten für den Externats- und Internatsbetrieb selbständig zu\n\n- Sie übernehmen die Verantwortung für die Menüplanung unter Berücksichtigung von Ernährungsrichtlinien, Allergien, Unverträglichkeiten sowie diätetischen Vorgaben\n\n- Sie gehen fachgerecht mit frischen und regionalen Produkten um und stellen eine hohe Speisenqualität sicher\n\n- Sie sind verantwortlich für die Bestellung und Bewirtschaftung von Lebensmitteln und Verbrauchsmaterialien\n\n- Sie stellen die Einhaltung von Hygiene-, Qualitäts- und Sicherheitsstandards gemäss den geltenden Richtlinien sicher\n\n- Sie organisieren und koordinieren die täglichen Arbeitsabläufe in Zusammenarbeit mit der Küchenmitarbeiterin bzw. dem Küchenmitarbeiter\n\n- Sie unterstützen und instruieren Hilfsmitarbeitende sowie Praktikantinnen und Praktikanten fachlich\n\n- Sie arbeiten eng mit den pädagogischen, therapeutischen und betreuenden Fachpersonen zusammen\n\n- Sie tragen zu einer wertschätzenden Esskultur für Kinder und Jugendliche bei\n\n- Sie arbeiten von Montag bis Freitag jeweils während ca. 5 bis 6 Stunden\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Köchin / Koch EFZ und bringen idealerweise bereits Berufserfahrung mit\n\n- Eine Weiterbildung als Diätköchin / Diätkoch oder Erfahrung im Bereich Sonderkost und Ernährung ist von Vorteil\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie arbeiten selbständig, strukturiert und verantwortungsbewusst\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über ein ausgeprägtes Dienstleistungsbewusstsein\n\n- Sie schätzen die Zusammenarbeit in einem kleinen Team und übernehmen gerne fachliche Verantwortung\n\n- Sie sind bereit, bei Bedarf Einsätze in unseren beiden Küchen am Standort der Klinik Waldhaus in Chur oder Klinik Beverin in Cazis zu leisten\n\n- Sie verfügen über gute EDV-Anwenderkenntnisse\n\n- Sie begegnen Kindern und Jugendlichen mit Wertschätzung, Geduld und Verständnis\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer modernen Küche mit top motivierten Mitarbeitenden\n\n- Sie wirken bei kulinarischen Projekten mit und bringen Ihre fachlichen und persönlichen Stärken mit ein\n\n- Es erwarten Sie attraktive Anstellungsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Therapiehaus Fürstenwald in Chur, eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie bereiten ausgewogene Mahlzeiten für den Externats- und Internatsbetrieb selbständig zu\n\n- Sie übernehmen die Verantwortung für die Menüplanung unter Berücksichtigung von Ernährungsrichtlinien, Allergien, Unverträglichkeiten sowie diätetischen Vorgaben\n\n- Sie gehen fachgerecht mit frischen und regionalen Produkten um und stellen eine hohe Speisenqualität sicher\n\n- Sie sind verantwortlich für die Bestellung und Bewirtschaftung von Lebensmitteln und Verbrauchsmaterialien\n\n- Sie stellen die Einhaltung von Hygiene-, Qualitäts- und Sicherheitsstandards gemäss den geltenden Richtlinien sicher\n\n- Sie organisieren und koordinieren die täglichen Arbeitsabläufe in Zusammenarbeit mit der Küchenmitarbeiterin bzw. dem Küchenmitarbeiter\n\n- Sie unterstützen und instruieren Hilfsmitarbeitende sowie Praktikantinnen und Praktikanten fachlich\n\n- Sie arbeiten eng mit den pädagogischen, therapeutischen und betreuenden Fachpersonen zusammen\n\n- Sie tragen zu einer wertschätzenden Esskultur für Kinder und Jugendliche bei\n\n- Sie arbeiten von Montag bis Freitag jeweils während ca. 5 bis 6 Stunden\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Köchin / Koch EFZ und bringen idealerweise bereits Berufserfahrung mit\n\n- Eine Weiterbildung als Diätköchin / Diätkoch oder Erfahrung im Bereich Sonderkost und Ernährung ist von Vorteil\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie arbeiten selbständig, strukturiert und verantwortungsbewusst\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über ein ausgeprägtes Dienstleistungsbewusstsein\n\n- Sie schätzen die Zusammenarbeit in einem kleinen Team und übernehmen gerne fachliche Verantwortung\n\n- Sie sind bereit, bei Bedarf Einsätze in unseren beiden Küchen am Standort der Klinik Waldhaus in Chur oder Klinik Beverin in Cazis zu leisten\n\n- Sie verfügen über gute EDV-Anwenderkenntnisse\n\n- Sie begegnen Kindern und Jugendlichen mit Wertschätzung, Geduld und Verständnis\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer modernen Küche mit top motivierten Mitarbeitenden\n\n- Sie wirken bei kulinarischen Projekten mit und bringen Ihre fachlichen und persönlichen Stärken mit ein\n\n- Es erwarten Sie attraktive Anstellungsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nIhr zukünftiger Arbeitsplatz ist das Therapiehaus Fürstenwald in Chur, eine Sonderschule mit Externats- und Internatsbetrieb für schulpflichtige Kinder und Jugendliche, die vorübergehend die öffentliche Schule aus psychischen Gründen nicht besuchen können.\n\nIhre Aufgaben:\n- Sie bereiten ausgewogene Mahlzeiten für den Externats- und Internatsbetrieb selbständig zu\n\n- Sie übernehmen die Verantwortung für die Menüplanung unter Berücksichtigung von Ernährungsrichtlinien, Allergien, Unverträglichkeiten sowie diätetischen Vorgaben\n\n- Sie gehen fachgerecht mit frischen und regionalen Produkten um und stellen eine hohe Speisenqualität sicher\n\n- Sie sind verantwortlich für die Bestellung und Bewirtschaftung von Lebensmitteln und Verbrauchsmaterialien\n\n- Sie stellen die Einhaltung von Hygiene-, Qualitäts- und Sicherheitsstandards gemäss den geltenden Richtlinien sicher\n\n- Sie organisieren und koordinieren die täglichen Arbeitsabläufe in Zusammenarbeit mit der Küchenmitarbeiterin bzw. dem Küchenmitarbeiter\n\n- Sie unterstützen und instruieren Hilfsmitarbeitende sowie Praktikantinnen und Praktikanten fachlich\n\n- Sie arbeiten eng mit den pädagogischen, therapeutischen und betreuenden Fachpersonen zusammen\n\n- Sie tragen zu einer wertschätzenden Esskultur für Kinder und Jugendliche bei\n\n- Sie arbeiten von Montag bis Freitag jeweils während ca. 5 bis 6 Stunden\n\nUnser Anforderungsprofil:\n- Sie verfügen über eine abgeschlossene Ausbildung als Köchin / Koch EFZ und bringen idealerweise bereits Berufserfahrung mit\n\n- Eine Weiterbildung als Diätköchin / Diätkoch oder Erfahrung im Bereich Sonderkost und Ernährung ist von Vorteil\n\n- Sie zeichnen sich durch hohe Belastbarkeit, Flexibilität, Einsatzbereitschaft und Kreativität aus\n\n- Sie arbeiten selbständig, strukturiert und verantwortungsbewusst\n\n- Sie sind zuverlässig, pflichtbewusst und verfügen über ein ausgeprägtes Dienstleistungsbewusstsein\n\n- Sie schätzen die Zusammenarbeit in einem kleinen Team und übernehmen gerne fachliche Verantwortung\n\n- Sie sind bereit, bei Bedarf Einsätze in unseren beiden Küchen am Standort der Klinik Waldhaus in Chur oder Klinik Beverin in Cazis zu leisten\n\n- Sie verfügen über gute EDV-Anwenderkenntnisse\n\n- Sie begegnen Kindern und Jugendlichen mit Wertschätzung, Geduld und Verständnis\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einer modernen Küche mit top motivierten Mitarbeitenden\n\n- Sie wirken bei kulinarischen Projekten mit und bringen Ihre fachlichen und persönlichen Stärken mit ein\n\n- Es erwarten Sie attraktive Anstellungsbedingungen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen eine optimale Work-Life-Balance"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/koechin-koch-2-10/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T15:02:59.426Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://www.pdgr.ch/jobs/koechin-koch-2-10/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "facility": "Küche",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-15T15:02:59.426Z"
+    },
+    {
+      "id": "pdgr-5bf1de714961",
+      "slug": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+        "it": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
+        "en": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+        "fr": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF"
+      },
+      "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T15:02:58.368Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Affektive Erkrankungen",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
+      ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-15T15:02:58.368Z"
     }
   ]
 }
