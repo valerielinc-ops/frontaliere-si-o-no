@@ -84,6 +84,16 @@ const COMPANY_KEY_FILTER = parseCompanyKey();
 // comfortable margin for the commit/deploy steps to run.
 const TIME_BUDGET_MS = 320 * 60 * 1000;
 
+// Process-wide start, captured once at module load (≈ run start). Used to make
+// the shared crawler's per-company localization budget ELAPSED-AWARE: each
+// runSharedCrawler() call gets `CASCADE_LOCALIZATION_DEADLINE_MS − elapsed`, not
+// a fresh full budget. Without this, a heavy company starting late would get a
+// brand-new budget and could run past the 350min job timeout (review #2205 🔴),
+// which would lose ALL uncommitted incremental writes. Capping the cascade at
+// 250min leaves ~100min for the Argos mop-up + commit/scatter/slug/deploy.
+const RUN_START_MS = Date.now();
+const CASCADE_LOCALIZATION_DEADLINE_MS = 250 * 60 * 1000;
+
 function readJson(filePath) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -411,6 +421,21 @@ async function runSharedCrawler(companyKeys, maxJobs) {
     // prior baseline OR fewer jobs completed/run, revert this knob (and the warmup
     // timeout) to their prior values (#2076).
     JOBS_AI_LOCALIZATION_CONCURRENCY: process.env.JOBS_AI_LOCALIZATION_CONCURRENCY || '2',
+    // ELAPSED-AWARE localization budget (review #2205 🔴): remaining time until
+    // the run-wide cascade deadline, recomputed per call. A company starting near
+    // the deadline gets a small budget and defers its tail to the next run,
+    // instead of a fresh 250min that could blow past the 350min job timeout. The
+    // shared crawler reads this and stops queuing new jobs once exceeded; jobs
+    // already localized are written incrementally per-company, so nothing is lost.
+    // max(1, …) NOT max(0, …): the shared crawler treats 0 as "no budget =
+    // unlimited" (raw > 0 ? raw : 0), so collapsing to 0 past the deadline would
+    // make a late company run UNLIMITED into the 350min job timeout (review #2205
+    // 🔴 round 2). Flooring at 1ms means "already exceeded → defer every job",
+    // i.e. a company that starts past the deadline does nothing and leaves its
+    // jobs for the next run, never an unbounded run.
+    JOBS_AI_LOCALIZATION_TIME_BUDGET_MS: String(
+      Math.max(1, CASCADE_LOCALIZATION_DEADLINE_MS - (Date.now() - RUN_START_MS)),
+    ),
   };
 
   console.log(`\n🚀 Running shared crawler in LOCALIZE_EXISTING_ONLY mode (in-process)...`);
@@ -873,13 +898,17 @@ async function main() {
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
-    // Time budget: stop before starting a new company if we're close to the limit.
-    // This lets the workflow commit step run before the GitHub Actions timeout kills it.
+    // Time budget: stop before starting a new company once we pass the cascade
+    // deadline (250min), so no company is started that would only immediately
+    // defer (its per-call budget would be ~0) and so ~100min is left for the
+    // Argos mop-up + the always()-guarded commit/scatter/slug/deploy steps before
+    // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
+    // window where late companies could still run — review #2205 🔴 round 2.)
     const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > TIME_BUDGET_MS) {
+    if (elapsedMs > CASCADE_LOCALIZATION_DEADLINE_MS) {
       const elapsedMin = Math.round(elapsedMs / 60_000);
-      console.log(`\n⏰ Time budget reached (${elapsedMin}min elapsed) — stopping to allow commit step to run.`);
-      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining.`);
+      console.log(`\n⏰ Cascade deadline reached (${elapsedMin}min elapsed) — stopping to leave room for mop-up + commit.`);
+      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
       break;
     }
 

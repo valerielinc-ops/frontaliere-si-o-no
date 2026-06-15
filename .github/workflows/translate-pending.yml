@@ -153,6 +153,12 @@ jobs:
           # Self-hosted LibreTranslate removed (see note above the steps): it was 100%
           # dead on the runner. The cascade now uses premium tiers + MyMemory + PUBLIC
           # LibreTranslate, which were already doing all the real work.
+          # NB: the AI-localization wall-clock budget is set DYNAMICALLY per-company by
+          # relocalize-pending-jobs.mjs (JOBS_AI_LOCALIZATION_TIME_BUDGET_MS = remaining
+          # time until its 250min run-wide cascade deadline), so it is intentionally NOT
+          # hard-coded here — a static value reset the budget per company and could blow
+          # past the 350min job timeout (review #2205 🔴). The cascade stops by ~250min,
+          # leaving ~100min for the mop-up + always()-guarded commit/scatter/slug/deploy.
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
@@ -160,7 +166,12 @@ jobs:
         run: node scripts/log-translation-stats.mjs after
 
       - name: Scatter changes back to per-crawler slices
-        if: inputs.skip_translate != true
+        # always()-guarded so partial work is scattered to per-crawler slices for
+        # the commit step even if the translate step errored or was cut short by
+        # the wall-clock budget. relocalize already writes slices incrementally
+        # per-company, but this final scatter captures anything the in-process
+        # retry pass left only in data/jobs.json.
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
         run: node scripts/scatter-jobs-to-slices.mjs
 
       # ── Phase 2 mop-up: in-process, unlimited, $0 local MT ───────────────
@@ -177,8 +188,10 @@ jobs:
       # mark-locale-mismatched-jobs / isIncomplete detector re-flags any bad
       # output on the next run, so worst case is a no-op, never a regression.
       # Gate: set LOCAL_MT_DISABLE=1 (repo/workflow var) to skip entirely.
+      # always() so Argos is installed even if the cascade step errored — the
+      # mop-up below (also always()) needs it to translate the leftovers.
       - name: Install Argos Translate (local MT engine)
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         run: |
           python3 -m pip install --quiet --upgrade pip
@@ -188,9 +201,20 @@ jobs:
           # pairs through English). Idempotent + retried inside the script.
           python3 scripts/local-mt-translate.py --install
 
+      # always() so the local-MT mop-up still runs even if "Phase 2: Translate
+      # pending jobs" (the cascade) errored or was cut by its time budget — the
+      # mop-up is the safety net that translates whatever the cascade couldn't,
+      # and its results are committed by the always()-guarded commit step below.
+      # Still continue-on-error so a mop-up failure can never fail the workflow.
       - name: "Phase 2 mop-up: local MT (Argos Translate, in-process)"
-        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
+        env:
+          # Bound the mop-up to the window left after the cascade's ~250min deadline
+          # (80min) so it self-stops + commits partial well before the 350min job
+          # timeout — instead of being externally killed mid-batch and losing its
+          # work (observed in validation run 27544487773). Default would be 280min.
+          LOCAL_MT_TIME_BUDGET_MS: '4800000'  # 80 * 60 * 1000
         run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
       - name: Commit translations
