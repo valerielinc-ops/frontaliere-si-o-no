@@ -853,12 +853,13 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -935,10 +936,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2736,7 +2739,9 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3336,7 +3341,6 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
@@ -3349,7 +3353,9 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
       "salaryMin": 49500,
@@ -6393,14 +6399,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6788,7 +6795,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeute-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6862,7 +6870,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "organisationsentwickler-in-coach-unispital-basel-ch",
-        "developpeur-entraineur-d-organisation-universitatsspital-basel-basel"
+        "developpeur-entraineur-d-organisation-universitatsspital-basel-basel",
+        "organizzatore-coach-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8062,16 +8071,16 @@
       "title": "Oberärztin / Oberarzt (Brustklinik)",
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt (Brustklinik)",
-        "it": "Oberärztin / Oberarzt (Brustklinik)",
-        "en": "Oberärztin / Oberarzt (Brustklinik)",
-        "fr": "Oberärztin / Oberarzt (Brustklinik)"
+        "it": "Medico senior (ambulatorio)",
+        "en": "Senior physician (breast clinic)",
+        "fr": "Médecin-chef (clinique)"
       },
       "description": "Aufgaben:\n• Durchführung von Biopsien und Operationen\n\n• Dienstteilnahme in der Frauenklinik inkl. Geburtshilfe (falls erwünscht)\n\n• Interesse an interdisziplinärer Vernetzung, insbesondere mit Pflegekräften sowie Ärztinnen und Ärzten verschiedener Fachrichtungen\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Frauenheilkunde oder Chirurgie\n\n• Breite Erfahrung als Brustchirurgin oder Brustchirurg\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau)\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Durchführung von Biopsien und Operationen\n\n• Dienstteilnahme in der Frauenklinik inkl. Geburtshilfe (falls erwünscht)\n\n• Interesse an interdisziplinärer Vernetzung, insbesondere mit Pflegekräften sowie Ärztinnen und Ärzten verschiedener Fachrichtungen\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Frauenheilkunde oder Chirurgie\n\n• Breite Erfahrung als Brustchirurgin oder Brustchirurg\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau)\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Durchführung von Biopsien und Operationen\n\n• Dienstteilnahme in der Frauenklinik inkl. Geburtshilfe (falls erwünscht)\n\n• Interesse an interdisziplinärer Vernetzung, insbesondere mit Pflegekräften sowie Ärztinnen und Ärzten verschiedener Fachrichtungen\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Frauenheilkunde oder Chirurgie\n\n• Breite Erfahrung als Brustchirurgin oder Brustchirurg\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau)\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Durchführung von Biopsien und Operationen\n\n• Dienstteilnahme in der Frauenklinik inkl. Geburtshilfe (falls erwünscht)\n\n• Interesse an interdisziplinärer Vernetzung, insbesondere mit Pflegekräften sowie Ärztinnen und Ärzten verschiedener Fachrichtungen\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Frauenheilkunde oder Chirurgie\n\n• Breite Erfahrung als Brustchirurgin oder Brustchirurg\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau)\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Durchführung von Biopsien und Operationen\n\n• Dienstteilnahme in der Frauenklinik inkl. Geburtshilfe (falls erwünscht)\n\n• Interesse an interdisziplinärer Vernetzung, insbesondere mit Pflegekräften sowie Ärztinnen und Ärzten verschiedener Fachrichtungen\n\n• Mitwirkung bei der Ausbildung von Assistenzärztinnen und Assistenzärzten\n\nAnforderungen:\n• Abgeschlossene Facharztausbildung in Frauenheilkunde oder Chirurgie\n\n• Breite Erfahrung als Brustchirurgin oder Brustchirurg\n\n• Offene, wertschätzende Kommunikation und Freude an der interdisziplinären Zusammenarbeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens C1-Sprachniveau)\n\n• Ausgeprägte Teamorientierung und Bereitschaft, Verantwortung für unsere Patientinnen und Patienten zu übernehmen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti: • Prestazioni di biopsie e operazioni • Partecipazione alla clinica femminile incl. Ostetricia (se desiderato) Interessi in rete interdisciplinare, in particolare con infermieri e medici di varie discipline • Partecipazione alla formazione di medici assistenti: • Formazione specialistica completa in ginecologia o chirurgia • Esperienza ampia come chirurgo materno • Comunicazione aperta, apprezzativa e godimento della cooperazione interdisciplinare • Conoscenza molto buona del tedesco nelle parole e nella scrittura (almeno C1 livello linguistico) • Forte orientamento e disponibilità del team a assumersi responsabilità per i nostri pazienti Offriamo: • Attraente politica salariale e benefici sociali eccezionali • Sconti nei settori dello shopping, dello sport e del tempo libero • Supporto per il trasferimento e la ricerca di alloggi • 25 giorni di vacanza più 5 anche free flexitage • Supporto per l'ulteriore formazione e la pianificazione della carriera • Campus nel cuore di Basilea e nel triangolo di confine • Opzioni complete di assistenza all'infanzia • Programma sportivo e di esercizio gratuito",
+        "en": "Tasks: • Performance of biopsies and operations • Participation in the women’s clinic incl. Obstetrics (if desired) Interest in interdisciplinary networking, in particular with nurses and doctors of various disciplines • Participation in the training of assistant doctors Requirements: • Completed specialist training in gynecology or surgery • Broad experience as a breast surgeon • Open, appreciative communication and enjoyment of interdisciplinary cooperation • Very good knowledge of German in words and writing (at least C1 language level) • Strong team orientation and willingness to take responsibility for our patients We offer: • Attractive wage policy and outstanding social benefits • Discounts in the areas of shopping, sports and leisure • Support for relocation and finding accommodation • 25 holiday days plus 5 also free flexitage • Support for further education and career planning • Campus in the heart of Basel and in the border triangle • Comprehensive childcare options • Free sports and exercise program",
+        "fr": "Tâches: • Performance des biopsies et des opérations • Participation à la clinique pour femmes incl. Obstétrique (si désiré) Intérêt pour la mise en réseau interdisciplinaire, en particulier avec les infirmières et les médecins de diverses disciplines • Participation à la formation des médecins adjoints Exigences: • Formation spécialisée complète en gynécologie ou en chirurgie • Grande expérience en tant que chirurgien du sein • Communication ouverte et appréciatrice et jouissance de la coopération interdisciplinaire • Très bonne connaissance de l'allemand en paroles et en écriture (au moins niveau C1) • Forte orientation de l'équipe et volonté de prendre en charge nos patients Nous offrons: • Une politique salariale attractive et des avantages sociaux exceptionnels • Réductions dans les domaines du shopping, du sport et des loisirs • Soutien à la réinstallation et à la recherche d'un logement • 25 jours de vacances plus 5 flexitage gratuit • Soutien à la formation continue et à la planification de carrière • Campus au cœur de Bâle et dans le triangle frontalier • Options complètes de garde d'enfants • Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8097,7 +8106,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8110,7 +8118,33 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T15:33:16.612Z"
+      "firstSeenAt": "2026-06-15T15:33:16.612Z",
+      "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+        "medico-senior-brustklinik-universitatsspital-basel-basel",
+        "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+        "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
+        "senior-physician-brustklinik-universitatsspital-basel-basel",
+        "medecin-chef-brustklinik-universitatsspital-basel-basel",
+        "oberarztin-oberarzt-angiologie-universitatsspital-basel-basel",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medico-senior-angiologia-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "senior-physician-angiology-universitatsspital-basel-basel"
+        ],
+        "de": [
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "medecin-principal-angiologie-universitatsspital-basel-basel"
+        ]
+      }
     },
     {
       "id": "unispital-basel-833087eadfb2",
@@ -8183,7 +8217,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -8194,7 +8227,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
