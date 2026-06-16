@@ -39,30 +39,52 @@ if (inputs.length === 0) {
   process.exit(1);
 }
 
+// Merge onto the EXISTING weights (unless --no-merge): a shard killed by the
+// 180s per-test timeout never flushes its json reporter file, so its tests are
+// absent from this run's inputs. Starting from the committed weights keeps
+// their last-known value instead of silently dropping them to DEFAULT_WEIGHT_MS
+// in the sequencer. New observations below override. Stale keys (deleted tests)
+// are harmless — the sequencer only looks up files that actually exist.
+const noMerge = args.includes('--no-merge');
 /** @type {Record<string, number>} */
-const weights = {};
-let fileCount = 0;
+let weights = {};
+if (!noMerge && fs.existsSync(outPath)) {
+  try {
+    weights = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+  } catch {
+    weights = {};
+  }
+}
 
+let ingested = 0; // timing entries applied from this run's inputs
+let skippedNonTests = 0; // entries whose path is not under tests/ (see below)
 for (const input of inputs) {
   const raw = JSON.parse(fs.readFileSync(input, 'utf8'));
   const results = raw.testResults ?? [];
   for (const r of results) {
     // r.name is an absolute path; key by the repo-relative `tests/...` form
-    // (matches how BalancedSequencer.relOf derives the weight lookup key).
+    // (matches how BalancedSequencer.relOf derives the weight lookup key). The
+    // vitest `include` is `tests/**`, so every spec lives under tests/; an
+    // entry that doesn't is counted + warned (not silently dropped) so a future
+    // co-located test surfaces here instead of quietly getting DEFAULT_WEIGHT.
     const m = /(?:^|\/)(tests\/.*)$/.exec(String(r.name).replace(/\\/g, '/'));
-    if (!m) continue;
+    if (!m) {
+      skippedNonTests++;
+      continue;
+    }
     const rel = m[1];
     const dur = Math.max(0, Math.round((r.endTime ?? 0) - (r.startTime ?? 0)));
-    if (weights[rel] === undefined || dur > weights[rel]) {
-      if (weights[rel] === undefined) fileCount++;
-      weights[rel] = dur;
-    }
+    weights[rel] = dur; // newest observation wins
+    ingested++;
   }
 }
 
-if (fileCount === 0) {
-  console.error('no test timings found in inputs — refusing to overwrite weights');
+if (ingested === 0) {
+  console.error('no test timings ingested from inputs — refusing to overwrite weights');
   process.exit(1);
+}
+if (skippedNonTests > 0) {
+  console.warn(`⚠️  ${skippedNonTests} timing entr(ies) not under tests/ — not weighted (sequencer keys on tests/-relative paths)`);
 }
 
 const sorted = Object.fromEntries(
