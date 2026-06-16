@@ -216,8 +216,15 @@ async function main() {
       // For CI: write to $GITHUB_ENV
       // For local: output as export statement
       if (isCI) {
-        // Mask the value so GitHub Actions redacts it from all logs
-        process.stdout.write(`::add-mask::${value}\n`);
+        // Mask the value so GitHub Actions redacts it from all logs.
+        // Skip trivial values (booleans, short ints, very short strings): they
+        // are not sensitive and masking them poisons unrelated log output —
+        // GitHub redacts EVERY occurrence of the literal, so a secret of `1`
+        // turns ANSI codes (`36;1m`), counts, and `bash -e {0}` into `***`.
+        const isTrivial = /^(true|false|\d{1,5})$/i.test(value) || value.length < 6;
+        if (!isTrivial) {
+          process.stdout.write(`::add-mask::${value}\n`);
+        }
         // Use delimiter syntax for multi-line safety
         lines.push(`${envKey}=${value}`);
       } else {
