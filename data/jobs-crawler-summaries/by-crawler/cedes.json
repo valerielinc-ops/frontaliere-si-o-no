@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-06-15T22:41:48.600Z",
-  "total": 2,
+  "generatedAt": "2026-06-16T13:03:45.382Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5233,
-  "avgDurationMs": 5233,
+  "durationMs": 3531,
+  "avgDurationMs": 3531,
   "durationHistory": [
-    5233
+    3531
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T22:41:46.070Z",
+      "crawledAt": "2026-06-16T13:03:43.273Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -43,40 +43,9 @@
         "translation": 25,
         "completeness": 14
       }
-    },
-    {
-      "id": "cedes-095fd9bf3819",
-      "slug": "sales-manager-elevator-escalator-cedes-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes",
-      "companyDomain": "cedes.com",
-      "title": "Sales Manager Elevator & Escalator",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-15T22:41:46.414Z",
-      "firstSeenAt": "2026-04-22T09:37:08.541Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "cedes-095fd9bf3819",
       "slug": "sales-manager-ascensore-scala-mobile-cedes-ag-landquart",
@@ -111,7 +80,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "cedes-3fa516c3ca31",
       "slug": "unsolicited-applications-cedes-landquart",
@@ -132,7 +103,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T22:41:46.070Z",
+      "crawledAt": "2026-06-16T13:03:43.273Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
