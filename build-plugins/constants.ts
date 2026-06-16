@@ -464,6 +464,48 @@ export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
+ * Publisher id (no `ca-` prefix) for the Funding Choices endpoints, derived
+ * from {@link ADSENSE_CLIENT_ID} so it never drifts from the AdSense account.
+ */
+export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-8628054934855353
+
+/**
+ * Offerwall custom-choice registry + Funding Choices MESSAGING loader, injected
+ * PARSE-TIME into the <head> of in-scope STATIC article pages.
+ *
+ * WHY THIS EXISTS (2026-06-16): the GAM Offerwall is scoped to the article
+ * sections, which are emitted as static SSG HTML (staticPagesPlugin) whose head
+ * does NOT carry index.html's inline Offerwall block. On those pages the only
+ * Funding Choices loader that ever runs is the network-code one pulled in by
+ * adsbygoogle.js AFTER hydration — it fetches the Offerwall /f/ message (200,
+ * incl. our custom choice) but never instantiates the overlay. The publisher-id
+ * MESSAGING loader (`/i/pub-XXX`) — the one index.html uses on SPA roots and the
+ * one that actually renders FC messages — is absent. Injecting the registry +
+ * pub-id loader at PARSE TIME (before hydration and before adsbygoogle's
+ * network-code loader claims the singleton FC instance) brings article pages to
+ * parity with index.html's proven render path. (#2312 injected the same loader
+ * POST-hydration via the React gate and it never rendered, because FC was
+ * already singleton-initialised by the network-code loader — parse-time is the
+ * differentiator.)
+ *
+ * MUST stay byte-aligned with index.html's loadFc()/registry on the essentials
+ * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
+ * tests/index-html-fc-loader.test.ts for the CORS rationale — googlefcPresent
+ * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). The drift
+ * guard lives in tests/offerwall-static-fc-snippet.test.ts. The registry's
+ * behaviour mirrors components/community/OfferwallNewsletterGate.tsx
+ * (ensureOfferwallRegistry), which is idempotent (`if (cc.registry) return`) and
+ * so no-ops when this parse-time copy already set it — the gate still installs
+ * the window.__ftOfferwallSubscribe hook this registry delegates to.
+ *
+ * The anti-adblock fallback IIFE that index.html also runs from loadFc() is
+ * deliberately NOT included here — it is a separate feature, out of scope for
+ * the Offerwall render fix.
+ */
+export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=window.googlefc||{};var ow=g.offerwall=g.offerwall||{};var cc=ow.customchoice=ow.customchoice||{};if(cc.registry)return;function subscribed(){try{return window.localStorage.getItem('newsletter_subscribed')==='true';}catch(e){return false;}}cc.registry={initialize:function(params){var E=cc.InitializeResponseEnum||{};if(subscribed()){return Promise.resolve(E.ACCESS_GRANTED||'ACCESS_GRANTED');}window.__ftOfferwallLang=(params&&params.offerwallLanguageCode)||null;return Promise.resolve(E.ACCESS_NOT_GRANTED||'ACCESS_NOT_GRANTED');},show:function(){var fn=window.__ftOfferwallSubscribe;if(typeof fn!=='function')return Promise.resolve(false);try{return Promise.resolve(fn(window.__ftOfferwallLang)).then(function(ok){return !!ok;});}catch(e){return Promise.resolve(false);}}};})();</script>
+ <script>(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+
+/**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,
  * fuel daily, border wait) — pages with 7-11s median sessions whose only
  * manual unit was the end-of-page ARTICLE_END_MULTIPLEX, far below the
