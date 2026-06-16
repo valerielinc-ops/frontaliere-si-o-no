@@ -25686,6 +25686,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'accordo-trasporti-ticino-lombardia-potenziamento-collegamenti',
+ category: 'pratico',
+ date: '2026-06-16T18:39:59.827Z',
+ image: '/images/blog/accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
