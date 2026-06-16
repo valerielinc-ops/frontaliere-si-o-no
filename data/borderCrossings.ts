@@ -531,6 +531,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:30-8:30',
  tips: 'border.tips.luinoFornasette',
+ webcams: [
+ {
+ label: 'Lago Maggiore – Cannero Riviera (sponda lombarda, area Luino)',
+ imageUrl: 'https://lagomaggiorexperience.it/webcam/public/canneroriviera.jpg',
+ sourceName: 'Lago Maggiore Experience',
+ sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Zenna-Dirinella',
@@ -600,6 +609,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.piaggioValmara',
+ webcams: [
+ {
+ label: 'Lago Maggiore – Cannobio (lato italiano del valico)',
+ imageUrl: 'https://lagomaggiorexperience.it/webcam/public/cannobio.jpg',
+ sourceName: 'Lago Maggiore Experience',
+ sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Camedo (Re-Centovalli)',
@@ -617,6 +635,22 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.camedoRe',
+ webcams: [
+ {
+ label: 'Val Vigezzo – Santa Maria Maggiore (vallata italiana del valico)',
+ imageUrl: 'https://webcamdtl.it/santamariamaggiore.jpg',
+ sourceName: 'Distretto Turistico dei Laghi (webcamdtl.it)',
+ sourceUrl: 'https://www.distrettolaghi.it/it/webcam',
+ refreshIntervalMs: 300000,
+ },
+ {
+ label: 'Val Vigezzo – Piana di Vigezzo',
+ imageUrl: 'https://webcamdtl.it/pianavigezzo.jpg',
+ sourceName: 'Distretto Turistico dei Laghi (webcamdtl.it)',
+ sourceUrl: 'https://www.distrettolaghi.it/it/webcam',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Sempione (Iselle-Gondo)',
@@ -635,6 +669,22 @@ export const borderCrossings: BorderCrossing[] = [
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.sempioneIselle',
  bazgCoverage: true,
+ webcams: [
+ {
+ label: "Val d'Ossola – Crevoladossola (strada del Sempione)",
+ imageUrl: 'https://lagomaggiorexperience.it/webcam/public/crevoladossola.jpg',
+ sourceName: 'Lago Maggiore Experience',
+ sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
+ refreshIntervalMs: 300000,
+ },
+ {
+ label: "Val d'Ossola – Domodossola",
+ imageUrl: 'https://www.meteolivevco.it/webcam/distrettolaghi/domodossola.jpg',
+ sourceName: 'Meteo Live VCO',
+ sourceUrl: 'https://www.meteolivevco.it/',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
 ];
 
