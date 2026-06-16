@@ -149,9 +149,13 @@ jobs:
     # rendering ~2100 PNGs from scratch) don't fail on the default 6 h
     # ceiling and the failure mode is obvious in the logs if it happens.
     timeout-minutes: 360
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
+    # The `build` job intentionally has NO `environment: github-pages`: it only
+    # uploads the `github-pages` artifact (actions/upload-artifact@v7, for
+    # compression-level control) — the actual actions/deploy-pages runs in the
+    # separate `deploy` job below, which keeps the environment. The env block here
+    # was dead code: its `url:` referenced steps.deployment / steps.deployment_first
+    # that exist only in the deploy job (leftover from the reverted branch-based-
+    # deploy experiment #966/#986). Removing it is a no-op for the deploy flow.
     steps:
       # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
       # or build output lands on disk. Without this the runner ships with
