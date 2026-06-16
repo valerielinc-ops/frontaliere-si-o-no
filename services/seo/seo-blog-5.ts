@@ -44339,6 +44339,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comuni-frontiera-ticino': {
+    title: 'Comuni di frontiera in Ticino: una guida pratica',
+    description: 'Scopri i comuni di frontiera del Ticino e la loro importanza per i lavoratori frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comuni, frontiera, pratica, scopri',
+    ogTitle: 'Comuni di frontiera in Ticino: guida pratica',
+    ogDescription: 'Informazioni sui comuni di frontiera nel Canton Ticino e il loro ruolo per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/comuni-frontiera-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comuni di frontiera in Ticino: una guida pratica",
+      "description": "Scopri i comuni di frontiera del Ticino e la loro importanza per i lavoratori frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comuni-frontiera-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una vista panoramica di un comune di frontiera in Ticino."
+      },
+      "datePublished": "2026-06-16T20:42:19+00:00",
+      "dateModified": "2026-06-16T20:42:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

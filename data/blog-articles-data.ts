@@ -25722,6 +25722,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'comuni-frontiera-ticino',
+ category: 'pratico',
+ date: '2026-06-16T20:42:19.786Z',
+ image: '/images/blog/comuni-frontiera-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
