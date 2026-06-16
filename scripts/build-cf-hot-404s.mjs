@@ -133,6 +133,12 @@ async function main() {
       continue;
     }
     windowsOk++;
+    if (windowRows.length >= 10000) {
+      const windowLabel = `${until.toISOString().slice(0, 13)}h (window ${i})`;
+      console.warn(
+        `[cf-sweep] window saturated: ${windowLabel} hit 10k cap — sub-window split may be needed`,
+      );
+    }
     for (const r of windowRows) {
       const norm = r.path.replace(/\/+$/, '');
       swept.set(norm, (swept.get(norm) || 0) + r.count);

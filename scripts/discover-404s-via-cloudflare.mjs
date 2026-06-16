@@ -110,6 +110,11 @@ async function main() {
     host: APEX_HOST,
     limit: opts.limit,
   });
+  if (rows.length >= opts.limit) {
+    console.warn(
+      `[cf-sweep] window saturated: ${opts.hours}h window hit ${opts.limit}-row CF cap — some 404 paths may be missing`,
+    );
+  }
 
   // Normalize → candidate set (dedup, trailing-slash-stripped to match the
   // accumulator's convention used by the GSC producers).
