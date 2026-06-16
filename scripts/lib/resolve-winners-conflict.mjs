@@ -24,6 +24,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { gitShowStage } from './git-show-stage.mjs';
 
 const TARGET = 'data/previous-slug-winners.json';
 
@@ -37,8 +38,7 @@ function readStage(stage) {
   //     exists on origin/main after the other deploy's sync commit landed)
   //   - stage 3 → our build's freshly computed file (the commit we are about
   //     to push). We want this version's keys to win on collision.
-  const out = execFileSync('git', ['show', `:${stage}:${TARGET}`], { encoding: 'utf-8' });
-  return out;
+  return gitShowStage(stage, TARGET);
 }
 
 function parseOrEmpty(label, raw) {
