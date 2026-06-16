@@ -80,9 +80,9 @@
     },
     {
       "id": "hilcona-910f82580a60",
-      "slug": "stv-teamleiter-hlkk-hilcona-zell",
+      "slug": "vice-caposquadra-hlkk-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "stv-teamleiter-hlkk-hilcona-zell",
+        "it": "vice-caposquadra-hlkk-bell-schweiz-ag-zell",
         "en": "stv-teamleiter-hlkk-hilcona-zell",
         "de": "stv-teamleiter-hlkk-hilcona-zell",
         "fr": "stv-teamleiter-hlkk-hilcona-zell"
@@ -136,7 +136,15 @@
       },
       "postalCode": "7000",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-hlkk-hilcona-zell"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiter-hlkk-hilcona-zell"
+      ]
     },
     {
       "id": "hilcona-0f38e1b7de35",
@@ -280,12 +288,12 @@
     },
     {
       "id": "hilcona-fe8af1e35692",
-      "slug": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
+      "slug": "tict-system-engineer-focus-m365-ms-server-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
-        "it": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
+        "it": "tict-system-engineer-focus-m365-ms-server-bell-schweiz-ag-basel",
         "en": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
-        "fr": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel"
+        "fr": "ict-ingenieur-systeme-focus-m365-ms-server-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -337,13 +345,24 @@
       "postalCode": "4001",
       "country": "CH",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-16T13:35:22.811Z"
+      "firstSeenAt": "2026-06-16T13:35:22.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-engineer-fokus-m365-ms-server-hilcona-basel"
+        ],
+        "fr": [
+          "ict-system-engineer-fokus-m365-ms-server-hilcona-basel"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-engineer-fokus-m365-ms-server-hilcona-basel"
+      ]
     },
     {
       "id": "hilcona-be0ef57bb60c",
-      "slug": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell",
+      "slug": "vice-caporeparto-caporeparto-elaborazione-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell",
+        "it": "vice-caporeparto-caporeparto-elaborazione-100-bell-schweiz-ag-zell",
         "en": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell",
         "de": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
         "fr": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
@@ -382,11 +401,13 @@
       "crawledAt": "2026-06-16T13:35:22.542Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell"
+        "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
+        "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell"
+          "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
+          "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
         ]
       },
       "needsRetranslation": true,
@@ -1973,8 +1994,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "electricien-d-installation-geiser-ag-schlieren",
-        "elettrotecnico-di-impianto-geiser-ag-schlieren"
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2227,9 +2247,9 @@
     },
     {
       "id": "hilcona-b7b9fd6857d6",
-      "slug": "installatore-business-installer-business-hilcona-ag-schaan",
+      "slug": "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan",
       "slugByLocale": {
-        "it": "installatore-business-installer-business-hilcona-ag-schaan",
+        "it": "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan",
         "en": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "de": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "fr": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
@@ -2272,7 +2292,7 @@
         "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
         "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
         "installatore-operativo-hilcona-ag-schaan",
-        "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan"
+        "installatore-business-installer-business-hilcona-ag-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2280,7 +2300,7 @@
           "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
           "azienda-installatrice-azienda-installatrice-hilcona-ag-schaan",
           "installatore-operativo-hilcona-ag-schaan",
-          "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan"
+          "installatore-business-installer-business-hilcona-ag-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -3015,8 +3035,7 @@
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
-        "elettricista-operativo-bell-schweiz-ag-oensingen"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5969,9 +5988,9 @@
     },
     {
       "id": "hilcona-9215a6e64f54",
-      "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+      "slug": "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
-        "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+        "it": "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
         "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -6015,9 +6034,9 @@
           "doppio-programma-di-studi-impiegato-industriale-laurea-triennale-in-amministrazione-aziendale-m-w-d-bell-deutschland",
           "programma-di-studio-duale-per-impiegati-industriali-laurea-triennale-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
-          "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal"
+          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
+          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
@@ -6025,9 +6044,9 @@
         "doppio-programma-di-studi-impiegato-industriale-laurea-triennale-in-amministrazione-aziendale-m-w-d-bell-deutschland",
         "programma-di-studio-duale-per-impiegati-industriali-laurea-triennale-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
-        "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal"
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:44.562Z",
@@ -6342,9 +6361,7 @@
         "elettricista-operativo-bell-schweiz-ag-oensingen",
         "electricien-en-service-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6547,9 +6564,9 @@
     },
     {
       "id": "hilcona-b27ee66cce78",
-      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+      "slug": "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
       "slugByLocale": {
-        "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+        "it": "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
         "en": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
         "fr": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
@@ -6594,9 +6611,9 @@
           "specializzato-in-logistica-magazzino-tirocinante-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "apprendista-specialista-in-logistica-di-magazzino-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-          "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
           "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell"
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
@@ -6605,9 +6622,9 @@
         "specializzato-in-logistica-magazzino-tirocinante-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "apprendista-specialista-in-logistica-di-magazzino-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
         "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell"
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:42.342Z",
@@ -6956,9 +6973,9 @@
     },
     {
       "id": "hilcona-c5a0f8d355a7",
-      "slug": "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+      "slug": "collaboratore-di-produzione-i-punto-congelatore-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "it": "collaboratore-di-produzione-i-punto-congelatore-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "en": "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge",
         "fr": "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
@@ -6997,11 +7014,13 @@
       "crawledAt": "2026-06-16T13:34:56.427Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge"
+        "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge",
+        "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge"
+          "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge",
+          "produktionsmitarbeiter-i-punkt-froster-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "needsRetranslation": true,
@@ -7190,7 +7209,7 @@
         "de": "ict-system-engineer-client-services-hilcona-basel",
         "en": "ict-system-engineer-client-services-bell-schweiz-ag-basel",
         "it": "ict-system-engineer-client-services-hilcona-basel",
-        "fr": "ict-system-engineer-client-services-hilcona-basel"
+        "fr": "ict-engineer-services-a-la-clientele-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -8059,10 +8078,10 @@
     },
     {
       "id": "hilcona-5aca94916108",
-      "slug": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+      "slug": "produzione-alimentare-specializzata-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "fachkraefte-lebensmittelproduktion-hilcona-ag-bell-food-group-landquart",
-        "it": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+        "it": "produzione-alimentare-specializzata-hilcona-ag-schaan",
         "en": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
         "fr": "fachkraefte-lebensmittelproduktion-hilcona-schaan"
       },
@@ -8117,7 +8136,15 @@
       "postalCode": "7000",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T13:34:52.228Z"
+      "firstSeenAt": "2026-06-16T13:34:52.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+      ]
     },
     {
       "id": "hilcona-a23161a3b0b8",
@@ -8738,9 +8765,9 @@
     },
     {
       "id": "hilcona-730d82ed94eb",
-      "slug": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
+      "slug": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "it": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
         "fr": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
@@ -8779,11 +8806,13 @@
       "crawledAt": "2026-06-16T13:34:49.504Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "kommissionierung-m-w-d-hilcona-ampfing"
+        "kommissionierung-m-w-d-hilcona-ampfing",
+        "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissionierung-m-w-d-hilcona-ampfing"
+          "kommissionierung-m-w-d-hilcona-ampfing",
+          "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "needsRetranslation": true,
@@ -9048,9 +9077,9 @@
     },
     {
       "id": "hilcona-6469bcca4559",
-      "slug": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+      "slug": "assistente-alla-produzione-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
-        "it": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "it": "assistente-alla-produzione-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "en": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "produktionshelfer-m-w-d-hilcona-harkebrugge",
         "fr": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
@@ -9089,11 +9118,13 @@
       "crawledAt": "2026-06-16T13:34:48.012Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "produktionshelfer-m-w-d-hilcona-harkebrugge"
+        "produktionshelfer-m-w-d-hilcona-harkebrugge",
+        "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktionshelfer-m-w-d-hilcona-harkebrugge"
+          "produktionshelfer-m-w-d-hilcona-harkebrugge",
+          "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "needsRetranslation": true,

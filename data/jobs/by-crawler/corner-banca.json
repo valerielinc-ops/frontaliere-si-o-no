@@ -1105,9 +1105,9 @@
     },
     {
       "id": "corner-banca-f7239bf896ee",
-      "slug": "legal-collection-case-manager-corner-banca-wallisellen",
+      "slug": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "legal-collection-case-manager-corner-banca-wallisellen",
+        "it": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
         "en": "legal-collection-case-manager-corner-banca-wallisellen",
         "de": "legal-collection-case-manager-corner-banca-wallisellen",
         "fr": "legal-collection-case-manager-corner-banca-wallisellen"
@@ -1173,7 +1173,15 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-collection-case-manager-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "legal-collection-case-manager-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-8d0bd2e49371",

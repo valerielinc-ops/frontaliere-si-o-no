@@ -338,9 +338,9 @@
     },
     {
       "id": "spitex-ch-bdab6d40b374",
-      "slug": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+      "slug": "infermiere-certificato-hf-40-80-spitex-region-lueg-hasle-ruegsau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
+        "it": "infermiere-certificato-hf-40-80-spitex-region-lueg-hasle-ruegsau",
         "en": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "de": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau",
         "fr": "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
@@ -398,7 +398,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-40-80-spitex-ch-hasle-ruegsau"
+      ]
     },
     {
       "id": "spitex-ch-7f802cf8f07a",
@@ -551,9 +559,9 @@
     },
     {
       "id": "spitex-ch-340c8cc04e20",
-      "slug": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
+      "slug": "specialista-della-salute-60-80-spitex-horgen-oberrieden-horgen",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
+        "it": "specialista-della-salute-60-80-spitex-horgen-oberrieden-horgen",
         "en": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
         "de": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen",
         "fr": "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
@@ -611,13 +619,21 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-60-80-spitex-ch-horgen"
+      ]
     },
     {
       "id": "spitex-ch-1a3ded2b25e1",
-      "slug": "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-birseck-munchenstein",
+      "slug": "specialista-della-salute-in-assistenza-ambulatoriale-fage-20-100-spitex-birseck-munchenstein",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-birseck-munchenstein",
+        "it": "specialista-della-salute-in-assistenza-ambulatoriale-fage-20-100-spitex-birseck-munchenstein",
         "en": "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein",
         "de": "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein",
         "fr": "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein"
@@ -664,11 +680,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein"
+        "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein",
+        "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-birseck-munchenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein"
+          "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-ch-munchenstein",
+          "fachfrau-mann-gesundheit-in-der-ambulanten-pflege-fage-20-100-spitex-birseck-munchenstein"
         ]
       },
       "firstSeenAt": "2026-06-15T15:39:52.463Z",
@@ -687,9 +705,9 @@
     },
     {
       "id": "spitex-ch-046476d5fefe",
-      "slug": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+      "slug": "infermieristica-laureata-in-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
+        "it": "infermieristica-laureata-in-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "en": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "de": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "fr": "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
@@ -747,13 +765,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+      ]
     },
     {
       "id": "spitex-ch-e668652af716",
-      "slug": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+      "slug": "specialista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+        "it": "specialista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
         "en": "fachperson-gesundheit-50-100-spitex-ch-dornach",
         "de": "fachperson-gesundheit-50-100-spitex-ch-dornach",
         "fr": "fachperson-gesundheit-50-100-spitex-ch-dornach"
@@ -811,13 +837,21 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-50-100-spitex-ch-dornach"
+      ]
     },
     {
       "id": "spitex-ch-12e86fbadba7",
-      "slug": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+      "slug": "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+        "it": "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
         "en": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
         "de": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
         "fr": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
@@ -875,7 +909,15 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+      ]
     },
     {
       "id": "spitex-ch-8412852a6438",
@@ -1023,10 +1065,10 @@
     },
     {
       "id": "spitex-ch-034a40157d62",
-      "slug": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
+      "slug": "specialista-della-salute-carico-di-lavoro-selezionabile-40-100-regiospitex-limmattal-schlieren",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
-        "it": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
+        "it": "specialista-della-salute-carico-di-lavoro-selezionabile-40-100-regiospitex-limmattal-schlieren",
         "en": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
         "fr": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
       },
@@ -1085,14 +1127,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:44:49.805Z"
+      "firstSeenAt": "2026-06-16T14:44:49.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
+      ]
     },
     {
       "id": "spitex-ch-a933625779f0",
-      "slug": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
+      "slug": "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
-        "it": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
+        "it": "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
         "en": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
         "fr": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
       },
@@ -1151,7 +1201,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:44:48.972Z"
+      "firstSeenAt": "2026-06-16T14:44:48.972Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
+      ]
     },
     {
       "id": "spitex-ch-0315aa108ad9",
@@ -1229,10 +1287,10 @@
     },
     {
       "id": "spitex-ch-e8fa5cfae484",
-      "slug": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
+      "slug": "allenarsi-come-dipl-infermiera-hf-corso-di-formazione-2026-2029-spitex-aachthurland-sulgen-sulgen",
       "slugByLocale": {
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
-        "it": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
+        "it": "allenarsi-come-dipl-infermiera-hf-corso-di-formazione-2026-2029-spitex-aachthurland-sulgen-sulgen",
         "en": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
         "fr": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
       },
@@ -1291,7 +1349,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:44:47.660Z"
+      "firstSeenAt": "2026-06-16T14:44:47.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
+      ]
     },
     {
       "id": "spitex-ch-a5d0f9ffb421",
@@ -1731,10 +1797,10 @@
     },
     {
       "id": "spitex-ch-5c4aa0b13819",
-      "slug": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
+      "slug": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
       "slugByLocale": {
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "it": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
+        "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
         "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "fr": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
       },
@@ -1793,14 +1859,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:44:43.496Z"
+      "firstSeenAt": "2026-06-16T14:44:43.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+      ]
     },
     {
       "id": "spitex-ch-4b633fba55cc",
-      "slug": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke",
+      "slug": "dipl-infermiera-ic-fh-60-gestione-del-caso-al-100-spitex-emmen-emmenbrucke",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke",
-        "it": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke",
+        "it": "dipl-infermiera-ic-fh-60-gestione-del-caso-al-100-spitex-emmen-emmenbrucke",
         "en": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke",
         "fr": "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke"
       },
@@ -1859,7 +1933,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:44:42.974Z"
+      "firstSeenAt": "2026-06-16T14:44:42.974Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-60-100-fallfuhrung-spitex-ch-emmenbrucke"
+      ]
     },
     {
       "id": "spitex-ch-8c55e14f37cc",

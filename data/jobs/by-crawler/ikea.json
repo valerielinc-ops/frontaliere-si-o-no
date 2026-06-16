@@ -2842,10 +2842,10 @@
     },
     {
       "id": "ikea-1d19a02e804e",
-      "slug": "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
+      "slug": "collaboratore-ristorante-cuisine-ikea-20-ikea-vernier-geneve-switzerland",
       "slugByLocale": {
         "fr": "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
-        "it": "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
+        "it": "collaboratore-ristorante-cuisine-ikea-20-ikea-vernier-geneve-switzerland",
         "en": "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch",
         "de": "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch"
       },
@@ -2903,7 +2903,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:38:36.259Z"
+      "firstSeenAt": "2026-06-16T13:38:36.259Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-restaurant-cuisine-ikea-20-ikea-ch"
+      ]
     },
     {
       "id": "ikea-1c202382413e",

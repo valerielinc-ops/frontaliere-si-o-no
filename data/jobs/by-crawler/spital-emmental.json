@@ -4112,9 +4112,9 @@
     },
     {
       "id": "spital-emmental-86396e92300f",
-      "slug": "teamleitung-pflege-a-spital-emmental-langnau",
+      "slug": "capo-squadra-infermieristica-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "teamleitung-pflege-a-spital-emmental-langnau",
+        "it": "capo-squadra-infermieristica-a-spital-emmental-langnau",
         "en": "teamleitung-pflege-a-spital-emmental-langnau",
         "de": "teamleitung-pflege-a-spital-emmental-langnau",
         "fr": "teamleitung-pflege-a-spital-emmental-langnau"
@@ -4177,13 +4177,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleitung-pflege-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-98baf7d442ee",
-      "slug": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
+      "slug": "mpa-dipl-infermiera-specialista-della-salute-cardiologia-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
+        "it": "mpa-dipl-infermiera-specialista-della-salute-cardiologia-a-spital-emmental-langnau",
         "en": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
         "de": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
         "fr": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
@@ -4246,7 +4254,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-e27724b4f6f0",

@@ -536,10 +536,10 @@
     },
     {
       "id": "weisse-arena-5c5b05a18eeb",
-      "slug": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+      "slug": "dipendente-del-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "servicemitarbeiter-in-weisse-arena-ch",
-        "it": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+        "it": "dipendente-del-servizio-weisse-arena-gruppe-laax",
         "en": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
         "fr": "servicemitarbeiter-in-weisse-arena-gruppe-laax"
       },
@@ -590,11 +590,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "servicemitarbeiter-in-weisse-arena-ch"
+          "servicemitarbeiter-in-weisse-arena-ch",
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
-        "servicemitarbeiter-in-weisse-arena-ch"
+        "servicemitarbeiter-in-weisse-arena-ch",
+        "servicemitarbeiter-in-weisse-arena-gruppe-laax"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -613,9 +615,9 @@
     },
     {
       "id": "weisse-arena-97b96b7e7789",
-      "slug": "event-manager-weisse-arena-ch",
+      "slug": "responsabile-eventi-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "event-manager-weisse-arena-ch",
+        "it": "responsabile-eventi-weisse-arena-gruppe-laax",
         "en": "event-manager-weisse-arena-ch",
         "de": "event-manager-weisse-arena-ch",
         "fr": "event-manager-weisse-arena-ch"
@@ -676,7 +678,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-manager-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "event-manager-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-0a3c9196fd41",
@@ -918,10 +928,10 @@
     },
     {
       "id": "weisse-arena-c79c97c1152d",
-      "slug": "hilfskoch-hilfskochin-weisse-arena-ch",
+      "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
-        "it": "hilfskoch-hilfskochin-weisse-arena-ch",
+        "it": "assistente-cuoco-weisse-arena-gruppe-laax",
         "en": "hilfskoch-hilfskochin-weisse-arena-ch",
         "fr": "hilfskoch-hilfskochin-weisse-arena-ch"
       },
@@ -983,7 +993,15 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T14:41:43.954Z"
+      "firstSeenAt": "2026-06-16T14:41:43.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskoch-hilfskochin-weisse-arena-ch"
+      ]
     }
   ]
 }

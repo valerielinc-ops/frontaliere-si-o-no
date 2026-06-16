@@ -4049,9 +4049,9 @@
     },
     {
       "id": "spital-uster-9a4d2675f71d",
-      "slug": "leitung-pflegeentwicklung-spital-uster-ch",
+      "slug": "responsabile-dello-sviluppo-infermieristico-spital-uster-uster",
       "slugByLocale": {
-        "it": "leitung-pflegeentwicklung-spital-uster-ch",
+        "it": "responsabile-dello-sviluppo-infermieristico-spital-uster-uster",
         "en": "leitung-pflegeentwicklung-spital-uster-ch",
         "de": "leitung-pflegeentwicklung-spital-uster-ch",
         "fr": "leitung-pflegeentwicklung-spital-uster-ch"
@@ -4109,7 +4109,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-pflegeentwicklung-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-pflegeentwicklung-spital-uster-ch"
+      ]
     }
   ]
 }

@@ -231,7 +231,7 @@
         "en": "ai-engineer-duferco-lugano",
         "it": "ai-ingegnere-duferco-lugano",
         "de": "ai-ingenieur-duferco-lugano",
-        "fr": "ai-engineer-duferco-lugano"
+        "fr": "ingenieur-ia-duferco-lugano"
       },
       "company": "Duferco",
       "companyKey": "duferco",
@@ -294,6 +294,9 @@
         ],
         "de": [
           "ai-engineer-duferco-lugano"
+        ],
+        "fr": [
+          "ai-engineer-duferco-lugano"
         ]
       },
       "previousSlugs": [
@@ -302,12 +305,12 @@
     },
     {
       "id": "duferco-ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
-      "slug": "forward-deployed-engineer-duferco-lugano",
+      "slug": "ingegnere-di-distribuzione-avanzato-duferco-lugano",
       "slugByLocale": {
         "en": "forward-deployed-engineer-duferco-lugano",
-        "it": "forward-deployed-engineer-duferco-lugano",
-        "de": "forward-deployed-engineer-duferco-lugano",
-        "fr": "forward-deployed-engineer-duferco-lugano"
+        "it": "ingegnere-di-distribuzione-avanzato-duferco-lugano",
+        "de": "vorgeschobener-pionier-duferco-lugano",
+        "fr": "ingenieur-deploye-avance-duferco-lugano"
       },
       "company": "Duferco",
       "companyKey": "duferco",
@@ -363,7 +366,21 @@
         }
       },
       "postalCode": "6900",
-      "firstSeenAt": "2026-06-16T13:16:07.097Z"
+      "firstSeenAt": "2026-06-16T13:16:07.097Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "forward-deployed-engineer-duferco-lugano"
+        ],
+        "de": [
+          "forward-deployed-engineer-duferco-lugano"
+        ],
+        "fr": [
+          "forward-deployed-engineer-duferco-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "forward-deployed-engineer-duferco-lugano"
+      ]
     }
   ]
 }

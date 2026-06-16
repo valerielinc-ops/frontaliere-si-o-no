@@ -2652,9 +2652,9 @@
       "slug": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "it": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
-        "en": "dipl-specialist-in-intensive-medicine-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+        "en": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
         "de": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
-        "fr": "dipl-specialiste-en-medecine-intensive-snd-80-90-m-m-j-spital-mannedorf-mannedorf"
+        "fr": "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2699,7 +2699,9 @@
       "pensumMax": 90,
       "pensum": "80 - 90%",
       "previousSlugs": [
-        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch"
+        "dipl-fachexperte-intensivmedizin-nds-80-90-m-w-d-spital-maennedorf-ch",
+        "dipl-specialist-in-intensive-medicine-nds-80-90-m-w-d-spital-mannedorf-mannedorf",
+        "dipl-specialiste-en-medecine-intensive-snd-80-90-m-m-j-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2810,12 +2812,12 @@
     },
     {
       "id": "spital-maennedorf-1b99406b9852",
-      "slug": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+      "slug": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
+        "it": "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
         "en": "pflegeexpertin-60-100-m-w-d-spital-mannedorf-mannedorf",
         "de": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch",
-        "fr": "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
+        "fr": "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2860,16 +2862,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
-        "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf"
+        "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "esperto-di-carriera-60-100-m-w-d-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "expert-de-carriere-60-100-m-m-j-spital-mannedorf-mannedorf",
           "pflegeexpertin-60-100-m-w-d-spital-maennedorf-ch"
         ]
       },
@@ -2892,10 +2891,10 @@
       "id": "spital-maennedorf-1c6289b5625a",
       "slug": "dipl-terapeuta-professionale-dipl-terapeuta-professionale-40-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
-        "it": "dipl-terapeuta-professionale-dipl-terapeuta-professionale-40-m-f-d-spital-mannedorf-mannedorf",
+        "it": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
         "en": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
         "de": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-        "fr": "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
+        "fr": "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -2941,15 +2940,13 @@
       "pensum": "40%",
       "previousSlugs": [
         "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-        "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+        "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch",
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf"
+          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-maennedorf-ch"
         ],
         "fr": [
-          "dipl-ergotherapeut-dipl-ergotherapeutin-40-m-w-d-spital-mannedorf-mannedorf",
           "dipl-ergotherapeute-dipl-ergotherapeute-40-m-f-d-spital-mannedorf-mannedorf"
         ]
       },

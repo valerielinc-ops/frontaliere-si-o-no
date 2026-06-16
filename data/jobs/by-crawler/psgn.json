@@ -7,7 +7,7 @@
       "slug": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
-        "en": "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
+        "en": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
         "de": "pflegepraktikant-in-psgn-wil-sg",
         "fr": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
       },
@@ -52,7 +52,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegepraktikant-in-psgn-wil-sg",
-        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
+        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+        "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -60,7 +61,6 @@
           "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
           "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -438,10 +438,10 @@
     },
     {
       "id": "psgn-0b1a71753f4c",
-      "slug": "leiterin-leiter-sicherheit-psychiatrie-st-gallen-wil-sg",
+      "slug": "capo-della-sicurezza-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "leiterin-leiter-sicherheit-psgn-wil-sg",
-        "it": "leiterin-leiter-sicherheit-psychiatrie-st-gallen-wil-sg",
+        "it": "capo-della-sicurezza-psychiatrie-st-gallen-wil-sg",
         "en": "leiterin-leiter-sicherheit-psgn-wil-sg",
         "fr": "leiterin-leiter-sicherheit-psgn-wil-sg"
       },
@@ -489,11 +489,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-sicherheit-psgn-wil-sg"
+          "leiterin-leiter-sicherheit-psgn-wil-sg",
+          "leiterin-leiter-sicherheit-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-sicherheit-psgn-wil-sg"
+        "leiterin-leiter-sicherheit-psgn-wil-sg",
+        "leiterin-leiter-sicherheit-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 92000,
       "salaryMax": 156500,
@@ -511,10 +513,10 @@
     },
     {
       "id": "psgn-3aca69555d50",
-      "slug": "fachperson-gesundheit-psgn-wil-sg",
+      "slug": "specialista-della-salute-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "fachperson-gesundheit-psgn-wil-sg",
-        "it": "fachperson-gesundheit-psgn-wil-sg",
+        "it": "specialista-della-salute-psychiatrie-st-gallen-wil-sg",
         "en": "fachperson-gesundheit-psgn-wil-sg",
         "fr": "fachperson-gesundheit-psgn-wil-sg"
       },
@@ -572,14 +574,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:18:38.706Z"
+      "firstSeenAt": "2026-06-16T14:18:38.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-psgn-wil-sg"
+      ]
     },
     {
       "id": "psgn-ad72487df665",
-      "slug": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
+      "slug": "medico-di-base-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg",
-        "it": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
+        "it": "medico-di-base-psychiatrie-st-gallen-wil-sg",
         "en": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
         "fr": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg"
       },
@@ -627,11 +637,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg"
+          "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg",
+          "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg"
+        "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg",
+        "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -649,10 +661,10 @@
     },
     {
       "id": "psgn-2be3d0f1e0f9",
-      "slug": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+      "slug": "infermiere-laureato-in-hf-fh-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "it": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "it": "infermiere-laureato-in-hf-fh-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
@@ -700,11 +712,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
+        "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

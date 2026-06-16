@@ -1204,9 +1204,9 @@
     },
     {
       "id": "hochgebirgsklinik-davos-cc3a79472545",
-      "slug": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+      "slug": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "it": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "it": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
         "en": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
         "de": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
         "fr": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
@@ -1270,7 +1270,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-b7eca138fc06",

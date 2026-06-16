@@ -1048,9 +1048,9 @@
     },
     {
       "id": "kanton-gr-31abae010ca0",
-      "slug": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
-        "it": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
+        "it": "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
         "en": "strassenwart-in-kanton-gr-ch",
         "de": "strassenwart-in-kanton-gr-ch",
         "fr": "strassenwart-in-kanton-gr-ch"
@@ -1100,12 +1100,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "strassenwart-in-kanton-gr-ch",
-        "strassenwart-in-kantonale-verwaltung-graubunden-ilanz"
+        "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
+        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
-          "strassenwart-in-kantonale-verwaltung-graubunden-ilanz"
+          "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
+          "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "needsRetranslation": true,
@@ -1234,9 +1236,9 @@
     },
     {
       "id": "kanton-gr-56f1d94ae3c7",
-      "slug": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
-        "it": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
+        "it": "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz",
         "en": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
         "de": "immobilienbewerter-in-kanton-gr-ch",
         "fr": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
@@ -1286,12 +1288,14 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "immobilienbewerter-in-kanton-gr-ch",
-        "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
+        "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
+        "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewerter-in-kanton-gr-ch",
-          "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
+          "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
+          "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "needsRetranslation": true,

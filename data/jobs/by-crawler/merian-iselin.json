@@ -657,9 +657,9 @@
     },
     {
       "id": "merian-iselin-d0759bbc956a",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
+      "slug": "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
       "slugByLocale": {
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
+        "it": "specialista-in-tecnica-chirurgica-hf-merian-iselin-klinik-basel",
         "en": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel",
         "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
@@ -716,7 +716,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-merian-iselin-basel"
+      ]
     },
     {
       "id": "merian-iselin-fb9b397b7483",
