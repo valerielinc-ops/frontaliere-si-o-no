@@ -1,17 +1,25 @@
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { isBridgePageHtml } from './_bridgeMarker';
 
 const DIST = path.resolve(__dirname, '../../dist');
 
+// Count only REAL job-detail pages — skip cf-hot-404 / canton-orphan bridges,
+// which legitimately live under the same canton dirs (noindex archived stubs).
+// Without this, a bridge emitted at /cerca-lavoro-zurigo/<slug>/ where <slug> is
+// also a real TI job would register as a cross-canton "leak" below, and the
+// growing cf-hot-404 recovery set would make that a flaky false failure.
 function listJobHtmlUnder(cantonSection: string): string[] {
   const dir = path.join(DIST, cantonSection);
   if (!fs.existsSync(dir)) return [];
   const out: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.isDirectory() && fs.existsSync(path.join(dir, entry.name, 'index.html'))) {
-      out.push(entry.name);
-    }
+    if (!entry.isDirectory()) continue;
+    const file = path.join(dir, entry.name, 'index.html');
+    if (!fs.existsSync(file)) continue;
+    if (isBridgePageHtml(fs.readFileSync(file, 'utf8'))) continue;
+    out.push(entry.name);
   }
   return out;
 }
