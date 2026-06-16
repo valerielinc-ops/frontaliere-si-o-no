@@ -531,11 +531,11 @@
     },
     {
       "id": "clinique-de-genolier-e66c5879374b",
-      "slug": "stagiaire-controle-de-gestion-clinique-de-genolier",
+      "slug": "stage-controllo-di-gestione-clinique-de-genolier-genolier",
       "slugByLocale": {
-        "it": "stagiaire-controle-de-gestion-clinique-de-genolier",
-        "en": "stagiaire-controle-de-gestion-clinique-de-genolier",
-        "de": "stagiaire-controle-de-gestion-clinique-de-genolier",
+        "it": "stage-controllo-di-gestione-clinique-de-genolier-genolier",
+        "en": "financial-control-trainee-clinique-de-genolier-genolier",
+        "de": "praktikant-finanzcontrolling-clinique-de-genolier-genolier",
         "fr": "stagiaire-controle-de-gestion-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -590,15 +590,29 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-controle-de-gestion-clinique-de-genolier"
+        ],
+        "en": [
+          "stagiaire-controle-de-gestion-clinique-de-genolier"
+        ],
+        "de": [
+          "stagiaire-controle-de-gestion-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-controle-de-gestion-clinique-de-genolier"
+      ]
     },
     {
       "id": "clinique-de-genolier-4881a1ee7093",
-      "slug": "secretaire-medical-e-a-40-clinique-de-genolier",
+      "slug": "segretario-medico-al-40-clinique-de-genolier-genolier",
       "slugByLocale": {
-        "it": "secretaire-medical-e-a-40-clinique-de-genolier",
-        "en": "secretaire-medical-e-a-40-clinique-de-genolier",
-        "de": "secretaire-medical-e-a-40-clinique-de-genolier",
+        "it": "segretario-medico-al-40-clinique-de-genolier-genolier",
+        "en": "medical-secretary-at-40-clinique-de-genolier-genolier",
+        "de": "medizinische-sekretarin-bei-40-clinique-de-genolier-genolier",
         "fr": "secretaire-medical-e-a-40-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
@@ -653,7 +667,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-40-clinique-de-genolier"
+        ],
+        "en": [
+          "secretaire-medical-e-a-40-clinique-de-genolier"
+        ],
+        "de": [
+          "secretaire-medical-e-a-40-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-40-clinique-de-genolier"
+      ]
     }
   ]
 }

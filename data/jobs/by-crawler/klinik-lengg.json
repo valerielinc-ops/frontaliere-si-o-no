@@ -1412,9 +1412,9 @@
       "slug": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
       "slugByLocale": {
         "it": "nutrizionista-nutrizionista-svde-a-klinik-lengg-zurich",
-        "en": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
+        "en": "nutritionist-svde-a-klinik-lengg-zurich",
         "de": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich",
-        "fr": "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        "fr": "nutritionniste-svde-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1461,6 +1461,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "ernahrungsberaterin-ernahrungsberater-svde-a-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:22:05.303Z",
@@ -1482,9 +1488,9 @@
       "slug": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-e-spatdienst-klinik-lengg-zurich",
-        "en": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
+        "en": "dipl-nurse-in-epileptology-a-in-early-and-late-shift-klinik-lengg-zurich",
         "de": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
-        "fr": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
+        "fr": "infirmier-dipl-en-epileptologie-a-en-service-tot-et-tard-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1531,6 +1537,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:22:05.282Z",
@@ -1549,12 +1561,12 @@
     },
     {
       "id": "klinik-lengg-7718ff491acc",
-      "slug": "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
+      "slug": "infermiera-di-parkinson-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
+        "it": "infermiera-di-parkinson-a-klinik-lengg-zurich",
         "en": "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
         "de": "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich",
-        "fr": "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
+        "fr": "infirmiere-de-parkinson-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1607,7 +1619,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "parkinson-nurse-dipl-pflegefachperson-a-klinik-lengg-zurich"
+      ]
     }
   ]
 }

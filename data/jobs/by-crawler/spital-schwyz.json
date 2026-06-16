@@ -7,9 +7,9 @@
       "slug": "team-leader-nella-gestione-dei-pazienti-80-100-spital-schwyz-schwyz",
       "slugByLocale": {
         "it": "team-leader-nella-gestione-dei-pazienti-80-100-spital-schwyz-schwyz",
-        "en": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
+        "en": "teamleiter-in-patient-administration-80-100-spital-schwyz-schwyz",
         "de": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz",
-        "fr": "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
+        "fr": "teamleiter-en-administration-des-patients-80-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -55,6 +55,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
+        ],
+        "fr": [
           "teamleiter-in-patientenadministration-80-100-spital-schwyz-schwyz"
         ]
       },
@@ -668,12 +674,12 @@
     },
     {
       "id": "spital-schwyz-486640fce92e",
-      "slug": "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz",
+      "slug": "assistente-medico-specialista-sanitario-40-50-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz",
-        "en": "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz",
+        "it": "assistente-medico-specialista-sanitario-40-50-spital-schwyz-schwyz",
+        "en": "medical-practice-assistant-health-specialist-40-50-spital-schwyz-schwyz",
         "de": "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz",
-        "fr": "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz"
+        "fr": "assistant-en-pratique-medicale-specialiste-de-la-sante-40-50-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -726,7 +732,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-fachperson-gesundheit-40-50-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-331d8a384c60",
@@ -1081,12 +1101,12 @@
     },
     {
       "id": "spital-schwyz-1c5bb0512f73",
-      "slug": "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz",
+      "slug": "specialista-clinico-50-80-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz",
-        "en": "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz",
+        "it": "specialista-clinico-50-80-spital-schwyz-schwyz",
+        "en": "clinical-specialist-50-80-spital-schwyz-schwyz",
         "de": "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz",
-        "fr": "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz"
+        "fr": "specialiste-clinique-50-80-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1139,7 +1159,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz"
+        ],
+        "fr": [
+          "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "klinische-r-fachspezialist-in-50-80-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-a7201c981168",
@@ -1314,9 +1348,9 @@
       "slug": "fachperson-finanz-e-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz",
       "slugByLocale": {
         "it": "fachperson-finanz-e-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz",
-        "en": "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz",
+        "en": "financial-and-operational-accounting-specialist-40-60-one-year-fixed-term-spital-schwyz-schwyz",
         "de": "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz",
-        "fr": "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz"
+        "fr": "specialiste-de-la-comptabilite-financiere-et-operationnelle-40-60-duree-fixe-d-un-an-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1362,6 +1396,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz"
+        ],
+        "fr": [
           "fachperson-finanz-und-betriebsbuchhaltung-40-60-ein-jahr-befristet-spital-schwyz-schwyz"
         ]
       },
@@ -1581,9 +1621,9 @@
     },
     {
       "id": "spital-schwyz-a77a59df5ef2",
-      "slug": "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz",
+      "slug": "dipl-esperto-di-terapia-intensiva-nds-hf-80-100-spital-schwyz-schwyz",
       "slugByLocale": {
-        "it": "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz",
+        "it": "dipl-esperto-di-terapia-intensiva-nds-hf-80-100-spital-schwyz-schwyz",
         "en": "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz",
         "de": "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz",
         "fr": "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz"
@@ -1639,7 +1679,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-intensivpflege-nds-hf-80-100-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-d5e45021918e",
