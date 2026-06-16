@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-06-16T13:03:45.382Z",
+  "generatedAt": "2026-06-16T22:30:39.964Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3531,
-  "avgDurationMs": 3531,
+  "durationMs": 3504,
+  "avgDurationMs": 3504,
   "durationHistory": [
-    3531
+    3504
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T13:03:43.273Z",
+      "crawledAt": "2026-06-16T22:30:38.091Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
@@ -45,43 +45,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "cedes-095fd9bf3819",
-      "slug": "sales-manager-ascensore-scala-mobile-cedes-ag-landquart",
-      "company": "CEDES AG",
-      "companyKey": "cedes",
-      "companyDomain": "cedes.com",
-      "title": "Sales Manager Elevator & Escalator",
-      "location": "Landquart",
-      "canton": "GR",
-      "addressLocality": "Landquart",
-      "addressCountry": "CH",
-      "category": "technology",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
-      "source": "CEDES Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-15T22:41:46.414Z",
-      "firstSeenAt": "2026-04-22T09:37:08.541Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "postalCode": "7302",
-      "country": "CH",
-      "addressRegion": "GR",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "cedes-3fa516c3ca31",
@@ -103,7 +67,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T13:03:43.273Z",
+      "crawledAt": "2026-06-16T22:30:38.091Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
