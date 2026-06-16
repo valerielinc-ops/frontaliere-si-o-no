@@ -1,0 +1,142 @@
+name: Refresh vitest shard weights
+
+# Keeps tests/shard-weights.json (the LPT BalancedSequencer's input, see
+# vitest.config.ts) aligned with real CI durations. The `tests` workflow uploads
+# a per-file timing JSON per shard (shard-timing-<n> artifacts); this job pulls
+# the latest green main run's artifacts, regenerates the weights via
+# scripts/ci/generate-shard-weights.mjs (merge-onto-existing, so a shard that
+# timed out and never flushed keeps its last-known weight), and opens a PR if
+# they changed. Zero-Claude: pure data refresh, no agent invocation.
+#
+# Weights drift slowly (only when a test's runtime materially changes), so a
+# monthly cadence is plenty; manual dispatch covers one-off refreshes after a
+# known perf change (e.g. the no-inlanguage de-quadratic drop 113s → ~1s).
+
+on:
+  schedule:
+    - cron: '0 6 1 * *' # 1st of month, 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (regenerate + diff, no PR)'
+        required: false
+        default: 'true'
+        type: choice
+        options: ['true', 'false']
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read # gh run download (read artifacts of the tests run)
+
+# Serialize: never let two refresh runs race to open competing PRs.
+concurrency:
+  group: refresh-shard-weights
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # Only the working tree is read (existing tests/shard-weights.json to
+          # merge onto) + a fresh branch is pushed. No history needed.
+          filter: blob:none
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          # generate-shard-weights.mjs uses only Node built-ins → no npm ci.
+
+      - name: Download latest green main tests timings
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          RUN_ID="$(gh run list --workflow=tests.yml --branch main --status success \
+            --limit 1 --json databaseId --jq '.[0].databaseId')"
+          if [ -z "${RUN_ID:-}" ] || [ "$RUN_ID" = "null" ]; then
+            echo "::error::No successful main tests run found — cannot refresh weights."
+            exit 1
+          fi
+          echo "Using tests run $RUN_ID"
+          echo "TIMING_RUN_ID=$RUN_ID" >> "$GITHUB_ENV"
+          rm -rf .shard-timing && mkdir -p .shard-timing
+          gh run download "$RUN_ID" -p 'shard-timing-*' -D .shard-timing || true
+          count="$(find .shard-timing -name '*.json' | wc -l | tr -d ' ')"
+          echo "Downloaded $count timing file(s)"
+          if [ "$count" -eq 0 ]; then
+            echo "::error::No shard-timing-* artifacts on run $RUN_ID (retention is 7d — run a fresh tests build first)."
+            exit 1
+          fi
+
+      - name: Regenerate weights
+        run: |
+          set -euo pipefail
+          node scripts/ci/generate-shard-weights.mjs .shard-timing/shard-timing-*/shard-timing-*.json
+          rm -rf .shard-timing
+
+      - name: Materialize Firebase SA (Remote Config)
+        if: inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Secret FIREBASE_SERVICE_ACCOUNT_JSON not set — cannot load GITHUB_PAT from Remote Config; a secrets.GITHUB_TOKEN PR is blocked by anti-recursion."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+
+      - name: Load RC secrets (GITHUB_PAT)
+        if: inputs.dry_run != 'true'
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup SA
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Open PR if weights changed
+        if: inputs.dry_run != 'true'
+        env:
+          # GITHUB_PAT loaded into $GITHUB_ENV above (Firebase RC, not an Actions
+          # secret). A PR opened with secrets.GITHUB_TOKEN is blocked by
+          # anti-recursion AND would not trigger the tests gate.
+          GH_TOKEN: ${{ env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          if git diff --quiet tests/shard-weights.json; then
+            echo "No change in tests/shard-weights.json — weights already current."
+            exit 0
+          fi
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::GITHUB_PAT not loaded from Remote Config — cannot open PR."
+            exit 1
+          fi
+          BRANCH="chore/shard-weights-refresh-${GITHUB_RUN_ID}"
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git checkout -b "$BRANCH"
+          git add tests/shard-weights.json
+          git commit -m "chore(tests): refresh shard-weights.json from CI run ${TIMING_RUN_ID}"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore(tests): refresh vitest shard weights from CI timings" \
+            --body "$(cat <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}), from the shard-timing-* artifacts of green tests run ${TIMING_RUN_ID}.
+
+          ## Implementato
+          - Rigenerato \`tests/shard-weights.json\` (input del BalancedSequencer LPT) dalle durate per-file reali dell'ultima run \`tests\` verde su main. Merge sui pesi esistenti: un file assente dagli artifact (es. shard uccisa dal timeout) mantiene il peso noto invece di cadere a DEFAULT.
+
+          ## Non implementato (ancora)
+          - Niente — chore data update. La logica di generazione vive in \`scripts/ci/generate-shard-weights.mjs\` su \`main\`.
+          EOF
+          )"
