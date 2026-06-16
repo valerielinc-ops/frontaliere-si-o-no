@@ -35,6 +35,43 @@ const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
 const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
 const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
 const WEBCAM_CLEAR_FALLBACK_WAIT_MIN = 4;
+// Minimum congestionScore at which a good-visibility webcam is trusted to
+// drive a PRIMARY wait estimate (no live routing). Below this we treat the
+// road as effectively clear and report 0 — see estimateWaitFromCongestion.
+const WEBCAM_PRIMARY_MIN_SCORE = 0.4;
+
+/**
+ * Coarse, conservative mapping from a webcam congestion score (0..1) to an
+ * estimated border wait in minutes. Used ONLY as a PRIMARY fallback when no
+ * live routing datum exists for a crossing (both provider segments failed, or
+ * no provider/collection is configured for it). When live routing data IS
+ * available the routing estimate wins and the webcam only sanity-adjusts it via
+ * applyWebcamTrafficSanity — this function NEVER overrides a successful provider
+ * estimate.
+ *
+ * A camera cannot measure exact minutes: image variance is only a rough proxy
+ * for "how many vehicles sit in the road zone". The mapping is therefore a
+ * documented, monotonic step function with a hard 30-minute cap. It is an
+ * UNVALIDATED heuristic — see the PR `## Non implementato` revert-trigger.
+ *
+ * Breakpoints (monotonic, non-decreasing):
+ *   null / non-finite / < 0.40 → 0   (no usable signal / road effectively clear)
+ *   0.40 – < 0.60              → 8   (light queue forming; aligns with WEBCAM_QUEUE_MIN_WAIT_MIN)
+ *   0.60 – < 0.80              → 15  (moderate congestion)
+ *   0.80 – < 0.95              → 22  (heavy congestion)
+ *   ≥ 0.95                     → 30  (cap — saturated frame, treat as severe)
+ *
+ * @param {number|null|undefined} congestionScore - 0..1 from webcam CV, or null
+ * @returns {number} estimated wait in whole minutes (0..30)
+ */
+export function estimateWaitFromCongestion(congestionScore) {
+ if (congestionScore == null || !Number.isFinite(congestionScore)) return 0;
+ if (congestionScore < WEBCAM_PRIMARY_MIN_SCORE) return 0;
+ if (congestionScore < 0.60) return 8;
+ if (congestionScore < 0.80) return 15;
+ if (congestionScore < 0.95) return 22;
+ return 30;
+}
 
 function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
  if (hereApiKey) return 'here';
@@ -287,22 +324,52 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  console.warn(`⚠️ Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
  }
 
- // If BOTH segments failed, propagate the error instead of silently returning 0-minute data
- if (crossingResult.status === 'rejected' && approachResult.status === 'rejected') {
- throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
- }
+ const hasLiveData =
+ crossingResult.status === 'fulfilled' || approachResult.status === 'fulfilled';
 
- // Webcam sanity: raise missed visible queues, and suppress single-provider
- // red outliers when the primary camera is clear and the approach segment is free.
- // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
+ // Source of the wait estimate. `provider` while live routing data exists; flips
+ // to 'webcam' below when the webcam becomes the PRIMARY datum (no live routing).
+ let source = provider;
+
+ // Webcam analysis serves two distinct roles depending on whether live routing
+ // data exists. We fetch it once (only road-facing CV cameras vote; tourist/
+ // lake/town feeds are cvDetect:false and already excluded upstream) and branch:
+ //   (a) live data present → applyWebcamTrafficSanity ADJUSTS the routing estimate
+ //       (raise missed visible queues / suppress single-provider red outliers).
+ //   (b) NO live data (both segments failed) → the webcam is the PRIMARY source:
+ //       derive a granular estimate from congestionScore instead of throwing and
+ //       letting the SPA fall back to the statistical mock model.
+ // Only active when webcam analysis is enabled (options.enableWebcam) and the
+ // crossing actually has a camera (analyzeWebcamForCrossing returns null otherwise).
+ let webcam = null;
  if (options.enableWebcam) {
   try {
    const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
-   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
-   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+   webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
   } catch (webcamErr) {
    console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
   }
+ }
+
+ if (hasLiveData) {
+  // (a) Adjust-only: never let the webcam replace a successful routing estimate.
+  waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+ } else if (webcam && webcam.visibility === 'good') {
+  // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
+  // camera saw the road. Use the granular congestion→minutes estimate.
+  waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
+  approachMinutes = 0; // no live approach datum to combine with
+  source = 'webcam';
+  console.log(
+   `📷 Webcam PRIMARY estimate for ${crossing.name}: routing unavailable, ` +
+   `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
+   `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
+  );
+ } else {
+  // (b') No live data AND no usable webcam (night/poor/no camera) → preserve the
+  // existing behavior: throw so the crossing gets no data and the SPA falls back
+  // to the statistical mock model.
+  throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
  }
 
  const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
@@ -328,7 +395,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  totalCrossingMinutes,
  status,
  direction,
- source: provider,
+ source,
  };
 }
 
@@ -453,13 +520,123 @@ export async function saveTrafficToFirestore(crossingResults) {
  console.log(`✅ Saved traffic snapshot for ${crossingResults.length} crossings (snapshotId=${snapshotId})`);
 }
 
+// ─── Webcam-only collection (no routing provider available) ────
+
+/**
+ * Builds the same result-object shape `fetchCrossingTraffic` returns, but with
+ * the wait derived purely from a webcam congestion score. Pure + synchronous so
+ * the status/direction derivation stays unit-testable without network or sharp.
+ *
+ * @param {{ name: string }} crossing
+ * @param {number} waitTimeMinutes - already mapped via estimateWaitFromCongestion
+ * @returns {{ crossingName: string, waitTimeMinutes: number, approachMinutes: number, totalCrossingMinutes: number, status: string, direction: string, source: string }}
+ */
+function buildWebcamCrossingResult(crossing, waitTimeMinutes) {
+ const approachMinutes = 0; // no live approach datum from a camera
+ const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
+
+ // Same green/yellow/red thresholds as fetchCrossingTraffic.
+ let status;
+ if (waitTimeMinutes < 5) status = 'green';
+ else if (waitTimeMinutes < 15) status = 'yellow';
+ else status = 'red';
+
+ // Cloud Functions use UTC by default; derive the local hour in Europe/Rome.
+ const hour = Number(
+ new Date().toLocaleString('en-US', { timeZone: 'Europe/Rome', hour: 'numeric', hour12: false }),
+ );
+ let direction;
+ if (hour >= 6 && hour < 10) direction = 'IT → CH';
+ else if (hour >= 16 && hour < 20) direction = 'CH → IT';
+ else direction = 'Entrambi';
+
+ return {
+ crossingName: crossing.name,
+ waitTimeMinutes,
+ approachMinutes,
+ totalCrossingMinutes,
+ status,
+ direction,
+ source: 'webcam',
+ };
+}
+
+/**
+ * Webcam-only collection: derive a PRIMARY wait estimate from the road-facing
+ * webcams for every crossing that has a CV-eligible camera, and persist the
+ * snapshot through the SAME Firestore path the normal collection uses
+ * (saveTrafficToFirestore → trafficCurrent/{slug} + trafficHistory). The
+ * downstream JSON mirror in scripts/collect-traffic.mjs then refreshes
+ * data/border-wait-current.json off that Firestore write, so the SPA shows the
+ * fresh webcam-derived value instead of freezing on a stale snapshot.
+ *
+ * Used when no live routing datum exists for the whole run — either the HERE
+ * monthly free-tier budget is exhausted, or no routing key is configured at all.
+ * Only crossings whose `analyzeWebcamForCrossing` returns a good-visibility
+ * verdict get a result; crossings with no camera or night/poor visibility are
+ * skipped and keep falling back to the SPA's statistical mock model (intentional).
+ *
+ * @param {{ enableWebcam?: boolean }} options
+ * @returns {Promise<{collected: number, errors: number, source: string}>}
+ */
+export async function runWebcamOnlyCollection(options = {}) {
+ let analyzeWebcamForCrossing;
+ try {
+ ({ analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs'));
+ } catch (err) {
+ console.warn(`⚠️ Webcam module load failed — no webcam-only collection: ${err.message}`);
+ return { collected: 0, errors: 0, source: 'webcam-only' };
+ }
+
+ console.log(`📷 Webcam-only collection for ${BORDER_CROSSINGS.length} crossings (no live routing)…`);
+
+ const results = [];
+ let errors = 0;
+
+ for (const crossing of BORDER_CROSSINGS) {
+ let webcam = null;
+ try {
+ webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
+ } catch (err) {
+ console.warn(`⚠️ Webcam analysis failed for ${crossing.name}: ${err.message}`);
+ errors++;
+ continue;
+ }
+
+ // Skip crossings with no CV camera (null) or unusable visibility
+ // (night/poor) — they keep falling back to the statistical mock model.
+ if (!webcam || webcam.visibility !== 'good') continue;
+
+ const waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
+ results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes));
+ console.log(
+ `📷 Webcam-only estimate for ${crossing.name}: ` +
+ `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
+ `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
+ );
+ }
+
+ if (results.length > 0) {
+ await saveTrafficToFirestore(results);
+ }
+
+ console.log(`✅ Webcam-only collection done – ${results.length} OK, ${errors} errors`);
+ return { collected: results.length, errors, source: 'webcam-only' };
+}
+
 // ─── Main entry point ─────────────────────────────────────────
 
 /**
  * Collects traffic data for all active border crossings and persists it to Firestore.
  * This is the single entry point called by all three onSchedule functions.
  *
- * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string }} options
+ * When no live routing datum is available for the run (HERE monthly free-tier
+ * budget exhausted, or no routing key configured) and webcam analysis is enabled
+ * (options.enableWebcam), the run falls back to runWebcamOnlyCollection so the
+ * road-facing cameras still refresh the snapshot instead of freezing it. When
+ * webcam analysis is disabled the original skip-and-return-0 behavior is kept.
+ *
+ * @param {{ hereApiKey?: string, tomtomApiKey?: string, googleApiKey?: string, enableWebcam?: boolean }} options
  * @returns {Promise<{collected: number, errors: number}>}
  */
 export async function runTrafficCollection(options = {}) {
@@ -468,6 +645,10 @@ export async function runTrafficCollection(options = {}) {
  console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
  const provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
  if (!provider) {
+ if (enableWebcam) {
+ console.warn('⚠️ No routing API key set — falling back to webcam-only collection');
+ return runWebcamOnlyCollection(options);
+ }
  console.warn('⚠️ No routing API key set (HERE_API_KEY, TOMTOM_API_KEY, or GOOGLE_MAPS_API_KEY) – skipping traffic collection');
  return { collected: 0, errors: 0 };
  }
@@ -491,8 +672,15 @@ export async function runTrafficCollection(options = {}) {
  if (budget && !budget.allowed) {
  console.warn(
  `🛑 HERE monthly budget reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
- `— skipping run to stay in the free tier. Live data keeps the last snapshot.`,
+ `— skipping routing to stay in the free tier.`,
  );
+ if (enableWebcam) {
+ // Don't freeze the snapshot for a whole month: the free webcams can still
+ // refresh the CV-capable crossings while routing is paused.
+ console.warn('📷 HERE budget exhausted — falling back to webcam-only collection');
+ return runWebcamOnlyCollection(options);
+ }
+ console.warn('Live data keeps the last snapshot (webcam disabled).');
  return { collected: 0, errors: 0, skipped: 'here-budget' };
  }
  if (budget) {

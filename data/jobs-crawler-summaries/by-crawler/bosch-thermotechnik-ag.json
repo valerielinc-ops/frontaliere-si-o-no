@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-15T22:43:28.381Z",
+  "generatedAt": "2026-06-16T12:58:37.159Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 18398,
-  "avgDurationMs": 18398,
+  "unchangedCount": 1,
+  "durationMs": 20713,
+  "avgDurationMs": 20713,
   "durationHistory": [
-    18398
+    20713
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -223,11 +223,47 @@
       "currency": "CHF",
       "postalCode": "8500",
       "firstSeenAt": "2026-06-12T11:45:48.348Z",
-      "_qualityScore": 85,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Laborant in der Produktentwicklung (w/m/d) REF283636C",
+      "slug": "laborant-in-der-produktentwicklung-w-m-d-ref283636c-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF283636C-laborant-in-der-produktentwicklung-w-m-d-ref283636c",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000121440567-laborant-in-der-produktentwicklung-w-m-d-ref283636c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-17",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-8127512b8636",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-06-15T14:09:35.638Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 22
       }
     }
@@ -267,43 +303,6 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Laborant in der Produktentwicklung (w/m/d) REF283636C",
-      "slug": "laborant-in-der-produktentwicklung-w-m-d-ref283636c-bosch-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF283636C-laborant-in-der-produktentwicklung-w-m-d-ref283636c",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000121440567-laborant-in-der-produktentwicklung-w-m-d-ref283636c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-17",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-8127512b8636",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-06-15T14:09:35.638Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
         "completeness": 22
       }
     }

@@ -165,8 +165,9 @@ describe('sendEmailCascade — cloudflare provider', () => {
       if (String(url).includes(CF_SEND)) {
         sendUrl = String(url);
         const body = JSON.parse(opts.body);
-        // from with a display name → { email, name }; to → array of strings.
-        expect(body.from).toEqual({ email: 'a@b.ch', name: 'Frontaliere' });
+        // CF rejects the { email, name } object form with 400 invalid_request_schema
+        // (verified live 2026-06-16): from/to MUST be RFC822 strings.
+        expect(body.from).toBe('Frontaliere <a@b.ch>');
         expect(body.to).toEqual(['x@y.com']);
         // Real envelope: success + result.message_id even when delivered/queued empty.
         return {

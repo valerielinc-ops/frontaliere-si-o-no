@@ -19,26 +19,9 @@ import sharp from 'sharp';
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*, TS*) on the
 // first response. Subsequent requests from the same IP without those cookies get 403.
-// This cookie jar collects them from each response and resends them on the next fetch,
-// exactly as a browser would — restoring session continuity across all feed fetches.
-const tiChCookieJar = new Map();
-
-function buildCookieHeader() {
-  if (tiChCookieJar.size === 0) return undefined;
-  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
-}
-
-function updateCookieJar(response) {
-  // getSetCookie() returns each Set-Cookie header as a separate string (Node 20+)
-  const setCookies = response.headers.getSetCookie?.() ?? [];
-  for (const cookie of setCookies) {
-    const [nameValue] = cookie.split(';');
-    const eqIdx = nameValue.indexOf('=');
-    if (eqIdx > 0) {
-      tiChCookieJar.set(nameValue.slice(0, eqIdx).trim(), nameValue.slice(eqIdx + 1).trim());
-    }
-  }
-}
+// The shared per-process cookie jar collects them from each response and resends them on
+// the next fetch, exactly as a browser would — restoring session continuity across feeds.
+import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 
 // Feed URLs — deduplicated. Multiple crossings may share the same physical camera.
 export const WEBCAM_FEEDS = {
@@ -57,17 +40,26 @@ export const WEBCAM_FEEDS = {
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
+  // North view over the Brogeda interchange: permanent high-texture structures
+  // (multi-lane gantries, buildings) → empty-road stdev ~63 (score 1.00) even with
+  // no queue. Registered for display/CLI but EXCLUDED from queue-detection
+  // (`cvDetect:false`) so it can't false-trip the multi-feed sanity check.
   '00.3N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
     crossings: ['chiasso-brogeda'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
+    cvDetect: false,
   },
+  // Commercial-customs lane (Brogeda merci): parked/queuing trucks are a constant
+  // regardless of passenger-car wait → stdev ~34 (score 0.54) chronically.
+  // Display/CLI only; excluded from queue-detection.
   '00.3O': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
     crossings: ['chiasso-brogeda'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
+    cvDetect: false,
   },
   '02.0N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
@@ -107,6 +99,19 @@ export const WEBCAM_FEEDS = {
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
+  // A2 Coldrerio (km 4.4N) — approach corridor north of the Chiasso/Brogeda
+  // customs. 400x225 GIF. The default center box catches the chevron-painted gore
+  // and the textured concrete median barrier (stripes) → inflated variance. Box
+  // shifted up-right onto the clean far-carriageway asphalt, excluding the gore,
+  // median wall, and the left grass embankment. Calibrated 2026-06-16: moderate
+  // midday traffic scores ~0.07 (clear); a car-dense region of this same frame
+  // measured stdev 34–39 (score 0.54–0.71), so a real queue clears the 0.4 gate.
+  '04.4N': {
+    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/04.4N.gif',
+    crossings: ['chiasso-brogeda'],
+    box: [160, 35, 110, 45],
+    baselineVariance: 18,
+  },
 };
 
 // Map crossing slug → primary feed key for queue detection (kept for
@@ -122,11 +127,15 @@ export const CROSSING_TO_PRIMARY_FEED = {
 };
 
 /**
- * Feed keys covering each crossing, derived once from WEBCAM_FEEDS `crossings`.
- * A crossing's wait estimate is sanity-checked against EVERY camera that sees it
- * (at-booth + approach-corridor), so a queue visible on any one of them is caught.
+ * Feed keys covering each crossing for QUEUE DETECTION, derived from WEBCAM_FEEDS
+ * `crossings`. A crossing's wait estimate is sanity-checked against every camera
+ * that sees it (at-booth + approach-corridor), so a queue visible on any one of
+ * them is caught. Feeds flagged `cvDetect: false` (commercial-customs lanes,
+ * permanent-high-texture views) are DISPLAY-only and excluded here — they would
+ * chronically false-trip the detector regardless of the passenger-car queue.
  */
 export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key, feed]) => {
+  if (feed.cvDetect === false) return acc;
   for (const slug of feed.crossings ?? []) {
     (acc[slug] ??= []).push(key);
   }

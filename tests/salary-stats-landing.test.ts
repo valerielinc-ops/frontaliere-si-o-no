@@ -92,6 +92,23 @@ describe('salaryStats — page render', () => {
     expect(rendered).toBe(96);
   });
 
+  it('Dataset JSON-LD uses Google-valid field types (regression: GSC spatialCoverage/creator/license)', () => {
+    const { html } = renderSalaryStatsPage({ locale: 'it', cantonKey: 'ZH', cantonSlug: SALARY_STATS_CANTON_SLUGS['ZH']['it'], distDir: '' });
+    const datasets = [...html.matchAll(/<script type=["']?application\/ld\+json["']?>([\s\S]*?)<\/script>/g)]
+      .map((m) => JSON.parse(m[1]))
+      .filter((o) => o['@type'] === 'Dataset');
+    expect(datasets.length).toBe(1);
+    const ds = datasets[0];
+    // creator must be Organization|Person (not GovernmentOrganization — Google
+    // Dataset validator does not traverse subtypes → "invalid object type").
+    expect(['Organization', 'Person']).toContain(ds.creator['@type']);
+    // spatialCoverage must be Place (not AdministrativeArea subtype).
+    expect(ds.spatialCoverage['@type']).toBe('Place');
+    // license is a required field for Dataset rich results.
+    expect(typeof ds.license).toBe('string');
+    expect(ds.license).toMatch(/^https?:\/\//);
+  });
+
   it('half-canton groups get region figures, not silent national fallback', () => {
     // APPENZELLO → Ostschweiz median 6623 (≈94% of national 7024) — diverges
     // enough that the gross band must scale BELOW the national anchor. Before
