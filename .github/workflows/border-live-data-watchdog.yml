@@ -1,0 +1,92 @@
+name: Border Live-Data Watchdog
+
+# Owner requirement: live border data must ALWAYS be live. If a Canton Ticino
+# webcam breaks, the live routing provider falls back to mock for ALL crossings,
+# or the wait-time snapshot freezes, it must surface as a GitHub issue — never
+# sit dormant.
+#
+# SCOPE — complementary to traffic-data-freshness.yml, NOT a duplicate:
+#   - traffic-data-freshness.yml owns the FAST wait-time staleness loop (hourly,
+#     90-min threshold, peak-hours window, self-heals via traffic-scheduler).
+#   - THIS workflow owns the WEBCAM-HEALTH gap + the ALL-MOCK-SOURCE gap, plus a
+#     COARSE 6h staleness backstop (looser than the 90-min loop, so it only fires
+#     if the pipeline is truly frozen and the fast loop has already failed to heal).
+# Cadence is 6-hourly: webcams change slowly and the HTTP probe is the only cost.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # every 6 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run border live-data health check
+        id: health
+        env:
+          STALE_HOURS: '6'
+        run: npx tsx scripts/check-border-data-health.mjs
+
+      # Degraded → open (or comment on) the canonical issue. The helper dedups on
+      # the first 60 chars of the STABLE title, so consecutive degraded runs
+      # comment on the same issue instead of spawning duplicates.
+      - name: Open / dedup degraded issue
+        if: failure() && steps.health.conclusion == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEALTH_SUMMARY: ${{ steps.health.outputs.summary }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Border live-data degraded: stale wait-times or broken webcams" \
+            --description "## Border live-data watchdog tripped
+
+          The 6-hourly watchdog (\`scripts/check-border-data-health.mjs\`) detected degraded live border data: a stale wait-time snapshot, an all-\`mock\` source fallback, and/or a broken Canton Ticino webcam.
+
+          ### Health report
+          \`\`\`
+          ${HEALTH_SUMMARY}
+          \`\`\`
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          ### What to check
+          - Webcam BROKEN → the www4.ti.ch feed URL changed or is 403/down; update \`data/borderCrossings.ts\` \`webcams[].imageUrl\`.
+          - ALL-MOCK → the live routing provider (HERE) failed; check \`traffic-scheduler\` workflow + RC keys.
+          - STALE (6h backstop) → the hourly \`traffic-data-freshness\` self-heal did not recover; investigate \`traffic-scheduler\`.
+
+          This issue auto-resolves on the next watchdog run once data is healthy again." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      # Healthy → close the canonical issue if it was open (idempotent no-op
+      # otherwise), so a recovered watchdog never leaves a stale open issue.
+      - name: Resolve issue on recovery
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Border live-data degraded: stale wait-times or broken webcams" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve

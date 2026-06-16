@@ -35,4 +35,4 @@ Reference for F2–F8 SEO feature pages: page counts, data sources, cron pipelin
 - **Polizia Cantonale Ticino**: same
 - **Autostrade per l'Italia**: ToS restrictive — external link only, NO embed hotlink
 - `onerror` fallback hides `<figure>` if URL returns 403/404 at runtime
-- Nightly health check via `scripts/validate-webcam-urls.mjs`
+- 6-hourly health check via `scripts/check-border-data-health.mjs` (`.github/workflows/border-live-data-watchdog.yml`): F5 BIG-IP cookie-jar + browser-header probe, full-size GIF body check, all-`mock`-source detection, and a coarse 6h staleness backstop. Opens/dedups a single stable-titled issue on degradation and auto-resolves on recovery.
