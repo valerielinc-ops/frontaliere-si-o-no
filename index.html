@@ -261,6 +261,49 @@
     <!-- Google AdSense: deferred until after page is interactive to avoid
          blocking critical resources and deprecated-API warnings (Fledge) -->
 
+    <!-- Offerwall custom choice (GAM Privacy & Messaging): register an in-house
+         "subscribe to read" option on window.googlefc.offerwall.customchoice.registry
+         BEFORE the Funding Choices loader below runs, so FC can offer it inside the
+         Offerwall. Purely additive — it only creates the registry namespace if absent
+         and never touches the FC loader. The methods delegate to the React app's
+         window.__ftOfferwallSubscribe hook (components/community/OfferwallNewsletterGate.tsx),
+         which renders the newsletter form and resolves whether page access was granted.
+         If the hook is absent (app not yet mounted), show() resolves false so the
+         Offerwall simply re-renders its other choices (no breakage). The whole site
+         only loads this once; the GAM console controls on which pages the Offerwall
+         appears (scoped to non-funnel pages initially). -->
+    <script>
+      (function(){
+        var g = window.googlefc = window.googlefc || {};
+        var ow = g.offerwall = g.offerwall || {};
+        var cc = ow.customchoice = ow.customchoice || {};
+        if (cc.registry) return; // don't overwrite a registry set elsewhere
+        function alreadySubscribed(){
+          try { return window.localStorage.getItem('newsletter_subscribed') === 'true'; }
+          catch (e) { return false; }
+        }
+        cc.registry = {
+          // Must resolve in < 1s or the Offerwall fails to render.
+          initialize: function(params){
+            var E = cc.InitializeResponseEnum || {};
+            if (alreadySubscribed()) {
+              return Promise.resolve(E.ACCESS_GRANTED || 'ACCESS_GRANTED');
+            }
+            window.__ftOfferwallLang = (params && params.offerwallLanguageCode) || null;
+            return Promise.resolve(E.ACCESS_NOT_GRANTED || 'ACCESS_NOT_GRANTED');
+          },
+          // Called when the user picks our choice. Resolve true = access granted.
+          show: function(){
+            var fn = window.__ftOfferwallSubscribe;
+            if (typeof fn !== 'function') return Promise.resolve(false);
+            try {
+              return Promise.resolve(fn(window.__ftOfferwallLang)).then(function(ok){ return !!ok; });
+            } catch (e) { return Promise.resolve(false); }
+          }
+        };
+      })();
+    </script>
+
     <!-- PERF: Funding Choices scripts (loader + anti-adblock fallback below) are
          deferred until after first paint to fix mobile LCP (was 11.3s). The
          original ~19KB inline obfuscated IIFE was parser-blocking on slow CPUs.

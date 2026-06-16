@@ -56,6 +56,7 @@ export type NewsletterSourceChannel =
  | 'newsletter_email_link'
  | 'resubscribe_link'
  | 'unsubscribe_link'
+ | 'offerwall'
  | 'web_app'
  | string;
 

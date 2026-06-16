@@ -19,6 +19,7 @@ const unlockAchievement = (id: string) => {
 
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
+const OfferwallNewsletterGate = lazyRetry(() => import('@/components/community/OfferwallNewsletterGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const NewsletterMount = lazyRetry(() => import('@/components/community/NewsletterMount'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
@@ -3324,6 +3325,7 @@ const App: React.FC = () => {
 
  <Suspense fallback={null}>
  <NewsletterPopup />
+ <OfferwallNewsletterGate />
  <NewsletterMount />
  {showWhatsNew && (
  <SilentErrorBoundary boundary="whats-new-modal">
