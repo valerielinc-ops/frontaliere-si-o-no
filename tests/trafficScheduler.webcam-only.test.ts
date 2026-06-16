@@ -248,6 +248,28 @@ describe('runWebcamOnlyCollection', () => {
     expect(saved[0].source).toBe('webcam');
   });
 
+  it('skips a crossing where visibility is good but queueDetected:false (false-positive guard)', async () => {
+    // High congestionScore (0.85 → would be 22 min) but queueDetected:false —
+    // e.g. sun glare or wet-road reflections. The webcam-only path must not emit
+    // a false red; crossing is skipped and falls back to the SPA mock model.
+    const crossing = BORDER_CROSSINGS[0];
+    webcamBySlug.set(slugifyCrossingName(crossing.name), {
+      congestionScore: 0.85,
+      queueDetected: false,
+      visibility: 'good',
+      feeds: ['02.0N'],
+    });
+
+    const { runWebcamOnlyCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runWebcamOnlyCollection({ enableWebcam: true });
+
+    expect(result.collected).toBe(0);
+    expect(adminState.savedCurrent).toHaveLength(0);
+  });
+
   it('counts a thrown webcam analysis as an error and keeps going', async () => {
     const good = BORDER_CROSSINGS[0];
     webcamBySlug.set(slugifyCrossingName(good.name), {

@@ -553,6 +553,23 @@ describe('fetchCrossingTraffic — webcam as primary source', () => {
     ).rejects.toThrow(/both segments failed/i);
   });
 
+  it('throws when both segments fail and webcam has good visibility but queueDetected:false (false-positive guard)', async () => {
+    // High congestionScore (0.85 → 22 min) but queueDetected:false — e.g. sun
+    // glare or wet-road reflections. The PRIMARY path must not trust the score
+    // alone; queueDetected:false means the CV layer found no actual queue.
+    global.fetch = vi.fn().mockRejectedValue(new Error('HERE HTTP 503'));
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.85,
+      queueDetected: false,
+      visibility: 'good',
+      feeds: ['02.0N'],
+    });
+
+    await expect(
+      fetchCrossingTraffic(fakeCrossing, { hereApiKey: 'here-key', enableWebcam: true }),
+    ).rejects.toThrow(/both segments failed/i);
+  });
+
   it('throws when both segments fail and there is no camera for the crossing', async () => {
     global.fetch = vi.fn().mockRejectedValue(new Error('HERE HTTP 503'));
     webcamVerdict.mockResolvedValue(null); // crossing has no CV feed

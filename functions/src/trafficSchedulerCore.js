@@ -354,9 +354,12 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  if (hasLiveData) {
   // (a) Adjust-only: never let the webcam replace a successful routing estimate.
   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
- } else if (webcam && webcam.visibility === 'good') {
+ } else if (webcam && webcam.visibility === 'good' && webcam.queueDetected !== false) {
   // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
-  // camera saw the road. Use the granular congestion→minutes estimate.
+  // camera saw the road AND the CV layer confirms a queue (queueDetected is not
+  // explicitly false). Guard prevents high-variance frames (sun glare, wet/snow
+  // reflections) with a high congestionScore but no detected queue from emitting
+  // a false red into the indexed SSG dataset.
   waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
   approachMinutes = 0; // no live approach datum to combine with
   source = 'webcam';
@@ -366,9 +369,10 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
    `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
   );
  } else {
-  // (b') No live data AND no usable webcam (night/poor/no camera) → preserve the
-  // existing behavior: throw so the crossing gets no data and the SPA falls back
-  // to the statistical mock model.
+  // (b') No live data AND no usable webcam — covers: night/poor visibility, no
+  // camera, or good-visibility camera that reported queueDetected:false (high-
+  // variance frame with no real queue). Preserve existing behaviour: throw so
+  // the crossing gets no data and the SPA falls back to the statistical mock.
   throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
  }
 
@@ -603,9 +607,11 @@ export async function runWebcamOnlyCollection(options = {}) {
  continue;
  }
 
- // Skip crossings with no CV camera (null) or unusable visibility
- // (night/poor) — they keep falling back to the statistical mock model.
- if (!webcam || webcam.visibility !== 'good') continue;
+ // Skip crossings with no CV camera (null), unusable visibility (night/poor),
+ // or where the CV layer explicitly found no queue — prevents high-variance
+ // frames (glare/reflections) with a high congestionScore but queueDetected:false
+ // from emitting false wait estimates into the dataset.
+ if (!webcam || webcam.visibility !== 'good' || webcam.queueDetected === false) continue;
 
  const waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
  results.push(buildWebcamCrossingResult(crossing, waitTimeMinutes));
