@@ -25,6 +25,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { gitShowStage } from './git-show-stage.mjs';
 
 const TARGET = 'data/fb-posted-jobs.json';
 const TRIM_LIMIT = 1000;
@@ -33,8 +34,7 @@ function readStage(stage) {
   // During `git rebase` (NOT plain merge):
   //   stage 2 = "ours"  = upstream (origin/main after the other commit)
   //   stage 3 = "theirs" = our local commit being replayed
-  const out = execFileSync('git', ['show', `:${stage}:${TARGET}`], { encoding: 'utf-8' });
-  return out;
+  return gitShowStage(stage, TARGET);
 }
 
 function parseOrEmpty(label, raw) {
