@@ -25,6 +25,15 @@ const CANDIDATES = [
   'https://www.bazg.admin.ch/dam/bazg/it/dokumente/abgaben/zollanmeldung/wartezeiten.json',
   'https://www.udsc.admin.ch/api/waiting-times',
   'https://api.udsc.admin.ch/waiting-times',
+  // Nuxt-era candidates: BAZG migrated to a Nuxt SPA (~2026-04; confirmed via
+  // /_nuxt/builds/latest.json → 200). A Nuxt app serves per-route data as
+  // `<route>/_payload.json` and content via `/api/_content/*`. These are
+  // best-effort guesses at where a republished waiting-times feed would live —
+  // the probe flips green (exit 0) the moment ANY of them returns JSON.
+  'https://www.bazg.admin.ch/api/_content/query',
+  'https://www.bazg.admin.ch/it/tempi-di-attesa/_payload.json',
+  'https://www.bazg.admin.ch/de/grenzwartezeiten/_payload.json',
+  'https://www.bazg.admin.ch/api/v1/waiting-times',
 ];
 
 const UA = 'FrontaliereTicino-Probe/1.0 (contact: info@frontaliereticino.ch)';
