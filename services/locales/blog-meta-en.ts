@@ -8110,6 +8110,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pd-m5s-avs-accelerano.title': 'Pd, M5S and Avs accelerate initiatives',
     'blog.article.pd-m5s-avs-accelerano.excerpt': 'Italian political parties announce initiatives for July.',
     'blog.article.pd-m5s-avs-accelerano.imageAlt': 'Political lunch in Rome',
+    'blog.article.lavorare-in-svizzera.title': 'Working in Switzerland: Everything you need to know',
+    'blog.article.lavorare-in-svizzera.excerpt': 'The requirements for working in Switzerland have changed. Here is what you need to know about working in Ticino.',
+    'blog.article.lavorare-in-svizzera.imageAlt': 'A Swiss-Italian border worker',
 };
 
 export default blogMetaEn;
