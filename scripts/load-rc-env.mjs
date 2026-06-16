@@ -25,6 +25,8 @@
  *     so workflows that don't have Firebase configured still work.
  */
 
+import { pathToFileURL } from 'node:url';
+
 // ─── RC Param → Env Var Mapping ──────────────────────────────────────────
 // Maps Remote Config parameter names to the environment variable names
 // that scripts expect.  One RC param may map to multiple env vars.
@@ -150,6 +152,19 @@ function getRcValue(template, key) {
   return template?.parameters?.[key]?.defaultValue?.value ?? null;
 }
 
+/**
+ * Whether an RC value is too trivial to be worth masking in CI logs.
+ *
+ * GitHub Actions redacts EVERY literal occurrence of a masked value, so masking
+ * a short/common value poisons unrelated output: a secret of `1` turns ANSI
+ * codes (`36;1m`), counts, and `bash -e {0}` into `***`. Values shorter than 6
+ * chars (booleans, short ints, short codes) are not sensitive — every real
+ * secret (API key, PAT, SA JSON) is longer — so we skip masking them.
+ */
+export function isTrivialSecret(value) {
+  return typeof value !== 'string' || value.length < 6;
+}
+
 
 
 // ─── Main ────────────────────────────────────────────────────────────────
@@ -216,13 +231,9 @@ async function main() {
       // For CI: write to $GITHUB_ENV
       // For local: output as export statement
       if (isCI) {
-        // Mask the value so GitHub Actions redacts it from all logs.
-        // Skip trivial values (booleans, short ints, very short strings): they
-        // are not sensitive and masking them poisons unrelated log output —
-        // GitHub redacts EVERY occurrence of the literal, so a secret of `1`
-        // turns ANSI codes (`36;1m`), counts, and `bash -e {0}` into `***`.
-        const isTrivial = /^(true|false|\d{1,5})$/i.test(value) || value.length < 6;
-        if (!isTrivial) {
+        // Mask the value so GitHub Actions redacts it from all logs, but skip
+        // trivial values that would poison unrelated output (see isTrivialSecret).
+        if (!isTrivialSecret(value)) {
           process.stdout.write(`::add-mask::${value}\n`);
         }
         // Use delimiter syntax for multi-line safety
@@ -251,8 +262,11 @@ async function main() {
   statusLog(`✅ RC secrets loaded: ${loaded} set, ${skipped} already in env, ${missing} not in RC`);
 }
 
-main().catch((err) => {
-  console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
-  console.warn('   Falling back to environment variables / GH Secrets.');
-  process.exit(0); // Non-blocking — never break the workflow
-});
+// Only run when executed directly (not when imported by tests).
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((err) => {
+    console.warn(`⚠️  load-rc-env failed: ${err?.message || 'Unknown error'}`);
+    console.warn('   Falling back to environment variables / GH Secrets.');
+    process.exit(0); // Non-blocking — never break the workflow
+  });
+}
