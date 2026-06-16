@@ -1,19 +1,29 @@
 #!/usr/bin/env node
 /**
- * Webcam pixel analysis for border crossing congestion detection.
+ * Webcam VEHICLE-DETECTION analysis for border-crossing congestion.
  *
  * Fetches a GIF from the Canton Ticino webcam network, extracts the first frame,
- * crops the road zone, and computes brightness/variance metrics to estimate
- * whether a queue is visible.
+ * and runs a small YOLO object detector (yolov8n, COCO) via onnxruntime-node to
+ * COUNT vehicles inside each feed's road zone. The congestion score is the count
+ * relative to the feed's "full road" capacity — so a free-flowing but structured
+ * road (gantries, lane markings, barriers) no longer false-trips as a queue the
+ * way the previous greyscale-variance heuristic did (it read texture, not cars).
  *
- * Output: { congestionScore: 0-1, queueDetected: bool, visibility: 'good'|'poor'|'night', brightness, variance }
+ * Output (unchanged contract + `vehicleCount`):
+ *   { congestionScore: 0..1|null, queueDetected: bool,
+ *     visibility: 'good'|'poor'|'night', brightness, variance, vehicleCount, feedKey }
  *
- * Limitations:
- * - Fog/rain → variance collapses (all grey) → false "libero". Detected via variance < 5 threshold.
- * - Night + headlights → brightness spikes on green channel. Use greyscale to reduce sensitivity.
- * - Seasonal baseline drift: baseline updated via WEBCAM_CALIBRATE=1 env var.
- * - Warmup period: first 14 days of operation, output is informational only (no override).
+ * Visibility gates are kept from the pixel era — YOLO is unreliable at night and
+ * in fog/rain, so those frames still return visibility:'night'/'poor' and
+ * congestionScore:null (no detection attempted).
+ *
+ * Model: scripts/models/yolov8n.onnx (committed; see scripts/download-yolo-model.mjs
+ * for the exact pinned source URL + SHA). CPU inference ~60ms / 640² frame, so a
+ * handful of CV feeds per cron run is comfortably within the Actions collector.
  */
+
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import sharp from 'sharp';
 
@@ -23,94 +33,113 @@ import sharp from 'sharp';
 // the next fetch, exactly as a browser would — restoring session continuity across feeds.
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// ─── YOLO detection constants ────────────────────────────────────────────────
+const MODEL_PATH = join(__dirname, 'models', 'yolov8n.onnx');
+const INPUT_SIZE = 640;                 // yolov8n square input
+const CONF_THRESHOLD = 0.35;            // min class confidence to keep a detection
+const IOU_THRESHOLD = 0.45;             // NMS overlap threshold
+const DEFAULT_CAPACITY = 10;            // "full road" vehicle count when a feed omits `capacity`
+const QUEUE_SCORE_GATE = 0.4;           // congestionScore above which a queue is flagged
+// COCO class ids that count as road vehicles.
+const VEHICLE_CLASS_IDS = new Set([2 /* car */, 3 /* motorcycle */, 5 /* bus */, 7 /* truck */]);
+
 // Feed URLs — deduplicated. Multiple crossings may share the same physical camera.
+// `box` = road-zone bounding box [left, top, width, height] in ORIGINAL-image pixels;
+// only vehicles whose detected box-center falls inside it are counted. The feeds
+// now serve 400x225 frames, so boxes cover the carriageway broadly and clip only
+// the top sky/overpass band (no vehicles there) — YOLO ignores non-vehicle
+// texture, so the tight variance-era crops are no longer needed.
+// `capacity` = vehicle count that saturates the score to 1.0 (a "packed road").
+//   Calibrated 2026-06-16 against the live free-flow count so normal traffic sits
+//   well under the 0.4 queue gate while a bumper-to-bumper jam clears it. Tuned
+//   per view: a 4-lane A2 segment fits many more cars than a short booth view.
 export const WEBCAM_FEEDS = {
   '01.2S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/01.2S.gif',
     crossings: ['chiasso-centro', 'chiasso-strada'],
-    // Road zone bounding box [left, top, width, height] in pixels.
-    // Conservative center crop covering approximately the middle 50% of a typical 352x288 GIF.
-    box: [80, 100, 192, 88],
-    // Baseline variance for empty road (calibrate with WEBCAM_CALIBRATE=1).
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    // Short at-booth urban view (Chiasso centro). Live free-flow ~2 cars (0.20).
+    capacity: 10,
   },
   '00.3S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
     crossings: ['chiasso-brogeda'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    // At-booth Brogeda. Live free-flow ~4 cars (0.29).
+    capacity: 14,
   },
-  // North view over the Brogeda interchange: permanent high-texture structures
-  // (multi-lane gantries, buildings) → empty-road stdev ~63 (score 1.00) even with
-  // no queue. Registered for display/CLI but EXCLUDED from queue-detection
-  // (`cvDetect:false`) so it can't false-trip the multi-feed sanity check.
+  // North view over the Brogeda interchange: permanent multi-lane gantries/buildings.
+  // The old variance heuristic read those structures as a permanent "queue"; YOLO
+  // ignores them (no vehicle class), but the lanes here serve commercial/interchange
+  // flow rather than the passenger-car wait, so this view stays DISPLAY-only
+  // (`cvDetect:false`) and is excluded from queue-detection.
   '00.3N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
     crossings: ['chiasso-brogeda'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 14,
     cvDetect: false,
   },
   // Commercial-customs lane (Brogeda merci): parked/queuing trucks are a constant
-  // regardless of passenger-car wait → stdev ~34 (score 0.54) chronically.
-  // Display/CLI only; excluded from queue-detection.
+  // regardless of passenger-car wait. Display/CLI only; excluded from queue-detection.
   '00.3O': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
     crossings: ['chiasso-brogeda'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 14,
     cvDetect: false,
   },
+  // Stabio/Gaggiolo near road view. This is the camera whose variance heuristic
+  // false-reported a 15-min wait on a free-flowing road; vehicle counting fixes it.
   '02.0N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
     crossings: ['gaggiolo', 'san-pietro'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    // Live free-flow / forming-queue ~4 cars (0.33). A packed lane (~12) → ≥1.0.
+    capacity: 12,
   },
   '06.8S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
     crossings: ['gaggiolo', 'san-pietro'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    // Live free-flow ~5 vehicles (0.36).
+    capacity: 14,
   },
   // A2 corridor camera just north of the Chiasso customs (Balerna, km 3.3).
-  // Box shifted right of the default to exclude the textured noise-barrier wall
-  // on the left (which otherwise inflates variance → false queue). Calibrated
-  // 2026-06-16: moderate midday traffic scores ~0.20 (clear), well under the 0.4 queue gate.
+  // Long straight A2 view; live free-flow ~0–2 cars.
   '03.3S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/03.3S.gif',
     crossings: ['chiasso-brogeda'],
-    box: [120, 120, 180, 90],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 14,
   },
-  // A2 Mendrisio interchange (km 7.2) — the motorway access funnelling the
-  // Stabio/Gaggiolo crossings. Default center-lower box; calibrated clear ~0.21.
+  // A2 Mendrisio interchange (km 7.2) — the 4-lane motorway funnelling the
+  // Stabio/Gaggiolo crossings. Busy-but-flowing midday traffic reads ~13 vehicles,
+  // so capacity is high: only a genuine bumper-to-bumper jam (~36) flags a queue.
   '07.2N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
     crossings: ['gaggiolo'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 36,
   },
-  // A2 Melide–Bissone causeway (km 17.84) — the road carrying the
-  // Campione d'Italia–Bissone crossing. Default box; calibrated clear ~0.03.
+  // A2 Melide–Bissone causeway (km 17.84) — the multi-lane road carrying the
+  // Campione d'Italia–Bissone crossing. Live moderate flow ~7–8 vehicles; a busy
+  // (but moving) causeway view, so capacity is generous to keep flow under the gate.
   '17.84S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
     crossings: ['campione-d-italia-bissone'],
-    box: [80, 100, 192, 88],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 24,
   },
   // A2 Coldrerio (km 4.4N) — approach corridor north of the Chiasso/Brogeda
-  // customs. 400x225 GIF. The default center box catches the chevron-painted gore
-  // and the textured concrete median barrier (stripes) → inflated variance. Box
-  // shifted up-right onto the clean far-carriageway asphalt, excluding the gore,
-  // median wall, and the left grass embankment. Calibrated 2026-06-16: moderate
-  // midday traffic scores ~0.07 (clear); a car-dense region of this same frame
-  // measured stdev 34–39 (score 0.54–0.71), so a real queue clears the 0.4 gate.
+  // customs. Live free-flow ~2–3 cars.
   '04.4N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/04.4N.gif',
     crossings: ['chiasso-brogeda'],
-    box: [160, 35, 110, 45],
-    baselineVariance: 18,
+    box: [0, 30, 400, 195],
+    capacity: 14,
   },
 };
 
@@ -142,6 +171,238 @@ export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key,
   return acc;
 }, /** @type {Record<string, string[]>} */ ({}));
 
+// ─── Pure scoring / geometry helpers (unit-testable, no network / no ONNX) ──────
+
+/**
+ * Map a vehicle count to a 0..1 congestion score.
+ * `capacity` is the per-feed "full road" count; the score saturates at 1.0.
+ * Pure: no side effects, no I/O.
+ * @param {number} count - vehicles detected inside the road zone (>=0)
+ * @param {number} [capacity=DEFAULT_CAPACITY] - vehicles that saturate the score
+ * @returns {number} congestion score clamped to [0, 1]
+ */
+export function vehicleCountToCongestion(count, capacity = DEFAULT_CAPACITY) {
+  const n = Number.isFinite(count) ? Math.max(0, count) : 0;
+  const cap = Number.isFinite(capacity) && capacity > 0 ? capacity : DEFAULT_CAPACITY;
+  return Math.min(1, n / cap);
+}
+
+/**
+ * Is the CENTER of an [x1,y1,x2,y2] detection box inside the road zone
+ * [left, top, width, height]? Used to count only vehicles on the monitored road.
+ * Pure.
+ * @param {[number,number,number,number]} box - detection box [x1,y1,x2,y2] in original px
+ * @param {[number,number,number,number]} zone - road zone [left, top, width, height] in original px
+ * @returns {boolean}
+ */
+export function boxCenterInZone(box, zone) {
+  const [x1, y1, x2, y2] = box;
+  const cx = (x1 + x2) / 2;
+  const cy = (y1 + y2) / 2;
+  const [left, top, width, height] = zone;
+  return cx >= left && cx <= left + width && cy >= top && cy <= top + height;
+}
+
+/**
+ * Letterbox geometry: scale `(srcW, srcH)` to fit a `size×size` square keeping
+ * aspect ratio, centering with grey padding. Returns the scale + offsets needed
+ * to map detections in the square back to original coordinates. Pure.
+ * @param {number} srcW
+ * @param {number} srcH
+ * @param {number} [size=INPUT_SIZE]
+ * @returns {{scale:number, padX:number, padY:number, resizeW:number, resizeH:number}}
+ */
+export function computeLetterbox(srcW, srcH, size = INPUT_SIZE) {
+  const scale = Math.min(size / srcW, size / srcH);
+  const resizeW = Math.round(srcW * scale);
+  const resizeH = Math.round(srcH * scale);
+  const padX = Math.floor((size - resizeW) / 2);
+  const padY = Math.floor((size - resizeH) / 2);
+  return { scale, padX, padY, resizeW, resizeH };
+}
+
+/**
+ * Map a box from 640-space (letterboxed) back to original-image coordinates. Pure.
+ * @param {[number,number,number,number]} box - [x1,y1,x2,y2] in letterboxed 640 space
+ * @param {{scale:number, padX:number, padY:number}} lb - from computeLetterbox
+ * @returns {[number,number,number,number]} [x1,y1,x2,y2] in original px
+ */
+export function mapBoxToOriginal([x1, y1, x2, y2], { scale, padX, padY }) {
+  return [
+    (x1 - padX) / scale,
+    (y1 - padY) / scale,
+    (x2 - padX) / scale,
+    (y2 - padY) / scale,
+  ];
+}
+
+/** Intersection-over-union of two [x1,y1,x2,y2] boxes. Pure. */
+export function iou(a, b) {
+  const ix1 = Math.max(a[0], b[0]);
+  const iy1 = Math.max(a[1], b[1]);
+  const ix2 = Math.min(a[2], b[2]);
+  const iy2 = Math.min(a[3], b[3]);
+  const iw = Math.max(0, ix2 - ix1);
+  const ih = Math.max(0, iy2 - iy1);
+  const inter = iw * ih;
+  const areaA = Math.max(0, a[2] - a[0]) * Math.max(0, a[3] - a[1]);
+  const areaB = Math.max(0, b[2] - b[0]) * Math.max(0, b[3] - b[1]);
+  const union = areaA + areaB - inter;
+  return union > 0 ? inter / union : 0;
+}
+
+/**
+ * Greedy non-max suppression. Detections are {box:[x1,y1,x2,y2], score, classId}.
+ * Keeps the highest-scoring box and drops overlaps above `iouThreshold`. Pure.
+ * @param {Array<{box:[number,number,number,number], score:number, classId:number}>} dets
+ * @param {number} [iouThreshold=IOU_THRESHOLD]
+ * @returns {Array<{box:[number,number,number,number], score:number, classId:number}>}
+ */
+export function nms(dets, iouThreshold = IOU_THRESHOLD) {
+  const sorted = [...dets].sort((p, q) => q.score - p.score);
+  const kept = [];
+  for (const d of sorted) {
+    if (kept.every((k) => iou(k.box, d.box) <= iouThreshold)) kept.push(d);
+  }
+  return kept;
+}
+
+/**
+ * Parse a raw YOLOv8 detect output tensor into vehicle detections (in 640-space).
+ * YOLOv8 ONNX output shape is [1, 84, 8400]: for each of 8400 anchors,
+ * rows 0..3 = cx,cy,w,h (in 640 px), rows 4..83 = 80 COCO class scores.
+ * The buffer is row-major over [84, 8400], so value(row, i) = data[row*8400 + i].
+ * Keeps only VEHICLE classes above `confThreshold`. Pure (no NMS, no zone filter).
+ *
+ * NOTE on box units: the committed yolov8n.onnx (SpotLab export, see
+ * scripts/download-yolo-model.mjs) emits cx,cy,w,h NORMALIZED to [0,1] rather than
+ * in 640-pixel units. `coordScale` multiplies them back into the letterboxed
+ * INPUT_SIZE² space so mapBoxToOriginal can undo the letterbox. (A vanilla
+ * Ultralytics export emits pixel coords → pass coordScale=1.)
+ * @param {Float32Array|number[]} data - flat output0 data
+ * @param {number} numAnchors - e.g. 8400
+ * @param {number} [numClasses=80]
+ * @param {number} [confThreshold=CONF_THRESHOLD]
+ * @param {number} [coordScale=1] - multiplier applied to cx,cy,w,h (use INPUT_SIZE for normalized exports)
+ * @returns {Array<{box:[number,number,number,number], score:number, classId:number}>}
+ */
+export function parseYoloOutput(data, numAnchors, numClasses = 80, confThreshold = CONF_THRESHOLD, coordScale = 1) {
+  const dets = [];
+  for (let i = 0; i < numAnchors; i++) {
+    // Find the best class among the vehicle classes only.
+    let bestId = -1;
+    let bestScore = 0;
+    for (const classId of VEHICLE_CLASS_IDS) {
+      const score = data[(4 + classId) * numAnchors + i];
+      if (score > bestScore) {
+        bestScore = score;
+        bestId = classId;
+      }
+    }
+    if (bestId < 0 || bestScore < confThreshold) continue;
+    const cx = data[0 * numAnchors + i] * coordScale;
+    const cy = data[1 * numAnchors + i] * coordScale;
+    const w = data[2 * numAnchors + i] * coordScale;
+    const h = data[3 * numAnchors + i] * coordScale;
+    dets.push({
+      box: [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2],
+      score: bestScore,
+      classId: bestId,
+    });
+  }
+  return dets;
+}
+
+// ─── ONNX session (lazy singleton) + inference ──────────────────────────────────
+
+/** @type {Promise<import('onnxruntime-node').InferenceSession>|null} */
+let _sessionPromise = null;
+
+/**
+ * Load the YOLO ONNX session once per process (lazy singleton). onnxruntime-node
+ * is imported dynamically so importing this module (e.g. for the pure helpers /
+ * the WEBCAM_FEEDS registry in tests) never pulls in the native runtime.
+ * @returns {Promise<import('onnxruntime-node').InferenceSession>}
+ */
+function getYoloSession() {
+  if (!_sessionPromise) {
+    _sessionPromise = (async () => {
+      const ort = await import('onnxruntime-node');
+      return ort.InferenceSession.create(MODEL_PATH, { logSeverityLevel: 3 });
+    })();
+  }
+  return _sessionPromise;
+}
+
+/**
+ * Letterbox-resize an image buffer to INPUT_SIZE² and return the NCHW Float32
+ * tensor data (RGB, normalized 0..1) plus the letterbox geometry for back-mapping.
+ * @param {Buffer} buf - source image bytes (first GIF frame extracted upstream)
+ * @returns {Promise<{input: Float32Array, lb: {scale:number,padX:number,padY:number}, srcW:number, srcH:number}>}
+ */
+async function preprocessFrame(buf) {
+  const base = sharp(buf, { animated: false });
+  const meta = await base.metadata();
+  const srcW = meta.width ?? INPUT_SIZE;
+  const srcH = meta.height ?? INPUT_SIZE;
+  const lb = computeLetterbox(srcW, srcH, INPUT_SIZE);
+
+  // Resize keeping aspect, then extend with grey (114) padding to a 640² canvas.
+  const { data } = await sharp(buf, { animated: false })
+    .resize(lb.resizeW, lb.resizeH, { fit: 'fill' })
+    .extend({
+      top: lb.padY,
+      bottom: INPUT_SIZE - lb.resizeH - lb.padY,
+      left: lb.padX,
+      right: INPUT_SIZE - lb.resizeW - lb.padX,
+      background: { r: 114, g: 114, b: 114 },
+    })
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+
+  // data is HWC RGB uint8; convert to NCHW float32 normalized 0..1.
+  const plane = INPUT_SIZE * INPUT_SIZE;
+  const input = new Float32Array(3 * plane);
+  for (let p = 0; p < plane; p++) {
+    input[p] = data[p * 3] / 255;             // R
+    input[plane + p] = data[p * 3 + 1] / 255; // G
+    input[2 * plane + p] = data[p * 3 + 2] / 255; // B
+  }
+  return { input, lb, srcW, srcH };
+}
+
+/**
+ * Run YOLO on a frame buffer and count vehicles inside the feed's road zone.
+ * @param {Buffer} buf
+ * @param {[number,number,number,number]} zone - road zone in original px
+ * @returns {Promise<number>} vehicle count inside the zone
+ */
+async function detectVehiclesInZone(buf, zone) {
+  const ort = await import('onnxruntime-node');
+  const session = await getYoloSession();
+  const { input, lb } = await preprocessFrame(buf);
+
+  const tensor = new ort.Tensor('float32', input, [1, 3, INPUT_SIZE, INPUT_SIZE]);
+  const inputName = session.inputNames[0];
+  const outputName = session.outputNames[0];
+  const out = await session.run({ [inputName]: tensor });
+  const o = out[outputName];
+  const [, channels, numAnchors] = o.dims; // [1, 84, 8400]
+  const numClasses = channels - 4;
+
+  // This export emits normalized [0,1] coords → scale to the 640 letterbox space.
+  const raw = parseYoloOutput(o.data, numAnchors, numClasses, CONF_THRESHOLD, INPUT_SIZE);
+  const kept = nms(raw, IOU_THRESHOLD);
+
+  let count = 0;
+  for (const d of kept) {
+    const orig = mapBoxToOriginal(d.box, lb);
+    if (boxCenterInZone(orig, zone)) count++;
+  }
+  return count;
+}
+
 /**
  * Combine per-feed analysis results for one crossing into a single verdict.
  * - Only feeds with `visibility: 'good'` vote (night/poor feeds are ignored).
@@ -167,9 +428,9 @@ export function aggregateWebcamResults(results) {
 }
 
 /**
- * Analyze a single webcam feed.
+ * Analyze a single webcam feed via vehicle detection.
  * @param {string} feedKey - Key from WEBCAM_FEEDS (e.g. '01.2S')
- * @returns {Promise<{congestionScore: number, queueDetected: boolean, visibility: string, brightness: number, variance: number, feedKey: string} | null>}
+ * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, brightness: number, variance: number, vehicleCount: number|null, feedKey: string} | null>}
  */
 export async function analyzeWebcamFeed(feedKey) {
   const feed = WEBCAM_FEEDS[feedKey];
@@ -197,7 +458,8 @@ export async function analyzeWebcamFeed(feedKey) {
 
   try {
     const [left, top, width, height] = feed.box;
-    // Extract first frame only (animated: false), crop road zone, convert to greyscale
+    // Brightness/variance from the cropped greyscale frame drive the visibility
+    // gates (YOLO is unreliable at night / in fog), exactly as before.
     const frame = await sharp(buf, { animated: false })
       .extract({ left, top, width, height })
       .greyscale()
@@ -205,32 +467,32 @@ export async function analyzeWebcamFeed(feedKey) {
 
     const stats = await sharp(frame).stats();
     const brightness = stats.channels[0].mean;   // 0-255
-    const variance = stats.channels[0].stdev;    // high = texture = cars visible
+    const variance = stats.channels[0].stdev;     // kept for debuggability/visibility gates
 
-    // Night: very low brightness across the crop
+    // Night: very low brightness across the crop → YOLO unreliable, no detection.
     if (brightness < 30) {
-      return { congestionScore: null, queueDetected: false, visibility: 'night', brightness, variance, feedKey };
+      return { congestionScore: null, queueDetected: false, visibility: 'night', brightness, variance, vehicleCount: null, feedKey };
     }
 
-    // Poor visibility (fog/rain): variance collapses globally
-    // Check variance of the full uncropped greyscale image too
+    // Poor visibility (fog/rain): full-frame variance collapses globally.
     const fullFrame = await sharp(buf, { animated: false }).greyscale().toBuffer();
     const fullStats = await sharp(fullFrame).stats();
     if (fullStats.channels[0].stdev < 5) {
-      return { congestionScore: null, queueDetected: false, visibility: 'poor', brightness, variance, feedKey };
+      return { congestionScore: null, queueDetected: false, visibility: 'poor', brightness, variance, vehicleCount: null, feedKey };
     }
 
-    // Congestion score: how much variance exceeds the "empty road" baseline
-    // Higher variance = more objects (cars) in frame = more congestion
-    const baselineVariance = feed.baselineVariance ?? 18;
-    const congestionScore = Math.min(1, Math.max(0, (variance - baselineVariance) / 30));
+    // Good frame → real vehicle detection.
+    const capacity = feed.capacity ?? DEFAULT_CAPACITY;
+    const vehicleCount = await detectVehiclesInZone(buf, feed.box);
+    const congestionScore = vehicleCountToCongestion(vehicleCount, capacity);
 
     return {
       congestionScore,
-      queueDetected: congestionScore > 0.4,
+      queueDetected: congestionScore > QUEUE_SCORE_GATE,
       visibility: 'good',
       brightness,
       variance,
+      vehicleCount,
       feedKey,
     };
   } catch (err) {
@@ -240,9 +502,9 @@ export async function analyzeWebcamFeed(feedKey) {
 }
 
 /**
- * Analyze the primary webcam feed for a crossing.
+ * Analyze every queue-detection feed covering a crossing and aggregate.
  * @param {string} crossingSlug
- * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string}|null>}
+ * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null>}
  */
 export async function analyzeWebcamForCrossing(crossingSlug) {
   const feedKeys = CROSSING_TO_FEEDS[crossingSlug]
@@ -252,14 +514,20 @@ export async function analyzeWebcamForCrossing(crossingSlug) {
   return aggregateWebcamResults(results);
 }
 
-// CLI usage: node scripts/analyze-webcam-frame.mjs [feedKey]
+// CLI usage:
+//   node scripts/analyze-webcam-frame.mjs <feedKey>      → analyze one feed
+//   node scripts/analyze-webcam-frame.mjs --crossing <slug> → aggregate a crossing
 if (process.argv[1]?.endsWith('analyze-webcam-frame.mjs')) {
-  const feedKey = process.argv[2];
-  if (feedKey) {
-    const result = await analyzeWebcamFeed(feedKey);
+  const arg = process.argv[2];
+  if (arg === '--crossing') {
+    const result = await analyzeWebcamForCrossing(process.argv[3]);
+    console.log(JSON.stringify(result, null, 2));
+  } else if (arg) {
+    const result = await analyzeWebcamFeed(arg);
     console.log(JSON.stringify(result, null, 2));
   } else {
     console.log('Usage: node scripts/analyze-webcam-frame.mjs <feedKey>');
+    console.log('       node scripts/analyze-webcam-frame.mjs --crossing <slug>');
     console.log('Available feeds:', Object.keys(WEBCAM_FEEDS).join(', '));
   }
 }
