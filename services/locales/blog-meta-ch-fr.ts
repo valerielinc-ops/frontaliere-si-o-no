@@ -200,6 +200,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.infermiere-lugano-lis.title': 'Infirmières à Lugano : Institutions sociales cherchent personnel',
     'blog.article.infermiere-lugano-lis.excerpt': 'Les Institutions sociales de Lugano cherchent des infirmières pour diverses positions. Les Institutions sociales de Lugano cherchent des professionnels de la santé pour occuper divers postes dans leur équipe. Les candidats intéressés peuvent consulter les informations sur les offres d\'emploi sur le site web des Institutions sociales de Lugano. Les Institutions sociales de Lugano offrent un environnement de travail dynamique et stimulant, avec des opportunités de développement professionnel et de formation continue. Les candidats doivent posséder une expérience pertinente dans le domaine de la santé et être en mesure de travailler dans un environnement multiculturel. Les Institutions sociales de Lugano sont des institutions à but non lucratif qui fournissent des services de santé et de bien-être aux personnes âgées et aux personnes handicapées. Les institutions sont situées dans la région de Lugano, en Suisse.',
     'blog.article.infermiere-lugano-lis.imageAlt': 'Vue aérienne de Lugano avec des institutions sociales au centre-ville.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Taxes frontalières, échange de données salariales avec l\'Italie débute',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'La nouvelle réglementation sur l\'imposition des frontaliers a été approuvée par le Conseil fédéral et débutera dans quelques mois.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Frontières suisse-italien contrôle',
 };
 
 export default blogMetaChFr;

@@ -200,6 +200,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.infermiere-lugano-lis.title': 'Social Institutes in Lugano Seek Nurses',
     'blog.article.infermiere-lugano-lis.excerpt': 'Social Institutes in Lugano are looking for nurses for various positions. The institutes are seeking qualified professionals to join their teams and provide high-quality care to patients. If you are a motivated and compassionate nurse looking for a new challenge, this could be the perfect opportunity for you. Apply now and take the first step towards a rewarding career in healthcare.',
     'blog.article.infermiere-lugano-lis.imageAlt': 'Aerial view of Lugano with Social Institutes in the city center.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Cross-Border Taxes, Switzerland to Share Salary Data with Italy',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'The new tax legislation for cross-border workers has been approved by the Federal Council and will come into effect in a few months. This new regulation aims to simplify the tax system for those who commute between Switzerland and Italy.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Svizzera-Italy border control',
 };
 
 export default blogMetaChEn;

@@ -200,6 +200,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.infermiere-lugano-lis.title': 'Infermiere in Lugano: Soziale Einrichtungen suchen Personal',
     'blog.article.infermiere-lugano-lis.excerpt': 'Die Sozialen Einrichtungen in Lugano suchen nach Krankenpflegern für verschiedene Positionen. Die Einrichtungen bieten eine Vielzahl von Möglichkeiten für diejenigen, die sich für eine Karriere in der Krankenpflege interessieren. Wenn Sie sich für eine dieser Positionen interessieren, können Sie sich an die Einrichtungen wenden. Sie können auch weitere Informationen auf unserer Website finden. [testo tradotto](nav:azione)',
     'blog.article.infermiere-lugano-lis.imageAlt': 'Luftbild von Lugano mit sozialen Einrichtungen im Stadtzentrum.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Grenzgängersteuer: Neue Regelung beginnt bald',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'Die neue Steuerregelung für Grenzgänger wird vom Bundesrat genehmigt und wird bald in Kraft treten.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Schweizer Italien Grenze Kontrolle',
 };
 
 export default blogMetaChDe;

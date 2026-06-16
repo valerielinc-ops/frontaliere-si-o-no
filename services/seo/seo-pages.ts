@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2823,
+ "numberOfItems": 2824,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7467,7 +7467,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2820, "name": "Tassa salute frontalieri: sindacati italiani e ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-sindacati-attacco` },
           { "@type": "ListItem", "position": 2821, "name": "Lavorare in Svizzera: cosa devi sapere", "url": `${BASE_URL}/articoli-frontaliere/lavorare-in-svizzera` },
           { "@type": "ListItem", "position": 2822, "name": "Infermiere a Lugano: Istituti Sociali cercano p...", "url": `${BASE_URL}/articoli-frontaliere/infermiere-lugano-lis` },
-          { "@type": "ListItem", "position": 2823, "name": "Comuni di frontiera in Ticino: una guida pratica", "url": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-ticino` }
+          { "@type": "ListItem", "position": 2823, "name": "Comuni di frontiera in Ticino: una guida pratica", "url": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-ticino` },
+          { "@type": "ListItem", "position": 2824, "name": "Tasse frontalieri, scambio dati stipendi con l'...", "url": `${BASE_URL}/articoli-frontaliere/tasse-frontalieri-scambio-dati-stipendi-italia` }
  ]
  },
  {
