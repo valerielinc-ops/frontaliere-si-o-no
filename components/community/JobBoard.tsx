@@ -2956,12 +2956,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // In-canton OR-fallback: partial token matches ranked by hit count, capped
  // at MAX_FALLBACK_RESULTS. Mirrors the build plugin's two-phase matching at
- // build/relatedSearchClustersPlugin.ts so users landing on a slug URL see
- // the SAME job set the static cluster page would show.
+ // build/relatedSearchClustersPlugin.ts (AND first, then OR-fill up to
+ // MAX_JOBS_PER_PAGE) so users landing on a slug URL see the SAME job set the
+ // static cluster page would show.
+ //
+ // Fires whenever the strict AND tier is THIN (< BROADEN_BELOW), not only when
+ // it returns zero. The previous gate was `strict.length > 0`: a slug whose AND
+ // phase yielded a single job (e.g.
+ // /cerca-lavoro-svizzera/ricerca-responsabile-…-cure-infermieristiche-m-f/)
+ // stayed stuck at 1 result after hydration while the static HTML showed 30 —
+ // the OR-fill never ran. Now it tops up the strict matches with partial-token
+ // matches (excluding the strict ids, which `filteredJobs` lists first), so the
+ // hydrated page matches the static cluster page instead of collapsing to 1
+ // (which also removed the jarring static-30 → hydrated-1 layout shift).
  const MAX_FALLBACK_RESULTS = 30;
  const orFallbackInCantonJobs = useMemo<JobListing[]>(() => {
  const query = deferredSearchQuery.trim();
- if (!query || strictFilteredJobs.length > 0) return [];
+ if (!query || strictFilteredJobs.length >= BROADEN_BELOW) return [];
 
  // Score the boilerplate-stripped query so the matched tokens stay
  // consistent with the floor (`orFallbackMinScore`, which counts content
@@ -2976,8 +2987,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  const cutoff = deferredSelectedDateRange === 'all' ? 0 : now - dateRangeMs[deferredSelectedDateRange];
 
+ // Exclude jobs already matched by the strict AND tier — this tier supplies
+ // only the OR-fill tail; `filteredJobs` lists the strict matches first.
+ const strictIds = new Set<string>();
+ for (const j of strictFilteredJobs) strictIds.add(j.id);
+
  const scored: { job: JobListing; score: number }[] = [];
  for (const job of sortedJobs) {
+ if (strictIds.has(job.id)) continue;
  if (!passingNonSearchFilters(job, now, cutoff)) continue;
  const haystack = searchIndex.get(job) ?? '';
  let score = 0;
@@ -3010,7 +3027,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // The in-canton result is whichever tier won: strict (AND) if it has any,
  // else the in-canton OR fallback. These are merged-with (not replaced) by the
  // consumer (`filteredJobs`), so this tier only supplies the broadened tail.
- const inCantonCount = strictFilteredJobs.length > 0 ? strictFilteredJobs.length : orFallbackInCantonJobs.length;
+ // strict + OR-fill tail (the fill excludes strict ids, so no double count).
+ const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return [];
  if (unscopedJobs.length === 0) return [];
 
@@ -3174,7 +3192,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!deferredSearchQuery.trim()) return;
  if ((initialFilterCanton || getDefaultCantonForVisit()) === AGGREGATE_CANTON_CODE) return;
  if (unscopedJobs.length > 0) return; // pool already available
- const inCantonCount = strictFilteredJobs.length > 0 ? strictFilteredJobs.length : orFallbackInCantonJobs.length;
+ // strict + OR-fill tail (the fill excludes strict ids, so no double count).
+ const inCantonCount = strictFilteredJobs.length + orFallbackInCantonJobs.length;
  if (inCantonCount >= BROADEN_BELOW) return; // enough in-canton results already
  searchBroadenFetchAttempted.current = true;
  let cancelled = false;
@@ -3295,11 +3314,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!list.some((j) => j.featured)) return list;
  return [...list.filter((j) => j.featured), ...list.filter((j) => !j.featured)];
  };
- const inCanton = strictFilteredJobs.length > 0
- ? strictFilteredJobs
- : orFallbackInCantonJobs.length > 0
- ? orFallbackInCantonJobs
- : [];
+ // Merge the strict AND matches (first) with the in-canton OR-fill tail
+ // (already excludes strict ids) so a thin strict tier is topped up to the
+ // static cluster page's job set instead of collapsing to a single result.
+ const seenInCanton = new Set<string>();
+ const inCanton: JobListing[] = [];
+ for (const j of strictFilteredJobs) { if (!seenInCanton.has(j.id)) { seenInCanton.add(j.id); inCanton.push(j); } }
+ for (const j of orFallbackInCantonJobs) { if (!seenInCanton.has(j.id)) { seenInCanton.add(j.id); inCanton.push(j); } }
  if (inCanton.length > 0) {
  if (crossCantonFallbackJobs.length === 0) return featuredFirst(inCanton);
  const seen = new Set<string>();
