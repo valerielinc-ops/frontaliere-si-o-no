@@ -108,9 +108,12 @@ const MOZHI_INSTANCES = [
 // Note: Argos Translate model has known issues translating TO Italian
 // (e.g., "Consulente Assicuravo" instead of "Assicurativo"). Fine for IT→EN/DE/FR.
 // translate.adminforge.de removed 2026-07-24 — consistent 500 errors from CI (3+ failures per run)
+// translate.cutie.dating removed 2026-06-16 — host fully dead from CI + local (HTTP 000 /
+// connection refused, burns the FULL 20s AbortSignal.timeout on EVERY attempt, then gets
+// resurrected every HEALTH_RECOVERY_MS=2min → hours of pure timeout waste per translate run
+// (run 27606697505: ~3h burned, only 372 jobs drained). Same removal precedent as adminforge.
 const LIBRETRANSLATE_PUBLIC = [
   'https://translate.fedilab.app',          // ✅ 200ms, 1 req/burst rate limit, verified 2026-03-30
-  'https://translate.cutie.dating',         // ✅ 4.7s slower but reliable, verified 2026-03-30
 ];
 
 // Self-hosted LibreTranslate — runs as a service container in CI (translate-pending.yml).
