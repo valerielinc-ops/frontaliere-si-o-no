@@ -644,9 +644,6 @@ const translations: Record<string, string> = {
 
  // Contact Page
  'adsense.label': 'Pubblicità',
- 'creatorPicks.title': 'Prodotti consigliati',
- 'creatorPicks.highPayout': 'Alta priorità',
- 'creatorPicks.disclosure': 'Link Amazon affiliati: potremmo ricevere una commissione senza costi aggiuntivi per te.',
  'donation.message': 'Se questo strumento ti è utile, offrici un caffè per aiutarci a mantenerlo gratuito!',
  'donation.button': 'Offrici un caffè',
  'donation.dismiss': 'Chiudi',
@@ -2648,11 +2645,9 @@ Regole:
  'whatsNew.v3410.articles.desc': 'Abbiamo aggiornato il modo in cui vengono creati gli articoli per garantire che utilizzino le informazioni più recenti e coerenti disponibili.',
  'whatsNew.v3410.tests.title': 'Migliorata l\'accuratezza dei controlli automatici',
  'whatsNew.v3410.tests.desc': 'Abbiamo aumentato la soglia per i controlli automatici sui titoli degli articoli, rendendoli più precisi grazie ai nuovi dati raccolti.',
- 'whatsNew.v3400.title': 'Miglioramenti per trovare offerte di lavoro e prodotti',
+ 'whatsNew.v3400.title': 'Miglioramenti per trovare offerte di lavoro',
  'whatsNew.v3400.seo.title': 'Più dettagli nelle pagine di offerte di lavoro scadute',
  'whatsNew.v3400.seo.desc': 'Le pagine delle offerte di lavoro scadute ora mostrano più informazioni utili, migliorando la visibilità per i motori di ricerca.',
- 'whatsNew.v3400.products.title': 'Nuovi prodotti dai Creator Amazon integrati',
- 'whatsNew.v3400.products.desc': 'Abbiamo aggiunto i dati dei Creator Amazon per mostrarti una selezione più ampia e pertinente di prodotti.',
  'whatsNew.v3400.alerts.title': 'Notifiche di lavoro più intelligenti e puntuali',
  'whatsNew.v3400.alerts.desc': 'Ricevi avvisi di lavoro più precisi che corrispondono meglio alle tue preferenze, inviati ogni giorno.',
  'whatsNew.v3400.build.title': 'Correzione per la generazione di pagine SEO',

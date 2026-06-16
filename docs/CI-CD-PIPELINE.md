@@ -165,12 +165,11 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 1. Assemble jobs dataset (final merge)
 2. Global housekeeping (cross-crawler dedup + locale hardening)
 3. All validation gates above
-4. Fetch Amazon product data (continue-on-error)
-5. `npm run build:prod` → Vite + all build plugins → ~16,000 static HTML files
-6. Validate generated pages (JobPosting JSON-LD, sitemaps, canonicals, content)
-7. Deploy to GitHub Pages (`https://frontaliereticino.ch`)
-8. Post-deploy: Google Indexing API, IndexNow (Bing/Yandex), Google Search Console (all continue-on-error)
-9. If article deploy: post to Facebook + LinkedIn
+4. `npm run build:prod` → Vite + all build plugins → ~16,000 static HTML files
+5. Validate generated pages (JobPosting JSON-LD, sitemaps, canonicals, content)
+6. Deploy to GitHub Pages (`https://frontaliereticino.ch`)
+7. Post-deploy: Google Indexing API, IndexNow (Bing/Yandex), Google Search Console (all continue-on-error)
+8. If article deploy: post to Facebook + LinkedIn
 
 ---
 
