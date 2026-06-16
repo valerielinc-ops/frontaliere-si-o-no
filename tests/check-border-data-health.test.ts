@@ -14,6 +14,7 @@ import {
   evaluateAllMockSource,
   evaluateWebcamResult,
   collectWebcamUrls,
+  isStalenessCheckActive,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-border-data-health.mjs';
 
@@ -148,5 +149,30 @@ describe('collectWebcamUrls', () => {
   it('returns an empty map for no crossings / no webcams', () => {
     expect(collectWebcamUrls([]).size).toBe(0);
     expect(collectWebcamUrls(undefined as unknown as []).size).toBe(0);
+  });
+});
+
+describe('isStalenessCheckActive (active-window gate)', () => {
+  // Only the UTC HOUR matters; the calendar date is irrelevant and this is NOT
+  // a stale-vs-now comparison, so a fixed date here is not a time-bomb.
+  const atUtcHour = (hour: number): number => Date.UTC(2026, 0, 5, hour, 30, 0);
+
+  it('is INACTIVE at the 00:00 UTC watchdog run (overnight false-positive guard)', () => {
+    expect(isStalenessCheckActive(atUtcHour(0))).toBe(false);
+  });
+
+  it('is INACTIVE before 05:00 UTC (scheduler idle overnight)', () => {
+    expect(isStalenessCheckActive(atUtcHour(4))).toBe(false);
+  });
+
+  it('is ACTIVE for the 06/12/18 UTC runs (scheduler operating hours)', () => {
+    expect(isStalenessCheckActive(atUtcHour(6))).toBe(true);
+    expect(isStalenessCheckActive(atUtcHour(12))).toBe(true);
+    expect(isStalenessCheckActive(atUtcHour(18))).toBe(true);
+  });
+
+  it('is INACTIVE at/after 20:00 UTC', () => {
+    expect(isStalenessCheckActive(atUtcHour(20))).toBe(false);
+    expect(isStalenessCheckActive(atUtcHour(23))).toBe(false);
   });
 });

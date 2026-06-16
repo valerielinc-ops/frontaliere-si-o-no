@@ -79,6 +79,26 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
   return { stale: false, ageMinutes, timestamp: ts, reason: null };
 }
 
+// Active window (UTC) during which fresh wait-time data is EXPECTED, mirroring
+// the traffic-scheduler operating hours (weekday ~03:00–18:00 UTC, weekend
+// 04:00–18:00). Outside it the snapshot is naturally stale (scheduler idle
+// overnight), so the coarse staleness backstop must NOT fire — otherwise the
+// 00:00 UTC watchdog run pages a false "degraded" every night (worse over the
+// weekend), causing alert fatigue that buries real degradation. Webcam-health
+// and all-mock checks are time-independent and always run.
+const STALE_ACTIVE_START_UTC_HOUR = 5;
+const STALE_ACTIVE_END_UTC_HOUR = 20; // exclusive
+
+/**
+ * Whether the staleness backstop should be evaluated at this instant.
+ * @param {number} nowMs current time in ms (injected for testability)
+ * @returns {boolean}
+ */
+export function isStalenessCheckActive(nowMs) {
+  const hour = new Date(nowMs).getUTCHours();
+  return hour >= STALE_ACTIVE_START_UTC_HOUR && hour < STALE_ACTIVE_END_UTC_HOUR;
+}
+
 /**
  * Decide whether the live routing provider has fully fallen back to mock data.
  * Only trips when EVERY crossing's source is `mock` (a partial fallback is
@@ -222,14 +242,22 @@ async function main() {
     lines.push('❌ data/border-wait-current.json missing');
   } else {
     const stale = evaluateStaleness(doc, Date.now(), staleHours);
-    if (stale.stale) {
+    const stalenessActive = isStalenessCheckActive(Date.now());
+    if (stale.stale && stalenessActive) {
       problems.push(stale.reason);
       lines.push(`❌ STALE: ${stale.reason}`);
+    } else if (stale.stale) {
+      // Outside the scheduler's active window (overnight): the snapshot is
+      // expected to be old, so the backstop is informational only — never
+      // pages — to avoid nightly false-positive alert fatigue.
+      lines.push(
+        `ℹ️ Staleness skipped (outside active window ${STALE_ACTIVE_START_UTC_HOUR}:00–${STALE_ACTIVE_END_UTC_HOUR}:00 UTC); snapshot ${stale.ageMinutes ?? '?'} min old`,
+      );
     } else {
       lines.push(`✅ Freshness OK: snapshot ${stale.ageMinutes} min old (threshold ${staleHours}h)`);
     }
 
-    // 2. All-mock source.
+    // 2. All-mock source (time-independent — always evaluated).
     const mockEval = evaluateAllMockSource(doc);
     if (mockEval.allMock) {
       problems.push(mockEval.reason);
@@ -279,7 +307,11 @@ async function main() {
   for (const p of problems) console.log(`  • ${p}`);
   // Emit a machine-readable summary for the workflow to slot into the issue body.
   if (process.env.GITHUB_OUTPUT) {
-    const summary = lines.join('\n');
+    // Strip backticks and double-quotes: the workflow embeds this summary inside
+    // a bash double-quoted heredoc (`--description "... ${HEALTH_SUMMARY} ..."`),
+    // where a `"` would close the string and a backtick would trigger command
+    // substitution. URLs/reasons don't contain them today, but sanitize defensively.
+    const summary = lines.join('\n').replace(/[`"]/g, "'");
     fs.appendFileSync(
       process.env.GITHUB_OUTPUT,
       `summary<<EOF_SUMMARY\n${summary}\nEOF_SUMMARY\n`,
