@@ -268,7 +268,11 @@ async function main() {
   });
 
   const timedOut = proc.error?.code === 'ETIMEDOUT';
-  if (proc.error && !timedOut) {
+  // ENOBUFS: stdout exceeded maxBuffer — proc.stdout holds up to maxBuffer of
+  // captured output; treat like ETIMEDOUT and fall through to parse the partial
+  // JSONL rather than dropping all work for the run.
+  const bufOverflow = proc.error?.code === 'ENOBUFS';
+  if (proc.error && !timedOut && !bufOverflow) {
     console.error(`❌ [local-mt] Failed to spawn Python worker: ${proc.error.message}`);
     process.exitCode = 1;
     return;
@@ -278,6 +282,8 @@ async function main() {
     // whatever partial stdout was captured before the kill so partial results
     // are committed rather than lost.
     console.warn(`⏰ [local-mt] Python worker killed after ${Math.round(TIME_BUDGET_MS / 60000)}min timeout — will commit partial results.`);
+  } else if (bufOverflow) {
+    console.warn(`⚠️  [local-mt] Python worker stdout exceeded 256 MB maxBuffer — parsing captured partial results. Consider reducing --max-jobs or LOCAL_MT_MAX_JOBS.`);
   } else if (proc.status !== 0) {
     console.error(`❌ [local-mt] Python worker exited with status ${proc.status}.`);
     process.exitCode = 1;
