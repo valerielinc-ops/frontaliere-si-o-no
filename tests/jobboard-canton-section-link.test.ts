@@ -66,3 +66,33 @@ describe('job-board canton section links', () => {
     expect(path).toBe(`/cerca-lavoro-zurigo/${ZH_JOB.slug}/`);
   });
 });
+
+/**
+ * Centralized by-construction fallback in buildPath(): when no explicit
+ * jobBoardCanton is given but the jobSlug maps to a known job, the canton
+ * section is resolved from the slug map. Fixes every per-job link caller
+ * (profile applications, blog teasers, chatbot, sitemap, …) at one point —
+ * without canton plumbing at each call site.
+ */
+describe('buildPath canton fallback from the slug map', () => {
+  const SLUG = 'export-manager-zurich-acme';
+
+  it('non-TI job slug with NO explicit canton resolves to the job canton section', () => {
+    registerJobSlugMap([{ id: 'j1', canton: 'ZH', slug: SLUG, slugByLocale: { it: SLUG } }]);
+    const path = buildPath({ activeTab: 'job-board', jobSlug: SLUG }, 'it');
+    expect(path).toBe(`/cerca-lavoro-zurigo/${SLUG}/`);
+  });
+
+  it('an explicit canton still wins over the slug-map lookup', () => {
+    registerJobSlugMap([{ id: 'j1', canton: 'ZH', slug: SLUG, slugByLocale: { it: SLUG } }]);
+    const path = buildPath({ activeTab: 'job-board', jobBoardCanton: 'TI', jobSlug: SLUG }, 'it');
+    expect(path).toBe(`/cerca-lavoro-ticino/${SLUG}/`);
+  });
+
+  it('a non-job slug (company / search hub) is left on the legacy TI section', () => {
+    registerJobSlugMap([{ id: 'j1', canton: 'ZH', slug: SLUG, slugByLocale: { it: SLUG } }]);
+    // azienda-* / ricerca-* hubs are aggregate/TI by design — not in the job map.
+    const company = buildPath({ activeTab: 'job-board', jobSlug: 'azienda-acme' }, 'it');
+    expect(company).toBe('/cerca-lavoro-ticino/azienda-acme/');
+  });
+});
