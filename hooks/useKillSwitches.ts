@@ -27,7 +27,8 @@ export type KillSwitchKey =
   | 'healthPremiums'
   | 'jobMarket'
   | 'weeklyEmployers'
-  | 'orphanLandings';
+  | 'orphanLandings'
+  | 'gptPocSlot';
 
 export type KillSwitchState = Readonly<Record<KillSwitchKey, boolean>>;
 
@@ -42,6 +43,7 @@ export const KILL_SWITCH_RC_KEYS: Readonly<Record<KillSwitchKey, string>> = {
   jobMarket: 'KILL_JOB_MARKET_LINKS',
   weeklyEmployers: 'KILL_WEEKLY_EMPLOYERS_LINKS',
   orphanLandings: 'KILL_ORPHAN_LANDINGS_LINKS',
+  gptPocSlot: 'KILL_GPT_POC_SLOT',
 } as const;
 
 const DEFAULT_STATE: KillSwitchState = {
@@ -50,6 +52,7 @@ const DEFAULT_STATE: KillSwitchState = {
   jobMarket: false,
   weeklyEmployers: false,
   orphanLandings: false,
+  gptPocSlot: false,
 } as const;
 
 function parseBooleanFlag(value: string | undefined | null): boolean {
