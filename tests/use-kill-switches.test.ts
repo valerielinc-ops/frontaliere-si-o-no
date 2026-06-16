@@ -23,6 +23,7 @@ describe('useKillSwitches', () => {
       jobMarket: false,
       weeklyEmployers: false,
       orphanLandings: false,
+      gptPocSlot: false,
     });
   });
 
@@ -41,6 +42,7 @@ describe('useKillSwitches', () => {
     expect(result.current.jobMarket).toBe(false);
     expect(result.current.weeklyEmployers).toBe(false);
     expect(result.current.orphanLandings).toBe(false);
+    expect(result.current.gptPocSlot).toBe(false);
   });
 
   it('reads each RC parameter name and returns true when the flag is "true"', async () => {
@@ -50,6 +52,7 @@ describe('useKillSwitches', () => {
       if (key === KILL_SWITCH_RC_KEYS.jobMarket) return 'TRUE'; // case-insensitive
       if (key === KILL_SWITCH_RC_KEYS.weeklyEmployers) return '';
       if (key === KILL_SWITCH_RC_KEYS.orphanLandings) return 'true';
+      if (key === KILL_SWITCH_RC_KEYS.gptPocSlot) return 'true';
       return '';
     });
 
@@ -65,6 +68,7 @@ describe('useKillSwitches', () => {
       jobMarket: true,
       weeklyEmployers: false,
       orphanLandings: true,
+      gptPocSlot: true,
     });
   });
 
@@ -74,7 +78,7 @@ describe('useKillSwitches', () => {
     renderHook(() => useKillSwitches());
 
     await waitFor(() => {
-      expect(rcMock).toHaveBeenCalledTimes(5);
+      expect(rcMock).toHaveBeenCalledTimes(6);
     });
 
     const callArgs = rcMock.mock.calls.map(([arg]) => arg);
@@ -83,5 +87,6 @@ describe('useKillSwitches', () => {
     expect(callArgs).toContain('KILL_JOB_MARKET_LINKS');
     expect(callArgs).toContain('KILL_WEEKLY_EMPLOYERS_LINKS');
     expect(callArgs).toContain('KILL_ORPHAN_LANDINGS_LINKS');
+    expect(callArgs).toContain('KILL_GPT_POC_SLOT');
   });
 });
