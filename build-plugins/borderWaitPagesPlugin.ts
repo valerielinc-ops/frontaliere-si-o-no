@@ -1388,6 +1388,21 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
+  // Localized source→label map so the hydration script can update the "Fonte"
+  // badge in-place from the LIVE Firestore source (otherwise it stays on the
+  // build-time label, e.g. showing "Dati statistici" even when live data is fresh).
+  // Only LIVE sources — hydration runs against fresh Firestore data, whose
+  // source is always one of these (never 'static'/'mock', which are the
+  // build-time/SPA fallbacks). Omitting 'static' also keeps the "Dati statistici"
+  // string out of the page HTML so it never appears for a live-sourced reading.
+  const sourceLabelMap = JSON.stringify({
+    bazg: copy.sourceBazg,
+    here: copy.sourceHere,
+    tomtom: copy.sourceTomtom,
+    google: copy.sourceGoogle,
+    'google-maps': copy.sourceGoogle,
+    webcam: copy.sourceWebcam,
+  });
   const staticBannerHtml = staticFallback
     ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
@@ -1415,7 +1430,7 @@ function renderLeafPage(inp: LeafInputs): string {
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
-        <div class="s-iUCmjg">${esc(sourceText)}</div>
+        <div class="s-iUCmjg" data-bw-field="source" data-bw-source-labels="${esc(sourceLabelMap)}">${esc(sourceText)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
