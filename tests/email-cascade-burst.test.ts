@@ -3,6 +3,8 @@ import {
   isRateLimitedError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
+  fetchCloudflareUsage,
+  fetchCloudflareDeliveryStats,
   PROVIDERS,
 } from '../scripts/lib/email-cascade.mjs';
 
@@ -215,5 +217,61 @@ describe('sendEmailCascade — cloudflare provider', () => {
     expect(sendCalls).toBe(1); // 429 → provider exhausted → rest skipped locally
     expect(sent.length).toBe(0);
     expect(failed.length).toBe(10);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  Cloudflare delivery-event observation (GraphQL Analytics, pull)    */
+/* ------------------------------------------------------------------ */
+
+describe('fetchCloudflareUsage / fetchCloudflareDeliveryStats', () => {
+  const realFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    process.env.CLOUDFLARE_EMAIL_API_TOKEN = 'cf-test-token';
+    process.env.CF_ACCOUNT_ID = 'acc-123';
+  });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    delete process.env.CF_ACCOUNT_ID;
+  });
+
+  function mockGraphQL(groups: any[]) {
+    globalThis.fetch = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ data: { viewer: { accounts: [{ emailSendingAdaptiveGroups: groups }] } } }),
+    })) as any;
+  }
+
+  it('sums total send events for fetchCloudflareUsage', async () => {
+    mockGraphQL([{ count: 12 }, { count: 8 }]);
+    expect(await fetchCloudflareUsage('2026-06-01', '2026-06-16')).toBe(20);
+  });
+
+  it('breaks down delivery status for fetchCloudflareDeliveryStats', async () => {
+    mockGraphQL([
+      { count: 40, dimensions: { status: 'delivered' } },
+      { count: 3, dimensions: { status: 'bounced' } },
+      { count: 1, dimensions: { status: 'failed' } },
+    ]);
+    const stats = await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16');
+    expect(stats).toEqual({ total: 44, byStatus: { delivered: 40, bounced: 3, failed: 1 } });
+  });
+
+  it('returns null (not 0) when unconfigured so callers can tell "couldn\'t verify"', async () => {
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    expect(await fetchCloudflareUsage('2026-06-16', '2026-06-16')).toBeNull();
+    expect(await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16')).toBeNull();
+  });
+
+  it('returns null when the GraphQL response carries errors', async () => {
+    globalThis.fetch = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ errors: [{ message: 'auth' }] }),
+    })) as any;
+    expect(await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16')).toBeNull();
   });
 });

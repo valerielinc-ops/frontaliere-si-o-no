@@ -21,6 +21,7 @@ import {
   logProviderSummary,
   isProviderConfigured,
   fetchCloudflareUsage,
+  fetchCloudflareDeliveryStats,
 } from './lib/email-cascade.mjs';
 
 function todayUTC() {
@@ -51,9 +52,10 @@ async function main() {
   // above is in-memory only for this provider.
   if (isProviderConfigured('cloudflare')) {
     const monthlyCap = PROVIDERS.find(p => p.id === 'cloudflare')?.monthlyLimit ?? 3000;
-    const [today, mtd] = await Promise.all([
+    const [today, mtd, todayStats] = await Promise.all([
       fetchCloudflareUsage(todayUTC(), todayUTC()),
       fetchCloudflareUsage(firstOfMonthUTC(), todayUTC()),
+      fetchCloudflareDeliveryStats(todayUTC(), todayUTC()),
     ]);
     console.log('\n☁️  Cloudflare Email Service (GraphQL Analytics):');
     if (mtd === null) {
@@ -64,6 +66,15 @@ async function main() {
       console.log(`   Send events today:        ${today ?? 'n/a'}`);
       console.log(`   Send events month-to-date: ${mtd} / ${monthlyCap}  (≈${remaining} remaining this month)`);
       console.log('   Note: counts raw send EVENTS (queued/delivered/bounced), so it may exceed the email count.');
+      // Delivery-event observation. Cloudflare has no webhook and no open/click
+      // tracking — delivery STATUS via this pull dataset is the only event signal.
+      if (todayStats && Object.keys(todayStats.byStatus).length) {
+        const breakdown = Object.entries(todayStats.byStatus)
+          .sort((a, b) => b[1] - a[1])
+          .map(([s, n]) => `${s}=${n}`)
+          .join(', ');
+        console.log(`   Delivery status today:    ${breakdown}`);
+      }
     }
   }
 }
