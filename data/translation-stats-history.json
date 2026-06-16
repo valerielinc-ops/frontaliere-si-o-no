@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-28T08:27:30.285Z",
-    "label": "after",
-    "total": 8789,
-    "needsRetranslation": 1770,
-    "incomplete": 552,
-    "complete": 8237,
-    "missingByLocale": {
-      "it": 363,
-      "en": 251,
-      "de": 211,
-      "fr": 358
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 78
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 73
-      },
-      {
-        "company": "Roche",
-        "pending": 50
-      },
-      {
-        "company": "UBS",
-        "pending": 35
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 30
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "IWC",
-        "pending": 15
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-28T10:31:16.190Z",
-    "label": "before",
-    "total": 8727,
-    "needsRetranslation": 1761,
-    "incomplete": 547,
-    "complete": 8180,
-    "missingByLocale": {
-      "it": 361,
-      "en": 251,
-      "de": 207,
-      "fr": 357
-    },
-    "topPending": [
-      {
-        "company": "Hügli Nahrungsmittel GmbH",
-        "pending": 78
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 69
-      },
-      {
-        "company": "Roche",
-        "pending": 50
-      },
-      {
-        "company": "UBS",
-        "pending": 35
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 30
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "IWC",
-        "pending": 15
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-28T12:01:19.425Z",
     "label": "after",
     "total": 8727,
@@ -11347,6 +11235,120 @@
       {
         "company": "Fust | Swiss Household Services AG",
         "pending": 58
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-16T05:23:06.525Z",
+    "label": "before",
+    "total": 16758,
+    "needsRetranslation": 5671,
+    "suppressed": 484,
+    "incomplete": 3760,
+    "complete": 12998,
+    "missingByLocale": {
+      "it": 2446,
+      "en": 2143,
+      "de": 1223,
+      "fr": 2152
+    },
+    "topPending": [
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1989
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 277
+      },
+      {
+        "company": "Lonza",
+        "pending": 150
+      },
+      {
+        "company": "Manor AG",
+        "pending": 116
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 93
+      },
+      {
+        "company": "Fielmann Group",
+        "pending": 86
+      },
+      {
+        "company": "Société coopérative Migros Genève",
+        "pending": 78
+      },
+      {
+        "company": "Roche",
+        "pending": 73
+      },
+      {
+        "company": "Süddeutsche Truthahn AG",
+        "pending": 71
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 58
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-16T07:49:14.803Z",
+    "label": "after",
+    "total": 16758,
+    "needsRetranslation": 5232,
+    "suppressed": 589,
+    "incomplete": 3613,
+    "complete": 13145,
+    "missingByLocale": {
+      "it": 2307,
+      "en": 1760,
+      "de": 1475,
+      "fr": 1790
+    },
+    "topPending": [
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1956
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 277
+      },
+      {
+        "company": "Lonza",
+        "pending": 150
+      },
+      {
+        "company": "Manor AG",
+        "pending": 116
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 93
+      },
+      {
+        "company": "Fielmann Group",
+        "pending": 86
+      },
+      {
+        "company": "Roche",
+        "pending": 73
+      },
+      {
+        "company": "Süddeutsche Truthahn AG",
+        "pending": 71
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 58
+      },
+      {
+        "company": "UBS",
+        "pending": 50
       }
     ]
   }
