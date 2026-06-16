@@ -188,18 +188,20 @@ async function fetchMailerooDailyUsage() {
 }
 
 /**
- * Query Cloudflare Email Service usage via the GraphQL Analytics API
- * (dataset emailSendingAdaptiveGroups). Returns the raw count of send events in
- * [startDate, endDate] (inclusive, ISO yyyy-mm-dd), or null when the endpoint is
- * unreachable / unauthorized / unconfigured so callers can tell "0 sent" apart
- * from "couldn't verify". Requires the token to carry the Analytics Read scope.
+ * Low-level query against the Cloudflare Email Service GraphQL Analytics API
+ * (dataset emailSendingAdaptiveGroups). Returns the raw `groups` array for
+ * [startDate, endDate] (inclusive, ISO yyyy-mm-dd), optionally grouped by the
+ * given dimensions, or null when the endpoint is unreachable / unauthorized /
+ * unconfigured so callers can tell "0 events" apart from "couldn't verify".
+ * Requires the token to carry the Analytics Read scope.
  * Docs: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
  */
-export async function fetchCloudflareUsage(startDate, endDate) {
+async function queryCloudflareEmailGroups(startDate, endDate, dimensions = []) {
   const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
   const token = process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN;
   if (!accountId || !token) return null;
-  const query = `query($acc:String!,$start:Date!,$end:Date!){viewer{accounts(filter:{accountTag:$acc}){emailSendingAdaptiveGroups(filter:{date_geq:$start,date_leq:$end},limit:10000){count}}}}`;
+  const dimFields = dimensions.length ? ` dimensions{${dimensions.join(' ')}}` : '';
+  const query = `query($acc:String!,$start:Date!,$end:Date!){viewer{accounts(filter:{accountTag:$acc}){emailSendingAdaptiveGroups(filter:{date_geq:$start,date_leq:$end},limit:10000){count${dimFields}}}}}`;
   try {
     const res = await fetch('https://api.cloudflare.com/client/v4/graphql', {
       method: 'POST',
@@ -209,9 +211,40 @@ export async function fetchCloudflareUsage(startDate, endDate) {
     if (!res.ok) return null;
     const data = await res.json().catch(() => null);
     if (!data || data.errors?.length) return null;
-    const groups = data?.data?.viewer?.accounts?.[0]?.emailSendingAdaptiveGroups || [];
-    return groups.reduce((sum, g) => sum + (Number(g.count) || 0), 0);
+    return data?.data?.viewer?.accounts?.[0]?.emailSendingAdaptiveGroups || [];
   } catch { return null; }
+}
+
+/**
+ * Total count of send events in [startDate, endDate], or null if unverifiable.
+ */
+export async function fetchCloudflareUsage(startDate, endDate) {
+  const groups = await queryCloudflareEmailGroups(startDate, endDate);
+  if (groups === null) return null;
+  return groups.reduce((sum, g) => sum + (Number(g.count) || 0), 0);
+}
+
+/**
+ * Delivery-event observation for Cloudflare Email Service. Unlike the cascade's
+ * other providers, Cloudflare exposes NO outbound webhook and does NOT track
+ * opens/clicks (it is a delivery-only relay) — engagement events simply do not
+ * exist there. The only observable signal is delivery STATUS (sent / delivered /
+ * failed / rejected / bounced + auth results), and it is PULL-only via this
+ * Analytics dataset. Returns { total, byStatus: { <status>: count } } for
+ * [startDate, endDate], or null if unverifiable.
+ */
+export async function fetchCloudflareDeliveryStats(startDate, endDate) {
+  const groups = await queryCloudflareEmailGroups(startDate, endDate, ['status']);
+  if (groups === null) return null;
+  const byStatus = {};
+  let total = 0;
+  for (const g of groups) {
+    const n = Number(g.count) || 0;
+    total += n;
+    const status = g.dimensions?.status || 'unknown';
+    byStatus[status] = (byStatus[status] || 0) + n;
+  }
+  return { total, byStatus };
 }
 
 /**
