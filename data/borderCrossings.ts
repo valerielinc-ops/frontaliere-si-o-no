@@ -126,6 +126,13 @@ export const borderCrossings: BorderCrossing[] = [
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
  },
+ {
+ label: 'A2 – Balerna (corridoio Chiasso-Mendrisio) direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/03.3S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
  ],
  },
  {
@@ -289,6 +296,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.alwaysCalm',
  tips: 'border.tips.campioneBissone',
+ webcams: [
+ {
+ label: 'A2 – Melide-Bissone (ponte-diga) direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Oria-Gandria',
@@ -341,6 +357,13 @@ export const borderCrossings: BorderCrossing[] = [
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
  },
+ {
+ label: 'A2 – Mendrisio (uscita Stabio) direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
  ],
  },
  {
@@ -363,6 +386,13 @@ export const borderCrossings: BorderCrossing[] = [
  {
  label: 'A24 – Stabio direzione nord',
  imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Mendrisio-Stabio direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
