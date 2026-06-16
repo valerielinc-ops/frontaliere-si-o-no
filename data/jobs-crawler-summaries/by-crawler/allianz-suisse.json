@@ -1,19 +1,59 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-06-16T12:53:27.106Z",
+  "generatedAt": "2026-06-16T22:22:49.310Z",
   "total": 95,
   "newCount": 0,
-  "updatedCount": 95,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 319825,
-  "avgDurationMs": 319825,
+  "unchangedCount": 94,
+  "durationMs": 322671,
+  "avgDurationMs": 322671,
   "durationHistory": [
-    319825
+    322671
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Kundenberater:in Langnau i.E. (w/m/d), 80-100%",
+      "slug": "allianz-bewerbermanagement-allianz-suisse-langnau-im-emmental",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/683/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/683/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Langnau i.E.",
+      "addressLocality": "Langnau i.E.",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "id": "allianz-suisse-f541011b17fd",
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-10T22:11:05.157Z",
+      "streetAddress": "",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Kundenberater/in für die Agentur Murten 100%",
       "slug": "kundenberater-in-per-la-agentur-murten-100-allianz-suisse-granges-paccot",
@@ -638,43 +678,6 @@
       }
     },
     {
-      "title": "Kundenberater:in Langnau i.E. (w/m/d), 80-100%",
-      "slug": "allianz-bewerbermanagement-allianz-suisse-langnau-im-emmental",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/683/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/683/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Langnau i.E.",
-      "addressLocality": "Langnau i.E.",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "Unbefristet",
-      "validThrough": "",
-      "id": "allianz-suisse-f541011b17fd",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "streetAddress": "",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Conseiller/ère à la clientèle (f/h/d), 100%, Région Chablais Vaudois",
       "slug": "sanitario-di-emergenza-stagionale-2026-27-50-100-spital-davos-davos",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/637/Description/4",
@@ -1109,8 +1112,43 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Collaborateur/trice du service interne Agence Générale Eric Marchal (f/h/d), 100%",
+      "slug": "collaborateur-trice-du-service-interne-agence-generale-eric-marchal-f-h-d-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/479/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/479/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Collaborateur/-trice du service interne",
+      "addressLocality": "Collaborateur/-trice du service interne",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "Durée indéterminée",
+      "validThrough": "",
+      "id": "allianz-suisse-48fe5985d129",
+      "salaryMin": 53500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "1950",
+      "firstSeenAt": "2026-06-11T22:12:35.243Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
