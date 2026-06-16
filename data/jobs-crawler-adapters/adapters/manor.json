@@ -65,7 +65,6 @@
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boucher%C3%A8re-%28Viande-&-Volaille%29-80-du-01_08_2026-au-31_10_2026/1351821555/",
     "https://positions.manor.ch/job/Biel-Drogistin-EFZ-%28Dermacenter%29-50-80/1337310655/",
     "https://positions.manor.ch/job/Biel-Droguiste-CFC-%28Dermacenter%29-50-80/1337310555/",
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-70/1350380055/",
     "https://positions.manor.ch/job/Vevey-Responsable-secteur-%28Fruits-l%C3%A9gumes-take-out%29-100/1354321955/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Caissier%C3%A8re-%28Dames%29%2C-60%2C-du-01_06_2026-au-31_07_2026/1351987855/",
     "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Visual-Merchandising-Food-30/1351946555/",
@@ -169,11 +168,12 @@
     "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Logistik-60/1355570555/",
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Service-50/1354960355/",
     "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-30-100/962548755/",
-    "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Damenkonfektion-60/1350561855/",
-    "https://positions.manor.ch/job/Sierre-Assistante-visual-merchandiser-manager-100/1354557255/"
+    "https://positions.manor.ch/job/Morges-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-70/1350380055/",
+    "https://positions.manor.ch/job/Sierre-Assistante-visual-merchandiser-manager-100/1354557255/",
+    "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Damenkonfektion-60/1350561855/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-16T14:02:39.205Z",
+  "updatedAt": "2026-06-16T23:20:27.715Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Sierre-Floor-Manager-100/1331582255/": {
       "company": "Manor AG",
@@ -400,10 +400,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Biel-Droguiste-CFC-%28Dermacenter%29-50-80/1337310555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Morges-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-70/1350380055/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -819,11 +815,15 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Damenkonfektion-60/1350561855/": {
+    "https://positions.manor.ch/job/Morges-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-70/1350380055/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Sierre-Assistante-visual-merchandiser-manager-100/1354557255/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Damenkonfektion-60/1350561855/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
