@@ -8093,6 +8093,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: la taxe de santé; déduction des ristournes contraire les accords avec Rome',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La déduction partielle des ristournes du produit généré par la taxe de santé est contraire aux accords entre Berne et Rome concernant ces travailleurs frontaliers.',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama du lac de Lugano',
+    'blog.article.tassa-salute-posizione-berna.title': 'Taxe sur la santé et remboursements : la position de Berne',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Le Conseil fédéral réaffirme que la taxe sur la santé n\'est pas un impôt et ne viole pas les accords fiscaux avec l\'Italie.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Bâtiment du gouvernement à Bellinzone par une journée ensoleillée',
 };
 
 export default blogMetaFr;

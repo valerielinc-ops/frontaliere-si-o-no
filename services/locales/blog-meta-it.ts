@@ -8093,6 +8093,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: tassa salute; deduzione da ristorni contraria accordi con Roma',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama del lago di Lugano',
+    'blog.article.tassa-salute-posizione-berna.title': 'Tassa sulla salute e ristorni: la posizione di Berna',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Il Consiglio federale ribadisce che la tassa sulla salute non è un\'imposta e non viola gli accordi fiscali con l\'Italia.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Palazzo governativo di Bellinzona in una giornata di sole',
 };
 
 export default blogMetaIt;

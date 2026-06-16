@@ -1,0 +1,18 @@
+{
+  "id": "tassa-salute-posizione-berna",
+  "slug": "tassa-salute-posizione-berna",
+  "publishedAt": "2026-06-16T01:56:44.118Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "salute",
+    "score": 0,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1
+  }
+}

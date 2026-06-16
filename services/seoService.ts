@@ -4052,6 +4052,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-treni-fermi-stabio-gallarate-incompetenza-regione': { name: 'Treni fermi Stabio-Gallarate', path: '/articoli-svizzera/treni-fermi-stabio-gallarate-incompetenza-regione/', parent: 'blog' },
     'blog-deduzione-ristorni-frontalieri-contraria-accordi-ch-roma': { name: 'Deduzione ristorni frontalieri', path: '/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma', parent: 'blog' },
     'blog-offerte-lavoro-intelligenza-artificiale-2025': { name: 'Lavoro IA Svizzera', path: '/articoli-svizzera/offerte-lavoro-intelligenza-artificiale-2025/', parent: 'blog' },
+    'blog-tassa-salute-posizione-berna': { name: 'Tassa salute Berna', path: '/articoli-frontaliere/tassa-salute-posizione-berna', parent: 'blog' },
  };
 
  const info = sectionNames[section];
