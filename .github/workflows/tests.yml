@@ -131,7 +131,24 @@ jobs:
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
       - name: vitest run (shard ${{ matrix.shard }}/8)
-        run: npm test -- --shard=${{ matrix.shard }}/8
+        # Emit a per-file timing JSON alongside the default reporter. It feeds
+        # scripts/ci/generate-shard-weights.mjs, which refreshes
+        # tests/shard-weights.json (the LPT BalancedSequencer's input) from real
+        # CI durations — local timings over-weight CPU-bound scan guards because
+        # the dev box runs ~3-10× slower under contention. The json reporter is
+        # additive (default reporter still prints), so failures stay visible.
+        run: npm test -- --shard=${{ matrix.shard }}/8 --reporter=default --reporter=json --outputFile=shard-timing-${{ matrix.shard }}.json
+
+      - name: Upload shard timing
+        # always() so we still collect timings when a shard is red (a slow test
+        # that times out is exactly the data point we want for re-balancing).
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: shard-timing-${{ matrix.shard }}
+          path: shard-timing-${{ matrix.shard }}.json
+          retention-days: 7
+          if-no-files-found: ignore
 
   # Aggregator gate. Preserves the EXACT check-run name every downstream
   # consumer keys on — auto-merge-on-lgtm's "Block merge if vitest gate is RED"
