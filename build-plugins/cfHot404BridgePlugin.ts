@@ -32,8 +32,16 @@ import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 
 // Defensive rail (the #2000 OOM lesson): even if data/cf-hot-404s.json grows
-// or is hand-edited, never emit more than this many bridge pages.
-const MAX_EMIT = 12000;
+// or is hand-edited, never emit more than this many bridge pages. The emit
+// below is STREAMING (mkdir + writeFileSync per path, no HTML accumulated in
+// heap; the only retained structure is the {path,hits} array), so the real
+// cost is inode count (~2 per bridge): 40k bridges ≈ 80k inodes on top of the
+// ~327k-file IT shard, far under the ~2.3M Pages disk ceiling. Kept in lockstep
+// with scripts/build-cf-hot-404s.mjs's MAX_PATHS — raise BOTH together.
+// (Raised 12k→40k on 2026-06-16 to recover more of the long-tail CF-confirmed
+// 404s; the per-emit [mem] log below makes the heap cost visible in the deploy
+// log. SSG-memory impact is NOT measurable pre-merge — revert if it OOMs.)
+const MAX_EMIT = 40000;
 
 const withSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 
@@ -131,9 +139,11 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       }
 
       if (emitted > 0) {
+        const heapMb = Math.round(process.memoryUsage().heapUsed / 1048576);
         console.log(
           `\x1b[36m[cf-hot-404-bridge]\x1b[0m Recovered ${emitted} Cloudflare/GSC-confirmed 404s ` +
-            `(cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved).`,
+            `(cap ${MAX_EMIT}; ${skippedExisting} already had richer pages, ${skippedUnresolved} unresolved). ` +
+            `[mem] heapUsed=${heapMb}MB after emit.`,
         );
       }
     },
