@@ -81,12 +81,36 @@ const GptPocSlot: React.FC = () => {
 
   useEffect(() => {
     if (!active) return;
+    const divId = divIdRef.current;
+
+    // Initialise the GPT framework EARLY (post-load idle, not on scroll): the GAM
+    // Offerwall evaluates at page entry, so GPT must be present then or the wall
+    // never shows. The ad slot itself stays lazy (IntersectionObserver below) to
+    // protect CWV — only the lightweight gpt.js load + enableServices runs early.
+    const initGptFramework = () => {
+      ensureGptScript();
+      const gt = gtag();
+      gt.cmd.push(() => {
+        try {
+          if (!gptServicesEnabled) {
+            gptServicesEnabled = true;
+            // Modern GPT config API (pubads().enableSingleRequest() is deprecated).
+            gt.setConfig({ singleRequest: true });
+            gt.pubads().collapseEmptyDivs(true);
+            gt.enableServices();
+          }
+        } catch { /* fail-soft */ }
+      });
+    };
+    const ric: (cb: () => void) => void =
+      (window as any).requestIdleCallback
+        ? (cb) => (window as any).requestIdleCallback(cb, { timeout: 3000 })
+        : (cb) => window.setTimeout(cb, 1200);
+    ric(initGptFramework);
+
     const wrapper = wrapperRef.current;
     if (!wrapper || typeof IntersectionObserver === 'undefined') return;
-
-    const divId = divIdRef.current;
     let defined = false;
-
     const defineAndDisplay = () => {
       if (defined) return;
       defined = true;
@@ -98,13 +122,6 @@ const GptPocSlot: React.FC = () => {
             .defineSlot(GPT_POC_AD_UNIT_PATH, GPT_POC_SIZES, divId)
             ?.addService(gt.pubads());
           if (!slot) return;
-          if (!gptServicesEnabled) {
-            gptServicesEnabled = true;
-            // Modern GPT config API (pubads().enableSingleRequest() is deprecated).
-            gt.setConfig({ singleRequest: true });
-            gt.pubads().collapseEmptyDivs(true);
-            gt.enableServices();
-          }
           gt.display(divId);
           setRendered(true);
         } catch {
