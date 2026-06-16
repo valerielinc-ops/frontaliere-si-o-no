@@ -8111,6 +8111,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pd-m5s-avs-accelerano.title': 'Pd, M5S e Avs accelerano',
     'blog.article.pd-m5s-avs-accelerano.excerpt': 'Partiti politici italiani annunciano iniziative per luglio.',
     'blog.article.pd-m5s-avs-accelerano.imageAlt': 'Pranzo politico a Roma',
+    'blog.article.lavorare-in-svizzera.title': 'Lavorare in Svizzera: cosa devi sapere',
+    'blog.article.lavorare-in-svizzera.excerpt': 'I requisiti per lavorare in Svizzera sono cambiati. Ecco cosa devi sapere per lavorare in Ticino.',
+    'blog.article.lavorare-in-svizzera.imageAlt': 'Un frontaliere che lavora in Svizzera e risiede in Ticino',
 };
 
 export default blogMetaIt;
