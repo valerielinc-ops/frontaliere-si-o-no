@@ -1476,11 +1476,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Aiutaci a Migliorare | Frontaliere Ticino',
  ogDescription: '🐛 Segnala un problema o suggerisci una funzionalità per il simulatore fiscale frontalieri CH-IT. Contribuisci al miglioramento!',
  canonicalPath: '/supporto/',
+ // SearchAtlas "missing schema markup" (2026-06-15): the support/feedback page
+ // is a contact surface, so ContactPage (below) is the correct type, not a
+ // generic WebPage. NOTE: comments must stay OUTSIDE the structuredData literal
+ // — staticPagesPlugin's jsToJson text-parser does not strip `//` comments, so
+ // an inline comment makes JSON.parse throw and the whole SD block is silently
+ // dropped (regression that stripped this page's schema entirely).
  structuredData: {
  "@context": "https://schema.org",
- // SearchAtlas "missing schema markup" (2026-06-15): the support/feedback
- // page is a contact surface, so ContactPage is the correct type (the audit
- // expects ContactPage here, not a generic WebPage).
  "@type": "ContactPage",
  "name": "Aiutaci a Migliorare - Segnalazioni e Suggerimenti",
  "url": `${BASE_URL}/supporto`,
@@ -2634,8 +2637,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "keywords": "mappa confine italia svizzera, valichi ticino, comuni frontalieri 20 km, addizionali irpef frontiera",
  "speakable": SPEAKABLE_SECTION
  },
- // B.2 — Place schema per valico principale con geo coordinates (Ticino-Italia).
- // Source: data/borderCrossings.ts (lat/lng/hours/customsPresent).
  {
  "@context": "https://schema.org",
  "@type": "Place",
@@ -9188,18 +9189,20 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  ogTitle: 'Metodologia editoriale — Come scriviamo gli articoli | Frontaliere Ticino',
  ogDescription: 'Come usiamo IA generativa, fonti primarie e revisione redazionale per garantire accuratezza e trasparenza.',
  canonicalPath: '/metodologia/',
+ // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
+ // page is an About page (mirrors the /about/ alias which already uses
+ // AboutPage), so AboutPage (below) is the correct type, not a generic WebPage.
+ // NOTE: comments must stay OUTSIDE the structuredData literal — jsToJson does
+ // not strip `//`, so an inline comment makes JSON.parse throw and the SD is
+ // silently dropped.
  structuredData: [
  {
  "@context": "https://schema.org",
- // SearchAtlas "missing schema markup" (2026-06-15): this editorial-process
- // page is an About page (mirrors the /about/ alias which already uses
- // AboutPage), not a generic WebPage. AboutPage is the correct type for a
- // methodology/about-us page and is what the audit expects.
  "@type": "AboutPage",
  "name": "Metodologia editoriale — Come scriviamo gli articoli",
  "url": `${BASE_URL}/metodologia/`,
  "description": "Come utilizziamo l'IA generativa, le fonti primarie e il processo di revisione editoriale per garantire accuratezza e trasparenza.",
- "lastReviewed": BUILD_DATE_ISO.slice(0, 10),
+ "lastReviewed": BUILD_DATE_ISO,
  "inLanguage": "it",
  "isPartOf": { "@id": `${BASE_URL}/#website` },
  "about": {

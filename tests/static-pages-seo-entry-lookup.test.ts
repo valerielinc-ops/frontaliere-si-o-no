@@ -187,4 +187,63 @@ describe('seo source files parse contract (real files)', () => {
     // for entries without a single-quoted title (template-literal titles).
     expect(entries.size).toBeGreaterThanOrEqual(Math.floor(cpCount * 0.95));
   });
+
+  // Regression gate (PR #2229 → live regression): staticPagesPlugin's jsToJson
+  // text-parser does NOT strip `//` comments and cannot evaluate JS method calls
+  // (e.g. `BUILD_DATE_ISO.slice(0, 10)`). Either one makes the downstream
+  // JSON.parse throw, and the parser's silent `catch { /* skip SD */ }` then
+  // DROPS the whole structuredData block — the page ships with no schema and no
+  // build error. This silently stripped /supporto/ (lost its WebPage→ContactPage)
+  // and /metodologia/ (AboutPage). Forbid both constructs inside any
+  // structuredData literal so the class can never silently recur.
+  it('no structuredData literal contains a // comment or JS method-call (jsToJson breakers)', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+    // Method calls jsToJson leaves intact after substituting BUILD_DATE_ISO /
+    // BASE_URL — any `."identifier"(` that is not a schema key. The leading
+    // `.` after a value is the tell (e.g. `.slice(`, `.replace(`, `.toLowerCase(`).
+    const methodCallRx = /\.[a-zA-Z_$][\w$]*\s*\(/;
+    // `//` anywhere in the SD (leading OR trailing comment). Both break
+    // jsToJson→JSON.parse identically. Run on the string-stripped form so
+    // `https://` inside string values is already gone (no false positives).
+    const lineCommentRx = /\/\//;
+    const offenders: string[] = [];
+    for (const [cp, { sd }] of entries) {
+      if (!sd) continue;
+      // Strip string literals first; whatever `//` or `.method(` survives is real code.
+      const noStrings = sd.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`[^`]*`/g, '""');
+      if (lineCommentRx.test(noStrings)) offenders.push(`${cp}: inline // comment in structuredData`);
+      if (methodCallRx.test(noStrings)) offenders.push(`${cp}: JS method-call in structuredData`);
+    }
+    expect(offenders, `structuredData parse-breakers (jsToJson would silently drop these):\n${offenders.join('\n')}`).toEqual([]);
+  });
+
+  it('/supporto/ and /metodologia/ structuredData parse to their declared @type', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+    // Mirror jsToJson's value substitutions + JSON.parse to prove the SD survives.
+    const toJson = (js: string): string => {
+      let s = js
+        .replace(/\bBUILD_DATE_ISO\b/g, '"2026-01-01T00:00:00.000Z"')
+        .replace(/\$\{BASE_URL\}/g, 'https://frontaliereticino.ch')
+        .replace(/\bBASE_URL\b/g, '"https://frontaliereticino.ch"')
+        .replace(/`([^`]*)`/g, (_, c: string) => JSON.stringify(c));
+      let out = '', i = 0;
+      while (i < s.length) {
+        if (s[i] === '"') { let j = i + 1; while (j < s.length) { if (s[j] === '\\') { j += 2; continue; } if (s[j] === '"') { j++; break; } j++; } out += s.substring(i, j); i = j; continue; }
+        if (s[i] === "'") { let j = i + 1, c = ''; while (j < s.length) { if (s[j] === '\\' && j + 1 < s.length) { const n = s[j + 1]; if (n === "'") { c += "'"; j += 2; continue; } c += s[j] + n; j += 2; continue; } if (s[j] === "'") { j++; break; } c += s[j]; j++; } out += `"${c.replace(/"/g, '\\"')}"`; i = j; continue; }
+        const prev = i > 0 ? s[i - 1] : '\n';
+        if (/[{,[\s]/.test(prev)) { const m = s.substring(i).match(/^([a-zA-Z_$][\w$]*)(\s*:\s*)/); if (m) { out += `"${m[1]}"${m[2]}`; i += m[0].length; continue; } }
+        out += s[i]; i++;
+      }
+      return out.replace(/,(\s*[}\]])/g, '$1');
+    };
+    const typesFor = (cp: string): string[] => {
+      const sd = entries.get(cp)?.sd ?? '';
+      const parsed = JSON.parse(toJson(sd));
+      return (Array.isArray(parsed) ? parsed : [parsed]).map((x: Record<string, unknown>) => String(x['@type'] ?? ''));
+    };
+    expect(typesFor('/supporto/')).toContain('ContactPage');
+    expect(typesFor('/metodologia/')).toContain('AboutPage');
+  });
 });
