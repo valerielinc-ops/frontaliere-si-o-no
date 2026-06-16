@@ -194,6 +194,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.title': 'IA chatbot: il loro impatto sugli acquisti in Svizzera',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.excerpt': 'I chatbot di IA influenzano le scelte d\'acquisto quasi tre volte più di Google, spingendo le aziende svizzere ad adattarsi. Ma quanto è affidabile la loro neutralità?',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.imageAlt': 'Donna svizzera che usa un chatbot AI per decisioni d\'acquisto in un contesto urbano o domestico',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Tassa salute frontalieri: sindacati italiani e svizzeri attaccano la norma',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Sindacati italiani e svizzeri chiedono il ritiro definitivo della tassa salute, contestando la doppia imposizione e le incertezze applicative.',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Panorama di Lugano con uffici, scena urbana legata al tema fiscale dei frontalieri.',
 };
 
 export default blogMetaChIt;

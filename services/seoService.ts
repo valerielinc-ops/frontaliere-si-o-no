@@ -4062,6 +4062,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ia-chatbot-influenza-acquisti-svizzera': { name: 'Chatbot IA Acquisti', path: '/articoli-svizzera/ia-chatbot-influenza-acquisti-svizzera/', parent: 'blog' },
     'blog-mobilita-transfrontaliera-treni-autobus': { name: 'Mobilità transfrontaliera', path: '/articoli-frontaliere/mobilita-transfrontaliera-treni-autobus', parent: 'blog' },
     'blog-pd-m5s-avs-accelerano': { name: 'Politica italiana', path: '/articoli-frontaliere/pd-m5s-avs-accelerano', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-sindacati-attacco': { name: 'Tassa salute frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-sindacati-attacco/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

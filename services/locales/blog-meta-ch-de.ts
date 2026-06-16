@@ -194,6 +194,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.title': 'IA-Chatbots: Einfluss auf Käufe in der Schweiz',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.excerpt': 'IA-Chatbots beeinflussen Kaufentscheidungen fast dreimal stärker als Google, was Schweizer Unternehmen zur Anpassung zwingt. Doch wie zuverlässig ist ihre Neutralität?',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.imageAlt': 'Schweizer Frau nutzt KI-Chatbot für Kaufentscheidungen in einer städtischen oder häuslichen Umgebung',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Gesundheitsabgabe Grenzgänger: Gewerkschaften lehnen ab',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Italienische und Schweizer Gewerkschaften fordern die endgültige Abschaffung der Gesundheitsabgabe und kritisieren die Doppelbesteuerung sowie die Unsicherheiten bei der Anwendung.',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Stadtansicht von Lugano mit Büros, urbanes Bild zu Grenzgänger-Steuerfragen.',
 };
 
 export default blogMetaChDe;
