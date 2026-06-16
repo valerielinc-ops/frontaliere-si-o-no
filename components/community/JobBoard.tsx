@@ -4140,9 +4140,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!path) return { slug: '' };
  const r = parsePath(path).route;
  const hasInner = !!(r.jobSlug || r.jobBoardCity || r.jobBoardSector);
+ // Build never emits a 2+-level hub path under a canton section (every
+ // canonicalPath is `${section}/${slug}`), so the terminal segment is the
+ // slug. Uppercase the canton for parity with buildJobPath / getJobMetaForSlug
+ // (parsePath already returns uppercase ISO keys; this just makes it explicit).
  const parts = path.split('/').filter(Boolean);
  const slug = hasInner && parts.length ? parts[parts.length - 1] : '';
- return { canton: r.jobBoardCanton, slug };
+ return { canton: r.jobBoardCanton ? String(r.jobBoardCanton).toUpperCase() : undefined, slug };
  };
 
  // Anchor href for an editorial hub link, canton-aware. Falls back to the

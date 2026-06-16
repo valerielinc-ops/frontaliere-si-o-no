@@ -22,7 +22,7 @@ import {
  Clock, FileCheck, Mail, ExternalLink,
 } from 'lucide-react';
 import { useTranslation, type Locale, setLocale as setGlobalLocale, getLocale, LOCALE_LABELS } from '@/services/i18n';
-import { buildPath } from '@/services/router';
+import { buildPath, ensureJobSlugMapLoaded } from '@/services/router';
 import SubscriptionPreferencesController from '@/components/preferences/SubscriptionPreferencesController';
 import { useAuth, getUserDisplayName, getUserPhotoURL, promptOneTap, renderGoogleButton, cancelOneTap, deleteCurrentUser, signInWithFacebook, reAuthFacebook, getLinkedProviders, getAuthEmail, consumeFacebookProfilePrefill, eagerAuth, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
@@ -499,6 +499,13 @@ const UserProfile: React.FC = () => {
    })();
    return () => { cancelled = true; };
  }, [user]);
+ // The "my applications" links resolve their canton section from the job slug
+ // map (buildPath → getJobMetaForSlug). Ensure it is loaded so an applied
+ // non-TI job links to /cerca-lavoro-<canton>/… instead of the legacy TI
+ // default; the state bump re-renders once the map is in. Falls back to TI
+ // for jobs no longer in the map (expired), preserving prior behaviour.
+ const [, setSlugMapReady] = useState(false);
+ useEffect(() => { void ensureJobSlugMapLoaded().then(() => setSlugMapReady(true)); }, []);
  const [profile, setProfile] = useState<UserProfileData>(DEFAULT_PROFILE);
  const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
  const [showFamily, setShowFamily] = useState(false);

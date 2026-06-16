@@ -3372,10 +3372,23 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  // when canton not set, preserving backward-compat for all existing
  // /cerca-lavoro-ticino/{slug} URLs.
  const jobBoardLocale = lang as 'it' | 'en' | 'de' | 'fr';
- const jobBoardBase = route.jobBoardCanton
- ? (route.jobBoardCanton === JOB_BOARD_CANTON_AGGREGATE
+ // Canton-aware section resolution. Precedence:
+ //   1. explicit route.jobBoardCanton (set by the parser, JobBoard, hub links);
+ //   2. by-construction fallback — when no explicit canton but the jobSlug
+ //      maps to a KNOWN job, use that job's canton. This keeps every per-job
+ //      link canton-correct across ALL buildPath callers (blog teasers,
+ //      profile applications, salary/board leaders, chatbot, sitemap, …)
+ //      without per-call-site plumbing, so the link-canton class can't drift;
+ //   3. legacy TI default (table.jobBoard) — when the slug map isn't loaded
+ //      or the slug isn't a known job (company/location/search/city slugs),
+ //      preserving backward-compat for all existing /cerca-lavoro-ticino/{slug}.
+ const resolvedJobBoardCanton =
+ route.jobBoardCanton
+ || (route.jobSlug ? getJobMetaForSlug(route.jobSlug)?.canton : undefined);
+ const jobBoardBase = resolvedJobBoardCanton
+ ? (resolvedJobBoardCanton === JOB_BOARD_CANTON_AGGREGATE
  ? getAggregatorJobBoardSlug(jobBoardLocale)
- : getJobBoardSlugForCanton(route.jobBoardCanton, jobBoardLocale))
+ : getJobBoardSlugForCanton(resolvedJobBoardCanton, jobBoardLocale))
  : table.jobBoard;
  // When a sector hub is set, emit the clean canonical URL
  // (e.g. /cerca-lavoro-ticino/infermieri/). Precedes jobSlug so
