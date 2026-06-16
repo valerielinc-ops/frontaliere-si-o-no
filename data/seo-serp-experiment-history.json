@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-09T10:03:15.622Z",
+  "updatedAt": "2026-06-16T11:34:25.886Z",
   "lastSwitchAt": "2026-05-05T08:25:48.272Z",
   "lastVariant": "intent_simulation",
   "snapshots": [
@@ -227,6 +227,20 @@
         "exposures": 3908
       },
       "period": "2026-05-10 → 2026-06-07"
+    },
+    {
+      "createdAt": "2026-06-16T11:34:25.886Z",
+      "variant": "intent_simulation",
+      "enabled": true,
+      "kpi": {
+        "consideredPages": 20,
+        "totalImpressions": 92490,
+        "totalClicks": 7116,
+        "weightedCtr": 7.694,
+        "opportunities": 0,
+        "exposures": 4710
+      },
+      "period": "2026-05-17 → 2026-06-14"
     }
   ]
 }
