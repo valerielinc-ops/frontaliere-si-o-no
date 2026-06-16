@@ -8088,6 +8088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocchi-ristorni-berna-italia.title': 'Bern lehnt Blockade der Rückvergütungen ab',
     'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Die Schweizer Regierung hat erklärt, dass das Blockieren der Rückvergütungen auf die Mittel aus der italienischen Gesundheitsabgabe illegal ist, und bestätigt damit die offizielle Position.',
     'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Panoramablick auf die Grenze zwischen Tessin und Italien mit Pässen und Alpenlandschaften.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: Gesundheitsabgabe; Abzug von Ristournen widerspricht Vereinbarungen mit Rom',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'Der teilweise Abzug vom Ristournen-Gewinn, der durch die Gesundheitsabgabe generiert wird, widerspricht den Vereinbarungen zwischen Bern und Rom hinsichtlich dieser Arbeitnehmer.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama des Luganersee',
 };
 
 export default blogMetaDe;

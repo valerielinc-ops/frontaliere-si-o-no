@@ -8090,6 +8090,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocchi-ristorni-berna-italia.title': 'Berne refuse le blocage des remboursements par le Tessin',
     'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Le gouvernement suisse a déclaré que bloquer les remboursements sur les fonds générés par la taxe santé italienne est illégal, confirmant la position officielle.',
     'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vue panoramique de la frontière entre le Tessin et l\'Italie avec cols et paysages alpins.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: la taxe de santé; déduction des ristournes contraire les accords avec Rome',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La déduction partielle des ristournes du produit généré par la taxe de santé est contraire aux accords entre Berne et Rome concernant ces travailleurs frontaliers.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama du lac de Lugano',
 };
 
 export default blogMetaFr;
