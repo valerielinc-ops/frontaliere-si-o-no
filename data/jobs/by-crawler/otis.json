@@ -66,12 +66,12 @@
     },
     {
       "id": "otis-0d74225f0086",
-      "slug": "montageleiter-neuanlagen-m-w-d-otis-kriens",
+      "slug": "responsabile-installazioni-nuovi-sistemi-lunedi-meredi-otis-sa-kriens",
       "slugByLocale": {
-        "it": "montageleiter-neuanlagen-m-w-d-otis-kriens",
-        "en": "montageleiter-neuanlagen-m-w-d-otis-kriens",
+        "it": "responsabile-installazioni-nuovi-sistemi-lunedi-meredi-otis-sa-kriens",
+        "en": "installation-manager-new-systems-m-f-d-otis-sa-kriens",
         "de": "montageleiter-neuanlagen-m-w-d-otis-kriens",
-        "fr": "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        "fr": "nouvelles-installations-m-f-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -121,7 +121,21 @@
       },
       "postalCode": "6003",
       "country": "CH",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "previousSlugsByLocale": {
+        "it": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ],
+        "en": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ],
+        "fr": [
+          "montageleiter-neuanlagen-m-w-d-otis-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "montageleiter-neuanlagen-m-w-d-otis-kriens"
+      ]
     },
     {
       "id": "otis-7f97a484dee6",
@@ -1839,12 +1853,12 @@
     },
     {
       "id": "otis-1ac073744490",
-      "slug": "fp-a-manager-otis-fribourg",
+      "slug": "responsabile-fp-a-otis-sa-fribourg",
       "slugByLocale": {
-        "it": "fp-a-manager-otis-fribourg",
+        "it": "responsabile-fp-a-otis-sa-fribourg",
         "en": "fp-a-manager-otis-fribourg",
         "de": "fp-a-manager-otis-fribourg",
-        "fr": "fp-a-manager-otis-fribourg"
+        "fr": "gestionnaire-fp-a-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1894,7 +1908,18 @@
       },
       "postalCode": "1700",
       "country": "CH",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "fp-a-manager-otis-fribourg"
+        ],
+        "fr": [
+          "fp-a-manager-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "fp-a-manager-otis-fribourg"
+      ]
     }
   ]
 }

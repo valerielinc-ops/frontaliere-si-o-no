@@ -973,8 +973,7 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-de-production-siegfried-zofingen",
-        "ingegnere-di-produzione-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1634,11 +1633,11 @@
     },
     {
       "id": "siegfried-40180fafe703",
-      "slug": "technicien-de-maintenance-electricite-siegfried-ch",
+      "slug": "manutenzione-tecnica-elettrica-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "technicien-de-maintenance-electricite-siegfried-ch",
-        "en": "technicien-de-maintenance-electricite-siegfried-ch",
-        "de": "technicien-de-maintenance-electricite-siegfried-ch",
+        "it": "manutenzione-tecnica-elettrica-siegfried-evionnaz",
+        "en": "maintenance-electricity-technician-siegfried-evionnaz",
+        "de": "wartungs-stromtechniker-siegfried-evionnaz",
         "fr": "technicien-de-maintenance-electricite-siegfried-ch"
       },
       "company": "Siegfried",
@@ -1694,7 +1693,21 @@
         }
       },
       "postalCode": "1950",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-electricite-siegfried-ch"
+        ],
+        "en": [
+          "technicien-de-maintenance-electricite-siegfried-ch"
+        ],
+        "de": [
+          "technicien-de-maintenance-electricite-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-electricite-siegfried-ch"
+      ]
     }
   ]
 }

@@ -432,12 +432,12 @@
     },
     {
       "id": "ksbl-1f87f6de291d",
-      "slug": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+      "slug": "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal-e75f29",
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "assistant-e-medical-e-junior-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -481,10 +481,12 @@
       "previousSlugs": [
         "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal",
+        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
         "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
+        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
         "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal",
         "sous-assistant-en-medecine-a-kantonsspital-baselland-ksbl-liestal",
+        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
         "segretaria-o-di-clinica-in-medicina-kantonsspital-baselland-ksbl-liestal",
         "medical-secretary-innere-medicine-kantonsspital-baselland-ksbl-liestal",
         "kliniksekretarin-kliniksekretar-medizin-a-ksbl-liestal",
@@ -494,16 +496,18 @@
         "it": [
           "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "sottoassistente-medicina-a-kantonsspital-baselland-ksbl-liestal"
+          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "en": [
           "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
+          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
           "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "sous-assistant-en-medecine-a-kantonsspital-baselland-ksbl-liestal"
+          "sous-assistant-en-medecine-a-kantonsspital-baselland-ksbl-liestal",
+          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-06-14T22:17:45.192Z",
@@ -5096,8 +5100,7 @@
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
         "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
+        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6745,7 +6748,7 @@
       "slug": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
+        "en": "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
         "fr": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
       },
@@ -6791,7 +6794,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
-        "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -6799,7 +6801,6 @@
           "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
         ],
         "en": [
-          "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
         ]
       },
@@ -7271,9 +7272,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-ksbl-liestal",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-ksbl-liestal",
+        "en": "dipl-nurse-walk-in-practice-emergency-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-walk-in-praxis-notfall-a-ksbl-liestal"
+        "fr": "infirmier-diplome-cabinet-d-urgence-sans-rendez-vous-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",

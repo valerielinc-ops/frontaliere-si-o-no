@@ -3415,8 +3415,6 @@
         "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
         "health-professional-a-spital-emmental-burgdorf",
         "specialiste-de-la-sante-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf",
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
         "salute-specialistica-a-spital-emmental-burgdorf",
         "specialist-health-a-spital-emmental-burgdorf",
         "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675"
@@ -3953,12 +3951,12 @@
     },
     {
       "id": "spital-emmental-86e38d9aeb05",
-      "slug": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
+      "slug": "fisioterapista-diplomato-a-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
-        "en": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
+        "it": "fisioterapista-diplomato-a-a-spital-emmental-burgdorf-langnau",
+        "en": "dipl-physiotherapist-a-spital-emmental-burgdorf-langnau",
         "de": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf",
-        "fr": "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+        "fr": "physiotherapeute-diplome-e-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4017,16 +4015,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherapeut-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-3f5d1297f612",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+      "slug": "infermiera-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "it": "infermiera-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        "fr": "infirmiere-diplomee-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4085,7 +4097,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-86396e92300f",
@@ -4227,12 +4250,12 @@
     },
     {
       "id": "spital-emmental-e27724b4f6f0",
-      "slug": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
+      "slug": "piscina-sanitaria-professionale-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
-        "en": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
+        "it": "piscina-sanitaria-professionale-a-spital-emmental-burgdorf-langnau",
+        "en": "professional-health-care-pool-a-spital-emmental-burgdorf-langnau",
         "de": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf",
-        "fr": "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+        "fr": "groupe-de-soins-de-sante-professionnels-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4291,16 +4314,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-pflegepool-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-f8dd89aacfea",
-      "slug": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+      "slug": "nutrizionista-in-bsc-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
-        "en": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+        "it": "nutrizionista-in-bsc-a-spital-emmental-burgdorf-langnau",
+        "en": "nutritionist-in-bsc-a-spital-emmental-burgdorf-langnau",
         "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
-        "fr": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        "fr": "nutritionniste-en-bsc-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4359,7 +4396,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

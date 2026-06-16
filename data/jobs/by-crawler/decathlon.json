@@ -938,7 +938,7 @@
         "it": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
         "en": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
         "de": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
-        "fr": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
+        "fr": "chef-de-magasin-m-f-j-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1477,7 +1477,7 @@
       "slugByLocale": {
         "it": "servizio-clienti-capo-squadra-m-f-x-permanent-100-niederwangen-bern-decathlon-koniz",
         "en": "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch",
-        "de": "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch",
+        "de": "kundenservice-teamleiter-m-w-x-festangestellt-100-niederwangen-bern-decathlon-koniz",
         "fr": "chef-d-equipe-du-service-a-la-clientele-m-f-x-permanent-100-niederwangen-berne-decathlon-koniz"
       },
       "company": "Decathlon",
@@ -1533,6 +1533,9 @@
           "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch"
         ],
         "fr": [
+          "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch"
+        ],
+        "de": [
           "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch"
         ]
       },
@@ -1796,7 +1799,7 @@
         "it": "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich",
         "en": "workshop-technician-60-city-of-zurich-decathlon-zurich",
         "de": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "fr": "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        "fr": "technicien-atelier-60-ville-de-zurich-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1845,7 +1848,8 @@
           "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
         ],
         "fr": [
-          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich"
+          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
+          "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-11T07:53:18.829Z",
@@ -2315,9 +2319,9 @@
     },
     {
       "id": "decathlon-609b3c8853ca",
-      "slug": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
+      "slug": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
       "slugByLocale": {
-        "it": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
+        "it": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "en": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "de": "kundenserviceberater-fr-de-eng-befristeter-vertrag-decathlon-onnens",
         "fr": "conseiller-en-service-client-fr-de-eng-contrat-a-duree-determinee-decathlon-onnens"
@@ -2368,7 +2372,6 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
-          "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
           "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
         ],
         "de": [
@@ -2380,7 +2383,7 @@
       },
       "previousSlugs": [
         "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
-        "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "kundendienst-berater-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens"
       ],
@@ -3802,9 +3805,9 @@
     },
     {
       "id": "decathlon-2fa45a6b9294",
-      "slug": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
+      "slug": "tecnico-di-officina-80-l-fe-cdd-6-mesi-bussigny-decathlon-bussigny",
       "slugByLocale": {
-        "it": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
+        "it": "tecnico-di-officina-80-l-fe-cdd-6-mesi-bussigny-decathlon-bussigny",
         "en": "technician-workshop-80-h-f-csd-6-months-bussigny-decathlon-bussigny",
         "de": "werkstatttechniker-80-m-f-cdd-6-monate-bussigny-decathlon-bussigny",
         "fr": "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch"
@@ -3866,12 +3869,12 @@
         ]
       },
       "previousSlugs": [
-        "tecnico-di-officina-80-l-fe-cdd-6-mesi-bussigny-decathlon-bussigny",
+        "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch",
         "techniker-workshop-80-h-f-csd-6-monate-bussigny-decathlon-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-officina-80-l-fe-cdd-6-mesi-bussigny-decathlon-bussigny"
+          "technicien-atelier-80-h-f-cdd-6-mois-bussigny-decathlon-ch"
         ],
         "de": [
           "techniker-workshop-80-h-f-csd-6-monate-bussigny-decathlon-bussigny"
@@ -4205,9 +4208,9 @@
     },
     {
       "id": "decathlon-bc0698c7b29c",
-      "slug": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
+      "slug": "meccanico-tecnico-di-ciclismo-m-f-80-100-cdi-conthey-decathlon-conthey",
       "slugByLocale": {
-        "it": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
+        "it": "meccanico-tecnico-di-ciclismo-m-f-80-100-cdi-conthey-decathlon-conthey",
         "en": "mechanic-technician-cycle-h-f-80-100-cdi-conthey-decathlon-conthey",
         "de": "mechaniker-techniker-zyklus-h-f-80-100-cdi-conthey-decathlon-conthey",
         "fr": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
@@ -4258,11 +4261,13 @@
         ]
       },
       "previousSlugs": [
-        "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey"
+        "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
+        "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey"
+          "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
+          "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.768Z",
@@ -4836,9 +4841,9 @@
       "slug": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-heimberg",
       "slugByLocale": {
         "it": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-heimberg",
-        "en": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch",
+        "en": "sport-leader-sales-advisor-m-f-d-40-60-fixed-term-heimberg-decathlon-heimberg",
         "de": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
+        "fr": "leader-sport-conseiller-commercial-h-f-40-60-cdd-heimberg-decathlon-heimberg"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4884,6 +4889,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-40-60-befristet-heimberg-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T22:15:11.978Z",
@@ -4905,8 +4916,8 @@
       "slug": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
       "slugByLocale": {
         "it": "vendeur-sportif-m-w-d-passionne-e-outdoor-decathlon-biel",
-        "en": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
-        "de": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch",
+        "en": "sports-salesperson-m-f-outdoor-enthusiast-decathlon-biel",
+        "de": "sportverkaufer-m-w-outdoor-enthusiast-decathlon-biel",
         "fr": "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4953,6 +4964,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
+        ],
+        "en": [
+          "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
+        ],
+        "de": [
+          "vendeur-sportif-h-f-passionne-e-outdoor-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-12T22:15:11.663Z",
@@ -4971,12 +4988,12 @@
     },
     {
       "id": "decathlon-66642e2eaa2a",
-      "slug": "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
+      "slug": "consulente-sportivo-dipartimento-ciclismo-decathlon-suhr-80-100-permanente-decathlon-suhr",
       "slugByLocale": {
-        "it": "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
-        "en": "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
+        "it": "consulente-sportivo-dipartimento-ciclismo-decathlon-suhr-80-100-permanente-decathlon-suhr",
+        "en": "sports-consultant-cycling-department-decathlon-suhr-80-100-permanent-decathlon-suhr",
         "de": "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch",
-        "fr": "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+        "fr": "consultant-sportif-departement-cyclisme-decathlon-suhr-80-100-permanent-decathlon-suhr"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -5028,16 +5045,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+        ],
+        "fr": [
+          "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sportberater-in-veloabteilung-decathlon-suhr-80-100-unbefristet-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-4a2b171c69cc",
       "slug": "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-suhr",
       "slugByLocale": {
         "it": "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-suhr",
-        "en": "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch",
+        "en": "sports-consultant-cycling-department-decathlon-suhr-20-temporary-decathlon-suhr",
         "de": "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch",
-        "fr": "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch"
+        "fr": "consultant-sportif-departement-cyclisme-decathlon-suhr-20-temporaire-decathlon-suhr"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -5082,6 +5113,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch"
+        ],
+        "en": [
+          "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch"
+        ],
+        "fr": [
           "sportberater-in-veloabteilung-decathlon-suhr-20-befristet-decathlon-ch"
         ]
       },

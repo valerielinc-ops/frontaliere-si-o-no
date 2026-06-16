@@ -623,7 +623,7 @@
       "slug": "collaboratore-trice-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "collaboratore-trice-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "mitarbeiter-in-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "employee-hotel-service-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "mitarbeiter-in-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "collaborateur-trice-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       },
@@ -675,6 +675,9 @@
         ],
         "fr": [
           "mitarbeiter-in-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "mitarbeiter-in-hotellerie-service-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-06-11T12:39:23.386Z",
@@ -693,9 +696,9 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-af5ac4960f12",
-      "slug": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "responsabile-del-caso-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "responsabile-del-caso-f-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "fr": "gestionnaire-de-cas-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -753,10 +756,16 @@
         }
       },
       "previousSlugs": [
+        "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
         "portfolio-manager-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "gestionnaire-de-portefeuille-en-m-m-j-gesundheitszentrum-fricktal-rheinfelden",
         "gestionnaire-de-portefeuille-en-m-p-p-gesundheitszentrum-fricktal-rheinfelden"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "case-manager-in-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      }
     }
   ]
 }

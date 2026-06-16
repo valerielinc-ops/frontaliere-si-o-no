@@ -7,9 +7,9 @@
       "slug": "leiterin-leiter-stab-spitaldirektion-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "leiterin-leiter-stab-spitaldirektion-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "leiterin-leiter-stab-spitaldirektion-ipw-winterthur",
+        "en": "head-of-staff-hospital-management-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "leiterin-leiter-stab-spitaldirektion-ipw-winterthur",
-        "fr": "leiterin-leiter-stab-spitaldirektion-ipw-winterthur"
+        "fr": "chef-de-la-gestion-de-l-hopital-de-personnel-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -59,6 +59,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-stab-spitaldirektion-ipw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-stab-spitaldirektion-ipw-winterthur"
+        ],
+        "fr": [
           "leiterin-leiter-stab-spitaldirektion-ipw-winterthur"
         ]
       },
@@ -493,12 +499,12 @@
     },
     {
       "id": "ipw-134a1e74b052",
-      "slug": "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg",
+      "slug": "psicologo-psicologo-rappresentazione-della-maternita-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
       "slugByLocale": {
-        "it": "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg",
-        "en": "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg",
+        "it": "psicologo-psicologo-rappresentazione-della-maternita-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "en": "psychologist-psychologist-maternity-representation-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
         "de": "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg",
-        "fr": "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg"
+        "fr": "psychologue-remplacement-de-maternite-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -555,7 +561,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg"
+        ],
+        "en": [
+          "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg"
+        ],
+        "fr": [
+          "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-mutterschaftsvertretung-ipw-glattbrugg"
+      ]
     },
     {
       "id": "ipw-952a6551be5c",
@@ -969,12 +989,12 @@
     },
     {
       "id": "ipw-d0db9b8203c0",
-      "slug": "assistenzarztin-assistenzarzt-ipw-glattbrugg",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-ipw-glattbrugg",
-        "en": "assistenzarztin-assistenzarzt-ipw-glattbrugg",
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-glattbrugg",
         "de": "assistenzarztin-assistenzarzt-ipw-glattbrugg",
-        "fr": "assistenzarztin-assistenzarzt-ipw-glattbrugg"
+        "fr": "medecin-assistant-integrierte-psychiatrie-winterthur-ipw-glattbrugg"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1031,7 +1051,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-glattbrugg"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-glattbrugg"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-glattbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-glattbrugg"
+      ]
     },
     {
       "id": "ipw-c538e294c7b4",
@@ -1208,12 +1242,12 @@
     },
     {
       "id": "ipw-75c94ad4ca3b",
-      "slug": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur",
+      "slug": "specialista-certificato-di-attivazione-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur",
-        "en": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur",
+        "it": "specialista-certificato-di-attivazione-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "certified-activation-specialist-hf-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur",
-        "fr": "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur"
+        "fr": "specialiste-certifie-en-activation-hf-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1270,16 +1304,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur"
+        ],
+        "en": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur"
+        ],
+        "fr": [
+          "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-aktivierungsfachfrau-aktivierungsfachmann-hf-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-58f8d662fce9",
       "slug": "leiterin-leiter-patientenadministration-e-empfang-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
         "it": "leiterin-leiter-patientenadministration-e-empfang-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur",
+        "en": "head-of-patient-administration-and-reception-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur",
-        "fr": "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur"
+        "fr": "responsable-de-l-administration-et-de-la-reception-des-patients-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1329,6 +1377,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur"
+        ],
+        "en": [
+          "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur"
+        ],
+        "fr": [
           "leiterin-leiter-patientenadministration-und-empfang-ipw-winterthur"
         ]
       },

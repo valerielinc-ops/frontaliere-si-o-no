@@ -2205,12 +2205,12 @@
     },
     {
       "id": "sro-badc742a316f",
-      "slug": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+      "slug": "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+        "it": "infermiere-laureato-in-hf-fh-80-100-dipartimento-di-medicina-generale-riabilitazione-geriatrica-acuta-sro-ag-spital",
         "en": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
         "de": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
-        "fr": "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
+        "fr": "infirmiere-diplomee-hf-fh-80-100-departement-de-medecine-generale-reeducation-aigue-geriatrique-sro-ag-spital-region"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2270,16 +2270,17 @@
         }
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
-        "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
-        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal"
+        "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische",
+        "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal",
+        "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
+        "infermiera-professionale-diplomata-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "infirmiere-diplomee-hf-fh-80-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-infermiera-hf-fh-80-100-home-trattamento-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
@@ -2288,18 +2289,19 @@
           "dipl-pflegefachperson-hf-fh-80-100-home-treatment-sro-langenthal"
         ],
         "fr": [
-          "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-infirmiere-hf-fh-80-100-soins-a-domicile-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachperson-hf-fh-80-100-br-abteilung-allgemein-medizin-geriatrische"
         ]
       }
     },
     {
       "id": "sro-012b12cbfb0f",
-      "slug": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+      "slug": "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
+        "it": "dipl-infermiera-ic-fh-70-100-medicina-generale-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+        "fr": "dipl-infirmiere-ic-fh-70-100-medecine-generale-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2357,16 +2359,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-70-100-allg-medizin-sro-langenthal"
+      ]
     },
     {
       "id": "sro-e9e94395a453",
-      "slug": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+      "slug": "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
+        "it": "dipl-infermiera-ic-fh-70-100-chirurgia-generale-sro-ag-spital-region-oberaargau-langenthal",
         "en": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+        "fr": "dipl-infirmiere-ic-fh-70-100-chirurgie-generale-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2424,7 +2437,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-70-100-allg-chirurgie-sro-langenthal"
+      ]
     },
     {
       "id": "sro-2e13c6fb5d17",
@@ -3456,9 +3480,9 @@
       "slug": "chefarztin-chefarzt-stationare-psychiatrie-e-mobile-akutbehandlung-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "chefarztin-chefarzt-stationare-psychiatrie-e-mobile-akutbehandlung-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal",
+        "en": "chief-physician-inpatient-psychiatry-and-mobile-acute-treatment-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal",
-        "fr": "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal"
+        "fr": "medecin-chef-cheffe-psychiatrie-hospitaliere-et-traitement-aigu-mobile-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3509,6 +3533,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal"
+        ],
+        "en": [
+          "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal"
+        ],
+        "fr": [
           "chefarztin-chefarzt-stationare-psychiatrie-und-mobile-akutbehandlung-80-100-sro-langenthal"
         ]
       },
