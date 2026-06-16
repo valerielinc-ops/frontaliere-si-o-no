@@ -85,6 +85,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { it: 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale', en: 'switzerland-sends-signal-in-favour-of-europe-and-economy', de: 'die-schweiz-sendet-einen-signal-an-fur-europa-und-wirtschaft', fr: 'la-suisse-envoie-un-signal-en-faveur-de-l-europe-et-de-l-economie' },
  'deduzione-da-ristorni-contraria-accordi-con-roma': { it: 'deduzione-da-ristorni-contraria-accordi-con-roma', en: 'deduction-from-rentals-contrary-to-rome-agreements', de: 'abzug-und-abhebung-gegen-vertrage-mit-rom', fr: 'depense-rentement-contre-l-accord-avec-rome' },
  'cicor-piano-efficienza-tagli-lavoro': { it: 'cicor-piano-efficienza-tagli-lavoro', en: 'cicor-efficiency-plan-job-cuts', de: 'cicor-effizienzplan-stellenabbau', fr: 'cicor-plan-efficacite-reduction-emplois' },
+ 'ia-chatbot-influenza-acquisti-svizzera': { it: 'ia-chatbot-influenza-acquisti-svizzera', en: 'ai-chatbot-influence-purchases-switzerland', de: 'ki-chatbot-einfluss-einkaeufe-schweiz', fr: 'chatbot-ia-influence-achats-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

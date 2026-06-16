@@ -191,6 +191,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cicor-piano-efficienza-tagli-lavoro.title': 'Cicor: Effizienzprogramm und 220 Stellenstreichungen',
     'blog.article.cicor-piano-efficienza-tagli-lavoro.excerpt': 'Cicor kündigt ein Effizienzprogramm mit dem Verkauf des Werks in Tunesien und dem Abbau von 220 Stellen an, davon etwa zehn in der Schweiz.',
     'blog.article.cicor-piano-efficienza-tagli-lavoro.imageAlt': 'Schweizer Unternehmenssitz mit modernen Gebäuden und Mitarbeitern.',
+    'blog.article.ia-chatbot-influenza-acquisti-svizzera.title': 'IA-Chatbots: Einfluss auf Käufe in der Schweiz',
+    'blog.article.ia-chatbot-influenza-acquisti-svizzera.excerpt': 'IA-Chatbots beeinflussen Kaufentscheidungen fast dreimal stärker als Google, was Schweizer Unternehmen zur Anpassung zwingt. Doch wie zuverlässig ist ihre Neutralität?',
+    'blog.article.ia-chatbot-influenza-acquisti-svizzera.imageAlt': 'Schweizer Frau nutzt KI-Chatbot für Kaufentscheidungen in einer städtischen oder häuslichen Umgebung',
 };
 
 export default blogMetaChDe;

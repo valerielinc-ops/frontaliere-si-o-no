@@ -4059,6 +4059,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-rientro-definitivo-gestione-conti-chf': { name: 'Rientro definitivo frontaliere', path: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf', parent: 'blog' },
     'blog-cicor-piano-efficienza-tagli-lavoro': { name: 'Cicor efficienza lavoro', path: '/articoli-svizzera/cicor-piano-efficienza-tagli-lavoro/', parent: 'blog' },
     'blog-accordo-trasporti-ticino-lombardia-potenziamento-collegamenti': { name: 'Trasporti Transfrontalieri', path: '/articoli-frontaliere/accordo-trasporti-ticino-lombardia-potenziamento-collegamenti', parent: 'blog' },
+    'blog-ia-chatbot-influenza-acquisti-svizzera': { name: 'Chatbot IA Acquisti', path: '/articoli-svizzera/ia-chatbot-influenza-acquisti-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
