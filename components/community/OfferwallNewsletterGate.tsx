@@ -130,6 +130,10 @@ const OfferwallNewsletterGate: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
   // The pending promise resolver handed back to the Offerwall's show().
   const resolverRef = useRef<((granted: boolean) => void) | null>(null);
+  // Ref so the hook closure always reads the current locale without locale
+  // being an effect dependency (avoids cleanup→settle(false) on locale change).
+  const localeRef = useRef(locale);
+  localeRef.current = locale;
 
   const settle = useCallback((granted: boolean) => {
     const resolve = resolverRef.current;
@@ -144,13 +148,13 @@ const OfferwallNewsletterGate: React.FC = () => {
       // If a previous invocation is still pending, deny it (the Offerwall only
       // shows one choice at a time, but be defensive).
       if (resolverRef.current) resolverRef.current(false);
-      setActiveLocale(normalizeLocale(offerwallLang, locale));
+      setActiveLocale(normalizeLocale(offerwallLang, localeRef.current));
       setEmail('');
       setConsentChecked(false);
       setStatus('idle');
       setErrorMessage('');
       setOpen(true);
-      try { Analytics.trackUIInteraction('offerwall_gate', 'modal', 'show', String(offerwallLang || locale)); } catch { /* no-op */ }
+      try { Analytics.trackUIInteraction('offerwall_gate', 'modal', 'show', String(offerwallLang || localeRef.current)); } catch { /* no-op */ }
       return new Promise<boolean>((resolve) => {
         resolverRef.current = resolve;
       });
@@ -163,7 +167,7 @@ const OfferwallNewsletterGate: React.FC = () => {
       // Resolve any dangling promise so the Offerwall isn't left hanging.
       if (resolverRef.current) settle(false);
     };
-  }, [locale, settle]);
+  }, [settle]);
 
   const copy = COPY[activeLocale];
 
