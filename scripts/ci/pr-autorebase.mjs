@@ -167,6 +167,20 @@ function headHasVitestCheck(head) {
   return (parseInt((out || '0').trim(), 10) || 0) > 0;
 }
 
+/** Conclusion del check-run `vitest (unit + integration)` sull'head (''
+ * se assente/pending). Diverso da headHasVitestCheck (sola presenza): serve a
+ * NON skippare il rebase quando vitest=`failure` — una PR behind+LGTM con vitest
+ * rosso NON è mergeable-as-is (auto-merge-eval esige conclusion==success), quindi
+ * va rebasata per ereditare eventuali fix lato main invece di restare stuck
+ * (autorebase skippa, auto-merge rifiuta → loop). */
+function vitestConclusion(head) {
+  const out = gh(
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
+      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})][0].conclusion // ""`],
+    { json: false, allowFail: true });
+  return (out || '').trim();
+}
+
 /** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il
  * suo `workflow_run: completed` ri-valuta auto-merge-on-lgtm (LGTM portato avanti
  * da auto-merge-eval). Best-effort: serve PAT con scope actions:write. */
@@ -388,8 +402,14 @@ async function processPR(pr) {
   // rebase serve DAVVERO: collision-risk (il gate collisione esige il rebase
   // oltre l'altra PR) e stale-review (drift/conflitto). Una LGTM'd+verde senza
   // collisione → lasciala ad auto-merge.
-  if (lgtm && headHasVitestCheck(head) && !labels.includes('collision-risk')) {
-    console.log(`PR #${num} LGTM + vitest verde sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla romperebbe il check).`);
+  // NB: vitest deve essere non-`failure`. headHasVitestCheck (sola presenza) NON
+  // basta: una PR behind+LGTM con vitest=failure sull'head NON è mergeable-as-is
+  // (auto-merge-eval esige conclusion==success) → skipparla la lascia stuck per
+  // sempre (autorebase salta, auto-merge rifiuta, cron ripete). Su failure va
+  // rebasata per ereditare eventuali fix lato main. Pending/success/assente:
+  // comportamento invariato.
+  if (lgtm && headHasVitestCheck(head) && vitestConclusion(head) !== 'failure' && !labels.includes('collision-risk')) {
+    console.log(`PR #${num} LGTM + vitest non-failure sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla romperebbe il check).`);
     return;
   }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
