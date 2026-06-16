@@ -194,6 +194,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.title': 'AI Chatbots: Their Impact on Shopping in Switzerland',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.excerpt': 'AI chatbots influence purchasing decisions nearly three times more than Google, pushing Swiss companies to adapt. But how reliable is their neutrality?',
     'blog.article.ia-chatbot-influenza-acquisti-svizzera.imageAlt': 'Swiss woman using an AI chatbot for purchasing decisions in an urban or home setting',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Health tax for cross-border workers: unions challenge rule',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Italian and Swiss unions demand the permanent withdrawal of the health tax, citing double taxation and unclear implementation issues.',
+    'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Lugano cityscape with offices, urban scene related to cross-border fiscal issues.',
 };
 
 export default blogMetaChEn;

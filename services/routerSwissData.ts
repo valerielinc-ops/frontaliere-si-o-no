@@ -86,6 +86,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'deduzione-da-ristorni-contraria-accordi-con-roma': { it: 'deduzione-da-ristorni-contraria-accordi-con-roma', en: 'deduction-from-rentals-contrary-to-rome-agreements', de: 'abzug-und-abhebung-gegen-vertrage-mit-rom', fr: 'depense-rentement-contre-l-accord-avec-rome' },
  'cicor-piano-efficienza-tagli-lavoro': { it: 'cicor-piano-efficienza-tagli-lavoro', en: 'cicor-efficiency-plan-job-cuts', de: 'cicor-effizienzplan-stellenabbau', fr: 'cicor-plan-efficacite-reduction-emplois' },
  'ia-chatbot-influenza-acquisti-svizzera': { it: 'ia-chatbot-influenza-acquisti-svizzera', en: 'ai-chatbot-influence-purchases-switzerland', de: 'ki-chatbot-einfluss-einkaeufe-schweiz', fr: 'chatbot-ia-influence-achats-suisse' },
+ 'tassa-salute-frontalieri-sindacati-attacco': { it: 'tassa-salute-frontalieri-sindacati-attacco', en: 'health-tax-crossborder-unions-criticism', de: 'gesundheitsabgabe-grenzgaenger-gewerkschaften', fr: 'taxe-sante-frontalier-syndicats-attaque' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

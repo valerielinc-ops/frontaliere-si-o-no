@@ -2438,6 +2438,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-sindacati-attacco': {
+    title: 'Tassa salute frontalieri: sindacati italiani e svizzeri attaccano la norma',
+    description: 'Sindacati italiani e svizzeri chiedono il ritiro della tassa salute, contestando doppia imposizione e caos fiscale. Implicazioni per frontalieri e cantoni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, sindacati, italiani',
+    ogTitle: 'Tassa salute frontalieri: sindacati italiani e svizzeri attaccano',
+    ogDescription: 'Sindacati italiani e svizzeri chiedono il ritiro della tassa salute. Impatto fiscale sui frontalieri e comuni di confine.',
+    canonicalPath: '/articoli-svizzera/tassa-salute-frontalieri-sindacati-attacco/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: sindacati italiani e svizzeri attaccano la norma",
+      "description": "Sindacati italiani e svizzeri chiedono il ritiro della tassa salute, contestando doppia imposizione e caos fiscale. Implicazioni per frontalieri e cantoni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-sindacati-attacco.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano con uffici, scena urbana legata al tema fiscale dei frontalieri."
+      },
+      "datePublished": "2026-06-16T19:53:49+00:00",
+      "dateModified": "2026-06-16T19:53:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tassa-salute-frontalieri-sindacati-attacco/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
