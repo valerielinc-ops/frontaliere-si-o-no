@@ -17,6 +17,7 @@
  */
 
 import { buildPath } from '@/services/router';
+import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 
 // ─── Types ────────────────────────────────────────────────────────────────
@@ -242,7 +243,9 @@ export function scoreJob(
 export function buildJobUrl(job: JobRecord, locale: Locale): string {
  const localisedSlug = job.slugByLocale?.[locale];
  const slug = localisedSlug && localisedSlug.length > 0 ? localisedSlug : job.slug;
- return buildPath({ activeTab: 'job-board', jobSlug: slug }, locale);
+ // Canton-aware section so a non-TI job links to /cerca-lavoro-zurigo/…
+ // instead of collapsing onto the legacy TI default (table.jobBoard).
+ return buildPath({ activeTab: 'job-board', jobBoardCanton: resolveJobCanton(job), jobSlug: slug }, locale);
 }
 
 // ─── Main entrypoint ──────────────────────────────────────────────────────

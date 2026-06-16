@@ -14,6 +14,6 @@ describe('JobBoard mobile Google redirect flow', () => {
     expect(source).toContain("const redirectProvider = (() => {");
     expect(source).toContain("if (redirectProvider === provider) {");
     expect(source).toContain("if (initialJobSlug === redirectSlug) return;");
-    expect(source).toContain('onJobRouteChange?.(redirectSlug);');
+    expect(source).toContain('onJobRouteChange?.(redirectSlug, getJobMetaForSlug(redirectSlug)?.canton);');
   });
 });
