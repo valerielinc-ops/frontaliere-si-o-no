@@ -143,7 +143,7 @@ jobs:
         # always() so we still collect timings when a shard is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
         if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: shard-timing-${{ matrix.shard }}
           path: shard-timing-${{ matrix.shard }}.json
