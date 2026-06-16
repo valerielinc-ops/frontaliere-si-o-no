@@ -1712,7 +1712,23 @@
         }
       },
       "postalCode": "1950",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "manutenzione-tecnica-elettrica-siegfried-evionnaz"
+        ],
+        "en": [
+          "maintenance-electricity-technician-siegfried-evionnaz"
+        ],
+        "de": [
+          "wartungs-stromtechniker-siegfried-evionnaz"
+        ]
+      },
+      "previousSlugs": [
+        "manutenzione-tecnica-elettrica-siegfried-evionnaz",
+        "maintenance-electricity-technician-siegfried-evionnaz",
+        "wartungs-stromtechniker-siegfried-evionnaz"
+      ]
     },
     {
       "id": "siegfried-92f9d8bebb01",

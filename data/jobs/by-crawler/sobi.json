@@ -822,14 +822,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-director-director-clinical-pharmacology-sobi-basel"
+        "associate-director-director-clinical-pharmacology-sobi-basel",
+        "associate-director-director-klinische-pharmakologie-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-director-director-clinical-pharmacology-sobi-basel"
         ],
         "de": [
-          "associate-director-director-clinical-pharmacology-sobi-basel"
+          "associate-director-director-clinical-pharmacology-sobi-basel",
+          "associate-director-director-klinische-pharmakologie-sobi-basel"
         ],
         "fr": [
           "associate-director-director-clinical-pharmacology-sobi-basel"
@@ -912,7 +914,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-director-leader-du-developpement-de-la-medecine-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-director-leader-du-developpement-de-la-medecine-sobi-basel"
+      ]
     },
     {
       "id": "sobi-518ed6bcfd09",
