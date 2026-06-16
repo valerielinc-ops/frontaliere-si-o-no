@@ -19,26 +19,9 @@ import sharp from 'sharp';
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies (dtCookie, BIGipServer*, TS*) on the
 // first response. Subsequent requests from the same IP without those cookies get 403.
-// This cookie jar collects them from each response and resends them on the next fetch,
-// exactly as a browser would — restoring session continuity across all feed fetches.
-const tiChCookieJar = new Map();
-
-function buildCookieHeader() {
-  if (tiChCookieJar.size === 0) return undefined;
-  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
-}
-
-function updateCookieJar(response) {
-  // getSetCookie() returns each Set-Cookie header as a separate string (Node 20+)
-  const setCookies = response.headers.getSetCookie?.() ?? [];
-  for (const cookie of setCookies) {
-    const [nameValue] = cookie.split(';');
-    const eqIdx = nameValue.indexOf('=');
-    if (eqIdx > 0) {
-      tiChCookieJar.set(nameValue.slice(0, eqIdx).trim(), nameValue.slice(eqIdx + 1).trim());
-    }
-  }
-}
+// The shared per-process cookie jar collects them from each response and resends them on
+// the next fetch, exactly as a browser would — restoring session continuity across feeds.
+import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 
 // Feed URLs — deduplicated. Multiple crossings may share the same physical camera.
 export const WEBCAM_FEEDS = {
@@ -105,6 +88,19 @@ export const WEBCAM_FEEDS = {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
     crossings: ['campione-d-italia-bissone'],
     box: [80, 100, 192, 88],
+    baselineVariance: 18,
+  },
+  // A2 Coldrerio (km 4.4N) — approach corridor north of the Chiasso/Brogeda
+  // customs. 400x225 GIF. The default center box catches the chevron-painted gore
+  // and the textured concrete median barrier (stripes) → inflated variance. Box
+  // shifted up-right onto the clean far-carriageway asphalt, excluding the gore,
+  // median wall, and the left grass embankment. Calibrated 2026-06-16: moderate
+  // midday traffic scores ~0.07 (clear); a car-dense region of this same frame
+  // measured stdev 34–39 (score 0.54–0.71), so a real queue clears the 0.4 gate.
+  '04.4N': {
+    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/04.4N.gif',
+    crossings: ['chiasso-brogeda'],
+    box: [160, 35, 110, 45],
     baselineVariance: 18,
   },
 };
