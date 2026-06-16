@@ -25677,6 +25677,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'rientro-definitivo-gestione-conti-chf',
+ category: 'fiscale',
+ date: '2026-06-16T03:47:39.196Z',
+ image: '/images/blog/rientro-definitivo-gestione-conti-chf.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
