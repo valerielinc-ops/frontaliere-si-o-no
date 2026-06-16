@@ -126,9 +126,18 @@ describe('evaluateWebcamResult', () => {
     expect(evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, 8 * 1024).broken).toBe(true);
   });
 
-  it('treats a fetch error result as broken', () => {
-    const r = evaluateWebcamResult({ ok: false, status: 'error: timeout', bytes: 0 });
-    expect(r.broken).toBe(true);
+  it('treats a connection-level failure (networkError) as INDETERMINATE, not broken', () => {
+    // A feed unreachable from the monitor's single cloud IP may still serve end
+    // users fine — must not page. (Gandria/scceresio.ch case: 200 for users, fetch-failed from CI.)
+    const r = evaluateWebcamResult({ ok: false, status: 'error: fetch failed', bytes: 0, networkError: true });
+    expect(r.broken).toBe(false);
+    expect(r.indeterminate).toBe(true);
+    expect(r.reason).toMatch(/unreachable from monitor/i);
+  });
+
+  it('treats a malformed/empty result (no networkError flag) as broken', () => {
+    expect(evaluateWebcamResult(null).broken).toBe(true);
+    expect(evaluateWebcamResult({ ok: false, status: 500, bytes: 0 }).broken).toBe(true);
   });
 });
 
