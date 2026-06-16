@@ -41,6 +41,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { assertCompatFloor } from './compat-paths-floor-guard.mjs';
+import { gitShowStage } from './git-show-stage.mjs';
 
 const TARGET = 'data/seo-404-compat-paths.json';
 const STATE_FILE = 'data/inspection-state.json';
@@ -51,7 +52,7 @@ function readStage(stage, file) {
   // being applied). See scripts/lib/resolve-winners-conflict.mjs for the
   // same inverted-meaning explanation.
   try {
-    return execFileSync('git', ['show', `:${stage}:${file}`], { encoding: 'utf-8' });
+    return gitShowStage(stage, file);
   } catch {
     return null;
   }
