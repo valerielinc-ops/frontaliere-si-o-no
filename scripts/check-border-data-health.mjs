@@ -134,6 +134,13 @@ export function evaluateAllMockSource(doc) {
  * @returns {{broken: boolean, reason: string|null}}
  */
 export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
+  // Connection-level failure (DNS/TLS/timeout) from this single monitor vantage
+  // is INDETERMINATE — the feed may still serve end users fine (publisher blocks
+  // cloud IPs, transient route). Don't page on it; only HTTP-error / tiny-body
+  // are confirmed-broken signals.
+  if (result && result.networkError === true) {
+    return { broken: false, indeterminate: true, reason: `unreachable from monitor (${result.status}) — not confirmed broken` };
+  }
   if (!result || result.ok !== true) {
     return { broken: true, reason: `HTTP ${result?.status ?? 'error'}` };
   }
@@ -177,31 +184,42 @@ export function collectWebcamUrls(crossings) {
  * F5 stack and the GIF size check both need the real body. Follows redirects.
  */
 async function fetchWebcam(url) {
-  try {
-    const cookieHeader = buildCookieHeader();
-    const res = await fetch(url, {
-      redirect: 'follow',
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
-          '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-        'Referer': 'https://www4.ti.ch/',
-        'Accept': 'image/gif,image/avif,image/webp,image/*,*/*;q=0.8',
-        ...(cookieHeader ? { Cookie: cookieHeader } : {}),
-      },
-      signal: AbortSignal.timeout(WEBCAM_FETCH_TIMEOUT_MS),
-    });
-    updateCookieJar(res);
-    if (!res.ok) {
-      // Drain body so the socket frees up.
-      await res.arrayBuffer().catch(() => {});
-      return { ok: false, status: res.status, bytes: 0 };
+  // Retry once on a CONNECTION-level failure (DNS/TLS/timeout/reset). Such errors
+  // are ambiguous from a single cloud runner — some publisher feeds reach end
+  // users fine but block/aren't routable from GitHub-hosted IPs — so a bare
+  // network failure must NOT be reported as a confirmed-broken feed (see
+  // `networkError` handling in evaluateWebcamResult). An HTTP error status
+  // (4xx/5xx) IS a definitive signal and is returned immediately.
+  let lastErr = null;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const cookieHeader = buildCookieHeader();
+      const res = await fetch(url, {
+        redirect: 'follow',
+        headers: {
+          'User-Agent':
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+            '(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+          'Referer': 'https://www4.ti.ch/',
+          'Accept': 'image/gif,image/avif,image/webp,image/*,*/*;q=0.8',
+          ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+        },
+        signal: AbortSignal.timeout(WEBCAM_FETCH_TIMEOUT_MS),
+      });
+      updateCookieJar(res);
+      if (!res.ok) {
+        // Drain body so the socket frees up.
+        await res.arrayBuffer().catch(() => {});
+        return { ok: false, status: res.status, bytes: 0 };
+      }
+      const buf = Buffer.from(await res.arrayBuffer());
+      return { ok: true, status: res.status, bytes: buf.byteLength };
+    } catch (err) {
+      lastErr = err;
     }
-    const buf = Buffer.from(await res.arrayBuffer());
-    return { ok: true, status: res.status, bytes: buf.byteLength };
-  } catch (err) {
-    return { ok: false, status: `error: ${err.message}`, bytes: 0 };
   }
+  // Both attempts hit a connection-level error → indeterminate, not confirmed broken.
+  return { ok: false, status: `error: ${lastErr?.message ?? 'network'}`, bytes: 0, networkError: true };
 }
 
 /** Dynamically load the borderCrossings registry from the .ts source (run via tsx). */
@@ -269,18 +287,25 @@ async function main() {
     lines.push('ℹ️ No webcams configured in registry');
   }
   const brokenWebcams = [];
+  let indeterminateWebcams = 0;
   for (const { url, crossings: served, label } of webcamUrls.values()) {
     const result = await fetchWebcam(url);
     const verdict = evaluateWebcamResult(result);
     if (verdict.broken) {
       brokenWebcams.push({ url, served, label, reason: verdict.reason });
       lines.push(`❌ WEBCAM BROKEN: ${url} (${verdict.reason}) — serves: ${served.join(', ')}`);
+    } else if (verdict.indeterminate) {
+      indeterminateWebcams++;
+      lines.push(`⚠️ Webcam UNREACHABLE from monitor (not paged): ${url} (${verdict.reason}) — serves: ${served.join(', ')}`);
     } else {
       lines.push(`✅ Webcam OK: ${url} (${(result.bytes / 1024).toFixed(0)}KB) — serves: ${served.join(', ')}`);
     }
   }
   if (brokenWebcams.length > 0) {
     problems.push(`${brokenWebcams.length} broken webcam(s): ${brokenWebcams.map((b) => b.url).join(', ')}`);
+  }
+  if (indeterminateWebcams > 0) {
+    lines.push(`ℹ️ ${indeterminateWebcams} webcam(s) unreachable from the monitor's IP but not confirmed broken (no page).`);
   }
 
   // ── Summary ──
