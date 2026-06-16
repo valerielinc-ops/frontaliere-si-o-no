@@ -9433,7 +9433,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -9472,7 +9472,11 @@
         }
       },
       "postalCode": "8400",
-      "firstSeenAt": "2026-06-10T22:13:21.437Z"
+      "firstSeenAt": "2026-06-10T22:13:21.437Z",
+      "previousSlugs": [
+        "fachspezialist-in-leistungen-unfall-axa-80-100-st-gallen-smart-working-or7sqy",
+        "fachspezialist-in-leistungen-unfall-axa-svizzera-80-100-st-gallen-smart-working"
+      ]
     },
     {
       "title": "Fachspezialist:in Standard Leistungen Unfall",
@@ -10902,7 +10906,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-15",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "50-100%",
@@ -10922,9 +10926,9 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo",
-        "en": "insurance-consultant-axa-svizzera-manno",
-        "de": "versicherungsberater-axa-svizzera-manno",
-        "fr": "consulente-assicurativo"
+        "en": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+        "de": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
       },
       "id": "axa-svizzera-9a1a0bf0744b",
       "salaryMin": 49500,
@@ -10945,10 +10949,12 @@
       "firstSeenAt": "2026-06-14T21:24:04.395Z",
       "previousSlugsByLocale": {
         "en": [
-          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+          "insurance-consultant-axa-svizzera-manno"
         ],
         "de": [
-          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo"
+          "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
+          "versicherungsberater-axa-svizzera-manno"
         ],
         "it": [
           "consulente-assicurativo-axa-manno-nfod8k"
@@ -10961,13 +10967,15 @@
       "previousSlugs": [
         "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca-xhxjxo",
         "consulente-assicurativo-axa-manno-nfod8k",
-        "consulente-assicurativo-axa-svizzera-manno",
         "consulente-assicurativo-axa-svizzera-axa",
         "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo",
         "consulente-assicurativo-axa-biasca-xhxjxo",
         "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
         "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "consulente-assicurativo-nfod8k"
+        "consulente-assicurativo-nfod8k",
+        "insurance-consultant-axa-svizzera-manno",
+        "versicherungsberater-axa-svizzera-manno",
+        "consulente-assicurativo-axa-svizzera-manno"
       ]
     },
     {

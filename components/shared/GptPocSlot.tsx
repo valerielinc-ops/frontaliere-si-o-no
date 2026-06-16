@@ -43,8 +43,14 @@ let gptServicesEnabled = false;
 // reach googletag via an `any` view of window rather than a global type.
 const gtag = (): any => {
   const w = window as any;
-  w.googletag = w.googletag || { cmd: [] };
-  return w.googletag;
+  // Ensure `cmd` exists even when `window.googletag` was already created by
+  // another Google ad script WITHOUT a `cmd` queue — `|| { cmd: [] }` alone
+  // returns that partial object as-is and `gt.cmd.push` then throws
+  // "Cannot read properties of undefined (reading 'push')", so the slot never
+  // defines/serves (observed live on article pages).
+  const gt = w.googletag = w.googletag || {};
+  gt.cmd = gt.cmd || [];
+  return gt;
 };
 
 function ensureGptScript(): void {
