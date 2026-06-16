@@ -8,9 +8,7 @@
  * inventory (the linked AdSense account already backfills GAM ad units), WHILE
  * AdSense Auto Ads keep serving untouched. See issue #2273.
  *
- * SAFETY: disabled by default (`GPT_POC_ENABLED = false`) → renders nothing, so
- * merging/deploying this file is a no-op for the live ad stack. To run the PoC,
- * flip the flag (and set a real ad unit path) and observe RPM / Auto Ads / CWV.
+ * SAFETY: `GPT_POC_ENABLED = true` — PoC active. Observe RPM / Auto Ads / CWV.
  * GPT (pubads) is independent of AdSense Auto Ads; this slot never touches
  * adsbygoogle.js. Lazy-loaded via IntersectionObserver (mirrors AdSenseBanner)
  * so it stays off the LCP critical path.
@@ -21,8 +19,7 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 
 // ── PoC switches ────────────────────────────────────────────
-// Off by default: deploying this component must not change live behaviour.
-const GPT_POC_ENABLED = false;
+const GPT_POC_ENABLED = true;
 // Full GAM ad unit path — the display ad unit created for this PoC in GAM
 // Inventory (ad unit id 23356816306, sizes 300x250 + fluid, AdSense backfill on).
 const GPT_POC_AD_UNIT_PATH = '/23355151813/gpt-poc-articoli';
