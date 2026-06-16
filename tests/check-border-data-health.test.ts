@@ -1,0 +1,152 @@
+/**
+ * Unit tests for the pure decision logic in
+ * scripts/check-border-data-health.mjs (the border live-data watchdog).
+ *
+ * No network and no IO: the staleness / all-mock / broken-webcam decisions are
+ * exercised through injected fixtures. Per the repo test rules, all timestamps
+ * are RELATIVE to now (Date.now() - N) — never absolute literals — so the suite
+ * never time-bombs on a calendar boundary.
+ */
+
+import { describe, it, expect } from 'vitest';
+import {
+  evaluateStaleness,
+  evaluateAllMockSource,
+  evaluateWebcamResult,
+  collectWebcamUrls,
+  // @ts-expect-error — plain .mjs, no type declarations
+} from '../scripts/check-border-data-health.mjs';
+
+const MIN = 60 * 1000;
+const HOUR = 60 * MIN;
+
+function isoAgo(ms: number): string {
+  return new Date(Date.now() - ms).toISOString();
+}
+
+describe('evaluateStaleness', () => {
+  const now = Date.now();
+
+  it('is fresh when updatedAt is within the threshold', () => {
+    const doc = { updatedAt: isoAgo(30 * MIN), perCrossing: {} };
+    const r = evaluateStaleness(doc, now, 6);
+    expect(r.stale).toBe(false);
+    expect(r.ageMinutes).toBeGreaterThanOrEqual(29);
+    expect(r.ageMinutes).toBeLessThanOrEqual(31);
+  });
+
+  it('is stale when updatedAt is older than the threshold', () => {
+    const doc = { updatedAt: isoAgo(7 * HOUR), perCrossing: {} };
+    const r = evaluateStaleness(doc, now, 6);
+    expect(r.stale).toBe(true);
+    expect(r.reason).toMatch(/snapshot is \d+ min old/i);
+  });
+
+  it('honors a custom threshold (default 6h would pass, 1h fails)', () => {
+    const doc = { updatedAt: isoAgo(2 * HOUR) };
+    expect(evaluateStaleness(doc, now, 6).stale).toBe(false);
+    expect(evaluateStaleness(doc, now, 1).stale).toBe(true);
+  });
+
+  it('falls back to the newest per-crossing lastUpdate when updatedAt is absent', () => {
+    const doc = {
+      perCrossing: {
+        a: { lastUpdate: isoAgo(5 * HOUR) },
+        b: { lastUpdate: isoAgo(20 * MIN) }, // newest → drives freshness
+      },
+    };
+    const r = evaluateStaleness(doc, now, 6);
+    expect(r.stale).toBe(false);
+    expect(r.ageMinutes).toBeLessThanOrEqual(21);
+  });
+
+  it('flags stale when there is no usable timestamp at all', () => {
+    expect(evaluateStaleness({ perCrossing: {} }, now, 6).stale).toBe(true);
+    expect(evaluateStaleness(null, now, 6).stale).toBe(true);
+    expect(evaluateStaleness({ updatedAt: 'not-a-date' }, now, 6).stale).toBe(true);
+  });
+});
+
+describe('evaluateAllMockSource', () => {
+  it('trips only when EVERY crossing source is mock', () => {
+    const doc = {
+      perCrossing: {
+        a: { source: 'mock' },
+        b: { source: 'mock' },
+      },
+    };
+    const r = evaluateAllMockSource(doc);
+    expect(r.allMock).toBe(true);
+    expect(r.total).toBe(2);
+    expect(r.mock).toBe(2);
+    expect(r.reason).toMatch(/live routing provider failed/i);
+  });
+
+  it('tolerates a partial mock fallback (some live)', () => {
+    const doc = {
+      perCrossing: {
+        a: { source: 'here' },
+        b: { source: 'mock' },
+      },
+    };
+    const r = evaluateAllMockSource(doc);
+    expect(r.allMock).toBe(false);
+    expect(r.mock).toBe(1);
+    expect(r.total).toBe(2);
+  });
+
+  it('does not trip on an empty / missing perCrossing', () => {
+    expect(evaluateAllMockSource({ perCrossing: {} }).allMock).toBe(false);
+    expect(evaluateAllMockSource({}).allMock).toBe(false);
+    expect(evaluateAllMockSource(null).allMock).toBe(false);
+  });
+});
+
+describe('evaluateWebcamResult', () => {
+  it('passes a full-size 200 response', () => {
+    const r = evaluateWebcamResult({ ok: true, status: 200, bytes: 250 * 1024 });
+    expect(r.broken).toBe(false);
+  });
+
+  it('flags a non-200 response as broken', () => {
+    const r = evaluateWebcamResult({ ok: false, status: 403, bytes: 0 });
+    expect(r.broken).toBe(true);
+    expect(r.reason).toMatch(/HTTP 403/);
+  });
+
+  it('flags a tiny body (error/placeholder page) as broken', () => {
+    const r = evaluateWebcamResult({ ok: true, status: 200, bytes: 2 * 1024 });
+    expect(r.broken).toBe(true);
+    expect(r.reason).toMatch(/too small/i);
+  });
+
+  it('honors a custom minBytes floor', () => {
+    expect(evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, 1024).broken).toBe(false);
+    expect(evaluateWebcamResult({ ok: true, status: 200, bytes: 5 * 1024 }, 8 * 1024).broken).toBe(true);
+  });
+
+  it('treats a fetch error result as broken', () => {
+    const r = evaluateWebcamResult({ ok: false, status: 'error: timeout', bytes: 0 });
+    expect(r.broken).toBe(true);
+  });
+});
+
+describe('collectWebcamUrls', () => {
+  it('dedups shared image URLs and tracks every crossing served', () => {
+    const crossings = [
+      { name: 'Chiasso Centro', webcams: [{ imageUrl: 'https://x/a.gif', label: 'A' }] },
+      { name: 'Chiasso Strada', webcams: [{ imageUrl: 'https://x/a.gif', label: 'A' }] }, // shared
+      { name: 'Gaggiolo', webcams: [{ imageUrl: 'https://x/b.gif', label: 'B' }] },
+      { name: 'No webcam' },
+    ];
+    const map = collectWebcamUrls(crossings);
+    expect(map.size).toBe(2);
+    expect(map.get('https://x/a.gif')!.crossings).toEqual(['Chiasso Centro', 'Chiasso Strada']);
+    expect(map.get('https://x/b.gif')!.crossings).toEqual(['Gaggiolo']);
+  });
+
+  it('returns an empty map for no crossings / no webcams', () => {
+    expect(collectWebcamUrls([]).size).toBe(0);
+    expect(collectWebcamUrls(undefined as unknown as []).size).toBe(0);
+  });
+});
