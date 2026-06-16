@@ -8098,6 +8098,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Health Tax: Unions Demand Withdrawal',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD and SYNDICOM demand the definitive withdrawal of the health tax for cross-border workers, citing treaty violations and double taxation.',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Italian and Swiss unions discuss the cross-border worker health tax',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Moving back to Italy: guide to managing CHF accounts',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Learn how to properly manage your severance pay, Swiss franc accounts, and final salaries when returning to Italy as a cross-border worker.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Office desk with a view of Lake Lugano and financial documents',
 };
 
 export default blogMetaEn;

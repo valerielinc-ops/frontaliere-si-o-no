@@ -4669,7 +4669,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2813,
+ "numberOfItems": 2814,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7456,7 +7456,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2810, "name": "Tassa sulla salute e ristorni: la posizione di ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-posizione-berna` },
           { "@type": "ListItem", "position": 2811, "name": "La Svizzera scommette sull'Europa", "url": `${BASE_URL}/articoli-frontaliere/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale` },
           { "@type": "ListItem", "position": 2812, "name": "Tassa Salute Frontalieri: sindacati chiedono ri...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta` },
-          { "@type": "ListItem", "position": 2813, "name": "Deduzione da ristorni frontalieri contraria a a...", "url": `${BASE_URL}/articoli-frontaliere/deduzione-da-ristorni-contraria-accordi-con-roma` }
+          { "@type": "ListItem", "position": 2813, "name": "Deduzione da ristorni frontalieri contraria a a...", "url": `${BASE_URL}/articoli-frontaliere/deduzione-da-ristorni-contraria-accordi-con-roma` },
+          { "@type": "ListItem", "position": 2814, "name": "Rientro definitivo in Italia: guida ai conti in...", "url": `${BASE_URL}/articoli-frontaliere/rientro-definitivo-gestione-conti-chf` }
  ]
  },
  {

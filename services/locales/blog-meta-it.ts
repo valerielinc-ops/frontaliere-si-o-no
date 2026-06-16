@@ -8099,6 +8099,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Tassa Salute Frontalieri: sindacati chiedono ritiro',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD e SYNDICOM chiedono il ritiro definitivo della tassa salute per i frontalieri, citando violazioni del trattato 2020 e doppia imposizione.',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Sindacati italiani e svizzeri discutono sulla tassa salute frontalieri',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rientro definitivo in Italia: guida ai conti in CHF',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Scopri come gestire correttamente liquidazione, conti in franchi svizzeri e ultimi stipendi in caso di rientro definitivo in Italia per frontalieri.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Scrivania da ufficio con vista sul Lago di Lugano e documenti finanziari',
 };
 
 export default blogMetaIt;

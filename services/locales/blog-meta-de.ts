@@ -8097,6 +8097,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Gesundheitssteuer für Grenzgänger: Gewerkschaften fordern Rückzug',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'Die Gewerkschaften CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD und SYNDICOM fordern den endgültigen Rückzug der Gesundheitssteuer für Grenzgänger. Sie berufen sich auf Verstöße gegen das Abkommen von 2020 und eine Doppelbesteuerung.',
     'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Italienische und Schweizer Gewerkschaften diskutieren über die Gesundheitssteuer für Grenzgänger',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rückkehr nach Italien: Leitfaden für Franken-Konten',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Erfahren Sie, wie Sie bei einer endgültigen Rückkehr nach Italien als Grenzgänger Abfindungen, Franken-Konten und letzte Gehälter korrekt verwalten.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Büroschreibtisch mit Blick auf den Luganersee und Finanzdokumenten',
 };
 
 export default blogMetaDe;

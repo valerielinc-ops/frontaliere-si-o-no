@@ -4056,6 +4056,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { name: 'La Svizzera e l\'Europa', path: '/articoli-svizzera/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale/', parent: 'blog' },
     'blog-tassa-salute-frontalieri-ritiro-richiesta': { name: 'Tassa Salute', path: '/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta', parent: 'blog' },
     'blog-deduzione-da-ristorni-contraria-accordi-con-roma': { name: 'Deduzione da ristorni frontalieri', path: '/articoli-svizzera/deduzione-da-ristorni-contraria-accordi-con-roma/', parent: 'blog' },
+    'blog-rientro-definitivo-gestione-conti-chf': { name: 'Rientro definitivo frontaliere', path: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf', parent: 'blog' },
  };
 
  const info = sectionNames[section];
