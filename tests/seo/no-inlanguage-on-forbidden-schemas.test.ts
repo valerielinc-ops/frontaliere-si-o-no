@@ -227,14 +227,20 @@ function scanFile(file: string): readonly Offender[] {
   // that follows a `structuredData:` token, AND every `{` whose body
   // contains an `@type` property at any nesting level. Dedupe by position.
   const candidates = new Map<number, string>();
-  const coveredRanges: { start: number; end: number }[] = [];
+  // Position-coverage bitmap: covered[i] === 1 iff byte offset i falls inside
+  // a block we've already extracted as a candidate. A flat Uint8Array gives
+  // O(1) membership (vs the prior `coveredRanges.some(...)` linear scan, which
+  // made pass 2 O(matches × ranges) → multi-minute on the multi-MB
+  // services/seo/seo-pages.ts). Marking a block is O(blockLength) via
+  // `fill`, so total marking is O(Σ block lengths) ≈ O(src.length).
+  const covered = new Uint8Array(src.length);
 
   // 1. structuredData: blocks. Extract eagerly so we know the end and can
   //    use it as a covering range in pass 2 — otherwise every `@type`
   //    nested inside a structuredData block (the common case in
   //    services/seo/seo-blog*.ts, ~3-4 @types per block) re-triggers a
   //    backwards scan + extractBalanced and the test runs O(N*K) on
-  //    multi-million-char source. Adding pass-1 ranges to coveredRanges
+  //    multi-million-char source. Marking pass-1 ranges in `covered`
   //    drops the work to ~one extract per outer block.
   const sdRx = /\bstructuredData\s*:\s*/g;
   let sdMatch: RegExpExecArray | null;
@@ -246,7 +252,7 @@ function scanFile(file: string): readonly Offender[] {
     const block = extractBalanced(src, after);
     if (!block) continue;
     candidates.set(after, block);
-    coveredRanges.push({ start: after, end: after + block.length });
+    covered.fill(1, after, Math.min(after + block.length, src.length));
   }
 
   // 2. Every `{` whose balanced body contains an `@type:` key. The
@@ -255,7 +261,7 @@ function scanFile(file: string): readonly Offender[] {
   //    (e.g. `const sd = { '@type': 'Organization', inLanguage: ... }`)
   //    elsewhere — we widen coverage with a guarded backwards scan.
   //
-  //    To keep this O(N) we cache covered ranges (from pass 1 + this
+  //    To keep this O(N) we mark covered positions in `covered` (from pass 1 + this
   //    pass): once a `{` block is added as a candidate, every nested
   //    @type inside it is considered already-handled (the recursive
   //    walkTree pass will descend into it).
@@ -263,7 +269,7 @@ function scanFile(file: string): readonly Offender[] {
   let tm: RegExpExecArray | null;
   while ((tm = typeRx.exec(src)) !== null) {
     // Skip if already inside a covered block
-    if (coveredRanges.some((r) => tm!.index >= r.start && tm!.index < r.end)) continue;
+    if (covered[tm.index]) continue;
 
     // Bounded backwards search for the enclosing `{`
     const searchStart = Math.max(0, tm.index - 8192);
@@ -274,7 +280,7 @@ function scanFile(file: string): readonly Offender[] {
       const block = extractBalanced(src, k);
       if (block && k + block.length > tm.index) {
         if (!candidates.has(k)) candidates.set(k, block);
-        coveredRanges.push({ start: k, end: k + block.length });
+        covered.fill(1, k, Math.min(k + block.length, src.length));
         break;
       }
     }
