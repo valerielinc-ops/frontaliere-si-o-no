@@ -185,6 +185,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'La Suisse mise sur l\'Europe',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'Le rejet de l\'initiative \'Non à une Suisse de 10 millions\' est interprété à l\'étranger comme un choix de stabilité et d\'ouverture.',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Déduction des ristournes frontaliers contraire aux accords',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Suisse envisage d’appliquer une déduction partielle sur les ristournes issues du produit de l’impôt santé, ce qui pourrait contrevenir aux accords avec l’Italie.',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers du canton de Tessin avec documents',
 };
 
 export default blogMetaChFr;
