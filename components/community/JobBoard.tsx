@@ -6172,20 +6172,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateJobCanton = resolveJobCanton(selectedJob);
- // Non-TI jobs: link the city to its canton-aware city hub
- // (/cerca-lavoro-zurigo/zurigo/) instead of the legacy TI location filter,
- // which emits no static page outside TI and can't round-trip under a non-TI
- // section (parses back as a jobSlug). TI keeps the existing location-search
- // filter verbatim — isKnownCityHub matches every TI municipality but only
- // 5 TI city hubs are emitted, so gating TI here would 404.
- const gateCitySlug = gateJobCanton !== 'TI' && jobLocation && !isMultiLocation(jobLocation)
+ // City link is ALWAYS canton-semantic: /cerca-lavoro-<canton>/<città>/ for
+ // EVERY canton (incl. TI) — a city must never sit under a foreign section
+ // (e.g. Zürich under /cerca-lavoro-ticino/ is semantically wrong). Known
+ // municipality of the canton → canton city hub; otherwise the canton board
+ // root (still the correct canton, never the legacy TI location filter).
+ // Page richness for low-job cantons/cities is governed downstream by the
+ // few-results expansion rules, not by the link target.
+ const gateCitySlug = jobLocation && !isMultiLocation(jobLocation)
  ? normalizeCitySlug(selectedJob.addressLocality || jobLocation)
  : '';
  const gateCityHub = !!(gateCitySlug && isKnownCityHub(gateCitySlug, gateJobCanton));
- const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
- const gateLocationHref = gateCityHub
+ const gateLocationHref = !jobLocation
+ ? ''
+ : (gateCityHub
  ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCitySlug }, locale)
- : (gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '');
+ : buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton }, locale));
  const openGateCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
@@ -6238,13 +6240,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  e.preventDefault();
  setSearchQuery('');
- if (gateCityHub) {
- // City hub renders via React on soft-nav (staticOverlay would blank it).
- onJobRouteChange?.(gateCitySlug, gateJobCanton);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateLocationSlug } }, '', gateLocationHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
+ // Soft-nav via onJobRouteChange keeps staticOverlay false so the canton
+ // city hub / canton list renders in React without a blank-page flash.
+ onJobRouteChange?.(gateCityHub ? gateCitySlug : '', gateJobCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
  }}
@@ -6659,17 +6657,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
  const detailJobCanton = resolveJobCanton(selectedJob);
- // Non-TI jobs: link the city to its canton-aware city hub
- // (/cerca-lavoro-zurigo/zurigo/), not the TI location filter. TI unchanged
- // (see gate-block note: only 5 TI city hubs are emitted).
- const detailCitySlug = detailJobCanton !== 'TI' && !isMultiLocation(selectedJob.location)
+ // City link is ALWAYS canton-semantic: /cerca-lavoro-<canton>/<città>/ for
+ // EVERY canton (incl. TI) — never a foreign section (Zürich under
+ // /cerca-lavoro-ticino/ is semantically wrong). Known municipality → canton
+ // city hub; otherwise the canton board root. Content expansion for low-job
+ // cantons/cities is governed downstream by the few-results rules.
+ const detailCitySlug = !isMultiLocation(selectedJob.location)
  ? normalizeCitySlug(selectedJob.addressLocality || selectedJob.location || '')
  : '';
  const detailCityHub = !!(detailCitySlug && isKnownCityHub(detailCitySlug, detailJobCanton));
- const detailLocationSlug = buildLocationSearchSlug(selectedJob.addressLocality || selectedJob.location || '', locale);
  const detailLocationHref = detailCityHub
  ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: detailJobCanton, jobSlug: detailCitySlug }, locale)
- : (detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '');
+ : buildPath({ activeTab: 'job-board' as any, jobBoardCanton: detailJobCanton }, locale);
  const openCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
@@ -6934,13 +6933,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  e.preventDefault();
  setSearchQuery('');
- if (detailCityHub) {
- // City hub renders via React on soft-nav (staticOverlay would blank it).
- onJobRouteChange?.(detailCitySlug, detailJobCanton);
- } else {
- window.history.pushState({ route: { activeTab: 'job-board', jobSlug: detailLocationSlug } }, '', detailLocationHref.split('?')[0]);
- window.dispatchEvent(new PopStateEvent('popstate'));
- }
+ // Soft-nav via onJobRouteChange keeps staticOverlay false so the canton
+ // city hub / canton list renders in React without a blank-page flash.
+ onJobRouteChange?.(detailCityHub ? detailCitySlug : '', detailJobCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', selectedJob.location);
  }}
