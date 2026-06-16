@@ -566,6 +566,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'cicor-piano-efficienza-tagli-lavoro',
+    category: 'novita',
+    date: '2026-06-16T18:33:18.628Z',
+    image: '/images/blog/cicor-piano-efficienza-tagli-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4057,6 +4057,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-ritiro-richiesta': { name: 'Tassa Salute', path: '/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta', parent: 'blog' },
     'blog-deduzione-da-ristorni-contraria-accordi-con-roma': { name: 'Deduzione da ristorni frontalieri', path: '/articoli-svizzera/deduzione-da-ristorni-contraria-accordi-con-roma/', parent: 'blog' },
     'blog-rientro-definitivo-gestione-conti-chf': { name: 'Rientro definitivo frontaliere', path: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf', parent: 'blog' },
+    'blog-cicor-piano-efficienza-tagli-lavoro': { name: 'Cicor efficienza lavoro', path: '/articoli-svizzera/cicor-piano-efficienza-tagli-lavoro/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

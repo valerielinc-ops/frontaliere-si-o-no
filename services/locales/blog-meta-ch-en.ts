@@ -188,6 +188,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Partial deduction on cross-border worker allowances may break Rome deal',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'Switzerland plans to partially deduct from cross-border workers’ health tax refunds, a move that could violate agreements with Italy.',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers from Ticino with documents',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.title': 'Cicor: efficiency plan cuts 220 jobs',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.excerpt': 'Cicor announces an efficiency program involving the sale of its Tunisia plant and the reduction of 220 jobs, including around ten in Switzerland.',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.imageAlt': 'Swiss company headquarters with modern buildings and staff.',
 };
 
 export default blogMetaChEn;

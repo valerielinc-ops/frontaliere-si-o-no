@@ -188,6 +188,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Deduzione parziale tassale potrebbe violare accordi con Roma',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Svizzera intende applicare una deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute, ma questo potrebbe essere contrario agli accordi con l\'Italia.',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers aus dem Kanton Tessin mit Dokumenten',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.title': 'Cicor: Effizienzprogramm und 220 Stellenstreichungen',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.excerpt': 'Cicor kündigt ein Effizienzprogramm mit dem Verkauf des Werks in Tunesien und dem Abbau von 220 Stellen an, davon etwa zehn in der Schweiz.',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.imageAlt': 'Schweizer Unternehmenssitz mit modernen Gebäuden und Mitarbeitern.',
 };
 
 export default blogMetaChDe;
