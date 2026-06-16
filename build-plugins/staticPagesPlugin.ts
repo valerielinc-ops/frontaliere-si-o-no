@@ -3218,7 +3218,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (which IS reachable from `/` via the main nav) cascades reachability
  // through each hub's existing internal navigation:
  //   /premi-cassa-malati/        → 26 cantoni → 7 fasce d'età ciascuno  (~183 URL)
- //   /traffico-dogane/           → 24 valichi × 4 locale × oggi  (~96 URL)
+ //   /traffico-dogane/           → 26 valichi × 4 locale × oggi  (~104 URL)
  //   /prezzi-diesel/oggi/        → 5 città Ticino × stazioni  (~45 URL)
  //   /prezzi-benzina/oggi/       → idem  (~45 URL)
  //   /aziende-che-assumono/tutte/ → ~2 pagine paginazione + 233 schede azienda
