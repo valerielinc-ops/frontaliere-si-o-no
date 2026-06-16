@@ -40,9 +40,14 @@ const APEX_HOST = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 
 // Hard cap — the safety rail learned from the #2000 OOM. Even a degraded CF
 // response or a future traffic spike can never make the bridge plugin emit
-// more than this many pages. ~12k thin pages is a ~3-4% bump on the IT shard,
-// comfortably inside the headroom that already survives the ~312k TI pages.
-const MAX_PATHS = 12000;
+// more than this many pages. The cfHot404BridgePlugin emit is STREAMING
+// (mkdir+writeFile per path, no HTML held in heap), so the real cost is inode
+// count (~2 per bridge): 40k bridges ≈ 80k inodes on top of the ~327k-file IT
+// shard, far under the ~2.3M Pages disk ceiling. Kept in lockstep with
+// cfHot404BridgePlugin's MAX_EMIT — raise BOTH together. (Raised 12k→40k on
+// 2026-06-16 to recover more of the long-tail CF-confirmed 404s; SSG-memory
+// impact is not measurable pre-merge — revert if the next deploy OOMs.)
+const MAX_PATHS = 40000;
 
 // Drop one-hit noise: a single hit is usually a bot path-probe, not a real
 // expired/indexed URL worth a page. Real expired URLs get repeat hits from
@@ -92,13 +97,51 @@ async function main() {
     process.exit(1);
   }
   const zoneId = await resolveZoneId(token, APEX_HOST, process.env.CF_ZONE_ID);
-  const rows = await fetchErrorPaths(token, zoneId, {
-    hours: 23.9,
-    minStatus: 404,
-    maxStatus: 404,
-    host: APEX_HOST,
-    limit: 10000,
-  });
+
+  // ── Time-sliced sweep ─────────────────────────────────────────────────────
+  // A single httpRequestsAdaptiveGroups query is capped at 10k rows ordered by
+  // count_DESC, so ONE 24h window only ever surfaces the 10k hottest paths — the
+  // long-tail of distinct expired / wrong-canton job URLs (each hit a handful of
+  // times) never enters the result, so it never gets a recovery bridge and keeps
+  // 404ing. CF's free-plan adaptive retention is ~3 days, so sweep the last
+  // WINDOW_COUNT contiguous hourly windows and SUM the per-path counts: a path
+  // outside one window's top-10k still surfaces in another, and summing the
+  // non-overlapping windows reconstructs its true multi-day hit total. This
+  // lifts distinct coverage from ~10k to tens of thousands at the cost of
+  // WINDOW_COUNT cheap GraphQL calls (sequential — stays well under CF rate
+  // limits). Tunable via env for backfill vs daily cadence.
+  const WINDOW_HOURS = Number(process.env.CF_SWEEP_WINDOW_HOURS || 1);
+  const WINDOW_COUNT = Number(process.env.CF_SWEEP_WINDOWS || 48);
+  const swept = new Map(); // normalized path -> summed hits across windows
+  let windowsOk = 0;
+  const nowMs = Date.now();
+  for (let i = 0; i < WINDOW_COUNT; i++) {
+    const until = new Date(nowMs - i * WINDOW_HOURS * 3600 * 1000);
+    let windowRows;
+    try {
+      windowRows = await fetchErrorPaths(token, zoneId, {
+        hours: WINDOW_HOURS,
+        minStatus: 404,
+        maxStatus: 404,
+        host: APEX_HOST,
+        limit: 10000,
+        until,
+      });
+    } catch {
+      // A single failed window (transient CF 5xx / retention edge) must not
+      // abort the sweep — skip it, keep everything gathered so far.
+      continue;
+    }
+    windowsOk++;
+    for (const r of windowRows) {
+      const norm = r.path.replace(/\/+$/, '');
+      swept.set(norm, (swept.get(norm) || 0) + r.count);
+    }
+  }
+  const rows = [...swept.entries()].map(([path, count]) => ({ path, count }));
+  console.log(
+    `🛰️  Swept ${windowsOk}/${WINDOW_COUNT} × ${WINDOW_HOURS}h windows → ${rows.length} distinct 404 paths.`,
+  );
 
   // Accumulate: keep the MAX hits ever seen per path across runs (a path that
   // was hot last week but quiet today should not drop off immediately).
