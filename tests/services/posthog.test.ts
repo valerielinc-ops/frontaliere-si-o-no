@@ -35,6 +35,18 @@ vi.mock('posthog-js', () => ({
 let posthogModule: typeof import('@/services/posthog');
 let consentModule: typeof import('@/services/consentService');
 
+// Poll for the async dynamic import + IIFE inside ensurePostHog() to settle.
+// Uses a real per-tick delay (not setTimeout(0)): under full-suite parallel
+// load a starved event loop can burn 20 zero-delay ticks before the
+// `await import('posthog-js')` promise chain resolves, leaving init/capture
+// uncalled and failing the assertion spuriously. ~1 s ceiling (200 × 5 ms)
+// comfortably covers a slow import without changing what is asserted.
+async function waitFor(predicate: () => boolean, tries = 200, delayMs = 5): Promise<void> {
+  for (let i = 0; i < tries && !predicate(); i++) {
+    await new Promise((resolve) => setTimeout(resolve, delayMs));
+  }
+}
+
 beforeAll(async () => {
   posthogModule = await vi.importActual<typeof import('@/services/posthog')>('@/services/posthog');
   consentModule = await vi.importActual<typeof import('@/services/consentService')>('@/services/consentService');
@@ -54,9 +66,7 @@ describe('PostHog smoke tests', () => {
     posthogModule.initPostHog();
 
     // ensurePostHog() performs a dynamic import + async IIFE; poll for resolution.
-    for (let i = 0; i < 20 && posthogMock.init.mock.calls.length === 0; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 0));
-    }
+    await waitFor(() => posthogMock.init.mock.calls.length > 0);
 
     // Module-level singleton may short-circuit in later tests; assert at least once.
     expect(posthogMock.init).toHaveBeenCalled();
@@ -80,14 +90,10 @@ describe('PostHog smoke tests', () => {
   it('capturePageView() emits a $pageview event with $current_url + title', async () => {
     // First init so the internal singleton is populated.
     posthogModule.initPostHog();
-    for (let i = 0; i < 20 && posthogMock.init.mock.calls.length === 0; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 0));
-    }
+    await waitFor(() => posthogMock.init.mock.calls.length > 0);
 
     posthogModule.capturePageView('/test-path', 'Test Title');
-    for (let i = 0; i < 20 && posthogMock.capture.mock.calls.length === 0; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 0));
-    }
+    await waitFor(() => posthogMock.capture.mock.calls.length > 0);
 
     const pageviewCalls = posthogMock.capture.mock.calls.filter(
       ([eventName]) => eventName === '$pageview',
@@ -101,14 +107,10 @@ describe('PostHog smoke tests', () => {
 
   it('captureEvent() forwards arbitrary events with properties', async () => {
     posthogModule.initPostHog();
-    for (let i = 0; i < 20 && posthogMock.init.mock.calls.length === 0; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 0));
-    }
+    await waitFor(() => posthogMock.init.mock.calls.length > 0);
 
     posthogModule.captureEvent('job_alert_created', { surface: 'inline_cta' });
-    for (let i = 0; i < 20 && posthogMock.capture.mock.calls.length === 0; i++) {
-      await new Promise((resolve) => setTimeout(resolve, 0));
-    }
+    await waitFor(() => posthogMock.capture.mock.calls.length > 0);
 
     const match = posthogMock.capture.mock.calls.find(
       ([name]) => name === 'job_alert_created',

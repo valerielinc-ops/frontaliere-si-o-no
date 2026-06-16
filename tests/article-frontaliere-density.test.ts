@@ -55,5 +55,8 @@ describe('article frontaliere density', () => {
     // Warn only, don't fail the suite — this is a quality signal not a hard gate
     // (existing articles may legitimately have lower density for some topics)
     expect(failures.length).toBeLessThan(files.length * 0.3); // fail if > 30% are low density
-  });
+    // Reads every IT blog-body file; under full-suite parallel load the sync
+    // reads can exceed the 15 s default — raised to prevent contention flakiness
+    // (same rationale as blog-body-typescript-syntax.test.ts).
+  }, 30_000);
 });

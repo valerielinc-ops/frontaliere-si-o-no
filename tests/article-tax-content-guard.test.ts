@@ -76,5 +76,8 @@ describe('article tax calculation content guard', () => {
     }
 
     expect(violations).toEqual([]);
-  });
+    // Scans 10k+ blog-body/locale/seo files; under full-suite parallel load the
+    // sync reads regularly exceed the 15 s default — raised to prevent flakiness
+    // (same rationale as blog-body-typescript-syntax.test.ts).
+  }, 120_000);
 });
