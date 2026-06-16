@@ -35,6 +35,43 @@ const WEBCAM_QUEUE_MIN_WAIT_MIN = 8;
 const WEBCAM_CLEAR_HIGH_WAIT_MIN = 30;
 const WEBCAM_CLEAR_APPROACH_MAX_MIN = 5;
 const WEBCAM_CLEAR_FALLBACK_WAIT_MIN = 4;
+// Minimum congestionScore at which a good-visibility webcam is trusted to
+// drive a PRIMARY wait estimate (no live routing). Below this we treat the
+// road as effectively clear and report 0 — see estimateWaitFromCongestion.
+const WEBCAM_PRIMARY_MIN_SCORE = 0.4;
+
+/**
+ * Coarse, conservative mapping from a webcam congestion score (0..1) to an
+ * estimated border wait in minutes. Used ONLY as a PRIMARY fallback when no
+ * live routing datum exists for a crossing (both provider segments failed, or
+ * no provider/collection is configured for it). When live routing data IS
+ * available the routing estimate wins and the webcam only sanity-adjusts it via
+ * applyWebcamTrafficSanity — this function NEVER overrides a successful provider
+ * estimate.
+ *
+ * A camera cannot measure exact minutes: image variance is only a rough proxy
+ * for "how many vehicles sit in the road zone". The mapping is therefore a
+ * documented, monotonic step function with a hard 30-minute cap. It is an
+ * UNVALIDATED heuristic — see the PR `## Non implementato` revert-trigger.
+ *
+ * Breakpoints (monotonic, non-decreasing):
+ *   null / non-finite / < 0.40 → 0   (no usable signal / road effectively clear)
+ *   0.40 – < 0.60              → 8   (light queue forming; aligns with WEBCAM_QUEUE_MIN_WAIT_MIN)
+ *   0.60 – < 0.80              → 15  (moderate congestion)
+ *   0.80 – < 0.95              → 22  (heavy congestion)
+ *   ≥ 0.95                     → 30  (cap — saturated frame, treat as severe)
+ *
+ * @param {number|null|undefined} congestionScore - 0..1 from webcam CV, or null
+ * @returns {number} estimated wait in whole minutes (0..30)
+ */
+export function estimateWaitFromCongestion(congestionScore) {
+ if (congestionScore == null || !Number.isFinite(congestionScore)) return 0;
+ if (congestionScore < WEBCAM_PRIMARY_MIN_SCORE) return 0;
+ if (congestionScore < 0.60) return 8;
+ if (congestionScore < 0.80) return 15;
+ if (congestionScore < 0.95) return 22;
+ return 30;
+}
 
 function resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey }) {
  if (hereApiKey) return 'here';
@@ -287,22 +324,52 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  console.warn(`⚠️ Approach segment failed for ${crossing.name}: ${approachResult.reason?.message}`);
  }
 
- // If BOTH segments failed, propagate the error instead of silently returning 0-minute data
- if (crossingResult.status === 'rejected' && approachResult.status === 'rejected') {
- throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
- }
+ const hasLiveData =
+ crossingResult.status === 'fulfilled' || approachResult.status === 'fulfilled';
 
- // Webcam sanity: raise missed visible queues, and suppress single-provider
- // red outliers when the primary camera is clear and the approach segment is free.
- // Only active if webcam analysis is enabled (options.enableWebcam) and crossing has a camera.
+ // Source of the wait estimate. `provider` while live routing data exists; flips
+ // to 'webcam' below when the webcam becomes the PRIMARY datum (no live routing).
+ let source = provider;
+
+ // Webcam analysis serves two distinct roles depending on whether live routing
+ // data exists. We fetch it once (only road-facing CV cameras vote; tourist/
+ // lake/town feeds are cvDetect:false and already excluded upstream) and branch:
+ //   (a) live data present → applyWebcamTrafficSanity ADJUSTS the routing estimate
+ //       (raise missed visible queues / suppress single-provider red outliers).
+ //   (b) NO live data (both segments failed) → the webcam is the PRIMARY source:
+ //       derive a granular estimate from congestionScore instead of throwing and
+ //       letting the SPA fall back to the statistical mock model.
+ // Only active when webcam analysis is enabled (options.enableWebcam) and the
+ // crossing actually has a camera (analyzeWebcamForCrossing returns null otherwise).
+ let webcam = null;
  if (options.enableWebcam) {
   try {
    const { analyzeWebcamForCrossing } = await import('../../scripts/analyze-webcam-frame.mjs');
-   const webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
-   waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+   webcam = await analyzeWebcamForCrossing(slugifyCrossingName(crossing.name));
   } catch (webcamErr) {
    console.warn(`⚠️ Webcam analysis skipped for ${crossing.name}: ${webcamErr.message}`);
   }
+ }
+
+ if (hasLiveData) {
+  // (a) Adjust-only: never let the webcam replace a successful routing estimate.
+  waitTimeMinutes = applyWebcamTrafficSanity(waitTimeMinutes, approachMinutes, webcam, crossing.name);
+ } else if (webcam && webcam.visibility === 'good') {
+  // (b) Webcam-as-PRIMARY: both routing segments failed but a good-visibility
+  // camera saw the road. Use the granular congestion→minutes estimate.
+  waitTimeMinutes = estimateWaitFromCongestion(webcam.congestionScore);
+  approachMinutes = 0; // no live approach datum to combine with
+  source = 'webcam';
+  console.log(
+   `📷 Webcam PRIMARY estimate for ${crossing.name}: routing unavailable, ` +
+   `congestionScore=${webcam.congestionScore == null ? 'null' : webcam.congestionScore.toFixed(2)} ` +
+   `(queueDetected=${webcam.queueDetected}) → ${waitTimeMinutes} min`,
+  );
+ } else {
+  // (b') No live data AND no usable webcam (night/poor/no camera) → preserve the
+  // existing behavior: throw so the crossing gets no data and the SPA falls back
+  // to the statistical mock model.
+  throw new Error(`Both segments failed for ${crossing.name}: ${crossingResult.reason?.message}`);
  }
 
  const totalCrossingMinutes = waitTimeMinutes + approachMinutes;
@@ -328,7 +395,7 @@ export async function fetchCrossingTraffic(crossing, options = {}) {
  totalCrossingMinutes,
  status,
  direction,
- source: provider,
+ source,
  };
 }
 

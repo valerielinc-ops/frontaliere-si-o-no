@@ -418,3 +418,176 @@ describe('resolveTrafficProvider', () => {
     ).rejects.toThrow(/no live traffic provider/i);
   });
 });
+
+// ─── estimateWaitFromCongestion (webcam score → minutes) ─────────
+
+describe('estimateWaitFromCongestion', () => {
+  let estimateWaitFromCongestion: (congestionScore: number | null | undefined) => number;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    ({ estimateWaitFromCongestion } = await import(
+      '../functions/src/trafficSchedulerCore.js'
+    ));
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('returns 0 for null / undefined / non-finite scores', () => {
+    expect(estimateWaitFromCongestion(null)).toBe(0);
+    expect(estimateWaitFromCongestion(undefined)).toBe(0);
+    expect(estimateWaitFromCongestion(NaN)).toBe(0);
+  });
+
+  it('returns 0 below the 0.40 trust floor', () => {
+    expect(estimateWaitFromCongestion(0)).toBe(0);
+    expect(estimateWaitFromCongestion(0.39)).toBe(0);
+  });
+
+  it('maps 0.40–<0.60 → 8 (light queue)', () => {
+    expect(estimateWaitFromCongestion(0.40)).toBe(8);
+    expect(estimateWaitFromCongestion(0.5)).toBe(8);
+    expect(estimateWaitFromCongestion(0.59)).toBe(8);
+  });
+
+  it('maps 0.60–<0.80 → 15 (moderate)', () => {
+    expect(estimateWaitFromCongestion(0.60)).toBe(15);
+    expect(estimateWaitFromCongestion(0.79)).toBe(15);
+  });
+
+  it('maps 0.80–<0.95 → 22 (heavy)', () => {
+    expect(estimateWaitFromCongestion(0.80)).toBe(22);
+    expect(estimateWaitFromCongestion(0.94)).toBe(22);
+  });
+
+  it('caps at 30 for ≥0.95 (saturated frame)', () => {
+    expect(estimateWaitFromCongestion(0.95)).toBe(30);
+    expect(estimateWaitFromCongestion(1)).toBe(30);
+  });
+
+  it('is monotonic non-decreasing across the breakpoints', () => {
+    const samples = [0, 0.39, 0.4, 0.59, 0.6, 0.79, 0.8, 0.94, 0.95, 1];
+    const outputs = samples.map(estimateWaitFromCongestion);
+    for (let i = 1; i < outputs.length; i++) {
+      expect(outputs[i]).toBeGreaterThanOrEqual(outputs[i - 1]);
+    }
+  });
+
+  it('always returns an integer', () => {
+    for (const s of [0.4, 0.55, 0.6, 0.81, 0.96]) {
+      expect(Number.isInteger(estimateWaitFromCongestion(s))).toBe(true);
+    }
+  });
+});
+
+// ─── Webcam-as-PRIMARY fallback (no live routing data) ───────────
+
+// Mock the dynamically-imported webcam module so the scheduler picks up a
+// controllable aggregated verdict without network / sharp / image decoding.
+// `vi.hoisted` keeps the spy reachable from the (hoisted) vi.mock factory.
+const { webcamVerdict } = vi.hoisted(() => ({ webcamVerdict: vi.fn() }));
+vi.mock('../scripts/analyze-webcam-frame.mjs', () => ({
+  analyzeWebcamForCrossing: (...args: unknown[]) => webcamVerdict(...args),
+}));
+
+describe('fetchCrossingTraffic — webcam as primary source', () => {
+  const fakeCrossing = { name: 'Gaggiolo', lat: 45.84, lng: 9.03 };
+
+  let fetchCrossingTraffic: (
+    crossing: { name: string; lat: number; lng: number },
+    options: {
+      hereApiKey?: string;
+      tomtomApiKey?: string;
+      googleApiKey?: string;
+      enableWebcam?: boolean;
+    },
+  ) => Promise<{ source: string; waitTimeMinutes: number; status: string }>;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    webcamVerdict.mockReset();
+    ({ fetchCrossingTraffic } = await import(
+      '../functions/src/trafficSchedulerCore.js'
+    ));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('uses the webcam estimate when BOTH HERE segments fail and the cam sees a queue', async () => {
+    // Both routing calls reject → no live data.
+    global.fetch = vi.fn().mockRejectedValue(new Error('HERE HTTP 503'));
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.85, // heavy → 22 min
+      queueDetected: true,
+      visibility: 'good',
+      feeds: ['02.0N'],
+    });
+
+    const result = await fetchCrossingTraffic(fakeCrossing, {
+      hereApiKey: 'here-key',
+      enableWebcam: true,
+    });
+
+    expect(result.source).toBe('webcam');
+    expect(result.waitTimeMinutes).toBe(22);
+    expect(result.status).toBe('red');
+  });
+
+  it('still throws (→ mock fallback) when both segments fail and the webcam is unusable', async () => {
+    global.fetch = vi.fn().mockRejectedValue(new Error('HERE HTTP 503'));
+    webcamVerdict.mockResolvedValue({
+      congestionScore: null,
+      queueDetected: false,
+      visibility: 'night',
+      feeds: [],
+    });
+
+    await expect(
+      fetchCrossingTraffic(fakeCrossing, { hereApiKey: 'here-key', enableWebcam: true }),
+    ).rejects.toThrow(/both segments failed/i);
+  });
+
+  it('throws when both segments fail and there is no camera for the crossing', async () => {
+    global.fetch = vi.fn().mockRejectedValue(new Error('HERE HTTP 503'));
+    webcamVerdict.mockResolvedValue(null); // crossing has no CV feed
+
+    await expect(
+      fetchCrossingTraffic(fakeCrossing, { hereApiKey: 'here-key', enableWebcam: true }),
+    ).rejects.toThrow(/both segments failed/i);
+  });
+
+  it('does NOT let the webcam PRIMARY estimate replace a successful HERE estimate', async () => {
+    // Both segments succeed: crossing = 18-min delay (1260-180=1080s → 18 min),
+    // approach = 0. Webcam reports a saturated frame (score 0.99 → would be 30 min
+    // as a PRIMARY estimate). Because the cam is clear of a queue (queueDetected
+    // false) the adjust-only sanity path is a no-op here, so the routing value
+    // must pass through unchanged — and it must never become the 30-min primary.
+    const hereResp = {
+      routes: [{ sections: [{ summary: { baseDuration: 180, duration: 1260 } }] }],
+    };
+    global.fetch = vi.fn()
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => hereResp, text: async () => '' } as unknown as Response)
+      .mockResolvedValueOnce({ ok: true, status: 200, json: async () => ({ routes: [{ sections: [{ summary: { baseDuration: 60, duration: 60 } }] }] }), text: async () => '' } as unknown as Response);
+    webcamVerdict.mockResolvedValue({
+      congestionScore: 0.99, // estimateWaitFromCongestion → 30; must be ignored when live data exists
+      queueDetected: false,  // keep sanity a no-op so we read the raw routing value
+      visibility: 'good',
+      feeds: ['02.0N'],
+    });
+
+    const result = await fetchCrossingTraffic(fakeCrossing, {
+      hereApiKey: 'here-key',
+      enableWebcam: true,
+    });
+
+    // Source stays the live provider; wait is the routing-derived 18 min, NOT 30.
+    expect(result.source).toBe('here');
+    expect(result.waitTimeMinutes).toBe(18);
+  });
+});
