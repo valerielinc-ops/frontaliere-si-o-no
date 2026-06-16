@@ -31,18 +31,13 @@ export const WEBCAM_FEEDS = {
     // Road zone bounding box [left, top, width, height] in pixels.
     // Conservative center crop covering approximately the middle 50% of a typical 352x288 GIF.
     box: [80, 100, 192, 88],
-    // Baseline = free-flow crop stdev + ~4pt noise margin, so flowing traffic
-    // scores ~0 and only a denser-than-normal queue clears the 0.4 gate.
-    // Recalibrated 2026-06-16 from 3 distinct free-flow frames (median stdev ≈33.6).
-    baselineVariance: 38,
+    // Baseline variance for empty road (calibrate with WEBCAM_CALIBRATE=1).
+    baselineVariance: 18,
   },
   '00.3S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3S.gif',
     crossings: ['chiasso-brogeda'],
     box: [80, 100, 192, 88],
-    // Low-texture Brogeda booth: free-flow crop stdev ≈15 (a car at the booth
-    // jumps it to ~33). Kept SENSITIVE at 18 (a few points above the empty floor)
-    // — this is the at-booth detector, deliberately left untouched.
     baselineVariance: 18,
   },
   // North view over the Brogeda interchange: permanent high-texture structures
@@ -66,62 +61,56 @@ export const WEBCAM_FEEDS = {
     baselineVariance: 18,
     cvDetect: false,
   },
-  // Primary Gaggiolo / San Pietro view. Free-flow median stdev ≈21.5 (3 distinct
-  // frames 2026-06-16). The old baseline of 18 made normal flow score ~0.5 → the
-  // false "15 min" the owner reported. Recalibrated so free-flow scores ~0.
   '02.0N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
     crossings: ['gaggiolo', 'san-pietro'],
     box: [80, 100, 192, 88],
-    baselineVariance: 25,
+    baselineVariance: 18,
   },
-  // Gaggiolo southbound. Free-flow median stdev ≈32.3 (3 distinct frames 2026-06-16).
   '06.8S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
     crossings: ['gaggiolo', 'san-pietro'],
     box: [80, 100, 192, 88],
-    baselineVariance: 36,
+    baselineVariance: 18,
   },
   // A2 corridor camera just north of the Chiasso customs (Balerna, km 3.3).
   // Box shifted right of the default to exclude the textured noise-barrier wall
-  // on the left (which otherwise inflates variance → false queue). Free-flow
-  // median stdev ≈23.7 over 3 distinct frames 2026-06-16 (swing ≈6, NOT the
-  // >15 erratic swing seen on prior days → kept CV-eligible). A real queue here
-  // pushes stdev well above 32 → clears the 0.4 gate.
+  // on the left (which otherwise inflates variance → false queue). Calibrated
+  // 2026-06-16: moderate midday traffic scores ~0.20 (clear), well under the 0.4 queue gate.
   '03.3S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/03.3S.gif',
     crossings: ['chiasso-brogeda'],
     box: [120, 120, 180, 90],
-    baselineVariance: 28,
+    baselineVariance: 18,
   },
   // A2 Mendrisio interchange (km 7.2) — the motorway access funnelling the
-  // Stabio/Gaggiolo crossings. Free-flow median stdev ≈37.9 (3 distinct frames 2026-06-16).
+  // Stabio/Gaggiolo crossings. Default center-lower box; calibrated clear ~0.21.
   '07.2N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
     crossings: ['gaggiolo'],
     box: [80, 100, 192, 88],
-    baselineVariance: 42,
+    baselineVariance: 18,
   },
   // A2 Melide–Bissone causeway (km 17.84) — the road carrying the
-  // Campione d'Italia–Bissone crossing. Free-flow median stdev ≈37.9 (3 distinct frames 2026-06-16).
+  // Campione d'Italia–Bissone crossing. Default box; calibrated clear ~0.03.
   '17.84S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
     crossings: ['campione-d-italia-bissone'],
     box: [80, 100, 192, 88],
-    baselineVariance: 42,
+    baselineVariance: 18,
   },
   // A2 Coldrerio (km 4.4N) — approach corridor north of the Chiasso/Brogeda
   // customs. 400x225 GIF. The default center box catches the chevron-painted gore
   // and the textured concrete median barrier (stripes) → inflated variance. Box
   // shifted up-right onto the clean far-carriageway asphalt, excluding the gore,
-  // median wall, and the left grass embankment. Free-flow median stdev ≈32.6
-  // over 3 distinct frames 2026-06-16 (small box → noisier, swing ≈11); a
-  // car-dense queue pushes this view well above 41, clearing the 0.4 gate.
+  // median wall, and the left grass embankment. Calibrated 2026-06-16: moderate
+  // midday traffic scores ~0.07 (clear); a car-dense region of this same frame
+  // measured stdev 34–39 (score 0.54–0.71), so a real queue clears the 0.4 gate.
   '04.4N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/04.4N.gif',
     crossings: ['chiasso-brogeda'],
     box: [160, 35, 110, 45],
-    baselineVariance: 37,
+    baselineVariance: 18,
   },
 };
 
