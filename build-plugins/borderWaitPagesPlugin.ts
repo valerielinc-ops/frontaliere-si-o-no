@@ -1388,6 +1388,21 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
+  // Localized source→label map so the hydration script can update the "Fonte"
+  // badge in-place from the LIVE Firestore source (otherwise it stays on the
+  // build-time label, e.g. showing "Dati statistici" even when live data is fresh).
+  // Only LIVE sources — hydration runs against fresh Firestore data, whose
+  // source is always one of these (never 'static'/'mock', which are the
+  // build-time/SPA fallbacks). Omitting 'static' also keeps the "Dati statistici"
+  // string out of the page HTML so it never appears for a live-sourced reading.
+  const sourceLabelMap = JSON.stringify({
+    bazg: copy.sourceBazg,
+    here: copy.sourceHere,
+    tomtom: copy.sourceTomtom,
+    google: copy.sourceGoogle,
+    'google-maps': copy.sourceGoogle,
+    webcam: copy.sourceWebcam,
+  });
   const staticBannerHtml = staticFallback
     ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
@@ -1415,7 +1430,7 @@ function renderLeafPage(inp: LeafInputs): string {
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
-        <div class="s-iUCmjg">${esc(sourceText)}</div>
+        <div class="s-iUCmjg" data-bw-field="source" data-bw-source-labels="${esc(sourceLabelMap)}">${esc(sourceText)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
@@ -1851,7 +1866,18 @@ function renderHubPage(inp: HubInputs): string {
 
   // Build live table of all crossings in scope. Each <tr> carries the
   // data-bw-crossing attribute so the inline hydration IIFE can swap the
-  // pre-rendered minute count with the fresh Firestore value at runtime.
+  // pre-rendered minute count AND the source label with the fresh Firestore
+  // values at runtime. The source→label map is locale-invariant → build once
+  // here, not per row. Live sources only (no 'static' → "Dati statistici" copy
+  // never lands in the HTML).
+  const hubSourceLabelMap = JSON.stringify({
+    bazg: copy.sourceBazg,
+    here: copy.sourceHere,
+    tomtom: copy.sourceTomtom,
+    google: copy.sourceGoogle,
+    'google-maps': copy.sourceGoogle,
+    webcam: copy.sourceWebcam,
+  });
   const rows = crossingsInScope.map((c) => {
     const snap = current.perCrossing[c];
     const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
@@ -1865,7 +1891,7 @@ function renderHubPage(inp: HubInputs): string {
       <td class="s-tcl" style="text-align:right">
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td class="s-tcl" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
+      <td class="s-tcl" data-bw-field="source" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
