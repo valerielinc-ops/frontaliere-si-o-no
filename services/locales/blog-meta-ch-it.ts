@@ -185,6 +185,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'La Svizzera scommette sull\'Europa',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'La bocciatura dell\'iniziativa \'No a una Svizzera da 10 milioni\' è interpretata all\'estero come una scelta di stabilità e apertura.',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Deduzione da ristorni frontalieri contraria a accordi con Roma',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Svizzera intende applicare una deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute, ma questo potrebbe essere contrario agli accordi con l\'Italia.',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontalieri ticinesi con documenti',
 };
 
 export default blogMetaChIt;

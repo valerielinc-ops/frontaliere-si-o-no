@@ -185,6 +185,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'Swiss bet on Europe',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'The rejection of the \'No to a 10 million Switzerland\' initiative is seen abroad as a choice of stability and openness.',
     'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Partial deduction on cross-border worker allowances may break Rome deal',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'Switzerland plans to partially deduct from cross-border workers’ health tax refunds, a move that could violate agreements with Italy.',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers from Ticino with documents',
 };
 
 export default blogMetaChEn;

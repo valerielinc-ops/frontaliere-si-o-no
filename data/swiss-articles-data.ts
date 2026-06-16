@@ -557,6 +557,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'deduzione-da-ristorni-contraria-accordi-con-roma',
+    category: 'fiscale',
+    date: '2026-06-16T03:29:09.581Z',
+    image: '/images/blog/deduzione-da-ristorni-contraria-accordi-con-roma.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
