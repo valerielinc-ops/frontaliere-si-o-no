@@ -21,8 +21,10 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 
 // ── PoC switches ────────────────────────────────────────────
-// Off by default: deploying this component must not change live behaviour.
-const GPT_POC_ENABLED = false;
+// PoC ACTIVATED (issue #2273): GPT now serves one display slot on blog articles
+// to validate GPT serving + AdSense backfill while AdSense Auto Ads keep serving.
+// Revert this to `false` (one-line, then deploy) if Auto Ads / RPM / CWV regress.
+const GPT_POC_ENABLED = true;
 // Full GAM ad unit path — the display ad unit created for this PoC in GAM
 // Inventory (ad unit id 23356816306, sizes 300x250 + fluid, AdSense backfill on).
 const GPT_POC_AD_UNIT_PATH = '/23355151813/gpt-poc-articoli';
