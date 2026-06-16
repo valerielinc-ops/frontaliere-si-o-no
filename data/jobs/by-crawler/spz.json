@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spz",
-  "assembledAt": "2026-06-15T15:47:18.665Z",
+  "assembledAt": "2026-06-15T23:55:00.528Z",
   "jobs": [
     {
       "id": "spz-d369f62b4e68",
@@ -33,7 +33,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/praktikum-pflege/8c812c9b-8723-4901-b57d-e89975acdd98",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:44.189Z",
+      "crawledAt": "2026-06-15T23:54:58.329Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -64,7 +64,13 @@
         ]
       },
       "previousSlugs": [
-        "praktikum-pflege-spz-nottwil"
+        "praktikum-pflege-spz-nottwil",
+        "amministrazione-aziendale-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "internship-administration-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "praktikum-administration-spz-nottwil",
+        "administration-des-stages-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "stage-en-administration-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "administration-internship-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -72,15 +78,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:31.379Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -116,7 +122,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/unterassistent-in-allgemeine-innere-medizin/31451f22-9085-42b1-9607-dd5fd73007fa",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:43.693Z",
+      "crawledAt": "2026-06-15T23:54:57.701Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -159,7 +165,14 @@
         ]
       },
       "previousSlugs": [
-        "unterassistent-in-allgemeine-innere-medizin-spz-nottwil"
+        "unterassistent-in-allgemeine-innere-medizin-spz-nottwil",
+        "assistente-medico-generale-medicina-interna-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "assistant-physician-general-internal-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "assistenzarzt-arztin-allgemeine-innere-medizin-spz-nottwil",
+        "medecin-adjoint-medecine-generale-interne-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "assistente-medico-internista-medicina-interna-generale-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "assistant-internist-general-internal-medicine-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "medecin-assistant-en-medecine-interne-generale-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -167,15 +180,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:30.641Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -211,7 +224,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/praktikant-in-sporttherapie/d9fe4dc8-aa8e-4161-ba6b-5b1633796749",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:42.818Z",
+      "crawledAt": "2026-06-15T23:54:56.194Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -255,15 +268,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:29.703Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -299,7 +312,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-intensivmedizin/6b65e952-467f-4343-8d23-694128373670",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:42.011Z",
+      "crawledAt": "2026-06-15T23:54:54.855Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -350,15 +363,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:28.619Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -394,7 +407,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-die-ausbildung-zur-dipl-pflegefachfrau-mann-hf/1fb55198-50a6-4520-b5f5-8274e0b59bb2",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:41.050Z",
+      "crawledAt": "2026-06-15T23:54:54.190Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -447,15 +460,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T14:37:27.774Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -492,7 +505,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/phd-candidate-in-neuroscience-psychology-biology-biomedical-engineering-or-similar/e52cd5e4-4609-486c-997a-436ec2e7c122",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:47:13.724Z",
+      "crawledAt": "2026-06-15T23:54:52.997Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -570,7 +583,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-neurochirurgie-orthopaedie/0bdd33e2-dc9a-4abe-ab2c-1c7dc1f12da0",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:39.275Z",
+      "crawledAt": "2026-06-15T23:54:52.150Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -602,15 +615,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T23:52:40.046Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -647,7 +660,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-hauswirtschaft-events/8b5c765e-42a4-40ab-8937-dce3fe65fa1d",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:12.681Z",
+      "crawledAt": "2026-06-15T23:54:50.949Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -723,7 +736,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-hauswirtschaft/d057594a-cc46-440e-af84-4c4f78bff3fe",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:37.580Z",
+      "crawledAt": "2026-06-15T23:54:49.934Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -757,15 +770,15 @@
         ]
       },
       "firstSeenAt": "2026-05-24T23:23:27.394Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -802,7 +815,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/leitende-aerztin-leitender-arzt-intensivmedizin/ce977ce0-f52c-4aac-a5a9-8ca0dd1a5bbc",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:11.572Z",
+      "crawledAt": "2026-06-15T23:54:49.218Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -878,7 +891,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-fachfrau-mann-betreuung-kind-efz/d9e2e781-89c9-47a6-8a15-4b0e6d8e6162",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:35.703Z",
+      "crawledAt": "2026-06-15T23:54:48.177Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -904,15 +917,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:22.266Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -948,7 +961,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-kauffrau-mann-efz/ff40fc10-4971-4798-a7e9-f499c64be4e9",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:34.678Z",
+      "crawledAt": "2026-06-15T23:54:47.337Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -980,15 +993,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:21.644Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1024,7 +1037,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-koechin-koch-efz/ae679a32-9efa-4dc6-b397-d44d3f064199",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:33.924Z",
+      "crawledAt": "2026-06-15T23:54:46.162Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1058,15 +1071,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:20.982Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1102,7 +1115,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz/789f7947-ee86-4feb-9875-1259850ecf83",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:32.989Z",
+      "crawledAt": "2026-06-15T23:54:44.593Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1128,15 +1141,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:17:33.943Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1172,7 +1185,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-informatiker-in-efz-plattformentwicklung/22354a1b-75f2-405b-8f82-27ff669f9339",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:31.946Z",
+      "crawledAt": "2026-06-15T23:54:43.790Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1206,15 +1219,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:20.340Z",
-      "salaryMin": 46000,
-      "salaryMax": 78500,
+      "salaryMin": 67000,
+      "salaryMax": 114000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 78500,
+          "minValue": 67000,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       }
@@ -1250,7 +1263,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen/d781f0ea-9733-4937-8373-9bad7faa0856",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:30.919Z",
+      "crawledAt": "2026-06-15T23:54:42.713Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1284,15 +1297,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:17:32.670Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1328,7 +1341,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-fachfrau-mann-gesundheit-efz/7183b935-72f2-4a11-90c4-bff8f2ef64eb",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:29.879Z",
+      "crawledAt": "2026-06-15T23:54:41.893Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1362,15 +1375,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:19.173Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1406,7 +1419,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-assistent-in-gesundheit-und-soziales-eba/a5de51a2-ad27-4516-8de3-14d123b908d1",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:29.108Z",
+      "crawledAt": "2026-06-15T23:54:40.957Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1440,15 +1453,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:27:18.571Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1484,7 +1497,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-ict-fachfrau-mann-efz/27ace196-82cf-4714-a778-fe016e38dc1b",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:28.093Z",
+      "crawledAt": "2026-06-15T23:54:39.896Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1521,15 +1534,15 @@
         "lehrstelle-ict-fachmann-efz-spz-nottwil"
       ],
       "firstSeenAt": "2026-05-28T00:27:19.760Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1565,7 +1578,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/arztsekretaer-in-medizinisches-sekretariat/dc5f87fd-bc6e-4d75-9a00-9f1e9998fead",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:27.164Z",
+      "crawledAt": "2026-06-15T23:54:39.146Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1597,15 +1610,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:17:31.994Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1641,7 +1654,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-medizinproduktetechnolog-in-efz/d2d368c4-8df5-4791-9746-ea83c0793146",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:26.106Z",
+      "crawledAt": "2026-06-15T23:54:38.415Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1677,15 +1690,15 @@
         ]
       },
       "firstSeenAt": "2026-05-28T14:17:31.325Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 58500,
+      "salaryMax": 89000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 58500,
+          "maxValue": 89000,
           "unitText": "YEAR"
         }
       }
@@ -1721,7 +1734,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-expert-in-intensivpflege-nds-hf/768dabaa-a02d-440a-9af3-4e3484b24da8",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:25.443Z",
+      "crawledAt": "2026-06-15T23:54:37.364Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1756,15 +1769,15 @@
         ]
       },
       "firstSeenAt": "2026-05-29T00:43:42.347Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1800,7 +1813,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-expert-in-in-anaesthesiepflege-nds-hf/8b594ca5-f6e8-4a0c-ac06-a945156bf6d6",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:24.684Z",
+      "crawledAt": "2026-06-15T23:54:36.409Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1835,15 +1848,15 @@
         ]
       },
       "firstSeenAt": "2026-05-29T00:43:41.766Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -1880,7 +1893,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-expert-in-in-intensivpflege-nds-hf/71f3e7e1-1b1a-4935-b0cd-b9e5f9fbae51",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:03.136Z",
+      "crawledAt": "2026-06-15T23:54:34.914Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1962,7 +1975,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-mit-ndk-ueberwachungspflege/db3657f5-2c41-4056-9e6b-af4b17428f02",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:02.615Z",
+      "crawledAt": "2026-06-15T23:54:34.121Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2043,7 +2056,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/arztsekretaer-in-radiologie/3016f5a5-dd44-45b4-aab4-0bf126537647",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:22.053Z",
+      "crawledAt": "2026-06-15T23:54:33.152Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2075,15 +2088,15 @@
         ]
       },
       "firstSeenAt": "2026-05-29T14:05:45.764Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2119,7 +2132,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-man-hf-fh-auf-der-intensivstation/0ff0bade-e295-4dee-92fd-47230cf18918",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:21.154Z",
+      "crawledAt": "2026-06-15T23:54:32.336Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2157,15 +2170,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T16:18:22.047Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2201,7 +2214,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-gastronomie/8b7be93d-ad6b-40ed-b5cc-87b2577e0c70",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:20.086Z",
+      "crawledAt": "2026-06-15T23:54:31.479Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2245,15 +2258,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T01:11:00.802Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2290,7 +2303,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/co-stationsleiter-in-pflege/b7ab35f9-361d-4788-810b-8075660869d6",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:47:00.007Z",
+      "crawledAt": "2026-06-15T23:54:30.100Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2373,7 +2386,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/bildungsverantwortliche-r-pflege/a7b03db4-c657-427d-aa84-f0fecf693b0f",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:18.420Z",
+      "crawledAt": "2026-06-15T23:54:28.866Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2416,15 +2429,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T01:16:31.509Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 96000,
+          "maxValue": 146000,
           "unitText": "YEAR"
         }
       }
@@ -2461,7 +2474,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/flex-pool-pflege/f2b303af-7519-4f3e-be10-b4dba4c3bcc4",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:46:58.721Z",
+      "crawledAt": "2026-06-15T23:54:27.895Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2479,7 +2492,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "flex-pool-pflege-spz-nottwil"
+        "flex-pool-pflege-spz-nottwil",
+        "leader-del-gruppo-nella-cura-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "group-leader-in-care-akutrehabilitation-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "gruppenleiter-in-pflege-akutrehabilitation-spz-nottwil",
+        "chef-de-groupe-in-care-akutrehabilitation-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "gruppo-leader-nella-stazione-chirurgica-internalist-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "group-leader-in-care-surgical-internalist-station-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "gruppenleiter-in-pflege-chirurgische-internistische-station-spz-nottwil",
+        "chef-de-groupe-en-poste-de-chirurgie-interne-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2538,7 +2559,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter/e4c89ade-7ef7-470c-a743-a3274f27f7fc",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:46:58.081Z",
+      "crawledAt": "2026-06-15T23:54:27.018Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2614,7 +2635,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/coach-in-beruf-berufsbildung/6c0af03d-ed4a-46b4-9311-118897e4632f",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:15.107Z",
+      "crawledAt": "2026-06-15T23:54:25.997Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2643,15 +2664,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:46:44.097Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2687,7 +2708,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh/e5e4985a-7175-41b3-a981-6528292bbf65",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:14.235Z",
+      "crawledAt": "2026-06-15T23:54:25.347Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2719,15 +2740,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:46:46.199Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2763,7 +2784,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/performance-experte-in-sportmedizin/7b406aea-d0dc-4058-b9dc-fc0649a1db7c",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:13.026Z",
+      "crawledAt": "2026-06-15T23:54:24.397Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2794,15 +2815,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:46:43.442Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2838,7 +2859,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-hotelservice/feb47504-9795-4b22-a164-8be1771267ae",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:12.249Z",
+      "crawledAt": "2026-06-15T23:54:23.690Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2858,7 +2879,12 @@
       "previousSlugs": [
         "mitarbeiter-in-hotelservice-spz-nottwil",
         "staff-in-hotelservice-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "personnel-a-l-hotel-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "personnel-a-l-hotel-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "collaboratore-trice-in-peer-beratung-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "peer-counselor-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "mitarbeiter-in-peer-beratung-spz-nottwil",
+        "conseiller-pair-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "consulente-di-pariglia-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2872,15 +2898,15 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:14:15.451Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2916,7 +2942,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/feldenkrais-practitioner/fe9195a4-6dfd-4e85-835d-c1bd930c6578",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:11.352Z",
+      "crawledAt": "2026-06-15T23:54:23.062Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2938,15 +2964,15 @@
         "praticien-feldenkrais-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "firstSeenAt": "2026-06-10T13:00:55.427Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -2982,7 +3008,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-sozialarbeiter-in-fh/b8928067-7d7c-49ec-9e46-dc0db2f00e7e",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:10.470Z",
+      "crawledAt": "2026-06-15T23:54:22.286Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3014,15 +3040,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T13:00:54.722Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -3048,17 +3074,18 @@
       },
       "description": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n\n• Du erledigt die Auftragsbearbeitung (auch Export) sowie den Einkauf, die Lagerbewirtschaftung und die Verwaltung der Artikel.\n\n• Du arbeitest eng mit anderen Abteilungen der Klinik (Therapie, Pflege und Einkauf) zusammen.\n\n• Im Weiteren nimmst du die Datenadministration im ERP/CRM vor und erledigst weitere administrative Aufgaben.\n\nDas zeichnet dich aus\n\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.\n\n• Bei einer kaufmännischen Grundausbildung verfügst du über einige Jahre Berufserfahrung im medizinischen/paramedizinischen Bereich.\n\n• Du berätst gerne Kunden, hast keine Berührungsängste und die Freude am Umgang mit Menschen zeichnet dich aus.\n\n• Ausserdem verfügst du nebst deutscher Muttersprache über gute Sprachkenntnisse in Französisch und/oder Italienisch.\n\nDas erwartet dich\n\nÜber uns\n\nOrthotec fördert die #Bewegungsfreiheit von Menschen mit Querschnittlähmung und ähnlichen Einschränkungen durch Hilfsmittel und Dienstleistungen. Rund 100 Mitarbeitende setzen sich in den Bereichen Fahrzeugumbau, Rehatechnik, Orthopädietechnik, Kontinenz- und Alltagshilfen sowie Rollstuhlsport für diese Mission ein. Orthotec gehört zur Schweizer Paraplegiker-Gruppe in Nottwil und ist offizieller Ausrüster von Swiss Paralympic.\n\nAufgaben:\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n\nAnforderungen:\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.",
       "descriptionByLocale": {
-        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Questi sono i tuoi compiti • Siete la persona di contatto e consulente per i pazienti, clienti esterni e interni (interruttore, telefono, e-mail) così come le compagnie di assicurazione, i vettori di costo e i fornitori per quanto riguarda la nostra gamma di prodotti nel settore della continenza e dell'aiuto quotidiano. Si gestisce l'elaborazione dell'ordine (anche l'esportazione) così come l'acquisto, la gestione del magazzino e la gestione dell'articolo. • Si lavora a stretto contatto con altri dipartimenti della clinica (terapia, cura e acquisto). • Inoltre, si effettua l'amministrazione dei dati nell'ERP/CRM e si esegue ulteriori compiti amministrativi. Questo ti distingue. Idealmente, avete una formazione come farmacista o specialista in salute e portare esperienza nel settore commerciale. • In una formazione commerciale di base, avete diversi anni di esperienza professionale nel campo medico / paramedico. • Ti piace consigliare i clienti, non avere paura di toccare e la gioia di trattare con le persone ti distingue. • Oltre al tedesco, hai buone competenze linguistiche in francese e/o italiano. Orthotec promuove il #libero movimento delle persone con paraplegia e restrizioni simili attraverso strumenti e servizi. Circa 100 dipendenti sono impegnati a questa missione nei settori della conversione del veicolo, della tecnologia di riabilitazione, della tecnologia ortopedica, della continenza e dell'assistenza quotidiana, nonché dello sport su sedia a rotelle. Orthotec fa parte del Gruppo Svizzero Paraplegico di Nottwil ed è il fornitore ufficiale della Svizzera Paralimpica. Compiti: • Sei la persona di contatto e consulente per i pazienti, clienti esterni e interni (interruttore, telefono, e-mail) così come le compagnie di assicurazione, i vettori di costo e i fornitori per quanto riguarda la nostra gamma di prodotti nel settore della continenza e dell'aiuto quotidiano. Requisiti: • Idealmente, si dispone di un'istruzione come farmacista o specialista in salute e portare esperienza nel settore commerciale.",
-        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. These are your tasks • You are the contact person and consultant for patients, external and internal customers (switch, telephone, e-mail) as well as insurance companies, cost carriers and suppliers with regard to our product range in the area of continence and everyday help. You handle order processing (also export) as well as purchasing, warehouse management and article management. • You work closely with other departments of the clinic (therapy, care and purchasing). • Furthermore, you carry out the data administration in the ERP/CRM and perform further administrative tasks. This sets you apart. Ideally, you have an education as a pharmacist or specialist in health and bring experience in the commercial sector. • In a basic commercial education, you have several years of professional experience in the medical/paramedical field. • You like to advise clients, have no fear of touch and the joy of dealing with people distinguishes you. • In addition to German, you have good language skills in French and/or Italian. Orthotec promotes the #free movement of people with paraplegia and similar restrictions through tools and services. Around 100 employees are committed to this mission in the areas of vehicle conversion, rehabilitation technology, orthopaedic technology, continence and everyday assistance as well as wheelchair sports. Orthotec is part of the Swiss Paraplegic Group in Nottwil and is the official supplier of Swiss Paralympic. Tasks: • You are the contact person and consultant for patients, external and internal customers (switch, telephone, e-mail) as well as insurance companies, cost carriers and suppliers with regard to our product range in the area of continence and everyday help. Requirements: • Ideally, you have an education as a pharmacist or specialist in health and bring experience in the commercial sector.",
-        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n\n• Du erledigt die Auftragsbearbeitung (auch Export) sowie den Einkauf, die Lagerbewirtschaftung und die Verwaltung der Artikel.\n\n• Du arbeitest eng mit anderen Abteilungen der Klinik (Therapie, Pflege und Einkauf) zusammen.\n\n• Im Weiteren nimmst du die Datenadministration im ERP/CRM vor und erledigst weitere administrative Aufgaben.\n\nDas zeichnet dich aus\n\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.\n\n• Bei einer kaufmännischen Grundausbildung verfügst du über einige Jahre Berufserfahrung im medizinischen/paramedizinischen Bereich.\n\n• Du berätst gerne Kunden, hast keine Berührungsängste und die Freude am Umgang mit Menschen zeichnet dich aus.\n\n• Ausserdem verfügst du nebst deutscher Muttersprache über gute Sprachkenntnisse in Französisch und/oder Italienisch.\n\nDas erwartet dich\n\nÜber uns\n\nOrthotec fördert die #Bewegungsfreiheit von Menschen mit Querschnittlähmung und ähnlichen Einschränkungen durch Hilfsmittel und Dienstleistungen. Rund 100 Mitarbeitende setzen sich in den Bereichen Fahrzeugumbau, Rehatechnik, Orthopädietechnik, Kontinenz- und Alltagshilfen sowie Rollstuhlsport für diese Mission ein. Orthotec gehört zur Schweizer Paraplegiker-Gruppe in Nottwil und ist offizieller Ausrüster von Swiss Paralympic.\n\nAufgaben:\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n\nAnforderungen:\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.",
-        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Ce sont vos tâches • Vous êtes la personne-ressource et consultante pour les patients, les clients externes et internes (switch, téléphone, e-mail) ainsi que les compagnies d'assurance, les transporteurs de coûts et les fournisseurs en ce qui concerne notre gamme de produits dans le domaine de la continuité et de l'aide quotidienne. Vous manipulez le traitement des commandes (également l'exportation) ainsi que les achats, la gestion des entrepôts et la gestion des articles. • Vous travaillez en étroite collaboration avec d'autres départements de la clinique (thérapie, soins et achats). • En outre, vous effectuez l'administration des données dans l'ERP/CRM et exécutez d'autres tâches administratives. Ça vous distingue. Idéalement, vous avez une formation en tant que pharmacien ou spécialiste de la santé et apportez de l'expérience dans le secteur commercial. • Dans une éducation commerciale de base, vous avez plusieurs années d'expérience professionnelle dans le domaine médical/paramédical. • Vous aimez conseiller les clients, n'ayez pas peur du toucher et la joie de traiter avec les gens vous distingue. • En plus de l'allemand, vous avez de bonnes compétences linguistiques en français et/ou en italien. Orthotec promeut la #libre circulation des personnes avec paraplégie et restrictions similaires au moyen d'outils et de services. Une centaine d'employés s'engagent dans cette mission dans les domaines de la conversion des véhicules, de la technologie de réadaptation, de la technologie orthopédique, de la continuité et de l'assistance quotidienne ainsi que des sports en fauteuil roulant. Orthotec fait partie du groupe suisse Paraplégic de Nottwil et est le fournisseur officiel de Swiss Paralympical. Tâches: • Vous êtes la personne de contact et consultant pour les patients, les clients externes et internes (switch, téléphone, e-mail) ainsi que les compagnies d'assurance, les transporteurs de coûts et les fournisseurs en ce qui concerne notre gamme de produits dans le domaine de la continence et de l'aide quotidienne. Exigences: • Idéalement, vous avez une formation en tant que pharmacien ou spécialiste de la santé et apportez de l'expérience dans le secteur commercial."
+        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Questi sono i tuoi compiti\n• Siete la persona di contatto e consulente per i pazienti, clienti esterni e interni (interruttore, telefono, e-mail) così come le compagnie di assicurazione, i vettori di costo e i fornitori per quanto riguarda la nostra gamma di prodotti nel settore della continenza e dell'aiuto quotidiano. Si gestisce l'elaborazione dell'ordine (anche l'esportazione) così come l'acquisto, la gestione del magazzino e la gestione dell'articolo.\n• Si lavora a stretto contatto con altri dipartimenti della clinica (terapia, cura e acquisto).\n• Inoltre, si effettua l'amministrazione dei dati nell'ERP/CRM e si esegue ulteriori compiti amministrativi. Questo ti distingue. Idealmente, avete una formazione come farmacista o specialista in salute e portare esperienza nel settore commerciale.\n• In una formazione commerciale di base, avete diversi anni di esperienza professionale nel campo medico / paramedico.\n• Ti piace consigliare i clienti, non avere paura di toccare e la gioia di trattare con le persone ti distingue.\n• Oltre al tedesco, hai buone competenze linguistiche in francese e/o italiano. Orthotec promuove il #libero movimento delle persone con paraplegia e restrizioni simili attraverso strumenti e servizi. Circa 100 dipendenti sono impegnati a questa missione nei settori della conversione del veicolo, della tecnologia di riabilitazione, della tecnologia ortopedica, della continenza e dell'assistenza quotidiana, nonché dello sport su sedia a rotelle. Orthotec fa parte del Gruppo Svizzero Paraplegico di Nottwil ed è il fornitore ufficiale della Svizzera Paralimpica. Compiti:\n• Sei la persona di contatto e consulente per i pazienti, clienti esterni e interni (interruttore, telefono, e-mail) così come le compagnie di assicurazione, i vettori di costo e i fornitori per quanto riguarda la nostra gamma di prodotti nel settore della continenza e dell'aiuto quotidiano. Requisiti:\n• Idealmente, si dispone di un'istruzione come farmacista o specialista in salute e portare esperienza nel settore commerciale.",
+        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. These are your tasks\n• You are the contact person and consultant for patients, external and internal customers (switch, telephone, e-mail) as well as insurance companies, cost carriers and suppliers with regard to our product range in the area of continence and everyday help. You handle order processing (also export) as well as purchasing, warehouse management and article management.\n• You work closely with other departments of the clinic (therapy, care and purchasing).\n• Furthermore, you carry out the data administration in the ERP/CRM and perform further administrative tasks. This sets you apart. Ideally, you have an education as a pharmacist or specialist in health and bring experience in the commercial sector.\n• In a basic commercial education, you have several years of professional experience in the medical/paramedical field.\n• You like to advise clients, have no fear of touch and the joy of dealing with people distinguishes you.\n• In addition to German, you have good language skills in French and/or Italian. Orthotec promotes the #free movement of people with paraplegia and similar restrictions through tools and services. Around 100 employees are committed to this mission in the areas of vehicle conversion, rehabilitation technology, orthopaedic technology, continence and everyday assistance as well as wheelchair sports. Orthotec is part of the Swiss Paraplegic Group in Nottwil and is the official supplier of Swiss Paralympic. Tasks:\n• You are the contact person and consultant for patients, external and internal customers (switch, telephone, e-mail) as well as insurance companies, cost carriers and suppliers with regard to our product range in the area of continence and everyday help. Requirements:\n• Ideally, you have an education as a pharmacist or specialist in health and bring experience in the commercial sector.",
+        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe. Das sind deine Aufgaben\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n• Du erledigt die Auftragsbearbeitung (auch Export) sowie den Einkauf, die Lagerbewirtschaftung und die Verwaltung der Artikel.\n• Du arbeitest eng mit anderen Abteilungen der Klinik (Therapie, Pflege und Einkauf) zusammen.\n• Im Weiteren nimmst du die Datenadministration im ERP/CRM vor und erledigst weitere administrative Aufgaben. Das zeichnet dich aus\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.\n• Bei einer kaufmännischen Grundausbildung verfügst du über einige Jahre Berufserfahrung im medizinischen/paramedizinischen Bereich.\n• Du berätst gerne Kunden, hast keine Berührungsängste und die Freude am Umgang mit Menschen zeichnet dich aus.\n• Ausserdem verfügst du nebst deutscher Muttersprache über gute Sprachkenntnisse in Französisch und/oder Italienisch. Das erwartet dich Über uns Orthotec fördert die #Bewegungsfreiheit von Menschen mit Querschnittlähmung und ähnlichen Einschränkungen durch Hilfsmittel und Dienstleistungen. Rund 100 Mitarbeitende setzen sich in den Bereichen Fahrzeugumbau, Rehatechnik, Orthopädietechnik, Kontinenz- und Alltagshilfen sowie Rollstuhlsport für diese Mission ein. Orthotec gehört zur Schweizer Paraplegiker-Gruppe in Nottwil und ist offizieller Ausrüster von Swiss Paralympic. Aufgaben:\n• Du bist Ansprechperson und Berater*in für Patienten, externe und interne Kunden (Schalter, Telefon, Mail) sowie Versicherungen, Kostenträger und Lieferanten in Bezug auf unser Produktesortiment im Bereich Kontinenz- und Alltagshilfen.\n• Du erledigt die Auftragsbearbeitung (auch Export) sowie den Einkauf, die Lagerbewirtschaftung und die Verwaltung der Artikel.\n• Du arbeitest eng mit anderen Abteilungen der Klinik (Therapie, Pflege und Einkauf) zusammen.\n• Im Weiteren nimmst du die Datenadministration im ERP/CRM vor und erledigst weitere administrative Aufgaben. Anforderungen:\n• Du verfügst idealerweise über eine Ausbildung als Drogist*in oder Fachfrau/-mann Gesundheit und bringst Erfahrung im kaufmännischen Bereich mit.\n• Bei einer kaufmännischen Grundausbildung verfügst du über einige Jahre Berufserfahrung im medizinischen/paramedizinischen Bereich.\n• Du berätst gerne Kunden, hast keine Berührungsängste und die Freude am Umgang mit Menschen zeichnet dich aus.\n• Ausserdem verfügst du nebst deutscher Muttersprache über gute Sprachkenntnisse in Französisch und/oder Italienisch.",
+        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Ce sont vos tâches\n• Vous êtes la personne-ressource et consultante pour les patients, les clients externes et internes (switch, téléphone, e-mail) ainsi que les compagnies d'assurance, les transporteurs de coûts et les fournisseurs en ce qui concerne notre gamme de produits dans le domaine de la continuité et de l'aide quotidienne. Vous manipulez le traitement des commandes (également l'exportation) ainsi que les achats, la gestion des entrepôts et la gestion des articles.\n• Vous travaillez en étroite collaboration avec d'autres départements de la clinique (thérapie, soins et achats).\n• En outre, vous effectuez l'administration des données dans l'ERP/CRM et exécutez d'autres tâches administratives. Ça vous distingue. Idéalement, vous avez une formation en tant que pharmacien ou spécialiste de la santé et apportez de l'expérience dans le secteur commercial.\n• Dans une éducation commerciale de base, vous avez plusieurs années d'expérience professionnelle dans le domaine médical/paramédical.\n• Vous aimez conseiller les clients, n'ayez pas peur du toucher et la joie de traiter avec les gens vous distingue.\n• En plus de l'allemand, vous avez de bonnes compétences linguistiques en français et/ou en italien. Orthotec promeut la #libre circulation des personnes avec paraplégie et restrictions similaires au moyen d'outils et de services. Une centaine d'employés s'engagent dans cette mission dans les domaines de la conversion des véhicules, de la technologie de réadaptation, de la technologie orthopédique, de la continuité et de l'assistance quotidienne ainsi que des sports en fauteuil roulant. Orthotec fait partie du groupe suisse Paraplégic de Nottwil et est le fournisseur officiel de Swiss Paralympical. Tâches:\n• Vous êtes la personne de contact et consultant pour les patients, les clients externes et internes (switch, téléphone, e-mail) ainsi que les compagnies d'assurance, les transporteurs de coûts et les fournisseurs en ce qui concerne notre gamme de produits dans le domaine de la continence et de l'aide quotidienne. Exigences:\n• Idéalement, vous avez une formation en tant que pharmacien ou spécialiste de la santé et apportez de l'expérience dans le secteur commercial."
       },
+      "needsRetranslation": false,
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://jobs.paraplegie.ch/offene-stellen/drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fuer-kontinenz-und-alltagshilfen/321dfb94-5c54-4c00-8fa1-06870df9c289",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:09.639Z",
+      "crawledAt": "2026-06-15T23:54:21.473Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3090,15 +3117,15 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:33:11.270Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -3134,7 +3161,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-sozialarbeiter-in-fh/a5539390-d75b-452c-95e7-0df8486de3e2",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:08.894Z",
+      "crawledAt": "2026-06-15T23:54:20.973Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3157,15 +3184,15 @@
         "diplome-e-en-travail-social-schweizer-paraplegiker-zentrum-spz-nottwil"
       ],
       "firstSeenAt": "2026-06-10T23:33:36.429Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
@@ -3174,9 +3201,9 @@
       "id": "spz-6d478e976a75",
       "slug": "automazione-degli-ingegneri-di-piattaforma-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
-        "de": "platform-engineer-automation-spz-nottwil",
         "it": "automazione-degli-ingegneri-di-piattaforma-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "platform-engineer-automation-spz-nottwil",
+        "de": "platform-engineer-automation-spz-nottwil",
         "fr": "automatisation-des-ingenieurs-de-plate-forme-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
@@ -3184,24 +3211,24 @@
       "companyDomain": "paraplegie.ch",
       "title": "Platform Engineer Automation",
       "titleByLocale": {
-        "de": "Plattform-Ingenieur-Automatisierung",
-        "en": "Platform Engineer Automation",
         "it": "Automazione degli Ingegneri di Piattaforma",
+        "en": "Platform Engineer Automation",
+        "de": "Platform Ingenieur Automation",
         "fr": "Automatisation des ingénieurs de plate-forme"
       },
       "description": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n- Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen.\n - Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien.\n - Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb.\n - Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein.\n - Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung.\n - Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell.\n - Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern.\n - Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen.\n\nDas zeichnet dich aus\n\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.\n\n• Mit Microsoft-Infrastrukturen - On Prem (Active Directory, Windows Servern, etc.) kennst du dich bestens aus.\n\n• Skripting liegt dir: Mit PowerShell, Python oder vergleichbaren Tools arbeitest du sicher und effizient.\n\n• Auch in der Microsoft 365 Welt bist du fit, zum Beispiel in Entra ID, Exchange Online, Teams, Intune & Co.\n\n• Komplexe Fragestellungen motivieren dich. Du bleibst jederzeit strukturiert, bewahrst Ruhe und behältst auch in anspruchsvollen Situationen das grosse Ganze im Blick.\n\n• Du bist ein*e echte*r Teamplayer*in, kommunizierst klar und schätzt die Zusammenarbeit mit unterschiedlichen Schnittstellen-Partner*innen.\n\nDas erwartet dich\n\nÜber uns\n\nDas Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt.\n\nAufgaben:\n- Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen.\n - Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien.\n - Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb.\n - Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein.\n - Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung.\n - Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell.\n - Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern.\n - Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen.\n\nAnforderungen:\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.",
       "descriptionByLocale": {
-        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n- Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen.\n- Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien.\n- Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb.\n- Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein.\n- Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung.\n- Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell.\n- Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern.\n- Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen.\n\nDas zeichnet dich aus\n\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.\n\n• Mit Microsoft-Infrastrukturen - On Prem (Active Directory, Windows Servern, etc.) kennst du dich bestens aus.\n\n• Skripting liegt dir: Mit PowerShell, Python oder vergleichbaren Tools arbeitest du sicher und effizient.\n\n• Auch in der Microsoft 365 Welt bist du fit, zum Beispiel in Entra ID, Exchange Online, Teams, Intune & Co.\n\n• Komplexe Fragestellungen motivieren dich. Du bleibst jederzeit strukturiert, bewahrst Ruhe und behältst auch in anspruchsvollen Situationen das grosse Ganze im Blick.\n\n• Du bist ein*e echte*r Teamplayer*in, kommunizierst klar und schätzt die Zusammenarbeit mit unterschiedlichen Schnittstellen-Partner*innen.\n\nDas erwartet dich\n\nÜber uns\n\nDas Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt.\n\nAufgaben:\n- Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen.\n- Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien.\n- Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb.\n- Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein.\n- Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung.\n- Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell.\n- Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern.\n- Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen.\n\nAnforderungen:\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.",
-        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Questi sono i vostri compiti - automazione: Sviluppi e mantieni gli script di automazione che supportano in modo significativo la nostra infrastruttura nella vita quotidiana. - Scripting: crei script e strumenti utilizzando PowerShell, Python o altre tecnologie adatte. Cloud Architectures: Sviluppa architetture cloud scalabili su Microsoft Azure e automatizza la loro distribuzione per operazioni efficienti e affidabili. Piattaforme: Supporti l'operazione e sei attivamente coinvolto nell'ulteriore sviluppo delle nostre piattaforme IT. - Analisi degli errori: analizza i problemi tecnici, trova soluzioni pragmatiche e supporto nella loro correzione. - Documentazione: crei e mantieni gli articoli di base della conoscenza e li mantieni aggiornati. - Collaborazione: coordina la collaborazione con fornitori, consulenti e partner di supporto. Sei pronto a sostenere la squadra del Pikettdienst. Questo ti distingue. Porti un know-how tecnico approfondito e affronti le sfide in modo orientato alla soluzione. • Con le infrastrutture Microsoft - Su Prem (Active Directory, Windows Server, ecc.) si sa meglio. • La scrittura è tua: con PowerShell, Python o strumenti simili, lavori in modo sicuro ed efficiente. • Sei anche adatto nel mondo Microsoft 365, per esempio in Entra ID, Exchange Online, Team, Intune & Co. • Le domande complesse ti motivano. Restate sempre strutturati, tenete la calma e tenete la grande immagine in vista anche in situazioni difficili. • Sei un vero giocatore di squadra, comunicare con chiarezza e apprezzare la collaborazione con diversi partner di interfaccia. Il Centro svizzero per paraplegici di Nottwil è una clinica privata, nazionale e riconosciuta a livello internazionale per la medicina trasversale, posteriore e respiratoria. Come clinica acuta e riabilitativa, il centro offre ai suoi pazienti una cura completa e li sostiene per tutta la vita. La clinica fa parte del Gruppo Svizzero Paraplegico, che fornisce una rete di assistenza globale unica per la riabilitazione olistica di persone con paraplegia. Compiti: - Automazione: sviluppi e mantieni gli script di automazione che supportano in modo significativo la nostra infrastruttura nella vita quotidiana. - Scripting: crei script e strumenti utilizzando PowerShell, Python o altre tecnologie adatte. Cloud Architectures: Sviluppa architetture cloud scalabili su Microsoft Azure e automatizza la loro distribuzione per operazioni efficienti e affidabili. Piattaforme: Supporti l'operazione e sei attivamente coinvolto nell'ulteriore sviluppo delle nostre piattaforme IT. - Analisi degli errori: analizza i problemi tecnici, trova soluzioni pragmatiche e supporto nella loro correzione. - Documentazione: crei e mantieni gli articoli di base della conoscenza e li mantieni aggiornati. - Collaborazione: coordina la collaborazione con fornitori, consulenti e partner di supporto. Sei pronto a sostenere la squadra del Pikettdienst. Requisiti: • Porti un know-how tecnico approfondito e affronti le sfide in modo orientato alla soluzione.",
-        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. These are your tasks - automation: You develop and maintain automation scripts that significantly support our infrastructure in everyday life. - Scripting: You create scripts and tools using PowerShell, Python or other suitable technologies. Cloud Architectures: Develop scalable cloud architectures on Microsoft Azure and automate their deployment for efficient, reliable operations. Platforms: You support the operation and are actively involved in the further development of our IT platforms. - Error analysis: You analyze technical problems, find pragmatic solutions and support in their correction. - Documentation: You create and maintain knowledge base articles and keep them up-to-date. - Collaboration: You coordinate cooperation with suppliers, consultants and support partners. - Pikett: You are ready to support the team in the Pikettdienst. This sets you apart. You bring in-depth technical know-how and tackle challenges in a solution-oriented manner. • With Microsoft infrastructures - On Prem (Active Directory, Windows Servers, etc.) you know best. • Scripting is yours: With PowerShell, Python or similar tools, you work safely and efficiently. • You are also fit in the Microsoft 365 world, for example in Entra ID, Exchange Online, Teams, Intune & Co. • Complex questions motivate you. You stay structured at all times, keep calm and keep the big picture in view even in demanding situations. • You are a real team player, communicate clearly and appreciate the cooperation with different interface partners. The Swiss Paraplegic Centre in Nottwil is a private, nationally and internationally recognized specialist clinic for cross-sectional, back and respiratory medicine. As an acute and rehabilitation clinic, the centre offers its patients comprehensive care and supports them throughout their lives. The clinic is part of the Swiss Paraplegic Group, which provides a globally unique service network for the holistic rehabilitation of people with paraplegia. Tasks: - Automation: You develop and maintain automation scripts that significantly support our infrastructure in everyday life. - Scripting: You create scripts and tools using PowerShell, Python or other suitable technologies. Cloud Architectures: Develop scalable cloud architectures on Microsoft Azure and automate their deployment for efficient, reliable operations. Platforms: You support the operation and are actively involved in the further development of our IT platforms. - Error analysis: You analyze technical problems, find pragmatic solutions and support in their correction. - Documentation: You create and maintain knowledge base articles and keep them up-to-date. - Collaboration: You coordinate cooperation with suppliers, consultants and support partners. - Pikett: You are ready to support the team in the Pikettdienst. Requirements: • You bring in-depth technical know-how and tackle challenges in a solution-oriented manner.",
-        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Ce sont vos tâches - l'automatisation: Vous développez et maintenez des scripts d'automatisation qui soutiennent considérablement notre infrastructure dans la vie quotidienne. - Scripting: Vous créez des scripts et des outils en utilisant PowerShell, Python ou d'autres technologies appropriées. Architectures Cloud : Développez des architectures cloud évolutives sur Microsoft Azure et automatisez leur déploiement pour des opérations efficaces et fiables. Plateformes : Vous soutenez l'opération et participez activement au développement de nos plateformes informatiques. - Analyse des erreurs : Vous analysez les problèmes techniques, trouvez des solutions pragmatiques et un support dans leur correction. - Documentation : Vous créez et maintenez à jour des articles de base de connaissances. - Collaboration : Vous coordonnez la coopération avec les fournisseurs, les consultants et les partenaires de soutien. - Pikett : Vous êtes prêt à soutenir l'équipe du Pikettdienst. Ça vous distingue. Vous apportez un savoir-faire technique approfondi et vous abordez les défis d'une manière orientée vers la solution. • Avec les infrastructures Microsoft - Sur Prem (Active Directory, Windows Servers, etc.) vous savez mieux. • Le script est à vous: Avec PowerShell, Python ou des outils similaires, vous travaillez en toute sécurité et efficacement. • Vous êtes également dans le monde Microsoft 365, par exemple dans Entra ID, Exchange Online, Teams, Intune & Co. • Des questions complexes vous motivent. Vous restez structuré en tout temps, restez calme et gardez la vue d'ensemble même dans des situations exigeantes. • Vous êtes un vrai joueur d'équipe, communiquez clairement et appréciez la coopération avec différents partenaires d'interface. Le Centre suisse des paraplégiques de Nottwil est une clinique spécialisée privée, reconnue au niveau national et international pour la médecine transversale, du dos et respiratoire. En tant que clinique d'urgence et de réadaptation, le centre offre à ses patients des soins complets et les soutient tout au long de leur vie. La clinique fait partie du Groupe suisse paraplégique, qui fournit un réseau de services unique à l'échelle mondiale pour la réadaptation holistique des personnes atteintes de paraplégie. Tâches : - Automatisation : Vous développez et maintenez des scripts d'automatisation qui soutiennent considérablement notre infrastructure dans la vie quotidienne. - Scripting: Vous créez des scripts et des outils en utilisant PowerShell, Python ou d'autres technologies appropriées. Architectures Cloud : Développez des architectures cloud évolutives sur Microsoft Azure et automatisez leur déploiement pour des opérations efficaces et fiables. Plateformes : Vous soutenez l'opération et participez activement au développement de nos plateformes informatiques. - Analyse des erreurs : Vous analysez les problèmes techniques, trouvez des solutions pragmatiques et un support dans leur correction. - Documentation : Vous créez et maintenez à jour des articles de base de connaissances. - Collaboration : Vous coordonnez la coopération avec les fournisseurs, les consultants et les partenaires de soutien. - Pikett : Vous êtes prêt à soutenir l'équipe du Pikettdienst. Exigences: • Vous apportez un savoir-faire technique approfondi et vous abordez les défis de manière orientée vers la solution."
+        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Questi sono i vostri compiti - automazione: Sviluppi e mantieni gli script di automazione che supportano in modo significativo la nostra infrastruttura nella vita quotidiana. - Scripting: crei script e strumenti utilizzando PowerShell, Python o altre tecnologie adatte. Cloud Architectures: Sviluppa architetture cloud scalabili su Microsoft Azure e automatizza la loro distribuzione per operazioni efficienti e affidabili. Piattaforme: Supporti l'operazione e sei attivamente coinvolto nell'ulteriore sviluppo delle nostre piattaforme IT. - Analisi degli errori: analizza i problemi tecnici, trova soluzioni pragmatiche e supporto nella loro correzione. - Documentazione: crei e mantieni gli articoli di base della conoscenza e li mantieni aggiornati. - Collaborazione: coordina la collaborazione con fornitori, consulenti e partner di supporto. Sei pronto a sostenere la squadra del Pikettdienst. Questo ti distingue. Porti un know-how tecnico approfondito e affronti le sfide in modo orientato alla soluzione.\n• Con le infrastrutture Microsoft - Su Prem (Active Directory, Windows Server, ecc.) si sa meglio.\n• La scrittura è tua: con PowerShell, Python o strumenti simili, lavori in modo sicuro ed efficiente.\n• Sei anche adatto nel mondo Microsoft 365, per esempio in Entra ID, Exchange Online, Team, Intune & Co.\n• Le domande complesse ti motivano. Restate sempre strutturati, tenete la calma e tenete la grande immagine in vista anche in situazioni difficili.\n• Sei un vero giocatore di squadra, comunicare con chiarezza e apprezzare la collaborazione con diversi partner di interfaccia. Il Centro svizzero per paraplegici di Nottwil è una clinica privata, nazionale e riconosciuta a livello internazionale per la medicina trasversale, posteriore e respiratoria. Come clinica acuta e riabilitativa, il centro offre ai suoi pazienti una cura completa e li sostiene per tutta la vita. La clinica fa parte del Gruppo Svizzero Paraplegico, che fornisce una rete di assistenza globale unica per la riabilitazione olistica di persone con paraplegia. Compiti: - Automazione: sviluppi e mantieni gli script di automazione che supportano in modo significativo la nostra infrastruttura nella vita quotidiana. - Scripting: crei script e strumenti utilizzando PowerShell, Python o altre tecnologie adatte. Cloud Architectures: Sviluppa architetture cloud scalabili su Microsoft Azure e automatizza la loro distribuzione per operazioni efficienti e affidabili. Piattaforme: Supporti l'operazione e sei attivamente coinvolto nell'ulteriore sviluppo delle nostre piattaforme IT. - Analisi degli errori: analizza i problemi tecnici, trova soluzioni pragmatiche e supporto nella loro correzione. - Documentazione: crei e mantieni gli articoli di base della conoscenza e li mantieni aggiornati. - Collaborazione: coordina la collaborazione con fornitori, consulenti e partner di supporto. Sei pronto a sostenere la squadra del Pikettdienst. Requisiti:\n• Porti un know-how tecnico approfondito e affronti le sfide in modo orientato alla soluzione.",
+        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. These are your tasks - automation: You develop and maintain automation scripts that significantly support our infrastructure in everyday life. - Scripting: You create scripts and tools using PowerShell, Python or other suitable technologies. Cloud Architectures: Develop scalable cloud architectures on Microsoft Azure and automate their deployment for efficient, reliable operations. Platforms: You support the operation and are actively involved in the further development of our IT platforms. - Error analysis: You analyze technical problems, find pragmatic solutions and support in their correction. - Documentation: You create and maintain knowledge base articles and keep them up-to-date. - Collaboration: You coordinate cooperation with suppliers, consultants and support partners. - Pikett: You are ready to support the team in the Pikettdienst. This sets you apart. You bring in-depth technical know-how and tackle challenges in a solution-oriented manner.\n• With Microsoft infrastructures - On Prem (Active Directory, Windows Servers, etc.) you know best.\n• Scripting is yours: With PowerShell, Python or similar tools, you work safely and efficiently.\n• You are also fit in the Microsoft 365 world, for example in Entra ID, Exchange Online, Teams, Intune & Co.\n• Complex questions motivate you. You stay structured at all times, keep calm and keep the big picture in view even in demanding situations.\n• You are a real team player, communicate clearly and appreciate the cooperation with different interface partners. The Swiss Paraplegic Centre in Nottwil is a private, nationally and internationally recognized specialist clinic for cross-sectional, back and respiratory medicine. As an acute and rehabilitation clinic, the centre offers its patients comprehensive care and supports them throughout their lives. The clinic is part of the Swiss Paraplegic Group, which provides a globally unique service network for the holistic rehabilitation of people with paraplegia. Tasks: - Automation: You develop and maintain automation scripts that significantly support our infrastructure in everyday life. - Scripting: You create scripts and tools using PowerShell, Python or other suitable technologies. Cloud Architectures: Develop scalable cloud architectures on Microsoft Azure and automate their deployment for efficient, reliable operations. Platforms: You support the operation and are actively involved in the further development of our IT platforms. - Error analysis: You analyze technical problems, find pragmatic solutions and support in their correction. - Documentation: You create and maintain knowledge base articles and keep them up-to-date. - Collaboration: You coordinate cooperation with suppliers, consultants and support partners. - Pikett: You are ready to support the team in the Pikettdienst. Requirements:\n• You bring in-depth technical know-how and tackle challenges in a solution-oriented manner.",
+        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe. Das sind deine Aufgaben - Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen. - Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien. - Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb. - Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein. - Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung. - Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell. - Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern. - Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen. Das zeichnet dich aus\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.\n• Mit Microsoft-Infrastrukturen - On Prem (Active Directory, Windows Servern, etc.) kennst du dich bestens aus.\n• Skripting liegt dir: Mit PowerShell, Python oder vergleichbaren Tools arbeitest du sicher und effizient.\n• Auch in der Microsoft 365 Welt bist du fit, zum Beispiel in Entra ID, Exchange Online, Teams, Intune & Co.\n• Komplexe Fragestellungen motivieren dich. Du bleibst jederzeit strukturiert, bewahrst Ruhe und behältst auch in anspruchsvollen Situationen das grosse Ganze im Blick.\n• Du bist ein*e echte*r Teamplayer*in, kommunizierst klar und schätzt die Zusammenarbeit mit unterschiedlichen Schnittstellen-Partner*innen. Das erwartet dich Über uns Das Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt. Aufgaben: - Automatisierung: Du entwickelst und pflegst Automatisierungsskripte, die unsere Infrastruktur im Alltag spürbar unterstützen. - Skripting: Du erstellst Skripte und Tools mit PowerShell, Python oder anderen geeigneten Technologien. - Cloud-Architekturen: Du entwickelst skalierbare Cloud-Architekturen auf Microsoft Azure und automatisierst deren Bereitstellung für einen effizienten, zuverlässigen Betrieb. - Plattformen: Du unterstützt den Betrieb und bringst dich aktiv in die Weiterentwicklung unserer IT-Plattformen ein. - Fehleranalyse: Du analysierst technische Probleme, findest pragmatische Lösungen und unterstützt bei deren Behebung. - Dokumentation: Du erstellst und pflegst Knowledge-Base-Artikel und hältst diese aktuell. - Zusammenarbeit: Du koordinierst die Zusammenarbeit mit Lieferanten, Beratern und Unterstützungspartnern. - Pikett: Du bist bereit, das Team im Pikettdienst zu unterstützen. Anforderungen:\n• Du bringst fundiertes technisches Know-how mit und gehst Herausforderungen lösungsorientiert an.\n• Mit Microsoft-Infrastrukturen - On Prem (Active Directory, Windows Servern, etc.) kennst du dich bestens aus.\n• Skripting liegt dir: Mit PowerShell, Python oder vergleichbaren Tools arbeitest du sicher und effizient.\n• Auch in der Microsoft 365 Welt bist du fit, zum Beispiel in Entra ID, Exchange Online, Teams, Intune & Co.\n• Komplexe Fragestellungen motivieren dich. Du bleibst jederzeit strukturiert, bewahrst Ruhe und behältst auch in anspruchsvollen Situationen das grosse Ganze im Blick.\n• Du bist ein*e echte*r Teamplayer*in, kommunizierst klar und schätzt die Zusammenarbeit mit unterschiedlichen Schnittstellen-Partner*innen.",
+        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Ce sont vos tâches - l'automatisation: Vous développez et maintenez des scripts d'automatisation qui soutiennent considérablement notre infrastructure dans la vie quotidienne. - Scripting: Vous créez des scripts et des outils en utilisant PowerShell, Python ou d'autres technologies appropriées. Architectures Cloud : Développez des architectures cloud évolutives sur Microsoft Azure et automatisez leur déploiement pour des opérations efficaces et fiables. Plateformes : Vous soutenez l'opération et participez activement au développement de nos plateformes informatiques. - Analyse des erreurs : Vous analysez les problèmes techniques, trouvez des solutions pragmatiques et un support dans leur correction. - Documentation : Vous créez et maintenez à jour des articles de base de connaissances. - Collaboration : Vous coordonnez la coopération avec les fournisseurs, les consultants et les partenaires de soutien. - Pikett : Vous êtes prêt à soutenir l'équipe du Pikettdienst. Ça vous distingue. Vous apportez un savoir-faire technique approfondi et vous abordez les défis d'une manière orientée vers la solution.\n• Avec les infrastructures Microsoft - Sur Prem (Active Directory, Windows Servers, etc.) vous savez mieux.\n• Le script est à vous: Avec PowerShell, Python ou des outils similaires, vous travaillez en toute sécurité et efficacement.\n• Vous êtes également dans le monde Microsoft 365, par exemple dans Entra ID, Exchange Online, Teams, Intune & Co.\n• Des questions complexes vous motivent. Vous restez structuré en tout temps, restez calme et gardez la vue d'ensemble même dans des situations exigeantes.\n• Vous êtes un vrai joueur d'équipe, communiquez clairement et appréciez la coopération avec différents partenaires d'interface. Le Centre suisse des paraplégiques de Nottwil est une clinique spécialisée privée, reconnue au niveau national et international pour la médecine transversale, du dos et respiratoire. En tant que clinique d'urgence et de réadaptation, le centre offre à ses patients des soins complets et les soutient tout au long de leur vie. La clinique fait partie du Groupe suisse paraplégique, qui fournit un réseau de services unique à l'échelle mondiale pour la réadaptation holistique des personnes atteintes de paraplégie. Tâches : - Automatisation : Vous développez et maintenez des scripts d'automatisation qui soutiennent considérablement notre infrastructure dans la vie quotidienne. - Scripting: Vous créez des scripts et des outils en utilisant PowerShell, Python ou d'autres technologies appropriées. Architectures Cloud : Développez des architectures cloud évolutives sur Microsoft Azure et automatisez leur déploiement pour des opérations efficaces et fiables. Plateformes : Vous soutenez l'opération et participez activement au développement de nos plateformes informatiques. - Analyse des erreurs : Vous analysez les problèmes techniques, trouvez des solutions pragmatiques et un support dans leur correction. - Documentation : Vous créez et maintenez à jour des articles de base de connaissances. - Collaboration : Vous coordonnez la coopération avec les fournisseurs, les consultants et les partenaires de soutien. - Pikett : Vous êtes prêt à soutenir l'équipe du Pikettdienst. Exigences:\n• Vous apportez un savoir-faire technique approfondi et vous abordez les défis de manière orientée vers la solution."
       },
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://jobs.paraplegie.ch/offene-stellen/platform-engineer-automation/cd4ba784-6468-4776-9bcc-380260345d40",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:07.891Z",
+      "crawledAt": "2026-06-15T23:54:20.162Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3217,22 +3244,12 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/platform-engineer-automation/cd4ba784-6468-4776-9bcc-380260345d40",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-14T23:00:07.891Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "platform-engineer-automation-spz-nottwil",
+        "platform-ingegnere-automation-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "platform-ingenieur-automation-schweizer-paraplegiker-zentrum-spz-nottwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "platform-engineer-automation-spz-nottwil",
@@ -3243,19 +3260,27 @@
           "platform-ingenieur-automation-schweizer-paraplegiker-zentrum-spz-nottwil"
         ]
       },
-      "previousSlugs": [
-        "platform-engineer-automation-spz-nottwil",
-        "platform-ingegnere-automation-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "platform-ingenieur-automation-schweizer-paraplegiker-zentrum-spz-nottwil"
-      ]
+      "firstSeenAt": "2026-06-14T23:00:07.891Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "spz-508771ed50c7",
       "slug": "leiter-in-medizinische-applikationen-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
-        "de": "leiter-in-medizinische-applikationen-spz-nottwil",
         "it": "leiter-in-medizinische-applikationen-schweizer-paraplegiker-zentrum-spz-nottwil",
         "en": "head-of-medical-applications-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "de": "leiter-in-medizinische-applikationen-spz-nottwil",
         "fr": "chef-des-applications-medicales-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
@@ -3263,24 +3288,24 @@
       "companyDomain": "paraplegie.ch",
       "title": "Leiter*in Medizinische Applikationen",
       "titleByLocale": {
-        "de": "Leiter*in Medizinische Applikationen",
         "it": "Responsabile delle applicazioni mediche",
         "en": "Head of Medical Applications",
+        "de": "Leiter*in Medizinische Applikationen",
         "fr": "Chef des applications médicales"
       },
-      "description": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDer Bereich Informatik im Schweizer Paraplegiker-Zentrum stellt die Informatikdienstleistungen für die gesamte Paraplegiker-Gruppe sowie für weitere Kund*innen sicher.\n\nDas sind deine Aufgaben\n\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\n• Du managst die Kapazitäten, planst und steuerst Projekte im Bereich klinische Applikationen. Ob neue Softwarelösungen oder Optimierungen – Du behältst den Überblick .\n\n• Implementierung, Konfiguration, Störungsbehebung und kontinuierliche Optimierung unserer klinischen Applikationen. Dein technisches Know-how ist hier unverzichtbar .\n\n• Du arbeitest eng mit den klinischen Abteilungen zusammen, analysierst deren Bedürfnisse und passt die Applikationen entsprechend an. Deine Kommunikationsfähigkeiten sind hier Gold wert.\n\n• Sicherstellung des Supports und der kontinuierlichen Schulung unseres medizinischen Fachpersonals. Dein Engagement sorgt dafür, dass alle auf dem neuesten Stand sind.\n\n• Mitwirkung bei strategischen Entscheidungen zur Ausrichtung unserer digitalen Infrastruktur im Bereich der medizinischen Applikationen. Du gestaltest aktiv mit.\n\n• Du unterstützt bei der Durchsetzung von Datenschutz und Informationssicherheit gemäß den gesetzlichen Anforderungen und internen Richtlinien. Deine Sorgfalt und Genauigkeit sind hier entscheidend.\n\nDas zeichnet dich aus\n\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.\n\n• Du führst mit Leidenschaft, Klarheit und Feingefühl: Du bringst mehrjährige Führungserfahrung mit und verstehst es, unterschiedliche Persönlichkeiten wirkungsvoll zu begleiten, zu entwickeln und situativ passend zu unterstützen.\n\n• Die Zusammenarbeit mit klinischem Fachpersonal und der Umsetzung von ICT-Lösungen im Gesundheitswesen ist dir vertraut.\n\n• Du bringst mehrjährige Erfahrung in der Implementierung und Betreuung klinischer Applikationen mit, idealerweise in einer leitenden Funktion, wie auch fundierte Kenntnisse in der Ressourcenplanung sowie im Projektmanagement.\n\n• Du bist eine lösungsorientierte, kommunikative und kundennahe Persönlichkeit, die unterschiedliche Perspektiven zusammenführt, klare Prioritäten setzt und Entscheidungen nachvollziehbar vertritt.\n\nDas erwartet dich\n\nÜber uns\n\nDas Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt.\n\nAufgaben:\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\nAnforderungen:\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.",
+      "description": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDer Bereich Informatik im Schweizer Paraplegiker-Zentrum stellt die Informatikdienstleistungen für die gesamte Paraplegiker-Gruppe sowie für weitere Kund*innen sicher.\n\nDas sind deine Aufgaben\n\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\n• Du managst die Kapazitäten, planst und steuerst Projekte im Bereich klinische Applikationen. Ob neue Softwarelösungen oder Optimierungen. Du behältst den Überblick .\n\n• Implementierung, Konfiguration, Störungsbehebung und kontinuierliche Optimierung unserer klinischen Applikationen. Dein technisches Know-how ist hier unverzichtbar .\n\n• Du arbeitest eng mit den klinischen Abteilungen zusammen, analysierst deren Bedürfnisse und passt die Applikationen entsprechend an. Deine Kommunikationsfähigkeiten sind hier Gold wert.\n\n• Sicherstellung des Supports und der kontinuierlichen Schulung unseres medizinischen Fachpersonals. Dein Engagement sorgt dafür, dass alle auf dem neuesten Stand sind.\n\n• Mitwirkung bei strategischen Entscheidungen zur Ausrichtung unserer digitalen Infrastruktur im Bereich der medizinischen Applikationen. Du gestaltest aktiv mit.\n\n• Du unterstützt bei der Durchsetzung von Datenschutz und Informationssicherheit gemäß den gesetzlichen Anforderungen und internen Richtlinien. Deine Sorgfalt und Genauigkeit sind hier entscheidend.\n\nDas zeichnet dich aus\n\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.\n\n• Du führst mit Leidenschaft, Klarheit und Feingefühl: Du bringst mehrjährige Führungserfahrung mit und verstehst es, unterschiedliche Persönlichkeiten wirkungsvoll zu begleiten, zu entwickeln und situativ passend zu unterstützen.\n\n• Die Zusammenarbeit mit klinischem Fachpersonal und der Umsetzung von ICT-Lösungen im Gesundheitswesen ist dir vertraut.\n\n• Du bringst mehrjährige Erfahrung in der Implementierung und Betreuung klinischer Applikationen mit, idealerweise in einer leitenden Funktion, wie auch fundierte Kenntnisse in der Ressourcenplanung sowie im Projektmanagement.\n\n• Du bist eine lösungsorientierte, kommunikative und kundennahe Persönlichkeit, die unterschiedliche Perspektiven zusammenführt, klare Prioritäten setzt und Entscheidungen nachvollziehbar vertritt.\n\nDas erwartet dich\n\nÜber uns\n\nDas Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt.\n\nAufgaben:\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\nAnforderungen:\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.",
       "descriptionByLocale": {
-        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDer Bereich Informatik im Schweizer Paraplegiker-Zentrum stellt die Informatikdienstleistungen für die gesamte Paraplegiker-Gruppe sowie für weitere Kund*innen sicher.\n\nDas sind deine Aufgaben\n\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\n• Du managst die Kapazitäten, planst und steuerst Projekte im Bereich klinische Applikationen. Ob neue Softwarelösungen oder Optimierungen – Du behältst den Überblick .\n\n• Implementierung, Konfiguration, Störungsbehebung und kontinuierliche Optimierung unserer klinischen Applikationen. Dein technisches Know-how ist hier unverzichtbar .\n\n• Du arbeitest eng mit den klinischen Abteilungen zusammen, analysierst deren Bedürfnisse und passt die Applikationen entsprechend an. Deine Kommunikationsfähigkeiten sind hier Gold wert.\n\n• Sicherstellung des Supports und der kontinuierlichen Schulung unseres medizinischen Fachpersonals. Dein Engagement sorgt dafür, dass alle auf dem neuesten Stand sind.\n\n• Mitwirkung bei strategischen Entscheidungen zur Ausrichtung unserer digitalen Infrastruktur im Bereich der medizinischen Applikationen. Du gestaltest aktiv mit.\n\n• Du unterstützt bei der Durchsetzung von Datenschutz und Informationssicherheit gemäß den gesetzlichen Anforderungen und internen Richtlinien. Deine Sorgfalt und Genauigkeit sind hier entscheidend.\n\nDas zeichnet dich aus\n\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.\n\n• Du führst mit Leidenschaft, Klarheit und Feingefühl: Du bringst mehrjährige Führungserfahrung mit und verstehst es, unterschiedliche Persönlichkeiten wirkungsvoll zu begleiten, zu entwickeln und situativ passend zu unterstützen.\n\n• Die Zusammenarbeit mit klinischem Fachpersonal und der Umsetzung von ICT-Lösungen im Gesundheitswesen ist dir vertraut.\n\n• Du bringst mehrjährige Erfahrung in der Implementierung und Betreuung klinischer Applikationen mit, idealerweise in einer leitenden Funktion, wie auch fundierte Kenntnisse in der Ressourcenplanung sowie im Projektmanagement.\n\n• Du bist eine lösungsorientierte, kommunikative und kundennahe Persönlichkeit, die unterschiedliche Perspektiven zusammenführt, klare Prioritäten setzt und Entscheidungen nachvollziehbar vertritt.\n\nDas erwartet dich\n\nÜber uns\n\nDas Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt.\n\nAufgaben:\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n\nAnforderungen:\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.",
-        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Il Dipartimento di Informatica presso lo Swiss Paraplegic Center assicura i servizi IT per l'intero Gruppo Paraplegic e per altri clienti. Questi sono i vostri compiti • Leadership e ulteriore sviluppo del team di applicazioni cliniche con otto colleghi impegnati. Il tuo spirito di squadra e le tue capacità di leadership sono richieste. • Gestisci capacità, piani e controlli progetti di applicazione clinica. Se nuove soluzioni software o ottimizzazioni – Si mantiene la panoramica. • Attuazione, configurazione, risoluzione dei problemi e ottimizzazione continua delle nostre applicazioni cliniche. Il vostro know-how tecnico è indispensabile qui. • Si lavora a stretto contatto con i reparti clinici, analizzare le loro esigenze e adattare le applicazioni di conseguenza. Le tue capacità di comunicazione valgono l'oro qui. • Assicurare il supporto e la formazione continua dei nostri medici. Il vostro impegno assicura che tutti siano aggiornati. • Partecipazione a decisioni strategiche sull'orientamento della nostra infrastruttura digitale nel settore delle applicazioni mediche. Siete attivamente coinvolti. • L'utente supporta l'applicazione della protezione dei dati e della sicurezza delle informazioni in conformità con i requisiti legali e le linee guida interne. La vostra attenzione e precisione sono cruciali qui. Questo ti distingue. Hai una laurea di successo in (medico) informatica, informatica aziendale o una qualifica paragonabile. • Porti con passione, chiarezza e sensibilità: Si portano diversi anni di esperienza di leadership e capire come accompagnare efficacemente, sviluppare e sostenere adeguatamente diverse personalità. • Conoscete la collaborazione con i professionisti clinici e l'implementazione di soluzioni ICT nel settore sanitario. Porti diversi anni di esperienza nell'implementazione e nel supporto di applicazioni cliniche, idealmente in un ruolo senior, così come la conoscenza approfondita nella pianificazione delle risorse e nella gestione dei progetti. Sei una personalità orientata alla soluzione, comunicativa e orientata al cliente che riunisce prospettive diverse, definisce priorità chiare e rappresenta decisioni in modo comprensibile. Il Centro svizzero per paraplegici di Nottwil è una clinica privata, nazionale e riconosciuta a livello internazionale per la medicina trasversale, posteriore e respiratoria. Come clinica acuta e riabilitativa, il centro offre ai suoi pazienti una cura completa e li sostiene per tutta la vita. La clinica fa parte del Gruppo Svizzero Paraplegico, che fornisce una rete di assistenza globale unica per la riabilitazione olistica di persone con paraplegia. Compiti: • Leadership e ulteriore sviluppo del team di applicazioni cliniche con otto colleghi dedicati. Il tuo spirito di squadra e le tue capacità di leadership sono richieste. Requisiti: • Hai un grado di successo in (medico) informatica, informatica aziendale o una qualifica paragonabile.",
-        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. The Department of Computer Science at the Swiss Paraplegic Center ensures the IT services for the entire Paraplegic Group as well as for other customers. These are your tasks • Leadership and further development of the clinical applications team with eight committed colleagues. Your team spirit and leadership skills are in demand. • You manage capacities, plan and control clinical application projects. Whether new software solutions or optimizations – You keep the overview. • Implementation, configuration, troubleshooting and continuous optimization of our clinical applications. Your technical know-how is indispensable here. • You work closely with the clinical departments, analyze their needs and adapt the applications accordingly. Your communication skills are worth gold here. • Ensure support and continuous training of our medical professionals. Your commitment ensures that everyone is up to date. • Participation in strategic decisions regarding the orientation of our digital infrastructure in the field of medical applications. You are actively involved. • You support the enforcement of data protection and information security in accordance with legal requirements and internal guidelines. Your care and accuracy are crucial here. This sets you apart. You have a successful degree in (medical) computer science, business informatics or a comparable qualification. • You lead with passion, clarity and sensitivity: You bring several years of leadership experience and understand how to effectively accompany, develop and appropriately support different personalities. • You are familiar with the cooperation with clinical professionals and the implementation of ICT solutions in the healthcare sector. • You bring several years of experience in the implementation and support of clinical applications, ideally in a senior role, as well as in-depth knowledge in resource planning and project management. You are a solution-oriented, communicative and customer-oriented personality who brings together different perspectives, sets clear priorities and represents decisions in a comprehensible way. The Swiss Paraplegic Centre in Nottwil is a private, nationally and internationally recognized specialist clinic for cross-sectional, back and respiratory medicine. As an acute and rehabilitation clinic, the centre offers its patients comprehensive care and supports them throughout their lives. The clinic is part of the Swiss Paraplegic Group, which provides a globally unique service network for the holistic rehabilitation of people with paraplegia. Tasks: • Leadership and further development of the clinical applications team with eight dedicated colleagues. Your team spirit and leadership skills are in demand. Requirements: • You have a successful degree in (medical) computer science, business informatics or a comparable qualification.",
-        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Le Département d'informatique du Centre suisse des paraplégiques assure les services informatiques pour l'ensemble du Groupe des paraplégiques ainsi que pour d'autres clients. Ce sont vos tâches • Leadership et développement de l'équipe des applications cliniques avec huit collègues engagés. Votre esprit d'équipe et vos compétences en leadership sont en demande. • Vous gérez les capacités, planifiez et contrôlez les projets d'applications cliniques. Que ce soit de nouvelles solutions logicielles ou des optimisations – Vous gardez l'aperçu. • Implémentation, configuration, dépannage et optimisation continue de nos applications cliniques. Votre savoir-faire technique est indispensable ici. • Vous travaillez en étroite collaboration avec les services cliniques, analysez leurs besoins et adaptez les applications en conséquence. Vos compétences en communication valent de l'or ici. • Assurer le soutien et la formation continue de nos professionnels de la santé. Votre engagement garantit que tout le monde est à jour. • Participation aux décisions stratégiques concernant l'orientation de notre infrastructure numérique dans le domaine des applications médicales. Vous êtes activement impliqué. • Vous soutenez l'application de la protection des données et de la sécurité de l'information conformément aux exigences légales et aux lignes directrices internes. Votre soin et votre précision sont essentiels ici. Ça vous distingue. Vous avez obtenu un diplôme en informatique (médicale), en informatique commerciale ou une qualification comparable. • Vous dirigez avec passion, clarté et sensibilité : Vous apportez plusieurs années d'expérience en leadership et comprenez comment accompagner, développer et soutenir efficacement différentes personnalités. • Vous connaissez la coopération avec les professionnels cliniques et la mise en œuvre de solutions TIC dans le secteur de la santé. • Vous apportez plusieurs années d'expérience dans la mise en œuvre et le soutien d'applications cliniques, idéalement dans un rôle supérieur, ainsi que des connaissances approfondies dans la planification des ressources et la gestion de projet. Vous êtes une personnalité axée sur la solution, la communication et le client qui réunit différentes perspectives, établit des priorités claires et représente les décisions de manière compréhensible. Le Centre suisse des paraplégiques de Nottwil est une clinique spécialisée privée, reconnue au niveau national et international pour la médecine transversale, du dos et respiratoire. En tant que clinique d'urgence et de réadaptation, le centre offre à ses patients des soins complets et les soutient tout au long de leur vie. La clinique fait partie du Groupe suisse paraplégique, qui fournit un réseau de services unique à l'échelle mondiale pour la réadaptation holistique des personnes atteintes de paraplégie. Tâches: • Leadership et développement de l'équipe des applications cliniques avec huit collègues dévoués. Votre esprit d'équipe et vos compétences en leadership sont en demande. Exigences: • Vous avez obtenu un diplôme en informatique (médicale), en informatique commerciale ou une qualification comparable."
+        "it": "Diventa parte di qualcosa di più grande. Lavorare con più di 2000 specialisti di oltre 100 professioni e permettere alle persone paraplegiche di vivere una vita autodeterminata. Nel campus moderno di Nottwil, un'atmosfera stimolante e la cooperazione interdisciplinare a livello degli occhi vi aspetta. Il Dipartimento di Informatica presso lo Swiss Paraplegic Center assicura i servizi IT per l'intero Gruppo Paraplegic e per altri clienti. Questi sono i vostri compiti\n• Leadership e ulteriore sviluppo del team di applicazioni cliniche con otto colleghi impegnati. Il tuo spirito di squadra e le tue capacità di leadership sono richieste.\n• Gestisci capacità, piani e controlli progetti di applicazione clinica. Se nuove soluzioni software o ottimizzazioni – Si mantiene la panoramica.\n• Attuazione, configurazione, risoluzione dei problemi e ottimizzazione continua delle nostre applicazioni cliniche. Il vostro know-how tecnico è indispensabile qui.\n• Si lavora a stretto contatto con i reparti clinici, analizzare le loro esigenze e adattare le applicazioni di conseguenza. Le tue capacità di comunicazione valgono l'oro qui.\n• Assicurare il supporto e la formazione continua dei nostri medici. Il vostro impegno assicura che tutti siano aggiornati.\n• Partecipazione a decisioni strategiche sull'orientamento della nostra infrastruttura digitale nel settore delle applicazioni mediche. Siete attivamente coinvolti.\n• L'utente supporta l'applicazione della protezione dei dati e della sicurezza delle informazioni in conformità con i requisiti legali e le linee guida interne. La vostra attenzione e precisione sono cruciali qui. Questo ti distingue. Hai una laurea di successo in (medico) informatica, informatica aziendale o una qualifica paragonabile.\n• Porti con passione, chiarezza e sensibilità: Si portano diversi anni di esperienza di leadership e capire come accompagnare efficacemente, sviluppare e sostenere adeguatamente diverse personalità.\n• Conoscete la collaborazione con i professionisti clinici e l'implementazione di soluzioni ICT nel settore sanitario. Porti diversi anni di esperienza nell'implementazione e nel supporto di applicazioni cliniche, idealmente in un ruolo senior, così come la conoscenza approfondita nella pianificazione delle risorse e nella gestione dei progetti. Sei una personalità orientata alla soluzione, comunicativa e orientata al cliente che riunisce prospettive diverse, definisce priorità chiare e rappresenta decisioni in modo comprensibile. Il Centro svizzero per paraplegici di Nottwil è una clinica privata, nazionale e riconosciuta a livello internazionale per la medicina trasversale, posteriore e respiratoria. Come clinica acuta e riabilitativa, il centro offre ai suoi pazienti una cura completa e li sostiene per tutta la vita. La clinica fa parte del Gruppo Svizzero Paraplegico, che fornisce una rete di assistenza globale unica per la riabilitazione olistica di persone con paraplegia. Compiti:\n• Leadership e ulteriore sviluppo del team di applicazioni cliniche con otto colleghi dedicati. Il tuo spirito di squadra e le tue capacità di leadership sono richieste. Requisiti:\n• Hai un grado di successo in (medico) informatica, informatica aziendale o una qualifica paragonabile.",
+        "en": "Become part of something bigger. Work with more than 2000 specialists from more than 100 professions and enable paraplegic people to live a self-determined life. On the modern campus in Nottwil, an inspiring atmosphere and interdisciplinary cooperation at eye level awaits you. The Department of Computer Science at the Swiss Paraplegic Center ensures the IT services for the entire Paraplegic Group as well as for other customers. These are your tasks\n• Leadership and further development of the clinical applications team with eight committed colleagues. Your team spirit and leadership skills are in demand.\n• You manage capacities, plan and control clinical application projects. Whether new software solutions or optimizations – You keep the overview.\n• Implementation, configuration, troubleshooting and continuous optimization of our clinical applications. Your technical know-how is indispensable here.\n• You work closely with the clinical departments, analyze their needs and adapt the applications accordingly. Your communication skills are worth gold here.\n• Ensure support and continuous training of our medical professionals. Your commitment ensures that everyone is up to date.\n• Participation in strategic decisions regarding the orientation of our digital infrastructure in the field of medical applications. You are actively involved.\n• You support the enforcement of data protection and information security in accordance with legal requirements and internal guidelines. Your care and accuracy are crucial here. This sets you apart. You have a successful degree in (medical) computer science, business informatics or a comparable qualification.\n• You lead with passion, clarity and sensitivity: You bring several years of leadership experience and understand how to effectively accompany, develop and appropriately support different personalities.\n• You are familiar with the cooperation with clinical professionals and the implementation of ICT solutions in the healthcare sector.\n• You bring several years of experience in the implementation and support of clinical applications, ideally in a senior role, as well as in-depth knowledge in resource planning and project management. You are a solution-oriented, communicative and customer-oriented personality who brings together different perspectives, sets clear priorities and represents decisions in a comprehensible way. The Swiss Paraplegic Centre in Nottwil is a private, nationally and internationally recognized specialist clinic for cross-sectional, back and respiratory medicine. As an acute and rehabilitation clinic, the centre offers its patients comprehensive care and supports them throughout their lives. The clinic is part of the Swiss Paraplegic Group, which provides a globally unique service network for the holistic rehabilitation of people with paraplegia. Tasks:\n• Leadership and further development of the clinical applications team with eight dedicated colleagues. Your team spirit and leadership skills are in demand. Requirements:\n• You have a successful degree in (medical) computer science, business informatics or a comparable qualification.",
+        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe. Der Bereich Informatik im Schweizer Paraplegiker-Zentrum stellt die Informatikdienstleistungen für die gesamte Paraplegiker-Gruppe sowie für weitere Kund*innen sicher. Das sind deine Aufgaben\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n• Du managst die Kapazitäten, planst und steuerst Projekte im Bereich klinische Applikationen. Ob neue Softwarelösungen oder Optimierungen. Du behältst den Überblick .\n• Implementierung, Konfiguration, Störungsbehebung und kontinuierliche Optimierung unserer klinischen Applikationen. Dein technisches Know-how ist hier unverzichtbar .\n• Du arbeitest eng mit den klinischen Abteilungen zusammen, analysierst deren Bedürfnisse und passt die Applikationen entsprechend an. Deine Kommunikationsfähigkeiten sind hier Gold wert.\n• Sicherstellung des Supports und der kontinuierlichen Schulung unseres medizinischen Fachpersonals. Dein Engagement sorgt dafür, dass alle auf dem neuesten Stand sind.\n• Mitwirkung bei strategischen Entscheidungen zur Ausrichtung unserer digitalen Infrastruktur im Bereich der medizinischen Applikationen. Du gestaltest aktiv mit.\n• Du unterstützt bei der Durchsetzung von Datenschutz und Informationssicherheit gemäß den gesetzlichen Anforderungen und internen Richtlinien. Deine Sorgfalt und Genauigkeit sind hier entscheidend. Das zeichnet dich aus\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.\n• Du führst mit Leidenschaft, Klarheit und Feingefühl: Du bringst mehrjährige Führungserfahrung mit und verstehst es, unterschiedliche Persönlichkeiten wirkungsvoll zu begleiten, zu entwickeln und situativ passend zu unterstützen.\n• Die Zusammenarbeit mit klinischem Fachpersonal und der Umsetzung von ICT-Lösungen im Gesundheitswesen ist dir vertraut.\n• Du bringst mehrjährige Erfahrung in der Implementierung und Betreuung klinischer Applikationen mit, idealerweise in einer leitenden Funktion, wie auch fundierte Kenntnisse in der Ressourcenplanung sowie im Projektmanagement.\n• Du bist eine lösungsorientierte, kommunikative und kundennahe Persönlichkeit, die unterschiedliche Perspektiven zusammenführt, klare Prioritäten setzt und Entscheidungen nachvollziehbar vertritt. Das erwartet dich Über uns Das Schweizer Paraplegiker-Zentrum in Nottwil ist eine private, national und international anerkannte Spezialklinik für Querschnitt-, Rücken- und Beatmungsmedizin. Als Akut- und Rehabilitationsklinik bietet das Zentrum seinen Patientinnen und Patienten eine umfassende Betreuung und unterstützt sie ein Leben lang. Die Klinik gehört zur Schweizer Paraplegiker-Gruppe, die ein weltweit einzigartiges Leistungsnetz für die ganzheitliche Rehabilitation von Menschen mit Querschnittlähmung bereitstellt. Aufgaben:\n• Führung und Weiterentwicklung des Teams klinische Applikationen mit acht engagierten Kolleginnen und Kollegen. Dein Teamgeist und deine Führungsqualitäten sind gefragt .\n• Du managst die Kapazitäten, planst und steuerst Projekte im Bereich klinische Applikationen. Ob neue Softwarelösungen oder Optimierungen. Du behältst den Überblick .\n• Implementierung, Konfiguration, Störungsbehebung und kontinuierliche Optimierung unserer klinischen Applikationen. Dein technisches Know-how ist hier unverzichtbar .\n• Du arbeitest eng mit den klinischen Abteilungen zusammen, analysierst deren Bedürfnisse und passt die Applikationen entsprechend an. Deine Kommunikationsfähigkeiten sind hier Gold wert.\n• Sicherstellung des Supports und der kontinuierlichen Schulung unseres medizinischen Fachpersonals. Dein Engagement sorgt dafür, dass alle auf dem neuesten Stand sind.\n• Mitwirkung bei strategischen Entscheidungen zur Ausrichtung unserer digitalen Infrastruktur im Bereich der medizinischen Applikationen. Du gestaltest aktiv mit.\n• Du unterstützt bei der Durchsetzung von Datenschutz und Informationssicherheit gemäß den gesetzlichen Anforderungen und internen Richtlinien. Deine Sorgfalt und Genauigkeit sind hier entscheidend. Anforderungen:\n• Du verfügst über einen erfolgreichen Abschluss eines Studiums im Bereich (Medizin-) Informatik, Wirtschaftsinformatik oder über eine vergleichbare Qualifikation.\n• Du führst mit Leidenschaft, Klarheit und Feingefühl: Du bringst mehrjährige Führungserfahrung mit und verstehst es, unterschiedliche Persönlichkeiten wirkungsvoll zu begleiten, zu entwickeln und situativ passend zu unterstützen.\n• Die Zusammenarbeit mit klinischem Fachpersonal und der Umsetzung von ICT-Lösungen im Gesundheitswesen ist dir vertraut.\n• Du bringst mehrjährige Erfahrung in der Implementierung und Betreuung klinischer Applikationen mit, idealerweise in einer leitenden Funktion, wie auch fundierte Kenntnisse in der Ressourcenplanung sowie im Projektmanagement.\n• Du bist eine lösungsorientierte, kommunikative und kundennahe Persönlichkeit, die unterschiedliche Perspektiven zusammenführt, klare Prioritäten setzt und Entscheidungen nachvollziehbar vertritt.",
+        "fr": "Faites partie de quelque chose de plus grand. Travailler avec plus de 2000 spécialistes de plus de 100 professions et permettre aux personnes paraplégiques de vivre une vie autonome. Sur le campus moderne de Nottwil, une atmosphère inspirante et une coopération interdisciplinaire au niveau des yeux vous attendent. Le Département d'informatique du Centre suisse des paraplégiques assure les services informatiques pour l'ensemble du Groupe des paraplégiques ainsi que pour d'autres clients. Ce sont vos tâches\n• Leadership et développement de l'équipe des applications cliniques avec huit collègues engagés. Votre esprit d'équipe et vos compétences en leadership sont en demande.\n• Vous gérez les capacités, planifiez et contrôlez les projets d'applications cliniques. Que ce soit de nouvelles solutions logicielles ou des optimisations – Vous gardez l'aperçu.\n• Implémentation, configuration, dépannage et optimisation continue de nos applications cliniques. Votre savoir-faire technique est indispensable ici.\n• Vous travaillez en étroite collaboration avec les services cliniques, analysez leurs besoins et adaptez les applications en conséquence. Vos compétences en communication valent de l'or ici.\n• Assurer le soutien et la formation continue de nos professionnels de la santé. Votre engagement garantit que tout le monde est à jour.\n• Participation aux décisions stratégiques concernant l'orientation de notre infrastructure numérique dans le domaine des applications médicales. Vous êtes activement impliqué.\n• Vous soutenez l'application de la protection des données et de la sécurité de l'information conformément aux exigences légales et aux lignes directrices internes. Votre soin et votre précision sont essentiels ici. Ça vous distingue. Vous avez obtenu un diplôme en informatique (médicale), en informatique commerciale ou une qualification comparable.\n• Vous dirigez avec passion, clarté et sensibilité : Vous apportez plusieurs années d'expérience en leadership et comprenez comment accompagner, développer et soutenir efficacement différentes personnalités.\n• Vous connaissez la coopération avec les professionnels cliniques et la mise en œuvre de solutions TIC dans le secteur de la santé.\n• Vous apportez plusieurs années d'expérience dans la mise en œuvre et le soutien d'applications cliniques, idéalement dans un rôle supérieur, ainsi que des connaissances approfondies dans la planification des ressources et la gestion de projet. Vous êtes une personnalité axée sur la solution, la communication et le client qui réunit différentes perspectives, établit des priorités claires et représente les décisions de manière compréhensible. Le Centre suisse des paraplégiques de Nottwil est une clinique spécialisée privée, reconnue au niveau national et international pour la médecine transversale, du dos et respiratoire. En tant que clinique d'urgence et de réadaptation, le centre offre à ses patients des soins complets et les soutient tout au long de leur vie. La clinique fait partie du Groupe suisse paraplégique, qui fournit un réseau de services unique à l'échelle mondiale pour la réadaptation holistique des personnes atteintes de paraplégie. Tâches:\n• Leadership et développement de l'équipe des applications cliniques avec huit collègues dévoués. Votre esprit d'équipe et vos compétences en leadership sont en demande. Exigences:\n• Vous avez obtenu un diplôme en informatique (médicale), en informatique commerciale ou une qualification comparable."
       },
       "location": "Nottwil",
       "canton": "LU",
       "url": "https://jobs.paraplegie.ch/offene-stellen/leiter-in-medizinische-applikationen/42bb5a5a-9348-4dd0-8c3e-d7e057040717",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:00:07.056Z",
+      "crawledAt": "2026-06-15T23:54:19.457Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3296,9 +3321,10 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/leiter-in-medizinische-applikationen/42bb5a5a-9348-4dd0-8c3e-d7e057040717",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "leiter-in-medizinische-applikationen-spz-nottwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-medizinische-applikationen-spz-nottwil"
@@ -3310,22 +3336,97 @@
           "leiter-in-medizinische-applikationen-spz-nottwil"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-medizinische-applikationen-spz-nottwil"
-      ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "firstSeenAt": "2026-06-14T23:00:07.056Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spz-6f22c03c493a",
+      "slug": "addetto-a-service-center-tedesco-francese-schweizer-paraplegiker-zentrum-spz-nottwil",
+      "slugByLocale": {
+        "de": "sachbearbeiter-in-service-center-deutsch-franzosisch-spz-nottwil",
+        "it": "addetto-a-service-center-tedesco-francese-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "en": "clerk-service-center-german-french-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "responsableducentre-de-service-allemand-francais-schweizer-paraplegiker-zentrum-spz-nottwil"
+      },
+      "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
+      "companyKey": "spz",
+      "companyDomain": "paraplegie.ch",
+      "title": "Sachbearbeiter*in Service Center Deutsch/Französisch",
+      "titleByLocale": {
+        "de": "Sachbearbeiter*in Service Center Deutsch/Französisch",
+        "it": "Addetto/a Service Center tedesco/francese",
+        "en": "Clerk Service Center German/French",
+        "fr": "Responsableducentre de service allemand/français"
+      },
+      "description": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n• Telefonische und schriftliche Mitgliederbetreuung/-beratung\n\n• Auskunftserteilung zu aktuellen Kampagnen des Mitgliedermarketings und Fundraising\n\n• Bearbeitung von Online-Anfragen und Bestellungen\n\n• Erfassung, Pflege und Mutation von Mitglieder- und Spender*innen-Stammdaten\n\n• Verarbeitung von Zahlungseingängen\n\n• Versand von Verdankungen und Spendenbestätigungen\n\n• Mündliche und schriftliche Bearbeitung von Reklamationen\n\n• Bearbeitung von Qualitätschecklisten\n\nDas zeichnet dich aus\n\n• Abgeschlossene Grundausbildung sowie mehrjährige Erfahrung in der Kundenbetreuung im Dienstleistungsumfeld oder in einem Contact Center\n\n• Sehr gute Sprachkenntnisse in Deutsch und Französisch (Niveau Muttersprache)\n\n• Freude am Umgang mit unterschiedlichen Kundenanliegen sowie die Fähigkeit, auch in hektischen Situationen einen kühlen Kopf zu bewahren\n\n• Rasche Auffassungsgabe und eine exakte, strukturierte Arbeitsweise\n\n• Hohe Eigenverantwortung sowie selbständiges und verantwortungsbewusstes Arbeiten\n\nDas erwartet dich\n\nÜber uns\n\n1975 durch Guido A. Zäch gegründet, zählt die Schweizer Paraplegiker-Stiftung heute zu den grössten Solidarwerken der Schweiz. Mit ihren 2 Millionen Mitgliedern der Gönner-Vereinigung ist sie breit verankert in der Bevölkerung. Die Mitgliederbeiträge bilden zusammen mit Spendengeldern die finanzielle Basis für ein weltweit einzigartiges Leistungsnetz zugunsten von Menschen mit Querschnittlähmung. Die Schweizer Paraplegiker-Stiftung ist die Dachorganisation der Schweizer Paraplegiker-Gruppe und ihrer Gruppengesellschaften.\n\nAufgaben:\n• Telefonische und schriftliche Mitgliederbetreuung/-beratung\n\nAnforderungen:\n• Abgeschlossene Grundausbildung sowie mehrjährige Erfahrung in der Kundenbetreuung im Dienstleistungsumfeld oder in einem Contact Center",
+      "descriptionByLocale": {
+        "de": "Werde Teil von etwas Grösserem. Arbeite mit über 2000 Spezialistinnen und Spezialisten aus mehr als 100 Berufen zusammen und ermögliche querschnittgelähmten Menschen ein selbstbestimmtes Leben. Auf dem modernen Campus in Nottwil erwartet dich eine inspirierende Atmosphäre und interdisziplinäre Zusammenarbeit auf Augenhöhe.\n\nDas sind deine Aufgaben\n\n• Telefonische und schriftliche Mitgliederbetreuung/-beratung\n\n• Auskunftserteilung zu aktuellen Kampagnen des Mitgliedermarketings und Fundraising\n\n• Bearbeitung von Online-Anfragen und Bestellungen\n\n• Erfassung, Pflege und Mutation von Mitglieder- und Spender*innen-Stammdaten\n\n• Verarbeitung von Zahlungseingängen\n\n• Versand von Verdankungen und Spendenbestätigungen\n\n• Mündliche und schriftliche Bearbeitung von Reklamationen\n\n• Bearbeitung von Qualitätschecklisten\n\nDas zeichnet dich aus\n\n• Abgeschlossene Grundausbildung sowie mehrjährige Erfahrung in der Kundenbetreuung im Dienstleistungsumfeld oder in einem Contact Center\n\n• Sehr gute Sprachkenntnisse in Deutsch und Französisch (Niveau Muttersprache)\n\n• Freude am Umgang mit unterschiedlichen Kundenanliegen sowie die Fähigkeit, auch in hektischen Situationen einen kühlen Kopf zu bewahren\n\n• Rasche Auffassungsgabe und eine exakte, strukturierte Arbeitsweise\n\n• Hohe Eigenverantwortung sowie selbständiges und verantwortungsbewusstes Arbeiten\n\nDas erwartet dich\n\nÜber uns\n\n1975 durch Guido A. Zäch gegründet, zählt die Schweizer Paraplegiker-Stiftung heute zu den grössten Solidarwerken der Schweiz. Mit ihren 2 Millionen Mitgliedern der Gönner-Vereinigung ist sie breit verankert in der Bevölkerung. Die Mitgliederbeiträge bilden zusammen mit Spendengeldern die finanzielle Basis für ein weltweit einzigartiges Leistungsnetz zugunsten von Menschen mit Querschnittlähmung. Die Schweizer Paraplegiker-Stiftung ist die Dachorganisation der Schweizer Paraplegiker-Gruppe und ihrer Gruppengesellschaften.\n\nAufgaben:\n• Telefonische und schriftliche Mitgliederbetreuung/-beratung\n\nAnforderungen:\n• Abgeschlossene Grundausbildung sowie mehrjährige Erfahrung in der Kundenbetreuung im Dienstleistungsumfeld oder in einem Contact Center",
+        "it": "Diventa parte di qualcosa di più grande. Collabora con oltre 2000 specialisti di oltre 100 professioni e consente alle persone con lesione midollare di condurre una vita autonoma. Nel moderno campus di Nottwil ti aspetta un'atmosfera stimolante e una collaborazione interdisciplinare alla pari. Questi sono i tuoi compiti • Assistenza/consulenza telefonica e scritta per i membri • Fornitura di informazioni sulle attuali campagne di marketing per i membri e raccolta fondi • Elaborazione di richieste e ordini online • Registrazione, cura e mutazione dei dati anagrafici dei membri e dei donatori • Elaborazione dei pagamenti in entrata • Invio di variazioni e conferme di donazioni • Elaborazione orale e scritta di reclami • Elaborazione di liste di controllo della qualità Ciò che ti contraddistingue • Formazione di base completata ed esperienza pluriennale nell'assistenza clienti nell'ambiente di servizio o in un contact center • Ottime conoscenze linguistiche in tedesco e francese (livello madrelingua) • Piacere di gestire le diverse preoccupazioni dei clienti e la capacità di mantenere la calma anche in situazioni frenetiche • Rapida capacità di comprensione e un metodo di lavoro esatto e strutturato • Elevata responsabilità personale e lavoro indipendente e responsabile Ti aspetta nel 1975 da Guido A. Zäch, la Fondazione svizzera per paraplegici conta oggi",
+        "en": "Become part of something bigger. Collaborate with over 2,000 specialists from more than 100 professions and enable people with spinal paralysis to lead a self-determined life. On the modern campus in Nottwil, you can expect an inspiring atmosphere and interdisciplinary cooperation on an equal footing. These are your tasks • Telephone and written member support/advice • Provision of information on current campaigns of member marketing and fundraising • Processing of online inquiries and orders • Collection, maintenance and mutation of member and donor master data • Processing of incoming payments • Sending of thanks and donation confirmations • Oral and written processing of complaints • Processing of quality checklists This is what distinguishes you • Completed basic training as well as several years of experience in customer care in a service environment or in a contact center • Very good language skills in German and French (native language level) • Enjoyment of dealing with different customer concerns and the ability to keep a cool head even in hectic situations • Rapid comprehension and an exact, structured way of working • High level of personal responsibility as well as independent and responsible work This is what awaits you About us 1975 by Guido A. Founded by Zäch, the Swiss Paraplegic Foundation counts today",
+        "fr": "Fais partie de quelque chose de plus grand. Travaille avec plus de 2000 spécialistes de plus de 100 professions et permet aux personnes paraplégiques de mener une vie autonome. Une atmosphère inspirante et une collaboration interdisciplinaire d'égal à égal vous attendent sur le campus moderne de Nottwil. Ce sont tes tâches • Assistance/conseil téléphonique et écrit aux membres • Fourniture d'informations sur les campagnes actuelles de marketing et de collecte de fonds des membres • Traitement des demandes et des commandes en ligne • Saisie, maintenance et mutation des données de base des membres et des donateurs• Traitement des paiements reçus • Envoi de remerciements et de confirmations de dons • Traitement oral et écrit des réclamations • Traitement des listes de contrôle de la qualité Cela te distingue • Formation de base terminée et plusieurs années d'expérience dans le service à la clientèle dans un environnement de service ou dans un centre de contact • Très bonnes connaissances linguistiques en allemand et en français (niveau de langue maternelle) • Plaisir de traiter les différentes demandes des clients et capacité à garder la tête froide même dans des situations mouvementées • Compréhension rapide et méthode de travail précise et structurée • Haute responsabilité personnelle et travail indépendant et responsable Ce qui t'attend À propos de nous 1975 par Guido A. Fondée à Zäch, la Fondation suisse pour paraplégiques compte aujourd'hui"
+      },
+      "location": "Nottwil",
+      "canton": "LU",
+      "url": "https://jobs.paraplegie.ch/offene-stellen/sachbearbeiter-in-service-center-deutsch-franzoesisch/38eb9c72-50f0-4e4a-b1ae-29434bd675e6",
+      "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-15T23:54:18.423Z",
+      "addressLocality": "Nottwil",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6207",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/sachbearbeiter-in-service-center-deutsch-franzoesisch/38eb9c72-50f0-4e4a-b1ae-29434bd675e6",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-14T23:00:07.056Z"
+      "firstSeenAt": "2026-06-15T23:54:18.423Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-service-center-deutsch-franzosisch-spz-nottwil"
+        ],
+        "en": [
+          "sachbearbeiter-in-service-center-deutsch-franzosisch-spz-nottwil"
+        ],
+        "fr": [
+          "sachbearbeiter-in-service-center-deutsch-franzosisch-spz-nottwil"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-service-center-deutsch-franzosisch-spz-nottwil"
+      ]
     }
   ]
 }

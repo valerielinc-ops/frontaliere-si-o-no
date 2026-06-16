@@ -14,6 +14,7 @@ import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { CRITICAL_CSS } from './shared/criticalCss';
+import { jsToJson as sharedJsToJson } from './shared/jsToJson';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { normalizeStructuredData } from '../services/seo/schema-normalizers';
@@ -1782,73 +1783,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Dynamic build date for dateModified freshness signals
  const BUILD_DATE_ISO = new Date().toISOString();
 
- const jsToJson = (js: string): string => {
- let s = js;
- // Replace BUILD_DATE_ISO variable reference with current build timestamp
- s = s.replace(/\bBUILD_DATE_ISO\b/g, `"${BUILD_DATE_ISO}"`);
- // Replace ${BASE_URL} template literals AND bare BASE_URL variable references
- s = s.replace(/\$\{BASE_URL\}/g, BASE_URL);
- s = s.replace(/\bBASE_URL\b/g, `"${BASE_URL}"`);
- // Replace backtick strings with double-quoted strings
- s = s.replace(/`([^`]*)`/g, (_, content: string) => JSON.stringify(content));
- // Single-pass scanner: convert single-quoted strings to double-quoted,
- // quote unquoted keys, and skip double-quoted string regions.
- // This avoids the apostrophe-in-Italian-text problem where a naive regex
- // would misinterpret l'imposta as a string boundary.
- {
- let out = '';
- let i = 0;
- while (i < s.length) {
- // Skip double-quoted strings verbatim
- if (s[i] === '"') {
- let j = i + 1;
- while (j < s.length) {
- if (s[j] === '\\') { j += 2; continue; }
- if (s[j] === '"') { j++; break; }
- j++;
- }
- out += s.substring(i, j);
- i = j;
- continue;
- }
- // Convert single-quoted strings to double-quoted (only at value positions)
- if (s[i] === "'") {
- let j = i + 1;
- let content = '';
- while (j < s.length) {
- if (s[j] === '\\' && j + 1 < s.length) {
- const next = s[j + 1];
- if (next === "'") { content += "'"; j += 2; continue; }
- content += s[j] + next; j += 2; continue;
- }
- if (s[j] === "'") { j++; break; }
- content += s[j]; j++;
- }
- // Escape double quotes inside the converted string
- const escaped = content.replace(/"/g, '\\"');
- out += `"${escaped}"`;
- i = j;
- continue;
- }
- // Try to match an unquoted key (word followed by :)
- const prev = i > 0 ? s[i - 1] : '\n';
- if (/[{,[\s]/.test(prev)) {
- const m = s.substring(i).match(/^([a-zA-Z_$][\w$]*)(\s*:\s*)/);
- if (m) {
- out += `"${m[1]}"${m[2]}`;
- i += m[0].length;
- continue;
- }
- }
- out += s[i];
- i++;
- }
- s = out;
- }
- // Remove trailing commas before } or ]
- s = s.replace(/,(\s*[}\]])/g, '$1');
- return s;
- };
+ // Thin closure binding the build-time substitution values; the actual
+ // conversion lives in ./shared/jsToJson (single source of truth shared with
+ // the regression guard tests/static-pages-seo-entry-lookup.test.ts, #2256).
+ const jsToJson = (js: string): string =>
+ sharedJsToJson(js, { baseUrl: BASE_URL, buildDateIso: BUILD_DATE_ISO });
 
  // ── Resolve top-level const references in structuredData arrays ──
  // Some entries use e.g. `SALARY_LANDING_FAQ_SCHEMA` variable references
@@ -3218,7 +3157,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (which IS reachable from `/` via the main nav) cascades reachability
  // through each hub's existing internal navigation:
  //   /premi-cassa-malati/        → 26 cantoni → 7 fasce d'età ciascuno  (~183 URL)
- //   /traffico-dogane/           → 24 valichi × 4 locale × oggi  (~96 URL)
+ //   /traffico-dogane/           → 26 valichi × 4 locale × oggi  (~104 URL)
  //   /prezzi-diesel/oggi/        → 5 città Ticino × stazioni  (~45 URL)
  //   /prezzi-benzina/oggi/       → idem  (~45 URL)
  //   /aziende-che-assumono/tutte/ → ~2 pagine paginazione + 233 schede azienda

@@ -3,6 +3,9 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
+import { BASE_URL } from '../build-plugins/constants';
+import { jsToJson } from '../build-plugins/shared/jsToJson';
+
 /**
  * Regression gate for the seoMap key-form bug (June 2026).
  *
@@ -186,5 +189,52 @@ describe('seo source files parse contract (real files)', () => {
     // Every canonicalPath belongs to exactly one entry; allow a small slack
     // for entries without a single-quoted title (template-literal titles).
     expect(entries.size).toBeGreaterThanOrEqual(Math.floor(cpCount * 0.95));
+  });
+
+  // Regression gate (PR #2229 → live regression): staticPagesPlugin's jsToJson
+  // text-parser does NOT strip `//` comments and cannot evaluate JS method calls
+  // (e.g. `BUILD_DATE_ISO.slice(0, 10)`). Either one makes the downstream
+  // JSON.parse throw, and the parser's silent `catch { /* skip SD */ }` then
+  // DROPS the whole structuredData block — the page ships with no schema and no
+  // build error. This silently stripped /supporto/ (lost its WebPage→ContactPage)
+  // and /metodologia/ (AboutPage). Forbid both constructs inside any
+  // structuredData literal so the class can never silently recur.
+  it('no structuredData literal contains a // comment or JS method-call (jsToJson breakers)', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+    // Method calls jsToJson leaves intact after substituting BUILD_DATE_ISO /
+    // BASE_URL — any `."identifier"(` that is not a schema key. The leading
+    // `.` after a value is the tell (e.g. `.slice(`, `.replace(`, `.toLowerCase(`).
+    const methodCallRx = /\.[a-zA-Z_$][\w$]*\s*\(/;
+    // `//` anywhere in the SD (leading OR trailing comment). Both break
+    // jsToJson→JSON.parse identically. Run on the string-stripped form so
+    // `https://` inside string values is already gone (no false positives).
+    const lineCommentRx = /\/\//;
+    const offenders: string[] = [];
+    for (const [cp, { sd }] of entries) {
+      if (!sd) continue;
+      // Strip string literals first; whatever `//` or `.method(` survives is real code.
+      const noStrings = sd.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`[^`]*`/g, '""');
+      if (lineCommentRx.test(noStrings)) offenders.push(`${cp}: inline // comment in structuredData`);
+      if (methodCallRx.test(noStrings)) offenders.push(`${cp}: JS method-call in structuredData`);
+    }
+    expect(offenders, `structuredData parse-breakers (jsToJson would silently drop these):\n${offenders.join('\n')}`).toEqual([]);
+  });
+
+  it('/supporto/ and /metodologia/ structuredData parse to their declared @type', () => {
+    const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
+    const entries = parseEntries(src);
+    // Use the REAL jsToJson from staticPagesPlugin (single source of truth,
+    // #2256) — not a local re-implementation that could stay green while the
+    // emitter diverges. buildDateIso is arbitrary here (no SD asserts on it).
+    const toJson = (js: string): string =>
+      jsToJson(js, { baseUrl: BASE_URL, buildDateIso: '2026-01-01T00:00:00.000Z' });
+    const typesFor = (cp: string): string[] => {
+      const sd = entries.get(cp)?.sd ?? '';
+      const parsed = JSON.parse(toJson(sd));
+      return (Array.isArray(parsed) ? parsed : [parsed]).map((x: Record<string, unknown>) => String(x['@type'] ?? ''));
+    };
+    expect(typesFor('/supporto/')).toContain('ContactPage');
+    expect(typesFor('/metodologia/')).toContain('AboutPage');
   });
 });

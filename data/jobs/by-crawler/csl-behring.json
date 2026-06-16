@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csl-behring",
-  "assembledAt": "2026-06-15T14:21:38.135Z",
+  "assembledAt": "2026-06-15T22:51:39.467Z",
   "jobs": [
     {
       "id": "csl-behring-68f2b21bcb45",
@@ -34,7 +34,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Medical-Evaluation---Case-Processing-Oversight-Lead_R-263737",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:35.402Z",
+      "crawledAt": "2026-06-15T22:51:37.022Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Scientist--Pharmacokinetics--PK-_R-273982",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:34.533Z",
+      "crawledAt": "2026-06-15T22:51:36.327Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Schlieren-CSL-Behring/Principal-Biostatistician_R-263586-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:33.590Z",
+      "crawledAt": "2026-06-15T22:51:35.649Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -262,7 +262,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/SC-Automation---AI-Architect_R-274190",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:32.753Z",
+      "crawledAt": "2026-06-15T22:51:34.959Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -340,7 +340,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Director--Sr-Global-Regulatory-Lead_R-274381",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:31.932Z",
+      "crawledAt": "2026-06-15T22:51:34.278Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -414,7 +414,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Engineer--Drug-Delivery-Lead-_R-266557-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:37.365Z",
+      "crawledAt": "2026-06-15T22:51:33.598Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -455,15 +455,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:01.830Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -500,7 +500,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Global-Safety-Lead---Formulation-Safety_R-276125",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:36.551Z",
+      "crawledAt": "2026-06-15T22:51:32.910Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -538,15 +538,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:01.122Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -583,7 +583,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-MA-Waltham-CSL-Behring/Senior-Director--Global-Clinical-Program-Lead--Immunoglobulin_R-277041",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:35.732Z",
+      "crawledAt": "2026-06-15T22:51:32.230Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -639,15 +639,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:00.404Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -684,7 +684,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Associate-Director--Programming---macros-and-automation_R-277130-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:34.793Z",
+      "crawledAt": "2026-06-15T22:51:31.517Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -714,15 +714,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:55.478Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -759,7 +759,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Manager--Regulatory-Clinical-Trial-Authorization--CTA-_R-277348",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:33.856Z",
+      "crawledAt": "2026-06-15T22:51:30.772Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -809,15 +809,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:45.149Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -854,7 +854,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Seqirus-USA---MA---Waltham/Senior-Director--Search---Evaluation-Late-TA-Lead---He-_R-269841-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:33.025Z",
+      "crawledAt": "2026-06-15T22:51:30.070Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -888,15 +888,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:42.990Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -934,7 +934,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/GRA-CMC-Specialist_R-275244-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:25.957Z",
+      "crawledAt": "2026-06-15T22:51:29.366Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1005,7 +1005,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Analytical-Strategy_R-275504-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:30.595Z",
+      "crawledAt": "2026-06-15T22:51:28.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1042,15 +1042,15 @@
         ]
       },
       "firstSeenAt": "2026-05-22T21:57:47.991Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -1087,7 +1087,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Director--Nonclinical-Due-Diligence---External-Innovation_R-280300",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:29.789Z",
+      "crawledAt": "2026-06-15T22:51:27.956Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1116,15 +1116,15 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:26:11.832Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -1162,7 +1162,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Associate-Director--AI---Advanced-Analytics_R-279491",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:23.342Z",
+      "crawledAt": "2026-06-15T22:51:27.275Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1240,7 +1240,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Policy--Advocacy-and-Government-Affairs-Switzerland_R-280279-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:22.538Z",
+      "crawledAt": "2026-06-15T22:51:26.607Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1318,7 +1318,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Global-Product-Leader_R-279846",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:21.709Z",
+      "crawledAt": "2026-06-15T22:51:25.922Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1395,7 +1395,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Schlieren-CSL-Behring/Associate-Director--Non-Clinical-Pharmacology---CVR_R-280035",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:26.525Z",
+      "crawledAt": "2026-06-15T22:51:25.229Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1427,15 +1427,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:18:25.272Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       },
@@ -1473,7 +1473,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Global-Reliability-Engineering-Lead_R-275466",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:20.064Z",
+      "crawledAt": "2026-06-15T22:51:24.513Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1551,7 +1551,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/GRA-CMC-Specialist_R-275248",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:19.207Z",
+      "crawledAt": "2026-06-15T22:51:23.804Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1635,7 +1635,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Sr-Director--Global-Labeling-Strategy_R-280349-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:18.327Z",
+      "crawledAt": "2026-06-15T22:51:22.985Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1709,7 +1709,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-GB-Berkshire-Maidenhead-CSL-Behring/Senior-Programmer_R-277264",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:23.294Z",
+      "crawledAt": "2026-06-15T22:51:22.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1745,15 +1745,15 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:15:03.082Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -1791,7 +1791,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Associate-Director--Biostatistics_R-269601",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:16.596Z",
+      "crawledAt": "2026-06-15T22:51:21.626Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1872,7 +1872,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-GB-Berkshire-Maidenhead-CSL-Behring/Associate-Director--Biostatistics_R-263047",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:15.754Z",
+      "crawledAt": "2026-06-15T22:51:20.904Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1950,7 +1950,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Principal-Scientist--Pathogen-Safety_R-281010",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:14.869Z",
+      "crawledAt": "2026-06-15T22:51:20.206Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2030,7 +2030,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Head-of-Medical-Affairs-Statistics---RWE-Co-Lead_R-265562",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:19.975Z",
+      "crawledAt": "2026-06-15T22:51:19.474Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2060,15 +2060,15 @@
         ]
       },
       "firstSeenAt": "2026-06-04T11:45:54.304Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -2106,7 +2106,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Scientist--Tech-Ops_R-281166",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:13.138Z",
+      "crawledAt": "2026-06-15T22:51:18.772Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2216,7 +2216,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Principal-Engineer--Tech-Ops_R-275423",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:18.321Z",
+      "crawledAt": "2026-06-15T22:51:18.005Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2248,15 +2248,15 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:53:33.574Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -2293,7 +2293,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Zurich-Opfikon-CSL-Vifor/Senior-Director-Market-Access-Inline-immunoglobulins--IG-_R-280599-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:17.515Z",
+      "crawledAt": "2026-06-15T22:51:17.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2322,15 +2322,15 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:53:32.145Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
+      "salaryMin": 106500,
+      "salaryMax": 188500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
+          "minValue": 106500,
+          "maxValue": 188500,
           "unitText": "YEAR"
         }
       },
@@ -2368,7 +2368,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Talent-Partner--Operations_R-278391-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:10.355Z",
+      "crawledAt": "2026-06-15T22:51:16.617Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2445,7 +2445,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-St-Gallen-St-Gallen-CSL-Vifor/Senior-Manager--HR-Business-Partner-Manufacturing--m-w-d-_R-278387",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:42:15.885Z",
+      "crawledAt": "2026-06-15T22:51:15.931Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2471,15 +2471,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:46:04.799Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -2516,7 +2516,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Manager---HR-Business-Partner-Manufacturing--m-w-d-_R-278388",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T21:42:15.080Z",
+      "crawledAt": "2026-06-15T22:51:15.230Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2534,15 +2534,15 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "firstSeenAt": "2026-06-08T12:46:03.943Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -2587,7 +2587,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-MA-Waltham-CSL-Behring/Director-Biostatistics_R-277428",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:14.263Z",
+      "crawledAt": "2026-06-15T22:51:14.548Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2606,10 +2606,10 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "director-biostatistics-csl-behring-ch",
+        "direttore-associato-biostatistica-csl-behring-bern-847139",
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
-        "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-associato-biostatistica-csl-behring-bern-847139"
+        "directeur-associe-biostatistique-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2627,15 +2627,15 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:46:03.101Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -2673,7 +2673,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Design---Technology-Lead_R-275407",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:06.809Z",
+      "crawledAt": "2026-06-15T22:51:13.803Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2751,7 +2751,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Director--AI-Innovation---Emerging-Capabilities_R-281346-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:05.943Z",
+      "crawledAt": "2026-06-15T22:51:13.115Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2828,7 +2828,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Principal-Programmer---Data-Oversight---Standards-_R-277566",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:11.379Z",
+      "crawledAt": "2026-06-15T22:51:12.420Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2901,15 +2901,15 @@
         "principal-programmer-surveillance-des-donnees-et-normes-csl-behring-bern"
       ],
       "firstSeenAt": "2026-05-19T17:18:53.363Z",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
+          "minValue": 113000,
+          "maxValue": 192000,
           "unitText": "YEAR"
         }
       },
@@ -2947,7 +2947,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Search---Evaluation-Early-TA-Lead--Senior-Director---CVR-_R-269836",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:04.247Z",
+      "crawledAt": "2026-06-15T22:51:11.667Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3025,7 +3025,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Human-Factors-Design-and-Development_R-275420",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:03.315Z",
+      "crawledAt": "2026-06-15T22:51:10.925Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3103,7 +3103,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Principal-Scientist-Tech-Ops--CMC-Science-_R-281150",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:02.426Z",
+      "crawledAt": "2026-06-15T22:51:10.063Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3181,7 +3181,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Schlieren-CSL-Behring/Associate-Scientist_R-281140",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:01.483Z",
+      "crawledAt": "2026-06-15T22:51:09.315Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3259,7 +3259,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Business-Operations-Lead_R-270143",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:21:00.672Z",
+      "crawledAt": "2026-06-15T22:51:08.554Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3331,7 +3331,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Global-Head-of-Maintenance---Innovation-Strategy_R-275513-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:20:59.615Z",
+      "crawledAt": "2026-06-15T22:51:07.869Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3408,7 +3408,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Packaging-Medical-Device-Quality-Specialist_R-275415-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:05.465Z",
+      "crawledAt": "2026-06-15T22:51:07.190Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3440,15 +3440,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:14:15.780Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -3458,9 +3458,9 @@
       "id": "csl-behring-ad5fb1f1dc37",
       "slug": "direttore-associato-trasferimento-tecnologico-e-partenariati-esterni-csl-behring-bern",
       "slugByLocale": {
-        "en": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
         "it": "direttore-associato-trasferimento-tecnologico-e-partenariati-esterni-csl-behring-bern",
-        "de": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
+        "en": "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch",
+        "de": "associate-director-tech-transfer-und-externe-partnerschaften-csl-behring-bern",
         "fr": "directeur-associe-transfert-de-technologie-et-partenariats-externes-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -3468,24 +3468,25 @@
       "companyDomain": "cslbehring.com",
       "title": "Associate Director, Tech Transfer and External Partnerships",
       "titleByLocale": {
+        "it": "Associate Direttore, Tech Transfer and External Partnerships",
         "en": "Associate Director, Tech Transfer and External Partnerships",
-        "it": "Direttore Associato, Trasferimento Tecnologico e Partenariati Esterni",
-        "de": "Associate Director, Tech Transfer und externe Partnerschaften",
+        "de": "Associate Direktor, Tech Transfer and External Partnerships",
         "fr": "Directeur associé, Transfert de technologie et partenariats externes"
       },
       "description": "The Associate Director of Technology Transfer & External Partnerships leads the planning and execution of technology transfer activities to external partners, including CDMOs, CMOs, and strategic collaborators. This role ensures successful transfer of processes, analytical methods, and manufacturing knowledge while maintaining quality, compliance, and timelines. The position also manages external relationships to support development, scale-up, and commercial manufacturing across the product lifecycle.​\n\nMain Responsibilities & Accountabilities​\n\nTechnology Transfer Leadership​:\n\n• Lead end-to-end technology transfer to external manufacturing and development partners​\n\n• Develop and execute tech transfer strategies, plans, and timelines​\n\n• Ensure successful transfer of process, analytical, and quality knowledge​\n\n• Oversee preparation of transfer documentation, risk assessments, and technical packages​\n\n• Monitor execution of engineering, demonstration, and validation batches​\n\nExternal Partner Management​:\n\n• Manage relationships with CDMOs, CMOs, and strategic partners​\n\n• Serve as primary technical and operational contact for external collaborations​\n\n• Evaluate partner technical capabilities, capacity, and compliance status​\n\n• Drive alignment on deliverables, timelines, and performance expectations​\n\n• Support contract scope definition and governance processes​\n\nCross-Functional Coordination​:\n\n• Collaborate with Process Development, MSAT, Manufacturing, Quality, Regulatory, and Supply Chain​\n\n• Ensure readiness for clinical and commercial manufacturing at external sites​\n\n• Coordinate troubleshooting and issue resolution during transfer and production​\n\n• Align internal and external teams on project milestones and risks​\n\nQuality & Compliance​:\n\n• Ensure compliance with GMP, regulatory, and quality standards during technology transfer​\n\n• Support deviations, investigations, CAPA, and change control related to external manufacturing​\n\n• Ensure proper documentation and data integrity across partner activities​\n\n• Support audits, inspections, and regulatory submissions​\n\nProgram & Project Management​:\n\n• Manage multiple technology transfer projects simultaneously​\n\n• Track milestones, risks, budgets, and performance metrics​\n\n• Drive continuous improvement in tech transfer processes and best practices​\n\n• Support lifecycle management and post-transfer optimization​\n\nLeadership & Influence​:\n\n• Mentor scientists and engineers involved in tech transfer activities​\n\n• Influence cross-functional and external stakeholders​\n\n• Contribute to strategic planning for external manufacturing and partnerships​​\n\nQualifications & Experience Requirements​\n\n• Bachelor’s, Master’s, or PhD in: Chemical / Biochemical / Bioprocess Engineering, Biotechnology, Pharmaceutical Sciences, Chemistry or related technical field​\n\n• 8–12+ years of experience in technology transfer, process development, MSAT, or manufacturing​\n\n• Strong experience working with CDMOs/CMOs and external partners​\n\n• Solid understanding of GMP, regulatory expectations, and quality systems​\n\n• Proven project and stakeholder management experience​\n\n• Strong technical understanding of process scale-up and manufacturing​\n\n• Global technology transfer and external manufacturing networks​\n\n• Process validation and commercial manufacturing support​\n\n• Risk management, QbD, and statistical tools (DoE)​\n\n• Contract governance and vendor performance management\n\n• Experience supporting regulatory filings and inspections​\n\nKey Competencies​\n\n• Technical and operational leadership​\n\n• External stakeholder and partnership management​\n\n• Strategic thinking and execution​\n\n• Strong project and risk management​\n\n• Cross-functional collaboration and influence​\n\n• Quality and compliance mindset​\n\n• Problem solving and decision-makin\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest t",
       "descriptionByLocale": {
-        "en": "The Associate Director of Technology Transfer & External Partnerships leads the planning and execution of technology transfer activities to external partners, including CDMOs, CMOs, and strategic collaborators. This role ensures successful transfer of processes, analytical methods, and manufacturing knowledge while maintaining quality, compliance, and timelines. The position also manages external relationships to support development, scale-up, and commercial manufacturing across the product lifecycle.​\n\nMain Responsibilities & Accountabilities​\n\nTechnology Transfer Leadership​:\n\n• Lead end-to-end technology transfer to external manufacturing and development partners​\n\n• Develop and execute tech transfer strategies, plans, and timelines​\n\n• Ensure successful transfer of process, analytical, and quality knowledge​\n\n• Oversee preparation of transfer documentation, risk assessments, and technical packages​\n\n• Monitor execution of engineering, demonstration, and validation batches​\n\nExternal Partner Management​:\n\n• Manage relationships with CDMOs, CMOs, and strategic partners​\n\n• Serve as primary technical and operational contact for external collaborations​\n\n• Evaluate partner technical capabilities, capacity, and compliance status​\n\n• Drive alignment on deliverables, timelines, and performance expectations​\n\n• Support contract scope definition and governance processes​\n\nCross-Functional Coordination​:\n\n• Collaborate with Process Development, MSAT, Manufacturing, Quality, Regulatory, and Supply Chain​\n\n• Ensure readiness for clinical and commercial manufacturing at external sites​\n\n• Coordinate troubleshooting and issue resolution during transfer and production​\n\n• Align internal and external teams on project milestones and risks​\n\nQuality & Compliance​:\n\n• Ensure compliance with GMP, regulatory, and quality standards during technology transfer​\n\n• Support deviations, investigations, CAPA, and change control related to external manufacturing​\n\n• Ensure proper documentation and data integrity across partner activities​\n\n• Support audits, inspections, and regulatory submissions​\n\nProgram & Project Management​:\n\n• Manage multiple technology transfer projects simultaneously​\n\n• Track milestones, risks, budgets, and performance metrics​\n\n• Drive continuous improvement in tech transfer processes and best practices​\n\n• Support lifecycle management and post-transfer optimization​\n\nLeadership & Influence​:\n\n• Mentor scientists and engineers involved in tech transfer activities​\n\n• Influence cross-functional and external stakeholders​\n\n• Contribute to strategic planning for external manufacturing and partnerships​​\n\nQualifications & Experience Requirements​\n\n• Bachelor’s, Master’s, or PhD in: Chemical / Biochemical / Bioprocess Engineering, Biotechnology, Pharmaceutical Sciences, Chemistry or related technical field​\n\n• 8–12+ years of experience in technology transfer, process development, MSAT, or manufacturing​\n\n• Strong experience working with CDMOs/CMOs and external partners​\n\n• Solid understanding of GMP, regulatory expectations, and quality systems​\n\n• Proven project and stakeholder management experience​\n\n• Strong technical understanding of process scale-up and manufacturing​\n\n• Global technology transfer and external manufacturing networks​\n\n• Process validation and commercial manufacturing support​\n\n• Risk management, QbD, and statistical tools (DoE)​\n\n• Contract governance and vendor performance management\n\n• Experience supporting regulatory filings and inspections​\n\nKey Competencies​\n\n• Technical and operational leadership​\n\n• External stakeholder and partnership management​\n\n• Strategic thinking and execution​\n\n• Strong project and risk management​\n\n• Cross-functional collaboration and influence​\n\n• Quality and compliance mindset​\n\n• Problem solving and decision-makin\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest t",
-        "it": "Il Direttore Associato di Trasferimento Tecnologico e Partenariati Esterni conduce la pianificazione e l'esecuzione delle attività di trasferimento tecnologico a partner esterni, tra cui CDMO, CMO e collaboratori strategici. Questo ruolo garantisce il trasferimento di processi, metodi analitici e conoscenze di produzione mantenendo qualità, conformità e tempistiche. La posizione gestisce anche relazioni esterne per supportare lo sviluppo, la scala e la produzione commerciale attraverso il ciclo di vita del prodotto. Leadership del trasferimento tecnologico: • Lead end-to-end trasferimento di tecnologia ai partner esterni di produzione e sviluppo • Sviluppare ed eseguire strategie di trasferimento tecnologico, piani e tempi • Assicurare il trasferimento di successo di conoscenze di processo, analitiche e di qualità • supervisionare la preparazione di documentazione di trasferimento, valutazioni dei rischi e pacchetti tecnici • Gestione esterna dei partner: • Gestione dei rapporti con CDMO, CMO e partner strategici • Serve come contatto tecnico e operativo primario per collaborazioni esterne • Valutare le capacità tecniche dei partner, la capacità e lo stato di conformità • Allineare l'unità sui materiali, le linee temporali e le aspettative sulle prestazioni • Coordinamento trasversale: • Collaborare con lo sviluppo dei processi, MSAT, Manufacturing, Quality, Regulatory and Supply Chain • Assicurarsi la disponibilità per la produzione clinica e commerciale in siti esterni • Coordinare la risoluzione dei problemi e la risoluzione dei problemi durante il trasferimento e la produzione • Allineare i team interni ed esterni su pietre miliari e rischi di progetto Qualità e conformità: • Assicurare il rispetto di GMP, normative e standard di qualità durante il trasferimento tecnologico • Sostenere le deviazioni, le indagini, la CAPA e il controllo dei cambiamenti relativi alla produzione esterna • Assicurare una corretta documentazione e integrità dei dati nelle attività dei partner • Controlli di sostegno, ispezioni e sottomissioni normative Programma & Project Management: • Gestione simultanea di più progetti di trasferimento tecnologico • Traccia pietre miliari, rischi, budget e metriche di performance • Miglioramento continuo dei processi di trasferimento tecnologico e delle migliori pratiche • Sostenere la gestione del ciclo di vita e l’ottimizzazione post-trasferimento Leadership & Influence: • scienziati e ingegneri coinvolti nelle attività di trasferimento tecnologico • Influenza tra le parti interessate interfunzionali ed esterne • Contribuire alla pianificazione strategica per la produzione esterna e le partnership Qualifiche e requisiti di esperienza • Corso di laurea, Master’s, o PhD in: Settore chimico / Biochimico / Biotecnico / Biotecnologico Ingegneria, Biotecnologia, Biotecnologie, Biotecnologie, Biotecnologie, Biotecnologie • Una forte esperienza di lavoro con CDMO/CMO e partner esterni • Una solida comprensione del GMP, delle aspettative normative e dei sistemi di qualità • un'esperienza di progetto e di gestione degli stakeholder • una forte comprensione tecnica della scalabilità dei processi e della produzione • Gestione dei rischi, QbD e strumenti statistici (DoE) • Gestione dei contratti e gestione delle prestazioni dei fornitori • Esperienza di supporto ai processi normativi e ispezioni Competenze chiave • leadership tecnica e operativa • Gestione esterna delle parti interessate e dei partenariati • pensiero strategico ed esecuzione • Gestione forte del progetto e del rischio • Collaborazione e influenza trasversali • Mente di qualità e conformità • Problem solving e decision-makin About CSL Behring CSL Behring è un leader globale di biotherapeutics guidato dalla nostra promessa di salvare vite umane. Concentrati sulle esigenze dei pazienti utilizzando le ultime t",
-        "de": "Der Associate Director of Technology Transfer & External Partnerships leitet die Planung und Durchführung von Technologietransferaktivitäten an externe Partner, darunter CDMOs, CMOs und strategische Mitarbeiter. Diese Rolle sichert den erfolgreichen Transfer von Prozessen, Analysemethoden und Fertigungswissen unter Beibehaltung von Qualität, Compliance und Zeitplänen. Die Position verwaltet auch externe Beziehungen, um Entwicklung, Skalierung und kommerzielle Fertigung über den gesamten Produktlebenszyklus hinweg zu unterstützen. Technologietransferführerschaft: • Führen Sie den End-to-End-Technologietransfer zu externen Fertigungs- und Entwicklungspartnern • Entwickeln und Ausführen von Technologietransferstrategien, -plänen und -zeitplänen • Sicherstellen eines erfolgreichen Transfers von Prozess-, Analyse- und Qualitätswissen • Beaufsichtigen Sie die Erstellung von Transferdokumentationen, Risikobewertungen und technischen Paketen • Überwachung der Ausführung von Engineering-, Demonstrations- und Validierungschargen Externes Partnermanagement: • Verwaltung der Beziehungen zu CDMOs, CMOs und strategischen Partnern • Als primärer technischer und operativer Ansprechpartner für externe Kooperationen • Bewertung der technischen Fähigkeiten, Kapazitäten und Compliance-Status der Partner • Ausrichtung auf Ergebnisse, Zeitpläne und Leistungserwartungen • Unterstützung von Prozessabwicklungs- und Governance-Prozessen Cross-Functional Coordination: • Zusammenarbeit mit Prozessentwicklung, MSAT, Fertigung, Qualität, Regulierung und Lieferkette • Gewährleistung der Bereitschaft für die klinische und kommerzielle Fertigung an externen Standorten • Fehlersuche und Problemlösung während Transfer und Produktion koordinieren • Interne und externe Teams auf Projektmeilensteine und -risiken ausrichten Qualität & Compliance: • Gewährleistung der Einhaltung von GMP-, Regulierungs- und Qualitätsstandards beim Technologietransfer • Unterstützung von Abweichungen, Untersuchungen, CAPA und Änderungskontrolle im Zusammenhang mit der externen Fertigung • Gewährleistung einer ordnungsgemäßen Dokumentation und Datenintegrität bei allen Partneraktivitäten • Unterstützung von Audits, Inspektionen und behördlichen Einreichungen Programm- und Projektmanagement: • Verwalten mehrerer Technologietransferprojekte gleichzeitig • Meilensteine, Risiken, Budgets und Leistungskennzahlen verfolgen • Förderung der kontinuierlichen Verbesserung von Technologietransferprozessen und Best Practices • Unterstützung von Lifecycle-Management und Post-Transfer-Optimierung Leadership & Influence: • Mentor-Wissenschaftler und Ingenieure, die an Technologietransferaktivitäten beteiligt sind • Einfluss auf funktionsübergreifende und externe Stakeholder • Beitrag zur strategischen Planung für externe Fertigungs- und Partnerschaftsqualifikationen & Erfahrungsanforderungen • Bachelor-, Master- oder PhD in: Chemie / Biochemie / Bioprozesstechnik, Biotechnologie, Pharmazeutische Wissenschaften, Chemie oder verwandte technische Bereiche • 8-12+ Jahre Erfahrung in Technologietransfer, Prozessentwicklung, MSAT oder Fertigung • Starke Erfahrung in der Zusammenarbeit mit CDMOs/CMOs und externen Partnern • Solides Verständnis von GMP, regulatorischen Erwartungen und Qualitätssystemen • Bewährte Erfahrung im Projekt- und Stakeholdermanagement • Starkes technisches Verständnis von Prozessskalierung und Fertigung • Globaler Technologietransfer und externe Fertigungsnetzwerke • Prozessvalidierung und Unterstützung der kommerziellen Fertigung • Risikomanagement, QbD und statistische Tools (DoE) • Vertragsführung und Lieferantenleistungsmanagement • Erfahrung bei der Unterstützung von behördlichen Einreichungen und Inspektionen Schlüsselkompetenzen • Technische und operative Führung • Externes Stakeholder- und Partnerschaftsmanagement • Strategisches Denken und Ausführen • Starkes Projekt- und Risikomanagement • Funktionale Zusammenarbeit und Einfluss • Qualitäts- und Compliance-Mentalität • Problemlösung und Entscheidungsfindung Über CSL Behring CSL Behring ist ein weltweit führendes Biotherapeutikunternehmen, das von unserem Versprechen angetrieben wird, Leben zu retten. Konzentriert sich auf die Bedürfnisse der Patienten durch die Verwendung der neuesten t",
-        "fr": "Le directeur associé du transfert de technologie et des partenariats externes dirige la planification et l'exécution des activités de transfert de technologie à des partenaires externes, y compris les ODM, les OCM et les collaborateurs stratégiques. Ce rôle assure le transfert réussi des processus, des méthodes d'analyse et des connaissances de fabrication tout en maintenant la qualité, la conformité et les délais. Le poste gère également les relations externes pour soutenir le développement, l'expansion et la fabrication commerciale tout au long du cycle de vie des produits. Principales responsabilités et responsabilités Transfert de technologie Leadership : • Diriger le transfert de technologie de bout en bout vers des partenaires externes de fabrication et de développement • Élaborer et exécuter des stratégies, des plans et des échéanciers de transfert de technologie • Assurer le transfert réussi des connaissances en matière de processus, d'analyse et de qualité • Superviser la préparation de documents de transfert, d'évaluation des risques et d'ensembles techniques • Surveiller l'exécution des lots d'ingénierie, de démonstration et de validation Gestion externe des partenaires : • Gérer les relations avec les OCM, les OCM et les partenaires stratégiques • Servir de contact technique et opérationnel principal pour les collaborations externes • Évaluer les capacités techniques, la capacité et l'état de conformité des partenaires • Conduire l'alignement sur les produits livrables, les délais et les attentes en matière de rendement • Soutenir la définition de la portée des contrats et les processus de gouvernance Coordination interfonctionnelle : • Collaborer avec le développement des procédés, le MSAT, la fabrication, la qualité, la réglementation et la chaîne d'approvisionnement • Assurer la préparation à la fabrication clinique et commerciale sur des sites externes • Coordonner le dépannage et la résolution des problèmes pendant le transfert et la production • Aligner les équipes internes et externes sur les jalons et les risques du projet Qualité et conformité : • Assurer le respect des BPF, des normes réglementaires et de qualité lors du transfert de technologie • Écarts de soutien, enquêtes, CAPA et contrôle des changements liés à la fabrication externe • Assurer l'intégrité de la documentation et des données dans toutes les activités des partenaires • Appuyer les audits, les inspections et les présentations réglementaires Gestion de programme et de projet : • Gérer simultanément plusieurs projets de transfert de technologie • Suivre les étapes, les risques, les budgets et les mesures de rendement • Favoriser l'amélioration continue des processus de transfert de technologie et des meilleures pratiques • Soutenir la gestion du cycle de vie et l'optimisation post-transfert Leadership & influence : • Mentor scientifiques et ingénieurs impliqués dans les activités de transfert de technologie • Influence sur les parties prenantes interfonctionnelles et externes • Contribuer à la planification stratégique pour la fabrication externe et les partenariats Qualifications et besoins d'expérience • Bachelor, Master, or PhD in: Chemical / Biochemical / Bioprocess Engineering, Biotechnology, Pharmaceutical Sciences, Chimie ou domaine technique connexe • 8-12+ ans d'expérience en transfert de technologie, développement de procédés, MSAT ou fabrication • Une solide expérience de travail avec les OCM/OMC et les partenaires externes • Une bonne compréhension des BPF, des attentes réglementaires et des systèmes de qualité • Une expérience éprouvée de la gestion des projets et des parties prenantes • Une bonne compréhension technique de l'échelle des processus et de la fabrication • Gestion des risques, QbD et outils statistiques (DoE) • Gouvernance des contrats et gestion des performances des fournisseurs • Expérience d'appui aux dépôts et inspections réglementaires Compétences clés • Leadership technique et opérationnel • Gestion externe des parties prenantes et des partenariats • Réflexion et exécution stratégiques • Gestion forte des projets et des risques • Collaboration et influence interfonctionnelles • Qualité et conformité • Résolution de problèmes et prise de décisions A propos de CSL Behring CSL Behring est un leader mondial de la biothérapeutique, animé par notre promesse de sauver des vies. Axé sur les besoins des patients"
+        "it": "Il Direttore Associato di Trasferimento Tecnologico e Partenariati Esterni conduce la pianificazione e l'esecuzione delle attività di trasferimento tecnologico a partner esterni, tra cui CDMO, CMO e collaboratori strategici. Questo ruolo garantisce il trasferimento di processi, metodi analitici e conoscenze di produzione mantenendo qualità, conformità e tempistiche. La posizione gestisce anche relazioni esterne per supportare lo sviluppo, la scala e la produzione commerciale attraverso il ciclo di vita del prodotto. Leadership del trasferimento tecnologico:\n• Lead end-to-end trasferimento di tecnologia ai partner esterni di produzione e sviluppo\n• Sviluppare ed eseguire strategie di trasferimento tecnologico, piani e tempi\n• Assicurare il trasferimento di successo di conoscenze di processo, analitiche e di qualità\n• supervisionare la preparazione di documentazione di trasferimento, valutazioni dei rischi e pacchetti tecnici\n• Gestione esterna dei partner:\n• Gestione dei rapporti con CDMO, CMO e partner strategici\n• Serve come contatto tecnico e operativo primario per collaborazioni esterne\n• Valutare le capacità tecniche dei partner, la capacità e lo stato di conformità\n• Allineare l'unità sui materiali, le linee temporali e le aspettative sulle prestazioni\n• Coordinamento trasversale:\n• Collaborare con lo sviluppo dei processi, MSAT, Manufacturing, Quality, Regulatory and Supply Chain\n• Assicurarsi la disponibilità per la produzione clinica e commerciale in siti esterni\n• Coordinare la risoluzione dei problemi e la risoluzione dei problemi durante il trasferimento e la produzione\n• Allineare i team interni ed esterni su pietre miliari e rischi di progetto Qualità e conformità:\n• Assicurare il rispetto di GMP, normative e standard di qualità durante il trasferimento tecnologico\n• Sostenere le deviazioni, le indagini, la CAPA e il controllo dei cambiamenti relativi alla produzione esterna\n• Assicurare una corretta documentazione e integrità dei dati nelle attività dei partner\n• Controlli di sostegno, ispezioni e sottomissioni normative Programma & Project Management:\n• Gestione simultanea di più progetti di trasferimento tecnologico\n• Traccia pietre miliari, rischi, budget e metriche di performance\n• Miglioramento continuo dei processi di trasferimento tecnologico e delle migliori pratiche\n• Sostenere la gestione del ciclo di vita e l’ottimizzazione post-trasferimento Leadership & Influence:\n• scienziati e ingegneri coinvolti nelle attività di trasferimento tecnologico\n• Influenza tra le parti interessate interfunzionali ed esterne\n• Contribuire alla pianificazione strategica per la produzione esterna e le partnership Qualifiche e requisiti di esperienza\n• Corso di laurea, Master’s, o PhD in: Settore chimico / Biochimico / Biotecnico / Biotecnologico Ingegneria, Biotecnologia, Biotecnologie, Biotecnologie, Biotecnologie, Biotecnologie\n• Una forte esperienza di lavoro con CDMO/CMO e partner esterni\n• Una solida comprensione del GMP, delle aspettative normative e dei sistemi di qualità\n• un'esperienza di progetto e di gestione degli stakeholder\n• una forte comprensione tecnica della scalabilità dei processi e della produzione\n• Gestione dei rischi, QbD e strumenti statistici (DoE)\n• Gestione dei contratti e gestione delle prestazioni dei fornitori\n• Esperienza di supporto ai processi normativi e ispezioni Competenze chiave\n• leadership tecnica e operativa\n• Gestione esterna delle parti interessate e dei partenariati\n• pensiero strategico ed esecuzione\n• Gestione forte del progetto e del rischio\n• Collaborazione e influenza trasversali\n• Mente di qualità e conformità\n• Problem solving e decision-makin About CSL Behring CSL Behring è un leader globale di biotherapeutics guidato dalla nostra promessa di salvare vite umane. Concentrati sulle esigenze dei pazienti utilizzando le ultime t",
+        "en": "The Associate Director of Technology Transfer & External Partnerships leads the planning and execution of technology transfer activities to external partners, including CDMOs, CMOs, and strategic collaborators. This role ensures successful transfer of processes, analytical methods, and manufacturing knowledge while maintaining quality, compliance, and timelines. The position also manages external relationships to support development, scale-up, and commercial manufacturing across the product lifecycle.​ Main Responsibilities & Accountabilities​ Technology Transfer Leadership​:\n• Lead end-to-end technology transfer to external manufacturing and development partners​\n• Develop and execute tech transfer strategies, plans, and timelines​\n• Ensure successful transfer of process, analytical, and quality knowledge​\n• Oversee preparation of transfer documentation, risk assessments, and technical packages​\n• Monitor execution of engineering, demonstration, and validation batches​ External Partner Management​:\n• Manage relationships with CDMOs, CMOs, and strategic partners​\n• Serve as primary technical and operational contact for external collaborations​\n• Evaluate partner technical capabilities, capacity, and compliance status​\n• Drive alignment on deliverables, timelines, and performance expectations​\n• Support contract scope definition and governance processes​ Cross-Functional Coordination​:\n• Collaborate with Process Development, MSAT, Manufacturing, Quality, Regulatory, and Supply Chain​\n• Ensure readiness for clinical and commercial manufacturing at external sites​\n• Coordinate troubleshooting and issue resolution during transfer and production​\n• Align internal and external teams on project milestones and risks​ Quality & Compliance​:\n• Ensure compliance with GMP, regulatory, and quality standards during technology transfer​\n• Support deviations, investigations, CAPA, and change control related to external manufacturing​\n• Ensure proper documentation and data integrity across partner activities​\n• Support audits, inspections, and regulatory submissions​ Program & Project Management​:\n• Manage multiple technology transfer projects simultaneously​\n• Track milestones, risks, budgets, and performance metrics​\n• Drive continuous improvement in tech transfer processes and best practices​\n• Support lifecycle management and post-transfer optimization​ Leadership & Influence​:\n• Mentor scientists and engineers involved in tech transfer activities​\n• Influence cross-functional and external stakeholders​\n• Contribute to strategic planning for external manufacturing and partnerships​​ Qualifications & Experience Requirements​\n• Bachelor’s, Master’s, or PhD in: Chemical / Biochemical / Bioprocess Engineering, Biotechnology, Pharmaceutical Sciences, Chemistry or related technical field​\n• 8–12+ years of experience in technology transfer, process development, MSAT, or manufacturing​\n• Strong experience working with CDMOs/CMOs and external partners​\n• Solid understanding of GMP, regulatory expectations, and quality systems​\n• Proven project and stakeholder management experience​\n• Strong technical understanding of process scale-up and manufacturing​\n• Global technology transfer and external manufacturing networks​\n• Process validation and commercial manufacturing support​\n• Risk management, QbD, and statistical tools (DoE)​\n• Contract governance and vendor performance management\n• Experience supporting regulatory filings and inspections​ Key Competencies​\n• Technical and operational leadership​\n• External stakeholder and partnership management​\n• Strategic thinking and execution​\n• Strong project and risk management​\n• Cross-functional collaboration and influence​\n• Quality and compliance mindset​\n• Problem solving and decision-makin About CSL Behring CSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest t",
+        "de": "Der Associate Director of Technology Transfer & External Partnerships leitet die Planung und Durchführung von Technologietransferaktivitäten an externe Partner, darunter CDMOs, CMOs und strategische Mitarbeiter. Diese Rolle sichert den erfolgreichen Transfer von Prozessen, Analysemethoden und Fertigungswissen unter Beibehaltung von Qualität, Compliance und Zeitplänen. Die Position verwaltet auch externe Beziehungen, um Entwicklung, Skalierung und kommerzielle Fertigung über den gesamten Produktlebenszyklus hinweg zu unterstützen. Technologietransferführerschaft:\n• Führen Sie den End-to-End-Technologietransfer zu externen Fertigungs- und Entwicklungspartnern\n• Entwickeln und Ausführen von Technologietransferstrategien, -plänen und -zeitplänen\n• Sicherstellen eines erfolgreichen Transfers von Prozess-, Analyse- und Qualitätswissen\n• Beaufsichtigen Sie die Erstellung von Transferdokumentationen, Risikobewertungen und technischen Paketen\n• Überwachung der Ausführung von Engineering-, Demonstrations- und Validierungschargen Externes Partnermanagement:\n• Verwaltung der Beziehungen zu CDMOs, CMOs und strategischen Partnern\n• Als primärer technischer und operativer Ansprechpartner für externe Kooperationen\n• Bewertung der technischen Fähigkeiten, Kapazitäten und Compliance-Status der Partner\n• Ausrichtung auf Ergebnisse, Zeitpläne und Leistungserwartungen\n• Unterstützung von Prozessabwicklungs- und Governance-Prozessen Cross-Functional Coordination:\n• Zusammenarbeit mit Prozessentwicklung, MSAT, Fertigung, Qualität, Regulierung und Lieferkette\n• Gewährleistung der Bereitschaft für die klinische und kommerzielle Fertigung an externen Standorten\n• Fehlersuche und Problemlösung während Transfer und Produktion koordinieren\n• Interne und externe Teams auf Projektmeilensteine und -risiken ausrichten Qualität & Compliance:\n• Gewährleistung der Einhaltung von GMP-, Regulierungs- und Qualitätsstandards beim Technologietransfer\n• Unterstützung von Abweichungen, Untersuchungen, CAPA und Änderungskontrolle im Zusammenhang mit der externen Fertigung\n• Gewährleistung einer ordnungsgemäßen Dokumentation und Datenintegrität bei allen Partneraktivitäten\n• Unterstützung von Audits, Inspektionen und behördlichen Einreichungen Programm- und Projektmanagement:\n• Verwalten mehrerer Technologietransferprojekte gleichzeitig\n• Meilensteine, Risiken, Budgets und Leistungskennzahlen verfolgen\n• Förderung der kontinuierlichen Verbesserung von Technologietransferprozessen und Best Practices\n• Unterstützung von Lifecycle-Management und Post-Transfer-Optimierung Leadership & Influence:\n• Mentor-Wissenschaftler und Ingenieure, die an Technologietransferaktivitäten beteiligt sind\n• Einfluss auf funktionsübergreifende und externe Stakeholder\n• Beitrag zur strategischen Planung für externe Fertigungs- und Partnerschaftsqualifikationen & Erfahrungsanforderungen\n• Bachelor-, Master- oder PhD in: Chemie / Biochemie / Bioprozesstechnik, Biotechnologie, Pharmazeutische Wissenschaften, Chemie oder verwandte technische Bereiche\n• 8-12+ Jahre Erfahrung in Technologietransfer, Prozessentwicklung, MSAT oder Fertigung\n• Starke Erfahrung in der Zusammenarbeit mit CDMOs/CMOs und externen Partnern\n• Solides Verständnis von GMP, regulatorischen Erwartungen und Qualitätssystemen\n• Bewährte Erfahrung im Projekt- und Stakeholdermanagement\n• Starkes technisches Verständnis von Prozessskalierung und Fertigung\n• Globaler Technologietransfer und externe Fertigungsnetzwerke\n• Prozessvalidierung und Unterstützung der kommerziellen Fertigung\n• Risikomanagement, QbD und statistische Tools (DoE)\n• Vertragsführung und Lieferantenleistungsmanagement\n• Erfahrung bei der Unterstützung von behördlichen Einreichungen und Inspektionen Schlüsselkompetenzen\n• Technische und operative Führung\n• Externes Stakeholder- und Partnerschaftsmanagement\n• Strategisches Denken und Ausführen\n• Starkes Projekt- und Risikomanagement\n• Funktionale Zusammenarbeit und Einfluss\n• Qualitäts- und Compliance-Mentalität\n• Problemlösung und Entscheidungsfindung Über CSL Behring CSL Behring ist ein weltweit führendes Biotherapeutikunternehmen, das von unserem Versprechen angetrieben wird, Leben zu retten. Konzentriert sich auf die Bedürfnisse der Patienten durch die Verwendung der neuesten t",
+        "fr": "Le directeur associé du transfert de technologie et des partenariats externes dirige la planification et l'exécution des activités de transfert de technologie à des partenaires externes, y compris les ODM, les OCM et les collaborateurs stratégiques. Ce rôle assure le transfert réussi des processus, des méthodes d'analyse et des connaissances de fabrication tout en maintenant la qualité, la conformité et les délais. Le poste gère également les relations externes pour soutenir le développement, l'expansion et la fabrication commerciale tout au long du cycle de vie des produits. Principales responsabilités et responsabilités Transfert de technologie Leadership :\n• Diriger le transfert de technologie de bout en bout vers des partenaires externes de fabrication et de développement\n• Élaborer et exécuter des stratégies, des plans et des échéanciers de transfert de technologie\n• Assurer le transfert réussi des connaissances en matière de processus, d'analyse et de qualité\n• Superviser la préparation de documents de transfert, d'évaluation des risques et d'ensembles techniques\n• Surveiller l'exécution des lots d'ingénierie, de démonstration et de validation Gestion externe des partenaires :\n• Gérer les relations avec les OCM, les OCM et les partenaires stratégiques\n• Servir de contact technique et opérationnel principal pour les collaborations externes\n• Évaluer les capacités techniques, la capacité et l'état de conformité des partenaires\n• Conduire l'alignement sur les produits livrables, les délais et les attentes en matière de rendement\n• Soutenir la définition de la portée des contrats et les processus de gouvernance Coordination interfonctionnelle :\n• Collaborer avec le développement des procédés, le MSAT, la fabrication, la qualité, la réglementation et la chaîne d'approvisionnement\n• Assurer la préparation à la fabrication clinique et commerciale sur des sites externes\n• Coordonner le dépannage et la résolution des problèmes pendant le transfert et la production\n• Aligner les équipes internes et externes sur les jalons et les risques du projet Qualité et conformité :\n• Assurer le respect des BPF, des normes réglementaires et de qualité lors du transfert de technologie\n• Écarts de soutien, enquêtes, CAPA et contrôle des changements liés à la fabrication externe\n• Assurer l'intégrité de la documentation et des données dans toutes les activités des partenaires\n• Appuyer les audits, les inspections et les présentations réglementaires Gestion de programme et de projet :\n• Gérer simultanément plusieurs projets de transfert de technologie\n• Suivre les étapes, les risques, les budgets et les mesures de rendement\n• Favoriser l'amélioration continue des processus de transfert de technologie et des meilleures pratiques\n• Soutenir la gestion du cycle de vie et l'optimisation post-transfert Leadership & influence :\n• Mentor scientifiques et ingénieurs impliqués dans les activités de transfert de technologie\n• Influence sur les parties prenantes interfonctionnelles et externes\n• Contribuer à la planification stratégique pour la fabrication externe et les partenariats Qualifications et besoins d'expérience\n• Bachelor, Master, or PhD in: Chemical / Biochemical / Bioprocess Engineering, Biotechnology, Pharmaceutical Sciences, Chimie ou domaine technique connexe\n• 8-12+ ans d'expérience en transfert de technologie, développement de procédés, MSAT ou fabrication\n• Une solide expérience de travail avec les OCM/OMC et les partenaires externes\n• Une bonne compréhension des BPF, des attentes réglementaires et des systèmes de qualité\n• Une expérience éprouvée de la gestion des projets et des parties prenantes\n• Une bonne compréhension technique de l'échelle des processus et de la fabrication\n• Gestion des risques, QbD et outils statistiques (DoE)\n• Gouvernance des contrats et gestion des performances des fournisseurs\n• Expérience d'appui aux dépôts et inspections réglementaires Compétences clés\n• Leadership technique et opérationnel\n• Gestion externe des parties prenantes et des partenariats\n• Réflexion et exécution stratégiques\n• Gestion forte des projets et des risques\n• Collaboration et influence interfonctionnelles\n• Qualité et conformité\n• Résolution de problèmes et prise de décisions A propos de CSL Behring CSL Behring est un leader mondial de la biothérapeutique, animé par notre promesse de sauver des vies. Axé sur les besoins des patients"
       },
+      "needsRetranslation": false,
       "location": "Bern",
       "canton": "BE",
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Tech-Transfer-and-External-Partnerships_R-275586",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T14:20:57.815Z",
+      "crawledAt": "2026-06-15T22:51:06.362Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3500,10 +3501,23 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Tech-Transfer-and-External-Partnerships_R-275586",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "Regular",
+      "previousSlugs": [
+        "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        ],
+        "de": [
+          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-15T14:20:57.815Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -3513,124 +3527,6 @@
           "@type": "QuantitativeValue",
           "minValue": 94500,
           "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-15T14:20:57.815Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
-        ],
-        "fr": [
-          "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
-        ]
-      },
-      "previousSlugs": [
-        "associate-director-tech-transfer-and-external-partnerships-csl-behring-ch"
-      ]
-    },
-    {
-      "id": "csl-behring-761841153d06",
-      "slug": "senior-principal-scientist-tech-ops-cmc-science-ricombinanti-csl-behring-bern",
-      "slugByLocale": {
-        "it": "senior-principal-scientist-tech-ops-cmc-science-ricombinanti-csl-behring-bern",
-        "en": "senior-principal-scientist-tech-ops-cmc-science-recombinant-csl-behring-ch",
-        "de": "senior-principal-scientist-tech-ops-cmc-science-rekombinante-csl-behring-bern",
-        "fr": "chercheur-principal-principal-principal-operations-techniques-cmc-science-recombinant-csl-behring-bern"
-      },
-      "company": "CSL Behring",
-      "companyKey": "csl-behring",
-      "companyDomain": "cslbehring.com",
-      "title": "Senior Principal Scientist, Tech Ops (CMC Science) - Recombinant",
-      "titleByLocale": {
-        "it": "Senior Principal Scientist, Tech Ops (CMC Science) - Ricombinante",
-        "en": "Senior Principal Scientist, Tech Ops (CMC Science) - Recombinant",
-        "de": "Senior Principal Scientist, Tech Ops (CMC Science) - Rekombinant",
-        "fr": "Scientifique principal principal, Opérations techniques (CMC Science) - Recombinant"
-      },
-      "description": "S enior Principal Scientist, TechOps (CMC Science) – Recombinant\n\nThis role is Global and can be based in Bern, CH, Marburg DE, King od Prussia, PA USA or Kankakee IL USA\n\nJob Purpose\nThe Senior Principal Scientist is a recognized technical expert within the Recombinant Integrated Product Team (IPT), providing advanced scientific expertise and leading complex technical activities to support product lifecycle management.\nThe role contributes to the execution of product strategies by delivering high-quality scientific input, leading defined technical initiatives, and supporting cross-functional decision-making to ensure robust product performance and continuous improvement.\n\nMain Responsibilities & Accountabilities\n1. Technical Expertise and Workstream Leadership\n\n• Acts as a subject matter expert in recombinant process science, providing advanced technical knowledge to support complex product-related activities.\n\n• Leads defined technical workstreams or projects within broader product initiatives.\n\n• Delivers high-quality scientific outcomes in line with project objectives, timelines, and performance expectations.\n2. Contribution to Product Strategy and Planning\n\n• Contributes technical input to the development and refinement of the product technical roadmap.\n\n• Identifies and evaluates improvement opportunities (e.g., process robustness, yield, compliance) and supports their assessment and implementation.\n\n• Provides scientific input into business cases and supports data-driven decision-making processes.\n3. Cross-Functional Collaboration\n\n• Works within a global, matrixed IPT environment, collaborating with Manufacturing, MS&T, Quality, and Regulatory functions.\n\n• Supports alignment of technical activities across sites and functions.\n\n• Engages with stakeholders to ensure effective execution of product-related initiatives.\n4. Scientific Oversight and Technical Support\n\n• Ensures application of sound scientific principles and compliance in product lifecycle activities, including process changes and technology transfers.\n\n• Provides input to technical decision-making processes, including change controls, validation strategies, and lifecycle management activities.\n\n• Supports data analysis, process understanding, and technical risk assessments.\n5. Continuous Improvement and Innovation\n\n• Contributes to the identification and implementation of process improvements and efficiency gains.\n\n• Applies scientific methodologies and data analysis to improve process consistency and product quality.\n\n• Supports implementation of best practices and innovative approaches within the IPT.\n6. Stakeholder Interaction and Communication\n\n• Communicates complex technical information clearly to cross-functional stakeholders.\n\n• Contributes to technical discussions and governance forums as required.\n\n• Builds effective working relationships to support delivery of product objectives.\n7. Coaching and Knowledge Sharing\n\n• Provides guidance and informal mentoring to junior scientists and team members.\n\n• Contributes to knowledge sharing and continuous development of technical capabilities within the organization.\n\nQualifications & Experience Requirements\n\n• PhD in Biochemistry, Biotechnology, Chemical Engineering, or related Life Sciences discipline.\n\n• Typically 8–12 years of relevant experience in biopharmaceutical development and/or manufacturing within a GMP environment.\n\n• Strong expertise in recombinant product process development, manufacturing, and lifecycle management.\n\n• Experience contributing to complex technical projects in a matrix environment.\n\n• Solid understanding of process validation, technology transfer, and regulatory requirements.\n\n• Demonstrates strong project management skills, including planning, coordination, and execution of multiple projects to ensure timely delivery of objectives.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using",
-      "descriptionByLocale": {
-        "it": "S enior Principal Scientist, TechOps (CMC Science) – Ricombinante Scopo di Lavoro Il Senior Principal Scientist è un esperto tecnico riconosciuto all'interno del Recombinant Integrated Product Team (IPT), fornendo competenze scientifiche avanzate e leader di attività tecniche complesse per supportare la gestione del ciclo di vita del prodotto. Il ruolo contribuisce all'esecuzione delle strategie di prodotto, fornendo un input scientifico di alta qualità, conducendo iniziative tecniche definite e supportando il processo decisionale interfunzionale per garantire prestazioni di prodotto robuste e un miglioramento continuo. 1. Competenza tecnica e Leadership del flusso di lavoro\n• Agisce come esperto di materia tematica nella scienza del processo ricombinante, fornendo conoscenze tecniche avanzate per supportare attività complesse legate al prodotto.\n• conduce flussi di lavoro tecnici definiti o progetti all'interno di iniziative di prodotto più ampie.\n• Fornisce risultati scientifici di alta qualità in linea con obiettivi di progetto, tempi e aspettative di prestazioni. 2. Contributo alla strategia e alla pianificazione del prodotto\n• Contribuisce l'ingresso tecnico allo sviluppo e alla raffinatezza della roadmap tecnica del prodotto.\n• Identificare e valutare opportunità di miglioramento (ad esempio, robustezza del processo, rendimento, conformità) e supporta la loro valutazione e implementazione.\n• Fornisce input scientifici in casi aziendali e supporta processi decisionali basati sui dati. 3. Collaborazione trasversale\n• Funziona all'interno di un ambiente IPT globale, matrice, collaborando con le funzioni Manufacturing, MS&T, Quality e Regulatory.\n• Supporta l'allineamento delle attività tecniche su siti e funzioni.\n• Impegna con le parti interessate a garantire un'efficace esecuzione delle iniziative relative ai prodotti. 4. La supervisione scientifica e il supporto tecnico\n• Assicura l'applicazione di sani principi scientifici e la conformità nelle attività del ciclo di vita dei prodotti, compresi i cambiamenti di processo e i trasferimenti tecnologici.\n• Fornisce input ai processi decisionali tecnici, compresi i controlli di cambiamento, le strategie di convalida e le attività di gestione del ciclo di vita.\n• Supporta l'analisi dei dati, la comprensione dei processi e le valutazioni dei rischi tecnici. 5. Miglioramento continuo e innovazione\n• Contribuisce all'identificazione e all'attuazione dei miglioramenti di processo e dei guadagni di efficienza.\n• Applica metodologie scientifiche e analisi dei dati per migliorare la coerenza del processo e la qualità del prodotto.\n• Supporta l'attuazione delle migliori pratiche e degli approcci innovativi all'interno dell'IPT. 6. Interazione e comunicazione Stakeholder\n• Comunica informazioni tecniche complesse chiaramente agli stakeholder interfunzionali.\n• Contribuisce a discussioni tecniche e forum di governance come richiesto.\n• Costruisce relazioni di lavoro efficaci per sostenere la consegna degli obiettivi del prodotto. 7. Coaching e condivisione delle conoscenze\n• Fornisce guida e mentoring informale agli scienziati junior e membri del team.\n• Contribuisce alla condivisione delle conoscenze e allo sviluppo continuo delle capacità tecniche all'interno dell'organizzazione. Requisiti di esperienza\n• PhD in Biochimica, Biotecnologia, Ingegneria chimica o disciplina relativa Scienze della vita.\n• Tipicamente 8-12 anni di esperienza rilevante nello sviluppo biofarmaceutico e/o nella produzione in un ambiente GMP.\n• Forte competenza nello sviluppo, nella produzione e nella gestione del ciclo di vita dei prodotti ricombinanti.\n• Esperienza che contribuisce a progetti tecnici complessi in un ambiente matrice.\n• Solida comprensione dei requisiti di convalida del processo, trasferimento tecnologico e normazione.\n• Dimostra forti competenze di gestione del progetto, tra cui la pianificazione, il coordinamento e l'esecuzione di progetti multipli per garantire la consegna tempestiva degli obiettivi. CSL Behring CSL Behring è un leader globale di biotherapeutics guidato dalla nostra promessa di salvare vite umane. Concentrati sulle esigenze dei pazienti utilizzando le più recenti tecnologie, scopriamo, sviluppiamo e forniamo terapie innovative per le persone che vivono con i cond",
-        "en": "S enior Principal Scientist, TechOps (CMC Science) – Recombinant This role is Global and can be based in Bern, CH, Marburg DE, King od Prussia, PA USA or Kankakee IL USA Job Purpose The Senior Principal Scientist is a recognized technical expert within the Recombinant Integrated Product Team (IPT), providing advanced scientific expertise and leading complex technical activities to support product lifecycle management. The role contributes to the execution of product strategies by delivering high-quality scientific input, leading defined technical initiatives, and supporting cross-functional decision-making to ensure robust product performance and continuous improvement. Main Responsibilities & Accountabilities 1. Technical Expertise and Workstream Leadership\n• Acts as a subject matter expert in recombinant process science, providing advanced technical knowledge to support complex product-related activities.\n• Leads defined technical workstreams or projects within broader product initiatives.\n• Delivers high-quality scientific outcomes in line with project objectives, timelines, and performance expectations. 2. Contribution to Product Strategy and Planning\n• Contributes technical input to the development and refinement of the product technical roadmap.\n• Identifies and evaluates improvement opportunities (e.g., process robustness, yield, compliance) and supports their assessment and implementation.\n• Provides scientific input into business cases and supports data-driven decision-making processes. 3. Cross-Functional Collaboration\n• Works within a global, matrixed IPT environment, collaborating with Manufacturing, MS&T, Quality, and Regulatory functions.\n• Supports alignment of technical activities across sites and functions.\n• Engages with stakeholders to ensure effective execution of product-related initiatives. 4. Scientific Oversight and Technical Support\n• Ensures application of sound scientific principles and compliance in product lifecycle activities, including process changes and technology transfers.\n• Provides input to technical decision-making processes, including change controls, validation strategies, and lifecycle management activities.\n• Supports data analysis, process understanding, and technical risk assessments. 5. Continuous Improvement and Innovation\n• Contributes to the identification and implementation of process improvements and efficiency gains.\n• Applies scientific methodologies and data analysis to improve process consistency and product quality.\n• Supports implementation of best practices and innovative approaches within the IPT. 6. Stakeholder Interaction and Communication\n• Communicates complex technical information clearly to cross-functional stakeholders.\n• Contributes to technical discussions and governance forums as required.\n• Builds effective working relationships to support delivery of product objectives. 7. Coaching and Knowledge Sharing\n• Provides guidance and informal mentoring to junior scientists and team members.\n• Contributes to knowledge sharing and continuous development of technical capabilities within the organization. Qualifications & Experience Requirements\n• PhD in Biochemistry, Biotechnology, Chemical Engineering, or related Life Sciences discipline.\n• Typically 8–12 years of relevant experience in biopharmaceutical development and/or manufacturing within a GMP environment.\n• Strong expertise in recombinant product process development, manufacturing, and lifecycle management.\n• Experience contributing to complex technical projects in a matrix environment.\n• Solid understanding of process validation, technology transfer, and regulatory requirements.\n• Demonstrates strong project management skills, including planning, coordination, and execution of multiple projects to ensure timely delivery of objectives. About CSL Behring CSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using",
-        "de": "S enior Principal Scientist, TechOps (CMC Science) – Recombinant Job Purpose Der Senior Principal Scientist ist ein anerkannter technischer Experte im Recombinant Integrated Product Team (IPT), der fortschrittliche wissenschaftliche Expertise und führende komplexe technische Aktivitäten zur Unterstützung des Produktlebenszyklusmanagements bietet. Die Rolle trägt zur Umsetzung von Produktstrategien bei, indem qualitativ hochwertige wissenschaftliche Inputs, definierte technische Initiativen und die Unterstützung funktionsübergreifender Entscheidungsfindungen zur Gewährleistung einer robusten Produktleistung und einer kontinuierlichen Verbesserung bereitgestellt werden. 1. Technische Expertise und Workstream Leadership\n• Acts als Fachexperte für rekombinante Prozesswissenschaft und bietet fortschrittliche technische Kenntnisse, um komplexe produktbezogene Aktivitäten zu unterstützen.\n• Leads definierte technische Arbeitsabläufe oder Projekte in breiteren Produktinitiativen.\n• Liefert qualitativ hochwertige wissenschaftliche Ergebnisse im Einklang mit Projektzielen, Zeitlinien und Leistungserwartungen. 2. Beitrag zur Produktstrategie und -planung\n• Der technische Beitrag zur Entwicklung und Verfeinerung der produkttechnischen Roadmap.\n• Erkennt und bewertet Verbesserungsmöglichkeiten (z.B. Prozessfestigkeit, Ertrag, Compliance) und unterstützt ihre Bewertung und Umsetzung.\n• Bietet wissenschaftlichen Input in Geschäftsfälle und unterstützt datengesteuerte Entscheidungsprozesse. 3. Cross-Functional Collaboration\n• Arbeitet in einer globalen, Matrix IPT-Umgebung, die mit Fertigungs-, MS&T-, Qualitäts- und Regulierungsfunktionen zusammenarbeitet.\n• Unterstützt die Ausrichtung der technischen Aktivitäten auf Seiten und Funktionen.\n• Mit Stakeholdern wird eine effektive Umsetzung von produktbezogenen Initiativen gewährleistet. 4. Wissenschaftliche Aufsicht und technische Unterstützung\n• Gewährleistung der Anwendung von soliden wissenschaftlichen Grundsätzen und der Einhaltung von Produktlebenszyklusaktivitäten, einschließlich Prozessänderungen und Technologietransfers.\n• Bereitstellung von Beiträgen zu technischen Entscheidungsprozessen, einschließlich Änderungskontrollen, Validierungsstrategien und Lebenszyklusmanagementaktivitäten.\n• Unterstützt Datenanalyse, Prozessverstehen und technische Risikobewertungen. 5. Kontinuierliche Verbesserung und Innovation\n• trägt zur Identifizierung und Umsetzung von Prozessverbesserungen und Effizienzgewinnen bei.\n• Gilt für wissenschaftliche Methoden und Datenanalysen, um die Prozesskonsistenz und Produktqualität zu verbessern.\n• Unterstützt die Umsetzung von Best Practices und innovativen Ansätzen im IPT. 6. Stakeholder Interaction and Communication\n• Kommuniziert komplexe technische Informationen klar an funktionsübergreifende Interessenvertreter.\n• Bei Bedarf an technischen Diskussionen und Governance-Foren beteiligt.\n• Erstellt effektive Arbeitsbeziehungen zur Unterstützung der Lieferung von Produktzielen. 7. Coaching und Wissensvermittlung\n• Bietet Beratung und informelle Betreuung an Nachwuchswissenschaftler und Teammitglieder.\n• trägt zum Wissensaustausch und zur kontinuierlichen Entwicklung technischer Fähigkeiten innerhalb der Organisation bei. Qualifikationen und Erfahrungsanforderungen\n• PhD in der Biochemie, Biotechnologie, Chemische Technik oder verwandten Life Sciences Disziplin.\n• Typischerweise 8–12 Jahre relevante Erfahrung in der biopharmazeutischen Entwicklung und/oder Herstellung in einer GMP-Umgebung.\n• Starkes Know-how in der rekombinanten Produktentwicklung, Fertigung und Lifecycle Management.\n• Erleben Sie einen Beitrag zu komplexen technischen Projekten in einer Matrixumgebung.\n• Solides Verständnis der Prozessvalidierung, Technologietransfer und regulatorischen Anforderungen.\n• Demonstriert starke Projektmanagement-Fähigkeiten, einschließlich Planung, Koordination und Durchführung mehrerer Projekte, um eine rechtzeitige Umsetzung der Ziele zu gewährleisten. Über CSL Behring CSL Behring ist ein weltweit führender Biotherapeutiker, der von unserem Versprechen, Leben zu retten, angetrieben wird. Im Fokus auf die Bedürfnisse der Patienten mit den neuesten Technologien, entdecken, entwickeln und liefern wir innovative Therapien für Menschen mit cond",
-        "fr": "Sénior Chercheur principal, TechOps (CMC Science) – Emploi recombinant But Le chercheur principal principal est un expert technique reconnu au sein de l'Équipe intégrée des produits recombinants (IPT), fournissant une expertise scientifique avancée et menant des activités techniques complexes pour appuyer la gestion du cycle de vie des produits. Ce rôle contribue à l'exécution de stratégies de produits en fournissant des contributions scientifiques de haute qualité, en dirigeant des initiatives techniques définies et en appuyant la prise de décisions interfonctionnelles pour assurer une performance robuste des produits et une amélioration continue. Principales responsabilités et responsabilités 1. Expertise technique et leadership au sein du milieu de travail\n• Agit en tant qu'expert en sciences des procédés recombinants, fournissant des connaissances techniques avancées pour appuyer des activités complexes liées aux produits.\n• Dirige des travaux techniques ou des projets définis dans le cadre d'initiatives de produits plus larges.\n• Produit des résultats scientifiques de haute qualité conformes aux objectifs du projet, aux échéances et aux attentes en matière de rendement. 2. Contribution à la stratégie et à la planification des produits\n• Contribution technique à l'élaboration et au perfectionnement de la feuille de route technique des produits.\n• Identifier et évaluer les possibilités d'amélioration (par exemple, robustesse des processus, rendement, conformité) et appuyer leur évaluation et leur mise en oeuvre.\n• Apporte une contribution scientifique aux analyses de rentabilisation et appuie les processus de prise de décisions fondés sur les données. 3. Collaboration interfonctionnelle\n• Fonctionne dans un environnement global et matricié de TPI, en collaborant avec les fonctions de fabrication, de S-T, de qualité et de réglementation.\n• Appuie l'alignement des activités techniques entre les sites et les fonctions.\n• S'engage avec les parties prenantes pour assurer l'exécution efficace des initiatives liées aux produits. 4. Surveillance scientifique et soutien technique\n• Assurer l'application de principes scientifiques solides et la conformité aux activités du cycle de vie des produits, y compris les changements de processus et les transferts de technologie.\n• Apporte sa contribution aux processus décisionnels techniques, y compris les contrôles du changement, les stratégies de validation et les activités de gestion du cycle de vie.\n• Appuie l'analyse des données, la compréhension des processus et les évaluations techniques des risques. 5. Amélioration continue et innovation\n• Contribuer à l'identification et à la mise en oeuvre des améliorations des processus et des gains d'efficacité.\n• Applique les méthodologies scientifiques et l'analyse des données pour améliorer la cohérence des processus et la qualité des produits.\n• Appuie la mise en œuvre des meilleures pratiques et des approches novatrices au sein de l'IPT. 6. Interaction et communication des parties prenantes\n• Communique clairement des informations techniques complexes aux parties prenantes interfonctionnelles.\n• Contribue aux discussions techniques et aux forums de gouvernance au besoin.\n• Établir des relations de travail efficaces pour appuyer la réalisation des objectifs du produit. 7. Coaching et partage des connaissances\n• Fournit des conseils et un mentorat informel aux jeunes scientifiques et aux membres de l'équipe.\n• Contribuer au partage des connaissances et au développement continu des capacités techniques au sein de l'organisation. Qualifications et exigences d'expérience\n• Doctorat en biochimie, biotechnologie, génie chimique ou discipline connexe en sciences de la vie.\n• De 8 à 12 ans d'expérience pertinente dans le développement et/ou la fabrication biopharmaceutiques dans un environnement BPF.\n• Forte expertise dans le développement, la fabrication et la gestion du cycle de vie des produits recombinants.\n• Expérience de la contribution à des projets techniques complexes dans un environnement matriciel.\n• Connaissance approfondie de la validation des processus, du transfert de technologie et des exigences réglementaires.\n• Démontre de solides compétences en gestion de projet, y compris la planification, la coordination et l'exécution de plusieurs projets afin d'assurer la réalisation des objectifs en temps opportun. À propos de CSL Behring CSL Behring est un chef de file mondial en biothérapeutique animé par notre promesse de sauver des vies. Concentré sur les besoins des patients en utilisant les dernières technologies, nous découvrons, développons et livrons des thérapies innovantes pour les personnes vivant avec cond"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Principal-Scientist--Tech-Ops--CMC-Science----Recombinant_R-275443",
-      "source": "CSL Behring Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-14T21:42:31.410Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotech / Farmaceutico",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Principal-Scientist--Tech-Ops--CMC-Science----Recombinant_R-275443",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Dottorato in Biochimica, Biotecnologia o Ingegneria Chimica",
-          "8-12 anni di esperienza in ambito biofarmaceutico GMP",
-          "Esperienza nello sviluppo di processi ricombinanti",
-          "Competenza nella gestione del ciclo di vita del prodotto",
-          "Esperienza in ambienti di lavoro a matrice",
-          "Conoscenza di convalida e trasferimento tecnologico",
-          "Solide competenze di project management",
-          "Capacità di analisi dei dati e gestione del rischio"
-        ],
-        "de": [
-          "Promotion in Biochemie, Biotechnologie oder Chemieingenieurwesen",
-          "8-12 Jahre Erfahrung in der biopharmazeutischen GMP-Herstellung",
-          "Expertenwissen in der Entwicklung rekombinanter Prozesse",
-          "Erfahrung im Produktlebenszyklusmanagement",
-          "Erfahrung in der Arbeit in Matrixorganisationen",
-          "Fundierte Kenntnisse in Validierung und Technologietransfer",
-          "Starke Projektmanagement-Fähigkeiten",
-          "Fähigkeit zur Datenanalyse und Risikobewertung"
-        ],
-        "fr": [
-          "Doctorat en biochimie, biotechnologie ou génie chimique",
-          "8-12 ans d'expérience en biopharmacie et fabrication BPF",
-          "Expertise en développement de procédés recombinants",
-          "Expérience en gestion du cycle de vie des produits",
-          "Expérience de travail en environnement matriciel",
-          "Solide compréhension de la validation et du transfert technologique",
-          "Compétences avérées en gestion de projet",
-          "Capacité d'analyse de données et d'évaluation des risques"
-        ]
-      },
-      "jobReqId": "Regular",
-      "previousSlugs": [
-        "senior-principal-scientist-tech-ops-cmc-science-recombinant-csl-behring-ch",
-        "principale-scienziato-cmc-scienza-csl-behring-bern",
-        "principal-scientist-cmc-science-csl-behring-ch",
-        "leitender-wissenschaftler-cmc-science-csl-behring-bern",
-        "chercheur-principal-cmc-science-csl-behring-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-principal-scientist-tech-ops-cmc-science-recombinant-csl-behring-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T17:18:38.156Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },

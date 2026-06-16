@@ -8085,6 +8085,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Hagel auf GT86 TRD: Was tun bei Totalschaden durch Versicherung',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'Ein Hagelsturm im Kanton Tessin hat eine Toyota GT86 TRD schwer beschädigt. Die Versicherung bietet eine Totalschadenentschädigung an: Hier erfahren Sie, was zu tun ist.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'GT86 TRD Auto durch Hagel im Tessin am See beschädigt',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'Bern lehnt Blockade der Rückvergütungen ab',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Die Schweizer Regierung hat erklärt, dass das Blockieren der Rückvergütungen auf die Mittel aus der italienischen Gesundheitsabgabe illegal ist, und bestätigt damit die offizielle Position.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Panoramablick auf die Grenze zwischen Tessin und Italien mit Pässen und Alpenlandschaften.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: Gesundheitsabgabe; Abzug von Ristournen widerspricht Vereinbarungen mit Rom',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'Der teilweise Abzug vom Ristournen-Gewinn, der durch die Gesundheitsabgabe generiert wird, widerspricht den Vereinbarungen zwischen Bern und Rom hinsichtlich dieser Arbeitnehmer.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama des Luganersee',
+    'blog.article.tassa-salute-posizione-berna.title': 'Gesundheitssteuer und Rückerstattungen: Berner Position',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Der Bundesrat betont, dass die Gesundheitssteuer keine Steuer ist und die Steuerabkommen mit Italien nicht verletzt.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Regierungsgebäude in Bellinzona an einem sonnigen Tag',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Gesundheitssteuer für Grenzgänger: Gewerkschaften fordern Rückzug',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'Die Gewerkschaften CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD und SYNDICOM fordern den endgültigen Rückzug der Gesundheitssteuer für Grenzgänger. Sie berufen sich auf Verstöße gegen das Abkommen von 2020 und eine Doppelbesteuerung.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Italienische und Schweizer Gewerkschaften diskutieren über die Gesundheitssteuer für Grenzgänger',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rückkehr nach Italien: Leitfaden für Franken-Konten',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Erfahren Sie, wie Sie bei einer endgültigen Rückkehr nach Italien als Grenzgänger Abfindungen, Franken-Konten und letzte Gehälter korrekt verwalten.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Büroschreibtisch mit Blick auf den Luganersee und Finanzdokumenten',
 };
 
 export default blogMetaDe;

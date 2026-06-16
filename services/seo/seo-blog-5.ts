@@ -43988,6 +43988,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocchi-ristorni-berna-italia': {
+    title: 'No di Berna al blocco dei ristorni da parte del Ticino',
+    description: 'Il Governo svizzero conferma che bloccare i ristorni sui fondi della tassa sulla salute italiana è illegale, mantenendo la posizione ufficiale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, blocco, ristorni, parte',
+    ogTitle: 'No di Berna al blocco dei ristorni',
+    ogDescription: 'La Svizzera ribadisce che bloccare i ristorni sui fondi della tassa sanitaria italiana è illegale, confermando la posizione ufficiale.',
+    canonicalPath: '/articoli-frontaliere/blocchi-ristorni-berna-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "No di Berna al blocco dei ristorni da parte del Ticino",
+      "description": "Il Governo svizzero conferma che bloccare i ristorni sui fondi della tassa sulla salute italiana è illegale, mantenendo la posizione ufficiale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocchi-ristorni-berna-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del confine Ticino-Italia con valichi e paesaggi alpini."
+      },
+      "datePublished": "2026-06-16T00:25:32+00:00",
+      "dateModified": "2026-06-16T00:25:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocchi-ristorni-berna-italia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-deduzione-ristorni-frontalieri-contraria-accordi-ch-roma': {
+    title: 'CN: tassa salute; deduzione da ristorni contraria accordi con Roma',
+    description: 'La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, deduzione, ristorni',
+    ogTitle: 'Deduzione ristorni frontalieri contraria accordi CH-Roma',
+    ogDescription: 'La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.',
+    canonicalPath: '/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CN: tassa salute; deduzione da ristorni contraria accordi con Roma",
+      "description": "La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del lago di Lugano"
+      },
+      "datePublished": "2026-06-16T01:24:40+00:00",
+      "dateModified": "2026-06-16T01:24:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-salute-posizione-berna': {
+    title: 'Tassa sulla salute e ristorni: la posizione di Berna',
+    description: 'Il Consiglio federale chiarisce la natura della tassa sulla salute in Ticino, confermando che non viola gli accordi fiscali e sui ristorni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, ristorni',
+    ogTitle: 'Tassa sulla salute e ristorni: la posizione di Berna',
+    ogDescription: 'Il Consiglio federale chiarisce la natura della tassa sulla salute in Ticino, confermando che non viola gli accordi fiscali e sui ristorni.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-posizione-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa sulla salute e ristorni: la posizione di Berna",
+      "description": "Il Consiglio federale chiarisce la natura della tassa sulla salute in Ticino, confermando che non viola gli accordi fiscali e sui ristorni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-posizione-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo governativo di Bellinzona in una giornata di sole"
+      },
+      "datePublished": "2026-06-16T01:56:42+00:00",
+      "dateModified": "2026-06-16T01:56:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-posizione-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tassa-salute-frontalieri-ritiro-richiesta': {
+    title: 'Tassa Salute Frontalieri: sindacati chiedono ritiro',
+    description: 'Sindacati italiani e svizzeri chiedono il ritiro della tassa salute per frontalieri, citando violazione trattato 2020 e rischio blocco ristorni. Analisi e',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, sindacati, chiedono',
+    ogTitle: 'Tassa Salute Frontalieri: Sindacati Chiedono Ritiro',
+    ogDescription: 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD e SYNDICOM chiedono il ritiro definitivo della tassa salute per i frontalieri, citando violazioni del trattato 2020 e',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa Salute Frontalieri: sindacati chiedono ritiro",
+      "description": "Sindacati italiani e svizzeri chiedono il ritiro della tassa salute per frontalieri, citando violazione trattato 2020 e rischio blocco ristorni. Analisi e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ritiro-richiesta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sindacati italiani e svizzeri discutono sulla tassa salute frontalieri"
+      },
+      "datePublished": "2026-06-16T02:41:37+00:00",
+      "dateModified": "2026-06-16T02:41:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rientro-definitivo-gestione-conti-chf': {
+    title: 'Rientro definitivo in Italia: guida ai conti in CHF',
+    description: 'Guida pratica al rientro definitivo in Italia per frontalieri: come gestire liquidazione, conti in CHF e ultimi stipendi in modo sicuro ed efficiente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, definitivo, conti, scopri',
+    ogTitle: 'Rientro definitivo in Italia: guida ai conti in CHF',
+    ogDescription: 'Guida pratica al rientro definitivo in Italia per frontalieri: come gestire liquidazione, conti in CHF e ultimi stipendi in modo sicuro ed efficiente.',
+    canonicalPath: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro definitivo in Italia: guida ai conti in CHF",
+      "description": "Guida pratica al rientro definitivo in Italia per frontalieri: come gestire liquidazione, conti in CHF e ultimi stipendi in modo sicuro ed efficiente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-definitivo-gestione-conti-chf.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania da ufficio con vista sul Lago di Lugano e documenti finanziari"
+      },
+      "datePublished": "2026-06-16T03:47:39+00:00",
+      "dateModified": "2026-06-16T03:47:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rientro-definitivo-gestione-conti-chf`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

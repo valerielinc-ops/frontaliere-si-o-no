@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stryker",
-  "assembledAt": "2026-06-15T15:38:47.349Z",
+  "assembledAt": "2026-06-15T23:57:47.363Z",
   "jobs": [
     {
       "id": "stryker-3fca627c6018",
@@ -33,7 +33,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:48:01.632Z",
+      "crawledAt": "2026-06-15T23:57:45.353Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -81,15 +81,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T16:48:12.774Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -126,7 +126,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:48:00.957Z",
+      "crawledAt": "2026-06-15T23:57:44.669Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -174,15 +174,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T16:48:12.006Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -220,7 +220,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Mahwah-New-Jersey/Field-Clinical-Specialist---Northern-New-Jersey-Area---Peripheral-Vascular_R563824",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:38:43.848Z",
+      "crawledAt": "2026-06-15T23:57:44.002Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -296,7 +296,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/CNC-Mechaniker--m-w-d--Langdrehen---Fertigung---Prozessoptimierung_R565378",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:38:43.070Z",
+      "crawledAt": "2026-06-15T23:57:43.337Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -373,7 +373,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Praktikum-im-Bereich-Projektmanagement---Project-Management-Engineering--Produktion-Prozesse----ab-September-2026-fr-6-Monate_R566121",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:47:58.190Z",
+      "crawledAt": "2026-06-15T23:57:42.641Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -391,15 +391,15 @@
       "requirementsByLocale": {},
       "jobReqId": "R566121",
       "firstSeenAt": "2026-06-03T15:28:00.616Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -409,9 +409,9 @@
       "id": "stryker-8d440dad8221",
       "slug": "supply-planner-m-w-d-medizintechnik-stryker-ch",
       "slugByLocale": {
-        "de": "supply-planner-m-w-d-medizintechnik-stryker-ch",
         "it": "supply-planner-m-w-d-medizintechnik-stryker-ch",
         "en": "supply-planner-m-w-d-medizintechnik-stryker-ch",
+        "de": "supply-planner-m-w-d-medizintechnik-stryker-ch",
         "fr": "planificateur-d-approvisionnement-m-f-d-technologie-medicale-stryker-selzach"
       },
       "company": "Stryker",
@@ -419,17 +419,17 @@
       "companyDomain": "stryker.com",
       "title": "Supply Planner (m/w/d) – Medizintechnik",
       "titleByLocale": {
-        "de": "Versorgungsplaner (m/w/d) – Medizintechnik",
         "it": "Supply Planner (m/w/d) – Medizintechnik",
         "en": "Supply Planner (m/w/d) - Medizintechnik",
+        "de": "Supply Planner (m/w/d) – Medizintechnik",
         "fr": "Planificateur d'approvisionnement (m/f/d) – Technologie médicale"
       },
       "description": "Work Flexibility: Hybrid\n\nR566613 – Supply Planner (m/w/d) – Medizintechnik\n\nGestalten Sie die Zukunft unserer Supply Chain aktiv mit: Für unseren Standort in Selzach (Schweiz) suchen wir einen Supply Planner im Bereich Procurement & Planning (m/w/d). In dieser Rolle treiben Sie datenbasierte Entscheidungen voran und sorgen für eine zuverlässige Material- und Produktionsplanung in einem dynamischen, regulierten Umfeld. Sie übernehmen eine zentrale Schnittstellenfunktion und leisten einen direkten Beitrag zur Sicherstellung unserer Produktverfügbarkeit.\n\nDiese Stelle ist unbefristet zu besetzen.\n\nUnser Angebot an Sie\n\n• Unterstützung unseres Teams bei der Entwicklung und Optimierung eines Master Resource Plans zur Sicherstellung einer stabilen Versorgung und hohen Produktverfügbarkeit über einen Planungshorizont von bis zu 24 Monaten\n\n• Erstellung und Steuerung von Kapazitätsplanungen zur frühzeitigen Erkennung von Engpässen sowie Ableitung wirksamer Maßnahmen zur Sicherstellung der Lieferfähigkeit\n\n• Überwachung und kontinuierliche Verbesserung von Supply- und Beschaffungsplänen zur Reduzierung von Rückständen, Vermeidung von Engpässen und Optimierung von Beständen\n\n• Sicherstellung einer reibungslosen Abstimmung zwischen Produktion, Einkauf, Kundenservice und weiteren Schnittstellen zur Erhöhung der Transparenz und Effizienz entlang der Lieferkette\n\n• Steuerung der Zusammenarbeit mit internen und externen Schnittstellen zur frühzeitigen Identifikation von Risiken sowie Einleitung zielgerichteter Gegenmaßnahmen\n\n• Unterstützung von Produkteinführungen durch strukturierte Planung und Begleitung von Phase-In- und Phase-Out-Prozessen zur Sicherstellung eines reibungslosen Übergangs\n\n• Sicherstellung der Datenqualität und Weiterentwicklung von Planungsgrundlagen zur Schaffung einer verlässlichen Basis für datenbasierte Entscheidungen\n\n• Analyse von Leistungskennzahlen sowie Ableitung und Umsetzung nachhaltiger Verbesserungsmaßnahmen zur Steigerung von Lieferperformance und Effizienz\n\n• Erstellung von datenbasierten Analysen und Ableitung klarer Handlungsempfehlungen zur Unterstützung fundierter Entscheidungen im operativen und strategischen Umfeld\n\nDas zeichnet Sie aus\nErforderliche Qualifikationen:\n\n• Abgeschlossenes Bachelorstudium mit Schwerpunkt Supply Chain Management, Produktionsplanung, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung\n\n• Berufserfahrung in der Produktionsplanung, Supply Planning, Demand Planning oder in datengetriebenen Analyse- und Planungsfunktionen (z. B. im Bereich Data Analytics, Business Intelligence oder Wirtschaftsinformatik)\n\n• Erfahrung in der Analyse komplexer Daten sowie in der Anwendung strukturierter Methoden zur Ursachenanalyse und Problemlösung\n\n• Ausgeprägte Kompetenz in der bereichsübergreifenden Kommunikation und der aktiven Herbeiführung konstruktiver Lösungen mit relevanten Stakeholdern\n\n• Fähigkeit zur Priorisierung von Aufgaben sowie zur Entscheidungsfindung in dynamischen und zeitkritischen Arbeitsumfeldern\n\n• Sehr gute Kenntnisse in Microsoft Office, insbesondere Excel, sowie fundierte Erfahrung mit Datenanalyse- und Visualisierungstools wie Power BI\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBevorzugte Qualifikationen:\n\n• Kenntnisse in Kapazitätsplanung, Produktionsprozessen und Materialbedarfsplanung\n\nVielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, des Geschlechts, einer Behinderung, des Alters oder ihrer sexuellen Identität.\n\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nFalls Sie bereits in Besitz einer Arbeitsbewilligung sind, bitten wir Sie die genaue Bewilligungsart mit Ihrer Bewerbung hochzuladen.\n\nBitte beach",
       "descriptionByLocale": {
-        "de": "R566613 – Supply Planner (m/w/d) – Medizintechnik\n\nWork Flexibility: Hybrid\n\nDescrizione\nGestalten Sie die Zukunft unserer Supply Chain aktiv mit: Für unseren Standort in Selzach (Schweiz) suchen wir einen Supply Planner im Bereich Procurement & Planning (m/w/d). In dieser Rolle treiben Sie datenbasierte Entscheidungen voran und sorgen für eine zuverlässige Material- und Produktionsplanung in einem dynamischen, regulierten Umfeld. Sie übernehmen eine zentrale Schnittstellenfunktion und leisten einen direkten Beitrag zur Sicherstellung unserer Produktverfügbarkeit.\n\nDiese Stelle ist unbefristet zu besetzen.\n\nCosa offriamo\n- Unterstützung unseres Teams bei der Entwicklung und Optimierung eines Master Resource Plans zur Sicherstellung einer stabilen Versorgung und hohen Produktverfügbarkeit über einen Planungshorizont von bis zu 24 Monaten\n- Erstellung und Steuerung von Kapazitätsplanungen zur frühzeitigen Erkennung von Engpässen sowie Ableitung wirksamer Maßnahmen zur Sicherstellung der Lieferfähigkeit\n- Überwachung und kontinuierliche Verbesserung von Supply- und Beschaffungsplänen zur Reduzierung von Rückständen, Vermeidung von Engpässen und Optimierung von Beständen\n- Sicherstellung einer reibungslosen Abstimmung zwischen Produktion, Einkauf, Kundenservice und weiteren Schnittstellen zur Erhöhung der Transparenz und Effizienz entlang der Lieferkette\n- Steuerung der Zusammenarbeit mit internen und externen Schnittstellen zur frühzeitigen Identifikation von Risiken sowie Einleitung zielgerichteter Gegenmaßnahmen\n- Unterstützung von Produkteinführungen durch strukturierte Planung und Begleitung von Phase-In- und Phase-Out-Prozessen zur Sicherstellung eines reibungslosen Übergangs\n- Sicherstellung der Datenqualität und Weiterentwicklung von Planungsgrundlagen zur Schaffung einer verlässlichen Basis für datenbasierte Entscheidungen\n- Analyse von Leistungskennzahlen sowie Ableitung und Umsetzung nachhaltiger Verbesserungsmaßnahmen zur Steigerung von Lieferperformance und Effizienz\n- Erstellung von datenbasierten Analysen und Ableitung klarer Handlungsempfehlungen zur Unterstützung fundierter Entscheidungen im operativen und strategischen Umfeld\n\nDas zeichnet Sie aus\nErforderliche Qualifikationen:\n- Abgeschlossenes Bachelorstudium mit Schwerpunkt Supply Chain Management, Produktionsplanung, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung\n- Berufserfahrung in der Produktionsplanung, Supply Planning, Demand Planning oder in datengetriebenen Analyse- und Planungsfunktionen (z. B. im Bereich Data Analytics, Business Intelligence oder Wirtschaftsinformatik)\n- Erfahrung in der Analyse komplexer Daten sowie in der Anwendung strukturierter Methoden zur Ursachenanalyse und Problemlösung\n- Ausgeprägte Kompetenz in der bereichsübergreifenden Kommunikation und der aktiven Herbeiführung konstruktiver Lösungen mit relevanten Stakeholdern\n- Fähigkeit zur Priorisierung von Aufgaben sowie zur Entscheidungsfindung in dynamischen und zeitkritischen Arbeitsumfeldern\n- Sehr gute Kenntnisse in Microsoft Office, insbesondere Excel, sowie fundierte Erfahrung mit Datenanalyse- und Visualisierungstools wie Power BI\n- Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\nBevorzugte Qualifikationen:\n- Kenntnisse in Kapazitätsplanung, Produktionsprozessen und Materialbedarfsplanung\n\nDiversità\nVielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, des Geschlechts, einer Behinderung, des Alters oder ihrer sexuellen Identität.\n\nContatto\nIhre Bewerbung\nWir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch.\n\nFalls Sie bereits in Besitz einer Arbeitsbewilligung sind, bitten wir Sie die genaue Bewilligungsart mit Ihrer Bewerbung hochzuladen.\n\nBitte",
         "it": "R566613 – Supply Planner (m/f/d) – Medical Technology Work Flessibilità: Hybrid Descrizione Forma attivamente il futuro della nostra supply chain: Per la nostra posizione a Selzach (Svizzera), stiamo cercando un fornitore nella zona di Procurement & Planning (m/f/d). In questo ruolo, si guidano decisioni basate sui dati e garantire una pianificazione affidabile del materiale e della produzione in un ambiente dinamico e regolamentato. Assumere una funzione di interfaccia centrale e dare un contributo diretto per garantire la nostra disponibilità del prodotto. Il presente articolo è compilato indefinitamente. - Sostenere il nostro team nello sviluppo e nell'ottimizzazione di un Master Resource Plan per garantire una fornitura stabile e un'elevata disponibilità dei prodotti su un orizzonte di pianificazione fino a 24 mesi - Creazione e controllo della pianificazione delle capacità per il rilevamento precoce dei colli di bottiglia e derivazione di misure efficaci per garantire la capacità di consegna - Monitoraggio e miglioramento continuo dei piani di approvvigionamento e di approvvigionamento per ridurre i residui, evitando strozzature e ottimizzazione degli inventari - Garantire un coordinamento regolare tra la fase di produzione, acquisto, cliente e clienti Accogliamo favorevolmente le applicazioni da persone indipendentemente dalla loro origine etnica, nazionale o sociale, sesso, disabilità, età o identità sessuale. Attendiamo con ansia la vostra significativa applicazione online che dichiara le vostre aspettative di stipendio e compresi tutti i documenti pertinenti (lettera di copertura, CV corrente, certificati, permesso di lavoro, se applicabile). Si prega di caricare tutti gli allegati direttamente sotto la voce “CV”. Se hai già un permesso di lavoro, ti chiediamo di caricare il tipo esatto di permesso con la tua applicazione. Per favore",
-        "en": "R566613 – Supply Planner (m/f/d) – Medical Technology Work Flexibility: Hybrid Descrizione Actively shape the future of our supply chain: For our location in Selzach (Switzerland), we are looking for a supply planner in the area of Procurement & Planning (m/f/d). In this role, you drive data-based decisions and ensure reliable material and production planning in a dynamic, regulated environment. You assume a central interface function and make a direct contribution to ensuring our product availability. This post shall be filled indefinitely. Cosa offriamo - Support our team in the development and optimization of a Master Resource Plan to ensure stable supply and high product availability over a planning horizon of up to 24 months - Creation and control of capacity planning for the early detection of bottlenecks as well as derivation of effective measures to ensure delivery capability - Monitoring and continuous improvement of supply and procurement plans to reduce residues, avoiding bottlenecks and optimization of inventories - Ensure smooth coordination between production, purchasing, customer service and other interfaces to increase transparency and efficiency along the supply chain - Control of cooperation with internal and external interfaces for the early identification of risks as well as initiation of targeted countermeasures - Support of product introductions through structured planning and support of phase-in and phase-out processes to ensure a smooth transition - Ensure of the data quality and further development of planning fundamentals to create a reliable basis for data-based decisions - Analysis of performance and efficiency - Derivation and implementation of clear recommendations for action to support informed decisions in the operational and strategic environment. We welcome applications from people regardless of their ethnic, national or social origin, gender, disability, age or sexual identity. We look forward to your meaningful online application stating your salary expectations and including all relevant documents (cover letter, current CV, certificates, work permit if applicable). Please upload all attachments directly under the item “CV”. If you already have a work permit, we ask you to upload the exact type of permit with your application. Please",
-        "fr": "R566613 – Supply Planner (m/f/d) – Medical Technology Work Flexibilité: Hybrid Descrizione Façonner activement l'avenir de notre chaîne d'approvisionnement: Pour notre emplacement à Selzach (Suisse), nous recherchons un Supply planner dans le domaine des achats et de la planification (m/f/d). Dans ce rôle, vous dirigez les décisions basées sur les données et vous assurez une planification fiable du matériel et de la production dans un environnement dynamique et réglementé. Vous assumez une fonction d'interface centrale et contribuez directement à assurer la disponibilité de nos produits. Ce poste est pourvu indéfiniment. Cosa offriamo - Soutenir notre équipe dans l'élaboration et l'optimisation d'un plan directeur des ressources pour assurer une offre stable et une disponibilité élevée des produits sur un horizon de planification allant jusqu'à 24 mois - Création et contrôle de la planification des capacités pour la détection précoce des goulots d'étranglement ainsi que l'élaboration de mesures efficaces pour assurer la capacité de livraison - Suivi et amélioration continue des plans d'approvisionnement et d'approvisionnement pour réduire les résidus, éviter les goulots d'étranglement et l'optimisation des inventaires - Assurer une coordination harmonieuse entre la production, l'achat, le service à la clientèle et d'autres interfaces afin d'accroître la transparence et l'efficacité tout au long de la chaîne d'approvisionnement - Contrôle de la coopération avec les interfaces internes et externes pour l'identification précoce des risques ainsi que le lancement de contre-mesures ciblées - Soutien des introductions de produits par la planification structurée et le soutien des processus d'introduction et d'élimination progressive afin d'assurer une transition harmonieuse - Assurer la qualité des données et le développement ultérieur des fondamentaux de la planification afin de créer une base fiable pour les décisions fondées sur les données - Analyse des performances et de l'efficacité - Nous accueillons favorablement les demandes émanant de personnes quelle que soit leur origine ethnique, nationale ou sociale, leur sexe, leur handicap, leur âge ou leur identité sexuelle. Nous attendons avec impatience votre demande en ligne valable, qui indique vos attentes salariales et qui inclut tous les documents pertinents (lettre de couverture, CV actuel, certificats, permis de travail, s'il y a lieu). Merci de télécharger toutes les pièces jointes directement sous l'élément « CV ». Si vous avez déjà un permis de travail, nous vous demandons de télécharger le type exact de permis avec votre demande. S'il vous plaît"
+        "en": "R566613 – Supply Planner (m/f/d) – Medical Technology Work Flexibility: Hybrid Descrizione Actively shape the future of our supply chain: For our location in Selzach (Switzerland), we are looking for a supply planner in the area of Procurement & Planning (m/f/d). In this role, you drive data-based decisions and ensure reliable material and production planning in a dynamic, regulated environment. You assume a central interface function and make a direct contribution to ensuring our product availability. This post shall be filled indefinitely. \n• Cosa offriamo - Support our team in the development and optimization of a Master Resource Plan to ensure stable supply and high product availability over a planning horizon of up to 24 months - Creation and control of capacity planning for the early detection of bottlenecks as well as derivation of effective measures to ensure delivery capability - Monitoring and continuous improvement of supply and procurement plans to reduce residues, avoiding bottlenecks and optimization of inventories - Ensure smooth coordination between production, purchasing, customer service and other interfaces to increase transparency and efficiency along the supply chain - Control of cooperation with internal and external interfaces for the early identification of risks as well as initiation of targeted countermeasures - Support of product introductions through structured planning and support of phase-in and phase-out processes to ensure a smooth transition - Ensure of the data quality and further development of planning fundamentals to create a reliable basis for data-based decisions - Analysis of performance and efficiency - Derivation and implementation of clear recommendations for action to support informed decisions in the operational and strategic environment. We welcome applications from people regardless of their ethnic, national or social origin, gender, disability, age or sexual identity. We look forward to your meaningful online application stating your salary expectations and including all relevant documents (cover letter, current CV, certificates, work permit if applicable). Please upload all attachments directly under the item “CV”. If you already have a work permit, we ask you to upload the exact type of permit with your application. Please",
+        "de": "Work Flexibility: Hybrid R566613 – Supply Planner (m/w/d) – Medizintechnik Gestalten Sie die Zukunft unserer Supply Chain aktiv mit: Für unseren Standort in Selzach (Schweiz) suchen wir einen Supply Planner im Bereich Procurement & Planning (m/w/d). In dieser Rolle treiben Sie datenbasierte Entscheidungen voran und sorgen für eine zuverlässige Material- und Produktionsplanung in einem dynamischen, regulierten Umfeld. Sie übernehmen eine zentrale Schnittstellenfunktion und leisten einen direkten Beitrag zur Sicherstellung unserer Produktverfügbarkeit. Diese Stelle ist unbefristet zu besetzen. Unser Angebot an Sie\n• Unterstützung unseres Teams bei der Entwicklung und Optimierung eines Master Resource Plans zur Sicherstellung einer stabilen Versorgung und hohen Produktverfügbarkeit über einen Planungshorizont von bis zu 24 Monaten\n• Erstellung und Steuerung von Kapazitätsplanungen zur frühzeitigen Erkennung von Engpässen sowie Ableitung wirksamer Maßnahmen zur Sicherstellung der Lieferfähigkeit\n• Überwachung und kontinuierliche Verbesserung von Supply- und Beschaffungsplänen zur Reduzierung von Rückständen, Vermeidung von Engpässen und Optimierung von Beständen\n• Sicherstellung einer reibungslosen Abstimmung zwischen Produktion, Einkauf, Kundenservice und weiteren Schnittstellen zur Erhöhung der Transparenz und Effizienz entlang der Lieferkette\n• Steuerung der Zusammenarbeit mit internen und externen Schnittstellen zur frühzeitigen Identifikation von Risiken sowie Einleitung zielgerichteter Gegenmaßnahmen\n• Unterstützung von Produkteinführungen durch strukturierte Planung und Begleitung von Phase-In- und Phase-Out-Prozessen zur Sicherstellung eines reibungslosen Übergangs\n• Sicherstellung der Datenqualität und Weiterentwicklung von Planungsgrundlagen zur Schaffung einer verlässlichen Basis für datenbasierte Entscheidungen\n• Analyse von Leistungskennzahlen sowie Ableitung und Umsetzung nachhaltiger Verbesserungsmaßnahmen zur Steigerung von Lieferperformance und Effizienz\n• Erstellung von datenbasierten Analysen und Ableitung klarer Handlungsempfehlungen zur Unterstützung fundierter Entscheidungen im operativen und strategischen Umfeld Das zeichnet Sie aus Erforderliche Qualifikationen:\n• Abgeschlossenes Bachelorstudium mit Schwerpunkt Supply Chain Management, Produktionsplanung, Wirtschaftsinformatik oder einer vergleichbaren Fachrichtung\n• Berufserfahrung in der Produktionsplanung, Supply Planning, Demand Planning oder in datengetriebenen Analyse- und Planungsfunktionen (z. B. im Bereich Data Analytics, Business Intelligence oder Wirtschaftsinformatik)\n• Erfahrung in der Analyse komplexer Daten sowie in der Anwendung strukturierter Methoden zur Ursachenanalyse und Problemlösung\n• Ausgeprägte Kompetenz in der bereichsübergreifenden Kommunikation und der aktiven Herbeiführung konstruktiver Lösungen mit relevanten Stakeholdern\n• Fähigkeit zur Priorisierung von Aufgaben sowie zur Entscheidungsfindung in dynamischen und zeitkritischen Arbeitsumfeldern\n• Sehr gute Kenntnisse in Microsoft Office, insbesondere Excel, sowie fundierte Erfahrung mit Datenanalyse- und Visualisierungstools wie Power BI\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift Bevorzugte Qualifikationen:\n• Kenntnisse in Kapazitätsplanung, Produktionsprozessen und Materialbedarfsplanung Vielfalt ist uns wichtig. Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, des Geschlechts, einer Behinderung, des Alters oder ihrer sexuellen Identität. Ihre Bewerbung Wir freuen uns auf Ihre aussagekräftige Online-Bewerbung unter Angabe Ihrer Gehaltsvorstellungen und inklusive aller relevanten Dokumente (Anschreiben, aktueller Lebenslauf, Zeugnisse, ggf. Arbeitserlaubnis). Laden Sie bitte unter dem Punkt „Lebenslauf“ alle Anhänge direkt hoch. Falls Sie bereits in Besitz einer Arbeitsbewilligung sind, bitten wir Sie die genaue Bewilligungsart mit Ihrer Bewerbung hochzuladen. Bitte beach",
+        "fr": "R566613 – Supply Planner (m/f/d) – Medical Technology Work Flexibilité: Hybrid Descrizione Façonner activement l'avenir de notre chaîne d'approvisionnement: Pour notre emplacement à Selzach (Suisse), nous recherchons un Supply planner dans le domaine des achats et de la planification (m/f/d). Dans ce rôle, vous dirigez les décisions basées sur les données et vous assurez une planification fiable du matériel et de la production dans un environnement dynamique et réglementé. Vous assumez une fonction d'interface centrale et contribuez directement à assurer la disponibilité de nos produits. Ce poste est pourvu indéfiniment. \n• Cosa offriamo - Soutenir notre équipe dans l'élaboration et l'optimisation d'un plan directeur des ressources pour assurer une offre stable et une disponibilité élevée des produits sur un horizon de planification allant jusqu'à 24 mois - Création et contrôle de la planification des capacités pour la détection précoce des goulots d'étranglement ainsi que l'élaboration de mesures efficaces pour assurer la capacité de livraison - Suivi et amélioration continue des plans d'approvisionnement et d'approvisionnement pour réduire les résidus, éviter les goulots d'étranglement et l'optimisation des inventaires - Assurer une coordination harmonieuse entre la production, l'achat, le service à la clientèle et d'autres interfaces afin d'accroître la transparence et l'efficacité tout au long de la chaîne d'approvisionnement - Contrôle de la coopération avec les interfaces internes et externes pour l'identification précoce des risques ainsi que le lancement de contre-mesures ciblées - Soutien des introductions de produits par la planification structurée et le soutien des processus d'introduction et d'élimination progressive afin d'assurer une transition harmonieuse - Assurer la qualité des données et le développement ultérieur des fondamentaux de la planification afin de créer une base fiable pour les décisions fondées sur les données - Analyse des performances et de l'efficacité - Nous accueillons favorablement les demandes émanant de personnes quelle que soit leur origine ethnique, nationale ou sociale, leur sexe, leur handicap, leur âge ou leur identité sexuelle. Nous attendons avec impatience votre demande en ligne valable, qui indique vos attentes salariales et qui inclut tous les documents pertinents (lettre de couverture, CV actuel, certificats, permis de travail, s'il y a lieu). Merci de télécharger toutes les pièces jointes directement sous l'élément « CV ». Si vous avez déjà un permis de travail, nous vous demandons de télécharger le type exact de permis avec votre demande. S'il vous plaît"
       },
       "needsRetranslation": true,
       "location": "Selzach",
@@ -437,7 +437,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Supply-Planner--m-w-d----Medizintechnik_R566613",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:47:57.501Z",
+      "crawledAt": "2026-06-15T23:57:41.943Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -452,132 +452,26 @@
       "postedDate": "2026-06-14",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Supply-Planner--m-w-d----Medizintechnik_R566613",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R566613",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "4500",
-      "firstSeenAt": "2026-06-14T22:47:57.501Z",
-      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "supply-planner-m-f-d-medical-technology-stryker-selzach"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "supply-planner-m-f-d-medical-technology-stryker-selzach"
         ]
       },
-      "previousSlugs": [
-        "supply-planner-m-f-d-medical-technology-stryker-selzach"
-      ]
-    },
-    {
-      "id": "stryker-c61f7d5e0d08",
-      "slug": "senior-ingegnere-di-produzione-m-f-d-tecnologia-medica-stryker-selzach",
-      "slugByLocale": {
-        "it": "senior-ingegnere-di-produzione-m-f-d-tecnologia-medica-stryker-selzach",
-        "en": "senior-manufacturing-engineer-m-f-d-medical-technology-stryker-selzach",
-        "de": "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch",
-        "fr": "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch"
-      },
-      "company": "Stryker",
-      "companyKey": "stryker",
-      "companyDomain": "stryker.com",
-      "title": "(Senior) Produktionsingenieur (m/w/d), Medizintechnik",
-      "titleByLocale": {
-        "it": "(Senior) Ingegnere di Produzione (m/f/d), Tecnologia Medica",
-        "en": "(Senior) Projektingenieur (m/w/d), Medizintechnik",
-        "de": "(Senior) Produktionsingenieur (m/w/d), Medizintechnik",
-        "fr": "(Senior) Produktionsingenieur (m/w/d), Medizintechnik"
-      },
-      "description": "Work Flexibility: Hybrid\n\nFür unser lokales Team von Produktionsingenieur*innen am Standort Selzach in der Schweiz suchen wir zum nächstmöglichen Zeitpunkt einen (Senior) Manufacturing Engineer (m/w/d). In Ihrer neuen Rolle stellen Sie in einer unserer Produktlinien den reibungslosen Produktionsablauf sicher und sind zudem in spannende Optimierungs- und Projektaufgaben involviert.\n\nDas erwartet Sie:\n\n• In dieser abwechslungsreichen und interessanten Tätigkeit sind Sie gemeinsam mit dem Bereich für die Sicherstellung unserer Produktionsprozesse sowie die Prozessstabilität in dem Bereich Schrauben / Pins zuständig.\n\n• Sie sind für die Planung und Durchführung von Projekten verantwortlich (Investitionen, Prozessoptimierungen) und nehmen in diesem Zusammenhang auch Maschinenqualifizierungen und -validierungen vor.\n\n• Sie analysieren Probleme in der Produktion und lösen diese in Zusammenarbeit mit entsprechenden Schnittstellen (Manufacturing, Quality, EHS, Lieferanten und Produktionsplanung).\n\n• Dazu gehören (Prozess-)Optimierungen unter Anwendungen von Lean-Prinzipien sowie Kostenreduktionen.\n\n• Sie unterstützen bei der Einführung neuer Produkte und Prozesse, indem Sie Koordinationsaufgaben innerhalb des Produktionsbereichs übernehmen, technische Abklärungen vornehmen, bei der Erstellung von Dokumentationen mitwirken sowie die Ansprechperson für interne wie externe Stakeholder sind.\n\nDas bringen Sie mit:\nErforderliche Qualifikationen:\n\n• Abgeschlossene Höhere Fachschule (HF) oder Fachhochschule (FH), idealerweise aufgebaut auf eine Lehre im technischen Bereich.\n\n• Fundierte Berufserfahrung als Manufacturing Engineer oder in einer vergleichbaren Funktion in einem Industriebetrieb.\n\n• Sehr gute Kenntnisse im Projektmanagement.\n\n• Sie haben Freude daran, als flexibles Organisationstalent auftretende Probleme zu lösen und sind ein belastbarer Teamplayer.\n\n• Verhandlungssichere Deutsch- und sehr gute Englischkenntnisse befähigen Sie, problemlos in einem innovativen und internationalen Umfeld zu interagieren.\n\nBevorzugte Qualifikationen:\n\n• Erfahrung im regulierten Umfeld (Medizinaltechnik, Pharma, Automotive)\n\n• Kenntnisse in Lean-Prinzipien und deren Anwendung\n\nWir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, ihres Alters oder ihrer sexuellen Identität.\n\nZusätzliche Informationen\nDank unseres flexiblen Arbeitszeitmodells haben Sie die Möglichkeit, an einem Tag der Woche aus dem Home-Office zu arbeiten. Eine regelmäßige Präsenz vor Ort an unserem Standort in Selzach sollte jedoch stets gegeben sein, um tragfähige Beziehungen aufzubauen und den persönlichen Kontakt zu Kolleg*innen sowie den Fachbereichen aufrecht zu erhalten.\n\nTravel Percentage: None",
-      "descriptionByLocale": {
-        "it": "Work Flexibility: Hybrid Per il nostro team locale di ingegneri di produzione nella sede di Selzach in Svizzera, cerchiamo al più presto un ingegnere di produzione (senior) (m/f/d). Nel tuo nuovo ruolo, in una delle nostre linee di prodotti garantirai un processo di produzione senza intoppi e sarai anche coinvolto in entusiasmanti attività di ottimizzazione e progetto. Ecco cosa ti aspetta:\n• In questa attività varia e interessante, sei responsabile, insieme al settore, della garanzia dei nostri processi di produzione e della stabilità del processo nel settore viti / perni.\n• Sono responsabili della pianificazione e dell'esecuzione dei progetti (investimenti, ottimizzazione dei processi) e, in questo contesto, eseguono anche qualificazioni e convalide delle macchine.\n• Analizzano i problemi nella produzione e li risolvono in collaborazione con le interfacce appropriate (produzione, qualità, EHS, fornitori e pianificazione della produzione).\n• Ciò include l'ottimizzazione (di processo) tra le applicazioni dei principi Lean e la riduzione dei costi.\n• Assistere nell'introduzione di nuovi prodotti e processi assumendo compiti di coordinamento all'interno dell'area di produzione, effettuando chiarimenti tecnici, partecipando alla creazione di documentazione e fungendo da referente per gli stakeholder interni ed esterni. Cosa porti con te: Qualifiche richieste:\n• Qualifiche superiori completate",
-        "en": "Work Flexibility: Hybrid For our local team of production engineers at the Selzach site in Switzerland, we are looking for a (Senior) Manufacturing Engineer (m/w/d). In your new role, you ensure smooth production in one of our product lines and are also involved in exciting optimization and project tasks. This is what awaits you:\n• In this varied and interesting activity, you are responsible for ensuring our production processes and process stability in the area of screws/pins.\n• They are responsible for the planning and implementation of projects (investments, process optimizations) and also provide machine qualifications and validations.\n• They analyze problems in production and solve them in cooperation with appropriate interfaces (manufacturing, quality, EHS, suppliers and production planning).\n• These include (process) optimizations under applications of lean principles and cost reductions.\n• They support the introduction of new products and processes by taking on coordination tasks within the production area, performing technical clarifications, contributing to the creation of documentation, and being the contact person for internal and external stakeholders. Take this with you: Required qualifications:\n• Completed Higher School (HF) or Fachhochschule (FH), ideally based on a teaching in the technical field.\n• Finded professional experience as a manufacturing engineer or in a comparable function in an industrial company.\n• Very good knowledge of project management.\n• You have the pleasure of solving problems arising as a flexible organizational talent and are a resilient team player.\n• Procuring German and very good English skills enable you to interact easily in an innovative and international environment. Preferred qualifications:\n• Experience in the regulated environment (medical technology, pharmaceutical, automotive)\n• knowledge of Lean principles and their application We are pleased to receive applications from people regardless of their ethnic, national or social origin, gender, age or sexual identity. Additional information Thanks to our flexible working time model, you have the opportunity to work from your home office on a day of the week. However, a regular presence at our site in Selzach should always be given in order to establish sustainable relationships and maintain personal contact with colleagues and departments. Travel Percentage: None",
-        "de": "Work Flexibility: Hybrid Für unser lokales Team von Produktionsingenieur*innen am Standort Selzach in der Schweiz suchen wir zum nächstmöglichen Zeitpunkt einen (Senior) Manufacturing Engineer (m/w/d). In Ihrer neuen Rolle stellen Sie in einer unserer Produktlinien den reibungslosen Produktionsablauf sicher und sind zudem in spannende Optimierungs- und Projektaufgaben involviert. Das erwartet Sie:\n• In dieser abwechslungsreichen und interessanten Tätigkeit sind Sie gemeinsam mit dem Bereich für die Sicherstellung unserer Produktionsprozesse sowie die Prozessstabilität in dem Bereich Schrauben / Pins zuständig.\n• Sie sind für die Planung und Durchführung von Projekten verantwortlich (Investitionen, Prozessoptimierungen) und nehmen in diesem Zusammenhang auch Maschinenqualifizierungen und -validierungen vor.\n• Sie analysieren Probleme in der Produktion und lösen diese in Zusammenarbeit mit entsprechenden Schnittstellen (Manufacturing, Quality, EHS, Lieferanten und Produktionsplanung).\n• Dazu gehören (Prozess-)Optimierungen unter Anwendungen von Lean-Prinzipien sowie Kostenreduktionen.\n• Sie unterstützen bei der Einführung neuer Produkte und Prozesse, indem Sie Koordinationsaufgaben innerhalb des Produktionsbereichs übernehmen, technische Abklärungen vornehmen, bei der Erstellung von Dokumentationen mitwirken sowie die Ansprechperson für interne wie externe Stakeholder sind. Das bringen Sie mit: Erforderliche Qualifikationen:\n• Abgeschlossene Höhere Fachschule (HF) oder Fachhochschule (FH), idealerweise aufgebaut auf eine Lehre im technischen Bereich.\n• Fundierte Berufserfahrung als Manufacturing Engineer oder in einer vergleichbaren Funktion in einem Industriebetrieb.\n• Sehr gute Kenntnisse im Projektmanagement.\n• Sie haben Freude daran, als flexibles Organisationstalent auftretende Probleme zu lösen und sind ein belastbarer Teamplayer.\n• Verhandlungssichere Deutsch- und sehr gute Englischkenntnisse befähigen Sie, problemlos in einem innovativen und internationalen Umfeld zu interagieren. Bevorzugte Qualifikationen:\n• Erfahrung im regulierten Umfeld (Medizinaltechnik, Pharma, Automotive)\n• Kenntnisse in Lean-Prinzipien und deren Anwendung Wir freuen uns über Bewerbungen von Menschen ungeachtet ihrer ethnischen, nationalen oder sozialen Herkunft, ihres Geschlechts, ihres Alters oder ihrer sexuellen Identität. Zusätzliche Informationen Dank unseres flexiblen Arbeitszeitmodells haben Sie die Möglichkeit, an einem Tag der Woche aus dem Home-Office zu arbeiten. Eine regelmäßige Präsenz vor Ort an unserem Standort in Selzach sollte jedoch stets gegeben sein, um tragfähige Beziehungen aufzubauen und den persönlichen Kontakt zu Kolleg*innen sowie den Fachbereichen aufrecht zu erhalten. Travel Percentage: None",
-        "fr": "Flexibilité du travail : hybride Pour notre équipe locale d'ingénieurs de production sur le site de Selzach en Suisse, nous recherchons un (Senior) Manufacturing Engineer (h/f/d) dès que possible. Dans votre nouveau rôle, vous assurez le bon déroulement de la production dans l'une de nos lignes de produits et vous êtes également impliqué dans des tâches passionnantes d'optimisation et de projet. Ce qui vous attend :\n• Dans cette activité variée et intéressante, vous êtes responsable, avec le secteur, de la sécurité de nos processus de production et de la stabilité des processus dans le domaine des vis / broches.\n• Vous êtes responsable de la planification et de la mise en œuvre des projets (investissements, optimisation des processus) et effectuez également la qualification et la validation des machines dans ce contexte.\n• Vous analysez les problèmes de production et les résolvez en collaboration avec les interfaces correspondantes (fabrication, qualité, SEQE, fournisseurs et planification de la production).\n• Cela comprend l'optimisation (des processus) dans le cadre de l'application des principes Lean ainsi que la réduction des coûts.\n• Vous soutenez l'introduction de nouveaux produits et processus en assumant des tâches de coordination au sein du domaine de production, en effectuant des clarifications techniques, en participant à la création de la documentation et en étant la personne de contact pour les parties prenantes internes et externes. Ce que vous apportez avec vous : Qualifications requises :\n• Diplômés supérieurs"
-      },
-      "location": "Selzach",
-      "canton": "SO",
-      "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--Produktionsingenieur--m-w-d---Medizintechnik_R559490",
-      "source": "Stryker Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:48:00.259Z",
-      "addressLocality": "Selzach",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Medtech / Dispositivi medici",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--Produktionsingenieur--m-w-d---Medizintechnik_R559490",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma HF o FH, preferibilmente con base tecnica",
-          "Esperienza come Manufacturing Engineer o ruolo simile in un'azienda industriale",
-          "Ottime competenze di gestione progetti",
-          "Capacità di risolvere problemi e lavorare in team",
-          "Conoscenza fluente del tedesco e ottima conoscenza dell'inglese",
-          "Esperienza in ambienti regolamentati (tecnologia medica, farmaceutica, automotive)",
-          "Conoscenza dei principi Lean e della loro applicazione"
-        ],
-        "en": [
-          "Completed HF or FH degree, ideally with a technical background",
-          "Experience as a Manufacturing Engineer or similar role in an industrial company",
-          "Strong project management skills",
-          "Problem-solving skills and ability to work in a team",
-          "Fluent German and very good English skills",
-          "Experience in regulated environments (medical technology, pharmaceuticals, automotive)",
-          "Knowledge of Lean principles and their application"
-        ],
-        "fr": [
-          "Diplôme HF ou FH, idéalement avec une formation technique",
-          "Expérience en tant qu'ingénieur de production ou rôle similaire dans une entreprise industrielle",
-          "Excellentes compétences en gestion de projets",
-          "Capacité à résoudre des problèmes et à travailler en équipe",
-          "Maîtrise de l'allemand et très bonne connaissance de l'anglais",
-          "Expérience dans des environnements réglementés (technologie médicale, pharmaceutique, automobile)",
-          "Connaissance des principes Lean et de leur application"
-        ]
-      },
-      "jobReqId": "R559490",
-      "previousSlugs": [
-        "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch",
-        "senior-projektingenieur-m-w-d-medizintechnik-stryker-selzach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-produktionsingenieur-m-w-d-medizintechnik-stryker-ch"
-        ],
-        "en": [
-          "senior-projektingenieur-m-w-d-medizintechnik-stryker-selzach"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T16:48:10.075Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "firstSeenAt": "2026-06-14T22:47:57.501Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },

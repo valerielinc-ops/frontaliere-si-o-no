@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-15T15:59:24.630Z",
+  "generatedAt": "2026-06-15T23:55:15.545Z",
   "total": 21,
   "newCount": 21,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 75815,
-  "avgDurationMs": 75815,
+  "durationMs": 144819,
+  "avgDurationMs": 144819,
   "durationHistory": [
-    75815
+    144819
   ],
   "newJobs": [
     {
@@ -20,7 +20,7 @@
       "title": "Assistente per il corso di laurea in Cure infermieristiche",
       "location": "Manno",
       "canton": "TI",
-      "category": "admin",
+      "category": "finance",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
@@ -47,11 +47,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 89,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 18,
+        "richness": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -78,17 +78,17 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-06-15T15:58:36.017Z",
       "firstSeenAt": "2026-06-15T15:58:36.017Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "Via Cantonale 2C",
       "postalCode": "6928",
-      "addressLocality": "Lugano. Grado d",
+      "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -150,7 +150,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "postedDate": "2026-06-12",
       "url": "https://www.supsi.ch/bando26_5026",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -173,11 +173,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 92,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 21,
+        "richness": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -246,7 +246,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-06-11T13:41:02.453Z",
       "firstSeenAt": "2026-06-11T13:41:02.453Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -257,11 +256,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -288,7 +288,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-06-11T13:41:02.453Z",
       "firstSeenAt": "2026-06-11T13:41:02.453Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -299,6 +298,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -761,10 +761,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -864,7 +864,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "postedDate": "2026-05-18",
       "url": "https://www.supsi.ch/bando26_5020",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -887,11 +887,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 16,
+        "richness": 25,
+        "translation": 20,
         "completeness": 25
       }
     }

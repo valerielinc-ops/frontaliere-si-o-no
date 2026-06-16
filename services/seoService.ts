@@ -4048,6 +4048,15 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imposizione-fonte-basilea': { name: 'Fiscale', path: '/articoli-svizzera/imposizione-fonte-basilea/', parent: 'blog' },
     'blog-grandine-gt86-trd-perdita-totale': { name: 'auto danneggiata', path: '/articoli-frontaliere/grandine-gt86-trd-perdita-totale', parent: 'blog' },
     'blog-blocchi-immigrazione-ticino': { name: 'Politica migratoria', path: '/articoli-svizzera/blocchi-immigrazione-ticino/', parent: 'blog' },
+    'blog-blocchi-ristorni-berna-italia': { name: 'fiscale', path: '/articoli-frontaliere/blocchi-ristorni-berna-italia', parent: 'blog' },
+    'blog-treni-fermi-stabio-gallarate-incompetenza-regione': { name: 'Treni fermi Stabio-Gallarate', path: '/articoli-svizzera/treni-fermi-stabio-gallarate-incompetenza-regione/', parent: 'blog' },
+    'blog-deduzione-ristorni-frontalieri-contraria-accordi-ch-roma': { name: 'Deduzione ristorni frontalieri', path: '/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma', parent: 'blog' },
+    'blog-offerte-lavoro-intelligenza-artificiale-2025': { name: 'Lavoro IA Svizzera', path: '/articoli-svizzera/offerte-lavoro-intelligenza-artificiale-2025/', parent: 'blog' },
+    'blog-tassa-salute-posizione-berna': { name: 'Tassa salute Berna', path: '/articoli-frontaliere/tassa-salute-posizione-berna', parent: 'blog' },
+    'blog-la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { name: 'La Svizzera e l\'Europa', path: '/articoli-svizzera/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale/', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-ritiro-richiesta': { name: 'Tassa Salute', path: '/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta', parent: 'blog' },
+    'blog-deduzione-da-ristorni-contraria-accordi-con-roma': { name: 'Deduzione da ristorni frontalieri', path: '/articoli-svizzera/deduzione-da-ristorni-contraria-accordi-con-roma/', parent: 'blog' },
+    'blog-rientro-definitivo-gestione-conti-chf': { name: 'Rientro definitivo frontaliere', path: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-06-14T22:06:29.625Z",
+  "assembledAt": "2026-06-15T23:06:42.725Z",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-4fb3e21001e4",
@@ -33,7 +33,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/8fd1ff1bb3e8-technicien-ne-biomedical-e-techniker-in-medizintechnik",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:27.108Z",
+      "crawledAt": "2026-06-15T23:06:40.036Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -70,15 +70,15 @@
         ]
       },
       "firstSeenAt": "2026-05-21T12:08:04.148Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -115,7 +115,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/98ee38a3ae11-preparatrice-eur-en-pharmacie-100-cdd-5-mois-jusqu-au-31-decembre-2026-pharma-assistentin-assistenten-100-befristet-auf-5-monate-bis-31--dezember-2026",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:26.466Z",
+      "crawledAt": "2026-06-15T23:06:39.377Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -153,15 +153,15 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:56:22.497Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -198,7 +198,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/bd4b71239810-physiotherapeute-physiotherapeut-in",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:25.846Z",
+      "crawledAt": "2026-06-15T23:06:38.736Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -225,15 +225,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:47:40.549Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -269,7 +269,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-14T22:06:25.196Z",
+      "crawledAt": "2026-06-15T23:06:38.086Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -299,15 +299,15 @@
       },
       "externalId": "42355f3111eb",
       "firstSeenAt": "2026-05-19T13:03:35.743Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -343,7 +343,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:24.563Z",
+      "crawledAt": "2026-06-15T23:06:37.420Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -383,15 +383,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.959Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -428,7 +428,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:23.920Z",
+      "crawledAt": "2026-06-15T23:06:36.766Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -461,15 +461,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:34.323Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -506,7 +506,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/44db59b90658-oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne-generale-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:23.295Z",
+      "crawledAt": "2026-06-15T23:06:36.107Z",
       "addressLocality": "HFR Meyriez-Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -563,15 +563,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:33.670Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -608,7 +608,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:22.673Z",
+      "crawledAt": "2026-06-15T23:06:35.434Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -635,15 +635,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:33.016Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -680,7 +680,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:22.039Z",
+      "crawledAt": "2026-06-15T23:06:34.743Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -707,15 +707,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:32.371Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -752,7 +752,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/059b6bbc75cd-medecin-adjoint-e-specialiste-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-mit-fachrichtung-gefasschirurgie-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:21.394Z",
+      "crawledAt": "2026-06-15T23:06:34.096Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -779,15 +779,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:31.068Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -823,7 +823,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/993b15e4990b-infirmiers-eres-pour-un-cdd-de-6-mois-80-100-pflegefachfrauen-manner-befristet-fur-6-monate-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:20.759Z",
+      "crawledAt": "2026-06-15T23:06:33.438Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -855,15 +855,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:29.777Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -899,7 +899,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c4c72a66f509-infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag-fur-6-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:20.122Z",
+      "crawledAt": "2026-06-15T23:06:32.793Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -943,15 +943,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:28.723Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -987,7 +987,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:19.492Z",
+      "crawledAt": "2026-06-15T23:06:32.139Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1014,15 +1014,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:28.062Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1058,7 +1058,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:18.837Z",
+      "crawledAt": "2026-06-15T23:06:31.480Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1110,15 +1110,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:27.414Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1154,7 +1154,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f1381a7c2acb-infirmier-ere-cdd-de-12-mois-60-100-pflegefachmann-pflegefachfrau-60--100-befristet-fur-12-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:18.205Z",
+      "crawledAt": "2026-06-15T23:06:30.832Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1186,15 +1186,15 @@
         ]
       },
       "firstSeenAt": "2026-06-01T14:47:32.503Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1230,7 +1230,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:17.585Z",
+      "crawledAt": "2026-06-15T23:06:30.195Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1291,15 +1291,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:26.048Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1336,7 +1336,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c9efcad9beb1-fachexpertin-fachexperten-pflege-100-infirmier-ere-clinicien-ne-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:16.952Z",
+      "crawledAt": "2026-06-15T23:06:29.460Z",
       "addressLocality": "HFR Meyriez-Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1375,15 +1375,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T23:02:39.893Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1419,7 +1419,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:16.269Z",
+      "crawledAt": "2026-06-15T23:06:28.788Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1475,15 +1475,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:25.389Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1519,7 +1519,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/df7451e3ad4c-collaborateur-trice-administratif-ve-60-mitarbeiter-in-administration-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:15.579Z",
+      "crawledAt": "2026-06-15T23:06:28.139Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1549,15 +1549,15 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:56:11.057Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1593,7 +1593,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/947dcfafe2c3-chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:14.943Z",
+      "crawledAt": "2026-06-15T23:06:27.480Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1649,15 +1649,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:23.420Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -1693,7 +1693,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:14.292Z",
+      "crawledAt": "2026-06-15T23:06:26.808Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1724,15 +1724,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:22.745Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -1769,7 +1769,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:13.685Z",
+      "crawledAt": "2026-06-15T23:06:26.170Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1815,15 +1815,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:22.090Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -1859,7 +1859,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/047455d46006-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-gynecologie-obstetrique-100-oberarzt-oberarztin-oder-stv-oberarzt-oberarztin-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:13.052Z",
+      "crawledAt": "2026-06-15T23:06:25.522Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1891,15 +1891,15 @@
         ]
       },
       "firstSeenAt": "2026-05-27T12:40:09.485Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -1936,7 +1936,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:12.414Z",
+      "crawledAt": "2026-06-15T23:06:24.827Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1963,15 +1963,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:21.438Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -2008,7 +2008,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:11.757Z",
+      "crawledAt": "2026-06-15T23:06:24.132Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2035,15 +2035,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:20.795Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -2079,7 +2079,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/5f82d0f35ac9-chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:11.128Z",
+      "crawledAt": "2026-06-15T23:06:23.496Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2115,15 +2115,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:20.140Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       }
@@ -2160,7 +2160,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e87633484a35-auxiliaire-de-soins-croix-rouge-asa-60-70-pflegehelfer-in-60--70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T22:06:10.480Z",
+      "crawledAt": "2026-06-15T23:06:22.851Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2195,15 +2195,15 @@
         ]
       },
       "firstSeenAt": "2026-05-26T23:02:24.811Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -2239,7 +2239,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:09.841Z",
+      "crawledAt": "2026-06-15T23:06:22.199Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2284,15 +2284,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.822Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -2328,7 +2328,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:09.204Z",
+      "crawledAt": "2026-06-15T23:06:21.542Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2386,15 +2386,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.107Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -2430,7 +2430,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:06:08.549Z",
+      "crawledAt": "2026-06-15T23:06:20.883Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2484,15 +2484,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:17.431Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }

@@ -176,6 +176,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Vote sur le blocage des étrangers et frontaliers',
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Le Canton du Ticino approuve le blocage des étrangers, mais avec des effets limités, tandis que la Suisse rejette l\'initiative de l\'UDC avec 54,79 %.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paysage de lac et montagnes entre la Suisse et l\'Italie près du Tessin.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni fermi Stabio-Gallarate : Les Verts critiquent la Région et Trenord',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Fermeture de la ligne ferroviaire Stabio-Gallarate jusqu\'au 5 juillet pour des travaux, entraînant de graves inconvénients pour plus de 5 000 passagers quotidiens.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Pendulaires en attente devant gare fermée',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'Offres d\'emploi IA en Suisse : record et tendances 2025',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'En 2025 les offres d\'emploi avec compétences IA en Suisse atteignent 25 000, +9 000 par rapport à l\'année précédente. Salaires supérieurs à la moyenne dans la santé et l\'énergie.',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.imageAlt': 'Employés dans un bureau à Lugano analysent des données sur l\'IA.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'La Suisse mise sur l\'Europe',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'Le rejet de l\'initiative \'Non à une Suisse de 10 millions\' est interprété à l\'étranger comme un choix de stabilité et d\'ouverture.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Déduction des ristournes frontaliers contraire aux accords',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Suisse envisage d’appliquer une déduction partielle sur les ristournes issues du produit de l’impôt santé, ce qui pourrait contrevenir aux accords avec l’Italie.',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers du canton de Tessin avec documents',
 };
 
 export default blogMetaChFr;

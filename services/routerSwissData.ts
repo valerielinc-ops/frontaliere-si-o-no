@@ -80,6 +80,10 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'votazioni-federali-giugno-2026': { it: 'votazioni-federali-giugno-2026', en: 'federal-votes-june-2026', de: 'eidgenoessische-abstimmung-juni-2026', fr: 'votations-federales-juin-2026' },
  'imposizione-fonte-basilea': { it: 'imposizione-fonte-basilea', en: 'source-tax-basel', de: 'quelle-steuer-basel', fr: 'impot-source-basel' },
  'blocchi-immigrazione-ticino': { it: 'blocchi-immigrazione-ticino', en: 'immigration-block-ticino', de: 'einwanderungsblock-tessin', fr: 'blocage-immigration-tessin' },
+ 'treni-fermi-stabio-gallarate-incompetenza-regione': { it: 'treni-fermi-stabio-gallarate-incompetenza-regione', en: 'trains-halted-stabio-gallarate-regional-incompetence', de: 'verzoegerte-zuege-stabio-gallarate-regionale-unfahigkeit', fr: 'trains-arretes-stabio-gallarate-incompetence-regionale' },
+ 'offerte-lavoro-intelligenza-artificiale-2025': { it: 'offerte-lavoro-intelligenza-artificiale-2025', en: 'ai-job-offers-switzerland-2025', de: 'ki-jobangebote-schweiz-2025', fr: 'offres-emploi-ia-suisse-2025' },
+ 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { it: 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale', en: 'switzerland-sends-signal-in-favour-of-europe-and-economy', de: 'die-schweiz-sendet-einen-signal-an-fur-europa-und-wirtschaft', fr: 'la-suisse-envoie-un-signal-en-faveur-de-l-europe-et-de-l-economie' },
+ 'deduzione-da-ristorni-contraria-accordi-con-roma': { it: 'deduzione-da-ristorni-contraria-accordi-con-roma', en: 'deduction-from-rentals-contrary-to-rome-agreements', de: 'abzug-und-abhebung-gegen-vertrage-mit-rom', fr: 'depense-rentement-contre-l-accord-avec-rome' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

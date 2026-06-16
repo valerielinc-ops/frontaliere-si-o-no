@@ -8087,6 +8087,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Grêle GT86 TRD : que faire si l’assurance la déclare perte',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'La grêle qui s’est abattue sur le canton du Tessin a gravement endommagé une Toyota GT86 TRD. L’assurance propose une perte totale : voici quoi faire.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'Voiture GT86 TRD endommagée par la grêle dans le Tessin près du lac',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'Berne refuse le blocage des remboursements par le Tessin',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Le gouvernement suisse a déclaré que bloquer les remboursements sur les fonds générés par la taxe santé italienne est illégal, confirmant la position officielle.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vue panoramique de la frontière entre le Tessin et l\'Italie avec cols et paysages alpins.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: la taxe de santé; déduction des ristournes contraire les accords avec Rome',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La déduction partielle des ristournes du produit généré par la taxe de santé est contraire aux accords entre Berne et Rome concernant ces travailleurs frontaliers.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama du lac de Lugano',
+    'blog.article.tassa-salute-posizione-berna.title': 'Taxe sur la santé et remboursements : la position de Berne',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Le Conseil fédéral réaffirme que la taxe sur la santé n\'est pas un impôt et ne viole pas les accords fiscaux avec l\'Italie.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Bâtiment du gouvernement à Bellinzone par une journée ensoleillée',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Tasse santé frontaliers: les syndicats demandent le retrait',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD et SYNDICOM demandent le retrait définitif de la taxe santé pour les frontaliers, invoquant des violations du traité de 2020 et une double imposition.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Syndicats italiens et suisses discutent de la taxe santé pour travailleurs transfrontaliers',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Retour définitif en Italie : guide des comptes en CHF',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Découvrez comment gérer correctement la liquidation, les comptes en francs suisses et les derniers salaires en cas de retour définitif en Italie pour les travailleurs frontaliers.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Bureau avec vue sur le lac de Lugano et documents financiers',
 };
 
 export default blogMetaFr;

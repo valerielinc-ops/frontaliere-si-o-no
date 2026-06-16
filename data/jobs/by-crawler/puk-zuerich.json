@@ -1,6 +1,6 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-06-15T15:37:17.367Z",
+  "assembledAt": "2026-06-15T23:37:28.197Z",
   "jobs": [
     {
       "id": "puk-zuerich-fadca51159cb",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/163206/2117/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:09.634Z",
+      "crawledAt": "2026-06-15T23:37:15.049Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -97,12 +97,11 @@
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
         "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
         "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138,15 +137,15 @@
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:42.497Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
+      "salaryMin": 79000,
+      "salaryMax": 134500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
+          "minValue": 79000,
+          "maxValue": 134500,
           "unitText": "YEAR"
         }
       }
@@ -182,7 +181,7 @@
       "url": "https://apply.refline.ch/163206/2636/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:08.779Z",
+      "crawledAt": "2026-06-15T23:37:14.121Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -218,15 +217,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:53.663Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -262,7 +261,7 @@
       "url": "https://apply.refline.ch/163206/2676/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:08.350Z",
+      "crawledAt": "2026-06-15T23:37:13.656Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -297,15 +296,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:53.188Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -342,7 +341,7 @@
       "url": "https://apply.refline.ch/163206/2678/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:04.617Z",
+      "crawledAt": "2026-06-15T23:37:13.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -417,7 +416,7 @@
       "url": "https://apply.refline.ch/163206/2671/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:04.181Z",
+      "crawledAt": "2026-06-15T23:37:12.724Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,7 +495,7 @@
       "url": "https://apply.refline.ch/163206/2641/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:07.068Z",
+      "crawledAt": "2026-06-15T23:37:12.258Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -526,15 +525,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:51.763Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -571,7 +570,7 @@
       "url": "https://apply.refline.ch/163206/2675/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:03.310Z",
+      "crawledAt": "2026-06-15T23:37:11.794Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -656,7 +655,7 @@
       "url": "https://apply.refline.ch/163206/2558/pub/3/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:02.866Z",
+      "crawledAt": "2026-06-15T23:37:11.326Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -727,7 +726,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:05.783Z",
+      "crawledAt": "2026-06-15T23:37:10.862Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -764,15 +763,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:50.814Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -809,7 +808,7 @@
       "url": "https://apply.refline.ch/163206/2496/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:01.977Z",
+      "crawledAt": "2026-06-15T23:37:10.398Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -883,7 +882,7 @@
       "url": "https://apply.refline.ch/163206/2256/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:04.927Z",
+      "crawledAt": "2026-06-15T23:37:09.935Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -916,15 +915,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:49.867Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -960,7 +959,7 @@
       "url": "https://apply.refline.ch/163206/2669/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:04.500Z",
+      "crawledAt": "2026-06-15T23:37:09.470Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -997,8 +996,8 @@
         "diplome-e-en-soins-infirmiers-de-nuit-service-de-pediatrie-psychiatrische-universitatsklinik-zurich-zurich",
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
         "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich"
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1024,8 +1023,8 @@
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
-          "portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik",
-          "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich"
+          "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
+          "portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik"
         ],
         "de": [
           "dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
@@ -1051,20 +1050,20 @@
         ],
         "fr": [
           "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
-          "gestionnaire-de-portefeuille-immobilier-gestionnaire-de-portefeuille-immobilier-centre-sur-le-developpement-du-site",
-          "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische"
+          "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
+          "gestionnaire-de-portefeuille-immobilier-gestionnaire-de-portefeuille-immobilier-centre-sur-le-developpement-du-site"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:49.392Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1101,7 +1100,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:37:00.668Z",
+      "crawledAt": "2026-06-15T23:37:09.006Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1181,7 +1180,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:03.623Z",
+      "crawledAt": "2026-06-15T23:37:08.541Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1217,15 +1216,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:48.437Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1262,7 +1261,7 @@
       "url": "https://apply.refline.ch/163206/2549/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:59.796Z",
+      "crawledAt": "2026-06-15T23:37:08.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1346,7 +1345,7 @@
       "url": "https://apply.refline.ch/163206/2698/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:02.763Z",
+      "crawledAt": "2026-06-15T23:37:07.613Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1373,15 +1372,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:47.488Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1418,7 +1417,7 @@
       "url": "https://apply.refline.ch/163206/2663/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:58.480Z",
+      "crawledAt": "2026-06-15T23:37:06.683Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1501,7 +1500,7 @@
       "url": "https://apply.refline.ch/163206/2699/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:58.045Z",
+      "crawledAt": "2026-06-15T23:37:06.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1572,7 +1571,7 @@
       "url": "https://apply.refline.ch/163206/2684/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:01.054Z",
+      "crawledAt": "2026-06-15T23:37:05.753Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1602,15 +1601,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:46.060Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1646,7 +1645,7 @@
       "url": "https://apply.refline.ch/163206/2706/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:41:00.627Z",
+      "crawledAt": "2026-06-15T23:37:05.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1665,15 +1664,15 @@
       "requirementsByLocale": {},
       "externalId": "2706",
       "firstSeenAt": "2026-06-12T12:44:43.330Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1709,7 +1708,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:58.058Z",
+      "crawledAt": "2026-06-15T23:37:02.486Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1739,15 +1738,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:43.203Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1783,7 +1782,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:57.632Z",
+      "crawledAt": "2026-06-15T23:37:02.021Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1813,15 +1812,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:42.729Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1858,7 +1857,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:53.680Z",
+      "crawledAt": "2026-06-15T23:37:01.556Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1932,7 +1931,7 @@
       "url": "https://apply.refline.ch/163206/2705/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:56.775Z",
+      "crawledAt": "2026-06-15T23:37:01.092Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1965,15 +1964,15 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:44:38.965Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2010,7 +2009,7 @@
       "url": "https://apply.refline.ch/163206/2702/pub/3/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:52.800Z",
+      "crawledAt": "2026-06-15T23:37:00.628Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2087,7 +2086,7 @@
       "url": "https://apply.refline.ch/163206/2616/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:55.920Z",
+      "crawledAt": "2026-06-15T23:37:00.163Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2120,15 +2119,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:41.303Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -2165,7 +2164,7 @@
       "url": "https://apply.refline.ch/163206/2651/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:51.929Z",
+      "crawledAt": "2026-06-15T23:36:59.698Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2240,7 +2239,7 @@
       "url": "https://apply.refline.ch/163206/2677/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:51.495Z",
+      "crawledAt": "2026-06-15T23:36:59.234Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2318,7 +2317,7 @@
       "url": "https://apply.refline.ch/163206/2115/pub/3/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:51.059Z",
+      "crawledAt": "2026-06-15T23:36:58.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2399,7 +2398,7 @@
       "url": "https://apply.refline.ch/163206/2647/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:50.622Z",
+      "crawledAt": "2026-06-15T23:36:58.304Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2474,7 +2473,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:50.184Z",
+      "crawledAt": "2026-06-15T23:36:57.840Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2549,7 +2548,7 @@
       "url": "https://apply.refline.ch/163206/2645/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:49.748Z",
+      "crawledAt": "2026-06-15T23:36:57.374Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2629,7 +2628,7 @@
       "url": "https://apply.refline.ch/163206/2586/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:49.312Z",
+      "crawledAt": "2026-06-15T23:36:56.911Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2708,7 +2707,7 @@
       "url": "https://apply.refline.ch/163206/2573/pub/3/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:51.163Z",
+      "crawledAt": "2026-06-15T23:36:56.441Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2749,15 +2748,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:36.535Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2794,7 +2793,7 @@
       "url": "https://apply.refline.ch/163206/2701/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:48.439Z",
+      "crawledAt": "2026-06-15T23:36:55.977Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2873,7 +2872,7 @@
       "url": "https://apply.refline.ch/163206/2700/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:48.004Z",
+      "crawledAt": "2026-06-15T23:36:55.512Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2956,7 +2955,7 @@
       "url": "https://apply.refline.ch/163206/2565/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:47.568Z",
+      "crawledAt": "2026-06-15T23:36:55.048Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3038,7 +3037,7 @@
       "url": "https://apply.refline.ch/163206/2655/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:49.451Z",
+      "crawledAt": "2026-06-15T23:36:54.584Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3071,15 +3070,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:35.107Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3116,7 +3115,7 @@
       "url": "https://apply.refline.ch/163206/2627/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:46.695Z",
+      "crawledAt": "2026-06-15T23:36:54.119Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3194,7 +3193,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:46.259Z",
+      "crawledAt": "2026-06-15T23:36:53.653Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3272,7 +3271,7 @@
       "url": "https://apply.refline.ch/163206/2703/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:45.824Z",
+      "crawledAt": "2026-06-15T23:36:53.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3343,7 +3342,7 @@
       "url": "https://apply.refline.ch/163206/2660/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:47.736Z",
+      "crawledAt": "2026-06-15T23:36:52.725Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3373,15 +3372,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:33.679Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3417,7 +3416,7 @@
       "url": "https://apply.refline.ch/163206/2688/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:47.309Z",
+      "crawledAt": "2026-06-15T23:36:52.262Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3437,8 +3436,7 @@
       "externalId": "2688",
       "previousSlugs": [
         "ergotherapeutin-ergotherapeuten-hf-fh-puk-zuerich-zurich",
-        "ergotherapeutine-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
-        "ergoterapuitina-ergoterapista-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
+        "ergotherapeutine-ergotherapeuten-hf-fh-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3449,15 +3447,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:33.201Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3493,7 +3491,7 @@
       "url": "https://apply.refline.ch/163206/2690/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:46.455Z",
+      "crawledAt": "2026-06-15T23:36:51.333Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3526,15 +3524,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:32.245Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3570,7 +3568,7 @@
       "url": "https://apply.refline.ch/163206/2523/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:46.027Z",
+      "crawledAt": "2026-06-15T23:36:50.869Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3603,8 +3601,7 @@
         "dipl-ing-pflegefachperson-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachperson-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-hf-fh-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachperson-hf-fh-puk-zuerich-zurich",
-        "specialista-infermieristico-qualificato-hf-fh-kiz-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachperson-hf-fh-puk-zuerich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3615,15 +3612,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:31.752Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3660,7 +3657,7 @@
       "url": "https://apply.refline.ch/163206/2697/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:43.208Z",
+      "crawledAt": "2026-06-15T23:36:50.405Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3740,7 +3737,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:42.771Z",
+      "crawledAt": "2026-06-15T23:36:49.940Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3825,7 +3822,7 @@
       "url": "https://apply.refline.ch/163206/1956/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:44.317Z",
+      "crawledAt": "2026-06-15T23:36:49.474Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3862,8 +3859,8 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3919,15 +3916,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:29.850Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3963,7 +3960,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:43.889Z",
+      "crawledAt": "2026-06-15T23:36:49.010Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3996,15 +3993,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:29.375Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4041,7 +4038,7 @@
       "url": "https://apply.refline.ch/163206/2504/pub/5/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:41.460Z",
+      "crawledAt": "2026-06-15T23:36:48.545Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4124,7 +4121,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:41.021Z",
+      "crawledAt": "2026-06-15T23:36:48.079Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4204,7 +4201,7 @@
       "url": "https://apply.refline.ch/163206/2642/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:42.169Z",
+      "crawledAt": "2026-06-15T23:36:47.148Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4223,7 +4220,6 @@
       "requirementsByLocale": {},
       "externalId": "2642",
       "previousSlugs": [
-        "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
@@ -4242,11 +4238,11 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich"
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+        "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
           "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
           "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
@@ -4265,7 +4261,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
           "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
           "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische"
+          "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+          "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -4299,15 +4296,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:27.473Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4343,7 +4340,7 @@
       "url": "https://apply.refline.ch/163206/2391/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:41.741Z",
+      "crawledAt": "2026-06-15T23:36:46.684Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4377,15 +4374,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:27.000Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4421,7 +4418,7 @@
       "url": "https://apply.refline.ch/163206/2689/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:41.314Z",
+      "crawledAt": "2026-06-15T23:36:46.219Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4455,15 +4452,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:26.525Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4499,7 +4496,7 @@
       "url": "https://apply.refline.ch/163206/2643/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:40.885Z",
+      "crawledAt": "2026-06-15T23:36:45.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4531,15 +4528,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:26.052Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4576,7 +4573,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:38.400Z",
+      "crawledAt": "2026-06-15T23:36:45.289Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4686,7 +4683,7 @@
       "url": "https://apply.refline.ch/163206/2625/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:40.006Z",
+      "crawledAt": "2026-06-15T23:36:44.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4723,8 +4720,8 @@
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
         "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zurich"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4781,15 +4778,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:25.102Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4825,7 +4822,7 @@
       "url": "https://apply.refline.ch/163206/2543/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:39.579Z",
+      "crawledAt": "2026-06-15T23:36:44.361Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4844,6 +4841,8 @@
       "requirementsByLocale": {},
       "externalId": "2543",
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-nursing-e2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-e2-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-infermiere-a-specializzato-a-in-psichiatria-stazione-acuta-giovani-a0-psychiatrische-universitatsklinik-zurich",
         "diploma-in-psychiatric-nursing-acute-station-youth-a0-psychiatrische-universitatsklinik-zurich-zurich",
@@ -4856,19 +4855,14 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-stazione-per-bambini-psychiatrische-universitatsklinik-zurich",
         "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
         "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
         "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich"
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-          "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
           "diploma-in-nursing-e2-psychiatrische-universitatsklinik-zurich-zurich",
           "diplome-e-en-soins-infirmiers-e2-psychiatrische-universitatsklinik-zurich-zurich",
@@ -4883,10 +4877,11 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-stazione-per-bambini-psychiatrische-universitatsklinik-zurich",
           "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
           "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
           "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
           "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-          "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk"
+          "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
@@ -4920,15 +4915,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:24.627Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4964,7 +4959,7 @@
       "url": "https://apply.refline.ch/163206/2441/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:39.151Z",
+      "crawledAt": "2026-06-15T23:36:43.897Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4998,15 +4993,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:24.150Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -5042,7 +5037,7 @@
       "url": "https://apply.refline.ch/163206/2418/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:38.723Z",
+      "crawledAt": "2026-06-15T23:36:43.432Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5064,7 +5059,6 @@
       "pensumMax": 100,
       "pensum": "70 - 100%",
       "previousSlugs": [
-        "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
         "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
         "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik",
@@ -5083,11 +5077,11 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
         "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
         "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich"
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+        "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
           "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
           "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik",
@@ -5106,7 +5100,8 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
           "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
           "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische"
+          "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+          "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich"
         ],
         "en": [
           "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
@@ -5140,15 +5135,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:23.674Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -5184,7 +5179,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:38.295Z",
+      "crawledAt": "2026-06-15T23:36:42.966Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5211,15 +5206,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:23.152Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -5255,7 +5250,7 @@
       "url": "https://apply.refline.ch/163206/1546/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:37.867Z",
+      "crawledAt": "2026-06-15T23:36:42.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5285,15 +5280,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:22.676Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -5330,7 +5325,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:35.348Z",
+      "crawledAt": "2026-06-15T23:36:42.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5405,7 +5400,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:34.913Z",
+      "crawledAt": "2026-06-15T23:36:41.569Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5480,7 +5475,7 @@
       "url": "https://apply.refline.ch/163206/2579/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:34.476Z",
+      "crawledAt": "2026-06-15T23:36:41.105Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5527,9 +5522,9 @@
       "id": "puk-zuerich-7583e171b7b7",
       "slug": "assistentin-assistenten-zentrumsleitung-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "de": "assistentin-assistenten-zentrumsleitung-puk-zuerich-zurich",
         "it": "assistentin-assistenten-zentrumsleitung-psychiatrische-universitatsklinik-zurich-zurich",
         "en": "assistentin-assistenten-zentrumsleitung-psychiatrische-universitatsklinik-zurich-zurich",
+        "de": "assistentin-assistenten-zentrumsleitung-puk-zuerich-zurich",
         "fr": "assistentin-assistenten-zentrumsleitung-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -5537,24 +5532,25 @@
       "companyDomain": "pukzh.ch",
       "title": "Assistentin / Assistenten Zentrumsleitung",
       "titleByLocale": {
-        "de": "Assistentin / Assistenten Zentrumsleitung",
         "it": "Assistente Direttore del Centro",
         "en": "Assistant Center Manager",
+        "de": "Assistentin / Assistenten Zentrumsleitung",
         "fr": "Directeur adjoint du centre"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An 8 Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Soziale Psychiatrie (Chefarzt PD Dr. med. Stefan Vetter) bietet ein umfangreiches ambulantes und teilstationäres sowie ein stationäres Kurzzeit-Angebot an. Innovative Psychotherapiekonzepte sind integraler Bestandteil des Versorgungsangebotes. Zwei assoziierte Professuren stärken die Psychotherapie darüber hinaus in Forschung und Lehre.\n\nFür unseren Standort Militärstrasse Zürich suchen wir per 1. September 2026 oder nach Vereinbarung eine/n\n\nAssistentin / Assistenten Zentrumsleitung\n\n40% - 50%\n\nIhre Aufgaben\n\n• Administrative und koordinative Unterstützung der Leitung des Zentrums für Soziale Psychiatrie und Psychotherapie\n• Allgemeine Sekretariats- und Administrationsaufgaben im Tagesgeschäft des Sekretariates der Zentrumsleitung (Korrespondenz, Organisation von Patiententerminen, Ablage, Pendenzenverwaltung)\n• Organisation, Koordination und Vorbereitung von Sitzungen, inkl. Protokollführung bei Bedarf\n• Sicherstellung des Informations- und Kommunikationsflusses zwischen der Zentrumsleitung, verschiedenen Bereichen des Zentrums und weiteren internen und externen Schnittstellen\n• Bearbeitung und Koordination von Weiterbildungsanträgen sowie Unterstützung bei administrativen Prozessen im Bereich Weiterbildung\n• Unterstützung bei personaladministrativen Aufgaben in Stellvertretung bei Abwesenheit der zuständigen Assistenz\n• Übernahme weiterer definierter Stellvertretungsaufgaben bei Abwesenheit der Teamkollegin\n• Abgeschlossene Ausbildung im kaufmännischen oder gesundheitlichen Bereich mit Erfahrung in vergleichbarer Position\n• Fundierte MS-Office Kenntnisse und guter Umgang mit digitalen Arbeitsmitteln\n• Kenntnisse KISIM (Klinikinformationssystem) und PEP (Personalplanungsprogramm) von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift mit professioneller Umsetzung in kommunikativen Prozessen\n• Ausgeprägtes Organisationstalent mit strukturierter, gewissenhafter und eigenständiger Arbeitsweise\n• Gute Englischkenntnisse in Wort und Schrift von Vorteil\n• Teamfähigkeit und dienstorientiertes Handeln\n• Diskretion, Verbindlichkeit und ein sorgfältiger Umgang mit vertraulichen Informationen sind für Sie selbstverständlich\n• Interesse und Offenheit in der Umsetzung neuer Ideen\n• Interessante und eigenverantwortliche Aufgaben in einer Drehscheibenfunktion\n• Motiviertes, kollegiales und kompetentes Team\n• Attraktiver Arbeitsort direkt beim Hauptbahnhof, im Herzen von Zürich\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Check’s (standortabhängig), Betriebseigene Kinderkrippe u.v.m.",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nAls führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An 8 Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen.\nDas Zentrum für Soziale Psychiatrie (Chefarzt PD Dr. med. Stefan Vetter) bietet ein umfangreiches ambulantes und teilstationäres sowie ein stationäres Kurzzeit-Angebot an. Innovative Psychotherapiekonzepte sind integraler Bestandteil des Versorgungsangebotes. Zwei assoziierte Professuren stärken die Psychotherapie darüber hinaus in Forschung und Lehre.\n\nFür unseren Standort Militärstrasse Zürich suchen wir per 1. September 2026 oder nach Vereinbarung eine/n\n\nAssistentin / Assistenten Zentrumsleitung\n\n40% - 50%\n\nIhre Aufgaben\n\n• Administrative und koordinative Unterstützung der Leitung des Zentrums für Soziale Psychiatrie und Psychotherapie\n• Allgemeine Sekretariats- und Administrationsaufgaben im Tagesgeschäft des Sekretariates der Zentrumsleitung (Korrespondenz, Organisation von Patiententerminen, Ablage, Pendenzenverwaltung)\n• Organisation, Koordination und Vorbereitung von Sitzungen, inkl. Protokollführung bei Bedarf\n• Sicherstellung des Informations- und Kommunikationsflusses zwischen der Zentrumsleitung, verschiedenen Bereichen des Zentrums und weiteren internen und externen Schnittstellen\n• Bearbeitung und Koordination von Weiterbildungsanträgen sowie Unterstützung bei administrativen Prozessen im Bereich Weiterbildung\n• Unterstützung bei personaladministrativen Aufgaben in Stellvertretung bei Abwesenheit der zuständigen Assistenz\n• Übernahme weiterer definierter Stellvertretungsaufgaben bei Abwesenheit der Teamkollegin\n• Abgeschlossene Ausbildung im kaufmännischen oder gesundheitlichen Bereich mit Erfahrung in vergleichbarer Position\n• Fundierte MS-Office Kenntnisse und guter Umgang mit digitalen Arbeitsmitteln\n• Kenntnisse KISIM (Klinikinformationssystem) und PEP (Personalplanungsprogramm) von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift mit professioneller Umsetzung in kommunikativen Prozessen\n• Ausgeprägtes Organisationstalent mit strukturierter, gewissenhafter und eigenständiger Arbeitsweise\n• Gute Englischkenntnisse in Wort und Schrift von Vorteil\n• Teamfähigkeit und dienstorientiertes Handeln\n• Diskretion, Verbindlichkeit und ein sorgfältiger Umgang mit vertraulichen Informationen sind für Sie selbstverständlich\n• Interesse und Offenheit in der Umsetzung neuer Ideen\n• Interessante und eigenverantwortliche Aufgaben in einer Drehscheibenfunktion\n• Motiviertes, kollegiales und kompetentes Team\n• Attraktiver Arbeitsort direkt beim Hauptbahnhof, im Herzen von Zürich\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Check’s (standortabhängig), Betriebseigene Kinderkrippe u.v.m.",
-        "it": "• L'Ospedale Psichiatrico Universitario di Zurigo cura e assiste persone malate di mente di tutte le età. Gli oltre 2.500 dipendenti provenienti da 55 diversi profili professionali lavorano in team interdisciplinari per contribuire alla cura olistica dei pazienti, dalla valutazione alla terapia fino all'assistenza post-terapia. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali. In qualità di clinica leader nel campo della psichiatria e della psicoterapia degli adulti in Svizzera, non solo assumiamo il mandato di cura del Cantone di Zurigo, ma agiamo anche come istituzione universitaria con un mandato di ricerca e insegnamento dell'Università di Zurigo. In 8 sedi, tra cui cinque strutture cliniche e un centro di ricerca, oltre 1.000 dipendenti impegnati creano un ambiente di lavoro diversificato e dinamico. Qui hai l'opportunità di essere coinvolto attivamente in un'importante istituzione. Il Centro di Psichiatria Sociale (primario PD Dr. med. Stefan Vetter) offre un'ampia gamma di servizi ambulatoriali, stazionari a tempo parziale e anche a breve termine. Concetti innovativi di psicoterapia sono parte integrante dell’offerta assistenziale. Due cattedre associate rafforzano inoltre la psicoterapia nella ricerca e nell'insegnamento. Stiamo cercando la nostra sede in Militarystrasse Zurigo dal 1° gennaio. settembre 2026 o su appuntamento un assistente direzione del centro 40% - 50% I vostri compiti • Supporto amministrativo e coordinatore per la direzione del Centro di Psichiatria Sociale e Psicoterapia • Compiti generali di segreteria e amministrativi nell'attività quotidiana della segreteria della direzione del centro (corrispondenza, organizzazione degli appuntamenti con i pazienti, archiviazione, gestione in sospeso) • Organizzazione, coordinamento e preparazione delle riunioni, incl. Se necessario, tenuta dei registri • Garantire il flusso di informazioni e comunicazione tra la direzione del centro, diverse aree del centro e altre interfacce interne ed esterne • Elaborazione e coordinamento di richieste di formazione continua nonché supporto nei processi amministrativi nell'area della formazione continua • Supporto nei compiti amministrativi del personale come sostituto in assenza dell'assistente responsabile • Assunzione di ulteriori compiti sostitutivi definiti in assenza del collega del team • Formazione completata nel settore commerciale o sanitario con esperienza in una posizione comparabile • Solida conoscenza di MS Office e buona gestione con strumenti digitali • Conoscenza di KISIM (sistema informativo clinico) e PEP (programma di pianificazione del personale) sono un vantaggio • Tedesco parlato e scritto elegante con implementazione professionale nei processi comunicativi • Forte talento organizzativo con un modo di lavorare strutturato, coscienzioso e indipendente • Una buona conoscenza dell'inglese parlato e scritto è un vantaggio • Capacità di lavorare in squadra e di azione orientata al servizio • Discrezione, impegno e gestione attenta delle informazioni riservate sono un dato di fatto • Interesse e apertura nell'implementazione di nuove idee • Compiti interessanti e auto-responsabili in una funzione hub • Team motivato, affiatato e competente • Posto di lavoro attraente proprio accanto alla stazione centrale, nel cuore di Zurigo • Opportunità di sviluppo personale e professionale • Condizioni di lavoro secondo la legge cantonale sul personale • Prestazioni sociali interessanti (copertura del 60% dei contributi alla cassa pensione) • Possibilità di acquisti e attività sportive scontate, partecipazione alla ZVV BonusPass/abbonamento generale, ristorante per il personale a prezzi agevolati o assegni pranzo (a seconda della località), asilo nido aziendale e molto altro ancora.",
-        "en": "• The Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees from 55 different professional profiles work in interdisciplinary teams to contribute to the holistic care of patients, from assessment to therapy to aftercare. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects. As a leading clinic for adult psychiatry and psychotherapy in Switzerland, we not only take on the care mandate of the Canton of Zurich, but also act as a university institution with a research and teaching mandate from the University of Zurich. At 8 locations, including five clinical facilities and a research center, over 1,000 committed employees create a diverse and dynamic working environment. Here you have the opportunity to get actively involved in an important institution. The Center for Social Psychiatry (head physician PD Dr. med. Stefan Vetter) offers extensive outpatient and part-time inpatient as well as short-term inpatient services. Innovative psychotherapy concepts are an integral part of the care offering. Two associated professorships also strengthen psychotherapy in research and teaching. We are looking for our Militarystrasse Zurich location as of January 1st. September 2026 or by arrangement an assistant center management 40% - 50% Your tasks • Administrative and coordinative support for the management of the Center for Social Psychiatry and Psychotherapy • General secretarial and administrative tasks in the day-to-day business of the center management secretariat (correspondence, organization of patient appointments, filing, pending management) • Organization, coordination and preparation of meetings, incl. Record keeping if necessary • Ensuring the flow of information and communication between the center management, various areas of the center and other internal and external interfaces • Processing and coordination of further training applications as well as support with administrative processes in the area of further training • Support with personnel administrative tasks as a substitute in the absence of the responsible assistant • Taking on further defined substitute tasks in the absence of the team colleague • Completed training in the commercial or health sector with experience in a comparable position • Sound MS Office knowledge and good handling with digital tools • Knowledge of KISIM (clinical information system) and PEP (personnel planning program) is an advantage • Stylish spoken and written German with professional implementation in communicative processes • Strong organizational talent with a structured, conscientious and independent way of working • Good knowledge of spoken and written English is an advantage • Ability to work in a team and service-oriented action • Discretion, commitment and careful handling of confidential information are a given for you • Interest and openness in the implementation of new ideas • Interesting and self-responsible tasks in a hub function • Motivated, collegial and competent team • Attractive place to work right next to the main train station, in the heart of Zurich • Personal and professional development opportunities • Conditions of employment in accordance with the cantonal personnel law • Attractive social benefits (covering 60% of pension fund contributions) • Discounted shopping opportunities and sports activities, participation in the ZVV BonusPass/general subscription, staff restaurant with subsidized prices or lunch Checks (depending on location), company-owned crèche and much more.",
-        "fr": "• L'Hôpital psychiatrique universitaire de Zurich traite et soigne des malades mentaux de tout âge. Les plus de 2 500 collaborateurs issus de 55 profils professionnels différents travaillent en équipes interdisciplinaires pour contribuer à la prise en charge globale des patients, de l'évaluation à la thérapie en passant par le suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et ensemble, nous promouvons une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux. En tant que clinique leader en psychiatrie et psychothérapie pour adultes en Suisse, nous assumons non seulement le mandat de soins du canton de Zurich, mais agissons également en tant qu'institution universitaire avec un mandat de recherche et d'enseignement de l'Université de Zurich. Sur 8 sites, dont cinq installations cliniques et un centre de recherche, plus de 1 000 employés engagés créent un environnement de travail diversifié et dynamique. Ici, vous avez la possibilité de vous impliquer activement dans une institution importante. Le Centre de psychiatrie sociale (médecin-chef PD Dr. med. Stefan Vetter) propose de nombreuses prestations ambulatoires et hospitalières à temps partiel ainsi que des prestations hospitalières de courte durée. Les concepts de psychothérapie innovants font partie intégrante de l'offre de soins. Deux chaires associées renforcent également la psychothérapie dans la recherche et l'enseignement. Nous recherchons notre site Militarystrasse Zurich à partir du 1er janvier. Septembre 2026 ou sur rendez-vous un assistant de direction du centre 40% - 50% Vos tâches • Soutien administratif et coordinateur à la gestion du Centre de Psychiatrie Sociale et Psychothérapie • Tâches de secrétariat général et administratives dans les affaires quotidiennes du secrétariat de direction du centre (correspondance, organisation des rendez-vous des patients, classement, gestion des attentes) • Organisation, coordination et préparation des réunions, incl. Si nécessaire, tenue des registres • Assurer le flux d'informations et de communication entre la direction du centre, les différentes zones du centre et d'autres interfaces internes et externes • Traitement et coordination des demandes de formation continue ainsi que soutien dans les processus administratifs dans le domaine de la formation continue • Soutien aux tâches administratives du personnel en remplacement de l'assistant responsable • Prise en charge de tâches de remplacement plus définies en l'absence du collègue de l'équipe • Formation terminée dans le secteur commercial ou de la santé avec expérience dans un poste comparable • Bonne connaissance de MS Office et bonne manipulation des outils numériques • Connaissance de KISIM (système d'information clinique) et PEP (programme de planification du personnel) est un avantage • Allemand parlé et écrit élégant avec mise en œuvre professionnelle dans les processus de communication • Fort talent organisationnel avec une façon de travailler structurée, consciencieuse et indépendante • Une bonne connaissance de l'anglais parlé et écrit est un avantage • Capacité à travailler en équipe et à agir de manière orientée service • La discrétion, l'engagement et le traitement prudent des informations confidentielles sont une évidence pour vous • Intérêt et ouverture dans la mise en œuvre de nouvelles idées • Tâches intéressantes et responsables dans une fonction de hub • Équipe motivée, collégiale et compétente • Lieu de travail attrayant juste à côté de la gare principale, au cœur de Zurich • Possibilités de développement personnel et professionnel • Conditions de travail conformes au droit cantonal du personnel • Avantages sociaux attractifs (couvrant 60% des cotisations à la caisse de pension) • Possibilités de shopping et d'activités sportives à prix réduits, participation au ZVV BonusPass/abonnement général, restaurant du personnel à prix subventionnés ou chèques déjeuner (selon le lieu), crèche d'entreprise et bien plus encore."
+        "it": "• L'Ospedale Psichiatrico Universitario di Zurigo cura e assiste persone malate di mente di tutte le età. Gli oltre 2.500 dipendenti provenienti da 55 diversi profili professionali lavorano in team interdisciplinari per contribuire alla cura olistica dei pazienti, dalla valutazione alla terapia fino all'assistenza post-terapia. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali. In qualità di clinica leader nel campo della psichiatria e della psicoterapia degli adulti in Svizzera, non solo assumiamo il mandato di cura del Cantone di Zurigo, ma agiamo anche come istituzione universitaria con un mandato di ricerca e insegnamento dell'Università di Zurigo. In 8 sedi, tra cui cinque strutture cliniche e un centro di ricerca, oltre 1.000 dipendenti impegnati creano un ambiente di lavoro diversificato e dinamico. Qui hai l'opportunità di essere coinvolto attivamente in un'importante istituzione. Il Centro di Psichiatria Sociale (primario PD Dr. med. Stefan Vetter) offre un'ampia gamma di servizi ambulatoriali, stazionari a tempo parziale e anche a breve termine. Concetti innovativi di psicoterapia sono parte integrante dell’offerta assistenziale. Due cattedre associate rafforzano inoltre la psicoterapia nella ricerca e nell'insegnamento. Stiamo cercando la nostra sede in Militarystrasse Zurigo dal 1° gennaio. settembre 2026 o su appuntamento un assistente direzione del centro 40% - 50% I vostri compiti\n• Supporto amministrativo e coordinatore per la direzione del Centro di Psichiatria Sociale e Psicoterapia\n• Compiti generali di segreteria e amministrativi nell'attività quotidiana della segreteria della direzione del centro (corrispondenza, organizzazione degli appuntamenti con i pazienti, archiviazione, gestione in sospeso)\n• Organizzazione, coordinamento e preparazione delle riunioni, incl. Se necessario, tenuta dei registri\n• Garantire il flusso di informazioni e comunicazione tra la direzione del centro, diverse aree del centro e altre interfacce interne ed esterne\n• Elaborazione e coordinamento di richieste di formazione continua nonché supporto nei processi amministrativi nell'area della formazione continua\n• Supporto nei compiti amministrativi del personale come sostituto in assenza dell'assistente responsabile\n• Assunzione di ulteriori compiti sostitutivi definiti in assenza del collega del team\n• Formazione completata nel settore commerciale o sanitario con esperienza in una posizione comparabile\n• Solida conoscenza di MS Office e buona gestione con strumenti digitali\n• Conoscenza di KISIM (sistema informativo clinico) e PEP (programma di pianificazione del personale) sono un vantaggio\n• Tedesco parlato e scritto elegante con implementazione professionale nei processi comunicativi\n• Forte talento organizzativo con un modo di lavorare strutturato, coscienzioso e indipendente\n• Una buona conoscenza dell'inglese parlato e scritto è un vantaggio\n• Capacità di lavorare in squadra e di azione orientata al servizio\n• Discrezione, impegno e gestione attenta delle informazioni riservate sono un dato di fatto\n• Interesse e apertura nell'implementazione di nuove idee\n• Compiti interessanti e auto-responsabili in una funzione hub\n• Team motivato, affiatato e competente\n• Posto di lavoro attraente proprio accanto alla stazione centrale, nel cuore di Zurigo\n• Opportunità di sviluppo personale e professionale\n• Condizioni di lavoro secondo la legge cantonale sul personale\n• Prestazioni sociali interessanti (copertura del 60% dei contributi alla cassa pensione)\n• Possibilità di acquisti e attività sportive scontate, partecipazione alla ZVV BonusPass/abbonamento generale, ristorante per il personale a prezzi agevolati o assegni pranzo (a seconda della località), asilo nido aziendale e molto altro ancora.",
+        "en": "• The Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees from 55 different professional profiles work in interdisciplinary teams to contribute to the holistic care of patients, from assessment to therapy to aftercare. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects. As a leading clinic for adult psychiatry and psychotherapy in Switzerland, we not only take on the care mandate of the Canton of Zurich, but also act as a university institution with a research and teaching mandate from the University of Zurich. At 8 locations, including five clinical facilities and a research center, over 1,000 committed employees create a diverse and dynamic working environment. Here you have the opportunity to get actively involved in an important institution. The Center for Social Psychiatry (head physician PD Dr. med. Stefan Vetter) offers extensive outpatient and part-time inpatient as well as short-term inpatient services. Innovative psychotherapy concepts are an integral part of the care offering. Two associated professorships also strengthen psychotherapy in research and teaching. We are looking for our Militarystrasse Zurich location as of January 1st. September 2026 or by arrangement an assistant center management 40% - 50% Your tasks\n• Administrative and coordinative support for the management of the Center for Social Psychiatry and Psychotherapy\n• General secretarial and administrative tasks in the day-to-day business of the center management secretariat (correspondence, organization of patient appointments, filing, pending management)\n• Organization, coordination and preparation of meetings, incl. Record keeping if necessary\n• Ensuring the flow of information and communication between the center management, various areas of the center and other internal and external interfaces\n• Processing and coordination of further training applications as well as support with administrative processes in the area of further training\n• Support with personnel administrative tasks as a substitute in the absence of the responsible assistant\n• Taking on further defined substitute tasks in the absence of the team colleague\n• Completed training in the commercial or health sector with experience in a comparable position\n• Sound MS Office knowledge and good handling with digital tools\n• Knowledge of KISIM (clinical information system) and PEP (personnel planning program) is an advantage\n• Stylish spoken and written German with professional implementation in communicative processes\n• Strong organizational talent with a structured, conscientious and independent way of working\n• Good knowledge of spoken and written English is an advantage\n• Ability to work in a team and service-oriented action\n• Discretion, commitment and careful handling of confidential information are a given for you\n• Interest and openness in the implementation of new ideas\n• Interesting and self-responsible tasks in a hub function\n• Motivated, collegial and competent team\n• Attractive place to work right next to the main train station, in the heart of Zurich\n• Personal and professional development opportunities\n• Conditions of employment in accordance with the cantonal personnel law\n• Attractive social benefits (covering 60% of pension fund contributions)\n• Discounted shopping opportunities and sports activities, participation in the ZVV BonusPass/general subscription, staff restaurant with subsidized prices or lunch Checks (depending on location), company-owned crèche and much more.",
+        "de": "•\n• • Die Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten. Als führende Klinik für Erwachsenenpsychiatrie und Psychotherapie in der Schweiz übernehmen wir nicht nur den Versorgungsauftrag des Kantons Zürich, sondern agieren auch als universitäre Einrichtung mit Forschungs- und Lehrauftrag der Universität Zürich. An 8 Standorten, darunter fünf klinische Einrichtungen und ein Forschungszentrum, gestalten über 1000 engagierte Mitarbeiterinnen und Mitarbeiter eine vielseitige und dynamische Arbeitsumgebung. Hier haben Sie die Möglichkeit, sich in einer bedeutenden Institution aktiv einzubringen. Das Zentrum für Soziale Psychiatrie (Chefarzt PD Dr. med. Stefan Vetter) bietet ein umfangreiches ambulantes und teilstationäres sowie ein stationäres Kurzzeit-Angebot an. Innovative Psychotherapiekonzepte sind integraler Bestandteil des Versorgungsangebotes. Zwei assoziierte Professuren stärken die Psychotherapie darüber hinaus in Forschung und Lehre. Für unseren Standort Militärstrasse Zürich suchen wir per 1. September 2026 oder nach Vereinbarung eine/n Assistentin / Assistenten Zentrumsleitung 40% - 50% Ihre Aufgaben\n• Administrative und koordinative Unterstützung der Leitung des Zentrums für Soziale Psychiatrie und Psychotherapie\n• Allgemeine Sekretariats- und Administrationsaufgaben im Tagesgeschäft des Sekretariates der Zentrumsleitung (Korrespondenz, Organisation von Patiententerminen, Ablage, Pendenzenverwaltung)\n• Organisation, Koordination und Vorbereitung von Sitzungen, inkl. Protokollführung bei Bedarf\n• Sicherstellung des Informations- und Kommunikationsflusses zwischen der Zentrumsleitung, verschiedenen Bereichen des Zentrums und weiteren internen und externen Schnittstellen\n• Bearbeitung und Koordination von Weiterbildungsanträgen sowie Unterstützung bei administrativen Prozessen im Bereich Weiterbildung\n• Unterstützung bei personaladministrativen Aufgaben in Stellvertretung bei Abwesenheit der zuständigen Assistenz\n• Übernahme weiterer definierter Stellvertretungsaufgaben bei Abwesenheit der Teamkollegin\n• Abgeschlossene Ausbildung im kaufmännischen oder gesundheitlichen Bereich mit Erfahrung in vergleichbarer Position\n• Fundierte MS-Office Kenntnisse und guter Umgang mit digitalen Arbeitsmitteln\n• Kenntnisse KISIM (Klinikinformationssystem) und PEP (Personalplanungsprogramm) von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift mit professioneller Umsetzung in kommunikativen Prozessen\n• Ausgeprägtes Organisationstalent mit strukturierter, gewissenhafter und eigenständiger Arbeitsweise\n• Gute Englischkenntnisse in Wort und Schrift von Vorteil\n• Teamfähigkeit und dienstorientiertes Handeln\n• Diskretion, Verbindlichkeit und ein sorgfältiger Umgang mit vertraulichen Informationen sind für Sie selbstverständlich\n• Interesse und Offenheit in der Umsetzung neuer Ideen\n• Interessante und eigenverantwortliche Aufgaben in einer Drehscheibenfunktion\n• Motiviertes, kollegiales und kompetentes Team\n• Attraktiver Arbeitsort direkt beim Hauptbahnhof, im Herzen von Zürich\n• Persönliche und fachliche Weiterentwicklungsmöglichkeiten\n• Anstellungsbedingungen nach dem kantonalen Personalgesetz\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote, Beteiligung am ZVV-BonusPass/Generalabonnement, Personalrestaurant mit subventionierten Preisen oder Lunch Check’s (standortabhängig), Betriebseigene Kinderkrippe u.v.m.",
+        "fr": "• L'Hôpital psychiatrique universitaire de Zurich traite et soigne des malades mentaux de tout âge. Les plus de 2 500 collaborateurs issus de 55 profils professionnels différents travaillent en équipes interdisciplinaires pour contribuer à la prise en charge globale des patients, de l'évaluation à la thérapie en passant par le suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et ensemble, nous promouvons une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux. En tant que clinique leader en psychiatrie et psychothérapie pour adultes en Suisse, nous assumons non seulement le mandat de soins du canton de Zurich, mais agissons également en tant qu'institution universitaire avec un mandat de recherche et d'enseignement de l'Université de Zurich. Sur 8 sites, dont cinq installations cliniques et un centre de recherche, plus de 1 000 employés engagés créent un environnement de travail diversifié et dynamique. Ici, vous avez la possibilité de vous impliquer activement dans une institution importante. Le Centre de psychiatrie sociale (médecin-chef PD Dr. med. Stefan Vetter) propose de nombreuses prestations ambulatoires et hospitalières à temps partiel ainsi que des prestations hospitalières de courte durée. Les concepts de psychothérapie innovants font partie intégrante de l'offre de soins. Deux chaires associées renforcent également la psychothérapie dans la recherche et l'enseignement. Nous recherchons notre site Militarystrasse Zurich à partir du 1er janvier. Septembre 2026 ou sur rendez-vous un assistant de direction du centre 40% - 50% Vos tâches\n• Soutien administratif et coordinateur à la gestion du Centre de Psychiatrie Sociale et Psychothérapie\n• Tâches de secrétariat général et administratives dans les affaires quotidiennes du secrétariat de direction du centre (correspondance, organisation des rendez-vous des patients, classement, gestion des attentes)\n• Organisation, coordination et préparation des réunions, incl. Si nécessaire, tenue des registres\n• Assurer le flux d'informations et de communication entre la direction du centre, les différentes zones du centre et d'autres interfaces internes et externes\n• Traitement et coordination des demandes de formation continue ainsi que soutien dans les processus administratifs dans le domaine de la formation continue\n• Soutien aux tâches administratives du personnel en remplacement de l'assistant responsable\n• Prise en charge de tâches de remplacement plus définies en l'absence du collègue de l'équipe\n• Formation terminée dans le secteur commercial ou de la santé avec expérience dans un poste comparable\n• Bonne connaissance de MS Office et bonne manipulation des outils numériques\n• Connaissance de KISIM (système d'information clinique) et PEP (programme de planification du personnel) est un avantage\n• Allemand parlé et écrit élégant avec mise en œuvre professionnelle dans les processus de communication\n• Fort talent organisationnel avec une façon de travailler structurée, consciencieuse et indépendante\n• Une bonne connaissance de l'anglais parlé et écrit est un avantage\n• Capacité à travailler en équipe et à agir de manière orientée service\n• La discrétion, l'engagement et le traitement prudent des informations confidentielles sont une évidence pour vous\n• Intérêt et ouverture dans la mise en œuvre de nouvelles idées\n• Tâches intéressantes et responsables dans une fonction de hub\n• Équipe motivée, collégiale et compétente\n• Lieu de travail attrayant juste à côté de la gare principale, au cœur de Zurich\n• Possibilités de développement personnel et professionnel\n• Conditions de travail conformes au droit cantonal du personnel\n• Avantages sociaux attractifs (couvrant 60% des cotisations à la caisse de pension)\n• Possibilités de shopping et d'activités sportives à prix réduits, participation au ZVV BonusPass/abonnement général, restaurant du personnel à prix subventionnés ou chèques déjeuner (selon le lieu), crèche d'entreprise et bien plus encore."
       },
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://apply.refline.ch/163206/2707/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:36:30.530Z",
+      "crawledAt": "2026-06-15T23:36:36.901Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5570,31 +5566,29 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://apply.refline.ch/163206/2707/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2707",
+      "previousSlugs": [
+        "assistentin-assistenten-zentrumsleitung-puk-zuerich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistenten-zentrumsleitung-puk-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "assistentin-assistenten-zentrumsleitung-puk-zuerich-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-06-15T15:36:30.530Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-15T15:36:30.530Z"
+      }
     },
     {
       "id": "puk-zuerich-fadca51159cb",
@@ -5627,7 +5621,7 @@
       "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:32.614Z",
+      "crawledAt": "2026-06-15T23:36:36.434Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5647,107 +5641,26 @@
       "externalId": "2644",
       "previousSlugs": [
         "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
-        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
-          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich"
         ],
         "fr": [
           "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
         ]
       },
       "firstSeenAt": "2026-06-10T12:44:16.918Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "puk-zuerich-a58891e804c5",
-      "slug": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich",
-      "slugByLocale": {
-        "it": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich",
-        "en": "certified-nursing-specialist-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich",
-        "fr": "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
-      },
-      "company": "Psychiatrische Universitätsklinik Zürich",
-      "companyKey": "puk-zuerich",
-      "companyDomain": "pukzh.ch",
-      "title": "Dipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100%",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100%",
-        "en": "Certified Nursing Specialist HF 80-100%",
-        "de": "Dipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100%",
-        "fr": "Dipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100 %"
-      },
-      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nInnovation und Tradition\n\nIm Grossambulatorium Im Quadro in Oerlikon stellt die PUK ein umfassendes psychiatrisches Leistungsangebot aus allen vier Kliniken bereit. Damit definiert die PUK die Organisation ihrer intermediären Dienstleistungen neu und setzt die Strategie «ambulant vor stationär» in der psychiatrischen Versorgung im Kanton Zürich innovativ um. Im Ambulatorium arbeiten mehr als 180 Personen und gegen 500 Personen werden täglich behandelt. Mit dem Ziel, den Leistungserbringenden optimale Unterstützung bei allen nicht patientenzentrierten Tätigkeiten zu bieten, bauen wir vor Ort das administrative Team aus.\n\nZum Auf- und Ausbau des Pflegeteams suchen wir per sofort oder nach Vereinbarung eine/einen engagierte/n\n\nDipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100%\n\n80% - 100%\n\nIhre Aufgaben\n\n• Ambulante Behandlung und Begleitung psychisch erkrankter Menschen als Teil unserer interdisziplinären psychiatrisch-psychotherapeutischen Teams\n• Therapeutisches und fachliches Arbeiten in der Tagesklinik\n• Durchführen von Gruppenangeboten, Fallführung\n• Durchführung medizinischer und pflegerischer Aufgaben (u.a. Organisation der Apotheke und des Labors, Abgabe Medikation, Blutentnahmen, intramuskuläre Injektionen, Schreiben von EKGs)\n• Abgeschlossene Ausbildung HF zur Pflegefachperson mit Schwerpunkt Psychiatrie (bei ausländischen Abschlüssen mit Anerkennungsnachweis)\n• Erfahrung im Umgang mit psychisch erkrankten Menschen innerhalb psychiatrisch-psychotherapeutischer Institutionen\n• Freude an einer verantwortungsvollen, selbständigen sowie helfend ausgerichteten Tätigkeit in einem vielseitigen Arbeitsumfeld und Interesse am Leiten therapeutischer Gruppen\n• Idealerweise therapeutische Kompetenzen, z. B. in DBT oder Motivational Interviewing\n• Gute IT-Kenntnisse, insbesondere in MS Office; SAP- und KISIM-Kenntnisse von Vorteil\n• Offene, teamfähige Persönlichkeit mit hoher Sozialkompetenz sowie selbständiger und zuverlässiger Arbeitsweise\n• Fliessende Deutschkenntnisse in Wort und Schrift; weitere Fremdsprachenkenntnisse von Vorteil\n• Einzigartige Chance, eine neue Ära der Patientenversorgung mitzuprägen\n• Moderne und attraktive Anstellungs- und Arbeitsbedingungen\n• Zusammenarbeit mit allen klinischen Bereichen der PUK\n• Anspruchsvolle und breit gefächerte Aufgaben\n• Zusammenarbeit mit dynamischen und motivierten Teams\n• Grosszügige interne und externe Weiterbildungsmöglichkeiten\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote und Beteiligung an Abonnements des öffentlichen Verkehrs",
-      "descriptionByLocale": {
-        "it": "• L'Ospedale Universitario Psichiatrico di Zurigo tratta e si prende cura di persone mentalmente malate di tutte le età. Gli oltre 2.500 dipendenti delle 55 diverse professioni danno il loro contributo alla cura olistica dei pazienti in team interdisciplinari, dalla chiarificazione e dalla terapia al follow-up. Il nostro lavoro si basa sulla fiducia reciproca e sulla responsabilità personale e insieme promuoviamo una cultura aziendale innovativa. Come clinica universitaria, siamo coinvolti con successo in progetti di ricerca nazionali e internazionali. Nel grande ambulatorio Im Quadro a Oerlikon, PUK fornisce una gamma completa di servizi psichiatrici da tutte e quattro le cliniche. In questo modo, PUK sta ridefinindo l’organizzazione dei suoi servizi intermedi e sta implementando in modo innovativo la strategia “espaziente prima dell’inpatia” nell’assistenza psichiatrica nel Cantone di Zurigo. Più di 180 persone lavorano nell'ambulatorio e circa 500 persone vengono trattate quotidianamente. Con l'obiettivo di offrire ai fornitori di servizi un supporto ottimale in tutte le attività non-pazienti-centrate, stiamo espandendo il team amministrativo in loco. Per impostare ed espandere il team di assistenza, stiamo cercando un dipl impegnato immediatamente o con accordo. Infermieristica professionale / Dipl. Infermieristica (HF 80-100%)\n• Un'occasione unica per contribuire a modellare una nuova era di cura del paziente\n• Moderni e attraenti condizioni di lavoro e di lavoro\n• Collaborazione con tutte le aree cliniche di PUK\n• Compiti esigenti e diversificati\n• Collaborazione con team dinamici e motivati\n• Generose opportunità di formazione interna ed esterna\n• Prestazioni sociali attraenti (acquisizione del 60% dei contributi del fondo pensione)\n• Riduzione dello shopping, dello sport e della partecipazione agli abbonamenti di trasporto pubblico",
-        "en": "• The Psychiatric University Hospital Zurich treats and cares for mentally ill people of all ages. The more than 2,500 employees of the 55 different professions make their contribution to the holistic care of patients in interdisciplinary teams, from clarification and therapy to follow-up care. Our work is based on mutual trust and personal responsibility and together we promote an innovative corporate culture. As a university clinic, we are successfully involved in national and international research projects. In the large ambulatorium Im Quadro in Oerlikon, PUK offers a comprehensive range of psychiatric services from all four clinics. In doing so, PUK is redefining the organisation of its intermediary services and is innovatively implementing the “outpatient before inpatient” strategy in psychiatric care in the Canton of Zurich. More than 180 people work in the ambulatory and around 500 people are treated daily. With the aim of offering the service providers optimal support in all non-patient-centered activities, we are expanding the administrative team on site. To set up and expand the care team, we are looking for a committed dipl immediately or by agreement. Nursing professional / Dipl. Nursing specialist HF 80-100% 80% - 100% Your tasks\n• Outpatient treatment and support of mentally ill people as part of our interdisciplinary psychiatric-psychotherapeutic teams\n• Therapeutic and professional work in the day clinic\n• Conducting group offers, case management\n• Implementation of medical and nursing tasks (e.g. organization of the pharmacy and the laboratory, delivery of medication, blood sampling, intramuscular injections, writing of ECGs)\n• Completed training HF as a nursing specialist with a focus on psychiatry (for foreign degrees with recognition)\n• Experience in dealing with mentally ill people within psychiatric-psychotherapeutic institutions\n• Joy in a responsible, independent and helpfully oriented activity in a versatile working environment and interest in leading therapeutic groups\n• Ideally therapeutic skills, e.g. in DBT or Motivational Interviewing Good IT skills, especially in MS Office; SAP and KISIM skills are beneficial\n• Open, team-capable personality with a high level of social competence as well as independent and reliable working methods\n• Flowing knowledge of German in words and writing; Further knowledge of foreign languages\n• Unique opportunity to shape a new era of patient care\n• Modern and attractive employment and working conditions\n• Collaboration with all clinical areas of PUK\n• Demanding and diverse tasks\n• Collaboration with dynamic and motivated teams\n• Generous internal and external training opportunities\n• Attractive social benefits (acquisition of 60% of pension funds contributions)\n• Reduced shopping, sports and participation in public transport subscriptions",
-        "de": "•\n• • Die Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten. Innovation und Tradition Im Grossambulatorium Im Quadro in Oerlikon stellt die PUK ein umfassendes psychiatrisches Leistungsangebot aus allen vier Kliniken bereit. Damit definiert die PUK die Organisation ihrer intermediären Dienstleistungen neu und setzt die Strategie «ambulant vor stationär» in der psychiatrischen Versorgung im Kanton Zürich innovativ um. Im Ambulatorium arbeiten mehr als 180 Personen und gegen 500 Personen werden täglich behandelt. Mit dem Ziel, den Leistungserbringenden optimale Unterstützung bei allen nicht patientenzentrierten Tätigkeiten zu bieten, bauen wir vor Ort das administrative Team aus. Zum Auf- und Ausbau des Pflegeteams suchen wir per sofort oder nach Vereinbarung eine/einen engagierte/n Dipl. Pflegefachmann / Dipl. Pflegefachfrau HF 80-100% 80% - 100% Ihre Aufgaben\n• Ambulante Behandlung und Begleitung psychisch erkrankter Menschen als Teil unserer interdisziplinären psychiatrisch-psychotherapeutischen Teams\n• Therapeutisches und fachliches Arbeiten in der Tagesklinik\n• Durchführen von Gruppenangeboten, Fallführung\n• Durchführung medizinischer und pflegerischer Aufgaben (u.a. Organisation der Apotheke und des Labors, Abgabe Medikation, Blutentnahmen, intramuskuläre Injektionen, Schreiben von EKGs)\n• Abgeschlossene Ausbildung HF zur Pflegefachperson mit Schwerpunkt Psychiatrie (bei ausländischen Abschlüssen mit Anerkennungsnachweis)\n• Erfahrung im Umgang mit psychisch erkrankten Menschen innerhalb psychiatrisch-psychotherapeutischer Institutionen\n• Freude an einer verantwortungsvollen, selbständigen sowie helfend ausgerichteten Tätigkeit in einem vielseitigen Arbeitsumfeld und Interesse am Leiten therapeutischer Gruppen\n• Idealerweise therapeutische Kompetenzen, z. B. in DBT oder Motivational Interviewing\n• Gute IT-Kenntnisse, insbesondere in MS Office; SAP- und KISIM-Kenntnisse von Vorteil\n• Offene, teamfähige Persönlichkeit mit hoher Sozialkompetenz sowie selbständiger und zuverlässiger Arbeitsweise\n• Fliessende Deutschkenntnisse in Wort und Schrift; weitere Fremdsprachenkenntnisse von Vorteil\n• Einzigartige Chance, eine neue Ära der Patientenversorgung mitzuprägen\n• Moderne und attraktive Anstellungs- und Arbeitsbedingungen\n• Zusammenarbeit mit allen klinischen Bereichen der PUK\n• Anspruchsvolle und breit gefächerte Aufgaben\n• Zusammenarbeit mit dynamischen und motivierten Teams\n• Grosszügige interne und externe Weiterbildungsmöglichkeiten\n• Attraktive Sozialleistungen (Übernahme von 60% der Pensionskassenbeiträge)\n• Vergünstigte Einkaufsmöglichkeiten sowie Sportangebote und Beteiligung an Abonnements des öffentlichen Verkehrs",
-        "fr": "• L'hôpital psychiatrique de Zurich traite et soigne les malades mentaux de tous âges. Plus de 2 500 employés des 55 professions différentes apportent leur contribution aux soins holistiques des patients dans les équipes interdisciplinaires, de la clarification et de la thérapie aux soins de suivi. Notre travail est basé sur la confiance mutuelle et la responsabilité personnelle et nous promouvons ensemble une culture d'entreprise innovante. En tant que clinique universitaire, nous participons avec succès à des projets de recherche nationaux et internationaux. Dans le grand ambulatoire Im Quadro à Oerlikon, PUK offre une gamme complète de services psychiatriques des quatre cliniques. Ainsi, PUK redéfinit l'organisation de ses services intermédiaires et met en œuvre innovatricement la stratégie de soins psychiatriques à l'extérieur du canton de Zurich. Plus de 180 personnes travaillent dans le ambulatoire et environ 500 personnes sont traitées quotidiennement. Afin d'offrir aux prestataires de services un soutien optimal dans toutes les activités non centrées sur les patients, nous développons l'équipe administrative sur place. Pour mettre en place et élargir l'équipe de soins, nous cherchons un dipllo engagé immédiatement ou par accord. Professionnels des soins infirmiers / Dipl. Spécialiste des soins infirmiers HF 80-100% 80% - 100% Vos tâches\n• Traitement ambulatoire et soutien aux malades mentaux dans le cadre de nos équipes interdisciplinaires psychiatriques-psychothérapeutes\n• Travail thérapeutique et professionnel dans la clinique de jour\n• Formation complète HF en tant que spécialiste des soins infirmiers avec un accent sur la psychiatrie (pour les diplômes étrangers avec reconnaissance)\n• Expérience dans le traitement des malades mentaux dans les établissements psychiatriques-psychothérapeutes\n• Joy dans une activité responsable, indépendante et utile dans un environnement de travail polyvalent et un intérêt pour les groupes thérapeutiques\n• Compétences thérapeutiques idéales, p.ex. en DBT ou Motivation Interview de bonnes compétences en informatique, en particulier au MS Office; compétences SAP et KISIM sont bénéfiques\n• Personnalité ouverte, capable d'équipe avec un haut niveau de compétence sociale ainsi que des méthodes de travail indépendantes et fiables\n• Compétences linguistiques allemandes fluides en mots et en écriture; Meilleure connaissance des langues étrangères\n• Possibilité unique d'aider à façonner une nouvelle ère de soins aux patients\n• Emploi et conditions de travail modernes et attrayants\n• Collaboration avec tous les domaines cliniques du PUK\n• Tâches exigeantes et diverses\n• Collaboration avec des équipes dynamiques et motivées\n• Possibilités de formation internes et externes généreuses\n• Avantages sociaux attrayants (acquisition de 60 % des contributions des fonds de pension)\n• Réduction des achats, des sports et de la participation aux abonnements aux transports publics"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/163206/2685/pub/1/index.html",
-      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:40:45.173Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8032",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/163206/2685/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2685",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich",
-        "dipl-nursing-professional-dipl-nurse-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
-        ],
-        "en": [
-          "dipl-nursing-professional-dipl-nurse-hf-80-100-psychiatrische-universitatsklinik-zurich-zurich",
-          "dipl-pflegefachmann-dipl-pflegefachfrau-hf-80-100-puk-zuerich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T12:44:30.801Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }

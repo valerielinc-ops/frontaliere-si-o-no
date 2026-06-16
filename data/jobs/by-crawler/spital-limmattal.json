@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-06-15T15:26:55.456Z",
+  "assembledAt": "2026-06-15T23:50:09.834Z",
   "jobs": [
     {
       "id": "spital-limmattal-bed974b8957a",
@@ -34,7 +34,7 @@
       "url": "https://apply.refline.ch/486538/0802/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:52.854Z",
+      "crawledAt": "2026-06-15T23:50:07.011Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/486538/0800/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:52.435Z",
+      "crawledAt": "2026-06-15T23:50:06.556Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://apply.refline.ch/486538/0719/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:52.016Z",
+      "crawledAt": "2026-06-15T23:50:06.097Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,7 +267,7 @@
       "url": "https://apply.refline.ch/486538/0792/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:30.041Z",
+      "crawledAt": "2026-06-15T23:50:05.640Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -296,15 +296,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T23:26:38.838Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -341,7 +341,7 @@
       "url": "https://apply.refline.ch/486538/0730/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:51.179Z",
+      "crawledAt": "2026-06-15T23:50:05.184Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "url": "https://apply.refline.ch/486538/0796/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:50.761Z",
+      "crawledAt": "2026-06-15T23:50:04.727Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -505,7 +505,7 @@
       "url": "https://apply.refline.ch/486538/0616/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:50.342Z",
+      "crawledAt": "2026-06-15T23:50:04.270Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -582,7 +582,7 @@
       "url": "https://apply.refline.ch/486538/0795/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:49.923Z",
+      "crawledAt": "2026-06-15T23:50:03.807Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -658,7 +658,7 @@
       "url": "https://apply.refline.ch/486538/0769/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:27.532Z",
+      "crawledAt": "2026-06-15T23:50:03.351Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -693,15 +693,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:49.794Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -737,7 +737,7 @@
       "url": "https://apply.refline.ch/486538/0793/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:27.113Z",
+      "crawledAt": "2026-06-15T23:50:02.893Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -763,15 +763,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:49.376Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -808,7 +808,7 @@
       "url": "https://apply.refline.ch/486538/0788/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:48.664Z",
+      "crawledAt": "2026-06-15T23:50:02.436Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -884,7 +884,7 @@
       "url": "https://apply.refline.ch/486538/0787/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:26.277Z",
+      "crawledAt": "2026-06-15T23:50:01.966Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -919,15 +919,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:48.542Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -964,7 +964,7 @@
       "url": "https://apply.refline.ch/486538/0786/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:47.828Z",
+      "crawledAt": "2026-06-15T23:50:01.509Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1045,7 +1045,7 @@
       "url": "https://apply.refline.ch/486538/0778/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:25.440Z",
+      "crawledAt": "2026-06-15T23:50:01.054Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1080,15 +1080,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:47.692Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1125,7 +1125,7 @@
       "url": "https://apply.refline.ch/486538/0785/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:46.991Z",
+      "crawledAt": "2026-06-15T23:50:00.599Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1202,7 +1202,7 @@
       "url": "https://apply.refline.ch/486538/0779/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:46.573Z",
+      "crawledAt": "2026-06-15T23:50:00.141Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1280,7 +1280,7 @@
       "url": "https://apply.refline.ch/486538/0691/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:24.184Z",
+      "crawledAt": "2026-06-15T23:49:59.683Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1315,15 +1315,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:46.440Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1359,7 +1359,7 @@
       "url": "https://apply.refline.ch/486538/0768/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:23.765Z",
+      "crawledAt": "2026-06-15T23:49:59.222Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1391,15 +1391,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:46.021Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1435,7 +1435,7 @@
       "url": "https://apply.refline.ch/486538/0777/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:23.344Z",
+      "crawledAt": "2026-06-15T23:49:58.766Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1464,15 +1464,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:45.604Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1508,7 +1508,7 @@
       "url": "https://apply.refline.ch/486538/0776/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:22.924Z",
+      "crawledAt": "2026-06-15T23:49:58.311Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1537,15 +1537,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:45.188Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -1581,7 +1581,7 @@
       "url": "https://apply.refline.ch/486538/0772/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:22.089Z",
+      "crawledAt": "2026-06-15T23:49:57.852Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1613,15 +1613,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:44.356Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1658,7 +1658,7 @@
       "url": "https://apply.refline.ch/486538/0770/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:44.060Z",
+      "crawledAt": "2026-06-15T23:49:57.396Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1737,7 +1737,7 @@
       "url": "https://apply.refline.ch/486538/0767/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:21.251Z",
+      "crawledAt": "2026-06-15T23:49:56.939Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1766,15 +1766,15 @@
         "stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013"
       ],
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -1811,7 +1811,7 @@
       "url": "https://apply.refline.ch/486538/0766/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:43.221Z",
+      "crawledAt": "2026-06-15T23:49:56.483Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1903,7 +1903,7 @@
       "url": "https://apply.refline.ch/486538/0764/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:42.802Z",
+      "crawledAt": "2026-06-15T23:49:56.026Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1966,7 +1966,7 @@
       "url": "https://apply.refline.ch/486538/0762/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:42.384Z",
+      "crawledAt": "2026-06-15T23:49:55.570Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2033,7 +2033,7 @@
       "url": "https://apply.refline.ch/486538/0761/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:41.967Z",
+      "crawledAt": "2026-06-15T23:49:55.114Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2112,7 +2112,7 @@
       "url": "https://apply.refline.ch/486538/0759/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:19.156Z",
+      "crawledAt": "2026-06-15T23:49:54.653Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2144,15 +2144,15 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2189,7 +2189,7 @@
       "url": "https://apply.refline.ch/486538/0757/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:41.130Z",
+      "crawledAt": "2026-06-15T23:49:54.193Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2268,7 +2268,7 @@
       "url": "https://apply.refline.ch/486538/0754/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:18.319Z",
+      "crawledAt": "2026-06-15T23:49:53.737Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2298,15 +2298,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:40.605Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2343,7 +2343,7 @@
       "url": "https://apply.refline.ch/486538/0748/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:40.291Z",
+      "crawledAt": "2026-06-15T23:49:53.281Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2414,7 +2414,7 @@
       "url": "https://apply.refline.ch/486538/0749/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:39.873Z",
+      "crawledAt": "2026-06-15T23:49:52.826Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2485,7 +2485,7 @@
       "url": "https://apply.refline.ch/486538/0747/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:39.453Z",
+      "crawledAt": "2026-06-15T23:49:52.370Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2564,7 +2564,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:39.034Z",
+      "crawledAt": "2026-06-15T23:49:51.913Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2645,7 +2645,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:38.599Z",
+      "crawledAt": "2026-06-15T23:49:51.458Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2708,7 +2708,7 @@
       "url": "https://apply.refline.ch/486538/0737/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:38.160Z",
+      "crawledAt": "2026-06-15T23:49:51.000Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2789,7 +2789,7 @@
       "url": "https://apply.refline.ch/486538/0676/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:37.732Z",
+      "crawledAt": "2026-06-15T23:49:50.543Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2868,7 +2868,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:14.972Z",
+      "crawledAt": "2026-06-15T23:49:50.087Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2886,15 +2886,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -2931,7 +2931,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:36.892Z",
+      "crawledAt": "2026-06-15T23:49:49.632Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3014,7 +3014,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:36.475Z",
+      "crawledAt": "2026-06-15T23:49:49.170Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3093,7 +3093,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:13.660Z",
+      "crawledAt": "2026-06-15T23:49:48.711Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3124,15 +3124,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:35.583Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3168,7 +3168,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:13.245Z",
+      "crawledAt": "2026-06-15T23:49:48.253Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3186,15 +3186,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3231,7 +3231,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:35.218Z",
+      "crawledAt": "2026-06-15T23:49:47.796Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3312,7 +3312,7 @@
       "url": "https://apply.refline.ch/486538/0664/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:34.800Z",
+      "crawledAt": "2026-06-15T23:49:47.335Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3392,7 +3392,7 @@
       "url": "https://apply.refline.ch/486538/0662/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:34.380Z",
+      "crawledAt": "2026-06-15T23:49:46.879Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3472,7 +3472,7 @@
       "url": "https://apply.refline.ch/486538/0661/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:33.961Z",
+      "crawledAt": "2026-06-15T23:49:46.422Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3551,7 +3551,7 @@
       "url": "https://apply.refline.ch/486538/0650/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:33.542Z",
+      "crawledAt": "2026-06-15T23:49:45.966Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3631,7 +3631,7 @@
       "url": "https://apply.refline.ch/486538/0579/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:10.737Z",
+      "crawledAt": "2026-06-15T23:49:45.509Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3667,15 +3667,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:32.660Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3711,7 +3711,7 @@
       "url": "https://apply.refline.ch/486538/0505/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:10.319Z",
+      "crawledAt": "2026-06-15T23:49:45.052Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3744,15 +3744,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:32.244Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3788,7 +3788,7 @@
       "url": "https://apply.refline.ch/486538/0482/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:09.901Z",
+      "crawledAt": "2026-06-15T23:49:44.595Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3823,15 +3823,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:31.827Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3867,7 +3867,7 @@
       "url": "https://apply.refline.ch/486538/0377/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:09.482Z",
+      "crawledAt": "2026-06-15T23:49:44.136Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3902,15 +3902,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:31.409Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -3947,7 +3947,7 @@
       "url": "https://apply.refline.ch/486538/0582/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:31.448Z",
+      "crawledAt": "2026-06-15T23:49:43.678Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4027,7 +4027,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:31.028Z",
+      "crawledAt": "2026-06-15T23:49:43.218Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4107,7 +4107,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:30.609Z",
+      "crawledAt": "2026-06-15T23:49:42.761Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4188,7 +4188,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:30.189Z",
+      "crawledAt": "2026-06-15T23:49:42.303Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4268,7 +4268,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T15:26:29.769Z",
+      "crawledAt": "2026-06-15T23:49:41.845Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4347,7 +4347,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:06.511Z",
+      "crawledAt": "2026-06-15T23:49:41.386Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4378,15 +4378,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.478Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -4422,7 +4422,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:06.072Z",
+      "crawledAt": "2026-06-15T23:49:40.906Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4448,158 +4448,15 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:55:28.036Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-limmattal-45e3d97507f8",
-      "slug": "segreteria-medica-u00e4r-in-radiologia-con-esperienza-disposizione-spital-limmattal-schlieren",
-      "slugByLocale": {
-        "it": "segreteria-medica-u00e4r-in-radiologia-con-esperienza-disposizione-spital-limmattal-schlieren",
-        "en": "medical-secretariat-u00e4r-in-radiology-with-dispositional-experience-spital-limmattal-schlieren",
-        "de": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch",
-        "fr": "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
-      },
-      "company": "Spital Limmattal",
-      "companyKey": "spital-limmattal",
-      "companyDomain": "spital-limmattal.ch",
-      "title": "Arztsekret\\u00e4r:in Radiologie mit Dispositionserfahrung",
-      "titleByLocale": {
-        "it": "Segreteria medica\\u00e4r: in radiologia con esperienza disposizione",
-        "en": "Medical secretariat\\u00e4r:in radiology with dispositional experience",
-        "de": "Arztsekret\\u00e4r:in Radiologie mit Dispositionserfahrung",
-        "fr": "Arztsekret\\u00e4r:in Radiologie mit Dispositionserfahrung"
-      },
-      "description": "• Arztsekretär:in Radiologie mit Dispositionserfahrung\n\n80% - 100%, per 01.08.2026 oder nach Vereinbarung\n\nJetzt bewerben\n\nDas Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht.\nEs erwartet Sie eine vielseitige anspruchsvolle Arbeit in einem gut strukturierten Sekretariat mit einem dynamischen Team\n\nAusserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind.\n\nHier engagieren Sie sich\n\n• bei der telefonischen Annahme von Untersuchungsanmeldungen\n• in der Disposition elektronischer Zuweisungen\n• bei der Planung interventioneller Radiologie\n• in der Bereitstellung der Patientenunterlagen\n• beim Kontakt zu Patienten sowie überweisenden internen und externen Zuweisern\n• beim Bearbeiten und Erledigen von allgemeinen Sekretariatsarbeiten\n• bringen eine abgeschlossene Berufsausbildung im medizinischen-/ oder kaufmännischen Bereich mit der Weiterbildung als Arztsekretärin mit\n• sind ein Organisationstalent mit sattelfester medizinischer Terminologie und ausgezeichneten Deutschkenntnissen\n• lieben den täglichen Patientenkontakt und arbeiten gerne in einem lebhaften Umfeld\n• schätzen in kollegiales, hilfsbereites Team\n• sind eine gewinnende Persönlichkeit, die auch in Stresssituationen die Empathie, die Freundlichkeit und den Überblick nicht verliert\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an",
-      "descriptionByLocale": {
-        "it": "• Segretario Medico: in radiologia con esperienza propositiva 80% - 100%, a partire dal 01.08.2026 o da accordo Applicare ora L'Ospedale Limmattal prospera sulla cooperazione interdisciplinare. I membri del team dell'amministrazione medica sostengono la professione medica in tutte le questioni amministrative e lavorano a stretto contatto con l'assistenza e tutte le altre aree. L'intera amministrazione medica è sotto una leadership generale, che rafforza ulteriormente e semplifica la cooperazione interdisciplinare. Vi aspetta un lavoro impegnativo versatile in un segretariato ben strutturato con un team dinamico Inoltre, siete esattamente nel LIMMI se un'atmosfera familiare e un luogo di lavoro moderno sono importanti per voi. Qui si impegnano\n• quando si accettano le domande di indagine per telefono\n• nella disposizione degli incarichi elettronici\n• Quando si pianifica la radiologia interventistica\n• nella fornitura di documenti del paziente\n• a contatto con i pazienti e riferendosi a referral interni ed esterni\n• quando si elaborano e completano i lavori di segreteria generale\n• portare una formazione professionale completa nel settore medico / o commerciale con l'ulteriore formazione come segretario medico\n• sono un talento organizzativo con una solida terminologia medica e un'ottima conoscenza del tedesco\n• amare il contatto quotidiano del paziente e godere di lavorare in un ambiente vivace\n• Apprezzare un team collegiale e disponibile\n• sono una personalità vincente che non perde empatia, cordialità e visione anche in situazioni stressanti\n• Spazi di parcheggio per dipendenti ridotti\n• Parcheggio moto, parcheggio biciclette chiuso\n• Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente abbonamento di trasporto pubblico per i dipendenti",
-        "en": "• Medical Secretary: in radiology with dispositional experience 80% - 100%, as of 01.08.2026 or by agreement Apply now The Limmattal Hospital thrives on interdisciplinary cooperation. The team members of the medical administration support the medical profession in all administrative matters and work closely together with the care and all other areas. The entire medical administration is under an overall leadership, which further strengthens and simplifies interdisciplinary cooperation. It awaits you a versatile demanding work in a well-structured secretariat with a dynamic team In addition, you are exactly right in the LIMMI if a family atmosphere and a modern workplace are important to you. Here they engage\n• when accepting investigation applications by telephone\n• in the disposition of electronic assignments\n• When planning interventional radiology\n• in the provision of patient records\n• in contact with patients and referring internal and external referrals\n• when processing and completing general secretarial work\n• bring a completed vocational training in the medical / or commercial area with the further training as medical secretary\n• are an organisational talent with solid medical terminology and excellent knowledge of German\n• love daily patient contact and enjoy working in a lively environment\n• Appreciate in a collegial, helpful team\n• are a winning personality who does not lose empathy, friendliness and overview even in stressful situations\n• Reduced employee parking spaces\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive public transport subscription for employees",
-        "de": "• Arztsekretär:in Radiologie mit Dispositionserfahrung 80% - 100%, per 01.08.2026 oder nach Vereinbarung Jetzt bewerben Das Spital Limmattal lebt von interdisziplinärer Zusammenarbeit. Die Teammitglieder der medizinischen Administration unterstützen die Ärzteschaft in allen administrativen Belangen und arbeiten ebenso mit der Pflege und sämtlichen anderen Bereichen eng zusammen Die gesamte medizinische Administration befindet sich unter einer Gesamtführung, was die interdisziplinäre Zusammenarbeit weiter stärkt und zudem vereinfacht. Es erwartet Sie eine vielseitige anspruchsvolle Arbeit in einem gut strukturierten Sekretariat mit einem dynamischen Team Ausserdem: sind Sie im LIMMI genau richtig, wenn eine familiäre Atmosphäre und ein moderner Arbeitsplatz wichtig für Sie sind. Hier engagieren Sie sich\n• bei der telefonischen Annahme von Untersuchungsanmeldungen\n• in der Disposition elektronischer Zuweisungen\n• bei der Planung interventioneller Radiologie\n• in der Bereitstellung der Patientenunterlagen\n• beim Kontakt zu Patienten sowie überweisenden internen und externen Zuweisern\n• beim Bearbeiten und Erledigen von allgemeinen Sekretariatsarbeiten\n• bringen eine abgeschlossene Berufsausbildung im medizinischen-/ oder kaufmännischen Bereich mit der Weiterbildung als Arztsekretärin mit\n• sind ein Organisationstalent mit sattelfester medizinischer Terminologie und ausgezeichneten Deutschkenntnissen\n• lieben den täglichen Patientenkontakt und arbeiten gerne in einem lebhaften Umfeld\n• schätzen in kollegiales, hilfsbereites Team\n• sind eine gewinnende Persönlichkeit, die auch in Stresssituationen die Empathie, die Freundlichkeit und den Überblick nicht verliert\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives ÖV-Abonnement für Mitarbeitende an",
-        "fr": "• Secrétaire médicale : en radiologie avec expérience en planification 80% - 100%, à compter du 1er août 2026 ou sur rendez-vous Postulez maintenant L'hôpital Limmattal prospère grâce à la collaboration interdisciplinaire. Les membres de l'équipe de l'administration médicale soutiennent la profession médicale dans toutes les questions administratives et travaillent également en étroite collaboration avec les soins infirmiers et dans tous les autres domaines. L'ensemble de l'administration médicale est sous une direction globale, ce qui renforce et simplifie encore la coopération interdisciplinaire. Vous pouvez vous attendre à un travail varié et exigeant dans un secrétariat bien structuré et avec une équipe dynamique. De plus, LIMMI est l'endroit idéal pour vous si une ambiance familiale et un lieu de travail moderne sont importants pour vous. Ici, vous serez impliqué :\n• dans l'acceptation des inscriptions aux examens par téléphone\n• dans la planification des missions électroniques\n• dans la planification de la radiologie interventionnelle\n• dans la fourniture des documents des patients\n• en contact avec les patients et les référents internes et externes\n• dans le traitement et l'exécution du travail de secrétariat général\n• avez suivi une formation professionnelle dans le domaine médical/ou commercial avec une formation complémentaire de secrétaire de médecin\n• avez un talent d'organisation avec une solide terminologie médicale et une excellente connaissance de l'allemand\n• aimez le contact quotidien avec les patients et appréciez travailler dans un environnement animé environnement\n• apprécier une équipe collégiale et serviable\n• avoir une personnalité gagnante qui ne perd pas l'empathie, la convivialité et la vue d'ensemble même dans des situations stressantes\n• des places de stationnement pour les employés à prix réduits\n• des places de stationnement pour motos, des places de stationnement pour vélos verrouillables\n• Nous proposons un abonnement de transports publics attractif pour les employés avec le ZVV-Bonus Pass / Z-Bonus Pass"
-      },
-      "location": "Schlieren",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/486538/0775/pub/1/index.html",
-      "source": "Spital Limmattal Dedicated Parser (Refline)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:22.506Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://apply.refline.ch/486538/0775/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
-        ],
-        "en": [
-          "arztsekret-u00e4r-in-radiologie-mit-dispositionserfahrung-spital-limmattal-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T12:55:44.773Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-limmattal-03544d431961",
-      "slug": "apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren",
-      "slugByLocale": {
-        "it": "apprendistato-k-u00f6chin-koch-cfc-spital-limmattal-schlieren",
-        "en": "apprenticeship-k-u00f6chin-koch-efz-spital-limmattal-schlieren",
-        "de": "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-        "fr": "apprentissage-k-u00f6chin-koch-efz-spital-limmattal-schlieren"
-      },
-      "company": "Spital Limmattal",
-      "companyKey": "spital-limmattal",
-      "companyDomain": "spital-limmattal.ch",
-      "title": "Lehrstelle K\\u00f6chin / Koch EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato K\\u00f6chin / Koch CFC",
-        "en": "Apprenticeship K\\u00f6chin / Koch EFZ",
-        "de": "Lehrstelle K\\u00f6chin / Koch EFZ",
-        "fr": "Apprentissage K\\u00f6chin / Koch EFZ"
-      },
-      "description": "• Lehrstelle Köchin / Koch EFZ\n\n100%, per 09.08.2026\n\nJetzt bewerben\n\nHast du Lust, deine Leidenschaft fürs Kochen zu deinem Beruf zu machen?\nBei uns kannst du deine Ausbildung zur Köchin oder zum Koch EFZ starten – in einem spannenden und vielseitigen Umfeld in einem topmodernen Spital.\n\nWährend deiner Lehrzeit lernst du alle Bereiche der Küche kennen: von der Zubereitung frischer Gerichte bis hin zur kreativen Präsentation. So bekommst du einen umfassenden Einblick in die Welt der Gastronomie und sammelst jede Menge praktische Erfahrung.\n\nWas dich bei uns erwartet\n\n• ein abwechslungsreicher Ausbildungsplatz mit moderner Infrastruktur\n• ein junges, motiviertes Ausbildungsteam, das dich Schritt für Schritt begleitet\n• ein starker Zusammenhalt unter den Lernenden, mit denen du dich jederzeit austauschen kannst\n• Kalte Küche: leckere Vorspeisen, Salate und Buffets zubereiten\n• Entremetier: Suppen, Beilagen und Gemüse in vielen Varianten kochen\n• Saucier: feine Fonds, Saucen sowie Fleisch- und Fischgerichte kreieren\n• Pâtissier: süsse Highlights wie Desserts, Kuchen und Torten zaubern\n• Hygiene und Sauberkeit immer im Griff behalten\n• abgeschlossene Sekundarschule Niveau A oder B bzw. Bezirksschule\n• gute Noten in den Hauptfächern\n• Freude am Kochen und am Umgang mit Lebensmitteln\n• geschickte Hände und Lust, Neues auszuprobieren\n• offene, freundliche und kommunikative Persönlichkeit mit viel Lernbereitschaf\n• Freude am Kontakt mit Menschen aus unterschiedlichen Kulturen und Berufen\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• Schulzeugnisse ab der 6. Klasse\n• Beurteilungen/Bestätigungen von bereits absolvierten Schnupperpraktika\n• 1–2 Referenzpersonen mit Telefonnummer und E-Mail-Adresse\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
-      "descriptionByLocale": {
-        "it": "• Apprendistato Chef / Koch EFZ 100%, a partire da 09.08.2026 Applicare ora Vuoi fare la tua passione per cucinare la tua professione? Con noi puoi iniziare il tuo apprendistato come cuoco – in un ambiente emozionante e versatile in un ospedale all'avanguardia. Durante il vostro apprendistato, conoscerete tutte le aree della cucina: dalla preparazione di piatti freschi alla presentazione creativa. In questo modo si ottiene una panoramica completa del mondo della gastronomia e ottenere un sacco di esperienza pratica.\n• Un team di formazione giovane e motivato che ti accompagna passo dopo passo\n• una forte coesione tra gli studenti con cui puoi scambiare idee in qualsiasi momento\n• Cucina fredda: deliziosi antipasti, insalate e buffet Impresa: zuppe di cuoco, piatti laterali e verdure in molte varianti\n• Saucier: creare fondi, salse e piatti di carne e pesce Con ZVV Bonus Pass / Z-Bonus Pass offriamo un attraente e un abbonamento V per i dipendenti",
-        "en": "• Apprenticeship chef / cook EFZ 100%, as of 09.08.2026 Apply now Do you want to make your passion for cooking your profession? With us you can start your training as a cook – in an exciting and versatile environment in a state-of-the-art hospital. During your apprenticeship, you will learn about all areas of the kitchen: from preparing fresh dishes to creative presentation. This way you get a comprehensive insight into the world of gastronomy and gain a lot of practical experience. What to expect from us\n• a varied training place with modern infrastructure\n• a young, motivated training team that accompanies you step by step\n• Strong cohesion among learners with whom you can exchange ideas at any time\n• Cold cuisine: delicious appetizers, salads and buffets\n• Entremetier: cook soups, side dishes and vegetables in many variants\n• Saucier: create fine funds, sauces and meat and fish dishes\n• Pâtissier: sweet highlights such as desserts, cakes and cakes\n• Hygiene and cleanliness always under control\n• completed secondary school level A or B or District School\n• Good grades in the main subjects\n• Joy of cooking and dealing with food\n• skillful hands and desire to try new things\n• Open, friendly and communicative personality with a lot of learning\n• Joy of contact with people from different cultures and professions\n• Very good knowledge of German in word and writing\n• School certificates from 6th grade\n• Assessments/confirmations of trial internships already completed\n• 1–2 Reference persons with telephone number and email address\n• Reduced employee parking spaces\n• Motorcycle parking, lockable bicycle parking\n• With the ZVV Bonus Pass / Z-Bonus Pass we offer an attractive ÖV subscription for employees",
-        "de": "• Lehrstelle Köchin / Koch EFZ 100%, per 09.08.2026 Jetzt bewerben Hast du Lust, deine Leidenschaft fürs Kochen zu deinem Beruf zu machen? Bei uns kannst du deine Ausbildung zur Köchin oder zum Koch EFZ starten – in einem spannenden und vielseitigen Umfeld in einem topmodernen Spital. Während deiner Lehrzeit lernst du alle Bereiche der Küche kennen: von der Zubereitung frischer Gerichte bis hin zur kreativen Präsentation. So bekommst du einen umfassenden Einblick in die Welt der Gastronomie und sammelst jede Menge praktische Erfahrung. Was dich bei uns erwartet\n• ein abwechslungsreicher Ausbildungsplatz mit moderner Infrastruktur\n• ein junges, motiviertes Ausbildungsteam, das dich Schritt für Schritt begleitet\n• ein starker Zusammenhalt unter den Lernenden, mit denen du dich jederzeit austauschen kannst\n• Kalte Küche: leckere Vorspeisen, Salate und Buffets zubereiten\n• Entremetier: Suppen, Beilagen und Gemüse in vielen Varianten kochen\n• Saucier: feine Fonds, Saucen sowie Fleisch- und Fischgerichte kreieren\n• Pâtissier: süsse Highlights wie Desserts, Kuchen und Torten zaubern\n• Hygiene und Sauberkeit immer im Griff behalten\n• abgeschlossene Sekundarschule Niveau A oder B bzw. Bezirksschule\n• gute Noten in den Hauptfächern\n• Freude am Kochen und am Umgang mit Lebensmitteln\n• geschickte Hände und Lust, Neues auszuprobieren\n• offene, freundliche und kommunikative Persönlichkeit mit viel Lernbereitschaf\n• Freude am Kontakt mit Menschen aus unterschiedlichen Kulturen und Berufen\n• sehr gute Deutschkenntnisse in Wort und Schrift\n• Schulzeugnisse ab der 6. Klasse\n• Beurteilungen/Bestätigungen von bereits absolvierten Schnupperpraktika\n• 1–2 Referenzpersonen mit Telefonnummer und E-Mail-Adresse\n• vergünstigte Mitarbeitenden-Parkplätze\n• Motorradparkplätze, abschliessbare Veloparkplätze\n• Wir bieten mit dem ZVV-Bonus Pass / Z-Bonus Pass ein attraktives &Ouml;V-Abonnement für Mitarbeitende an",
-        "fr": "• Chef d'apprentissage / Koch EFZ 100%, au 09.08.2026 Appliquer maintenant Voulez-vous faire votre passion pour la cuisine de votre profession? Avec nous, vous pouvez commencer votre apprentissage comme cuisinier – dans un environnement passionnant et polyvalent dans un hôpital de pointe. Pendant votre apprentissage, vous apprendrez tous les domaines de la cuisine : de la préparation de plats frais à la présentation créative. De cette façon, vous obtenez un aperçu complet du monde de la gastronomie et de gagner beaucoup d'expérience pratique. À quoi s'attendre de nous\n• un apprentissage varié avec une infrastructure moderne\n• une équipe de formation jeune et motivée qui vous accompagne étape par étape\n• une forte cohésion parmi les apprenants avec lesquels vous pouvez échanger des idées à tout moment\n• une cuisine froide : de délicieux apéritifs, salades et buffets Entremetier : soupes de cuisine, plats de côté et légumes dans de nombreuses variantes\n• Saucier : créer des fonds fins, sauces et plats de viande et de poisson Pâtissier : des faits saillants comme les desserts, les gâteaux et les gâteaux Hygiène et propreté toujours sous contrôle\n• une école secondaire complète de niveau A ou B ou de district\n• de bonnes notes dans les matières principales\n• une joie de cuisiner et de manipuler des aliments\n• des mains habiles et le désir d'essayer de nouvelles choses\n• une personnalité ouverte, amicale et communicative avec beaucoup de volonté d'apprendre\n• une joie de contact avec des personnes de différentes cultures et professions\n• de très bonnes compétences allemandes en paroles et en écriture\n• des certificats scolaires de 6e année\n• des évaluations / confirmations de stages d'essai déjà terminés\n• 1-2 personnes de référence avec numéro de téléphone et adresse e-mail\n• un parking réduit\n• Avec le ZVV Bonus Pass / Z-Bonus Pass nous offrons un abonnement attrayant ÖV pour les employés"
-      },
-      "location": "Schlieren",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/486538/0604/pub/1/index.html",
-      "source": "Spital Limmattal Dedicated Parser (Refline)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-14T22:42:08.641Z",
-      "addressLocality": "Schlieren",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8952",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://apply.refline.ch/486538/0604/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-10T22:26:08.275Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }

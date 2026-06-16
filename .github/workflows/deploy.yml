@@ -149,9 +149,13 @@ jobs:
     # rendering ~2100 PNGs from scratch) don't fail on the default 6 h
     # ceiling and the failure mode is obvious in the logs if it happens.
     timeout-minutes: 360
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.deployment_first.outputs.page_url }}
+    # The `build` job intentionally has NO `environment: github-pages`: it only
+    # uploads the `github-pages` artifact (actions/upload-artifact@v7, for
+    # compression-level control) — the actual actions/deploy-pages runs in the
+    # separate `deploy` job below, which keeps the environment. The env block here
+    # was dead code: its `url:` referenced steps.deployment / steps.deployment_first
+    # that exist only in the deploy job (leftover from the reverted branch-based-
+    # deploy experiment #966/#986). Removing it is a no-op for the deploy flow.
     steps:
       # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
       # or build output lands on disk. Without this the runner ships with
@@ -1015,20 +1019,28 @@ jobs:
           # so this guard is NEVER weaker than before.
           ASSET_RX="[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)"
           marker="${RUNNER_TEMP:-/tmp}/assets-same-origin.marker"
+          # `|| true` on EVERY grep/tail pipe substitution below: the GitHub
+          # default shell is `bash -eo pipefail`, so grep exiting 1 when it finds
+          # nothing (the EXPECTED clean case) — or tail getting SIGPIPE from a
+          # `head` that closed early — makes the substitution non-zero, which
+          # under -e aborts the whole step (zero output, deploy fails). The
+          # original Guard B avoided this by running grep inside an `if`
+          # condition (exempt from -e); the marker path must guard each
+          # substitution explicitly.
           if [ -f "$marker" ]; then
             if [ "$(head -1 "$marker")" = "CLEAN" ]; then
               # marker covered the content tree (any depth); belt-grep only the
               # top-level roots walk skipped — normally zero *.html, so near-instant.
-              leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist/assets dist/data dist/images 2>/dev/null | head -1)"
-              [ -n "$leak" ] && echo "marker=CLEAN but a top-level assets|data|images *.html still has a same-origin /assets/ ref: $leak"
+              leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist/assets dist/data dist/images 2>/dev/null | head -1 || true)"
+              [ -n "$leak" ] && echo "marker=CLEAN but a top-level assets|data|images *.html still has a same-origin /assets/ ref: $leak" || true
             else
-              leak="$(tail -n +2 "$marker" | head -1)"
+              leak="$(tail -n +2 "$marker" | head -1 || true)"
               echo "offload marker reports surviving same-origin /assets/ ref(s):"
-              tail -n +2 "$marker" | head -8
+              tail -n +2 "$marker" | head -8 || true
             fi
           else
             echo "offload marker absent — falling back to full-tree grep (Guard B)"
-            leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist 2>/dev/null | head -1)"
+            leak="$(grep -rlE "$ASSET_RX" --include='*.html' dist 2>/dev/null | head -1 || true)"
           fi
           if [ -n "$leak" ]; then
             echo "⚠️ some dist HTML still references same-origin /assets/ (not CDN-rebased) — KEEPING dist/assets (no breakage, no asset reduction this round)"

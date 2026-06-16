@@ -530,6 +530,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'treni-fermi-stabio-gallarate-incompetenza-regione',
+    category: 'pratico',
+    date: '2026-06-16T01:03:55.383Z',
+    image: '/images/blog/treni-fermi-stabio-gallarate-incompetenza-regione.webp',
+    hasCalculator: false,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'offerte-lavoro-intelligenza-artificiale-2025',
+    category: 'novita',
+    date: '2026-06-16T01:36:46.767Z',
+    image: '/images/blog/offerte-lavoro-intelligenza-artificiale-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale',
+    category: 'novita',
+    date: '2026-06-16T02:14:56.174Z',
+    image: '/images/blog/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'deduzione-da-ristorni-contraria-accordi-con-roma',
+    category: 'fiscale',
+    date: '2026-06-16T03:29:09.581Z',
+    image: '/images/blog/deduzione-da-ristorni-contraria-accordi-con-roma.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

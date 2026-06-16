@@ -176,6 +176,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Il Canton Ticino approva il blocco degli abitanti stranieri, ma con effetti limitati, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni fermi Stabio-Gallarate: Verdi criticano Regione e Trenord',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Chiusura della tratta ferroviaria Stabio-Gallarate fino al 5 luglio per lavori, con gravi disagi per oltre 5.000 passeggeri giornalieri.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Pendolari in attesa davanti a stazione ferroviaria chiusa',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'Offerte di lavoro IA in Svizzera: record e tendenze 2025',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'Nel 2025 le offerte di lavoro con competenze IA in Svizzera salgono a 25’000, +9’000 rispetto all’anno precedente. Salari sopra la media in salute ed energia.',
+    'blog.article.offerte-lavoro-intelligenza-artificiale-2025.imageAlt': 'Impiegati in un ufficio svizzero a Lugano analizzano dati sull\'intelligenza artificiale.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'La Svizzera scommette sull\'Europa',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'La bocciatura dell\'iniziativa \'No a una Svizzera da 10 milioni\' è interpretata all\'estero come una scelta di stabilità e apertura.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Deduzione da ristorni frontalieri contraria a accordi con Roma',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Svizzera intende applicare una deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute, ma questo potrebbe essere contrario agli accordi con l\'Italia.',
+    'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontalieri ticinesi con documenti',
 };
 
 export default blogMetaChIt;

@@ -161,16 +161,16 @@
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-20/1354309555/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-20/1354936755/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie-p%C3%A2tisserie%29-70/1354931755/",
+    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/",
+    "https://positions.manor.ch/job/Chavannes-de-Bogis-Cuisinier%C3%A8re-%28Manora%29-80/1350530255/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28boulangerie%29-30-Etudiant/1354932655/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-50/1350373855/",
     "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Kinderkonfektion-40/1346965455/",
     "https://positions.manor.ch/job/Schaffhausen-KochK%C3%B6chin-80/1355464555/",
-    "https://positions.manor.ch/job/Lausanne-Boulanger%C3%A8re-100/1354322455/",
-    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/",
-    "https://positions.manor.ch/job/Chavannes-de-Bogis-Cuisinier%C3%A8re-%28Manora%29-80/1350530255/"
+    "https://positions.manor.ch/job/Lausanne-Boulanger%C3%A8re-100/1354322455/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-15T15:00:45.149Z",
+  "updatedAt": "2026-06-15T23:28:37.850Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Sierre-Floor-Manager-100/1331582255/": {
       "company": "Manor AG",
@@ -784,6 +784,14 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
+    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chavannes-de-Bogis-Cuisinier%C3%A8re-%28Manora%29-80/1350530255/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28boulangerie%29-30-Etudiant/1354932655/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -801,14 +809,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Lausanne-Boulanger%C3%A8re-100/1354322455/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Chavannes-de-Bogis-Cuisinier%C3%A8re-%28Manora%29-80/1350530255/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }

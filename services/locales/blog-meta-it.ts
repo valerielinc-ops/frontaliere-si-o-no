@@ -8087,6 +8087,21 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Grandine sulla GT86 TRD: come agire se l\'assicurazione la dichiara perdita',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'Grandine abbattutasi sul Canton Ticino ha danneggiato gravemente una Toyota GT86 TRD. L\'assicurazione propone la perdita totale: ecco cosa fare.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'Auto GT86 TRD danneggiata da grandine in Ticino vicino al lago',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'No di Berna al blocco dei ristorni da parte del Ticino',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Il Governo svizzero ha dichiarato che bloccare i ristorni sui fondi generati dalla tassa sulla salute italiana è illegale, confermando la posizione ufficiale.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vista panoramica del confine Ticino-Italia con valichi e paesaggi alpini.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: tassa salute; deduzione da ristorni contraria accordi con Roma',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama del lago di Lugano',
+    'blog.article.tassa-salute-posizione-berna.title': 'Tassa sulla salute e ristorni: la posizione di Berna',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Il Consiglio federale ribadisce che la tassa sulla salute non è un\'imposta e non viola gli accordi fiscali con l\'Italia.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Palazzo governativo di Bellinzona in una giornata di sole',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Tassa Salute Frontalieri: sindacati chiedono ritiro',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD e SYNDICOM chiedono il ritiro definitivo della tassa salute per i frontalieri, citando violazioni del trattato 2020 e doppia imposizione.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Sindacati italiani e svizzeri discutono sulla tassa salute frontalieri',
+    'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rientro definitivo in Italia: guida ai conti in CHF',
+    'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Scopri come gestire correttamente liquidazione, conti in franchi svizzeri e ultimi stipendi in caso di rientro definitivo in Italia per frontalieri.',
+    'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Scrivania da ufficio con vista sul Lago di Lugano e documenti finanziari',
 };
 
 export default blogMetaIt;

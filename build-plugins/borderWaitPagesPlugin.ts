@@ -10,8 +10,8 @@
  *
  * Page set (per build):
  *   - /traffico-dogane/                                        root hub × 4 locales = 4
- *   - /traffico-dogane/{region}/                               regional hubs × 4    = 8
- *   - /traffico-dogane/{crossing}/oggi/                        24 × 4               = 96
+ *   - /traffico-dogane/{region}/                               regional hubs × 4    = 12
+ *   - /traffico-dogane/{crossing}/oggi/                        26 × 4               = 104
  *   - /traffico-dogane/{crossing}/{YYYY-MM}/ (top-5 past months)                    = 0 initially,
  *                                                                                     grows progressively
  *
@@ -402,6 +402,7 @@ interface Copy {
   breadcrumbHome: string;
   regionalLabelTicinoComo: string;
   regionalLabelTicinoVarese: string;
+  regionalLabelTicinoVerbano: string;
   noHistory: string;
   chartDataAccruing: string;
   staticFallbackBanner: string;
@@ -458,6 +459,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
     regionalLabelTicinoVarese: 'Ticino–Varese',
+    regionalLabelTicinoVerbano: 'Ticino–Verbano',
     noHistory:
       'Storico in accumulo: gli archivi mensili e i pattern di 30 giorni appariranno non appena ci saranno dati sufficienti.',
     chartDataAccruing:
@@ -491,7 +493,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro:
-      'Panoramica completa dei 24 valichi Ticino–Italia monitorati in tempo reale dalla nostra pipeline. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT). I valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti — ideali per chi vuole evitare la coda autostradale.',
+      'Panoramica completa dei 26 valichi Ticino–Italia monitorati in tempo reale dalla nostra pipeline. Scegliere il valico giusto può farti risparmiare 20–30 minuti per ogni viaggio. Nei giorni feriali Chiasso-Brogeda e Gaggiolo sono i più congestionati durante i picchi pendolari 06:30–08:30 (direzione IT→CH) e 17:00–19:00 (direzione CH→IT). I valichi minori come Crociale dei Mulini, Drezzo-Pedrinate o Clivio-Ligornetto hanno capacità inferiore ma code quasi sempre inferiori ai 5 minuti — ideali per chi vuole evitare la coda autostradale.',
     regionalIntro: (r, count) =>
       `La regione ${r} raggruppa ${count} valichi di frontiera Ticino–Italia. Questo hub mostra lo stato live di ciascun passaggio e consiglia quello con attesa minore in questo momento. Ricorda che gli orari di punta pendolare concentrano i volumi sui valichi autostradali principali (Chiasso-Brogeda in zona Como, Gaggiolo in zona Varese), mentre i valichi locali restano fluidi anche nelle ore di traffico intenso.`,
   },
@@ -538,6 +540,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbHome: 'Home',
     regionalLabelTicinoComo: 'Ticino–Como',
     regionalLabelTicinoVarese: 'Ticino–Varese',
+    regionalLabelTicinoVerbano: 'Ticino–Verbano',
     noHistory:
       'History is being collected: monthly archives and 30-day weekly patterns will appear as soon as enough data is available.',
     chartDataAccruing:
@@ -571,7 +574,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro:
-      'Complete overview of the 24 Ticino–Italy border crossings monitored in real time by our pipeline. Picking the right crossing can save you 20–30 minutes per trip. On weekdays Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction). Smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes — ideal if you want to avoid the motorway backlog.',
+      'Complete overview of the 26 Ticino–Italy border crossings monitored in real time by our pipeline. Picking the right crossing can save you 20–30 minutes per trip. On weekdays Chiasso-Brogeda and Gaggiolo are the most congested during the commuter peaks 06:30–08:30 (IT→CH direction) and 17:00–19:00 (CH→IT direction). Smaller crossings like Crociale dei Mulini, Drezzo-Pedrinate or Clivio-Ligornetto have lower capacity but queues almost always under 5 minutes — ideal if you want to avoid the motorway backlog.',
     regionalIntro: (r, count) =>
       `The ${r} region groups ${count} Ticino–Italy border crossings. This hub shows the live status of each and recommends the one with the shortest wait right now. Keep in mind that commuter peaks concentrate traffic on the main motorway crossings (Chiasso-Brogeda in the Como area, Gaggiolo in the Varese area), while local crossings stay fluid even during heavy commute hours.`,
   },
@@ -618,6 +621,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbHome: 'Startseite',
     regionalLabelTicinoComo: 'Tessin–Como',
     regionalLabelTicinoVarese: 'Tessin–Varese',
+    regionalLabelTicinoVerbano: 'Tessin–Verbano',
     noHistory:
       'Historie wird aufgebaut: Monatliche Archive und 30-Tage-Wochenmuster erscheinen, sobald genügend Daten vorhanden sind.',
     chartDataAccruing:
@@ -651,7 +655,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro:
-      'Vollständiger Überblick über die 24 Grenzübergänge Tessin–Italien, die unsere Pipeline in Echtzeit überwacht. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. An Werktagen sind Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet. Kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten — ideal, um den Autobahnstau zu umgehen.',
+      'Vollständiger Überblick über die 26 Grenzübergänge Tessin–Italien, die unsere Pipeline in Echtzeit überwacht. Die richtige Wahl des Übergangs kann 20–30 Minuten pro Fahrt sparen. An Werktagen sind Chiasso-Brogeda und Gaggiolo während der Pendler-Stosszeiten 06:30–08:30 (Richtung IT→CH) und 17:00–19:00 (Richtung CH→IT) am stärksten belastet. Kleinere Übergänge wie Crociale dei Mulini, Drezzo-Pedrinate oder Clivio-Ligornetto haben geringere Kapazität, aber fast immer Wartezeiten unter 5 Minuten — ideal, um den Autobahnstau zu umgehen.',
     regionalIntro: (r, count) =>
       `Die Region ${r} umfasst ${count} Grenzübergänge Tessin–Italien. Dieser Hub zeigt den Live-Status jedes einzelnen und empfiehlt denjenigen mit der kürzesten Wartezeit im Moment. Beachten Sie, dass Pendlerspitzen den Verkehr auf die grossen Autobahnübergänge konzentrieren (Chiasso-Brogeda im Raum Como, Gaggiolo im Raum Varese), während lokale Übergänge auch in Stosszeiten flüssig bleiben.`,
   },
@@ -698,6 +702,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     breadcrumbHome: 'Accueil',
     regionalLabelTicinoComo: 'Tessin–Côme',
     regionalLabelTicinoVarese: 'Tessin–Varèse',
+    regionalLabelTicinoVerbano: 'Tessin–Verbano',
     noHistory:
       "Historique en construction : archives mensuelles et tendances 30 jours apparaîtront dès que suffisamment de données seront collectées.",
     chartDataAccruing:
@@ -731,7 +736,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       },
     ],
     rootIntro:
-      "Vue d'ensemble complète des 24 passages frontière Tessin–Italie surveillés en temps réel par notre pipeline. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. En semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT). Les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes — idéaux pour éviter l'embouteillage autoroutier.",
+      "Vue d'ensemble complète des 26 passages frontière Tessin–Italie surveillés en temps réel par notre pipeline. Choisir le bon passage peut vous faire gagner 20–30 minutes par trajet. En semaine Chiasso-Brogeda et Gaggiolo sont les plus chargés pendant les pointes pendulaires 06:30–08:30 (direction IT→CH) et 17:00–19:00 (direction CH→IT). Les passages mineurs comme Crociale dei Mulini, Drezzo-Pedrinate ou Clivio-Ligornetto ont une capacité plus faible mais des files presque toujours inférieures à 5 minutes — idéaux pour éviter l'embouteillage autoroutier.",
     regionalIntro: (r, count) =>
       `La région ${r} regroupe ${count} passages frontière Tessin–Italie. Ce hub montre l'état en direct de chacun et recommande celui avec la file la plus courte en ce moment. Notez que les pointes pendulaires concentrent le trafic sur les grands postes autoroutiers (Chiasso-Brogeda dans la zone Côme, Gaggiolo dans la zone Varèse), tandis que les passages locaux restent fluides même en heures chargées.`,
   },
@@ -764,14 +769,28 @@ const WEBCAM_REFRESH_JS = `<script>(function(){var imgs=document.querySelectorAl
  * region, and the dynamically computed best/worst hour to stay unique
  * per page (no duplicate-content collisions).
  */
+/**
+ * Localized regional cluster label. Exhaustive over BorderCrossingRegion so a
+ * newly added region (e.g. ticino-verbano) surfaces a compile error here rather
+ * than silently falling back to the wrong cluster name.
+ */
+function regionLabel(copy: Copy, region: BorderCrossingRegion): string {
+  const byRegion: Record<BorderCrossingRegion, string> = {
+    'ticino-como': copy.regionalLabelTicinoComo,
+    'ticino-varese': copy.regionalLabelTicinoVarese,
+    'ticino-verbano': copy.regionalLabelTicinoVerbano,
+  };
+  return byRegion[region];
+}
+
 function renderCommuterContextProse(
   locale: BorderWaitLocale,
   crossingLabel: string,
-  region: 'ticino-como' | 'ticino-varese',
+  region: BorderCrossingRegion,
   bestHour: string,
   worstHour: string,
 ): string {
-  const regionDisplay = region === 'ticino-como' ? COPY[locale].regionalLabelTicinoComo : COPY[locale].regionalLabelTicinoVarese;
+  const regionDisplay = regionLabel(COPY[locale], region);
   const headline =
     locale === 'it' ? `Come usiamo i dati di traffico per pianificare il passaggio a ${crossingLabel}`
     : locale === 'en' ? `How we use traffic data to plan the crossing at ${crossingLabel}`
@@ -823,12 +842,11 @@ function renderCommuterContextProse(
 function renderLeafLivePlanningProse(
   locale: BorderWaitLocale,
   crossingLabel: string,
-  region: 'ticino-como' | 'ticino-varese',
+  region: BorderCrossingRegion,
   peakWindow: string,
   altLabels: readonly string[],
 ): string {
-  const regionDisplay =
-    region === 'ticino-como' ? COPY[locale].regionalLabelTicinoComo : COPY[locale].regionalLabelTicinoVarese;
+  const regionDisplay = regionLabel(COPY[locale], region);
   const altSentence = altLabels.length > 0 ? altLabels.join(' · ') : '';
   const headline =
     locale === 'it' ? `Pianificare il passaggio a ${crossingLabel}: snapshot, dato live e finestre di picco`
@@ -906,20 +924,16 @@ function renderHubPlanningProse(
   region: BorderCrossingRegion | undefined,
   rowCount: number,
 ): string {
-  const regionDisplay = region
-    ? region === 'ticino-como'
-      ? COPY[locale].regionalLabelTicinoComo
-      : COPY[locale].regionalLabelTicinoVarese
-    : '';
+  const regionDisplay = region ? regionLabel(COPY[locale], region) : '';
   const scopeLabel = region
     ? regionDisplay
     : locale === 'it'
-      ? 'tutti i 24 valichi Ticino–Italia'
+      ? 'tutti i 26 valichi Ticino–Italia'
       : locale === 'en'
-        ? 'all 24 Ticino–Italy crossings'
+        ? 'all 26 Ticino–Italy crossings'
         : locale === 'de'
-          ? 'alle 24 Tessin–Italien-Übergänge'
-          : 'les 24 passages Tessin–Italie';
+          ? 'alle 26 Tessin–Italien-Übergänge'
+          : 'les 26 passages Tessin–Italie';
   const headline =
     locale === 'it' ? `Come scegliere il valico ${region ? `nella zona ${regionDisplay}` : 'più adatto al tuo viaggio'}`
     : locale === 'en' ? `How to choose the right crossing ${region ? `in the ${regionDisplay} area` : 'for your trip'}`
@@ -1277,8 +1291,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const copy = COPY[locale];
   const crossingDisplay = BORDER_CROSSING_DISPLAY[crossing];
   const region = CROSSING_TO_REGION[crossing];
-  const regionDisplay =
-    region === 'ticino-como' ? copy.regionalLabelTicinoComo : copy.regionalLabelTicinoVarese;
+  const regionDisplay = regionLabel(copy, region);
   const reg = crossingRegistry(crossing);
   const dateStamp = today.toISOString().slice(0, 10);
   const canonicalPath = buildOggiPath(locale, crossing);
@@ -1475,6 +1488,8 @@ function renderLeafPage(inp: LeafInputs): string {
     'luino-fornasette': ['cremenaga-ponte-cremenaga', 'ponte-tresa', 'zenna-dirinella'],
     'maslianico-pizzamiglio': ['chiasso-centro', 'maslianico-roggiana', 'chiasso-brogeda'],
     'bizzarone-novazzano': ['ronago-novazzano', 'chiasso-brogeda', 'chiasso-strada'],
+    'camedo': ['piaggio-valmara', 'zenna-dirinella', 'biegno-indemini'],
+    'piaggio-valmara': ['camedo', 'zenna-dirinella', 'biegno-indemini'],
   };
   const altLabelByLocale: Record<BorderWaitLocale, { h2: string; lead: string }> = {
     it: { h2: 'Percorsi alternativi', lead: 'Se questo valico è congestionato, questi passaggi vicini sono spesso più fluidi:' },
@@ -1801,11 +1816,7 @@ function renderHubPage(inp: HubInputs): string {
     ? BORDER_WAIT_CROSSINGS.filter((c) => CROSSING_TO_REGION[c] === region)
     : BORDER_WAIT_CROSSINGS;
 
-  const regionDisplay = region
-    ? region === 'ticino-como'
-      ? copy.regionalLabelTicinoComo
-      : copy.regionalLabelTicinoVarese
-    : '';
+  const regionDisplay = region ? regionLabel(copy, region) : '';
 
   let h1 = region ? copy.regionalH1(regionDisplay) : copy.rootH1;
   // Long-form intro stays in the page text but moves below the action area
@@ -1946,7 +1957,10 @@ function renderHubPage(inp: HubInputs): string {
           : `Ce que coûte concrètement une attente au passage. Pour un frontalier qui franchit la douane cinq jours par semaine, chaque tranche supplémentaire de 10 minutes de file vaut en moyenne 35–55 EUR/mois de coût d'opportunité (salaire horaire net moyen au Tessin de 28–34 CHF plus le carburant consommé moteur tournant). Une matinée à 30 minutes de file au lieu des 5 minutes typiques à Brogeda à 06:30 coûte donc environ 1,80 EUR de carburant supplémentaire et ~12 EUR de temps perdu. Choisir le bon passage fait une différence mesurable : les résidents du sud de Côme gagnent environ 8 minutes en privilégiant Bizzarone–Stabio plutôt que Chiasso-Brogeda après 07:00 vers Lugano ; au retour le soir du Mendrisiotto vers Varèse, Gaggiolo est souvent plus fluide que Stabio après 17:30. Combinez ces temps d'attente avec le prix du carburant du jour et le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> pour estimer le coût net de votre pendulaire la semaine prochaine.`;
 
   // Related links context based on "primary" crossing for the region
-  const primaryCrossing: BorderCrossingSlug = region === 'ticino-varese' ? 'gaggiolo' : 'chiasso-brogeda';
+  const primaryCrossing: BorderCrossingSlug =
+    region === 'ticino-varese' ? 'gaggiolo'
+    : region === 'ticino-verbano' ? 'camedo'
+    : 'chiasso-brogeda';
   const relatedCtx = {
     city: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
     weeklyCity: CROSSING_TO_WEEKLY_CITY[primaryCrossing],
@@ -2130,8 +2144,7 @@ function renderArchiveContextProse(
   overallAvg: number | null,
   observedDays: number,
 ): string {
-  const regionDisplay =
-    region === 'ticino-como' ? COPY[locale].regionalLabelTicinoComo : COPY[locale].regionalLabelTicinoVarese;
+  const regionDisplay = regionLabel(COPY[locale], region);
   const meanTxt = overallAvg === null
     ? (locale === 'it' ? 'non disponibile per il mese'
       : locale === 'en' ? 'not available for the month'
