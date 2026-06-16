@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T12:27:42.710Z",
+  "updatedAt": "2026-06-16T13:08:29.159Z",
   "perCrossing": {
     "biegno-indemini": {
       "waitTimeMinutes": 0,
@@ -26,36 +26,36 @@
       "lastUpdate": "2026-06-15T12:27:42.710Z"
     },
     "campione-d-italia-bissone": {
-      "waitTimeMinutes": 1,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 1,
-      "status": "green",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "chiasso-brogeda": {
-      "waitTimeMinutes": 1,
-      "approachMinutes": 3,
-      "totalCrossingMinutes": 4,
+      "waitTimeMinutes": 0,
+      "approachMinutes": 0,
+      "totalCrossingMinutes": 0,
       "status": "green",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "chiasso-centro": {
-      "waitTimeMinutes": 1,
+      "waitTimeMinutes": 8,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 1,
-      "status": "green",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "chiasso-strada": {
-      "waitTimeMinutes": 3,
-      "approachMinutes": 14,
-      "totalCrossingMinutes": 17,
-      "status": "green",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "waitTimeMinutes": 8,
+      "approachMinutes": 0,
+      "totalCrossingMinutes": 8,
+      "status": "yellow",
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "clivio-ligornetto": {
       "waitTimeMinutes": 1,
@@ -98,12 +98,12 @@
       "lastUpdate": "2026-06-15T12:27:42.710Z"
     },
     "gaggiolo": {
-      "waitTimeMinutes": 8,
+      "waitTimeMinutes": 15,
       "approachMinutes": 0,
-      "totalCrossingMinutes": 8,
-      "status": "yellow",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "totalCrossingMinutes": 15,
+      "status": "red",
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "lanzo-d-intelvi-arogno": {
       "waitTimeMinutes": 0,
@@ -182,8 +182,8 @@
       "approachMinutes": 0,
       "totalCrossingMinutes": 8,
       "status": "yellow",
-      "source": "here",
-      "lastUpdate": "2026-06-15T12:27:42.710Z"
+      "source": "webcam",
+      "lastUpdate": "2026-06-16T13:08:29.159Z"
     },
     "sempione": {
       "waitTimeMinutes": 0,
