@@ -178,14 +178,16 @@ export default function CalcolatoreTabContent() {
  </div>
 
  {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap.
-     Inline style mirrors the Tailwind utility so the reservation applies even if Tailwind
-     hasn't loaded yet (async CSS). Without it, deferred widgets cause +0.16 CLS on mobile.
-     CLS fix (2026-05-12): bumped 160 → 192 to cover the realistic max real-content
-     height (NewsFeed 34 + WeeklyFact 34-50 + JobCTA ~52 + DailyDialect 34 + gaps).
-     The previous 160 was sized for the all-skeleton fallback (4 × 34 + 24 gaps = 160)
-     and undersized once the real JobBoard CTA + line-clamp-2 WeeklyFact rendered.
-     Skeleton fallback inside enlarged to four h-[44px] slots so the fallback itself
-     also fills the reserved space, preventing a 32px upward shift when fallback shows. */}
+     min-h-[192px] reserves space so the page doesn't shift when the skeleton first shows
+     (content fills ~186px; 6px buffer covers sub-pixel rounding).
+     CLS fix (2026-05-12): bumped 160 → 192 (NewsFeed 34 + WeeklyFact slot 50 + JobCTA 44 + DailyDialect 34 + gaps 24 = 186).
+     CLS fix follow-up (#2322): WeeklyFact Suspense now wrapped in min-h-[50px] — WeeklyFact
+     renders min-h-[34px] with line-clamp-2, so real content is 34–50px depending on text
+     length; the 16px growth was causing ~0.12 CLS when the Suspense resolved to its taller
+     variant. min-h-[50px] on the wrapper holds the slot at 50px regardless, so the Suspense
+     → real swap is height-neutral. Both skeleton branches (SilentErrorBoundary error fallback
+     + false-state) also use min-h-[50px] so the false→true idle-flip is height-neutral too
+     (both total ~186px). */}
  <div className="md:hidden space-y-2 mt-6 min-h-[192px]">
  {/* SilentErrorBoundary stays mounted across the showDeferredHomeWidgets
  flip (fired at idle ~2.3s via requestIdleCallback). Previously it lived
@@ -198,7 +200,7 @@ export default function CalcolatoreTabContent() {
  <SilentErrorBoundary boundary="home-widgets-mobile" fallback={
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
- <SkeletonWeeklyFact />
+ <div className="min-h-[50px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[44px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
@@ -214,7 +216,9 @@ export default function CalcolatoreTabContent() {
  }} />
  </Suspense>
  <div className="space-y-2">
- <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+ <div className="min-h-[50px]">
+ <Suspense fallback={<div className="min-h-[50px] rounded-xl bg-surface-raised animate-pulse" />}><WeeklyFact /></Suspense>
+ </div>
  <a
  href="/cerca-lavoro-ticino/"
  onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
@@ -234,7 +238,7 @@ export default function CalcolatoreTabContent() {
  ) : (
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
- <SkeletonWeeklyFact />
+ <div className="min-h-[50px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[44px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
