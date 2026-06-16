@@ -227,7 +227,7 @@ const OfferwallNewsletterGate: React.FC = () => {
         <button
           type="button"
           onClick={() => settle(false)}
-          className="absolute right-3 top-3 rounded-full p-1 text-muted hover:text-strong"
+          className="absolute right-3 top-3 rounded-full p-1 text-muted hover:text-heading"
           aria-label={copy.dismiss}
         >
           <X className="h-5 w-5" aria-hidden="true" />
@@ -247,7 +247,7 @@ const OfferwallNewsletterGate: React.FC = () => {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <p className="text-sm text-body">{copy.body}</p>
+            <p className="text-sm text-muted">{copy.body}</p>
 
             <EmailInput
               value={email}
@@ -282,7 +282,7 @@ const OfferwallNewsletterGate: React.FC = () => {
             <button
               type="button"
               onClick={() => settle(false)}
-              className="w-full text-center text-xs text-muted hover:text-strong"
+              className="w-full text-center text-xs text-muted hover:text-heading"
             >
               {copy.dismiss}
             </button>
