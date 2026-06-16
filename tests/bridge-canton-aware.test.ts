@@ -141,15 +141,21 @@ describe('Bridge page canton-aware UX', () => {
       previousSlugsByLocale?: Record<string, string[] | undefined>;
     }>;
     // Prefer a job that has multi-locale previousSlugsByLocale buckets (the
-    // original failure mode). Fall back to any job with non-empty previousSlugs.
+    // original failure mode), then any job with at least one non-empty locale
+    // bucket, then any job with non-empty previousSlugs. The middle tier matters
+    // because the live Denner slice rotates: when no active job currently carries
+    // ≥2 buckets, a single-bucket job (e.g. only `it`) still exercises the
+    // partition guard below. Without it the selection would fall through to a
+    // job whose previousSlugsByLocale is empty and the partition assertion would
+    // fail on pure crawler rotation rather than a real regression.
+    const nonEmptyBuckets = (j: { previousSlugsByLocale?: Record<string, string[] | undefined> }) =>
+      Object.values(j.previousSlugsByLocale ?? {}).filter(
+        (arr) => Array.isArray(arr) && arr.length > 0,
+      ).length;
     const targetJob =
-      allDennerJobs.find((j) => {
-        const byLocale = j.previousSlugsByLocale ?? {};
-        const localesWithEntries = Object.values(byLocale).filter(
-          (arr) => Array.isArray(arr) && arr.length > 0,
-        ).length;
-        return localesWithEntries >= 2;
-      }) ?? allDennerJobs.find((j) => Array.isArray(j.previousSlugs) && j.previousSlugs.length > 0);
+      allDennerJobs.find((j) => nonEmptyBuckets(j) >= 2) ??
+      allDennerJobs.find((j) => nonEmptyBuckets(j) >= 1) ??
+      allDennerJobs.find((j) => Array.isArray(j.previousSlugs) && j.previousSlugs.length > 0);
 
     it('Denner slice has at least one job exercising previousSlugs backfill', () => {
       expect(allDennerJobs.length).toBeGreaterThan(0);
