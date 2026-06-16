@@ -197,6 +197,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Tassa salute frontalieri: sindacati italiani e svizzeri attaccano la norma',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Sindacati italiani e svizzeri chiedono il ritiro definitivo della tassa salute, contestando la doppia imposizione e le incertezze applicative.',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Panorama di Lugano con uffici, scena urbana legata al tema fiscale dei frontalieri.',
+    'blog.article.infermiere-lugano-lis.title': 'Infermiere a Lugano: Istituti Sociali cercano personale',
+    'blog.article.infermiere-lugano-lis.excerpt': 'Istituti Sociali di Lugano cercano infermieri per diverse posizioni',
+    'blog.article.infermiere-lugano-lis.imageAlt': 'Una vista aerea di Lugano con gli Istituti Sociali nel centro della città.',
 };
 
 export default blogMetaChIt;

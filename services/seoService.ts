@@ -4064,6 +4064,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pd-m5s-avs-accelerano': { name: 'Politica italiana', path: '/articoli-frontaliere/pd-m5s-avs-accelerano', parent: 'blog' },
     'blog-tassa-salute-frontalieri-sindacati-attacco': { name: 'Tassa salute frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-sindacati-attacco/', parent: 'blog' },
     'blog-lavorare-in-svizzera': { name: 'Lavorare in Svizzera', path: '/articoli-frontaliere/lavorare-in-svizzera', parent: 'blog' },
+    'blog-infermiere-lugano-lis': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/infermiere-lugano-lis/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

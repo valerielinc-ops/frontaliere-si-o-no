@@ -197,6 +197,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Health tax for cross-border workers: unions challenge rule',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Italian and Swiss unions demand the permanent withdrawal of the health tax, citing double taxation and unclear implementation issues.',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Lugano cityscape with offices, urban scene related to cross-border fiscal issues.',
+    'blog.article.infermiere-lugano-lis.title': 'Social Institutes in Lugano Seek Nurses',
+    'blog.article.infermiere-lugano-lis.excerpt': 'Social Institutes in Lugano are looking for nurses for various positions. The institutes are seeking qualified professionals to join their teams and provide high-quality care to patients. If you are a motivated and compassionate nurse looking for a new challenge, this could be the perfect opportunity for you. Apply now and take the first step towards a rewarding career in healthcare.',
+    'blog.article.infermiere-lugano-lis.imageAlt': 'Aerial view of Lugano with Social Institutes in the city center.',
 };
 
 export default blogMetaChEn;
