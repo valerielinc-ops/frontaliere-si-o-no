@@ -74,6 +74,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  KILL_JOB_MARKET_LINKS: 'false',
  KILL_WEEKLY_EMPLOYERS_LINKS: 'false',
  KILL_ORPHAN_LANDINGS_LINKS: 'false',
+ // GPT PoC display slot on blog articles (issue #2273). Default 'false' = slot
+ // SHOWN. Flip to 'true' in the Remote Config console to kill the GPT slot
+ // within ~1 min (no redeploy) if it regresses AdSense Auto Ads / RPM / CWV.
+ KILL_GPT_POC_SLOT: 'false',
  // E3: Inline consulting CTA on calculator results view.
  // Default 'true' so the CTA is visible until explicitly disabled via Firebase
  // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.

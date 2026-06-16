@@ -19,6 +19,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
+import { useKillSwitches } from '@/hooks/useKillSwitches';
 
 // ── PoC switches ────────────────────────────────────────────
 // PoC ACTIVATED (issue #2273): GPT now serves one display slot on blog articles
@@ -65,9 +66,15 @@ const GptPocSlot: React.FC = () => {
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-poc-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
+  // Runtime kill-switch (Firebase Remote Config KILL_GPT_POC_SLOT). Flip to
+  // `true` in the RC console to stop serving the GPT slot within ~1 min — no
+  // redeploy — if it regresses AdSense Auto Ads / RPM / CWV. Default-safe:
+  // resolves `false` (slot shown) on RC failure.
+  const { gptPocSlot: killed } = useKillSwitches();
+  const active = GPT_POC_ENABLED && IS_PROD && !SKIP_FOR_BOT && !killed;
 
   useEffect(() => {
-    if (!GPT_POC_ENABLED || !IS_PROD || SKIP_FOR_BOT) return;
+    if (!active) return;
     const wrapper = wrapperRef.current;
     if (!wrapper || typeof IntersectionObserver === 'undefined') return;
 
@@ -110,9 +117,9 @@ const GptPocSlot: React.FC = () => {
     }, { rootMargin: '200px 0px' });
     io.observe(wrapper);
     return () => io.disconnect();
-  }, []);
+  }, [active]);
 
-  if (!GPT_POC_ENABLED || !IS_PROD || SKIP_FOR_BOT) return null;
+  if (!active) return null;
 
   return (
     <div
