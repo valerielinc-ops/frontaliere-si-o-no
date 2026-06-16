@@ -2,7 +2,7 @@
 /**
  * email-cascade.mjs — Multi-provider email sending with daily quota tracking.
  *
- * Cascade order: Mailgun → Resend → Mailjet → Mailtrap → Maileroo
+ * Cascade order: Mailgun → Resend → Mailjet → Mailtrap → Maileroo → Cloudflare
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
@@ -25,6 +25,10 @@
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
  *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
+ *   CLOUDFLARE_EMAIL_API_TOKEN — Cloudflare Email Service token (Email Sending: Edit
+ *                                + Analytics Read). 3000/mo included on the existing
+ *                                Workers Paid plan (no extra $), then $0.35/1000.
+ *   CF_ACCOUNT_ID            — Cloudflare account id (shared with the CDN/Workers config)
  */
 
 // ── Provider daily quotas ────────────────────────────────────
@@ -35,6 +39,12 @@ const PROVIDERS = [
   { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailtrap', dailyLimit: 150, monthlyLimit: 4000  },
   { id: 'maileroo', dailyLimit: 100, monthlyLimit: 3000  },
+  // Cloudflare Email Service: limit is MONTHLY (3000/mo included on Workers Paid),
+  // there is no documented per-day cap. dailyLimit is the 3000/30 ≈ 100/day spread
+  // so the in-memory guard keeps a single day from burning a disproportionate
+  // share of the monthly allowance. Placed last: it draws on the paid-plan quota,
+  // so prefer the purely-free providers first.
+  { id: 'cloudflare', dailyLimit: 100, monthlyLimit: 3000 },
   // unosend: disabled — re-enable when needed.
   // { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
 ];
@@ -178,6 +188,45 @@ async function fetchMailerooDailyUsage() {
 }
 
 /**
+ * Query Cloudflare Email Service usage via the GraphQL Analytics API
+ * (dataset emailSendingAdaptiveGroups). Returns the raw count of send events in
+ * [startDate, endDate] (inclusive, ISO yyyy-mm-dd), or null when the endpoint is
+ * unreachable / unauthorized / unconfigured so callers can tell "0 sent" apart
+ * from "couldn't verify". Requires the token to carry the Analytics Read scope.
+ * Docs: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
+ */
+export async function fetchCloudflareUsage(startDate, endDate) {
+  const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
+  const token = process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN;
+  if (!accountId || !token) return null;
+  const query = `query($acc:String!,$start:Date!,$end:Date!){viewer{accounts(filter:{accountTag:$acc}){emailSendingAdaptiveGroups(filter:{date_geq:$start,date_leq:$end},limit:10000){count}}}}`;
+  try {
+    const res = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      body: JSON.stringify({ query, variables: { acc: accountId, start: startDate, end: endDate } }),
+    });
+    if (!res.ok) return null;
+    const data = await res.json().catch(() => null);
+    if (!data || data.errors?.length) return null;
+    const groups = data?.data?.viewer?.accounts?.[0]?.emailSendingAdaptiveGroups || [];
+    return groups.reduce((sum, g) => sum + (Number(g.count) || 0), 0);
+  } catch { return null; }
+}
+
+/**
+ * Cloudflare's quota is MONTHLY, and emailSendingAdaptiveGroups aggregates one
+ * row per send EVENT (queued/delivered/bounced), so a per-day count would
+ * over-count actual sends and prematurely retire the provider (the dangerous
+ * under-send direction). Daily gating is therefore left to the in-memory counter
+ * alone — same safe fallback as Maileroo. Real consumption is surfaced against
+ * the monthly cap by check-email-quotas.mjs via fetchCloudflareUsage().
+ */
+async function fetchCloudflareDailyUsage() {
+  return 0;
+}
+
+/**
  * Sync in-memory counters with real provider usage for today.
  * Called once per cascade run. Falls back to 0 on API errors (safe: may overshoot quota slightly).
  */
@@ -185,13 +234,14 @@ async function syncQuotasFromAPIs() {
   if (_quotasSynced && _counterDate === getTodayUTC()) return;
 
   console.log('📊 Syncing quotas from provider APIs...');
-  const [mailgun, mailjet, mailtrap, unosend, resend, maileroo] = await Promise.all([
+  const [mailgun, mailjet, mailtrap, unosend, resend, maileroo, cloudflare] = await Promise.all([
     fetchMailgunDailyUsage(),
     fetchMailjetDailyUsage(),
     fetchMailtrapDailyUsage(),
     fetchUnosendDailyUsage(),
     fetchResendDailyUsage(),
     fetchMailerooDailyUsage(),
+    fetchCloudflareDailyUsage(),
   ]);
 
   _counterDate = getTodayUTC();
@@ -201,9 +251,10 @@ async function syncQuotasFromAPIs() {
   _counters.unosend = unosend;
   _counters.resend = resend;
   _counters.maileroo = maileroo;
+  _counters.cloudflare = cloudflare;
   _quotasSynced = true;
 
-  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100, maileroo=${maileroo}/100`);
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, mailtrap=${mailtrap}/150, unosend=${unosend}/200, resend=${resend}/100, maileroo=${maileroo}/100, cloudflare=${cloudflare}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -216,6 +267,8 @@ function isProviderConfigured(providerId) {
     case 'maileroo':   return !!process.env.MAILEROO_API_KEY;
     case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
+    case 'cloudflare': return !!((process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN) &&
+                                 (process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID));
     default: return false;
   }
 }
@@ -457,6 +510,64 @@ async function sendViaResend(email) {
   return { messageId: data?.id || `resend-${Date.now()}`, provider: 'resend' };
 }
 
+// ── Cloudflare Email Service REST API ─────────────────────────
+// Docs: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
+// Auth: Bearer token (Email Sending: Edit). `from`/`to`/`cc`/`bcc`/`replyTo`
+// accept either a plain string or { email, name } (named recipients, 2026-05-28),
+// and `to` may be an array mixing both. Free outbound requires the Workers Paid
+// plan; 3000/mo are included before per-email pricing kicks in.
+
+async function sendViaCloudflare(email) {
+  const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
+  const token = process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN;
+  const fromParsed = parseEmailAddress(email.from);
+
+  const body = {
+    from: fromParsed.name ? { email: fromParsed.email, name: fromParsed.name } : fromParsed.email,
+    to: Array.isArray(email.to) ? email.to : [email.to],
+    subject: email.subject,
+    html: email.html,
+  };
+  if (email.text) body.text = email.text;
+  // Forward custom email headers (List-Unsubscribe, Feedback-ID, etc.).
+  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
+
+  const res = await fetch(
+    `https://api.cloudflare.com/client/v4/accounts/${accountId}/email/sending/send`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    },
+  );
+
+  if (!res.ok) {
+    // 429 (code 10004 throttled) and quota-exceeded bodies are caught by
+    // isRateLimitedError → provider retired for the rest of the run.
+    const err = await res.text().catch(() => '');
+    throw new Error(`Cloudflare ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  if (data?.success === false) {
+    throw new Error(`Cloudflare error: ${JSON.stringify(data.errors || []).slice(0, 200)}`);
+  }
+  // Response groups recipients into delivered / queued / permanent_bounces.
+  // It may be wrapped in the standard client/v4 envelope (data.result) or raw.
+  const result = data?.result || data;
+  const accepted = [].concat(result?.delivered || [], result?.queued || []);
+  const bounced = result?.permanent_bounces || [];
+  if (accepted.length === 0 && bounced.length > 0) {
+    throw new Error(`Cloudflare permanent_bounce: ${JSON.stringify(bounced).slice(0, 200)}`);
+  }
+  const first = accepted[0];
+  const messageId = (first && (first.id || first.message_id || first.email)) || `cf-${Date.now()}`;
+  return { messageId: String(messageId), provider: 'cloudflare' };
+}
+
 // ── Provider dispatch ────────────────────────────────────────
 
 const SEND_FNS = {
@@ -466,6 +577,7 @@ const SEND_FNS = {
   maileroo: sendViaMaileroo,
   unosend: sendViaUnosend,
   resend: sendViaResend,
+  cloudflare: sendViaCloudflare,
 };
 
 /**
@@ -685,8 +797,9 @@ function parseEmailAddress(from) {
 /**
  * Total theoretical daily send capacity across the whole cascade —
  * the sum of every provider's daily limit (currently mailgun 100 + resend 100
- * + mailjet 200 + mailtrap 150 + maileroo 100 = 650). Single source of truth so
- * callers (e.g. the newsletter per-run cap) stay in sync when providers change.
+ * + mailjet 200 + mailtrap 150 + maileroo 100 + cloudflare 100 = 750). Single
+ * source of truth so callers (e.g. the newsletter per-run cap) stay in sync when
+ * providers change.
  */
 export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
