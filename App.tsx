@@ -1655,7 +1655,7 @@ const App: React.FC = () => {
 
  // Navigation context value — shared with child components via useNavigation()
  // navigateTo() is the canonical one-call navigation: sets tab + sub-tab + pushes URL.
- const navigateTo = useCallback((tab: ActiveTab, subTab?: string) => {
+ const navigateTo = useCallback((tab: ActiveTab, subTab?: string, canton?: string) => {
  setActiveTab(tab);
  if (tab === 'calculator' && subTab) setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
  else if (tab === 'confronti' && subTab) setConfrontiSubTab(subTab as ConfrontiSubTab);
@@ -1677,6 +1677,7 @@ const App: React.FC = () => {
  if (tab === 'stats') route.statsSubTab = (subTab || statsSubTab) as StatsSubTab;
  if (tab === 'blog' && subTab) route.blogArticle = subTab as BlogArticleId;
  if (tab === 'job-board' && subTab) route.jobSlug = subTab;
+ if (tab === 'job-board' && canton) route.jobBoardCanton = canton;
  if (tab === 'autore') {
  const slug = subTab || author || undefined;
  if (slug) route.author = slug;
@@ -2437,10 +2438,14 @@ const App: React.FC = () => {
  onRequireAuth={() => {
  navigateTo('profile' as any);
  }}
- onJobRouteChange={(slug) => {
+ onJobRouteChange={(slug, canton) => {
  setStaticOverlay(false);
  setJobSlug(slug || null);
- pushRoute({ activeTab: 'job-board' as any, ...(slug ? { jobSlug: slug } : {}) });
+ // Canton-aware: carry the job/hub canton so the pushed URL stays on the
+ // correct section (/cerca-lavoro-zurigo/…) instead of collapsing onto the
+ // legacy TI default (table.jobBoard). staticOverlay stays false so the
+ // React view keeps rendering on this soft-nav.
+ pushRoute({ activeTab: 'job-board' as any, ...(canton ? { jobBoardCanton: canton } : {}), ...(slug ? { jobSlug: slug } : {}) });
  // Scroll to top when entering a job detail; JobBoard handles list restoration.
  if (slug) window.scrollTo({ top: 0, behavior: 'instant' });
  }}

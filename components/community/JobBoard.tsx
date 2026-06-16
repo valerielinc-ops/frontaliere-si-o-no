@@ -88,7 +88,10 @@ import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/s
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
-import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
+import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
+import { isKnownCityHub } from '@/build-plugins/cityJobsHub';
+import { normalizeCitySlug } from '@/build-plugins/shared/cantonCities';
 import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/shared/titleSuffix';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -505,7 +508,7 @@ interface JobBoardProps {
  initialFilterParams?: JobBoardFilterParams | null;
  /** Called after filter params have been consumed so they aren't re-applied */
  onFilterParamsConsumed?: () => void;
- onJobRouteChange?: (slug?: string) => void;
+ onJobRouteChange?: (slug?: string, canton?: string) => void;
  isLoggedIn?: boolean;
  authUser?: any | null;
  authLoading?: boolean;
@@ -4102,7 +4105,55 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Defense-in-depth: if no slug resolved, return current pathname
  // instead of the listing page URL to preserve static HTML canonical.
  if (!localizedSlug) return window.location.pathname;
- return buildPath({ activeTab: 'job-board' as any, ...(localizedSlug ? { jobSlug: localizedSlug } : {}) }, locale);
+ // Canton-aware section: the per-job static page is emitted under the job's
+ // OWN canton (/cerca-lavoro-zurigo/<slug>/), NOT the legacy TI default.
+ // Without jobBoardCanton, buildPath() falls back to table.jobBoard
+ // ('cerca-lavoro-ticino') and every non-TI job link collapses onto the TI
+ // section — the SPA was overwriting the (correct) static card hrefs with
+ // TI ones on hydration. Object branch resolves from the job exactly like
+ // the build emitter (renderJobCardLi → resolveJobCanton); string branch
+ // looks the canton up in the registered slug map (_canton).
+ const jobCanton =
+ typeof jobOrSlug === 'string'
+ ? getJobMetaForSlug(jobOrSlug.trim())?.canton
+ : jobOrSlug
+ ? resolveJobCanton(jobOrSlug)
+ : undefined;
+ return buildPath({
+ activeTab: 'job-board' as any,
+ ...(jobCanton ? { jobBoardCanton: String(jobCanton).toUpperCase() } : {}),
+ ...(localizedSlug ? { jobSlug: localizedSlug } : {}),
+ }, locale);
+ };
+
+ // Editorial hub links (city / sector / type lists rendered on a canton
+ // landing) carry their canton in the build-provided href's section segment.
+ // The previous `href.split('/').filter(Boolean).pop()` + buildPath() WITHOUT
+ // a canton stripped that section and rebuilt every link under the legacy TI
+ // default. Recover the canton via the router's parsePath() (single source of
+ // truth) so href + SPA nav stay on the right section. We deliberately keep
+ // driving navigation through onJobRouteChange (jobSlug, NO staticOverlay) —
+ // a city/sector hub URL parses to staticOverlay:true, and App skips the
+ // React <main> on staticOverlay, so a soft-nav there would blank the page.
+ const hubLinkRoute = (rawHref?: string): { canton?: string; slug: string } => {
+ const path = String(rawHref || '').replace(/^https?:\/\/[^/]+/, '').split('?')[0];
+ if (!path) return { slug: '' };
+ const r = parsePath(path).route;
+ const hasInner = !!(r.jobSlug || r.jobBoardCity || r.jobBoardSector);
+ const parts = path.split('/').filter(Boolean);
+ const slug = hasInner && parts.length ? parts[parts.length - 1] : '';
+ return { canton: r.jobBoardCanton, slug };
+ };
+
+ // Anchor href for an editorial hub link, canton-aware. Falls back to the
+ // job-board root when the href has no inner slug.
+ const buildHubHref = (rawHref?: string): string => {
+ const { canton, slug } = hubLinkRoute(rawHref);
+ return buildPath({
+ activeTab: 'job-board' as any,
+ ...(canton ? { jobBoardCanton: canton } : {}),
+ ...(slug ? { jobSlug: slug } : {}),
+ }, locale);
  };
 
  useEffect(() => {
@@ -4392,7 +4443,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const nextSlug = deriveLocalizedJobSlug(unlockedJob, locale);
  setPendingJob(null);
  if (!selectedJob || selectedJob.id !== unlockedJob.id || initialJobSlug !== nextSlug) {
- onJobRouteChange?.(nextSlug);
+ onJobRouteChange?.(nextSlug, resolveJobCanton(unlockedJob));
  }
  }, [authResolved, authUser, initialJobSlug, isLoggedIn, locale, onJobRouteChange, pendingJob, selectedJob]);
 
@@ -4409,7 +4460,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  releaseSlot('job-auth-gate');
 
  if (initialJobSlug === redirectSlug) return;
- onJobRouteChange?.(redirectSlug);
+ onJobRouteChange?.(redirectSlug, getJobMetaForSlug(redirectSlug)?.canton);
  }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
 
  // When the inline auth gate is visible (job detail + not logged in),
@@ -4435,7 +4486,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
  savedListState.current = { page, scrollY: window.scrollY };
- onJobRouteChange?.(deriveLocalizedJobSlug(job, locale));
+ onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
  };
@@ -4502,7 +4553,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (jobToOpen) {
  // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
  justAuthedJobIdRef.current = jobToOpen.id;
- onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale));
+ onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale), resolveJobCanton(jobToOpen));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
  } catch {
@@ -4536,7 +4587,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobToOpen = pendingJob;
  setPendingJob(null);
  if (jobToOpen) {
- onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale));
+ onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale), resolveJobCanton(jobToOpen));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
  } catch {
@@ -4793,7 +4844,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const navigateToRelatedSearch = useCallback((keyword: string) => {
  const searchSlug = buildSearchSlug(keyword, locale);
  setSearchQuery(keyword);
- onJobRouteChange?.(searchSlug);
+ // Keyword search hubs are Switzerland-wide (aggregate), mirroring the
+ // related-search anchor hrefs (jobBoardCanton: JOB_BOARD_CANTON_AGGREGATE);
+ // without it the SPA nav would collapse onto the legacy TI section.
+ onJobRouteChange?.(searchSlug, JOB_BOARD_CANTON_AGGREGATE);
  }, [locale, onJobRouteChange]);
 
  // ── Salary estimate widgets (frontaliere vs CH resident) ───────────────
@@ -5255,14 +5309,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
  {editorialJobTodayLanding.sections.cities.map((city) => {
- const citySlug = city.href.split('/').filter(Boolean).pop() || '';
+ const { canton: cityCanton, slug: citySlug } = hubLinkRoute(city.href);
  return (
  <a
  key={city.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: citySlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(cityCanton ? { jobBoardCanton: cityCanton } : {}), jobSlug: citySlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(citySlug);
+ onJobRouteChange?.(citySlug, cityCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5328,6 +5382,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const localParts = localPath.split('/').filter(Boolean);
  const isBoardRoot = localParts.length <= (locale === 'it' ? 1 : 2);
  const slug = !isBoardRoot && localParts.length > 0 ? localParts[localParts.length - 1] : '';
+ const linkCanton = hubLinkRoute(link.href).canton;
  if (!localPath) {
  return (
  <a
@@ -5342,10 +5397,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  <a
  key={link.href}
- href={slug ? buildPath({ activeTab: 'job-board', jobSlug: slug }, locale) : buildPath({ activeTab: 'job-board' }, locale)}
+ href={slug ? buildPath({ activeTab: 'job-board', ...(linkCanton ? { jobBoardCanton: linkCanton } : {}), jobSlug: slug }, locale) : buildPath({ activeTab: 'job-board' }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(slug || '');
+ onJobRouteChange?.(slug || '', linkCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent no-underline hover:underline"
@@ -5444,14 +5499,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <h2 className="text-lg font-bold font-display text-heading mb-4">{editorialNursesHubLanding.variantTitle}</h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
  {editorialNursesHubLanding.variants.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5522,7 +5577,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (editorialCareVariantLanding) {
- const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
+ const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialCareVariantLanding.parentHubHref);
  return (
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
@@ -5541,7 +5596,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => {
- onJobRouteChange?.(parentSlug);
+ onJobRouteChange?.(parentSlug, parentCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 min-h-[44px] text-sm font-bold text-accent"
@@ -5565,14 +5620,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
  {editorialCareVariantLanding.siblingLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5650,14 +5705,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
  {editorialLocationLanding.relatedTypeLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5678,14 +5733,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
  {editorialLocationLanding.relatedSectorLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5733,7 +5788,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (editorialLocationTypeLanding) {
- const parentSlug = editorialLocationTypeLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
+ const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationTypeLanding.parentLocationHref);
  return (
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
@@ -5752,7 +5807,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => {
- onJobRouteChange?.(parentSlug);
+ onJobRouteChange?.(parentSlug, parentCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 min-h-[44px] text-sm font-bold text-accent"
@@ -5775,14 +5830,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
  {editorialLocationTypeLanding.siblingTypeLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5830,7 +5885,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  if (editorialLocationSectorLanding) {
- const parentSlug = editorialLocationSectorLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
+ const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationSectorLanding.parentLocationHref);
  return (
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
@@ -5849,7 +5904,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <button
  type="button"
  onClick={() => {
- onJobRouteChange?.(parentSlug);
+ onJobRouteChange?.(parentSlug, parentCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 min-h-[44px] text-sm font-bold text-accent"
@@ -5872,14 +5927,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
  {editorialLocationSectorLanding.siblingSectorLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -5969,14 +6024,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </h2>
  <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
  {editorialSectorRegionLanding.siblingSectorLinks.map((link) => {
- const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+ const { canton: targetCanton, slug: targetSlug } = hubLinkRoute(link.href);
  return (
  <a
  key={link.href}
- href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+ href={buildPath({ activeTab: 'job-board', ...(targetCanton ? { jobBoardCanton: targetCanton } : {}), jobSlug: targetSlug }, locale)}
  onClick={(e) => {
  e.preventDefault();
- onJobRouteChange?.(targetSlug);
+ onJobRouteChange?.(targetSlug, targetCanton);
  window.scrollTo({ top: 0, behavior: 'smooth' });
  }}
  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-accent transition-colors"
@@ -6061,7 +6116,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  totalActiveJobs={jobs.length}
  onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
- onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToJob={(slug) => { onJobRouteChange?.(slug, getJobMetaForSlug(slug)?.canton); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
  );
  }
@@ -6074,7 +6129,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  totalActiveJobs={jobs.length}
  onNavigateToCompany={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  onNavigateToLocation={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
- onNavigateToJob={(slug) => { onJobRouteChange?.(slug); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+ onNavigateToJob={(slug) => { onJobRouteChange?.(slug, getJobMetaForSlug(slug)?.canton); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  />
  );
  }
@@ -6112,8 +6167,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  const gateCompanySlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
+ const gateJobCanton = resolveJobCanton(selectedJob);
+ // Non-TI jobs: link the city to its canton-aware city hub
+ // (/cerca-lavoro-zurigo/zurigo/) instead of the legacy TI location filter,
+ // which emits no static page outside TI and can't round-trip under a non-TI
+ // section (parses back as a jobSlug). TI keeps the existing location-search
+ // filter verbatim — isKnownCityHub matches every TI municipality but only
+ // 5 TI city hubs are emitted, so gating TI here would 404.
+ const gateCitySlug = gateJobCanton !== 'TI' && jobLocation && !isMultiLocation(jobLocation)
+ ? normalizeCitySlug(selectedJob.addressLocality || jobLocation)
+ : '';
+ const gateCityHub = !!(gateCitySlug && isKnownCityHub(gateCitySlug, gateJobCanton));
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
- const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
+ const gateLocationHref = gateCityHub
+ ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: gateJobCanton, jobSlug: gateCitySlug }, locale)
+ : (gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '');
  const openGateCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
@@ -6166,8 +6234,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  e.preventDefault();
  setSearchQuery('');
+ if (gateCityHub) {
+ // City hub renders via React on soft-nav (staticOverlay would blank it).
+ onJobRouteChange?.(gateCitySlug, gateJobCanton);
+ } else {
  window.history.pushState({ route: { activeTab: 'job-board', jobSlug: gateLocationSlug } }, '', gateLocationHref.split('?')[0]);
  window.dispatchEvent(new PopStateEvent('popstate'));
+ }
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', jobLocation);
  }}
@@ -6581,8 +6654,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const detailPageUrl = `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`;
  const companySearchSlug = buildCompanySearchSlug(selectedJob.company, selectedJob.companyKey, locale);
  const companySearchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: companySearchSlug }, locale);
+ const detailJobCanton = resolveJobCanton(selectedJob);
+ // Non-TI jobs: link the city to its canton-aware city hub
+ // (/cerca-lavoro-zurigo/zurigo/), not the TI location filter. TI unchanged
+ // (see gate-block note: only 5 TI city hubs are emitted).
+ const detailCitySlug = detailJobCanton !== 'TI' && !isMultiLocation(selectedJob.location)
+ ? normalizeCitySlug(selectedJob.addressLocality || selectedJob.location || '')
+ : '';
+ const detailCityHub = !!(detailCitySlug && isKnownCityHub(detailCitySlug, detailJobCanton));
  const detailLocationSlug = buildLocationSearchSlug(selectedJob.addressLocality || selectedJob.location || '', locale);
- const detailLocationHref = detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '';
+ const detailLocationHref = detailCityHub
+ ? buildPath({ activeTab: 'job-board' as any, jobBoardCanton: detailJobCanton, jobSlug: detailCitySlug }, locale)
+ : (detailLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: detailLocationSlug }, locale) : '');
  const openCompanyFilter = (e: React.MouseEvent<HTMLAnchorElement>) => {
  e.preventDefault();
  e.stopPropagation();
@@ -6847,8 +6930,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  e.preventDefault();
  setSearchQuery('');
+ if (detailCityHub) {
+ // City hub renders via React on soft-nav (staticOverlay would blank it).
+ onJobRouteChange?.(detailCitySlug, detailJobCanton);
+ } else {
  window.history.pushState({ route: { activeTab: 'job-board', jobSlug: detailLocationSlug } }, '', detailLocationHref.split('?')[0]);
  window.dispatchEvent(new PopStateEvent('popstate'));
+ }
  window.scrollTo({ top: 0, behavior: 'smooth' });
  Analytics.trackSelectContent('job_board_location_filter_open', selectedJob.location);
  }}

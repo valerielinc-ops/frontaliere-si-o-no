@@ -3,6 +3,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
+import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import type { BlogArticleId, AppRoute } from '@/services/router';
 import type { ArticleSection } from '@/services/articleSections';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
@@ -2159,8 +2160,8 @@ function BlogArticles({
  return (
  <a
  key={job.id}
- href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
- onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
+ href={buildPath({ activeTab: 'job-board', jobBoardCanton: resolveJobCanton(job), jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
+ onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id, resolveJobCanton(job)); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
  className="flex items-center gap-3 p-2.5 bg-surface/70 rounded-lg hover:bg-surface/50 transition-colors group"
  >
  <div className="w-8 h-8 rounded-lg bg-accent-subtle flex items-center justify-center shrink-0 overflow-hidden">
@@ -2353,8 +2354,8 @@ function BlogArticles({
  return (
  <a
  key={job.id}
- href={buildPath({ activeTab: 'job-board', jobSlug })}
- onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
+ href={buildPath({ activeTab: 'job-board', jobBoardCanton: resolveJobCanton(job), jobSlug })}
+ onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug, resolveJobCanton(job)); }}
  className="flex items-start gap-3 p-3 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors text-left border border-accent-border"
  >
  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0 overflow-hidden">

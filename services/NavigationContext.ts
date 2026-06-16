@@ -37,8 +37,10 @@ export interface NavigationActions {
  * Navigate to a tab (and optional sub-tab) in one call.
  * Sets activeTab + matching sub-tab state + pushes the URL.
  * Use this instead of manually calling setActiveTab + set*SubTab + pushRoute.
+ * `canton` (job-board only): emit the canton-aware section
+ * (/cerca-lavoro-zurigo/…) instead of the legacy TI default.
  */
- navigateTo: (tab: ActiveTab, subTab?: string) => void;
+ navigateTo: (tab: ActiveTab, subTab?: string, canton?: string) => void;
 }
 
 export type NavigationContextType = NavigationState & NavigationActions;
