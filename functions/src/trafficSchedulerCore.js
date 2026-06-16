@@ -643,7 +643,11 @@ export async function runTrafficCollection(options = {}) {
  const { hereApiKey, tomtomApiKey, googleApiKey } = options;
  const enableWebcam = !!options.enableWebcam;
  console.log(`📷 Webcam analysis: ${enableWebcam ? 'enabled' : 'disabled'}`);
- const provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
+ let provider = resolveTrafficProvider({ hereApiKey, tomtomApiKey, googleApiKey });
+ // Options forwarded to the per-crossing routing loop. May be rewritten (HERE
+ // key dropped) when falling back to TomTom so resolveTrafficProvider inside
+ // the loop resolves to 'tomtom' instead of 'here'.
+ let effectiveOptions = options;
  if (!provider) {
  if (enableWebcam) {
  console.warn('⚠️ No routing API key set — falling back to webcam-only collection');
@@ -674,16 +678,30 @@ export async function runTrafficCollection(options = {}) {
  `🛑 HERE monthly budget reached (${budget.count}/${HERE_MONTHLY_BUDGET} transactions for ${budget.month}) ` +
  `— skipping routing to stay in the free tier.`,
  );
- if (enableWebcam) {
- // Don't freeze the snapshot for a whole month: the free webcams can still
- // refresh the CV-capable crossings while routing is paused.
+ // Prefer real live routing over webcam-only/mock: TomTom's free tier
+ // (2,500 req/day) dwarfs HERE's exhausted monthly allowance and is
+ // UNMETERED in this module. Switch the effective provider to TomTom and
+ // run the SAME per-crossing routing loop. We've already skipped the HERE
+ // reservation above, so the HERE counter is NOT charged for this run.
+ // Dropping hereApiKey makes resolveTrafficProvider resolve to 'tomtom'
+ // inside fetchCrossingTraffic/getSegmentTravelTimes.
+ if (tomtomApiKey) {
+ console.log('🔁 HERE budget exhausted — falling back to TomTom (free tier) for live routing');
+ provider = 'tomtom';
+ const { hereApiKey: _droppedHereKey, ...rest } = options;
+ effectiveOptions = rest;
+ // Fall through to the normal per-crossing routing loop with provider='tomtom'.
+ } else if (enableWebcam) {
+ // No TomTom key: don't freeze the snapshot for a whole month — the free
+ // webcams can still refresh the CV-capable crossings while routing is paused.
  console.warn('📷 HERE budget exhausted — falling back to webcam-only collection');
  return runWebcamOnlyCollection(options);
- }
+ } else {
  console.warn('Live data keeps the last snapshot (webcam disabled).');
  return { collected: 0, errors: 0, skipped: 'here-budget' };
  }
- if (budget) {
+ }
+ if (budget && budget.allowed) {
  console.log(`💳 HERE budget: ${budget.count}/${HERE_MONTHLY_BUDGET} transactions reserved for ${budget.month}`);
  }
  }
@@ -699,7 +717,7 @@ export async function runTrafficCollection(options = {}) {
  for (let i = 0; i < BORDER_CROSSINGS.length; i += BATCH_SIZE) {
  const chunk = BORDER_CROSSINGS.slice(i, i + BATCH_SIZE);
  const settled = await Promise.allSettled(
- chunk.map(c => fetchCrossingTraffic(c, options)),
+ chunk.map(c => fetchCrossingTraffic(c, effectiveOptions)),
  );
 
  for (let j = 0; j < settled.length; j++) {
