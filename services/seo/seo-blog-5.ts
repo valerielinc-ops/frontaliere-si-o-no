@@ -44378,6 +44378,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-azienda-hoval-lavoro-ticino': {
+    title: 'Azienda Hoval: opportunità di lavoro in Ticino per frontalieri',
+    description: 'Hoval cerca personale in Ticino. Opportunità per frontalieri italiani. Dettagli sulla candidatura e implicazioni pratiche. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, azienda, hoval, opportunità, lavoro',
+    ogTitle: 'Azienda Hoval: offerte di lavoro in Ticino per frontalieri',
+    ogDescription: 'Hoval cerca personale in Ticino. Opportunità per frontalieri italiani. Dettagli sulla candidatura e implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/azienda-hoval-lavoro-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Azienda Hoval: opportunità di lavoro in Ticino per frontalieri",
+      "description": "Hoval cerca personale in Ticino. Opportunità per frontalieri italiani. Dettagli sulla candidatura e implicazioni pratiche. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/azienda-hoval-lavoro-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di una sede aziendale moderna a Lugano, Ticino, con montagne sullo sfondo."
+      },
+      "datePublished": "2026-06-16T21:19:11+00:00",
+      "dateModified": "2026-06-16T21:19:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/azienda-hoval-lavoro-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

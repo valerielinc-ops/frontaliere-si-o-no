@@ -8117,6 +8117,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comuni-frontiera-ticino.title': 'Comuni di frontiera in Ticino: una guida pratica',
     'blog.article.comuni-frontiera-ticino.excerpt': 'Scopri i comuni di frontiera del Ticino e la loro importanza per i frontalieri.',
     'blog.article.comuni-frontiera-ticino.imageAlt': 'Una vista panoramica di un comune di frontiera in Ticino.',
+    'blog.article.azienda-hoval-lavoro-ticino.title': 'Azienda Hoval: opportunità di lavoro in Ticino per frontalieri',
+    'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval cerca personale in Ticino. Opportunità per frontalieri italiani. Dettagli sul processo di candidatura e implicazioni pratiche.',
+    'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'Vista di una sede aziendale moderna a Lugano, Ticino, con montagne sullo sfondo.',
 };
 
 export default blogMetaIt;

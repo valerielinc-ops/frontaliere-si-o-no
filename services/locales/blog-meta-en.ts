@@ -8116,6 +8116,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comuni-frontiera-ticino.title': 'Ticino Border Municipalities: A Practical Guide',
     'blog.article.comuni-frontiera-ticino.excerpt': 'Discover the border municipalities of Ticino and their importance for cross-border workers.',
     'blog.article.comuni-frontiera-ticino.imageAlt': 'A panoramic view of a border town in Ticino.',
+    'blog.article.azienda-hoval-lavoro-ticino.title': 'Hoval: Job Opportunities in Ticino for Cross-Border Workers',
+    'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval is seeking personnel in Ticino. Opportunities for Italian cross-border workers. Details on the application process and practical implications.',
+    'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'View of a modern company building in Lugano, Ticino, with mountains behind.',
 };
 
 export default blogMetaEn;
