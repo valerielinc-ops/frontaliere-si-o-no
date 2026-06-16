@@ -8105,6 +8105,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Plus de trains et bus entre le Tessin et la Lombardie',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Signature de l\'accord entre le canton du Tessin et la région Lombardie : renforcement des liaisons ferroviaires et routières, avec des billets intégrés pour une mobilité durable.',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Des trains et bus traversent la frontière Tessin-Lombardie pour améliorer les transports publics transfrontaliers.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Nouvelle entente Lombardie-Ticino: plus de trains et bus frontaliers',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Région Lombardie et Canton Ticino signent un accord pour renforcer les trains et bus transfrontaliers, avec RE80 toutes les 30 minutes et intégration tarifaire.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Train Regio Express à la frontière Italie-Suisse avec des frontaliers en attente',
 };
 
 export default blogMetaFr;

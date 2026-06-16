@@ -8103,6 +8103,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Mehr Züge und Busse zwischen Tessin und Lombardei',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Abkommen zwischen dem Kanton Tessin und der Region Lombardei unterzeichnet: Ausbau der Bahn- und Busverbindungen mit integrierten Tickets für eine nachhaltige Mobilität.',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Züge und Busse überqueren die Grenze zwischen Tessin und Lombardei zur Verbesserung des grenzüberschreitenden öffentlichen Nahverkehrs.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Lombardei‑Tessin: mehr Züge und Busse für Grenzgänger',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Region Lombardei und Kanton Tessin unterzeichnen Abkommen zur Verstärkung grenzüberschreitender Zug- und Busverbindungen, mit RE80 alle 30 Minuten und Tarifintegration.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Regio Express Zug an der Italien-Schweiz Grenze mit wartenden Pendlern',
 };
 
 export default blogMetaDe;

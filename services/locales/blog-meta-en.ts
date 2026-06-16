@@ -8104,6 +8104,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'More Trains and Buses Between Ticino and Lombardy',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'The agreement between Canton Ticino and Lombardy Region has been signed: enhanced rail and bus connections with integrated tickets for sustainable mobility.',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Trains and buses crossing the Ticino-Lombardy border to enhance cross-border public transport.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'New Lombardy-Ticino deal: more trains and buses for commuters',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Regione Lombardia and Canton Ticino sign an agreement to boost cross-border trains and buses, with RE80 every 30 minutes and fare integration.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Regio Express train at the Italy-Switzerland border with commuters waiting',
 };
 
 export default blogMetaEn;

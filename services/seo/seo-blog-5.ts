@@ -44222,6 +44222,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-transfrontaliera-treni-autobus': {
+    title: 'Nuova intesa Lombardia-Ticino: più treni e autobus per i frontalieri',
+    description: 'Regione Lombardia e Canton Ticino firmano accordo per potenziare treni e autobus transfrontalieri, con RE80 ogni 30 minuti e integrazione tariffaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, intesa, lombardia-ticino, treni',
+    ogTitle: 'Nuova intesa Lombardia-Ticino: più treni e autobus per frontalieri',
+    ogDescription: 'Accordo tra Regione Lombardia e Canton Ticino per aumentare la frequenza dei treni e potenziare gli autobus transfrontalieri a beneficio dei lavoratori',
+    canonicalPath: '/articoli-frontaliere/mobilita-transfrontaliera-treni-autobus',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova intesa Lombardia-Ticino: più treni e autobus per i frontalieri",
+      "description": "Regione Lombardia e Canton Ticino firmano accordo per potenziare treni e autobus transfrontalieri, con RE80 ogni 30 minuti e integrazione tariffaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilita-transfrontaliera-treni-autobus.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Regio Express al confine italo-svizzero con pendolari in attesa"
+      },
+      "datePublished": "2026-06-16T19:16:20+00:00",
+      "dateModified": "2026-06-16T19:16:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-transfrontaliera-treni-autobus`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
