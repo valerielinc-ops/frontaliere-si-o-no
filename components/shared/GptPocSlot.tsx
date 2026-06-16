@@ -100,7 +100,8 @@ const GptPocSlot: React.FC = () => {
           if (!slot) return;
           if (!gptServicesEnabled) {
             gptServicesEnabled = true;
-            gt.pubads().enableSingleRequest();
+            // Modern GPT config API (pubads().enableSingleRequest() is deprecated).
+            gt.setConfig({ singleRequest: true });
             gt.pubads().collapseEmptyDivs(true);
             gt.enableServices();
           }
