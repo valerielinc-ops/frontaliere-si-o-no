@@ -176,6 +176,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Vote sur le blocage des étrangers et frontaliers',
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Le Canton du Ticino approuve le blocage des étrangers, mais avec des effets limités, tandis que la Suisse rejette l\'initiative de l\'UDC avec 54,79 %.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paysage de lac et montagnes entre la Suisse et l\'Italie près du Tessin.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni fermi Stabio-Gallarate : Les Verts critiquent la Région et Trenord',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Fermeture de la ligne ferroviaire Stabio-Gallarate jusqu\'au 5 juillet pour des travaux, entraînant de graves inconvénients pour plus de 5 000 passagers quotidiens.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Pendulaires en attente devant gare fermée',
 };
 
 export default blogMetaChFr;

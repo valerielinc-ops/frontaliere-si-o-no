@@ -4049,6 +4049,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-grandine-gt86-trd-perdita-totale': { name: 'auto danneggiata', path: '/articoli-frontaliere/grandine-gt86-trd-perdita-totale', parent: 'blog' },
     'blog-blocchi-immigrazione-ticino': { name: 'Politica migratoria', path: '/articoli-svizzera/blocchi-immigrazione-ticino/', parent: 'blog' },
     'blog-blocchi-ristorni-berna-italia': { name: 'fiscale', path: '/articoli-frontaliere/blocchi-ristorni-berna-italia', parent: 'blog' },
+    'blog-treni-fermi-stabio-gallarate-incompetenza-regione': { name: 'Treni fermi Stabio-Gallarate', path: '/articoli-svizzera/treni-fermi-stabio-gallarate-incompetenza-regione/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
