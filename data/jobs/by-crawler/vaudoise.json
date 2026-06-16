@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-06-15T16:10:48.875Z",
+  "assembledAt": "2026-06-16T00:06:15.997Z",
   "jobs": [
     {
       "id": "vaudoise-64cf76fe2e5d",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=275648136&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:46.360Z",
+      "crawledAt": "2026-06-16T00:06:13.583Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -110,7 +110,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=273413846&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:46.081Z",
+      "crawledAt": "2026-06-16T00:06:13.330Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -196,7 +196,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=275303786&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:45.156Z",
+      "crawledAt": "2026-06-16T00:06:13.078Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -224,15 +224,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:27.916Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -270,7 +271,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=273413916&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T16:10:45.524Z",
+      "crawledAt": "2026-06-16T00:06:12.772Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -347,7 +348,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=273561716&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:44.527Z",
+      "crawledAt": "2026-06-16T00:06:12.521Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -378,15 +379,16 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:44:40.327Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -424,7 +426,7 @@
       "url": "https://vaudoise.softgarden.io/job/64019188/Juriste-assurances-et-conformit%C3%A9-exp%C3%A9riment%C3%A9-e-h-f-x-%E2%80%93-80-100-?jobDbPVId=273567166&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:44.964Z",
+      "crawledAt": "2026-06-16T00:06:12.268Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -501,7 +503,7 @@
       "url": "https://vaudoise.softgarden.io/job/62200694/Area-Lead-Assurances-IAG-h-f-x-100-?jobDbPVId=275648041&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:43.924Z",
+      "crawledAt": "2026-06-16T00:06:12.008Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -518,15 +520,16 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:27.359Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -564,7 +567,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=273809456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T16:10:44.399Z",
+      "crawledAt": "2026-06-16T00:06:11.717Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -643,7 +646,7 @@
       "url": "https://vaudoise.softgarden.io/job/63569294/Key-Account-Manager-in-Tierversicherungen-m-w-d-80-100-?jobDbPVId=273809486&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:43.290Z",
+      "crawledAt": "2026-06-16T00:06:11.465Z",
       "addressLocality": "Berne",
       "addressCountry": "CH",
       "country": "CH",
@@ -671,15 +674,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:26.801Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 94500,
+          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -717,7 +721,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=275647831&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:43.844Z",
+      "crawledAt": "2026-06-16T00:06:11.214Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -794,7 +798,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=273926896&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T16:10:43.561Z",
+      "crawledAt": "2026-06-16T00:06:10.961Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -866,7 +870,7 @@
       "url": "https://vaudoise.softgarden.io/job/64317263/%C3%9Cbersetzungspraktikant-in-Universit%C3%A4t-oder-Fachhochschule-m-w-x-%E2%80%93-100-?jobDbPVId=273926906&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:42.371Z",
+      "crawledAt": "2026-06-16T00:06:10.672Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -899,15 +903,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:25.121Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 51000,
+          "maxValue": 77500,
           "unitText": "YEAR"
         }
       },
@@ -945,7 +950,7 @@
       "url": "https://vaudoise.softgarden.io/job/64916376/Chef-Cheffe-d-agence-h-f-x-80-100-?jobDbPVId=274057561&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:42.044Z",
+      "crawledAt": "2026-06-16T00:06:10.419Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -973,15 +978,16 @@
         ]
       },
       "firstSeenAt": "2026-05-27T00:40:51.425Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -1019,7 +1025,7 @@
       "url": "https://vaudoise.softgarden.io/job/63771389/Expert-Experte-en-Gouvernance-des-Donn%C3%A9es-h-f-x-80-100-?jobDbPVId=274065891&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:42.718Z",
+      "crawledAt": "2026-06-16T00:06:10.168Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,7 +1102,7 @@
       "url": "https://vaudoise.softgarden.io/job/63764914/Chef-Cheffe-de-service-Souscription-Choses-h-f-x-80-100-?jobDbPVId=274065946&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:42.439Z",
+      "crawledAt": "2026-06-16T00:06:09.915Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1173,7 +1179,7 @@
       "url": "https://vaudoise.softgarden.io/job/64946996/Ing%C3%A9nieur-ing%C3%A9nieure-Devops-h-f-x-80-%C3%A0-100-?jobDbPVId=275592731&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:41.094Z",
+      "crawledAt": "2026-06-16T00:06:09.633Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1200,15 +1206,16 @@
         "ingenieur-ingenieure-devops-h-f-x-80-a-100-vaudoise-ch"
       ],
       "firstSeenAt": "2026-05-28T00:47:16.925Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -1246,7 +1253,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=274501323&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:41.877Z",
+      "crawledAt": "2026-06-16T00:06:09.383Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1323,7 +1330,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=274501338&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:41.597Z",
+      "crawledAt": "2026-06-16T00:06:09.125Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -1397,7 +1404,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=274501358&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:41.299Z",
+      "crawledAt": "2026-06-16T00:06:08.850Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -1479,7 +1486,7 @@
       "url": "https://vaudoise.softgarden.io/job/64517448/Mitarbeiter-in-Schaden-m-w-d-60-100-?jobDbPVId=274601658&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T16:10:41.020Z",
+      "crawledAt": "2026-06-16T00:06:08.580Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1556,7 +1563,7 @@
       "url": "https://vaudoise.softgarden.io/job/65131973/Stagiaire-universitaire-HES-Actuariat-Vie-Data-h-f-x-%E2%80%93100-?jobDbPVId=274891278&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:40.739Z",
+      "crawledAt": "2026-06-16T00:06:08.328Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1633,7 +1640,7 @@
       "url": "https://vaudoise.softgarden.io/job/65149268/Ing%C3%A9nieur-Ing%C3%A9nieure-Workplace-IT-h-f-x-80-100-?jobDbPVId=275647721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:40.460Z",
+      "crawledAt": "2026-06-16T00:06:08.072Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1710,7 +1717,7 @@
       "url": "https://vaudoise.softgarden.io/job/65154483/Ing%C3%A9nieur-ing%C3%A9nieure-Devops,-entre-80-et-100-?jobDbPVId=275647626&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:40.182Z",
+      "crawledAt": "2026-06-16T00:06:07.818Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1789,7 +1796,7 @@
       "url": "https://vaudoise.softgarden.io/job/63296089/Chef-de-groupe-sp%C3%A9cialis%C3%A9-en-gestion-contrats-Cheffe-de-groupe-sp%C3%A9cialis%C3%A9e-en-gestion-contrats-h-f-x-100-?jobDbPVId=275833096&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:39.901Z",
+      "crawledAt": "2026-06-16T00:06:07.502Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1866,7 +1873,7 @@
       "url": "https://vaudoise.softgarden.io/job/64599938/Product-Manager-Pr%C3%A9voyance-FR-DE-h-f-x-80-100-?jobDbPVId=275078733&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:38.276Z",
+      "crawledAt": "2026-06-16T00:06:07.250Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1893,15 +1900,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.379Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -1939,7 +1947,7 @@
       "url": "https://vaudoise.softgarden.io/job/63349219/Generalagent-in-Berner-Oberland-m-w-d-100-?jobDbPVId=275078778&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T16:10:39.337Z",
+      "crawledAt": "2026-06-16T00:06:06.996Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2013,7 +2021,7 @@
       "url": "https://vaudoise.softgarden.io/job/63990868/Business-Analyst-RH-h-f-x-80-100-?jobDbPVId=275309201&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:37.667Z",
+      "crawledAt": "2026-06-16T00:06:06.743Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2038,15 +2046,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:20.094Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2084,7 +2093,7 @@
       "url": "https://vaudoise.softgarden.io/job/62654354/Responsable-Formation-%E2%80%93-Insurance-Training-h-f-x-80-100-?jobDbPVId=275639876&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:38.775Z",
+      "crawledAt": "2026-06-16T00:06:06.434Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2161,7 +2170,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=275273571&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:38.491Z",
+      "crawledAt": "2026-06-16T00:06:06.183Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -2242,7 +2251,7 @@
       "url": "https://vaudoise.softgarden.io/job/64653009/Product-Manager-in-Vorsorge-m-w-d-80-100-?jobDbPVId=275371581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:36.562Z",
+      "crawledAt": "2026-06-16T00:06:05.934Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2272,15 +2281,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:18.413Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -2318,7 +2328,7 @@
       "url": "https://vaudoise.softgarden.io/job/64060783/Sachbearbeiter-in-Inkasso-m-w-d-80-100-?jobDbPVId=275486456&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:36.249Z",
+      "crawledAt": "2026-06-16T00:06:05.673Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2335,15 +2345,16 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:18.134Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 60500,
+          "maxValue": 91500,
           "unitText": "YEAR"
         }
       },
@@ -2381,7 +2392,7 @@
       "url": "https://vaudoise.softgarden.io/job/65240161/Charg%C3%A9-Charg%C3%A9e-de-relation-client%C3%A8le-h-f-x-100-?jobDbPVId=275510721&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:37.654Z",
+      "crawledAt": "2026-06-16T00:06:05.385Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2453,7 +2464,7 @@
       "url": "https://vaudoise.softgarden.io/job/64674339/Expert-Technique-Microsoft-365-h-f-x-80-100-?jobDbPVId=275648436&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:37.369Z",
+      "crawledAt": "2026-06-16T00:06:05.133Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2527,7 +2538,7 @@
       "url": "https://vaudoise.softgarden.io/job/65279086/Product-Owner-Microsoft-365-Copilot-h-f-x-80-100-?jobDbPVId=275669596&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:37.085Z",
+      "crawledAt": "2026-06-16T00:06:04.881Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2591,7 +2602,7 @@
       "url": "https://vaudoise.softgarden.io/job/63905289/Quality-FinOps-Manager-h-f-x-80-100-?jobDbPVId=275739581&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:35.024Z",
+      "crawledAt": "2026-06-16T00:06:04.626Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2619,15 +2630,16 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 83500,
+          "maxValue": 126500,
           "unitText": "YEAR"
         }
       },
@@ -2665,7 +2677,7 @@
       "url": "https://vaudoise.softgarden.io/job/63422144/-Ing%C3%A9nieur-Ing%C3%A9nieure-Int%C3%A9gration-80-100-?jobDbPVId=275739631&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-15T16:10:36.521Z",
+      "crawledAt": "2026-06-16T00:06:04.287Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2742,7 +2754,7 @@
       "url": "https://vaudoise.softgarden.io/job/62554964/Juriste-junior-italophone-h-f-x-60-?jobDbPVId=275739661&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:34.385Z",
+      "crawledAt": "2026-06-16T00:06:04.021Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2759,15 +2771,16 @@
       "requirementsByLocale": {},
       "jobCategory": "Diritto e compliance",
       "firstSeenAt": "2026-05-18T13:27:16.467Z",
-      "salaryMin": 46000,
-      "salaryMax": 78500,
+      "needsRetranslation": true,
+      "salaryMin": 57000,
+      "salaryMax": 97000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 46000,
-          "maxValue": 78500,
+          "minValue": 57000,
+          "maxValue": 97000,
           "unitText": "YEAR"
         }
       },
@@ -2805,7 +2818,7 @@
       "url": "https://vaudoise.softgarden.io/job/64702594/Interne-r-Autoexperte-in-m-w-d-80-100-?jobDbPVId=275739726&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-14T23:07:34.055Z",
+      "crawledAt": "2026-06-16T00:06:03.754Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2822,94 +2835,21 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "firstSeenAt": "2026-05-18T13:27:17.020Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
       "postalCode": "3001",
       "addressRegion": "BE"
-    },
-    {
-      "id": "vaudoise-bfdaf48f33b7",
-      "slug": "spazio-dati-piattaforma-dati-del-gestore-di-test-h-f-x-80-100-vaudoise-assurances-lausanne",
-      "slugByLocale": {
-        "it": "spazio-dati-piattaforma-dati-del-gestore-di-test-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "en": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch",
-        "de": "testmanager-dataspace-datenplattform-h-f-x-80-100-vaudoise-assurances-lausanne",
-        "fr": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
-      },
-      "company": "Vaudoise Assurances",
-      "companyKey": "vaudoise",
-      "companyDomain": "vaudoise.ch",
-      "title": "Test Manager Dataspace / Data Platform (h/f/x) - 80–100%",
-      "titleByLocale": {
-        "it": "Spazio dati / Piattaforma dati del gestore di test (h/f/x) - 80–100%",
-        "en": "Test Manager Dataspace / Data Platform (h/f/x) - 80–100%",
-        "de": "Testmanager Dataspace / Datenplattform (h/f/x) - 80–100%",
-        "fr": "Test Manager Dataspace / Data Platform (h/f/x) - 80–100%"
-      },
-      "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre des initiatives stratégiques du département Transformation Digitale et Systèmes Informatiques (TDSI), la Vaudoise renforce ses capacités de testing autour des produits Data / Dataspace. Nous recherchons un(e) Test Manager Dataspace pour piloter la qualité et la fiabilité des plateformes de données et d’intégration, dans des contextes techniques et organisationnels complexes. Les missions qui vous attendent :\n• Comprendre les enjeux métiers, data et IT afin de définir des stratégies de tests adaptées aux plateformes de données\n• Définir, structurer et maintenir les plans de tests dans des contextes complexes (analyse des risques, plans de mitigation)\n• Piloter les tests systèmes des plateformes de données et d’intégration\n• Préparer, exécuter et analyser les campagnes de tests à l’aide des outils existants\n• Identifier, suivre et analyser les défauts logiciels et data, et contribuer activement à l’amélioration continue de la qualité\n• Encadrer et coordonner des Test Analysts (y compris offshore) intervenant sur les produits Data\n• Coordonner les activités d’automatisation des tests, en lien avec les équipes nearshore\n• Collaborer étroitement avec les équipes produit, data, intégration et développement\n• Travailler avec le Chef de groupe Testing pour faire évoluer et optimiser le catalogue de services Testing, notamment sur les sujets Data\n• Définir, produire et suivre les KPIs de qualité et d’avancement des tests\n• Assurer le reporting Testing auprès des parties prenantes\n• Agir comme pilier du Groupe Testing, en garantissant l’application des standards et bonnes pratiques\n• Promouvoir les valeurs du Testing et contribuer au développement des services et standards, en particulier pour les plateformes Data Votre profil :\n• Diplôme supérieur en informatique (Université, HES, EPFL ou équivalent)\n• Minimum 3 ans d’expérience en tant que Test Manager ou fonction similaire\n• Certification ISTQB requise\n• Expérience confirmée en : tests de plateformes de données, tests d’API, de messaging et d’interfaces, qualité des données et tests data\n• Expérience en automatisation des tests (outils et/ou langages)\n• Connaissances des tests non fonctionnels, BDD & TDD, Xray, JIRA et intégration continue (atout)\n• Capacité à travailler avec des testeurs nearshore (coordination, communication, synchronisation des activités)\n• Expérience dans un environnement complexe, à forte intégration (SI, data, interfaces) et nécessitant une collaboration transverse\n• Connaissances techniques telles que MongoDB, plateformes de data integration / streaming et APIs : un plus\n• Aisance à interagir avec des interlocuteurs techniques et métier\n• Capacité à défendre les standards de testing et à démontrer un leadership naturel\n• Maîtrise du français (min. B2) et de l’anglais (min. B2) Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes).",
-      "descriptionByLocale": {
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Fedele alla sua natura cooperativa e ai suoi valori, incoraggia la creazione di un ambiente di lavoro sano, inclusivo e stimolante, ideale per sviluppare il tuo talento. Nell'ambito delle iniziative strategiche del Dipartimento Digital Transformation and Computer Systems (TDSI), Vaudoise sta rafforzando le sue capacità di test nei prodotti Data / Dataspace. Stiamo cercando un Test Manager Dataspace per gestire la qualità e l'affidabilità delle piattaforme di dati e di integrazione, in contesti tecnici e organizzativi complessi. Le missioni che vi aspettano:\n• Comprendere questioni aziendali, dati e IT per definire strategie di test adattate alle piattaforme dati\n• Definire, strutturare e mantenere piani di test in contesti complessi (analisi dei rischi, piani di mitigazione)\n• Controllo del sistema pilota delle piattaforme di dati e integrazione\n• Preparare, eseguire e analizzare campagne di test utilizzando strumenti esistenti\n• Identificare, monitorare e analizzare i difetti software e dati e contribuire attivamente al miglioramento continuo della qualità\n• Gestire e coordinare Test Analysts (compreso offshore) coinvolti nei prodotti Data\n• Coordinare le attività di automazione dei test in collaborazione con i team vicini\n• Lavorare a stretto contatto con i team di prodotto, dati, integrazione e sviluppo\n• Lavorare con il Leader del gruppo di test per sviluppare e ottimizzare il Catalogo dei servizi di test, anche sugli argomenti dei dati\n• Definire, produrre e monitorare i KPI di qualità e progresso dei test\n• Assicurare i test di report con gli stakeholder\n• Agire come pilastro del Gruppo Testing, assicurando l'applicazione di norme e buone pratiche\n• Promuovere i valori di Testing e contribuire allo sviluppo di servizi e standard, in particolare per le Piattaforme Dati Il tuo profilo:\n• Laurea in Informatica (Università, HES, EPFL o equivalente)\n• Minimo 3 anni di esperienza come Test Manager o funzione simile\n• Certificazione ISTQB richiesta\n• Esperienza confermata in: test della piattaforma di dati, API, test di messaggistica e interfaccia, qualità dei dati e test dei dati\n• Esperienza nell'automazione dei test (tools e/o lingue)\n• Conoscenza dei test non funzionali, BDD & TDD, Xray, JIRA e integrazione continua (aout)\n• Capacità di lavorare con i tester vicino terra (coordinamento, comunicazione, sincronizzazione delle attività)\n• Esperienza in un ambiente complesso e altamente integrato (SI, dati, interfacce) che richiede una collaborazione trasversale\n• Conoscenza tecnica come MongoDB, integrazione dei dati / piattaforme di streaming e API: a more\n• Capacità di interagire con partner tecnici e commerciali\n• Capacità di difendere gli standard di prova e dimostrare la leadership naturale\n• Laurea magistrale in francese (min. B2) e inglese (min. B2) Vi offriamo:\n• Un ambiente di lavoro sano in una società comune denominata \"Best Employer\"\n• Vantaggi sociali multipli, compresa la flessibilità nell'organizzazione del lavoro e numerosi sconti per i dipendenti\n• Lavorare in un team dinamico e appassionato\n• Valori umani focalizzati sul benessere dei dipendenti Non vediamo l'ora di ricevere il tuo pacchetto completo di applicazioni digitalmente (con curriculum vitae, lettera di copertura, copie di certificati di lavoro e diplomi).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. True to its cooperative nature and values, it encourages the creation of a healthy, inclusive and inspiring work environment, ideal for developing your talent. As part of the strategic initiatives of the Digital Transformation and Computer Systems Department (TDSI), Vaudoise is strengthening its testing capabilities around Data / Dataspace products. We are looking for a Test Manager Dataspace to manage the quality and reliability of data and integration platforms, in complex technical and organisational contexts. The missions that await you:\n• Understanding business, data and IT issues in order to define test strategies adapted to data platforms\n• Define, structure and maintain test plans in complex contexts (risk analysis, mitigation plans)\n• Pilot system testing of data platforms and integration\n• Prepare, execute and analyse test campaigns using existing tools\n• Identify, monitor and analyse software and data defects, and actively contribute to continuous quality improvement\n• Manage and coordinate Test Analysts (including offshore) involved in Data products\n• Coordinate testing automation activities in conjunction with nearshore teams\n• Work closely with product, data, integration and development teams\n• Work with the Testing Group Leader to develop and optimize the Testing Service Catalogue, including on Data topics\n• Define, produce and monitor KPIs of quality and progress of tests\n• Ensuring reporting testing with stakeholders\n• Acting as a pillar of the Testing Group, ensuring the application of standards and good practices\n• Promote the values of Testing and contribute to the development of services and standards, especially for Data Platforms Your profile:\n• Graduate degree in Computer Science (University, HES, EPFL or equivalent)\n• Minimum 3 years of experience as a Test Manager or similar function\n• ISTQB certification required\n• Confirmed experience in: data platform testing, API, messaging and interface testing, data quality and data testing\n• Experience in testing automation (tools and/or languages)\n• Knowledge of non-functional tests, BDD & TDD, Xray, JIRA and continuous integration (aout)\n• Ability to work with nearshore testers (coordination, communication, synchronization of activities)\n• Experience in a complex, highly integrated environment (SI, data, interfaces) requiring cross-cutting collaboration\n• Technical knowledge such as MongoDB, data integration / streaming platforms and APIs: a more\n• Ability to interact with technical and trade partners\n• Ability to defend testing standards and demonstrate natural leadership\n• Master's degree in French (min. B2) and English (min. B2) We offer you :\n• A healthy working environment in a mutual company labeled \"Best Employer\"\n• Multiple social benefits, including flexibility in the organisation of work and numerous employee discounts\n• Working in a dynamic and passionate team\n• Human values focused on the well-being of employees We look forward to receiving your complete application package digitally (with curriculum vitae, cover letter, copies of work certificates and diplomas).",
-        "de": "Vaudoise ist einer der führenden Versicherer in der Schweiz. Getreu seiner kooperativen Natur und ihren Werten fördert sie die Schaffung eines gesunden, inklusiven und inspirierenden Arbeitsumfelds, ideal für die Entwicklung Ihres Talents. Im Rahmen der strategischen Initiativen der Abteilung Digitale Transformation und Computersysteme (TDSI) verstärkt Vaudoise seine Testmöglichkeiten rund um Data / Dataspace-Produkte. Wir suchen einen Test Manager Dataspace, um die Qualität und Zuverlässigkeit von Daten- und Integrationsplattformen in komplexen technischen und organisatorischen Kontexten zu verwalten. Die Missionen, die Sie erwarten:\n• Verständnis von Geschäfts-, Daten- und IT-Problemen, um Teststrategien zu definieren, die an Datenplattformen angepasst sind\n• Testpläne in komplexen Kontexten definieren, strukturieren und pflegen (Risikoanalyse, Minderungspläne)\n• Pilotsystemtests von Datenplattformen und Integration\n• Testkampagnen mit vorhandenen Tools vorbereiten, ausführen und analysieren\n• Software- und Datenfehler identifizieren, überwachen und analysieren und aktiv zur kontinuierlichen Qualitätsverbesserung beitragen\n• Verwalten und koordinieren Testanalysen (einschließlich Offshore) an Datenprodukten\n• Koordinierte Testautomatisierung in Verbindung mit Nearshore-Teams\n• eng mit Produkt-, Daten-, Integrations- und Entwicklungsteams zusammenarbeiten\n• Arbeiten Sie mit dem Leiter der Testing Group zusammen, um den Testing Service Katalog zu entwickeln und zu optimieren, einschließlich zu Datenthemen\n• Kennzahlen von Qualität und Fortschritt der Tests definieren, produzieren und überwachen\n• Gewährleistung von Reporting-Tests mit Stakeholdern\n• Als Säule der Testing Group fungieren, um die Anwendung von Standards und bewährten Praktiken zu gewährleisten\n• Fördern Sie die Werte der Prüfung und tragen Sie zur Entwicklung von Dienstleistungen und Standards bei, insbesondere für Data Platforms Ihr Profil:\n• Graduiertenstudium Informatik (Universität, HES, EPFL oder Äquivalent)\n• Mindestens 3 Jahre Erfahrung als Test Manager oder ähnliche Funktion\n• ISTQB Zertifizierung erforderlich\n• Bestätigte Erfahrung in: Datenplattformtests, API, Messaging und Schnittstellentests, Datenqualität und Datentests\n• Erfahrung in der Testautomatisierung (Werkzeuge und/oder Sprachen)\n• Kenntnisse über nicht-funktionale Tests, BDD & TDD, Röntgen, JIRA und kontinuierliche Integration (aout)\n• Fähigkeit, mit Nearshore-Testern zu arbeiten (Koordination, Kommunikation, Synchronisation von Aktivitäten)\n• Erfahrung in einer komplexen, hochintegrierten Umgebung (SI, Daten, Schnittstellen), die eine übergreifende Zusammenarbeit erfordert\n• Technisches Wissen wie MongoDB, Datenintegration / Streaming-Plattformen und APIs: mehr\n• Fähigkeit, mit technischen und Handelspartnern zu interagieren\n• Fähigkeit, Teststandards zu verteidigen und natürliche Führung zu demonstrieren\n• Masterstudium in Französisch (min. B2) und Englisch (min. B2) Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem gemeinsamen Unternehmen mit dem Titel \"Best Employer\"\n• Mehrere soziale Vorteile, einschließlich Flexibilität in der Organisation der Arbeit und zahlreiche Mitarbeiterrabatte\n• Arbeiten in einem dynamischen und leidenschaftlichen Team\n• Humanwerte konzentrierten sich auf das Wohlbefinden der Mitarbeiter Wir freuen uns darauf, Ihr komplettes Bewerbungspaket digital zu erhalten (mit Lehrplan, Brief, Kopien von Arbeitszeugnissen und Diplomen).",
-        "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Fidèle à sa nature coopérative et à ses valeurs, elle encourage la création d’un environnement de travail sain, inclusif et inspirant, idéal pour développer votre talent. Dans le cadre des initiatives stratégiques du département Transformation Digitale et Systèmes Informatiques (TDSI), la Vaudoise renforce ses capacités de testing autour des produits Data / Dataspace. Nous recherchons un(e) Test Manager Dataspace pour piloter la qualité et la fiabilité des plateformes de données et d’intégration, dans des contextes techniques et organisationnels complexes. Les missions qui vous attendent :\n• Comprendre les enjeux métiers, data et IT afin de définir des stratégies de tests adaptées aux plateformes de données\n• Définir, structurer et maintenir les plans de tests dans des contextes complexes (analyse des risques, plans de mitigation)\n• Piloter les tests systèmes des plateformes de données et d’intégration\n• Préparer, exécuter et analyser les campagnes de tests à l’aide des outils existants\n• Identifier, suivre et analyser les défauts logiciels et data, et contribuer activement à l’amélioration continue de la qualité\n• Encadrer et coordonner des Test Analysts (y compris offshore) intervenant sur les produits Data\n• Coordonner les activités d’automatisation des tests, en lien avec les équipes nearshore\n• Collaborer étroitement avec les équipes produit, data, intégration et développement\n• Travailler avec le Chef de groupe Testing pour faire évoluer et optimiser le catalogue de services Testing, notamment sur les sujets Data\n• Définir, produire et suivre les KPIs de qualité et d’avancement des tests\n• Assurer le reporting Testing auprès des parties prenantes\n• Agir comme pilier du Groupe Testing, en garantissant l’application des standards et bonnes pratiques\n• Promouvoir les valeurs du Testing et contribuer au développement des services et standards, en particulier pour les plateformes Data Votre profil :\n• Diplôme supérieur en informatique (Université, HES, EPFL ou équivalent)\n• Minimum 3 ans d’expérience en tant que Test Manager ou fonction similaire\n• Certification ISTQB requise\n• Expérience confirmée en : tests de plateformes de données, tests d’API, de messaging et d’interfaces, qualité des données et tests data\n• Expérience en automatisation des tests (outils et/ou langages)\n• Connaissances des tests non fonctionnels, BDD & TDD, Xray, JIRA et intégration continue (atout)\n• Capacité à travailler avec des testeurs nearshore (coordination, communication, synchronisation des activités)\n• Expérience dans un environnement complexe, à forte intégration (SI, data, interfaces) et nécessitant une collaboration transverse\n• Connaissances techniques telles que MongoDB, plateformes de data integration / streaming et APIs : un plus\n• Aisance à interagir avec des interlocuteurs techniques et métier\n• Capacité à défendre les standards de testing et à démontrer un leadership naturel\n• Maîtrise du français (min. B2) et de l’anglais (min. B2) Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste labelisée \"Meilleur Employeur\"\n• Des avantages sociaux multiples, dont la flexibilité dans l'organisation du travail et de nombreux rabais collaborateurs\n• Un travail au sein d'une équipe dynamique et passionnée\n• Des valeurs humaines centrées sur le bien-être des collaborateurs Nous nous réjouissons de recevoir votre dossier de candidature complet par voie digitale (avec curriculum vitae, lettre de motivation, copie des certificats de travail et diplômes)."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://vaudoise.softgarden.io/job/64122238/Test-Manager-Dataspace-Data-Platform-h-f-x-80%E2%80%93100-?jobDbPVId=273026086&l=it",
-      "source": "Vaudoise Assurances Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-14T23:07:46.126Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "14/05/26",
-      "applyUrl": "https://vaudoise.softgarden.io/job/64122238/Test-Manager-Dataspace-Data-Platform-h-f-x-80%E2%80%93100-?jobDbPVId=273026086&l=it",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Informatica e tecnologia",
-      "previousSlugs": [
-        "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
-        ],
-        "de": [
-          "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
-        ]
-      },
-      "firstSeenAt": "2026-05-18T13:27:15.898Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1003",
-      "addressRegion": "VD"
     }
   ]
 }
