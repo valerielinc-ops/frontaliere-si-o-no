@@ -1,6 +1,44 @@
 import { defineConfig } from 'vitest/config';
+import { BaseSequencer } from 'vitest/node';
+import type { TestSpecification } from 'vitest/node';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { shardItems } from './scripts/ci/lpt-shard.mjs';
+import shardWeights from './tests/shard-weights.json';
+
+// Custom shard distribution: balance `--shard=i/N` by estimated per-file
+// duration (tests/shard-weights.json) via LPT bin-packing instead of vitest's
+// default sha1-of-path hash. The hash split balances by file COUNT, so a shard
+// that happens to collect two of the heavy synchronous source-scan guards
+// (no-inlanguage-on-forbidden-schemas, blog-body-typescript-syntax, …) becomes
+// the long pole and pins the gate wall. LPT spreads the heaviest files across
+// distinct shards → equal per-shard wall → lower slowest-shard (= gate) time.
+// The partition is a deterministic disjoint cover (see scripts/ci/lpt-shard.mjs
+// + tests/lpt-shard.test.ts) so every file still runs exactly once across the N
+// independent `vitest run --shard=i/N` processes. Falls back to the default
+// hash split when not sharding (local full run → `config.shard` undefined).
+// Weights are heuristic and refreshable from a CI json-reporter run; the
+// partition stays correct (disjoint cover) regardless of weight accuracy.
+const DEFAULT_WEIGHT_MS = 500;
+class BalancedSequencer extends BaseSequencer {
+  async shard(files: TestSpecification[]): Promise<TestSpecification[]> {
+    const { config } = this.ctx;
+    if (!config.shard) return super.shard(files);
+    const root = config.root.replace(/\\/g, '/');
+    const relOf = (spec: TestSpecification): string => {
+      let p = spec.moduleId.replace(/\\/g, '/');
+      if (p.startsWith(root)) p = p.slice(root.length);
+      return p.replace(/^\/+/, '');
+    };
+    const weights = shardWeights as Record<string, number>;
+    return shardItems(files, {
+      index: config.shard.index,
+      count: config.shard.count,
+      keyOf: relOf,
+      weightOf: (spec: TestSpecification): number => weights[relOf(spec)] ?? DEFAULT_WEIGHT_MS,
+    });
+  }
+}
 
 export default defineConfig({
  plugins: [react()],
@@ -32,6 +70,11 @@ export default defineConfig({
  // increase, but turns a flaky suite into a deterministic one — required
  // for the suite to actually gate CI without false-positive failures.
  isolate: true,
+ sequence: {
+ // Balance shards by estimated duration (LPT) instead of the default
+ // count-balanced sha1 hash split — see BalancedSequencer above.
+ sequencer: BalancedSequencer,
+ },
  server: {
  deps: {
  inline: ['unpdf'],

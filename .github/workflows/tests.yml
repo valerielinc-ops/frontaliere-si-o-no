@@ -100,11 +100,29 @@ jobs:
         # annotate with `// locale-segment-ok: <reason>` or rebaseline post-review.
         run: npm run lint:hardcoded-locale-segments
 
+      - name: Cache assemble-jobs output
+        # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
+        # content-addressable cache under .cache/assemble-jobs (keyed on a
+        # sha256 of every slice file + an internal output-version) that restores
+        # the assembled outputs in ~0.3s instead of re-running the ~52s
+        # assembly. That cache is useless on a fresh CI runner unless persisted
+        # — without this step every one of the N shards paid the full ~52s.
+        # The script's internal version+fingerprint guarantees correctness, so
+        # the restore-keys cascade cannot replay a stale jobs.json across slice
+        # or assembler changes (cache-miss → full assembly → fresh snapshot).
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
       - name: Assemble data/jobs.json
         # Several tests read data/jobs.json (job-locale-completeness,
         # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
         # cathedral-expired-tracking-canton). The file is gitignored — generate
-        # it from committed per-slice files before running the suite.
+        # it from committed per-slice files before running the suite. On a
+        # cache HIT (above) this restores the assembled outputs in ~0.3s.
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Migrate canton-aware tracking
