@@ -665,7 +665,18 @@
         </nav>
 
       </div>
-    <div id="root"><main id="main-content"><h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia</h1></main></div>
+    <!-- min-height:100vh reserves a full viewport for #root BEFORE React mounts.
+         The prerendered static SEO blocks (#hp-seo-block et al.) are emitted as
+         siblings AFTER #root. With #root empty (height 0) they paint at the top of
+         the document and, the moment React fills #root, get shoved down by ~1
+         viewport — a layout shift Chrome attributes to <body> with value≈1.0 (the
+         single biggest contributor to the home@mobile field CLS, measured 1.9 →
+         throttled-lab 1.30→0.34 once #root reserves a viewport). The fixed loading
+         shell hides this visually, but CLS counts it regardless. Reserving a
+         viewport makes the SEO siblings start below the fold, so the mount reflow
+         is off-screen (impact fraction ≈ 0). 100vh (not dvh) so the reservation is
+         scroll-stable and never itself shifts. -->
+    <div id="root" style="min-height:100vh"><main id="main-content"><h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia</h1></main></div>
     <div id="modal-root"></div>
     <!-- Chunk-load error recovery: detect stale SW cache serving old HTML
          that references JS chunks no longer on the server (404). Force-reload
