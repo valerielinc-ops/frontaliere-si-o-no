@@ -83,6 +83,7 @@ const RAW_HYDRATION_JS = `
       else if(key==="totalCrossingMinutes"&&d.total!=null)f.textContent=d.total+" min";
       else if(key==="status"&&d.status)f.textContent=statusWord(d.status);
       else if(key==="lastUpdate"&&d.lastUpdate)f.textContent=fmtClock(d.lastUpdate);
+      else if(key==="source"&&d.source){var lm;try{lm=JSON.parse(f.getAttribute("data-bw-source-labels")||"{}")}catch(e){lm={}}if(lm[d.source])f.textContent=lm[d.source];}
     }
     el.setAttribute("data-bw-hydrated","true");
     if(el.classList)el.classList.add("bw-live");
@@ -116,6 +117,7 @@ const RAW_HYDRATION_JS = `
           wait:pickInt(f.waitTimeMinutes),
           total:pickInt(f.totalCrossingMinutes),
           status:pickStr(f.status),
+          source:pickStr(f.source),
           lastUpdate:lu
         };
       }
