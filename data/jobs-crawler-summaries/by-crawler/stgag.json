@@ -1,18 +1,54 @@
 {
   "key": "stgag",
   "label": "Spital Thurgau (STGAG)",
-  "generatedAt": "2026-06-15T23:57:13.330Z",
+  "generatedAt": "2026-06-16T14:45:31.754Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 8,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13117,
-  "avgDurationMs": 13117,
+  "durationMs": 15217,
+  "avgDurationMs": 15217,
   "durationHistory": [
-    13117
+    15217
   ],
   "newJobs": [
+    {
+      "id": "stgag-244e69cffa39",
+      "slug": "pflegeexperten-in-apn-psychiatrie-stgag-munsterlingen",
+      "company": "Spital Thurgau (STGAG)",
+      "companyKey": "stgag",
+      "companyDomain": "stgag.ch",
+      "title": "Pflegeexperten/-in APN Psychiatrie",
+      "needsRetranslation": true,
+      "location": "Münsterlingen",
+      "canton": "TG",
+      "url": "https://rekrutierung.stgag.ch/Vacancies/3680/Description/1",
+      "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-16T14:45:19.851Z",
+      "addressLocality": "Münsterlingen",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8596",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3680/Application/CheckLogin/1",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
     {
       "id": "stgag-8da42092ea4a",
       "slug": "dipl-pflegefachmann-frau-forensik-stgag-munsterlingen",
@@ -26,7 +62,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3442/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:08.668Z",
+      "crawledAt": "2026-06-16T14:45:27.261Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -39,7 +75,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-15",
+      "postedDate": "2026-06-16",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3442/Application/CheckLogin/1",
       "_qualityScore": 64,
       "_qualityBreakdown": {
@@ -64,7 +100,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3542/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:02.987Z",
+      "crawledAt": "2026-06-16T14:45:20.914Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -80,11 +116,11 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3542/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-15T15:44:08.459Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +137,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3630/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:04.018Z",
+      "crawledAt": "2026-06-16T14:45:22.011Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -117,11 +153,11 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3630/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-15T15:44:09.595Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -138,7 +174,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3675/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:04.991Z",
+      "crawledAt": "2026-06-16T14:45:23.155Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -154,11 +190,11 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3675/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:42.272Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -169,13 +205,13 @@
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau HF/FH",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/3674/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:05.948Z",
+      "crawledAt": "2026-06-16T14:45:24.232Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -191,11 +227,11 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3674/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:43.282Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -212,7 +248,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3505/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:06.862Z",
+      "crawledAt": "2026-06-16T14:45:25.255Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -228,11 +264,11 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3505/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:44.291Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -249,7 +285,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3487/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:07.780Z",
+      "crawledAt": "2026-06-16T14:45:26.251Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -265,11 +301,11 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3487/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:45.329Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -286,7 +322,7 @@
       "url": "https://rekrutierung.stgag.ch/Vacancies/3360/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:09.582Z",
+      "crawledAt": "2026-06-16T14:45:28.246Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -302,11 +338,11 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/3360/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:47.366Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -317,13 +353,13 @@
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Forensik",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/2268/Description/1",
       "source": "Spital Thurgau (STGAG) Dedicated Parser (Umantis listing @ rekrutierung.stgag.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T23:57:10.498Z",
+      "crawledAt": "2026-06-16T14:45:29.285Z",
       "addressLocality": "Münsterlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -339,14 +375,16 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/2268/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:48.361Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "stgag-76f2f71270f0",
       "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
@@ -354,7 +392,6 @@
       "companyKey": "stgag",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Forensik",
-      "needsRetranslation": false,
       "location": "Münsterlingen",
       "canton": "TG",
       "url": "https://rekrutierung.stgag.ch/Vacancies/1641/Description/1",
@@ -376,15 +413,16 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://rekrutierung.stgag.ch/Vacancies/1641/Application/CheckLogin/1",
       "firstSeenAt": "2026-06-12T13:04:49.387Z",
-      "_qualityScore": 76,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
