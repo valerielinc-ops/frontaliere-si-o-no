@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilcona",
-  "assembledAt": "2026-06-15T23:07:11.819Z",
+  "assembledAt": "2026-06-16T13:35:26.860Z",
   "jobs": [
     {
       "id": "hilcona-85464e607cb8",
@@ -42,7 +42,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/schichtleiter-zerlegung-m-w-d-4960",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:09.349Z",
+      "crawledAt": "2026-06-16T13:35:23.915Z",
       "sourceLang": "de",
       "previousSlugs": [
         "schichtleiter-zerlegung-m-w-d-hilcona-ampfing",
@@ -118,7 +118,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-teamleiter-hlkk-4959",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:09.137Z",
+      "crawledAt": "2026-06-16T13:35:23.633Z",
       "sourceLang": "de",
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T14:30:47.393Z",
@@ -178,7 +178,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-4958",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:08.911Z",
+      "crawledAt": "2026-06-16T13:35:23.363Z",
       "sourceLang": "de",
       "previousSlugs": [
         "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-hilcona-oensingen"
@@ -245,7 +245,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-leiter-leiterin-logistik-center-spaetschicht-neubau-oensingen-4957",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:08.692Z",
+      "crawledAt": "2026-06-16T13:35:23.091Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-leiter-leiterin-logistik-center-spaetschicht-neubau-oensingen-hilcona-oensingen"
@@ -262,6 +262,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:30:22.455Z",
+      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 167500,
       "baseSalary": {
@@ -279,33 +280,35 @@
       "addressRegion": "SO"
     },
     {
-      "id": "hilcona-6b5fe067deb1",
-      "slug": "ict-system-ingegnere-fokus-microsoft-server-m365-exchange-bell-schweiz-ag-basel",
+      "id": "hilcona-fe8af1e35692",
+      "slug": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
       "slugByLocale": {
-        "it": "ict-system-ingegnere-fokus-microsoft-server-m365-exchange-bell-schweiz-ag-basel",
-        "en": "ict-system-engineer-fokus-microsoft-server-m365-exchange-hilcona-basel",
-        "de": "ict-system-engineer-fokus-microsoft-server-m365-exchange-hilcona-basel",
-        "fr": "ict-system-ingenieur-fokus-microsoft-server-m365-exchange-bell-schweiz-ag-basel"
+        "de": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
+        "it": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
+        "en": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel",
+        "fr": "ict-system-engineer-fokus-m365-ms-server-hilcona-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
       "companyDomain": "bellfoodgroup.com",
-      "title": "Ict System Engineer Fokus Microsoft Server M365 Exchange",
+      "title": "Ict System Engineer Fokus M365 Ms Server",
       "titleByLocale": {
-        "it": "Ict System Ingegnere Fokus Microsoft Server M365 Exchange",
-        "en": "Ict System Engineer Fokus Microsoft Server M365 Exchange",
-        "de": "Ict System Ingenieur Fokus Microsoft Server M365 Exchange",
-        "fr": "Ict System Ingénieur Fokus Microsoft Server M365 Exchange"
+        "de": "Ict System Ingenieur Fokus M365 Ms Server",
+        "en": "Ict System Engineer Fokus M365 Ms Server",
+        "it": "Ict System Ingegnere Fokus M365 Ms Server",
+        "fr": "Ict System Ingénieur Fokus M365 Ms Server"
       },
       "description": "Du möchtest nicht nur Systeme am Laufen halten, sondern aktiv mitgestalten, optimieren und Verantwortung übernehmen? Dann bist du bei uns genau richtig. Wir sind ein engagiertes Team mit Leidenschaft für Technik und verlässliche IT-Services. Gemeinsam sorgen wir dafür, dass unsere Infrastruktur stabil, sicher und zukunftsfähig ist. Dafür suchen wir eine fachlich versierte, motivierte Persönlichkeit, bei der das Feuer für die Informatik brennt, die gerne selbstständig arbeitet, aber auch echten Teamwork schätzt. Aufgaben:\n• Betrieb, Wartung und Weiterentwicklung unserer IT-Infrastruktur (Microsoft Serverlandschaft, Active Directory und Azure VMs).\n• Verwaltung und Pflege der VMware-Plattform sowie der Microsoft 365-Dienste.\n• Betreuung und Unterhalt der Mail-Dienste (Exchange on Premise / Online) sowie der Microsoft 365-Dienste.\n• Verwaltung und Pflege der VMware-Plattform sowie der Backup-Umgebung (Veeam).\n• Analyse und Behebung von Fehlzuständen sowie Unterstützung des First-Level-Supports.\n• Leitung von Teilprojekten und Koordination externer Dienstleister.\n• Dokumentation von Systemen, Prozessen und Änderungen.\n• Teilnahme am Pikettdienst (ca. einmal pro Quartal) und gelegentliche Reisetätigkeiten innerhalb Europas. Anforderungen:\n• Abgeschlossene Ausbildung im IT-Bereich (z. B. Informatiker EFZ / Fachinformatiker) sowie eine fundierte Weiterbildung im Microsoft-Bereich (MCSA, MCSD odefr MCSE).\n• Fundierte Kenntnisse in Microsoft Servern, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam.\n• Praktisches Know-how im Bereich PowerShell-Skripting.\n• Eine selbstständige, verantwortungsbewusste sowie serviceorientierte Arbeitsweise mit guten planerischen Fähigkeiten.\n• Ein unkomplizierter Teamplayer, der einfache Lösungen findet und die Bereitschaft für Noteinsätze außerhalb der normalen Arbeitszeit mitbringt.",
       "descriptionByLocale": {
-        "it": "Descrizione Non vuoi solo mantenere funzionanti i sistemi, ma anche contribuire attivamente alla loro assunzione e alla gestione della responsabilità? Allora è proprio nella nostra squadra. Siamo un team impegnato con passione per la tecnologia e servizi IT affidabili. Insieme ci chiedono che la nostra futura infrastruttura sia stabilizza, sicura e futura. Per questo stiamo cercando una persona con competenze tecniche, motivata e con una passione per l'informatica, che lavora con autonomia ma apprezza anche il lavoro di squadra. Mansioni - Operazione, manutenzione e sviluppo della nostra infrastruttura IT (Microsoft Server Landscape, Active Directory e Azure VMs). - Gestione e manutenzione della piattaforma VMware e dei servizi Microsoft 365. - Assista e manutenzione dei servizi di posta (Exchange on Premise / Online) e dei servizi Microsoft 365. - Gestione e manutenzione della piattaforma VMware e dell'ambiente di backup (Veeam). - Analisi e risoluzione di problemi nonché supporto al primo livello di supporto. - Gestione di progetti parziali e coordinamento di fornitori esterni. - Documentazione di sistemi, processi e modifiche. - Partecipazione al servizio di guardia (circa una volta al mese) e occasionali attività di viaggio all'interno dell'Europa.\n• Requisiti - Laurea nel campo IT (ad esempio Informatiker EFZ / Fachin Informatikiker) e una formazione approfondita nel campo Microsoft (MCSA, MCSD o MCSE). - Conoscenze approfondite in Microsoft Server, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam. - Esperienza pratica nel campo dello scripting con PowerShell. - Stile di lavoro autonomo, responsabile e orientato al servizio con buone capacità di pianificazione. - Un giocatore semplice e disponibile a tariffa note di lavoro al di fuori dell'orario di lavoro normale.",
-        "en": "Descrizione You do not want solo mantenere funzionanti i sistemi, ma anche contribuire attivamente alla loro ottimizzazione e alla gestione della responsabilità? Allora is proprio nella nostra squadra. Siamo un team impegnato con passione per la tecnologia e servizi IT affidabili. Insieme ci assicuriamo che la nostra infrastruttura sia stabil, sicura e futura. Per questo stiamo cercando una persona con competenze tecniche, motivata e con una passione per l'informatica, che lavora con autonomia ma apprezza anche il lavoro di squadra. Mansioni - Operation, manutenzione e sviluppo della nostra infrastruttura IT (Microsoft Server Landscape, Active Directory e Azure VMs). - Gestione e manutenzione della piattaforma VMware e dei servizi Microsoft 365. - Assista e manutenzione dei servizi di posta (Exchange on Premise / Online) e dei servizi Microsoft 365. - Gestione e manutenzione della piattaforma VMware e dell'ambiente di backup (Veeam). - Analisi e risoluzione di problemi nonché supporto al primo livello di supporto. - Gestione di progetti parziali e coordinamento di fornitori esterni. - Documentazione di sistemi, processi e modifiche. - Partecipazione al servizio di guardia (circa una volta al mese) e occasionali attività di viaggio all'interno dell'Europa.\n• Requirements - Laurea nel campo IT (ad esempio Informatiker EFZ / Fachin Informatikiker) e una formazione approfondita nel campo Microsoft (MCSA, MCSD o MCSE). - Conoscenze approfondite in Microsoft Server, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam. - Esperienza pratica nel campo dello scripting con PowerShell. - Stile di lavoro autonomo, responsabile e orientato al servizio con buone capacità di pianificazione. - Un team player semplice e disponibile a fare note di lavoro al di fuori dell'orario di lavoro normale.",
         "de": "Du möchtest nicht nur Systeme am Laufen halten, sondern aktiv mitgestalten, optimieren und Verantwortung übernehmen? Dann bist du bei uns genau richtig. Wir sind ein engagiertes Team mit Leidenschaft für Technik und verlässliche IT-Services. Gemeinsam sorgen wir dafür, dass unsere Infrastruktur stabil, sicher und zukunftsfähig ist. Dafür suchen wir eine fachlich versierte, motivierte Persönlichkeit, bei der das Feuer für die Informatik brennt, die gerne selbstständig arbeitet, aber auch echten Teamwork schätzt. Aufgaben:\n• Betrieb, Wartung und Weiterentwicklung unserer IT-Infrastruktur (Microsoft Serverlandschaft, Active Directory und Azure VMs).\n• Verwaltung und Pflege der VMware-Plattform sowie der Microsoft 365-Dienste.\n• Betreuung und Unterhalt der Mail-Dienste (Exchange on Premise / Online) sowie der Microsoft 365-Dienste.\n• Verwaltung und Pflege der VMware-Plattform sowie der Backup-Umgebung (Veeam).\n• Analyse und Behebung von Fehlzuständen sowie Unterstützung des First-Level-Supports.\n• Leitung von Teilprojekten und Koordination externer Dienstleister.\n• Dokumentation von Systemen, Prozessen und Änderungen.\n• Teilnahme am Pikettdienst (ca. einmal pro Quartal) und gelegentliche Reisetätigkeiten innerhalb Europas. Anforderungen:\n• Abgeschlossene Ausbildung im IT-Bereich (z. B. Informatiker EFZ / Fachinformatiker) sowie eine fundierte Weiterbildung im Microsoft-Bereich (MCSA, MCSD odefr MCSE).\n• Fundierte Kenntnisse in Microsoft Servern, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam.\n• Praktisches Know-how im Bereich PowerShell-Skripting.\n• Eine selbstständige, verantwortungsbewusste sowie serviceorientierte Arbeitsweise mit guten planerischen Fähigkeiten.\n• Ein unkomplizierter Teamplayer, der einfache Lösungen findet und die Bereitschaft für Noteinsätze außerhalb der normalen Arbeitszeit mitbringt.",
-        "fr": "Descrizione Vous ne voulez pas solo mantenere funzionanti i sistemi, ma anche contribuire attivamente alla loro ottimizzazione e alla gestione della responsabilità? Allora est proprio nella nostra squadra. Siamo un team impegnato con passione per la tecnologia e servizi IT affidabili. Insieme ci assicuriamo che la nostra infrastruttura sia stabilis, sicura e futura. Par questo stiamo cercando una persona con concurrence tecniche, motivata e con una passione per l'informatique, che lavora con autonomia ma apprezza anche il lavoro di squadra. Mansioni - Opération, manutenzione e sviluppo della nostra infrastruttura IT (Microsoft Server Landscape, Active Directory e Azure VMs). - Gestione e manutenzione della piattaforma VMware e dei servizi Microsoft 365. - Assista e manutenzione dei servizi di posta (Échange sur le site / Online) e dei servizi Microsoft 365. - Gestione e manutenzione della piattaforma VMware e dell'ambiente di backup (Veeam). - Analisi e risoluzione di problemi nonché supporto al primo livello di supporto. - Gestione di progetti parziali e coordinamento di fornitori esterni. Documentazione di sistemi, processi e modifiche. - Participazione al servizio di guardia (circa una volta al mese) e occasionni attività di viaggio all'interno dell'Europa.\n• Exigences - Laurea nel campo IT (ad esempio Informatiker EFZ / Fachin Informatikiker) e una formazione approfondita nel campo Microsoft (MCSA, MCSD o MCSE). - Conoscenze approfondite dans Microsoft Server, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam. - Esperienza pratica nel campo dello scripting con PowerShell. - Stile di lavoro autonomo, responsabile e orientalato al servizio con buone capacità di pianificazione. - Un team player semplice e disponibile a feature note di lavoro al di fuori dell'orario di lavoro normale."
+        "it": "Du möchtest nicht nur Systeme am Laufen halten, sondern aktiv mitgestalten, optimieren und Verantwortung übernehmen? Dann bist du bei uns genau richtig. Wir sind ein engagiertes Team mit Leidenschaft für Technik und verlässliche IT-Services. Gemeinsam sorgen wir dafür, dass unsere Infrastruktur stabil, sicher und zukunftsfähig ist. Dafür suchen wir eine fachlich versierte, motivierte Persönlichkeit, bei der das Feuer für die Informatik brennt, die gerne selbstständig arbeitet, aber auch echten Teamwork schätzt. Aufgaben:\n• Betrieb, Wartung und Weiterentwicklung unserer IT-Infrastruktur (Microsoft Serverlandschaft, Active Directory und Azure VMs).\n• Verwaltung und Pflege der VMware-Plattform sowie der Microsoft 365-Dienste.\n• Betreuung und Unterhalt der Mail-Dienste (Exchange on Premise / Online) sowie der Microsoft 365-Dienste.\n• Verwaltung und Pflege der VMware-Plattform sowie der Backup-Umgebung (Veeam).\n• Analyse und Behebung von Fehlzuständen sowie Unterstützung des First-Level-Supports.\n• Leitung von Teilprojekten und Koordination externer Dienstleister.\n• Dokumentation von Systemen, Prozessen und Änderungen.\n• Teilnahme am Pikettdienst (ca. einmal pro Quartal) und gelegentliche Reisetätigkeiten innerhalb Europas. Anforderungen:\n• Abgeschlossene Ausbildung im IT-Bereich (z. B. Informatiker EFZ / Fachinformatiker) sowie eine fundierte Weiterbildung im Microsoft-Bereich (MCSA, MCSD odefr MCSE).\n• Fundierte Kenntnisse in Microsoft Servern, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam.\n• Praktisches Know-how im Bereich PowerShell-Skripting.\n• Eine selbstständige, verantwortungsbewusste sowie serviceorientierte Arbeitsweise mit guten planerischen Fähigkeiten.\n• Ein unkomplizierter Teamplayer, der einfache Lösungen findet und die Bereitschaft für Noteinsätze außerhalb der normalen Arbeitszeit mitbringt.",
+        "en": "Du möchtest nicht nur Systeme am Laufen halten, sondern aktiv mitgestalten, optimieren und Verantwortung übernehmen? Dann bist du bei uns genau richtig. Wir sind ein engagiertes Team mit Leidenschaft für Technik und verlässliche IT-Services. Gemeinsam sorgen wir dafür, dass unsere Infrastruktur stabil, sicher und zukunftsfähig ist. Dafür suchen wir eine fachlich versierte, motivierte Persönlichkeit, bei der das Feuer für die Informatik brennt, die gerne selbstständig arbeitet, aber auch echten Teamwork schätzt. Aufgaben:\n• Betrieb, Wartung und Weiterentwicklung unserer IT-Infrastruktur (Microsoft Serverlandschaft, Active Directory und Azure VMs).\n• Verwaltung und Pflege der VMware-Plattform sowie der Microsoft 365-Dienste.\n• Betreuung und Unterhalt der Mail-Dienste (Exchange on Premise / Online) sowie der Microsoft 365-Dienste.\n• Verwaltung und Pflege der VMware-Plattform sowie der Backup-Umgebung (Veeam).\n• Analyse und Behebung von Fehlzuständen sowie Unterstützung des First-Level-Supports.\n• Leitung von Teilprojekten und Koordination externer Dienstleister.\n• Dokumentation von Systemen, Prozessen und Änderungen.\n• Teilnahme am Pikettdienst (ca. einmal pro Quartal) und gelegentliche Reisetätigkeiten innerhalb Europas. Anforderungen:\n• Abgeschlossene Ausbildung im IT-Bereich (z. B. Informatiker EFZ / Fachinformatiker) sowie eine fundierte Weiterbildung im Microsoft-Bereich (MCSA, MCSD odefr MCSE).\n• Fundierte Kenntnisse in Microsoft Servern, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam.\n• Praktisches Know-how im Bereich PowerShell-Skripting.\n• Eine selbstständige, verantwortungsbewusste sowie serviceorientierte Arbeitsweise mit guten planerischen Fähigkeiten.\n• Ein unkomplizierter Teamplayer, der einfache Lösungen findet und die Bereitschaft für Noteinsätze außerhalb der normalen Arbeitszeit mitbringt.",
+        "fr": "Du möchtest nicht nur Systeme am Laufen halten, sondern aktiv mitgestalten, optimieren und Verantwortung übernehmen? Dann bist du bei uns genau richtig. Wir sind ein engagiertes Team mit Leidenschaft für Technik und verlässliche IT-Services. Gemeinsam sorgen wir dafür, dass unsere Infrastruktur stabil, sicher und zukunftsfähig ist. Dafür suchen wir eine fachlich versierte, motivierte Persönlichkeit, bei der das Feuer für die Informatik brennt, die gerne selbstständig arbeitet, aber auch echten Teamwork schätzt. Aufgaben:\n• Betrieb, Wartung und Weiterentwicklung unserer IT-Infrastruktur (Microsoft Serverlandschaft, Active Directory und Azure VMs).\n• Verwaltung und Pflege der VMware-Plattform sowie der Microsoft 365-Dienste.\n• Betreuung und Unterhalt der Mail-Dienste (Exchange on Premise / Online) sowie der Microsoft 365-Dienste.\n• Verwaltung und Pflege der VMware-Plattform sowie der Backup-Umgebung (Veeam).\n• Analyse und Behebung von Fehlzuständen sowie Unterstützung des First-Level-Supports.\n• Leitung von Teilprojekten und Koordination externer Dienstleister.\n• Dokumentation von Systemen, Prozessen und Änderungen.\n• Teilnahme am Pikettdienst (ca. einmal pro Quartal) und gelegentliche Reisetätigkeiten innerhalb Europas. Anforderungen:\n• Abgeschlossene Ausbildung im IT-Bereich (z. B. Informatiker EFZ / Fachinformatiker) sowie eine fundierte Weiterbildung im Microsoft-Bereich (MCSA, MCSD odefr MCSE).\n• Fundierte Kenntnisse in Microsoft Servern, Active Directory, Exchange, Microsoft 365, Azure, VMware, Veeam.\n• Praktisches Know-how im Bereich PowerShell-Skripting.\n• Eine selbstständige, verantwortungsbewusste sowie serviceorientierte Arbeitsweise mit guten planerischen Fähigkeiten.\n• Ein unkomplizierter Teamplayer, der einfache Lösungen findet und die Bereitschaft für Noteinsätze außerhalb der normalen Arbeitszeit mitbringt."
       },
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "location": "Basel",
       "canton": "BS",
       "addressLocality": "Basel",
@@ -315,23 +318,12 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-12",
-      "url": "https://career.bellfoodgroup.com/de/stelle/ict-system-engineer-fokus-microsoft-server-m365-exchange-4955",
+      "postedDate": "2026-06-16",
+      "url": "https://career.bellfoodgroup.com/de/stelle/ict-system-engineer-fokus-m365-ms-server-4955",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:08.466Z",
+      "crawledAt": "2026-06-16T13:35:22.811Z",
       "sourceLang": "de",
-      "previousSlugs": [
-        "ict-system-engineer-fokus-microsoft-server-m365-exchange-hilcona-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ict-system-engineer-fokus-microsoft-server-m365-exchange-hilcona-basel"
-        ],
-        "fr": [
-          "ict-system-engineer-fokus-microsoft-server-m365-exchange-hilcona-basel"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T22:30:22.210Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -346,7 +338,8 @@
       },
       "postalCode": "4001",
       "country": "CH",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-06-16T13:35:22.811Z"
     },
     {
       "id": "hilcona-be0ef57bb60c",
@@ -388,7 +381,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-4954",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:08.254Z",
+      "crawledAt": "2026-06-16T13:35:22.542Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell"
@@ -456,7 +449,7 @@
       "postedDate": "2026-06-10",
       "url": "https://career.bellfoodgroup.com/de/stelle/assistenz-im-einkauf-m-w-d-4953",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:08.030Z",
+      "crawledAt": "2026-06-16T13:35:22.266Z",
       "sourceLang": "de",
       "previousSlugs": [
         "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
@@ -524,7 +517,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-logistiker-in-efz-4952",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:07.798Z",
+      "crawledAt": "2026-06-16T13:35:21.992Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-logistiker-in-efz-hilcona-steinach"
@@ -535,6 +528,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
+      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -591,7 +585,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:07.577Z",
+      "crawledAt": "2026-06-16T13:35:21.711Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
@@ -602,6 +596,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.240Z",
+      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -658,7 +653,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-lebensmitteltechnologe-login-efz-4950",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:07.069Z",
+      "crawledAt": "2026-06-16T13:35:21.437Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-lebensmitteltechnologe-login-efz-hilcona-steinach",
@@ -733,7 +728,7 @@
       "postedDate": "2026-06-03",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-reinigung-4949",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:06.864Z",
+      "crawledAt": "2026-06-16T13:35:21.150Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-reinigung-hilcona-basel",
@@ -764,10 +759,10 @@
     },
     {
       "id": "hilcona-250b4c062f49",
-      "slug": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+      "slug": "laborant-in-60-100-hilcona-dallikon",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
-        "en": "laboratory-technician-60-100-eisberg-ag-dallikon",
+        "it": "laborant-in-60-100-hilcona-dallikon",
+        "en": "laborant-in-60-100-hilcona-dallikon",
         "de": "laborant-in-60-100-hilcona-dallikon",
         "fr": "laborant-in-60-100-eisberg-ag-dallikon"
       },
@@ -802,24 +797,28 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/laborant-in-60-100-4948",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:06.658Z",
+      "crawledAt": "2026-06-16T13:35:20.875Z",
       "sourceLang": "de",
       "previousSlugs": [
         "laboratorio-nel-60-100-eisberg-ag-dallikon",
-        "laborant-in-60-100-hilcona-dallikon",
-        "laboratory-in-60-100-eisberg-ag-dallikon"
+        "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
+        "laboratory-in-60-100-eisberg-ag-dallikon",
+        "laboratory-technician-60-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laboratorio-nel-60-100-eisberg-ag-dallikon",
+          "tecnico-di-laboratorio-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ],
         "en": [
           "laboratory-in-60-100-eisberg-ag-dallikon",
+          "laboratory-technician-60-100-eisberg-ag-dallikon",
           "laborant-in-60-100-hilcona-dallikon"
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:44.131Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -841,9 +840,9 @@
       "slug": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
-        "en": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
+        "en": "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
         "de": "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "fr": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "fr": "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -876,12 +875,10 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/interne-r-revisorin-revisor-alle-senioritaetsstufen-4947",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:06.449Z",
+      "crawledAt": "2026-06-16T13:35:20.597Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
-        "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -895,6 +892,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:43.890Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -951,7 +949,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4946",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:06.232Z",
+      "crawledAt": "2026-06-16T13:35:20.314Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
@@ -1019,7 +1017,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/sicherheitsassistent-in-und-lehrlingsbeauftragte-r-zu-100-4945",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:06.027Z",
+      "crawledAt": "2026-06-16T13:35:20.041Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sicherheitsassistent-in-und-lehrlingsbeauftragte-r-zu-100-hilcona-essert-s-champvent",
@@ -1094,7 +1092,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-elektrotechnik-m-w-d-4944",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:05.812Z",
+      "crawledAt": "2026-06-16T13:35:19.764Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
@@ -1162,7 +1160,7 @@
       "postedDate": "2026-06-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-metallbearbeiter-m-w-d-4943",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:05.598Z",
+      "crawledAt": "2026-06-16T13:35:19.488Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrling-metallbearbeiter-m-w-d-hilcona-pfaffstatt",
@@ -1232,7 +1230,7 @@
       "postedDate": "2026-05-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsplaner-in-disponent-in-4941",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:05.377Z",
+      "crawledAt": "2026-06-16T13:35:19.194Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -1310,7 +1308,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-4940",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:05.163Z",
+      "crawledAt": "2026-06-16T13:35:18.918Z",
       "sourceLang": "de",
       "previousSlugs": [
         "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hilcona-radolfzell",
@@ -1383,7 +1381,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienfuehrer-maschinenfuehrer-m-w-d-4939",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:04.948Z",
+      "crawledAt": "2026-06-16T13:35:18.633Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienfuehrer-maschinenfuehrer-m-w-d-hilcona-bad-wunnenberg",
@@ -1456,7 +1454,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qulitaetskontrolle-m-w-d-4938",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:04.733Z",
+      "crawledAt": "2026-06-16T13:35:18.364Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -1535,7 +1533,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/abteilungsleiter-lebensmittelproduktion-m-w-d-4937",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:04.516Z",
+      "crawledAt": "2026-06-16T13:35:18.091Z",
       "sourceLang": "de",
       "previousSlugs": [
         "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -1552,78 +1550,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-20T23:07:43.134Z",
-      "salaryMin": 64500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "country": "CH",
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hilcona-9a37c2924857",
-      "slug": "acquirente-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-      "slugByLocale": {
-        "it": "acquirente-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "einkaeufer-m-w-d-hilcona-pfaffstatt",
-        "de": "einkaeufer-m-w-d-hilcona-pfaffstatt",
-        "fr": "einkaeufer-m-w-d-hilcona-pfaffstatt"
-      },
-      "company": "Hubers Landhendl GmbH",
-      "companyKey": "hilcona",
-      "companyDomain": "bellfoodgroup.com",
-      "title": "Einkaeufer M W D",
-      "titleByLocale": {
-        "it": "Acquirente M W D",
-        "en": "Einkaeufer M W D",
-        "de": "Einkaeufer M W D",
-        "fr": "Einkaeufer M W D"
-      },
-      "description": "Du bist organisiert und hast ein gutes Gespür für Zahlen und Abläufe. Dann bring deine Stärken bei uns im Einkauf ein und sorge dafür, dass alles zur richtigen Zeit in der richtigen Qualität am richtigen Ort ist. Aufgaben:\n• §Du verantwortest den gesamten Einkaufsprozess – von der Preisverhandlung über die Bestellung bis hin zur Liefertermin- und Rechnungskontrolle\n• §Du optimierst Lieferantenkonditionen und pflegst nachhaltige Partnerschaften mit unseren Lieferanten\n• §Du prüfst und aktualisierst Verträge sowie Vereinbarungen\n• §Du analysierst einkaufsrelevante Kennzahlen und identifizierst Einsparungspotenziale\n• §Du koordinierst den Einkauf standortübergreifend für vier Produktionsstandorte\n• §Du arbeitest aktiv an abteilungsübergreifenden Projekten mit und bringst deine Ideen ein\n• §Du bist zentrale Ansprechperson für unsere Produktionsstandorte in allen dir zugeordneten Einkaufsthemen Anforderungen:\n• §Kaufmännische Erfahrung im Einkauf, Controlling oder einem vergleichbaren Bereich\n• §Sicherer Umgang mit MS Office, insbesondere Excel\n• §Eine strukturierte, genaue, selbstständige und zuverlässige Arbeitsweise\n• §Kommunikationsstärke, Teamgeist und Belastbarkeit",
-      "descriptionByLocale": {
-        "it": "Du bist organisiert und hast ein gutes Gespür für Zahlen und Abläufe. Dann bring deine Stärken bei uns im Einkauf ein und sorge dafür, dass alles zur richtigen Zeit in der richtigen Qualität am richtigen Ort ist. Aufgaben:\n• §Du verantwortest den gesamten Einkaufsprozess – von der Preisverhandlung über die Bestellung bis hin zur Liefertermin- und Rechnungskontrolle\n• §Du optimierst Lieferantenkonditionen und pflegst nachhaltige Partnerschaften mit unseren Lieferanten\n• §Du prüfst und aktualisierst Verträge sowie Vereinbarungen\n• §Du analysierst einkaufsrelevante Kennzahlen und identifizierst Einsparungspotenziale\n• §Du koordinierst den Einkauf standortübergreifend für vier Produktionsstandorte\n• §Du arbeitest aktiv an abteilungsübergreifenden Projekten mit und bringst deine Ideen ein\n• §Du bist zentrale Ansprechperson für unsere Produktionsstandorte in allen dir zugeordneten Einkaufsthemen Anforderungen:\n• §Kaufmännische Erfahrung im Einkauf, Controlling oder einem vergleichbaren Bereich\n• §Sicherer Umgang mit MS Office, insbesondere Excel\n• §Eine strukturierte, genaue, selbstständige und zuverlässige Arbeitsweise\n• §Kommunikationsstärke, Teamgeist und Belastbarkeit",
-        "en": "Du bist organisiert und hast ein gutes Gespür für Zahlen und Abläufe. Dann bring deine Stärken bei uns im Einkauf ein und sorge dafür, dass alles zur richtigen Zeit in der richtigen Qualität am richtigen Ort ist. Aufgaben:\n• §Du verantwortest den gesamten Einkaufsprozess – von der Preisverhandlung über die Bestellung bis hin zur Liefertermin- und Rechnungskontrolle\n• §Du optimierst Lieferantenkonditionen und pflegst nachhaltige Partnerschaften mit unseren Lieferanten\n• §Du prüfst und aktualisierst Verträge sowie Vereinbarungen\n• §Du analysierst einkaufsrelevante Kennzahlen und identifizierst Einsparungspotenziale\n• §Du koordinierst den Einkauf standortübergreifend für vier Produktionsstandorte\n• §Du arbeitest aktiv an abteilungsübergreifenden Projekten mit und bringst deine Ideen ein\n• §Du bist zentrale Ansprechperson für unsere Produktionsstandorte in allen dir zugeordneten Einkaufsthemen Anforderungen:\n• §Kaufmännische Erfahrung im Einkauf, Controlling oder einem vergleichbaren Bereich\n• §Sicherer Umgang mit MS Office, insbesondere Excel\n• §Eine strukturierte, genaue, selbstständige und zuverlässige Arbeitsweise\n• §Kommunikationsstärke, Teamgeist und Belastbarkeit",
-        "de": "Du bist organisiert und hast ein gutes Gespür für Zahlen und Abläufe. Dann bring deine Stärken bei uns im Einkauf ein und sorge dafür, dass alles zur richtigen Zeit in der richtigen Qualität am richtigen Ort ist. Aufgaben:\n• §Du verantwortest den gesamten Einkaufsprozess – von der Preisverhandlung über die Bestellung bis hin zur Liefertermin- und Rechnungskontrolle\n• §Du optimierst Lieferantenkonditionen und pflegst nachhaltige Partnerschaften mit unseren Lieferanten\n• §Du prüfst und aktualisierst Verträge sowie Vereinbarungen\n• §Du analysierst einkaufsrelevante Kennzahlen und identifizierst Einsparungspotenziale\n• §Du koordinierst den Einkauf standortübergreifend für vier Produktionsstandorte\n• §Du arbeitest aktiv an abteilungsübergreifenden Projekten mit und bringst deine Ideen ein\n• §Du bist zentrale Ansprechperson für unsere Produktionsstandorte in allen dir zugeordneten Einkaufsthemen Anforderungen:\n• §Kaufmännische Erfahrung im Einkauf, Controlling oder einem vergleichbaren Bereich\n• §Sicherer Umgang mit MS Office, insbesondere Excel\n• §Eine strukturierte, genaue, selbstständige und zuverlässige Arbeitsweise\n• §Kommunikationsstärke, Teamgeist und Belastbarkeit",
-        "fr": "Du bist organisiert und hast ein gutes Gespür für Zahlen und Abläufe. Dann bring deine Stärken bei uns im Einkauf ein und sorge dafür, dass alles zur richtigen Zeit in der richtigen Qualität am richtigen Ort ist. Aufgaben:\n• §Du verantwortest den gesamten Einkaufsprozess – von der Preisverhandlung über die Bestellung bis hin zur Liefertermin- und Rechnungskontrolle\n• §Du optimierst Lieferantenkonditionen und pflegst nachhaltige Partnerschaften mit unseren Lieferanten\n• §Du prüfst und aktualisierst Verträge sowie Vereinbarungen\n• §Du analysierst einkaufsrelevante Kennzahlen und identifizierst Einsparungspotenziale\n• §Du koordinierst den Einkauf standortübergreifend für vier Produktionsstandorte\n• §Du arbeitest aktiv an abteilungsübergreifenden Projekten mit und bringst deine Ideen ein\n• §Du bist zentrale Ansprechperson für unsere Produktionsstandorte in allen dir zugeordneten Einkaufsthemen Anforderungen:\n• §Kaufmännische Erfahrung im Einkauf, Controlling oder einem vergleichbaren Bereich\n• §Sicherer Umgang mit MS Office, insbesondere Excel\n• §Eine strukturierte, genaue, selbstständige und zuverlässige Arbeitsweise\n• §Kommunikationsstärke, Teamgeist und Belastbarkeit"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Pfaffstätt",
-      "canton": "GR",
-      "addressLocality": "Pfaffstätt",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "Unbefristet",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-m-w-d-4936",
-      "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:04.297Z",
-      "sourceLang": "de",
-      "previousSlugs": [
-        "einkaeufer-m-w-d-hilcona-pfaffstatt",
-        "einkaeufer-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "einkaeufer-m-w-d-hilcona-pfaffstatt"
-        ],
-        "de": [
-          "einkaeufer-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-21T12:09:06.927Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1680,7 +1606,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-in-produktionsplanung-pps-administration-60-4935",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:04.083Z",
+      "crawledAt": "2026-06-16T13:35:17.822Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-in-produktionsplanung-pps-administration-60-hilcona-zell",
@@ -1712,9 +1638,9 @@
     },
     {
       "id": "hilcona-2db3448de281",
-      "slug": "ot-ingegnere-80-100-eisberg-ag-dallikon",
+      "slug": "ot-engineer-80-100-hilcona-dallikon",
       "slugByLocale": {
-        "it": "ot-ingegnere-80-100-eisberg-ag-dallikon",
+        "it": "ot-engineer-80-100-hilcona-dallikon",
         "en": "ot-engineer-80-100-eisberg-ag-dallikon",
         "de": "ot-engineer-80-100-hilcona-dallikon",
         "fr": "ot-engineer-80-100-hilcona-dallikon"
@@ -1750,14 +1676,15 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/ot-engineer-80-100-4934",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:03.863Z",
+      "crawledAt": "2026-06-16T13:35:17.531Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ot-engineer-80-100-hilcona-dallikon",
+        "ot-ingegnere-80-100-eisberg-ag-dallikon",
         "ingenieur-80-100-eisberg-ag-dallikon"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ot-ingegnere-80-100-eisberg-ag-dallikon",
           "ot-engineer-80-100-hilcona-dallikon"
         ],
         "fr": [
@@ -1765,6 +1692,7 @@
         ]
       },
       "firstSeenAt": "2026-05-20T23:07:42.400Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -1821,7 +1749,7 @@
       "postedDate": "2026-05-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-4933",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:03.651Z",
+      "crawledAt": "2026-06-16T13:35:17.261Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -1899,7 +1827,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/schichtleiter-produktion-m-w-d-4932",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:03.433Z",
+      "crawledAt": "2026-06-16T13:35:16.990Z",
       "sourceLang": "de",
       "previousSlugs": [
         "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
@@ -1978,7 +1906,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/gruppenleiter-produktion-m-w-d-4931",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:03.212Z",
+      "crawledAt": "2026-06-16T13:35:16.715Z",
       "sourceLang": "de",
       "previousSlugs": [
         "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
@@ -2014,10 +1942,10 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "fr": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "fr": "electricien-d-installation-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -2050,21 +1978,24 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:03.001Z",
+      "crawledAt": "2026-06-16T13:35:16.440Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "electricien-d-installation-geiser-ag-schlieren"
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ],
         "fr": [
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
           "electricien-d-installation-geiser-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-11T22:14:05.649Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -2121,7 +2052,7 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-gruppenleiter-stv-gruppenleiterin-ruesterei-4925",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:02.771Z",
+      "crawledAt": "2026-06-16T13:35:16.164Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
@@ -2194,7 +2125,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-leiter-packerei-m-w-d-4924",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:02.551Z",
+      "crawledAt": "2026-06-16T13:35:15.896Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretender-leiter-packerei-m-w-d-hilcona-neuburg",
@@ -2267,7 +2198,7 @@
       "postedDate": "2026-05-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktentwickler-m-w-d-4923",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:02.337Z",
+      "crawledAt": "2026-06-16T13:35:15.609Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -2345,7 +2276,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsinstallateur-betriebsinstallateurin-4919",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:02.106Z",
+      "crawledAt": "2026-06-16T13:35:15.342Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
@@ -2421,7 +2352,7 @@
       "postedDate": "2026-05-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-operational-technology-4918",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:01.840Z",
+      "crawledAt": "2026-06-16T13:35:15.068Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-operational-technology-hilcona-cheseaux-sur-lausanne",
@@ -2497,7 +2428,7 @@
       "postedDate": "2026-06-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/verantwortlicher-produktion-charcuterie-cheseaux-4917",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:01.603Z",
+      "crawledAt": "2026-06-16T13:35:14.792Z",
       "sourceLang": "de",
       "previousSlugs": [
         "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
@@ -2576,7 +2507,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-4915",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:01.360Z",
+      "crawledAt": "2026-06-16T13:35:14.515Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
@@ -2648,7 +2579,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/linienleiter-lebensmittelproduktion-m-w-d-4914",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:01.110Z",
+      "crawledAt": "2026-06-16T13:35:14.232Z",
       "sourceLang": "de",
       "previousSlugs": [
         "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
@@ -2718,7 +2649,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-4912",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:00.875Z",
+      "crawledAt": "2026-06-16T13:35:13.964Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -2789,7 +2720,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-rechnungswesen-80-m-w-d-4909",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:00.658Z",
+      "crawledAt": "2026-06-16T13:35:13.687Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachspezialist-rechnungswesen-80-m-w-d-hilcona-steinach"
@@ -2821,74 +2752,6 @@
       "postalCode": "9000",
       "country": "CH",
       "addressRegion": "SG"
-    },
-    {
-      "id": "hilcona-6cb4fe707991",
-      "slug": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-      "slugByLocale": {
-        "it": "gestione-client-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "en": "it-admin-client-management-m-w-d-hilcona-radolfzell",
-        "de": "it-admin-client-management-m-w-d-hilcona-radolfzell",
-        "fr": "it-admin-client-management-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
-      },
-      "company": "Hügli Nahrungsmittel GmbH",
-      "companyKey": "hilcona",
-      "companyDomain": "bellfoodgroup.com",
-      "title": "It Admin Client Management M W D",
-      "titleByLocale": {
-        "it": "Gestione client M W D",
-        "en": "It Admin Client Management M W D",
-        "de": "It Admin Client Management M W D",
-        "fr": "It Admin Client Management M W D"
-      },
-      "description": "Bring unsere IT auf das nächste Level!🚀Du willst nicht einfach nur Tickets abarbeiten, sondern aktiv etwas bewegen? Du denkst IT weiter – effizienter, moderner, smarter? Dann passt du perfekt zu uns.In unserem Group IT Infrastruktur-Team übernimmst du eine zentrale Rolle im Client Management und sorgst dafür, dass unsere digitale Arbeitsumgebung für alle Mitarbeitenden reibungslos funktioniert – heute und in Zukunft. Aufgaben:\n• Du verantwortest den Betrieb und die Weiterentwicklung unserer Client-Infrastruktur – von physischen Geräten bis zu virtuellen Desktops\n• Du stellst sicher, dass Betriebssysteme und Software zuverlässig, automatisiert und skalierbar ausgerollt werden\n• Du bist erste Anlaufstelle für technische Herausforderungen und gehst Ursachen nachhaltig auf den Grund\n• Du kümmerst dich um die Installation, Konfiguration und smarte Verteilung von Software\n• Du übernimmst das IT-Asset Management und behältst den Überblick über Geräte, Lizenzen und Lifecycle\n• Du arbeitest aktiv in spannenden IT-Projekten mit und bringst deine Ideen ein Anforderungen:\n• Abgeschlossene IT-Ausbildung oder vergleichbare Qualifikation\n• Erfahrung im Client Management (z. B. Windows 10/11, SCCM, Intune, VDI)\n• Know-how in Softwareverteilung, Asset Management und Troubleshooting\n• Strukturierte, eigenverantwortliche Arbeitsweise und Freude daran, Lösungen zu finden\n• Teamgeist, Neugier und Lust, Dinge aktiv voranzutreiben\n• Sehr gute Deutsch- und Englischkenntnisse",
-      "descriptionByLocale": {
-        "it": "Bring unsere IT auf das nächste Level!🚀Du willst nicht einfach nur Tickets abarbeiten, sondern aktiv etwas bewegen? Du denkst IT weiter – effizienter, moderner, smarter? Dann passt du perfekt zu uns.In unserem Group IT Infrastruktur-Team übernimmst du eine zentrale Rolle im Client Management und sorgst dafür, dass unsere digitale Arbeitsumgebung für alle Mitarbeitenden reibungslos funktioniert – heute und in Zukunft. Aufgaben:\n• Du verantwortest den Betrieb und die Weiterentwicklung unserer Client-Infrastruktur – von physischen Geräten bis zu virtuellen Desktops\n• Du stellst sicher, dass Betriebssysteme und Software zuverlässig, automatisiert und skalierbar ausgerollt werden\n• Du bist erste Anlaufstelle für technische Herausforderungen und gehst Ursachen nachhaltig auf den Grund\n• Du kümmerst dich um die Installation, Konfiguration und smarte Verteilung von Software\n• Du übernimmst das IT-Asset Management und behältst den Überblick über Geräte, Lizenzen und Lifecycle\n• Du arbeitest aktiv in spannenden IT-Projekten mit und bringst deine Ideen ein Anforderungen:\n• Abgeschlossene IT-Ausbildung oder vergleichbare Qualifikation\n• Erfahrung im Client Management (z. B. Windows 10/11, SCCM, Intune, VDI)\n• Know-how in Softwareverteilung, Asset Management und Troubleshooting\n• Strukturierte, eigenverantwortliche Arbeitsweise und Freude daran, Lösungen zu finden\n• Teamgeist, Neugier und Lust, Dinge aktiv voranzutreiben\n• Sehr gute Deutsch- und Englischkenntnisse",
-        "en": "Bring unsere IT auf das nächste Level!🚀Du willst nicht einfach nur Tickets abarbeiten, sondern aktiv etwas bewegen? Du denkst IT weiter – effizienter, moderner, smarter? Dann passt du perfekt zu uns.In unserem Group IT Infrastruktur-Team übernimmst du eine zentrale Rolle im Client Management und sorgst dafür, dass unsere digitale Arbeitsumgebung für alle Mitarbeitenden reibungslos funktioniert – heute und in Zukunft. Aufgaben:\n• Du verantwortest den Betrieb und die Weiterentwicklung unserer Client-Infrastruktur – von physischen Geräten bis zu virtuellen Desktops\n• Du stellst sicher, dass Betriebssysteme und Software zuverlässig, automatisiert und skalierbar ausgerollt werden\n• Du bist erste Anlaufstelle für technische Herausforderungen und gehst Ursachen nachhaltig auf den Grund\n• Du kümmerst dich um die Installation, Konfiguration und smarte Verteilung von Software\n• Du übernimmst das IT-Asset Management und behältst den Überblick über Geräte, Lizenzen und Lifecycle\n• Du arbeitest aktiv in spannenden IT-Projekten mit und bringst deine Ideen ein Anforderungen:\n• Abgeschlossene IT-Ausbildung oder vergleichbare Qualifikation\n• Erfahrung im Client Management (z. B. Windows 10/11, SCCM, Intune, VDI)\n• Know-how in Softwareverteilung, Asset Management und Troubleshooting\n• Strukturierte, eigenverantwortliche Arbeitsweise und Freude daran, Lösungen zu finden\n• Teamgeist, Neugier und Lust, Dinge aktiv voranzutreiben\n• Sehr gute Deutsch- und Englischkenntnisse",
-        "de": "Bring unsere IT auf das nächste Level!🚀Du willst nicht einfach nur Tickets abarbeiten, sondern aktiv etwas bewegen? Du denkst IT weiter – effizienter, moderner, smarter? Dann passt du perfekt zu uns.In unserem Group IT Infrastruktur-Team übernimmst du eine zentrale Rolle im Client Management und sorgst dafür, dass unsere digitale Arbeitsumgebung für alle Mitarbeitenden reibungslos funktioniert – heute und in Zukunft. Aufgaben:\n• Du verantwortest den Betrieb und die Weiterentwicklung unserer Client-Infrastruktur – von physischen Geräten bis zu virtuellen Desktops\n• Du stellst sicher, dass Betriebssysteme und Software zuverlässig, automatisiert und skalierbar ausgerollt werden\n• Du bist erste Anlaufstelle für technische Herausforderungen und gehst Ursachen nachhaltig auf den Grund\n• Du kümmerst dich um die Installation, Konfiguration und smarte Verteilung von Software\n• Du übernimmst das IT-Asset Management und behältst den Überblick über Geräte, Lizenzen und Lifecycle\n• Du arbeitest aktiv in spannenden IT-Projekten mit und bringst deine Ideen ein Anforderungen:\n• Abgeschlossene IT-Ausbildung oder vergleichbare Qualifikation\n• Erfahrung im Client Management (z. B. Windows 10/11, SCCM, Intune, VDI)\n• Know-how in Softwareverteilung, Asset Management und Troubleshooting\n• Strukturierte, eigenverantwortliche Arbeitsweise und Freude daran, Lösungen zu finden\n• Teamgeist, Neugier und Lust, Dinge aktiv voranzutreiben\n• Sehr gute Deutsch- und Englischkenntnisse",
-        "fr": "Bring unsere IT auf das nächste Level!🚀Du willst nicht einfach nur Tickets abarbeiten, sondern aktiv etwas bewegen? Du denkst IT weiter – effizienter, moderner, smarter? Dann passt du perfekt zu uns.In unserem Group IT Infrastruktur-Team übernimmst du eine zentrale Rolle im Client Management und sorgst dafür, dass unsere digitale Arbeitsumgebung für alle Mitarbeitenden reibungslos funktioniert – heute und in Zukunft. Aufgaben:\n• Du verantwortest den Betrieb und die Weiterentwicklung unserer Client-Infrastruktur – von physischen Geräten bis zu virtuellen Desktops\n• Du stellst sicher, dass Betriebssysteme und Software zuverlässig, automatisiert und skalierbar ausgerollt werden\n• Du bist erste Anlaufstelle für technische Herausforderungen und gehst Ursachen nachhaltig auf den Grund\n• Du kümmerst dich um die Installation, Konfiguration und smarte Verteilung von Software\n• Du übernimmst das IT-Asset Management und behältst den Überblick über Geräte, Lizenzen und Lifecycle\n• Du arbeitest aktiv in spannenden IT-Projekten mit und bringst deine Ideen ein Anforderungen:\n• Abgeschlossene IT-Ausbildung oder vergleichbare Qualifikation\n• Erfahrung im Client Management (z. B. Windows 10/11, SCCM, Intune, VDI)\n• Know-how in Softwareverteilung, Asset Management und Troubleshooting\n• Strukturierte, eigenverantwortliche Arbeitsweise und Freude daran, Lösungen zu finden\n• Teamgeist, Neugier und Lust, Dinge aktiv voranzutreiben\n• Sehr gute Deutsch- und Englischkenntnisse"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Radolfzell",
-      "canton": "GR",
-      "addressLocality": "Radolfzell",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "Unbefristet",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://career.bellfoodgroup.com/de/stelle/it-admin-client-management-m-w-d-4908",
-      "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:00.428Z",
-      "sourceLang": "de",
-      "previousSlugs": [
-        "it-admin-client-management-m-w-d-hilcona-radolfzell"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "it-admin-client-management-m-w-d-hilcona-radolfzell"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-21T12:09:00.513Z",
-      "salaryMin": 64500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "country": "CH",
-      "addressRegion": "GR"
     },
     {
       "id": "hilcona-f4f8c6463be3",
@@ -2930,7 +2793,7 @@
       "postedDate": "2026-04-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/aushilfe-outlet-im-stundenlohn-4906",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:07:00.208Z",
+      "crawledAt": "2026-06-16T13:35:13.384Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3005,7 +2868,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-30-std-m-w-d-4903",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:59.993Z",
+      "crawledAt": "2026-06-16T13:35:13.093Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -3076,7 +2939,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-instandhaltungsfachmann-m-w-d-4901",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:59.775Z",
+      "crawledAt": "2026-06-16T13:35:12.814Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3098,6 +2961,7 @@
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
       ],
       "firstSeenAt": "2026-04-24T21:45:49.790Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3118,10 +2982,10 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "fr": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -3154,11 +3018,11 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4900",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:59.540Z",
+      "crawledAt": "2026-06-16T13:35:12.523Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "electricien-en-service-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
@@ -3167,13 +3031,16 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ],
         "fr": [
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
           "electricien-en-service-bell-schweiz-ag-oensingen"
         ]
       },
       "firstSeenAt": "2026-05-19T22:27:14.053Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -3230,7 +3097,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretender-produktionsleiter-m-w-d-4898",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:59.300Z",
+      "crawledAt": "2026-06-16T13:35:12.248Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3303,7 +3170,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaeltetechniker-m-w-d-4897",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:59.075Z",
+      "crawledAt": "2026-06-16T13:35:11.981Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3376,7 +3243,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-instandhaltung-m-w-d-4896",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:58.852Z",
+      "crawledAt": "2026-06-16T13:35:11.711Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3449,7 +3316,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/installateur-m-w-d-4895",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:58.634Z",
+      "crawledAt": "2026-06-16T13:35:11.432Z",
       "sourceLang": "de",
       "previousSlugs": [
         "installateur-m-w-d-hilcona-pfaffstatt",
@@ -3519,7 +3386,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechatroniker-m-w-d-4893",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:58.414Z",
+      "crawledAt": "2026-06-16T13:35:11.144Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3587,7 +3454,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/jungkoch-koch-m-w-d-4886",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:58.188Z",
+      "crawledAt": "2026-06-16T13:35:10.802Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3655,7 +3522,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-vertriebsinnendienst-m-w-d-4885",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:57.972Z",
+      "crawledAt": "2026-06-16T13:35:10.523Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3728,7 +3595,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/schlosser-mitarbeiter-technik-m-w-d-4884",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:57.756Z",
+      "crawledAt": "2026-06-16T13:35:10.238Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -3799,7 +3666,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/elektriker-m-w-d-4883",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:57.497Z",
+      "crawledAt": "2026-06-16T13:35:09.961Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3829,9 +3696,9 @@
     },
     {
       "id": "hilcona-dbec66286e58",
-      "slug": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
         "en": "werkstudent-m-w-d-projekte-bereich-operations-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
         "fr": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
@@ -3867,13 +3734,14 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/werkstudent-m-w-d-projekte-bereich-operations-4882",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:57.282Z",
+      "crawledAt": "2026-06-16T13:35:09.689Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
+        "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ]
       },
@@ -3935,7 +3803,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-100-4869",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:57.066Z",
+      "crawledAt": "2026-06-16T13:35:09.384Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -3950,6 +3818,7 @@
         "dans-100-eisberg-ag-dallikon"
       ],
       "firstSeenAt": "2026-04-13T21:51:20.728Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -4006,7 +3875,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-foerdertechnik-4699",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:56.848Z",
+      "crawledAt": "2026-06-16T13:35:09.109Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4048,7 +3917,7 @@
       "id": "hilcona-4f5850ccc7a5",
       "slug": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
       "slugByLocale": {
-        "it": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
+        "it": "area-sales-market-sviluppatore-food-service-alto-adige-hugli-nahrmittel-erzeugung-gmbh-hard",
         "en": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard",
         "de": "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
         "fr": "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
@@ -4084,14 +3953,16 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/area-sales-marktentwickler-food-service-suedtirol-4634",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:56.635Z",
+      "crawledAt": "2026-06-16T13:35:08.833Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
+        "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
+        "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard"
+          "area-sales-marktentwickler-food-service-suedtirol-hilcona-hard",
+          "area-sales-marktentwickler-food-service-suedtirol-hugli-nahrmittel-erzeugung-gmbh-hard"
         ]
       },
       "needsRetranslation": true,
@@ -4152,7 +4023,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachspezialist-fachspezialistin-lean-management-4632",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:56.416Z",
+      "crawledAt": "2026-06-16T13:35:08.554Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4231,7 +4102,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zum-industriemechaniker-m-w-d-4614",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:56.195Z",
+      "crawledAt": "2026-06-16T13:35:08.236Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4248,79 +4119,6 @@
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:53.150Z",
-      "salaryMin": 64500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7000",
-      "country": "CH",
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hilcona-a3072cfdc901",
-      "slug": "istruzione-lo-specialista-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-      "slugByLocale": {
-        "it": "istruzione-lo-specialista-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "de": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "fr": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
-      },
-      "company": "Bell Deutschland GmbH & Co. KG",
-      "companyKey": "hilcona",
-      "companyDomain": "bellfoodgroup.com",
-      "title": "Ausbildung Zur Fachkraft Fuer Lagerlogistik M W D",
-      "titleByLocale": {
-        "it": "Istruzione Lo specialista Fuer Lagerlogistik M W D",
-        "en": "Ausbildung Zur Fachkraft Fuer Lagerlogistik M W D",
-        "de": "Ausbildung Zur Fachkraft Fuer Lagerlogistik M W D",
-        "fr": "Ausbildung Zur Fachkraft Fuer Lagerlogistik M W D"
-      },
-      "description": "Als Organisationstalent hast du einige Tricks auf Lager, kannst ordentlich zupacken und behältst auch dann einen kühlen Kopf, wenn’s um die Wurst geht? Dann ab in die Logistik bei Bell! Aufgaben:\n• Ab dem ersten Tag deiner Ausbildung kannst du bei uns wortwörtlich einiges bewegen: Entladen, Verladen, Beladen – vom Wareneingang bis zur Auslieferung unserer Produkte hältst du alles im Fluss.\n• Mit unserem Warenwirtschaftssystem lernst du so geschickt zu terminieren, dass weder produktionsintern noch bei den Kundinnen und Kunden Lieferengpässe entstehen.\n• Dabei sorgst du sowohl für den reibungslosen Transport, als auch für die fachgerechte, platzsparende Lagerung, planst log(ist)ische Auslieferungsrouten und erstellst die Versandpapiere.\n• Kurz: Wir machen dich nicht nur zum Verpackungs-, sondern auch zum Waren- und Logistikprofi von morgen. Anforderungen:\n• Mindestens einen guten Hauptschulabschluss\n• Technisches Verständnis und räumliches Vorstellungsvermögen\n• Konzentrierte und sorgfältige Arbeitsweise\n• Zuverlässigkeit",
-      "descriptionByLocale": {
-        "it": "Als Organisationstalent hast du einige Tricks auf Lager, kannst ordentlich zupacken und behältst auch dann einen kühlen Kopf, wenn’s um die Wurst geht? Dann ab in die Logistik bei Bell! Aufgaben:\n• Ab dem ersten Tag deiner Ausbildung kannst du bei uns wortwörtlich einiges bewegen: Entladen, Verladen, Beladen – vom Wareneingang bis zur Auslieferung unserer Produkte hältst du alles im Fluss.\n• Mit unserem Warenwirtschaftssystem lernst du so geschickt zu terminieren, dass weder produktionsintern noch bei den Kundinnen und Kunden Lieferengpässe entstehen.\n• Dabei sorgst du sowohl für den reibungslosen Transport, als auch für die fachgerechte, platzsparende Lagerung, planst log(ist)ische Auslieferungsrouten und erstellst die Versandpapiere.\n• Kurz: Wir machen dich nicht nur zum Verpackungs-, sondern auch zum Waren- und Logistikprofi von morgen. Anforderungen:\n• Mindestens einen guten Hauptschulabschluss\n• Technisches Verständnis und räumliches Vorstellungsvermögen\n• Konzentrierte und sorgfältige Arbeitsweise\n• Zuverlässigkeit",
-        "en": "Als Organisationstalent hast du einige Tricks auf Lager, kannst ordentlich zupacken und behältst auch dann einen kühlen Kopf, wenn’s um die Wurst geht? Dann ab in die Logistik bei Bell! Aufgaben:\n• Ab dem ersten Tag deiner Ausbildung kannst du bei uns wortwörtlich einiges bewegen: Entladen, Verladen, Beladen – vom Wareneingang bis zur Auslieferung unserer Produkte hältst du alles im Fluss.\n• Mit unserem Warenwirtschaftssystem lernst du so geschickt zu terminieren, dass weder produktionsintern noch bei den Kundinnen und Kunden Lieferengpässe entstehen.\n• Dabei sorgst du sowohl für den reibungslosen Transport, als auch für die fachgerechte, platzsparende Lagerung, planst log(ist)ische Auslieferungsrouten und erstellst die Versandpapiere.\n• Kurz: Wir machen dich nicht nur zum Verpackungs-, sondern auch zum Waren- und Logistikprofi von morgen. Anforderungen:\n• Mindestens einen guten Hauptschulabschluss\n• Technisches Verständnis und räumliches Vorstellungsvermögen\n• Konzentrierte und sorgfältige Arbeitsweise\n• Zuverlässigkeit",
-        "de": "Als Organisationstalent hast du einige Tricks auf Lager, kannst ordentlich zupacken und behältst auch dann einen kühlen Kopf, wenn’s um die Wurst geht? Dann ab in die Logistik bei Bell! Aufgaben:\n• Ab dem ersten Tag deiner Ausbildung kannst du bei uns wortwörtlich einiges bewegen: Entladen, Verladen, Beladen – vom Wareneingang bis zur Auslieferung unserer Produkte hältst du alles im Fluss.\n• Mit unserem Warenwirtschaftssystem lernst du so geschickt zu terminieren, dass weder produktionsintern noch bei den Kundinnen und Kunden Lieferengpässe entstehen.\n• Dabei sorgst du sowohl für den reibungslosen Transport, als auch für die fachgerechte, platzsparende Lagerung, planst log(ist)ische Auslieferungsrouten und erstellst die Versandpapiere.\n• Kurz: Wir machen dich nicht nur zum Verpackungs-, sondern auch zum Waren- und Logistikprofi von morgen. Anforderungen:\n• Mindestens einen guten Hauptschulabschluss\n• Technisches Verständnis und räumliches Vorstellungsvermögen\n• Konzentrierte und sorgfältige Arbeitsweise\n• Zuverlässigkeit",
-        "fr": "Als Organisationstalent hast du einige Tricks auf Lager, kannst ordentlich zupacken und behältst auch dann einen kühlen Kopf, wenn’s um die Wurst geht? Dann ab in die Logistik bei Bell! Aufgaben:\n• Ab dem ersten Tag deiner Ausbildung kannst du bei uns wortwörtlich einiges bewegen: Entladen, Verladen, Beladen – vom Wareneingang bis zur Auslieferung unserer Produkte hältst du alles im Fluss.\n• Mit unserem Warenwirtschaftssystem lernst du so geschickt zu terminieren, dass weder produktionsintern noch bei den Kundinnen und Kunden Lieferengpässe entstehen.\n• Dabei sorgst du sowohl für den reibungslosen Transport, als auch für die fachgerechte, platzsparende Lagerung, planst log(ist)ische Auslieferungsrouten und erstellst die Versandpapiere.\n• Kurz: Wir machen dich nicht nur zum Verpackungs-, sondern auch zum Waren- und Logistikprofi von morgen. Anforderungen:\n• Mindestens einen guten Hauptschulabschluss\n• Technisches Verständnis und räumliches Vorstellungsvermögen\n• Konzentrierte und sorgfältige Arbeitsweise\n• Zuverlässigkeit"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Harkebrügge",
-      "canton": "GR",
-      "addressLocality": "Harkebrügge",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "Lehrstelle",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-4613",
-      "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:55.964Z",
-      "sourceLang": "de",
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-          "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-harkebrugge"
-        ],
-        "de": [
-          "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-harkebrugge"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-harkebrugge"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-21T12:08:52.885Z",
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -4377,7 +4175,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-4612",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:55.750Z",
+      "crawledAt": "2026-06-16T13:35:07.959Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4450,7 +4248,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-4602",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:55.533Z",
+      "crawledAt": "2026-06-16T13:35:07.677Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4523,7 +4321,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/geschaeftsfuehrer-geschaeftsfuehrerin-dorfmetzgerei-thaler-metzg-4586",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:55.291Z",
+      "crawledAt": "2026-06-16T13:35:07.407Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4603,7 +4401,7 @@
       "postedDate": "2026-05-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenbetreuer-anlagenbetreuerin-neubau-oensingen-4584",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:55.064Z",
+      "crawledAt": "2026-06-16T13:35:07.125Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -4678,7 +4476,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-wareneingang-m-w-d-4459",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:54.837Z",
+      "crawledAt": "2026-06-16T13:35:06.840Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-wareneingang-m-w-d-hilcona-pfaffstatt",
@@ -4750,7 +4548,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kuechenhilfe-teilzeit-m-w-d-f-samstag-4456",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:54.620Z",
+      "crawledAt": "2026-06-16T13:35:06.557Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4831,7 +4629,7 @@
       "postedDate": "2026-05-26",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-kueche-4454",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:54.403Z",
+      "crawledAt": "2026-06-16T13:35:06.272Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4862,6 +4660,7 @@
         "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-26T23:03:17.579Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -4918,7 +4717,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/berufsbildner-berufsbildnerin-technik-4452",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:54.185Z",
+      "crawledAt": "2026-06-16T13:35:05.995Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -5003,7 +4802,7 @@
       "postedDate": "2026-05-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-schlussdienst-m-w-d-4451",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:53.966Z",
+      "crawledAt": "2026-06-16T13:35:05.714Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5084,7 +4883,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/culinary-advisor-im-foodservice-deutschland-m-w-d-4445",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:53.738Z",
+      "crawledAt": "2026-06-16T13:35:05.441Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5166,7 +4965,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-beschaffung-eu-rohwaren-m-w-d-4442",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:53.529Z",
+      "crawledAt": "2026-06-16T13:35:05.120Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5209,9 +5008,9 @@
     },
     {
       "id": "hilcona-9ddf5cc57bc3",
-      "slug": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
         "en": "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
         "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
@@ -5247,7 +5046,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/sap-sd-inhouse-consultant-m-w-d-4440",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:53.310Z",
+      "crawledAt": "2026-06-16T13:35:04.815Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5256,6 +5055,7 @@
         ],
         "it": [
           "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
+          "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -5269,7 +5069,7 @@
         "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-berater-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "sap-sd-inhouse-consultant-m-w-d-hilcona-radolfzell",
-        "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
+        "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:49.178Z",
@@ -5329,7 +5129,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-entwicklung-m-w-d-4438",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:53.082Z",
+      "crawledAt": "2026-06-16T13:35:04.488Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5411,7 +5211,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/sprachcoach-deutsch-franzoesisch-und-englisch-4435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:52.861Z",
+      "crawledAt": "2026-06-16T13:35:04.164Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5438,6 +5238,7 @@
         "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-04-13T10:42:51.182Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -5494,7 +5295,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/berufsbildner-berufsbildnerin-logistik-4427",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:52.648Z",
+      "crawledAt": "2026-06-16T13:35:03.826Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -5572,7 +5373,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-sdm-projekte-und-support-4406",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:52.427Z",
+      "crawledAt": "2026-06-16T13:35:02.207Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5652,7 +5453,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-sachbearbeiterin-sdm-business-4405",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:52.211Z",
+      "crawledAt": "2026-06-16T13:35:01.746Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -5730,7 +5531,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-schlachthaus-4370",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:51.985Z",
+      "crawledAt": "2026-06-16T13:35:01.424Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5813,7 +5614,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-elektrotechnik-und-automation-4362",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:51.764Z",
+      "crawledAt": "2026-06-16T13:35:01.139Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5896,7 +5697,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/metzger-portionierung-metzgerin-portionierung-4358",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:51.551Z",
+      "crawledAt": "2026-06-16T13:35:00.863Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5980,7 +5781,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-4357",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:51.331Z",
+      "crawledAt": "2026-06-16T13:35:00.596Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6008,6 +5809,7 @@
         "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
       ],
       "firstSeenAt": "2026-05-22T11:51:42.428Z",
+      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -6064,7 +5866,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/kaufmaennischer-sachbearbeiter-m-w-d-4327",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:51.087Z",
+      "crawledAt": "2026-06-16T13:35:00.306Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6146,7 +5948,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-verladung-versand-m-w-d-4314",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:50.869Z",
+      "crawledAt": "2026-06-16T13:35:00.018Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6227,7 +6029,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/duales-studium-industriekaufleute-bachelor-bwl-m-w-d-3678",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:50.646Z",
+      "crawledAt": "2026-06-16T13:34:59.744Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -6307,7 +6109,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/ausbildung-als-industriekaufmann-m-w-d-3677",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:50.425Z",
+      "crawledAt": "2026-06-16T13:34:59.469Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6389,7 +6191,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriemechaniker-3034",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:50.201Z",
+      "crawledAt": "2026-06-16T13:34:59.197Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6471,7 +6273,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagefuehrer-fluessigproduktion-m-w-d-3027",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:49.932Z",
+      "crawledAt": "2026-06-16T13:34:58.921Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6517,32 +6319,30 @@
       "id": "hilcona-88702a86a172",
       "slug": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "de": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
         "it": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "fr": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "en": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "en": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "de": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "fr": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
       "companyDomain": "bellfoodgroup.com",
       "title": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
       "titleByLocale": {
-        "de": "Betriebselektriker in Neubau Oensingen",
-        "en": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
         "it": "Elettricista aziendale Elettricista aziendale Nuova costruzione Oensingen",
+        "en": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
+        "de": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
         "fr": "Électricien d'exploitation Électricienne d'exploitation Nouvelle construction Oensingen"
       },
       "description": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
       "descriptionByLocale": {
+        "it": "Sei responsabile e ti stai godendo di nuove sfide? Allora ti stiamo cercando come elettricista della nostra nuova sede a Oensingen. In questa posizione, assicura la disponibilità operativa dei nostri impianti di produzione all'avanguardia e aiuta a progettare un nuovo impianto fin dall'inizio. In questo modo, apportate un contributo decisivo al successo della nostra posizione. Compiti:\n• Manutenzione, manutenzione e risoluzione dei problemi nell'infrastruttura elettrica e negli impianti di produzione e logistica\n• Ottimizzazione continua di macchine e impianti\n• Riduzione dei tempi di fermo e dei tempi di fermo\n• Co-responsabile per la documentazione su macchine e impianti nell'area specializzata\n• Documentazione e gestione degli ordini e feedback con il nostro programma di manutenzione Requisiti:\n• Formazione di base completa come installatore elettrico o montante o equivalente\n• Collegamento permesso NIV. Art. 13 del Vantaggio\n• Esperienza con i controlli SPS Siemens con particolare attenzione all'analisi dei guasti\n• Flessibile per quanto riguarda gli incarichi di lavoro irregolari (3 turni e inserti piquette)\n• Buona conoscenza del tedesco nelle parole e nella scrittura",
+        "en": "Are you responsible and enjoying new challenges? Then we are looking for you as a company electrician at our new location in Oensingen. In this position, you ensure the operational readiness of our state-of-the-art production facilities and help design a new plant right from the start. In this way, you make a decisive contribution to the success of our location. Tasks:\n• Maintenance, maintenance and troubleshooting in the electrical infrastructure and on production and logistics plants\n• Ongoing optimization of machines and plants\n• Reduction of downtimes and downtimes\n• Co-responsible for documentation on machines and plants in the specialist area\n• Documentation and management of orders and feedback with our maintenance program Requirements:\n• Completed basic training as an electrical installer or fitter or equivalent\n• Connection permit NIV. Art. 13 of Advantage\n• Experience with SPS Siemens controls with focus on fault analysis\n• Flexible with regard to irregular work assignments (3 shift work and piquette inserts)\n• Good knowledge of German in words and writing",
         "de": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "it": "Sei responsabile e ti stai godendo di nuove sfide? Allora ti stiamo cercando come elettricista della nostra nuova sede a Oensingen. In questa posizione, assicura la disponibilità operativa dei nostri impianti di produzione all'avanguardia e aiuta a progettare un nuovo impianto fin dall'inizio. In questo modo, apportate un contributo decisivo al successo della nostra posizione. Compiti: • Manutenzione, manutenzione e risoluzione dei problemi nell'infrastruttura elettrica e negli impianti di produzione e logistica • Ottimizzazione continua di macchine e impianti • Riduzione dei tempi di fermo e dei tempi di fermo • Co-responsabile per la documentazione su macchine e impianti nell'area specializzata • Documentazione e gestione degli ordini e feedback con il nostro programma di manutenzione Requisiti: • Formazione di base completa come installatore elettrico o montante o equivalente • Collegamento permesso NIV. Art. 13 del Vantaggio • Esperienza con i controlli SPS Siemens con particolare attenzione all'analisi dei guasti • Flessibile per quanto riguarda gli incarichi di lavoro irregolari (3 turni e inserti piquette) • Buona conoscenza del tedesco nelle parole e nella scrittura",
-        "en": "Are you responsible and enjoying new challenges? Then we are looking for you as a company electrician at our new location in Oensingen. In this position, you ensure the operational readiness of our state-of-the-art production facilities and help design a new plant right from the start. In this way, you make a decisive contribution to the success of our location. Tasks: • Maintenance, maintenance and troubleshooting in the electrical infrastructure and on production and logistics plants • Ongoing optimization of machines and plants • Reduction of downtimes and downtimes • Co-responsible for documentation on machines and plants in the specialist area • Documentation and management of orders and feedback with our maintenance program Requirements: • Completed basic training as an electrical installer or fitter or equivalent • Connection permit NIV. Art. 13 of Advantage • Experience with SPS Siemens controls with focus on fault analysis • Flexible with regard to irregular work assignments (3 shift work and piquette inserts) • Good knowledge of German in words and writing",
-        "fr": "Êtes-vous responsable et profitez de nouveaux défis? Ensuite, nous vous recherchons en tant qu'électricien d'entreprise à notre nouvel emplacement à Oensingen. Dans cette position, vous assurez la disponibilité opérationnelle de nos installations de production de pointe et aidez à concevoir une nouvelle usine dès le début. De cette façon, vous apportez une contribution décisive au succès de notre emplacement. Tâches: • Maintenance, maintenance et dépannage dans l'infrastructure électrique et sur les installations de production et de logistique • Optimisation continue des machines et des installations • Réduction des temps d'arrêt et des temps d'arrêt • Co-responsable de la documentation sur les machines et les installations dans le domaine spécialisé • Documentation et gestion des commandes et rétroaction avec notre programme de maintenance Exigences: • Formation de base complétée en tant qu'installateur ou installateur électrique ou équivalent • Permis de connexion NIV. Art. 13 de l'avantage • Expérience avec les contrôles SPS Siemens en mettant l'accent sur l'analyse des défauts • Flexible en ce qui concerne les tâches irrégulières (3 postes et piquettes) • Bonne connaissance de l'allemand en mots et en écriture"
+        "fr": "Êtes-vous responsable et profitez de nouveaux défis? Ensuite, nous vous recherchons en tant qu'électricien d'entreprise à notre nouvel emplacement à Oensingen. Dans cette position, vous assurez la disponibilité opérationnelle de nos installations de production de pointe et aidez à concevoir une nouvelle usine dès le début. De cette façon, vous apportez une contribution décisive au succès de notre emplacement. Tâches:\n• Maintenance, maintenance et dépannage dans l'infrastructure électrique et sur les installations de production et de logistique\n• Optimisation continue des machines et des installations\n• Réduction des temps d'arrêt et des temps d'arrêt\n• Co-responsable de la documentation sur les machines et les installations dans le domaine spécialisé\n• Documentation et gestion des commandes et rétroaction avec notre programme de maintenance Exigences:\n• Formation de base complétée en tant qu'installateur ou installateur électrique ou équivalent\n• Permis de connexion NIV. Art. 13 de l'avantage\n• Expérience avec les contrôles SPS Siemens en mettant l'accent sur l'analyse des défauts\n• Flexible en ce qui concerne les tâches irrégulières (3 postes et piquettes)\n• Bonne connaissance de l'allemand en mots et en écriture"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "Oensingen",
       "canton": "SO",
       "addressLocality": "Oensingen",
@@ -6555,33 +6355,35 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-neubau-oensingen-2860",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:49.717Z",
+      "crawledAt": "2026-06-16T13:34:58.645Z",
       "sourceLang": "de",
+      "previousSlugs": [
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
+        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
+        "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
+        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
           "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
           "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
         ],
-        "en": [
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
-        ],
         "fr": [
           "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ]
       },
-      "previousSlugs": [
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
-        "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "elettricista-operativo-bell-schweiz-ag-oensingen",
-        "electricien-en-service-bell-schweiz-ag-oensingen",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
-        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
-      ],
+      "firstSeenAt": "2026-06-15T23:06:49.717Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -6596,8 +6398,7 @@
       },
       "postalCode": "4500",
       "country": "CH",
-      "addressRegion": "SO",
-      "firstSeenAt": "2026-06-15T23:06:49.717Z"
+      "addressRegion": "SO"
     },
     {
       "id": "hilcona-9e6c94ef1e40",
@@ -6639,7 +6440,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-2845",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:49.500Z",
+      "crawledAt": "2026-06-16T13:34:58.356Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6721,7 +6522,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-2844",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:49.282Z",
+      "crawledAt": "2026-06-16T13:34:58.075Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6805,7 +6606,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-2843",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:49.039Z",
+      "crawledAt": "2026-06-16T13:34:57.803Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -6851,10 +6652,10 @@
       "id": "hilcona-19a6b73a6fa0",
       "slug": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
       "slugByLocale": {
-        "it": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
+        "it": "elettricista-operativo-elettricista-100-bell-schweiz-ag-zell",
         "en": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
-        "fr": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+        "fr": "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -6887,7 +6688,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektrikerin-betriebselektriker-100-2835",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:48.823Z",
+      "crawledAt": "2026-06-16T13:34:57.532Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -6896,18 +6697,21 @@
         ],
         "it": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
-          "betriebselektrikerin-betriebselektriker-100-hilcona-zell"
+          "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
+          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ],
         "fr": [
+          "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
           "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
         "betriebselektrikerin-betriebselektriker-100-hilcona-zell",
-        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell"
+        "betriebselektrikerin-betriebselektriker-100-bell-schweiz-ag-zell",
+        "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:41.802Z",
@@ -6967,7 +6771,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/wartungstechnikerin-automatikerin-wartungstechniker-automatiker-2830",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:48.603Z",
+      "crawledAt": "2026-06-16T13:34:57.258Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7055,7 +6859,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-2765",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:48.368Z",
+      "crawledAt": "2026-06-16T13:34:56.977Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-oensingen",
@@ -7076,6 +6880,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:15:24.657Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7132,7 +6937,7 @@
       "postedDate": "2026-05-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-operational-technology-2719",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:48.140Z",
+      "crawledAt": "2026-06-16T13:34:56.701Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7158,6 +6963,7 @@
         "operational-technology-bell-schweiz-ag-basel"
       ],
       "firstSeenAt": "2026-05-29T12:38:10.738Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -7214,7 +7020,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-i-punkt-froster-m-w-d-2713",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:47.896Z",
+      "crawledAt": "2026-06-16T13:34:56.427Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmitarbeiter-i-punkt-froster-m-w-d-hilcona-harkebrugge"
@@ -7246,10 +7052,10 @@
       "id": "hilcona-80e821500dab",
       "slug": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "insegnamento-tecnologia-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-lebensmitteltechnik-m-w-d-hilcona-undefined",
-        "fr": "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -7282,7 +7088,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-lebensmitteltechnik-m-w-d-2697",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:47.670Z",
+      "crawledAt": "2026-06-16T13:34:56.155Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7291,18 +7097,21 @@
         ],
         "it": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt"
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
+          "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
           "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "lehrling-lebensmitteltechnik-m-w-d-hilcona-pfaffstatt",
-        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "lehrling-lebensmitteltechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "lehrling-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:40.470Z",
@@ -7362,7 +7171,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/leiter-leiterin-reinigung-slicer-center-neubau-oensingen-2681",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:47.455Z",
+      "crawledAt": "2026-06-16T13:34:55.874Z",
       "sourceLang": "de",
       "previousSlugs": [
         "leiter-leiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
@@ -7404,6 +7213,68 @@
       "addressRegion": "SO"
     },
     {
+      "id": "hilcona-11abbd3d0f43",
+      "slug": "ict-system-engineer-client-services-hilcona-basel",
+      "slugByLocale": {
+        "de": "ict-system-engineer-client-services-hilcona-basel",
+        "en": "ict-system-engineer-client-services-bell-schweiz-ag-basel",
+        "it": "ict-system-engineer-client-services-hilcona-basel",
+        "fr": "ict-system-engineer-client-services-hilcona-basel"
+      },
+      "company": "Bell Schweiz AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Ict System Engineer Client Services",
+      "titleByLocale": {
+        "de": "Ict System Ingenieur Client Services",
+        "en": "Ict System Engineer Client Services",
+        "it": "Ict System Ingegnere Client Services",
+        "fr": "Ict System Ingénieur Client Services"
+      },
+      "description": "Die Bell Food Group gehört zu den führenden Lebensmittelherstellern Europas. Unsere IT am Standort Basel sorgt mit moderner Infrastruktur dafür, dass unsere Prozesse digital, sicher und effizient laufen. Hast du Lust, unsere Client- und Systemlandschaft aktiv mitzugestalten? Dann werde Teil unseres Client Services Teams. Aufgaben:\n• Betrieb und Weiterentwicklung der Client-, System- und Infrastrukturumgebung\n• Betreuung des IT Client Managements (Empirum / Matrix42)\n• Softwarepaketierung sowie Hardware-, OS- und Lifecycle-Management\n• Planung und Durchführung des Patch-Managements\n• Administration von MDM, IGEL UMS, Citrix und Omnissa VDI (inkl. AppVolumes)\n• Verwaltung von Group Policies und Mitarbeit in der hybriden SharePoint-Umgebung\n• Analyse und Behebung von Störungen und Performanceproblemen\n• Second Level-Support sowie Unterstützung First-Level-Support\n• Mitarbeit und Leitung von Teilprojekten\n• Pikettdienst nach Bedarf Anforderungen:\n• Technische Ausbildung oder vergleichbare Qualifikation\n• Erfahrung in Microsoft-Umgebungen (Client & Server)\n• Kenntnisse in Softwareverteilung / Paketierung\n• Erfahrung mit MDM und Virtualisierung (VDI, Citrix)\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Teamfähigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Bereitschaft zu Pikettdienst und Reisen",
+      "descriptionByLocale": {
+        "de": "Die Bell Food Group gehört zu den führenden Lebensmittelherstellern Europas. Unsere IT am Standort Basel sorgt mit moderner Infrastruktur dafür, dass unsere Prozesse digital, sicher und effizient laufen. Hast du Lust, unsere Client- und Systemlandschaft aktiv mitzugestalten? Dann werde Teil unseres Client Services Teams. Aufgaben:\n• Betrieb und Weiterentwicklung der Client-, System- und Infrastrukturumgebung\n• Betreuung des IT Client Managements (Empirum / Matrix42)\n• Softwarepaketierung sowie Hardware-, OS- und Lifecycle-Management\n• Planung und Durchführung des Patch-Managements\n• Administration von MDM, IGEL UMS, Citrix und Omnissa VDI (inkl. AppVolumes)\n• Verwaltung von Group Policies und Mitarbeit in der hybriden SharePoint-Umgebung\n• Analyse und Behebung von Störungen und Performanceproblemen\n• Second Level-Support sowie Unterstützung First-Level-Support\n• Mitarbeit und Leitung von Teilprojekten\n• Pikettdienst nach Bedarf Anforderungen:\n• Technische Ausbildung oder vergleichbare Qualifikation\n• Erfahrung in Microsoft-Umgebungen (Client & Server)\n• Kenntnisse in Softwareverteilung / Paketierung\n• Erfahrung mit MDM und Virtualisierung (VDI, Citrix)\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Teamfähigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Bereitschaft zu Pikettdienst und Reisen",
+        "it": "Die Bell Food Group gehört zu den führenden Lebensmittelherstellern Europas. Unsere IT am Standort Basel sorgt mit moderner Infrastruktur dafür, dass unsere Prozesse digital, sicher und effizient laufen. Hast du Lust, unsere Client- und Systemlandschaft aktiv mitzugestalten? Dann werde Teil unseres Client Services Teams. Aufgaben:\n• Betrieb und Weiterentwicklung der Client-, System- und Infrastrukturumgebung\n• Betreuung des IT Client Managements (Empirum / Matrix42)\n• Softwarepaketierung sowie Hardware-, OS- und Lifecycle-Management\n• Planung und Durchführung des Patch-Managements\n• Administration von MDM, IGEL UMS, Citrix und Omnissa VDI (inkl. AppVolumes)\n• Verwaltung von Group Policies und Mitarbeit in der hybriden SharePoint-Umgebung\n• Analyse und Behebung von Störungen und Performanceproblemen\n• Second Level-Support sowie Unterstützung First-Level-Support\n• Mitarbeit und Leitung von Teilprojekten\n• Pikettdienst nach Bedarf Anforderungen:\n• Technische Ausbildung oder vergleichbare Qualifikation\n• Erfahrung in Microsoft-Umgebungen (Client & Server)\n• Kenntnisse in Softwareverteilung / Paketierung\n• Erfahrung mit MDM und Virtualisierung (VDI, Citrix)\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Teamfähigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Bereitschaft zu Pikettdienst und Reisen",
+        "en": "Die Bell Food Group gehört zu den führenden Lebensmittelherstellern Europas. Unsere IT am Standort Basel sorgt mit moderner Infrastruktur dafür, dass unsere Prozesse digital, sicher und effizient laufen. Hast du Lust, unsere Client- und Systemlandschaft aktiv mitzugestalten? Dann werde Teil unseres Client Services Teams. Aufgaben:\n• Betrieb und Weiterentwicklung der Client-, System- und Infrastrukturumgebung\n• Betreuung des IT Client Managements (Empirum / Matrix42)\n• Softwarepaketierung sowie Hardware-, OS- und Lifecycle-Management\n• Planung und Durchführung des Patch-Managements\n• Administration von MDM, IGEL UMS, Citrix und Omnissa VDI (inkl. AppVolumes)\n• Verwaltung von Group Policies und Mitarbeit in der hybriden SharePoint-Umgebung\n• Analyse und Behebung von Störungen und Performanceproblemen\n• Second Level-Support sowie Unterstützung First-Level-Support\n• Mitarbeit und Leitung von Teilprojekten\n• Pikettdienst nach Bedarf Anforderungen:\n• Technische Ausbildung oder vergleichbare Qualifikation\n• Erfahrung in Microsoft-Umgebungen (Client & Server)\n• Kenntnisse in Softwareverteilung / Paketierung\n• Erfahrung mit MDM und Virtualisierung (VDI, Citrix)\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Teamfähigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Bereitschaft zu Pikettdienst und Reisen",
+        "fr": "Die Bell Food Group gehört zu den führenden Lebensmittelherstellern Europas. Unsere IT am Standort Basel sorgt mit moderner Infrastruktur dafür, dass unsere Prozesse digital, sicher und effizient laufen. Hast du Lust, unsere Client- und Systemlandschaft aktiv mitzugestalten? Dann werde Teil unseres Client Services Teams. Aufgaben:\n• Betrieb und Weiterentwicklung der Client-, System- und Infrastrukturumgebung\n• Betreuung des IT Client Managements (Empirum / Matrix42)\n• Softwarepaketierung sowie Hardware-, OS- und Lifecycle-Management\n• Planung und Durchführung des Patch-Managements\n• Administration von MDM, IGEL UMS, Citrix und Omnissa VDI (inkl. AppVolumes)\n• Verwaltung von Group Policies und Mitarbeit in der hybriden SharePoint-Umgebung\n• Analyse und Behebung von Störungen und Performanceproblemen\n• Second Level-Support sowie Unterstützung First-Level-Support\n• Mitarbeit und Leitung von Teilprojekten\n• Pikettdienst nach Bedarf Anforderungen:\n• Technische Ausbildung oder vergleichbare Qualifikation\n• Erfahrung in Microsoft-Umgebungen (Client & Server)\n• Kenntnisse in Softwareverteilung / Paketierung\n• Erfahrung mit MDM und Virtualisierung (VDI, Citrix)\n• Strukturierte, selbstständige und lösungsorientierte Arbeitsweise\n• Teamfähigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Bereitschaft zu Pikettdienst und Reisen"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "addressLocality": "Basel",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "Unbefristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://career.bellfoodgroup.com/de/stelle/ict-system-engineer-client-services-2622",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-06-16T13:34:55.595Z",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "salaryMin": 69500,
+      "salaryMax": 93500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 93500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "4001",
+      "country": "CH",
+      "addressRegion": "BS",
+      "firstSeenAt": "2026-06-16T13:34:55.595Z"
+    },
+    {
       "id": "hilcona-3c9d2b25aa12",
       "slug": "collaboratore-trice-mitarbeiterin-technischer-leitstand-neubau-oensingen-bell-schweiz-ag-oensingen",
       "slugByLocale": {
@@ -7443,7 +7314,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-technischer-leitstand-neubau-oensingen-2619",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:47.237Z",
+      "crawledAt": "2026-06-16T13:34:55.316Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-technischer-leitstand-neubau-oensingen-hilcona-oensingen"
@@ -7454,6 +7325,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:15:23.520Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7510,7 +7382,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-2617",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:47.005Z",
+      "crawledAt": "2026-06-16T13:34:55.045Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
@@ -7533,6 +7405,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7589,7 +7462,7 @@
       "postedDate": "2026-05-22",
       "url": "https://career.bellfoodgroup.com/de/stelle/fachkraft-lagerlogistik-m-w-d-2595",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:46.786Z",
+      "crawledAt": "2026-06-16T13:34:54.750Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge",
@@ -7661,7 +7534,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/praktikum-waehrend-des-studiums-30-1-jahr-befristet-2574",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:46.565Z",
+      "crawledAt": "2026-06-16T13:34:54.476Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -7737,7 +7610,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2517",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:46.330Z",
+      "crawledAt": "2026-06-16T13:34:54.195Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7810,7 +7683,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/instandhaltungstechniker-m-w-d-2515",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:46.106Z",
+      "crawledAt": "2026-06-16T13:34:53.923Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7883,7 +7756,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/elektriker-m-w-d-2514",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:45.889Z",
+      "crawledAt": "2026-06-16T13:34:53.641Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -7951,7 +7824,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lager-kommissionierung-m-w-d-2513",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:45.664Z",
+      "crawledAt": "2026-06-16T13:34:53.357Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lager-kommissionierung-m-w-d-hilcona-marchtrenk"
@@ -8019,7 +7892,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/vertriebsinnendienst-mitarbeiter-m-w-d-2455",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:45.442Z",
+      "crawledAt": "2026-06-16T13:34:53.077Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8062,6 +7935,79 @@
       "addressRegion": "GR"
     },
     {
+      "id": "hilcona-f76990a86ba7",
+      "slug": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
+      "slugByLocale": {
+        "de": "koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-hilcona-undefined",
+        "it": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
+        "en": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
+        "fr": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart"
+      },
+      "company": "Hilcona AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Koch Koechin Baecker Baeckerin Oder Metzger Metzgerin",
+      "titleByLocale": {
+        "de": "Koch Koechin Baecker Baeckerin Oder Metzger Metzgerin",
+        "it": "Koch Koechin Baecker Baeckerin o Metzger Metzgerin",
+        "en": "Koch Koechin Baecker Baeckerin Oder Metzger Metzgerin",
+        "fr": "Koch Koechin Baecker Baeckerin Oder Metzger Metzgerin"
+      },
+      "description": "Frischer, Besser, Hilcona? Bei uns stellst du eine Vielzahl köstlicher Produkte her - von Pasta Produkten wie Tortellini, Ravioli oder Spätzle über hochwertige Convenience-Produkte wie Riz Casimir und Rösti oder Salaten. In dieser Funktion übernimmst du die Verantwortung für den gesamten Produktionsprozess und betreust unsere Anlagen. Als Marktführer im Bereich Frische-Convenience stellen wir die Wünsche und Bedürfnisse unserer Kunden in den Mittelpunkt unseres Denkens und Handelns. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Qualitätsprüfung der Produkte\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre (Köche/Bäcker/Metzger)\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischem Bereich\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+      "descriptionByLocale": {
+        "de": "Frischer, Besser, Hilcona? Bei uns stellst du eine Vielzahl köstlicher Produkte her - von Pasta Produkten wie Tortellini, Ravioli oder Spätzle über hochwertige Convenience-Produkte wie Riz Casimir und Rösti oder Salaten. In dieser Funktion übernimmst du die Verantwortung für den gesamten Produktionsprozess und betreust unsere Anlagen. Als Marktführer im Bereich Frische-Convenience stellen wir die Wünsche und Bedürfnisse unserer Kunden in den Mittelpunkt unseres Denkens und Handelns. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Qualitätsprüfung der Produkte\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre (Köche/Bäcker/Metzger)\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischem Bereich\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "it": "Frischer, Besser, Hilcona? Bei uns stellst du eine Vielzahl köstlicher Produkte her - von Pasta Produkten wie Tortellini, Ravioli oder Spätzle über hochwertige Convenience-Produkte wie Riz Casimir und Rösti oder Salaten. In dieser Funktion übernimmst du die Verantwortung für den gesamten Produktionsprozess und betreust unsere Anlagen. Als Marktführer im Bereich Frische-Convenience stellen wir die Wünsche und Bedürfnisse unserer Kunden in den Mittelpunkt unseres Denkens und Handelns. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Qualitätsprüfung der Produkte\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre (Köche/Bäcker/Metzger)\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischem Bereich\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "en": "Frischer, Besser, Hilcona? Bei uns stellst du eine Vielzahl köstlicher Produkte her - von Pasta Produkten wie Tortellini, Ravioli oder Spätzle über hochwertige Convenience-Produkte wie Riz Casimir und Rösti oder Salaten. In dieser Funktion übernimmst du die Verantwortung für den gesamten Produktionsprozess und betreust unsere Anlagen. Als Marktführer im Bereich Frische-Convenience stellen wir die Wünsche und Bedürfnisse unserer Kunden in den Mittelpunkt unseres Denkens und Handelns. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Qualitätsprüfung der Produkte\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre (Köche/Bäcker/Metzger)\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischem Bereich\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "fr": "Frischer, Besser, Hilcona? Bei uns stellst du eine Vielzahl köstlicher Produkte her - von Pasta Produkten wie Tortellini, Ravioli oder Spätzle über hochwertige Convenience-Produkte wie Riz Casimir und Rösti oder Salaten. In dieser Funktion übernimmst du die Verantwortung für den gesamten Produktionsprozess und betreust unsere Anlagen. Als Marktführer im Bereich Frische-Convenience stellen wir die Wünsche und Bedürfnisse unserer Kunden in den Mittelpunkt unseres Denkens und Handelns. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Qualitätsprüfung der Produkte\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre (Köche/Bäcker/Metzger)\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischem Bereich\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Schaan",
+      "canton": "GR",
+      "addressLocality": "Schaan",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "Unbefristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://career.bellfoodgroup.com/de/stelle/koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-2450",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-06-16T13:34:52.787Z",
+      "sourceLang": "de",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-hilcona-schaan"
+        ],
+        "de": [
+          "koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-hilcona-schaan"
+        ]
+      },
+      "previousSlugs": [
+        "koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-hilcona-schaan"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 64500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000",
+      "country": "CH",
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-16T13:34:52.787Z"
+    },
+    {
       "id": "hilcona-db2426faa210",
       "slug": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
@@ -8101,7 +8047,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-2435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:45.215Z",
+      "crawledAt": "2026-06-16T13:34:52.504Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8144,6 +8090,68 @@
       "addressRegion": "GR"
     },
     {
+      "id": "hilcona-5aca94916108",
+      "slug": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+      "slugByLocale": {
+        "de": "fachkraefte-lebensmittelproduktion-hilcona-ag-bell-food-group-landquart",
+        "it": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+        "en": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+        "fr": "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+      },
+      "company": "Hilcona AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Fachkraefte Lebensmittelproduktion",
+      "titleByLocale": {
+        "de": "Fachkraefte Lebensmittelproduktion",
+        "it": "Fachkraefte Lebensmittelproduktion",
+        "en": "Fachkraefte Lebensmittelproduktion",
+        "fr": "Fachkraefte Lebensmittelproduktion"
+      },
+      "description": "In dieser Funktion betreust du unsere Produktionsanlagen über den gesamten Herstellungsprozess hinweg und stellst sicher, dass Qualitäts-, Sicherheits- und Prozessvorgaben eingehalten werden. Nach einer strukturierten Einarbeitung übernimmst du schrittweise Verantwortung in verschiedenen Bereichen und unterstützt aktiv den kontinuierlichen Verbesserungsprozess. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischen Bereich von Vorteil\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+      "descriptionByLocale": {
+        "de": "In dieser Funktion betreust du unsere Produktionsanlagen über den gesamten Herstellungsprozess hinweg und stellst sicher, dass Qualitäts-, Sicherheits- und Prozessvorgaben eingehalten werden. Nach einer strukturierten Einarbeitung übernimmst du schrittweise Verantwortung in verschiedenen Bereichen und unterstützt aktiv den kontinuierlichen Verbesserungsprozess. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischen Bereich von Vorteil\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "it": "In dieser Funktion betreust du unsere Produktionsanlagen über den gesamten Herstellungsprozess hinweg und stellst sicher, dass Qualitäts-, Sicherheits- und Prozessvorgaben eingehalten werden. Nach einer strukturierten Einarbeitung übernimmst du schrittweise Verantwortung in verschiedenen Bereichen und unterstützt aktiv den kontinuierlichen Verbesserungsprozess. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischen Bereich von Vorteil\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "en": "In dieser Funktion betreust du unsere Produktionsanlagen über den gesamten Herstellungsprozess hinweg und stellst sicher, dass Qualitäts-, Sicherheits- und Prozessvorgaben eingehalten werden. Nach einer strukturierten Einarbeitung übernimmst du schrittweise Verantwortung in verschiedenen Bereichen und unterstützt aktiv den kontinuierlichen Verbesserungsprozess. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischen Bereich von Vorteil\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein",
+        "fr": "In dieser Funktion betreust du unsere Produktionsanlagen über den gesamten Herstellungsprozess hinweg und stellst sicher, dass Qualitäts-, Sicherheits- und Prozessvorgaben eingehalten werden. Nach einer strukturierten Einarbeitung übernimmst du schrittweise Verantwortung in verschiedenen Bereichen und unterstützt aktiv den kontinuierlichen Verbesserungsprozess. Aufgaben:\n• Bedienen, Einstellen und Überwachen von Produktionsanlagen\n• Herstellen von Lebensmitteln nach Rezepturen und Prozessvorgaben\n• Qualitätsprüfung der verwendeten Rohwaren und Zutaten\n• Einhalten der Hygienevorschriften am Arbeitsplatz\n• Sorgfältiger Umgang mit Anlagen, Hilfsmitteln und Arbeitsgeräten sowie deren Reinigung Anforderungen:\n• Abgeschlossene Berufslehre\n• Mehrjährige Berufserfahrung im Lebensmittelbereich und/oder technischen Bereich von Vorteil\n• Bereitschaft für Schichtbetrieb (Früh-, Spät- und Nachtschicht)\n• Teamfähigkeit sowie körperliche Belastbarkeit und technisches Verständnis\n• Gutes Deutsch in Wort und Schrift (Niveau B1 oder höher)\n• Führerschein"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Schaan",
+      "canton": "GR",
+      "addressLocality": "Schaan",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "Unbefristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://career.bellfoodgroup.com/de/stelle/fachkraefte-lebensmittelproduktion-2425",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-06-16T13:34:52.228Z",
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "salaryMin": 64500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7000",
+      "country": "CH",
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-16T13:34:52.228Z"
+    },
+    {
       "id": "hilcona-a23161a3b0b8",
       "slug": "mitarbeiterin-collaboratore-trice-betriebskalkulation-100-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
@@ -8183,7 +8191,7 @@
       "postedDate": "2026-05-17",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-betriebskalkulation-100-2420",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:44.990Z",
+      "crawledAt": "2026-06-16T13:34:51.896Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8266,7 +8274,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-portionierung-2341",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:44.750Z",
+      "crawledAt": "2026-06-16T13:34:51.575Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8297,6 +8305,7 @@
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.638Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -8353,7 +8362,7 @@
       "postedDate": "2026-05-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-zerlegerei-2340",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:44.504Z",
+      "crawledAt": "2026-06-16T13:34:51.272Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8375,6 +8384,7 @@
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.371Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -8431,7 +8441,7 @@
       "postedDate": "2026-06-02",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriereiniger-m-w-d-2280",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:44.265Z",
+      "crawledAt": "2026-06-16T13:34:50.971Z",
       "sourceLang": "de",
       "previousSlugs": [
         "industriereiniger-m-w-d-hilcona-bad-wunnenberg",
@@ -8501,7 +8511,7 @@
       "postedDate": "2026-06-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-qualitaetssicherheit-m-w-d-2259",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:44.035Z",
+      "crawledAt": "2026-06-16T13:34:50.654Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
@@ -8569,7 +8579,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lkw-fahrer-m-w-d-2258",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:43.801Z",
+      "crawledAt": "2026-06-16T13:34:50.358Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
@@ -8637,7 +8647,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/industriemechaniker-schlosser-m-w-d-2256",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:43.569Z",
+      "crawledAt": "2026-06-16T13:34:50.065Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8719,7 +8729,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/hausmeister-m-w-d-2255",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:43.344Z",
+      "crawledAt": "2026-06-16T13:34:49.780Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8800,7 +8810,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/kommissionierung-m-w-d-2254",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:43.113Z",
+      "crawledAt": "2026-06-16T13:34:49.504Z",
       "sourceLang": "de",
       "previousSlugs": [
         "kommissionierung-m-w-d-hilcona-ampfing"
@@ -8832,10 +8842,10 @@
       "id": "hilcona-4828f718a67f",
       "slug": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
-        "it": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "elettrificante-operativo-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "en": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektriker-m-w-d-hilcona-undefined",
-        "fr": "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8868,7 +8878,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-m-w-d-2253",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:42.875Z",
+      "crawledAt": "2026-06-16T13:34:49.211Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8877,18 +8887,21 @@
         ],
         "it": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
-          "betriebselektriker-m-w-d-hilcona-ampfing"
+          "betriebselektriker-m-w-d-hilcona-ampfing",
+          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
         ],
         "en": [
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
+          "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart",
           "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "betriebselektriker-m-w-d-hilcona-ampfing",
-        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "betriebselektriker-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "betriebselektriker-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:34.776Z",
@@ -8948,7 +8961,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmitarbeiter-m-w-d-2180",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:42.436Z",
+      "crawledAt": "2026-06-16T13:34:48.605Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -8992,9 +9005,9 @@
     },
     {
       "id": "hilcona-f556aafc2126",
-      "slug": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "lehrling-mechatronik-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "lehrling-mechatronik-m-w-d-hilcona-undefined",
         "en": "lehrling-mechatronik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-mechatronik-m-w-d-hilcona-undefined",
         "fr": "lehrling-mechatronik-m-w-d-hilcona-undefined"
@@ -9030,7 +9043,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrling-mechatronik-m-w-d-2175",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:42.215Z",
+      "crawledAt": "2026-06-16T13:34:48.308Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -9038,6 +9051,7 @@
         ],
         "it": [
           "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
+          "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
           "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ],
         "en": [
@@ -9050,7 +9064,7 @@
       "previousSlugs": [
         "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "lehrling-mechatronik-m-w-d-hilcona-pfaffstatt",
-        "lehrling-mechatronik-m-w-d-hilcona-undefined"
+        "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T12:08:33.933Z",
@@ -9110,7 +9124,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionshelfer-m-w-d-2113",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:41.991Z",
+      "crawledAt": "2026-06-16T13:34:48.012Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionshelfer-m-w-d-hilcona-harkebrugge"
@@ -9178,7 +9192,7 @@
       "postedDate": "2026-06-12",
       "url": "https://career.bellfoodgroup.com/de/stelle/maschinen-und-anlagenfuehrer-m-w-d-2112",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-06-15T23:06:41.749Z",
+      "crawledAt": "2026-06-16T13:34:47.707Z",
       "sourceLang": "de",
       "previousSlugs": [
         "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge"
