@@ -43988,6 +43988,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocchi-ristorni-berna-italia': {
+    title: 'No di Berna al blocco dei ristorni da parte del Ticino',
+    description: 'Il Governo svizzero conferma che bloccare i ristorni sui fondi della tassa sulla salute italiana è illegale, mantenendo la posizione ufficiale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, berna, blocco, ristorni, parte',
+    ogTitle: 'No di Berna al blocco dei ristorni',
+    ogDescription: 'La Svizzera ribadisce che bloccare i ristorni sui fondi della tassa sanitaria italiana è illegale, confermando la posizione ufficiale.',
+    canonicalPath: '/articoli-frontaliere/blocchi-ristorni-berna-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "No di Berna al blocco dei ristorni da parte del Ticino",
+      "description": "Il Governo svizzero conferma che bloccare i ristorni sui fondi della tassa sulla salute italiana è illegale, mantenendo la posizione ufficiale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocchi-ristorni-berna-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del confine Ticino-Italia con valichi e paesaggi alpini."
+      },
+      "datePublished": "2026-06-16T00:25:32+00:00",
+      "dateModified": "2026-06-16T00:25:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocchi-ristorni-berna-italia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
