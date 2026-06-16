@@ -7112,7 +7112,7 @@
       "slug": "campi-d-azione-hirslanden-klinik-search",
       "slugByLocale": {
         "it": "campi-d-azione-hirslanden-klinik-search",
-        "en": "registered-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
+        "en": "nurse-dipl-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
         "de": "infirmier-infirmierere-dipl-a-100-maternite-et-service-pluridisciplinaire-adultes",
         "fr": "tes-champs-d-actions-hirslanden-search"
       },
@@ -7158,7 +7158,7 @@
       "previousSlugs": [
         "tes-champs-d-actions-hirslanden-search",
         "infirmier-infirmierere-dipl-a-100-maternite-et-service-pluridisciplinaire-adultes",
-        "nurse-dipl-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
+        "registered-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne",
         "deine-handlungsfelder-hirslanden-klinik-search"
       ],
       "previousSlugsByLocale": {
@@ -7167,8 +7167,8 @@
           "infirmier-infirmierere-dipl-a-100-maternite-et-service-pluridisciplinaire-adultes"
         ],
         "en": [
-          "nurse-dipl-a-100-maternity-and-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
-          "tes-champs-d-actions-hirslanden-search"
+          "tes-champs-d-actions-hirslanden-search",
+          "registered-nurse-100-maternity-and-multidisciplinary-adult-services-hirslanden-klinik-biel-bienne"
         ],
         "de": [
           "deine-handlungsfelder-hirslanden-klinik-search",
@@ -7276,7 +7276,7 @@
       "slug": "teschi-d-accesso-hirslanden-klinik-search",
       "slugByLocale": {
         "it": "teschi-d-accesso-hirslanden-klinik-search",
-        "en": "healthcare-assistant-in-maternity-multidisciplinary-adult-care-hirslanden-klinik-biel-bienne",
+        "en": "assc-a-80-maternity-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
         "de": "assc-a-80-maternite-service-pluridisciplinaire-adultes-hirslanden-biel-bienne",
         "fr": "tes-champs-d-actions-hirslanden-search-2"
       },
@@ -7322,7 +7322,7 @@
       "previousSlugs": [
         "tes-champs-d-actions-hirslanden-search-2",
         "assc-a-80-maternite-service-pluridisciplinaire-adultes-hirslanden-biel-bienne",
-        "assc-a-80-maternity-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
+        "healthcare-assistant-in-maternity-multidisciplinary-adult-care-hirslanden-klinik-biel-bienne",
         "tes-champs-d-actions-hirslanden-search",
         "assc-a-80-maternite-service-pluridisciplinaire-adultes-hirslanden-klinik-biel-bienne"
       ],
@@ -7332,8 +7332,8 @@
           "assc-a-80-maternite-service-pluridisciplinaire-adultes-hirslanden-biel-bienne"
         ],
         "en": [
-          "assc-a-80-maternity-multidisciplinary-service-adults-hirslanden-klinik-biel-bienne",
-          "tes-champs-d-actions-hirslanden-search-2"
+          "tes-champs-d-actions-hirslanden-search-2",
+          "healthcare-assistant-in-maternity-multidisciplinary-adult-care-hirslanden-klinik-biel-bienne"
         ],
         "de": [
           "tes-champs-d-actions-hirslanden-search"
@@ -7874,7 +7874,7 @@
       "slug": "principali-hirslanden-klinik-search-1cb1a5",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-1cb1a5",
-        "en": "80-staff-nurse-in-inpatient-care-hirslanden-klinik-geneve",
+        "en": "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
         "de": "infirmier-ere-en-soins-stationnaire-a-80-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-7"
       },
@@ -7930,8 +7930,8 @@
       "previousSlugs": [
         "taches-principales-hirslanden-search-7",
         "infirmier-ere-en-soins-stationnaire-a-80-hirslanden-geneve",
-        "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
         "80-inpatient-nurse-hirslanden-klinik-geneve",
+        "80-staff-nurse-in-inpatient-care-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -7940,9 +7940,9 @@
           "infirmier-ere-en-soins-stationnaire-a-80-hirslanden-geneve"
         ],
         "en": [
-          "nurse-in-stationary-care-80-hirslanden-klinik-geneve",
           "80-inpatient-nurse-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-7"
+          "taches-principales-hirslanden-search-7",
+          "80-staff-nurse-in-inpatient-care-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -14969,7 +14969,7 @@
       "slug": "principali-hirslanden-klinik-search-ec83c3",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-ec83c3",
-        "en": "clinical-oncology-pharmacist-80-fixed-term-position-hirslanden-klinik-geneve",
+        "en": "clinical-pharmacist-in-oncology-at-80-in-cdm-hirslanden-klinik-geneve",
         "de": "pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-26"
       },
@@ -15016,6 +15016,7 @@
         "taches-principales-hirslanden-search-26",
         "pharmacien-ne-clinicien-ne-en-oncologie-a-80-en-cdm-hirslanden-geneve",
         "pharmacist-n-clinician-n-in-80-oncology-cdm-hirslanden-klinik-geneve",
+        "clinical-oncology-pharmacist-80-fixed-term-position-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -15025,7 +15026,8 @@
         ],
         "en": [
           "pharmacist-n-clinician-n-in-80-oncology-cdm-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-26"
+          "taches-principales-hirslanden-search-26",
+          "clinical-oncology-pharmacist-80-fixed-term-position-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -16652,7 +16654,7 @@
       "slug": "principali-hirslanden-klinik-search-2ae677",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-2ae677",
-        "en": "versatile-service-housekeeper-hirslanden-klinik-geneve",
+        "en": "equipier-re-versatile-home-service-hirslanden-klinik-geneve",
         "de": "equipier-re-polyvalent-e-service-maison-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-30"
       },
@@ -16699,6 +16701,7 @@
         "taches-principales-hirslanden-search-30",
         "equipier-re-polyvalent-e-service-maison-hirslanden-geneve",
         "equipier-re-versatile-e-home-service-hirslanden-klinik-geneve",
+        "versatile-service-housekeeper-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -16708,7 +16711,8 @@
         ],
         "en": [
           "equipier-re-versatile-e-home-service-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-30"
+          "taches-principales-hirslanden-search-30",
+          "versatile-service-housekeeper-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -20740,7 +20744,7 @@
       "slug": "principali-hirslanden-klinik-search-4973e8",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-4973e8",
-        "en": "scrub-nurse-or-surgical-technologist-80-hirslanden-klinik-geneve",
+        "en": "instrumentalist-or-tso-nurse-at-80-hirslanden-klinik-geneve",
         "de": "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-34"
       },
@@ -20794,6 +20798,7 @@
         "taches-principales-hirslanden-search-34",
         "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-geneve",
         "instrumentist-nurse-or-ost-at-80-hirslanden-klinik-geneve",
+        "scrub-nurse-or-surgical-technologist-80-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search",
         "infirmier-ere-instrumentiste-ou-tso-a-80-hirslanden-klinik-geneve"
       ],
@@ -20804,7 +20809,8 @@
         ],
         "en": [
           "instrumentist-nurse-or-ost-at-80-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-34"
+          "taches-principales-hirslanden-search-34",
+          "scrub-nurse-or-surgical-technologist-80-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -22507,7 +22513,7 @@
       "slug": "miglior-giorno-hirslanden-klinik-search-486716",
       "slugByLocale": {
         "it": "miglior-giorno-hirslanden-klinik-search-486716",
-        "en": "dipl-midwife-ch5087-hirslanden-klinik-biel-bienne",
+        "en": "think-okay-let-s-tackle-this-job-title-translation-the-title-is-dipl-hebamme-ch5087-first-i-need-to-break-it-down-dipl",
         "de": "dipl-hebamme-ch5087-hirslanden-biel-bienne",
         "fr": "tes-taches-hirslanden-search-5"
       },
@@ -22565,6 +22571,7 @@
         "dipl-hebamme-ch5087-hirslanden-biel-bienne",
         "certified-midwife-ch5087-hirslanden-klinik-biel-bienne",
         "think-okay-let-s-tackle-this-job-title-translation-the-title-given-is-dipl-hebamme-ch5087-first-i-need-to-understand",
+        "dipl-midwife-ch5087-hirslanden-klinik-biel-bienne",
         "tes-taches-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -22575,7 +22582,8 @@
         "en": [
           "certified-midwife-ch5087-hirslanden-klinik-biel-bienne",
           "think-okay-let-s-tackle-this-job-title-translation-the-title-given-is-dipl-hebamme-ch5087-first-i-need-to-understand",
-          "tes-taches-hirslanden-search-5"
+          "tes-taches-hirslanden-search-5",
+          "dipl-midwife-ch5087-hirslanden-klinik-biel-bienne"
         ],
         "de": [
           "tes-taches-hirslanden-search"
@@ -28241,12 +28249,12 @@
     },
     {
       "id": "hirslanden-9f85c302d6ca",
-      "slug": "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
+      "slug": "senior-specialist-fusioni-e-acquisizioni-a-80-100-hirslanden-klinik-zurich",
       "slugByLocale": {
         "de": "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
-        "it": "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
+        "it": "senior-specialist-fusioni-e-acquisizioni-a-80-100-hirslanden-klinik-zurich",
         "en": "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
-        "fr": "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich"
+        "fr": "specialiste-senior-fusions-et-acquisitions-a-80-100-hirslanden-klinik-zurich"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28303,16 +28311,18 @@
       },
       "firstSeenAt": "2026-06-16T13:40:57.770Z",
       "previousSlugs": [
-        "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
         "senior-specialista-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
+        "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich",
         "senior-specialiste-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialista-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich"
+          "senior-specialista-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
+          "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich"
         ],
         "fr": [
-          "senior-specialiste-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich"
+          "senior-specialiste-mergers-acquisitions-a-80-100-hirslanden-klinik-zurich",
+          "senior-specialist-mergers-acquisitions-a-80-100-hirslanden-zurich"
         ]
       }
     },
@@ -31618,7 +31628,6 @@
         "chef-fe-de-projet-immobilier-hirslanden-geneve",
         "chef-fe-de-projet-immobilier-hirslanden-klinik-geneve",
         "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search",
         "activite-principale-du-poste-hirslanden-search-3"
       ],
       "previousSlugsByLocale": {
@@ -31632,7 +31641,6 @@
           "haupt-aktivitat-hirslanden-klinik-search",
           "chef-fe-de-projet-analyste-hirslanden-geneve",
           "chef-fe-de-projet-immobilier-hirslanden-geneve",
-          "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve",
           "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve"
         ]
       },
@@ -34541,12 +34549,12 @@
     },
     {
       "id": "hirslanden-931874ac9505",
-      "slug": "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern",
+      "slug": "segretario-medico-medicina-interna-a-50-60-hirslanden-klinik-luzern",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern",
-        "it": "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern",
-        "en": "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern",
-        "fr": "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern"
+        "it": "segretario-medico-medicina-interna-a-50-60-hirslanden-klinik-luzern",
+        "en": "medical-secretary-internal-medicine-a-50-60-hirslanden-klinik-luzern",
+        "fr": "secretaire-medical-medecine-interne-a-50-60-hirslanden-klinik-luzern"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34601,16 +34609,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:39:00.289Z"
+      "firstSeenAt": "2026-06-16T13:39:00.289Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-innere-medizin-a-50-60-hirslanden-luzern"
+      ]
     },
     {
       "id": "hirslanden-4061eb8ee325",
-      "slug": "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern",
+      "slug": "segretario-a-medico-a-fisioterapia-a-60-hirslanden-klinik-luzern",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern",
-        "it": "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern",
-        "en": "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern",
-        "fr": "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern"
+        "it": "segretario-a-medico-a-fisioterapia-a-60-hirslanden-klinik-luzern",
+        "en": "medical-secretary-60-for-physiotherapy-hirslanden-klinik-luzern",
+        "fr": "secretaire-medical-e-60-pour-la-physiotherapie-hirslanden-klinik-luzern"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34665,7 +34687,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:38:59.351Z"
+      "firstSeenAt": "2026-06-16T13:38:59.351Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-physiotherapie-a-60-hirslanden-luzern"
+      ]
     },
     {
       "id": "hirslanden-e424ae44fc3f",
@@ -34673,8 +34709,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-a-80-100-per-la-berufsbildung-hirslanden-klinik-aarau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau"
+        "en": "diploma-nurse-80-100-for-vocational-training-hirslanden-klinik-aarau",
+        "fr": "infirmiere-infirmier-diplome-e-a-80-100-pour-la-formation-professionnelle-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34720,6 +34756,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-80-100-fur-die-berufsbildung-hirslanden-aarau"
         ]
       },
       "previousSlugs": [
@@ -34745,8 +34787,8 @@
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau",
         "it": "medizinische-r-praxisassistent-in-o-fachfrau-mann-gesundheit-a-60-hirslanden-klinik-aarau",
-        "en": "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau",
-        "fr": "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau"
+        "en": "medical-practice-assistant-or-health-specialist-a-60-hirslanden-klinik-aarau",
+        "fr": "assistant-medical-ou-specialiste-de-la-sante-a-60-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34791,6 +34833,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau"
+        ],
+        "fr": [
           "medizinische-r-praxisassistent-in-oder-fachfrau-mann-gesundheit-a-60-hirslanden-aarau"
         ]
       },
@@ -34865,7 +34913,6 @@
         "chef-fe-de-projet-immobilier-hirslanden-klinik-geneve",
         "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve",
         "activite-principale-du-poste-hirslanden-search-4",
-        "activite-principale-du-poste-hirslanden-search-2",
         "haupt-aktivitat-hirslanden-klinik-search",
         "chef-fe-de-projet-analyste-hirslanden-geneve"
       ],
@@ -34876,7 +34923,6 @@
         ],
         "de": [
           "activite-principale-du-poste-hirslanden-search",
-          "chef-fe-de-projet-immobilier-hirslanden-geneve",
           "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve"
         ]
       },
@@ -35311,7 +35357,7 @@
       "slug": "principali-hirslanden-klinik-search-2c3a1e",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-2c3a1e",
-        "en": "apprentice-cfc-specialist-in-hospitality-hirslanden-klinik-geneve",
+        "en": "apprenticeship-catering-specialist-efz-hirslanden-klinik-geneve",
         "de": "apprentissage-specialiste-en-restauration-cfc-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-5"
       },
@@ -35365,6 +35411,7 @@
         "taches-principales-hirslanden-search-5",
         "apprentissage-specialiste-en-restauration-cfc-hirslanden-geneve",
         "learning-specialist-in-cfc-restoration-hirslanden-klinik-geneve",
+        "apprentice-cfc-specialist-in-hospitality-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -35374,7 +35421,8 @@
         ],
         "en": [
           "learning-specialist-in-cfc-restoration-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-5"
+          "taches-principales-hirslanden-search-5",
+          "apprentice-cfc-specialist-in-hospitality-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"

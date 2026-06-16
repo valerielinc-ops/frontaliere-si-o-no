@@ -702,10 +702,10 @@
     },
     {
       "id": "sobi-d82a9a247390",
-      "slug": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
+      "slug": "responsabile-sourcing-indiretto-a-tempo-fisso-12-mesi-sobi-basel",
       "slugByLocale": {
         "en": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "it": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
+        "it": "responsabile-sourcing-indiretto-a-tempo-fisso-12-mesi-sobi-basel",
         "de": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
         "fr": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
       },
@@ -764,7 +764,15 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-16T14:25:39.283Z"
+      "firstSeenAt": "2026-06-16T14:25:39.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+      ]
     },
     {
       "id": "sobi-ad2187714ea6",
@@ -1003,7 +1011,7 @@
         "en": "msat-technical-lead-dp-sobi-basel",
         "it": "msat-technical-lead-dp-sobi-basel",
         "de": "msat-technical-lead-dp-sobi-basel",
-        "fr": "msat-technical-lead-dp-sobi-basel"
+        "fr": "msat-responsable-technique-dp-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",

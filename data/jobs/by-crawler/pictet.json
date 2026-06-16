@@ -457,9 +457,9 @@
     },
     {
       "id": "pictet-ef27f547936c",
-      "slug": "business-compliance-manager-pictet-nassau",
+      "slug": "responsabile-della-conformita-aziendale-pictet-group-nassau",
       "slugByLocale": {
-        "it": "business-compliance-manager-pictet-nassau",
+        "it": "responsabile-della-conformita-aziendale-pictet-group-nassau",
         "en": "business-compliance-manager-pictet-nassau",
         "de": "business-compliance-manager-pictet-nassau",
         "fr": "business-compliance-manager-pictet-nassau"
@@ -517,7 +517,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-compliance-manager-pictet-nassau"
+        ]
+      },
+      "previousSlugs": [
+        "business-compliance-manager-pictet-nassau"
+      ]
     },
     {
       "id": "pictet-ab442c2d65c7",
@@ -664,10 +672,10 @@
     },
     {
       "id": "pictet-237fd95b28d8",
-      "slug": "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
+      "slug": "senior-compliance-officer-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
-        "it": "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
+        "it": "senior-compliance-officer-contratto-a-tempo-determinato-12-mesi-pictet-group-luxembourg",
         "de": "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg",
         "fr": "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
       },
@@ -726,7 +734,15 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-16T13:55:44.518Z"
+      "firstSeenAt": "2026-06-16T13:55:44.518Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-fixed-term-contract-12-months-pictet-luxembourg"
+      ]
     }
   ]
 }

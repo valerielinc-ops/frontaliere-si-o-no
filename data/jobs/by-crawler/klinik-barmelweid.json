@@ -2854,8 +2854,7 @@
           "terapeuta-delle-risorse-m-f-per-servizi-del-sabato-e-festivita-klinik-barmelweid-barmelweid"
         ],
         "de": [
-          "ressourcentherapeuten-ressourcentherapeuten-a-samstagsdienste-und-feiertage-klinik-barmelweid-barmelweid",
-          "ressourcentherapeutin-ressourcentherapeut-a-samstagsdienste-und-feiertage-klinik"
+          "ressourcentherapeuten-ressourcentherapeuten-a-samstagsdienste-und-feiertage-klinik-barmelweid-barmelweid"
         ]
       },
       "firstSeenAt": "2026-05-19T12:21:04.481Z",
@@ -3701,10 +3700,10 @@
     },
     {
       "id": "klinik-barmelweid-07e0d43ca3c8",
-      "slug": "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik",
+      "slug": "tecnico-di-diagnostica-funzione-polmonare-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik",
-        "it": "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik",
+        "it": "tecnico-di-diagnostica-funzione-polmonare-a-klinik-barmelweid-barmelweid",
         "en": "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik",
         "fr": "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik"
       },
@@ -3762,7 +3761,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T23:14:08.963Z"
+      "firstSeenAt": "2026-06-15T23:14:08.963Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeitende-diagnostik-lungenfunktionstechnikerin-lungenfunktionstechniker-a-klinik"
+      ]
     }
   ]
 }

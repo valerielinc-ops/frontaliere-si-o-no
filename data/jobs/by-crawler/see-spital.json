@@ -938,8 +938,7 @@
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "oberarzt-arztin-frauenklinik-see-spital-horgen",
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
-          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
@@ -3576,10 +3575,10 @@
     },
     {
       "id": "see-spital-8900aaeedeff",
-      "slug": "leiter-in-it-see-spital-horgen",
+      "slug": "capo-it-see-spital-horgen",
       "slugByLocale": {
         "de": "leiter-in-it-see-spital-ch",
-        "it": "leiter-in-it-see-spital-horgen",
+        "it": "capo-it-see-spital-horgen",
         "en": "leiter-in-it-see-spital-ch",
         "fr": "leiter-in-it-see-spital-ch"
       },
@@ -3628,11 +3627,13 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-it-see-spital-ch"
+          "leiter-in-it-see-spital-ch",
+          "leiter-in-it-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "leiter-in-it-see-spital-ch"
+        "leiter-in-it-see-spital-ch",
+        "leiter-in-it-see-spital-horgen"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,

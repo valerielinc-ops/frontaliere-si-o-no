@@ -3363,9 +3363,9 @@
     },
     {
       "id": "spital-buelach-75b531cacc05",
-      "slug": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
+      "slug": "infermieristica-chirurgica-certificata-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
+        "it": "infermieristica-chirurgica-certificata-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
         "de": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
         "fr": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
@@ -3422,14 +3422,22 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-cc30b5a11a7b",
-      "slug": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
+      "slug": "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach",
       "slugByLocale": {
         "de": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
-        "it": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
+        "it": "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach",
         "en": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
         "fr": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
       },
@@ -3487,7 +3495,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:38:27.256Z"
+      "firstSeenAt": "2026-06-16T14:38:27.256Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+      ]
     }
   ]
 }

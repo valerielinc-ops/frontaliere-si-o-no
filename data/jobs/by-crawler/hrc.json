@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "hrc-b0bdf6f7f0a8",
-      "slug": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
+      "slug": "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
+        "it": "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
         "en": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
         "de": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
         "fr": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
@@ -63,7 +63,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-f86a30773eeb",
@@ -526,9 +534,9 @@
     },
     {
       "id": "hrc-6c632402f217",
-      "slug": "employe-hotellerie-restauration-extra-h-f-hrc-rennaz",
+      "slug": "i-dipendenti-hotel-ristorazione-extra-h-f-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "employe-hotellerie-restauration-extra-h-f-hrc-rennaz",
+        "it": "i-dipendenti-hotel-ristorazione-extra-h-f-hopital-riviera-chablais-hrc-rennaz",
         "en": "employe-hotellerie-restauration-extra-h-f-hrc-rennaz",
         "de": "employe-hotellerie-restauration-extra-h-f-hrc-rennaz",
         "fr": "employe-hotellerie-restauration-extra-h-f-hrc-rennaz"
@@ -585,7 +593,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-hotellerie-restauration-extra-h-f-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "employe-hotellerie-restauration-extra-h-f-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-d62695fcfc8a",
@@ -659,9 +675,9 @@
     },
     {
       "id": "hrc-e1ce7f7546ef",
-      "slug": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
+      "slug": "bioncleaning-agente-h-f-cdi-oraria-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
+        "it": "bioncleaning-agente-h-f-cdi-oraria-hopital-riviera-chablais-hrc-rennaz",
         "en": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
         "de": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
         "fr": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
@@ -718,7 +734,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
+      ]
     }
   ]
 }

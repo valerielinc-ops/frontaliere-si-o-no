@@ -3018,9 +3018,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus",
+      "slug": "infermieristica-speciale-programma-post-laurea-nds-infermieristica-d-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus",
+        "it": "infermieristica-speciale-programma-post-laurea-nds-infermieristica-d-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -3068,14 +3068,16 @@
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
         "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
-        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus"
+        "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
+        "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
           "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
-          "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus"
+          "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
+          "cura-specialistica-postgraduate-nds-emergency-care-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -8531,9 +8533,9 @@
     },
     {
       "id": "usz-84158fe88f4c",
-      "slug": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+      "slug": "infermiera-dermatologica-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "it": "infermiera-dermatologica-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
         "en": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "de": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
         "fr": "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch"
@@ -8579,12 +8581,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+        "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+        "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-dermatologie-orl-mkg-50-100-usz-ch",
-          "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
+          "dermatologia-della-cura-orl-mkg-50-100-universitatsspital-zurich-usz-campus",
+          "infermiere-dermatologo-orl-mkg-50-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -13655,9 +13659,9 @@
     },
     {
       "id": "usz-39b857e269c9",
-      "slug": "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-universitatsspital-zurich-usz-campus",
+      "slug": "amministratore-dispatcher-fisioterapia-terapia-occupazionale-usz-50-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-universitatsspital-zurich-usz-campus",
+        "it": "amministratore-dispatcher-fisioterapia-terapia-occupazionale-usz-50-universitatsspital-zurich-usz-campus",
         "en": "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch",
         "de": "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch",
         "fr": "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch"
@@ -13702,11 +13706,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch"
+        "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch",
+        "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch"
+          "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-usz-ch",
+          "sachbearbeiter-in-disponent-in-physiotherapie-ergotherapie-usz-50-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -13726,9 +13732,9 @@
     },
     {
       "id": "usz-5ad30492e354",
-      "slug": "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-universitatsspital-zurich-usz-campus",
+      "slug": "dispatcher-amministratore-di-medicina-nucleare-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-universitatsspital-zurich-usz-campus",
+        "it": "dispatcher-amministratore-di-medicina-nucleare-80-100-universitatsspital-zurich-usz-campus",
         "en": "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch",
         "de": "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch",
         "fr": "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch"
@@ -13773,11 +13779,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch"
+        "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch",
+        "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch"
+          "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-usz-ch",
+          "disponent-in-sachbearbeiter-in-nuklearmedizin-80-100-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -13797,9 +13805,9 @@
     },
     {
       "id": "usz-05d0aa054e88",
-      "slug": "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-universitatsspital-zurich-usz-campus",
+      "slug": "dispatcher-amministratore-di-medicina-nucleare-40-60-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-universitatsspital-zurich-usz-campus",
+        "it": "dispatcher-amministratore-di-medicina-nucleare-40-60-universitatsspital-zurich-usz-campus",
         "en": "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch",
         "de": "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch",
         "fr": "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch"
@@ -13844,11 +13852,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch"
+        "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch",
+        "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch"
+          "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-usz-ch",
+          "disponent-in-sachbearbeiter-in-nuklearmedizin-40-60-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -13939,9 +13949,9 @@
     },
     {
       "id": "usz-f11a70f6dfee",
-      "slug": "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch",
+      "slug": "bma-bmld-f-m-d-laboratorio-di-immunologia-del-trapianto-60-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch",
+        "it": "bma-bmld-f-m-d-laboratorio-di-immunologia-del-trapianto-60-100-universitatsspital-zurich-usz-campus",
         "en": "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch",
         "de": "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch",
         "fr": "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch"
@@ -13998,7 +14008,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bma-bmld-w-m-d-transplantationsimmunologie-labor-60-100-usz-ch"
+      ]
     },
     {
       "id": "usz-2b736a69994c",
@@ -14144,9 +14162,9 @@
     },
     {
       "id": "usz-4e47cbc502d4",
-      "slug": "arztsekretar-in-disponent-in-schwindelzentrum-60-universitatsspital-zurich-usz-flughafen",
+      "slug": "segretario-medico-dispatcher-centro-vertigo-60-universitatsspital-zurich-usz-flughafen",
       "slugByLocale": {
-        "it": "arztsekretar-in-disponent-in-schwindelzentrum-60-universitatsspital-zurich-usz-flughafen",
+        "it": "segretario-medico-dispatcher-centro-vertigo-60-universitatsspital-zurich-usz-flughafen",
         "en": "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch",
         "de": "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch",
         "fr": "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch"
@@ -14191,11 +14209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch"
+        "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch",
+        "arztsekretar-in-disponent-in-schwindelzentrum-60-universitatsspital-zurich-usz-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch"
+          "arztsekretar-in-disponent-in-schwindelzentrum-60-usz-ch",
+          "arztsekretar-in-disponent-in-schwindelzentrum-60-universitatsspital-zurich-usz-flughafen"
         ]
       },
       "needsRetranslation": true,
@@ -14349,9 +14369,9 @@
     },
     {
       "id": "usz-1514dd6d4ac5",
-      "slug": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
+      "slug": "terapista-occupazionale-neurologia-80-90-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
+        "it": "terapista-occupazionale-neurologia-80-90-universitatsspital-zurich-usz-campus",
         "en": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
         "de": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch",
         "fr": "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
@@ -14408,7 +14428,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-therapie-neurologie-80-90-usz-ch"
+      ]
     },
     {
       "id": "usz-2e332bc3723e",
@@ -14696,9 +14724,9 @@
     },
     {
       "id": "usz-77d7a59843e0",
-      "slug": "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch",
+      "slug": "scienziato-f-m-d-per-l-immunoterapia-traslazionale-del-cancro-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch",
+        "it": "scienziato-f-m-d-per-l-immunoterapia-traslazionale-del-cancro-80-100-universitatsspital-zurich-usz-campus",
         "en": "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch",
         "de": "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch",
         "fr": "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch"
@@ -14755,7 +14783,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-f-m-d-for-translational-cancer-immunotherapy-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-9e81c0048ce7",
@@ -14836,10 +14872,10 @@
     },
     {
       "id": "usz-c8c24800de76",
-      "slug": "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch",
+      "slug": "cura-speciale-infermiere-specializzato-in-terapia-acuta-acnp-imc-ost-e-f-m-d-60-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch",
-        "it": "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch",
+        "it": "cura-speciale-infermiere-specializzato-in-terapia-acuta-acnp-imc-ost-e-f-m-d-60-100-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch",
         "fr": "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch"
       },
@@ -14897,14 +14933,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:39:37.154Z"
+      "firstSeenAt": "2026-06-16T14:39:37.154Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-acute-care-nurse-practitioner-acnp-imc-ost-e-w-m-d-60-100-usz-ch"
+      ]
     },
     {
       "id": "usz-92e85b973eec",
-      "slug": "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch",
+      "slug": "capo-gruppo-bma-f-m-d-immunologia-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch",
-        "it": "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch",
+        "it": "capo-gruppo-bma-f-m-d-immunologia-80-100-universitatsspital-zurich-usz-campus",
         "en": "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch",
         "fr": "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch"
       },
@@ -14962,14 +15006,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:39:37.152Z"
+      "firstSeenAt": "2026-06-16T14:39:37.152Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-bma-w-m-d-immunologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-9321abe5b2ea",
-      "slug": "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch",
+      "slug": "bma-bmld-f-m-d-diagnostica-immunologica-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch",
-        "it": "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch",
+        "it": "bma-bmld-f-m-d-diagnostica-immunologica-80-100-universitatsspital-zurich-usz-campus",
         "en": "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch",
         "fr": "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch"
       },
@@ -15027,14 +15079,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:39:37.150Z"
+      "firstSeenAt": "2026-06-16T14:39:37.150Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bma-bmld-w-m-d-immunologie-diagnostik-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-f04491315a95",
-      "slug": "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch",
+      "slug": "esperto-infermieristico-infermiere-specializzato-f-m-d-percorso-tumorale-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch",
-        "it": "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch",
+        "it": "esperto-infermieristico-infermiere-specializzato-f-m-d-percorso-tumorale-80-100-universitatsspital-zurich-usz-campus",
         "en": "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch",
         "fr": "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch"
       },
@@ -15092,7 +15152,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:39:37.126Z"
+      "firstSeenAt": "2026-06-16T14:39:37.126Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-nurse-practitioner-w-m-d-tumorpfad-80-100-usz-ch"
+      ]
     }
   ]
 }

@@ -628,10 +628,10 @@
     },
     {
       "id": "ksw-0f8f07025ded",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+      "slug": "assistente-alla-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+        "it": "assistente-alla-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
         "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
         "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
       },
@@ -690,7 +690,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:57:16.888Z"
+      "firstSeenAt": "2026-06-16T13:57:16.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+      ]
     },
     {
       "id": "ksw-c02ca38c347e",

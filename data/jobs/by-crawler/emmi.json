@@ -5109,9 +5109,9 @@
     },
     {
       "id": "emmi-752f72ff9afc",
-      "slug": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
+      "slug": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
       "slugByLocale": {
-        "it": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
+        "it": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
         "en": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
         "de": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
         "fr": "anlagenfuhrer-in-kaseproduktion-emmi-ch"
@@ -5181,7 +5181,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+      ]
     },
     {
       "id": "emmi-87571d900aac",

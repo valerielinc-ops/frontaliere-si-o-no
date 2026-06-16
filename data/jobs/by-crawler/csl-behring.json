@@ -2528,8 +2528,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3455,12 +3453,12 @@
     },
     {
       "id": "csl-behring-4064ba0b49f9",
-      "slug": "drug-product-lead-parenteral-iron-csl-behring-ch",
+      "slug": "prodotto-farmaceutico-lead-parenteral-iron-csl-behring-bern",
       "slugByLocale": {
         "en": "drug-product-lead-parenteral-iron-csl-behring-ch",
-        "it": "drug-product-lead-parenteral-iron-csl-behring-ch",
-        "de": "drug-product-lead-parenteral-iron-csl-behring-ch",
-        "fr": "drug-product-lead-parenteral-iron-csl-behring-ch"
+        "it": "prodotto-farmaceutico-lead-parenteral-iron-csl-behring-bern",
+        "de": "arzneimittelprodukt-blei-parenteral-eisen-csl-behring-bern",
+        "fr": "produit-medicamenteux-plomb-de-fer-parentere-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3516,7 +3514,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-16T13:11:44.688Z"
+      "firstSeenAt": "2026-06-16T13:11:44.688Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "drug-product-lead-parenteral-iron-csl-behring-ch"
+        ],
+        "de": [
+          "drug-product-lead-parenteral-iron-csl-behring-ch"
+        ],
+        "fr": [
+          "drug-product-lead-parenteral-iron-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "drug-product-lead-parenteral-iron-csl-behring-ch"
+      ]
     }
   ]
 }

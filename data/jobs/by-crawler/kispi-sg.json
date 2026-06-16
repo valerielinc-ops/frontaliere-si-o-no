@@ -727,9 +727,9 @@
     },
     {
       "id": "kispi-sg-729abbb73a34",
-      "slug": "junior-controller-in-60-80-kispi-sg-st-gallen",
+      "slug": "controllore-junior-60-80-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "junior-controller-in-60-80-kispi-sg-st-gallen",
+        "it": "controllore-junior-60-80-ostschweizer-kinderspital-st-gallen",
         "en": "junior-controller-in-60-80-kispi-sg-st-gallen",
         "de": "junior-controller-in-60-80-kispi-sg-st-gallen",
         "fr": "junior-controller-in-60-80-ostschweizer-kinderspital-st-gallen"
@@ -786,7 +786,15 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-controller-in-60-80-kispi-sg-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "junior-controller-in-60-80-kispi-sg-st-gallen"
+      ]
     },
     {
       "id": "kispi-sg-2e3e7f0ad3f0",

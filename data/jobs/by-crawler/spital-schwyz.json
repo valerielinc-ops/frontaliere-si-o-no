@@ -1794,10 +1794,10 @@
     },
     {
       "id": "spital-schwyz-cc10f9c5cf87",
-      "slug": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
+      "slug": "terapista-occupazionale-certificato-fh-80-spital-schwyz-schwyz",
       "slugByLocale": {
         "de": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
-        "it": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
+        "it": "terapista-occupazionale-certificato-fh-80-spital-schwyz-schwyz",
         "en": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
         "fr": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
       },
@@ -1855,7 +1855,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:22:39.522Z"
+      "firstSeenAt": "2026-06-16T14:22:39.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-925b7ed456c3",

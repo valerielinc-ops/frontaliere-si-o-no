@@ -2809,8 +2809,7 @@
         "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-nursing-professional-hf-fh-post-operative-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich",
-        "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich",
-        "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+        "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4287,12 +4286,12 @@
     },
     {
       "id": "balgrist-fd3662af1588",
-      "slug": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
+      "slug": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "it": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+        "it": "infermiera-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "en": "dipl-care-professional-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "fr": "infirmiere-diplomee-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4349,16 +4348,21 @@
       },
       "firstSeenAt": "2026-06-16T12:57:19.039Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
         "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+          "dipl-infermiere-a-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
         ],
         "fr": [
-          "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich"
+          "diplome-e-es-en-soins-infirmiers-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
         ]
       }
     }

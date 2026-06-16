@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "wagerenhof-d85633d5218d",
-      "slug": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
+      "slug": "specialista-in-cura-fabe-70-100-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
-        "it": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
+        "it": "specialista-in-cura-fabe-70-100-stiftung-wagerenhof-uster",
         "en": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster",
         "fr": "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster"
       },
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:43:43.897Z"
+      "firstSeenAt": "2026-06-16T14:43:43.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-betreuung-fabe-70-100-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-61b58ac47fcf",

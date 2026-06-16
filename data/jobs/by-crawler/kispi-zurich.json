@@ -384,9 +384,9 @@
     },
     {
       "id": "kispi-zurich-6cfcd0f41191",
-      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
+        "it": "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
@@ -432,11 +432,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
+        "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
+          "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:20:09.432Z",
@@ -671,10 +673,10 @@
     },
     {
       "id": "kispi-zurich-b330d96a4ebd",
-      "slug": "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich",
+      "slug": "coordinatore-degli-studi-m-f-70-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "de": "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich",
-        "it": "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich",
+        "it": "coordinatore-degli-studi-m-f-70-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich",
         "fr": "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich"
       },
@@ -732,7 +734,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:51:28.843Z"
+      "firstSeenAt": "2026-06-16T13:51:28.843Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "studienkoordinatorin-m-w-70-100-kispi-zurich-zurich"
+      ]
     }
   ]
 }

@@ -6240,9 +6240,9 @@
     },
     {
       "id": "eth-zurich-662c18b07c5c",
-      "slug": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
+      "slug": "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
+        "it": "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
         "en": "phd-researcher-bone-organoids-eth-zurich-ch",
         "de": "phd-researcher-bone-organoids-eth-zurich-ch",
         "fr": "phd-researcher-bone-organoids-eth-zurich-ch"
@@ -6285,11 +6285,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-researcher-bone-organoids-eth-zurich-ch"
+        "phd-researcher-bone-organoids-eth-zurich-ch",
+        "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-researcher-bone-organoids-eth-zurich-ch"
+          "phd-researcher-bone-organoids-eth-zurich-ch",
+          "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -6378,9 +6380,9 @@
     },
     {
       "id": "eth-zurich-ecd9fd3077f4",
-      "slug": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
+      "slug": "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
+        "it": "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
         "en": "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
         "de": "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
         "fr": "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
@@ -6423,11 +6425,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
+        "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
+        "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
+          "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
+          "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
         ]
       },
       "needsRetranslation": true,
@@ -7177,12 +7181,12 @@
     },
     {
       "id": "eth-zurich-931e1c9629ad",
-      "slug": "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
+      "slug": "posizione-di-dottorato-in-valutazione-della-resilienza-supportata-dall-ia-delle-infrastrutture-di-trasporto",
       "slugByLocale": {
         "en": "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
-        "it": "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
-        "de": "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport",
-        "fr": "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport"
+        "it": "posizione-di-dottorato-in-valutazione-della-resilienza-supportata-dall-ia-delle-infrastrutture-di-trasporto",
+        "de": "promotionsstelle-in-ki-unterstutzter-resilienzbewertung-klimaneutraler-verkehrsinfrastruktur-eth-zurich-zurich",
+        "fr": "poste-de-phd-dans-l-evaluation-de-la-resilience-soutenue-par-l-ia-des-infrastructures-de-transport-climat-neutral-eth"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7237,7 +7241,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-16T13:21:12.349Z"
+      "firstSeenAt": "2026-06-16T13:21:12.349Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport"
+        ],
+        "de": [
+          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport"
+        ],
+        "fr": [
+          "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-ai-supported-resilience-assessment-of-climate-neutral-transport"
+      ]
     }
   ]
 }

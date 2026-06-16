@@ -147,8 +147,7 @@
         ],
         "de": [
           "cdi-sales-berater-basel-60-w-m-hermes-basel-stadt-switzerland",
-          "cdi-vertriebsberater-basel-60-w-m-hermes-basel-stadt-switzerland",
-          "cdi-sales-advisor-basel-60-w-m-hermes-ch"
+          "cdi-vertriebsberater-basel-60-w-m-hermes-basel-stadt-switzerland"
         ],
         "fr": [
           "cdi-sales-advisor-basel-60-w-m-hermes-ch"
@@ -983,9 +982,9 @@
     },
     {
       "id": "hermes-9111486f4d7d",
-      "slug": "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch",
+      "slug": "cdi-addetto-a-servizio-post-vendita-f-h-hermes-geneve-geneva-switzerland",
       "slugByLocale": {
-        "it": "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch",
+        "it": "cdi-addetto-a-servizio-post-vendita-f-h-hermes-geneve-geneva-switzerland",
         "en": "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch",
         "de": "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch",
         "fr": "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch"
@@ -1042,7 +1041,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-charge-e-du-service-apres-vente-f-h-hermes-ch"
+      ]
     }
   ]
 }

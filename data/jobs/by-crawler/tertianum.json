@@ -3819,10 +3819,10 @@
     },
     {
       "id": "tertianum-68d9d9ba2a01",
-      "slug": "kochin-koch-60-tertianum-stadel",
+      "slug": "cuocere-60-tertianum-stadel",
       "slugByLocale": {
         "de": "kochin-koch-60-tertianum-stadel",
-        "it": "kochin-koch-60-tertianum-stadel",
+        "it": "cuocere-60-tertianum-stadel",
         "en": "kochin-koch-60-tertianum-stadel",
         "fr": "kochin-koch-60-tertianum-stadel"
       },
@@ -3880,7 +3880,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:54:10.702Z"
+      "firstSeenAt": "2026-06-16T14:54:10.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-60-tertianum-stadel"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-60-tertianum-stadel"
+      ]
     },
     {
       "id": "tertianum-ae19b95f8b05",
@@ -8816,9 +8824,9 @@
     },
     {
       "id": "tertianum-8c530cd436be",
-      "slug": "infermieristica-professionale-tertianum-unterterzen",
+      "slug": "infermiera-tertianum-unterterzen",
       "slugByLocale": {
-        "it": "infermieristica-professionale-tertianum-unterterzen",
+        "it": "infermiera-tertianum-unterterzen",
         "en": "pflegefachfrau-mann-tertianum-unterterzen",
         "de": "pflegefachfrau-mann-tertianum-unterterzen",
         "fr": "pflegefachfrau-mann-tertianum-unterterzen"
@@ -8865,18 +8873,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-tertianum-unterterzen",
-        "infermiera-tertianum-unterterzen",
         "carriera-tertianum-unterterzen",
         "specialista-della-cura-tertianum-unterterzen",
-        "infermiere-a-tertianum-unterterzen"
+        "infermiere-a-tertianum-unterterzen",
+        "infermieristica-professionale-tertianum-unterterzen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-tertianum-unterterzen",
-          "infermiera-tertianum-unterterzen",
           "carriera-tertianum-unterterzen",
           "specialista-della-cura-tertianum-unterterzen",
-          "infermiere-a-tertianum-unterterzen"
+          "infermiere-a-tertianum-unterterzen",
+          "infermieristica-professionale-tertianum-unterterzen"
         ]
       },
       "firstSeenAt": "2026-05-19T23:48:30.250Z",
@@ -15770,10 +15778,10 @@
     },
     {
       "id": "tertianum-7cbeb35beebb",
-      "slug": "group-fitness-instructor-in-50-tertianum-meilen",
+      "slug": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
       "slugByLocale": {
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "it": "group-fitness-instructor-in-50-tertianum-meilen",
+        "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "fr": "group-fitness-instructor-in-50-tertianum-meilen"
       },
@@ -15831,7 +15839,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:52:06.309Z"
+      "firstSeenAt": "2026-06-16T14:52:06.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-fitness-instructor-in-50-tertianum-meilen"
+        ]
+      },
+      "previousSlugs": [
+        "group-fitness-instructor-in-50-tertianum-meilen"
+      ]
     },
     {
       "id": "tertianum-0f1ed0a83b75",

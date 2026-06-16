@@ -479,10 +479,10 @@
     },
     {
       "id": "stryker-bab9d73cd281",
-      "slug": "senior-staff-microbiologist-stryker-ch",
+      "slug": "microbiologo-senior-stryker-selzach",
       "slugByLocale": {
         "en": "senior-staff-microbiologist-stryker-ch",
-        "it": "senior-staff-microbiologist-stryker-ch",
+        "it": "microbiologo-senior-stryker-selzach",
         "de": "senior-staff-microbiologist-stryker-ch",
         "fr": "senior-staff-microbiologist-stryker-ch"
       },
@@ -541,7 +541,15 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-06-16T14:55:49.959Z"
+      "firstSeenAt": "2026-06-16T14:55:49.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-staff-microbiologist-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-staff-microbiologist-stryker-ch"
+      ]
     }
   ]
 }

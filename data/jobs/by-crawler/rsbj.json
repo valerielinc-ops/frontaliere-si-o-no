@@ -309,9 +309,9 @@
     },
     {
       "id": "rsbj-60053736aab3",
-      "slug": "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix",
+      "slug": "assistente-assistente-con-un-contratto-a-tempo-determinato-di-6-mesi-al-70-reseau-sante-balcon-du-jura-vaudois-rsbj",
       "slugByLocale": {
-        "it": "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix",
+        "it": "assistente-assistente-con-un-contratto-a-tempo-determinato-di-6-mesi-al-70-reseau-sante-balcon-du-jura-vaudois-rsbj",
         "en": "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix",
         "de": "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix",
         "fr": "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
@@ -368,13 +368,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
+      ]
     },
     {
       "id": "rsbj-86fd214c44df",
-      "slug": "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix",
+      "slug": "un-infermiera-al-60-hes-o-equivalente-cdm-3-mesi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
       "slugByLocale": {
-        "it": "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix",
+        "it": "un-infermiera-al-60-hes-o-equivalente-cdm-3-mesi-reseau-sante-balcon-du-jura-vaudois-rsbj-sainte-croix",
         "en": "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix",
         "de": "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix",
         "fr": "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
@@ -431,7 +439,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
+      ]
     }
   ]
 }

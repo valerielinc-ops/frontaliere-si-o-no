@@ -290,9 +290,9 @@
     },
     {
       "id": "klinik-susenberg-1092c0d9d00a",
-      "slug": "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich",
+      "slug": "dipl-terapia-occupazionale-fh-40-60-con-effetto-immediato-klinik-susenberg-zurich",
       "slugByLocale": {
-        "it": "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich",
+        "it": "dipl-terapia-occupazionale-fh-40-60-con-effetto-immediato-klinik-susenberg-zurich",
         "en": "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich",
         "de": "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich",
         "fr": "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich"
@@ -351,7 +351,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeut-in-fh-40-60-per-sofort-klinik-susenberg-zurich"
+      ]
     }
   ]
 }

@@ -7276,10 +7276,10 @@
     },
     {
       "id": "ksbl-690dcfeaf341",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal",
+      "slug": "infermiere-certificato-in-medicina-interna-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal",
+        "it": "infermiere-certificato-in-medicina-interna-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal",
         "fr": "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal"
       },
@@ -7337,14 +7337,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:48:25.012Z"
+      "firstSeenAt": "2026-06-16T13:48:25.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-innere-medizin-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-6c666551a381",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
+      "slug": "infermiere-certificata-clinica-femminile-urologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
-        "it": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
+        "it": "infermiere-certificata-clinica-femminile-urologia-a-kantonsspital-baselland-ksbl-liestal",
         "en": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
         "fr": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
       },
@@ -7402,7 +7410,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:48:22.168Z"
+      "firstSeenAt": "2026-06-16T13:48:22.168Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
+      ]
     }
   ]
 }

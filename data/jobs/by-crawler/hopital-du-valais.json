@@ -3747,10 +3747,10 @@
     },
     {
       "id": "hopital-du-valais-eb3bc8d6ca84",
-      "slug": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
+      "slug": "dirigente-medico-al-100-traumatologia-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
-        "it": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
+        "it": "dirigente-medico-al-100-traumatologia-hopital-du-valais-visp",
         "en": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
         "fr": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
       },
@@ -3810,7 +3810,15 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-16T13:37:35.140Z"
+      "firstSeenAt": "2026-06-16T13:37:35.140Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
+      ]
     }
   ]
 }

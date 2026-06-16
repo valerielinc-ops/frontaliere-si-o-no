@@ -1750,9 +1750,9 @@
     },
     {
       "id": "globus-16db59e8e329",
-      "slug": "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern",
+      "slug": "consulente-di-vendita-in-beauty-20-40-f-m-d-globus-luzern",
       "slugByLocale": {
-        "it": "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern",
+        "it": "consulente-di-vendita-in-beauty-20-40-f-m-d-globus-luzern",
         "en": "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern",
         "de": "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch",
         "fr": "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern"
@@ -1798,11 +1798,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch"
+        "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch",
+        "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch"
+          "verkaufsberater-in-beauty-20-40-w-m-d-globus-ch",
+          "verkaufsberater-in-beauty-20-40-w-m-d-globus-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -2700,9 +2702,9 @@
     },
     {
       "id": "globus-372459cd58a2",
-      "slug": "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch",
+      "slug": "consulente-di-vendita-in-profumeria-cura-e-cura-dei-capelli-100-f-m-d-globus-zurich-bahnhofstrasse",
       "slugByLocale": {
-        "it": "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch",
+        "it": "consulente-di-vendita-in-profumeria-cura-e-cura-dei-capelli-100-f-m-d-globus-zurich-bahnhofstrasse",
         "en": "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch",
         "de": "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch",
         "fr": "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch"
@@ -2760,7 +2762,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-parfumerie-pflege-haarpflege-100-w-m-d-globus-ch"
+      ]
     }
   ]
 }

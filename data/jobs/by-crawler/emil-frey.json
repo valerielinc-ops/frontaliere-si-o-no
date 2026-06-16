@@ -7729,10 +7729,10 @@
     },
     {
       "id": "emil-frey-c383b694d640",
-      "slug": "key-account-manager-emil-frey-crissier",
+      "slug": "gestione-account-chiave-emil-frey-crissier",
       "slugByLocale": {
         "fr": "key-account-manager-emil-frey-crissier",
-        "it": "key-account-manager-emil-frey-crissier",
+        "it": "gestione-account-chiave-emil-frey-crissier",
         "en": "key-account-manager-emil-frey-crissier",
         "de": "key-account-manager-emil-frey-crissier"
       },
@@ -7790,7 +7790,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:19:26.988Z"
+      "firstSeenAt": "2026-06-16T13:19:26.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-emil-frey-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-emil-frey-crissier"
+      ]
     },
     {
       "id": "emil-frey-d0c719f97695",
@@ -7798,8 +7806,8 @@
       "slugByLocale": {
         "de": "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil",
         "it": "flotten-e-nutzfahrzeug-spezialist-emil-frey-safenwil",
-        "en": "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil",
-        "fr": "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil"
+        "en": "fleet-and-commercial-vehicle-specialist-emil-frey-safenwil",
+        "fr": "specialiste-des-flottes-et-des-vehicules-utilitaires-emil-frey-safenwil"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -7845,6 +7853,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil"
+        ],
+        "en": [
+          "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil"
+        ],
+        "fr": [
           "flotten-und-nutzfahrzeug-spezialist-emil-frey-safenwil"
         ]
       },

@@ -78,9 +78,9 @@
     },
     {
       "id": "pallas-kliniken-3f02f0b99705",
-      "slug": "optometrist-in-60-pallas-kliniken-aarau",
+      "slug": "optometrista-60-pallas-kliniken-aarau",
       "slugByLocale": {
-        "it": "optometrist-in-60-pallas-kliniken-aarau",
+        "it": "optometrista-60-pallas-kliniken-aarau",
         "en": "optometrist-in-60-pallas-kliniken-aarau",
         "de": "optometrist-in-60-pallas-kliniken-aarau",
         "fr": "optometrist-in-60-pallas-kliniken-aarau"
@@ -138,7 +138,15 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "optometrist-in-60-pallas-kliniken-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "optometrist-in-60-pallas-kliniken-aarau"
+      ]
     },
     {
       "id": "pallas-kliniken-b9ea321cd115",
