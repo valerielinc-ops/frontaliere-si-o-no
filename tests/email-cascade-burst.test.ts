@@ -138,3 +138,82 @@ describe('sendEmailCascade burst mitigation', () => {
     expect(failed.length).toBe(50);
   });
 });
+
+/* ------------------------------------------------------------------ */
+/*  Cloudflare Email Service provider                                  */
+/* ------------------------------------------------------------------ */
+
+describe('sendEmailCascade — cloudflare provider', () => {
+  const realFetch = globalThis.fetch;
+  const CF_SEND = '/email/sending/send';
+
+  beforeEach(() => {
+    process.env.CLOUDFLARE_EMAIL_API_TOKEN = 'cf-test-token';
+    process.env.CF_ACCOUNT_ID = 'acc-123';
+  });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    delete process.env.CF_ACCOUNT_ID;
+  });
+
+  it('sends via the account-scoped REST endpoint and reports provider=cloudflare', async () => {
+    let sendUrl = '';
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes(CF_SEND)) {
+        sendUrl = String(url);
+        const body = JSON.parse(opts.body);
+        // from with a display name → { email, name }; to → array of strings.
+        expect(body.from).toEqual({ email: 'a@b.ch', name: 'Frontaliere' });
+        expect(body.to).toEqual(['x@y.com']);
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ result: { delivered: [], queued: [{ email: 'x@y.com' }], permanent_bounces: [] } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent, failed } = await sendEmailCascade(
+      [{ payload: { from: 'Frontaliere <a@b.ch>', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} }],
+      { forceProvider: 'cloudflare', delayMs: 0 },
+    );
+
+    expect(sendUrl).toContain('/accounts/acc-123/email/sending/send');
+    expect(failed.length).toBe(0);
+    expect(sent.length).toBe(1);
+    expect(sent[0].provider).toBe('cloudflare');
+  });
+
+  it('retires cloudflare after a 429 throttle (no burst across a batch)', async () => {
+    const calls: string[] = [];
+    globalThis.fetch = (async (url: string) => {
+      calls.push(String(url));
+      if (String(url).includes(CF_SEND)) {
+        return {
+          ok: false,
+          status: 429,
+          statusText: 'Too Many Requests',
+          text: async () => '{"errors":[{"code":10004,"message":"email.sending.error.throttled"}]}',
+          json: async () => ({ success: false }),
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const emails = Array.from({ length: 10 }, (_, i) => ({
+      payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' },
+      recipient: { email: `r${i}@y.com` },
+      meta: {},
+    }));
+
+    const { sent, failed } = await sendEmailCascade(emails, { forceProvider: 'cloudflare', delayMs: 0 });
+
+    const sendCalls = calls.filter(u => u.includes(CF_SEND)).length;
+    expect(sendCalls).toBe(1); // 429 → provider exhausted → rest skipped locally
+    expect(sent.length).toBe(0);
+    expect(failed.length).toBe(10);
+  });
+});

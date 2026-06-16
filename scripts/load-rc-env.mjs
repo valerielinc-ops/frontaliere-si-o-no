@@ -61,6 +61,9 @@ const RC_TO_ENV = {
   MAILTRAP_API_TOKEN:             ['MAILTRAP_API_TOKEN'],
   MAILEROO_API_KEY:               ['MAILEROO_API_KEY'],
   MAILEROO_WEBHOOK_SECRET:        ['MAILEROO_WEBHOOK_SECRET'],
+  // Cloudflare Email Service (newsletter + job alerts). Dedicated token scoped to
+  // Email Sending: Edit + Analytics Read; account id reuses CF_ACCOUNT_ID below.
+  CLOUDFLARE_EMAIL_API_TOKEN:     ['CLOUDFLARE_EMAIL_API_TOKEN'],
 
 
   // Server-only keys (stored with SERVER_ prefix in RC)
