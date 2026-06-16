@@ -2243,6 +2243,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-offerte-lavoro-intelligenza-artificiale-2025': {
+    title: 'Offerte di lavoro IA in Svizzera: record e tendenze 2025',
+    description: 'Nel 2025 le offerte di lavoro con competenze IA in Svizzera salgono a 25’000, +9’000 rispetto al 2024. Premi salariali sopra la media in salute ed energia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, offerte, lavoro, record, tendenze',
+    ogTitle: 'Offerte lavoro IA: record e tendenze Svizzera 2025',
+    ogDescription: 'Nel 2025 le offerte IA in Svizzera salgono a 25’000, con premi salariali sopra la media nei settori salute ed energia.',
+    canonicalPath: '/articoli-svizzera/offerte-lavoro-intelligenza-artificiale-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Offerte di lavoro IA in Svizzera: record e tendenze 2025",
+      "description": "Nel 2025 le offerte di lavoro con competenze IA in Svizzera salgono a 25’000, +9’000 rispetto al 2024. Premi salariali sopra la media in salute ed energia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/offerte-lavoro-intelligenza-artificiale-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impiegati in un ufficio svizzero a Lugano analizzano dati sull'intelligenza artificiale."
+      },
+      "datePublished": "2026-06-16T01:36:46+00:00",
+      "dateModified": "2026-06-16T01:36:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/offerte-lavoro-intelligenza-artificiale-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
