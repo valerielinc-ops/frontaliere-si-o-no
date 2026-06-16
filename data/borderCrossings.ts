@@ -337,6 +337,15 @@ export const borderCrossings: BorderCrossing[] = [
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.oriaGandria',
  bazgCoverage: true,
+ webcams: [
+ {
+ label: 'Lago di Lugano – Gandria/Oria (Società Canottieri Ceresio)',
+ imageUrl: 'https://www.scceresio.ch/webcam_files/image.jpg',
+ sourceName: 'Società Canottieri Ceresio – Gandria-Castagnola',
+ sourceUrl: 'https://www.scceresio.ch/webcam/',
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  // VARESE - TICINO
  {
@@ -600,6 +609,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.piaggioValmara',
+ webcams: [
+ {
+ label: 'Lago Maggiore – Cannobio Piazza Lago (verso Brissago)',
+ imageUrl: 'https://comune.cannobio.vb.it/wp-content/themes/design-comuni-wordpress-theme-main-child/assets/img/webcam_piazzalago.webp',
+ sourceName: 'Comune di Cannobio',
+ sourceUrl: 'https://www.comune.cannobio.vb.it/webcam.asp',
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
  {
  name: 'Camedo (Re-Centovalli)',
@@ -635,6 +653,22 @@ export const borderCrossings: BorderCrossing[] = [
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.sempioneIselle',
  bazgCoverage: true,
+ webcams: [
+ {
+ label: 'Simplon Dorf – villaggio (passo del Sempione)',
+ imageUrl: 'https://gemeinde-simplon.ch/webcam/webcam/2.jpg',
+ sourceName: 'Gemeinde Simplon Dorf',
+ sourceUrl: 'https://gemeinde-simplon.ch/webcams/',
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'Simplon Dorf – vista valle verso il passo',
+ imageUrl: 'https://gemeinde-simplon.ch/webcam/webcam/3.jpg',
+ sourceName: 'Gemeinde Simplon Dorf',
+ sourceUrl: 'https://gemeinde-simplon.ch/webcams/',
+ refreshIntervalMs: 60000,
+ },
+ ],
  },
 ];
 
