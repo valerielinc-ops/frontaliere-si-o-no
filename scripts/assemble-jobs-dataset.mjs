@@ -1606,24 +1606,24 @@ function reconcileGhostExpired(activeJobs, expiredJobs) {
 
   const ghostCount = ghostIds.size;
 
-  // Update per-crawler expired slices on disk
+  // Update per-crawler expired slices on disk — remove ONLY the detected
+  // ghosts. The previous implementation kept an entry only if it appeared in
+  // `cleanedSlugSet` (derived from the EXPIRED_JOBS_CAP-capped `expiredJobs`),
+  // which silently DROPPED every long-tail entry beyond the 5000-most-recent
+  // cap from the slices whenever any ghost existed. That re-capped the slices
+  // and defeated the uncapped slice-content coverage the soft-landing build
+  // plugin relies on (jobsSeoPagesPlugin reads the slices directly to render
+  // orphan pages past the cap — e.g. the USI André Corboz PhD page). Filtering
+  // by `ghostIds` removes the ghosts and nothing else, so cap-excluded
+  // long-tail entries survive in the slices.
   if (ghostCount > 0) {
-    const cleanedSlugSet = new Set();
-    for (const ej of cleanedExpired) {
-      if (ej.slug) cleanedSlugSet.add(ej.slug);
-      if (ej.id) cleanedSlugSet.add(ej.id);
-      if (ej.slugByLocale) Object.values(ej.slugByLocale).forEach(s => cleanedSlugSet.add(s));
-    }
-
     const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
     for (const fp of sliceFiles) {
       const slice = readJson(fp, null);
       if (!Array.isArray(slice)) continue;
       const cleaned = slice.filter(ej => {
-        if (ej.id && cleanedSlugSet.has(ej.id)) return true;
-        if (ej.slug && cleanedSlugSet.has(ej.slug)) return true;
-        const slugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
-        return slugs.some(s => cleanedSlugSet.has(s));
+        const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+        return !ghostIds.has(id);
       });
       if (cleaned.length < slice.length) {
         writeJson(fp, cleaned);
