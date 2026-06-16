@@ -1,0 +1,96 @@
+name: DMARC Monitor
+
+# Autonomous DMARC health watchdog for frontaliereticino.ch.
+#
+# Cloudflare DMARC Management is enabled on the zone (the `_dmarc` TXT carries
+# the `…@dmarc-reports.cloudflare.net` aggregate mailbox), so Cloudflare already
+# ingests and parses every receiver's aggregate (RUA) report. The catch: the
+# parsed result only lives in the dashboard, which nobody watches — a broken
+# sender or a spoofing run goes unnoticed and the domain stays stuck at
+# `p=none` (monitor-only, zero protection) forever.
+#
+# This workflow reads the SAME data the dashboard shows, via Cloudflare's
+# GraphQL Analytics dataset `dmarcReportsSourcesAdaptiveGroups` (no extra DNS
+# record, no mailbox, no provider integration), and opens a GitHub issue ONLY
+# when there is something to act on:
+#   • priority:high — a source fails DMARC in volume (unknown → spoofing /
+#     forgotten service; known → a real misconfig that enforcement would bounce);
+#   • priority:low  — everything passes and it is safe to move to `p=quarantine`.
+# Otherwise the run is silent. scripts/dmarc-monitor.mjs always exits 0 (it is a
+# reporter, not a gate) so a Cloudflare/GraphQL blip never paints the run red.
+#
+# Zero-Claude by design (pure node + the existing gh issue-creator) per the
+# frugality rules in AGENTS.md — no claude-code-action, no Max-quota burn.
+#
+# Auth: CF_API_TOKEN (Zone → Analytics → Read) lives in Firebase Remote Config
+# and is loaded by scripts/load-rc-env.mjs — same mechanism as
+# cf-status-report.mjs and gh-pat-expiry-monitor.yml.
+
+on:
+  schedule:
+    # Weekly, Monday 07:10 UTC. Aggregate DMARC reports arrive daily but the
+    # signal we act on (a sustained failing source / readiness to harden) moves
+    # on a multi-day timescale, so weekly is plenty and the issue dedups anyway.
+    # 07:10 keeps clear of the 06:30 GH_PAT monitor and the GSC-quota windows.
+    - cron: '10 7 * * 1'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Look-back window in days (1..90)'
+        required: false
+        type: string
+        default: '7'
+
+# Serialize so a manual run never races the scheduled one.
+concurrency:
+  group: dmarc-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        # load-rc-env.mjs needs firebase-admin from node_modules to read Remote
+        # Config; the monitor itself only uses node built-ins + the gh CLI.
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Populates $GITHUB_ENV with CF_API_TOKEN (and friends) from Firebase
+        # Remote Config. Same step used by every update-jobs-* crawler.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Run DMARC monitor
+        env:
+          # github-issue-creator.mjs reads GH_REPO for --repo and authenticates
+          # `gh` via GH_TOKEN. The default Actions token (issues: write, granted
+          # above) only touches THIS repo's issues — exactly the scope needed.
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/dmarc-monitor.mjs --days="${{ inputs.days || '7' }}"
