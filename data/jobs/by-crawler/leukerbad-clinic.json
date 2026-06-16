@@ -1,32 +1,32 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-06-16T13:48:33.842Z",
+  "assembledAt": "2026-06-16T23:11:50.351Z",
   "jobs": [
     {
-      "id": "leukerbad-clinic-97372b1445ea",
-      "slug": "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains",
+      "id": "leukerbad-clinic-2bcf18b9fd5c",
+      "slug": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
       "slugByLocale": {
-        "fr": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
-        "it": "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains",
-        "en": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
-        "de": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+        "fr": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "it": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "en": "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "de": "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
       },
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
-      "title": "Candidature spontanée pour un STAGE DANS LES SOINS",
+      "title": "CANDIDATURE SPONTANEE",
       "titleByLocale": {
-        "fr": "Candidature spontanée pour un STAGE DANS LES SOINS",
-        "it": "Domanda spontanea per un TIROCINIO in ASSISTENZA",
-        "en": "Candidature spontanée pour un STAGE DANS LES SOINS",
-        "de": "Candidature spontanée pour un STAGE DANS LES SOINS"
+        "fr": "CANDIDATURE SPONTANEE",
+        "en": "CANDIDATURE SPONTANEE",
+        "it": "CANDIDATURE SPONTANEE",
+        "de": "CANDIDATURE SPONTANEE"
       },
-      "description": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
+      "description": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
       "descriptionByLocale": {
-        "fr": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
-        "it": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
-        "en": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
-        "de": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation."
+        "fr": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
+        "it": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
+        "en": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !",
+        "de": "à convenir · à convenir\n\nMerci pour votre intérêt pour la Leukerbad Clinic. Nous nous réjouissons de prendre connaissance de votre dossier complet (lettre de motivation, CV et certificats) !"
       },
       "location": "Loèche-les-Bains",
       "canton": "VS",
@@ -35,11 +35,11 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "3954",
-      "category": "healthcare-nursing",
+      "category": "healthcare",
       "sector": "Salute / Riabilitazione",
       "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2024-07-29",
@@ -47,28 +47,28 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T13:48:31.418Z",
+      "crawledAt": "2026-06-16T23:11:48.333Z",
       "needsRetranslation": true,
-      "salaryMin": 51000,
-      "salaryMax": 77500,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 77500,
+          "minValue": 86500,
+          "maxValue": 120500,
           "unitText": "YEAR"
         }
       },
       "firstSeenAt": "2026-05-25T13:17:10.577Z",
       "previousSlugs": [
-        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+        "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains",
+        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
         ],
@@ -123,7 +123,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T13:48:31.418Z",
+      "crawledAt": "2026-06-16T23:11:48.333Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
