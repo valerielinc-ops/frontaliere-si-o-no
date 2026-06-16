@@ -132,8 +132,7 @@
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch"
         ],
         "de": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-aargau-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -210,8 +209,7 @@
           "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-berner-montage-ch"
         ],
         "de": [
-          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-basel-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -234,9 +232,9 @@
       "slug": "collaboratore-trice-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
       "slugByLocale": {
         "it": "collaboratore-trice-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
-        "en": "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp",
+        "en": "employees-m-f-d-sales-shop-montagetechnik-berner-ag-visp",
         "de": "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch",
-        "fr": "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
+        "fr": "employes-m-f-d-montagetechnik-berner-ag-visp"
       },
       "company": "Montagetechnik BERNER AG",
       "companyKey": "berner-montage",
@@ -277,11 +275,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch"
+        "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch",
+        "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-m-w-d-verkaufsshop-berner-montage-ch"
+        ],
+        "en": [
+          "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
+        ],
+        "fr": [
+          "mitarbeiter-m-w-d-verkaufsshop-montagetechnik-berner-ag-visp"
         ]
       },
       "needsRetranslation": true,
@@ -356,8 +361,7 @@
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-berner-montage-ch"
         ],
         "de": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-rheintal-st-gallen-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -434,8 +438,7 @@
         ],
         "de": [
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage-c"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-thurgau-schaffhausen-berner-montage"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -509,8 +512,7 @@
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-berner-montage-ch"
         ],
         "de": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-bern-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -605,7 +607,7 @@
       "slugByLocale": {
         "it": "commercial-itinerant-f-m-d-pour-la-division-automobile-region-vaud-fribourg-montagetechnik-berner-ag-visp",
         "en": "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage",
-        "de": "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage",
+        "de": "kommerzielle-reiseroute-h-w-d-fur-die-automobilsparte-region-waadt-freiburg-montagetechnik-berner-ag-visp",
         "fr": "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage"
       },
       "company": "Montagetechnik BERNER AG",
@@ -650,6 +652,9 @@
       "firstSeenAt": "2026-06-15T13:58:45.480Z",
       "previousSlugsByLocale": {
         "it": [
+          "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage"
+        ],
+        "de": [
           "commercial-itinerant-h-f-d-pour-la-division-automobile-region-vaud-fribourg-berner-montage"
         ]
       },
@@ -728,8 +733,7 @@
           "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner"
         ],
         "fr": [
-          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-montagetechnik-berner-ag-visp",
-          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-berner-mont"
+          "responsable-regional-h-f-d-pour-la-division-construction-region-suisse-romande-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -806,8 +810,7 @@
         ],
         "fr": [
           "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-montagetechnik-berner-ag-visp",
-          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage",
-          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage-"
+          "responsable-regional-h-f-d-pour-la-division-mobilite-region-suisse-romande-berner-montage"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -881,8 +884,7 @@
           "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch"
         ],
         "de": [
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-montagetechnik-berner-ag-visp",
-          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-montagetechnik-berner-ag-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T21:13:43.036Z",
@@ -906,7 +908,7 @@
       "slugByLocale": {
         "it": "commercial-itinerant-f-m-d-pour-la-division-batiment-region-suisse-romande-montagetechnik-berner-ag-visp",
         "en": "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage",
-        "de": "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage",
+        "de": "kommerzielle-reiseroute-h-w-d-fur-die-bausparte-region-schweiz-romande-montagetechnik-berner-ag-visp",
         "fr": "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage"
       },
       "company": "Montagetechnik BERNER AG",
@@ -952,6 +954,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage"
+        ],
+        "de": [
           "commercial-itinerant-h-f-d-pour-la-division-batiment-region-suisse-romande-berner-montage"
         ]
       },

@@ -2485,7 +2485,7 @@
         "it": "portata-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "siege-de-porte-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -2535,6 +2535,9 @@
         "it": [
           "door-attendant-100-w-m-i-buergenstock-hotels-obburgen",
           "addetto-alle-porte-100-f-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "fr": [
+          "door-attendant-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },
       "firstSeenAt": "2026-06-01T13:52:38.369Z",
@@ -2629,7 +2632,7 @@
         "it": "sales-manager-mice-100-w-m-i-buergenstock-hotels-obburgen",
         "en": "sales-manager-mice-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "sales-manager-mice-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "sales-manager-mice-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "directeur-des-ventes-mice-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -2831,9 +2834,9 @@
     },
     {
       "id": "buergenstock-hotels-4cbfe881fcbb",
-      "slug": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "fr": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
@@ -2887,7 +2890,15 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-8456cfbb3eca",
@@ -2970,7 +2981,7 @@
         "it": "chef-de-rang-cenere-in-camera-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "en": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "chef-de-rang-salle-a-manger-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3017,6 +3028,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
           "chef-de-rang-in-room-dining-100-w-m-i-buergenstock-hotels-obburgen"
         ]
       },

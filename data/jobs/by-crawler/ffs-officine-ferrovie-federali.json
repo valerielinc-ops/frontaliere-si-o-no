@@ -267,9 +267,9 @@
     },
     {
       "id": "sbb-f0b7096743c4",
-      "slug": "logistico-efz-ffs-officine-ferrovie-federali-st-gallen",
+      "slug": "impiegata-impiegato-in-logistica-cfc-ffs-officine-ferrovie-federali-st-gallen",
       "slugByLocale": {
-        "it": "logistico-efz-ffs-officine-ferrovie-federali-st-gallen",
+        "it": "impiegata-impiegato-in-logistica-cfc-ffs-officine-ferrovie-federali-st-gallen",
         "en": "logistician-efz-ffs-officine-ferrovie-federali-st-gallen",
         "de": "logistiker-in-efz-ffs-officine-ferrovie-federali-st-gallen",
         "fr": "logisticien-efz-ffs-officine-ferrovie-federali-st-gallen"
@@ -348,11 +348,13 @@
       "crawledAt": "2026-06-15T23:47:42.136Z",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-efz-ffs-officine-ferrovie-federali-st-gallen"
+          "logistiker-in-efz-ffs-officine-ferrovie-federali-st-gallen",
+          "logistico-efz-ffs-officine-ferrovie-federali-st-gallen"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-efz-ffs-officine-ferrovie-federali-st-gallen"
+        "logistiker-in-efz-ffs-officine-ferrovie-federali-st-gallen",
+        "logistico-efz-ffs-officine-ferrovie-federali-st-gallen"
       ],
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -6335,7 +6337,6 @@
       "crawledAt": "2026-06-15T23:48:31.099Z",
       "previousSlugsByLocale": {
         "de": [
-          "steuerzahler-fur-automatische-fahrgastzahlung-ffs-officine-ferrovie-federali-lausanne",
           "kontrollzahler-in-fur-automatische-fahrgastzahlung-ffs-officine-ferrovie-federali-lausanne"
         ],
         "it": [
@@ -6346,7 +6347,6 @@
         ]
       },
       "previousSlugs": [
-        "steuerzahler-fur-automatische-fahrgastzahlung-ffs-officine-ferrovie-federali-lausanne",
         "kontrollzahler-in-fur-automatische-fahrgastzahlung-ffs-officine-ferrovie-federali-lausanne",
         "compteur-de-commande-pour-le-comptage-automatique-des-passagers-ffs-officine-ferrovie-federali-lausanne"
       ],

@@ -551,7 +551,7 @@
         "it": "cancelliere-di-tribunale-dipartimento-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
         "en": "court-clerk-dept-iii-with-main-language-german-confederazione-svizzera-st-gallen",
         "de": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "fr": "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen"
+        "fr": "secretaire-juridique-departement-iii-avec-le-allemand-comme-langue-principale-confederazione-svizzera-st-gallen"
       },
       "id": "confederazione-ticino-3c621792912f",
       "salaryMin": 60000,
@@ -577,11 +577,13 @@
           "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
         ],
         "fr": [
-          "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
+          "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
+          "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen"
         ]
       },
       "previousSlugs": [
-        "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
+        "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
+        "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen"
       ]
     },
     {
@@ -1931,7 +1933,6 @@
           "technische-r-analyst-in-cybersicherheit-confederazione-bern"
         ],
         "de": [
-          "technische-r-analyst-in-cybersicherheit-confederazione-bern",
           "technischer-r-analyst-in-cybersicherheit-confederazione-svizzera-bern"
         ],
         "fr": [
@@ -2077,7 +2078,6 @@
           "senior-devops-engineer-confederazione-neuenburg"
         ],
         "de": [
-          "senior-devops-engineer-confederazione-neuenburg",
           "leitender-devops-ingenieur-confederazione-svizzera-neuenburg"
         ]
       },
@@ -2417,7 +2417,7 @@
     },
     {
       "title": "ICT-System-Spezialist/-in (1219)",
-      "slug": "ict-system-spezialist-in-1219-confederazione-zollikofen",
+      "slug": "specialista-ict-di-sistema-1219-confederazione-svizzera-zollikofen",
       "url": "https://jobs.admin.ch/posti-vacanti/ict-system-spezialist-in-1219/8a845dd9-3476-4209-8058-d940fd62668a",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18626",
       "company": "Confederazione Svizzera",
@@ -2452,9 +2452,9 @@
       },
       "slugByLocale": {
         "de": "ict-system-spezialist-in-1219-confederazione-zollikofen",
-        "it": "ict-system-spezialist-in-1219-confederazione-zollikofen",
+        "it": "specialista-ict-di-sistema-1219-confederazione-svizzera-zollikofen",
         "en": "ict-system-spezialist-in-1219-confederazione-zollikofen",
-        "fr": "ict-system-spezialist-in-1219-confederazione-zollikofen"
+        "fr": "specialiste-en-systemes-ict-1219-confederazione-svizzera-zollikofen"
       },
       "id": "confederazione-ticino-653dc61494a2",
       "salaryMin": 73000,
@@ -2473,11 +2473,20 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-15T22:47:19.050Z",
       "previousSlugs": [
+        "ict-system-spezialist-in-1219-confederazione-zollikofen",
         "specialista-del-sistema-ict-workplace-endpoint-management-confederazione-svizzera-zollikofen",
         "ict-system-spezialist-in-workplace-endpoint-management-confederazione-zollikofen",
         "specialiste-des-systemes-tic-gestion-des-lieux-de-travail-et-des-points-de-vente-confederazione-svizzera-zollikofen",
         "ict-system-spezialist-in-arbeitsplatz-und-endpunktverwaltung-confederazione-svizzera-zollikofen"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-spezialist-in-1219-confederazione-zollikofen"
+        ],
+        "fr": [
+          "ict-system-spezialist-in-1219-confederazione-zollikofen"
+        ]
+      }
     },
     {
       "title": "Leiter/-in Sekretariat der ComCom",
@@ -2553,7 +2562,7 @@
     },
     {
       "title": "Fachbereichsleiter/-in Einsatzlogistik",
-      "slug": "fachbereichsleiter-in-einsatzlogistik-confederazione-bern",
+      "slug": "responsabile-logistica-operativa-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/fachbereichsleiter-in-einsatzlogistik/ed08aae3-7f2a-495f-a5e9-2094775c76d7",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19152",
       "company": "Confederazione Svizzera",
@@ -2588,9 +2597,9 @@
       },
       "slugByLocale": {
         "de": "fachbereichsleiter-in-einsatzlogistik-confederazione-bern",
-        "it": "fachbereichsleiter-in-einsatzlogistik-confederazione-bern",
-        "en": "fachbereichsleiter-in-einsatzlogistik-confederazione-bern",
-        "fr": "fachbereichsleiter-in-einsatzlogistik-confederazione-bern"
+        "it": "responsabile-logistica-operativa-confederazione-svizzera-bern",
+        "en": "head-of-operations-logistics-confederazione-svizzera-bern",
+        "fr": "responsable-du-domaine-logistique-operationnelle-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-d2e55671ead3",
       "salaryMin": 68500,
@@ -2607,7 +2616,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-15T22:47:19.050Z"
+      "firstSeenAt": "2026-06-15T22:47:19.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachbereichsleiter-in-einsatzlogistik-confederazione-bern"
+        ],
+        "en": [
+          "fachbereichsleiter-in-einsatzlogistik-confederazione-bern"
+        ],
+        "fr": [
+          "fachbereichsleiter-in-einsatzlogistik-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachbereichsleiter-in-einsatzlogistik-confederazione-bern"
+      ]
     },
     {
       "title": "Wissenschaftliche/-r Mitarbeiter/-in Provenienzforschung",
@@ -2647,12 +2670,18 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern",
         "it": "wissenschaftliche-r-collaboratore-trice-in-provenienzforschung-confederazione-svizzera-bern",
-        "en": "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern"
+        "en": "scientific-associate-in-provenance-research-confederazione-svizzera-bern",
+        "fr": "collaborateur-trice-scientifique-en-recherche-de-provenance-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-324f578656b2",
       "previousSlugsByLocale": {
         "it": [
+          "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern"
+        ],
+        "fr": [
           "wissenschaftliche-r-mitarbeiter-in-provenienzforschung-confederazione-bern"
         ]
       },
@@ -2715,12 +2744,18 @@
       "slugByLocale": {
         "de": "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun",
         "it": "responsabile-sicherheitsprojekte-stv-chef-security-confederazione-svizzera-thun",
-        "en": "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun",
-        "fr": "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun"
+        "en": "security-projects-manager-deputy-head-of-security-confederazione-svizzera-thun",
+        "fr": "responsable-projets-de-securite-adjoint-au-chef-de-la-securite-confederazione-svizzera-thun"
       },
       "id": "confederazione-ticino-6430a48074a8",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun"
+        ],
+        "en": [
+          "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun"
+        ],
+        "fr": [
           "leiter-in-sicherheitsprojekte-stv-chef-security-confederazione-thun"
         ]
       },
@@ -2745,7 +2780,7 @@
     },
     {
       "title": "Fachspezialist/-in Pharma-Infrastruktur",
-      "slug": "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen",
+      "slug": "specialista-in-infrastrutture-farmaceutiche-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-pharma-infrastruktur/f0336b38-7716-4533-97b3-1a3d7adff635",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19162",
       "company": "Confederazione Svizzera",
@@ -2780,9 +2815,9 @@
       },
       "slugByLocale": {
         "de": "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen",
-        "it": "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen",
-        "en": "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen",
-        "fr": "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen"
+        "it": "specialista-in-infrastrutture-farmaceutiche-confederazione-svizzera-ittigen",
+        "en": "specialist-in-pharmaceutical-infrastructure-confederazione-svizzera-ittigen",
+        "fr": "specialiste-en-infrastructure-pharmaceutique-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-b632f4dfb6d7",
       "needsRetranslation": true,
@@ -2801,7 +2836,21 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-06-15T22:47:19.050Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen"
+        ],
+        "en": [
+          "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen"
+        ],
+        "fr": [
+          "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-pharma-infrastruktur-confederazione-ittigen"
+      ]
     },
     {
       "title": "Finanzchef/-in und Controller/-in GS-EJPD",
@@ -2841,12 +2890,18 @@
       "slugByLocale": {
         "de": "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern",
         "it": "finanzchef-in-e-controller-in-gs-ejpd-confederazione-svizzera-bern",
-        "en": "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern",
-        "fr": "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern"
+        "en": "chief-financial-officer-and-controller-gs-ejpd-confederazione-svizzera-bern",
+        "fr": "directeur-financier-et-controleur-gs-ejpd-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-764381df6c0e",
       "previousSlugsByLocale": {
         "it": [
+          "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern"
+        ],
+        "en": [
+          "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern"
+        ],
+        "fr": [
           "finanzchef-in-und-controller-in-gs-ejpd-confederazione-bern"
         ]
       },
@@ -2943,7 +2998,7 @@
     },
     {
       "title": "Abteilungsassistent/-in (Wirtschaftskriminalität)",
-      "slug": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich",
+      "slug": "assistente-di-dipartimento-criminalita-economica-confederazione-svizzera-zurich",
       "url": "https://jobs.admin.ch/posti-vacanti/abteilungsassistent-in-wirtschaftskriminalitaet/c4a54c11-3820-4e28-9bb5-fa70f6fbf68f",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19312",
       "company": "Confederazione Svizzera",
@@ -2978,9 +3033,9 @@
       },
       "slugByLocale": {
         "de": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich",
-        "it": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich",
-        "en": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich",
-        "fr": "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich"
+        "it": "assistente-di-dipartimento-criminalita-economica-confederazione-svizzera-zurich",
+        "en": "department-assistant-economic-crime-confederazione-svizzera-zurich",
+        "fr": "assistant-e-de-departement-criminalite-economique-confederazione-svizzera-zurich"
       },
       "id": "confederazione-ticino-e506f53d41d8",
       "salaryMin": 79000,
@@ -2997,7 +3052,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-15T22:47:19.050Z"
+      "firstSeenAt": "2026-06-15T22:47:19.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich"
+        ],
+        "en": [
+          "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich"
+        ],
+        "fr": [
+          "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsassistent-in-wirtschaftskriminalitat-confederazione-zurich"
+      ]
     },
     {
       "title": "Parlamentsführer/in",
@@ -3036,7 +3105,7 @@
       },
       "slugByLocale": {
         "it": "parlamentsfuhrer-in-confederazione-svizzera-berne",
-        "en": "leader-of-parliament-confederazione-svizzera-berne",
+        "en": "parlamentsfuhrer-in-confederazione-svizzera-berne",
         "de": "parlamentsfuhrer-in-confederazione-berne",
         "fr": "parlamentsfuhrer-in-confederazione-svizzera-berne"
       },
@@ -3046,13 +3115,11 @@
           "parlamentsfuhrer-in-confederazione-berne"
         ],
         "en": [
-          "parlamentsfuhrer-in-confederazione-svizzera-berne"
+          "leader-of-parliament-confederazione-svizzera-berne"
         ]
       },
       "previousSlugs": [
         "parlamentsfuhrer-in-confederazione-berne",
-        "parlamentsfuhrer-in-confederazione-svizzera-berne",
-        "leader-del-parlamento-confederazione-svizzera-berne",
         "leader-of-parliament-confederazione-svizzera-berne"
       ],
       "salaryMin": 49500,
@@ -3175,12 +3242,18 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gebaudebetrieb-confederazione-brugg",
         "it": "collaboratore-trice-in-gebaudebetrieb-confederazione-svizzera-brugg",
-        "en": "mitarbeiter-in-gebaudebetrieb-confederazione-brugg",
-        "fr": "mitarbeiter-in-gebaudebetrieb-confederazione-brugg"
+        "en": "building-operations-technician-confederazione-svizzera-brugg",
+        "fr": "technicien-ne-en-gestion-des-batiments-confederazione-svizzera-brugg"
       },
       "id": "confederazione-ticino-39b3e740dc52",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-brugg"
+        ],
+        "en": [
+          "mitarbeiter-in-gebaudebetrieb-confederazione-brugg"
+        ],
+        "fr": [
           "mitarbeiter-in-gebaudebetrieb-confederazione-brugg"
         ]
       },
@@ -3268,7 +3341,6 @@
           "hochschulpraktikant-in-ressort-kommunikation-confederazione-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-ressort-kommunikation-confederazione-bern",
           "hochschulpraktikant-in-spring-kommunikation-confederazione-svizzera-bern"
         ]
       },
@@ -3560,7 +3632,6 @@
           "senior-project-manager-national-cyber-strategy-ncs-confederazione-svizzera-bern"
         ],
         "de": [
-          "senior-projektleiter-in-nationale-cyberstrategie-ncs-confederazione-bern",
           "senior-projektleiter-in-im-bereich-cyberstrategie-ncs-confederazione-svizzera-bern"
         ],
         "fr": [
@@ -3653,7 +3724,6 @@
           "hochschulpraktikant-in-sektion-osteuropa-service-ukraine-confederazione-zollikofen"
         ],
         "de": [
-          "hochschulpraktikant-in-sektion-osteuropa-service-ukraine-confederazione-zollikofen",
           "hochschulpraktiker-in-sektion-osteuropa-service-ukraine-confederazione-svizzera-zollikofen"
         ]
       },
@@ -4158,7 +4228,7 @@
     },
     {
       "title": "Bundesermittler/-in Völkerstrafrecht",
-      "slug": "bundesermittler-in-volkerstrafrecht-confederazione-bern",
+      "slug": "inquirente-penale-internazionale-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/bundesermittler-in-voelkerstrafrecht/084f6901-7f44-4c04-bd06-53b0fb76f894",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19338",
       "company": "Confederazione Svizzera",
@@ -4193,9 +4263,9 @@
       },
       "slugByLocale": {
         "de": "bundesermittler-in-volkerstrafrecht-confederazione-bern",
-        "it": "bundesermittler-in-volkerstrafrecht-confederazione-bern",
-        "en": "bundesermittler-in-volkerstrafrecht-confederazione-bern",
-        "fr": "bundesermittler-in-volkerstrafrecht-confederazione-bern"
+        "it": "inquirente-penale-internazionale-confederazione-svizzera-bern",
+        "en": "federal-criminal-investigator-in-international-criminal-law-confederazione-svizzera-bern",
+        "fr": "enqueteur-trice-federal-en-droit-penal-international-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-09848d1badce",
       "salaryMin": 78500,
@@ -4212,7 +4282,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-15T22:47:19.050Z"
+      "firstSeenAt": "2026-06-15T22:47:19.050Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bundesermittler-in-volkerstrafrecht-confederazione-bern"
+        ],
+        "en": [
+          "bundesermittler-in-volkerstrafrecht-confederazione-bern"
+        ],
+        "fr": [
+          "bundesermittler-in-volkerstrafrecht-confederazione-bern"
+        ]
+      },
+      "previousSlugs": [
+        "bundesermittler-in-volkerstrafrecht-confederazione-bern"
+      ]
     },
     {
       "title": "Head of Chapter (1206, 1265)",
@@ -4280,7 +4364,6 @@
         ],
         "de": [
           "kopf-des-kapitels-1206-1265-confederazione-svizzera-zollikofen",
-          "head-of-chapter-1206-1265-confederazione-zollikofen",
           "leiter-chapter-1206-1265-confederazione-svizzera-zollikofen"
         ]
       },
@@ -4355,7 +4438,6 @@
           "hochschulpraktikant-in-european-political-community-epc-confederazione-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-european-political-community-epc-confederazione-bern",
           "hochschulpraktikant-in-der-europaischen-politischen-gemeinschaft-epc-confederazione-svizzera-bern"
         ]
       },
@@ -4401,9 +4483,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistics-specialist-swiss-armed-forces-vtg-bern",
+        "en": "logistics-specialist-confederazione-svizzera-schattdorf",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-qjueiz",
-        "fr": "logisticien-ne-swiss-armed-forces-vtg-bern"
+        "fr": "logisticien-ne-confederazione-svizzera-schattdorf"
       },
       "id": "confederazione-ticino-cbc901308131",
       "previousSlugsByLocale": {
@@ -4415,22 +4497,18 @@
         ],
         "en": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logistics-specialist-swiss-armed-forces-vtg-bern",
-          "logistics-specialist-confederazione-svizzera-schattdorf"
+          "logistics-specialist-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logisticien-ne-swiss-armed-forces-vtg-bern",
-          "logisticien-ne-confederazione-svizzera-schattdorf"
+          "logisticien-ne-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "logistiker-in-confederazione-schattdorf",
         "logistiker-in-confederazione-svizzera-schattdorf",
         "logistics-specialist-swiss-armed-forces-vtg-bern",
-        "logisticien-ne-swiss-armed-forces-vtg-bern",
-        "logistics-specialist-confederazione-svizzera-schattdorf",
-        "logisticien-ne-confederazione-svizzera-schattdorf"
+        "logisticien-ne-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5975,7 +6053,6 @@
           "fachspezialist-in-controlling-und-recruiting-support-confederazione-thun"
         ],
         "de": [
-          "fachspezialist-in-controlling-und-recruiting-support-confederazione-thun",
           "facharzt-in-controlling-und-recruiting-unterstutzung-confederazione-svizzera-thun"
         ]
       },
@@ -6036,9 +6113,9 @@
       },
       "slugByLocale": {
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
+        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
@@ -6048,23 +6125,19 @@
         "en": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-          "officer-in-armor-and-development-confederazione-svizzera-rivera"
+          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-          "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
         "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
-        "officer-in-armor-and-development-confederazione-svizzera-rivera",
-        "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -7521,7 +7594,6 @@
           "sektionschef-in-umwelt-confederazione-ittigen"
         ],
         "de": [
-          "sektionschef-in-umwelt-confederazione-ittigen",
           "head-in-sektions-umwelt-confederazione-svizzera-ittigen"
         ]
       },
@@ -8033,7 +8105,7 @@
     },
     {
       "title": "Vizedirektor/-in",
-      "slug": "vizedirektor-in-confederazione-ittigen",
+      "slug": "direttore-aggiunto-confederazione-svizzera-ittigen",
       "url": "https://jobs.admin.ch/posti-vacanti/vizedirektor-in/33aa9527-64b3-4980-acb7-ee9fb06cacb5",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19274",
       "company": "Confederazione Svizzera",
@@ -8067,8 +8139,8 @@
         "fr": "Gérer et développer la Direction de l'Economie circulaire et des Immissions avec les quatre départements Economie et Innovation, Déchets et Matières premières, Pollution atmosphérique et Chimie ainsi que le bruit et les rayonnements non ionisants (NIS) avec un total d'environ 150 employés\n• Co-responsable de la gestion stratégique en tant que membre du Directoire et représente le bureau dans les comités nationaux et internationaux\n• Fonctions propres au sein de la direction, du département, du parlement et vis-à-vis des parties prenantes, des cantons, des organisations professionnelles, des ONG et de l'étranger représentées\n• Dossiers d'importance stratégique, surtout l'économie circulaire et les produits chimiques (PFAS), le contrôle et le développement ultérieur, ainsi que la mise en œuvre de stratégies, d'objectifs et d'exigences de plus haut niveau\n• Établir et maintenir des contacts et des relations pertinents et contribuer à la position du bureau dans les domaines économique et financier ainsi que dans la politique de recherche et d'innovation\n• Diplôme universitaire en économie et en sciences sociales, en sciences naturelles ou juridiques ainsi qu'une expérience professionnelle et managériale éprouvée, pluriannuelle de préférence dans l'administration publique\n• Personnalité dirigeante avec assurance, compétences de négociation, pensée visionnaire et interdisciplinarité\n• Compétences conceptuelles analytiques éprouvées, très bonnes connaissances en gestion de projets, processus et changements\n• Haute résilience, prise de décisions et mise en œuvre, planification et capacité organisationnelle\n• Bonne connaissance active de deux langues officielles, connaissance passive d'une troisième langue officielle et très bonne connaissance de l'anglais"
       },
       "slugByLocale": {
-        "it": "vizedirektor-in-confederazione-ittigen",
-        "en": "vizedirektor-in-confederazione-ittigen",
+        "it": "direttore-aggiunto-confederazione-svizzera-ittigen",
+        "en": "deputy-director-confederazione-svizzera-ittigen",
         "de": "vizedirektor-in-confederazione-ittigen",
         "fr": "vizedirektor-in-confederazione-svizzera-ittigen"
       },
@@ -8090,17 +8162,14 @@
       "firstSeenAt": "2026-06-10T22:26:55.170Z",
       "previousSlugsByLocale": {
         "it": [
-          "direttore-aggiunto-confederazione-svizzera-ittigen",
           "vizedirektor-in-confederazione-ittigen"
         ],
         "en": [
-          "deputy-director-confederazione-svizzera-ittigen",
           "vizedirektor-in-confederazione-ittigen"
         ]
       },
       "previousSlugs": [
-        "direttore-aggiunto-confederazione-svizzera-ittigen",
-        "deputy-director-confederazione-svizzera-ittigen"
+        "vizedirektor-in-confederazione-ittigen"
       ]
     },
     {
@@ -8241,7 +8310,6 @@
           "hochschulpraktikant-in-internationale-steuern-confederazione-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-internationale-steuern-confederazione-bern",
           "hochschulpraktiker-in-internationale-steuern-confederazione-svizzera-bern"
         ]
       },
@@ -9662,7 +9730,6 @@
         ],
         "de": [
           "ikt-systemingenieur-sap-basis-confederazione-svizzera-bern",
-          "ict-system-engineer-sap-basis-confederazione-bern",
           "ict-system-ingenieur-sap-basis-confederazione-svizzera-bern"
         ]
       },
@@ -9840,12 +9907,18 @@
       "slugByLocale": {
         "de": "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen",
         "it": "umweltnaturwissenschaftler-in-o-geologe-geologin-grundwasserschutz-confederazione-svizzera-ittigen",
-        "en": "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen",
-        "fr": "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen"
+        "en": "environmental-scientist-or-geologist-geologist-groundwater-protection-confederazione-svizzera-ittigen",
+        "fr": "scientifique-de-l-environnement-ou-geologue-protection-des-eaux-souterraines-confederazione-svizzera-ittigen"
       },
       "id": "confederazione-ticino-3fdd89d86b6e",
       "previousSlugsByLocale": {
         "it": [
+          "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen"
+        ],
+        "en": [
+          "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen"
+        ],
+        "fr": [
           "umweltnaturwissenschaftler-in-oder-geologe-geologin-grundwasserschutz-confederazione-ittigen"
         ]
       },
@@ -10002,7 +10075,6 @@
           "account-manager-senior-1225-confederazione-zollikofen"
         ],
         "de": [
-          "account-manager-senior-1225-confederazione-zollikofen",
           "kundenbetreuer-senior-1225-confederazione-svizzera-zollikofen"
         ]
       },
@@ -10076,7 +10148,6 @@
           "hochschulpraktikant-in-fachbereich-digitale-transformation-confederazione-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-fachbereich-digitale-transformation-confederazione-bern",
           "hochschulpraktiker-in-fachbereich-digitale-transformation-confederazione-svizzera-bern"
         ]
       },
@@ -10991,7 +11062,6 @@
           "test-manager-in-confederazione-bern"
         ],
         "de": [
-          "test-manager-in-confederazione-bern",
           "testmanager-in-confederazione-svizzera-bern"
         ]
       },
@@ -11487,7 +11557,6 @@
           "product-owner-observability-1239-confederazione-zollikofen"
         ],
         "de": [
-          "product-owner-observability-1239-confederazione-zollikofen",
           "beobachtbarkeit-des-produktbesitzers-1239-confederazione-svizzera-zollikofen"
         ]
       },
@@ -12396,7 +12465,6 @@
           "ict-change-und-release-manager-in-confederazione-zollikofen"
         ],
         "de": [
-          "ict-change-und-release-manager-in-confederazione-zollikofen",
           "it-projektmanager-in-confederazione-svizzera-zollikofen"
         ]
       },
@@ -12470,7 +12538,6 @@
           "hochschulpraktikant-in-zahlungsverkehr-und-projektadministration-confederazione-winterthur"
         ],
         "de": [
-          "hochschulpraktikant-in-zahlungsverkehr-und-projektadministration-confederazione-winterthur",
           "hochschulpraktikant-in-zahlungsverkehr-und-projektverwaltung-confederazione-svizzera-winterthur"
         ]
       },
@@ -13993,7 +14060,6 @@
           "technische-r-analyst-in-schwachstellenmanagement-confederazione-bern"
         ],
         "de": [
-          "technische-r-analyst-in-schwachstellenmanagement-confederazione-bern",
           "technischer-r-analyst-in-schwachstellenmanagement-confederazione-svizzera-bern"
         ]
       },
@@ -14039,9 +14105,9 @@
         "it": "• Gestire, pianificare e coordinare le attività logistiche e rispettare le scadenze e i processi lavorativi in ​​relazione alla consegna, alla restituzione e al trasferimento dei tessili militari. Effettuare lavori di gestione del magazzino e di gestione dell'inventario, nonché riordini di materiali. Garantire lo stato ottimale dei tessili militari immagazzinati e avviare le misure necessarie per ripristinare la disponibilità per la consegna. Trasferire i lavori di manutenzione alle autorità competenti e assegnare professionalmente i tessili dell'esercito. Le truppe e gli specialisti sulla gestione dei tessili dell'esercito nell'ambito della presa in consegna del materiale, istruiscono e addestrano la restituzione del materiale Apprendistato professionale come specialista della logistica EFZ con perfezionamento come specialista della logistica con certificato federale di specialista Patente di guida delle categorie B/BE e patente di carrello elevatore Ottime conoscenze di MS Office e SAP per l'utilizzo nella gestione del magazzino (EWM), nella gestione dell'inventario e per ordini ripetuti Conoscenza della moderna tecnologia di trasporto e un modo di lavorare orientato alla pratica, rapido e coscienzioso, nonché senso di responsabilità Gestione della gestione dei materiali È richiesta la disponibilità all'uso di restrizioni e addestramento all'uso delle armi"
       },
       "slugByLocale": {
-        "en": "logistikfachmann-frau-confederazione-thun",
+        "en": "logistics-specialist-confederazione-svizzera-thun",
         "de": "logistikfachmann-frau-confederazione-thun",
-        "fr": "logistikfachmann-frau-confederazione-thun",
+        "fr": "specialiste-de-la-logistique-confederazione-svizzera-thun",
         "it": "logistikfachmann-frau-confederazione-svizzera-thun"
       },
       "id": "confederazione-ticino-f0c281f23903",
@@ -15072,7 +15138,6 @@
           "spezialist-in-operativer-einkauf-und-applikationssupport-confederazione-genf"
         ],
         "de": [
-          "spezialist-in-operativer-einkauf-und-applikationssupport-confederazione-genf",
           "spezialist-betriebsinhaber-einkauf-und-anwendungssupport-confederazione-svizzera-genf"
         ]
       },
@@ -15170,7 +15235,7 @@
     },
     {
       "title": "Gerichtsschreiber/-in Abt. III mit Hauptsprache Deutsch",
-      "slug": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
+      "slug": "cancelliere-a-di-tribunale-sez-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
       "url": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch/ff9c5a87-21b0-4327-ad4c-dafb452b5daf",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18874",
       "company": "Confederazione Svizzera",
@@ -15205,9 +15270,9 @@
       },
       "slugByLocale": {
         "de": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "it": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "en": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
-        "fr": "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
+        "it": "cancelliere-a-di-tribunale-sez-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
+        "en": "court-clerk-dept-iii-with-main-language-german-confederazione-svizzera-st-gallen-d735e2",
+        "fr": "greffier-in-abt-iii-avec-langue-principale-allemand-confederazione-svizzera-st-gallen"
       },
       "id": "confederazione-ticino-595b4ccb275c",
       "salaryMin": 60000,
@@ -15226,20 +15291,23 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-06-15T22:47:19.050Z",
       "previousSlugs": [
-        "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
         "cancelliere-di-tribunale-dipartimento-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
+        "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen",
         "court-clerk-dept-iii-with-main-language-german-confederazione-svizzera-st-gallen",
         "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cancelliere-di-tribunale-dipartimento-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen"
+          "cancelliere-di-tribunale-dipartimento-iii-con-lingua-principale-tedesco-confederazione-svizzera-st-gallen",
+          "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
         ],
         "en": [
-          "court-clerk-dept-iii-with-main-language-german-confederazione-svizzera-st-gallen"
+          "court-clerk-dept-iii-with-main-language-german-confederazione-svizzera-st-gallen",
+          "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
         ],
         "fr": [
-          "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen"
+          "greffier-judiciaire-departement-iii-avec-la-langue-principale-allemande-confederazione-svizzera-st-gallen",
+          "gerichtsschreiber-in-abt-iii-mit-hauptsprache-deutsch-confederazione-st-gallen"
         ]
       }
     },
@@ -15496,9 +15564,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "en": "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
+        "en": "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
         "de": "spezialist-in-elektrotechnik-swiss-armed-forces-vtg-bern-9lhprp",
-        "fr": "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-69f337cb7ffa",
       "salaryMin": 58000,
@@ -15526,16 +15594,14 @@
         ],
         "en": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
-          "specialist-in-electrical-engineering-confederazione-svizzera-rivera"
+          "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "spezialist-in-elektrotechnik-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-elektrotechnik-confederazione-rivera",
-          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-          "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
+          "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -15544,9 +15610,7 @@
         "spezialist-in-elektrotechnik-confederazione-svizzera-rivera",
         "specialista-in-ingegneria-elettrica-confederazione-svizzera-rivera",
         "specialist-in-electrical-engineering-swiss-armed-forces-vtg-bern",
-        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern",
-        "specialist-in-electrical-engineering-confederazione-svizzera-rivera",
-        "specialiste-en-genie-electrique-confederazione-svizzera-rivera"
+        "specialiste-en-genie-electrique-swiss-armed-forces-vtg-bern"
       ]
     },
     {
@@ -15586,9 +15650,9 @@
       },
       "slugByLocale": {
         "it": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "en": "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
+        "en": "specialist-in-technology-hlks-confederazione-svizzera-rivera",
         "de": "spezialist-in-technik-hlks-swiss-armed-forces-vtg-bern-ssbfdj",
-        "fr": "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
       },
       "id": "confederazione-ticino-5a40af1081fb",
       "salaryMin": 58000,
@@ -15617,16 +15681,14 @@
         ],
         "en": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
-          "specialist-in-technology-hlks-confederazione-svizzera-rivera"
+          "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "spezialist-in-technik-hlks-confederazione-rivera"
         ],
         "fr": [
           "spezialist-in-technik-hlks-confederazione-rivera",
-          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
-          "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
+          "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -15636,9 +15698,7 @@
         "spezialist-in-technik-hlks-confederazione-svizzera-rivera",
         "tecnologia-specialistica-hvac-confederazione-svizzera-rivera",
         "specialist-in-technology-hlks-swiss-armed-forces-vtg-bern",
-        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern",
-        "specialist-in-technology-hlks-confederazione-svizzera-rivera",
-        "specialiste-en-technologie-hlks-confederazione-svizzera-rivera"
+        "specialiste-en-technologie-hlks-swiss-armed-forces-vtg-bern"
       ]
     },
     {
@@ -15704,7 +15764,6 @@
           "lead-architekt-in-sgc-1196-confederazione-zollikofen"
         ],
         "de": [
-          "lead-architekt-in-sgc-1196-confederazione-zollikofen",
           "leitender-architekt-in-sgc-1196-confederazione-svizzera-zollikofen"
         ]
       },
@@ -15919,7 +15978,6 @@
           "cyber-security-experte-expertin-confederazione-bern"
         ],
         "de": [
-          "cyber-security-experte-expertin-confederazione-bern",
           "cybersicherheitsexperte-expertin-confederazione-svizzera-bern"
         ]
       },
@@ -16209,7 +16267,6 @@
           "hochschulpraktikant-in-business-administration-1235-confederazione-zollikofen"
         ],
         "de": [
-          "hochschulpraktikant-in-business-administration-1235-confederazione-zollikofen",
           "hochschulpraktikant-in-betriebswirtschaft-1235-confederazione-svizzera-zollikofen"
         ]
       },
@@ -16584,7 +16641,6 @@
         ],
         "de": [
           "ict-systemingenieur-operation-polycom-confederazione-svizzera-bern",
-          "ict-system-engineer-operation-polycom-confederazione-bern",
           "ict-system-ingenieur-operation-polycom-confederazione-svizzera-bern"
         ]
       },
@@ -17643,7 +17699,6 @@
           "it-security-analyst-in-professional-1191-confederazione-zollikofen"
         ],
         "de": [
-          "it-security-analyst-in-professional-1191-confederazione-zollikofen",
           "it-sicherheitsanalyst-in-professional-1191-confederazione-svizzera-zollikofen"
         ]
       },
@@ -17852,7 +17907,6 @@
           "business-owner-integration-and-reliability-services-1204-confederazione-zollikofen"
         ],
         "de": [
-          "business-owner-integration-and-reliability-services-1204-confederazione-zollikofen",
           "business-owner-integration-und-zuverlassigkeitsdienste-1204-confederazione-svizzera-zollikofen"
         ]
       },
@@ -18277,7 +18331,6 @@
           "ict-software-architekt-in-1062-confederazione-zollikofen"
         ],
         "de": [
-          "ict-software-architekt-in-1062-confederazione-zollikofen",
           "ikt-software-architekt-in-1062-confederazione-svizzera-zollikofen"
         ]
       },
@@ -18536,9 +18589,9 @@
       },
       "slugByLocale": {
         "it": "instruktor-in-confederazione-svizzera-schwarzenburg",
-        "en": "instruktor-in-confederazione-schwarzenburg",
+        "en": "instructor-instructor-confederazione-svizzera-schwarzenburg",
         "de": "instruktor-in-confederazione-schwarzenburg",
-        "fr": "instruktor-in-confederazione-schwarzenburg"
+        "fr": "instructeur-instructeur-confederazione-svizzera-schwarzenburg"
       },
       "id": "confederazione-ticino-60545a07100e",
       "previousSlugsByLocale": {
@@ -18546,18 +18599,14 @@
           "instruktor-in-confederazione-schwarzenburg"
         ],
         "en": [
-          "instructor-instructor-confederazione-svizzera-schwarzenburg",
           "instruktor-in-confederazione-schwarzenburg"
         ],
         "fr": [
-          "instructeur-instructeur-confederazione-svizzera-schwarzenburg",
           "instruktor-in-confederazione-schwarzenburg"
         ]
       },
       "previousSlugs": [
-        "instruktor-in-confederazione-schwarzenburg",
-        "instructor-instructor-confederazione-svizzera-schwarzenburg",
-        "instructeur-instructeur-confederazione-svizzera-schwarzenburg"
+        "instruktor-in-confederazione-schwarzenburg"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -18838,7 +18887,6 @@
           "product-owner-waa-wan-und-access-1169-confederazione-zollikofen"
         ],
         "de": [
-          "product-owner-waa-wan-und-access-1169-confederazione-zollikofen",
           "produktverantwortlicher-waa-wan-und-access-1169-confederazione-svizzera-zollikofen"
         ],
         "fr": [
@@ -19618,7 +19666,6 @@
           "ict-sourcing-manager-in-professional-1164-confederazione-zollikofen"
         ],
         "de": [
-          "ict-sourcing-manager-in-professional-1164-confederazione-zollikofen",
           "ict-beschaffungsmanager-in-professional-1164-confederazione-svizzera-zollikofen"
         ]
       },
@@ -20049,7 +20096,6 @@
           "ict-wirtschaftsinformatiker-in-bi-dwh-professional-confederazione-bern"
         ],
         "de": [
-          "ict-wirtschaftsinformatiker-in-bi-dwh-professional-confederazione-bern",
           "ict-wirtschaftsinformatiker-in-bi-dwh-fachkraft-confederazione-svizzera-bern"
         ]
       },
@@ -20253,7 +20299,6 @@
           "system-spezialist-in-storage-plattformen-confederazione-zollikofen"
         ],
         "de": [
-          "system-spezialist-in-storage-plattformen-confederazione-zollikofen",
           "system-spezialist-in-lagerplattformen-confederazione-svizzera-zollikofen"
         ]
       },
@@ -20396,7 +20441,6 @@
           "ict-system-spezialist-in-expert-sap-basis-confederazione-zollikofen"
         ],
         "de": [
-          "ict-system-spezialist-in-expert-sap-basis-confederazione-zollikofen",
           "itk-system-spezialist-in-experte-sap-basis-confederazione-svizzera-zollikofen"
         ]
       },
@@ -20539,7 +20583,6 @@
           "business-analyst-iam-senior-expert-confederazione-bern"
         ],
         "de": [
-          "business-analyst-iam-senior-expert-confederazione-bern",
           "business-analyst-iam-senior-experte-confederazione-svizzera-bern"
         ]
       },
@@ -20613,7 +20656,6 @@
           "entreprise-architect-confederazione-bern"
         ],
         "de": [
-          "entreprise-architect-confederazione-bern",
           "enterprise-architect-confederazione-svizzera-bern"
         ]
       },
@@ -21945,9 +21987,9 @@
       },
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "en": "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
+        "en": "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
         "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "fr": "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
+        "fr": "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
       },
       "id": "confederazione-ticino-8823a8430d20",
       "previousSlugsByLocale": {
@@ -21959,21 +22001,17 @@
         ],
         "en": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-          "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland"
+          "senior-consultant-m-w-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-          "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+          "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
         "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-        "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
-        "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
-        "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+        "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -22124,7 +22162,7 @@
     },
     {
       "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
-      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
       "url": "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
       "applyUrl": "https://jobs.admin.ch/posti-vacanti/infrastruktur-spezialist-in-elektrik-starkstrom/428448cb-fe72-4e1b-b2e9-5e562a9a07db",
       "company": "Confederazione Svizzera",
@@ -22158,43 +22196,36 @@
         "fr": "Vos tâches\n\n- Préparation et soutien du contrôle périodique des installations de construction et gestion correcte du papier des protocoles de mesure et d'essai\n\n- Entretien des installations électriques\n\n- Consultation dans la planification de nouveaux projets concernant les installations électriques\n\n- Assurer le service d'électro-picett et la volonté d'éliminer les perturbations électriques\n\nCela vous rend unique\n\n- Enseignement professionnel complet en tant qu'installateur électrique\n\n- La connaissance de la langue allemande (mention A1) est souhaitable pour cette fonction afin d'assurer la sécurité et la sécurité des camarades femmes et femmes ainsi qu'une coopération harmonieuse avec les collègues autrichiens et les employés locaux.\n\n- carte de conducteur civil (cat B)\n\n- Âge entre 18 et 65 ans\n\n- École complète de recrutement de l'armée suisse, les femmes de nationalité suisse sans formation militaire de base sont formées selon la fonction militaire\n\nNous offrons\n\n- Travailler pour la Suisse Nous sommes attachés au modèle de réussite de la Suisse et travaillons pour le bien-être de la population.\n\n- Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et introduisons différentes perspectives.\n\nNous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nLe SWISSINT Competence Center est le commandement national de déploiement pour la promotion militaire de la paix de l'armée suisse et est responsable de la planification, de la fourniture et de la direction nationale de tous les contingents et individus militaires suisses dans l'Ordre de l'Armée pour la promotion de la paix."
       },
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "en": "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
+        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
+        "en": "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
         "de": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
+        "fr": "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
       },
       "id": "confederazione-ticino-92d728aafc57",
       "previousSlugsByLocale": {
         "it": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
           "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
         ],
         "en": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-          "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland"
+          "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
           "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
         ],
         "fr": [
           "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-          "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern",
-          "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
+          "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
         "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-stans-oberdorf-ausland",
-        "infrastruktur-spezialist-in-elektrik-starkstrom-confederazione-svizzera-stans-oberdorf-ausland",
-        "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
-        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "infrastructure-specialist-in-electrical-power-confederazione-svizzera-stans-oberdorf-ausland",
+        "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
         "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "specialiste-des-infrastructures-electriques-electriques-confederazione-svizzera-stans-oberdorf-ausland"
+        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

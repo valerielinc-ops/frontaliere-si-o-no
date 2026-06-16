@@ -564,9 +564,9 @@
       },
       "slugByLocale": {
         "it": "salute-100-berit-klinik-niederteufen",
-        "en": "gesundheit-100-berit-klinik",
+        "en": "health-100-berit-klinik-niederteufen",
         "de": "gesundheit-100-berit-klinik",
-        "fr": "gesundheit-100-berit-klinik"
+        "fr": "sante-100-berit-klinik-niederteufen"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_fachfrau_fachmann_gesundheit_rehaklinik_100__eb7500408c.pdf"
@@ -577,6 +577,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gesundheit-100-berit-klinik"
+        ],
+        "en": [
+          "gesundheit-100-berit-klinik"
+        ],
+        "fr": [
           "gesundheit-100-berit-klinik"
         ]
       },

@@ -537,8 +537,8 @@
       "slugByLocale": {
         "en": "operations-intern-private-equity-pictet-geneva",
         "it": "operations-intern-private-equity-pictet-geneva",
-        "de": "operations-intern-private-equity-pictet-geneva",
-        "fr": "operations-intern-private-equity-pictet-geneva"
+        "de": "betriebspraktikant-private-equity-pictet-group-geneva",
+        "fr": "stagiaire-des-operations-capital-investissement-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -662,12 +662,12 @@
     },
     {
       "id": "pictet-ab442c2d65c7",
-      "slug": "middle-officer-derivatives-pictet-geneva",
+      "slug": "funzionario-intermedio-derivati-pictet-group-geneva",
       "slugByLocale": {
         "en": "middle-officer-derivatives-pictet-geneva",
-        "it": "middle-officer-derivatives-pictet-geneva",
-        "de": "middle-officer-derivatives-pictet-geneva",
-        "fr": "middle-officer-derivatives-pictet-geneva"
+        "it": "funzionario-intermedio-derivati-pictet-group-geneva",
+        "de": "mittlerer-offizier-derivate-pictet-group-geneva",
+        "fr": "agent-intermediaire-produits-derives-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -723,7 +723,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-15T23:32:47.489Z"
+      "firstSeenAt": "2026-06-15T23:32:47.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-derivatives-pictet-geneva"
+        ],
+        "de": [
+          "middle-officer-derivatives-pictet-geneva"
+        ],
+        "fr": [
+          "middle-officer-derivatives-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-derivatives-pictet-geneva"
+      ]
     }
   ]
 }
