@@ -71,9 +71,9 @@ describe('aggregateWebcamResults', () => {
 });
 
 describe('CROSSING_TO_FEEDS registry', () => {
-  it('derives multiple feeds for the high-traffic crossings', () => {
+  it('derives multiple detection feeds for the high-traffic crossings', () => {
     expect(CROSSING_TO_FEEDS['chiasso-brogeda']).toEqual(
-      expect.arrayContaining(['00.3S', '00.3N', '00.3O', '03.3S']),
+      expect.arrayContaining(['00.3S', '03.3S']),
     );
     expect(CROSSING_TO_FEEDS['gaggiolo']).toEqual(
       expect.arrayContaining(['02.0N', '06.8S', '07.2N']),
@@ -81,6 +81,15 @@ describe('CROSSING_TO_FEEDS registry', () => {
     expect(CROSSING_TO_FEEDS['san-pietro']).toEqual(
       expect.arrayContaining(['02.0N', '06.8S']),
     );
+  });
+
+  it('EXCLUDES cvDetect:false feeds (commercial / high-texture views) from queue detection', () => {
+    // 00.3N (Brogeda interchange gantries) + 00.3O (commercial-customs trucks)
+    // are display-only: they must NOT participate in queue detection.
+    expect(WEBCAM_FEEDS['00.3N'].cvDetect).toBe(false);
+    expect(WEBCAM_FEEDS['00.3O'].cvDetect).toBe(false);
+    expect(CROSSING_TO_FEEDS['chiasso-brogeda']).not.toContain('00.3N');
+    expect(CROSSING_TO_FEEDS['chiasso-brogeda']).not.toContain('00.3O');
   });
 
   it('gives Campione d\'Italia-Bissone its first queue-detection feed', () => {

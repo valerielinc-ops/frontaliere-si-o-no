@@ -35,6 +35,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import sharp from 'sharp';
+import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 
 // ── Config ────────────────────────────────────────────────────
 const DEFAULT_OUT_SUBDIR = path.join('og', 'border-wait');
@@ -55,30 +56,10 @@ const MAX_BYTES = 200 * 1024; // 200 KB per file
 // TS*) on the first response. Subsequent requests from a CI Azure datacenter
 // IP without those cookies get 403 — that's why crossings beyond the first
 // one ('chiasso-strada', 'gaggiolo', etc.) fail with the generic "fetch
-// failed" while the very first crossing succeeds. Mirrors the cookie jar
-// `analyze-webcam-frame.mjs` already uses for the runtime traffic-monitor
-// fetcher (commit d8d71dbd1e).
-const tiChCookieJar = new Map();
-
-function buildCookieHeader() {
-  if (tiChCookieJar.size === 0) return undefined;
-  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
-}
-
-function updateCookieJar(response) {
-  // getSetCookie() returns each Set-Cookie header as a separate string (Node 20+).
-  const setCookies = response.headers.getSetCookie?.() ?? [];
-  for (const cookie of setCookies) {
-    const [nameValue] = cookie.split(';');
-    const eqIdx = nameValue.indexOf('=');
-    if (eqIdx > 0) {
-      tiChCookieJar.set(
-        nameValue.slice(0, eqIdx).trim(),
-        nameValue.slice(eqIdx + 1).trim(),
-      );
-    }
-  }
-}
+// failed" while the very first crossing succeeds. The shared cookie jar
+// (scripts/lib/tiChCookieJar.mjs) re-uses cookies across feeds, exactly as
+// `analyze-webcam-frame.mjs` does for the runtime traffic-monitor fetcher
+// (commit d8d71dbd1e).
 
 // Mirror of borderWaitPagesPlugin.ts#slugifyName — MUST stay in sync.
 function slugifyName(name) {

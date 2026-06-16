@@ -30,6 +30,7 @@
 import { pathToFileURL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs';
+import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 
 // ── Tunables ────────────────────────────────────────────────────────
 const DEFAULT_STALE_HOURS = 6;
@@ -167,21 +168,9 @@ export function collectWebcamUrls(crossings) {
 // ── Network (not unit-tested; exercised live) ───────────────────────
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies on the first response;
-// subsequent cookieless requests from the same IP get 403. Mirror the cookie-jar
-// pattern from scripts/analyze-webcam-frame.mjs.
-const tiChCookieJar = new Map();
-function buildCookieHeader() {
-  if (tiChCookieJar.size === 0) return undefined;
-  return [...tiChCookieJar.entries()].map(([k, v]) => `${k}=${v}`).join('; ');
-}
-function updateCookieJar(response) {
-  const setCookies = response.headers.getSetCookie?.() ?? [];
-  for (const cookie of setCookies) {
-    const [nameValue] = cookie.split(';');
-    const eqIdx = nameValue.indexOf('=');
-    if (eqIdx > 0) tiChCookieJar.set(nameValue.slice(0, eqIdx).trim(), nameValue.slice(eqIdx + 1).trim());
-  }
-}
+// subsequent cookieless requests from the same IP get 403. The shared cookie-jar
+// (scripts/lib/tiChCookieJar.mjs) re-uses cookies across requests, same as
+// scripts/analyze-webcam-frame.mjs.
 
 /**
  * Fetch a webcam URL and return {ok, status, bytes}. GET (not HEAD) because the
