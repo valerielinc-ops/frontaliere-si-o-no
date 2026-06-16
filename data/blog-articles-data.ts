@@ -25668,6 +25668,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tassa-salute-frontalieri-ritiro-richiesta',
+ category: 'fiscale',
+ date: '2026-06-16T02:41:37.106Z',
+ image: '/images/blog/tassa-salute-frontalieri-ritiro-richiesta.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

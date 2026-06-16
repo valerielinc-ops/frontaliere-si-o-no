@@ -44105,6 +44105,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-ritiro-richiesta': {
+    title: 'Tassa Salute Frontalieri: sindacati chiedono ritiro',
+    description: 'Sindacati italiani e svizzeri chiedono il ritiro della tassa salute per frontalieri, citando violazione trattato 2020 e rischio blocco ristorni. Analisi e',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, sindacati, chiedono',
+    ogTitle: 'Tassa Salute Frontalieri: Sindacati Chiedono Ritiro',
+    ogDescription: 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD e SYNDICOM chiedono il ritiro definitivo della tassa salute per i frontalieri, citando violazioni del trattato 2020 e',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa Salute Frontalieri: sindacati chiedono ritiro",
+      "description": "Sindacati italiani e svizzeri chiedono il ritiro della tassa salute per frontalieri, citando violazione trattato 2020 e rischio blocco ristorni. Analisi e",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ritiro-richiesta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sindacati italiani e svizzeri discutono sulla tassa salute frontalieri"
+      },
+      "datePublished": "2026-06-16T02:41:37+00:00",
+      "dateModified": "2026-06-16T02:41:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

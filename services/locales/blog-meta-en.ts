@@ -8095,6 +8095,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-posizione-berna.title': 'Health tax and tax rebates: Bern\'s position',
     'blog.article.tassa-salute-posizione-berna.excerpt': 'The Federal Council reiterates that the health tax is not a tax and does not violate fiscal agreements with Italy.',
     'blog.article.tassa-salute-posizione-berna.imageAlt': 'Government building in Bellinzona on a sunny day',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Health Tax: Unions Demand Withdrawal',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD and SYNDICOM demand the definitive withdrawal of the health tax for cross-border workers, citing treaty violations and double taxation.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Italian and Swiss unions discuss the cross-border worker health tax',
 };
 
 export default blogMetaEn;
