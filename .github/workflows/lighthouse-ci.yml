@@ -1,89 +1,61 @@
 name: Lighthouse CI
 
-# Gate: catch performance regressions on the 6 representative page templates
-# flagged by Semrush Site Audit (2026-04-24) as "slow" pages.
+# Post-deploy performance gate on the 6 representative page templates flagged
+# by Semrush Site Audit (2026-04-24) as "slow" pages.
 #
-# Budgets enforced:
+# Budgets enforced (lighthouserc.json):
 #   - Performance score >= 0.85
 #   - LCP  < 2500ms
 #   - CLS  < 0.1
 #   - TBT  < 200ms
+#   - SEO / a11y category scores
 #
-# Runs against production (https://frontaliereticino.ch). If production is
-# temporarily unavailable, the job is non-blocking (continue-on-error).
+# Audits PRODUCTION live (https://frontaliereticino.ch). The audit measures the
+# DEPLOYED site, so it only makes sense to run it AFTER a deploy has propagated
+# — never on a PR (the PR build is never live; a pre-merge run just re-measures
+# already-deployed prod). Triggers:
+#   - workflow_run on "Deploy to GitHub Pages" completed → runs only when that
+#     deploy concluded `success` (deploy.yml's validate-live job already waits
+#     for the new build-id to go live, so prod reflects this deploy).
+#   - workflow_dispatch for manual re-runs.
+#
+# Outcome handling (the audit stays NON-blocking — there is nothing to block
+# post-deploy; the signal is durable, not a red check):
+#   - Regression (budget exceeded) → open/refresh a deduped GitHub issue so the
+#     regression is tracked instead of decaying into a silent red check.
+#   - Recovery (audit passes again) → auto-resolve that canonical issue.
+#   - Prod unreachable (Cloudflare 429/1027 / 5xx) → skip the audit + ::warning::
+#     (no issue, no red), same self-healing behavior as before.
 
 on:
-  pull_request:
-    branches: [main]
-    # Accepted-by-design asymmetry vs the push:main paths below (issue #983):
-    # this PR trigger intentionally keeps a NARROWER include-list (no
-    # components/**, App.tsx, services/** etc.). Two reasons make the
-    # asymmetry deliberate, not a gap:
-    #   1. The job audits PRODUCTION live (https://frontaliereticino.ch), NOT
-    #      the PR's own build — so running it on a component-only PR would
-    #      re-measure already-deployed prod, not the proposed change. Pre-merge
-    #      symmetry with push:main is therefore largely moot.
-    #   2. Most PRs touch components/** / services/**; widening here would fire
-    #      this heavy job on nearly every PR for no added pre-merge signal.
-    # The push:main trigger (runs after the change is live) is the real
-    # regression gate. Revisit only if the PR job is ever pointed at the PR's
-    # own preview build instead of prod.
-    paths:
-      - 'build-plugins/**'
-      - 'services/locales/**'
-      - 'vite.config.ts'
-      - 'index.css'
-      - 'index.html'
-      - 'package.json'
-      - '.github/workflows/lighthouse-ci.yml'
-      - 'lighthouserc.json'
-  push:
-    branches: [main]
-    # Since #844 every auto-merge pushes to main; without a paths filter this
-    # heavy CI ran on data-only / workflow-only / docs-only merges too. Only
-    # run when something that can change the *rendered* output of the audited
-    # pages moves. Conservative: when unsure whether a path affects rendering
-    # it is INCLUDED (a missed regression is worse than an extra run).
-    paths:
-      # Application source that produces rendered DOM / styles / scripts.
-      - 'App.tsx'
-      - 'index.tsx'
-      - 'index.html'
-      - 'index.css'
-      - 'constants.ts'
-      - 'types.ts'
-      - 'components/**'
-      - 'hooks/**'
-      - 'services/**'
-      - 'build-plugins/**'
-      - 'public/**'
-      # Build / dependency config that changes the emitted bundle.
-      # Same rationale as tailwind.config.js/vite.config.ts: postcss.config.js
-      # alters emitted CSS (autoprefixer / transforms) and tsconfig.json alters
-      # emitted JS (target / compile), so both can shift rendered output → CLS.
-      - 'vite.config.ts'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'tailwind.config.js'
-      - 'postcss.config.js'
-      - 'tsconfig.json'
-      # The audit definition itself.
-      - 'lighthouserc.json'
-      - '.github/workflows/lighthouse-ci.yml'
-    # Implicitly EXCLUDED (no path here ⇒ no run): pure data churn that does not
-    # change layout — data/** job slices, *.jsonl accumulators,
-    # dist-size-history.jsonl, snapshot json — plus docs/**, scripts/**,
-    # functions/**, server/**, tests/**, reports/** and other workflow files.
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+  workflow_dispatch:
 
 permissions:
   contents: read
-  pull-requests: write
+  issues: write
+
+# Serialize: a burst of deploys must not race multiple audits opening/closing
+# the same canonical issue concurrently.
+concurrency:
+  group: lighthouse-ci
+  cancel-in-progress: false
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    continue-on-error: true  # Non-blocking while we tune budgets against live prod.
+    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build),
+    # or on a manual dispatch. A failed/cancelled deploy left prod on the old
+    # build — auditing it would measure something this run did not produce.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
 
     steps:
       - name: Checkout
@@ -103,17 +75,14 @@ jobs:
       # request and the whole job goes red. Historically this failed 8/8 runs:
       # the apex was being intercepted by a Cloudflare edge worker
       # (SearchAtlas "otto-pixel-worker" on a `frontaliereticino.ch/*` catch-all
-      # route) whose rate-limiter/backend 429'd & 504'd datacenter traffic. With
-      # job-level `continue-on-error` the run reported "success" but the
-      # check-run "lighthouse" stayed red on EVERY commit/PR — pure noise that
-      # masked any real perf signal.
+      # route) whose rate-limiter/backend 429'd & 504'd datacenter traffic.
       #
       # The probe makes the gate self-healing: if prod cannot be reached after
-      # retries we SKIP the audit (the step is skipped → job concludes success →
-      # check is GREEN) and emit a loud ::warning:: instead of a perpetual red.
-      # When prod serves 200 the audit runs for real and genuine regressions
-      # still surface. Audits only the subset of URLs that actually return 200,
-      # so one transient bad URL no longer blanks the whole run.
+      # retries we SKIP the audit (job concludes success, no issue is opened)
+      # and emit a loud ::warning:: instead of a perpetual red. When prod serves
+      # 200 the audit runs for real and genuine regressions still surface.
+      # Audits only the subset of URLs that actually return 200, so one
+      # transient bad URL no longer blanks the whole run.
       - name: Probe production reachability
         id: probe
         run: |
@@ -150,6 +119,11 @@ jobs:
           fi
 
       - name: Run Lighthouse CI against production
+        id: lhci
+        # continue-on-error: a budget breach must NOT fail the job — it is
+        # surfaced as a tracked issue (next step), not as a red check that would
+        # decay into noise. The job stays green; the issue is the durable signal.
+        continue-on-error: true
         if: steps.probe.outputs.run_audit == 'true'
         uses: treosh/lighthouse-ci-action@v12
         with:
@@ -167,10 +141,51 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
 
-      - name: Upload Lighthouse reports on failure
-        if: failure()
+      - name: Upload Lighthouse reports on regression
+        if: steps.lhci.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: lighthouse-reports
           path: .lighthouseci/
           retention-days: 7
+
+      # Regression → open (or refresh, via stable-title dedup) a tracked issue.
+      # NOT auto-routed to the CI fixer (no `agent:fix`): a perf regression is
+      # strategic — owner/agent triages it manually (AGENTS.md: only crawler /
+      # follow-up are auto-routable). Labelled funnel-monetization (CLS gates
+      # AdSense RPM) + funnel-seo (category SEO score gates indexability).
+      - name: Open issue on regression
+        if: steps.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'failure'
+        run: |
+          set -uo pipefail
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          DEPLOY_URL="${{ github.event.workflow_run.html_url }}"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Lighthouse regression on production" \
+            --priority 2 \
+            --label funnel-monetization \
+            --label funnel-seo \
+            --workflow "Lighthouse CI" \
+            --description "Post-deploy Lighthouse audit exceeded a budget on https://frontaliereticino.ch.
+
+          **Budgets** (lighthouserc.json): Performance ≥ 0.85 · LCP < 2500ms · CLS < 0.1 · TBT < 200ms · SEO/a11y category scores.
+
+          **Why it matters (funnel):** CLS < 0.1 gates AdSense RPM (layout shift → revenue loss); the SEO category score gates organic indexability.
+
+          **Audit run:** $RUN_URL (Lighthouse reports artifact attached to the run; public HTML report linked in the LHCI step log).
+          **Triggering deploy:** ${DEPLOY_URL:-manual dispatch}
+
+          **Next step:** open the run, read the per-URL assertion failures (which template + which metric), reproduce locally / via audit replay, fix the root cause. This issue auto-closes when a later post-deploy audit passes again."
+
+      # Recovery → auto-close the canonical issue so a fixed gate doesn't leave a
+      # stale open issue (mirror of the failure reporter; best-effort, exits 0).
+      - name: Resolve issue on recovery
+        if: steps.probe.outputs.run_audit == 'true' && steps.lhci.outcome == 'success'
+        run: |
+          set -uo pipefail
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Lighthouse regression on production" \
+            --workflow "Lighthouse CI" \
+            --run-url "$RUN_URL"
