@@ -668,9 +668,9 @@
     },
     {
       "id": "bobst-349233cc077a",
-      "slug": "field-service-technician-m-w-d-bobst-ch-2",
+      "slug": "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
       "slugByLocale": {
-        "it": "field-service-technician-m-w-d-bobst-ch-2",
+        "it": "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
         "en": "field-service-technician-m-w-d-bobst-ch-2",
         "de": "field-service-technician-m-w-d-bobst-ch",
         "fr": "field-service-technicien-m-w-d-bobst-germany-bielefeld"
@@ -728,7 +728,15 @@
         }
       },
       "postalCode": "1003",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-m-w-d-bobst-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-m-w-d-bobst-ch-2"
+      ]
     },
     {
       "id": "bobst-cdbe6d66b7ea",
@@ -1880,8 +1888,8 @@
       "slug": "edilizia-e-progettista-tecnico-bobst-switzerland-mex",
       "slugByLocale": {
         "it": "edilizia-e-progettista-tecnico-bobst-switzerland-mex",
-        "en": "dessinateur-batiment-et-technique-bobst-ch",
-        "de": "dessinateur-batiment-et-technique-bobst-ch",
+        "en": "building-and-technical-designer-bobst-switzerland-mex",
+        "de": "bau-und-technikplaner-bobst-switzerland-mex",
         "fr": "dessinateur-batiment-et-technique-bobst-ch"
       },
       "company": "Bobst",
@@ -1928,6 +1936,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dessinateur-batiment-et-technique-bobst-ch"
+        ],
+        "en": [
+          "dessinateur-batiment-et-technique-bobst-ch"
+        ],
+        "de": [
           "dessinateur-batiment-et-technique-bobst-ch"
         ]
       },
@@ -2258,7 +2272,7 @@
       "slug": "software-ingegnere-100-maschinen-e-anlagenbau-bobst-switzerland-grenchen",
       "slugByLocale": {
         "it": "software-ingegnere-100-maschinen-e-anlagenbau-bobst-switzerland-grenchen",
-        "en": "software-engineer-100-maschinen-und-anlagenbau-bobst-ch",
+        "en": "software-engineer-100-mechanical-and-plant-engineering-bobst-switzerland-grenchen",
         "de": "software-engineer-100-maschinen-und-anlagenbau-bobst-ch",
         "fr": "software-ingenieur-100-maschinen-und-anlagenbau-bobst-switzerland-grenchen"
       },
@@ -2309,6 +2323,9 @@
           "software-engineer-100-maschinen-und-anlagenbau-bobst-ch"
         ],
         "fr": [
+          "software-engineer-100-maschinen-und-anlagenbau-bobst-ch"
+        ],
+        "en": [
           "software-engineer-100-maschinen-und-anlagenbau-bobst-ch"
         ]
       },
@@ -2434,8 +2451,8 @@
       "slug": "contrappaltatore-meccanico-alternativo-h-f-bobst-france-bron",
       "slugByLocale": {
         "it": "contrappaltatore-meccanico-alternativo-h-f-bobst-france-bron",
-        "en": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
-        "de": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch",
+        "en": "alternative-mechanical-subcontracting-h-f-bobst-france-bron",
+        "de": "alternative-mechanische-untervergabe-von-h-f-bobst-france-bron",
         "fr": "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
       },
       "company": "Bobst",
@@ -2482,6 +2499,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
+        ],
+        "en": [
+          "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
+        ],
+        "de": [
           "alternance-pilotage-sous-traitance-mecanique-h-f-bobst-ch"
         ]
       },

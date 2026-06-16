@@ -156,8 +156,8 @@
       "slugByLocale": {
         "it": "project-manager-content-manager-100-in-tutto-il-mondo-remoto-6-mesi-contratto-con-estensione-potenziale-cet-timezone",
         "en": "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential",
-        "de": "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential",
-        "fr": "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
+        "de": "projektmanager-content-manager-100-weltweit-remote-6-monate-vertrag-mit-potenzieller-verlangerung-cet-timezone-bitfinex",
+        "fr": "gestionnaire-de-projet-gestionnaire-de-contenu-100-dans-le-monde-entier-contrat-de-6-mois-avec-extension-potentielle-cet"
       },
       "company": "Bitfinex",
       "companyKey": "bitfinex",
@@ -206,6 +206,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
+        ],
+        "de": [
+          "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
+        ],
+        "fr": [
           "project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential"
         ]
       },
@@ -463,12 +469,12 @@
     },
     {
       "id": "bitfinex-c6a9b9ff3b44",
-      "slug": "product-manager-100-remote-worldwide-bitfinex-ch",
+      "slug": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-london-england",
       "slugByLocale": {
         "en": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "it": "product-manager-100-remote-worldwide-bitfinex-ch",
+        "it": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-london-england",
         "de": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "fr": "product-manager-100-remote-worldwide-bitfinex-ch"
+        "fr": "product-manager-100-distant-dans-le-monde-bitfinex-london-england"
       },
       "company": "Bitfinex",
       "companyKey": "bitfinex",
@@ -526,7 +532,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T22:39:44.566Z"
+      "firstSeenAt": "2026-06-15T22:39:44.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ],
+        "fr": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-100-remote-worldwide-bitfinex-ch"
+      ]
     }
   ]
 }

@@ -41,7 +41,7 @@
         "it": "sr-account-manager-board-international-zurich-zurich-switzerland",
         "en": "sr-account-manager-board-international-zurich-zurich-switzerland",
         "de": "sr-account-manager-board-international-zurich-zurich-switzerland",
-        "fr": "sr-account-manager-board-international-zurich-zurich-switzerland"
+        "fr": "sr-gestionnaire-de-comptes-board-international-zurich-zurich-switzerland"
       },
       "id": "board-international-b7509e355f12",
       "salaryMin": 79500,
@@ -231,8 +231,8 @@
       "slugByLocale": {
         "it": "product-owner-pianificazione-aziendale-integrata-board-international-chiasso-switzerland",
         "en": "product-owner-integrated-business-planning-board-international-chiasso-switzerland",
-        "de": "product-owner-integrated-business-planning-board-international-chiasso-switzerland",
-        "fr": "product-owner-integrated-business-planning-board-international-chiasso-switzerland"
+        "de": "product-owner-integrierte-unternehmensplanung-board-international-chiasso-switzerland",
+        "fr": "proprietaire-du-produit-planification-integree-des-activites-board-international-chiasso-switzerland"
       },
       "id": "board-international-c5d53d3b1190",
       "salaryMin": 51500,
@@ -257,6 +257,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "product-owner-integrated-business-planning-board-international-chiasso-switzerland"
+        ],
+        "de": [
+          "product-owner-integrated-business-planning-board-international-chiasso-switzerland"
+        ],
+        "fr": [
           "product-owner-integrated-business-planning-board-international-chiasso-switzerland"
         ]
       }

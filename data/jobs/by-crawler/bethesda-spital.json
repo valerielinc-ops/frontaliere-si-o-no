@@ -700,12 +700,12 @@
     },
     {
       "id": "bethesda-spital-7141017930bf",
-      "slug": "urotherapeut-in-60-80-bethesda-spital-basel",
+      "slug": "uroterapista-60-80-bethesda-spital-basel",
       "slugByLocale": {
-        "it": "urotherapeut-in-60-80-bethesda-spital-basel",
-        "en": "urotherapeut-in-60-80-bethesda-spital-basel",
+        "it": "uroterapista-60-80-bethesda-spital-basel",
+        "en": "urotherapist-60-80-bethesda-spital-basel",
         "de": "urotherapeut-in-60-80-bethesda-spital-basel",
-        "fr": "urotherapeut-in-60-80-bethesda-spital-basel"
+        "fr": "urotherapiste-60-80-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -759,7 +759,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "urotherapeut-in-60-80-bethesda-spital-basel"
+        ],
+        "en": [
+          "urotherapeut-in-60-80-bethesda-spital-basel"
+        ],
+        "fr": [
+          "urotherapeut-in-60-80-bethesda-spital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "urotherapeut-in-60-80-bethesda-spital-basel"
+      ]
     }
   ]
 }
