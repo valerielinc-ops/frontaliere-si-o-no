@@ -207,6 +207,8 @@ export const ALL_BORDER_CROSSING_IDS = [
  'zenna-dirinella',
  'biegno-indemini',
  'dumenza-cassinone',
+ 'camedo',
+ 'piaggio-valmara',
 ] as const;
 
 export type BorderCrossingId = (typeof ALL_BORDER_CROSSING_IDS)[number];
