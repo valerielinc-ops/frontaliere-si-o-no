@@ -539,6 +539,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'offerte-lavoro-intelligenza-artificiale-2025',
+    category: 'novita',
+    date: '2026-06-16T01:36:46.767Z',
+    image: '/images/blog/offerte-lavoro-intelligenza-artificiale-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -81,6 +81,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'imposizione-fonte-basilea': { it: 'imposizione-fonte-basilea', en: 'source-tax-basel', de: 'quelle-steuer-basel', fr: 'impot-source-basel' },
  'blocchi-immigrazione-ticino': { it: 'blocchi-immigrazione-ticino', en: 'immigration-block-ticino', de: 'einwanderungsblock-tessin', fr: 'blocage-immigration-tessin' },
  'treni-fermi-stabio-gallarate-incompetenza-regione': { it: 'treni-fermi-stabio-gallarate-incompetenza-regione', en: 'trains-halted-stabio-gallarate-regional-incompetence', de: 'verzoegerte-zuege-stabio-gallarate-regionale-unfahigkeit', fr: 'trains-arretes-stabio-gallarate-incompetence-regionale' },
+ 'offerte-lavoro-intelligenza-artificiale-2025': { it: 'offerte-lavoro-intelligenza-artificiale-2025', en: 'ai-job-offers-switzerland-2025', de: 'ki-jobangebote-schweiz-2025', fr: 'offres-emploi-ia-suisse-2025' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
