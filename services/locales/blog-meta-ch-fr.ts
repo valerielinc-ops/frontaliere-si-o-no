@@ -188,6 +188,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Déduction des ristournes frontaliers contraire aux accords',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Suisse envisage d’appliquer une déduction partielle sur les ristournes issues du produit de l’impôt santé, ce qui pourrait contrevenir aux accords avec l’Italie.',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontaliers du canton de Tessin avec documents',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.title': 'Cicor : plan d\'efficacité et suppression de 220 postes',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.excerpt': 'Cicor annonce un programme d\'efficacité avec la vente de son site en Tunisie et la suppression de 220 postes, dont une dizaine en Suisse.',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.imageAlt': 'Siège d\'entreprise suisse avec bâtiments modernes et personnel.',
 };
 
 export default blogMetaChFr;

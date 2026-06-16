@@ -188,6 +188,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.title': 'Deduzione da ristorni frontalieri contraria a accordi con Roma',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.excerpt': 'La Svizzera intende applicare una deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute, ma questo potrebbe essere contrario agli accordi con l\'Italia.',
     'blog.article.deduzione-da-ristorni-contraria-accordi-con-roma.imageAlt': 'Frontalieri ticinesi con documenti',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.title': 'Cicor: piano di efficienza e taglio di 220 posti di lavoro',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.excerpt': 'Cicor annuncia un programma di efficienza con vendita dello stabilimento in Tunisia e taglio di 220 posti, di cui circa dieci in Svizzera.',
+    'blog.article.cicor-piano-efficienza-tagli-lavoro.imageAlt': 'Sede aziendale in Svizzera con edifici moderni e personale.',
 };
 
 export default blogMetaChIt;
