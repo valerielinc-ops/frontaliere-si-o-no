@@ -8102,6 +8102,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Retour définitif en Italie : guide des comptes en CHF',
     'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Découvrez comment gérer correctement la liquidation, les comptes en francs suisses et les derniers salaires en cas de retour définitif en Italie pour les travailleurs frontaliers.',
     'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Bureau avec vue sur le lac de Lugano et documents financiers',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Plus de trains et bus entre le Tessin et la Lombardie',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Signature de l\'accord entre le canton du Tessin et la région Lombardie : renforcement des liaisons ferroviaires et routières, avec des billets intégrés pour une mobilité durable.',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Des trains et bus traversent la frontière Tessin-Lombardie pour améliorer les transports publics transfrontaliers.',
 };
 
 export default blogMetaFr;

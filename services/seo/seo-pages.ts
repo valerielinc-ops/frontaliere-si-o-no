@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2815,
+ "numberOfItems": 2816,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7459,7 +7459,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2812, "name": "Tassa Salute Frontalieri: sindacati chiedono ri...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ritiro-richiesta` },
           { "@type": "ListItem", "position": 2813, "name": "Deduzione da ristorni frontalieri contraria a a...", "url": `${BASE_URL}/articoli-frontaliere/deduzione-da-ristorni-contraria-accordi-con-roma` },
           { "@type": "ListItem", "position": 2814, "name": "Rientro definitivo in Italia: guida ai conti in...", "url": `${BASE_URL}/articoli-frontaliere/rientro-definitivo-gestione-conti-chf` },
-          { "@type": "ListItem", "position": 2815, "name": "Cicor: piano di efficienza e taglio di 220 post...", "url": `${BASE_URL}/articoli-frontaliere/cicor-piano-efficienza-tagli-lavoro` }
+          { "@type": "ListItem", "position": 2815, "name": "Cicor: piano di efficienza e taglio di 220 post...", "url": `${BASE_URL}/articoli-frontaliere/cicor-piano-efficienza-tagli-lavoro` },
+          { "@type": "ListItem", "position": 2816, "name": "Più treni e bus tra Ticino e Lombardia", "url": `${BASE_URL}/articoli-frontaliere/accordo-trasporti-ticino-lombardia-potenziamento-collegamenti` }
  ]
  },
  {

@@ -8100,6 +8100,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rückkehr nach Italien: Leitfaden für Franken-Konten',
     'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Erfahren Sie, wie Sie bei einer endgültigen Rückkehr nach Italien als Grenzgänger Abfindungen, Franken-Konten und letzte Gehälter korrekt verwalten.',
     'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Büroschreibtisch mit Blick auf den Luganersee und Finanzdokumenten',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Mehr Züge und Busse zwischen Tessin und Lombardei',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Abkommen zwischen dem Kanton Tessin und der Region Lombardei unterzeichnet: Ausbau der Bahn- und Busverbindungen mit integrierten Tickets für eine nachhaltige Mobilität.',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Züge und Busse überqueren die Grenze zwischen Tessin und Lombardei zur Verbesserung des grenzüberschreitenden öffentlichen Nahverkehrs.',
 };
 
 export default blogMetaDe;

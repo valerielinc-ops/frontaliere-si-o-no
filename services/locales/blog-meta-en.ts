@@ -8101,6 +8101,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Moving back to Italy: guide to managing CHF accounts',
     'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Learn how to properly manage your severance pay, Swiss franc accounts, and final salaries when returning to Italy as a cross-border worker.',
     'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Office desk with a view of Lake Lugano and financial documents',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'More Trains and Buses Between Ticino and Lombardy',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'The agreement between Canton Ticino and Lombardy Region has been signed: enhanced rail and bus connections with integrated tickets for sustainable mobility.',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Trains and buses crossing the Ticino-Lombardy border to enhance cross-border public transport.',
 };
 
 export default blogMetaEn;

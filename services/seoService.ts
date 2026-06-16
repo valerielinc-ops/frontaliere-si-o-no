@@ -4058,6 +4058,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-deduzione-da-ristorni-contraria-accordi-con-roma': { name: 'Deduzione da ristorni frontalieri', path: '/articoli-svizzera/deduzione-da-ristorni-contraria-accordi-con-roma/', parent: 'blog' },
     'blog-rientro-definitivo-gestione-conti-chf': { name: 'Rientro definitivo frontaliere', path: '/articoli-frontaliere/rientro-definitivo-gestione-conti-chf', parent: 'blog' },
     'blog-cicor-piano-efficienza-tagli-lavoro': { name: 'Cicor efficienza lavoro', path: '/articoli-svizzera/cicor-piano-efficienza-tagli-lavoro/', parent: 'blog' },
+    'blog-accordo-trasporti-ticino-lombardia-potenziamento-collegamenti': { name: 'Trasporti Transfrontalieri', path: '/articoli-frontaliere/accordo-trasporti-ticino-lombardia-potenziamento-collegamenti', parent: 'blog' },
  };
 
  const info = sectionNames[section];

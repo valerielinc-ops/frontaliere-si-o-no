@@ -8102,6 +8102,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rientro-definitivo-gestione-conti-chf.title': 'Rientro definitivo in Italia: guida ai conti in CHF',
     'blog.article.rientro-definitivo-gestione-conti-chf.excerpt': 'Scopri come gestire correttamente liquidazione, conti in franchi svizzeri e ultimi stipendi in caso di rientro definitivo in Italia per frontalieri.',
     'blog.article.rientro-definitivo-gestione-conti-chf.imageAlt': 'Scrivania da ufficio con vista sul Lago di Lugano e documenti finanziari',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Più treni e bus tra Ticino e Lombardia',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Firmato l\'accordo tra Canton Ticino e Regione Lombardia: potenziamento dei collegamenti ferroviari e su gomma, con biglietti integrati per una mobilità sostenibile.',
+    'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Treni e autobus che attraversano il confine tra Ticino e Lombardia per potenziare i trasporti pubblici transfrontalieri.',
 };
 
 export default blogMetaIt;
