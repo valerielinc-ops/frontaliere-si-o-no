@@ -8106,6 +8106,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Lombardei‑Tessin: mehr Züge und Busse für Grenzgänger',
     'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Region Lombardei und Kanton Tessin unterzeichnen Abkommen zur Verstärkung grenzüberschreitender Zug- und Busverbindungen, mit RE80 alle 30 Minuten und Tarifintegration.',
     'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Regio Express Zug an der Italien-Schweiz Grenze mit wartenden Pendlern',
+    'blog.article.pd-m5s-avs-accelerano.title': 'PD, M5S und Avs beschleunigen',
+    'blog.article.pd-m5s-avs-accelerano.excerpt': 'Italienische Parteien kündigen Initiativen für Juli an.',
+    'blog.article.pd-m5s-avs-accelerano.imageAlt': 'Politisches Mittagessen in Rom',
 };
 
 export default blogMetaDe;

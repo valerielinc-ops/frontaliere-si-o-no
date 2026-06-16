@@ -25704,6 +25704,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pd-m5s-avs-accelerano',
+ category: 'novita',
+ date: '2026-06-16T19:44:05.855Z',
+ image: '/images/blog/pd-m5s-avs-accelerano.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
