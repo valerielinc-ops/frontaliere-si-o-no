@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4588,7 +4588,7 @@ ${hrefTags}
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
  ${SEO_STATIC_CSS_LINK}
  <style>${skeletonAnim}</style>
- ${ANALYTICS_SNIPPET}
+ ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
