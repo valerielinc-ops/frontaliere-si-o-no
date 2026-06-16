@@ -232,12 +232,12 @@
     },
     {
       "id": "villa-im-park-24165b94b6c6",
-      "slug": "leitung-anasthesiepflege-80-100-villa-im-park-rothrist",
+      "slug": "testa-di-anestesia-80-100-privatklinik-villa-im-park-rothrist",
       "slugByLocale": {
-        "it": "leitung-anasthesiepflege-80-100-villa-im-park-rothrist",
-        "en": "leitung-anasthesiepflege-80-100-villa-im-park-rothrist",
+        "it": "testa-di-anestesia-80-100-privatklinik-villa-im-park-rothrist",
+        "en": "head-of-anesthesia-care-80-100-privatklinik-villa-im-park-rothrist",
         "de": "leitung-anasthesiepflege-80-100-villa-im-park-rothrist",
-        "fr": "leitung-anasthesiepflege-80-100-villa-im-park-rothrist"
+        "fr": "responsable-des-soins-anesthesiques-80-100-privatklinik-villa-im-park-rothrist"
       },
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
@@ -291,7 +291,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-anasthesiepflege-80-100-villa-im-park-rothrist"
+        ],
+        "en": [
+          "leitung-anasthesiepflege-80-100-villa-im-park-rothrist"
+        ],
+        "fr": [
+          "leitung-anasthesiepflege-80-100-villa-im-park-rothrist"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-anasthesiepflege-80-100-villa-im-park-rothrist"
+      ]
     }
   ]
 }

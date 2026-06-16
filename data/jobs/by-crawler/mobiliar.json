@@ -288,12 +288,12 @@
     },
     {
       "id": "mobiliar-62a914ddaff0",
-      "slug": "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch",
+      "slug": "gestione-applicazioni-cloud-service-manager-nell-ambiente-finanziario-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
-        "it": "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch",
+        "it": "gestione-applicazioni-cloud-service-manager-nell-ambiente-finanziario-f-m-d-die-mobiliar-bern",
         "en": "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch",
         "de": "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch",
-        "fr": "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch"
+        "fr": "gestionnaire-d-applications-gestionnaire-de-services-cloud-dans-l-environnement-financier-f-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -364,7 +364,18 @@
         }
       },
       "postalCode": "3001",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "application-manager-cloud-service-manager-im-finanzumfeld-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-aaed849abfc5",
@@ -373,7 +384,7 @@
         "it": "multi-asset-manager-w-m-d-mobiliar-ch",
         "en": "multi-asset-manager-w-m-d-mobiliar-ch",
         "de": "multi-asset-manager-w-m-d-mobiliar-ch",
-        "fr": "multi-asset-manager-w-m-d-mobiliar-ch"
+        "fr": "gestionnaire-multi-actifs-f-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -5972,9 +5983,9 @@
     },
     {
       "id": "mobiliar-8e909c18d0a5",
-      "slug": "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+      "slug": "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
       "slugByLocale": {
-        "it": "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+        "it": "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
         "en": "insurance-and-pensions-advisor-f-h-d-at-the-general-agency-in-moutier-saint-imier-die-mobiliar-moutier",
         "de": "versicherungs-und-vorsorgeberater-f-m-d-bei-der-generalagentur-moutier-saint-imier-die-mobiliar-moutier",
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
@@ -6021,13 +6032,15 @@
       "previousSlugs": [
         "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
         "consigliere-assicurativo-e-previdenziale-f-h-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
+        "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
         "versicherungs-und-pensionsberater-f-h-d-bei-der-generalagentur-in-moutier-saint-imier-die-mobiliar-moutier",
         "versicherungs-und-versorgungsberater-w-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
-          "consigliere-assicurativo-e-previdenziale-f-h-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier"
+          "consigliere-assicurativo-e-previdenziale-f-h-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
+          "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier"
         ],
         "en": [
           "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
