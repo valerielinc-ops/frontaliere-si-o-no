@@ -153,12 +153,46 @@ function ensureOfferwallRegistry(): void {
     },
     show() {
       const fn = w.__ftOfferwallSubscribe;
-      if (typeof fn !== 'function') return Promise.resolve(false);
-      try {
-        return Promise.resolve(fn(w.__ftOfferwallLang)).then((ok: unknown) => !!ok);
-      } catch { return Promise.resolve(false); }
+      const run = (f: (lang: unknown) => unknown): Promise<boolean> => {
+        try {
+          return Promise.resolve(f(w.__ftOfferwallLang)).then((ok: unknown) => !!ok);
+        } catch { return Promise.resolve(false); }
+      };
+      if (typeof fn !== 'function') {
+        // The hook is installed by this component's effect, which is lazy
+        // (code-split): FC can call show() before the chunk hydrates. Queue the
+        // request instead of dropping the subscribe choice; drainOfferwallShowQueue
+        // (run on mount) resolves it once the hook is installed.
+        return new Promise<boolean>((resolve) => {
+          let settled = false;
+          const settle = (ok: unknown) => { if (settled) return; settled = true; resolve(!!ok); };
+          const q = (w.__ftOfferwallShowQueue = w.__ftOfferwallShowQueue || []);
+          q.push((hook: (lang: unknown) => unknown) => { if (settled) return; run(hook).then(settle, () => settle(false)); });
+          // Safety net: if the gate never hydrates, fall back to the other choices.
+          setTimeout(() => settle(false), 10000);
+        });
+      }
+      return run(fn);
     },
   };
+}
+
+/**
+ * Drain any registry.show() calls that fired before this lazy (code-split)
+ * chunk hydrated. show() — here, in index.html, and in OFFERWALL_FC_SNIPPET —
+ * queues a thunk on window.__ftOfferwallShowQueue when the hook is absent; we
+ * run each with the freshly-installed hook so the subscribe overlay still
+ * appears instead of the choice being silently dropped. Thunks that already
+ * timed out no-op (guarded by their own `settled` flag).
+ */
+function drainOfferwallShowQueue(hook: (offerwallLang?: string | null) => Promise<boolean>): void {
+  if (typeof window === 'undefined') return;
+  const q = (window as any).__ftOfferwallShowQueue;
+  if (!Array.isArray(q) || q.length === 0) return;
+  (window as any).__ftOfferwallShowQueue = [];
+  for (const run of q) {
+    try { run(hook); } catch { /* no-op */ }
+  }
 }
 
 const OfferwallNewsletterGate: React.FC = () => {
@@ -205,6 +239,10 @@ const OfferwallNewsletterGate: React.FC = () => {
     // lacks index.html's inline versions). Runs after the hook is installed so
     // the registry's show() can delegate to it.
     ensureOfferwallRegistry();
+    // Drain any show() calls that fired before this lazy chunk hydrated (the
+    // race where FC invokes registry.show() before the gate installs the hook),
+    // so the queued subscribe overlay still opens instead of resolving false.
+    drainOfferwallShowQueue(hook);
     return () => {
       if ((window as any).__ftOfferwallSubscribe === hook) {
         delete (window as any).__ftOfferwallSubscribe;

@@ -295,10 +295,27 @@
           // Called when the user picks our choice. Resolve true = access granted.
           show: function(){
             var fn = window.__ftOfferwallSubscribe;
-            if (typeof fn !== 'function') return Promise.resolve(false);
-            try {
-              return Promise.resolve(fn(window.__ftOfferwallLang)).then(function(ok){ return !!ok; });
-            } catch (e) { return Promise.resolve(false); }
+            function run(f){
+              try { return Promise.resolve(f(window.__ftOfferwallLang)).then(function(ok){ return !!ok; }); }
+              catch (e) { return Promise.resolve(false); }
+            }
+            if (typeof fn !== 'function') {
+              // The hook is installed by OfferwallNewsletterGate, a lazy
+              // (code-split) component: FC can call show() before that chunk
+              // hydrates. Instead of dropping the subscribe choice, queue the
+              // request and resolve it once the gate installs the hook and
+              // drains __ftOfferwallShowQueue.
+              return new Promise(function(resolve){
+                var settled = false;
+                function settle(ok){ if (settled) return; settled = true; resolve(!!ok); }
+                var q = window.__ftOfferwallShowQueue = window.__ftOfferwallShowQueue || [];
+                q.push(function(hook){ if (settled) return; run(hook).then(settle, function(){ settle(false); }); });
+                // Safety net: if the gate never hydrates, fall back to the
+                // Offerwall's other choices rather than hanging on a spinner.
+                setTimeout(function(){ settle(false); }, 10000);
+              });
+            }
+            return run(fn);
           }
         };
       })();
