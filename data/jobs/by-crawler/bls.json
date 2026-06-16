@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-15T22:38:27.726Z",
+  "assembledAt": "2026-06-16T12:57:26.804Z",
   "jobs": [
     {
       "id": "bls-e310036fa7f0",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:25.078Z",
+      "crawledAt": "2026-06-16T12:57:24.052Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -131,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:24.112Z",
+      "crawledAt": "2026-06-16T12:57:23.156Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,6 +176,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:23.323Z",
+      "crawledAt": "2026-06-16T12:57:22.333Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -308,7 +311,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operator-in-bahntechnik-quereinstieg/6439d8d0-c9b5-4568-b026-37a7264fe008",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:22.548Z",
+      "crawledAt": "2026-06-16T12:57:21.536Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -357,6 +360,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:01:37.323Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -402,7 +406,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/business-controller-in/a7a4ffa3-9a42-4583-b084-53649b04abe5",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:21.860Z",
+      "crawledAt": "2026-06-16T12:57:20.821Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -451,6 +455,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -464,6 +469,94 @@
         }
       },
       "addressRegion": "BE"
+    },
+    {
+      "id": "bls-ede2fabbc5e0",
+      "slug": "responsabile-immobilienentwicklung-bls-ag-bern",
+      "slugByLocale": {
+        "de": "leiter-in-immobilienentwicklung-bls-ch",
+        "it": "responsabile-immobilienentwicklung-bls-ag-bern",
+        "en": "leiter-in-immobilienentwicklung-bls-ag-bern",
+        "fr": "leiter-in-immobilienentwicklung-bls-ag-bern"
+      },
+      "company": "BLS AG",
+      "companyKey": "bls",
+      "companyDomain": "bls.ch",
+      "title": "Leiter:in Immobilienentwicklung",
+      "titleByLocale": {
+        "de": "Leiter:in Immobilienentwicklung",
+        "it": "Responsabile Immobilienentwicklung",
+        "en": "Leiter:in Immobilienentwicklung",
+        "fr": "Leiter:in Immobilienentwicklung"
+      },
+      "description": "Die BLS ist auch eine Immobilienunternehmung mit einem breit gefächerten Portfolio. Entwickle gemeinsam mit deinem Team attraktive Immobilienprojekte an zentralen Lagen und schaffe nachhaltigen Mehrwert. Für die Bahnreisenden wollen wir den bestmöglichen Kundennutzen erbringen und gleichzeitig mit professionellen Immobiliendienstleistungen die Werte und Erträge unserer Immobilien steigern.\n\nDas wartet auf dich:\n\n• Verantwortung für die Entwicklung und Realisierung von Projekt- und Arealentwicklungen\n\n• Personelle und fachliche Führung eines Teams von Spezialist:innen\n\n• Aktives Stakeholdermanagement inkl. Verhandlungen und Kontaktpflege\n\n• Finanzielle Führung und Verantwortung der Immobilienentwicklungen\n\n• Operative Leitung und Begleitung von anspruchsvollen Projekten\n\nDas bringst du mit:\n\n• Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)\n\n• Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht\n\n• Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung\n\n• Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen\n\n• Verhandlungssicherheit in Deutsch und Französisch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "descriptionByLocale": {
+        "de": "Die BLS ist auch eine Immobilienunternehmung mit einem breit gefächerten Portfolio. Entwickle gemeinsam mit deinem Team attraktive Immobilienprojekte an zentralen Lagen und schaffe nachhaltigen Mehrwert. Für die Bahnreisenden wollen wir den bestmöglichen Kundennutzen erbringen und gleichzeitig mit professionellen Immobiliendienstleistungen die Werte und Erträge unserer Immobilien steigern.\n\nDas wartet auf dich:\n\n• Verantwortung für die Entwicklung und Realisierung von Projekt- und Arealentwicklungen\n\n• Personelle und fachliche Führung eines Teams von Spezialist:innen\n\n• Aktives Stakeholdermanagement inkl. Verhandlungen und Kontaktpflege\n\n• Finanzielle Führung und Verantwortung der Immobilienentwicklungen\n\n• Operative Leitung und Begleitung von anspruchsvollen Projekten\n\nDas bringst du mit:\n\n• Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)\n\n• Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht\n\n• Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung\n\n• Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen\n\n• Verhandlungssicherheit in Deutsch und Französisch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "it": "Die BLS ist auch eine Immobilienunternehmung mit einem breit gefächerten Portfolio. Entwickle gemeinsam mit deinem Team attraktive Immobilienprojekte an zentralen Lagen und schaffe nachhaltigen Mehrwert. Für die Bahnreisenden wollen wir den bestmöglichen Kundennutzen erbringen und gleichzeitig mit professionellen Immobiliendienstleistungen die Werte und Erträge unserer Immobilien steigern.\n\nDas wartet auf dich:\n\n• Verantwortung für die Entwicklung und Realisierung von Projekt- und Arealentwicklungen\n\n• Personelle und fachliche Führung eines Teams von Spezialist:innen\n\n• Aktives Stakeholdermanagement inkl. Verhandlungen und Kontaktpflege\n\n• Finanzielle Führung und Verantwortung der Immobilienentwicklungen\n\n• Operative Leitung und Begleitung von anspruchsvollen Projekten\n\nDas bringst du mit:\n\n• Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)\n\n• Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht\n\n• Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung\n\n• Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen\n\n• Verhandlungssicherheit in Deutsch und Französisch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "en": "Die BLS ist auch eine Immobilienunternehmung mit einem breit gefächerten Portfolio. Entwickle gemeinsam mit deinem Team attraktive Immobilienprojekte an zentralen Lagen und schaffe nachhaltigen Mehrwert. Für die Bahnreisenden wollen wir den bestmöglichen Kundennutzen erbringen und gleichzeitig mit professionellen Immobiliendienstleistungen die Werte und Erträge unserer Immobilien steigern.\n\nDas wartet auf dich:\n\n• Verantwortung für die Entwicklung und Realisierung von Projekt- und Arealentwicklungen\n\n• Personelle und fachliche Führung eines Teams von Spezialist:innen\n\n• Aktives Stakeholdermanagement inkl. Verhandlungen und Kontaktpflege\n\n• Finanzielle Führung und Verantwortung der Immobilienentwicklungen\n\n• Operative Leitung und Begleitung von anspruchsvollen Projekten\n\nDas bringst du mit:\n\n• Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)\n\n• Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht\n\n• Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung\n\n• Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen\n\n• Verhandlungssicherheit in Deutsch und Französisch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+        "fr": "Die BLS ist auch eine Immobilienunternehmung mit einem breit gefächerten Portfolio. Entwickle gemeinsam mit deinem Team attraktive Immobilienprojekte an zentralen Lagen und schaffe nachhaltigen Mehrwert. Für die Bahnreisenden wollen wir den bestmöglichen Kundennutzen erbringen und gleichzeitig mit professionellen Immobiliendienstleistungen die Werte und Erträge unserer Immobilien steigern.\n\nDas wartet auf dich:\n\n• Verantwortung für die Entwicklung und Realisierung von Projekt- und Arealentwicklungen\n\n• Personelle und fachliche Führung eines Teams von Spezialist:innen\n\n• Aktives Stakeholdermanagement inkl. Verhandlungen und Kontaktpflege\n\n• Finanzielle Führung und Verantwortung der Immobilienentwicklungen\n\n• Operative Leitung und Begleitung von anspruchsvollen Projekten\n\nDas bringst du mit:\n\n• Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)\n\n• Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht\n\n• Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung\n\n• Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen\n\n• Verhandlungssicherheit in Deutsch und Französisch\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
+      "source": "BLS AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-16T12:57:20.047Z",
+      "addressLocality": "Bern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3008",
+      "streetAddress": "Freiburgstrasse 130",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Ferrovia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "validThrough": "2026-09-13",
+      "pensum": "60-100%",
+      "applyUrl": "https://jobs.bls.ch/apply/ats/877f2218-456f-42eb-949f-8c7acbeb3544",
+      "requirements": [
+        "Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)",
+        "Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht",
+        "Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung",
+        "Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen",
+        "Verhandlungssicherheit in Deutsch und Französisch"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Abschluss als Architekt:in, Raumplaner:in oder Immobilienentwickler:in (FH, Uni)",
+          "Betriebswirtschaftliche Weiterbildung sowie Wissen im Planungs- und Baurecht",
+          "Mehrjährige Erfahrung in der Immobilienentwicklung mit fundierten Kenntnissen in den SIA-Phasen der Planung und Umsetzung",
+          "Erfahrung im Stakeholdermanagement mit Kommunikationsgeschick sowie ausgewiesene Führungskompetenzen",
+          "Verhandlungssicherheit in Deutsch und Französisch"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-immobilienentwicklung-bls-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-immobilienentwicklung-bls-ch"
+      ],
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "firstSeenAt": "2026-06-16T12:57:20.047Z"
     },
     {
       "id": "bls-11fa0b1a921e",
@@ -496,7 +589,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:21.086Z",
+      "crawledAt": "2026-06-16T12:57:19.094Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -530,6 +623,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -575,7 +669,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:20.393Z",
+      "crawledAt": "2026-06-16T12:57:18.263Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -624,6 +718,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -669,7 +764,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:19.706Z",
+      "crawledAt": "2026-06-16T12:57:17.561Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -718,6 +813,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -763,7 +859,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/dbd67d58-b838-4e01-a0e1-91de615b02a6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:18.890Z",
+      "crawledAt": "2026-06-16T12:57:16.765Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -813,6 +909,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:34.611Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -858,7 +955,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-instandhaltung-schienenfahrzeuge/2560f7be-3020-453c-8dac-0650df731afd",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:18.202Z",
+      "crawledAt": "2026-06-16T12:57:16.063Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,6 +1001,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.941Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -949,7 +1047,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:17.421Z",
+      "crawledAt": "2026-06-16T12:57:15.255Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -997,6 +1095,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1042,7 +1141,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:16.701Z",
+      "crawledAt": "2026-06-16T12:57:14.532Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1082,6 +1181,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1127,7 +1227,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:16.004Z",
+      "crawledAt": "2026-06-16T12:57:13.828Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1173,6 +1273,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1218,7 +1319,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/3b765209-6647-406a-8e5b-231c5d0d1e8c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:15.230Z",
+      "crawledAt": "2026-06-16T12:57:12.878Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1254,6 +1355,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:45.074Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1299,7 +1401,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-abap-virtuos-in/fa0faeac-0e3f-4bd1-a519-b222357e1bdc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:14.424Z",
+      "crawledAt": "2026-06-16T12:57:12.091Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1338,6 +1440,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1383,7 +1486,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:13.644Z",
+      "crawledAt": "2026-06-16T12:57:11.215Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1424,6 +1527,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1433,101 +1537,6 @@
           "@type": "QuantitativeValue",
           "minValue": 68500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-6b5a58dd9e86",
-      "slug": "responsabile-operations-bls-ag-bern",
-      "slugByLocale": {
-        "it": "responsabile-operations-bls-ag-bern",
-        "en": "head-in-operations-bls-ag-bern",
-        "de": "leiter-in-operations-bls-ch",
-        "fr": "chef-en-operations-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Leiter:in Operations",
-      "titleByLocale": {
-        "it": "Capo: nelle operazioni",
-        "en": "Head:in Operations",
-        "de": "Leiter:in Operations",
-        "fr": "Chef: en opérations"
-      },
-      "description": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen.\n\nIn dieser Schlüsselrolle übernimmst du die Verantwortung für den operativen Betrieb unserer Flotte und gestaltest die Weiterentwicklung unserer Einsatzplanung in einem dynamischen 7‑Tage-Betrieb massgeblich mit. Wir wenden uns an eine exakt arbeitende, zuverlässige und organisationsstarke Persönlichkeit mit hoher Motivationsfähigkeit, Hands-on-Mentalität und ausgesprochener Kunden- und Teamorientierung.\n\nDas wartet auf dich:\n\n• Verantwortung für den effizienten, stabilen und kundenorientierten Betrieb der Flotte\n\n• Fachliche und personelle Führung der Einsatzplanung\n\n• Verantwortung für die kurz-, mittel- und langfristige Ressourcen- und Einsatzplanung\n\n• Führung und Koordination bei Abweichungen / Störungen, Leisten von Pikettdiensten\n\n• Verantwortlich für die AZG-konforme Zeitabrechnung (Monatsabrechnung)\n\n• Verfügbarkeit von Personal und Flotte mit Technik, Verkauf und Catering koordinieren\n\n• Pflege und Weiterentwicklung der Prozesse und der Einsatzplanungssoftware (IVU)\n\nDas bringst du mit:\n\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n\n• Weiterbildung in Prozessmanagement, Betriebswirtschaft oder ähnlich, FA, HF, FH\n\n• Ausgesprochenes Talent und Interesse für Planung und Disposition\n\n• Schnelle Auffassungsgabe und vernetztes Denken\n\n• Integre, kommunikationsstarke Führungspersönlichkeit\n\n• Hohe Eigenmotivation und Durchsetzungsvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands.\n\nÜber die BLS Schifffahrt\n\nWeisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-      "descriptionByLocale": {
-        "it": "Ci piacciono i laghi, ci piace la natura, ci piacciono i nostri ospiti – e ci piacciono le persone che vogliono plasmare attivamente il futuro della spedizione BLS insieme a noi. Offriamo ai nostri dipendenti un ambiente unico, vario e stabile. Con noi, nuovi orizzonti possono essere scoperti dandoci l'opportunità di sviluppare il tuo talento organizzativo in un ambiente dinamico e di modellare lo sviluppo dei processi operativi in modo massiccio. In questo ruolo chiave, si assume la responsabilità per il funzionamento operativo della nostra flotta e modellare l'ulteriore sviluppo della nostra pianificazione di distribuzione in un'operazione dinamica di 7 giorni. Stiamo affrontando una personalità esattamente funzionante, affidabile e organizzativamente forte con alta motivazione, mentalità hands-on e eccezionale orientamento del cliente e del team.\n• Gestione professionale e gestione del personale\n• Responsabilità per il funzionamento efficiente, stabile e orientato al cliente della flotta\n• Gestione professionale e del personale della pianificazione di distribuzione\n• Responsabilità per la pianificazione di risorse e distribuzione a breve, medio e lungo termine\n• Guida e coordinamento in caso di deviazioni / perturbazioni, piattaforme di servizi di perforazione\n• Responsabile per la contabilità di tempo conforme agli AZG (debitamento mensile) Hai tempo libero quando gli altri lavorano. È possibile lavorare part-time, e per pensen nella notte e nel fine settimana ci sono supplementi.\n• C'è la possibilità di acquistare cinque a dieci giorni di vacanza all'anno in aggiunta.\n• Contribuiamo il 60% ai contributi del fondo pensione.\n• Regali generosi di vita di servizio da cinque anni di servizio.\n• Un luogo di lavoro sognante vi aspetta nel cuore delle Oberlands Bernesi. Riguardo alla spedizione BLS Navi bianche. Acqua blu. Aria fresca. Il mondo montano delle Oberlands Bernesi. Quello che quasi suona come cliché non è altro che la crociera di fascino. Per circa 120 dipendenti sul lago Brienzer e Thuner, questo fa parte della realtà quotidiana.",
-        "en": "We like lakes, we like nature, we like our guests – and we like people who want to actively shape the future of BLS shipping together. We offer our employees a unique, varied and stable environment. With us, new horizons can be discovered by giving us the opportunity to develop your organizational talent in a dynamic environment and to shape the development of operational processes in a massive way. In this key role, you take responsibility for the operational operation of our fleet and shape the further development of our deployment planning in a dynamic 7-day operation. We address an exactly working, reliable and organizational personality with high motivation, hands-on mentality and exceptional customer and team orientation. This is waiting for you:\n• Responsibility for the efficient, stable and customer-oriented operation of the fleet\n• Professional and personnel management of deployment planning\n• Responsibility for short-, medium- and long-term resource and deployment planning\n• Guidance and coordination in case of deviations / disturbances, rigs of piquetting services\n• Responsible for AZG-compliant time accounting (month billing)\n• Availability of personnel and fleet with technology, sales and catering\n• Professional or technical basic training with commercial continuing training\n• Continuing training in process management, business management or similar, FA, HF, FH\n• Pronounced talent and interest in planning and disposition\n• Quick understanding and networked thinking\n• Integre, high-communication leadership\n• High self-motivation and enforcement Your advantages – you can look forward to this:\n• Get a GA 2nd class or a half-tax subscription as well as attractive fare for the family and free international free ticket.\n• You have free time when others work. You can work part-time, and for pensen in the night and weekend there are surcharges.\n• There is the possibility to buy five to ten holiday days a year in addition.\n• We contribute 60 percent to the pension fund contributions.\n• Generous service life gifts from five years of service.\n• A dreamy working place awaits you in the heart of the Bernese Oberlands. About the BLS shipping White ships. Blue water. Fresh air. The mountain world of Bernese Oberlands. What almost sounds like clichés is nothing other than the fascination cruise. For around 120 employees on and on Lake Brienzer and Thuner, this is part of daily reality.",
-        "de": "Wir mögen Seen, wir mögen die Natur, wir mögen unsere Gäste – und wir mögen Menschen, die mit uns gemeinsam die Zukunft der BLS Schifffahrt aktiv gestalten wollen. Wir bieten unseren Mitarbeitenden ein einzigartiges, abwechslungsreiches und stabiles Umfeld. Mit uns lassen sich neue Horizonte entdecken, indem du bei uns die Möglichkeit erhältst, dein organisatorisches Talent in einem dynamischen Umfeld zu entfalten und die Entwicklung der betrieblichen Abläufe massgebend zu prägen. In dieser Schlüsselrolle übernimmst du die Verantwortung für den operativen Betrieb unserer Flotte und gestaltest die Weiterentwicklung unserer Einsatzplanung in einem dynamischen 7‑Tage-Betrieb massgeblich mit. Wir wenden uns an eine exakt arbeitende, zuverlässige und organisationsstarke Persönlichkeit mit hoher Motivationsfähigkeit, Hands-on-Mentalität und ausgesprochener Kunden- und Teamorientierung. Das wartet auf dich:\n• Verantwortung für den effizienten, stabilen und kundenorientierten Betrieb der Flotte\n• Fachliche und personelle Führung der Einsatzplanung\n• Verantwortung für die kurz-, mittel- und langfristige Ressourcen- und Einsatzplanung\n• Führung und Koordination bei Abweichungen / Störungen, Leisten von Pikettdiensten\n• Verantwortlich für die AZG-konforme Zeitabrechnung (Monatsabrechnung)\n• Verfügbarkeit von Personal und Flotte mit Technik, Verkauf und Catering koordinieren\n• Pflege und Weiterentwicklung der Prozesse und der Einsatzplanungssoftware (IVU) Das bringst du mit:\n• Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung\n• Weiterbildung in Prozessmanagement, Betriebswirtschaft oder ähnlich, FA, HF, FH\n• Ausgesprochenes Talent und Interesse für Planung und Disposition\n• Schnelle Auffassungsgabe und vernetztes Denken\n• Integre, kommunikationsstarke Führungspersönlichkeit\n• Hohe Eigenmotivation und Durchsetzungsvermögen Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse oder ein Halbtaxabo sowie attraktive Fahrvergünstigungen für die Familie und kostenlose internationale Freifahrscheine.\n• Du hast Freizeit, wenn andere arbeiten. Du kannst Teilzeit arbeiten, und für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n• Wir beteiligen uns mit 60 Prozent an den Pensionskassenbeiträgen.\n• Grosszügige Dienstaltersgeschenke bereits ab fünf Dienstjahren.\n• Dich erwartet ein traumhafter Arbeitsort im Herzen des Berner Oberlands. Über die BLS Schifffahrt Weisse Schiffe. Blaues Wasser. Frische Luft. Die Bergwelt des Berner Oberlands. Was fast etwas nach Klischee tönt, ist nichts anderes als die Faszination Schifffahrt. Für rund 120 Mitarbeitende am und auf dem Brienzer- und Thunersee ist das Teil der täglichen Realität.",
-        "fr": "Nous aimons les lacs, nous aimons la nature, nous aimons nos invités – et nous aimons les gens qui veulent façonner activement l'avenir de la navigation BLS avec nous. Nous offrons à nos employés un environnement unique, varié et stable. Avec nous, de nouveaux horizons peuvent être découverts en nous donnant l'occasion de développer votre talent organisationnel dans un environnement dynamique et de façonner massivement le développement des processus opérationnels. Dans ce rôle clé, vous assumez la responsabilité de l'exploitation opérationnelle de notre flotte et façonnez le développement de notre planification de déploiement dans une opération dynamique de 7 jours. Nous nous adressons à une personnalité efficace, fiable et organisationnelle avec une motivation élevée, une mentalité pratique et une orientation exceptionnelle des clients et de l'équipe. Ceci vous attend:\n• Responsabilité pour le fonctionnement efficace, stable et orienté client de la flotte\n• Gestion professionnelle et du personnel de la planification du déploiement\n• Responsabilité pour la planification des ressources et du déploiement à court, moyen et long terme\n• Orientation et coordination en cas de déviations / perturbations, plates-formes de services de picting\n• Responsable de la comptabilité du temps conforme à l'AZG (facturation mensuelle)\n• Disponibilité du personnel et de la flotte avec technologie, vente et restauration\n• Formation professionnelle ou technique de base avec formation commerciale continue\n• Formation continue en gestion de processus, gestion d'entreprise ou similaire, FA, HF, FH\n• Compétence et intérêt prononcés pour la planification et la disposition\n• Compréhension rapide et pensée en réseau\n• Leadership intégré, haute communication\n• Automotivation élevée et mise en application Vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un abonnement GA 2e classe ou demi-taxe ainsi qu'un tarif attrayant pour la famille et un billet gratuit international.\n• Vous avez du temps libre quand les autres travaillent. Vous pouvez travailler à temps partiel, et pour Pensen dans la nuit et le week-end il y a des suppléments.\n• Il y a la possibilité d'acheter cinq à dix jours de vacances par an en plus.\n• Nous cotisons 60 pour cent aux cotisations du fonds de pension.\n• Dons généreux de cinq ans de service.\n• Un lieu de travail rêveux vous attend au cœur des Oberlands bernois. A propos du BLS expédiant des navires blancs. Eau bleue. L'air frais. Le monde montagneux des Oberlands bernois. Ce qui ressemble presque à des clichés n'est autre chose que la croisière de fascination. Pour environ 120 employés sur et sur le lac Brienzer et Thuner, cela fait partie de la réalité quotidienne."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/leiter-in-operations/d5657b12-dcf7-40a8-8ce5-7c96ddd10f9f",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:12.965Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3001",
-      "streetAddress": "Freiburgstrasse 130",
-      "category": "Produzione",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "validThrough": "2026-06-26",
-      "pensum": "80-100%",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/d5657b12-dcf7-40a8-8ce5-7c96ddd10f9f",
-      "requirements": [
-        "Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung",
-        "Weiterbildung in Prozessmanagement, Betriebswirtschaft oder ähnlich, FA, HF, FH",
-        "Ausgesprochenes Talent und Interesse für Planung und Disposition",
-        "Schnelle Auffassungsgabe und vernetztes Denken",
-        "Integre, kommunikationsstarke Führungspersönlichkeit",
-        "Hohe Eigenmotivation und Durchsetzungsvermögen"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Kaufmännische oder technische Grundausbildung mit kaufmännischer Weiterbildung",
-          "Weiterbildung in Prozessmanagement, Betriebswirtschaft oder ähnlich, FA, HF, FH",
-          "Ausgesprochenes Talent und Interesse für Planung und Disposition",
-          "Schnelle Auffassungsgabe und vernetztes Denken",
-          "Integre, kommunikationsstarke Führungspersönlichkeit",
-          "Hohe Eigenmotivation und Durchsetzungsvermögen"
-        ]
-      },
-      "previousSlugs": [
-        "leiter-in-operations-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leiter-in-operations-bls-ch"
-        ],
-        "en": [
-          "leiter-in-operations-bls-ch"
-        ],
-        "fr": [
-          "leiter-in-operations-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T22:46:30.223Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
           "unitText": "YEAR"
         }
       },
@@ -1564,7 +1573,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-gaesteservice-schifffahrt/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:12.176Z",
+      "crawledAt": "2026-06-16T12:57:10.526Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1600,6 +1609,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:38:31.757Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1645,7 +1655,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/rechtsanwaelt-in/ae1169b1-dec0-48b7-86f1-30f03c81044f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:11.392Z",
+      "crawledAt": "2026-06-16T12:57:09.737Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1693,6 +1703,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:37.982Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1738,7 +1749,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/key-account-manager-in-industrie-mit-teamleitung/09f4bd5b-b798-4f50-bd20-484cfcfd63ee",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-15T22:38:10.685Z",
+      "crawledAt": "2026-06-16T12:57:09.049Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1789,6 +1800,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:29.457Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
