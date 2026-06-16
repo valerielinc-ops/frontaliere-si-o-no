@@ -133,6 +133,13 @@ export const borderCrossings: BorderCrossing[] = [
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
  },
+ {
+ label: 'A2 – Coldrerio (corridoio Chiasso-Mendrisio) direzione nord',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/04.4N.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
  ],
  },
  {
@@ -300,6 +307,13 @@ export const borderCrossings: BorderCrossing[] = [
  {
  label: 'A2 – Melide-Bissone (ponte-diga) direzione sud',
  imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
+ sourceName: TI_POLCA_SOURCE_NAME,
+ sourceUrl: TI_POLCA_SOURCE_URL,
+ refreshIntervalMs: 60000,
+ },
+ {
+ label: 'A2 – Maroggia (riva lago, corridoio Lugano-Chiasso) direzione sud',
+ imageUrl: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/14.6S.gif',
  sourceName: TI_POLCA_SOURCE_NAME,
  sourceUrl: TI_POLCA_SOURCE_URL,
  refreshIntervalMs: 60000,
