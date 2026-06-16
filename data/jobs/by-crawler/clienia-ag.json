@@ -8110,12 +8110,12 @@
     },
     {
       "id": "clienia-ag-666dd4ef72cf",
-      "slug": "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
+      "slug": "assistente-medico-60-100-clienia-ag-pfaffikon-zh-393c66",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
-        "en": "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon",
+        "it": "assistente-medico-60-100-clienia-ag-pfaffikon-zh-393c66",
+        "en": "assistant-doctor-60-100-clienia-ag-pfaffikon-zh",
         "de": "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich",
-        "fr": "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
+        "fr": "assistant-medecin-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8158,11 +8158,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich-2"
+        "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich-2",
+        "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich-2"
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-zurich-2",
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-60-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-15T14:09:09.522Z",
@@ -8181,12 +8189,12 @@
     },
     {
       "id": "clienia-ag-db141d8082e9",
-      "slug": "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon",
+      "slug": "neuropsicologo-neuropsicologo-nella-formazione-ean-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon",
-        "en": "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon",
+        "it": "neuropsicologo-neuropsicologo-nella-formazione-ean-60-clienia-ag-pfaffikon-zh",
+        "en": "neuropsychologist-neuropsychologist-in-ean-training-60-clienia-ag-pfaffikon-zh",
         "de": "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich",
-        "fr": "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
+        "fr": "neuropsychologue-neuropsychologue-en-formation-ean-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8229,11 +8237,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich"
+        "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich",
+        "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich"
+          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-zurich",
+          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "neuropsychologin-neuropsychologe-in-ean-ausbildung-60-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-06-15T14:09:08.874Z",
@@ -8255,9 +8271,9 @@
       "slug": "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-60-100-clienia-ag-pfaffikon",
       "slugByLocale": {
         "it": "oberarztin-oberarzt-erwachsenenpsychiatrie-e-psychotherapie-m-w-d-60-100-clienia-ag-pfaffikon",
-        "en": "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag",
+        "en": "senior-physician-adult-psychiatry-and-psychotherapy-m-f-d-60-100-clienia-ag-pfaffikon-zh",
         "de": "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag",
-        "fr": "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag"
+        "fr": "medecin-aine-psychiatrie-et-psychotherapie-pour-adultes-m-f-j-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -8304,6 +8320,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag"
+        ],
+        "en": [
+          "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag"
+        ],
+        "fr": [
           "oberarztin-oberarzt-erwachsenenpsychiatrie-und-psychotherapie-m-w-d-60-100-clienia-ag"
         ]
       },

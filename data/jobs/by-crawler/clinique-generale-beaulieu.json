@@ -102,11 +102,11 @@
     },
     {
       "id": "clinique-generale-beaulieu-31c3c2deb3b6",
-      "slug": "sage-femme-clinique-generale-beaulieu",
+      "slug": "mutua-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
-        "it": "sage-femme-clinique-generale-beaulieu",
-        "en": "sage-femme-clinique-generale-beaulieu",
-        "de": "sage-femme-clinique-generale-beaulieu",
+        "it": "mutua-clinique-generale-beaulieu-geneve",
+        "en": "midwife-clinique-generale-beaulieu-geneve",
+        "de": "hebamme-clinique-generale-beaulieu-geneve",
         "fr": "sage-femme-clinique-generale-beaulieu"
       },
       "company": "Clinique Générale-Beaulieu",
@@ -161,7 +161,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sage-femme-clinique-generale-beaulieu"
+        ],
+        "en": [
+          "sage-femme-clinique-generale-beaulieu"
+        ],
+        "de": [
+          "sage-femme-clinique-generale-beaulieu"
+        ]
+      },
+      "previousSlugs": [
+        "sage-femme-clinique-generale-beaulieu"
+      ]
     }
   ]
 }

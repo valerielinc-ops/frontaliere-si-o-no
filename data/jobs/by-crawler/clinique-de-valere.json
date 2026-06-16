@@ -181,9 +181,9 @@
     },
     {
       "id": "clinique-de-valere-0b43b5a708e2",
-      "slug": "cva-dieteticien-ne-diplome-e-clinique-de-valere",
+      "slug": "cva-dietetician-graduate-clinique-de-valere-sion",
       "slugByLocale": {
-        "it": "cva-dieteticien-ne-diplome-e-clinique-de-valere",
+        "it": "cva-dietetician-graduate-clinique-de-valere-sion",
         "en": "cva-dieteticien-ne-diplome-e-clinique-de-valere",
         "de": "cva-dieteticien-ne-diplome-e-clinique-de-valere",
         "fr": "cva-dieteticien-ne-diplome-e-clinique-de-valere"
@@ -240,7 +240,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cva-dieteticien-ne-diplome-e-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "cva-dieteticien-ne-diplome-e-clinique-de-valere"
+      ]
     }
   ]
 }

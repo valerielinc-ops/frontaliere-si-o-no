@@ -1734,7 +1734,7 @@
         "it": "dipl-expert-expert-cura-intensiva-nds-hf-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1781,6 +1781,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-ksgl-glarus"
         ]
       },
       "firstSeenAt": "2026-06-10T12:26:29.407Z",
@@ -1803,8 +1806,8 @@
       "slugByLocale": {
         "de": "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus",
         "it": "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-kantonsspital-glarus-ksgl-glarus",
-        "en": "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus",
-        "fr": "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus"
+        "en": "apprenticeship-as-a-graduate-surgical-technician-hf-start-2026-kantonsspital-glarus-ksgl-glarus",
+        "fr": "apprentissage-en-tant-que-technicien-chirurgical-diplome-hf-debut-2026-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1849,6 +1852,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus"
+        ],
+        "en": [
+          "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus"
+        ],
+        "fr": [
           "ausbildungsplatz-zur-zum-dipl-fachfrau-mann-operationstechnik-hf-start-2026-ksgl-glarus"
         ]
       },
