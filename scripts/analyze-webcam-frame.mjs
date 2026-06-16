@@ -40,17 +40,26 @@ export const WEBCAM_FEEDS = {
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
+  // North view over the Brogeda interchange: permanent high-texture structures
+  // (multi-lane gantries, buildings) → empty-road stdev ~63 (score 1.00) even with
+  // no queue. Registered for display/CLI but EXCLUDED from queue-detection
+  // (`cvDetect:false`) so it can't false-trip the multi-feed sanity check.
   '00.3N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3N.gif',
     crossings: ['chiasso-brogeda'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
+    cvDetect: false,
   },
+  // Commercial-customs lane (Brogeda merci): parked/queuing trucks are a constant
+  // regardless of passenger-car wait → stdev ~34 (score 0.54) chronically.
+  // Display/CLI only; excluded from queue-detection.
   '00.3O': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/00.3O.gif',
     crossings: ['chiasso-brogeda'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
+    cvDetect: false,
   },
   '02.0N': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/02.0N.gif',
@@ -118,11 +127,15 @@ export const CROSSING_TO_PRIMARY_FEED = {
 };
 
 /**
- * Feed keys covering each crossing, derived once from WEBCAM_FEEDS `crossings`.
- * A crossing's wait estimate is sanity-checked against EVERY camera that sees it
- * (at-booth + approach-corridor), so a queue visible on any one of them is caught.
+ * Feed keys covering each crossing for QUEUE DETECTION, derived from WEBCAM_FEEDS
+ * `crossings`. A crossing's wait estimate is sanity-checked against every camera
+ * that sees it (at-booth + approach-corridor), so a queue visible on any one of
+ * them is caught. Feeds flagged `cvDetect: false` (commercial-customs lanes,
+ * permanent-high-texture views) are DISPLAY-only and excluded here — they would
+ * chronically false-trip the detector regardless of the passenger-car queue.
  */
 export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key, feed]) => {
+  if (feed.cvDetect === false) return acc;
   for (const slug of feed.crossings ?? []) {
     (acc[slug] ??= []).push(key);
   }
