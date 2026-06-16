@@ -8113,6 +8113,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavorare-in-svizzera.title': 'Working in Switzerland: Everything you need to know',
     'blog.article.lavorare-in-svizzera.excerpt': 'The requirements for working in Switzerland have changed. Here is what you need to know about working in Ticino.',
     'blog.article.lavorare-in-svizzera.imageAlt': 'A Swiss-Italian border worker',
+    'blog.article.comuni-frontiera-ticino.title': 'Ticino Border Municipalities: A Practical Guide',
+    'blog.article.comuni-frontiera-ticino.excerpt': 'Discover the border municipalities of Ticino and their importance for cross-border workers.',
+    'blog.article.comuni-frontiera-ticino.imageAlt': 'A panoramic view of a border town in Ticino.',
 };
 
 export default blogMetaEn;

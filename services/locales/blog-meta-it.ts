@@ -8114,6 +8114,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavorare-in-svizzera.title': 'Lavorare in Svizzera: cosa devi sapere',
     'blog.article.lavorare-in-svizzera.excerpt': 'I requisiti per lavorare in Svizzera sono cambiati. Ecco cosa devi sapere per lavorare in Ticino.',
     'blog.article.lavorare-in-svizzera.imageAlt': 'Un frontaliere che lavora in Svizzera e risiede in Ticino',
+    'blog.article.comuni-frontiera-ticino.title': 'Comuni di frontiera in Ticino: una guida pratica',
+    'blog.article.comuni-frontiera-ticino.excerpt': 'Scopri i comuni di frontiera del Ticino e la loro importanza per i frontalieri.',
+    'blog.article.comuni-frontiera-ticino.imageAlt': 'Una vista panoramica di un comune di frontiera in Ticino.',
 };
 
 export default blogMetaIt;

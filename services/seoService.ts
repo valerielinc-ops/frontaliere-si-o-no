@@ -4065,6 +4065,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-sindacati-attacco': { name: 'Tassa salute frontalieri', path: '/articoli-svizzera/tassa-salute-frontalieri-sindacati-attacco/', parent: 'blog' },
     'blog-lavorare-in-svizzera': { name: 'Lavorare in Svizzera', path: '/articoli-frontaliere/lavorare-in-svizzera', parent: 'blog' },
     'blog-infermiere-lugano-lis': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/infermiere-lugano-lis/', parent: 'blog' },
+    'blog-comuni-frontiera-ticino': { name: 'Comuni di frontiera', path: '/articoli-frontaliere/comuni-frontiera-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -8112,6 +8112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavorare-in-svizzera.title': 'Arbeiten in der Schweiz: Das müssen Sie wissen',
     'blog.article.lavorare-in-svizzera.excerpt': 'Die Voraussetzungen für die Arbeit in der Schweiz haben sich geändert. Hier erfahren Sie, was Sie für eine Tätigkeit im Tessin wissen müssen.',
     'blog.article.lavorare-in-svizzera.imageAlt': 'Ein Frontalier, der in der Schweiz arbeitet und in der italienischen Schweiz lebt',
+    'blog.article.comuni-frontiera-ticino.title': 'Grenzgemeinden im Tessin: ein praktischer Leitfaden',
+    'blog.article.comuni-frontiera-ticino.excerpt': 'Entdecken Sie die Grenzgemeinden des Tessins und deren Bedeutung für Grenzgänger.',
+    'blog.article.comuni-frontiera-ticino.imageAlt': 'Eine Panoramaansicht einer Grenzstadt im Tessin.',
 };
 
 export default blogMetaDe;
