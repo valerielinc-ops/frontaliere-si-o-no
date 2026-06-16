@@ -197,6 +197,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Taxe santé frontaliers: syndicats italiens et suisses attaquent',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Les syndicats italiens et suisses demandent le retrait définitif de la taxe santé, contestant la double imposition et les incertitudes applicatives.',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Vue urbaine de Lugano avec bureaux, scène liée à la fiscalité des frontaliers.',
+    'blog.article.infermiere-lugano-lis.title': 'Infirmières à Lugano : Institutions sociales cherchent personnel',
+    'blog.article.infermiere-lugano-lis.excerpt': 'Les Institutions sociales de Lugano cherchent des infirmières pour diverses positions. Les Institutions sociales de Lugano cherchent des professionnels de la santé pour occuper divers postes dans leur équipe. Les candidats intéressés peuvent consulter les informations sur les offres d\'emploi sur le site web des Institutions sociales de Lugano. Les Institutions sociales de Lugano offrent un environnement de travail dynamique et stimulant, avec des opportunités de développement professionnel et de formation continue. Les candidats doivent posséder une expérience pertinente dans le domaine de la santé et être en mesure de travailler dans un environnement multiculturel. Les Institutions sociales de Lugano sont des institutions à but non lucratif qui fournissent des services de santé et de bien-être aux personnes âgées et aux personnes handicapées. Les institutions sont situées dans la région de Lugano, en Suisse.',
+    'blog.article.infermiere-lugano-lis.imageAlt': 'Vue aérienne de Lugano avec des institutions sociales au centre-ville.',
 };
 
 export default blogMetaChFr;

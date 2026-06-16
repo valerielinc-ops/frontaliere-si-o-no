@@ -197,6 +197,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.title': 'Gesundheitsabgabe Grenzgänger: Gewerkschaften lehnen ab',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.excerpt': 'Italienische und Schweizer Gewerkschaften fordern die endgültige Abschaffung der Gesundheitsabgabe und kritisieren die Doppelbesteuerung sowie die Unsicherheiten bei der Anwendung.',
     'blog.article.tassa-salute-frontalieri-sindacati-attacco.imageAlt': 'Stadtansicht von Lugano mit Büros, urbanes Bild zu Grenzgänger-Steuerfragen.',
+    'blog.article.infermiere-lugano-lis.title': 'Infermiere in Lugano: Soziale Einrichtungen suchen Personal',
+    'blog.article.infermiere-lugano-lis.excerpt': 'Die Sozialen Einrichtungen in Lugano suchen nach Krankenpflegern für verschiedene Positionen. Die Einrichtungen bieten eine Vielzahl von Möglichkeiten für diejenigen, die sich für eine Karriere in der Krankenpflege interessieren. Wenn Sie sich für eine dieser Positionen interessieren, können Sie sich an die Einrichtungen wenden. Sie können auch weitere Informationen auf unserer Website finden. [testo tradotto](nav:azione)',
+    'blog.article.infermiere-lugano-lis.imageAlt': 'Luftbild von Lugano mit sozialen Einrichtungen im Stadtzentrum.',
 };
 
 export default blogMetaChDe;

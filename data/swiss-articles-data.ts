@@ -593,6 +593,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'infermiere-lugano-lis',
+    category: 'pratico',
+    date: '2026-06-16T20:28:18.707Z',
+    image: '/images/blog/infermiere-lugano-lis.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
