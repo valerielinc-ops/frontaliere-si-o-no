@@ -8117,6 +8117,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comuni-frontiera-ticino.title': 'Communes frontalières au Tessin : un guide pratique',
     'blog.article.comuni-frontiera-ticino.excerpt': 'Découvrez les communes frontalières du Tessin et leur importance pour les frontaliers.',
     'blog.article.comuni-frontiera-ticino.imageAlt': 'Vue panoramique d\'une ville frontalière au Tessin.',
+    'blog.article.azienda-hoval-lavoro-ticino.title': 'Hoval : offres d\'emploi au Tessin pour les frontaliers',
+    'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval recherche du personnel au Tessin. Opportunités pour les frontaliers italiens. Détails sur le processus de candidature et implications pratiques.',
+    'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'Vue d\'un bâtiment d\'entreprise moderne à Lugano, Tessin, avec des montagnes derrière.',
 };
 
 export default blogMetaFr;

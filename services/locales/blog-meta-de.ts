@@ -8115,6 +8115,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comuni-frontiera-ticino.title': 'Grenzgemeinden im Tessin: ein praktischer Leitfaden',
     'blog.article.comuni-frontiera-ticino.excerpt': 'Entdecken Sie die Grenzgemeinden des Tessins und deren Bedeutung für Grenzgänger.',
     'blog.article.comuni-frontiera-ticino.imageAlt': 'Eine Panoramaansicht einer Grenzstadt im Tessin.',
+    'blog.article.azienda-hoval-lavoro-ticino.title': 'Hoval: Stellenangebote in Tessin für Grenzgänger',
+    'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval sucht Mitarbeiter in Tessin. Chancen für italienische Grenzgänger. Details zum Bewerbungsprozess und praktischen Auswirkungen.\n\n### Bewerbungsmöglichkeiten\n\n- Hoval bietet attraktive Stellenangebote in Tessin an.\n\n### Rechtliche Hinweise\n\n⚠️ Beachten Sie die rechtlichen Anforderungen für Grenzgänger in der Schweiz.\n\n### Praktische Informationen\n\n- Informieren Sie sich über die Anforderungen für die G-Bewilligung in Tessin.\n\n### Einrichtungen und Servicen\n\n- Nutzen Sie die Einrichtungen und Servicen in Tessin, wie z.B. die Swissminiatur.\n\n### Brückentage\n\n- Planen Sie Ihre Urlaube in Tessin um die Brückentage.\n\n### Kontakt\n\n- Kontaktieren Sie Hoval direkt für weitere Informationen.',
+    'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'Ansicht eines modernen Firmengebäudes in Lugano, Tessin, mit Bergen im Hintergrund.',
 };
 
 export default blogMetaDe;

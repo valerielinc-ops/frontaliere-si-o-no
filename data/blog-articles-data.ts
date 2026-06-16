@@ -25731,6 +25731,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'azienda-hoval-lavoro-ticino',
+ category: 'pratico',
+ date: '2026-06-16T21:19:11.462Z',
+ image: '/images/blog/azienda-hoval-lavoro-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

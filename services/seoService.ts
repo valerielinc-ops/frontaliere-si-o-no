@@ -4067,6 +4067,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-infermiere-lugano-lis': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/infermiere-lugano-lis/', parent: 'blog' },
     'blog-comuni-frontiera-ticino': { name: 'Comuni di frontiera', path: '/articoli-frontaliere/comuni-frontiera-ticino', parent: 'blog' },
     'blog-tasse-frontalieri-scambio-dati-stipendi-italia': { name: 'Tasse frontalieri', path: '/articoli-svizzera/tasse-frontalieri-scambio-dati-stipendi-italia/', parent: 'blog' },
+    'blog-azienda-hoval-lavoro-ticino': { name: 'Lavoro Hoval Ticino', path: '/articoli-frontaliere/azienda-hoval-lavoro-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];
