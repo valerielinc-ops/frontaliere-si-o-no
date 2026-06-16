@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { applyGlossaryCorrections } from './translation-glossary.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -336,10 +337,15 @@ export async function translateTextWithLocalPipeline({
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
   if (!hasProviderConfigured()) return '';
+  // Protected-term glossary: corrects meaning-inverted MT output (e.g. German
+  // "Nachtwache" → IT "orologio notturno") that passes every language gate.
+  // Applied to every accepted candidate, including memoized ones written before
+  // this guard existed.
+  const fixGlossary = (out) => applyGlossaryCorrections({ sourceText: clean, translatedText: out, targetLang });
   const key = buildMemoryKey({ text: clean, sourceLang, targetLang, kind, context });
   const memoized = getMemoryEntry(key);
   if (memoized && passesQualityGate({ sourceText: clean, candidate: memoized, kind, minChars })) {
-    return memoized;
+    return fixGlossary(memoized);
   }
 
   let bestDraft = '';
@@ -356,7 +362,7 @@ export async function translateTextWithLocalPipeline({
           targetLang,
           sourceHash: sha256(clean),
         });
-        return candidate;
+        return fixGlossary(candidate);
       }
       bestDraft = candidate;
       stats.providerFailures[provider.name] += 1;
@@ -383,7 +389,7 @@ export async function translateTextWithLocalPipeline({
         targetLang,
         sourceHash: sha256(clean),
       });
-      return repaired;
+      return fixGlossary(repaired);
     }
     if (repaired) stats.providerFailures.ollama += 1;
   } catch {
