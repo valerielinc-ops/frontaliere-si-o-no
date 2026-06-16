@@ -4623,7 +4623,7 @@ ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${SEO_STATIC_CSS_LINK}
- ${ANALYTICS_SNIPPET}
+ ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>
  <body>
  <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
