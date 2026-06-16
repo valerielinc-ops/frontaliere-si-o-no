@@ -609,15 +609,6 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.piaggioValmara',
- webcams: [
- {
- label: 'Lago Maggiore – Cannobio (lato italiano del valico)',
- imageUrl: 'https://lagomaggiorexperience.it/webcam/public/cannobio.jpg',
- sourceName: 'Lago Maggiore Experience',
- sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
- refreshIntervalMs: 300000,
- },
- ],
  },
  {
  name: 'Camedo (Re-Centovalli)',
@@ -669,22 +660,6 @@ export const borderCrossings: BorderCrossing[] = [
  peak: '7:00-8:30, 17:00-18:30',
  tips: 'border.tips.sempioneIselle',
  bazgCoverage: true,
- webcams: [
- {
- label: "Val d'Ossola – Crevoladossola (strada del Sempione)",
- imageUrl: 'https://lagomaggiorexperience.it/webcam/public/crevoladossola.jpg',
- sourceName: 'Lago Maggiore Experience',
- sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
- refreshIntervalMs: 300000,
- },
- {
- label: "Val d'Ossola – Domodossola",
- imageUrl: 'https://www.meteolivevco.it/webcam/distrettolaghi/domodossola.jpg',
- sourceName: 'Meteo Live VCO',
- sourceUrl: 'https://www.meteolivevco.it/',
- refreshIntervalMs: 300000,
- },
- ],
  },
 ];
 
