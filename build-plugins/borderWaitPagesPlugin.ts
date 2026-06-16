@@ -174,7 +174,7 @@ const BORDER_WAIT_DISCOVER_MORE_CTAS: Record<BorderWaitLocale, ReadonlyArray<Dis
 // ── Types ──────────────────────────────────────────────────────
 
 /** Source categories for a wait-time reading. */
-export type WaitSource = 'bazg' | 'tomtom' | 'google' | 'google-maps' | 'static';
+export type WaitSource = 'bazg' | 'tomtom' | 'google' | 'google-maps' | 'webcam' | 'static';
 
 /** Shape of the "current snapshot" JSON written by scripts/snapshot-border-wait-history.mjs. */
 export interface BorderWaitCurrent {
@@ -388,6 +388,7 @@ interface Copy {
   sourceBazg: string;
   sourceTomtom: string;
   sourceGoogle: string;
+  sourceWebcam: string;
   sourceStatic: string;
   hourlyTodayLabel: string;
   weeklyPatternLabel: string;
@@ -444,6 +445,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceBazg: 'Dato ufficiale Dogana Svizzera',
     sourceTomtom: 'Stima TomTom (flusso veicolare)',
     sourceGoogle: 'Stima Google Maps',
+    sourceWebcam: 'Stima da webcam (analisi immagine live)',
     sourceStatic: 'Dati statistici — tempo reale non disponibile',
     hourlyTodayLabel: 'Andamento orario di oggi',
     weeklyPatternLabel: 'Pattern settimanale (ultimi 30 giorni)',
@@ -525,6 +527,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceBazg: 'Authoritative: Swiss Customs',
     sourceTomtom: 'TomTom estimate (traffic flow)',
     sourceGoogle: 'Google Maps estimate',
+    sourceWebcam: 'Webcam estimate (live image analysis)',
     sourceStatic: 'Historical averages — live data unavailable',
     hourlyTodayLabel: "Today's hourly trend",
     weeklyPatternLabel: 'Weekly pattern (last 30 days)',
@@ -606,6 +609,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceBazg: 'Offizielle Daten Schweizer Zoll',
     sourceTomtom: 'TomTom-Schätzung (Verkehrsfluss)',
     sourceGoogle: 'Google-Maps-Schätzung',
+    sourceWebcam: 'Webcam-Schätzung (Live-Bildanalyse)',
     sourceStatic: 'Historischer Durchschnitt — keine Live-Daten',
     hourlyTodayLabel: 'Stundentrend heute',
     weeklyPatternLabel: 'Wochenmuster (letzte 30 Tage)',
@@ -687,6 +691,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     sourceBazg: 'Données officielles Douane suisse',
     sourceTomtom: 'Estimation TomTom (flux de trafic)',
     sourceGoogle: 'Estimation Google Maps',
+    sourceWebcam: 'Estimation par webcam (analyse d\'image en direct)',
     sourceStatic: 'Moyennes historiques — données temps réel indisponibles',
     hourlyTodayLabel: "Tendance horaire d'aujourd'hui",
     weeklyPatternLabel: 'Tendance hebdomadaire (30 derniers jours)',
@@ -1057,6 +1062,8 @@ function sourceLabel(source: WaitSource, copy: Copy): string {
     case 'google':
     case 'google-maps':
       return copy.sourceGoogle;
+    case 'webcam':
+      return copy.sourceWebcam;
     case 'static':
     default:
       return copy.sourceStatic;
