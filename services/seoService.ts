@@ -4066,6 +4066,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavorare-in-svizzera': { name: 'Lavorare in Svizzera', path: '/articoli-frontaliere/lavorare-in-svizzera', parent: 'blog' },
     'blog-infermiere-lugano-lis': { name: 'Lavoro a Lugano', path: '/articoli-svizzera/infermiere-lugano-lis/', parent: 'blog' },
     'blog-comuni-frontiera-ticino': { name: 'Comuni di frontiera', path: '/articoli-frontaliere/comuni-frontiera-ticino', parent: 'blog' },
+    'blog-tasse-frontalieri-scambio-dati-stipendi-italia': { name: 'Tasse frontalieri', path: '/articoli-svizzera/tasse-frontalieri-scambio-dati-stipendi-italia/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

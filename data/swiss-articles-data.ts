@@ -602,6 +602,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tasse-frontalieri-scambio-dati-stipendi-italia',
+    category: 'fiscale',
+    date: '2026-06-16T21:06:58.520Z',
+    image: '/images/blog/tasse-frontalieri-scambio-dati-stipendi-italia.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

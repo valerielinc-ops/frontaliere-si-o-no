@@ -88,6 +88,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'ia-chatbot-influenza-acquisti-svizzera': { it: 'ia-chatbot-influenza-acquisti-svizzera', en: 'ai-chatbot-influence-purchases-switzerland', de: 'ki-chatbot-einfluss-einkaeufe-schweiz', fr: 'chatbot-ia-influence-achats-suisse' },
  'tassa-salute-frontalieri-sindacati-attacco': { it: 'tassa-salute-frontalieri-sindacati-attacco', en: 'health-tax-crossborder-unions-criticism', de: 'gesundheitsabgabe-grenzgaenger-gewerkschaften', fr: 'taxe-sante-frontalier-syndicats-attaque' },
  'infermiere-lugano-lis': { it: 'infermiere-lugano-lis', en: 'nurses-lugano-lis', de: 'pfleger-lugano-lis', fr: 'infirmieres-lugano-lis' },
+ 'tasse-frontalieri-scambio-dati-stipendi-italia': { it: 'tasse-frontalieri-scambio-dati-stipendi-italia', en: 'switzerland-italy-tax-treaty', de: 'schweiz-italien-steuerabkommen', fr: 'suisses-italie-accord-fiscal' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

@@ -200,6 +200,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.infermiere-lugano-lis.title': 'Infermiere a Lugano: Istituti Sociali cercano personale',
     'blog.article.infermiere-lugano-lis.excerpt': 'Istituti Sociali di Lugano cercano infermieri per diverse posizioni',
     'blog.article.infermiere-lugano-lis.imageAlt': 'Una vista aerea di Lugano con gli Istituti Sociali nel centro della città.',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Tasse frontalieri, scambio dati stipendi con l\'Italia inizia',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'La nuova normativa sulla tassazione dei frontalieri è stata approvata dal Consiglio federale e partirà tra pochi mesi',
+    'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Frontalieri in coda al controllo doganale',
 };
 
 export default blogMetaChIt;
