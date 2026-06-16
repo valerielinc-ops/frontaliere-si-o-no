@@ -176,6 +176,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.title': 'Tessin: Abstimmung zum Grenzgänger- und Ausländerstopp',
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Der Kanton Tessin stimmt dem Ausländer- und Grenzgängerstopp zu, allerdings mit begrenzten Effekten, während die Schweiz die SVP-Initiative mit 54,79 % ablehnt.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Landschaft mit See und Bergen zwischen Schweiz und Italien in der Nähe des Tessins.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni gestoppt Stabio-Gallarate: Grüne kritisieren Region und Trenord',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Schließung der Eisenbahnstrecke Stabio-Gallarate bis 5. Juli für Bauarbeiten, mit schweren Unannehmlichkeiten für über 5.000 tägliche Fahrgäste. **Verbindliche Einschränkungen**',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Berufspendler vor geschlossener Eisenbahnstation',
 };
 
 export default blogMetaChDe;

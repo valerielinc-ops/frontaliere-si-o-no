@@ -176,6 +176,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.blocchi-immigrazione-ticino.title': 'Ticino: Voto al blocco degli abitanti stranieri e frontalieri',
     'blog.article.blocchi-immigrazione-ticino.excerpt': 'Il Canton Ticino approva il blocco degli abitanti stranieri, ma con effetti limitati, mentre la Svizzera respinge l\'iniziativa UDC con il 54,79%.',
     'blog.article.blocchi-immigrazione-ticino.imageAlt': 'Paesaggio di lago e montagne tra Svizzera e Italia vicino al Ticino.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.title': 'Treni fermi Stabio-Gallarate: Verdi criticano Regione e Trenord',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.excerpt': 'Chiusura della tratta ferroviaria Stabio-Gallarate fino al 5 luglio per lavori, con gravi disagi per oltre 5.000 passeggeri giornalieri.',
+    'blog.article.treni-fermi-stabio-gallarate-incompetenza-regione.imageAlt': 'Pendolari in attesa davanti a stazione ferroviaria chiusa',
 };
 
 export default blogMetaChIt;

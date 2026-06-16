@@ -80,6 +80,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'votazioni-federali-giugno-2026': { it: 'votazioni-federali-giugno-2026', en: 'federal-votes-june-2026', de: 'eidgenoessische-abstimmung-juni-2026', fr: 'votations-federales-juin-2026' },
  'imposizione-fonte-basilea': { it: 'imposizione-fonte-basilea', en: 'source-tax-basel', de: 'quelle-steuer-basel', fr: 'impot-source-basel' },
  'blocchi-immigrazione-ticino': { it: 'blocchi-immigrazione-ticino', en: 'immigration-block-ticino', de: 'einwanderungsblock-tessin', fr: 'blocage-immigration-tessin' },
+ 'treni-fermi-stabio-gallarate-incompetenza-regione': { it: 'treni-fermi-stabio-gallarate-incompetenza-regione', en: 'trains-halted-stabio-gallarate-regional-incompetence', de: 'verzoegerte-zuege-stabio-gallarate-regionale-unfahigkeit', fr: 'trains-arretes-stabio-gallarate-incompetence-regionale' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
