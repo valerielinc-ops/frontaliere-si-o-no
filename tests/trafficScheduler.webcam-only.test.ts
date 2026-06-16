@@ -139,6 +139,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 // ─── runWebcamOnlyCollection ──────────────────────────────────────
@@ -379,5 +380,50 @@ describe('runTrafficCollection — routes to webcam-only fallback', () => {
     expect(result.errors).toBe(0);
     expect(result.source).toBeUndefined();
     expect(adminState.savedCurrent).toHaveLength(0);
+  });
+
+  it('falls back to TomTom (free tier) live routing when HERE budget is exhausted and a TomTom key is set', async () => {
+    const month = new Date()
+      .toLocaleDateString('en-CA', {
+        timeZone: 'Europe/Rome',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+      })
+      .slice(0, 7);
+    adminState.budgetDoc = { month, count: 4500 }; // HERE budget exhausted
+
+    // Mock the TomTom routing fetch: a summary with a small traffic delay (5 min,
+    // not <5, so the flow sanity check is skipped). Any non-route URL gets a benign body.
+    const fetchMock = vi.fn(async (url: unknown) => {
+      if (String(url).includes('calculateRoute')) {
+        return {
+          ok: true,
+          json: async () => ({ routes: [{ summary: { travelTimeInSeconds: 600, noTrafficTravelTimeInSeconds: 300 } }] }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    // hereApiKey present (would normally win) but budget exhausted → must fall back
+    // to TomTom, NOT to webcam-only or a skip.
+    const result = await runTrafficCollection({
+      hereApiKey: 'here-key',
+      tomtomApiKey: 'tt-key',
+      enableWebcam: false,
+    });
+
+    expect(result.skipped).toBeUndefined(); // did NOT skip the run
+    expect(result.source).not.toBe('webcam-only'); // did NOT degrade to webcam-only
+    expect(result.collected).toBeGreaterThan(0); // real routing collection ran
+    expect(fetchMock).toHaveBeenCalled(); // TomTom routing was actually queried
+    const saved = adminState.savedCurrent as Array<{ source?: string }>;
+    expect(saved.length).toBeGreaterThan(0);
+    expect(saved.every((s) => s.source === 'tomtom')).toBe(true);
   });
 });
