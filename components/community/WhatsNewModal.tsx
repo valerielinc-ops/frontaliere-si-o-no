@@ -369,12 +369,6 @@ export const RELEASES: Release[] = [
  },
  {
  type: 'feature',
- titleKey: 'whatsNew.v3400.products.title',
- descKey: 'whatsNew.v3400.products.desc',
-
- },
- {
- type: 'feature',
  titleKey: 'whatsNew.v3400.alerts.title',
  descKey: 'whatsNew.v3400.alerts.desc',
  link: { tab: 'job-board' },
