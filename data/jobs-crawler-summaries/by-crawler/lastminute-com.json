@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-06-15T23:20:37.765Z",
+  "generatedAt": "2026-06-16T13:54:51.881Z",
   "total": 2,
   "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25269,
-  "avgDurationMs": 25269,
+  "durationMs": 24190,
+  "avgDurationMs": 24190,
   "durationHistory": [
-    25269
+    24190
   ],
   "newJobs": [
     {
@@ -36,7 +36,6 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-06-15T23:20:37.053Z",
       "firstSeenAt": "2026-06-15T23:20:37.053Z",
-      "needsRetranslation": true,
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
@@ -47,11 +46,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
