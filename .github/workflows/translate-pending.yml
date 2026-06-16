@@ -13,8 +13,11 @@ on:
   workflow_dispatch:
     inputs:
       max_jobs:
-        description: 'Max jobs to translate'
+        description: 'Max jobs for the PREMIUM/free HTTP cascade (quota-bound; keep modest)'
         default: '100'
+      mopup_max_jobs:
+        description: 'Max jobs for the local-MT (Argos) mop-up — free + unlimited, drain the whole backlog'
+        default: '6000'
       company_key:
         description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
         default: ''
@@ -210,12 +213,25 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
         continue-on-error: true
         env:
-          # Bound the mop-up to the window left after the cascade's ~250min deadline
-          # (80min) so it self-stops + commits partial well before the 350min job
-          # timeout — instead of being externally killed mid-batch and losing its
-          # work (observed in validation run 27544487773). Default would be 280min.
-          LOCAL_MT_TIME_BUDGET_MS: '4800000'  # 80 * 60 * 1000
-        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
+          # The mop-up is the FAST, $0, unlimited, reliable tier (Argos in-process:
+          # measured 197 translations / 0 failures in 237s on run 27606697505). The
+          # premium/free HTTP cascade above is the slow, quota- and network-bound part.
+          # So we give the mop-up a GENEROUS wall-clock budget (150min) and let the
+          # elapsed-aware MOPUP_DEADLINE_MS guard (320min from run start, baked into
+          # local-mt-mopup.mjs) cap it under the 350min job timeout — whichever is
+          # smaller wins, so commit/scatter/slug/deploy always keep their margin.
+          # Work-loss on timeout is NOT a risk: local-mt-translate.py streams one
+          # JSONL line per request (flush each), and the mop-up parses + commits the
+          # partial stdout captured before an ETIMEDOUT kill (see the timedOut branch).
+          # The old 80min cap left the mop-up time-rich but job-starved (it finished
+          # in 4min, capped at --max-jobs 100, leaving ~3000 jobs un-drained).
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+        # NB: --max-jobs here is DECOUPLED from the shared `max_jobs` input (which
+        # caps the quota-bound premium cascade). Argos is free + unlimited, so the
+        # mop-up drains the whole backlog in one run. ADDITIVE + SAFE: it only fills
+        # genuinely-missing locale fields, never overwrites a good translation, and
+        # downstream mark-locale-mismatched-jobs re-flags any weak output next run.
+        run: node scripts/local-mt-mopup.mjs --max-jobs ${{ inputs.mopup_max_jobs || '6000' }}
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
