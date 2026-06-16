@@ -1,18 +1,49 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-16T13:34:54.424Z",
-  "total": 12,
-  "newCount": 0,
-  "updatedCount": 12,
+  "generatedAt": "2026-06-16T22:59:13.115Z",
+  "total": 13,
+  "newCount": 1,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14926,
-  "avgDurationMs": 14926,
+  "unchangedCount": 2,
+  "durationMs": 15867,
+  "avgDurationMs": 15867,
   "durationHistory": [
-    14926
+    15867
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Servicetechniker/in Wärmepumpen Zentralschweiz (m/w/d)",
+      "slug": "servicetechniker-in-warmepumpen-zentralschweiz-m-w-d-hoval-rc-mitte",
+      "url": "https://www.hoval.it/it_IT/job/3982",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3982/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "RC Mitte",
+      "addressLocality": "RC Mitte",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
@@ -127,8 +158,8 @@
       }
     },
     {
-      "title": "Servicetechniker Gas Region Walensee / Rheintal / Linthgebiet (m/w/d)",
-      "slug": "servicetechniker-gas-region-walensee-rheintal-linthgebiet-m-w-d-hoval-wil-bzw-region-walensee-rheintal",
+      "title": "Servicetechniker Gas Region Walensee / Linthgebiet / Sargans (m/w/d)",
+      "slug": "servicetechniker-gas-region-walensee-linthgebiet-sargans-m-w-d-hoval-wil-bzw-region-walensee-rheintal",
       "url": "https://www.hoval.it/it_IT/job/3949",
       "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3949/Application/New/1?DesignID=00&lang=ita",
       "company": "Hoval",
@@ -384,7 +415,10 @@
         "translation": 21,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -459,7 +493,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
