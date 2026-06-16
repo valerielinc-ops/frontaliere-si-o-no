@@ -1920,6 +1920,7 @@ aside.seo-footer-block .seo-fb-section-body a:hover,
 .bw-chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
 .bw-chip-co{background:var(--color-accent-subtle);color:var(--color-accent)}
 .bw-chip-va{background:var(--color-warning-subtle);color:var(--color-warning)}
+.bw-chip-ve{background:var(--color-info-subtle);color:var(--color-info)}
 @media (prefers-reduced-motion:no-preference){.bw-live-dot{animation:bw-pulse 1.8s ease-in-out infinite}@keyframes bw-pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.6)}}}
 
 /* faqHubPlugin: FAQ hub layout (uses --token,#hex fallbacks verbatim) */

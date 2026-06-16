@@ -7,7 +7,7 @@
  *   DE: /de/grenzgaenger-ratgeber/live-grenzuebergaenge-karte/
  *   FR: /fr/guide-frontalier/carte-live-passages-frontaliers/
  *
- * Each page reuses the border-wait dataset (24 crossings, 2 regions) from
+ * Each page reuses the border-wait dataset (26 crossings, 3 regions) from
  * build-plugins/borderWaitData.ts — no new data source needed.
  *
  * Designed as a LINKBAIT asset (Workstream E.1c):
@@ -15,7 +15,7 @@
  *   - "Link back" callout with plain-text citation format
  *   - BreadcrumbList + Map + Place[] structured data
  *   - Hand-written editorial per locale (≥600 words)
- *   - Table of all 24 crossings with per-crossing link to /traffico-dogane/...
+ *   - Table of all 26 crossings with per-crossing link to /traffico-dogane/...
  *
  * Anti-doorway: the editorial body is locale-specific (no templated duplication
  * across locales). Static HTML is self-contained and degrades gracefully.
@@ -49,6 +49,7 @@ import {
   BORDER_WAIT_TODAY_SLUG,
   type BorderWaitLocale,
   type BorderCrossingSlug,
+  type BorderCrossingRegion,
 } from './borderWaitData';
 
 // ── URL slugs for the map hub page ────────────────────────────────
@@ -87,6 +88,7 @@ interface Copy {
   crossingsP: string;
   comoRegionLabel: string;
   vareseRegionLabel: string;
+  verbanoRegionLabel: string;
   bestTimesH2: string;
   bestTimesP: string;
   bestTime1: string;
@@ -140,14 +142,15 @@ interface Copy {
 const COPY: Record<BorderWaitLocale, Copy> = {
   it: {
     title: 'Mappa live valichi di frontiera — Tempi d\'attesa in tempo reale | Frontaliere Ticino',
-    description: "Mappa interattiva dei 24 valichi di frontiera Italia-Svizzera con tempi di attesa live aggiornati ogni 15 minuti. Storia 7 giorni, orari ottimali, embed code per siti e blog.",
+    description: "Mappa interattiva dei 26 valichi di frontiera Italia-Svizzera con tempi di attesa live aggiornati ogni 15 minuti. Storia 7 giorni, orari ottimali, embed code per siti e blog.",
     h1: 'Mappa live valichi di frontiera',
-    ledeP1: "Questa pagina raccoglie la mappa live di tutti i 24 valichi di frontiera tra Italia e Svizzera usati quotidianamente dai frontalieri. I tempi di attesa vengono aggiornati automaticamente ogni 15 minuti durante le ore di punta (6:00-9:00 e 16:30-19:30 CET) tramite dati di traffico TomTom abbinati a segnalazioni visive delle webcam ASTRA e Polizia Cantonale Ticino. Non troverai qui stime sample o medie storiche: le cifre che leggi sono il flusso effettivo misurato negli ultimi minuti su ciascun punto di confine.",
-    ledeP2: "La copertura geografica è pensata per i due bacini principali del lavoro frontaliero ticinese: l'asse Como-Ticino (12 valichi, dalla Chiasso Brogeda autostradale ai passi minori di montagna) e l'asse Varese-Ticino (12 valichi, dal Gaggiolo industriale fino ai valichi della Valtellina). Per ogni valico trovi il link diretto alla pagina con la timeline completa delle ultime 24 ore e lo storico settimanale — utile per capire i giorni e gli orari con meno code prima di pianificare lo spostamento.",
-    crossingsH2: 'I 24 valichi coperti',
+    ledeP1: "Questa pagina raccoglie la mappa live di tutti i 26 valichi di frontiera tra Italia e Svizzera usati quotidianamente dai frontalieri. I tempi di attesa vengono aggiornati automaticamente ogni 15 minuti durante le ore di punta (6:00-9:00 e 16:30-19:30 CET) tramite dati di traffico TomTom abbinati a segnalazioni visive delle webcam ASTRA e Polizia Cantonale Ticino. Non troverai qui stime sample o medie storiche: le cifre che leggi sono il flusso effettivo misurato negli ultimi minuti su ciascun punto di confine.",
+    ledeP2: "La copertura geografica è pensata per i tre bacini principali del lavoro frontaliero ticinese: l'asse Como-Ticino (12 valichi, dalla Chiasso Brogeda autostradale ai passi minori di montagna), l'asse Varese-Ticino (12 valichi, dal Gaggiolo industriale fino ai valichi della Valtellina) e l'asse Verbano-Ticino (2 valichi, dalla Centovalli al Lago Maggiore). Per ogni valico trovi il link diretto alla pagina con la timeline completa delle ultime 24 ore e lo storico settimanale — utile per capire i giorni e gli orari con meno code prima di pianificare lo spostamento.",
+    crossingsH2: 'I 26 valichi coperti',
     crossingsP: "Di seguito tutti i valichi monitorati, divisi per regione. Clicca sul nome per vedere i tempi di attesa in tempo reale, lo storico delle ultime 24 ore e le webcam live (dove disponibili).",
     comoRegionLabel: 'Area Como (Mendrisiotto)',
     vareseRegionLabel: 'Area Varese (Malcantone, Luganese)',
+    verbanoRegionLabel: 'Area Verbano (Centovalli, Lago Maggiore)',
     bestTimesH2: "Orari ottimali: quando passare per evitare le code",
     bestTimesP: "Dai dati aggregati degli ultimi 12 mesi emergono quattro finestre chiave per i frontalieri. Sono valide nei giorni lavorativi (lun-ven) e cambiano marginalmente il lunedì e il venerdì.",
     bestTime1: "La finestra mattutina migliore va dalle 5:45 alle 6:15: prima del picco vero e proprio, con tempi di attesa generalmente sotto i 5 minuti anche a Chiasso Brogeda e Gaggiolo.",
@@ -194,14 +197,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
   },
   en: {
     title: 'Live border crossings map — Real-time wait times | Frontaliere Ticino',
-    description: "Interactive live map of the 24 border crossings between Italy and Switzerland, refreshed every 15 minutes. 7-day history, best commute windows, embed code for blogs and media.",
+    description: "Interactive live map of the 26 border crossings between Italy and Switzerland, refreshed every 15 minutes. 7-day history, best commute windows, embed code for blogs and media.",
     h1: 'Live border crossings map',
-    ledeP1: "This page gathers the live map of all 24 border crossings between Italy and Switzerland used daily by cross-border commuters (frontalieri). Wait times are refreshed automatically every 15 minutes during peak commuting windows (6:00–9:00 and 16:30–19:30 CET), using TomTom traffic data cross-checked against visual snapshots from ASTRA and Polizia Cantonale Ticino webcams. You won't find sample estimates or historical averages here: the numbers are the actual flow measured in the last minutes on each border point.",
-    ledeP2: "The geographic coverage is designed for the two main catchment areas of Ticino cross-border work: the Como–Ticino axis (12 crossings, from motorway Chiasso Brogeda to minor mountain passes) and the Varese–Ticino axis (12 crossings, from industrial Gaggiolo down to the Valtellina crossings). Each crossing has a direct link to its own page showing the full 24-hour timeline and weekly history — handy to spot the days and hours with fewer queues before planning the commute.",
-    crossingsH2: 'The 24 monitored crossings',
+    ledeP1: "This page gathers the live map of all 26 border crossings between Italy and Switzerland used daily by cross-border commuters (frontalieri). Wait times are refreshed automatically every 15 minutes during peak commuting windows (6:00–9:00 and 16:30–19:30 CET), using TomTom traffic data cross-checked against visual snapshots from ASTRA and Polizia Cantonale Ticino webcams. You won't find sample estimates or historical averages here: the numbers are the actual flow measured in the last minutes on each border point.",
+    ledeP2: "The geographic coverage is designed for the three main catchment areas of Ticino cross-border work: the Como–Ticino axis (12 crossings, from motorway Chiasso Brogeda to minor mountain passes), the Varese–Ticino axis (12 crossings, from industrial Gaggiolo down to the Valtellina crossings) and the Verbano–Ticino axis (2 crossings, from the Centovalli to Lake Maggiore). Each crossing has a direct link to its own page showing the full 24-hour timeline and weekly history — handy to spot the days and hours with fewer queues before planning the commute.",
+    crossingsH2: 'The 26 monitored crossings',
     crossingsP: "Below all monitored crossings, grouped by region. Click the name to see real-time wait times, the last 24-hour timeline and live webcams (where available).",
     comoRegionLabel: 'Como area (Mendrisiotto)',
     vareseRegionLabel: 'Varese area (Malcantone, Luganese)',
+    verbanoRegionLabel: 'Verbano area (Centovalli, Lago Maggiore)',
     bestTimesH2: 'Best commute windows: when to cross to avoid queues',
     bestTimesP: "Aggregated data from the last 12 months points to four key windows for cross-border commuters. They hold on weekdays (Mon–Fri) and shift marginally on Mondays and Fridays.",
     bestTime1: "The best morning window is 5:45–6:15: ahead of the real peak, wait times are usually under 5 minutes even at Chiasso Brogeda and Gaggiolo.",
@@ -248,14 +252,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
   },
   de: {
     title: 'Live-Karte Grenzübergänge — Echtzeit-Wartezeiten | Frontaliere Ticino',
-    description: "Interaktive Live-Karte der 24 Grenzübergänge zwischen Italien und der Schweiz, alle 15 Minuten aktualisiert. 7-Tage-Verlauf, beste Pendelfenster, Embed-Code für Blogs und Medien.",
+    description: "Interaktive Live-Karte der 26 Grenzübergänge zwischen Italien und der Schweiz, alle 15 Minuten aktualisiert. 7-Tage-Verlauf, beste Pendelfenster, Embed-Code für Blogs und Medien.",
     h1: 'Live-Karte der Grenzübergänge',
-    ledeP1: "Diese Seite bündelt die Live-Karte aller 24 Grenzübergänge zwischen Italien und der Schweiz, die täglich von Grenzgängern genutzt werden. Die Wartezeiten werden in Spitzenzeiten (6:00–9:00 und 16:30–19:30 MEZ) automatisch alle 15 Minuten aktualisiert — TomTom-Verkehrsdaten werden mit visuellen Aufnahmen der ASTRA- und Polizia-Cantonale-Ticino-Webcams abgeglichen. Hier finden Sie keine Stichprobenschätzungen oder historischen Mittelwerte: Die Zahlen zeigen den tatsächlichen Fluss der letzten Minuten pro Grenzpunkt.",
-    ledeP2: "Die geografische Abdeckung folgt den zwei Haupt-Einzugsgebieten der Tessiner Grenzgänger-Arbeit: die Achse Como–Tessin (12 Übergänge, vom Autobahn-Chiasso Brogeda bis zu kleinen Bergpässen) und die Achse Varese–Tessin (12 Übergänge, vom industriellen Gaggiolo bis zu den Valtellina-Übergängen). Jeder Übergang hat einen direkten Link zu seiner eigenen Seite mit vollständiger 24-Stunden-Timeline und Wochenverlauf — nützlich, um Tage und Stunden mit weniger Staus vor der Planung zu erkennen.",
-    crossingsH2: 'Die 24 überwachten Übergänge',
+    ledeP1: "Diese Seite bündelt die Live-Karte aller 26 Grenzübergänge zwischen Italien und der Schweiz, die täglich von Grenzgängern genutzt werden. Die Wartezeiten werden in Spitzenzeiten (6:00–9:00 und 16:30–19:30 MEZ) automatisch alle 15 Minuten aktualisiert — TomTom-Verkehrsdaten werden mit visuellen Aufnahmen der ASTRA- und Polizia-Cantonale-Ticino-Webcams abgeglichen. Hier finden Sie keine Stichprobenschätzungen oder historischen Mittelwerte: Die Zahlen zeigen den tatsächlichen Fluss der letzten Minuten pro Grenzpunkt.",
+    ledeP2: "Die geografische Abdeckung folgt den drei Haupt-Einzugsgebieten der Tessiner Grenzgänger-Arbeit: die Achse Como–Tessin (12 Übergänge, vom Autobahn-Chiasso Brogeda bis zu kleinen Bergpässen), die Achse Varese–Tessin (12 Übergänge, vom industriellen Gaggiolo bis zu den Valtellina-Übergängen) und die Achse Verbano–Tessin (2 Übergänge, von der Centovalli zum Lago Maggiore). Jeder Übergang hat einen direkten Link zu seiner eigenen Seite mit vollständiger 24-Stunden-Timeline und Wochenverlauf — nützlich, um Tage und Stunden mit weniger Staus vor der Planung zu erkennen.",
+    crossingsH2: 'Die 26 überwachten Übergänge',
     crossingsP: "Unten alle überwachten Übergänge, nach Region gruppiert. Klicken Sie auf den Namen für Echtzeit-Wartezeiten, die letzten 24 Stunden und Live-Webcams (sofern verfügbar).",
     comoRegionLabel: 'Raum Como (Mendrisiotto)',
     vareseRegionLabel: 'Raum Varese (Malcantone, Luganese)',
+    verbanoRegionLabel: 'Raum Verbano (Centovalli, Lago Maggiore)',
     bestTimesH2: 'Beste Pendelfenster: wann Sie die Staus umgehen',
     bestTimesP: "Aggregierte Daten der letzten 12 Monate zeigen vier Schlüsselfenster für Pendler. Sie gelten werktags (Mo–Fr) und verschieben sich marginal montags und freitags.",
     bestTime1: "Das beste Morgenfenster ist 5:45–6:15: Vor dem eigentlichen Peak liegen die Wartezeiten selbst in Chiasso Brogeda und Gaggiolo meist unter 5 Minuten.",
@@ -302,14 +307,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
   },
   fr: {
     title: "Carte live des passages frontaliers — Temps d'attente en temps réel | Frontaliere Ticino",
-    description: "Carte interactive des 24 passages frontaliers Italie-Suisse, actualisée toutes les 15 minutes. Historique 7 jours, meilleures fenêtres de trajet, code embed pour blogs et médias.",
+    description: "Carte interactive des 26 passages frontaliers Italie-Suisse, actualisée toutes les 15 minutes. Historique 7 jours, meilleures fenêtres de trajet, code embed pour blogs et médias.",
     h1: 'Carte live des passages frontaliers',
-    ledeP1: "Cette page rassemble la carte live des 24 passages frontaliers entre l'Italie et la Suisse empruntés quotidiennement par les frontaliers. Les temps d'attente sont rafraîchis automatiquement toutes les 15 minutes en heures de pointe (6:00–9:00 et 16:30–19:30 CET), à l'aide des données trafic TomTom recoupées avec des captures visuelles des webcams ASTRA et Polizia Cantonale Ticino. Vous ne trouverez pas ici d'estimations sur échantillon ou de moyennes historiques : les chiffres sont le flux réel mesuré dans les dernières minutes sur chaque point de frontière.",
-    ledeP2: "La couverture géographique couvre les deux principaux bassins du travail frontalier tessinois : l'axe Côme–Tessin (12 passages, de l'autoroute Chiasso Brogeda aux petits cols de montagne) et l'axe Varèse–Tessin (12 passages, de l'industriel Gaggiolo jusqu'aux passages de la Valtellina). Chaque passage possède un lien direct vers sa propre page affichant la timeline complète des 24 dernières heures et l'historique hebdomadaire — utile pour repérer les jours et horaires les moins chargés avant de planifier le trajet.",
-    crossingsH2: 'Les 24 passages surveillés',
+    ledeP1: "Cette page rassemble la carte live des 26 passages frontaliers entre l'Italie et la Suisse empruntés quotidiennement par les frontaliers. Les temps d'attente sont rafraîchis automatiquement toutes les 15 minutes en heures de pointe (6:00–9:00 et 16:30–19:30 CET), à l'aide des données trafic TomTom recoupées avec des captures visuelles des webcams ASTRA et Polizia Cantonale Ticino. Vous ne trouverez pas ici d'estimations sur échantillon ou de moyennes historiques : les chiffres sont le flux réel mesuré dans les dernières minutes sur chaque point de frontière.",
+    ledeP2: "La couverture géographique couvre les trois principaux bassins du travail frontalier tessinois : l'axe Côme–Tessin (12 passages, de l'autoroute Chiasso Brogeda aux petits cols de montagne), l'axe Varèse–Tessin (12 passages, de l'industriel Gaggiolo jusqu'aux passages de la Valtellina) et l'axe Verbano–Tessin (2 passages, de la Centovalli au Lac Majeur). Chaque passage possède un lien direct vers sa propre page affichant la timeline complète des 24 dernières heures et l'historique hebdomadaire — utile pour repérer les jours et horaires les moins chargés avant de planifier le trajet.",
+    crossingsH2: 'Les 26 passages surveillés',
     crossingsP: "Ci-dessous tous les passages surveillés, groupés par région. Cliquez sur le nom pour voir les temps d'attente en temps réel, les 24 dernières heures et les webcams live (lorsque disponibles).",
     comoRegionLabel: 'Zone Côme (Mendrisiotto)',
     vareseRegionLabel: 'Zone Varèse (Malcantone, Luganese)',
+    verbanoRegionLabel: 'Zone Verbano (Centovalli, Lac Majeur)',
     bestTimesH2: 'Meilleures fenêtres de trajet : quand passer pour éviter les files',
     bestTimesP: "Les données agrégées des 12 derniers mois indiquent quatre fenêtres clés pour les frontaliers. Elles valent en semaine (lun–ven) et changent marginalement le lundi et le vendredi.",
     bestTime1: "La meilleure fenêtre matinale est 5:45–6:15 : avant le véritable pic, les temps d'attente sont généralement inférieurs à 5 minutes même à Chiasso Brogeda et Gaggiolo.",
@@ -376,9 +382,18 @@ function renderCrossingsTable(locale: BorderWaitLocale, copy: Copy): string {
   const rows = crossings.map((slug) => {
     const name = BORDER_CROSSING_DISPLAY[slug];
     const region = CROSSING_TO_REGION[slug];
-    const isComo = region === 'ticino-como';
-    const regionLabel = isComo ? copy.comoRegionLabel : copy.vareseRegionLabel;
-    const chipClass = isComo ? 'bw-chip bw-chip-co' : 'bw-chip bw-chip-va';
+    const regionLabelByRegion: Record<BorderCrossingRegion, string> = {
+      'ticino-como': copy.comoRegionLabel,
+      'ticino-varese': copy.vareseRegionLabel,
+      'ticino-verbano': copy.verbanoRegionLabel,
+    };
+    const chipClassByRegion: Record<BorderCrossingRegion, string> = {
+      'ticino-como': 'bw-chip bw-chip-co',
+      'ticino-varese': 'bw-chip bw-chip-va',
+      'ticino-verbano': 'bw-chip bw-chip-ve',
+    };
+    const regionLabel = regionLabelByRegion[region];
+    const chipClass = chipClassByRegion[region];
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     return `<tr>
       <td class="s-tcl" style="font-weight:600;color:var(--color-heading)">${esc(name)}</td>

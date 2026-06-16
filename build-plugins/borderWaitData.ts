@@ -54,13 +54,15 @@ export type BorderCrossingSlug =
   | 'luino-fornasette'
   | 'zenna-dirinella'
   | 'biegno-indemini'
-  | 'dumenza-cassinone';
+  | 'dumenza-cassinone'
+  | 'camedo'
+  | 'piaggio-valmara';
 
-export type BorderCrossingRegion = 'ticino-como' | 'ticino-varese';
+export type BorderCrossingRegion = 'ticino-como' | 'ticino-varese' | 'ticino-verbano';
 
 export const BORDER_WAIT_LOCALES: readonly BorderWaitLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
-/** Full crossing registry (24) — must match ALL_BORDER_CROSSING_IDS in router.ts. */
+/** Full crossing registry (26) — must match ALL_BORDER_CROSSING_IDS in router.ts. */
 export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'chiasso-centro',
   'chiasso-brogeda',
@@ -86,6 +88,8 @@ export const BORDER_WAIT_CROSSINGS: readonly BorderCrossingSlug[] = [
   'zenna-dirinella',
   'biegno-indemini',
   'dumenza-cassinone',
+  'camedo',
+  'piaggio-valmara',
 ] as const;
 
 /** Top-5 crossings eligible for monthly archive pages (highest GSC demand). */
@@ -123,6 +127,8 @@ export const BORDER_CROSSING_DISPLAY: Record<BorderCrossingSlug, string> = {
   'zenna-dirinella': 'Zenna Dirinella',
   'biegno-indemini': 'Biegno Indemini',
   'dumenza-cassinone': 'Dumenza Cassinone',
+  camedo: 'Camedo (Re-Centovalli)',
+  'piaggio-valmara': 'Piaggio Valmara (Cannobio-Brissago)',
 };
 
 /** Regional grouping by Italian province. */
@@ -151,6 +157,8 @@ export const CROSSING_TO_REGION: Record<BorderCrossingSlug, BorderCrossingRegion
   'zenna-dirinella': 'ticino-varese',
   'biegno-indemini': 'ticino-varese',
   'dumenza-cassinone': 'ticino-varese',
+  camedo: 'ticino-verbano',
+  'piaggio-valmara': 'ticino-verbano',
 };
 
 /** Closest fuel-daily zone for each crossing (used by related-links helper). */
@@ -179,6 +187,8 @@ export const CROSSING_TO_FUEL_ZONE: Record<BorderCrossingSlug, 'chiasso' | 'mend
   'zenna-dirinella': 'lugano',
   'biegno-indemini': 'lugano',
   'dumenza-cassinone': 'lugano',
+  camedo: 'lugano',
+  'piaggio-valmara': 'lugano',
 };
 
 /** Closest weekly-employers city slug for each crossing. */
@@ -210,6 +220,8 @@ export const CROSSING_TO_WEEKLY_CITY: Record<
   'zenna-dirinella': 'lugano',
   'biegno-indemini': 'lugano',
   'dumenza-cassinone': 'lugano',
+  camedo: 'lugano',
+  'piaggio-valmara': 'lugano',
 };
 
 // ── URL slug tables ───────────────────────────────────────────────
@@ -238,11 +250,12 @@ export const BORDER_WAIT_TODAY_SLUG: Record<BorderWaitLocale, string> = {
 };
 
 /** Regional hub slugs (ticino-como / ticino-varese) — same across locales. */
-export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese'] as const;
+export const BORDER_WAIT_REGIONS: readonly BorderCrossingRegion[] = ['ticino-como', 'ticino-varese', 'ticino-verbano'] as const;
 
 export const BORDER_REGION_DISPLAY: Record<BorderCrossingRegion, string> = {
   'ticino-como': 'Ticino — Como',
   'ticino-varese': 'Ticino — Varese',
+  'ticino-verbano': 'Ticino — Verbano',
 };
 
 // ── Path builders ─────────────────────────────────────────────────
@@ -293,7 +306,7 @@ export function buildArchivePath(
  * services/router.ts so unknown `/traffico-dogane/...` URLs resolve to a known
  * route (guida/border sub-tab) instead of falling through to 404.
  *
- * Count: 4 locales × (1 root + 2 regional + 24 crossings) = 108 canonical paths.
+ * Count: 4 locales × (1 root + 3 regional + 26 crossings) = 120 canonical paths.
  */
 export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   const out: string[] = [];
