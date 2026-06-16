@@ -203,17 +203,19 @@ describe('seo source files parse contract (real files)', () => {
     // BASE_URL — any `."identifier"(` that is not a schema key. The leading
     // `.` after a value is the tell (e.g. `.slice(`, `.replace(`, `.toLowerCase(`).
     const methodCallRx = /\.[a-zA-Z_$][\w$]*\s*\(/;
-    const lineCommentRx = /(^|[^:'"])\/\/[^\n]*/m; // `//` not preceded by `:` (avoid https://)
+    // `//` anywhere in the SD (leading OR trailing comment). Both break
+    // jsToJson→JSON.parse identically. Run on the string-stripped form so
+    // `https://` inside string values is already gone (no false positives).
+    const lineCommentRx = /\/\//;
     const offenders: string[] = [];
     for (const [cp, { sd }] of entries) {
       if (!sd) continue;
-      if (/(^|\n)\s*\/\//.test(sd)) offenders.push(`${cp}: inline // comment in structuredData`);
-      // Strip string literals before scanning for method calls (URLs contain `(` rarely, but be safe).
+      // Strip string literals first; whatever `//` or `.method(` survives is real code.
       const noStrings = sd.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`[^`]*`/g, '""');
+      if (lineCommentRx.test(noStrings)) offenders.push(`${cp}: inline // comment in structuredData`);
       if (methodCallRx.test(noStrings)) offenders.push(`${cp}: JS method-call in structuredData`);
     }
     expect(offenders, `structuredData parse-breakers (jsToJson would silently drop these):\n${offenders.join('\n')}`).toEqual([]);
-    expect(lineCommentRx).toBeTruthy(); // keep ref used; documents the `//` shape we guard
   });
 
   it('/supporto/ and /metodologia/ structuredData parse to their declared @type', () => {
