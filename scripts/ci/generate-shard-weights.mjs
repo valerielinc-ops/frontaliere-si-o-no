@@ -28,7 +28,11 @@ import path from 'node:path';
 const args = process.argv.slice(2);
 const outIdx = args.indexOf('--out');
 const outPath = outIdx >= 0 ? args[outIdx + 1] : 'tests/shard-weights.json';
-const inputs = args.filter((a, i) => a !== '--out' && i !== outIdx + 1 && !a.startsWith('--'));
+// Exclude any `--flag`, and the value following `--out` ONLY when `--out` is
+// present. The guard must be `outIdx >= 0 && i === outIdx + 1`: a bare
+// `i !== outIdx + 1` drops index 0 when `--out` is absent (outIdx === -1 →
+// outIdx + 1 === 0), silently discarding the first timing JSON.
+const inputs = args.filter((a, i) => !a.startsWith('--') && !(outIdx >= 0 && i === outIdx + 1));
 
 if (inputs.length === 0) {
   console.error('usage: generate-shard-weights.mjs <vitest-timing.json...> [--out <path>]');
