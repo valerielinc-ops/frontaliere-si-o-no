@@ -262,7 +262,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:30:22.455Z",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 167500,
       "baseSalary": {
@@ -333,7 +332,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T22:30:22.210Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -537,7 +535,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -605,7 +602,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:07:08.240Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 63000,
       "baseSalary": {
@@ -827,7 +823,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:44.131Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -849,9 +844,9 @@
       "slug": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
-        "en": "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
+        "en": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel",
         "de": "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
-        "fr": "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
+        "fr": "interne-r-revisorin-revisor-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -887,7 +882,9 @@
       "crawledAt": "2026-06-15T23:07:06.449Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel"
+        "interne-r-revisorin-revisor-alle-senioritaetsstufen-hilcona-basel",
+        "interne-r-revisorin-revisor-all-seniority-levels-bell-schweiz-ag-basel",
+        "interieur-r-revisorin-reviseur-alle-senioritaetsstufen-bell-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -901,7 +898,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:43.890Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -1773,7 +1769,6 @@
         ]
       },
       "firstSeenAt": "2026-05-20T23:07:42.400Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -2023,7 +2018,7 @@
       "id": "hilcona-3e7e02ff1b7a",
       "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
-        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
         "fr": "electricien-d-installation-geiser-ag-schlieren"
@@ -2063,20 +2058,19 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "elettrotecnico-di-impianto-geiser-ag-schlieren",
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
-          "electricien-d-installation-geiser-ag-schlieren"
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-11T22:14:05.649Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -2513,7 +2507,17 @@
       "sourceLang": "de",
       "previousSlugs": [
         "verantwortlicher-produktion-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
-        "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
+        "verantwortlicher-produktion-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "capo-della-produzione-bell-suisse-sa-cheseaux-sur-lausanne",
+        "leiterin-produktion-hilcona-cheseaux-sur-lausanne",
+        "head-of-production-bell-suisse-sa-cheseaux-sur-lausanne",
+        "chef-de-la-production-bell-suisse-sa-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "technical-manager-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell",
+        "responsable-technique-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+        "responsabile-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3101,7 +3105,6 @@
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
       ],
       "firstSeenAt": "2026-04-24T21:45:49.790Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -3122,7 +3125,7 @@
       "id": "hilcona-277ed76f4a2e",
       "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
-        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
         "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
@@ -3167,20 +3170,19 @@
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
         ],
         "fr": [
-          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
-          "electricien-en-service-bell-schweiz-ag-oensingen"
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ]
       },
       "firstSeenAt": "2026-05-19T22:27:14.053Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -3958,7 +3960,6 @@
         "dans-100-eisberg-ag-dallikon"
       ],
       "firstSeenAt": "2026-04-13T21:51:20.728Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -4873,7 +4874,6 @@
         "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-26T23:03:17.579Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -5451,7 +5451,6 @@
         "sprachcoach-deutsch-franzoesisch-e-englisch-bell-schweiz-ag-oensingen"
       ],
       "firstSeenAt": "2026-04-13T10:42:51.182Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -5842,7 +5841,16 @@
       "previousSlugs": [
         "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-oensingen",
         "teamleiter-teamleiterin-elektrotechnik-und-automation-bell-schweiz-ag-oensingen",
-        "teamleiter-teamleiterin-elektrotechnik-e-automation-bell-schweiz-ag-oensingen"
+        "teamleiter-teamleiterin-elektrotechnik-e-automation-bell-schweiz-ag-oensingen",
+        "team-leader-rhb-oensingen-bell-schweiz-ag-oensingen",
+        "teamleiter-teamleiterin-warenlager-rhb-oensingen-bell-schweiz-ag-oensingen",
+        "chef-d-equipe-rhb-oensingen-bell-schweiz-ag-oensingen",
+        "teamleiter-teamleiterin-warenlager-rhb-oensingen-hilcona-oensingen",
+        "responsabile-commissione-oensingen-bell-schweiz-ag-oensingen",
+        "commissioning-team-leader-oensingen-bell-schweiz-ag-oensingen",
+        "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-bell-schweiz-ag-oensingen",
+        "responsable-de-la-commission-oensingen-bell-schweiz-ag-oensingen",
+        "teamleiter-teamleiterin-kommissionierung-neubau-oensingen-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-19T22:27:01.621Z",
       "salaryMin": 71000,
@@ -6013,7 +6021,6 @@
         "technologie-du-personnel-et-gestion-du-materiel-geiser-ag-schlieren"
       ],
       "firstSeenAt": "2026-05-22T11:51:42.428Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "baseSalary": {
@@ -6533,17 +6540,17 @@
       "companyDomain": "bellfoodgroup.com",
       "title": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
       "titleByLocale": {
-        "de": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
+        "de": "Betriebselektriker in Neubau Oensingen",
         "en": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
-        "it": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
-        "fr": "Betriebselektriker Betriebselektrikerin Neubau Oensingen"
+        "it": "Elettricista aziendale Elettricista aziendale Nuova costruzione Oensingen",
+        "fr": "Électricien d'exploitation Électricienne d'exploitation Nouvelle construction Oensingen"
       },
       "description": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
       "descriptionByLocale": {
         "de": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "it": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "en": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift",
-        "fr": "Du bist verantwortungsbewusst und hast Freude an neuen Herausforderungen? Dann suchen wir dich als Betriebselektriker / Betriebselektrikerin an unserem neuen Standort in Oensingen. In dieser Position sicherst du die Betriebsbereitschaft unserer hochmodernen Produktionsanlagen und gestaltest ein neues Werk von Beginn an mit. So trägst du entscheidend zum Erfolg unseres Standorts bei. Aufgaben:\n• Wartung, Unterhalt und Störungsbehebung in der Elektroinfrastruktur und auf Produktions- und Logistikanlagen\n• Laufende Optimierung der Maschinen und Anlagen\n• Reduktion der Ausfallzeiten und Stillstände\n• Mitverantwortlich für Dokumentation an Maschinen und Anlagen im Fachbereich\n• Dokumentation und Bewirtschaftung der Aufträge und Rückmeldungen mit unserem Instandhaltungsprogramm Anforderungen:\n• Abgeschlossene Grundausbildung als Elektro- Installateur oder - Monteur o.Ä\n• Anschlussbewilligung NIV. Art. 13 von Vorteil\n• Erfahrung mit SPS-Siemens-Steuerungen mit Schwerpunkt Störungsanalyse\n• Flexibel bezüglich unregelmässigen Arbeitseinsätzen (3-Schichtarbeit und Piketteinsätze)\n• Gute Deutschkenntnisse in Wort und Schrift"
+        "it": "Sei responsabile e ti stai godendo di nuove sfide? Allora ti stiamo cercando come elettricista della nostra nuova sede a Oensingen. In questa posizione, assicura la disponibilità operativa dei nostri impianti di produzione all'avanguardia e aiuta a progettare un nuovo impianto fin dall'inizio. In questo modo, apportate un contributo decisivo al successo della nostra posizione. Compiti: • Manutenzione, manutenzione e risoluzione dei problemi nell'infrastruttura elettrica e negli impianti di produzione e logistica • Ottimizzazione continua di macchine e impianti • Riduzione dei tempi di fermo e dei tempi di fermo • Co-responsabile per la documentazione su macchine e impianti nell'area specializzata • Documentazione e gestione degli ordini e feedback con il nostro programma di manutenzione Requisiti: • Formazione di base completa come installatore elettrico o montante o equivalente • Collegamento permesso NIV. Art. 13 del Vantaggio • Esperienza con i controlli SPS Siemens con particolare attenzione all'analisi dei guasti • Flessibile per quanto riguarda gli incarichi di lavoro irregolari (3 turni e inserti piquette) • Buona conoscenza del tedesco nelle parole e nella scrittura",
+        "en": "Are you responsible and enjoying new challenges? Then we are looking for you as a company electrician at our new location in Oensingen. In this position, you ensure the operational readiness of our state-of-the-art production facilities and help design a new plant right from the start. In this way, you make a decisive contribution to the success of our location. Tasks: • Maintenance, maintenance and troubleshooting in the electrical infrastructure and on production and logistics plants • Ongoing optimization of machines and plants • Reduction of downtimes and downtimes • Co-responsible for documentation on machines and plants in the specialist area • Documentation and management of orders and feedback with our maintenance program Requirements: • Completed basic training as an electrical installer or fitter or equivalent • Connection permit NIV. Art. 13 of Advantage • Experience with SPS Siemens controls with focus on fault analysis • Flexible with regard to irregular work assignments (3 shift work and piquette inserts) • Good knowledge of German in words and writing",
+        "fr": "Êtes-vous responsable et profitez de nouveaux défis? Ensuite, nous vous recherchons en tant qu'électricien d'entreprise à notre nouvel emplacement à Oensingen. Dans cette position, vous assurez la disponibilité opérationnelle de nos installations de production de pointe et aidez à concevoir une nouvelle usine dès le début. De cette façon, vous apportez une contribution décisive au succès de notre emplacement. Tâches: • Maintenance, maintenance et dépannage dans l'infrastructure électrique et sur les installations de production et de logistique • Optimisation continue des machines et des installations • Réduction des temps d'arrêt et des temps d'arrêt • Co-responsable de la documentation sur les machines et les installations dans le domaine spécialisé • Documentation et gestion des commandes et rétroaction avec notre programme de maintenance Exigences: • Formation de base complétée en tant qu'installateur ou installateur électrique ou équivalent • Permis de connexion NIV. Art. 13 de l'avantage • Expérience avec les contrôles SPS Siemens en mettant l'accent sur l'analyse des défauts • Flexible en ce qui concerne les tâches irrégulières (3 postes et piquettes) • Bonne connaissance de l'allemand en mots et en écriture"
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -6565,16 +6572,33 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen"
+          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ],
         "de": [
-          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen"
+          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
+          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+          "betriebselektriker-betriebselektrikerin-hilcona-oensingen"
+        ],
+        "en": [
+          "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
+        "elettricista-operativo-bell-schweiz-ag-oensingen",
+        "electricien-en-service-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
+        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
+        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
       ],
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7072,7 +7096,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:15:24.657Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7155,7 +7178,6 @@
         "operational-technology-bell-schweiz-ag-basel"
       ],
       "firstSeenAt": "2026-05-29T12:38:10.738Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "baseSalary": {
@@ -7455,7 +7477,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:15:23.520Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -7535,7 +7556,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -8300,7 +8320,6 @@
         "fleischfachmann-fleischfachfrau-schlachtbetrieb-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.638Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
@@ -8379,7 +8398,6 @@
         "fleischfachmann-fleischfachfrau-zerlegerei-hilcona-oensingen"
       ],
       "firstSeenAt": "2026-05-20T23:07:14.371Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 95500,
       "baseSalary": {
