@@ -1,84 +1,7 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-06-16T00:07:24.997Z",
+  "assembledAt": "2026-06-16T14:38:08.658Z",
   "jobs": [
-    {
-      "id": "vitrea-gesundheit-cf862ecfe107",
-      "slug": "dietico-dietetica-80-100-vitrea-gesundheit-tschugg",
-      "slugByLocale": {
-        "it": "dietico-dietetica-80-100-vitrea-gesundheit-tschugg",
-        "en": "dietitian-80-100-vitrea-gesundheit-tschugg",
-        "de": "diatkoch-kochin-80-100-vitrea-gesundheit-tschugg",
-        "fr": "dieteticien-ne-80-100-vitrea-gesundheit-tschugg"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Diätkoch/köchin 80-100%",
-      "titleByLocale": {
-        "it": "Diético/Diétetica 80-100%",
-        "en": "Dietitian 80-100%",
-        "de": "Diätkoch/köchin 80-100%",
-        "fr": "Diététicien(ne) 80-100%"
-      },
-      "description": "Diätkoch/köchin 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Descrizione Fornello dieta 80-100% a Vitrea Health (ex VAMED Svizzera), Tschugg, Svizzera. - Orario di lavoro: part time / full time - Posizione: Tschugg - Area: Servizi di riabilitazione e assistenza - Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Health",
-        "en": "Descrizione Diet cooker 80-100% at Vitrea Health (formerly VAMED Switzerland), Tschugg, Switzerland. - Working time: part time / full time - Location: Tschugg - Area: Rehabilitation and care services - Application via the softgarden onlyfy.jobs career portal of Vitrea Health",
-        "de": "Diätkoch/köchin 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Descrizione Cuisinière 80-100% à Vitrea Health (anciennement VAMED Suisse), Tschugg, Suisse. - Temps de travail: temps partiel / temps plein - Lieu: Tschugg - Zone: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Health"
-      },
-      "needsRetranslation": false,
-      "location": "Tschugg",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/wz58c8m22dhm0dacc9omdzo032y10ux",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:22.670Z",
-      "addressLocality": "Tschugg",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/wz58c8m22dhm0dacc9omdzo032y10ux",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "diatkoch-kochin-80-100-vitrea-gesundheit-tschugg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "diatkoch-kochin-80-100-vitrea-gesundheit-tschugg"
-        ],
-        "en": [
-          "diatkoch-kochin-80-100-vitrea-gesundheit-tschugg"
-        ],
-        "fr": [
-          "diatkoch-kochin-80-100-vitrea-gesundheit-tschugg"
-        ]
-      },
-      "firstSeenAt": "2026-06-05T23:04:21.062Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "vitrea-gesundheit-2fea28d2b485",
       "slug": "responsabile-a-accoglienza-cultura-e-tempo-libero-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
@@ -111,7 +34,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/5qev3dakbv2ej0tom4b00wf0t9jifbu",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:20.855Z",
+      "crawledAt": "2026-06-16T14:38:06.484Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -182,12 +105,13 @@
         "de": "Physiotherapeut/in 60-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Tschugg, Schweiz.\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Tschugg\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
         "fr": "Descrizione Physiothérapeute 60-100% à Vitrea Health (anciennement VAMED Suisse), Tschugg, Suisse. - Temps de travail: temps partiel / temps plein - Lieu: Tschugg - Zone: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Health"
       },
+      "needsRetranslation": true,
       "location": "Tschugg",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/rrcdp03hbx7s5r04s77joj30qb7k60b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:19.061Z",
+      "crawledAt": "2026-06-16T14:38:04.974Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -261,7 +185,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/9t8m10s2vybvxynl2oye140rfnyulco",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:17.711Z",
+      "crawledAt": "2026-06-16T14:38:03.695Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -332,12 +256,13 @@
         "de": "Dipl. Pflegefachperson HF (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seewis im Prättigau, Schweiz.\n• Arbeitszeit: Vollzeit\n• Standort: Seewis im Prättigau\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
         "fr": "Descrizione Dipl. Infirmière HF (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Seewis im Prättigau, Suisse. Temps de travail: temps plein Lieu: Seewis dans le Prättigau Domaine: Services de réadaptation et de soins - Application via le portail de carrière softgarden onlyfy.jobs de Vitrea Gesundheit"
       },
+      "needsRetranslation": true,
       "location": "Seewis im Prättigau",
       "canton": "GR",
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/xyg85mmxmjs0i0ag0tnrus09ij54fmn",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:15.885Z",
+      "crawledAt": "2026-06-16T14:38:02.329Z",
       "addressLocality": "Seewis im Prättigau",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -414,7 +339,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fpk5ifrnwt03a95e8w5955lj5xxus1f",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:13.131Z",
+      "crawledAt": "2026-06-16T14:37:59.309Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -491,7 +416,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fm3pk0tcmcn1doy4ipmocp7trf3jcpo",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:11.344Z",
+      "crawledAt": "2026-06-16T14:37:57.930Z",
       "addressLocality": "Tschugg",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -568,7 +493,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pop9fv4abvypxd7itthskh4tkoekmk7",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:09.520Z",
+      "crawledAt": "2026-06-16T14:37:56.260Z",
       "addressLocality": "Zihlschlacht-Sitterdorf",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -631,7 +556,7 @@
       "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ylv2yis7kx04l0kd4x39q8p5fmsr09b",
       "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T00:07:07.717Z",
+      "crawledAt": "2026-06-16T14:37:54.542Z",
       "addressLocality": "Dussnang",
       "addressRegion": "GR",
       "addressCountry": "CH",
