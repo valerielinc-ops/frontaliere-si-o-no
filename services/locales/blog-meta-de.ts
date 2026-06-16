@@ -8091,6 +8091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: Gesundheitsabgabe; Abzug von Ristournen widerspricht Vereinbarungen mit Rom',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'Der teilweise Abzug vom Ristournen-Gewinn, der durch die Gesundheitsabgabe generiert wird, widerspricht den Vereinbarungen zwischen Bern und Rom hinsichtlich dieser Arbeitnehmer.',
     'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama des Luganersee',
+    'blog.article.tassa-salute-posizione-berna.title': 'Gesundheitssteuer und Rückerstattungen: Berner Position',
+    'blog.article.tassa-salute-posizione-berna.excerpt': 'Der Bundesrat betont, dass die Gesundheitssteuer keine Steuer ist und die Steuerabkommen mit Italien nicht verletzt.',
+    'blog.article.tassa-salute-posizione-berna.imageAlt': 'Regierungsgebäude in Bellinzona an einem sonnigen Tag',
 };
 
 export default blogMetaDe;
