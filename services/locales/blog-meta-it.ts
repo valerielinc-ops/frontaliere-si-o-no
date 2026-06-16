@@ -8096,6 +8096,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-posizione-berna.title': 'Tassa sulla salute e ristorni: la posizione di Berna',
     'blog.article.tassa-salute-posizione-berna.excerpt': 'Il Consiglio federale ribadisce che la tassa sulla salute non è un\'imposta e non viola gli accordi fiscali con l\'Italia.',
     'blog.article.tassa-salute-posizione-berna.imageAlt': 'Palazzo governativo di Bellinzona in una giornata di sole',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Tassa Salute Frontalieri: sindacati chiedono ritiro',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD e SYNDICOM chiedono il ritiro definitivo della tassa salute per i frontalieri, citando violazioni del trattato 2020 e doppia imposizione.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Sindacati italiani e svizzeri discutono sulla tassa salute frontalieri',
 };
 
 export default blogMetaIt;

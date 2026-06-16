@@ -8096,6 +8096,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-posizione-berna.title': 'Taxe sur la santé et remboursements : la position de Berne',
     'blog.article.tassa-salute-posizione-berna.excerpt': 'Le Conseil fédéral réaffirme que la taxe sur la santé n\'est pas un impôt et ne viole pas les accords fiscaux avec l\'Italie.',
     'blog.article.tassa-salute-posizione-berna.imageAlt': 'Bâtiment du gouvernement à Bellinzone par une journée ensoleillée',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.title': 'Tasse santé frontaliers: les syndicats demandent le retrait',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.excerpt': 'CGIL, CISL, UIL, UNIA, OCST, SYNA, VPOD et SYNDICOM demandent le retrait définitif de la taxe santé pour les frontaliers, invoquant des violations du traité de 2020 et une double imposition.',
+    'blog.article.tassa-salute-frontalieri-ritiro-richiesta.imageAlt': 'Syndicats italiens et suisses discutent de la taxe santé pour travailleurs transfrontaliers',
 };
 
 export default blogMetaFr;
