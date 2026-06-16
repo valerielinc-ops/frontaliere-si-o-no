@@ -444,9 +444,9 @@
       "slug": "med-assistente-pratica-in-urologia-spital-sts-thun",
       "slugByLocale": {
         "it": "med-assistente-pratica-in-urologia-spital-sts-thun",
-        "en": "med-praxisassistent-in-urologie-spital-sts-thun",
+        "en": "medical-practice-assistant-urology-spital-sts-thun",
         "de": "med-praxisassistent-in-urologie-spital-sts-thun",
-        "fr": "med-praxisassistent-in-urologie-spital-sts-thun"
+        "fr": "assistant-medical-en-urologie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -493,6 +493,12 @@
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-urologie-spital-sts-thun"
+        ],
+        "en": [
+          "med-praxisassistent-in-urologie-spital-sts-thun"
+        ],
+        "fr": [
+          "med-praxisassistent-in-urologie-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-06-10T23:28:07.034Z",
@@ -514,9 +520,9 @@
       "slug": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
       "slugByLocale": {
         "it": "psicologo-nella-cura-psichiatrica-dell-acuto-a-casa-pah-spital-sts-thun",
-        "en": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
+        "en": "psychologist-psychiatric-acute-treatment-at-home-pah-spital-sts-thun",
         "de": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun",
-        "fr": "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+        "fr": "psychologue-traitement-psychiatrique-aigu-a-domicile-hap-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -563,6 +569,12 @@
       "previousSlugsByLocale": {
         "it": [
           "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+        ],
+        "en": [
+          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
+        ],
+        "fr": [
+          "psycholog-in-psychiatrische-akutbehandlung-zu-hause-pah-spital-sts-thun"
         ]
       },
       "firstSeenAt": "2026-06-10T23:28:05.932Z",
@@ -581,12 +593,12 @@
     },
     {
       "id": "spital-sts-1825a6296755",
-      "slug": "sekretar-in-notfallzentrum-befristet-spital-sts-thun",
+      "slug": "segretario-centro-di-emergenza-temporaneo-spital-sts-thun",
       "slugByLocale": {
-        "it": "sekretar-in-notfallzentrum-befristet-spital-sts-thun",
-        "en": "sekretar-in-notfallzentrum-befristet-spital-sts-thun",
+        "it": "segretario-centro-di-emergenza-temporaneo-spital-sts-thun",
+        "en": "secretary-emergency-center-temporary-spital-sts-thun",
         "de": "sekretar-in-notfallzentrum-befristet-spital-sts-thun",
-        "fr": "sekretar-in-notfallzentrum-befristet-spital-sts-thun"
+        "fr": "centre-d-urgence-du-secretaire-temporaire-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -639,16 +651,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-notfallzentrum-befristet-spital-sts-thun"
+        ],
+        "en": [
+          "sekretar-in-notfallzentrum-befristet-spital-sts-thun"
+        ],
+        "fr": [
+          "sekretar-in-notfallzentrum-befristet-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-notfallzentrum-befristet-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-ca3af9646859",
-      "slug": "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun",
+      "slug": "medico-assistente-in-un-centro-di-emergenza-con-un-focus-sulla-chirurgia-spital-sts-thun",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun",
-        "en": "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun",
+        "it": "medico-assistente-in-un-centro-di-emergenza-con-un-focus-sulla-chirurgia-spital-sts-thun",
+        "en": "assistant-physician-at-an-emergency-center-with-a-focus-on-surgery-spital-sts-thun",
         "de": "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun",
-        "fr": "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun"
+        "fr": "medecin-assistant-dans-un-centre-d-urgence-specialise-en-chirurgie-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -701,7 +727,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-notfallzentrum-mit-schwerpunkt-chirurgie-spital-sts-thun"
+      ]
     }
   ]
 }

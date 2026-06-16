@@ -7,9 +7,9 @@
       "slug": "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
       "slugByLocale": {
         "it": "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-        "en": "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
+        "en": "deputy-store-manager-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen",
         "de": "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen",
-        "fr": "stv-filialleiter-80-chocolaterie-shopping-arena-st-gallen-w-m-d-laderach-st-gallen"
+        "fr": "directeur-adjoint-du-magasin-80-chocolaterie-shopping-arena-st-gallen-f-m-d-laderach-schweiz-ag-st-gallen"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -127,7 +127,7 @@
         "it": "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten",
         "en": "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten",
         "de": "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten",
-        "fr": "hr-business-partner-retail-schweiz-w-m-d-laderach-bilten"
+        "fr": "partenaire-commercial-rh-retail-suisse-f-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -180,12 +180,12 @@
     },
     {
       "id": "laderach-86da623b45c1",
-      "slug": "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
+      "slug": "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
       "slugByLocale": {
-        "it": "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
-        "en": "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
+        "it": "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
+        "en": "sales-assistant-on-call-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
         "de": "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
-        "fr": "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+        "fr": "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -235,16 +235,30 @@
       },
       "postalCode": "8001",
       "country": "CH",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+        ],
+        "en": [
+          "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+        ],
+        "fr": [
+          "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich"
+      ]
     },
     {
       "id": "laderach-01ac95b5f8ab",
       "slug": "responsabile-80-chocolaterie-baden-f-m-d-laderach-schweiz-ag-baden",
       "slugByLocale": {
         "it": "responsabile-80-chocolaterie-baden-f-m-d-laderach-schweiz-ag-baden",
-        "en": "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden",
+        "en": "branch-manager-80-chocolaterie-baden-f-m-d-laderach-schweiz-ag-baden",
         "de": "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden",
-        "fr": "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden"
+        "fr": "directeur-de-succursale-80-chocolaterie-baden-f-m-d-laderach-schweiz-ag-baden"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -285,6 +299,12 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden"
+        ],
+        "en": [
+          "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden"
+        ],
+        "fr": [
+          "filialleiter-80-chocolaterie-baden-w-m-d-laderach-baden"
         ]
       },
       "firstSeenAt": "2026-06-11T13:00:07.759Z",
@@ -309,8 +329,8 @@
       "slug": "assistente-al-manager-80-vevey-chocolate-m-f-d-laderach-schweiz-ag-vevey",
       "slugByLocale": {
         "it": "assistente-al-manager-80-vevey-chocolate-m-f-d-laderach-schweiz-ag-vevey",
-        "en": "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey",
-        "de": "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey",
+        "en": "assistant-to-the-manager-80-chocolaterie-vevey-m-f-d-laderach-schweiz-ag-vevey",
+        "de": "assistentin-des-managers-80-chocolaterie-vevey-m-w-d-laderach-schweiz-ag-vevey",
         "fr": "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey"
       },
       "company": "Läderach (Schweiz) AG",
@@ -354,6 +374,12 @@
         "it": [
           "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey",
           "adjoint-au-gerant-80-chocolaterie-vevey-m-w-d-laderach-schweiz-ag-vevey"
+        ],
+        "en": [
+          "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey"
+        ],
+        "de": [
+          "adjoint-au-gerant-80-chocolaterie-vevey-m-f-d-laderach-vevey"
         ]
       },
       "firstSeenAt": "2026-06-10T23:00:57.828Z",
@@ -380,7 +406,7 @@
         "it": "creatore-di-contenuti-digitali-f-m-d-laderach-schweiz-ag-bilten",
         "en": "digital-content-creator-w-m-d-laderach-bilten",
         "de": "digital-content-creator-w-m-d-laderach-bilten",
-        "fr": "digital-content-creator-w-m-d-laderach-bilten"
+        "fr": "createur-de-contenu-numerique-f-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -421,6 +447,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "digital-content-creator-w-m-d-laderach-bilten"
+        ],
+        "fr": [
           "digital-content-creator-w-m-d-laderach-bilten"
         ]
       },
@@ -1073,7 +1102,7 @@
       "slug": "technical-it-architect-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "it": "technical-it-architect-laderach-schweiz-ag-bilten",
-        "en": "technical-it-architect-laderach-bilten",
+        "en": "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
         "de": "technical-it-architect-laderach-bilten",
         "fr": "technical-it-architecte-laderach-schweiz-ag-bilten"
       },
@@ -1112,7 +1141,6 @@
       "crawledAt": "2026-06-16T13:47:58.596Z",
       "previousSlugs": [
         "technical-it-architect-laderach-bilten",
-        "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
         "technical-en-architect-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
@@ -1120,7 +1148,6 @@
           "technical-it-architect-laderach-bilten"
         ],
         "en": [
-          "think-okay-let-s-tackle-this-translation-the-job-title-is-technical-it-architect-first-i-need-to-make-sure-i-understand",
           "technical-it-architect-laderach-bilten"
         ]
       },
@@ -1148,7 +1175,7 @@
         "it": "project-manager-r-d-couverture-laderach-bilten",
         "en": "project-manager-r-d-couverture-laderach-schweiz-ag-bilten",
         "de": "project-manager-r-d-couverture-laderach-bilten",
-        "fr": "project-manager-r-d-couverture-laderach-bilten"
+        "fr": "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1184,15 +1211,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-06-16T13:47:58.399Z",
       "previousSlugs": [
-        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten",
-        "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
+        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
-        ],
-        "fr": [
-          "responsable-de-projet-r-d-enrobage-de-chocolat-laderach-schweiz-ag-bilten"
         ]
       },
       "firstSeenAt": "2026-05-23T11:05:13.687Z",

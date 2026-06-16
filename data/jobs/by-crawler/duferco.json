@@ -227,11 +227,11 @@
     },
     {
       "id": "duferco-3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
-      "slug": "ai-engineer-duferco-lugano",
+      "slug": "ai-ingegnere-duferco-lugano",
       "slugByLocale": {
         "en": "ai-engineer-duferco-lugano",
-        "it": "ai-engineer-duferco-lugano",
-        "de": "ai-engineer-duferco-lugano",
+        "it": "ai-ingegnere-duferco-lugano",
+        "de": "ai-ingenieur-duferco-lugano",
         "fr": "ai-engineer-duferco-lugano"
       },
       "company": "Duferco",
@@ -289,7 +289,18 @@
         }
       },
       "postalCode": "6900",
-      "firstSeenAt": "2026-06-16T13:16:07.116Z"
+      "firstSeenAt": "2026-06-16T13:16:07.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-duferco-lugano"
+        ],
+        "de": [
+          "ai-engineer-duferco-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-duferco-lugano"
+      ]
     },
     {
       "id": "duferco-ce2e4e2d-3560-47d1-8655-400dce5e2d9f",

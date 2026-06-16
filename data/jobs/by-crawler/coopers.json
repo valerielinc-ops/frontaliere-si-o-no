@@ -1067,12 +1067,12 @@
     },
     {
       "id": "coopers-345dc2e15026",
-      "slug": "construction-manager-vt-m-w-d-coopers-aargau",
+      "slug": "responsabile-costruzioni-vt-lun-f-d-coopers-group-ag-aargau",
       "slugByLocale": {
-        "it": "construction-manager-vt-m-w-d-coopers-aargau",
+        "it": "responsabile-costruzioni-vt-lun-f-d-coopers-group-ag-aargau",
         "en": "construction-manager-vt-m-w-d-coopers-aargau",
         "de": "construction-manager-vt-m-w-d-coopers-aargau",
-        "fr": "construction-manager-vt-m-w-d-coopers-aargau"
+        "fr": "chef-de-construction-vt-l-f-d-coopers-group-ag-aargau"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -1140,7 +1140,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "previousSlugsByLocale": {
+        "it": [
+          "construction-manager-vt-m-w-d-coopers-aargau"
+        ],
+        "fr": [
+          "construction-manager-vt-m-w-d-coopers-aargau"
+        ]
+      },
+      "previousSlugs": [
+        "construction-manager-vt-m-w-d-coopers-aargau"
+      ]
     },
     {
       "id": "coopers-dad60b4e592e",
@@ -3807,8 +3818,7 @@
           "it-supporter-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
         ],
         "en": [
-          "it-supporter-in-infrastructure-workplace-m-w-d-coopers-group-ag-basel-landschaft",
-          "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
+          "it-supporter-in-infrastructure-workplace-m-w-d-coopers-group-ag-basel-landschaft"
         ],
         "fr": [
           "it-supporter-in-infrastruktur-workplace-m-w-d-coopers-basel-landschaft"
@@ -3832,12 +3842,12 @@
     },
     {
       "id": "coopers-d5bd456ada18",
-      "slug": "technische-r-redakteur-in-m-w-d-coopers-bern",
+      "slug": "redattore-tecnico-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "technische-r-redakteur-in-m-w-d-coopers-bern",
-        "en": "technische-r-redakteur-in-m-w-d-coopers-bern",
+        "it": "redattore-tecnico-m-f-d-coopers-group-ag-bern",
+        "en": "technical-editor-m-f-d-coopers-group-ag-bern",
         "de": "technische-r-redakteur-in-m-w-d-coopers-bern",
-        "fr": "technische-r-redakteur-in-m-w-d-coopers-bern"
+        "fr": "redacteur-technique-h-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3905,16 +3915,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-redakteur-in-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "technische-r-redakteur-in-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "technische-r-redakteur-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-redakteur-in-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-297992bab9a7",
-      "slug": "ai-governance-manager-in-m-w-d-coopers-bern",
+      "slug": "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "ai-governance-manager-in-m-w-d-coopers-bern",
+        "it": "responsabile-della-governance-ai-m-f-d-coopers-group-ag-bern",
         "en": "ai-governance-manager-in-m-w-d-coopers-bern",
         "de": "ai-governance-manager-in-m-w-d-coopers-bern",
-        "fr": "ai-governance-manager-in-m-w-d-coopers-bern"
+        "fr": "responsable-de-la-gouvernance-de-l-ia-m-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3984,16 +4008,27 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-governance-manager-in-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "ai-governance-manager-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ai-governance-manager-in-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-5a959f5b1310",
-      "slug": "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
+      "slug": "ingegnere-senior-di-rete-e-sicurezza-cloud-sase-m365-coopers-group-ag-thurgau",
       "slugByLocale": {
-        "it": "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
+        "it": "ingegnere-senior-di-rete-e-sicurezza-cloud-sase-m365-coopers-group-ag-thurgau",
         "en": "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
         "de": "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau",
-        "fr": "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+        "fr": "ingenieur-senior-reseau-et-securite-cloud-sase-m365-coopers-group-ag-thurgau"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4061,7 +4096,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500"
+      "postalCode": "8500",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+        ],
+        "fr": [
+          "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+        ]
+      },
+      "previousSlugs": [
+        "senior-netzwerk-cloud-security-engineer-sase-m365-m-w-d-coopers-thurgau"
+      ]
     },
     {
       "id": "coopers-c40692689de2",
@@ -4505,12 +4551,12 @@
     },
     {
       "id": "coopers-1c5c27c8b3b3",
-      "slug": "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt",
+      "slug": "impiegato-nella-gestione-immobiliare-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt",
-        "en": "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt",
+        "it": "impiegato-nella-gestione-immobiliare-m-f-d-coopers-group-ag-basel-stadt",
+        "en": "real-estate-management-clerk-m-f-d-coopers-group-ag-basel-stadt",
         "de": "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt",
-        "fr": "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt"
+        "fr": "commis-de-gestion-immobiliere-h-f-d-coopers-group-ag-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4579,7 +4625,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt"
+        ],
+        "en": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt"
+        ],
+        "fr": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-immobilienbewirtschaftung-m-w-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-d085b93d367a",
@@ -4588,7 +4648,7 @@
         "de": "senior-java-engineer-m-w-d-coopers-luzern",
         "it": "senior-java-engineer-m-w-d-coopers-luzern",
         "en": "senior-java-engineer-m-w-d-coopers-luzern",
-        "fr": "senior-java-engineer-m-w-d-coopers-luzern"
+        "fr": "ingenieur-java-principal-f-f-d-coopers-group-ag-luzern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4753,7 +4813,7 @@
         "it": "category-buyer-m-w-d-coopers-wallis",
         "en": "category-buyer-m-w-d-coopers-wallis",
         "de": "category-buyer-m-w-d-coopers-wallis",
-        "fr": "category-buyer-m-w-d-coopers-wallis"
+        "fr": "acheteur-trice-de-categorie-h-f-divers-coopers-group-ag-wallis"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4825,12 +4885,12 @@
     },
     {
       "id": "coopers-383051bc3a81",
-      "slug": "etl-entwickler-in-m-w-d-coopers-bern",
+      "slug": "sviluppatore-etl-m-f-d-coopers-group-ag-bern",
       "slugByLocale": {
-        "it": "etl-entwickler-in-m-w-d-coopers-bern",
-        "en": "etl-entwickler-in-m-w-d-coopers-bern",
+        "it": "sviluppatore-etl-m-f-d-coopers-group-ag-bern",
+        "en": "etl-developer-m-f-d-coopers-group-ag-bern",
         "de": "etl-entwickler-in-m-w-d-coopers-bern",
-        "fr": "etl-entwickler-in-m-w-d-coopers-bern"
+        "fr": "developpeur-etl-m-f-d-coopers-group-ag-bern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4898,7 +4958,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "etl-entwickler-in-m-w-d-coopers-bern"
+        ],
+        "en": [
+          "etl-entwickler-in-m-w-d-coopers-bern"
+        ],
+        "fr": [
+          "etl-entwickler-in-m-w-d-coopers-bern"
+        ]
+      },
+      "previousSlugs": [
+        "etl-entwickler-in-m-w-d-coopers-bern"
+      ]
     },
     {
       "id": "coopers-d4c81ca322f1",

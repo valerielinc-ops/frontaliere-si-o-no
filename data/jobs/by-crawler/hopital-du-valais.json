@@ -2240,11 +2240,11 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
-        "de": "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
+        "de": "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -2290,14 +2290,18 @@
       },
       "previousSlugs": [
         "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
+        "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "de": [
-          "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion"
+          "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
+          "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
         ]
       },
       "firstSeenAt": "2026-06-03T23:52:48.116Z",
@@ -2318,9 +2322,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -2368,11 +2372,13 @@
       },
       "previousSlugs": [
         "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
         "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion"
+          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+          "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
         "de": [
           "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
@@ -3512,11 +3518,11 @@
     },
     {
       "id": "hopital-du-valais-88c21c70664e",
-      "slug": "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de",
+      "slug": "il-personale-amministrativo-alla-reception-e-al-40-60-per-la-reception-principale-dell-ospedale-sierre-hopital-du-valais",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de",
-        "en": "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de",
-        "de": "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de",
+        "it": "il-personale-amministrativo-alla-reception-e-al-40-60-per-la-reception-principale-dell-ospedale-sierre-hopital-du-valais",
+        "en": "administrative-staff-at-the-reception-at-40-60-for-the-main-reception-of-the-sierre-hospital-hopital-du-valais-sierre",
+        "de": "verwaltungspersonal-an-der-rezeption-betragt-40-60-fur-den-hauptempfang-des-sierre-krankenhauses-hopital-du-valais",
         "fr": "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de"
       },
       "company": "Hôpital du Valais",
@@ -3574,15 +3580,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ive-a-l-accueil-a-40-60-pour-la-reception-principale-de"
+      ]
     },
     {
       "id": "hopital-du-valais-45c175d25382",
-      "slug": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de",
+      "slug": "assc-assistenti-in-cure-e-salute-comunitaria-da-80-100-a-tempo-determinato-per-il-polo-di-psichiatria-e-psicoterapia",
       "slugByLocale": {
-        "it": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de",
-        "en": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de",
-        "de": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de",
+        "it": "assc-assistenti-in-cure-e-salute-comunitaria-da-80-100-a-tempo-determinato-per-il-polo-di-psichiatria-e-psicoterapia",
+        "en": "community-health-assistant-assc-for-80-100-fixed-term-contract-in-the-psychiatry-and-psychotherapy-division-hopital-du",
+        "de": "assc-gesundheits-und-krankenpfleger-innen-in-teilzeit-80-100-auf-befristeten-vertrag-fur-den-bereich-psychiatrie-und",
         "fr": "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-et-en-cdi-pour-le-pole"
       },
       "company": "Hôpital du Valais",
@@ -3640,16 +3660,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de"
+        ],
+        "en": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de"
+        ],
+        "de": [
+          "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de"
+        ]
+      },
+      "previousSlugs": [
+        "assc-assistants-es-en-soins-et-sante-communautaire-de-80-100-en-cdd-pour-le-pole-de"
+      ]
     },
     {
       "id": "hopital-du-valais-eaad11054db2",
       "slug": "medizinische-n-praxisassistent-in-mpa-100-kardiologie-e-rheumatologie-hopital-du-valais-visp",
       "slugByLocale": {
         "it": "medizinische-n-praxisassistent-in-mpa-100-kardiologie-e-rheumatologie-hopital-du-valais-visp",
-        "en": "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais",
+        "en": "medical-practice-assistant-mpa-100-cardiology-and-rheumatology-hopital-du-valais-visp",
         "de": "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais",
-        "fr": "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais"
+        "fr": "assistant-en-pratique-medicale-mpa-100-cardiologie-et-rhumatologie-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3697,6 +3731,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais"
+        ],
+        "en": [
+          "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais"
+        ],
+        "fr": [
           "medizinische-n-praxisassistent-in-mpa-100-kardiologie-und-rheumatologie-hopital-du-valais"
         ]
       },

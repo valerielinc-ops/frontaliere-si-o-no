@@ -590,12 +590,12 @@
     },
     {
       "id": "ubs-74c07ee216a7",
-      "slug": "market-supervisory-officer-ubs",
+      "slug": "responsabile-del-controllo-di-mercato-ubs-ticino",
       "slugByLocale": {
         "en": "market-supervisory-officer-ubs",
-        "it": "market-supervisory-officer-ubs",
-        "de": "market-supervisory-officer-ubs",
-        "fr": "market-supervisory-officer-ubs"
+        "it": "responsabile-del-controllo-di-mercato-ubs-ticino",
+        "de": "marktaufsichtsbeamter-ubs-ticino",
+        "fr": "responsable-de-supervision-du-marche-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -659,6 +659,7 @@
       },
       "firstSeenAt": "2026-06-15T23:58:12.446Z",
       "previousSlugs": [
+        "market-supervisory-officer-ubs",
         "market-supervisory-officer-ubs-2",
         "supervisory-officer-ubs",
         "addetto-amministrativo-mercato-ubs",
@@ -666,7 +667,18 @@
         "market-administrative-officer-ubs-2",
         "responsabile-delle-operazioni-di-mercato-ubs",
         "market-operation-officer-ubs"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "market-supervisory-officer-ubs"
+        ],
+        "de": [
+          "market-supervisory-officer-ubs"
+        ],
+        "fr": [
+          "market-supervisory-officer-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-db66566653cf",
@@ -2493,12 +2505,12 @@
     },
     {
       "id": "ubs-34efa659e274",
-      "slug": "ugm-business-manager-ubs",
+      "slug": "responsabile-commerciale-ugm-ubs-ticino",
       "slugByLocale": {
         "en": "ugm-business-manager-ubs",
-        "it": "ugm-business-manager-ubs",
-        "de": "ugm-business-manager-ubs",
-        "fr": "ugm-business-manager-ubs"
+        "it": "responsabile-commerciale-ugm-ubs-ticino",
+        "de": "ugm-geschaftsleiter-ubs-ticino",
+        "fr": "gestionnaire-d-affaires-ugm-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2560,7 +2572,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-12T23:21:16.883Z"
+      "firstSeenAt": "2026-06-12T23:21:16.883Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ugm-business-manager-ubs"
+        ],
+        "de": [
+          "ugm-business-manager-ubs"
+        ],
+        "fr": [
+          "ugm-business-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "ugm-business-manager-ubs"
+      ]
     },
     {
       "id": "ubs-05ddf4b9059c",
@@ -2640,8 +2666,8 @@
       "slugByLocale": {
         "en": "business-strategist-ubs",
         "it": "business-strategist-ubs",
-        "de": "business-strategist-ubs",
-        "fr": "business-strategist-ubs"
+        "de": "geschaftsstratege-ubs-ticino",
+        "fr": "stratege-d-affaires-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2788,7 +2814,7 @@
         "en": "reporting-and-automation-analyst-ubs",
         "it": "reporting-and-automation-analista-ubs",
         "fr": "reporting-and-automation-analyste-ubs",
-        "de": "reporting-and-automation-analista-ubs"
+        "de": "analyst-fur-berichterstattung-und-automatisierung-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3510,11 +3536,11 @@
     },
     {
       "id": "ubs-94724acec081",
-      "slug": "program-manager-house-view-portfolio-management-ubs",
+      "slug": "responsabile-del-programma-gestione-del-portafoglio-house-view-ubs-ticino",
       "slugByLocale": {
         "en": "program-manager-house-view-portfolio-management-ubs",
-        "it": "program-manager-house-view-portfolio-management-ubs",
-        "de": "program-manager-house-view-portfolio-management-ubs",
+        "it": "responsabile-del-programma-gestione-del-portafoglio-house-view-ubs-ticino",
+        "de": "programmmanager-hausansicht-portfoliomanagement-ubs-ticino",
         "fr": "program-manager-house-view-portfolio-management-ubs"
       },
       "company": "UBS",
@@ -3577,16 +3603,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T15:36:48.068Z"
+      "firstSeenAt": "2026-06-15T15:36:48.068Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "program-manager-house-view-portfolio-management-ubs"
+        ],
+        "de": [
+          "program-manager-house-view-portfolio-management-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-house-view-portfolio-management-ubs"
+      ]
     },
     {
       "id": "ubs-cca9a3528dfe",
-      "slug": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
+      "slug": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
       "slugByLocale": {
         "en": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-        "it": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-        "de": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-        "fr": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        "it": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
+        "de": "quant-analyst-finanzinstitute-und-gro-handels-kreditrisikomodelle-ubs-ticino",
+        "fr": "analyste-quantitatif-institutions-financieres-et-modeles-de-risque-de-credit-en-gros-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3648,7 +3685,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-15T15:36:48.080Z"
+      "firstSeenAt": "2026-06-15T15:36:48.080Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        ],
+        "de": [
+          "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        ],
+        "fr": [
+          "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+      ]
     }
   ]
 }
