@@ -8105,6 +8105,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.title': 'Più treni e bus tra Ticino e Lombardia',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.excerpt': 'Firmato l\'accordo tra Canton Ticino e Regione Lombardia: potenziamento dei collegamenti ferroviari e su gomma, con biglietti integrati per una mobilità sostenibile.',
     'blog.article.accordo-trasporti-ticino-lombardia-potenziamento-collegamenti.imageAlt': 'Treni e autobus che attraversano il confine tra Ticino e Lombardia per potenziare i trasporti pubblici transfrontalieri.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Nuova intesa Lombardia-Ticino: più treni e autobus per i frontalieri',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Regione Lombardia e Canton Ticino firmano accordo per potenziare treni e autobus transfrontalieri, con RE80 ogni 30 minuti e integrazione tariffaria.',
+    'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Treno Regio Express al confine italo-svizzero con pendolari in attesa',
 };
 
 export default blogMetaIt;

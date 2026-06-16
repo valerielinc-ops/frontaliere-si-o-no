@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2817,
+ "numberOfItems": 2818,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7461,7 +7461,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2814, "name": "Rientro definitivo in Italia: guida ai conti in...", "url": `${BASE_URL}/articoli-frontaliere/rientro-definitivo-gestione-conti-chf` },
           { "@type": "ListItem", "position": 2815, "name": "Cicor: piano di efficienza e taglio di 220 post...", "url": `${BASE_URL}/articoli-frontaliere/cicor-piano-efficienza-tagli-lavoro` },
           { "@type": "ListItem", "position": 2816, "name": "Più treni e bus tra Ticino e Lombardia", "url": `${BASE_URL}/articoli-frontaliere/accordo-trasporti-ticino-lombardia-potenziamento-collegamenti` },
-          { "@type": "ListItem", "position": 2817, "name": "IA chatbot: il loro impatto sugli acquisti in S...", "url": `${BASE_URL}/articoli-frontaliere/ia-chatbot-influenza-acquisti-svizzera` }
+          { "@type": "ListItem", "position": 2817, "name": "IA chatbot: il loro impatto sugli acquisti in S...", "url": `${BASE_URL}/articoli-frontaliere/ia-chatbot-influenza-acquisti-svizzera` },
+          { "@type": "ListItem", "position": 2818, "name": "Nuova intesa Lombardia-Ticino: più treni e auto...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-transfrontaliera-treni-autobus` }
  ]
  },
  {
