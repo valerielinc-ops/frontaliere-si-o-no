@@ -77,20 +77,85 @@ export const WEBCAM_FEEDS = {
   },
   '06.8S': {
     url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/06.8S.gif',
+    crossings: ['gaggiolo', 'san-pietro'],
+    box: [80, 100, 192, 88],
+    baselineVariance: 18,
+  },
+  // A2 corridor camera just north of the Chiasso customs (Balerna, km 3.3).
+  // Box shifted right of the default to exclude the textured noise-barrier wall
+  // on the left (which otherwise inflates variance → false queue). Calibrated
+  // 2026-06-16: moderate midday traffic scores ~0.20 (clear), well under the 0.4 queue gate.
+  '03.3S': {
+    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/03.3S.gif',
+    crossings: ['chiasso-brogeda'],
+    box: [120, 120, 180, 90],
+    baselineVariance: 18,
+  },
+  // A2 Mendrisio interchange (km 7.2) — the motorway access funnelling the
+  // Stabio/Gaggiolo crossings. Default center-lower box; calibrated clear ~0.21.
+  '07.2N': {
+    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/07.2N.gif',
     crossings: ['gaggiolo'],
+    box: [80, 100, 192, 88],
+    baselineVariance: 18,
+  },
+  // A2 Melide–Bissone causeway (km 17.84) — the road carrying the
+  // Campione d'Italia–Bissone crossing. Default box; calibrated clear ~0.03.
+  '17.84S': {
+    url: 'https://www4.ti.ch/fileadmin/DT/temi/webcams/wct_immagini/17.84S.gif',
+    crossings: ['campione-d-italia-bissone'],
     box: [80, 100, 192, 88],
     baselineVariance: 18,
   },
 };
 
-// Map crossing slug → primary feed key for queue detection.
+// Map crossing slug → primary feed key for queue detection (kept for
+// back-compat; `analyzeWebcamForCrossing` now aggregates ALL feeds covering a
+// crossing via the `crossings` arrays above and falls back to this map).
 export const CROSSING_TO_PRIMARY_FEED = {
   'chiasso-centro': '01.2S',
   'chiasso-strada': '01.2S',
   'chiasso-brogeda': '00.3S',
   'gaggiolo': '02.0N',
   'san-pietro': '02.0N',
+  'campione-d-italia-bissone': '17.84S',
 };
+
+/**
+ * Feed keys covering each crossing, derived once from WEBCAM_FEEDS `crossings`.
+ * A crossing's wait estimate is sanity-checked against EVERY camera that sees it
+ * (at-booth + approach-corridor), so a queue visible on any one of them is caught.
+ */
+export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key, feed]) => {
+  for (const slug of feed.crossings ?? []) {
+    (acc[slug] ??= []).push(key);
+  }
+  return acc;
+}, /** @type {Record<string, string[]>} */ ({}));
+
+/**
+ * Combine per-feed analysis results for one crossing into a single verdict.
+ * - Only feeds with `visibility: 'good'` vote (night/poor feeds are ignored).
+ * - A queue on ANY good feed ⇒ queueDetected (errs toward warning the user).
+ * - "All clear" requires EVERY good feed clear ⇒ the suppress-outlier path stays
+ *   conservative (won't falsely reassure when one camera still shows a queue).
+ * Pure + synchronous so it is unit-testable without network/sharp.
+ * @param {Array<{congestionScore: number|null, queueDetected: boolean, visibility: string, feedKey?: string}|null>} results
+ * @returns {{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null}
+ */
+export function aggregateWebcamResults(results) {
+  const present = (results ?? []).filter(Boolean);
+  if (present.length === 0) return null;
+  const good = present.filter((r) => r.visibility === 'good');
+  if (good.length === 0) {
+    // No usable camera (all night/poor): surface the first so the caller no-ops.
+    const r = present[0];
+    return { congestionScore: r.congestionScore ?? null, queueDetected: false, visibility: r.visibility, feeds: [] };
+  }
+  const queueDetected = good.some((r) => r.queueDetected);
+  const congestionScore = good.reduce((m, r) => Math.max(m, r.congestionScore ?? 0), 0);
+  return { congestionScore, queueDetected, visibility: 'good', feeds: good.map((r) => r.feedKey).filter(Boolean) };
+}
 
 /**
  * Analyze a single webcam feed.
@@ -171,9 +236,11 @@ export async function analyzeWebcamFeed(feedKey) {
  * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string}|null>}
  */
 export async function analyzeWebcamForCrossing(crossingSlug) {
-  const feedKey = CROSSING_TO_PRIMARY_FEED[crossingSlug];
-  if (!feedKey) return null;
-  return analyzeWebcamFeed(feedKey);
+  const feedKeys = CROSSING_TO_FEEDS[crossingSlug]
+    ?? (CROSSING_TO_PRIMARY_FEED[crossingSlug] ? [CROSSING_TO_PRIMARY_FEED[crossingSlug]] : []);
+  if (feedKeys.length === 0) return null;
+  const results = await Promise.all(feedKeys.map((k) => analyzeWebcamFeed(k)));
+  return aggregateWebcamResults(results);
 }
 
 // CLI usage: node scripts/analyze-webcam-frame.mjs [feedKey]
