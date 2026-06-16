@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rsbj",
-  "assembledAt": "2026-06-16T14:24:37.768Z",
+  "assembledAt": "2026-06-16T23:35:58.147Z",
   "jobs": [
     {
       "id": "rsbj-24022e382c08",
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54314/fr/un-e-assistant-e-socio-educatif-ve-a-50",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:35.844Z",
+      "crawledAt": "2026-06-16T23:35:56.257Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54316/fr/un-e-technicien-ne-en-salle-d-operation-tso",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:34.708Z",
+      "crawledAt": "2026-06-16T23:35:55.149Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:33.850Z",
+      "crawledAt": "2026-06-16T23:35:54.533Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -262,7 +262,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54319/fr/un-e-infirmier/ere-a-50-hes-ou-equivalent",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:33.001Z",
+      "crawledAt": "2026-06-16T23:35:53.768Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -339,7 +339,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54682/fr/un-e-aide-en-soins-a-70-cdd-de-6-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:32.230Z",
+      "crawledAt": "2026-06-16T23:35:52.913Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -356,6 +356,14 @@
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54682/fr/un-e-aide-en-soins-a-70-cdd-de-6-mois",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
+        ]
+      },
       "firstSeenAt": "2026-06-11T23:20:05.594Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -368,15 +376,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
-        ]
-      },
-      "previousSlugs": [
-        "un-e-aide-en-soins-a-70-cdd-de-6-mois-rsbj-sainte-croix"
-      ]
+      }
     },
     {
       "id": "rsbj-86fd214c44df",
@@ -410,7 +410,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54683/fr/un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T14:24:31.394Z",
+      "crawledAt": "2026-06-16T23:35:52.152Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -427,6 +427,14 @@
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_54683/fr/un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
+        ]
+      },
       "firstSeenAt": "2026-06-11T23:20:04.816Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -439,15 +447,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
-        ]
-      },
-      "previousSlugs": [
-        "un-e-infirmier-ere-a-60-hes-ou-equivalent-cdm-3-mois-rsbj-sainte-croix"
-      ]
+      }
     }
   ]
 }
