@@ -14,4 +14,11 @@
 // will otherwise be sampled and fail the assertion (cf. validate-dist break when
 // the bridge cap was raised 12k→40k). Marker kept in ONE place so the sampler
 // tests can never silently drift apart.
-export const isBridgePageHtml = (html: string): boolean => html.includes('bridge.css');
+//
+// Match the <link> stylesheet tag specifically (BRIDGE_CSS_LINK in constants.ts:
+// `<link rel="stylesheet" href="/assets/bridge.css">`), not a bare substring —
+// a bare includes('bridge.css') would false-positive on any job description text
+// or JSON-LD field that happens to contain the literal string, under-counting
+// real pages and potentially masking a canton-boundary leak.
+export const isBridgePageHtml = (html: string): boolean =>
+  /<link[^>]+href="[^"]*bridge\.css[^"]*"/.test(html);
