@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-06-16T13:57:24.282Z",
+  "generatedAt": "2026-06-16T23:24:43.126Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6917,
-  "avgDurationMs": 6917,
+  "durationMs": 10073,
+  "avgDurationMs": 10073,
   "durationHistory": [
-    6917
+    10073
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-b9ae973c94ba",
       "slug": "responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo-prada-group-montevarchi-responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo",
@@ -33,17 +34,17 @@
       "url": "https://jobs.pradagroup.com/job/Montevarchi-Responsabile-Laboratorio-di-Collezione-Abbigliamento-Lifestyle-Uomo/1256446201/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-16T13:57:20.262Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-06-16T23:24:37.485Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-06-16T13:57:20.262Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -64,7 +65,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T13:57:19.813Z",
+      "crawledAt": "2026-06-16T23:24:36.782Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -75,80 +76,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-9bed5f43a039",
-      "slug": "client-advisor-tysons-galleria-prada-group-mclean-client-advisor-tysons-galleria",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Client Advisor, Tysons Galleria",
-      "location": "McLean Client Advisor, Tysons Galleria",
-      "canton": "TI",
-      "addressLocality": "McLean Client Advisor, Tysons Galleria",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-13",
-      "url": "https://jobs.pradagroup.com/job/McLean-Client-Advisor%2C-Tysons-Galleria-OH/1393923133/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:42:29.105Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:27:27.600Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "postalCode": "6500",
-      "country": "CH",
-      "addressRegion": "TI",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "prada-0cd93d1d5823",
-      "slug": "assistant-store-manager-church-s-saint-honore-prada-group-paris-assistant-store-manager-church-amp-apos-s-saint-honore",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Assistant Store Manager Church's Saint Honore",
-      "location": "Paris Assistant Store Manager Church&apos",
-      "canton": "TI",
-      "addressLocality": "Paris Assistant Store Manager Church&apos",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://jobs.pradagroup.com/job/Paris-Assistant-Store-Manager-Church&apos;s-Saint-Honore/1404410733/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-15T15:42:27.563Z",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "postalCode": "6500",
-      "country": "CH",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-06-15T15:42:27.563Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-b9ae973c94ba",
@@ -170,8 +98,9 @@
       "url": "https://jobs.pradagroup.com/job/Montevarchi-Responsabile-Laboratorio-di-Collezione-Abbigliamento-Lifestyle-Uomo/1256446201/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-16T13:57:20.262Z",
+      "crawledAt": "2026-06-16T23:24:37.485Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T13:57:20.262Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "6500",
@@ -205,7 +134,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T13:57:19.813Z",
+      "crawledAt": "2026-06-16T23:24:36.782Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
