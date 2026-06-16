@@ -222,36 +222,36 @@ const OfferwallNewsletterGate: React.FC = () => {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[2147483600] flex items-center justify-center bg-slate-900/70 px-4"
+      className="fixed inset-0 z-[2147483600] flex items-center justify-center bg-black/40 backdrop-blur-sm px-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="offerwall-gate-title"
     >
-      <div className="relative w-full max-w-md rounded-2xl bg-white p-6 shadow-2xl dark:bg-slate-900">
+      <div className="relative w-full max-w-md rounded-2xl bg-surface p-6 shadow-2xl border border-edge">
         <button
           type="button"
           onClick={() => settle(false)}
-          className="absolute right-3 top-3 rounded-full p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"
+          className="absolute right-3 top-3 rounded-full p-1 text-muted hover:text-heading"
           aria-label={copy.dismiss}
         >
           <X className="h-5 w-5" aria-hidden="true" />
         </button>
 
-        <div className="mb-3 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+        <div className="mb-3 flex items-center gap-2 text-info">
           <Mail className="h-6 w-6" aria-hidden="true" />
-          <h2 id="offerwall-gate-title" className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+          <h2 id="offerwall-gate-title" className="text-lg font-semibold text-heading">
             {copy.title}
           </h2>
         </div>
 
         {status === 'success' ? (
           <div className="flex flex-col items-center gap-2 py-6 text-center">
-            <CheckCircle2 className="h-10 w-10 text-green-600 dark:text-green-400" aria-hidden="true" />
-            <p className="text-slate-700 dark:text-slate-200">{copy.success}</p>
+            <CheckCircle2 className="h-10 w-10 text-success" aria-hidden="true" />
+            <p className="text-body">{copy.success}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <p className="text-sm text-slate-600 dark:text-slate-300">{copy.body}</p>
+            <p className="text-sm text-muted">{copy.body}</p>
 
             <EmailInput
               value={email}
@@ -260,7 +260,7 @@ const OfferwallNewsletterGate: React.FC = () => {
               required
             />
 
-            <label className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
+            <label className="flex items-start gap-2 text-xs text-muted">
               <input
                 type="checkbox"
                 checked={consentChecked}
@@ -271,13 +271,13 @@ const OfferwallNewsletterGate: React.FC = () => {
             </label>
 
             {status === 'error' && errorMessage && (
-              <p className="text-sm text-red-600 dark:text-red-400" role="alert">{errorMessage}</p>
+              <p className="text-sm text-danger" role="alert">{errorMessage}</p>
             )}
 
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 font-semibold text-white hover:bg-blue-700 disabled:opacity-60"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-info-strong px-4 py-2.5 font-semibold text-on-accent hover:bg-info-strong-hover disabled:opacity-60"
             >
               {status === 'loading' && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
               {copy.submit}
@@ -286,7 +286,7 @@ const OfferwallNewsletterGate: React.FC = () => {
             <button
               type="button"
               onClick={() => settle(false)}
-              className="w-full text-center text-xs text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+              className="w-full text-center text-xs text-muted hover:text-heading"
             >
               {copy.dismiss}
             </button>
