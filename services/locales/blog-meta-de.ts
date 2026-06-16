@@ -8085,6 +8085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Hagel auf GT86 TRD: Was tun bei Totalschaden durch Versicherung',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'Ein Hagelsturm im Kanton Tessin hat eine Toyota GT86 TRD schwer beschädigt. Die Versicherung bietet eine Totalschadenentschädigung an: Hier erfahren Sie, was zu tun ist.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'GT86 TRD Auto durch Hagel im Tessin am See beschädigt',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'Bern lehnt Blockade der Rückvergütungen ab',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Die Schweizer Regierung hat erklärt, dass das Blockieren der Rückvergütungen auf die Mittel aus der italienischen Gesundheitsabgabe illegal ist, und bestätigt damit die offizielle Position.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Panoramablick auf die Grenze zwischen Tessin und Italien mit Pässen und Alpenlandschaften.',
 };
 
 export default blogMetaDe;
