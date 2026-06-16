@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pwc",
-  "assembledAt": "2026-06-16T14:11:00.000Z",
+  "assembledAt": "2026-06-16T23:35:01.531Z",
   "jobs": [
     {
       "title": "Associate - Junior Legal Counsel (Arbeitsrecht & Ethics) 80–100%",
@@ -44,7 +44,6 @@
         "fr": "associate-junior-legal-counsel-arbeitsrecht-ethics-80-100-pwc-zurich"
       },
       "id": "pwc-e83cac127dca",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -67,7 +66,8 @@
       },
       "previousSlugs": [
         "associate-junior-legal-counsel-arbeitsrecht-ethics-80-100-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager - Deals Tax (Mergers and Acquisitions)",
@@ -111,7 +111,6 @@
         "fr": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
       },
       "id": "pwc-b3069d6d2adc",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -134,7 +133,8 @@
       },
       "previousSlugs": [
         "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Assistant(e) comptabilité, payroll et conseils",
@@ -386,7 +386,6 @@
         "fr": "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne"
       },
       "id": "pwc-8068e33f565b",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -405,7 +404,8 @@
       "previousSlugs": [
         "senior-associate-corporate-real-estate-facility-manager-pwc-zurich",
         "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne",
-        "senior-associate-direttore-immobiliare-e-delle-strutture-aziendali-pwc-switzerland-zurich"
+        "senior-associate-direttore-immobiliare-e-delle-strutture-aziendali-pwc-switzerland-zurich",
+        "senior-associate-responsabile-immobiliare-e-strutture-aziendali-pwc-switzerland-geneve"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -413,9 +413,11 @@
         ],
         "it": [
           "senior-associate-corporate-real-estate-facility-manager-pwc-zurich",
-          "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne"
+          "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne",
+          "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Corporate Real Estate & Facility Manager",
@@ -459,7 +461,6 @@
         "fr": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
       },
       "id": "pwc-8068e33f565b",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -488,7 +489,8 @@
           "senior-associate-corporate-real-estate-facility-manager-pwc-zurich",
           "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Associate – Manager) Real Estate Advisory Transaction",
@@ -666,7 +668,6 @@
         "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
       },
       "id": "pwc-7f6ee3851b03",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
@@ -694,7 +695,8 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-10T12:50:57.954Z"
+      "firstSeenAt": "2026-06-10T12:50:57.954Z",
+      "needsRetranslation": true
     },
     {
       "title": "Mandatsleiter:in Treuhand 60 - 100%",
@@ -905,7 +907,8 @@
       "previousSlugs": [
         "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
         "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Controlling, Advisory Operations",
@@ -1188,7 +1191,7 @@
     },
     {
       "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
-      "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+      "slug": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/7e8578f1-5e6a-4e5b-9ac7-ff6ad7763d4b",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Young-Talent-Programme---eingeschrnkte-Revisionen--70---100--_732820WD/apply",
       "company": "PwC Switzerland",
@@ -1222,13 +1225,12 @@
         "fr": "Du willst schneller mehr Verantwortung übernehmen als andere und suchst keinen Standard-Job, sondern eine steile Lernkurve, echte Ownership und ein Umfeld, in dem Leistung zählt? Strukturiertes Arbeiten, schnelles Denken und der Anspruch, mehr zu leisten als erwartet, gehören zur eigenen Motivation? Dann passt dieses Programm.\n• Durchführung eingeschränkter Revisionen (AG, GmbH, Stiftungen etc.) mit zunehmender Eigenständigkeit\n• Frühe Übernahme eines eigenen Kundenportfolios und Rolle als direkte Ansprechperson\n• Strukturierte, effiziente Arbeitsweise mit hohem Qualitätsanspruch\n• Gezielter Einsatz digitaler Tools sowie Einbringen eigener Verbesserungsansätze\n• Sicheres Agieren zwischen Kund:innen, Team und Engagement Leadership\n• Beschleunigte fachliche und persönliche Entwicklung durch Hands-on-Verantwortung Was wir bieten\n• Frühe Verantwortung statt langes Zuschauen\n• Steile Lernkurve in einem leistungsorientierten Umfeld\n• Direkter Zugang zu erfahrenen Team Leadern und Coaching on the job\n• Flexibles Arbeiten (Kunde, Office, Remote)\n• Ein Team, das Leistung erkennt und gezielt fördert\n• 1–3 Jahre Erfahrung im Rechnungswesen, Treuhand, Accounting oder Audit\n• Sehr gutes Verständnis für Buchhaltung und betriebswirtschaftliche Zusammenhänge\n• Schnelle Auffassungsgabe sowie exakte und zuverlässige Arbeitsweise\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Motivation zur Weiterentwicklung in Richtung Treuhänder:in oder Wirtschaftsprüfer:in Was dich von anderen unterscheidet\n• Aktiver Gestaltungswille statt reines Mitlaufen\n• Hohe Einsatzbereitschaft, insbesondere in Peak-Zeiten\n• Aktives Einholen von Feedback und konsequente Umsetzung\n• Analytische, strukturierte und unternehmerische Denkweise\n• Hoher Anspruch an die eigene Leistung Gib bitte dein Wunschpensum an."
       },
       "slugByLocale": {
-        "it": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zurich",
         "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
       },
       "id": "pwc-311c28947999",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1245,11 +1247,13 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-30T00:13:22.657Z",
       "previousSlugs": [
-        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
+        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1269,16 +1273,18 @@
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern"
+          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
-      "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
+      "slug": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-bern",
       "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/7e8578f1-5e6a-4e5b-9ac7-ff6ad7763d4b",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Young-Talent-Programme---eingeschrnkte-Revisionen--70---100--_732820WD/apply",
       "company": "PwC Switzerland",
@@ -1312,13 +1318,12 @@
         "fr": "Du willst schneller mehr Verantwortung übernehmen als andere und suchst keinen Standard-Job, sondern eine steile Lernkurve, echte Ownership und ein Umfeld, in dem Leistung zählt? Strukturiertes Arbeiten, schnelles Denken und der Anspruch, mehr zu leisten als erwartet, gehören zur eigenen Motivation? Dann passt dieses Programm.\n• Durchführung eingeschränkter Revisionen (AG, GmbH, Stiftungen etc.) mit zunehmender Eigenständigkeit\n• Frühe Übernahme eines eigenen Kundenportfolios und Rolle als direkte Ansprechperson\n• Strukturierte, effiziente Arbeitsweise mit hohem Qualitätsanspruch\n• Gezielter Einsatz digitaler Tools sowie Einbringen eigener Verbesserungsansätze\n• Sicheres Agieren zwischen Kund:innen, Team und Engagement Leadership\n• Beschleunigte fachliche und persönliche Entwicklung durch Hands-on-Verantwortung Was wir bieten\n• Frühe Verantwortung statt langes Zuschauen\n• Steile Lernkurve in einem leistungsorientierten Umfeld\n• Direkter Zugang zu erfahrenen Team Leadern und Coaching on the job\n• Flexibles Arbeiten (Kunde, Office, Remote)\n• Ein Team, das Leistung erkennt und gezielt fördert\n• 1–3 Jahre Erfahrung im Rechnungswesen, Treuhand, Accounting oder Audit\n• Sehr gutes Verständnis für Buchhaltung und betriebswirtschaftliche Zusammenhänge\n• Schnelle Auffassungsgabe sowie exakte und zuverlässige Arbeitsweise\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Motivation zur Weiterentwicklung in Richtung Treuhänder:in oder Wirtschaftsprüfer:in Was dich von anderen unterscheidet\n• Aktiver Gestaltungswille statt reines Mitlaufen\n• Hohe Einsatzbereitschaft, insbesondere in Peak-Zeiten\n• Aktives Einholen von Feedback und konsequente Umsetzung\n• Analytische, strukturierte und unternehmerische Denkweise\n• Hoher Anspruch an die eigene Leistung Gib bitte dein Wunschpensum an."
       },
       "slugByLocale": {
-        "it": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
+        "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-bern",
         "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
       },
       "id": "pwc-311c28947999",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1335,12 +1340,14 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-05-30T00:13:22.657Z",
       "previousSlugs": [
-        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1361,16 +1368,18 @@
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern"
+          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
-      "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+      "slug": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-luzern",
       "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/7e8578f1-5e6a-4e5b-9ac7-ff6ad7763d4b",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Young-Talent-Programme---eingeschrnkte-Revisionen--70---100--_732820WD/apply",
       "company": "PwC Switzerland",
@@ -1404,13 +1413,12 @@
         "fr": "Du willst schneller mehr Verantwortung übernehmen als andere und suchst keinen Standard-Job, sondern eine steile Lernkurve, echte Ownership und ein Umfeld, in dem Leistung zählt? Strukturiertes Arbeiten, schnelles Denken und der Anspruch, mehr zu leisten als erwartet, gehören zur eigenen Motivation? Dann passt dieses Programm.\n• Durchführung eingeschränkter Revisionen (AG, GmbH, Stiftungen etc.) mit zunehmender Eigenständigkeit\n• Frühe Übernahme eines eigenen Kundenportfolios und Rolle als direkte Ansprechperson\n• Strukturierte, effiziente Arbeitsweise mit hohem Qualitätsanspruch\n• Gezielter Einsatz digitaler Tools sowie Einbringen eigener Verbesserungsansätze\n• Sicheres Agieren zwischen Kund:innen, Team und Engagement Leadership\n• Beschleunigte fachliche und persönliche Entwicklung durch Hands-on-Verantwortung Was wir bieten\n• Frühe Verantwortung statt langes Zuschauen\n• Steile Lernkurve in einem leistungsorientierten Umfeld\n• Direkter Zugang zu erfahrenen Team Leadern und Coaching on the job\n• Flexibles Arbeiten (Kunde, Office, Remote)\n• Ein Team, das Leistung erkennt und gezielt fördert\n• 1–3 Jahre Erfahrung im Rechnungswesen, Treuhand, Accounting oder Audit\n• Sehr gutes Verständnis für Buchhaltung und betriebswirtschaftliche Zusammenhänge\n• Schnelle Auffassungsgabe sowie exakte und zuverlässige Arbeitsweise\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Motivation zur Weiterentwicklung in Richtung Treuhänder:in oder Wirtschaftsprüfer:in Was dich von anderen unterscheidet\n• Aktiver Gestaltungswille statt reines Mitlaufen\n• Hohe Einsatzbereitschaft, insbesondere in Peak-Zeiten\n• Aktives Einholen von Feedback und konsequente Umsetzung\n• Analytische, strukturierte und unternehmerische Denkweise\n• Hoher Anspruch an die eigene Leistung Gib bitte dein Wunschpensum an."
       },
       "slugByLocale": {
-        "it": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-luzern",
         "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
       },
       "id": "pwc-311c28947999",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1427,12 +1435,13 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-05-30T00:13:22.657Z",
       "previousSlugs": [
-        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1443,7 +1452,8 @@
       "previousSlugsByLocale": {
         "en": [
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
-          "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich"
+          "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
         ],
         "fr": [
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
@@ -1451,16 +1461,18 @@
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
-          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern"
+          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Young Talent Programme – eingeschränkte Revisionen (70 - 100%)",
-      "slug": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
+      "slug": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
       "url": "https://jobs.pwc.ch/job-vacancies/young-talent-programme-eingeschraenkte-revisionen/7e8578f1-5e6a-4e5b-9ac7-ff6ad7763d4b",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Young-Talent-Programme---eingeschrnkte-Revisionen--70---100--_732820WD/apply",
       "company": "PwC Switzerland",
@@ -1494,13 +1506,12 @@
         "fr": "Du willst schneller mehr Verantwortung übernehmen als andere und suchst keinen Standard-Job, sondern eine steile Lernkurve, echte Ownership und ein Umfeld, in dem Leistung zählt? Strukturiertes Arbeiten, schnelles Denken und der Anspruch, mehr zu leisten als erwartet, gehören zur eigenen Motivation? Dann passt dieses Programm.\n• Durchführung eingeschränkter Revisionen (AG, GmbH, Stiftungen etc.) mit zunehmender Eigenständigkeit\n• Frühe Übernahme eines eigenen Kundenportfolios und Rolle als direkte Ansprechperson\n• Strukturierte, effiziente Arbeitsweise mit hohem Qualitätsanspruch\n• Gezielter Einsatz digitaler Tools sowie Einbringen eigener Verbesserungsansätze\n• Sicheres Agieren zwischen Kund:innen, Team und Engagement Leadership\n• Beschleunigte fachliche und persönliche Entwicklung durch Hands-on-Verantwortung Was wir bieten\n• Frühe Verantwortung statt langes Zuschauen\n• Steile Lernkurve in einem leistungsorientierten Umfeld\n• Direkter Zugang zu erfahrenen Team Leadern und Coaching on the job\n• Flexibles Arbeiten (Kunde, Office, Remote)\n• Ein Team, das Leistung erkennt und gezielt fördert\n• 1–3 Jahre Erfahrung im Rechnungswesen, Treuhand, Accounting oder Audit\n• Sehr gutes Verständnis für Buchhaltung und betriebswirtschaftliche Zusammenhänge\n• Schnelle Auffassungsgabe sowie exakte und zuverlässige Arbeitsweise\n• Sehr gute Deutsch- und gute Englischkenntnisse\n• Motivation zur Weiterentwicklung in Richtung Treuhänder:in oder Wirtschaftsprüfer:in Was dich von anderen unterscheidet\n• Aktiver Gestaltungswille statt reines Mitlaufen\n• Hohe Einsatzbereitschaft, insbesondere in Peak-Zeiten\n• Aktives Einholen von Feedback und konsequente Umsetzung\n• Analytische, strukturierte und unternehmerische Denkweise\n• Hoher Anspruch an die eigene Leistung Gib bitte dein Wunschpensum an."
       },
       "slugByLocale": {
-        "it": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
+        "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
         "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
       },
       "id": "pwc-311c28947999",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1517,12 +1528,14 @@
       "postalCode": "6300",
       "firstSeenAt": "2026-05-30T00:13:22.657Z",
       "previousSlugs": [
-        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1543,12 +1556,14 @@
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
-          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern"
+          "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "de": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
@@ -1592,7 +1607,6 @@
         "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich"
       },
       "id": "pwc-c8d370000ed7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1619,7 +1633,8 @@
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
-        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich"
+        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich",
+        "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -1634,9 +1649,11 @@
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
@@ -1680,7 +1697,6 @@
         "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern"
       },
       "id": "pwc-c8d370000ed7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1708,7 +1724,8 @@
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
-        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich"
+        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich",
+        "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -1724,9 +1741,11 @@
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
@@ -1770,7 +1789,6 @@
         "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen"
       },
       "id": "pwc-c8d370000ed7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1797,7 +1815,8 @@
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
-        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich"
+        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich",
+        "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -1813,9 +1832,11 @@
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
@@ -1859,7 +1880,6 @@
         "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern"
       },
       "id": "pwc-c8d370000ed7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1878,20 +1898,22 @@
       "previousSlugs": [
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
-        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich"
+        "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zurich",
+        "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug"
+          "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
@@ -1900,9 +1922,11 @@
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
           "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Assistant) Manager / zukünftige:r Mandatsleiter:in – Eingeschränkte Revisionen & KMU‑Audit (70 - 100%)",
@@ -1946,7 +1970,6 @@
         "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
       },
       "id": "pwc-c8d370000ed7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1992,7 +2015,8 @@
           "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Quer-)Einstieg / nächster Schritt: (Senior) Associate – Eingeschränkte Revision (70–100%)",
@@ -2036,7 +2060,6 @@
         "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich"
       },
       "id": "pwc-8d4e51c20519",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -2067,7 +2090,8 @@
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerl-3duuul",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
-        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich"
+        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
+        "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -2084,12 +2108,14 @@
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "de": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Quer-)Einstieg / nächster Schritt: (Senior) Associate – Eingeschränkte Revision (70–100%)",
@@ -2133,7 +2159,6 @@
         "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern"
       },
       "id": "pwc-8d4e51c20519",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -2165,7 +2190,8 @@
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerl-3duuul",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
-        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich"
+        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
+        "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -2183,12 +2209,14 @@
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "de": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Quer-)Einstieg / nächster Schritt: (Senior) Associate – Eingeschränkte Revision (70–100%)",
@@ -2232,7 +2260,6 @@
         "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern"
       },
       "id": "pwc-8d4e51c20519",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -2252,24 +2279,26 @@
         "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
-        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
         "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
+        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerl-3duuul",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
-        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich"
+        "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zurich",
+        "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug"
       ],
       "previousSlugsByLocale": {
         "en": [
           "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
-          "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich"
+          "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern"
         ],
         "fr": [
           "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
@@ -2279,12 +2308,14 @@
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
           "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "de": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "(Quer-)Einstieg / nächster Schritt: (Senior) Associate – Eingeschränkte Revision (70–100%)",
@@ -2328,7 +2359,6 @@
         "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
       },
       "id": "pwc-8d4e51c20519",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -2383,7 +2413,8 @@
         "de": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager - Audit Transformation IT Projects",
@@ -3075,82 +3106,6 @@
       ]
     },
     {
-      "title": "Senior Associate - SharePoint Online Engineer",
-      "slug": "socio-senior-sharepoint-senior-online-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-sharepoint-online-engineer/a6927d46-2c68-405b-ab61-7f2ed2914be2",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/FY26---IFS---TnT-Staff---Zrich---Senior-Associate-2---Start-01062026_725740WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-18",
-      "validThrough": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "description": "You are part of PwC Switzerland's technology Collaboration and Identity Services team. Together with the team, we define the processes and provide the services and tools required to operate SharePoint Online and related collaboration services within PwC Switzerland.\nAs part of a diverse and cross-functional team, you bring strong engineering, operations, and governance expertise to the IT organization and to our internal customers, with a focus on secure, scalable, and business-aligned SharePoint Online services.\n\n• Operate, monitor, and continuously improve SharePoint Online services, sites, hubs, pages, permissions, and related collaboration capabilities in a complex enterprise environment.\n\n• Troubleshoot and resolve platform issues, localize and isolate malfunctions, and define technical avoidance, remediation, and escalation procedures.\n\n• Design, implement, and maintain SharePoint Online solutions, templates, navigation structures, and governance controls that support secure and scalable business use cases.\n\n• Support site provisioning, configuration, lifecycle management, retention-related requirements, and access management in alignment with local policies and compliance expectations.\n\n• Collaborate with business stakeholders and IT teams to translate requirements into robust SharePoint Online solutions, including automation and integration opportunities where appropriate.\n\n• Create and maintain technical documentation, operational guidance, and admin-ready standards to ensure service continuity and consistent execution.\n\n• Contribute to training, knowledge sharing, and Q&A sessions for site owners, content owners, and internal stakeholders to foster effective use of the platform.\n\n• Work together with a team of experts in an open and caring environment where we value feedback culture and ownership from day one.\n\n• Higher education degree in computer science, information systems, or a related field (University, HES/ETS) or comparable practical experience.\n\n• Profound knowledge and multiple years of experience as a SharePoint Online administrator or engineer in complex enterprise environments.\n\n• Strong expertise with SharePoint Online administration, site architecture, permissions, document management concepts, retention considerations, and Microsoft 365 collaboration services such as Teams and OneDrive.\n\n• Hands-on experience with SharePoint Online engineering topics such as templates, site structure, content publishing, hub navigation, automation, and service operations.\n\n• Good scripting and automation skills, ideally with PowerShell and Microsoft 365 administration tooling.\n\n• Solid understanding of governance, risk, and compliance requirements in enterprise collaboration environments.\n\n• Committed, independent, reliable, and solution-oriented team player, with a “can do” attitude, welcoming new challenges, and strong analytical and problem-solving skills.\n\n• Fluency (written and spoken) in English. French and German are a plus.",
-      "titleByLocale": {
-        "it": "Socio senior - Sharepoint senior online",
-        "en": "Senior Associate - SharePoint Online Engineer",
-        "de": "Senior Associate - SharePoint Online Ingenieur",
-        "fr": "Associé principal - Point de partage principal en ligne"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione Sei parte del team di collaborazione e servizi di identità di PwC Svizzera. Insieme al team, definiamo i processi e forniamo i servizi e gli strumenti necessari per operare SharePoint Online e i relativi servizi di collaborazione all'interno di PwC Svizzera. Nell'ambito di un team diversificato e multifunzionale, si mettono forti competenze ingegneristiche, operative e di governance all'organizzazione IT e ai nostri clienti interni, con un focus sui servizi SharePoint Online sicuri, scalabili e business-aligned. Mansioni - Operare, monitorare e migliorare continuamente servizi SharePoint Online, siti, hub, pagine, autorizzazioni e relative capacità di collaborazione in un ambiente aziendale complesso. - Risoluzione dei problemi e risoluzione dei problemi della piattaforma, localizzare e isolare i malfunzionamenti e definire procedure di evitamento tecnico, di bonifica e di escalation. - Progettare, implementare e mantenere le soluzioni SharePoint Online, modelli, strutture di navigazione e controlli di governance che supportano casi di uso aziendale sicuro e scalabile. - Supporta il provisioning del sito, la configurazione, la gestione del ciclo di vita, i requisiti relativi alla conservazione e la gestione dell'accesso in linea con le politiche locali e le aspettative di conformità. - Collabora con gli stakeholder aziendali e i team IT per tradurre i requisiti in soluzioni SharePoint Online robuste, tra cui opportunità di automazione e integrazione, se del caso. - Creare e mantenere la documentazione tecnica, la guida operativa e gli standard di amministrazione per garantire la continuità del servizio e l'esecuzione coerente. - Contribuire a sessioni di formazione, condivisione delle conoscenze e Q&A per proprietari di siti, proprietari di contenuti e stakeholder interni per favorire un uso efficace della piattaforma. - Lavorare insieme a un team di esperti in un ambiente aperto e curato dove apprezziamo la cultura del feedback e la proprietà dal primo giorno.\n• Requisiti - Laurea in informatica, sistemi informativi, o un campo correlato (Università, HES/ETS) o esperienza equivalente. - Profonda conoscenza e anni di esperienza come amministratore o ingegnere di SharePoint Online in ambienti di impresa complessi. - Esperto in SharePoint Online Administration, architettura dei siti, garanzie, concetti di gestione dei documenti, considerazioni di conservazione e servizi di collaborazione Microsoft 365 come Teams e OneDrive. - Esperienza diretta con argomenti di ingegneria di SharePoint Online come modelli, struttura dei siti, pubblicazione dei contenuti, navigazione dei hub, automazione e operazioni dei servizi. - Buone abilità di scripting e automazione, ideale con PowerShell e strumenti di amministrazione Microsoft 365. - Buona comprensione dei requisiti di governance, rischio e compliance in ambienti di collaborazione di impresa. - Collaboratore team, impegnati, indipendente, affidabile e orientaleto alla soluzione, con un atteggiamento \"posso farlo\", accogliente nuove sfide e dotato di forti abilità analitiche e di risoluzione dei problemi. - Fluenza (scritta e parlata) in inglese. Francese e tedesco sono un plus. Cosa? - in un ambiente di lavoro aperto e accogliente dove valorizziamo la cultura del feedback e l'ownership fin dal primo giorno. - L'opportunità di lavorare con un team di esperti in un ambiente di collaborazione e innovazione. - La possibilità di sviluppare le tue competenze e di crescere professionalmente. - Un ambiente di lavoro temporaneo e stimolante. Contatto - Contattaci per ulteriori informazioni.",
-        "en": "## Descrizione You are part of PwC Switzerland's technology Collaboration and Identity Services team. Together with the team, we define the processes and provide the services and tools required to operate SharePoint Online and related collaboration services within PwC Switzerland. As part of a diverse and cross-functional team, you bring strong engineering, operations, and governance expertise to the IT organization and to our internal customers, with a focus on secure, scalable, and business-aligned SharePoint Online services. ## Mansioni - Operate, monitor, and continuously improve SharePoint Online services, sites, hubs, pages, permissions, and related collaboration capabilities in a complex enterprise environment. - Troubleshoot and resolve platform issues, localize and isolate malfunctions, and define technical avoidance, remediation, and escalation procedures. - Design, implement, and maintain SharePoint Online solutions, templates, navigation structures, and governance controls that support secure and scalable business use cases. - Support site provisioning, configuration, lifecycle management, retention-related requirements, and access management in alignment with local policies and compliance expectations. - Collaborate with business stakeholders and IT teams to translate requirements into robust SharePoint Online solutions, including automation and integration opportunities where appropriate. - Create and maintain technical documentation, operational guidance, and admin-ready standards to ensure service continuity and consistent execution. - Contribute to training, knowledge sharing, and Q&A sessions for site owners, content owners, and internal stakeholders to foster effective use of the platform. - Work together with a team of experts in an open and caring environment where we value feedback culture and ownership from day one. ##\n• Requisiti - Laurea in computer science, information systems, o un campo correlato (Università, HES/ETS) o esperienza pratica equivalente. - Profonda conoscenza e anni di esperienza come amministratore o ingegnere di SharePoint Online in ambienti di impresa complessi. - Esperto in SharePoint Online administration, architettura dei siti, autorizzazioni, concetti di gestione dei documenti, considerazioni di conservazione e servizi di collaborazione Microsoft 365 come Teams e OneDrive. - Esperienza diretta con argomenti di ingegneria di SharePoint Online come modelli, struttura dei siti, pubblicazione dei contenuti, navigazione dei hub, automazione e operazioni dei servizi. - Buone abilità di scripting e automazione, ideale con PowerShell e strumenti di amministrazione Microsoft 365. - Buona comprensione dei requisiti di governance, rischio e compliance in ambienti di collaborazione di impresa. - Collaboratore team, impegnato, indipendente, affidabile e orientato alla soluzione, con un atteggiamento \"posso farlo\", accogliente nuove sfide e dotato di forti abilità analitiche e di risoluzione dei problemi. - Fluenza (scritta e parlata) in inglese. Francese e tedesco sono un plus. ##\n• Cosa offriamo - Lavorare in un ambiente di lavoro aperto e accogliente dove valorizziamo la cultura del feedback e l'ownership fin dal primo giorno. - L'opportunità di lavorare con un team di esperti in un ambiente di collaborazione e innovazione. - La possibilità di sviluppare le tue competenze e di crescere professionalmente. - Un ambiente di lavoro dinamico e stimolante. ## Contatto - Contattaci per ulteriori informazioni.",
-        "de": "Beschreibung Sie sind Teil des PwC Schweiz Technologie Collaboration and Identity Services Teams. Gemeinsam mit dem Team definieren wir die Prozesse und bieten die Dienstleistungen und Werkzeuge, die für den Betrieb von SharePoint Online und den damit verbundenen Kollaborationsdiensten innerhalb der PwC Schweiz erforderlich sind. Im Rahmen eines vielfältigen und funktionsübergreifenden Teams bringen Sie der IT-Organisation und unseren internen Kunden starkes Engineering-, Betriebs- und Governance-Know-how mit einem Fokus auf sichere, skalierbare und geschäftsorientierte SharePoint Online-Dienste. Mansion - Betreiben, überwachen und verbessern Sie kontinuierlich SharePoint Online-Dienste, Websites, Hubs, Seiten, Berechtigungen und damit zusammenhängende Kooperationsmöglichkeiten in einer komplexen Unternehmensumgebung. - Problembehebung und Lösung von Plattformproblemen, Lokalisierung und Isolierung von Störungen und Definition von technischen Vermeidung, Abhilfe und Eskalationsverfahren. - Entwerfen, implementieren und pflegen SharePoint Online-Lösungen, Vorlagen, Navigationsstrukturen und Governance-Kontrollen, die sichere und skalierbare Geschäftsanwendungen unterstützen. - Unterstützung der Website Bereitstellung, Konfiguration, Lifecycle Management, retentionsbezogene\n• Anforderungen und Zugriffsmanagement in Übereinstimmung mit lokalen Richtlinien und Compliance-Erwartungen. - Zusammenarbeit mit Geschäftspartnern und IT-Teams, um\n• Anforderungen in robuste SharePoint Online-Lösungen umzusetzen, einschließlich Automatisierungs- und Integrationsmöglichkeiten gegebenenfalls. - Erstellen und pflegen Sie technische Dokumentation, Betriebsführung und admin-ready Standards, um die Service Kontinuität und konsequente Ausführung zu gewährleisten. - Beitrag zu Schulungen, Wissensaustausch und Q&A-Sitzungen für Standortbesitzer, Inhaltsbesitzer und interne Interessenvertreter zur Förderung der effektiven Nutzung der Plattform. - Arbeiten Sie gemeinsam mit einem Expertenteam in einer offenen und pflegenden Umgebung, wo wir von Tag zu Tag Feedback Kultur und Eigentum schätzen. Voraussetzungen - Laurea in Informatik, Informationssysteme, o un campo correlato (Università, HES/ETS) o esperienza pratica Äquivalente. - Profonda conoscenza e anni di esperienza come amministratore o ingegnere di SharePoint Online in ambienti di impresa complessi. - Esperto in SharePoint Online Administration, architettura dei siti, autorizzazioni, concetti di gestione dei documenti, betrachtenazioni di conservazione e servizi di collaborazione Microsoft 365 kommen Teams e OneDrive. - Esperienza diretta con argomenti di ingegneria di SharePoint Online kommen modelli, straptura dei siti, pubblicazione dei contenuti, navigazione dei hub, automazione e operazioni dei servizi. - Buone abilità di scripting e automazione, ideal con PowerShell e strumenti di amministrazione Microsoft 365. - Buona comprensione dei requisiti di Governance, rischio e Compliance in ambienti di collaborazione di impresa. - Mitarbeiterteam, impegnato, indipendente, affidabile e orientato alla soluzione, con un atteggiamento \"posso farlo\", accogliente nuove sfide e dotato di forti abilità analitiche e di risoluzione dei problemi. - Fluenza (scritta e parlata) in inglese. Francese e tedesco sono un plus.\n• Cosa offriamo - Lavorare in un ambiente di lavoro aperto e accogliente dove valorizziamo la cultura del Feedback e l'ownership fin dal primo giorno. - L'opportunità di lavorare con un team di esperti in un ambiente di collaborazione e innovazione. - La possibilità di sviluppare le tun konkurrierennze e di crescere professionalmente. - Un ambiente di lavoro dinamico e stimolante. Contattoo - Contattaci per ulteriori informazioni.",
-        "fr": "Descrizione Vous faites partie de l'équipe des services de collaboration et d'identité de PwC Suisse. Avec l'équipe, nous définissons les processus et fournissons les services et outils nécessaires pour exploiter les services SharePoint Online et les services de collaboration connexes au sein de PwC Suisse. Dans le cadre d'une équipe diversifiée et interfonctionnelle, vous apportez une solide expertise en ingénierie, en opérations et en gouvernance à l'organisation informatique et à nos clients internes, en mettant l'accent sur les services en ligne SharePoint sécurisés, évolutifs et adaptés aux entreprises. Mansioni - Exploiter, surveiller et améliorer en permanence les services SharePoint Online, les sites, les centres, les pages, les permissions et les capacités de collaboration connexes dans un environnement d'entreprise complexe. - Dépanner et résoudre les problèmes de plate-forme, localiser et isoler les dysfonctionnements et définir les procédures techniques d'évitement, d'assainissement et d'escalade. - Concevoir, mettre en œuvre et maintenir des solutions SharePoint Online, des modèles, des structures de navigation et des contrôles de gouvernance qui prennent en charge des cas d'utilisation commerciale sécurisés et évolutives. - Fourniture de sites de soutien, configuration, gestion du cycle de vie, exigences liées à la conservation et gestion de l'accès conformément aux politiques locales et aux attentes en matière de conformité. - Collaborer avec les parties prenantes et les équipes informatiques pour traduire les exigences en solutions solides SharePoint Online, y compris des possibilités d'automatisation et d'intégration, le cas échéant. - Créer et tenir à jour la documentation technique, les directives opérationnelles et les normes d'administration pour assurer la continuité du service et l'exécution cohérente. - Contribuer à la formation, au partage des connaissances et aux séances de questions et réponses à l'intention des propriétaires de sites, des propriétaires de contenu et des intervenants internes afin de favoriser une utilisation efficace de la plateforme. - Travailler avec une équipe d'experts dans un environnement ouvert et bienveillant où nous apprécions la culture de retour et la propriété dès le premier jour.\n• Requisiti - Laurea en informatique, systèmes d'information, o un campo correlato (Università, HES/ETS) o esperienza pratica équivalent. - Profonda conoscenza e anni di esperienza come amministratore o ingegnere di SharePoint Online in ambitori di impresa complessi. - Esperto in SharePoint Administration en ligne, architettura dei siti, autorizzazioni, concetti di gestione dei documenti, considerazioni di conservazione e servizi di collazione Microsoft 365 come Teams e OneDrive. - Esperienza diretta con argomenti di ingegneria di SharePoint Online come modelli, struttura dei siti, pubblicazione dei contenuti, navigazion dei hub, automazion e opérazioni dei servizi. - Buone abilità di scripting e automazion, idéale con PowerShell e strumenti di amministrazione Microsoft 365. - Buona comprensione dei requisiti di governance, rischio e compliance in ambitori di collaborazione di impresa. - Collaboratore team, impegnato, indipendente, affidabile e orientalato alla soluzione, con un atteggiamento \"posso farlo\", accogliente nuove sfide e dotato di forti abilità analitiche e di risoluzione dei problemi. - Fluenza (scritta e parlata) en inglese. Francese e tedesco sono un plus.\n• Cosa offriamo - Lavorare in un ambiente di lavoro aperto e accogliente colombe valorizziamo la cultura del feedback e l'ownership fin dal primo giorno. - L'opportunità di lavorare con un team di esperti in un ambiente di collaboration e innovazione. - La possibilità di sviluppare le tue concurrente e di crescere professionalmente. - Un ambiente di lavoro dinamico e stimolante. Contatto - Contattaci per ulteriori informazioni."
-      },
-      "slugByLocale": {
-        "it": "socio-senior-sharepoint-senior-online-pwc-switzerland-zurich",
-        "en": "senior-associate-senior-sharepoint-online-pwc-switzerland-zurich",
-        "de": "senior-associate-senior-share-point-online-pwc-zurich",
-        "fr": "associe-principal-point-de-partage-principal-en-ligne-pwc-switzerland-zurich"
-      },
-      "id": "pwc-dd6d149d5b1e",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-18T13:01:53.827Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-associate-senior-share-point-online-pwc-zurich",
-          "senior-associate-senior-sharepoint-online-pwc-zurich",
-          "senior-associate-sharepoint-online-engineer-pwc-zurich"
-        ],
-        "fr": [
-          "senior-associate-senior-share-point-online-pwc-zurich"
-        ],
-        "en": [
-          "senior-associate-senior-share-point-online-pwc-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "senior-associate-senior-share-point-online-pwc-zurich",
-        "senior-associate-senior-sharepoint-online-pwc-zurich",
-        "senior-associate-sharepoint-online-engineer-pwc-zurich"
-      ]
-    },
-    {
       "title": "Associate - Karriereeinstieg Steuerberatung 80 - 100%",
       "slug": "associato-voce-carriera-consulenza-fiscale-80-100-pwc-switzerland-zug",
       "url": "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/f7b3795a-df9f-42d9-8aaa-9768c841cf85",
@@ -3335,7 +3290,6 @@
         "fr": "senior-associate-tax-accounting-pwc-zurich"
       },
       "id": "pwc-3aa7523d85ec",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -3354,9 +3308,9 @@
       "previousSlugs": [
         "senior-associate-tax-accounting-pwc-luzern",
         "associe-principal-comptabilite-fiscale-pwc-switzerland-zug",
-        "senior-associate-tax-accounting-pwc-zurich",
         "senior-associate-tax-accounting-pwc-switzerland-zurich",
         "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
+        "senior-associate-tax-accounting-pwc-zurich",
         "senior-associate-tax-accounting-pwc-zug",
         "senior-associate-contabilita-fiscale-pwc-switzerland-zug",
         "senior-associate-contabilita-fiscale-pwc-switzerland-zug-gt3nwv"
@@ -3366,7 +3320,8 @@
           "senior-associate-tax-accounting-pwc-luzern"
         ],
         "fr": [
-          "associe-principal-comptabilite-fiscale-pwc-switzerland-zug"
+          "associe-principal-comptabilite-fiscale-pwc-switzerland-zug",
+          "senior-associate-tax-accounting-pwc-zurich"
         ],
         "en": [
           "senior-associate-tax-accounting-pwc-switzerland-zurich"
@@ -3374,9 +3329,11 @@
         "it": [
           "senior-associate-tax-accounting-pwc-luzern",
           "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
-          "senior-associate-tax-accounting-pwc-zurich"
+          "senior-associate-tax-accounting-pwc-zurich",
+          "senior-associate-tax-accounting-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Tax Accounting",
@@ -3420,7 +3377,6 @@
         "fr": "senior-associate-tax-accounting-pwc-luzern"
       },
       "id": "pwc-3aa7523d85ec",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -3456,9 +3412,15 @@
         ],
         "it": [
           "senior-associate-tax-accounting-pwc-zurich",
+          "senior-associate-tax-accounting-pwc-luzern",
+          "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
+          "senior-associate-tax-accounting-pwc-zug"
+        ],
+        "de": [
           "senior-associate-tax-accounting-pwc-luzern"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Tax Accounting",
@@ -3502,7 +3464,6 @@
         "fr": "senior-associate-tax-accounting-pwc-zug"
       },
       "id": "pwc-3aa7523d85ec",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -3545,7 +3506,8 @@
           "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
           "senior-associate-tax-accounting-pwc-zug"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Career start - Audit Trade, Industries and Services - October 2026",
@@ -5210,7 +5172,7 @@
     },
     {
       "title": "Audit (Assistant) Manager - Financial Services - Competence Center",
-      "slug": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+      "slug": "audit-assistente-manager-servizi-finanziari-centro-di-competenze-pwc-switzerland-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/audit-assistant-manager-financial-services-competence-center/a394d0e2-72c3-4873-bae2-30148707e652",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Bern/Audit--Assistant--Manager---Financial-Services---Competence-Center_716781WD/apply",
       "company": "PwC Switzerland",
@@ -5244,7 +5206,7 @@
         "fr": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n• Ausgeprägte Projekt-Management Fähigkeiten\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen"
       },
       "slugByLocale": {
-        "it": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+        "it": "audit-assistente-manager-servizi-finanziari-centro-di-competenze-pwc-switzerland-zurich",
         "en": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
         "fr": "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
@@ -5272,6 +5234,90 @@
         "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
         "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-bern",
+        "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+        "manager-assistente-di-revisione-servizi-finanziari-centro-di-competenza-pwc-switzerland-bern",
+        "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern",
+        "audit-assistant-manager-financial-services-competence-center-pwc-zurich-la954x"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich"
+        ],
+        "fr": [
+          "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
+          "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern"
+        ],
+        "it": [
+          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
+          "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
+          "audit-assistant-manager-financial-services-competence-center-pwc-bern",
+          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
+        ]
+      }
+    },
+    {
+      "title": "Audit (Assistant) Manager - Financial Services - Competence Center",
+      "slug": "audit-assistant-manager-financial-services-competence-center-pwc-bern",
+      "url": "https://jobs.pwc.ch/job-vacancies/audit-assistant-manager-financial-services-competence-center/a394d0e2-72c3-4873-bae2-30148707e652",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Bern/Audit--Assistant--Manager---Financial-Services---Competence-Center_716781WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-01",
+      "validThrough": "2036-03-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n\n• Ausgeprägte Projekt-Management Fähigkeiten\n\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen",
+      "titleByLocale": {
+        "it": "Audit (Assistant) Manager - Financial Services - Competence Center",
+        "en": "Audit (Assistant) Manager - Financial Services - Competence Center",
+        "de": "Audit (Assistent) Manager - Financial Services - Competence Center",
+        "fr": "Audit (Assistant) Manager - Financial Services - Competence Center"
+      },
+      "descriptionByLocale": {
+        "it": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n\n• Ausgeprägte Projekt-Management Fähigkeiten\n\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen",
+        "en": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n\n• Ausgeprägte Projekt-Management Fähigkeiten\n\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen",
+        "de": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n\n• Ausgeprägte Projekt-Management Fähigkeiten\n\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen",
+        "fr": "• Leite ein Team im Bereich Financial Services (Banking) des Competence Centre, teile dein Fachwissen und coach die Mitarbeitenden.\n\n• Unterstütze als Sparringpartner:in unsere Kund:innen bei Fragen zur Rechnungslegung und zu regulatorischen Entwicklungen.\n\n• Treibe die digitale Revolution der Wirtschaftsprüfung voran, indem du den Einsatz unserer digitalen Prüftools und -ansätze förderst und bei ihrer Weiterentwicklung mitwirkst.\n\n• Gestalte deine langfristigen Karriereziele selbst und entwickle dich fachlich sowie persönlich durch On-the-Job- und Off-the-Job-Training, begleitet von erfahrenen Führungskräften.\n\n• Sei ein Vorbild in einem inspirierenden, diversifizierten Team, gebe und erhalte regelmässig Feedback und sei Teil eines internationalen Netzwerks.\n\n• Anerkannter Schweizer Wirtschaftsprüfer oder kurz vor Abschluss der Ausbildung\n\n• Fundierte Kenntnisse in der Prüfung von Jahres- und Konzernrechnungen von Finanzunternehmen (insb. Jahresrechnungen von Banken nach RelV-FINMA)\n\n• Sicherer Umgang mit regulatorischen Anforderungen im Bankenumfeld\n\n• Erfahrung mit digitalen Prüftools und Big-Data-Anwendungen wie Alteryx oder Power BI\n\n• Ausgeprägte Kommunikationsstärke in Deutsch und Englisch (zusätzliche Französisch-Kenntnisse von Vorteil) – mündlich wie schriftlich\n\n• Ausgeprägte Projekt-Management Fähigkeiten\n\n• Fähigkeit, Wissen zu teilen, Teamkolleg:innen zu fördern und eine kollaborative Arbeitskultur aktiv mitzuprägen"
+      },
+      "slugByLocale": {
+        "it": "audit-assistant-manager-financial-services-competence-center-pwc-bern",
+        "en": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+        "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
+        "fr": "audit-assistant-manager-financial-services-competence-center-pwc-bern"
+      },
+      "id": "pwc-698955b8020d",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94500,
+          "maxValue": 143000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "previousSlugs": [
+        "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich",
+        "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
+        "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
+        "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
+        "audit-assistant-manager-services-financiers-competence-center-pwc-switzerland-bern",
         "manager-assistente-di-revisione-servizi-finanziari-centro-di-competenza-pwc-switzerland-bern",
         "audit-assistant-manager-servizi-finanziari-centro-competenze-pwc-switzerland-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-zurich-la954x"
@@ -5799,9 +5845,9 @@
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
     },
     {
-      "title": "Manager en Audit Trade, Industries and Services - Neuchâtel",
+      "title": "Financial Audit (Assistant) Manager - Trade, Industries & Services",
       "slug": "manager-audit-commercio-industrie-e-servizi-neuchatel-pwc-switzerland-neuchatel",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-en-audit-trade-industries-and-services-neuchatel/bcb7acea-fdf1-411b-afef-17b8387cc0c8",
+      "url": "https://jobs.pwc.ch/job-vacancies/financial-audit-assistant-manager-trade-industries-services/bcb7acea-fdf1-411b-afef-17b8387cc0c8",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Neuchtel/FY27---ASR---ASR-TIS-NE---Neuchtel---Manager---Start-01092026_711674WD/apply",
       "company": "PwC Switzerland",
       "companyKey": "pwc",
@@ -5823,7 +5869,7 @@
       "description": "En matière d'audit, nous fournissons l'assurance indépendante et objective que les dossiers, les états et les processus financiers sont exacts, fiables et conformes, afin d'instaurer la confiance des parties prenantes. Nous contribuons donc à l'intégrité des systèmes financiers, facilitons la prise de décision en connaissance de cause, protégeons contre la fraude et promouvons la confiance dans l'environnement des entreprises.\n\n• Être en charge des mandats des clients locaux, nationaux et internationaux actifs dans les domaines du commerce, de l'industrie et des services.\n\n• Superviser la mise en œuvre des missions d'audit ainsi que la rédaction des rapports et des recommandations.\n\n• Acquérir une connaissance approfondie d'un large éventail de clients.\n\n• Diriger une équipe et piloter divers projets.\n\n• Partager activement son expertise et son expérience en enseignant, en coachant et en devenant mentor pour les autres.\n\n• Rejoindre une équipe active et diversifiée dans un secteur en plein développement.\n\n• Améliorer ses compétences dans la gestion de plusieurs parties prenantes et avoir l'opportunité de travailler sur des projets stimulants.\n\n• Justifier de plus de 5 ans d'expérience dans un poste similaire au sein d'un Big Four ou d'une entreprise internationale de second rang.\n\n• Être comptable certifié(e) ou posséder une qualification pertinente (CPA, DEC, ACCA, PJ, etc.).\n\n• Disposer d'une expertise technique extrêmement solide avec une excellente connaissance pratique des réglementations IFRS.\n\n• Maîtriser le français et l'anglais.\n\n• Faire preuve d'innovation, apprécier le travail en équipe ainsi que les contacts avec les clients.\n\n• Démontrer d'excellentes capacités d'analyse et de synthèse.",
       "titleByLocale": {
         "it": "Manager Audit Commercio, Industrie e Servizi - Neuchâtel",
-        "en": "Manager en Audit Trade, Industries and Services - Neuchâtel",
+        "en": "Financial Audit (Assistant) Manager - Trade, Industries & Services",
         "de": "Manager Audit Handel, Industrie und Dienstleistungen - Neuchâtel",
         "fr": "Responsable en Audit Commerce, Industries et Services - Neuchâtel"
       },
@@ -5859,6 +5905,7 @@
         "manager-of-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel",
         "manager-en-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel",
         "manager-in-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel",
+        "financial-audit-assistant-manager-trade-industries-services-pwc-neuchatel",
         "responsable-en-audit-commerce-industries-et-services-neuchatel-pwc-switzerland-neuchatel-h3x7ix"
       ],
       "id": "pwc-e9bdc7f09f22",
@@ -5873,7 +5920,8 @@
         ],
         "it": [
           "manager-en-audit-trade-industries-and-services-neuchatel-pwc-neuchatel",
-          "manager-in-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel"
+          "manager-in-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel",
+          "financial-audit-assistant-manager-trade-industries-services-pwc-neuchatel"
         ],
         "fr": [
           "responsable-en-audit-commerce-industries-et-services-neuchatel-pwc-switzerland-neuchatel-h3x7ix",
@@ -6275,7 +6323,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "needsRetranslation": true
     },
     {
       "title": "Associate / Senior Associate - Cloud, Data and AI (Cloud & AI Engineer)",
@@ -6505,7 +6554,8 @@
           "gestionnaire-principal-de-l-abg-pwc-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Manager - Cloud, Data & AI (Cloud & Data Platform Architect)",
@@ -6723,7 +6773,8 @@
       "previousSlugs": [
         "manager-sap-master-data-governance-beratung-pwc-switzerland-zurich",
         "manager-sap-master-data-governance-consulting-pwc-switzerland-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
@@ -6878,7 +6929,8 @@
         "it": [
           "associate-payroll-consulting-80-100-pwc-zurich"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager Transaction Services",
@@ -6952,7 +7004,8 @@
         "manager-senior-manager-transaction-services-pwc-zurich",
         "manager-senior-manager-transaction-services-pwc-switzerland-zurich"
       ],
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate / Manager Financial Services Consulting - Liquidity & Funding",
@@ -7675,7 +7728,8 @@
           "director-cloud-data-ai-cd-ai-generative-ai-pwc-switzerland-zurich"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Supply Chain Cyber Security Specialist (Cyber Risk Advisory)",
@@ -7968,7 +8022,8 @@
           "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug"
         ],
         "it": [
-          "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug"
+          "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
+          "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich"
         ]
       }
     },
@@ -8419,7 +8474,8 @@
           "life-transformation-aktuar-in-manager-in-pwc-zurich"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Auditor - Treasury and Commodity Trading",
@@ -8877,11 +8933,13 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve"
+          "manager-senior-manager-senior-cyber-security-architect-pwc-geneve",
+          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
         ],
         "fr": [
           "gestionnaire-gestionnaire-principal-architecte-principal-de-la-cybersecurite-pwc-switzerland-geneve",
-          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
+          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
+          "manager-senior-manager-senior-cyber-security-architecte-pwc-switzerland-zurich"
         ],
         "en": [
           "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-zurich",
@@ -9198,7 +9256,8 @@
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
         "gestione-dei-mercati-finanziari-pwc-switzerland-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
@@ -9276,7 +9335,8 @@
         "manager-senior-manager-cloud-daten-ki-cd-ai-finops-pwc-switzerland-zurich",
         "gestionnaire-gestionnaire-principal-cloud-data-ai-cd-ai-finops-pwc-switzerland-zurich"
       ],
-      "firstSeenAt": "2026-04-13T22:16:12.621Z"
+      "firstSeenAt": "2026-04-13T22:16:12.621Z",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager - Cyber Cloud Security",
