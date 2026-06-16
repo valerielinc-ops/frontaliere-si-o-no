@@ -87,6 +87,13 @@ function extractBalanced(src: string, pos: number): string | null {
   return null;
 }
 
+// Sticky (`y`) regexes for the jsToJson scanner: they match ONLY at
+// `lastIndex` (set to the cursor `i`) without copying `s.substring(i)` on every
+// character — the prior `.match()` on a fresh tail substring was O(len) per
+// char. Module-scoped so they compile once across all blocks.
+const KEY_RX = /([a-zA-Z_$][\w$]*)(\s*:)/y;
+const VAL_RX = /[a-zA-Z_$][\w$]*/y;
+
 /**
  * Convert a TS object/array literal into JSON. Handles:
  * - Template literals (`...`) → JSON string with placeholder for ${...}
@@ -119,7 +126,15 @@ function jsToJson(js: string): string {
   // quote unquoted keys, replace bare identifier values with placeholder,
   // strip // line comments. All transforms are string-aware so regex-inside-
   // string corruption (e.g. `: AVS,` inside a description) cannot happen.
-  let out = '';
+  //
+  // Perf: `out` is built as an array of chunks (joined once at the end) and
+  // `prevNonWs` is tracked incrementally in `lastNonWs`. The previous version
+  // recomputed `out.replace(/\s+$/,'').slice(-1)` and sliced `s.substring(i)`
+  // on EVERY character — both O(len) per char → O(len²) per block, which on the
+  // multi-MB services/seo/seo-pages.ts dominated the whole test (~70s, 99% of
+  // wall). Sticky (`y`) regexes match at offset `i` without copying the tail.
+  const out: string[] = [];
+  let lastNonWs = ''; // last non-whitespace char already emitted to `out`
   let i = 0;
   while (i < s.length) {
     // Pass through double-quoted strings verbatim
@@ -130,7 +145,8 @@ function jsToJson(js: string): string {
         if (s[j] === '"') { j++; break; }
         j++;
       }
-      out += s.substring(i, j);
+      out.push(s.substring(i, j));
+      lastNonWs = '"';
       i = j;
       continue;
     }
@@ -147,7 +163,8 @@ function jsToJson(js: string): string {
         if (s[j] === "'") { j++; break; }
         content += s[j]; j++;
       }
-      out += `"${content.replace(/"/g, '\\"')}"`;
+      out.push(`"${content.replace(/"/g, '\\"')}"`);
+      lastNonWs = '"';
       i = j;
       continue;
     }
@@ -159,34 +176,42 @@ function jsToJson(js: string): string {
     // Quote unquoted keys: only when preceded by `{`, `,`, `[`, or whitespace
     const prev = i > 0 ? s[i - 1] : '\n';
     if (/[{,[\s]/.test(prev)) {
-      const keyMatch = s.substring(i).match(/^([a-zA-Z_$][\w$]*)(\s*:)/);
+      KEY_RX.lastIndex = i;
+      const keyMatch = KEY_RX.exec(s);
       if (keyMatch) {
-        out += `"${keyMatch[1]}"${keyMatch[2]}`;
+        out.push(`"${keyMatch[1]}"${keyMatch[2]}`);
+        lastNonWs = ':'; // keyMatch[2] is `\s*:` → trailing non-ws is always `:`
         i += keyMatch[0].length;
         continue;
       }
     }
     // Bare identifier as VALUE (after `:` and optional whitespace).
-    // Detect by looking at the previous non-whitespace char in `out`.
-    const prevNonWs = out.replace(/\s+$/, '').slice(-1);
-    if (prevNonWs === ':') {
-      const valMatch = s.substring(i).match(/^([a-zA-Z_$][\w$]*)/);
+    // Detect by looking at the previous non-whitespace char already emitted.
+    if (lastNonWs === ':') {
+      VAL_RX.lastIndex = i;
+      const valMatch = VAL_RX.exec(s);
       if (valMatch) {
-        const ident = valMatch[1];
+        const ident = valMatch[0];
         if (ident === 'true' || ident === 'false' || ident === 'null') {
-          out += ident;
+          out.push(ident);
+          lastNonWs = ident[ident.length - 1];
         } else {
           // BUILD_DATE_ISO, BASE_URL, SOME_CONST, etc. → placeholder
-          out += '"__IDENT__"';
+          out.push('"__IDENT__"');
+          lastNonWs = '"';
         }
         i += ident.length;
         continue;
       }
     }
-    out += s[i];
+    const ch = s[i];
+    out.push(ch);
+    // Track last non-whitespace char; whitespace leaves lastNonWs unchanged
+    // (mirrors the prior `out.replace(/\s+$/,'').slice(-1)`, same `\s` class).
+    if (!/\s/.test(ch)) lastNonWs = ch;
     i++;
   }
-  s = out;
+  s = out.join('');
 
   // Trailing commas
   s = s.replace(/,(\s*[}\]])/g, '$1');
