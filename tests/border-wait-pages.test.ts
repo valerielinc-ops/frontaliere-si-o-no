@@ -47,9 +47,12 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
       lastUpdate: '2026-04-21T06:00:00.000Z',
       status: 'red',
     },
+    // HERE live-routing reading — must render the 'here' source badge, NOT the
+    // 'static' historical-data fallback (regression: 'here' was missing from the
+    // WaitSource union/switch and fell through to "Dati statistici").
     'chiasso-centro': {
       waitTimeMinutes: 8,
-      source: 'tomtom',
+      source: 'here',
       lastUpdate: '2026-04-21T06:00:00.000Z',
       status: 'yellow',
     },
@@ -62,6 +65,14 @@ const MINIMAL_CURRENT: BorderWaitCurrent = {
     'ponte-tresa': {
       waitTimeMinutes: 4,
       source: 'google-maps',
+      lastUpdate: '2026-04-21T06:00:00.000Z',
+      status: 'green',
+    },
+    // Webcam-sourced reading (live image analysis) — must render the
+    // 'webcam' source badge, NOT the 'static' historical-data fallback.
+    'san-pietro': {
+      waitTimeMinutes: 6,
+      source: 'webcam',
       lastUpdate: '2026-04-21T06:00:00.000Z',
       status: 'green',
     },
@@ -234,6 +245,26 @@ describe('borderWaitPagesPlugin — page generation', () => {
   it('leaf page shows the source-badge label according to the snapshot source', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('TomTom');
+  });
+
+  it('a webcam-sourced reading renders the webcam source badge, not the static fallback', () => {
+    const html = pages[buildOggiPath('it', 'san-pietro')];
+    // The webcam-derived wait is live, so the snapshot badge must read the
+    // webcam estimate label and NOT degrade to the "Dati statistici" copy.
+    expect(html).toContain('Stima da webcam (analisi immagine live)');
+    expect(html).not.toContain('Dati statistici — tempo reale non disponibile');
+  });
+
+  it('a HERE live-routing reading renders the HERE badge, not the static fallback', () => {
+    const html = pages[buildOggiPath('it', 'chiasso-centro')];
+    expect(html).toContain('Stima percorso live (HERE)');
+    expect(html).not.toContain('Dati statistici — tempo reale non disponibile');
+  });
+
+  it('the webcam source label is translated in every locale', () => {
+    expect(pages[buildOggiPath('en', 'san-pietro')]).toContain('Webcam estimate (live image analysis)');
+    expect(pages[buildOggiPath('de', 'san-pietro')]).toContain('Webcam-Schätzung (Live-Bildanalyse)');
+    expect(pages[buildOggiPath('fr', 'san-pietro')]).toContain("Estimation par webcam (analyse d'image en direct)");
   });
 
   it('Brogeda leaf page contains bidirectional link to /prezzi-diesel/chiasso/oggi/', () => {
