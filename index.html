@@ -309,10 +309,12 @@
                 var settled = false;
                 function settle(ok){ if (settled) return; settled = true; resolve(!!ok); }
                 var q = window.__ftOfferwallShowQueue = window.__ftOfferwallShowQueue || [];
-                q.push(function(hook){ if (settled) return; run(hook).then(settle, function(){ settle(false); }); });
                 // Safety net: if the gate never hydrates, fall back to the
                 // Offerwall's other choices rather than hanging on a spinner.
-                setTimeout(function(){ settle(false); }, 10000);
+                // Cleared once the thunk drains so the 10s budget only covers the
+                // hydration wait, never the user's in-progress subscribe interaction.
+                var timer = setTimeout(function(){ settle(false); }, 10000);
+                q.push(function(hook){ if (settled) return; clearTimeout(timer); run(hook).then(settle, function(){ settle(false); }); });
               });
             }
             return run(fn);

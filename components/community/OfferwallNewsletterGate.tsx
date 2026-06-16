@@ -167,9 +167,11 @@ function ensureOfferwallRegistry(): void {
           let settled = false;
           const settle = (ok: unknown) => { if (settled) return; settled = true; resolve(!!ok); };
           const q = (w.__ftOfferwallShowQueue = w.__ftOfferwallShowQueue || []);
-          q.push((hook: (lang: unknown) => unknown) => { if (settled) return; run(hook).then(settle, () => settle(false)); });
           // Safety net: if the gate never hydrates, fall back to the other choices.
-          setTimeout(() => settle(false), 10000);
+          // Cleared once the thunk drains so the 10s budget only covers the
+          // hydration wait, never the user's in-progress subscribe interaction.
+          const timer = setTimeout(() => settle(false), 10000);
+          q.push((hook: (lang: unknown) => unknown) => { if (settled) return; clearTimeout(timer); run(hook).then(settle, () => settle(false)); });
         });
       }
       return run(fn);
