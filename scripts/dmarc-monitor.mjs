@@ -9,15 +9,16 @@
  * ingests and parses the aggregate (RUA) reports every legitimate receiver
  * sends back, but the only way to *read* that parsed data is to sit in front of
  * the dashboard. Nobody does that on a schedule, so a misconfigured sender or a
- * spoofing campaign goes unnoticed — and the domain is stuck at `p=none`
- * (monitor-only, zero protection) forever because no one confirms it is safe to
- * harden.
+ * spoofing campaign goes unnoticed — and the domain never advances along the
+ * enforcement ladder (`p=none` → `p=quarantine` → `p=reject`) because no one
+ * confirms it is safe to take the next step.
  *
  * This watchdog closes that loop with ZERO human attention required. It reads
  * the SAME data the dashboard shows, via Cloudflare's GraphQL Analytics dataset
  * `dmarcReportsSourcesAdaptiveGroups` (no extra DNS record, no mailbox, no
- * provider integration — the data is already in Cloudflare). It then opens a
- * GitHub issue ONLY when there is something to act on:
+ * provider integration — the data is already in Cloudflare), reads the CURRENT
+ * policy straight from the `_dmarc` record, and opens a GitHub issue ONLY when
+ * there is something to act on:
  *
  *   1. FAILING SOURCE (priority:high) — a sending source produced a meaningful
  *      number of messages that FAIL DMARC over the window. Two flavours, both
@@ -27,10 +28,14 @@
  *        • a KNOWN org failing → a real misconfiguration that WOULD bounce/junk
  *          legitimate mail the moment the policy moves past `p=none`.
  *
- *   2. READY TO HARDEN (priority:low) — over the window virtually everything
- *      passes DMARC and no source is failing in volume, so it is safe to move
- *      the policy from `p=none` → `p=quarantine` (and later `p=reject`). This is
- *      the nudge that actually turns monitoring into protection.
+ *   2. READY FOR THE NEXT STEP (priority:low) — over the window virtually
+ *      everything passes DMARC and no source is failing in volume, so it is safe
+ *      to advance the policy ONE rung. The nudge is policy-aware:
+ *        • at `p=none`       → suggest `p=quarantine`;
+ *        • at `p=quarantine` → suggest `p=reject` (full protection);
+ *        • at `p=reject`     → SILENT (already fully protected, nothing to do).
+ *      Reading the live policy is what stops the monitor from forever nagging
+ *      "move to quarantine" after you already have.
  *
  * If neither holds, the run is SILENT (no issue) and exits 0. It is a reporter,
  * never a gate: any internal error is logged and the process still exits 0 so a
@@ -38,10 +43,10 @@
  *
  * AUTH
  * ────
- *   Needs CF_API_TOKEN (Zone → Analytics → Read on the zone) — the same token
- *   cf-status-report.mjs uses, already stored in Firebase Remote Config. In CI
- *   run `node scripts/load-rc-env.mjs` first. CF_ZONE_ID is optional (resolved
- *   from CF_ZONE_NAME via the REST API when absent).
+ *   Needs CF_API_TOKEN (Zone → Analytics → Read, plus DNS → Read to see the
+ *   current policy) — the same token cf-status-report.mjs uses, already stored
+ *   in Firebase Remote Config. In CI run `node scripts/load-rc-env.mjs` first.
+ *   CF_ZONE_ID is optional (resolved from CF_ZONE_NAME via the REST API).
  *
  *   Opening issues needs `gh` authenticated (GITHUB_TOKEN in Actions). With
  *   --dry-run the script prints findings and never touches GitHub — use it for
@@ -59,10 +64,14 @@
 
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import {
+  cfGraphQL,
+  resolveZoneId,
+  REST_BASE,
+  DEFAULT_ZONE_NAME,
+} from './lib/cf-analytics.mjs';
 
-const GRAPHQL_ENDPOINT = 'https://api.cloudflare.com/client/v4/graphql';
-const REST_BASE = 'https://api.cloudflare.com/client/v4';
-const ZONE_NAME = process.env.CF_ZONE_NAME || 'frontaliereticino.ch';
+const ZONE_NAME = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 
 // ── Tunables (env-overridable so the workflow can tighten without a code edit) ─
 // A source must produce at least this many DMARC-failing messages over the
@@ -95,8 +104,12 @@ const KNOWN_SENDERS = (process.env.DMARC_KNOWN_SENDERS
     ]
 ).map((s) => s.trim().toLowerCase()).filter(Boolean);
 
+// Distinct stable titles → independent dedup per enforcement rung. The
+// github-issue-creator dedups on the first 60 chars, so the two readiness
+// titles must diverge within that prefix (they do: "(p=none →" vs "(p=quar…").
 const FAIL_ISSUE_TITLE = 'DMARC: sorgente che fallisce (possibile spoofing o mittente da sistemare)';
-const READY_ISSUE_TITLE = 'DMARC: pronto per irrigidire la policy (p=none → p=quarantine)';
+const READY_QUARANTINE_TITLE = 'DMARC: pronto per irrigidire la policy (p=none → p=quarantine)';
+const READY_REJECT_TITLE = 'DMARC: pronto per protezione piena (p=quarantine → p=reject)';
 const WORKFLOW_NAME = 'DMARC Monitor';
 
 function intEnv(name, dflt) {
@@ -134,22 +147,6 @@ function sinceDate(days) {
   return d.toISOString().slice(0, 10);
 }
 
-async function cfGet(path, token) {
-  const res = await fetch(`${REST_BASE}/${path}`, {
-    headers: { Authorization: `Bearer ${token}` },
-  });
-  return res.json();
-}
-
-async function resolveZoneId(token) {
-  if (process.env.CF_ZONE_ID) return process.env.CF_ZONE_ID;
-  const j = await cfGet(`zones?name=${encodeURIComponent(ZONE_NAME)}`, token);
-  if (!j.success || !j.result?.length) {
-    throw new Error(`zone lookup failed for ${ZONE_NAME}: ${JSON.stringify(j.errors)}`);
-  }
-  return j.result[0].id;
-}
-
 async function fetchSources(token, zoneId, since) {
   const query = `query DmarcSources($zone: String!, $since: Date!) {
     viewer {
@@ -165,16 +162,32 @@ async function fetchSources(token, zoneId, since) {
       }
     }
   }`;
-  const res = await fetch(GRAPHQL_ENDPOINT, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query, variables: { zone: zoneId, since } }),
-  });
-  const j = await res.json();
-  if (j.errors) throw new Error(`GraphQL error: ${JSON.stringify(j.errors)}`);
-  const rows = j.data?.viewer?.zones?.[0]?.dmarcReportsSourcesAdaptiveGroups;
+  const data = await cfGraphQL(token, query, { zone: zoneId, since });
+  const rows = data?.viewer?.zones?.[0]?.dmarcReportsSourcesAdaptiveGroups;
   if (!Array.isArray(rows)) throw new Error('unexpected GraphQL shape (no rows array)');
   return rows;
+}
+
+/**
+ * Read the live enforcement policy straight from the `_dmarc` TXT record so the
+ * readiness nudge targets the correct NEXT rung. Returns 'none' | 'quarantine'
+ * | 'reject', or null if the record can't be read/parsed (→ no readiness nudge,
+ * the conservative choice: never suggest a step we can't anchor to reality).
+ */
+async function fetchCurrentPolicy(token, zoneId) {
+  try {
+    const url = `${REST_BASE}/zones/${zoneId}/dns_records?type=TXT&name=${encodeURIComponent(`_dmarc.${ZONE_NAME}`)}`;
+    const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    const j = await res.json();
+    if (!j.success || !Array.isArray(j.result)) return null;
+    const rec = j.result.find((r) => /v=DMARC1/i.test(r.content || ''));
+    if (!rec) return null;
+    const val = rec.content.replace(/^"|"$/g, '').replace(/"\s+"/g, '');
+    const m = val.match(/\bp=(none|quarantine|reject)\b/i);
+    return m ? m[1].toLowerCase() : null;
+  } catch {
+    return null;
+  }
 }
 
 export function isKnown(orgName) {
@@ -229,6 +242,22 @@ export function analyze(rows) {
     failingSources,
     ready,
   };
+}
+
+/**
+ * Given the live policy and the window analysis, return the NEXT enforcement
+ * rung to suggest — or null when there is nothing to nudge. Pure + tested.
+ *   not-ready            → null (a failing-source alert fires instead)
+ *   ready & p=none       → 'quarantine'
+ *   ready & p=quarantine → 'reject'
+ *   ready & p=reject     → null (fully protected)
+ *   policy unknown       → null (don't anchor a suggestion to a guess)
+ */
+export function nextEnforcementStep(currentPolicy, analysis) {
+  if (!analysis.ready) return null;
+  if (currentPolicy === 'none') return 'quarantine';
+  if (currentPolicy === 'quarantine') return 'reject';
+  return null;
 }
 
 function pct(n, d) {
@@ -288,7 +317,7 @@ function buildFailBody(a, days, since) {
     '1. Identifica ogni sorgente in tabella (l\'IP principale aiuta).',
     '2. Mittenti tuoi → allinea SPF (return-path sul dominio) e/o firma DKIM.',
     '3. Sorgenti che non riconosci e non riesci a giustificare → è spoofing:',
-    '   procedi verso `p=quarantine` per neutralizzarlo.',
+    '   procedi verso un livello di enforcement più alto per neutralizzarlo.',
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Si auto-aggiorna con un',
     'commento finché la condizione persiste; chiudilo quando hai sistemato._',
@@ -296,9 +325,25 @@ function buildFailBody(a, days, since) {
   return lines.join('\n');
 }
 
-function buildReadyBody(a, days, since) {
+function buildReadyBody(a, days, since, step) {
+  const cfg =
+    step === 'reject'
+      ? {
+          heading: '✅ DMARC: pronto per `p=reject` (protezione piena)',
+          from: 'p=quarantine',
+          to: 'p=reject',
+          nowState: 'sei a `p=quarantine` → la posta falsificata finisce in spam, ma non è bloccata',
+          effect: '`p=reject` la fa **rifiutare in consegna**: protezione completa contro lo spoofing del tuo dominio.',
+        }
+      : {
+          heading: '✅ DMARC: pronto per passare a `p=quarantine`',
+          from: 'p=none',
+          to: 'p=quarantine',
+          nowState: 'sei a `p=none` → **monitori soltanto, non sei protetto**',
+          effect: '`p=quarantine` manda la posta falsificata **in spam** (recuperabile), senza toccare quella legittima.',
+        };
   return [
-    '## ✅ DMARC: pronto per passare a `p=quarantine`',
+    `## ${cfg.heading}`,
     '',
     `Negli **ultimi ${days} giorni** (dal \`${since}\`) il dominio ha avuto`,
     `**${a.total}** messaggi analizzati dal DMARC Management di Cloudflare:`,
@@ -306,15 +351,16 @@ function buildReadyBody(a, days, since) {
     `**${a.totalFail}** falliscono (${pct(a.totalFail, a.total)}) e nessuna sorgente`,
     `fallisce in volume (soglia ${FAIL_MIN_VOL}).`,
     '',
-    'Tutti i mittenti legittimi sono allineati: alzare la policy non manderà in',
-    'spam la posta vera. Oggi sei a `p=none` → **monitori soltanto, non sei protetto**.',
+    `Tutti i mittenti legittimi sono allineati: oggi ${cfg.nowState}.`,
+    `Salire da \`${cfg.from}\` a \`${cfg.to}\` è sicuro: ${cfg.effect}`,
     '',
     '### Azione consigliata',
-    '1. Nel record `_dmarc.frontaliereticino.ch` (DNS Cloudflare) cambia `p=none`',
-    '   in `p=quarantine`. Opzionale ma prudente: rampa con `pct=25` → `50` → `100`.',
+    `1. Nel record \`_dmarc.frontaliereticino.ch\` (DNS Cloudflare) cambia \`${cfg.from}\` in \`${cfg.to}\`.`,
     '2. Lascia girare 1–2 settimane: questo monitor continua a vegliare e ti',
     '   avvisa se qualcosa si rompe.',
-    '3. Quando `p=quarantine` è stabile e pulito, passa a `p=reject` (protezione piena).',
+    step === 'reject'
+      ? '3. A `p=reject` stabile hai la protezione massima: non resta nessuno step.'
+      : '3. Quando `p=quarantine` è stabile e pulito, il monitor ti dirà quando passare a `p=reject`.',
     '',
     '_Aperto automaticamente dal workflow DMARC Monitor. Una volta alzata la',
     'policy chiudi pure questa issue._',
@@ -332,9 +378,11 @@ async function main() {
   const since = sinceDate(opts.days);
   let zoneId;
   let rows;
+  let policy;
   try {
-    zoneId = await resolveZoneId(token);
+    zoneId = await resolveZoneId(token, ZONE_NAME, process.env.CF_ZONE_ID);
     rows = await fetchSources(token, zoneId, since);
+    policy = await fetchCurrentPolicy(token, zoneId);
   } catch (err) {
     // Reporter, not a gate: a Cloudflare/GraphQL hiccup must not fail the run.
     console.error(`DMARC fetch failed (non-fatal): ${err.message}`);
@@ -342,17 +390,18 @@ async function main() {
   }
 
   const a = analyze(rows);
+  const step = nextEnforcementStep(policy, a);
 
   if (opts.json) {
-    console.log(JSON.stringify({ since, days: opts.days, ...a }, null, 2));
+    console.log(JSON.stringify({ since, days: opts.days, policy, step, ...a }, null, 2));
   } else {
-    console.log(`DMARC sources since ${since} (${opts.days}d):`);
+    console.log(`DMARC sources since ${since} (${opts.days}d) — current policy: p=${policy ?? 'unknown'}:`);
     console.log(`  total=${a.total} pass=${a.totalPass} (${pct(a.totalPass, a.total)}) fail=${a.totalFail} (${pct(a.totalFail, a.total)})`);
     for (const s of a.sources) {
       console.log(`  • ${s.org} [${s.known ? 'known' : 'UNKNOWN'}] msg=${s.total} fail=${s.fail} pass=${pct(s.pass, s.total)}`);
     }
     console.log(a.failingSources.length ? `  → ${a.failingSources.length} failing source(s)` : '  → no failing sources');
-    console.log(a.ready ? '  → READY to harden (p=quarantine)' : '  → not flagged ready');
+    console.log(step ? `  → READY to advance: p=${policy} → p=${step}` : (a.ready ? '  → ready, but no further step (fully protected / policy unknown)' : '  → not flagged ready'));
   }
 
   if (a.total === 0) {
@@ -360,12 +409,10 @@ async function main() {
     return;
   }
 
-  const actions = [];
-  if (a.failingSources.length) actions.push('fail');
-  else if (a.ready) actions.push('ready');
+  const action = a.failingSources.length ? 'fail' : (step ? `ready:${step}` : null);
 
   if (opts.dryRun) {
-    console.log(`[dry-run] would open issue(s): ${actions.length ? actions.join(', ') : 'none'}`);
+    console.log(`[dry-run] would open issue: ${action ?? 'none'}`);
     return;
   }
 
@@ -375,17 +422,18 @@ async function main() {
       description: buildFailBody(a, opts.days, since),
       priority: 2,
     });
-  } else if (a.ready) {
+  } else if (step) {
     createIssue({
-      title: READY_ISSUE_TITLE,
-      description: buildReadyBody(a, opts.days, since),
+      title: step === 'reject' ? READY_REJECT_TITLE : READY_QUARANTINE_TITLE,
+      description: buildReadyBody(a, opts.days, since, step),
       priority: 4,
     });
   }
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
-// importing analyze()/isKnown() never triggers a live Cloudflare call.
+// importing analyze()/isKnown()/nextEnforcementStep() never triggers a live
+// Cloudflare call.
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
     // Last-resort guard: still exit 0 (reporter contract).

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { analyze, isKnown } from '../scripts/dmarc-monitor.mjs';
+import { analyze, isKnown, nextEnforcementStep } from '../scripts/dmarc-monitor.mjs';
 
 // Helper: build a GraphQL-shaped source row.
 function row(sourceOrgName: string, total: number, dmarc: number, sourceIP = '1.2.3.4') {
@@ -86,6 +86,36 @@ describe('dmarc-monitor', () => {
       expect(a.total).toBe(0);
       expect(a.ready).toBe(false);
       expect(a.failingSources).toHaveLength(0);
+    });
+  });
+
+  describe('nextEnforcementStep', () => {
+    const readyClean = analyze([
+      row('MAILJET SAS', 582, 582),
+      row('Amazon.com, Inc.', 216, 216),
+      row('The Constant Company, LLC', 89, 89),
+    ]);
+    const notReady = analyze([
+      row('MAILJET SAS', 500, 500),
+      row('Sketchy Spoofer Ltd', 50, 0),
+    ]);
+
+    it('suggests quarantine when clean and currently at p=none', () => {
+      expect(nextEnforcementStep('none', readyClean)).toBe('quarantine');
+    });
+    it('suggests reject when clean and currently at p=quarantine', () => {
+      expect(nextEnforcementStep('quarantine', readyClean)).toBe('reject');
+    });
+    it('suggests nothing at p=reject (already fully protected)', () => {
+      expect(nextEnforcementStep('reject', readyClean)).toBeNull();
+    });
+    it('suggests nothing when the policy could not be read (null)', () => {
+      // Guards against nagging "move to quarantine" off a guessed policy.
+      expect(nextEnforcementStep(null, readyClean)).toBeNull();
+    });
+    it('suggests nothing when not ready, regardless of policy', () => {
+      expect(nextEnforcementStep('none', notReady)).toBeNull();
+      expect(nextEnforcementStep('quarantine', notReady)).toBeNull();
     });
   });
 });
