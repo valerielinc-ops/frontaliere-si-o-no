@@ -1,7 +1,167 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-06-16T13:05:46.065Z",
+  "assembledAt": "2026-06-16T22:30:42.616Z",
   "jobs": [
+    {
+      "id": "company-kbhp6",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+      "company": "CambiaValute.ch",
+      "title": "Senior Backend developer",
+      "location": "2026 CambiaValute",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Senior Backend Developer\n\nDescrizione completa della posizione\nELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager.\nResponsabilità:\n• Progettare, sviluppare e mantenere API RESTfull in C#;\n• Gestire e ottimizzare database SQL (MS SQL);\n• Collaborare con il team per garantire un’integrazione fluida tra i sistemi;\n• Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend;\n• Scrivere codice pulito, documentato e testato.\n• Requisiti:\n• 5+ anni di esperienza nello sviluppo backend;\n• Ottima conoscenza di C# e MS SQL;\n• Esperienza con framework backend;\n• Familiarità con ambienti cloud (preferibilmente Azure);\n• Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;\n• Conoscenza del settore finanziario. Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale.\n• Plus:\n• Esperienza con microservizi e architetture serverless;\n• Conoscenza di strumenti di monitoraggio e logging;\n• Conoscenza di strumenti di testing.\n• Esperienza con CI/CD e automazione dei processi di sviluppo;\n• Familiarità con servizi FaaS e PaaS;\n• Tipologia di lavoro: Tempo pieno, contratto a tempo indeterminato.\n• Come candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+      "requirements": [
+        "Gestire e ottimizzare database SQL (MS SQL);",
+        "5+ anni di esperienza nello sviluppo backend;",
+        "Ottima conoscenza di C# e MS SQL;",
+        "Esperienza con framework backend;",
+        "Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;",
+        "Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale."
+      ],
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-16T22:30:41.431Z",
+      "firstSeenAt": "2026-06-16T22:30:41.431Z",
+      "slugByLocale": {
+        "it": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+        "en": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+        "de": "senior-backend-entwickler-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+        "fr": "senior-backend-developpeur-cambiavalute-ch-2025-cambiavalute-0kbhp6"
+      },
+      "titleByLocale": {
+        "en": "Senior Backend developer",
+        "it": "Senior Backend Sviluppatore",
+        "de": "Senior Backend Entwickler",
+        "fr": "Senior Backend Développeur"
+      },
+      "descriptionByLocale": {
+        "it": "Senior Backend Developer Descrizione completa della posizione ELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager. Responsabilità: Progettare, sviluppare e mantenere API RESTfull in C#; Gestire e ottimizzare database SQL (MS SQL); Collaborare con il team per garantire un’integrazione fluida tra i sistemi; Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend; Scrivere codice pulito, documentato e testato. \n• Requisiti: 5+ anni di esperienza nello sviluppo backend; Ottima conoscenza di C# e MS SQL; Esperienza con framework backend; Familiarità con ambienti cloud (preferibilmente Azure); Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese; Conoscenza del settore finanziario. Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale. Plus: Esperienza con microservizi e architetture serverless; Conoscenza di strumenti di monitoraggio e logging; Conoscenza di strumenti di testing. Esperienza con CI/CD e automazione dei processi di sviluppo; Familiarità con servizi FaaS e PaaS; Tipologia di lavoro: Tempo pieno, contratto a tempo indeterminato. Come candidarsi: Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com. 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra. perchè sceglierci? CambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda. Registrati ora gratis",
+        "en": "Senior Backend Developer\n\nDescrizione completa della posizione\nELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager.\nResponsabilità:\n• Progettare, sviluppare e mantenere API RESTfull in C#;\n• Gestire e ottimizzare database SQL (MS SQL);\n• Collaborare con il team per garantire un’integrazione fluida tra i sistemi;\n• Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend;\n• Scrivere codice pulito, documentato e testato.\n• Requisiti:\n• 5+ anni di esperienza nello sviluppo backend;\n• Ottima conoscenza di C# e MS SQL;\n• Esperienza con framework backend;\n• Familiarità con ambienti cloud (preferibilmente Azure);\n• Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;\n• Conoscenza del settore finanziario. Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale.\n• Plus:\n• Esperienza con microservizi e architetture serverless;\n• Conoscenza di strumenti di monitoraggio e logging;\n• Conoscenza di strumenti di testing.\n• Esperienza con CI/CD e automazione dei processi di sviluppo;\n• Familiarità con servizi FaaS e PaaS;\n• Tipologia di lavoro: Tempo pieno, contratto a tempo indeterminato.\n• Come candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+        "de": "Senior Backend Developer\n\nDescrizione completa della posizione\nELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager.\nResponsabilità:\n• Progettare, sviluppare e mantenere API RESTfull in C#;\n• Gestire e ottimizzare database SQL (MS SQL);\n• Collaborare con il team per garantire un’integrazione fluida tra i sistemi;\n• Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend;\n• Scrivere codice pulito, documentato e testato.\n• Requisiti:\n• 5+ anni di esperienza nello sviluppo backend;\n• Ottima conoscenza di C# e MS SQL;\n• Esperienza con framework backend;\n• Familiarità con ambienti cloud (preferibilmente Azure);\n• Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;\n• Conoscenza del settore finanziario. Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale.\n• Plus:\n• Esperienza con microservizi e architetture serverless;\n• Conoscenza di strumenti di monitoraggio e logging;\n• Conoscenza di strumenti di testing.\n• Esperienza con CI/CD e automazione dei processi di sviluppo;\n• Familiarità con servizi FaaS e PaaS;\n• Tipologia di lavoro: Tempo pieno, contratto a tempo indeterminato.\n• Come candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+        "fr": "Senior Backend Developer\n\nDescrizione completa della posizione\nELP SA è una società di servizi finanziari con sede a Chiasso, parte integrante del gruppo ELP. Il candidato sarà inserito all’interno del progetto cambiavalute.ch e riporterà direttamente al product manager.\nResponsabilità:\n• Progettare, sviluppare e mantenere API RESTfull in C#;\n• Gestire e ottimizzare database SQL (MS SQL);\n• Collaborare con il team per garantire un’integrazione fluida tra i sistemi;\n• Implementare strategie di scalabilità, sicurezza e performance per le applicazioni backend;\n• Scrivere codice pulito, documentato e testato.\n• Requisiti:\n• 5+ anni di esperienza nello sviluppo backend;\n• Ottima conoscenza di C# e MS SQL;\n• Esperienza con framework backend;\n• Familiarità con ambienti cloud (preferibilmente Azure);\n• Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;\n• Conoscenza del settore finanziario. Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale.\n• Plus:\n• Esperienza con microservizi e architetture serverless;\n• Conoscenza di strumenti di monitoraggio e logging;\n• Conoscenza di strumenti di testing.\n• Esperienza con CI/CD e automazione dei processi di sviluppo;\n• Familiarità con servizi FaaS e PaaS;\n• Tipologia di lavoro: Tempo pieno, contratto a tempo indeterminato.\n• Come candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {
+        "it": [
+          "Gestire e ottimizzare database SQL (MS SQL);",
+          "5+ anni di esperienza nello sviluppo backend;",
+          "Ottima conoscenza di C# e MS SQL;",
+          "Esperienza con framework backend;",
+          "Capacità di lavorare in team e comunicare efficacemente, anche in lingua inglese;",
+          "Una pregressa esperienza nel settore bancario costituirà un titolo preferenziale."
+        ],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pessina 6",
+      "postalCode": "6900",
+      "addressLocality": "2026 CambiaValute",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "company-fooban",
+      "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+      "company": "CambiaValute.ch",
+      "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+      "location": "Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Sales, Marketing & Customer support assistant (Mercato Tedesco)\n\nDescrizione completa della posizione\nELP SA, società di servizi finanziari con sede a Chiasso e parte del Gruppo ELP, gestisce la piattaforma online di cambio valuta changenligne.ch / cambiavalute.ch. / geldwechselonline.ch Siamo alla ricerca di una figura dinamica e motivata da inserire nel nostro team come Sales, Marketing & Customer Support Assistant , con focus sul mercato tedesco.Responsabilità principaliGestione del servizio clienti inbound (telefono ed email) in modo professionale ed efficienteSupporto operativo al Digital Marketing ManagerGestione e aggiornamento dei canali social aziendaliOnboarding dei nuovi clientiEsecuzione delle procedure di identificazione e conformità normativa (KYC / Antiriciclaggio)RequisitiOttima conoscenza della lingua italiana e tedesca (parlato e scritto) – livello C1 o superioreBuona conoscenza della lingua ingleseConoscenza del francese (plus)Almeno 1 anno di esperienza in:customer support (preferibilmente in ambito fintech o servizi digitali)\ndigital marketing Competenze in digital marketing e familiarità con strumenti di intelligenza artificialeForte interesse per il settore finanziarioOttime capacità comunicative e relazionaliRequisiti preferenzialiConoscenza di software CRMCompetenze in graphic designEsperienza con piattaforme di marketing digitaleConoscenza di altre lingue europeeSede di lavoroChiasso (Svizzera) – posizione esclusivamente in presenza (no remote working)Tipologia contrattualeTempo pienoContratto a tempo indeterminato\nCome candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+      "requirements": [
+        "📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra."
+      ],
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-16T22:30:41.431Z",
+      "firstSeenAt": "2026-06-16T22:30:41.431Z",
+      "slugByLocale": {
+        "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+        "en": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+        "de": "sales-marketing-customer-support-assistent-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
+        "fr": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban"
+      },
+      "titleByLocale": {
+        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+        "de": "Sales, Marketing & Customer support Assistent (Mercato Tedesco)",
+        "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
+        "fr": "Sales, Marketing & Customer support assistant (Mercato Tedesco)"
+      },
+      "descriptionByLocale": {
+        "it": "Sales, Marketing & Customer support assistant (Mercato Tedesco) Descrizione completa della posizione ELP SA, società di servizi finanziari con sede a Chiasso e parte del Gruppo ELP, gestisce la piattaforma online di cambio valuta changenligne.ch / cambiavalute.ch. / geldwechselonline.ch Siamo alla ricerca di una figura dinamica e motivata da inserire nel nostro team come Sales, Marketing & Customer Support Assistant , con focus sul mercato tedesco.Responsabilità principaliGestione del servizio clienti inbound (telefono ed email) in modo professionale ed efficienteSupporto operativo al Digital Marketing ManagerGestione e aggiornamento dei canali social aziendaliOnboarding dei nuovi clientiEsecuzione delle procedure di identificazione e conformità normativa (KYC / Antiriciclaggio)RequisitiOttima conoscenza della lingua italiana e tedesca (parlato e scritto) – livello C1 o superioreBuona conoscenza della lingua ingleseConoscenza del francese (plus)Almeno 1 anno di esperienza in:customer support (preferibilmente in ambito fintech o servizi digitali) digital marketing Competenze in digital marketing e familiarità con strumenti di intelligenza artificialeForte interesse per il settore finanziarioOttime capacità comunicative e relazionaliRequisiti preferenzialiConoscenza di software CRMCompetenze in graphic designEsperienza con piattaforme di marketing digitaleConoscenza di altre lingue europeeSede di lavoroChiasso (Svizzera) – posizione esclusivamente in presenza (no remote working)Tipologia contrattualeTempo pienoContratto a tempo indeterminato Come candidarsi: Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com. 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra. perchè sceglierci? CambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda. Registrati ora gratis",
+        "en": "Sales, Marketing & Customer support assistant (Mercato Tedesco)\n\nDescrizione completa della posizione\nELP SA, società di servizi finanziari con sede a Chiasso e parte del Gruppo ELP, gestisce la piattaforma online di cambio valuta changenligne.ch / cambiavalute.ch. / geldwechselonline.ch Siamo alla ricerca di una figura dinamica e motivata da inserire nel nostro team come Sales, Marketing & Customer Support Assistant , con focus sul mercato tedesco.Responsabilità principaliGestione del servizio clienti inbound (telefono ed email) in modo professionale ed efficienteSupporto operativo al Digital Marketing ManagerGestione e aggiornamento dei canali social aziendaliOnboarding dei nuovi clientiEsecuzione delle procedure di identificazione e conformità normativa (KYC / Antiriciclaggio)RequisitiOttima conoscenza della lingua italiana e tedesca (parlato e scritto) – livello C1 o superioreBuona conoscenza della lingua ingleseConoscenza del francese (plus)Almeno 1 anno di esperienza in:customer support (preferibilmente in ambito fintech o servizi digitali)\ndigital marketing Competenze in digital marketing e familiarità con strumenti di intelligenza artificialeForte interesse per il settore finanziarioOttime capacità comunicative e relazionaliRequisiti preferenzialiConoscenza di software CRMCompetenze in graphic designEsperienza con piattaforme di marketing digitaleConoscenza di altre lingue europeeSede di lavoroChiasso (Svizzera) – posizione esclusivamente in presenza (no remote working)Tipologia contrattualeTempo pienoContratto a tempo indeterminato\nCome candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+        "de": "Sales, Marketing & Customer support assistant (Mercato Tedesco)\n\nDescrizione completa della posizione\nELP SA, società di servizi finanziari con sede a Chiasso e parte del Gruppo ELP, gestisce la piattaforma online di cambio valuta changenligne.ch / cambiavalute.ch. / geldwechselonline.ch Siamo alla ricerca di una figura dinamica e motivata da inserire nel nostro team come Sales, Marketing & Customer Support Assistant , con focus sul mercato tedesco.Responsabilità principaliGestione del servizio clienti inbound (telefono ed email) in modo professionale ed efficienteSupporto operativo al Digital Marketing ManagerGestione e aggiornamento dei canali social aziendaliOnboarding dei nuovi clientiEsecuzione delle procedure di identificazione e conformità normativa (KYC / Antiriciclaggio)RequisitiOttima conoscenza della lingua italiana e tedesca (parlato e scritto) – livello C1 o superioreBuona conoscenza della lingua ingleseConoscenza del francese (plus)Almeno 1 anno di esperienza in:customer support (preferibilmente in ambito fintech o servizi digitali)\ndigital marketing Competenze in digital marketing e familiarità con strumenti di intelligenza artificialeForte interesse per il settore finanziarioOttime capacità comunicative e relazionaliRequisiti preferenzialiConoscenza di software CRMCompetenze in graphic designEsperienza con piattaforme di marketing digitaleConoscenza di altre lingue europeeSede di lavoroChiasso (Svizzera) – posizione esclusivamente in presenza (no remote working)Tipologia contrattualeTempo pienoContratto a tempo indeterminato\nCome candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis",
+        "fr": "Sales, Marketing & Customer support assistant (Mercato Tedesco)\n\nDescrizione completa della posizione\nELP SA, società di servizi finanziari con sede a Chiasso e parte del Gruppo ELP, gestisce la piattaforma online di cambio valuta changenligne.ch / cambiavalute.ch. / geldwechselonline.ch Siamo alla ricerca di una figura dinamica e motivata da inserire nel nostro team come Sales, Marketing & Customer Support Assistant , con focus sul mercato tedesco.Responsabilità principaliGestione del servizio clienti inbound (telefono ed email) in modo professionale ed efficienteSupporto operativo al Digital Marketing ManagerGestione e aggiornamento dei canali social aziendaliOnboarding dei nuovi clientiEsecuzione delle procedure di identificazione e conformità normativa (KYC / Antiriciclaggio)RequisitiOttima conoscenza della lingua italiana e tedesca (parlato e scritto) – livello C1 o superioreBuona conoscenza della lingua ingleseConoscenza del francese (plus)Almeno 1 anno di esperienza in:customer support (preferibilmente in ambito fintech o servizi digitali)\ndigital marketing Competenze in digital marketing e familiarità con strumenti di intelligenza artificialeForte interesse per il settore finanziarioOttime capacità comunicative e relazionaliRequisiti preferenzialiConoscenza di software CRMCompetenze in graphic designEsperienza con piattaforme di marketing digitaleConoscenza di altre lingue europeeSede di lavoroChiasso (Svizzera) – posizione esclusivamente in presenza (no remote working)Tipologia contrattualeTempo pienoContratto a tempo indeterminato\nCome candidarsi:\n• Inviare il proprio CV in formato PDF all’indirizzo hr@elp-group.com.\n• 📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra.\n• perchè\n• sceglierci?\nCambiaValute.ch è lo specialista svizzero dei cambi online. Cambia comodamente da casa risparmiando fino all’80% rispetto alle tariffe di banche ed uffici cambio contanti. Verifica ora quanto puoi risparmiare come frontaliere, privato o azienda.\nRegistrati ora gratis"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {
+        "it": [
+          "📌 Verranno prese in considerazione solo le candidature che soddisfano tutti i requisiti elencati sopra."
+        ],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pessina 6",
+      "postalCode": "6900",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
     {
       "id": "company-viaqie",
       "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
@@ -92,7 +252,8 @@
       "addressLocality": "2026 CambiaValute",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-a24znt",
@@ -175,7 +336,8 @@
         "en": [
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino-a24znt"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
