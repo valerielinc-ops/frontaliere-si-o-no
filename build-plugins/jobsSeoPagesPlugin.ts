@@ -6030,9 +6030,22 @@ ${staticAnalyticsHtml}
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue;
  const cantonTotal = cantonJobTotals.get(canton) ?? 0;
- if (cantonTotal < MIN_JOBS_FOR_CANTON_PAGE) continue;
  const byCity = jobsByCantonCity.get(canton);
  if (!byCity) continue;
+ // #2347 follow-up (#2348): the job-detail city link is now ALWAYS
+ // canton-semantic (`/cerca-lavoro-{canton}/{city}/`) for EVERY canton,
+ // including those below MIN_JOBS_FOR_CANTON_PAGE. This loop used to
+ // `continue` on sub-threshold cantons, so a hard-load of such a link
+ // (Google crawler, shared URL) hit GH Pages' 404 → SPA shell with no
+ // static `<main class="seo-static-content">` body → blank page (the
+ // exact dead-end this Phase-3.1 emit was built to repair, but only above
+ // threshold). Mirror the canton-root gate (line ~8722): emit the hub even
+ // sub-threshold, but `noindex,follow` (don't index the thin hub of a
+ // barely-populated canton — non-negotiable #1/#4) and ONLY for cities
+ // with ≥1 active job (the URLs actually linked from job detail), never
+ // the full municipality list, so dist/ isn't flooded with thin 0-job
+ // noindex pages for low-volume cantons.
+ const meetsCantonThreshold = cantonTotal >= MIN_JOBS_FOR_CANTON_PAGE;
  // Emit one hub per canon-canton city, regardless of whether it has
  // active jobs. Previously gated on cityJobs.length > 0, which meant
  // URLs like /cerca-lavoro-basilea/pratteln/ for cities with 0 jobs
@@ -6045,12 +6058,26 @@ ${staticAnalyticsHtml}
  const allCantonLatest = cantonLatestJobs.get(canton) ?? ([] as typeof validJobs);
  const cantonCityList: Array<{ citySlug: string; cityDisplay: string }> = [];
  const seenCitySlugs = new Set<string>();
- for (const cityName of getCantonCities(canton)) {
-   const citySlug = normalizeCitySlug(cityName);
-   if (!citySlug || seenCitySlugs.has(citySlug)) continue;
-   seenCitySlugs.add(citySlug);
-   const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
-   cantonCityList.push({ citySlug, cityDisplay });
+ if (meetsCantonThreshold) {
+   // Above-threshold: emit a hub for EVERY canon municipality (incl. 0-job
+   // ones) so the canton-hub navigator can link them without BFS orphans.
+   for (const cityName of getCantonCities(canton)) {
+     const citySlug = normalizeCitySlug(cityName);
+     if (!citySlug || seenCitySlugs.has(citySlug)) continue;
+     seenCitySlugs.add(citySlug);
+     const cityDisplay = String(cityName).replace(/\s*\([^)]*\)\s*$/, '').trim();
+     cantonCityList.push({ citySlug, cityDisplay });
+   }
+ } else {
+   // Sub-threshold: only cities with ≥1 active job (the job-detail-linked
+   // URLs). These are noindex,follow 404-rescue pages, never sitemapped or
+   // navigator-linked — see the loop header comment.
+   for (const citySlug of byCity.keys()) {
+     if (!citySlug || seenCitySlugs.has(citySlug)) continue;
+     seenCitySlugs.add(citySlug);
+     const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? citySlug;
+     cantonCityList.push({ citySlug, cityDisplay });
+   }
  }
  // Sort cities: jobs desc first, then alphabetical for 0-job cities.
  cantonCityList.sort((a, b) => {
@@ -6203,8 +6230,11 @@ ${staticAnalyticsHtml}
  // 0-job city pages exist as 404-rescue fallbacks (so the SPA-overlay
  // route doesn't render blank) but offer no city-specific signal to
  // Google. Flip to noindex,follow so they don't compete for indexing
- // with the canton hub. Pages with ≥1 active job stay index,follow.
- robots: isCityEmpty ? 'noindex,follow' : 'index,follow',
+ // with the canton hub. Pages with ≥1 active job stay index,follow —
+ // EXCEPT when the whole canton is below MIN_JOBS_FOR_CANTON_PAGE: its
+ // canton hub already ships noindex,follow (line ~8722), so keep the
+ // sub-threshold city hubs consistent (thin canton → noindex, #2348).
+ robots: (!meetsCantonThreshold || isCityEmpty) ? 'noindex,follow' : 'index,follow',
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
@@ -6230,8 +6260,10 @@ ${staticAnalyticsHtml}
  // sitemap-jobs.xml because the canton hub's "Esplora" navigator only
  // links the top 8 city hubs. Adding all canon-city URLs to the sitemap
  // without inbound links violated audit:orphan-sitemap-pages and
- // audit:max-bfs-depth gates (PR #463 follow-up).
- if (!isCityEmpty) {
+ // audit:max-bfs-depth gates (PR #463 follow-up). Sub-threshold canton
+ // hubs (#2348) are noindex,follow 404-rescue pages with no inbound link
+ // (their noindex canton hub doesn't run the navigator) → keep them out.
+ if (!isCityEmpty && meetsCantonThreshold) {
  const itSection = sharedResolveCantonSection('it', canton);
  const itPath = `/${itSection}/${citySlug}/`.replace(/\/+/g, '/');
  const smAlternates = localeList.map((l) => {
