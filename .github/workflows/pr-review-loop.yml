@@ -174,6 +174,9 @@ jobs:
       - name: Run Claude review
         id: claude_review
         if: steps.guard.outputs.skip != 'true'
+        # Don't let a hard action failure abort the job before the guard below
+        # can classify it — the guard decides whether to fail loudly.
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -226,6 +229,34 @@ jobs:
             - 🔴 aperto → NON scrivere `## LGTM`.
             - ❓ funnel-critical non escalato (né 🔴 né follow-up issue) → NON scrivere `## LGTM`.
             - Incerto → `❓ q:`, no speculazione.
+
+      - name: Fail on transient API error (no review posted)
+        # claude-code-action can exit 0 even when the model run ABORTED on a
+        # transient Anthropic API error (500/502/503/529/429, "overloaded",
+        # "server_error") WITHOUT posting a review. The job then looks green but
+        # no `## LGTM`/finding was ever written → the PR silently stalls (no
+        # auto-merge, no failure signal; observed PR #2340, API 500 mid-run).
+        # Classify that case from the execution log and FAIL LOUDLY so the run
+        # is visibly red + re-runnable instead of masquerading as a clean pass.
+        # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
+        if: always() && steps.guard.outputs.skip != 'true'
+        env:
+          REVIEW_OUTCOME: ${{ steps.claude_review.outcome }}
+          EXEC_FILE: ${{ steps.claude_review.outputs.execution_file }}
+        run: |
+          set -uo pipefail
+          if [ "${REVIEW_OUTCOME}" = "failure" ]; then
+            echo "::error::Claude review action failed (outcome=failure) — re-run this job."
+            exit 1
+          fi
+          if [ -n "${EXEC_FILE:-}" ] && [ -f "${EXEC_FILE}" ]; then
+            if grep -qE '"is_error"[[:space:]]*:[[:space:]]*true' "${EXEC_FILE}" \
+               && grep -qiE '"api_error_status"[[:space:]]*:[[:space:]]*(429|5[0-9][0-9])|overloaded|server_error|internal server error|api error: 5' "${EXEC_FILE}"; then
+              echo "::error::Claude review aborted on a transient Anthropic API error without posting a review — re-run this job."
+              exit 1
+            fi
+          fi
+          echo "Review step completed without an unrecovered transient API error."
 
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
