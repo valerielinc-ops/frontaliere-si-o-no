@@ -3,6 +3,9 @@ import path from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
+import { BASE_URL } from '../build-plugins/constants';
+import { jsToJson } from '../build-plugins/shared/jsToJson';
+
 /**
  * Regression gate for the seoMap key-form bug (June 2026).
  *
@@ -221,23 +224,11 @@ describe('seo source files parse contract (real files)', () => {
   it('/supporto/ and /metodologia/ structuredData parse to their declared @type', () => {
     const src = readFileSync(path.resolve(ROOT, 'services', 'seo', 'seo-pages.ts'), 'utf-8');
     const entries = parseEntries(src);
-    // Mirror jsToJson's value substitutions + JSON.parse to prove the SD survives.
-    const toJson = (js: string): string => {
-      let s = js
-        .replace(/\bBUILD_DATE_ISO\b/g, '"2026-01-01T00:00:00.000Z"')
-        .replace(/\$\{BASE_URL\}/g, 'https://frontaliereticino.ch')
-        .replace(/\bBASE_URL\b/g, '"https://frontaliereticino.ch"')
-        .replace(/`([^`]*)`/g, (_, c: string) => JSON.stringify(c));
-      let out = '', i = 0;
-      while (i < s.length) {
-        if (s[i] === '"') { let j = i + 1; while (j < s.length) { if (s[j] === '\\') { j += 2; continue; } if (s[j] === '"') { j++; break; } j++; } out += s.substring(i, j); i = j; continue; }
-        if (s[i] === "'") { let j = i + 1, c = ''; while (j < s.length) { if (s[j] === '\\' && j + 1 < s.length) { const n = s[j + 1]; if (n === "'") { c += "'"; j += 2; continue; } c += s[j] + n; j += 2; continue; } if (s[j] === "'") { j++; break; } c += s[j]; j++; } out += `"${c.replace(/"/g, '\\"')}"`; i = j; continue; }
-        const prev = i > 0 ? s[i - 1] : '\n';
-        if (/[{,[\s]/.test(prev)) { const m = s.substring(i).match(/^([a-zA-Z_$][\w$]*)(\s*:\s*)/); if (m) { out += `"${m[1]}"${m[2]}`; i += m[0].length; continue; } }
-        out += s[i]; i++;
-      }
-      return out.replace(/,(\s*[}\]])/g, '$1');
-    };
+    // Use the REAL jsToJson from staticPagesPlugin (single source of truth,
+    // #2256) — not a local re-implementation that could stay green while the
+    // emitter diverges. buildDateIso is arbitrary here (no SD asserts on it).
+    const toJson = (js: string): string =>
+      jsToJson(js, { baseUrl: BASE_URL, buildDateIso: '2026-01-01T00:00:00.000Z' });
     const typesFor = (cp: string): string[] => {
       const sd = entries.get(cp)?.sd ?? '';
       const parsed = JSON.parse(toJson(sd));
