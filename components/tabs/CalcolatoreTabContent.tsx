@@ -204,7 +204,13 @@ export default function CalcolatoreTabContent() {
  </div>
  }>
  {showDeferredHomeWidgets ? (
- <>
+ /* Sole child = <div className="space-y-2"> mirroring the FALSE/skeleton branch
+    below, so the idle showDeferredHomeWidgets flip reconciles this wrapper IN
+    PLACE. The previous <>…</> fragment (different element at index 0 vs the
+    skeleton div) forced React to remove+add the container — a transient collapse
+    of this min-h-[192px] block ≈0.12 mobile CLS (Playwright MutationObserver:
+    REMOVE+ADD div.space-y-2 at the flip). Matches the desktop branch pattern. */
+ <div className="space-y-2">
  <Suspense fallback={<SkeletonNewsTicker />}>
  <NewsFeed onNavigate={(tab, article) => {
  setActiveTab(tab as ActiveTab);
@@ -230,7 +236,7 @@ export default function CalcolatoreTabContent() {
  <Suspense fallback={<div className="h-[34px]" />}>
  <DailyDialectPhrase />
  </Suspense>
- </>
+ </div>
  ) : (
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
