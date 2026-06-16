@@ -25650,6 +25650,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'deduzione-ristorni-frontalieri-contraria-accordi-ch-roma',
+ category: 'pratico',
+ date: '2026-06-16T01:24:40.884Z',
+ image: '/images/blog/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

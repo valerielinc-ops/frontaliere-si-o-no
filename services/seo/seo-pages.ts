@@ -4669,7 +4669,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2807,
+ "numberOfItems": 2808,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7450,7 +7450,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2804, "name": "Grandine sulla GT86 TRD: come agire se l'assicu...", "url": `${BASE_URL}/articoli-frontaliere/grandine-gt86-trd-perdita-totale` },
           { "@type": "ListItem", "position": 2805, "name": "Ticino: Voto al blocco degli abitanti stranieri...", "url": `${BASE_URL}/articoli-frontaliere/blocchi-immigrazione-ticino` },
           { "@type": "ListItem", "position": 2806, "name": "No di Berna al blocco dei ristorni da parte del...", "url": `${BASE_URL}/articoli-frontaliere/blocchi-ristorni-berna-italia` },
-          { "@type": "ListItem", "position": 2807, "name": "Treni fermi Stabio-Gallarate: Verdi criticano R...", "url": `${BASE_URL}/articoli-frontaliere/treni-fermi-stabio-gallarate-incompetenza-regione` }
+          { "@type": "ListItem", "position": 2807, "name": "Treni fermi Stabio-Gallarate: Verdi criticano R...", "url": `${BASE_URL}/articoli-frontaliere/treni-fermi-stabio-gallarate-incompetenza-regione` },
+          { "@type": "ListItem", "position": 2808, "name": "CN: tassa salute; deduzione da ristorni contrar...", "url": `${BASE_URL}/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma` }
  ]
  },
  {

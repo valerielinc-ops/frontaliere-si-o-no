@@ -8090,6 +8090,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocchi-ristorni-berna-italia.title': 'No di Berna al blocco dei ristorni da parte del Ticino',
     'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Il Governo svizzero ha dichiarato che bloccare i ristorni sui fondi generati dalla tassa sulla salute italiana è illegale, confermando la posizione ufficiale.',
     'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vista panoramica del confine Ticino-Italia con valichi e paesaggi alpini.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.title': 'CN: tassa salute; deduzione da ristorni contraria accordi con Roma',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.excerpt': 'La deduzione parziale dai ristorni del ricavato generato dalla tassa sulla salute è contraria agli accordi fra Berna e Roma su questi lavoratori.',
+    'blog.article.deduzione-ristorni-frontalieri-contraria-accordi-ch-roma.imageAlt': 'Panorama del lago di Lugano',
 };
 
 export default blogMetaIt;
