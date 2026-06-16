@@ -6862,9 +6862,9 @@
       "slug": "linea-di-codice-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
         "it": "linea-di-codice-medico-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
-        "en": "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens",
+        "en": "medical-code-line-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens",
-        "fr": "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens"
+        "fr": "ligne-de-code-medical-80-100-m-f-d-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6910,6 +6910,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens"
+        ],
+        "en": [
+          "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens"
+        ],
+        "fr": [
           "arztliche-co-stellenleitung-80-100-m-w-d-lups-kriens"
         ]
       },
@@ -7000,12 +7006,12 @@
     },
     {
       "id": "lups-f54ecb39a421",
-      "slug": "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens",
+      "slug": "pedagogia-sociale-pre-tirocinio-80-100-lun-venerdi-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
-        "it": "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens",
-        "en": "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens",
+        "it": "pedagogia-sociale-pre-tirocinio-80-100-lun-venerdi-d-luzerner-psychiatrie-lups-kriens",
+        "en": "pre-internship-social-pedagogy-80-100-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens",
-        "fr": "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens"
+        "fr": "pre-stage-pedagogie-sociale-80-100-l-f-d-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7058,14 +7064,28 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens"
+        ],
+        "en": [
+          "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens"
+        ],
+        "fr": [
+          "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikantin-sozialpadagogik-80-100-m-w-d-lups-kriens"
+      ]
     },
     {
       "id": "lups-ed7388a51d8a",
-      "slug": "praktikantin-psychologie-80-m-w-d-lups-kriens",
+      "slug": "tirocinante-in-psicologia-80-laggi-f-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
-        "it": "praktikantin-psychologie-80-m-w-d-lups-kriens",
-        "en": "praktikantin-psychologie-80-m-w-d-lups-kriens",
+        "it": "tirocinante-in-psicologia-80-laggi-f-d-luzerner-psychiatrie-lups-kriens",
+        "en": "intern-psychology-80-m-f-d-luzerner-psychiatrie-lups-kriens",
         "de": "praktikantin-psychologie-80-m-w-d-lups-kriens",
         "fr": "praktikantin-psychologie-80-m-w-d-lups-kriens"
       },
@@ -7120,7 +7140,18 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-psychologie-80-m-w-d-lups-kriens"
+        ],
+        "en": [
+          "praktikantin-psychologie-80-m-w-d-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-psychologie-80-m-w-d-lups-kriens"
+      ]
     }
   ]
 }

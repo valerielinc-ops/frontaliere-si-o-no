@@ -573,7 +573,7 @@
         "it": "senior-director-medicine-development-leader-sobi-basel",
         "en": "senior-director-medicine-development-leader-sobi-basel",
         "de": "senior-director-medicine-development-leader-sobi-basel",
-        "fr": "senior-director-medicine-development-leader-sobi-basel"
+        "fr": "senior-director-leader-du-developpement-de-la-medecine-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -765,12 +765,12 @@
     },
     {
       "id": "sobi-ad2187714ea6",
-      "slug": "associate-director-director-clinical-pharmacology-sobi-basel",
+      "slug": "direttore-associato-direttore-farmacologia-clinica-sobi-basel",
       "slugByLocale": {
-        "it": "associate-director-director-clinical-pharmacology-sobi-basel",
+        "it": "direttore-associato-direttore-farmacologia-clinica-sobi-basel",
         "en": "associate-director-director-clinical-pharmacology-sobi-basel",
-        "de": "associate-director-director-clinical-pharmacology-sobi-basel",
-        "fr": "associate-director-director-clinical-pharmacology-sobi-basel"
+        "de": "associate-director-director-klinische-pharmakologie-sobi-basel",
+        "fr": "directeur-associe-directeur-pharmacologie-clinique-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -824,16 +824,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-director-clinical-pharmacology-sobi-basel"
+        ],
+        "de": [
+          "associate-director-director-clinical-pharmacology-sobi-basel"
+        ],
+        "fr": [
+          "associate-director-director-clinical-pharmacology-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-director-clinical-pharmacology-sobi-basel"
+      ]
     },
     {
       "id": "sobi-518ed6bcfd09",
-      "slug": "tryngolza-global-brand-communications-director-sobi-basel",
+      "slug": "direttore-globale-della-comunicazione-del-brand-di-tryngolza-sobi-basel",
       "slugByLocale": {
-        "it": "tryngolza-global-brand-communications-director-sobi-basel",
+        "it": "direttore-globale-della-comunicazione-del-brand-di-tryngolza-sobi-basel",
         "en": "tryngolza-global-brand-communications-director-sobi-basel",
-        "de": "tryngolza-global-brand-communications-director-sobi-basel",
-        "fr": "tryngolza-global-brand-communications-director-sobi-basel"
+        "de": "tryngolza-direktorin-fur-globale-markenkommunikation-sobi-basel",
+        "fr": "directeur-mondial-de-la-communication-de-marque-tryngolza-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -887,7 +901,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "tryngolza-global-brand-communications-director-sobi-basel"
+        ],
+        "de": [
+          "tryngolza-global-brand-communications-director-sobi-basel"
+        ],
+        "fr": [
+          "tryngolza-global-brand-communications-director-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "tryngolza-global-brand-communications-director-sobi-basel"
+      ]
     }
   ]
 }

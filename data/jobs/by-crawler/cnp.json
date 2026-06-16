@@ -1806,8 +1806,8 @@
       "slug": "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "it": "terapista-musicale-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "musicotherapeute-cnp-marin-epagnier",
-        "de": "musicotherapeute-cnp-marin-epagnier",
+        "en": "music-therapist-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "musiktherapeutin-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "musicotherapeute-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1856,6 +1856,12 @@
       "previousSlugsByLocale": {
         "it": [
           "musicotherapeute-cnp-marin-epagnier"
+        ],
+        "en": [
+          "musicotherapeute-cnp-marin-epagnier"
+        ],
+        "de": [
+          "musicotherapeute-cnp-marin-epagnier"
         ]
       },
       "firstSeenAt": "2026-05-22T11:16:24.792Z",
@@ -1877,8 +1883,8 @@
       "slug": "infermiera-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "it": "infermiera-unita-ospedaliere-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
-        "de": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier",
+        "en": "nurse-adult-hospital-units-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "krankenschwester-erwachsenenkrankenhauseinheiten-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -1926,6 +1932,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
+        ],
+        "en": [
+          "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
+        ],
+        "de": [
           "infirmier-ere-unites-hospitalieres-adultes-cnp-marin-epagnier"
         ]
       },
@@ -2018,8 +2030,8 @@
       "slug": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
         "it": "dietista-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
-        "en": "dieteticien-ne-cnp-la-tene",
-        "de": "dieteticien-ne-cnp-la-tene",
+        "en": "dietician-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
+        "de": "diatetiker-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "fr": "dieteticien-ne-cnp-la-tene"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2068,6 +2080,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dieteticien-ne-cnp-la-tene"
+        ],
+        "en": [
+          "dieteticien-ne-cnp-la-tene"
+        ],
+        "de": [
+          "dieteticien-ne-cnp-la-tene"
         ]
       },
       "firstSeenAt": "2026-06-01T23:15:16.651Z",
@@ -2086,9 +2104,9 @@
     },
     {
       "id": "cnp-91f9c984c77b",
-      "slug": "assistant-e-social-e-cnp-la-tene",
+      "slug": "assistente-sociale-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
       "slugByLocale": {
-        "it": "assistant-e-social-e-cnp-la-tene",
+        "it": "assistente-sociale-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "en": "assistant-e-social-e-cnp-la-tene",
         "de": "assistent-e-social-e-centre-neuchatelois-de-psychiatrie-cnp-la-tene",
         "fr": "assistant-e-social-e-cnp-la-tene"
@@ -2145,15 +2163,23 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-cnp-la-tene"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-cnp-la-tene"
+      ]
     },
     {
       "id": "cnp-c5c9cb7eb721",
       "slug": "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "it": "psicologo-capo-dipartimento-infanzia-e-adolescenza-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
-        "de": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier",
+        "en": "psychologist-head-of-department-childhood-and-adolescence-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "psychologe-leiter-der-abteilung-kindheit-und-jugend-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2202,6 +2228,12 @@
       "previousSlugsByLocale": {
         "it": [
           "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+        ],
+        "en": [
+          "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
+        ],
+        "de": [
+          "psychologue-chef-fe-de-departement-enfance-et-adolescence-cnp-marin-epagnier"
         ]
       },
       "firstSeenAt": "2026-06-10T22:27:01.642Z",
@@ -2223,8 +2255,8 @@
       "slug": "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "it": "direttore-medico-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
-        "en": "directeur-rice-medical-e-cnp-marin-epagnier",
-        "de": "directeur-rice-medical-e-cnp-marin-epagnier",
+        "en": "medical-director-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "arztlicher-direktor-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "directeur-rice-medical-e-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2273,6 +2305,12 @@
       "previousSlugsByLocale": {
         "it": [
           "directeur-rice-medical-e-cnp-marin-epagnier"
+        ],
+        "en": [
+          "directeur-rice-medical-e-cnp-marin-epagnier"
+        ],
+        "de": [
+          "directeur-rice-medical-e-cnp-marin-epagnier"
         ]
       },
       "firstSeenAt": "2026-06-11T12:29:22.985Z",
@@ -2294,8 +2332,8 @@
       "slug": "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
       "slugByLocale": {
         "it": "responsabile-medico-del-dipartimento-ospedale-di-collegamento-di-emergenza-centre-neuchatelois-de-psychiatrie-cnp-marin",
-        "en": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
-        "de": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier",
+        "en": "physician-head-of-service-emergency-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "arzt-leiter-des-dienstes-notfall-liaison-hospital-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2343,6 +2381,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+        ],
+        "en": [
+          "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
+        ],
+        "de": [
           "medecin-chef-de-service-urgence-liaison-hopital-cnp-marin-epagnier"
         ]
       },
@@ -2439,11 +2483,11 @@
     },
     {
       "id": "cnp-8c7282562df0",
-      "slug": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
+      "slug": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
-        "en": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
-        "de": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier",
+        "it": "infermiera-unita-ospedale-per-adulti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "nurse-adult-hospital-unit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "krankenschwester-erwachsenenkrankenhauseinheit-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2498,7 +2542,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ],
+        "en": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ],
+        "de": [
+          "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-unite-hospitaliere-adulte-cnp-marin-epagnier"
+      ]
     }
   ]
 }

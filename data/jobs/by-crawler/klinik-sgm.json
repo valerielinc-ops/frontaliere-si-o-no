@@ -870,12 +870,12 @@
     },
     {
       "id": "klinik-sgm-86e5273aee70",
-      "slug": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal",
+      "slug": "chef-deputato-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
-        "it": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal",
-        "en": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal",
+        "it": "chef-deputato-klinik-sgm-langenthal-langenthal",
+        "en": "deputy-head-chef-klinik-sgm-langenthal-langenthal",
         "de": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal",
-        "fr": "kuchenchef-stellvertreter-in-klinik-sgm-langenthal"
+        "fr": "chef-de-cuisine-adjoint-e-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -928,7 +928,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kuchenchef-stellvertreter-in-klinik-sgm-langenthal"
+        ],
+        "en": [
+          "kuchenchef-stellvertreter-in-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "kuchenchef-stellvertreter-in-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "kuchenchef-stellvertreter-in-klinik-sgm-langenthal"
+      ]
     }
   ]
 }

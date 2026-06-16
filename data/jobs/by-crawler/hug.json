@@ -2090,12 +2090,12 @@
     },
     {
       "id": "hug-2d4a92551554",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2151,7 +2151,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-15T23:09:46.848Z"
+      "firstSeenAt": "2026-06-15T23:09:46.848Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-80-hug-geneve"
+        ],
+        "en": [
+          "psychologue-80-hug-geneve"
+        ],
+        "de": [
+          "psychologue-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-cdb889f8c8c5",
@@ -3914,11 +3928,11 @@
     },
     {
       "id": "hug-c2db642ecbe5",
-      "slug": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
+      "slug": "medico-internista-nel-dipartimento-di-riabilitazione-e-geriatria-100-hug-thonex",
       "slugByLocale": {
-        "it": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
-        "en": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
-        "de": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
+        "it": "medico-internista-nel-dipartimento-di-riabilitazione-e-geriatria-100-hug-thonex",
+        "en": "internal-physician-in-the-department-of-rehabilitation-and-geriatrics-100-hug-thonex",
+        "de": "interner-arzt-in-der-abteilung-fur-rehabilitation-und-geriatrie-100-hug-thonex",
         "fr": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
       },
       "company": "HUG",
@@ -3973,15 +3987,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ],
+        "en": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ],
+        "de": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+      ]
     },
     {
       "id": "hug-7772937b8bd4",
-      "slug": "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique",
+      "slug": "tecnico-di-analisi-biomedica-nei-laboratori-di-citogenetica-ematologica-80-hug-geneve",
       "slugByLocale": {
-        "it": "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique",
-        "en": "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique",
-        "de": "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique",
+        "it": "tecnico-di-analisi-biomedica-nei-laboratori-di-citogenetica-ematologica-80-hug-geneve",
+        "en": "biomedical-analysis-technician-in-hematological-cytogenetics-laboratories-80-hug-geneve",
+        "de": "biomedizinischer-analysetechniker-in-hamatologischen-zytogenetik-laboren-80-hug-geneve",
         "fr": "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique"
       },
       "company": "HUG",
@@ -4036,15 +4064,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique"
+        ],
+        "en": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique"
+        ],
+        "de": [
+          "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-en-analyses-biomedicales-aux-laboratoires-de-cytogenetique"
+      ]
     },
     {
       "id": "hug-9f3fad9c7682",
-      "slug": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
+      "slug": "stagista-hr-a-contratto-80-al-100-hug-geneve",
       "slugByLocale": {
-        "it": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
-        "en": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
-        "de": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
+        "it": "stagista-hr-a-contratto-80-al-100-hug-geneve",
+        "en": "contracted-hr-intern-80-to-100-hug-geneve",
+        "de": "beauftragter-hr-praktikant-80-bis-100-hug-geneve",
         "fr": "stagiaire-rh-conventionne-80-a-100-hug-geneve"
       },
       "company": "HUG",
@@ -4099,15 +4141,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-9e6910fecba6",
-      "slug": "commis-ou-commise-administrative-80-hug-geneve",
+      "slug": "impiegato-amministrativo-80-hug-geneve",
       "slugByLocale": {
-        "it": "commis-ou-commise-administrative-80-hug-geneve",
-        "en": "commis-ou-commise-administrative-80-hug-geneve",
-        "de": "commis-ou-commise-administrative-80-hug-geneve",
+        "it": "impiegato-amministrativo-80-hug-geneve",
+        "en": "administrative-clerk-80-hug-geneve",
+        "de": "verwaltungsangestellter-80-hug-geneve",
         "fr": "commis-ou-commise-administrative-80-hug-geneve"
       },
       "company": "HUG",
@@ -4162,15 +4218,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-ou-commise-administrative-80-hug-geneve"
+        ],
+        "en": [
+          "commis-ou-commise-administrative-80-hug-geneve"
+        ],
+        "de": [
+          "commis-ou-commise-administrative-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "commis-ou-commise-administrative-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-ba2ee60b8712",
-      "slug": "technologue-en-dispositifs-medicaux-100-hug-vernier",
+      "slug": "tecnologo-dei-dispositivi-medici-100-hug-vernier",
       "slugByLocale": {
-        "it": "technologue-en-dispositifs-medicaux-100-hug-vernier",
-        "en": "technologue-en-dispositifs-medicaux-100-hug-vernier",
-        "de": "technologue-en-dispositifs-medicaux-100-hug-vernier",
+        "it": "tecnologo-dei-dispositivi-medici-100-hug-vernier",
+        "en": "medical-device-technologist-100-hug-vernier",
+        "de": "medizintechniktechnologe-100-hug-vernier",
         "fr": "technologue-en-dispositifs-medicaux-100-hug-vernier"
       },
       "company": "HUG",
@@ -4225,15 +4295,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1214"
+      "postalCode": "1214",
+      "previousSlugsByLocale": {
+        "it": [
+          "technologue-en-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "en": [
+          "technologue-en-dispositifs-medicaux-100-hug-vernier"
+        ],
+        "de": [
+          "technologue-en-dispositifs-medicaux-100-hug-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "technologue-en-dispositifs-medicaux-100-hug-vernier"
+      ]
     },
     {
       "id": "hug-f8cbd10b759d",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
+      "slug": "chef-di-clinica-neurologica-con-o-senza-titolo-di-specialita-hug-geneve",
       "slugByLocale": {
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
+        "it": "chef-di-clinica-neurologica-con-o-senza-titolo-di-specialita-hug-geneve",
+        "en": "neurology-clinic-chef-or-head-with-or-without-specialty-title-hug-geneve",
+        "de": "chefredakteur-chefredakteurin-der-neurologie-klinik-hug-geneve",
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
       },
       "company": "HUG",
@@ -4288,15 +4372,29 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+      ]
     },
     {
       "id": "hug-014c37707fbe",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
+      "slug": "capo-della-clinica-con-o-senza-titolo-di-specializzazione-nel-dipartimento-di-neurologia-100-hug-geneve",
       "slugByLocale": {
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
+        "it": "capo-della-clinica-con-o-senza-titolo-di-specializzazione-nel-dipartimento-di-neurologia-100-hug-geneve",
+        "en": "head-of-clinic-with-or-without-a-specialty-title-in-the-department-of-neurology-100-hug-geneve",
+        "de": "klinikleiter-mit-oder-ohne-facharzttitel-in-der-abteilung-fur-neurologie-zu-100-hug-geneve",
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
       },
       "company": "HUG",
@@ -4351,7 +4449,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+      ]
     }
   ]
 }

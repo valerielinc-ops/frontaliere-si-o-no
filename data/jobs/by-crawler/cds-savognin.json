@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "cds-savognin-405-9cf102943bc6",
-      "slug": "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
+      "slug": "med-assistente-pratica-assistente-pratico-center-da-sanadad-savognin-savognin",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
-        "it": "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
-        "en": "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin",
-        "fr": "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
+        "it": "med-assistente-pratica-assistente-pratico-center-da-sanadad-savognin-savognin",
+        "en": "med-practice-assistant-practice-assistant-center-da-sanadad-savognin-savognin",
+        "fr": "medicament-assistant-de-pratique-assistant-de-pratique-center-da-sanadad-savognin-savognin"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-praxisassistenten-cds-savognin-savognin"
+          "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
+          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
+        ],
+        "fr": [
+          "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistenten-cds-savognin-savognin"
+        "med-praxisassistentin-praxisassistenten-cds-savognin-savognin",
+        "med-praxisassistentin-praxisassistenten-center-da-sanadad-savognin-savognin"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -80,8 +88,8 @@
       "slugByLocale": {
         "de": "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
         "it": "pflegehilfsperson-srk-60-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
-        "en": "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
-        "fr": "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        "en": "nursing-assistant-src-60-100-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin-savognin",
+        "fr": "assistante-en-soins-infirmiers-csr-60-100-ou-assistante-en-soins-infirmiers-prete-a-suivre-le-cours-csr-center-da"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -127,6 +135,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        ],
+        "en": [
+          "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        ],
+        "fr": [
+          "pflegehilfsperson-srk-60-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
         ]
       },
       "previousSlugs": [
@@ -148,12 +162,12 @@
     },
     {
       "id": "cds-savognin-402-d920b6404abf",
-      "slug": "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
+      "slug": "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
-        "it": "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
-        "en": "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin",
-        "fr": "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
+        "it": "infermiera-m-f-hf-fh-center-da-sanadad-savognin-savognin",
+        "en": "dipl-nurse-m-f-hf-fh-center-da-sanadad-savognin-savognin",
+        "fr": "infirmiere-diplomee-m-f-hf-fh-center-da-sanadad-savognin-savognin"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -198,11 +212,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin"
+          "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
+          "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
+        ],
+        "en": [
+          "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin"
+        "dipl-pflegefachperson-m-w-hf-fh-cds-savognin-savognin",
+        "dipl-pflegefachperson-m-w-hf-fh-center-da-sanadad-savognin-savognin"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -224,8 +246,8 @@
       "slugByLocale": {
         "de": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
         "it": "pflegehilfsperson-srk-50-100-o-pflegehilfsperson-con-bereitschaft-den-srk-kurs-zu-absolvieren-center-da-sanadad-savognin",
-        "en": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu",
-        "fr": "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        "en": "nursing-assistant-src-50-100-or-nursing-assistant-willing-to-complete-the-src-course-center-da-sanadad-savognin-savognin",
+        "fr": "assistante-en-soins-infirmiers-csr-50-100-ou-assistante-en-soins-infirmiers-prete-a-suivre-le-cours-csr-center-da"
       },
       "company": "Center da Sanadad Savognin",
       "companyKey": "cds-savognin",
@@ -270,6 +292,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        ],
+        "en": [
+          "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
+        ],
+        "fr": [
           "pflegehilfsperson-srk-50-100-oder-pflegehilfsperson-mit-bereitschaft-den-srk-kurs-zu"
         ]
       },
