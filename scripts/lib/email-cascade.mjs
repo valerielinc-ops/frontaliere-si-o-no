@@ -589,20 +589,28 @@ async function sendViaResend(email) {
 // ── Cloudflare Email Service REST API ─────────────────────────
 // Docs: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
 // Auth: Bearer token (Email Sending: Edit) — the default CF_API_TOKEN already has
-// it. `from`/`to`/`cc`/`bcc`/`replyTo` accept either a plain string or
-// { email, name } (named recipients, 2026-05-28), and `to` may be an array mixing
-// both. Free outbound requires the Workers Paid plan; 3000/mo are included before
-// per-email pricing kicks in. Response is the standard client/v4 envelope:
-// { success, errors, result: { message_id, delivered, queued, permanent_bounces } }.
+// it. `from` and `to` MUST be plain RFC822 strings ("Name <email>" or bare
+// "email"); `to` may be a string or an array of such strings. The `{ email, name }`
+// object form is REJECTED with 400 `invalid_request_schema` (code 10001) — verified
+// live 2026-06-16, the cause of every newsletter send failing once a display-name
+// sender was used. Free outbound requires the Workers Paid plan; 3000/mo are
+// included before per-email pricing kicks in. Response is the standard client/v4
+// envelope: { success, errors, result: { message_id, delivered, queued, permanent_bounces } }.
+
+// Normalize a recipient/sender into the RFC822 string the CF API expects, whether
+// it arrives as a plain string or a { email, name } object.
+function cloudflareAddress(addr) {
+  const parsed = parseEmailAddress(addr);
+  return parsed.name ? `${parsed.name} <${parsed.email}>` : parsed.email;
+}
 
 async function sendViaCloudflare(email) {
   const accountId = cloudflareAccountId();
   const token = cloudflareToken();
-  const fromParsed = parseEmailAddress(email.from);
 
   const body = {
-    from: fromParsed.name ? { email: fromParsed.email, name: fromParsed.name } : fromParsed.email,
-    to: Array.isArray(email.to) ? email.to : [email.to],
+    from: cloudflareAddress(email.from),
+    to: (Array.isArray(email.to) ? email.to : [email.to]).map(cloudflareAddress),
     subject: email.subject,
     html: email.html,
   };
