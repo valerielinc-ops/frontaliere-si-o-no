@@ -89,3 +89,25 @@ describe('OFFERWALL_FC_SNIPPET — parity with index.html (drift guard)', () => 
     expect(OFFERWALL_FC_SNIPPET).toContain(loaderUrl);
   });
 });
+
+describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
+  // The GAM Offerwall is scoped to the article sections. Those pages are emitted
+  // by ogPagesPlugin (canonicalPrefix '/articoli-frontaliere/') — NOT staticPagesPlugin,
+  // which skips them ("already exist"). The snippet MUST be injected by ogPagesPlugin
+  // or the Offerwall never renders on article pages (the 2026-06-16 miss).
+  const read = (p: string) => readFileSync(resolve(__dirname, '..', p), 'utf8');
+
+  it('ogPagesPlugin imports and injects OFFERWALL_FC_SNIPPET into the article <head>', () => {
+    const src = read('build-plugins/ogPagesPlugin.ts');
+    expect(src, 'ogPagesPlugin must import the snippet').toMatch(
+      /import\s*\{[^}]*OFFERWALL_FC_SNIPPET[^}]*\}\s*from\s*['"]\.\/constants['"]/,
+    );
+    // Injected right before the article <body class="bg-surface-alt …"> template.
+    expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body class="bg-surface-alt/);
+  });
+
+  it('staticPagesPlugin keeps the isBlogDetailPage-gated fallback injection', () => {
+    const src = read('build-plugins/staticPagesPlugin.ts');
+    expect(src).toMatch(/isBlogDetailPage\s*\?\s*`\\n\s*\$\{OFFERWALL_FC_SNIPPET\}`/);
+  });
+});
