@@ -153,6 +153,58 @@ export function detectWorkflowScoped(text) {
   return true; // solo workflow → blocked-workflows-scope by-construction
 }
 
+// --- MALFORMED-BODY & NETWORK-AUDIT PRE-FLIGHT (escalation #2291) -----------
+// `fix-outcome:max-turns` ricorre ≥7×/14gg (dal 2026-06-02): due sottoclassi
+// distinte emergono dai run esaminati che bruciano il budget DETERMINISTICAMENTE:
+//
+// 1. MALFORMED BODY (#2098-class): il body dell'issue è vuoto / stub ("test") o
+//    è un'issue aggregata che manca del template FOLLOWUP.md (nessuna sezione
+//    ## Origine / ### N. item). Il fixer non trova contesto, gira in tondo, muore.
+//
+// 2. NETWORK-AUDIT (#2224-class): il `## Suggested action` dice esplicitamente
+//    "network-enabled audit" (phrase canonica FOLLOWUP.md) o "audit curl": il fix
+//    richiede una verifica HTTP su URL esterni PRIMA di poter toccare il codice.
+//    Il fixer ha solo `Bash(node:*)` in allowedTools (no `curl` diretto): deve
+//    scrivere script node inline → multi-turno → error_max_turns deterministico.
+//
+// Pattern: pre-flight CONSERVATIVO (bias a PROMUOVERE) — stessa filosofia di
+// detectWorkflowScoped. Park con `needs-human` per evitare ri-accodo (parked-retry
+// loop) su issue strutturalmente non-fixabili dall'automazione CI.
+
+/**
+ * Vero se il body dell'issue è troppo corto/malformato per consentire al fixer
+ * di operare senza bruciare turni in cerca di contesto inesistente. Pura → testabile.
+ * @param {string} title
+ * @param {string} body
+ */
+export function detectMalformedBody(title, body) {
+  const b = String(body || '').trim();
+  if (b.length < 50) return true; // empty or stub (e.g. "test")
+  // Issue aggregata (N items deferred) senza struttura FOLLOWUP.md:
+  // ## Origine / ## Item / ### N. assenti → post-merge-followup malformato.
+  if (/\b\d+\s+items?\s+deferred\b/i.test(String(title || ''))) {
+    const hasStructure = /^##\s+(Origine|Item)\b/mi.test(b) || /^###\s+\d+\.\s/m.test(b);
+    if (!hasStructure) return true;
+  }
+  return false;
+}
+
+/**
+ * Vero se il `## Suggested action` della follow-up richiede esplicitamente un
+ * audit HTTP/curl su URL esterni come PREREQUISITO al fix del codice. Il fixer
+ * non ha `curl` in allowedTools (solo `Bash(node:*)`); deve scrivere inline
+ * node HTTP → molti turni → error_max_turns deterministico. Pura → testabile.
+ * @param {string} title
+ * @param {string} body
+ */
+export function detectExplicitNetworkAudit(title, body) {
+  const s = String(title || '') + '\n' + String(body || '');
+  // Segnali espliciti: "network-enabled audit" (phrase canonica FOLLOWUP.md) o
+  // "audit curl" (phrasing italiano comune). Entrambi indicano che la fase di
+  // verifica HTTP PRECEDE qualsiasi modifica al codice sorgente.
+  return /network-enabled\s+audit|audit\s+curl/i.test(s);
+}
+
 /**
  * Un follow-up è eleggibile all'age-out close? Puro (niente gh) → testabile.
  * Vero se: è un `follow-up`, NON in lavorazione (né `agent:fix` né
@@ -443,7 +495,7 @@ function main() {
     }
     // error_max_turns = turn-budget esaurito in modo DETERMINISTICO: ri-tentare
     // lo stesso item lo riproduce a parità di turni. Con il circuit-breaker
-    // (is_aggregate un item alla volta) e il cap alzato (50 turni high / 30 normal),
+    // (is_aggregate un item alla volta) e il cap alzato (50 turni high / 40 normal),
     // chi esaurisce il budget al primo colpo è genuinamente too-large — il retry
     // non lo salva. Park + needs-human SUBITO: 1 attempt invece di 2 (#2052).
     // Marker `max-turns` emesso da issue-fix.yml SOLO sul subtype error_max_turns
@@ -503,6 +555,31 @@ function main() {
       const raw = gh(['issue', 'view', String(cand.number), '--repo', REPO, '--json', 'body'], { json: true });
       body = String(raw?.body || '');
     } catch { body = ''; } // body illeggibile → bias a promuovere (non parkare a vuoto)
+
+    // Check: malformed body (escalation #2291) — body vuoto/stub brucia turni inutilmente.
+    if (detectMalformedBody(cand.title, body)) {
+      const blen = String(body || '').trim().length;
+      console.log(`PARK #${cand.number} (malformed body, ${blen} chars) → no promozione, fixer non ha contesto`);
+      const note = `⛔ **Pre-flight drainer (zero-Claude, #2291)**: il body di questa follow-up è vuoto o malformato (${blen} chars, nessuna sezione \`## Origine\`/\`### N.\`). Promuoverla a \`agent:fix\` brucerebbe turni senza produrre una PR — il fixer non ha contesto su cosa fixare.\n\n**Non promuovo**: correggi il body dell'issue (sezioni \`## Origine\` + \`## Item\` obbligatorie) o ri-apri il follow-up con una descrizione completa. Parko con \`needs-human\`.\n\n<!-- FIX_OUTCOME: no-root-cause -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (malformed body)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
+
+    // Check: explicit network audit (escalation #2291) — "network-enabled audit" / "audit curl"
+    // indica che il fix richiede verifica HTTP su URL esterni come prerequisito.
+    // Il fixer ha solo Bash(node:*) (no curl diretto); scripting node inline multi-turno → max-turns.
+    if (detectExplicitNetworkAudit(cand.title, body)) {
+      console.log(`PARK #${cand.number} (explicit network audit) → no promozione, allowedTools non include curl`);
+      const note = `⛔ **Pre-flight drainer (zero-Claude, #2291)**: questa follow-up richiede un audit HTTP su URL esterni ("network-enabled audit" / "audit curl") come prerequisito al fix del codice. Il fixer CI ha solo \`Bash(node:*)\` in allowedTools (no \`curl\` diretto): implementare la verifica HTTP in node inline richiede molti turni → finisce \`error_max_turns\` deterministicamente.\n\n**Non promuovo**: serve un script autonomo per l'audit curl, o esecuzione manuale con curl. Parko con \`needs-human\`.\n\n<!-- FIX_OUTCOME: no-root-cause -->`;
+      if (DRY) { console.log(`[dry] park #${cand.number} (network audit)`); continue; }
+      try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
+      catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }
+      edit(cand.number, { add: [LBL_PARKED, 'needs-human'], remove: [LBL_QUEUED, LBL_FIX] });
+      continue; // prova il prossimo in coda
+    }
 
     if (body && detectWorkflowScoped(`${cand.title}\n${body}`)) {
       const wfRefs = [...new Set((body.match(WORKFLOW_PATH_RE) || []).concat(

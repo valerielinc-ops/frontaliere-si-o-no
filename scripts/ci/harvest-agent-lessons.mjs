@@ -293,7 +293,12 @@ async function main() {
       const cb = String(c.body || '');
       if (cb.includes('reconcile-bot') ||
           cb.includes('Pre-flight (auto, zero-Claude)') ||
-          cb.includes('Reconcile (auto)')) continue;
+          cb.includes('Reconcile (auto)') ||
+          // SAME feedback-loop, drainer pre-flight flavour (structural fix #2291):
+          // followup-drainer.mjs posta `no-root-cause` / `blocked-*` DETERMINISTICAMENTE
+          // quando rileva body malformato o audit-curl PRIMA di spendere un run Claude.
+          // Contarli come burn gonfia il bucket e ri-scalderebbe l'escalation stessa.
+          cb.includes('Pre-flight drainer (zero-Claude')) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
