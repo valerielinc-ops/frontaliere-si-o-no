@@ -182,6 +182,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'AI job offers in Switzerland: record and trends 2025',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'In 2025 the job offers with AI skills in Switzerland rise to 25,000, +9,000 compared to the previous year. Salaries above average in health and energy.',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.imageAlt': 'Employees in a Swiss Lugano office analyze artificial intelligence job data.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'Swiss bet on Europe',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'The rejection of the \'No to a 10 million Switzerland\' initiative is seen abroad as a choice of stability and openness.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
 };
 
 export default blogMetaChEn;
