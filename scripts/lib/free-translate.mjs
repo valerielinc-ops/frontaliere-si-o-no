@@ -21,6 +21,7 @@
  */
 
 import { translateWithMyMemory } from './mymemory-translate.mjs';
+import { applyGlossaryCorrections } from './translation-glossary.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
 // DeepL: support multiple API keys with automatic rotation on quota exhaustion.
@@ -983,6 +984,16 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
 
   _cascadeStats.calls++;
 
+  // Single exit transform: balance markdown markers, then apply the
+  // protected-term glossary so meaning-inverted MT output (e.g. German
+  // "Nachtwache" → IT "orologio notturno") is corrected regardless of which
+  // tier produced it.
+  const finalize = (out) => applyGlossaryCorrections({
+    sourceText: clean,
+    translatedText: balanceMarkdownMarkers(out),
+    targetLang,
+  });
+
   /** Try a tier: track success/error, return result or '' */
   async function tryTier(tierName, fn) {
     try {
@@ -1003,15 +1014,15 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
 
   // Tier 1: DeepL Free API (best quality, if API key set)
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
-  if (t1) return balanceMarkdownMarkers(t1);
+  if (t1) return finalize(t1);
 
   // Tier 2: Azure Translator (F0 Free — 2M chars/month, near-DeepL quality)
   const t1b = await tryTier('azure', () => translateWithAzure(clean, sourceLang, targetLang));
-  if (t1b) return balanceMarkdownMarkers(t1b);
+  if (t1b) return finalize(t1b);
 
   // Tier 3: Google Cloud Translation (official API, 500K free/month, hard-capped 16K/day)
   const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
-  if (t2c) return balanceMarkdownMarkers(t2c);
+  if (t2c) return finalize(t2c);
 
   // Tier 3b: LibreTranslate self-hosted (CI service container — unlimited, no
   // rate limits, no shared throttle). Promoted ABOVE MyMemory ONLY for EN/DE/FR
@@ -1025,7 +1036,7 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   // when LIBRETRANSLATE_SELF_HOSTED_URL is unset (returns '').
   if (targetLang !== 'it') {
     const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-    if (t3b) return balanceMarkdownMarkers(t3b);
+    if (t3b) return finalize(t3b);
   }
 
   // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
@@ -1052,7 +1063,7 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     if (joined && joined.toLowerCase() !== clean.toLowerCase()) return joined;
     return '';
   });
-  if (t2) return balanceMarkdownMarkers(t2);
+  if (t2) return finalize(t2);
 
   // Tier 4a: LibreTranslate self-hosted — IT-target ONLY. For IT this is the
   // first (and only) self-hosted attempt, kept below MyMemory by the EN/DE/FR
@@ -1061,42 +1072,42 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   // hung endpoint for no benefit — skip. No-op when self-hosted URL is unset.
   if (targetLang === 'it') {
     const t3bFallback = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
-    if (t3bFallback) return balanceMarkdownMarkers(t3bFallback);
+    if (t3bFallback) return finalize(t3bFallback);
   }
 
   // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
-  if (t4) return balanceMarkdownMarkers(t4);
+  if (t4) return finalize(t4);
 
   // Tier 5: Hugging Face OPUS-MT (Helsinki-NLP open-source, good for short text)
   const t5 = await tryTier('huggingFace', () => translateWithHuggingFace(clean, sourceLang, targetLang));
-  if (t5) return balanceMarkdownMarkers(t5);
+  if (t5) return finalize(t5);
 
   // Tier 6: Mozhi+DuckDuckGo (Bing via Mozhi proxy — works sometimes from CI)
   const t6b = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
-  if (t6b) return balanceMarkdownMarkers(t6b);
+  if (t6b) return finalize(t6b);
 
   // ── LOCAL/DEV TIERS (blocked from GitHub Actions IPs, work locally) ───────
 
   // Tier 6: Lingva (Google Translate proxy — works locally, blocked in CI)
   const t6 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
-  if (t6) return balanceMarkdownMarkers(t6);
+  if (t6) return finalize(t6);
 
   // Tier 7: Mozhi+Google (Google via Mozhi — works locally, blocked in CI)
   const t7 = await tryTier('mozhiGoogle', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'google'));
-  if (t7) return balanceMarkdownMarkers(t7);
+  if (t7) return finalize(t7);
 
   // Tier 8: Google Translate (unofficial direct endpoint — often blocked)
   const t8 = await tryTier('google', () => translateWithGoogle(clean, sourceLang, targetLang));
-  if (t8) return balanceMarkdownMarkers(t8);
+  if (t8) return finalize(t8);
 
   // Tier 9: Mozhi+DeepL (DeepL engine returns empty via proxy — broken since 2026-03)
   const t9 = await tryTier('mozhiDeepL', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl'));
-  if (t9) return balanceMarkdownMarkers(t9);
+  if (t9) return finalize(t9);
 
   // Tier 10: Mozhi+Yandex (slow last resort)
   const t10 = await tryTier('mozhiYandex', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex'));
-  if (t10) return balanceMarkdownMarkers(t10);
+  if (t10) return finalize(t10);
 
   _cascadeStats.failures++;
   return '';
