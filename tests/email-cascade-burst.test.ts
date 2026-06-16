@@ -3,6 +3,8 @@ import {
   isRateLimitedError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
+  fetchCloudflareUsage,
+  fetchCloudflareDeliveryStats,
   PROVIDERS,
 } from '../scripts/lib/email-cascade.mjs';
 
@@ -157,7 +159,7 @@ describe('sendEmailCascade — cloudflare provider', () => {
     delete process.env.CF_ACCOUNT_ID;
   });
 
-  it('sends via the account-scoped REST endpoint and reports provider=cloudflare', async () => {
+  it('sends via the account-scoped REST endpoint and returns the real message_id', async () => {
     let sendUrl = '';
     globalThis.fetch = (async (url: string, opts?: any) => {
       if (String(url).includes(CF_SEND)) {
@@ -166,10 +168,11 @@ describe('sendEmailCascade — cloudflare provider', () => {
         // from with a display name → { email, name }; to → array of strings.
         expect(body.from).toEqual({ email: 'a@b.ch', name: 'Frontaliere' });
         expect(body.to).toEqual(['x@y.com']);
+        // Real envelope: success + result.message_id even when delivered/queued empty.
         return {
           ok: true,
           status: 200,
-          json: async () => ({ result: { delivered: [], queued: [{ email: 'x@y.com' }], permanent_bounces: [] } }),
+          json: async () => ({ success: true, errors: [], result: { message_id: '<abc@frontaliereticino.ch>', delivered: [], queued: [], permanent_bounces: [] } }),
           text: async () => '{}',
         } as any;
       }
@@ -185,6 +188,33 @@ describe('sendEmailCascade — cloudflare provider', () => {
     expect(failed.length).toBe(0);
     expect(sent.length).toBe(1);
     expect(sent[0].provider).toBe('cloudflare');
+    expect(sent[0].messageId).toBe('<abc@frontaliereticino.ch>');
+  });
+
+  it('falls back to the default CF_API_TOKEN when no dedicated token is set', async () => {
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    process.env.CF_API_TOKEN = 'default-cf-token';
+    let auth = '';
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes(CF_SEND)) {
+        auth = opts.headers.Authorization;
+        return {
+          ok: true, status: 200,
+          json: async () => ({ success: true, result: { message_id: '<m@frontaliereticino.ch>' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent } = await sendEmailCascade(
+      [{ payload: { from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>' }, recipient: { email: 'x@y.com' }, meta: {} }],
+      { forceProvider: 'cloudflare', delayMs: 0 },
+    );
+
+    expect(auth).toBe('Bearer default-cf-token');
+    expect(sent.length).toBe(1);
+    delete process.env.CF_API_TOKEN;
   });
 
   it('retires cloudflare after a 429 throttle (no burst across a batch)', async () => {
@@ -215,5 +245,82 @@ describe('sendEmailCascade — cloudflare provider', () => {
     expect(sendCalls).toBe(1); // 429 → provider exhausted → rest skipped locally
     expect(sent.length).toBe(0);
     expect(failed.length).toBe(10);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  Cloudflare delivery-event observation (GraphQL Analytics, pull)    */
+/* ------------------------------------------------------------------ */
+
+describe('fetchCloudflareUsage / fetchCloudflareDeliveryStats', () => {
+  const realFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    process.env.CLOUDFLARE_EMAIL_API_TOKEN = 'cf-test-token';
+    process.env.CF_ACCOUNT_ID = 'acc-123';
+    process.env.CF_ZONE_ID = 'zone-123'; // skip the zone-lookup network call
+  });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    delete process.env.CF_EMAIL_API_TOKEN;
+    delete process.env.CF_API_TOKEN;
+    delete process.env.CF_ACCOUNT_ID;
+    delete process.env.CF_ZONE_ID;
+  });
+
+  // emailSendingAdaptiveGroups is ZONE-scoped → response shape is viewer.zones[].
+  function mockGraphQL(groups: any[]) {
+    globalThis.fetch = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ data: { viewer: { zones: [{ emailSendingAdaptiveGroups: groups }] } } }),
+    })) as any;
+  }
+
+  it('sums total send events for fetchCloudflareUsage', async () => {
+    mockGraphQL([{ count: 12 }, { count: 8 }]);
+    expect(await fetchCloudflareUsage('2026-06-01', '2026-06-16')).toBe(20);
+  });
+
+  it('breaks down delivery status for fetchCloudflareDeliveryStats', async () => {
+    mockGraphQL([
+      { count: 40, dimensions: { status: 'delivered' } },
+      { count: 3, dimensions: { status: 'bounced' } },
+      { count: 1, dimensions: { status: 'failed' } },
+    ]);
+    const stats = await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16');
+    expect(stats).toEqual({ total: 44, byStatus: { delivered: 40, bounced: 3, failed: 1 } });
+  });
+
+  it('resolves the zone id by domain when CF_ZONE_ID is unset', async () => {
+    delete process.env.CF_ZONE_ID;
+    const urls: string[] = [];
+    globalThis.fetch = (async (url: string) => {
+      urls.push(String(url));
+      if (String(url).includes('/zones?')) {
+        return { ok: true, status: 200, json: async () => ({ result: [{ id: 'zone-resolved' }] }) } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({ data: { viewer: { zones: [{ emailSendingAdaptiveGroups: [{ count: 5 }] }] } } }) } as any;
+    }) as any;
+    expect(await fetchCloudflareUsage('2026-06-16', '2026-06-16')).toBe(5);
+    expect(urls.some(u => u.includes('/zones?name='))).toBe(true);
+  });
+
+  it('returns null (not 0) when unconfigured so callers can tell "couldn\'t verify"', async () => {
+    delete process.env.CLOUDFLARE_EMAIL_API_TOKEN;
+    delete process.env.CF_API_TOKEN;
+    delete process.env.CF_EMAIL_API_TOKEN;
+    expect(await fetchCloudflareUsage('2026-06-16', '2026-06-16')).toBeNull();
+    expect(await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16')).toBeNull();
+  });
+
+  it('returns null when the GraphQL response carries errors', async () => {
+    globalThis.fetch = (async () => ({
+      ok: true,
+      status: 200,
+      json: async () => ({ errors: [{ message: 'auth' }] }),
+    })) as any;
+    expect(await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16')).toBeNull();
   });
 });

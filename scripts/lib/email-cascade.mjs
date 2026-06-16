@@ -25,10 +25,16 @@
  *   MAILTRAP_API_TOKEN       — Mailtrap API token (4000/mo, 150/day free tier)
  *   MAILEROO_API_KEY         — Maileroo sending key (3000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
- *   CLOUDFLARE_EMAIL_API_TOKEN — Cloudflare Email Service token (Email Sending: Edit
- *                                + Analytics Read). 3000/mo included on the existing
- *                                Workers Paid plan (no extra $), then $0.35/1000.
+ *   CF_API_TOKEN             — Cloudflare token used by default for Email Service:
+ *                                it already carries Email Sending: Edit + Analytics
+ *                                Read (verified live). 3000/mo included on the
+ *                                existing Workers Paid plan (no extra $), then
+ *                                $0.35/1000. Override with CLOUDFLARE_EMAIL_API_TOKEN
+ *                                if a dedicated, narrower-scoped token is preferred.
  *   CF_ACCOUNT_ID            — Cloudflare account id (shared with the CDN/Workers config)
+ *   CF_ZONE_ID               — optional; zone id for the sending domain. Auto-resolved
+ *                                from CF_EMAIL_DOMAIN (default frontaliereticino.ch)
+ *                                when unset. Used only for analytics (zone-scoped).
  */
 
 // ── Provider daily quotas ────────────────────────────────────
@@ -187,31 +193,102 @@ async function fetchMailerooDailyUsage() {
   return 0;
 }
 
+// ── Cloudflare Email Service shared config ───────────────────
+// One token covers the whole integration: the existing default CF_API_TOKEN in
+// Remote Config already carries Email Sending: Edit + Analytics Read (verified
+// live), so no dedicated token is required. CLOUDFLARE_EMAIL_API_TOKEN /
+// CF_EMAIL_API_TOKEN remain as optional overrides for a narrower-scoped token.
+const CLOUDFLARE_EMAIL_DOMAIN = process.env.CF_EMAIL_DOMAIN || 'frontaliereticino.ch';
+let _cfZoneIdCache;
+
+function cloudflareToken() {
+  return process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN || process.env.CF_API_TOKEN;
+}
+function cloudflareAccountId() {
+  return process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
+}
+
 /**
- * Query Cloudflare Email Service usage via the GraphQL Analytics API
- * (dataset emailSendingAdaptiveGroups). Returns the raw count of send events in
- * [startDate, endDate] (inclusive, ISO yyyy-mm-dd), or null when the endpoint is
- * unreachable / unauthorized / unconfigured so callers can tell "0 sent" apart
- * from "couldn't verify". Requires the token to carry the Analytics Read scope.
+ * Resolve the zone id for the sending domain (the emailSendingAdaptiveGroups
+ * analytics dataset is ZONE-scoped, not account-scoped). Prefers CF_ZONE_ID,
+ * else looks it up by domain once and caches it. Returns null if unresolvable
+ * (token missing Zone Read, domain not on the account, network error).
+ */
+async function resolveCloudflareZoneId() {
+  if (process.env.CF_ZONE_ID) return process.env.CF_ZONE_ID;
+  if (_cfZoneIdCache !== undefined) return _cfZoneIdCache;
+  const token = cloudflareToken();
+  if (!token) { _cfZoneIdCache = null; return null; }
+  try {
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/zones?name=${encodeURIComponent(CLOUDFLARE_EMAIL_DOMAIN)}&status=active`,
+      { headers: { Authorization: `Bearer ${token}` } },
+    );
+    if (!res.ok) { _cfZoneIdCache = null; return null; }
+    const data = await res.json().catch(() => null);
+    _cfZoneIdCache = data?.result?.[0]?.id || null;
+    return _cfZoneIdCache;
+  } catch { _cfZoneIdCache = null; return null; }
+}
+
+/**
+ * Low-level query against the Cloudflare Email Service GraphQL Analytics API
+ * (dataset emailSendingAdaptiveGroups, ZONE-scoped). Returns the raw `groups`
+ * array for [startDate, endDate] (inclusive, ISO yyyy-mm-dd), optionally grouped
+ * by the given dimensions, or null when the endpoint is unreachable /
+ * unauthorized / unconfigured so callers can tell "0 events" apart from
+ * "couldn't verify". Requires the token to carry the Analytics Read scope.
  * Docs: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
  */
-export async function fetchCloudflareUsage(startDate, endDate) {
-  const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
-  const token = process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN;
-  if (!accountId || !token) return null;
-  const query = `query($acc:String!,$start:Date!,$end:Date!){viewer{accounts(filter:{accountTag:$acc}){emailSendingAdaptiveGroups(filter:{date_geq:$start,date_leq:$end},limit:10000){count}}}}`;
+async function queryCloudflareEmailGroups(startDate, endDate, dimensions = []) {
+  const token = cloudflareToken();
+  const zoneId = await resolveCloudflareZoneId();
+  if (!token || !zoneId) return null;
+  const dimFields = dimensions.length ? ` dimensions{${dimensions.join(' ')}}` : '';
+  const query = `query($zone:String!,$start:Date!,$end:Date!){viewer{zones(filter:{zoneTag:$zone}){emailSendingAdaptiveGroups(filter:{date_geq:$start,date_leq:$end},limit:10000){count${dimFields}}}}}`;
   try {
     const res = await fetch('https://api.cloudflare.com/client/v4/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ query, variables: { acc: accountId, start: startDate, end: endDate } }),
+      body: JSON.stringify({ query, variables: { zone: zoneId, start: startDate, end: endDate } }),
     });
     if (!res.ok) return null;
     const data = await res.json().catch(() => null);
     if (!data || data.errors?.length) return null;
-    const groups = data?.data?.viewer?.accounts?.[0]?.emailSendingAdaptiveGroups || [];
-    return groups.reduce((sum, g) => sum + (Number(g.count) || 0), 0);
+    return data?.data?.viewer?.zones?.[0]?.emailSendingAdaptiveGroups || [];
   } catch { return null; }
+}
+
+/**
+ * Total count of send events in [startDate, endDate], or null if unverifiable.
+ */
+export async function fetchCloudflareUsage(startDate, endDate) {
+  const groups = await queryCloudflareEmailGroups(startDate, endDate);
+  if (groups === null) return null;
+  return groups.reduce((sum, g) => sum + (Number(g.count) || 0), 0);
+}
+
+/**
+ * Delivery-event observation for Cloudflare Email Service. Unlike the cascade's
+ * other providers, Cloudflare exposes NO outbound webhook and does NOT track
+ * opens/clicks (it is a delivery-only relay) — engagement events simply do not
+ * exist there. The only observable signal is delivery STATUS (sent / delivered /
+ * failed / rejected / bounced + auth results), and it is PULL-only via this
+ * Analytics dataset. Returns { total, byStatus: { <status>: count } } for
+ * [startDate, endDate], or null if unverifiable.
+ */
+export async function fetchCloudflareDeliveryStats(startDate, endDate) {
+  const groups = await queryCloudflareEmailGroups(startDate, endDate, ['status']);
+  if (groups === null) return null;
+  const byStatus = {};
+  let total = 0;
+  for (const g of groups) {
+    const n = Number(g.count) || 0;
+    total += n;
+    const status = g.dimensions?.status || 'unknown';
+    byStatus[status] = (byStatus[status] || 0) + n;
+  }
+  return { total, byStatus };
 }
 
 /**
@@ -267,8 +344,7 @@ function isProviderConfigured(providerId) {
     case 'maileroo':   return !!process.env.MAILEROO_API_KEY;
     case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
-    case 'cloudflare': return !!((process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN) &&
-                                 (process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID));
+    case 'cloudflare': return !!(cloudflareToken() && cloudflareAccountId());
     default: return false;
   }
 }
@@ -512,14 +588,16 @@ async function sendViaResend(email) {
 
 // ── Cloudflare Email Service REST API ─────────────────────────
 // Docs: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
-// Auth: Bearer token (Email Sending: Edit). `from`/`to`/`cc`/`bcc`/`replyTo`
-// accept either a plain string or { email, name } (named recipients, 2026-05-28),
-// and `to` may be an array mixing both. Free outbound requires the Workers Paid
-// plan; 3000/mo are included before per-email pricing kicks in.
+// Auth: Bearer token (Email Sending: Edit) — the default CF_API_TOKEN already has
+// it. `from`/`to`/`cc`/`bcc`/`replyTo` accept either a plain string or
+// { email, name } (named recipients, 2026-05-28), and `to` may be an array mixing
+// both. Free outbound requires the Workers Paid plan; 3000/mo are included before
+// per-email pricing kicks in. Response is the standard client/v4 envelope:
+// { success, errors, result: { message_id, delivered, queued, permanent_bounces } }.
 
 async function sendViaCloudflare(email) {
-  const accountId = process.env.CF_ACCOUNT_ID || process.env.CLOUDFLARE_ACCOUNT_ID;
-  const token = process.env.CLOUDFLARE_EMAIL_API_TOKEN || process.env.CF_EMAIL_API_TOKEN;
+  const accountId = cloudflareAccountId();
+  const token = cloudflareToken();
   const fromParsed = parseEmailAddress(email.from);
 
   const body = {
@@ -555,17 +633,19 @@ async function sendViaCloudflare(email) {
   if (data?.success === false) {
     throw new Error(`Cloudflare error: ${JSON.stringify(data.errors || []).slice(0, 200)}`);
   }
-  // Response groups recipients into delivered / queued / permanent_bounces.
-  // It may be wrapped in the standard client/v4 envelope (data.result) or raw.
+  // Standard client/v4 envelope; result groups recipients into
+  // delivered / queued / permanent_bounces and carries a top-level message_id.
+  // An accepted send returns success:true + result.message_id even when both
+  // delivered and queued are still empty (delivery is async), so the message_id
+  // — not the per-recipient arrays — is the success signal.
   const result = data?.result || data;
   const accepted = [].concat(result?.delivered || [], result?.queued || []);
   const bounced = result?.permanent_bounces || [];
-  if (accepted.length === 0 && bounced.length > 0) {
+  const messageId = result?.message_id || result?.id || accepted[0]?.id || accepted[0]?.message_id;
+  if (!messageId && bounced.length > 0) {
     throw new Error(`Cloudflare permanent_bounce: ${JSON.stringify(bounced).slice(0, 200)}`);
   }
-  const first = accepted[0];
-  const messageId = (first && (first.id || first.message_id || first.email)) || `cf-${Date.now()}`;
-  return { messageId: String(messageId), provider: 'cloudflare' };
+  return { messageId: String(messageId || `cf-${Date.now()}`), provider: 'cloudflare' };
 }
 
 // ── Provider dispatch ────────────────────────────────────────
