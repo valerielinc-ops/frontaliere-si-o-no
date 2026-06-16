@@ -82,6 +82,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'blocchi-immigrazione-ticino': { it: 'blocchi-immigrazione-ticino', en: 'immigration-block-ticino', de: 'einwanderungsblock-tessin', fr: 'blocage-immigration-tessin' },
  'treni-fermi-stabio-gallarate-incompetenza-regione': { it: 'treni-fermi-stabio-gallarate-incompetenza-regione', en: 'trains-halted-stabio-gallarate-regional-incompetence', de: 'verzoegerte-zuege-stabio-gallarate-regionale-unfahigkeit', fr: 'trains-arretes-stabio-gallarate-incompetence-regionale' },
  'offerte-lavoro-intelligenza-artificiale-2025': { it: 'offerte-lavoro-intelligenza-artificiale-2025', en: 'ai-job-offers-switzerland-2025', de: 'ki-jobangebote-schweiz-2025', fr: 'offres-emploi-ia-suisse-2025' },
+ 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { it: 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale', en: 'switzerland-sends-signal-in-favour-of-europe-and-economy', de: 'die-schweiz-sendet-einen-signal-an-fur-europa-und-wirtschaft', fr: 'la-suisse-envoie-un-signal-en-faveur-de-l-europe-et-de-l-economie' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

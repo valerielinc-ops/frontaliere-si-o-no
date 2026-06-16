@@ -548,6 +548,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale',
+    category: 'novita',
+    date: '2026-06-16T02:14:56.174Z',
+    image: '/images/blog/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

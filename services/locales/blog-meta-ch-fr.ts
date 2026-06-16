@@ -182,6 +182,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'Offres d\'emploi IA en Suisse : record et tendances 2025',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'En 2025 les offres d\'emploi avec compétences IA en Suisse atteignent 25 000, +9 000 par rapport à l\'année précédente. Salaires supérieurs à la moyenne dans la santé et l\'énergie.',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.imageAlt': 'Employés dans un bureau à Lugano analysent des données sur l\'IA.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'La Suisse mise sur l\'Europe',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'Le rejet de l\'initiative \'Non à une Suisse de 10 millions\' est interprété à l\'étranger comme un choix de stabilité et d\'ouverture.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
 };
 
 export default blogMetaChFr;

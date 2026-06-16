@@ -4053,6 +4053,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-deduzione-ristorni-frontalieri-contraria-accordi-ch-roma': { name: 'Deduzione ristorni frontalieri', path: '/articoli-frontaliere/deduzione-ristorni-frontalieri-contraria-accordi-ch-roma', parent: 'blog' },
     'blog-offerte-lavoro-intelligenza-artificiale-2025': { name: 'Lavoro IA Svizzera', path: '/articoli-svizzera/offerte-lavoro-intelligenza-artificiale-2025/', parent: 'blog' },
     'blog-tassa-salute-posizione-berna': { name: 'Tassa salute Berna', path: '/articoli-frontaliere/tassa-salute-posizione-berna', parent: 'blog' },
+    'blog-la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale': { name: 'La Svizzera e l\'Europa', path: '/articoli-svizzera/la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

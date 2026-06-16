@@ -182,6 +182,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.title': 'KI-Jobangebote in der Schweiz: Rekord und Trends 2025',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.excerpt': 'Im Jahr 2025 steigen die Stellenangebote mit KI‑Kompetenzen in der Schweiz auf 25 000, +9 000 gegenüber dem Vorjahr. Die Gehälter liegen über dem Durchschnitt im Gesundheits‑ und Energiesektor.',
     'blog.article.offerte-lavoro-intelligenza-artificiale-2025.imageAlt': 'Mitarbeiter in einem Büro in Lugano analysieren KI-Arbeitsmarktdaten.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.title': 'Die Schweiz setzt auf Europa',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.excerpt': 'Die Ablehnung der Initiative «Nein zu einer 10-Millionen-Schweiz» wird im Ausland als Entscheidung für Stabilität und Offenheit interpretiert.',
+    'blog.article.la-svizzera-invia-un-segnale-a-favore-delleuropa-e-delleconomia-secondo-la-stampa-internazionale.imageAlt': 'Palazzo federale a Berna',
 };
 
 export default blogMetaChDe;
