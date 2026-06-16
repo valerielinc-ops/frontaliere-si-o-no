@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-06-16T14:48:31.964Z",
-  "total": 18,
+  "generatedAt": "2026-06-16T23:59:10.512Z",
+  "total": 17,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 17,
-  "durationMs": 20414,
-  "avgDurationMs": 20414,
+  "unchangedCount": 16,
+  "durationMs": 22552,
+  "avgDurationMs": 22552,
   "durationHistory": [
-    20414
+    22552
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -343,42 +343,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-213i9u",
-      "slug": "custode-a-tempo-parziale-45-presso-il-centro-professionale-sociosanitario-sspss-giubiasco-amministrazione-cantonale",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Custode a tempo parziale (45%), presso il Centro professionale sociosanitario (SSPSS), Giubiasco",
-      "location": "Giubiasco",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-01",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4196",
-      "source": "Company Careers Crawler",
-      "salaryMin": 52756,
-      "salaryMax": 81560,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-06-01T00:02:15.093Z",
-      "firstSeenAt": "2026-06-01T00:02:15.093Z",
-      "sourceLang": "it",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Giubiasco",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
