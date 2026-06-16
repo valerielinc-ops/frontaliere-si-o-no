@@ -8108,6 +8108,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Nuova intesa Lombardia-Ticino: più treni e autobus per i frontalieri',
     'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Regione Lombardia e Canton Ticino firmano accordo per potenziare treni e autobus transfrontalieri, con RE80 ogni 30 minuti e integrazione tariffaria.',
     'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Treno Regio Express al confine italo-svizzero con pendolari in attesa',
+    'blog.article.pd-m5s-avs-accelerano.title': 'Pd, M5S e Avs accelerano',
+    'blog.article.pd-m5s-avs-accelerano.excerpt': 'Partiti politici italiani annunciano iniziative per luglio.',
+    'blog.article.pd-m5s-avs-accelerano.imageAlt': 'Pranzo politico a Roma',
 };
 
 export default blogMetaIt;

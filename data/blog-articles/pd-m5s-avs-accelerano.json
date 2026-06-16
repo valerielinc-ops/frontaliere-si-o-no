@@ -1,0 +1,18 @@
+{
+  "id": "pd-m5s-avs-accelerano",
+  "slug": "pd-m5s-avs-accelerano",
+  "publishedAt": "2026-06-16T19:44:07.324Z",
+  "cluster": "pensioni",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pensioni",
+    "score": 0.525,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1
+  }
+}

@@ -44261,6 +44261,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pd-m5s-avs-accelerano': {
+    title: 'Pd, M5S e Avs accelerano | Frontaliere Ticino',
+    description: 'I partiti italiani Pd, M5S e Avs annunciano iniziative per luglio. Scopri di più sulle loro proposte e obiettivi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, accelerano, partiti, politici, italiani',
+    ogTitle: 'Pd, M5S e Avs accelerano',
+    ogDescription: 'I partiti italiani Pd, M5S e Avs annunciano iniziative per luglio. Scopri di più sulle loro proposte e obiettivi.',
+    canonicalPath: '/articoli-frontaliere/pd-m5s-avs-accelerano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pd, M5S e Avs accelerano",
+      "description": "I partiti italiani Pd, M5S e Avs annunciano iniziative per luglio. Scopri di più sulle loro proposte e obiettivi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pd-m5s-avs-accelerano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pranzo politico a Roma"
+      },
+      "datePublished": "2026-06-16T19:44:05+00:00",
+      "dateModified": "2026-06-16T19:44:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pd-m5s-avs-accelerano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

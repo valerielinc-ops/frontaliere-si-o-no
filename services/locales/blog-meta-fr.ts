@@ -8108,6 +8108,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-transfrontaliera-treni-autobus.title': 'Nouvelle entente Lombardie-Ticino: plus de trains et bus frontaliers',
     'blog.article.mobilita-transfrontaliera-treni-autobus.excerpt': 'Région Lombardie et Canton Ticino signent un accord pour renforcer les trains et bus transfrontaliers, avec RE80 toutes les 30 minutes et intégration tarifaire.',
     'blog.article.mobilita-transfrontaliera-treni-autobus.imageAlt': 'Train Regio Express à la frontière Italie-Suisse avec des frontaliers en attente',
+    'blog.article.pd-m5s-avs-accelerano.title': 'PD, M5S et l\'AVS accélèrent',
+    'blog.article.pd-m5s-avs-accelerano.excerpt': 'Partis politiques italiens annoncent des initiatives pour juillet.',
+    'blog.article.pd-m5s-avs-accelerano.imageAlt': 'Déjeuner politique à Rome',
 };
 
 export default blogMetaFr;
