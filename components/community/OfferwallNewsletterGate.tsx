@@ -24,6 +24,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import { AD_CLIENT } from '@/services/adsenseSlots';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -120,6 +121,66 @@ function normalizeLocale(code?: string | null, fallback?: string): OfferwallLoca
   return 'it';
 }
 
+// Funding Choices publisher id ('pub-8628054934855353'), derived from the shared
+// AdSense client to avoid a second hard-coded copy.
+const FC_PUB = AD_CLIENT.replace(/^ca-/, '');
+
+/**
+ * Ensure the Offerwall custom-choice registry AND the Funding Choices loader are
+ * present. On SPA routes index.html sets both inline; STATIC SSG pages (articles,
+ * SEO landings) use a different shell whose <head> has NEITHER — so the Offerwall
+ * could never render on exactly the pages we scope it to. This gate hydrates on
+ * every page (SPA + static), so we set them here. Idempotent: no-op when already
+ * present (SPA). Mirrors the index.html bootstrap; the registry's show() delegates
+ * to window.__ftOfferwallSubscribe (installed by this component's effect below).
+ */
+function ensureOfferwallRegistryAndFc(): void {
+  if (typeof window === 'undefined' || typeof document === 'undefined') return;
+  const w = window as any;
+  const g = (w.googlefc = w.googlefc || {});
+  const ow = (g.offerwall = g.offerwall || {});
+  const cc = (ow.customchoice = ow.customchoice || {});
+  if (!cc.registry) {
+    cc.registry = {
+      initialize(params: { offerwallLanguageCode?: string } | undefined) {
+        const E = cc.InitializeResponseEnum || {};
+        try {
+          if (w.localStorage.getItem('newsletter_subscribed') === 'true') {
+            return Promise.resolve(E.ACCESS_GRANTED || 'ACCESS_GRANTED');
+          }
+        } catch { /* ignore */ }
+        w.__ftOfferwallLang = (params && params.offerwallLanguageCode) || null;
+        return Promise.resolve(E.ACCESS_NOT_GRANTED || 'ACCESS_NOT_GRANTED');
+      },
+      show() {
+        const fn = w.__ftOfferwallSubscribe;
+        if (typeof fn !== 'function') return Promise.resolve(false);
+        try {
+          return Promise.resolve(fn(w.__ftOfferwallLang)).then((ok: unknown) => !!ok);
+        } catch { return Promise.resolve(false); }
+      },
+    };
+  }
+  // Inject the Funding Choices messaging tag if absent (needed for the Offerwall
+  // to serve). index.html marks its loader with data-fc-loader; skip if present.
+  if (!document.querySelector('script[data-fc-loader]') &&
+      !document.querySelector('script[src*="fundingchoicesmessages.google.com"]')) {
+    const s = document.createElement('script');
+    s.async = true;
+    // No crossOrigin: the /i/pub-XXX endpoint serves no ACAO header (see
+    // tests/index-html-fc-loader.test.ts rationale).
+    s.src = `https://fundingchoicesmessages.google.com/i/${FC_PUB}?ers=1`;
+    s.setAttribute('data-fc-loader', '1');
+    document.head.appendChild(s);
+    if (!w.frames['googlefcPresent'] && document.body) {
+      const iframe = document.createElement('iframe');
+      iframe.style.cssText = 'width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;display:none';
+      iframe.name = 'googlefcPresent';
+      document.body.appendChild(iframe);
+    }
+  }
+}
+
 const OfferwallNewsletterGate: React.FC = () => {
   const { locale } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -160,6 +221,10 @@ const OfferwallNewsletterGate: React.FC = () => {
       });
     };
     (window as any).__ftOfferwallSubscribe = hook;
+    // Ensure the registry + FC loader exist (esp. on static SSG pages whose head
+    // lacks index.html's inline versions). Runs after the hook is installed so
+    // the registry's show() can delegate to it.
+    ensureOfferwallRegistryAndFc();
     return () => {
       if ((window as any).__ftOfferwallSubscribe === hook) {
         delete (window as any).__ftOfferwallSubscribe;
