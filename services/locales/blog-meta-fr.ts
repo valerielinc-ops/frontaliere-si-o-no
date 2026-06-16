@@ -8087,6 +8087,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Grêle GT86 TRD : que faire si l’assurance la déclare perte',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'La grêle qui s’est abattue sur le canton du Tessin a gravement endommagé une Toyota GT86 TRD. L’assurance propose une perte totale : voici quoi faire.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'Voiture GT86 TRD endommagée par la grêle dans le Tessin près du lac',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'Berne refuse le blocage des remboursements par le Tessin',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Le gouvernement suisse a déclaré que bloquer les remboursements sur les fonds générés par la taxe santé italienne est illégal, confirmant la position officielle.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vue panoramique de la frontière entre le Tessin et l\'Italie avec cols et paysages alpins.',
 };
 
 export default blogMetaFr;

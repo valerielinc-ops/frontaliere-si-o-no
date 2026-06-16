@@ -8087,6 +8087,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grandine-gt86-trd-perdita-totale.title': 'Grandine sulla GT86 TRD: come agire se l\'assicurazione la dichiara perdita',
     'blog.article.grandine-gt86-trd-perdita-totale.excerpt': 'Grandine abbattutasi sul Canton Ticino ha danneggiato gravemente una Toyota GT86 TRD. L\'assicurazione propone la perdita totale: ecco cosa fare.',
     'blog.article.grandine-gt86-trd-perdita-totale.imageAlt': 'Auto GT86 TRD danneggiata da grandine in Ticino vicino al lago',
+    'blog.article.blocchi-ristorni-berna-italia.title': 'No di Berna al blocco dei ristorni da parte del Ticino',
+    'blog.article.blocchi-ristorni-berna-italia.excerpt': 'Il Governo svizzero ha dichiarato che bloccare i ristorni sui fondi generati dalla tassa sulla salute italiana è illegale, confermando la posizione ufficiale.',
+    'blog.article.blocchi-ristorni-berna-italia.imageAlt': 'Vista panoramica del confine Ticino-Italia con valichi e paesaggi alpini.',
 };
 
 export default blogMetaIt;

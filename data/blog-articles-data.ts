@@ -25641,6 +25641,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'blocchi-ristorni-berna-italia',
+ category: 'fiscale',
+ date: '2026-06-16T00:25:32.626Z',
+ image: '/images/blog/blocchi-ristorni-berna-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

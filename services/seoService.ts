@@ -4048,6 +4048,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-imposizione-fonte-basilea': { name: 'Fiscale', path: '/articoli-svizzera/imposizione-fonte-basilea/', parent: 'blog' },
     'blog-grandine-gt86-trd-perdita-totale': { name: 'auto danneggiata', path: '/articoli-frontaliere/grandine-gt86-trd-perdita-totale', parent: 'blog' },
     'blog-blocchi-immigrazione-ticino': { name: 'Politica migratoria', path: '/articoli-svizzera/blocchi-immigrazione-ticino/', parent: 'blog' },
+    'blog-blocchi-ristorni-berna-italia': { name: 'fiscale', path: '/articoli-frontaliere/blocchi-ristorni-berna-italia', parent: 'blog' },
  };
 
  const info = sectionNames[section];
