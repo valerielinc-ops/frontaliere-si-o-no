@@ -540,6 +540,15 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'medium',
  peak: '7:30-8:30',
  tips: 'border.tips.luinoFornasette',
+ webcams: [
+ {
+ label: 'Lago Maggiore – Cannero Riviera (sponda lombarda, area Luino)',
+ imageUrl: 'https://lagomaggiorexperience.it/webcam/public/canneroriviera.jpg',
+ sourceName: 'Lago Maggiore Experience',
+ sourceUrl: 'https://lagomaggiorexperience.it/webcam/',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Zenna-Dirinella',
@@ -635,6 +644,22 @@ export const borderCrossings: BorderCrossing[] = [
  trafficLevel: 'low',
  peak: 'border.peak.lowTraffic',
  tips: 'border.tips.camedoRe',
+ webcams: [
+ {
+ label: 'Val Vigezzo – Santa Maria Maggiore (vallata italiana del valico)',
+ imageUrl: 'https://webcamdtl.it/santamariamaggiore.jpg',
+ sourceName: 'Distretto Turistico dei Laghi (webcamdtl.it)',
+ sourceUrl: 'https://www.distrettolaghi.it/it/webcam',
+ refreshIntervalMs: 300000,
+ },
+ {
+ label: 'Val Vigezzo – Piana di Vigezzo',
+ imageUrl: 'https://webcamdtl.it/pianavigezzo.jpg',
+ sourceName: 'Distretto Turistico dei Laghi (webcamdtl.it)',
+ sourceUrl: 'https://www.distrettolaghi.it/it/webcam',
+ refreshIntervalMs: 300000,
+ },
+ ],
  },
  {
  name: 'Sempione (Iselle-Gondo)',
