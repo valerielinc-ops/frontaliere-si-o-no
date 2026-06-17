@@ -249,6 +249,60 @@ describe('reconcile slug functions \u2014 one-to-many ambiguity guard (title axi
   });
 });
 
+// Regression guard for follow-up #2432 (supersede PR #2408 adversarial check):
+// the double-301 risk. The publisher-supersede bridge (bridgeSlugHistory) folds
+// a superseded crawled job's PER-LOCALE slugs ONLY into the kept publisher
+// record's `previousSlugsByLocale[loc]`. `buildActiveIndex.allSlugSet` — the
+// "already attributed to an active job" guard for both reconcile functions —
+// previously indexed only `slug` + `slugByLocale` + the flat `previousSlugs`,
+// so a per-locale-only bridged slug looked un-attributed and could be RE-bridged
+// onto a DIFFERENT active job → the same indexed source URL emits two conflicting
+// 301s. allSlugSet now also indexes `previousSlugsByLocale`, matching the sibling
+// sets in assemble-jobs-dataset.mjs (reconcileGhostExpired / knownNew).
+describe('reconcile slug functions — previousSlugsByLocale double-301 guard (#2432)', () => {
+  // Active jobs:
+  //   A = the kept publisher record; the superseded crawled job's DE slug was
+  //       bridged into A.previousSlugsByLocale.de (NOT into flat previousSlugs).
+  //   B = a DIFFERENT active job whose slug is a high-Jaccard match for that DE
+  //       slug — the would-be wrong target for a second 301.
+  const makeActiveJobs = (): ActiveJob[] => [
+    {
+      slug: 'pub-acme-zurigo',
+      company: 'Acme',
+      companyKey: 'acme',
+      slugByLocale: { it: 'pub-acme-zurigo' },
+      previousSlugsByLocale: { de: ['elektriker-baustelle-nacht-rotation'] },
+      titleByLocale: { it: 'Elettricista' },
+    },
+    {
+      slug: 'elektriker-baustelle-rotation',
+      company: 'Acme',
+      companyKey: 'acme',
+      slugByLocale: { it: 'elektriker-baustelle-rotation' },
+      titleByLocale: { it: 'Elektriker' },
+    },
+  ];
+
+  it('reconcileExpiredSlugs does NOT re-attribute a per-locale-bridged slug to a different job', () => {
+    const activeJobs = makeActiveJobs();
+    const expiredJobs = [
+      // Same slug already bridged onto A.previousSlugsByLocale.de.
+      { slug: 'elektriker-baustelle-nacht-rotation', companyKey: 'acme', titleByLocale: { it: 'Elektriker' } },
+    ];
+    const res = reconcileExpiredSlugs(activeJobs, expiredJobs, { dryRun: false });
+    expect(res.mergedCount).toBe(0);
+    // The slug must NOT be merged onto B (that would be the second 301 source).
+    expect(activeJobs[1].previousSlugs ?? []).not.toContain('elektriker-baustelle-nacht-rotation');
+  });
+
+  it('reconcileOrphanSlugs does NOT re-attribute a per-locale-bridged slug to a different job', () => {
+    const activeJobs = makeActiveJobs();
+    const res = reconcileOrphanSlugs(activeJobs, ['elektriker-baustelle-nacht-rotation'], [], { dryRun: false });
+    expect(res.mergedCount).toBe(0);
+    expect(activeJobs[1].previousSlugs ?? []).not.toContain('elektriker-baustelle-nacht-rotation');
+  });
+});
+
 describe('assemble-jobs-dataset reconcile guards read the correct property', () => {
   const source = fs.readFileSync(
     path.resolve(root, 'scripts/assemble-jobs-dataset.mjs'),
