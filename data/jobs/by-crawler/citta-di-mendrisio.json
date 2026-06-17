@@ -27,9 +27,9 @@
       "slug": "presidente-aggiunto-o-presidente-aggiunta-al-20-40-mendrisio",
       "slugByLocale": {
         "it": "presidente-aggiunto-o-presidente-aggiunta-al-20-40-mendrisio",
-        "en": "deputy-chairman-or-chairman-added-to-20-40-citta-di-mendrisio-mendrisio",
-        "de": "stellvertretender-vorsitzender-oder-vorsitzender-hinzugefugt-20-40-citta-di-mendrisio-mendrisio",
-        "fr": "vice-president-ou-president-ajoute-a-20-40-citta-di-mendrisio-mendrisio"
+        "en": "presidente-aggiunto-o-presidente-aggiunta-al-20-40-mendrisio",
+        "de": "presidente-aggiunto-o-presidente-aggiunta-al-20-40-mendrisio",
+        "fr": "presidente-aggiunto-o-presidente-aggiunta-al-20-40-mendrisio"
       },
       "sourceLang": "it",
       "category": "general",
@@ -63,7 +63,18 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-06-11T23:07:24.882Z"
+      "firstSeenAt": "2026-06-11T23:07:24.882Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "deputy-chairman-or-chairman-added-to-20-40-citta-di-mendrisio-mendrisio"
+        ],
+        "de": [
+          "stellvertretender-vorsitzender-oder-vorsitzender-hinzugefugt-20-40-citta-di-mendrisio-mendrisio"
+        ],
+        "fr": [
+          "vice-president-ou-president-ajoute-a-20-40-citta-di-mendrisio-mendrisio"
+        ]
+      }
     }
   ]
 }
