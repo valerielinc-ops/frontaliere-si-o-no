@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-17T14:00:30.770Z",
+  "generatedAt": "2026-06-17T23:17:54.453Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9385,
-  "avgDurationMs": 9385,
+  "durationMs": 9742,
+  "avgDurationMs": 9742,
   "durationHistory": [
-    9385
+    9742
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,42 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "System Engineer 60-100% (w/m/d)",
+      "slug": "system-engineer-60-100-w-m-d-ruag-ag-zurich-seebach",
+      "url": "https://jobs.ruag.ch/offene-stellen/system-engineer/76cff6c3-eddd-48af-8b29-098d70d61210",
+      "applyUrl": "https://jobs.ruag.ch/apply/ats/76cff6c3-eddd-48af-8b29-098d70d61210",
+      "company": "RUAG AG",
+      "companyKey": "ruag-ag",
+      "companyDomain": "ruag.ch",
+      "location": "Zürich Seebach",
+      "addressLocality": "Zürich Seebach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "other",
+      "sector": "Aerospazio e difesa",
+      "source": "ruag-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-17",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "2053-10-31",
+      "id": "ruag-ag-a16832285c90",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-17T14:00:30.769Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -158,42 +194,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 19
-      }
-    },
-    {
-      "title": "Senior Sales Manager 80-100% (w/m/d)",
-      "slug": "senior-sales-manager-80-100-w-m-d-ruag-ag-thun",
-      "url": "https://jobs.ruag.ch/offene-stellen/senior-sales-manager/a0522af3-60e9-4ba3-beac-e4b08c2e33a7",
-      "applyUrl": "https://jobs.ruag.ch/apply/ats/a0522af3-60e9-4ba3-beac-e4b08c2e33a7",
-      "company": "RUAG AG",
-      "companyKey": "ruag-ag",
-      "companyDomain": "ruag.ch",
-      "location": "Thun",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "other",
-      "sector": "Aerospazio e difesa",
-      "source": "ruag-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "2053-10-30",
-      "id": "ruag-ag-90303d17e796",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "postalCode": "3600",
-      "firstSeenAt": "2026-06-16T14:15:55.157Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
       }
     }
   ]
