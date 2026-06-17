@@ -22,7 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { shouldEmitLocale, EMIT_ALL_LOCALES } from './localeEmitFilter';
+import { shouldEmitLocale, EMIT_ALL_LOCALES } from './localeEmitFilter.ts';
 
 export interface LocaleAlternates {
   readonly locale: string;

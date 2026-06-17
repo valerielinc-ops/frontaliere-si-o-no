@@ -37,7 +37,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard.ts';
-import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
+import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter.ts';
 
 interface HreflangPostprocessOptions {
   readonly baseUrl: string;
