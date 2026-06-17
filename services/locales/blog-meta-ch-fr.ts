@@ -209,6 +209,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Chômage transfrontalier : comment ça marche en Suisse',
     'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'Guide complète sur le chômage des travailleurs frontaliers en Suisse : règles SECO, formulaire U1 et remboursements entre les États.',
     'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Bâtiment administratif suisse avec drapeau national',
+    'blog.article.hoval-ticino-opportunita-lavoro.title': 'Hoval Ticino: opportunités d\'emploi dans',
+    'blog.article.hoval-ticino-opportunita-lavoro.excerpt': 'Hoval, entreprise active dans le chauffage et la climatisation, cherche du personnel au Tessin. Découvrez les postes ouverts, les exigences et comment postuler.',
+    'blog.article.hoval-ticino-opportunita-lavoro.imageAlt': 'Siège social de Hoval au Tessin, Suisse, avec paysage vallonné',
 };
 
 export default blogMetaChFr;

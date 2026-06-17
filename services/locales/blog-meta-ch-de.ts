@@ -209,6 +209,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Grenzgänger-Arbeitslosigkeit: Funktionsweise Schweiz',
     'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'Die vollständige Anleitung zur Arbeitslosigkeit für Grenzgänger in der Schweiz: SECO-Regeln, U1-Formular und Erstattungen zwischen den Staaten.',
     'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Schweizer Verwaltungsgebäude mit Nationalflagge',
+    'blog.article.hoval-ticino-opportunita-lavoro.title': 'Hoval Ticino: Jobchancen im technischen Bereich',
+    'blog.article.hoval-ticino-opportunita-lavoro.excerpt': 'Hoval, ein Unternehmen im Bereich Heizung und Klimatechnik, sucht Personal im',
+    'blog.article.hoval-ticino-opportunita-lavoro.imageAlt': 'Hoval-Hauptsitz im Tessin, Schweiz, mit Hügellandschaft',
 };
 
 export default blogMetaChDe;

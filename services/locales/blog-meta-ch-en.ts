@@ -209,6 +209,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Cross-border unemployment in Switzerland: how it works',
     'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'The complete guide to unemployment for cross-border workers in Switzerland: SECO rules, the U1 form, and state-to-state reimbursements.',
     'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Swiss administrative office building with national flag',
+    'blog.article.hoval-ticino-opportunita-lavoro.title': 'Hoval Ticino: job opportunities in the technical sector',
+    'blog.article.hoval-ticino-opportunita-lavoro.excerpt': 'Hoval, a company active in heating and air conditioning, is looking for staff in Ticino. Discover open positions, requirements, and how to apply.',
+    'blog.article.hoval-ticino-opportunita-lavoro.imageAlt': 'Hoval headquarters in Ticino, Switzerland, with hilly landscape',
 };
 
 export default blogMetaChEn;
