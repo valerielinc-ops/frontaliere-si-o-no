@@ -19,15 +19,23 @@
  *   shard pass reads is populated for EVERY locale before any loop-skip, so
  *   the sitemap stays complete in the `it`/main shard build.
  *
- * Two enforcement points consume this module:
- *   1. `WriteCollector.add()` (build-plugins/batchWrite.ts) — the universal
- *      write chokepoint. Drops any write whose dist-relative path belongs to
- *      a locale this shard isn't responsible for. Correctness safety net:
- *      even an emit loop that is NOT locale-skipped still only writes the
- *      target locale's files.
+ * Scope — this filter gates the `WriteCollector` writes only, NOT every
+ * write in the build:
+ *   1. `WriteCollector.add()` (build-plugins/batchWrite.ts) drops any write
+ *      whose dist path belongs to a non-owned locale. This covers the BULK of
+ *      output (job pages, hub/landing/cluster pages — ~1M files), so it is
+ *      where the I/O + artifact-size saving comes from.
  *   2. Hot emit loops (e.g. the active-job loop in jobsSeoPagesPlugin) call
- *      {@link shouldEmitLocale} to `continue` past the expensive
- *      render/minify work for non-target locales — the actual CPU win.
+ *      {@link shouldEmitLocale} to `continue` past the expensive render/minify
+ *      work for non-target locales — the CPU win.
+ *
+ * It is NOT a universal chokepoint: ~15 plugins emit small redirect/bridge/
+ * weather/alias pages via direct `fs.writeFileSync`, bypassing the collector,
+ * so they still write every locale. The no-leak guarantee for a shard build
+ * therefore comes from the post-build prune (scripts/ci/prune-locale-shard.mjs),
+ * which removes non-owned locale output at the filesystem level — exactly the
+ * way production's `push_shard` copies only `dist/<locale>`. Gating those
+ * direct writers for additional CPU savings is a documented follow-up.
  */
 import path from 'node:path';
 

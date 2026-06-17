@@ -169,6 +169,13 @@ jobs:
           echo "BUILD_ELAPSED_SECONDS=$ELAPSED" >> "$GITHUB_ENV"
           echo "⏱️  Locale '${BUILD_LOCALE}' build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
 
+      - name: Prune to locale shard (filesystem-level, mirrors production push_shard)
+        # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
+        # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
+        # write every locale. This removes the non-owned locale output the same
+        # way deploy.yml copies only dist/<locale> to each shard repo.
+        run: node scripts/ci/prune-locale-shard.mjs dist
+
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 

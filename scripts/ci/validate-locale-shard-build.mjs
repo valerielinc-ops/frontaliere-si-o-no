@@ -51,7 +51,7 @@ function countPages(dir) {
   return n;
 }
 
-/** Count it (root) pages — top-level .html / */index.html NOT under a locale prefix. */
+/** Count it (root) pages — top-level html files not under a locale prefix. */
 function countItPages() {
   let n = 0;
   if (!fs.existsSync(distDir)) return 0;

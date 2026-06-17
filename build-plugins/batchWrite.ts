@@ -186,10 +186,13 @@ export class WriteCollector {
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
  add(filePath: string, content: string) {
  // Per-locale shard build (BUILD_LOCALE): drop writes that belong to a
- // locale this shard isn't responsible for. No-op (short-circuits) when
- // the filter is inactive — the default build emits all four locales, so
- // this is byte-for-byte identical to before. The locale is derived from
- // the dist-relative path prefix (/en /de /fr → that locale, else it).
+ // locale this shard isn't responsible for. This gates the COLLECTOR writes
+ // only (the ~1M-page bulk) — direct fs.writeFileSync emitters in other
+ // plugins are NOT covered here and are cleaned up by the post-build prune
+ // (scripts/ci/prune-locale-shard.mjs). No-op (short-circuits) when the
+ // filter is inactive — the default build emits all four locales, so this is
+ // byte-for-byte identical to before. Locale is derived from the
+ // dist-relative path prefix (/en /de /fr → that locale, else it).
  if (!EMIT_ALL_LOCALES && !shouldEmitPath(filePath, this._distDir)) {
  this._skippedByLocale++;
  return;
