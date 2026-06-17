@@ -11,11 +11,23 @@
  *
  * Output (unchanged contract + `vehicleCount`):
  *   { congestionScore: 0..1|null, queueDetected: bool,
- *     visibility: 'good'|'poor'|'night', brightness, variance, vehicleCount, feedKey }
+ *     visibility: 'good'|'poor'|'night'|'warming-up', brightness, variance, vehicleCount, feedKey }
  *
  * Visibility gates are kept from the pixel era — YOLO is unreliable at night and
  * in fog/rain, so those frames still return visibility:'night'/'poor' and
  * congestionScore:null (no detection attempted).
+ *
+ * WARMUP GATING: a newly-introduced feed (`introducedAt` within the last
+ * WARMUP_DAYS, default 14) is NOT yet trusted for queue verdicts — its boxes /
+ * capacity are calibrated on a single live snapshot and need a grace period to
+ * be validated against real traffic conditions. Such a feed is still fetched and
+ * scored (informational), but reported as visibility:'warming-up' with
+ * queueDetected:false, so aggregateWebcamResults excludes it from the vote.
+ *
+ * MAJORITY VOTE: with several cameras per crossing (chiasso-brogeda now sees 4),
+ * a queue flagged on a SINGLE camera is no longer enough — aggregateWebcamResults
+ * requires a majority of the good feeds to agree before emitting queueDetected,
+ * cutting the structural false-positive rate of the previous any-one-frame rule.
  *
  * Model: scripts/models/yolov8n.onnx (committed; see scripts/download-yolo-model.mjs
  * for the exact pinned source URL + SHA). CPU inference ~60ms / 640² frame, so a
@@ -42,6 +54,19 @@ const CONF_THRESHOLD = 0.35;            // min class confidence to keep a detect
 const IOU_THRESHOLD = 0.45;             // NMS overlap threshold
 const DEFAULT_CAPACITY = 10;            // "full road" vehicle count when a feed omits `capacity`
 const QUEUE_SCORE_GATE = 0.4;           // congestionScore above which a queue is flagged
+// Warmup grace window: a feed introduced fewer than this many days ago is scored
+// informationally but excluded from the trusted queue vote (its calibration is
+// not yet validated against varied light/season/traffic conditions). Env-tunable
+// so the window can be widened/shortened without a code change.
+export const WARMUP_DAYS = Number.isFinite(Number(process.env.WEBCAM_WARMUP_DAYS))
+  ? Number(process.env.WEBCAM_WARMUP_DAYS)
+  : 14;
+// Fraction of good feeds that must agree before a crossing is flagged as a queue.
+// 0.5 ⇒ a strict majority (>= half, rounded up); env-tunable for calibration
+// without a deploy. With a single good feed the vote is trivially that feed.
+export const QUEUE_VOTE_FRACTION = Number.isFinite(Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION))
+  ? Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION)
+  : 0.5;
 // COCO class ids that count as road vehicles.
 const VEHICLE_CLASS_IDS = new Set([2 /* car */, 3 /* motorcycle */, 5 /* bus */, 7 /* truck */]);
 
@@ -114,6 +139,8 @@ export const WEBCAM_FEEDS = {
     crossings: ['chiasso-brogeda'],
     box: [0, 30, 400, 195],
     capacity: 14,
+    // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
+    introducedAt: '2026-06-16',
   },
   // A2 Mendrisio interchange (km 7.2) — the 4-lane motorway funnelling the
   // Stabio/Gaggiolo crossings. Busy-but-flowing midday traffic reads ~13 vehicles,
@@ -123,6 +150,8 @@ export const WEBCAM_FEEDS = {
     crossings: ['gaggiolo'],
     box: [0, 30, 400, 195],
     capacity: 36,
+    // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
+    introducedAt: '2026-06-16',
   },
   // A2 Melide–Bissone causeway (km 17.84) — the multi-lane road carrying the
   // Campione d'Italia–Bissone crossing. Live moderate flow ~7–8 vehicles; a busy
@@ -132,6 +161,8 @@ export const WEBCAM_FEEDS = {
     crossings: ['campione-d-italia-bissone'],
     box: [0, 30, 400, 195],
     capacity: 24,
+    // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
+    introducedAt: '2026-06-16',
   },
   // A2 Coldrerio (km 4.4N) — approach corridor north of the Chiasso/Brogeda
   // customs. Live free-flow ~2–3 cars.
@@ -140,6 +171,8 @@ export const WEBCAM_FEEDS = {
     crossings: ['chiasso-brogeda'],
     box: [0, 30, 400, 195],
     capacity: 14,
+    // New A2-corridor feed (PR #2286). Warmup-gated until calibration is validated.
+    introducedAt: '2026-06-16',
   },
 };
 
@@ -172,6 +205,39 @@ export const CROSSING_TO_FEEDS = Object.entries(WEBCAM_FEEDS).reduce((acc, [key,
 }, /** @type {Record<string, string[]>} */ ({}));
 
 // ─── Pure scoring / geometry helpers (unit-testable, no network / no ONNX) ──────
+
+/**
+ * Is a feed still inside its warmup grace window? A feed introduced fewer than
+ * `warmupDays` ago is scored informationally but excluded from the trusted queue
+ * vote — its boxes/capacity are calibrated on a single live snapshot and need a
+ * grace period before its CV signal is trusted in production. Pure.
+ * @param {{introducedAt?: string}|undefined} feed - feed config (uses `introducedAt` ISO date)
+ * @param {number} [now=Date.now()] - current epoch ms (injectable for tests)
+ * @param {number} [warmupDays=WARMUP_DAYS] - grace window length in days
+ * @returns {boolean} true while the feed is within the warmup window
+ */
+export function isFeedWarmingUp(feed, now = Date.now(), warmupDays = WARMUP_DAYS) {
+  if (!feed?.introducedAt) return false;
+  const introMs = new Date(feed.introducedAt).getTime();
+  if (!Number.isFinite(introMs)) return false;
+  const days = Number.isFinite(warmupDays) && warmupDays > 0 ? warmupDays : WARMUP_DAYS;
+  return now - introMs < days * 24 * 60 * 60 * 1000;
+}
+
+/**
+ * Count of good feeds that must flag a queue before the crossing is flagged.
+ * A strict majority of the `goodCount` good feeds (>= half, rounded up), with a
+ * floor of 1 so a single good feed still votes. Pure.
+ * @param {number} goodCount - number of good-visibility feeds voting
+ * @param {number} [fraction=QUEUE_VOTE_FRACTION] - fraction of feeds that must agree
+ * @returns {number} minimum agreeing-feed count to flag a queue (>=1)
+ */
+export function queueVoteThreshold(goodCount, fraction = QUEUE_VOTE_FRACTION) {
+  const n = Math.max(0, Math.floor(goodCount));
+  if (n === 0) return 1;
+  const f = Number.isFinite(fraction) && fraction > 0 && fraction <= 1 ? fraction : QUEUE_VOTE_FRACTION;
+  return Math.max(1, Math.ceil(n * f));
+}
 
 /**
  * Map a vehicle count to a 0..1 congestion score.
@@ -405,24 +471,31 @@ async function detectVehiclesInZone(buf, zone) {
 
 /**
  * Combine per-feed analysis results for one crossing into a single verdict.
- * - Only feeds with `visibility: 'good'` vote (night/poor feeds are ignored).
- * - A queue on ANY good feed ⇒ queueDetected (errs toward warning the user).
- * - "All clear" requires EVERY good feed clear ⇒ the suppress-outlier path stays
- *   conservative (won't falsely reassure when one camera still shows a queue).
+ * - Only feeds with `visibility: 'good'` vote. night/poor (no signal) and
+ *   warming-up (not-yet-trusted) feeds are ignored — `analyzeWebcamFeed` already
+ *   marks a warmup feed `visibility:'warming-up'`, so it never reaches the vote.
+ * - MAJORITY VOTE: queueDetected requires a majority of the good feeds to agree
+ *   (`queueVoteThreshold`), not just any one camera — with several cameras per
+ *   crossing a single false trip no longer flags the crossing. A lone good feed
+ *   still decides on its own (threshold floors at 1).
+ * - congestionScore stays the MAX across good feeds (worst-camera headline).
  * Pure + synchronous so it is unit-testable without network/sharp.
  * @param {Array<{congestionScore: number|null, queueDetected: boolean, visibility: string, feedKey?: string}|null>} results
+ * @param {number} [voteFraction=QUEUE_VOTE_FRACTION] - fraction of good feeds that must agree
  * @returns {{congestionScore: number|null, queueDetected: boolean, visibility: string, feeds: string[]}|null}
  */
-export function aggregateWebcamResults(results) {
+export function aggregateWebcamResults(results, voteFraction = QUEUE_VOTE_FRACTION) {
   const present = (results ?? []).filter(Boolean);
   if (present.length === 0) return null;
   const good = present.filter((r) => r.visibility === 'good');
   if (good.length === 0) {
-    // No usable camera (all night/poor): surface the first so the caller no-ops.
+    // No usable camera (all night/poor/warming-up): surface the first feed's
+    // visibility so the caller no-ops (consumer only acts on visibility:'good').
     const r = present[0];
     return { congestionScore: r.congestionScore ?? null, queueDetected: false, visibility: r.visibility, feeds: [] };
   }
-  const queueDetected = good.some((r) => r.queueDetected);
+  const votes = good.filter((r) => r.queueDetected).length;
+  const queueDetected = votes >= queueVoteThreshold(good.length, voteFraction);
   const congestionScore = good.reduce((m, r) => Math.max(m, r.congestionScore ?? 0), 0);
   return { congestionScore, queueDetected, visibility: 'good', feeds: good.map((r) => r.feedKey).filter(Boolean) };
 }
@@ -430,11 +503,28 @@ export function aggregateWebcamResults(results) {
 /**
  * Analyze a single webcam feed via vehicle detection.
  * @param {string} feedKey - Key from WEBCAM_FEEDS (e.g. '01.2S')
- * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: string, brightness: number, variance: number, vehicleCount: number|null, feedKey: string} | null>}
+ * @returns {Promise<{congestionScore: number|null, queueDetected: boolean, visibility: 'good'|'poor'|'night'|'warming-up', brightness: number|null, variance: number|null, vehicleCount: number|null, feedKey: string} | null>}
  */
 export async function analyzeWebcamFeed(feedKey) {
   const feed = WEBCAM_FEEDS[feedKey];
   if (!feed) return null;
+
+  // Warmup gating: a feed introduced within the last WARMUP_DAYS is not yet
+  // trusted for a queue verdict — its box/capacity calibration needs a grace
+  // period to be validated against real conditions. Report 'warming-up' (no
+  // fetch/inference needed) so aggregateWebcamResults excludes it from the vote;
+  // a chronic false queueDetected can't propagate to the user during warmup.
+  if (isFeedWarmingUp(feed)) {
+    return {
+      congestionScore: null,
+      queueDetected: false,
+      visibility: 'warming-up',
+      brightness: null,
+      variance: null,
+      vehicleCount: null,
+      feedKey,
+    };
+  }
 
   let buf;
   try {
