@@ -54,19 +54,27 @@ const CONF_THRESHOLD = 0.35;            // min class confidence to keep a detect
 const IOU_THRESHOLD = 0.45;             // NMS overlap threshold
 const DEFAULT_CAPACITY = 10;            // "full road" vehicle count when a feed omits `capacity`
 const QUEUE_SCORE_GATE = 0.4;           // congestionScore above which a queue is flagged
+// Parse a numeric env var, treating empty/whitespace-only string as UNSET.
+// `Number('')` is 0 and `Number.isFinite(0)` is true, so a bare
+// `Number.isFinite(Number(process.env.X))` guard would let `WEBCAM_*=''`
+// silently coerce to 0 — disabling the warmup window (WARMUP_DAYS=0) or
+// collapsing the vote to any-one-camera (fraction 0 → threshold floored to 1).
+// Trim first and bail to the default when the result is blank.
+export function envNumber(raw, fallback) {
+  const trimmed = raw?.trim();
+  if (!trimmed) return fallback;
+  const n = Number(trimmed);
+  return Number.isFinite(n) ? n : fallback;
+}
 // Warmup grace window: a feed introduced fewer than this many days ago is scored
 // informationally but excluded from the trusted queue vote (its calibration is
 // not yet validated against varied light/season/traffic conditions). Env-tunable
 // so the window can be widened/shortened without a code change.
-export const WARMUP_DAYS = Number.isFinite(Number(process.env.WEBCAM_WARMUP_DAYS))
-  ? Number(process.env.WEBCAM_WARMUP_DAYS)
-  : 14;
+export const WARMUP_DAYS = envNumber(process.env.WEBCAM_WARMUP_DAYS, 14);
 // Fraction of good feeds that must agree before a crossing is flagged as a queue.
 // 0.5 ⇒ a strict majority (>= half, rounded up); env-tunable for calibration
 // without a deploy. With a single good feed the vote is trivially that feed.
-export const QUEUE_VOTE_FRACTION = Number.isFinite(Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION))
-  ? Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION)
-  : 0.5;
+export const QUEUE_VOTE_FRACTION = envNumber(process.env.WEBCAM_QUEUE_VOTE_FRACTION, 0.5);
 // COCO class ids that count as road vehicles.
 const VEHICLE_CLASS_IDS = new Set([2 /* car */, 3 /* motorcycle */, 5 /* bus */, 7 /* truck */]);
 

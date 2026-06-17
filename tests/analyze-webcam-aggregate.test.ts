@@ -17,6 +17,7 @@ import { describe, expect, it } from 'vitest';
 import {
   aggregateWebcamResults,
   CROSSING_TO_FEEDS,
+  envNumber,
   isFeedWarmingUp,
   queueVoteThreshold,
   WEBCAM_FEEDS,
@@ -224,5 +225,35 @@ describe('CROSSING_TO_FEEDS registry', () => {
     for (const k of ['01.2S', '00.3S', '00.3N', '00.3O', '02.0N', '06.8S']) {
       expect(WEBCAM_FEEDS[k].introducedAt, `feed ${k}`).toBeUndefined();
     }
+  });
+});
+
+describe('envNumber (empty-string env guard for WARMUP_DAYS / QUEUE_VOTE_FRACTION)', () => {
+  it('returns the fallback for an empty or whitespace-only string (the silent-disable bug)', () => {
+    // The bug: Number('') === 0 and Number.isFinite(0) === true, so the old
+    // `Number.isFinite(Number(process.env.X))` guard accepted '' as 0 →
+    // WARMUP_DAYS=0 (warmup never active) / fraction=0 (vote floored to 1 =
+    // any-one-camera regression). '' / '   ' must now fall back to the default.
+    expect(envNumber('', 14)).toBe(14);
+    expect(envNumber('   ', 14)).toBe(14);
+    expect(envNumber('', 0.5)).toBe(0.5);
+  });
+
+  it('returns the fallback when the var is unset', () => {
+    expect(envNumber(undefined, 14)).toBe(14);
+    expect(envNumber(undefined, 0.5)).toBe(0.5);
+  });
+
+  it('returns the fallback for non-numeric strings', () => {
+    expect(envNumber('abc', 14)).toBe(14);
+  });
+
+  it('parses a valid numeric string (trimming surrounding whitespace)', () => {
+    expect(envNumber('7', 14)).toBe(7);
+    expect(envNumber(' 0.75 ', 0.5)).toBe(0.75);
+  });
+
+  it('preserves an explicit 0 (intentional disable via a real number, not empty string)', () => {
+    expect(envNumber('0', 14)).toBe(0);
   });
 });
