@@ -172,6 +172,16 @@ describe('composeSerpJobTitle cityOptional (#1932: drop city on non-colliding pa
  expect(out).toContain(' · 80%');
  expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
  });
+
+ it('KEEPS the city for a no-company job when "role a city" fits (reviewer 🔴)', () => {
+ // No company → "role a city" is the only city-bearing candidate. cityOptional
+ // must NOT strip the geo keyword when it fits the cap; the city is dropped
+ // ONLY on overflow (covered by the long-role test above). Regression for the
+ // #1932 reviewer finding (drop-when-fits geo regression).
+ const out = composeSerpJobTitle('Operaio', '', 'Lugano', 'it', { cityOptional: true });
+ expect(out).toBe('Operaio a Lugano | Frontaliere Ticino');
+ expect(out).toContain('Lugano');
+ });
 });
 
 describe('truncateHeadline', () => {

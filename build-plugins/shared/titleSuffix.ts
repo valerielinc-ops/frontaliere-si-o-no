@@ -201,11 +201,16 @@ export interface SerpJobTitleOptions {
  * and JSON-LD `hiringOrganization`.
  *
  * EXCEPTION — `options.cityOptional` (#1932): for pages the caller has proven
- * non-colliding without the city, the city is droppable. It then survives only
- * inside the full "role — company a city" candidate; the moment that overflows
- * the cascade skips the "role a city" and city-tail-truncation steps and lets
- * the bare role fill the budget verbatim — eliminating the residual mid-`…`
- * titles (17.8 % active / 22.8 % expired) where role+city blew the 66-char cap.
+ * non-colliding without the city, the city is droppable. WHEN a company exists,
+ * the city survives only inside the full "role — company a city" candidate; the
+ * moment that overflows the cascade skips the "role a city" and city-tail-
+ * truncation steps and falls to the city-less "role — company" / "role" path so
+ * the role fills the budget without a mid-`…`. WHEN there is no company,
+ * "role a city" is the sole city-bearing candidate and is KEPT — so the city is
+ * dropped only on OVERFLOW (via the empty `cityTail` in the truncation branch),
+ * never when it would otherwise fit. This eliminates the residual mid-`…` titles
+ * (17.8 % active / 22.8 % expired) where role+city blew the 66-char cap without
+ * stripping the geo keyword from titles that had room for it.
  *
  * The brand suffix is appended only when the final headline still fits
  * (buildTitleWithBrand policy). The optional disambiguator is budgeted
@@ -235,12 +240,18 @@ export function composeSerpJobTitle(
 
   // When the city is droppable, it survives ONLY in the full
   // "role — company a city" candidate: once that overflows we fall straight to
-  // the city-less "role — company" / "role" path so the role takes the whole
-  // budget without a mid-word `…`. Otherwise the city is mandatory and stays
-  // while it fits (the standard cascade below).
+  // the city-less "role — company" path so the role takes the whole budget
+  // without a mid-word `…`. Otherwise the city is mandatory and stays while it
+  // fits (the standard cascade below).
+  //
+  // The "role a city" candidate is skipped only when the city is droppable AND
+  // a company exists to carry the city-less fallback — for a no-company job
+  // "role a city" is the ONLY candidate bearing the city, so keeping it ensures
+  // the city is dropped on OVERFLOW (via the `cityTail` logic below), never when
+  // it would otherwise fit. (#1932 reviewer 🔴.)
   const candidates = [
     cleanCompany && cleanCity ? `${role} — ${cleanCompany} ${connector} ${cleanCity}` : '',
-    !cityOptional && cleanCity ? `${role} ${connector} ${cleanCity}` : '',
+    (!cityOptional || !cleanCompany) && cleanCity ? `${role} ${connector} ${cleanCity}` : '',
     cleanCompany ? `${role} — ${cleanCompany}` : '',
     role,
   ].filter(Boolean);
