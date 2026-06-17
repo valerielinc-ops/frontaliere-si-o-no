@@ -16,7 +16,7 @@
       "companyDomain": "ksuri.ch",
       "title": "Unterassistenten Innere Medizin",
       "titleByLocale": {
-        "it": "Unterassistenten Innere Medizin",
+        "it": "Medicina interna subassista",
         "en": "Assistant Internal Medicine",
         "de": "Unterassistenten Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
@@ -31,7 +31,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T13:21:33.852Z",
+      "crawledAt": "2026-06-16T23:04:06.026Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -68,7 +68,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "kantonsspital-uri-1d9b044c4b95",
@@ -719,25 +720,24 @@
       "companyDomain": "ksuri.ch",
       "title": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)",
       "titleByLocale": {
-        "it": "Apprendistato Medizinische/r Praxisassistent/in CFC (w/m/d)",
-        "en": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)",
+        "it": "Apprendistato Assistente Pratica Medica EFZ (f/m/d)",
+        "en": "Apprenticeship Medical Practice Assistant EFZ (f/m/d)",
         "de": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)",
-        "fr": "Lehrstelle Medizinische/r Praxisassistent/in EFZ (w/m/d)"
+        "fr": "Assistant en pratique médicale en apprentissage EFZ (f/m/d)"
       },
       "description": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
       "descriptionByLocale": {
-        "it": "Deine Aufgaben während der Ausbildung:: Bei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-        "en": "Deine Aufgaben während der Ausbildung:: Bei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-        "de": "Deine Aufgaben während der Ausbildung:: Bei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-        "fr": "Deine Aufgaben während der Ausbildung:: Bei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren"
+        "it": "I tuoi compiti durante la formazione: Con noi imparerai tutto ciò di cui hai bisogno nella vita quotidiana come assistente medico. Farai parte del nostro team fin dall'inizio: • Accoglienza calorosa e assistenza ai pazienti • Supporto ai medici con esami, consulenze e procedure minori • Eseguire esami di laboratorio e valutare i risultati • Accompagnare radiografie, ECG e test di funzionalità polmonare • Somministrare infusioni e iniezioni sotto guida • Pianificare appuntamenti, conservare documentazione e organizzare i processi",
+        "en": "Your tasks during the training: With us, you will learn everything you need for everyday life as a medical practice assistant. You will be part of our team from the very beginning: • Warmly welcome and care for patients • Support doctors with examinations, consultations and minor procedures • Carry out laboratory tests and evaluate results • Accompany X-rays, ECGs and lung function tests • Administer infusions and injections under guidance • Plan appointments, keep documentation and organize processes",
+        "de": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
+        "fr": "Vos tâches pendant la formation : Avec nous, vous apprendrez tout ce dont vous avez besoin pour la vie quotidienne en tant qu'assistant médical. Vous ferez partie de notre équipe dès le tout début : • Accueillir chaleureusement et prendre soin des patients • Soutenir les médecins lors des examens, consultations et interventions mineures • Réaliser des analyses de laboratoire et évaluer les résultats • Accompagner les radiographies, ECG et tests de fonction pulmonaire • Administrer des perfusions et injections sous supervision • Planifier les rendez-vous, conserver la documentation et organiser les processus"
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Medizinischer-Praxisassistentin-EFZ-wmd-de-j421.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:29.359Z",
+      "crawledAt": "2026-06-16T23:04:02.032Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -790,25 +790,24 @@
       "companyDomain": "ksuri.ch",
       "title": "Lehrstelle Köchin / Koch EFZ (w/m/d)",
       "titleByLocale": {
-        "it": "Apprendistato Köchin / Koch CFC (w/m/d)",
-        "en": "Lehrstelle Köchin / Koch EFZ (w/m/d)",
+        "it": "Apprendistato Cuoco EFZ (f/m/d)",
+        "en": "Apprenticeship Cook EFZ (f/m/d)",
         "de": "Lehrstelle Köchin / Koch EFZ (w/m/d)",
-        "fr": "Lehrstelle Köchin / Koch EFZ (w/m/d)"
+        "fr": "Cuisinier en apprentissage EFZ (f/m/d)"
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
       "descriptionByLocale": {
-        "it": "Deine Aufgaben während der Ausbildung::\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
-        "en": "Deine Aufgaben während der Ausbildung::\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
-        "de": "Deine Aufgaben während der Ausbildung::\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
-        "fr": "Deine Aufgaben während der Ausbildung::\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen."
+        "it": "I tuoi compiti durante la formazione: • L'uso di diversi metodi di cottura e tecniche di taglio per padroneggiare le basi delle arti culinarie. • La ricezione e il controllo dei beni, nonché il rispetto degli standard igienici per garantire la massima qualità. • La pianificazione creativa e il calcolo dei menù per sviluppare un senso di piatti equilibrati ed economici. • Lavorare in diverse posizioni come Garde Manger, Pâtisserie, Entremétier e Saucier per scoprire la diversità della cucina.",
+        "en": "Your tasks during the training: • The use of different cooking methods and cutting techniques to master the basics of the culinary arts. • The receipt and control of goods as well as compliance with hygiene standards to ensure the highest quality. • The creative planning and calculation of menus in order to develop a feeling for balanced and economical dishes. • Working in different positions such as Garde Manger, Pâtisserie, Entremétier and Saucier to discover the diversity of cuisine.",
+        "de": "Deine Aufgaben während der Ausbildung::\n\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
+        "fr": "Vos tâches pendant la formation : • L'utilisation de différentes méthodes de cuisson et techniques de coupe pour maîtriser les bases des arts culinaires. • La réception et le contrôle des marchandises ainsi que le respect des normes d'hygiène afin d'assurer la plus haute qualité. • La planification créative et le calcul des menus afin de développer un sentiment d'ouverture pour des plats équilibrés et économiques. • Travailler dans différents postes tels que Garde Manger, Pâtisserie, Entremétier et Saucier pour découvrir la diversité de la cuisine."
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Koechin-Koch-EFZ-wmd-de-j419.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:28.816Z",
+      "crawledAt": "2026-06-16T23:04:01.340Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -861,25 +860,24 @@
       "companyDomain": "ksuri.ch",
       "title": "Lehrstelle Kauffrau / Kaufmann EFZ (w/m/d)",
       "titleByLocale": {
-        "it": "Apprendistato Kauffrau / Kaufmann CFC (w/m/d)",
-        "en": "Lehrstelle Kauffrau / Kaufmann EFZ (w/m/d)",
+        "it": "Apprendistato come impiegato commerciale (f/m/d)",
+        "en": "Apprenticeship as a commercial clerk (f/m/d)",
         "de": "Lehrstelle Kauffrau / Kaufmann EFZ (w/m/d)",
-        "fr": "Lehrstelle Kauffrau / Kaufmann EFZ (w/m/d)"
+        "fr": "Apprentissage en tant que commis commercial (f/m/d)"
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
       "descriptionByLocale": {
-        "it": "Deine Aufgaben während der Ausbildung::\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
-        "en": "Deine Aufgaben während der Ausbildung::\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
-        "de": "Deine Aufgaben während der Ausbildung::\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
-        "fr": "Deine Aufgaben während der Ausbildung::\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung."
+        "it": "I tuoi compiti durante la formazione: • Cura personale del paziente alla reception: Sei il primo punto di contatto per i nostri pazienti e i loro parenti. Sarai il primo punto di contatto sia telefonico che di persona e rappresenterai l'UriCantonal Hospital con il tuo aspetto professionale. Gestirai i casi amministrativi relativi ai pazienti. • Risorse Umane: Ti occuperai di compiti amministrativi relativi ai nostri dipendenti, come la registrazione presso l'assicurazione sociale, l'organizzazione di cene pensionistiche, la stesura dei contratti di lavoro, targhette con il nome, carte parcheggio, ecc. • Finanza: Supporterai la contabilità registrando e registrando in modo indipendente creditori e debitori, effettuando chiarimenti con pazienti e varie compagnie assicurative e aiutando nella fatturazione.",
+        "en": "Your tasks during the training: • Personal patient care at the reception: You are the first point of contact for our patients and their relatives. You will be the first point of contact by phone and in person and represent the Uri Cantonal Hospital with your professional appearance. You will handle patient-related administrative cases. • Human Resources: You will take on administrative tasks related to our employees, such as registering with social insurance, organizing retirement dinners, drafting employment contracts, name tags, parking cards, etc. • Finance: You will support accounting by independently recording and posting creditors and debtors, carry out clarifications with patients and various insurance companies and help with invoicing.",
+        "de": "Deine Aufgaben während der Ausbildung::\n\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
+        "fr": "Vos tâches pendant la formation : • Soins personnels aux patients à la réception : Vous êtes le premier point de contact pour nos patients et leurs proches. Vous serez le premier point de contact par téléphone et en personne et représenterez l'Hôpital cantonal d'Uri par votre apparence professionnelle. Vous vous occuperez des dossiers administratifs liés aux patients. • Ressources humaines : Vous assumerez des tâches administratives liées à nos employés, telles que l'enregistrement auprès de l'assurance sociale, l'organisation des dîners de retraite, la rédaction de contrats de travail, les badges, les cartes de stationnement, etc. • Finance : Vous soutiendrez la comptabilité en enregistrant et enregistrant indirectement les créanciers et débiteurs, effectuerez des clarifications auprès des patients et diverses compagnies d'assurance, et aiderez à la facturation."
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Kauffrau-Kaufmann-EFZ-wmd-de-j417.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:28.279Z",
+      "crawledAt": "2026-06-16T23:04:00.835Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -932,25 +930,24 @@
       "companyDomain": "ksuri.ch",
       "title": "Lehrstelle Fachfrau / Fachmann Gesundheit EFZ (w/m/d)",
       "titleByLocale": {
-        "it": "Apprendistato Fachfrau / Fachmann Gesundheit CFC (w/m/d)",
-        "en": "Lehrstelle Fachfrau / Fachmann Gesundheit EFZ (w/m/d)",
+        "it": "Apprendistato come specialista sanitario (f/m/d)",
+        "en": "Apprenticeship as a health specialist (f/m/d)",
         "de": "Lehrstelle Fachfrau / Fachmann Gesundheit EFZ (w/m/d)",
-        "fr": "Lehrstelle Fachfrau / Fachmann Gesundheit EFZ (w/m/d)"
+        "fr": "Apprentissage en tant que spécialiste de la santé (f/m/d)"
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
       "descriptionByLocale": {
-        "it": "Deine Aufgaben während der Ausbildung::\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
-        "en": "Deine Aufgaben während der Ausbildung::\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
-        "de": "Deine Aufgaben während der Ausbildung::\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
-        "fr": "Deine Aufgaben während der Ausbildung::\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen."
+        "it": "I tuoi compiti durante la formazione: • Accompagnare, prendersi cura e prendersi cura di persone in diverse situazioni della vita – durante il loro ricovero ospedaliero. Sei una parte importante del loro processo di recupero e aiuti a migliorare la loro qualità di vita. • Anche compiti tecnici medici, come prelievi di sangue, cambi di medicazione e raddrizzazione e somministrazione dei farmaci, fanno anch'essi parte della tua area di responsabilità. Nel processo, imparerai a lavorare con precisione e responsabilità. • Supporti il team con servizi amministrativi e logistici che garantiscono una vita ospedaliera quotidiana senza intoppi. In questo modo, svilupperai un forte talento organizzativo e una comprensione dei processi nel settore sanitario.",
+        "en": "Your tasks during the training: • Accompanying, caring for and caring for people in different life situations – during their hospital stay. You are an important part of their recovery process and help to improve their quality of life. • Medical technical tasks, such as blood draws, dressing changes and the straightening and administration of medication, are also part of your area of responsibility. In the process, you will learn to work precisely and responsibly. • You support the team with administrative and logistical services that guarantee a smooth day-to-day hospital life. In this way, you will develop strong organizational talent and an understanding of the processes in the healthcare sector.",
+        "de": "Deine Aufgaben während der Ausbildung::\n\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
+        "fr": "Vos tâches pendant la formation : • Accompagner, prendre soin et prendre soin de personnes dans différentes situations de vie – pendant leur séjour à l'hôpital. Vous êtes une partie importante de leur processus de rétablissement et contribuez à améliorer leur qualité de vie. • Les tâches médicales techniques, telles que les prises de sang, le changement de pansements et le redressement et l'administration des médicaments, font également partie de votre domaine de responsabilité. Dans ce processus, vous apprendrez à travailler avec précision et responsabilité. • Vous soutenez l'équipe avec des services administratifs et logistiques garantissant une vie hospitalière quotidienne sans encombre. De cette manière, vous développerez de solides compétences organisationnelles et une compréhension des processus du secteur de la santé."
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Gesundheit-EFZ-wmd-de-j418.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:27.844Z",
+      "crawledAt": "2026-06-16T23:04:00.416Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1003,25 +1000,24 @@
       "companyDomain": "ksuri.ch",
       "title": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)",
       "titleByLocale": {
-        "it": "Apprendistato Fachfrau / Fachmann Betriebsunterhalt CFC (w/m/d)",
-        "en": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)",
+        "it": "Specialista di Apprendistato EFZ (f/m/d)",
+        "en": "Apprenticeship Specialist EFZ (f/m/d)",
         "de": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)",
-        "fr": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)"
+        "fr": "Spécialiste en apprentissage EFZ (f/m/d)"
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
       "descriptionByLocale": {
-        "it": "Deine Aufgaben während der Ausbildung::\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
-        "en": "Deine Aufgaben während der Ausbildung::\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
-        "de": "Deine Aufgaben während der Ausbildung::\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
-        "fr": "Deine Aufgaben während der Ausbildung::\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen."
+        "it": "Le tue attività durante la formazione: • Pulizia e manutenzione delle attrezzature e dei sistemi dei servizi edilizi per garantirne il corretto funzionamento. • Cura e manutenzione di edifici, stanze e strutture sanitarie affinché pazienti, visitatori e dipendenti si sentano a proprio agio. • Organizzazione ed esecuzione della manutenzione, nonché l'esecuzione di riparazioni di ogni tipo per garantire un funzionamento senza problemi. • Smaltimento professionale e separazione dei rifiuti per promuovere l'uso sostenibile delle risorse. • Manutenzione del giardino e delle aree verdi, così come piantumazione e manutenzione invernale per creare un ambiente ben curato e accogliente.",
+        "en": "Your tasks during the training: • Cleaning and maintenance of building services equipment and systems to ensure their proper functioning. • Care and maintenance of buildings, rooms and sanitary facilities so that patients, visitors and employees feel comfortable. • Organization and execution of maintenance as well as the execution of repairs of all kinds to ensure trouble-free operation. • Professional disposal and waste separation to promote the sustainable use of resources. • Garden maintenance and maintenance of the green areas as well as planting and winter maintenance to create a well-kept and inviting environment.",
+        "de": "Deine Aufgaben während der Ausbildung::\n\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
+        "fr": "Vos tâches pendant la formation : • Nettoyage et maintenance des équipements et systèmes des services du bâtiment afin d'assurer leur bon fonctionnement. • Entretien et entretien des bâtiments, chambres et installations sanitaires afin que patients, visiteurs et employés se sentent à l'aise. • Organisation et exécution de la maintenance ainsi que l'exécution de toutes sortes de réparations afin d'assurer un fonctionnement sans problème. • Élimination professionnelle et séparation des déchets afin de promouvoir l'utilisation durable des ressources. • Entretien du jardin et des espaces verts ainsi que plantations et entretien hivernal afin de créer un environnement bien entretenu et accueillant."
       },
-      "needsRetranslation": true,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-wmd-de-j416.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:27.410Z",
+      "crawledAt": "2026-06-16T23:03:59.980Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -2089,6 +2085,76 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.341Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kantonsspital-uri-eefd73a6dc5d",
+      "slug": "facharztin-facharzt-oa-mba-o-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri-altdorf",
+      "slugByLocale": {
+        "it": "facharztin-facharzt-oa-mba-o-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri-altdorf",
+        "en": "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri",
+        "de": "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri",
+        "fr": "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
+      },
+      "company": "Kantonsspital Uri",
+      "companyKey": "kantonsspital-uri",
+      "companyDomain": "ksuri.ch",
+      "title": "Fachärztin/Facharzt (OA, OA mbA oder LA) Intensivmedizin 40-80% (m/w/d)",
+      "titleByLocale": {
+        "it": "Specialista (OA, OA mbA o LA) Terapia Intensiva 40-80% (lunedì/f/giorno)",
+        "en": "Specialist (OA, OA mbA or LA) Intensive Care Medicine 40-80% (m/f/d)",
+        "de": "Fachärztin/Facharzt (OA, OA mbA oder LA) Intensivmedizin 40-80% (m/w/d)",
+        "fr": "Spécialiste (OA, OA mbA ou LA) Soins intensifs 40-80 % (l/f/j)"
+      },
+      "description": "DEINE AUFGABEN:\n\n• Fachärztliche Mitverantwortung für eine qualitativ hochstehende Versorgung der intensivpflichtigen Patientinnen und Patienten\n• Mitgestaltung und Weiterentwicklung der Intensivstation (6 Betten) – gemeinsam mit dem Leiter Intensivmedizin und der Leitung Intensivpflege\n• Diagnostik, Therapie und Betreuung stationärer Patientinnen und Patienten der Allgemeinen Inneren Medizin\n• Teilnahme am Dienstbetrieb gemäss deiner fachärztlichen Ausbildung\n• Supervision und Weiterbildung von Assistenzärztinnen oder Assistenzärzten\n• Mitgestaltung der hausinternen Fortbildungen\n\nDEINE PERSPEKTIVEN:\n\n• Deine persönliche Entwicklung liegt uns ebenso am Herzen wie die Entwicklung unseres Spitals im Allgemeinen und der Intensivmedizin im Speziellen\n• Unterstützung von einem motivierten und bestens qualifizierten Team\n• Attraktive Anstellungsbedingungen und persönliche Entwicklungs- und Mitgestaltungsmöglichkeiten sowie weitere Benefits prägen unsere Unternehmenskultur und machen uns zu einem attraktiven Arbeitgeber Unser fachärztlicher Leiter der Intensivmedizin, Florian Mayer, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!\n• Herr Daniel Schibli\n• Leiter Human Resources\n• +41 41 875 51 61\n• Florian Mayer\n• Fachärztlicher Leiter Intensivmedizin\n• +41 41 875 53 15\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
+      "descriptionByLocale": {
+        "it": "I VOSTRI COMPITI: • Corresponsabilità medica specialistica per un'assistenza di alta qualità ai pazienti che necessitano di terapia intensiva • Partecipazione alla progettazione e all'ulteriore sviluppo del reparto di terapia intensiva (6 posti letto) - insieme al primario di medicina intensiva e al primario di terapia intensiva • Diagnostica, terapia e cura dei pazienti stazionari in medicina interna generale • Partecipazione al servizio secondo la vostra formazione medica specialistica • Supervisione e formazione continua degli assistenti medici • Partecipazione ai corsi di formazione interni LE VOSTRE PROSPETTIVE: • I vostri lo sviluppo personale è per noi altrettanto importante quanto lo sviluppo del nostro ospedale in generale e della medicina intensiva in particolare • Supporto da parte di un team motivato e altamente qualificato • Condizioni di lavoro attraenti, opportunità di sviluppo personale e di partecipazione, nonché altri vantaggi modellano la nostra cultura aziendale e ci rendono un datore di lavoro attraente. Il nostro primario specialista in terapia intensiva Florian Mayer sarà lieto di fornirvi ulteriori informazioni. Aspettiamo con ansia la tua candidatura! • Signor Daniel Schibli • Responsabile delle risorse umane • 41 41 875 51 61 • Florian Mayer • Direttore medico di terapia intensiva • 41 41 875 53 15 • Colophon • Protezione dei dati • • • • • • Impostazioni Cookies",
+        "en": "YOUR TASKS: • Specialist medical co-responsibility for high-quality care for patients requiring intensive care • Participation in the design and further development of the intensive care unit (6 beds) - together with the head of intensive care medicine and the head of intensive care • Diagnostics, therapy and care of inpatients in general internal medicine • Participation in the service in accordance with your specialist medical training • Supervision and further training of assistant doctors • Participation in the in-house training courses YOURS PERSPECTIVES: • Your personal development is just as important to us as the development of our hospital in general and intensive care medicine in particular • Support from a motivated and highly qualified team • Attractive employment conditions and personal development and participation opportunities as well as other benefits shape our corporate culture and make us an attractive employer. Our specialist head of intensive care medicine, Florian Mayer, will be happy to provide you with further information. We look forward to your application! • Mr. Daniel Schibli • Head of Human Resources • 41 41 875 51 61 • Florian Mayer • Medical Director of Intensive Care Medicine • 41 41 875 53 15 • Imprint • Data Protection • • • • • • Settings Cookies",
+        "de": "DEINE AUFGABEN:\n\n• Fachärztliche Mitverantwortung für eine qualitativ hochstehende Versorgung der intensivpflichtigen Patientinnen und Patienten\n• Mitgestaltung und Weiterentwicklung der Intensivstation (6 Betten) – gemeinsam mit dem Leiter Intensivmedizin und der Leitung Intensivpflege\n• Diagnostik, Therapie und Betreuung stationärer Patientinnen und Patienten der Allgemeinen Inneren Medizin\n• Teilnahme am Dienstbetrieb gemäss deiner fachärztlichen Ausbildung\n• Supervision und Weiterbildung von Assistenzärztinnen oder Assistenzärzten\n• Mitgestaltung der hausinternen Fortbildungen\n\nDEINE PERSPEKTIVEN:\n\n• Deine persönliche Entwicklung liegt uns ebenso am Herzen wie die Entwicklung unseres Spitals im Allgemeinen und der Intensivmedizin im Speziellen\n• Unterstützung von einem motivierten und bestens qualifizierten Team\n• Attraktive Anstellungsbedingungen und persönliche Entwicklungs- und Mitgestaltungsmöglichkeiten sowie weitere Benefits prägen unsere Unternehmenskultur und machen uns zu einem attraktiven Arbeitgeber Unser fachärztlicher Leiter der Intensivmedizin, Florian Mayer, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!\n• Herr Daniel Schibli\n• Leiter Human Resources\n• +41 41 875 51 61\n• Florian Mayer\n• Fachärztlicher Leiter Intensivmedizin\n• +41 41 875 53 15\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
+        "fr": "VOS TÂCHES : • Co-responsabilité médicale spécialisée pour des soins de haute qualité pour les patients nécessitant des soins intensifs • Participation à la conception et au développement de l'unité de soins intensifs (6 lits) - en collaboration avec le chef de médecine intensive et le chef des soins intensifs • Diagnostic, thérapie et soins des patients hospitalisés en médecine interne générale • Participation au service conformément à votre formation médicale spécialisée • Supervision et formation continue des médecins assistants • Participation aux formations internes VOS PERSPECTIVES : • Votre développement personnel est tout aussi important car le développement de notre hôpital en médecine générale et en soins intensifs en particulier • Le soutien d'une équipe motivée et hautement qualifiée • Des conditions de travail attrayantes et des possibilités de développement personnel et de participation ainsi que d'autres avantages façonnent notre culture d'entreprise et font de nous un employeur attractif. Notre chef spécialisé en médecine intensive, Florian Mayer, se fera un plaisir de vous fournir de plus amples informations. Nous attendons votre candidature avec impatience ! • M. Daniel Schibli • Responsable des ressources humaines • 41 41 875 51 61 • Florian Mayer • Directeur médical de la médecine intensive • 41 41 875 53 15 • Mentions légales • Protection des données • • • • • • Paramètres Cookies"
+      },
+      "location": "Altdorf",
+      "canton": "UR",
+      "url": "https://stellen.ksuri.ch/FachaerztinFacharzt-OA-OA-mbA-oder-LA-Intensivmedizin-40-8-de-j391.html",
+      "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-16T23:03:58.434Z",
+      "addressLocality": "Altdorf",
+      "addressRegion": "UR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6460",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://stellen.ksuri.ch/FachaerztinFacharzt-OA-OA-mbA-oder-LA-Intensivmedizin-40-8-de-j391.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T13:42:12.710Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
