@@ -32,7 +32,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify } from './crawler-template.mjs';
+import { slugify, normalizeDescriptionBullets } from './crawler-template.mjs';
 import {
   fetchHtml,
   decodeEntities,
@@ -186,19 +186,26 @@ async function fetchDetailDescription(detailUrl, fallbackTeaser) {
     if (!html) return fallbackTeaser || '';
 
     const parts = [];
-    const intro = normalizeSpace(extractSection(html, 'introduction'));
+    // Keep `extractSection`'s newline-separated output as-is: `htmlToText`
+    // already collapses runs of spaces and emits one `• ` line per `<li>`.
+    // Wrapping in `normalizeSpace()` here would flatten those bullet lines back
+    // into a single run-on paragraph (the "10/10 no structured content"
+    // regression caught by audit-parser-quality). `normalizeDescriptionBullets`
+    // below restores any line-start bullets that survive only as inline `• `.
+    const intro = extractSection(html, 'introduction');
     if (intro) parts.push(intro);
 
     // The Prospective shell uses `<div class="title"><H2>...</H2></div>` then
-    // `<div class="content">...</div>` inside each accordion section. We grab
-    // the section verbatim and let `htmlToText` flatten it.
-    const tasks = normalizeSpace(extractSection(html, 'tasks'));
+    // `<div class="content"><ul><li>...</li></ul></div>` inside each accordion
+    // section. We grab the section verbatim and let `htmlToText` turn the list
+    // items into bulleted lines.
+    const tasks = extractSection(html, 'tasks');
     if (tasks) parts.push(tasks);
 
-    const skills = normalizeSpace(extractSection(html, 'skills'));
+    const skills = extractSection(html, 'skills');
     if (skills) parts.push(skills);
 
-    const text = parts.filter(Boolean).join('\n\n').trim();
+    const text = normalizeDescriptionBullets(parts.filter(Boolean).join('\n\n').trim());
     if (text && text.split(/\s+/).length >= 30) return text.slice(0, 6000);
 
     // Detail page returned but sections were empty / too short — combine
