@@ -383,6 +383,42 @@ export async function subscribeJobAlertOneTap(
 }
 
 /**
+ * 1-tap subscribe helper for a SPECIFIC job ("Avvisami per questo annuncio").
+ *
+ * Pins the alert to a single job id via `specificJobId` so the matcher
+ * (services/jobAlertMatching.mjs) HARD-filters to that exact job (the `pub-…`
+ * id of a publisher / sponsored ad), bypassing keyword/location scoring. No
+ * keyword/location/sector filters are set — the pin IS the scope. The max-3
+ * active-alerts limit enforced by `createAlert` propagates to the caller.
+ *
+ * `source` records the job's slug/url/title for funnel provenance (same field
+ * set written by `subscribeJobAlertOneTap`).
+ */
+export async function subscribeJobAlertForJob(
+  userId: string,
+  email: string,
+  jobId: string,
+  locale: 'it' | 'en' | 'de' | 'fr',
+  source?: JobAlertSource,
+): Promise<JobAlert> {
+  const config: JobAlertConfig = {
+    keywords: [],
+    locations: [],
+    contractTypes: [],
+    sectors: [],
+    cantonFilter: null,
+    frequency: 'daily',
+    locale,
+    specificJobId: jobId,
+    specificCompanyKey: null,
+    sourceJobSlug: source?.slug ?? null,
+    sourceJobUrl: source?.url ?? null,
+    sourceJobTitle: source?.title ?? null,
+  };
+  return createAlert(userId, email, config);
+}
+
+/**
  * Update alert parameters.
  */
 export async function updateAlert(
