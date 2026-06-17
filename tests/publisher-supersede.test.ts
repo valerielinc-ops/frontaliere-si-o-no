@@ -65,4 +65,23 @@ describe('supersedeCrawledByPublisher', () => {
     expect(superseded).toBe(2);
     expect(out).toHaveLength(1);
   });
+
+  it('bridges the superseded crawled slug into the publisher previousSlugs (no 404)', () => {
+    const p = pub('a', 'Ruolo', 'Lugano', { slug: 'ruolo-lugano-acme' });
+    const c = crawled('a', 'Ruolo', 'Lugano', { slug: 'old-crawled-slug', previousSlugs: ['ancient-slug'] });
+    const { jobs: out } = supersedeCrawledByPublisher([p, c]);
+    expect(out).toHaveLength(1);
+    expect(out[0].previousSlugs).toContain('old-crawled-slug'); // 301 source
+    expect(out[0].previousSlugs).toContain('ancient-slug');     // chained history preserved
+  });
+
+  it('bridges per-locale slugs and never self-bridges the publisher own slug', () => {
+    const p = pub('a', 'Ruolo', 'Lugano', { slug: 'pub-slug', slugByLocale: { it: 'pub-slug', en: 'pub-slug-en' } });
+    const c = crawled('a', 'Ruolo', 'Lugano', { slug: 'pub-slug', slugByLocale: { it: 'crawled-it', en: 'pub-slug-en' } });
+    const { jobs: out } = supersedeCrawledByPublisher([p, c]);
+    expect(out[0].previousSlugsByLocale?.it).toContain('crawled-it');
+    // identical slug (self) must NOT be bridged onto itself
+    expect(out[0].previousSlugs || []).not.toContain('pub-slug');
+    expect(out[0].previousSlugsByLocale?.en || []).not.toContain('pub-slug-en');
+  });
 });

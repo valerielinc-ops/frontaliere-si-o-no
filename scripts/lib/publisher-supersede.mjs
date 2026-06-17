@@ -27,28 +27,70 @@ export function supersedeKey(job) {
  * Drop crawled jobs that duplicate an employer-published (publisher-submitted)
  * ad for the same companyKey + normalized title.
  *
+ * Before dropping a crawled duplicate, its already-indexed slug(s) are folded
+ * into the kept publisher record's previousSlugs / previousSlugsByLocale, so the
+ * existing slug-history redirect bridge emits a 301 from the old crawled URL to
+ * the publisher slug in the SAME run — no 404 window, no lost SEO equity.
+ *
  * @param {Array<object>} jobs - assembled, already-deduped job records
  * @returns {{ jobs: Array<object>, superseded: number }}
  */
 export function supersedeCrawledByPublisher(jobs) {
-  const publisherKeys = new Set();
+  // First publisher record per key is the one we keep + bridge onto.
+  const publisherByKey = new Map();
   for (const job of jobs) {
     if (job?.source === PUBLISHER_SOURCE_KEY) {
       const k = supersedeKey(job);
-      if (k) publisherKeys.add(k);
+      if (k && !publisherByKey.has(k)) publisherByKey.set(k, job);
     }
   }
-  if (publisherKeys.size === 0) return { jobs, superseded: 0 };
+  if (publisherByKey.size === 0) return { jobs, superseded: 0 };
 
   let superseded = 0;
   const out = jobs.filter((job) => {
     if (job?.source === PUBLISHER_SOURCE_KEY) return true; // keep the employer's own ad
     const k = supersedeKey(job);
-    if (k && publisherKeys.has(k)) {
+    if (k && publisherByKey.has(k)) {
+      bridgeSlugHistory(publisherByKey.get(k), job); // preserve SEO before dropping
       superseded++;
       return false;
     }
     return true;
   });
   return { jobs: out, superseded };
+}
+
+/**
+ * Fold a superseded crawled job's slug history into the kept publisher record so
+ * the redirect bridge (trackSlugHistoryDrift) emits a 301 from the old indexed
+ * crawled URL(s) to the publisher slug. Never self-bridges the publisher's own slug.
+ */
+export function bridgeSlugHistory(pubRec, crawled) {
+  if (!pubRec || !crawled) return;
+
+  // Flat previousSlugs: crawled.slug + its own prior previousSlugs.
+  const flat = new Set((pubRec.previousSlugs || []).map(String));
+  for (const s of [crawled.slug, ...(crawled.previousSlugs || [])]) {
+    if (s && String(s) !== String(pubRec.slug)) flat.add(String(s));
+  }
+  if (flat.size) pubRec.previousSlugs = [...flat];
+
+  // Per-locale: crawled.slugByLocale[loc] + crawled.previousSlugsByLocale[loc].
+  const byLoc = {};
+  for (const [loc, arr] of Object.entries(pubRec.previousSlugsByLocale || {})) {
+    byLoc[loc] = new Set((Array.isArray(arr) ? arr : []).map(String));
+  }
+  const addLoc = (loc, val) => {
+    if (!loc || !val) return;
+    const pubLocSlug = (pubRec.slugByLocale && pubRec.slugByLocale[loc]) || pubRec.slug;
+    if (String(val) === String(pubLocSlug)) return; // don't self-bridge
+    (byLoc[loc] ||= new Set()).add(String(val));
+  };
+  for (const [loc, s] of Object.entries(crawled.slugByLocale || {})) addLoc(loc, s);
+  for (const [loc, arr] of Object.entries(crawled.previousSlugsByLocale || {})) {
+    for (const s of (Array.isArray(arr) ? arr : [])) addLoc(loc, s);
+  }
+  const merged = {};
+  for (const [loc, set] of Object.entries(byLoc)) if (set.size) merged[loc] = [...set];
+  if (Object.keys(merged).length) pubRec.previousSlugsByLocale = merged;
 }
