@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epi-stiftung",
-  "assembledAt": "2026-06-17T12:53:10.719Z",
+  "assembledAt": "2026-06-17T22:34:36.141Z",
   "jobs": [
     {
       "id": "epi-stiftung-b6c5de5a25f8",
@@ -34,7 +34,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/kuechenangestellte-kuechenangestellter-stewarding-befristet/d7844e35-87ca-41b8-a3a1-e685a0466ab8",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.671Z",
+      "crawledAt": "2026-06-17T22:34:33.583Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,9 +89,9 @@
       "slug": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
         "it": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
         "de": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
-        "fr": "etudiant-dipl-infirmier-ere-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
+        "fr": "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -116,7 +116,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk/a00c171d-fef0-4e3b-ac14-b5fde39cacb7",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.669Z",
+      "crawledAt": "2026-06-17T22:34:33.581Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -134,16 +134,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
+        "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich",
+        "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
+        "etudiant-dipl-infirmier-ere-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ],
         "en": [
+          "student-dipl-nursing-specialist-hf-at-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ],
         "fr": [
+          "etudiant-dipl-infirmier-ere-hf-chez-epi-wohnwerk-schweizerische-epilepsie-stiftung-epi-zurich",
           "studium-dipl-pflegefachfrau-mann-hf-im-epi-wohnwerk-epi-stiftung-zurich"
         ]
       },
@@ -193,7 +197,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/praktikantinnen-praktikanten-tagesstaetten/05a2fa23-7b4a-4c72-9bec-70606a95856a",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.667Z",
+      "crawledAt": "2026-06-17T22:34:33.579Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,69 +243,6 @@
       }
     },
     {
-      "id": "epi-stiftung-415ddde83b38",
-      "slug": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-      "slugByLocale": {
-        "it": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "en": "team-leader-residents-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
-        "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
-        "fr": "chef-d-equipe-residents-avec-un-comportement-difficile-complexe-schweizerische-epilepsie-stiftung-epi-zurich"
-      },
-      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
-      "companyKey": "epi-stiftung",
-      "companyDomain": "epi.ch",
-      "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
-      "titleByLocale": {
-        "it": "Teamleiterin / Teamleiter Wohngruppen con komplexem herausforderndem Verhalten",
-        "en": "Team Leader Residents with complex challenging behavior",
-        "de": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
-        "fr": "Chef d'équipe Résidents avec un comportement difficile complexe"
-      },
-      "description": "Das EPI WohnWerk entwickelt sich weiter – und Sie können diesen Weg aktiv mitprägen. Wir richten unsere Strukturen, Prozesse und unser Miteinander konsequent auf die Zukunft aus.<br/><br/>Für unsere Wohngruppen für Menschen mit komplexen kognitiven Einschränkungen und herausfordernden Verhaltensweisen suchen wir <b>aufgrund von Pensionierungen</b> per Oktober 2026 oder nach Vereinbarung eine <b>offene, engagierte und zukunftsorientierte Teamleitung</b>.<br/><br/>Sie haben die Chance, diesen Veränderungsprozess aktiv mitzugestalten, neue Impulse einzubringen und ein motiviertes Team mit Energie, Klarheit und Herz in die Zukunft zu führen.\n\nAufgaben:\n• Sie übernehmen die Leitung eines motivierten interprofessionellen Teams (bestehend aus Fachspezialisten Agogik und Pflege, Dipl. Pflegefachpersonal, Fachpersonen Betreuung und Gesundheit) und fördern dessen Weiterentwicklung und Zusammenarbeit, um die Veränderungen im Unternehmen erfolgreich umzusetzen und arbeiten ca. 50% aktiv in der Betreuung/Begleitung mit\n\n• Sie übernehmen die Verantwortung für eine zukunftsorientierte Wohngruppenorganisation, entwickeln die Angebotsqualität auf der Wohngruppe laufend weiter und beziehen dabei die unterstützenden Fachpersonen mit ein\n\n• Sie gestalten eine kooperative und auf den Bewohner ausgerichtete interprofessionelle Zusammenarbeit\n\n• Sie bringen ihre Vorstellungen zu einer auf die Bewohnerbedürfnisse ausgerichtete Abteilung ein und setzen diese aktiv um und engagieren sich aktiv im Teamleitungsteam des Bereichs Wohnen und wirken in Fach- und Projektgruppen mit\n\nAnforderungen:\n• Sie verfügen über eine Ausbildung im Sozial – oder Gesundheitsbereich auf Tertiärstufe HF oder FH und bringen breite Berufserfahrung mit\n\n• Interesse und Begeisterung an der Gestaltung eines Wohnumfelds mit hoher Lebensqualität für unsere Bewohnerinnen und Bewohner\n\n• Führungserfahrung, konzeptionelles Denken, Reflexions– und Kritikfähigkeit\n\n• Innovative Persönlichkeit, gewinnendes Auftreten und Dienstleitungsverständnis\n\n• Sie pflegen eine interprofessionelle Zusammenarbeit und verlieren auch in hektischen Situationen nicht den Humor\n\nWir bieten:\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit dem Leitungsteam Wohnen mitzugestalten\n\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n\n• Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-      "descriptionByLocale": {
-        "it": "L'EPI WohnWerk continua a svilupparsi – e puoi contribuire attivamente a plasmare questo percorso. Allineiamo costantemente le nostre strutture, i nostri processi e la nostra cooperazione con il futuro. Per i nostri gruppi residenziali per persone con disabilità cognitive complesse e comportamenti impegnativi, cerchiamo un team leader aperto, impegnato e orientato al futuro, a causa dei pensionamenti a partire da ottobre 2026 o su appuntamento. Avrete l'opportunità di plasmare attivamente questo processo di cambiamento, portare nuovi impulsi e guidare un team motivato verso il futuro con energia, chiarezza e cuore. Compiti:\n• Prenderai in carico la gestione di un team interprofessionale motivato (composto da specialisti in agogiche e infermieristica, personale infermieristico qualificato, specialisti dell'assistenza e della salute) e promuoverai il loro ulteriore sviluppo e cooperazione per attuare con successo i cambiamenti nell'azienda e lavorare attivamente circa il 50% in cura/supporto\n• Assumerai la responsabilità di un'organizzazione residenziale orientata al futuro, svilupperai la qualità dell'offerta del gruppo residenziale in modo continuativo e coinvolgendo i professionisti di supporto\n• Progetterai una cooperazione cooperativa e interprofessionale orientata ai residenti\n• Contribuirai con le tue idee a un dipartimento orientato alle esigenze dei residenti, le implementerai attivamente e parteciperai attivamente al team di leadership dell'area abitativa e lavorerai in gruppi specialistici e di progetto con requisiti:\n• Hai una formazione nel settore sociale o sanitario a livello terziario HF o FH e una vasta esperienza professionale\n• Interesse ed entusiasmo nel progettare un ambiente abitativo con alta qualità della vita per i nostri residenti\n• Esperienza di leadership, pensiero concettuale, capacità di riflettere e criticare\n• Personalità innovativa, aspetto vincente e comprensione dei servizi\n• Mantieni la cooperazione interprofessionale e perdi anche Offriamo:\n• L'opportunità di contribuire allo sviluppo del dipartimento insieme al team di gestione abitativa\n• Un ambiente vivace che puoi contribuire a plasmare con le tue idee\n• 5 settimane di vacanza, 6 settimane a partire dai 50 anni\n• Fondo pensione proprio con una quota d'azienda superiore alla media del 60%\n• Ampie opportunità di formazione interna e supporto per la formazione esterna\n• Posti auto e sconti nell'EPI Park Ristorante, farmacia e viaggi a mezzo-biglietto o GA A volte piuttosto impegnativo, ma mai noioso: Nessun giorno è uguale all'EPI WohnWerk. Perché le persone che accompagniamo ognuna di loro ha una storia di vita unica. Grazie alla collaborazione del team interprofessionale, siamo ben posizionati per la nostra giornata lavorativa. Ti piacerebbe far parte di questa squadra?",
-        "en": "The EPI WohnWerk continues to develop – and you can actively participate in this path. We consistently align our structures, processes and our coexistence with the future. For our housing groups for people with complex cognitive limitations and challenging behaviors, we are looking for an open, committed and forward-looking team leadership due to retiring in October 2026 or by agreement. You have the chance to actively shape this process of change, introduce new impulses and lead a motivated team with energy, clarity and heart to the future. Tasks:\n• They take over the leadership of a motivated interprofessional team (consisting of specialist Agogik and Pflege, Dipl. Nursing staff, specialists care and health) and promote their further development and cooperation in order to successfully implement the changes in the company and work approx. 50% active in support/assistant with\n• They take responsibility for a future-oriented housing group organisation, continue to develop the quality of the offer on the housing group and, in doing so, bring the supporters with a\n• They create a cooperative and local interprofessional cooperation\n• They bring their ideas to a department that focuses on the needs of the population and actively implement them and actively engage in the team management team of the Housing area and work in specialist and project groups with Requirements:\n• They have training in the social or health field at tertiary level HF or FH and have a broad professional experience with\n• Interest and enthusiasm in shaping a residential environment with high quality of life for our residents\n• leadership experience, conceptual thinking, reflection and critique\n• Innovative personality, gainful appearance and service understanding\n• They maintain interprofessional cooperation and do not lose humor even in hectic situations We offer:\n• The possibility to co-design the development of the department together with the management team\n• A living environment that can be shaped with your own ideas\n• 5 weeks vacation, from 50. Age 6 weeks\n• Own pension fund with an above-average employer share of 60%\n• Extensive internal training and support for external training\n• Parking and discounts at EPI Park Restaurant, pharmacy and half-tax or general subscription Sometimes quite challenging, but never boring: In the EPI WohnWerk is no day like the other. For the people we accompany each and every one have their unique life history. Thanks to the cooperation in the interprofessional team, we are well positioned for our working day. Would you like to be part of this team?",
-        "de": "Das EPI WohnWerk entwickelt sich weiter – und Sie können diesen Weg aktiv mitprägen. Wir richten unsere Strukturen, Prozesse und unser Miteinander konsequent auf die Zukunft aus.<br/><br/>Für unsere Wohngruppen für Menschen mit komplexen kognitiven Einschränkungen und herausfordernden Verhaltensweisen suchen wir <b>aufgrund von Pensionierungen</b> per Oktober 2026 oder nach Vereinbarung eine <b>offene, engagierte und zukunftsorientierte Teamleitung</b>.<br/><br/>Sie haben die Chance, diesen Veränderungsprozess aktiv mitzugestalten, neue Impulse einzubringen und ein motiviertes Team mit Energie, Klarheit und Herz in die Zukunft zu führen. Aufgaben:\n• Sie übernehmen die Leitung eines motivierten interprofessionellen Teams (bestehend aus Fachspezialisten Agogik und Pflege, Dipl. Pflegefachpersonal, Fachpersonen Betreuung und Gesundheit) und fördern dessen Weiterentwicklung und Zusammenarbeit, um die Veränderungen im Unternehmen erfolgreich umzusetzen und arbeiten ca. 50% aktiv in der Betreuung/Begleitung mit\n• Sie übernehmen die Verantwortung für eine zukunftsorientierte Wohngruppenorganisation, entwickeln die Angebotsqualität auf der Wohngruppe laufend weiter und beziehen dabei die unterstützenden Fachpersonen mit ein\n• Sie gestalten eine kooperative und auf den Bewohner ausgerichtete interprofessionelle Zusammenarbeit\n• Sie bringen ihre Vorstellungen zu einer auf die Bewohnerbedürfnisse ausgerichtete Abteilung ein und setzen diese aktiv um und engagieren sich aktiv im Teamleitungsteam des Bereichs Wohnen und wirken in Fach- und Projektgruppen mit Anforderungen:\n• Sie verfügen über eine Ausbildung im Sozial – oder Gesundheitsbereich auf Tertiärstufe HF oder FH und bringen breite Berufserfahrung mit\n• Interesse und Begeisterung an der Gestaltung eines Wohnumfelds mit hoher Lebensqualität für unsere Bewohnerinnen und Bewohner\n• Führungserfahrung, konzeptionelles Denken, Reflexions– und Kritikfähigkeit\n• Innovative Persönlichkeit, gewinnendes Auftreten und Dienstleitungsverständnis\n• Sie pflegen eine interprofessionelle Zusammenarbeit und verlieren auch in hektischen Situationen nicht den Humor Wir bieten:\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit dem Leitungsteam Wohnen mitzugestalten\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n• Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "fr": "L’EPI WohnWerk continue de se développer – et vous pouvez activement contribuer à façonner cette voie. Nous alignons constamment nos structures, processus et coopération avec l’avenir. Pour nos groupes résidentiels pour personnes présentant des troubles cognitifs complexes et des comportements difficiles, nous recherchons un chef d’équipe ouvert, engagé et tourné vers l’avenir, en raison de départs à la retraite à partir d’octobre 2026 ou sur rendez-vous. Vous aurez l’opportunité de façonner activement ce processus de changement, d’apporter de nouvelles impulsions et de diriger une équipe motivée vers l’avenir, avec énergie, clarté et cœur. Tâches :\n• Vous prendrez en charge la gestion d’une équipe interprofessionnelle motivée (composée de spécialistes en agogique et en soins infirmiers, de personnel infirmier qualifié, de spécialistes des soins et de la santé) et favoriserez leur développement et leur coopération afin de mettre en œuvre avec succès les changements dans l’entreprise et de travailler activement à environ 50 % dans les soins/soutien\n• Vous prendrez la responsabilité d’une organisation résidentielle tournée vers l’avenir, et développerez la qualité de l’offre du groupe résidentiel de façon continue et en impliquant les professionnels de soutien\n• Vous concevez une coopération coopérative et interprofessionnelle orientée vers les résidents\n• Vous apporterez vos idées à un département adapté aux besoins des résidents, les mettrez activement en œuvre et participerez activement à l’équipe de direction de l’équipe du quartier résidentiel et travaillerez dans des groupes spécialisés et projets ayant des exigences :\n• Vous avez une formation dans le secteur social ou de la santé au niveau tertiaire HF ou FH et une vaste expérience professionnelle\n• Intérêt et enthousiasme pour la conception d’un environnement de vie offrant une qualité de vie élevée pour nos résidents\n• Expérience en leadership, pensée conceptuelle, capacité à réfléchir et à critiquer\n• Personnalité innovante, apparence gagnante et compréhension des services\n• Vous maintenez une coopération interprofessionnelle et perdez également Nous proposons :\n• L’opportunité d’aider à façonner le développement du département avec l’équipe de gestion du logement\n• Un environnement dynamique que vous pouvez contribuer à façonner avec vos propres idées\n• 5 semaines de vacances, 6 semaines à partir de 50 ans\n• Fonds de pension propre avec une part supérieure à la moyenne de 60 % de l’employeur\n• Opportunités de formation interne étendues et soutien à la formation externe\n• Places de parking et réductions dans l’EPI Park Restaurant, pharmacie et carte de voyage à demi-tarif ou carte de voyage GA Parfois assez difficile, mais jamais ennuyeux : aucun jour ne se ressemble à EPI WohnWerk. Parce que les personnes que nous accompagnons, chacune d’elles a sa propre histoire de vie unique. Grâce à la coopération de l’équipe interprofessionnelle, nous sommes bien placés pour notre journée de travail. Aimeriez-vous faire partie de cette équipe ?"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/37a6f711-0200-482b-96ec-c53fa0841d9f",
-      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.666Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-31",
-      "applyUrl": "3919",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-01T14:28:51.898Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "epi-stiftung-fab719151bd5",
       "slug": "studente-di-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
@@ -333,7 +274,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/studierende-sozialpaedagogik-hf-fh/2b250a7b-0317-47f3-af35-dc3064e746bd",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.664Z",
+      "crawledAt": "2026-06-17T22:34:33.577Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -410,7 +351,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-tagesstaette/50429280-8bac-4e70-aab9-2e0f7466989a",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.662Z",
+      "crawledAt": "2026-06-17T22:34:33.576Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -456,6 +397,69 @@
       }
     },
     {
+      "id": "epi-stiftung-415ddde83b38",
+      "slug": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+      "slugByLocale": {
+        "it": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "en": "team-leader-residents-with-complex-challenging-behavior-schweizerische-epilepsie-stiftung-epi-zurich",
+        "de": "teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten-epi-stiftung",
+        "fr": "chef-d-equipe-residents-avec-un-comportement-difficile-complexe-schweizerische-epilepsie-stiftung-epi-zurich"
+      },
+      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+      "companyKey": "epi-stiftung",
+      "companyDomain": "epi.ch",
+      "title": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
+      "titleByLocale": {
+        "it": "Teamleiterin / Teamleiter Wohngruppen con komplexem herausforderndem Verhalten",
+        "en": "Team Leader Residents with complex challenging behavior",
+        "de": "Teamleiterin / Teamleiter Wohngruppen mit komplexem herausforderndem Verhalten",
+        "fr": "Chef d'équipe Résidents avec un comportement difficile complexe"
+      },
+      "description": "Das EPI WohnWerk entwickelt sich weiter – und Sie können diesen Weg aktiv mitprägen. Wir richten unsere Strukturen, Prozesse und unser Miteinander konsequent auf die Zukunft aus.<br/><br/>Für unsere Wohngruppen für Menschen mit komplexen kognitiven Einschränkungen und herausfordernden Verhaltensweisen suchen wir <b>aufgrund von Pensionierungen</b> per Oktober 2026 oder nach Vereinbarung eine <b>offene, engagierte und zukunftsorientierte Teamleitung</b>.<br/><br/>Sie haben die Chance, diesen Veränderungsprozess aktiv mitzugestalten, neue Impulse einzubringen und ein motiviertes Team mit Energie, Klarheit und Herz in die Zukunft zu führen.\n\nAufgaben:\n• Sie übernehmen die Leitung eines motivierten interprofessionellen Teams (bestehend aus Fachspezialisten Agogik und Pflege, Dipl. Pflegefachpersonal, Fachpersonen Betreuung und Gesundheit) und fördern dessen Weiterentwicklung und Zusammenarbeit, um die Veränderungen im Unternehmen erfolgreich umzusetzen und arbeiten ca. 50% aktiv in der Betreuung/Begleitung mit\n\n• Sie übernehmen die Verantwortung für eine zukunftsorientierte Wohngruppenorganisation, entwickeln die Angebotsqualität auf der Wohngruppe laufend weiter und beziehen dabei die unterstützenden Fachpersonen mit ein\n\n• Sie gestalten eine kooperative und auf den Bewohner ausgerichtete interprofessionelle Zusammenarbeit\n\n• Sie bringen ihre Vorstellungen zu einer auf die Bewohnerbedürfnisse ausgerichtete Abteilung ein und setzen diese aktiv um und engagieren sich aktiv im Teamleitungsteam des Bereichs Wohnen und wirken in Fach- und Projektgruppen mit\n\nAnforderungen:\n• Sie verfügen über eine Ausbildung im Sozial – oder Gesundheitsbereich auf Tertiärstufe HF oder FH und bringen breite Berufserfahrung mit\n\n• Interesse und Begeisterung an der Gestaltung eines Wohnumfelds mit hoher Lebensqualität für unsere Bewohnerinnen und Bewohner\n\n• Führungserfahrung, konzeptionelles Denken, Reflexions– und Kritikfähigkeit\n\n• Innovative Persönlichkeit, gewinnendes Auftreten und Dienstleitungsverständnis\n\n• Sie pflegen eine interprofessionelle Zusammenarbeit und verlieren auch in hektischen Situationen nicht den Humor\n\nWir bieten:\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit dem Leitungsteam Wohnen mitzugestalten\n\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n\n• Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+      "descriptionByLocale": {
+        "it": "L'EPI WohnWerk continua a svilupparsi – e puoi contribuire attivamente a plasmare questo percorso. Allineiamo costantemente le nostre strutture, i nostri processi e la nostra cooperazione con il futuro. Per i nostri gruppi residenziali per persone con disabilità cognitive complesse e comportamenti impegnativi, cerchiamo un team leader aperto, impegnato e orientato al futuro, a causa dei pensionamenti a partire da ottobre 2026 o su appuntamento. Avrete l'opportunità di plasmare attivamente questo processo di cambiamento, portare nuovi impulsi e guidare un team motivato verso il futuro con energia, chiarezza e cuore. Compiti:\n• Prenderai in carico la gestione di un team interprofessionale motivato (composto da specialisti in agogiche e infermieristica, personale infermieristico qualificato, specialisti dell'assistenza e della salute) e promuoverai il loro ulteriore sviluppo e cooperazione per attuare con successo i cambiamenti nell'azienda e lavorare attivamente circa il 50% in cura/supporto\n• Assumerai la responsabilità di un'organizzazione residenziale orientata al futuro, svilupperai la qualità dell'offerta del gruppo residenziale in modo continuativo e coinvolgendo i professionisti di supporto\n• Progetterai una cooperazione cooperativa e interprofessionale orientata ai residenti\n• Contribuirai con le tue idee a un dipartimento orientato alle esigenze dei residenti, le implementerai attivamente e parteciperai attivamente al team di leadership dell'area abitativa e lavorerai in gruppi specialistici e di progetto con requisiti:\n• Hai una formazione nel settore sociale o sanitario a livello terziario HF o FH e una vasta esperienza professionale\n• Interesse ed entusiasmo nel progettare un ambiente abitativo con alta qualità della vita per i nostri residenti\n• Esperienza di leadership, pensiero concettuale, capacità di riflettere e criticare\n• Personalità innovativa, aspetto vincente e comprensione dei servizi\n• Mantieni la cooperazione interprofessionale e perdi anche Offriamo:\n• L'opportunità di contribuire allo sviluppo del dipartimento insieme al team di gestione abitativa\n• Un ambiente vivace che puoi contribuire a plasmare con le tue idee\n• 5 settimane di vacanza, 6 settimane a partire dai 50 anni\n• Fondo pensione proprio con una quota d'azienda superiore alla media del 60%\n• Ampie opportunità di formazione interna e supporto per la formazione esterna\n• Posti auto e sconti nell'EPI Park Ristorante, farmacia e viaggi a mezzo-biglietto o GA A volte piuttosto impegnativo, ma mai noioso: Nessun giorno è uguale all'EPI WohnWerk. Perché le persone che accompagniamo ognuna di loro ha una storia di vita unica. Grazie alla collaborazione del team interprofessionale, siamo ben posizionati per la nostra giornata lavorativa. Ti piacerebbe far parte di questa squadra?",
+        "en": "The EPI WohnWerk continues to develop – and you can actively participate in this path. We consistently align our structures, processes and our coexistence with the future. For our housing groups for people with complex cognitive limitations and challenging behaviors, we are looking for an open, committed and forward-looking team leadership due to retiring in October 2026 or by agreement. You have the chance to actively shape this process of change, introduce new impulses and lead a motivated team with energy, clarity and heart to the future. Tasks:\n• They take over the leadership of a motivated interprofessional team (consisting of specialist Agogik and Pflege, Dipl. Nursing staff, specialists care and health) and promote their further development and cooperation in order to successfully implement the changes in the company and work approx. 50% active in support/assistant with\n• They take responsibility for a future-oriented housing group organisation, continue to develop the quality of the offer on the housing group and, in doing so, bring the supporters with a\n• They create a cooperative and local interprofessional cooperation\n• They bring their ideas to a department that focuses on the needs of the population and actively implement them and actively engage in the team management team of the Housing area and work in specialist and project groups with Requirements:\n• They have training in the social or health field at tertiary level HF or FH and have a broad professional experience with\n• Interest and enthusiasm in shaping a residential environment with high quality of life for our residents\n• leadership experience, conceptual thinking, reflection and critique\n• Innovative personality, gainful appearance and service understanding\n• They maintain interprofessional cooperation and do not lose humor even in hectic situations We offer:\n• The possibility to co-design the development of the department together with the management team\n• A living environment that can be shaped with your own ideas\n• 5 weeks vacation, from 50. Age 6 weeks\n• Own pension fund with an above-average employer share of 60%\n• Extensive internal training and support for external training\n• Parking and discounts at EPI Park Restaurant, pharmacy and half-tax or general subscription Sometimes quite challenging, but never boring: In the EPI WohnWerk is no day like the other. For the people we accompany each and every one have their unique life history. Thanks to the cooperation in the interprofessional team, we are well positioned for our working day. Would you like to be part of this team?",
+        "de": "Das EPI WohnWerk entwickelt sich weiter – und Sie können diesen Weg aktiv mitprägen. Wir richten unsere Strukturen, Prozesse und unser Miteinander konsequent auf die Zukunft aus.<br/><br/>Für unsere Wohngruppen für Menschen mit komplexen kognitiven Einschränkungen und herausfordernden Verhaltensweisen suchen wir <b>aufgrund von Pensionierungen</b> per Oktober 2026 oder nach Vereinbarung eine <b>offene, engagierte und zukunftsorientierte Teamleitung</b>.<br/><br/>Sie haben die Chance, diesen Veränderungsprozess aktiv mitzugestalten, neue Impulse einzubringen und ein motiviertes Team mit Energie, Klarheit und Herz in die Zukunft zu führen. Aufgaben:\n• Sie übernehmen die Leitung eines motivierten interprofessionellen Teams (bestehend aus Fachspezialisten Agogik und Pflege, Dipl. Pflegefachpersonal, Fachpersonen Betreuung und Gesundheit) und fördern dessen Weiterentwicklung und Zusammenarbeit, um die Veränderungen im Unternehmen erfolgreich umzusetzen und arbeiten ca. 50% aktiv in der Betreuung/Begleitung mit\n• Sie übernehmen die Verantwortung für eine zukunftsorientierte Wohngruppenorganisation, entwickeln die Angebotsqualität auf der Wohngruppe laufend weiter und beziehen dabei die unterstützenden Fachpersonen mit ein\n• Sie gestalten eine kooperative und auf den Bewohner ausgerichtete interprofessionelle Zusammenarbeit\n• Sie bringen ihre Vorstellungen zu einer auf die Bewohnerbedürfnisse ausgerichtete Abteilung ein und setzen diese aktiv um und engagieren sich aktiv im Teamleitungsteam des Bereichs Wohnen und wirken in Fach- und Projektgruppen mit Anforderungen:\n• Sie verfügen über eine Ausbildung im Sozial – oder Gesundheitsbereich auf Tertiärstufe HF oder FH und bringen breite Berufserfahrung mit\n• Interesse und Begeisterung an der Gestaltung eines Wohnumfelds mit hoher Lebensqualität für unsere Bewohnerinnen und Bewohner\n• Führungserfahrung, konzeptionelles Denken, Reflexions– und Kritikfähigkeit\n• Innovative Persönlichkeit, gewinnendes Auftreten und Dienstleitungsverständnis\n• Sie pflegen eine interprofessionelle Zusammenarbeit und verlieren auch in hektischen Situationen nicht den Humor Wir bieten:\n• Die Möglichkeit, die Entwicklung der Abteilung zusammen mit dem Leitungsteam Wohnen mitzugestalten\n• Ein lebendiges Umfeld, das man mit eigenen Ideen mitgestalten kann\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Umfangreiches internes Weiterbildungsangebot und Unterstützung bei externen Weiterbildungen\n• Parkplätze und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "fr": "L’EPI WohnWerk continue de se développer – et vous pouvez activement contribuer à façonner cette voie. Nous alignons constamment nos structures, processus et coopération avec l’avenir. Pour nos groupes résidentiels pour personnes présentant des troubles cognitifs complexes et des comportements difficiles, nous recherchons un chef d’équipe ouvert, engagé et tourné vers l’avenir, en raison de départs à la retraite à partir d’octobre 2026 ou sur rendez-vous. Vous aurez l’opportunité de façonner activement ce processus de changement, d’apporter de nouvelles impulsions et de diriger une équipe motivée vers l’avenir, avec énergie, clarté et cœur. Tâches :\n• Vous prendrez en charge la gestion d’une équipe interprofessionnelle motivée (composée de spécialistes en agogique et en soins infirmiers, de personnel infirmier qualifié, de spécialistes des soins et de la santé) et favoriserez leur développement et leur coopération afin de mettre en œuvre avec succès les changements dans l’entreprise et de travailler activement à environ 50 % dans les soins/soutien\n• Vous prendrez la responsabilité d’une organisation résidentielle tournée vers l’avenir, et développerez la qualité de l’offre du groupe résidentiel de façon continue et en impliquant les professionnels de soutien\n• Vous concevez une coopération coopérative et interprofessionnelle orientée vers les résidents\n• Vous apporterez vos idées à un département adapté aux besoins des résidents, les mettrez activement en œuvre et participerez activement à l’équipe de direction de l’équipe du quartier résidentiel et travaillerez dans des groupes spécialisés et projets ayant des exigences :\n• Vous avez une formation dans le secteur social ou de la santé au niveau tertiaire HF ou FH et une vaste expérience professionnelle\n• Intérêt et enthousiasme pour la conception d’un environnement de vie offrant une qualité de vie élevée pour nos résidents\n• Expérience en leadership, pensée conceptuelle, capacité à réfléchir et à critiquer\n• Personnalité innovante, apparence gagnante et compréhension des services\n• Vous maintenez une coopération interprofessionnelle et perdez également Nous proposons :\n• L’opportunité d’aider à façonner le développement du département avec l’équipe de gestion du logement\n• Un environnement dynamique que vous pouvez contribuer à façonner avec vos propres idées\n• 5 semaines de vacances, 6 semaines à partir de 50 ans\n• Fonds de pension propre avec une part supérieure à la moyenne de 60 % de l’employeur\n• Opportunités de formation interne étendues et soutien à la formation externe\n• Places de parking et réductions dans l’EPI Park Restaurant, pharmacie et carte de voyage à demi-tarif ou carte de voyage GA Parfois assez difficile, mais jamais ennuyeux : aucun jour ne se ressemble à EPI WohnWerk. Parce que les personnes que nous accompagnons, chacune d’elles a sa propre histoire de vie unique. Grâce à la coopération de l’équipe interprofessionnelle, nous sommes bien placés pour notre journée de travail. Aimeriez-vous faire partie de cette équipe ?"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.swissepi.ch/offene-stellen/teamleiterin-teamleiter-wohngruppen-mit-komplexem-herausforderndem-verhalten/37a6f711-0200-482b-96ec-c53fa0841d9f",
+      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T22:34:33.574Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "applyUrl": "3919",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-01T14:28:51.898Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "epi-stiftung-ee3b32aa871c",
       "slug": "mitarbeiterin-collaboratore-trice-etagenservice-roomservice-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
@@ -487,7 +491,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/mitarbeiterin-mitarbeiter-etagenservice-roomservice/4718073c-4d17-45e9-8cc1-bc3baf425d0d",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.661Z",
+      "crawledAt": "2026-06-17T22:34:33.572Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -564,7 +568,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/floristin-florist-als-fachspezialistin-fachspezialist-agogik-gaertnerei/c5a53874-7389-4bab-8339-73dbb9bef9a0",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.659Z",
+      "crawledAt": "2026-06-17T22:34:33.571Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -641,7 +645,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/co-leitung-bereich-wohnen/ff49d39d-05fe-4601-b279-023d1ad98a87",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.658Z",
+      "crawledAt": "2026-06-17T22:34:33.569Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -718,7 +722,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/chef-de-partie-koch-koechin/bb51c4a1-1d6e-45b2-9eba-865cf3be73af",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.656Z",
+      "crawledAt": "2026-06-17T22:34:33.567Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -795,7 +799,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/kuechenangestellte-kuechenangestellter/261749b3-7ad6-484f-bc74-3867f8236db1",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.654Z",
+      "crawledAt": "2026-06-17T22:34:33.565Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -872,7 +876,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung-housekeeping/3adf4ee4-bf5f-41bb-8e87-3114d4d80cc6",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.652Z",
+      "crawledAt": "2026-06-17T22:34:33.563Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -918,148 +922,6 @@
       }
     },
     {
-      "id": "epi-stiftung-641d6457e787",
-      "slug": "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich",
-      "slugByLocale": {
-        "it": "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
-      },
-      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
-      "companyKey": "epi-stiftung",
-      "companyDomain": "epi.ch",
-      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
-        "en": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
-        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
-        "fr": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH"
-      },
-      "description": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher\n\nAnforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten\n\nWir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-      "descriptionByLocale": {
-        "it": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "en": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "de": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "fr": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/0d71e935-be08-4f3e-a949-e30d1f751385",
-      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.650Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "2135",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T12:05:17.613Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "epi-stiftung-7c48ea653bba",
-      "slug": "dipl-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-      "slugByLocale": {
-        "it": "dipl-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "de": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
-        "fr": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
-      },
-      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
-      "companyKey": "epi-stiftung",
-      "companyDomain": "epi.ch",
-      "title": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
-      "titleByLocale": {
-        "it": "Dipl. Pedagogia Sociale HF/FH",
-        "en": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
-        "de": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
-        "fr": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH"
-      },
-      "description": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen\n\nAnforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht\n\nWir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-      "descriptionByLocale": {
-        "it": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "en": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "de": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
-        "fr": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://job.swissepi.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/6332012f-6d7f-4e45-a655-daae6d1356fc",
-      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.649Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8008",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-11",
-      "applyUrl": "2050",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T12:05:17.609Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "epi-stiftung-27e14ef7291d",
       "slug": "fachfrau-fachmann-betreuung-cfc-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
@@ -1091,7 +953,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-betreuung-efz/05c37047-58d8-49cc-ad01-9b21b9e9298d",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.647Z",
+      "crawledAt": "2026-06-17T22:34:33.562Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1162,7 +1024,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/stv-teamleiterin-teamleiter-bereich-wohnen/8b9b9295-25b8-4ffe-9e1c-ba947e4dd544",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.645Z",
+      "crawledAt": "2026-06-17T22:34:33.560Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1188,6 +1050,148 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:05:17.584Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-stiftung-641d6457e787",
+      "slug": "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slugByLocale": {
+        "it": "infermiere-dipl-infermiere-sss-sup-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+      },
+      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+      "companyKey": "epi-stiftung",
+      "companyDomain": "epi.ch",
+      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
+        "en": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
+        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH",
+        "fr": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH"
+      },
+      "description": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher\n\nAnforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten\n\nWir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+      "descriptionByLocale": {
+        "it": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "en": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "de": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "fr": "Aufgaben:\n• Zusammen mit Ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung, mit teilweise herausfordernden Verhaltensweisen und Epilepsie\n• Sie unterstützen und beraten die Bewohnerinnen und Bewohner in ihrer Alltagsbewältigung\n• Als Prozessverantwortliche/r gestalten Sie den gesamten Betreuungsverlauf und beziehen dabei alle Beteiligen mit ein\n• Sie sorgen für die Umsetzung der pflegerischen und medizinischen Standards auf Ihrer Abteilung und helfen mit, diese weiterzuentwickeln\n• Gemeinsam mit der Teamleitung stellen Sie die Leistungserbringung vor allem in der Grund- und Behandlungspflege sicher Anforderungen:\n• Sie sind dipl. Pflegefachfrau/Pflegefachmann HF oder FH, gerne mit Berufserfahrung auch aus den Bereichen Psychiatrie und/oder Sozialpsychiatrie\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten Sie den Alltag proaktiv\n• Standfestigkeit sowie Vernetzen und Beraten gehören zu ihren Stärken\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern eine rundum gute Gesundheitsversorgung anzubieten Wir bieten:\n• Gezielte Weiterbildung zum Thema Umgang mit Menschen mit kognitiven und psychiatrischen Einschränkungen\n• Grösstmögliche Offenheit, innerhalb der betrieblichen Rahmenbedingungen die Arbeitszeiten auf Ihre familiären oder andere Verpflichtungen abzustimmen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• Keine Nacht- oder Bereitschaftsdienste, 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.swissepi.ch/offene-stellen/dipl-pflegefachfrau-pflegefachmann-hf-fh/0d71e935-be08-4f3e-a949-e30d1f751385",
+      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T22:34:33.558Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "2135",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T12:05:17.613Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-stiftung-7c48ea653bba",
+      "slug": "dipl-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slugByLocale": {
+        "it": "dipl-pedagogia-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
+        "de": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich",
+        "fr": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+      },
+      "company": "Schweizerische Epilepsie-Stiftung (EPI)",
+      "companyKey": "epi-stiftung",
+      "companyDomain": "epi.ch",
+      "title": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
+      "titleByLocale": {
+        "it": "Dipl. Pedagogia Sociale HF/FH",
+        "en": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
+        "de": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH",
+        "fr": "Dipl. Sozialpädagogin/Sozialpädagoge HF/FH"
+      },
+      "description": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen\n\nAnforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht\n\nWir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement\n\nManchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+      "descriptionByLocale": {
+        "it": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "en": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "de": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?",
+        "fr": "Aufgaben:\n• Zusammen mit ihren Kolleginnen und Kollegen mit agogischem und pflegerischem Berufshintergrund begleiten und betreuen Sie Erwachsene mit kognitiven und psychischen Beeinträchtigungen sowie Mehrfachbehinderung und mit teilweise herausfordernden Verhaltensweisen und Epilepsie. Dabei bauen Sie eine professionelle Beziehung zu den Bewohnerinnen und Bewohnern auf und gestalten mit ihnen ihren Lebensraum sowie die Tages-und Freizeitstrukturen nach ihren individuellen Bedürfnissen. Sie berücksichtigen dabei die UNBRK.\n• Sie fördern und unterstützen die Bewohnerinnen und Bewohner in der Wahrnehmung ihrer Grundbedürfnisse, gestalten mit ihnen ihren Alltag und unterstützen sie in ihrer Gesundheitserhaltung\n• Sie sind verantwortlich für die Planung, Durchführung und Evaluation des agogischen Prozesses und arbeiten dabei mit internen Ansprechpersonen, Angehörigen und gesetzlichen Vertretenden sowie externen Stellen zusammen\n• Sie unterstützen Lernende und Studierende unterschiedlicher Berufsbildungsgänge im Gesundheits- und Sozialbereich bei der Entwicklung ihrer Kompetenzen Anforderungen:\n• Sie sind dipl. Sozialpädagogin/Sozialpädagoge HF oder FH und haben Erfahrung in der Arbeit mit Menschen mit Beeinträchtigung oder sind interessiert, sich in dieses Tätigkeitsfeld einzuarbeiten\n• Sie zeigen eine hohe Bereitschaft, sich auf eine professionelle Beziehung mit den Bewohnerinnen und Bewohnern einzulassen und deren Anliegen zu vertreten\n• Sie verfügen über eine lösungsorientierte Arbeitsorganisation und hohe Eigenverantwortung\n• Mit ihrer kreativen und transparenten kommunikativen Art gestalten sie den Alltag proaktiv\n• Standfestigkeit, Organisieren sowie Vernetzen und Beraten gehört zu ihren Stärken.\n• Sie begeistern sich dafür, den Bewohnerinnen und Bewohnern ein schönes Zuhause zu schaffen, das ihren Bedürfnissen entspricht Wir bieten:\n• Die Möglichkeit, für Menschen in komplexen und herausfordernden Situationen eigenständig die Fallführung zu gestalten\n• Gezielte Weiterbildungen zu agogischen und pflegerischen Themen, ein sehr gutes internes Bildungsangebot und Förderung von externen Weiterbildungen\n• Themenspezifische Unterstützung durch interne Fachexpertinnen und -experten\n• 5 Wochen Ferien, ab dem 50. Altersjahr 6 Wochen\n• Eigene Pensionskasse mit überdurchschnittlichem Arbeitgeberanteil von 60%\n• Personalwohnungen und Vergünstigungen im EPI Park Restaurant, in der Apotheke und bei Halbtax- oder Generalabonnement Manchmal ganz schön herausfordernd, aber nie langweilig: Im EPI WohnWerk ist kein Tag wie der andere. Denn die Menschen, die wir begleiten, haben jede und jeder ihre einzigartige Lebensgeschichte. Dank der Zusammenarbeit im interprofessionellen Team sind wir bestens aufgestellt für unseren Arbeitstag. Möchten Sie auch Teil dieses Teams sein?"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://job.swissepi.ch/offene-stellen/dipl-sozialpaedagogin-sozialpaedagoge-hf-fh/6332012f-6d7f-4e45-a655-daae6d1356fc",
+      "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T22:34:33.556Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8008",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-11",
+      "applyUrl": "2050",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T12:05:17.609Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1233,7 +1237,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/mitarbeiterin-mitarbeiter-reinigung-restaurant-und-seminar-epi-park/cf2f7ebe-8550-44a8-b483-3c74542aeefb",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.642Z",
+      "crawledAt": "2026-06-17T22:34:33.554Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1304,7 +1308,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/leiterin-leiter-restaurant/342235a4-f1de-4ca2-8bbe-02427f2ed277",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.638Z",
+      "crawledAt": "2026-06-17T22:34:33.551Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1381,7 +1385,7 @@
       "url": "https://job.swissepi.ch/offene-stellen/fachfrau-fachmann-gesundheit-efz/a8504e04-a766-4ec3-82d0-73c70b6c7f1e",
       "source": "Schweizerische Epilepsie-Stiftung (EPI) Dedicated Parser (Prospective medium 1008439)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:53:08.615Z",
+      "crawledAt": "2026-06-17T22:34:33.527Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
