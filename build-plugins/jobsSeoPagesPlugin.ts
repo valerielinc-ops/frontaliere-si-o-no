@@ -11,8 +11,8 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
-import { buildSimplePage } from './htmlTemplate';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { buildSimplePage, asyncCssHeadBlock } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildSlimSeed } from './shared/slimJobIndex';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -2972,12 +2972,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:image:height" content="630">
  <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
- ${SEO_STATIC_CSS_LINK}
 ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${inlineScriptJson({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
- <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
+ <script type="application/ld+json">${inlineScriptJson({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
  ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
 ${staticAnalyticsHtml}
@@ -3545,7 +3545,7 @@ ${staticAnalyticsHtml}
  // chip styling moved to `.aj-chip` in public/assets/seo-static.css —
  // identical computed style, saves ~250 B × ~6 chips × 96k active-job
  // emits ≈ ~24 MB on the dist artifact. CSS file is already loaded on
- // every active-job page via the `SEO_STATIC_CSS_LINK` above.
+ // every active-job page via the async `asyncCssHeadBlock` in the head.
  const sectorChips = sectors
  .map((s) => {
  const href = `${buildSectorHubPath(locale, s)}`;
@@ -4648,8 +4648,8 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -4809,8 +4809,8 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${faqLd}</script>
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -4976,8 +4976,8 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${faqLd}</script>
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -5155,8 +5155,8 @@ ${staticAnalyticsHtml}
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
- <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${faqLd}</script>
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -5330,8 +5330,8 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -5523,8 +5523,8 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -5740,8 +5740,8 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -5899,8 +5899,8 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
  <script type="application/ld+json">${breadcrumbLd}</script>
- <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : ''}
- ${SEO_STATIC_CSS_LINK}
+ <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n <script type="application/ld+json">${itemListLd}</script>` : ''}
+ ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
 ${staticAnalyticsHtml}
  </head>
  <body>
@@ -10344,13 +10344,14 @@ ${staticAnalyticsHtml}
  // darkModeStyles + nav/footer/article inline styles now live in
  // /assets/seo-static.css (loaded via <link> in the template head).
  // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
- // → saves ~100 MB across dist.
- const seoStaticCssLink = SEO_STATIC_CSS_LINK;
+ // → saves ~100 MB across dist. Loaded NON-render-blocking (inline
+ // CRITICAL_CSS + media=print swap of seo-static.css AND the SPA entry
+ // sheet) via the shared asyncCssHeadBlock — issue #1991.
+ const cssHeadBlock = asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined);
  // Externalised from inline <svg> (~700 B/page) — same logo now served from
  // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
  // pages. Static path; browser caches first-load globally.
  const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="eager" decoding="async">`;
- const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache).
  //
@@ -10417,9 +10418,9 @@ ${staticAnalyticsHtml}
  <link rel="canonical" href="${selfUrl}">
 ${hreflangLinks}
  ${earlyBootScript}
- ${seoStaticCssLink}
+ ${cssHeadBlock}
  ${jsonLdScripts}
- <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${spaBundleCss}
+ <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>
 ${staticAnalyticsHtml}
  ${adSnippet}
  </head>

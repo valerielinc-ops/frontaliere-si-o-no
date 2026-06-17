@@ -13,10 +13,25 @@
  * Riusa buildSequence (generate-cold-emails.mjs) + sendEmailCascade (cascade
  * multi-provider esistente). Carica le chiavi via load-rc-env.mjs.
  *
+ * Log persistente (send-log.json):
+ *   Traccia ogni invio reale (--send) per azienda. Usato per:
+ *   - suppression check: aziende con `suppressed: true` vengono saltate
+ *   - dedup touch: stessa touch non viene inviata due volte alla stessa azienda
+ *   - cap multi-touch: --max-touches N salta aziende con ≥N touch già inviate
+ *   Il log è locale (gitignored). Per sopprimere un'azienda: imposta
+ *   `suppressed: true` + `suppressedReason` nel send-log.json a mano.
+ *
  * Esempi:
  *   # prova in casella (sanzionato): manda la touch-1 di Casale a te stesso
  *   node scripts/send-cold-emails.mjs --test --target-email valerielinc@gmail.com \
  *     --report data/employer-outreach/report.json --company casale-sa --touch 1
+ *
+ *   # dry-run con stato log (mostra suppressed/cap/già inviata per azienda)
+ *   node scripts/send-cold-emails.mjs --report data/employer-outreach/report.json
+ *
+ *   # invio reale touch-1, max 3 aziende, cap a 2 touch totali per azienda
+ *   node scripts/send-cold-emails.mjs --send --confirm \
+ *     --report data/employer-outreach/report.json --touch 1 --max-touches 2
  */
 
 import fs from 'node:fs';
@@ -47,11 +62,67 @@ function bodyToHtml(body) {
 
 function loadJson(p, def) { try { return JSON.parse(fs.readFileSync(path.resolve(p), 'utf8')); } catch { return def; } }
 
+// ── Send log helpers ──────────────────────────────────────────
+
+/**
+ * Load the send log (local-only, gitignored). Returns empty object on missing/corrupt.
+ * Structure: { [companyKey]: { touches: [{touch, sentAt, provider, messageId}], suppressed, suppressedReason } }
+ */
+function loadSendLog(logPath) {
+  try {
+    const raw = fs.readFileSync(path.resolve(logPath), 'utf8');
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    return parsed;
+  } catch {
+    return {};
+  }
+}
+
+function saveSendLog(logPath, log) {
+  const p = path.resolve(logPath);
+  fs.mkdirSync(path.dirname(p), { recursive: true });
+  fs.writeFileSync(p, JSON.stringify(log, null, 2), 'utf8');
+}
+
+function isSuppressed(log, key) {
+  return key ? !!(log[key]?.suppressed) : false;
+}
+
+function touchesSentForKey(log, key) {
+  return key ? (log[key]?.touches || []) : [];
+}
+
+function alreadySentTouch(log, key, touchNum) {
+  return touchesSentForKey(log, key).some((t) => t.touch === touchNum);
+}
+
+function cappedOut(log, key, maxTouches) {
+  return touchesSentForKey(log, key).length >= maxTouches;
+}
+
+/** Human-readable log status for dry-run display. */
+function logStatus(log, key, touchNum, maxTouches) {
+  if (!key) return 'no key';
+  if (isSuppressed(log, key)) return `⛔ suppressed: ${log[key].suppressedReason || '(no reason)'}`;
+  const sent = touchesSentForKey(log, key);
+  if (alreadySentTouch(log, key, touchNum)) {
+    const entry = sent.find((t) => t.touch === touchNum);
+    return `⚠ touch ${touchNum} già inviata ${entry?.sentAt ? `(${entry.sentAt.slice(0, 10)})` : ''}`;
+  }
+  if (cappedOut(log, key, maxTouches)) return `🚫 cap (${sent.length}/${maxTouches} touch)`;
+  return sent.length === 0 ? '● nuovo' : `${sent.length} touch precedenti`;
+}
+
+// ─────────────────────────────────────────────────────────────
+
 function run() {
   const reportPath = arg('--report', path.join(ROOT, 'data/employer-outreach/report.json'));
   const contactsPath = arg('--contacts', path.join(ROOT, 'data/employer-outreach/contacts.json'));
+  const logPath = arg('--log', path.join(ROOT, 'data/employer-outreach/send-log.json'));
   const touch = Number(arg('--touch', '1'));
   const top = Number(arg('--top', '5'));
+  const maxTouches = Number(arg('--max-touches', '4'));
   const onlyCompany = arg('--company', '');
   const from = arg('--from', FROM_DEFAULT);
   const periodLabel = typeof arg('--days-label', 0) === 'string' ? arg('--days-label') : 'negli ultimi 3 mesi';
@@ -63,6 +134,7 @@ function run() {
   const report = loadJson(reportPath, null);
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
   const contacts = loadJson(contactsPath, {});
+  const sendLog = loadSendLog(logPath);
 
   let targets = report.employers.slice(0, top);
   if (onlyCompany && onlyCompany !== true) targets = report.employers.filter((e) => (e.key || '') === onlyCompany);
@@ -82,21 +154,39 @@ function run() {
   if (!isTest && !isSend) {
     console.log('═══ DRY-RUN — nessun invio (usa --test --target-email <addr> per la prova) ═══\n');
     for (const m of messages) {
-      console.log(`• ${m.company}  [${m.sector}]  → ${m.realEmail || m.inferred || '(nessuna email)'}${m.realEmail ? '' : ' (NON verificata)'}`);
+      const status = logStatus(sendLog, m.key, touch, maxTouches);
+      console.log(`• ${m.company}  [${m.sector}]  → ${m.realEmail || m.inferred || '(nessuna email)'}${m.realEmail ? '' : ' (NON verificata)'}  [${status}]`);
       console.log(`  oggetto: ${m.subject}`);
       console.log(m.text.split('\n').map((l) => '    ' + l).join('\n'));
       console.log('');
     }
-    console.log(`${messages.length} messaggi pronti (touch ${touch}). Nessuno inviato.`);
+    console.log(`${messages.length} messaggi pronti (touch ${touch}, max-touches ${maxTouches}). Nessuno inviato.`);
     return;
   }
 
   if (isTest && (!targetEmail || targetEmail === true)) { console.error('--test richiede --target-email <addr>'); process.exit(2); }
   if (isSend && !has('--confirm')) { console.error('⛔ --send richiede anche --confirm (invio reale ai contatti). Annullato.'); process.exit(2); }
 
-  // Costruisci la coda per la cascade.
+  // Costruisci la coda per la cascade, applicando suppression/cap/dedup.
   const queue = [];
   for (const m of messages) {
+    // Suppression/cap check applicato SOLO in invio reale (--send), non in --test.
+    if (isSend && m.key) {
+      if (isSuppressed(sendLog, m.key)) {
+        console.warn(`↷ skip ${m.company}: in suppression list (${sendLog[m.key].suppressedReason || 'no reason'})`);
+        continue;
+      }
+      if (cappedOut(sendLog, m.key, maxTouches)) {
+        console.warn(`↷ skip ${m.company}: cap raggiunto (${touchesSentForKey(sendLog, m.key).length}/${maxTouches} touch)`);
+        continue;
+      }
+      if (alreadySentTouch(sendLog, m.key, touch)) {
+        const prev = touchesSentForKey(sendLog, m.key).find((t) => t.touch === touch);
+        console.warn(`↷ skip ${m.company}: touch ${touch} già inviata il ${prev?.sentAt?.slice(0, 10) || '?'}`);
+        continue;
+      }
+    }
+
     let to;
     if (isTest) {
       to = targetEmail; // override: solo a te stesso
@@ -115,14 +205,33 @@ function run() {
         tags: [{ name: 'type', value: 'cold-outreach' }, { name: 'company', value: (m.key || m.company).slice(0, 40) }],
       },
       recipient: { email: to },
+      // Metadati per il log (non usati dalla cascade, solo dall'onSent callback).
+      _key: m.key,
+      _touch: touch,
     });
   }
   if (!queue.length) { console.error('coda vuota — nessun destinatario valido.'); process.exit(1); }
 
   console.log(`${isTest ? '🧪 TEST' : '📨 INVIO REALE'}: ${queue.length} email${isTest ? ` → tutte a ${targetEmail}` : ''} (touch ${touch})\n`);
+
+  // onSent: aggiorna il log dopo ogni invio reale. Non scrive in --test (email non vanno alle aziende reali).
+  const onSent = isSend ? (item, result) => {
+    const key = item._key;
+    if (!key) return;
+    if (!sendLog[key]) sendLog[key] = { touches: [], suppressed: false, suppressedReason: '' };
+    sendLog[key].touches.push({
+      touch: item._touch,
+      sentAt: new Date().toISOString(),
+      provider: result.provider,
+      messageId: result.messageId,
+    });
+    saveSendLog(logPath, sendLog);
+  } : undefined;
+
   import('./lib/email-cascade.mjs').then(async ({ sendEmailCascade, logProviderSummary }) => {
-    const { sent, failed } = await sendEmailCascade(queue, { concurrency: 1, delayMs: 1200 });
+    const { sent, failed } = await sendEmailCascade(queue, { concurrency: 1, delayMs: 1200, onSent });
     console.log(`\n✅ inviate ${sent.length}, ❌ fallite ${failed.length}`);
+    if (isSend && sent.length > 0) console.log(`   Log aggiornato: ${path.relative(ROOT, path.resolve(logPath))}`);
     logProviderSummary();
   });
 }
