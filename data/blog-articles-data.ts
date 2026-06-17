@@ -25749,6 +25749,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'candidato-medico-eoc-bellinzona',
+ category: 'novita',
+ date: '2026-06-17T01:12:59.792Z',
+ image: '/images/blog/candidato-medico-eoc-bellinzona.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -8121,6 +8121,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-frontaliere-guida.title': '3. Säule 3a für Grenzgänger: Kompleter Leitfaden',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Finden Sie heraus, wie die 3. Säule 3a für Grenzgänger im Tessin funktioniert, die steuerlichen Vorteile und die Regeln für die individuelle private Altersvorsorge.',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Panoramablick auf Lugano, Finanzzentrum im Tessin',
+    'blog.article.candidato-medico-eoc-bellinzona.title': 'Arztkandidat in Bellinzona: EOC sucht Grenzgänger',
+    'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'Das Kantonale Spital Bellinzona (EOC) sucht Ärzte für Innere Medizin und Intensivmedizin. Details sind noch nicht spezifiziert, aber es gibt eine Möglichkeit für Grenzgänger.',
+    'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'EOC-Spital in Bellinzona, Kanton Tessin, sucht Grenzgänger-Ärzte für Innere Medizin und Intensivmedizin.',
 };
 
 export default blogMetaDe;

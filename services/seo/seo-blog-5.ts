@@ -44456,6 +44456,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-candidato-medico-eoc-bellinzona': {
+    title: 'Candidato medico a Bellinzona: EOC cerca frontalieri',
+    description: 'L\'Ente Ospedaliero Cantonale di Bellinzona cerca un medico per medicina interna e intensiva. Dettagli non ancora specificati, ma opportunità per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, candidato, medico, bellinzona, cerca',
+    ogTitle: 'Candidato medico a Bellinzona: EOC cerca frontalieri',
+    ogDescription: 'L\'EOC Bellinzona assume medici per medicina interna e intensiva. Un\'opportunità per i frontalieri italiani. Scopri i requisiti e gli aspetti fiscali.',
+    canonicalPath: '/articoli-frontaliere/candidato-medico-eoc-bellinzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Candidato medico a Bellinzona: EOC cerca frontalieri",
+      "description": "L'Ente Ospedaliero Cantonale di Bellinzona cerca un medico per medicina interna e intensiva. Dettagli non ancora specificati, ma opportunità per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/candidato-medico-eoc-bellinzona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale EOC di Bellinzona, Canton Ticino, cerca medici frontalieri per medicina interna e intensiva."
+      },
+      "datePublished": "2026-06-17T01:12:59+00:00",
+      "dateModified": "2026-06-17T01:12:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/candidato-medico-eoc-bellinzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
