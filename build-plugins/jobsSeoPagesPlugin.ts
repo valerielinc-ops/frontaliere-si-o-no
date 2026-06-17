@@ -10755,12 +10755,27 @@ ${staticAnalyticsHtml}
  // strings in the write collector. 'has-traffic' is the small, high-value set
  // (the pages that actually had traffic), so the per-build prose count — and
  // memory — is bounded. Grace/no-traffic pages stay stripped + thin-shelled.
- const __slProsePaths: string[] = [relPath];
- for (const __slProseLocale of localeList) {
- const __slProseP = `/${localePrefix[__slProseLocale]}/${sectionByLocale[__slProseLocale]}/${slug}`.replace(/\/+/g, '/');
- if (!__slProsePaths.includes(__slProseP)) __slProsePaths.push(__slProseP);
+ //
+ // Single source of truth: __slCandidatePaths (built once here, hoisted above
+ // the body) feeds BOTH the prose gate (__slKeepProse) and the thin-shell gate
+ // (__slDecision, in the emission block below). A prior version rebuilt the same candidate
+ // set twice with two independent idioms (__slProsePaths here + __slCandidatePaths
+ // below) — set-equal then, but a future mirror-source added to only one builder
+ // would silently diverge the gates (prose kept on a thin-shelled page, or vice
+ // versa). One builder, one decideMulti per gate, no drift by construction.
+ // PR #743 lesson: non-IT locales also emit a legacy-locale bridge at legacyRel,
+ // so traffic may land there — probe relPath + every locale variant.
+ const __slCandidatePaths: string[] = [relPath];
+ if (locale !== 'it') {
+ const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
+ if (__slLegacyRel !== relPath) __slCandidatePaths.push(__slLegacyRel);
  }
- const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
+ for (const __slOtherLocale of localeList) {
+ if (__slOtherLocale === locale) continue;
+ const __slOtherPath = `/${localePrefix[__slOtherLocale]}/${sectionByLocale[__slOtherLocale]}/${slug}`.replace(/\/+/g, '/');
+ if (!__slCandidatePaths.includes(__slOtherPath)) __slCandidatePaths.push(__slOtherPath);
+ }
+ const __slKeepProse = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired').reason === 'has-traffic';
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
@@ -11115,24 +11130,11 @@ ${staticAnalyticsHtml}
  // matching an approved pattern becomes a thin shell (HEAD verbatim,
  // article body replaced by a slim h1+p≥50 words). See
  // build-plugins/shared/softLandingThinShell.ts.
- // PR #743 lesson: non-IT locales also emit a legacy-locale bridge
- // (line ~10700 below) at `legacyRel`. Traffic may land there, so
- // check both via decideMulti.
- const __slCandidatePaths: string[] = [relPath];
- if (locale !== 'it') {
- const __slLegacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
- if (__slLegacyRel !== relPath) __slCandidatePaths.push(__slLegacyRel);
- }
- // Reviewer HIGH #1: cross-locale safety net. Soft-landings emit one
- // page per (slug, locale). gsc-job-urls.json + gsc-orphan-job-slugs
- // are IT-only sources, so the IT-locale equivalent path is the
- // strongest historical signal for any slug regardless of which
- // locale we're currently emitting. Probe every locale variant.
- for (const __slOtherLocale of localeList) {
- if (__slOtherLocale === locale) continue;
- const __slOtherPath = `/${localePrefix[__slOtherLocale]}/${sectionByLocale[__slOtherLocale]}/${slug}`.replace(/\/+/g, '/');
- if (!__slCandidatePaths.includes(__slOtherPath)) __slCandidatePaths.push(__slOtherPath);
- }
+ // Reuses the hoisted `__slCandidatePaths` (built above the body, single
+ // source of truth) — same candidate set that gated `__slKeepProse`, so the
+ // prose gate and the thin-shell gate can never diverge. (Reviewer HIGH #1
+ // cross-locale safety net + PR #743 legacy-locale bridge probe are baked
+ // into that builder.)
  const __slDecision = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired');
  const __slAction: 'full' | 'thin' =
  __slDecision.action === 'thin' ? 'thin' : 'full';
