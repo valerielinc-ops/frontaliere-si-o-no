@@ -316,10 +316,19 @@ function main() {
       console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
     }
   } else {
-    // Nessun `## LGTM` utilizzabile E nessun 🔴: tipicamente il reviewer NON ha
-    // potuto girare perché la PR modifica `pr-review-loop.yml` (workflow-validation
-    // 401). Prova il drift-fallback deterministico (autore fidato +
-    // pr-body-contract verde). Ritorna false → skip (un push/`tests` ri-valuterà).
+    // Nessun `## LGTM` utilizzabile E nessun 🔴. Se il reviewer HA EFFETTIVAMENTE
+    // girato sull'HEAD corrente e ha scelto di NON approvare (review con solo
+    // 🟡/❓ — es. un ❓ funnel-critical non escalato, dove REVIEW.md vieta
+    // `## LGTM`), RISPETTA la non-approvazione: il drift-fallback NON scavalca un
+    // giudizio esplicito del reviewer. Il fallback vale solo quando il reviewer
+    // NON ha potuto girare (workflow-validation 401 → nessuna review su questo
+    // head: `lastBot` null, oppure su un commit precedente).
+    if (lastBot && lastBot.commit_id === head) {
+      return fail(`Reviewer ha girato su HEAD ${head} ma non ha postato '## LGTM' (review non-approvante, es. ❓ aperto) — skip; il drift-fallback non scavalca una non-approvazione esplicita.`);
+    }
+    // Tipicamente il reviewer NON ha potuto girare perché la PR modifica
+    // `pr-review-loop.yml` (401). Prova il drift-fallback deterministico (autore
+    // fidato + body-contract). Ritorna false → skip (un push/`tests` ri-valuterà).
     if (!evaluateDriftFallback()) {
       return fail(lastBot
         ? `Ultima review claude-bot senza '## LGTM' e drift-fallback non applicabile — skip.`
