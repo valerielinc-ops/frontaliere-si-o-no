@@ -75,8 +75,12 @@ const SITE_WORKER_SCRIPT = 'frontaliere-locale-router';
 const OTTO_SCRIPT_RX = /otto|searchatlas|pixel/i;
 
 // A route pattern this broad, bound to a foreign (non-site) worker, is the OTTO
-// catch-all signature even if the script were renamed: `<host>/*` or `*/*`.
-const CATCH_ALL_RX = /^(\*|[^/]+)\/\*$/;
+// catch-all signature even if the script were renamed: `<host>/*`, `*/*`, or
+// any sub-path variant (`<host>/<segment>/*`, `<host>/api/v2/*`, etc.).
+// Segments between host and the trailing `/*` are zero or more non-slash,
+// non-wildcard components — covers a renamed/re-pathed OTTO worker that the
+// script-name regex alone might miss.
+const CATCH_ALL_RX = /^(\*|[^/]+)(\/[^*/]*)*\/\*$/;
 
 function parseArgs(argv) {
   return { json: argv.includes('--json') };
