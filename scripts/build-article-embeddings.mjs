@@ -24,7 +24,7 @@ import { createHash } from 'node:crypto';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { embedBatch, lastUsedEmbeddingModel } from './lib/evidence/embeddingClient.mjs';
+import { embedBatch, lastUsedEmbeddingModel, selectProvider } from './lib/evidence/embeddingClient.mjs';
 import { EMBEDDING_DIM, EMBEDDING_MODEL } from './lib/evidence/constants.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -207,10 +207,12 @@ async function main() {
   }
 
   if (toEmbed.length > 0) {
-    const hasMistral = !!(process.env.MISTRAL_API_KEY || '').trim();
-    const hasCohere = !!(process.env.COHERE_API_KEY || '').trim();
-    if (!hasMistral && !hasCohere) {
-      console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
+    // Chain-driven guard: skip only when NO provider key is in env at all.
+    // Derived from selectProvider() (the actual EMBEDDING_PROVIDERS chain) so a
+    // newly-added provider — e.g. Gemini — counts automatically. Hardcoding
+    // mistral/cohere here would skip even when only GEMINI_API_KEY is set.
+    if (!selectProvider()) {
+      console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY, COHERE_API_KEY or GEMINI_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
       const meta = {
         // Preserve the untouched store's own model label (don't relabel a store
         // we didn't rebuild). Fall back to EMBEDDING_MODEL only if unknown.

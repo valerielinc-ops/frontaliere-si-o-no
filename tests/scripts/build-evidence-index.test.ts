@@ -32,9 +32,13 @@ describe('evidence-index constants', () => {
     expect(constants.CLUSTER_MIN_N).toBe(5);
     expect(constants.EMBEDDING_DIM).toBe(1024);
     expect(constants.EMBEDDING_MODEL).toBe('mistral-embed');
-    expect(constants.EMBEDDING_PROVIDERS).toHaveLength(2);
+    // Chain: mistral → cohere → gemini (gemini added as the rescue tail when
+    // the Mistral key 401'd and froze the embedding store — see embeddingClient).
+    expect(constants.EMBEDDING_PROVIDERS).toHaveLength(3);
     expect(constants.EMBEDDING_PROVIDERS[0].id).toBe('mistral');
     expect(constants.EMBEDDING_PROVIDERS[1].id).toBe('cohere');
+    expect(constants.EMBEDDING_PROVIDERS[2].id).toBe('gemini');
+    expect(constants.EMBEDDING_PROVIDERS.every((p) => p.dim === constants.EMBEDDING_DIM)).toBe(true);
   });
 });
 
