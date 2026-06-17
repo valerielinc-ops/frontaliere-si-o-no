@@ -21,6 +21,7 @@ import { extractEpflDetailDescription } from '../scripts/lib/epfl-job-parser.mjs
 import { extractEthZurichDetailDescription } from '../scripts/lib/eth-zurich-job-parser.mjs';
 import { extractKssgDetailDescription } from '../scripts/lib/kssg-job-parser.mjs';
 import { normalizeDescriptionBullets } from '../scripts/lib/crawler-template.mjs';
+import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE_DIR = path.join(__dirname, 'fixtures', 'parser-quality');
@@ -71,5 +72,35 @@ describe('parser-quality regression — list structure preserved', () => {
   it('normalizeDescriptionBullets is idempotent on already-bulleted text', () => {
     const already = '• A\n• B\n• C';
     expect(normalizeDescriptionBullets(already)).toBe(already);
+  });
+
+  // Regression #2476 (Spital STS "10/10 flat"): the shared `htmlToText` helper
+  // used by the hospital-class parsers must turn each `<li>` into a line-start
+  // `• ` bullet. Previously it mapped `</li>` to a bare `\n`, dropping the
+  // marker, so a Prospective.ch `<div class="content"><ul><li>…</li></ul>`
+  // section collapsed into flat prose that `hasStructuredContent` could not
+  // detect as a list — the audit-parser-quality NEW-OFFENDER trip.
+  it('htmlToText turns <ul><li> into line-start bullets (Prospective ATS section)', () => {
+    const html =
+      '<div class="title"><H2>Das wartet auf Sie</H2></div>' +
+      '<div class="content"><ul>' +
+      '<li>Abwechslungsreiche Tätigkeit mit grossem Handlungsspielraum</li>' +
+      '<li>Hervorragendes interdisziplinäres und interprofessionelles Team</li>' +
+      '<li>Exzellentes Teaching</li></ul></div>';
+    const out = htmlToText(html);
+    expect(hasStructuredContent(out)).toBe(true);
+    expect(/^\s*•\s/m.test(out)).toBe(true);
+    expect(out).toContain('Exzellentes Teaching');
+  });
+
+  // Even when a parser flattens the section with `normalizeSpace` (the bullets
+  // survive only as inline `• `), `normalizeDescriptionBullets` must re-expand
+  // them to line-start bullets so the by-crawler slice passes the audit.
+  it('inline • markers from htmlToText survive a normalizeSpace collapse', () => {
+    const html = '<ul><li>Coordinare il team</li><li>Garantire la qualità</li><li>Gestire le scadenze</li></ul>';
+    const flattened = htmlToText(html).replace(/\s+/g, ' ').trim();
+    expect(flattened).toContain('• ');
+    const restored = normalizeDescriptionBullets(flattened);
+    expect(/^\s*•\s/m.test(restored)).toBe(true);
   });
 });

@@ -158,6 +158,8 @@ async function scrapeDetailPage(relativeUrl) {
       .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '')
       .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<\/p>/gi, '\n\n')
+      // Open each <li> as a line-start bullet so list structure survives the strip (#2476).
+      .replace(/<li[^>]*>/gi, '\n• ')
       .replace(/<\/li>/gi, '\n')
       .replace(/<\/h[1-6]>/gi, '\n\n')
       .replace(/<[^>]+>/g, '') // strip remaining HTML tags
