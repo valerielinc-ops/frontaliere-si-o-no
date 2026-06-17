@@ -838,17 +838,37 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
   const existingFirstSeen = new Map();
+  // ── postedDate churn guard (#1720 item 4) ─────────────────────────────
+  // Listing-only parsers without a source date set `postedDate: new Date()…`
+  // on every run (decathlon, implenia, liebherr + ~90 siblings). Without a
+  // carry-forward the JobPosting.datePosted "ringiovanisce" each crawl —
+  // a misleading freshness signal for Google Jobs and pure diff noise on the
+  // dataset. Capture the prior slice's postedDate per stable identity and,
+  // for jobs that already existed, keep the EARLIER of (prior, new) so a
+  // re-crawl never moves datePosted forward. A genuinely-newer source date
+  // (parser read a real value) is still respected because we only pin DOWN,
+  // never up; brand-new jobs keep their fresh date untouched. Centralized
+  // here (not in 90 parsers) so the whole class is fixed by-construction.
+  const existingPostedDate = new Map();
   for (const ej of (existingSlice?.jobs || [])) {
-    if (ej.firstSeenAt) {
-      const identity = buildStableJobIdentity(ej);
-      if (identity) existingFirstSeen.set(identity, ej.firstSeenAt);
-    }
+    const identity = buildStableJobIdentity(ej);
+    if (!identity) continue;
+    if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
+    if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
   }
   const now = new Date().toISOString();
   for (const job of hardened.jobs) {
+    const identity = buildStableJobIdentity(job);
     if (!job.firstSeenAt) {
-      const identity = buildStableJobIdentity(job);
-      job.firstSeenAt = existingFirstSeen.get(identity) || job.crawledAt || now;
+      job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
+    }
+    if (identity && job.postedDate) {
+      const prior = existingPostedDate.get(identity);
+      // Pin to the earliest known posting date for the same job (date-only
+      // lexicographic compare is correct for ISO YYYY-MM-DD strings).
+      if (prior && String(prior).slice(0, 10) < String(job.postedDate).slice(0, 10)) {
+        job.postedDate = prior;
+      }
     }
   }
 

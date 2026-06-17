@@ -1,0 +1,102 @@
+name: FB Articles Schedule
+
+on:
+  schedule:
+    # Hourly at :22 — clear of the job scheduler's FB slots
+    # (:05/:15/:25/:35/:45/:55) and the article-generation cron (:07/:37).
+    # Articles are posted IMMEDIATELY (not via scheduled_publish_time), so the
+    # minute only needs to avoid colliding with heavy concurrent workflows.
+    # The recency window (FB_ARTICLE_MAX_AGE_DAYS) + per-run cap
+    # (FB_ARTICLE_VOLUME) keep each run small, so an hourly cadence drains new
+    # articles within ~1 h of generation without flooding the Page.
+    - cron: '22 * * * *'
+  workflow_dispatch:
+    inputs:
+      volume:
+        description: 'Max articles to post this run'
+        required: false
+        default: '4'
+        type: string
+      max_age_days:
+        description: 'Only consider articles dated within N days'
+        required: false
+        default: '2'
+        type: string
+      dry_run:
+        description: 'Skip Graph API call (preview only)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+# Serialize so two runs never post-and-commit the ledger concurrently (the
+# only writer of data/fb-posted-articles.json — serialization makes ledger
+# rebase conflicts essentially impossible; the resolver is belt-and-braces).
+concurrency:
+  group: fb-articles-schedule
+  cancel-in-progress: false
+
+permissions:
+  contents: write  # to commit fb-posted-articles.json
+  issues: write
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from RC
+        run: node scripts/load-rc-env.mjs
+
+      - name: Schedule FB articles
+        env:
+          FB_ARTICLE_VOLUME: ${{ github.event.inputs.volume || '4' }}
+          FB_ARTICLE_MAX_AGE_DAYS: ${{ github.event.inputs.max_age_days || '2' }}
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: node scripts/schedule-fb-articles-daily.mjs
+
+      - name: Commit posted-articles tracking
+        if: success() && github.event.inputs.dry_run != 'true'
+        run: |
+          set -euo pipefail
+          if git diff --quiet data/fb-posted-articles.json; then
+            echo "no changes"; exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/fb-posted-articles.json
+          git commit -m "chore(fb): track posted articles [skip ci]"
+          # In-place resolver unions by article-id when another commit lands on
+          # main mid-run, so the ledger commit is never lost (a lost commit
+          # would let the next run re-post the same articles).
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-fb-posted-articles-conflict.mjs && git add -A"
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
