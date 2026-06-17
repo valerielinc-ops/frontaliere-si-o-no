@@ -1,18 +1,49 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-06-17T12:27:34.684Z",
-  "total": 94,
-  "newCount": 0,
+  "generatedAt": "2026-06-17T22:11:05.029Z",
+  "total": 95,
+  "newCount": 1,
   "updatedCount": 94,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 320105,
-  "avgDurationMs": 320105,
+  "durationMs": 324788,
+  "avgDurationMs": 324788,
   "durationHistory": [
-    320105
+    324788
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "KMU-Supporter/in für die Generalagentur St. Gallen, 100%",
+      "slug": "kmu-supporter-in-fur-die-generalagentur-st-gallen-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/523/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/523/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "KMU-Supporter/in",
+      "addressLocality": "KMU-Supporter/in",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-17",
+      "employmentType": "full-time",
+      "contractType": "Unbefristet",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Kundenberater/in für die Agentur Murten 100%",
@@ -334,6 +365,7 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -555,11 +587,11 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1111,44 +1143,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Spezialist:in Vorsorgeberatung und Pensionsplanung (w/m/d), 80-100%",
-      "slug": "spezialist-in-vorsorgeberatung-e-pensionsplanung-w-m-d-80-100-allianz-suisse-kundenberater-in",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/874/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/874/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Kundenberater/in",
-      "addressLocality": "Kundenberater/in",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "Unbefristet",
-      "validThrough": "",
-      "id": "allianz-suisse-ebb0e6855984",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "1700",
-      "firstSeenAt": "2026-06-12T11:41:33.637Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
