@@ -257,7 +257,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "testa-smo-80-100-lunedi-f-g-caritas-schweiz-luzern"
+        ],
+        "fr": [
+          "tete-smo-80-100-lun-vendredi-j-caritas-schweiz-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "testa-smo-80-100-lunedi-f-g-caritas-schweiz-luzern",
+        "tete-smo-80-100-lun-vendredi-j-caritas-schweiz-luzern"
+      ]
     },
     {
       "id": "caritas-schweiz-f61d43078b64",
@@ -311,17 +323,23 @@
       "pensumMax": 80,
       "pensum": "60 - 80%",
       "previousSlugs": [
-        "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich"
+        "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich",
+        "consulenza-hr-mandati-di-asilo-z-u00fcrich-60-80-m-f-d-caritas-schweiz-zurich",
+        "hr-consulting-asylum-mandates-z-u00fcrich-60-80-m-f-d-caritas-schweiz-zurich",
+        "conseil-rh-mandats-d-asile-z-u00fcrich-60-80-h-f-d-caritas-schweiz-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich"
+          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich",
+          "consulenza-hr-mandati-di-asilo-z-u00fcrich-60-80-m-f-d-caritas-schweiz-zurich"
         ],
         "en": [
-          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich"
+          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich",
+          "hr-consulting-asylum-mandates-z-u00fcrich-60-80-m-f-d-caritas-schweiz-zurich"
         ],
         "fr": [
-          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich"
+          "hr-beratung-asylmandate-z-u00fcrich-60-80-m-w-d-caritas-schweiz-zurich",
+          "conseil-rh-mandats-d-asile-z-u00fcrich-60-80-h-f-d-caritas-schweiz-zurich"
         ]
       },
       "firstSeenAt": "2026-06-16T13:00:14.883Z",
