@@ -3261,6 +3261,7 @@ Rules:
  'publisherDashboard.col.applyClicks': 'Apply clicks',
  'publisherDashboard.tier.free': 'Free',
  'publisherDashboard.tier.sponsored': 'Sponsored',
+ 'publisherDashboard.tier.azienda': 'Business Plan',
  'publisherDashboard.status.draft': 'Draft',
  'publisherDashboard.status.pending_payment': 'Awaiting payment',
  'publisherDashboard.status.paid': 'Active',
