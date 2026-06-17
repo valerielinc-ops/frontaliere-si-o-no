@@ -73,9 +73,32 @@ async function cfFetch(token, path, init = {}) {
   const json = await res.json().catch(() => null);
   if (!json) throw new Error(`Cloudflare returned non-JSON (HTTP ${res.status}) for ${path}`);
   if (!json.success) {
-    throw new Error(`Cloudflare API error for ${path}: ${JSON.stringify(json.errors || [])}`);
+    const err = new Error(`Cloudflare API error for ${path}: ${JSON.stringify(json.errors || [])}`);
+    err.cfErrors = json.errors || [];
+    err.httpStatus = res.status;
+    throw err;
   }
   return json.result;
+}
+
+/**
+ * Read the dynamic_redirect entrypoint rules. A phase that has NEVER had a
+ * ruleset returns CF error code 10003 ("could not find entrypoint ruleset …") —
+ * that is the only "genuinely empty" case, treated as `[]`. EVERY other failure
+ * (429/5xx/network/missing-scope) MUST propagate: swallowing it here would make
+ * `existing` empty and the subsequent full-array PUT would clobber any OTHER
+ * redirect rules already in the phase (data loss). Reviewer 🔴 on #2396.
+ */
+async function readEntrypointRules(token, zoneId) {
+  try {
+    const result = await cfFetch(token, `/zones/${zoneId}/rulesets/phases/${PHASE}/entrypoint`);
+    return Array.isArray(result?.rules) ? result.rules : [];
+  } catch (err) {
+    const noEntrypoint =
+      err.httpStatus === 404 || (err.cfErrors || []).some((e) => e?.code === 10003);
+    if (noEntrypoint) return [];
+    throw err; // transient / auth / other — never proceed to a truncating PUT
+  }
 }
 
 async function main() {
@@ -87,8 +110,7 @@ async function main() {
   }
   const zoneId = await resolveZoneId(token, process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME, process.env.CF_ZONE_ID);
 
-  const entrypoint = await cfFetch(token, `/zones/${zoneId}/rulesets/phases/${PHASE}/entrypoint`).catch(() => ({ rules: [] }));
-  const existing = Array.isArray(entrypoint?.rules) ? entrypoint.rules : [];
+  const existing = await readEntrypointRules(token, zoneId);
   const desired = buildRule();
 
   const idx = existing.findIndex((r) => r.description === RULE_DESCRIPTION);
