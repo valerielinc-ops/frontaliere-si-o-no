@@ -206,6 +206,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Im Haushalt arbeiten in Tessin: komplette Anleitung',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Erfahren Sie, wie Sie als Hausdienstmitarbeiter im Tessin, Schweiz, arbeiten können. Voraussetzungen, Aufgaben und praktische Tipps.',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Haushaltsangestellte in einer Schweizer Wohnung',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Grenzgänger-Arbeitslosigkeit: Funktionsweise Schweiz',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'Die vollständige Anleitung zur Arbeitslosigkeit für Grenzgänger in der Schweiz: SECO-Regeln, U1-Formular und Erstattungen zwischen den Staaten.',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Schweizer Verwaltungsgebäude mit Nationalflagge',
 };
 
 export default blogMetaChDe;

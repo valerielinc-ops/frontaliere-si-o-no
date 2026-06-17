@@ -206,6 +206,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Lavorare nel servizio alla casa in Ticino: guida completa',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Scopri come lavorare come addetto ai servizi alla casa in Ticino, Svizzera. Requisiti, mansioni e consigli pratici.',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Addetto ai servizi alla casa in un\'abitazione svizzera',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Disoccupazione transfrontaliera: come funziona in Svizzera',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'La guida completa sulla disoccupazione per i lavoratori transfrontalieri in Svizzera: regole SECO, modulo U1 e rimborsi tra Stati.',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Ufficio amministrativo in Svizzera con bandiera nazionale',
 };
 
 export default blogMetaChIt;

@@ -206,6 +206,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Travailler dans le service à domicile au Tessin',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Découvrez comment travailler comme agent de service à domicile au Tessin, en Suisse. Exigences, tâches et conseils pratiques.',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Employé de maison dans une résidence suisse',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Chômage transfrontalier : comment ça marche en Suisse',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'Guide complète sur le chômage des travailleurs frontaliers en Suisse : règles SECO, formulaire U1 et remboursements entre les États.',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Bâtiment administratif suisse avec drapeau national',
 };
 
 export default blogMetaChFr;

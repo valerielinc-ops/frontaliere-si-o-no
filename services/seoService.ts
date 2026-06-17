@@ -4071,6 +4071,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terzo-pilastro-3a-frontaliere-guida': { name: 'Terzo Pilastro 3a', path: '/articoli-frontaliere/terzo-pilastro-3a-frontaliere-guida', parent: 'blog' },
     'blog-lavorare-nel-servizio-alla-casa-ticino': { name: 'Lavoro domestico', path: '/articoli-svizzera/lavorare-nel-servizio-alla-casa-ticino/', parent: 'blog' },
     'blog-candidato-medico-eoc-bellinzona': { name: 'Medico EOC Bellinzona', path: '/articoli-frontaliere/candidato-medico-eoc-bellinzona', parent: 'blog' },
+    'blog-disoccupazione-transfrontaliera-svizzera': { name: 'Disoccupazione transfrontaliera', path: '/articoli-svizzera/disoccupazione-transfrontaliera-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

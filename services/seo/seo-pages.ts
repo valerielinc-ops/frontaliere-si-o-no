@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2828,
+ "numberOfItems": 2829,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7472,7 +7472,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2825, "name": "Azienda Hoval: opportunità di lavoro in Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/azienda-hoval-lavoro-ticino` },
           { "@type": "ListItem", "position": 2826, "name": "Terzo Pilastro 3a per Frontalieri: Guida Completa", "url": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-3a-frontaliere-guida` },
           { "@type": "ListItem", "position": 2827, "name": "Lavorare nel servizio alla casa in Ticino: guid...", "url": `${BASE_URL}/articoli-frontaliere/lavorare-nel-servizio-alla-casa-ticino` },
-          { "@type": "ListItem", "position": 2828, "name": "Candidato medico a Bellinzona: EOC cerca fronta...", "url": `${BASE_URL}/articoli-frontaliere/candidato-medico-eoc-bellinzona` }
+          { "@type": "ListItem", "position": 2828, "name": "Candidato medico a Bellinzona: EOC cerca fronta...", "url": `${BASE_URL}/articoli-frontaliere/candidato-medico-eoc-bellinzona` },
+          { "@type": "ListItem", "position": 2829, "name": "Disoccupazione transfrontaliera: come funziona ...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-transfrontaliera-svizzera` }
  ]
  },
  {
