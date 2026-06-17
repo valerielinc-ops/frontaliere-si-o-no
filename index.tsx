@@ -131,6 +131,15 @@ const mountApp = async () => {
  });
  }
 
+ // On non-home pages with empty #root (collection/faq/hub lite-shell), wait
+ // for the async entry CSS to flip BEFORE React renders so the header/footer
+ // shell never paints without its stylesheet. On static pages (job detail)
+ // the 80ms fade-out already covers the gap — wait after render instead so
+ // the fade-in reveals fully-styled React content.
+ if (!homeCritical && !staticPage) {
+ await waitForAsyncStylesheet();
+ }
+
  root.render(
  <React.StrictMode>
  <ChunkLoadErrorBoundary>
@@ -139,7 +148,7 @@ const mountApp = async () => {
  </React.StrictMode>
  );
 
- if (!homeCritical) {
+ if (!homeCritical && staticPage) {
  await waitForAsyncStylesheet();
  }
 
