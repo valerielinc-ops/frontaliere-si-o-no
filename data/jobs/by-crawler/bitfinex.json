@@ -472,12 +472,12 @@
     },
     {
       "id": "bitfinex-48d8a6e17a56",
-      "slug": "product-manager-100-remote-worldwide-bitfinex-ch",
+      "slug": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-lisboa-lisboa",
       "slugByLocale": {
         "en": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "it": "product-manager-100-remote-worldwide-bitfinex-ch",
+        "it": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-lisboa-lisboa",
         "de": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "fr": "product-manager-100-remote-worldwide-bitfinex-ch"
+        "fr": "product-manager-100-distant-dans-le-monde-bitfinex-lisboa-lisboa"
       },
       "company": "Bitfinex",
       "companyKey": "bitfinex",
@@ -535,7 +535,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T22:25:01.499Z"
+      "firstSeenAt": "2026-06-16T22:25:01.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ],
+        "fr": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-100-remote-worldwide-bitfinex-ch"
+      ]
     },
     {
       "id": "bitfinex-6c60e0951bfb",

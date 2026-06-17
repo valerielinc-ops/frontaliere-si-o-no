@@ -2453,8 +2453,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3459,12 +3457,12 @@
     },
     {
       "id": "csl-behring-e81cd374d12e",
-      "slug": "associate-director-biostatistics-4-csl-behring-ch",
+      "slug": "direttore-associato-biostatistica-4-csl-behring-bern",
       "slugByLocale": {
         "en": "associate-director-biostatistics-4-csl-behring-ch",
-        "it": "associate-director-biostatistics-4-csl-behring-ch",
+        "it": "direttore-associato-biostatistica-4-csl-behring-bern",
         "de": "associate-director-biostatistics-4-csl-behring-ch",
-        "fr": "associate-director-biostatistics-4-csl-behring-ch"
+        "fr": "directeur-associe-biostatistique-4-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3520,7 +3518,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-16T22:40:20.844Z"
+      "firstSeenAt": "2026-06-16T22:40:20.844Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-director-biostatistics-4-csl-behring-ch"
+        ],
+        "fr": [
+          "associate-director-biostatistics-4-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-director-biostatistics-4-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-e36154fded5b",

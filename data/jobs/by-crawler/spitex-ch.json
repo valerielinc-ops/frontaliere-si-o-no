@@ -154,7 +154,7 @@
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
         "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
+        "fr": "dipl-infirmier-ere-es-psychiatrie-spitex-rebeno-ag-zollikofen"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -197,11 +197,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
         ]
       },
       "firstSeenAt": "2026-06-14T22:53:07.375Z",
@@ -466,9 +470,9 @@
       "slug": "specialista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
       "slugByLocale": {
         "it": "specialista-della-salute-50-100-spitex-region-birs-gmbh-dornach",
-        "en": "fachperson-gesundheit-50-100-spitex-ch-dornach",
+        "en": "healthcare-professional-50-100-spitex-region-birs-gmbh-dornach",
         "de": "fachperson-gesundheit-50-100-spitex-ch-dornach",
-        "fr": "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        "fr": "professionnel-de-la-sante-50-100-spitex-region-birs-gmbh-dornach"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -516,6 +520,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-spitex-ch-dornach"
         ]
       },
       "firstSeenAt": "2026-06-15T15:39:50.789Z",
@@ -534,12 +544,12 @@
     },
     {
       "id": "spitex-ch-12e86fbadba7",
-      "slug": "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
+      "slug": "operatore-socio-sanitario-80-100-spitex-region-birs-gmbh-reinach-bl",
       "slugByLocale": {
-        "it": "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
-        "en": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+        "it": "operatore-socio-sanitario-80-100-spitex-region-birs-gmbh-reinach-bl",
+        "en": "healthcare-professional-80-100-spitex-region-birs-gmbh-reinach-bl",
         "de": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
-        "fr": "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        "fr": "professionnel-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl"
       },
       "company": "Spitex Region Birs GmbH",
       "companyKey": "spitex-ch",
@@ -582,10 +592,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+        "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl",
+          "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl"
+        ],
+        "en": [
+          "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
+        ],
+        "fr": [
           "fachperson-gesundheit-80-100-spitex-ch-reinach-bl"
         ]
       },
@@ -608,9 +626,9 @@
       "slug": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
-        "en": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein",
+        "en": "registered-nurse-for-home-care-20-100-spitex-birseck-munchenstein",
         "de": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-ch-munchenstein",
-        "fr": "dipl-pflegefachfrau-mann-in-der-ambulanten-pflege-20-100-spitex-birseck-munchenstein"
+        "fr": "infirmier-ere-diplome-e-en-soins-ambulatoires-20-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -679,9 +697,9 @@
       "slug": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
       "slugByLocale": {
         "it": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "en": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
+        "en": "planning-coordinator-70-100-spitex-birseck-munchenstein",
         "de": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein",
-        "fr": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein"
+        "fr": "coordinateur-trice-de-planification-70-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -750,9 +768,9 @@
       "slug": "specialista-della-salute-carico-di-lavoro-selezionabile-40-100-regiospitex-limmattal-schlieren",
       "slugByLocale": {
         "it": "specialista-della-salute-carico-di-lavoro-selezionabile-40-100-regiospitex-limmattal-schlieren",
-        "en": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
+        "en": "healthcare-specialist-fage-workload-selectable-40-100-regiospitex-limmattal-schlieren",
         "de": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
-        "fr": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
+        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-taux-d-activite-au-choix-40-100-regiospitex-limmattal-schlieren"
       },
       "company": "RegioSpitex Limmattal",
       "companyKey": "spitex-ch",
@@ -800,6 +818,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:49.805Z",
@@ -823,7 +847,7 @@
         "it": "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
         "en": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
         "de": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
-        "fr": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
+        "fr": "infirmier-ere-diplome-e-es-hes-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
       },
       "company": "Spitex Grauholz",
       "companyKey": "spitex-ch",
@@ -871,6 +895,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:48.972Z",
@@ -892,9 +919,9 @@
       "slug": "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-thun",
       "slugByLocale": {
         "it": "apprendistato-fage-cfc-in-wattenwil-spitex-region-thun-ag-thun",
-        "en": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun",
+        "en": "apprenticeship-as-healthcare-specialist-fage-in-wattenwil-spitex-region-thun-ag-thun",
         "de": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun",
-        "fr": "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun"
+        "fr": "apprentissage-d-assistant-e-en-soins-et-sante-communautaire-assc-a-wattenwil-spitex-region-thun-ag-thun"
       },
       "company": "SPITEX Region Thun AG",
       "companyKey": "spitex-ch",
@@ -942,6 +969,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun"
+        ],
+        "en": [
+          "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun"
+        ],
+        "fr": [
+          "lehrstelle-fage-efz-in-wattenwil-spitex-ch-thun"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:48.455Z",
@@ -963,9 +996,9 @@
       "slug": "allenarsi-come-dipl-infermiera-hf-corso-di-formazione-2026-2029-spitex-aachthurland-sulgen-sulgen",
       "slugByLocale": {
         "it": "allenarsi-come-dipl-infermiera-hf-corso-di-formazione-2026-2029-spitex-aachthurland-sulgen-sulgen",
-        "en": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
+        "en": "apprenticeship-as-a-qualified-nurse-hf-training-program-2026-2029-spitex-aachthurland-sulgen-sulgen",
         "de": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen",
-        "fr": "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
+        "fr": "formation-d-infirmier-ere-diplome-e-es-cursus-2026-2029-spitex-aachthurland-sulgen-sulgen"
       },
       "company": "Spitex AachThurLand Sulgen",
       "companyKey": "spitex-ch",
@@ -1013,6 +1046,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
+        ],
+        "en": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
+        ],
+        "fr": [
+          "ausbildung-zur-dipl-pflegefachperson-hf-ausbildungsgang-2026-2029-spitex-ch-sulgen"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:47.660Z",
@@ -1034,9 +1073,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-con-specializzazione-psychiatrie-mo-fr-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-con-specializzazione-psychiatrie-mo-fr-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal",
+        "en": "registered-nurse-hf-fh-with-specialization-in-psychiatry-mon-fri-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal"
+        "fr": "infirmier-ere-diplome-e-es-hes-avec-specialisation-en-psychiatrie-lun-ven-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1084,6 +1123,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-fachrichtung-psychiatrie-mo-fr-spitex-ch-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:47.144Z",
@@ -1107,7 +1152,7 @@
         "it": "pflegeexperte-o-pflegeexpertin-apn-60-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "pflegeexperte-oder-pflegeexpertin-apn-60-spitex-ch-untersiggenthal",
         "de": "pflegeexperte-oder-pflegeexpertin-apn-60-spitex-ch-untersiggenthal",
-        "fr": "pflegeexperte-oder-pflegeexpertin-apn-60-spitex-ch-untersiggenthal"
+        "fr": "expert-e-en-soins-infirmiers-apn-60-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1155,6 +1200,9 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegeexperte-oder-pflegeexpertin-apn-60-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "pflegeexperte-oder-pflegeexpertin-apn-60-spitex-ch-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:46.432Z",
@@ -1178,7 +1226,7 @@
         "it": "dipl-pflegefachperson-hf-fh-per-unser-palliativ-team-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "en": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
         "de": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal"
+        "fr": "dipl-soins-professionnels-hf-fh-pour-notre-equipe-palliative-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1226,6 +1274,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-unser-palliativ-team-spitex-ch-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:45.926Z",
@@ -1247,9 +1298,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal",
-        "en": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
+        "en": "healthcare-specialist-fage-efz-spitex-limmat-aare-reuss-ag-untersiggenthal",
         "de": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal",
-        "fr": "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-cfc-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1307,6 +1358,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-spitex-ch-untersiggenthal"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:45.231Z",
@@ -1328,9 +1385,9 @@
       "slug": "fage-20-80-f-m-d-spitex-region-stockhorn-ol1-uetendorf",
       "slugByLocale": {
         "it": "fage-20-80-f-m-d-spitex-region-stockhorn-ol1-uetendorf",
-        "en": "fage-20-80-w-m-d-spitex-ch-uetendorf",
+        "en": "healthcare-assistant-fage-20-80-f-m-d-spitex-region-stockhorn-ol1-uetendorf",
         "de": "fage-20-80-w-m-d-spitex-ch-uetendorf",
-        "fr": "fage-20-80-w-m-d-spitex-ch-uetendorf"
+        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-20-80-f-h-d-spitex-region-stockhorn-ol1-uetendorf"
       },
       "company": "SPITEX Region Stockhorn OL1",
       "companyKey": "spitex-ch",
@@ -1375,6 +1432,12 @@
       "firstSeenAt": "2026-06-16T14:44:44.465Z",
       "previousSlugsByLocale": {
         "it": [
+          "fage-20-80-w-m-d-spitex-ch-uetendorf"
+        ],
+        "en": [
+          "fage-20-80-w-m-d-spitex-ch-uetendorf"
+        ],
+        "fr": [
           "fage-20-80-w-m-d-spitex-ch-uetendorf"
         ]
       },
@@ -1473,7 +1536,7 @@
         "it": "infermiere-psichiatria-hf-40-80-spitex-region-olten-olten",
         "en": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
         "de": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten",
-        "fr": "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+        "fr": "infirmier-ere-diplome-e-es-en-psychiatrie-40-80-spitex-region-olten-olten"
       },
       "company": "Spitex Region Olten",
       "companyKey": "spitex-ch",
@@ -1529,6 +1592,9 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+        ],
+        "fr": [
+          "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ]
       },
       "firstSeenAt": "2026-06-16T14:44:43.496Z",
@@ -1550,9 +1616,9 @@
       "slug": "fage-cfc-o-pflegefachperson-hf-come-berufsbildner-in-70-90-spitex-verein-oberriet-sg",
       "slugByLocale": {
         "it": "fage-cfc-o-pflegefachperson-hf-come-berufsbildner-in-70-90-spitex-verein-oberriet-sg",
-        "en": "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg",
+        "en": "healthcare-assistant-fage-or-nurse-hf-as-vocational-trainer-70-90-spitex-verein-oberriet-oberriet-sg",
         "de": "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg",
-        "fr": "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg"
+        "fr": "assistant-e-en-soins-et-sante-communautaire-assc-ou-infirmier-ere-es-comme-formateur-trice-professionnel-le-70-90-spitex"
       },
       "company": "Spitex Verein Oberriet",
       "companyKey": "spitex-ch",
@@ -1599,6 +1665,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg"
+        ],
+        "en": [
+          "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg"
+        ],
+        "fr": [
           "fage-efz-oder-pflegefachperson-hf-als-berufsbildner-in-70-90-spitex-ch-oberriet-sg"
         ]
       },
@@ -1695,8 +1767,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
         "it": "pflegefachfrau-mann-hf-per-den-stutzpunkt-wetzikon-spitex-bachtel-ag-wetzikon-zh",
-        "en": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh",
-        "fr": "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        "en": "registered-nurse-hf-for-the-wetzikon-branch-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "infirmier-ere-es-pour-le-centre-de-wetzikon-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1743,6 +1815,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-hf-fur-den-stutzpunkt-wetzikon-spitex-ch-wetzikon-zh"
         ]
       },
       "previousSlugs": [
@@ -1771,9 +1849,9 @@
       "slug": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
         "it": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
-        "en": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
+        "en": "professional-and-human-team-management-psychiatry-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "de": "fachliche-und-personelle-teamleitung-psychiatrie-70-90-spitex-spitex-ch-weiningen-zh",
-        "fr": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh"
+        "fr": "chef-d-equipe-specialiste-et-de-personnel-en-psychiatrie-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -2075,8 +2153,7 @@
         "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
         "infermiere-dipl-hf-specializzato-in-psichiatria-infantile-e-juvenile-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
-        "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
         "it": [

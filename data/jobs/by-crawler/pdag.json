@@ -5881,8 +5881,8 @@
       "slugByLocale": {
         "de": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag",
         "it": "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-psychiatrische-dienste-aargau-pdag-rheinfelden",
-        "en": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag",
-        "fr": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag"
+        "en": "specialist-psychologist-or-assistant-psychologist-psychiatrische-dienste-aargau-pdag-rheinfelden",
+        "fr": "psychologue-specialiste-ou-psychologue-assistant-psychiatrische-dienste-aargau-pdag-rheinfelden"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5927,6 +5927,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag"
+        ],
+        "en": [
+          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag"
+        ],
+        "fr": [
           "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe-pdag"
         ]
       },
