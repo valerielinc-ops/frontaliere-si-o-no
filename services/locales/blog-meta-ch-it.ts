@@ -203,6 +203,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Tasse frontalieri, scambio dati stipendi con l\'Italia inizia',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'La nuova normativa sulla tassazione dei frontalieri è stata approvata dal Consiglio federale e partirà tra pochi mesi',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Frontalieri in coda al controllo doganale',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Lavorare nel servizio alla casa in Ticino: guida completa',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Scopri come lavorare come addetto ai servizi alla casa in Ticino, Svizzera. Requisiti, mansioni e consigli pratici.',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Addetto ai servizi alla casa in un\'abitazione svizzera',
 };
 
 export default blogMetaChIt;

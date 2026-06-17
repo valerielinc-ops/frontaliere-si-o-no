@@ -611,6 +611,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'lavorare-nel-servizio-alla-casa-ticino',
+    category: 'pratico',
+    date: '2026-06-17T00:49:05.640Z',
+    image: '/images/blog/lavorare-nel-servizio-alla-casa-ticino.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

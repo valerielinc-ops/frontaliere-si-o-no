@@ -203,6 +203,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Taxes frontalières, échange de données salariales avec l\'Italie débute',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'La nouvelle réglementation sur l\'imposition des frontaliers a été approuvée par le Conseil fédéral et débutera dans quelques mois.',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Frontières suisse-italien contrôle',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Travailler dans le service à domicile au Tessin',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Découvrez comment travailler comme agent de service à domicile au Tessin, en Suisse. Exigences, tâches et conseils pratiques.',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Employé de maison dans une résidence suisse',
 };
 
 export default blogMetaChFr;

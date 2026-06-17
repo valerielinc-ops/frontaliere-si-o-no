@@ -2555,6 +2555,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavorare-nel-servizio-alla-casa-ticino': {
+    title: 'Lavorare nel servizio alla casa in Ticino: guida completa',
+    description: 'Guida completa su come lavorare come addetto ai servizi alla casa in Ticino, Svizzera. Requisiti, mansioni e consigli pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, servizio, alla, casa',
+    ogTitle: 'Lavorare nel servizio alla casa in Ticino: guida',
+    ogDescription: 'Scopri come lavorare come addetto ai servizi alla casa in Ticino. Requisiti, mansioni e consigli pratici per un impiego domestico.',
+    canonicalPath: '/articoli-svizzera/lavorare-nel-servizio-alla-casa-ticino/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare nel servizio alla casa in Ticino: guida completa",
+      "description": "Guida completa su come lavorare come addetto ai servizi alla casa in Ticino, Svizzera. Requisiti, mansioni e consigli pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavorare-nel-servizio-alla-casa-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Addetto ai servizi alla casa in un'abitazione svizzera"
+      },
+      "datePublished": "2026-06-17T00:49:05+00:00",
+      "dateModified": "2026-06-17T00:49:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lavorare-nel-servizio-alla-casa-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
