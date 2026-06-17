@@ -27,3 +27,25 @@ export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
  * so keep the two equivalent. `stale-pr-rescuer.yml` uses an even broader bare `🔴`.
  */
 export const REDFLAG_IMPORTANT_RE = /🔴\s*\*{0,2}\s*Important/;
+
+/**
+ * File la cui modifica impedisce STRUTTURALMENTE al reviewer Claude di girare
+ * sulla PR → niente `## LGTM` → l'auto-merge normale non scatta → senza fallback
+ * la PR resta ferma in attesa di un merge manuale.
+ *
+ * È SOLO `pr-review-loop.yml`: la GitHub App del reviewer esige che il workflow
+ * file in esecuzione sia byte-identico alla versione su `main` (`Workflow
+ * validation failed. 401`). Una PR che lo MODIFICA ha per definizione un
+ * contenuto diverso da main → 401 → review job rosso, nessun `## LGTM` postato.
+ * Verificato che gli altri file storicamente citati come "merge manuale"
+ * (`auto-merge-on-lgtm.yml`, `post-merge-followup.yml`, `REVIEW.md`,
+ * `FOLLOWUP.md`) NON driftano: il reviewer (che esegue `pr-review-loop.yml`,
+ * invariato) gira e posta `## LGTM` normalmente (`post-merge-followup` per giunta
+ * gira su `pull_request: closed`, post-merge → non gatekeepa il merge). Tenere
+ * la lista MINIMA limita la superficie "merge senza review Claude" del fallback.
+ *
+ * Usato da `auto-merge-eval.mjs` (drift-fallback: gate deterministici al posto
+ * dell'`## LGTM` mancante). Se in futuro un altro workflow su `pull_request`
+ * inizia a invocare il claude-code-action, aggiungilo qui.
+ */
+export const REVIEW_WORKFLOW_DRIFT_FILES = ['.github/workflows/pr-review-loop.yml'];
