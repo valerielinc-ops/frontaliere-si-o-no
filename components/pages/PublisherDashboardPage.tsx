@@ -490,6 +490,7 @@ const PublisherDashboardPage: React.FC = () => {
 
   const statusLabel = (s: PublisherJobStatus) => t(`publisherDashboard.status.${s}`);
   const isSponsored = (tier: PublisherTier) => tier === 'sponsored';
+  const isAzienda = (tier: PublisherTier) => tier === 'azienda';
 
   // Pipeline-aware status for live-eligible ads. A paid/published ad reads
   // "In revisione" until the publisher-jobs sync has projected it into the slice
@@ -509,9 +510,9 @@ const PublisherDashboardPage: React.FC = () => {
     return { url: r.publicUrl, soon };
   };
 
-  // "Renews in N days" — only for sponsored+paid ads with a future renewsAt.
+  // "Renews in N days" — for sponsored and azienda paid ads with a future renewsAt.
   const renewalLabel = (r: DashboardRow): string | null => {
-    if (r.tier !== 'sponsored' || r.status !== 'paid' || r.renewsAt == null) return null;
+    if ((r.tier !== 'sponsored' && r.tier !== 'azienda') || r.status !== 'paid' || r.renewsAt == null) return null;
     const days = Math.ceil((r.renewsAt - Date.now()) / 86400000);
     if (days <= 0) return null;
     return t('publisherDashboard.renewsIn', { days });
@@ -540,7 +541,7 @@ const PublisherDashboardPage: React.FC = () => {
           <p className="text-subtle mt-1">{t('publisherDashboard.subtitle')}</p>
         </div>
         <div className="flex flex-wrap gap-2 shrink-0">
-          {rows.some((r) => r.tier === 'sponsored') && (
+          {rows.some((r) => r.tier === 'sponsored' || r.tier === 'azienda') && (
             <button
               type="button"
               onClick={() => { void handleManageBilling(); }}
@@ -654,12 +655,13 @@ const PublisherDashboardPage: React.FC = () => {
                 const clickPct = r.views > 0 ? (r.applyClicks / r.views) * 100 : 0;
                 const appPct = r.views > 0 ? (applications / r.views) * 100 : 0;
                 const sponsored = isSponsored(r.tier);
+                const azienda = isAzienda(r.tier);
                 const isBest = r.id === bestPerformerId;
                 return (
                   <article
                     key={r.id}
                     className={`relative rounded-2xl border bg-surface p-5 animate-fade-in-up [animation-delay:var(--card-delay)] [animation-fill-mode:both] ${
-                      sponsored ? 'border-warning-border' : 'border-edge'
+                      sponsored ? 'border-warning-border' : azienda ? 'border-accent' : 'border-edge'
                     }`}
                     style={{ ['--card-delay']: `${Math.min(i * 60, 360)}ms` } as React.CSSProperties}
                   >
@@ -675,6 +677,11 @@ const PublisherDashboardPage: React.FC = () => {
                         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-warning-subtle text-warning border border-warning-border">
                           <Star className="w-3 h-3 fill-warning" />
                           {t('publisherDashboard.tier.sponsored')}
+                        </span>
+                      ) : azienda ? (
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-accent-subtle text-link border border-accent">
+                          <Sparkles className="w-3 h-3" />
+                          {t('publisherDashboard.tier.azienda')}
                         </span>
                       ) : (
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-surface-raised text-subtle border border-edge">
