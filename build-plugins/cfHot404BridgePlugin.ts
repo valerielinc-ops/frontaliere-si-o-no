@@ -31,17 +31,20 @@ import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 
-// Defensive rail (the #2000 OOM lesson): even if data/cf-hot-404s.json grows
-// or is hand-edited, never emit more than this many bridge pages. The emit
-// below is STREAMING (mkdir + writeFileSync per path, no HTML accumulated in
-// heap; the only retained structure is the {path,hits} array), so the real
-// cost is inode count (~2 per bridge): 40k bridges ≈ 80k inodes on top of the
-// ~327k-file IT shard, far under the ~2.3M Pages disk ceiling. Kept in lockstep
-// with scripts/build-cf-hot-404s.mjs's MAX_PATHS — raise BOTH together.
-// (Raised 12k→40k on 2026-06-16 to recover more of the long-tail CF-confirmed
-// 404s; the per-emit [mem] log below makes the heap cost visible in the deploy
-// log. SSG-memory impact is NOT measurable pre-merge — revert if it OOMs.)
-const MAX_EMIT = 40000;
+// Anti-runaway rail (NOT a recovery limit): the 40k hard cap used to bite the
+// real CF-confirmed 404 universe — a time-sliced sweep (build-cf-hot-404s.mjs,
+// 48×1h windows summed) measures ~50k accumulated ≥2-hit paths and ~134k
+// distinct ever-swept, so 40k left tens of thousands of real-traffic 404s
+// unrecovered. The emit is STREAMING (mkdir + writeFileSync per path, no HTML
+// in heap; only the {path,hits} array is retained), so the real cost is inode
+// count (~2 per bridge): even the full ~134k universe ≈ 268k inodes on top of
+// the ~327k-file IT shard, far under the ~2.3M Pages disk ceiling. So this rail
+// is raised to a ceiling that sits ABOVE the measured universe (a true cap only
+// against a degraded/hand-edited data file or a runaway), env-tunable for
+// backfill. Kept in lockstep with scripts/build-cf-hot-404s.mjs's MAX_PATHS —
+// change BOTH together. SSG-memory is not measurable pre-merge: revert-trigger
+// declared in the PR body (revert if the next deploy OOMs or wall-time regresses).
+const MAX_EMIT = Number(process.env.CF_HOT_404_MAX) || 250000;
 
 const withSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 

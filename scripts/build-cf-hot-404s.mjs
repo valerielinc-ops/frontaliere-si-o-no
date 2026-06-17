@@ -38,16 +38,17 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'data', 'cf-hot-404s.json');
 const APEX_HOST = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 
-// Hard cap — the safety rail learned from the #2000 OOM. Even a degraded CF
-// response or a future traffic spike can never make the bridge plugin emit
-// more than this many pages. The cfHot404BridgePlugin emit is STREAMING
-// (mkdir+writeFile per path, no HTML held in heap), so the real cost is inode
-// count (~2 per bridge): 40k bridges ≈ 80k inodes on top of the ~327k-file IT
-// shard, far under the ~2.3M Pages disk ceiling. Kept in lockstep with
-// cfHot404BridgePlugin's MAX_EMIT — raise BOTH together. (Raised 12k→40k on
-// 2026-06-16 to recover more of the long-tail CF-confirmed 404s; SSG-memory
-// impact is not measurable pre-merge — revert if the next deploy OOMs.)
-const MAX_PATHS = 40000;
+// Anti-runaway rail (NOT a recovery limit). The 40k cap used to bite the real
+// universe: this time-sliced sweep (48×1h windows summed below) measures ~50k
+// accumulated ≥2-hit non-Ticino job 404s and ~134k distinct ever-swept, so 40k
+// dropped tens of thousands of real-traffic paths before the bridge plugin ever
+// saw them. The cfHot404BridgePlugin emit is STREAMING (mkdir+writeFile per
+// path, no HTML held in heap), so the real cost is inode count (~2 per bridge):
+// even the full ~134k universe ≈ 268k inodes on top of the ~327k-file IT shard,
+// far under the ~2.3M Pages disk ceiling. Raised to a ceiling ABOVE the measured
+// universe (true cap only vs a degraded CF response / runaway), env-tunable.
+// Kept in lockstep with cfHot404BridgePlugin's MAX_EMIT — change BOTH together.
+const MAX_PATHS = Number(process.env.CF_HOT_404_MAX) || 250000;
 
 // Drop one-hit noise: a single hit is usually a bot path-probe, not a real
 // expired/indexed URL worth a page. Real expired URLs get repeat hits from
