@@ -44,6 +44,7 @@ import {
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
 import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts } from './lib/crawler-template.mjs';
@@ -1042,7 +1043,7 @@ async function assembleJobs() {
   // Keep the first occurrence (newest postedDate thanks to sort above).
   const seenSlugs = new Set();
   let slugDupeCount = 0;
-  const deduped = sorted.filter((job) => {
+  let deduped = sorted.filter((job) => {
     const slug = String(job.slug || '').trim();
     if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
     if (seenSlugs.has(slug)) {
@@ -1055,6 +1056,18 @@ async function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  // ── Publisher supersedes crawled (anti double-listing) ───────────────
+  // An employer's own published ad supersedes any crawled scrape of the same
+  // role, so the job is never listed twice. See scripts/lib/publisher-supersede.mjs.
+  {
+    const before = deduped.length;
+    const res = supersedeCrawledByPublisher(deduped);
+    deduped = res.jobs;
+    if (res.superseded > 0) {
+      console.log(`  🏷️  Publisher supersede: dropped ${res.superseded} crawled duplicate(s) of employer-published ads (${before} → ${deduped.length})`);
+    }
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─
