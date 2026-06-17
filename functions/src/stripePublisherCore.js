@@ -137,7 +137,6 @@ export async function handleCreatePublisherCheckout(req) {
     const sessionA = await stripeA.checkout.sessions.create({
       mode: 'subscription', customer: customerIdA,
       line_items: [{ price: aziendaPrice, quantity: 1 }],
-      managed_payments: { enabled: true },
       success_url: successUrl, cancel_url: cancelUrl,
       client_reference_id: orderRefA.id,
       metadata: { orderId: orderRefA.id, publisherUid: uid, plan: 'azienda' },
@@ -512,10 +511,12 @@ export async function handleStripeWebhook(req) {
       await orderSnap.ref.update({ status: 'canceled', updatedAt: ts });
       await setJobsStatus(o.jobIds, 'expired');
       if (o.plan === 'azienda') {
-        // Subscription gone → publisher is no longer azienda (revert to sponsored
-        // baseline; expired ads stay expired).
+        // Subscription gone → publisher is no longer on the azienda plan. Revert
+        // to 'free' (safe default: never grants paid placement without an active
+        // sub). Per-ad sponsored ads keep their own job-level tier, untouched;
+        // expired ads stay expired.
         await db().collection('publishers').doc(o.publisherUid).set(
-          { tier: 'sponsored', updatedAt: ts }, { merge: true },
+          { tier: 'free', updatedAt: ts }, { merge: true },
         );
       }
     }
