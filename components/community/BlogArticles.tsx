@@ -22,6 +22,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
+const ArticleRailAd = lazyRetry(() => import('@/components/shared/ArticleRailAd'));
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -1821,7 +1822,7 @@ function BlogArticles({
 
 
  return (
- <div className="max-w-3xl xl:max-w-6xl mx-auto">
+ <div className="max-w-3xl xl:max-w-6xl min-[1400px]:max-w-[1340px] 2xl:max-w-[1480px] mx-auto">
  {/* Reading progress bar */}
  <div
  className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left [transform:var(--sx)]"
@@ -1843,8 +1844,9 @@ function BlogArticles({
  {t('blog.backToList')}
  </button>
 
- {/* 3-column grid: left rail | article | right rail */}
- <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
+ {/* 3-column grid: left rail | article | right rail. Rails widen to 300px at
+     ≥1400px to host the half-page side-rail ads (ArticleRailAd). */}
+ <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6 min-[1400px]:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop only) ── */}
  <aside className="hidden xl:block">
@@ -1853,7 +1855,8 @@ function BlogArticles({
  {t('affiliate.sectionTitle')}
  </p>
  {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
-
+ {/* Desktop half-page rail ad (≥1400px) — rides down the sticky gutter */}
+ <Suspense fallback={null}><ArticleRailAd side="left" enabled={adEligible} /></Suspense>
  </div>
  </aside>
 
@@ -2449,6 +2452,8 @@ function BlogArticles({
  <p className="text-sm text-muted leading-tight">
  {t('affiliate.disclosure')}
  </p>
+ {/* Desktop half-page rail ad (≥1400px) — rides down the sticky gutter */}
+ <Suspense fallback={null}><ArticleRailAd side="right" enabled={adEligible} /></Suspense>
  </div>
  </aside>
 

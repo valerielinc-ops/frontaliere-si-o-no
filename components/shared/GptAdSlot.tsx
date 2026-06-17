@@ -1,0 +1,182 @@
+/**
+ * GptAdSlot — generic Google Publisher Tag (GPT) display slot.
+ *
+ * Serves a GAM ad unit (via securepubads.g.doubleclick.net/tag/js/gpt.js) with
+ * AdSense dynamic-allocation backfilling unsold impressions. GPT (pubads) is
+ * independent of AdSense Auto Ads — this slot never touches adsbygoogle.js, so
+ * Auto Ads (~95% of revenue) keep serving untouched. See issue #2273.
+ *
+ * This is the shared engine behind both the PoC below-content slot
+ * ({@link GptPocSlot}) and the desktop article side-rail half-page units. The
+ * GPT framework (script load + enableServices) initialises once per page; each
+ * slot defines/displays into its own uniquely-id'd div, lazily via an
+ * IntersectionObserver so it stays off the LCP critical path.
+ *
+ * SAFETY: `GPT_ENABLED` is the master flag for the whole GPT stack. Each slot
+ * also takes a `killed` prop (wired to a Firebase Remote Config kill-switch by
+ * the caller) so a regressing surface can be turned off within ~1 min with no
+ * redeploy. Default-safe: renders `null` when inactive.
+ */
+
+import React, { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
+import { isLikelyBot } from '@/services/adAnalytics';
+
+// Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
+// (one-line, then deploy) to disable every GPT slot if GPT serving regresses
+// AdSense Auto Ads / RPM / CWV.
+export const GPT_ENABLED = true;
+
+const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
+
+const IS_PROD = typeof window !== 'undefined' && isAdSenseProductionHost(window.location.hostname);
+const SKIP_FOR_BOT = typeof window !== 'undefined' && isLikelyBot();
+
+/** A GPT slot size: a `[width, height]` pair or the responsive `'fluid'` token. */
+export type GptSize = [number, number] | 'fluid';
+
+let gptScriptRequested = false;
+let gptServicesEnabled = false;
+let slotSeq = 0;
+
+// Minimal GPT access — @types/google-publisher-tag is not a dependency, so we
+// reach googletag via an `any` view of window rather than a global type.
+const gtag = (): any => {
+  const w = window as any;
+  // Ensure `cmd` exists even when `window.googletag` was already created by
+  // another Google ad script WITHOUT a `cmd` queue — `|| { cmd: [] }` alone
+  // returns that partial object as-is and `gt.cmd.push` then throws
+  // "Cannot read properties of undefined (reading 'push')", so the slot never
+  // defines/serves (observed live on article pages).
+  const gt = (w.googletag = w.googletag || {});
+  gt.cmd = gt.cmd || [];
+  return gt;
+};
+
+function ensureGptScript(): void {
+  if (gptScriptRequested || typeof document === 'undefined') return;
+  gptScriptRequested = true;
+  gtag();
+  if (document.querySelector(`script[src="${GPT_SCRIPT_SRC}"]`)) return;
+  const s = document.createElement('script');
+  s.src = GPT_SCRIPT_SRC;
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+}
+
+/** Initialise the GPT framework once (post-load idle, not on scroll): the GAM
+ *  Offerwall evaluates at page entry, so GPT must be present then. The ad slots
+ *  themselves stay lazy to protect CWV. */
+function initGptFramework(): void {
+  ensureGptScript();
+  const gt = gtag();
+  gt.cmd.push(() => {
+    try {
+      if (!gptServicesEnabled) {
+        gptServicesEnabled = true;
+        // Modern GPT config API (pubads().enableSingleRequest() is deprecated).
+        gt.setConfig({ singleRequest: true });
+        gt.pubads().collapseEmptyDivs(true);
+        gt.enableServices();
+      }
+    } catch {
+      /* fail-soft */
+    }
+  });
+}
+
+export interface GptAdSlotProps {
+  /** Full GAM ad unit path, e.g. `/23355151813/article-rail-left`. */
+  adUnitPath: string;
+  /** Sizes to request; must match what the GAM ad unit allows. */
+  sizes: GptSize[];
+  /** Runtime kill-switch (caller wires it to Firebase Remote Config). */
+  killed?: boolean;
+  /** Extra eligibility gate (e.g. article long enough). Default `true`. */
+  enabled?: boolean;
+  /** Reserved min-height (px) to prevent CLS before the creative fills. */
+  minHeight?: number;
+  /** Wrapper classes (positioning / sizing). */
+  className?: string;
+  /** Inline wrapper style merged after the CLS-reserve defaults. */
+  style?: CSSProperties;
+}
+
+const GptAdSlot: React.FC<GptAdSlotProps> = ({
+  adUnitPath,
+  sizes,
+  killed = false,
+  enabled = true,
+  minHeight = 250,
+  className = 'mx-auto my-6 w-full max-w-[336px] text-center',
+  style,
+}) => {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+  // Stable, unique DOM id for this slot instance (GPT needs a real element id).
+  const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
+  const [rendered, setRendered] = useState(false);
+  const active = GPT_ENABLED && enabled && IS_PROD && !SKIP_FOR_BOT && !killed;
+
+  useEffect(() => {
+    if (!active) return;
+    const divId = divIdRef.current;
+
+    const ric: (cb: () => void) => void = (window as any).requestIdleCallback
+      ? (cb) => (window as any).requestIdleCallback(cb, { timeout: 3000 })
+      : (cb) => window.setTimeout(cb, 1200);
+    ric(initGptFramework);
+
+    const wrapper = wrapperRef.current;
+    if (!wrapper || typeof IntersectionObserver === 'undefined') return;
+    let defined = false;
+    const defineAndDisplay = () => {
+      if (defined) return;
+      defined = true;
+      ensureGptScript();
+      const gt = gtag();
+      gt.cmd.push(() => {
+        try {
+          const slot = gt.defineSlot(adUnitPath, sizes, divId)?.addService(gt.pubads());
+          if (!slot) return;
+          gt.display(divId);
+          setRendered(true);
+        } catch {
+          /* fail-soft: never let an ad break the page */
+        }
+      });
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            io.disconnect();
+            defineAndDisplay();
+            return;
+          }
+        }
+      },
+      { rootMargin: '200px 0px' },
+    );
+    io.observe(wrapper);
+    return () => io.disconnect();
+  }, [active, adUnitPath, sizes]);
+
+  if (!active) return null;
+
+  return (
+    <div
+      ref={wrapperRef}
+      aria-hidden={!rendered}
+      // Reserve space to avoid CLS when the creative fills (mirrors
+      // placeholderMinHeight in services/adsenseSlots.ts).
+      style={{ minHeight, contain: 'layout', ...style }}
+      className={className}
+    >
+      <div id={divIdRef.current} />
+    </div>
+  );
+};
+
+export default GptAdSlot;

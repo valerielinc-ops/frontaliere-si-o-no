@@ -78,6 +78,10 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // SHOWN. Flip to 'true' in the Remote Config console to kill the GPT slot
  // within ~1 min (no redeploy) if it regresses AdSense Auto Ads / RPM / CWV.
  KILL_GPT_POC_SLOT: 'false',
+ // Desktop article side-rail GPT half-page ad units (left + right). Default
+ // 'false' = rails SHOWN. Flip to 'true' in the Remote Config console to kill
+ // both rail ads within ~1 min (no redeploy) if they regress Auto Ads / RPM / CWV.
+ KILL_ARTICLE_RAIL_ADS: 'false',
  // E3: Inline consulting CTA on calculator results view.
  // Default 'true' so the CTA is visible until explicitly disabled via Firebase
  // Remote Config console. Flip to 'false' to hide the CTA without a redeploy.
