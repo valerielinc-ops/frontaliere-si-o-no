@@ -56,6 +56,26 @@ describe('fingerprintJob → registry key', () => {
     expect(fingerprintJob({ url: 'https://example.com/jobs/123456' }))
       .toBe('id|example.com|123456');
   });
+
+  it('keys a numeric-then-text id by the leading number (not collapsed by the UUID guard)', () => {
+    // teamtailor `7887338-projektleiter`, hilti `17627-fr` — the digits ARE the
+    // stable id; the leaf is not UUID-shaped so the numeric path rule still wins.
+    expect(fingerprintJob({ url: 'https://ckw.teamtailor.com/jobs/7887338-projektleiter-in' }))
+      .toBe('id|teamtailor.com|7887338');
+    expect(fingerprintJob({ url: 'https://careers.hilti.group/en/jobs/17627-fr/conseiller' }))
+      .toBe('id|hilti.group|17627');
+  });
+
+  it('keys an ancestor+leaf double-UUID URL by the LEAF (per-job) UUID, not the shared ancestor', () => {
+    // cseb shape `…/job-advertisement/<board-uuid>/<job-uuid>`: a blind first-UUID
+    // scan of the whole URL would grab the shared board uuid and collapse every
+    // cseb job onto one key. Leaf-scoped extraction keeps siblings distinct.
+    const a = fingerprintJob({ url: 'https://www.cseb.ch/job-advertisement/aaaaaaaa-1111-4111-8111-111111111111/bbbbbbbb-2222-4222-8222-222222222222' });
+    const b = fingerprintJob({ url: 'https://www.cseb.ch/job-advertisement/aaaaaaaa-1111-4111-8111-111111111111/cccccccc-3333-4333-8333-333333333333' });
+    expect(a).toBe('id|cseb.ch|bbbbbbbb-2222-4222-8222-222222222222');
+    expect(b).toBe('id|cseb.ch|cccccccc-3333-4333-8333-333333333333');
+    expect(a).not.toBe(b);
+  });
 });
 
 describe('registerJobSlug', () => {

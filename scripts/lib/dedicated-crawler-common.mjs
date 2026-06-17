@@ -4579,7 +4579,7 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
   }
 
-  // A full UUID anywhere in the URL is the globally-unique per-job id — prefer it
+  // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it
   // BEFORE the numeric/path heuristics below. The `\/jobs\/(\d+)` etc. rules
   // would otherwise latch onto the LEADING DIGITS of a UUID slug
   // (`…/jobs/69b0fccf-bb38-…` → captures `69`), collapsing every prospective.ch
@@ -4587,9 +4587,18 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   // (`prospective.ch|69`). That cross-job collision force-pins the wrong
   // slugByLocale via registryPinnedLocaleSlug — e.g. a Gesundheitszentrum
   // Dielsdorf "Nachtwache" vacancy adopting an unrelated SRO-Langenthal dietician
-  // slug (#2330 item 1). Matches mergeUrlKey's UUID-first priority.
-  const uuid = extractUuidLikeId(full);
-  if (uuid) return `${registrableDomain(host)}|${uuid}`;
+  // slug (#2330 item 1).
+  //
+  // Scope the UUID extraction to the LEAF segment — NOT the whole URL — to match
+  // mergeUrlKey Rule B (scripts/lib/job-url-key.mjs). A blind first-UUID scan of
+  // the full URL would grab a SHARED ANCESTOR uuid for shapes like cseb's
+  // `…/job-advertisement/<board-uuid>/<job-uuid>`, re-introducing the very
+  // ancestor-collapse this fix removes (every cseb job → one `cseb.ch|<board-uuid>`
+  // key). Vendors put the per-job reference in the rightmost segment; board/site
+  // uuids live in ancestor segments.
+  const leafSeg = u.pathname.split('/').filter(Boolean).pop() || '';
+  const leafUuid = extractUuidLikeId(leafSeg);
+  if (leafUuid) return `${registrableDomain(host)}|${leafUuid}`;
 
   const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
   if (coopPathMatch?.[1]) {
@@ -4597,6 +4606,20 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     const coopUuid = extractUuidLikeId(coopIdCandidate) || extractUuidLikeId(full);
     if (coopUuid) return `${registrableDomain(host)}|${coopUuid}`;
     if (coopIdCandidate) return `${registrableDomain(host)}|${coopIdCandidate.toLowerCase()}`;
+  }
+
+  // Guard against the digit-prefix-of-a-UUID collapse for UUIDs the strict
+  // RFC4122 leaf check above misses (e.g. a non-conforming version/variant
+  // nibble). If the leaf is UUID-SHAPED (loose: 8-4-4-4-12 hex, any
+  // version/variant), the numeric `\/jobs\/(\d+)` rules below would capture only
+  // its leading digits (`…/jobs/69b0fccf-…` → `69`), re-collapsing distinct jobs
+  // onto the digit-prefix key (#2330). Key on the whole UUID-shaped leaf instead.
+  // This does NOT touch numeric-then-text ids (teamtailor `7887338-projektleiter`,
+  // hilti `17627-fr`) — those are not UUID-shaped, so the numeric rules still
+  // capture the real id.
+  const LOOSE_UUID_LEAF_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (LOOSE_UUID_LEAF_RE.test(leafSeg)) {
+    return `${registrableDomain(host)}|${leafSeg.toLowerCase()}`;
   }
 
   const inPath = [
