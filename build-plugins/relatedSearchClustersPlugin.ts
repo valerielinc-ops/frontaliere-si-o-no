@@ -2454,29 +2454,68 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           company: j.company,
           location: j.location,
         }));
-        const results = await Promise.all(
-          localeKeys.map((workerLocale) => {
-            const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
-            return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
-              (resolve, reject) => {
-                const worker = new Worker(workerUrl, {
-                  workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens },
-                });
-                worker.once('message', resolve);
-                worker.once('error', reject);
-                worker.once('exit', (code) => {
-                  if (code !== 0) reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
-                });
-              },
-            );
-          }),
+        // Concurrency cap on simultaneous workers. Each worker builds a FULL
+        // per-locale 2/3-gram inverted index (~hundreds of MB for ~11k jobs)
+        // that lives until the worker exits. Spawning all 4 locales at once
+        // (the old Promise.all) stacked 4 of those indexes on top of the
+        // already-~9.7 GB build heap → systemd-oomd SIGTERM (exit 143) on the
+        // 16 GB runner — a kernel-level OOM, no V8 "heap limit" line. Batching
+        // keeps at most PREPASS_CONCURRENCY worker indexes resident at a time;
+        // output is byte-identical (results are seeded into the same
+        // tokenIndex), the only cost is ~tens of seconds of pre-pass wall-time
+        // when locales run in batches instead of fully parallel. Env override
+        // RELATED_SEARCH_PREPASS_CONCURRENCY lets us drop to 1 (max safety) or
+        // raise it again if runner headroom returns, with no code change.
+        const PREPASS_CONCURRENCY = Math.max(
+          1,
+          Number(process.env.RELATED_SEARCH_PREPASS_CONCURRENCY) || 2,
         );
-        for (const r of results) {
-          tokenIndex.seedPostings(r.locale, r.entries);
+        const runPrepassWorker = (workerLocale: Locale) => {
+          const localeTokens = Array.from(tokensByLocale.get(workerLocale) as Set<string>);
+          return new Promise<{ locale: Locale; entries: Array<{ token: string; list: number[] }> }>(
+            (resolve, reject) => {
+              const worker = new Worker(workerUrl, {
+                workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens },
+              });
+              // Resolve on 'exit', NOT 'message': the worker holds its full
+              // per-locale gram index (~hundreds of MB) in memory until it tears
+              // down. Resolving on 'message' would let the next batch spawn while
+              // this batch's workers are still resident → up to 2×concurrency
+              // indexes overlapping at the OOM ceiling (worst case = the original
+              // all-at-once spawn, defeating the cap). Gating on 'exit' makes the
+              // reclamation airtight: batch N is fully torn down before N+1
+              // allocates. The message payload is captured first, then surfaced
+              // once the worker has exited cleanly.
+              let payload: { locale: Locale; entries: Array<{ token: string; list: number[] }> } | null = null;
+              worker.once('message', (msg) => {
+                payload = msg;
+              });
+              worker.once('error', reject);
+              worker.once('exit', (code) => {
+                if (code !== 0) {
+                  reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
+                } else if (!payload) {
+                  reject(new Error('relatedSearchPostingsWorker exited without posting a result'));
+                } else {
+                  resolve(payload);
+                }
+              });
+            },
+          );
+        };
+        let seededCount = 0;
+        for (let i = 0; i < localeKeys.length; i += PREPASS_CONCURRENCY) {
+          const batch = localeKeys.slice(i, i + PREPASS_CONCURRENCY);
+          const batchResults = await Promise.all(batch.map(runPrepassWorker));
+          // Seed per-batch so each worker's transient gram index is reclaimed
+          // (worker exit) before the next batch spawns.
+          for (const r of batchResults) {
+            tokenIndex.seedPostings(r.locale, r.entries);
+            seededCount += r.entries.length;
+          }
         }
-        const seededCount = results.reduce((s, r) => s + r.entries.length, 0);
         console.log(
-          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings`,
+          `\x1b[36m[related-search-clusters]\x1b[0m postings pre-pass: ${localeKeys.length} worker(s) seeded ${seededCount} token postings (concurrency ${PREPASS_CONCURRENCY})`,
         );
       }
       profileRecord('postings-prepass', __tPrePass);
