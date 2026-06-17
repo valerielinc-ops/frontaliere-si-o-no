@@ -106,6 +106,17 @@ describe('OFFERWALL_FC_SNIPPET — wired into the article-page owners', () => {
     expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body class="bg-surface-alt/);
   });
 
+  it('ogPagesPlugin injects OFFERWALL_FC_SNIPPET in the bundle-less fallback <head> too (parity)', () => {
+    // The `!hasSpaBundle` fallback template is unreachable today (the resolver
+    // throws on a missing bundle), but it must still carry the snippet so the
+    // structural gap can never become a revenue gap if that invariant changes —
+    // matching staticPagesPlugin, whose own bundle-less fallback already does.
+    const src = read('build-plugins/ogPagesPlugin.ts');
+    // The minimal fallback emits a plain `<body>` (no bg-surface-alt classes);
+    // assert the snippet precedes that closing head/plain-body sequence.
+    expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body>/);
+  });
+
   it('staticPagesPlugin keeps the isBlogDetailPage-gated fallback injection', () => {
     const src = read('build-plugins/staticPagesPlugin.ts');
     expect(src).toMatch(/isBlogDetailPage\s*\?\s*`\\n\s*\$\{OFFERWALL_FC_SNIPPET\}`/);
