@@ -184,7 +184,7 @@ const SAFE_WORD_BOUNDARY_CODES = new Set(['TI', 'GR', 'VS', 'GE', 'AG', 'SG', 'T
  * Swiss cantons. Uses: SWISS_CANTONS names, BFS municipalities, manual
  * aliases, static tokens, canton code patterns, and border proximity.
  */
-export function isCantonRelevant(text = '', cantonCode = '') {
+export function isCantonRelevant(text = '', cantonCode = '', { includeBorderProximity = true } = {}) {
   const lower = normalizeSwissTargetLocationText(text);
   if (!lower) return false;
 
@@ -210,9 +210,15 @@ export function isCantonRelevant(text = '', cantonCode = '') {
     if (new RegExp(`\\b${codeLower}\\b`).test(lower)) return true;
   }
 
-  // 5. Border proximity keywords (only for cantons that have them)
-  const borderKeywords = BORDER_PROXIMITY_BY_CANTON[code];
-  if (borderKeywords?.some((keyword) => lower.includes(keyword))) return true;
+  // 5. Border proximity keywords (only for cantons that have them).
+  // These are FOREIGN towns near the border (Como, Varese, Evian, …) — useful
+  // to surface cross-border-relevant jobs, but they must NOT count as "this text
+  // names a Swiss location". Callers gating foreign-job rejection pass
+  // includeBorderProximity:false so that e.g. "Como, Italy" is not read as Swiss.
+  if (includeBorderProximity) {
+    const borderKeywords = BORDER_PROXIMITY_BY_CANTON[code];
+    if (borderKeywords?.some((keyword) => lower.includes(keyword))) return true;
+  }
 
   return false;
 }
@@ -272,10 +278,10 @@ export function normalizeCantonCode(raw = '') {
 
 // ─── Target location check ────────────────────────────────────────────────
 
-export function isTargetSwissLocation(text = '', { includeGrigioni = true } = {}) {
+export function isTargetSwissLocation(text = '', { includeGrigioni = true, includeBorderProximity = true } = {}) {
   for (const code of TARGET_CANTONS) {
     if (code === 'GR' && !includeGrigioni) continue;
-    if (isCantonRelevant(text, code)) return true;
+    if (isCantonRelevant(text, code, { includeBorderProximity })) return true;
   }
   return false;
 }

@@ -592,6 +592,26 @@ describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)'
     expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
   });
 
+  it('foreign-job gates do not treat a foreign border town as a Swiss location', async () => {
+    const { isExplicitlyOutsideTarget, isLocationExplicitlyForeign } = await import(
+      '../scripts/lib/dedicated-crawler-common.mjs'
+    );
+    const { isTargetSwissLocation } = await import('../scripts/lib/target-swiss-locations.mjs');
+    // BORDER_PROXIMITY_BY_CANTON lists foreign towns (Como/Varese for TI,
+    // Evian/Thonon for VS) so cross-border jobs surface — but they must NOT be
+    // read as "this text names a Swiss location" by the foreign-job gates, or an
+    // explicit foreign job (e.g. "Como, Italy") would have its rejection cancelled.
+    for (const loc of ['Como, Italy', 'Varese, Italia', 'Evian, France']) {
+      expect(isTargetSwissLocation(loc, { includeBorderProximity: false })).toBe(false);
+      expect(isLocationExplicitlyForeign(loc)).toBe(true);
+      expect(isExplicitlyOutsideTarget(loc)).toBe(true);
+    }
+    // The border keyword still surfaces cross-border relevance for the default
+    // (inclusion) callers, and a genuine border-area Swiss city is kept.
+    expect(isTargetSwissLocation('Como')).toBe(true);
+    expect(isLocationExplicitlyForeign('Chiasso, Ticino')).toBe(false);
+  });
+
   it('jobLocationBlockCountryIsForeign: reads the authoritative ATS job-location country', async () => {
     const { jobLocationBlockCountryIsForeign } = await import(
       '../scripts/lib/dedicated-crawler-common.mjs'

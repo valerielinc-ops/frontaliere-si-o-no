@@ -4971,8 +4971,10 @@ export function isExplicitlyOutsideTarget(text) {
   // Word-boundary aware (via isTargetSwissLocation) — NOT a substring scan, which
   // mis-fired on common words containing a tiny municipality name (e.g. "company"
   // → "Pany" (GR), wrongly cancelling a legitimate foreign rejection).
+  // includeBorderProximity:false so a foreign border town (Como, Varese, Evian)
+  // does NOT count as a Swiss location and cancel an explicit-foreign verdict.
   if (/(svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
-  if (isTargetSwissLocation(lower)) return false;
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
   return true;
 }
 
@@ -4986,7 +4988,9 @@ export function isLocationExplicitlyForeign(locationField) {
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   // Word-boundary aware target-location check (NOT a substring scan, which let
   // "Pany" (GR) match inside "company" and wrongly clear a foreign location).
-  if (isTargetSwissLocation(lower)) return false;
+  // includeBorderProximity:false so an Italian/French border town in the field
+  // (e.g. "Como, Italy") is not mistaken for a Swiss location.
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
   // Guard against Swiss cities that contain substrings of foreign names
   // (e.g. Münchenstein contains München, Lausanne contains "usa").
   // Uses the full BFS dataset (2,110 municipalities + aliases) instead of
@@ -5050,18 +5054,16 @@ export function isLocationExplicitlyForeign(locationField) {
 // signature), so casual prose like "this job location is flexible" never
 // matches. Returns true ONLY for a parseable block that is non-Swiss; no block,
 // or a block carrying a Swiss marker, → false (the ~9,800 jobs without this ATS
-// format are unaffected). A Swiss block always names "Switzerland" and a Swiss
-// postcode is 4 digits, so a foreign country, a foreign metropolis, or a
-// 5-digit (US-style) postcode in a Switzerland-free block is decisive — this
-// also catches blocks truncated before the country line ("2000 Sydney",
-// "75225 Dallas TX").
+// format are unaffected). A Swiss block always names "Switzerland", so a foreign
+// country name or a foreign metropolis in a Switzerland-free block is decisive —
+// this also catches blocks truncated before the country line ("2000 Sydney",
+// "75225 Dallas TX" → matched on the city). We deliberately do NOT infer foreign
+// from a bare 5-digit number: a Swiss block truncated before "Switzerland" could
+// carry a 5-digit reference/salary token and be dropped as a false positive.
 const JOB_LOCATION_BLOCK_RE = /\bjob\s*location\b([\s\S]*?)\bcompany\s*address\b/i;
 const JOB_LOCATION_BLOCK_SWISS_RE = /\b(switzerland|suisse|svizzera|schweiz)\b/i;
 const JOB_LOCATION_BLOCK_FOREIGN_RE = /\b(united states|u\.?s\.?a\.?|united kingdom|u\.?k\.?|england|scotland|wales|ireland|canada|australia|new zealand|singapore|malaysia|thailand|indonesia|vietnam|philippines|taiwan|hong kong|china|japan|south korea|korea|india|united arab emirates|u\.?a\.?e\.?|saudi arabia|qatar|kuwait|bahrain|israel|turkey|greece|italy|italia|france|germany|deutschland|austria|österreich|spain|españa|espana|portugal|netherlands|nederland|belgium|belgi[eë]|luxembourg|sweden|norway|denmark|finland|poland|czech republic|czechia|hungary|romania|bulgaria|croatia|slovenia|slovakia|serbia|ukraine|russia|mexico|méxico|brazil|brasil|argentina|chile|colombia|peru|uruguay|south africa|egypt|morocco|nigeria|kenya)\b/i;
 const JOB_LOCATION_BLOCK_FOREIGN_CITY_RE = /\b(sydney|melbourne|perth|brisbane|adelaide|canberra|auckland|wellington|new york|los angeles|san francisco|chicago|dallas|houston|miami|austin|denver|atlanta|boston|seattle|philadelphia|phoenix|orlando|tampa|nashville|charlotte|honolulu|las vegas|san antonio|aventura|paramus|bloomington|mclean|toronto|montreal|vancouver|edmonton|calgary|ottawa|london|manchester|birmingham|liverpool|leeds|glasgow|edinburgh|southampton|dublin|paris|madrid|barcelona|lisbon|amsterdam|eindhoven|rotterdam|brussels|berlin|munich|frankfurt|hamburg|vienna|milan|milano|rome|roma|naples|napoli|athens|marousi|kuala lumpur|bangkok|tokyo|osaka|seoul|shanghai|beijing|shenzhen|mumbai|delhi|bangalore|dubai|abu dhabi|riyadh|doha|tel aviv|istanbul)\b/i;
-// US-style 5-digit postcode. Swiss (and AU) postcodes are 4 digits, so a bare
-// 5-digit code in a Switzerland-free structured block is never Swiss.
-const JOB_LOCATION_BLOCK_US_ZIP_RE = /(?:^|\s)\d{5}(?:\s|-|$)/;
 
 export function jobLocationBlockCountryIsForeign(text = '') {
   const flat = String(text || '').replace(/[•·|]/g, ' ').replace(/\s+/g, ' ');
@@ -5073,8 +5075,7 @@ export function jobLocationBlockCountryIsForeign(text = '') {
   if (JOB_LOCATION_BLOCK_SWISS_RE.test(block)) return false;
   return (
     JOB_LOCATION_BLOCK_FOREIGN_RE.test(block) ||
-    JOB_LOCATION_BLOCK_FOREIGN_CITY_RE.test(block) ||
-    JOB_LOCATION_BLOCK_US_ZIP_RE.test(block)
+    JOB_LOCATION_BLOCK_FOREIGN_CITY_RE.test(block)
   );
 }
 
@@ -5135,8 +5136,9 @@ export async function verifyLocationIsSwiss(locationString) {
   // For ambiguous locations (no explicit foreign or Swiss markers),
   // fall back to Nominatim geocoding. Word-boundary aware (NOT substring) so a
   // common word containing a tiny municipality name does not short-circuit to
-  // Swiss (e.g. "company" → "Pany").
-  if (isTargetSwissLocation(lower)) {
+  // Swiss (e.g. "company" → "Pany"). includeBorderProximity:false so a foreign
+  // border town (e.g. "Como") is geocoded to its real country, not assumed CH.
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) {
     return { isSwiss: true, country: 'ch', method: 'keyword' };
   }
 
