@@ -220,6 +220,19 @@ export async function fetchAllDecathlonJobs() {
     seen.add(slug);
     const publicUrl = `${DETAIL_URL_PREFIX}${slug}`;
 
+    // CH-only guard (#1720 item 6). The joinus.decathlon.ch DigitalRecruiters
+    // tenant is Switzerland-only, but the previous code trusted the domain
+    // alone — an unmatched city silently became canton GE, so a stray non-CH
+    // posting would publish with a fictitious Swiss address. If the listing
+    // exposes an explicit country indicator, honour it and skip non-CH rows;
+    // when absent (the common case) we fall back to the domain trust unchanged.
+    const listingCountry = String(
+      listing.country ?? listing.countryCode ?? listing.address?.country ?? '',
+    ).trim();
+    if (listingCountry && !/^(ch|che|switzerland|suisse|schweiz|svizzera)$/i.test(listingCountry)) {
+      continue;
+    }
+
     // Swiss-only domain: location is always a Swiss city. Canton via the city,
     // fall back to the HQ canton (Vernier / GE) for the rare unmatched city.
     const location = normalizeSpace(listing.location || 'Vernier');
