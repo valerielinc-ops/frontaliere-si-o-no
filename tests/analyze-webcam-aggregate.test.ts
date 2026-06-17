@@ -253,7 +253,31 @@ describe('envNumber (empty-string env guard for WARMUP_DAYS / QUEUE_VOTE_FRACTIO
     expect(envNumber(' 0.75 ', 0.5)).toBe(0.75);
   });
 
-  it('preserves an explicit 0 (intentional disable via a real number, not empty string)', () => {
+  it('parses an explicit 0 at the env layer (range handling is the consumer guard, see below)', () => {
     expect(envNumber('0', 14)).toBe(0);
+  });
+});
+
+describe('degenerate-but-finite env values fall back to the REAL default (non-circular guard)', () => {
+  // Reviewer 🟡 (PR #2391/#2445): the in-range guards must NOT fall back to the
+  // module constant (which IS the degenerate value when set via env) — they fall
+  // back to the literal DEFAULT_* so e.g. WEBCAM_QUEUE_VOTE_FRACTION='0' or '-1'
+  // does not collapse the majority vote to any-one-camera.
+  it('queueVoteThreshold(0)/negative/>1 fraction → strict majority via 0.5 default, not 1 (any-one-camera)', () => {
+    // 4 good feeds: a strict 0.5 majority needs 2; a degenerate fraction must NOT
+    // floor to 1 (the old any-one-camera regression).
+    expect(queueVoteThreshold(4, 0)).toBe(2);
+    expect(queueVoteThreshold(4, -1)).toBe(2);
+    expect(queueVoteThreshold(4, 1.5)).toBe(2);
+    // A valid in-range fraction is honoured.
+    expect(queueVoteThreshold(4, 0.75)).toBe(3);
+  });
+
+  it('isFeedWarmingUp with warmupDays<=0 → uses the 14-day default, warmup stays active', () => {
+    const now = new Date('2026-06-20T00:00:00Z').getTime();
+    // 4-day-old feed: with a degenerate warmupDays=0 it must still be considered
+    // warming (falls back to 14), not trusted immediately.
+    expect(isFeedWarmingUp({ introducedAt: '2026-06-16' }, now, 0)).toBe(true);
+    expect(isFeedWarmingUp({ introducedAt: '2026-06-16' }, now, -5)).toBe(true);
   });
 });
