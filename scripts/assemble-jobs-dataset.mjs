@@ -1043,7 +1043,7 @@ async function assembleJobs() {
   // Keep the first occurrence (newest postedDate thanks to sort above).
   const seenSlugs = new Set();
   let slugDupeCount = 0;
-  let deduped = sorted.filter((job) => {
+  const deduped = sorted.filter((job) => {
     const slug = String(job.slug || '').trim();
     if (!slug) return true; // keep slugless jobs (shouldn't happen, but safe)
     if (seenSlugs.has(slug)) {
@@ -1056,18 +1056,6 @@ async function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
-  }
-
-  // ── Publisher supersedes crawled (anti double-listing) ───────────────
-  // An employer's own published ad supersedes any crawled scrape of the same
-  // role, so the job is never listed twice. See scripts/lib/publisher-supersede.mjs.
-  {
-    const before = deduped.length;
-    const res = supersedeCrawledByPublisher(deduped);
-    deduped = res.jobs;
-    if (res.superseded > 0) {
-      console.log(`  🏷️  Publisher supersede: dropped ${res.superseded} crawled duplicate(s) of employer-published ads (${before} → ${deduped.length})`);
-    }
   }
 
   // ── Per-locale slug collision guard (translator-hallucination defense) ─
@@ -1154,7 +1142,7 @@ async function assembleJobs() {
   let droppedBadSwissCity = 0;
   let droppedCantonOnlyNoCity = 0;
   let droppedForeignAddress = 0;
-  const swissValidated = foreignFiltered.filter((job) => {
+  let swissValidated = foreignFiltered.filter((job) => {
     const haystack = `${job.description || ''} ${job.descriptionByLocale?.it || ''} ${job.descriptionByLocale?.en || ''} ${job.descriptionByLocale?.de || ''} ${job.descriptionByLocale?.fr || ''} ${job.streetAddress || ''}`;
 
     // (1) Strong negative: description body explicitly states a foreign
@@ -1191,6 +1179,20 @@ async function assembleJobs() {
   const totalDropped = droppedBadSwissCity + droppedCantonOnlyNoCity + droppedForeignAddress;
   if (totalDropped > 0) {
     console.log(`  🇨🇭 Swiss whitelist: excluded ${totalDropped} jobs (${droppedBadSwissCity} unknown locality, ${droppedCantonOnlyNoCity} canton-only without anchor, ${droppedForeignAddress} foreign address in description; ${swissValidated.length} remaining)`);
+  }
+
+  // ── Publisher supersedes crawled (anti double-listing) ───────────────
+  // Runs AFTER the foreign + Swiss-municipality filters: a publisher record that
+  // those filters would drop must NOT supersede (and bridge onto) a crawled twin
+  // that survives — that would orphan the already-indexed crawled URL. See
+  // scripts/lib/publisher-supersede.mjs.
+  {
+    const before = swissValidated.length;
+    const res = supersedeCrawledByPublisher(swissValidated);
+    swissValidated = res.jobs;
+    if (res.superseded > 0) {
+      console.log(`  🏷️  Publisher supersede: dropped ${res.superseded} crawled duplicate(s) of employer-published ads (${before} → ${swissValidated.length})`);
+    }
   }
 
   // ── Canton validation — fix mismatches using BFS data ──────────────
