@@ -13,6 +13,9 @@
  *   STRIPE_SECRET_KEY      — sk_live_… / sk_test_…
  *   STRIPE_WEBHOOK_SECRET  — whsec_…
  *   STRIPE_PRICE_AD_UNIT   — id of a RECURRING (monthly) Price = CHF 49 / ad-unit.
+ *   STRIPE_PRICE_AZIENDA   — id of a RECURRING Price = CHF 299 / 30 days for the
+ *                            flat "Piano Azienda" plan (unlimited ads). Created +
+ *                            published to RC; checkout wiring is the remaining #7 work.
  *
  * Pricing is RECOMPUTED here server-side from the publisher_jobs the order references
  * — the client amount is never trusted. The unit price + discount tiers MUST stay in
