@@ -148,7 +148,7 @@ const IT: ComparisonsHubCopy = {
   tHealthFooter:
     'Fonte: UFSP/BAG — tariffario premi LAMal 2026 ([priminfo.admin.ch](https://www.priminfo.admin.ch/)). Mediana calcolata sugli assicuratori ordinari per modello standard (franchigia 300 CHF).',
   tHealthContext:
-    'Confronto SSN Italia: il Servizio Sanitario Nazionale è finanziato tramite fiscalità generale (addizionale IRPEF regionale 1,23-3,33%, IRAP 3,9% sul valore della produzione a carico datoriale). Un cittadino italiano non paga un premio assicurativo dedicato; un frontaliere con opzione SSN paga un contributo forfettario in busta paga CH per garantirsi copertura italiana. Il nuovo frontaliere 2026 è obbligato alla LAMal salvo deroghe specifiche ([fonte: UFSP](https://www.bag.admin.ch/bag/it/home/versicherungen/krankenversicherung.html)).',
+    'Confronto SSN Italia: il Servizio Sanitario Nazionale è finanziato tramite fiscalità generale (addizionale IRPEF regionale 1,23-3,33%, IRAP 3,9% sul valore della produzione a carico datoriale). Un cittadino italiano non paga un premio assicurativo dedicato; un frontaliere con opzione SSN paga un contributo forfettario in busta paga CH per garantirsi copertura italiana. Il nuovo frontaliere 2026 è obbligato alla LAMal salvo deroghe specifiche ([fonte: UFSP](https://www.bag.admin.ch/it/assicurazione-malattie)).',
 
   tBenefitsCaption: 'Tabella 4 — Prestazioni sociali obbligatorie: CH (AVS/LPP/AD/LAINF) vs IT (INPS/INAIL)',
   tBenefitsColArea: 'Prestazione',
