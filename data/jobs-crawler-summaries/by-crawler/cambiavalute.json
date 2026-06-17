@@ -1,58 +1,25 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-06-16T22:30:42.617Z",
+  "generatedAt": "2026-06-17T12:30:38.663Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 76400,
-  "avgDurationMs": 76400,
+  "unchangedCount": 1,
+  "durationMs": 59672,
+  "avgDurationMs": 59672,
   "durationHistory": [
-    76400
+    59672
   ],
-  "newJobs": [
-    {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
-      "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-06-16T22:30:41.431Z",
-      "firstSeenAt": "2026-06-16T22:30:41.431Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "it",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-fooban",
       "slug": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
       "company": "CambiaValute.ch",
       "title": "Sales, Marketing & Customer support assistant (Mercato Tedesco)",
-      "location": "Chiasso (Svizzera) – posizione esclusivamente in presenza (no remote working) Ti",
+      "location": "Ticino",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
@@ -70,19 +37,25 @@
       "companyDomain": "cambiavalute.ch",
       "crawledAt": "2026-06-16T22:30:41.431Z",
       "firstSeenAt": "2026-06-16T22:30:41.431Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 64,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Pessina 6",
+      "postalCode": "6900",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-viaqie",
       "slug": "legal-compliance-officer-cambiavalute-ch-2026-cambiavalute-ch-all-rights-reserved-cambi-viaqie",
@@ -169,5 +142,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "company-kbhp6",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+      "company": "CambiaValute.ch",
+      "title": "Senior Backend developer",
+      "location": "2026 CambiaValute",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Chiasso",
+        "canton": "TI"
+      },
+      "companyKey": "cambiavalute",
+      "companyDomain": "cambiavalute.ch",
+      "crawledAt": "2026-06-16T22:30:41.431Z",
+      "firstSeenAt": "2026-06-16T22:30:41.431Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "streetAddress": "Via Pessina 6",
+      "postalCode": "6900",
+      "addressLocality": "2026 CambiaValute",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
