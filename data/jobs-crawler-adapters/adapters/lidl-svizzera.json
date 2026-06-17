@@ -20,6 +20,7 @@
     "https://team.lidl.ch/de/jobs/365-verkaeufer-verkaeuferin-m-w-d-20-80-kriens-685104",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-baden-681102",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-brugg-702655",
+    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-dietikon-691852",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-doettingen-702649",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-hunzenschwil-702651",
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-neftenbach-687914",
@@ -194,6 +195,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-widnau-672803",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-wittenbach-691216",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-50-pfaeffikon-zh-699515",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-1-spreitenbach-691867",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-arbon-681473",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-bachenbuelach-660388",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-buchs-674806",
@@ -262,6 +264,8 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-doettingen-702627",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-hunzenschwil-673019",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-neftenbach-687913",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691732",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691770",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-spreitenbach-691804",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-wettingen-702625",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-winterthur-687911",
@@ -280,7 +284,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-muri-ag-671409",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-reinach-ag-677051",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-romanshorn-681472",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-schlieren-673288",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-schluein-704650",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-seewen-685900",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-seewen-685906",
@@ -295,6 +298,7 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-zuerich-701465",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-100-pratteln-699376",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-80-biel-bienne-702324",
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-1-reinach-ag-698364",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-muri-ag-695103",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-samstagskraft-m-w-d-20-chur-705696",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-samstagskraft-m-w-d-20-chur-705710",
@@ -329,8 +333,53 @@
     "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-1-lugano-705822"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-06-17T13:42:17.763Z",
+  "updatedAt": "2026-06-17T23:00:05.819Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-springerfunktion-m-w-d-80-100-1-reinach-ag-698364": {
+      "location": "Reinach (AG)",
+      "addressLocality": "Reinach (AG)",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-dietikon-691852": {
+      "location": "Dietikon",
+      "addressLocality": "Dietikon",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691770": {
+      "location": "Schlieren",
+      "addressLocality": "Schlieren",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-schlieren-691732": {
+      "location": "Schlieren",
+      "addressLocality": "Schlieren",
+      "canton": "ZH",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-60-1-spreitenbach-691867": {
+      "location": "Spreitenbach",
+      "addressLocality": "Spreitenbach",
+      "canton": "AG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-706115": {
       "location": "Conthey",
       "addressLocality": "Conthey",
@@ -2850,15 +2899,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-schlieren-673288": {
-      "location": "Schlieren",
-      "addressLocality": "Schlieren",
-      "canton": "ZH",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/ch-verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-roemerswil-673691": {
       "location": "Römerswil",
