@@ -5,6 +5,7 @@ import {
   fetchMailtrapDailyUsage,
   fetchCloudflareUsage,
   fetchCloudflareDeliveryStats,
+  campaignIdTag,
   PROVIDERS,
 } from '../scripts/lib/email-cascade.mjs';
 
@@ -323,5 +324,43 @@ describe('fetchCloudflareUsage / fetchCloudflareDeliveryStats', () => {
       json: async () => ({ errors: [{ message: 'auth' }] }),
     })) as any;
     expect(await fetchCloudflareDeliveryStats('2026-06-16', '2026-06-16')).toBeNull();
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  campaignIdTag — single-token providers stamp the weekly_* id       */
+/* ------------------------------------------------------------------ */
+
+describe('campaignIdTag', () => {
+  it('resolves the campaign_id tag BY NAME regardless of position', () => {
+    // Order intentionally NOT campaign-id-first → positional tags[0] would be wrong.
+    const email = {
+      tags: [
+        { name: 'subscriber_locale', value: 'it' },
+        { name: 'variant', value: 'b' },
+        { name: 'campaign_id', value: 'weekly_2026-06-15' },
+      ],
+    };
+    expect(campaignIdTag(email)).toBe('weekly_2026-06-15');
+  });
+
+  it('matches the newsletter pipeline order (campaign_id first)', () => {
+    const email = {
+      tags: [
+        { name: 'campaign_id', value: 'weekly_2026-06-15' },
+        { name: 'subscriber_locale', value: 'de' },
+      ],
+    };
+    expect(campaignIdTag(email)).toBe('weekly_2026-06-15');
+  });
+
+  it('falls back to the first tag for single-tag callers', () => {
+    expect(campaignIdTag({ tags: [{ name: 'job-alert', value: 'job-alert' }] })).toBe('job-alert');
+  });
+
+  it('returns undefined when there are no tags', () => {
+    expect(campaignIdTag({})).toBeUndefined();
+    expect(campaignIdTag({ tags: [] })).toBeUndefined();
+    expect(campaignIdTag(undefined)).toBeUndefined();
   });
 });
