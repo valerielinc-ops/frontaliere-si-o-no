@@ -1106,6 +1106,13 @@ ${headTags}
 </html>`;
  }
 
+ // Bundle-less fallback. Currently unreachable: `hasSpaBundle` is typed
+ // `true` (spaBundleResolver throws on a missing bundle rather than returning
+ // false), so the `if (hasSpaBundle)` above never falls through. Kept in
+ // parity with the rich branch (and with staticPagesPlugin's own bundle-less
+ // fallback) so that — if the resolver invariant ever changes — article pages
+ // emitted here still carry the Offerwall FC snippet and never silently lose
+ // revenue. Defense-in-depth, not a live branch.
  return `<!DOCTYPE html>
 <html lang="${locale}">
  <head>
@@ -1113,6 +1120,7 @@ ${headTags}
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
  <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main></div>
