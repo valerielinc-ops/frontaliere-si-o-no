@@ -68,7 +68,6 @@
           "facility-office-manager-80-100-w-m-d-ruag-ag-thun"
         ],
         "de": [
-          "facility-office-manager-80-100-w-m-d-ruag-ag-thun",
           "betriebsleiter-80-100-w-m-d-ruag-ag-thun"
         ]
       },
@@ -120,7 +119,7 @@
         "it": "architetto-di-soluzioni-ict-sap-100-f-m-d-ruag-ag-emmen",
         "en": "ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen",
         "de": "ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen",
-        "fr": "ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen"
+        "fr": "architecte-de-solutions-tic-sap-100-f-m-d-ruag-ag-emmen"
       },
       "id": "ruag-ag-af78506b1885",
       "salaryMin": 78500,
@@ -140,6 +139,9 @@
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
       "previousSlugsByLocale": {
         "it": [
+          "ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen"
+        ],
+        "fr": [
           "ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen"
         ]
       },
@@ -185,9 +187,9 @@
       },
       "slugByLocale": {
         "it": "ispettore-qualita-produzione-elettrica-100-f-m-d-ruag-ag-emmen",
-        "en": "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen",
+        "en": "quality-inspector-electrical-manufacturing-100-f-m-d-ruag-ag-emmen",
         "de": "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen",
-        "fr": "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
+        "fr": "inspecteur-qualite-fabrication-electrique-100-f-m-d-ruag-ag-emmen"
       },
       "id": "ruag-ag-38c458e9550e",
       "salaryMin": 69500,
@@ -207,6 +209,12 @@
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
       "previousSlugsByLocale": {
         "it": [
+          "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
+        ],
+        "en": [
+          "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
+        ],
+        "fr": [
           "qualitatsinspektor-elektrische-fertigung-100-w-m-d-ruag-ag-emmen"
         ]
       },
@@ -256,7 +264,7 @@
         "it": "meccaniche-dei-capo-squadra-super-puma-100-f-m-d-ruag-ag-alpnach",
         "en": "teamlead-mechanics-super-puma-100-w-m-d-ruag-ag-alpnach",
         "de": "teamlead-mechanics-super-puma-100-w-m-d-ruag-ag-alpnach",
-        "fr": "teamlead-mechanics-super-puma-100-w-m-d-ruag-ag-alpnach"
+        "fr": "mecanique-d-equipe-super-puma-100-f-m-d-ruag-ag-alpnach"
       },
       "id": "ruag-ag-eb557c3f0e86",
       "salaryMin": 69500,
@@ -275,6 +283,9 @@
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
       "previousSlugsByLocale": {
         "it": [
+          "teamlead-mechanics-super-puma-100-w-m-d-ruag-ag-alpnach"
+        ],
+        "fr": [
           "teamlead-mechanics-super-puma-100-w-m-d-ruag-ag-alpnach"
         ]
       },

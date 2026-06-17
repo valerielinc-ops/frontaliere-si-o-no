@@ -78,7 +78,6 @@
           "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
           "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -476,9 +475,9 @@
       "slug": "capo-della-sicurezza-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "capo-della-sicurezza-psychiatrie-st-gallen-wil-sg",
-        "en": "leiterin-leiter-sicherheit-psgn-wil-sg",
+        "en": "head-of-security-psychiatrie-st-gallen-wil-sg",
         "de": "leiterin-leiter-sicherheit-psgn-wil-sg",
-        "fr": "leiterin-leiter-sicherheit-psgn-wil-sg"
+        "fr": "responsable-de-la-securite-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -527,6 +526,12 @@
         "it": [
           "leiterin-leiter-sicherheit-psgn-wil-sg",
           "leiterin-leiter-sicherheit-psychiatrie-st-gallen-wil-sg"
+        ],
+        "en": [
+          "leiterin-leiter-sicherheit-psgn-wil-sg"
+        ],
+        "fr": [
+          "leiterin-leiter-sicherheit-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-16T14:18:39.526Z",
@@ -548,9 +553,9 @@
       "slug": "specialista-della-salute-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "specialista-della-salute-psychiatrie-st-gallen-wil-sg",
-        "en": "fachperson-gesundheit-psgn-wil-sg",
+        "en": "healthcare-professional-psychiatrie-st-gallen-wil-sg",
         "de": "fachperson-gesundheit-psgn-wil-sg",
-        "fr": "fachperson-gesundheit-psgn-wil-sg"
+        "fr": "professionnel-de-la-sante-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -596,6 +601,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ],
+        "en": [
+          "fachperson-gesundheit-psgn-wil-sg"
+        ],
+        "fr": [
           "fachperson-gesundheit-psgn-wil-sg"
         ]
       },

@@ -1554,12 +1554,12 @@
     },
     {
       "id": "audemars-piguet-2d9cb2c66839",
-      "slug": "hr-business-partner-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "partner-commerciale-delle-risorse-umane-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
         "fr": "hr-business-partner-audemars-piguet-le-locle-ne-switzerland",
-        "it": "hr-business-partner-audemars-piguet-le-locle-ne-switzerland",
+        "it": "partner-commerciale-delle-risorse-umane-audemars-piguet-le-locle-ne-switzerland",
         "en": "hr-business-partner-audemars-piguet-le-locle-ne-switzerland",
-        "de": "hr-business-partner-audemars-piguet-le-locle-ne-switzerland"
+        "de": "hr-geschaftspartner-audemars-piguet-le-locle-ne-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -1615,7 +1615,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T22:21:28.668Z"
+      "firstSeenAt": "2026-06-16T22:21:28.668Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "de": [
+          "hr-business-partner-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-fbad4adceb40",
