@@ -692,6 +692,7 @@ const frCore: Record<string, string> = {
  'jobBoard.descriptionHeading': 'Description du poste',
  'jobBoard.requirementsHeading': 'Compétences requises',
  'jobBoard.apply': 'Postuler',
+  'jobBoard.claimCta': 'Vous êtes l\'entreprise ? Sponsorisez cette annonce',
  'jobBoard.backToList': 'Retour à toutes les offres',
  'jobBoard.notFoundTitle': 'Offre introuvable',
  'jobBoard.notFoundDescription': 'Cette offre n’est plus disponible ou a été supprimée.',

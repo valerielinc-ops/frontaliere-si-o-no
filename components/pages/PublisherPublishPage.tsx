@@ -563,6 +563,36 @@ const PublisherPublishPage: React.FC = () => {
  return () => { cancelled = true; };
  }, [user]);
 
+ // ── Claim / pre-fill from a crawled listing ─────────────────
+ // The "Sei l'azienda?" link on a crawled job stashes its fields in
+ // sessionStorage and routes here with `?claim=1`. We seed the per-ad fields
+ // once (company stays editable, tier/payment unaffected) so the employer
+ // doesn't retype their own posting. Edit-mode (`?edit`) always wins; the
+ // stash is one-shot (removed after read) and purely client-side (no fetch).
+ useEffect(() => {
+ if (!user) return;
+ const sp = new URLSearchParams(window.location.search);
+ if (sp.get('edit') || !sp.get('claim')) return;
+ let raw: string | null = null;
+ try { raw = sessionStorage.getItem('claimJobPrefill'); } catch { /* storage blocked */ }
+ if (!raw) return;
+ try { sessionStorage.removeItem('claimJobPrefill'); } catch { /* ignore */ }
+ let d: Record<string, unknown>;
+ try { d = JSON.parse(raw) as Record<string, unknown>; } catch { return; }
+ if (!d || typeof d !== 'object') return;
+ if (d.company) setCompanyName(String(d.company));
+ if (d.title) setTitle(String(d.title).slice(0, 200));
+ if (d.description) setDescription(String(d.description));
+ if (d.category) setCategory(String(d.category));
+ if (d.sector) setSector(String(d.sector).slice(0, 80));
+ if (d.employmentType) setEmploymentType(String(d.employmentType));
+ if (d.contractType) setContractType(String(d.contractType));
+ if (d.applyUrl) setApplyUrl(String(d.applyUrl));
+ if (d.location) {
+ setLocations([{ label: String(d.location), postalCode: '', canton: String(d.canton || 'TI'), street: '' }]);
+ }
+ }, [user]);
+
  // Prefill the company section from a saved publisher profile (repeat posters
  // shouldn't re-type their company on every ad). Skipped in edit mode — the
  // edited ad's own company snapshot is the source of truth there.

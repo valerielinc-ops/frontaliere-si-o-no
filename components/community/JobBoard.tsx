@@ -6855,7 +6855,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </a>
  )}
 
- {salaryEstimateWidget && (
+ {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
+                  <a
+                    href={buildPath({ activeTab: 'publish' }, locale) + '?claim=1'}
+                    className="mt-3 inline-block text-xs font-medium text-muted hover:text-accent underline underline-offset-2"
+                    onClick={() => {
+                      const cj = selectedJob as unknown as Record<string, unknown>;
+                      try {
+                        sessionStorage.setItem('claimJobPrefill', JSON.stringify({
+                          company: cj.company, title: cj.title, description: cj.description,
+                          category: cj.category, sector: cj.sector, employmentType: cj.employmentType,
+                          contractType: cj.contract, location: cj.location, canton: cj.canton,
+                          applyUrl: cj.applyUrl || cj.url,
+                        }));
+                      } catch { /* storage blocked — publish page just won't prefill */ }
+                      Analytics.trackSelectContent('job_board_claim_cta', `${selectedJob.company}_${selectedJob.title}`);
+                    }}
+                  >
+                    {t('jobBoard.claimCta')}
+                  </a>
+                )}
+
+                {salaryEstimateWidget && (
  <div className="mt-4">{salaryEstimateWidget}</div>
  )}
  {sectorContextWidget && (
