@@ -32,13 +32,18 @@
  * `/en/* /de/* /fr/*` patterns) is the legitimate site worker and is allow-listed.
  *
  * Exit codes (so CI can branch on the result):
- *   0 = no OTTO routes found (clean) — or CF token missing (skip, non-blocking).
+ *   0 = no OTTO routes found — a TRUE clean. ONLY this exit auto-resolves the
+ *       canonical issue (recovery).
+ *   2 = SKIPPED (CF token missing) — non-blocking, but explicitly NOT a clean.
+ *       The caller must NOT resolve the issue on a skip: a misconfigured RC
+ *       would otherwise auto-close a live OTTO-outage issue with a false
+ *       "recovered" comment while OTTO is still present.
  *   3 = OTTO route(s) DETECTED → caller opens/refreshes a tracked issue.
  *   1 = hard error (API failure / bad config).
  *
- * The exit-3 vs exit-1 split lets the workflow treat "OTTO is back" (actionable
- * alert) differently from "the monitor itself broke" (infra noise), instead of
- * collapsing both into a red check.
+ * The 0 / 2 / 3 / 1 split lets the workflow treat "true clean" (resolve issue),
+ * "skip" (do nothing), "OTTO is back" (open issue) and "monitor broke" (infra
+ * noise) as four distinct outcomes instead of collapsing them.
  *
  * ─── Auth ──────────────────────────────────────────────────────────────────
  *   Needs CF_API_TOKEN with Zone → Workers Routes → Read on the zone (the same
@@ -110,10 +115,13 @@ async function main() {
   const token = process.env.CF_API_TOKEN;
 
   if (!token) {
-    // Non-blocking: a missing token must not turn the gate red. Emit a warning
-    // and exit clean so a misconfigured RC doesn't masquerade as "OTTO is back".
-    console.error('⚠️  CF_API_TOKEN not set — skipping OTTO route check (non-blocking).');
-    process.exit(0);
+    // Non-blocking, but NOT a clean: exit 2 (SKIP), never 0. If this returned 0
+    // the workflow would treat a misconfigured RC as "recovery" and auto-close a
+    // live OTTO-outage issue with a false "✅ green again" comment while OTTO is
+    // still present (reviewer 🔴 on #2385). Exit 2 → the resolve step is gated on
+    // exit 0 only, so a skip leaves the issue untouched.
+    console.error('⚠️  CF_API_TOKEN not set — skipping OTTO route check (exit 2, non-blocking, NOT a clean).');
+    process.exit(2);
   }
 
   let zoneId;

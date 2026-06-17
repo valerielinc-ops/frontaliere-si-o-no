@@ -74,20 +74,28 @@ jobs:
           CF_API_TOKEN: ${{ env.CF_API_TOKEN }}
         run: |
           set -uo pipefail
-          # The monitor exits 0 (clean / token missing), 3 (OTTO detected), or
-          # 1 (hard error). Capture the code without `set -e` aborting the step.
+          # The monitor exits 0 (TRUE clean), 2 (skip: token missing), 3 (OTTO
+          # detected), or 1 (hard error). Capture the code without `set -e`
+          # aborting the step.
           node scripts/cf-otto-route-monitor.mjs && rc=0 || rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
-          if [ "$rc" = "3" ]; then
-            echo "otto_present=true" >> "$GITHUB_OUTPUT"
-          elif [ "$rc" = "0" ]; then
-            echo "otto_present=false" >> "$GITHUB_OUTPUT"
-          else
-            # rc=1 (or anything unexpected) → the monitor itself failed; let the
-            # failure reporter handle it. Fail the step so `failure()` fires.
-            echo "::error title=OTTO monitor error::cf-otto-route-monitor.mjs exited $rc (API/config error, not an OTTO detection)."
-            exit "$rc"
-          fi
+          case "$rc" in
+            0)
+              # TRUE clean — the ONLY exit that auto-resolves the canonical issue.
+              echo "otto_present=clean" >> "$GITHUB_OUTPUT" ;;
+            3)
+              echo "otto_present=true" >> "$GITHUB_OUTPUT" ;;
+            2)
+              # SKIP (CF token missing). NOT a clean: do NOT resolve the issue, or
+              # a misconfigured RC would auto-close a live OTTO-outage issue with a
+              # false "recovered" comment. Loud warning, no issue action.
+              echo "::warning title=OTTO monitor skipped::CF_API_TOKEN missing in Remote Config — skipped the OTTO route check (no issue opened or resolved). Fix the RC token (scope: Zone → Workers Routes → Read)." ;;
+            *)
+              # rc=1 (or anything unexpected) → the monitor itself failed; let the
+              # failure reporter handle it. Fail the step so `failure()` fires.
+              echo "::error title=OTTO monitor error::cf-otto-route-monitor.mjs exited $rc (API/config error, not an OTTO detection)."
+              exit "$rc" ;;
+          esac
 
       # OTTO route detected → open (or refresh, via stable-title dedup) a tracked
       # issue. NOT auto-routed to the CI fixer: deleting the routes + revoking the
@@ -119,8 +127,10 @@ jobs:
 
       # Recovery → auto-close the canonical issue so a cleared zone doesn't leave
       # a stale open alert (mirror of the failure reporter; best-effort).
+      # Gated on a TRUE clean (rc==0 → otto_present == 'clean') ONLY — a skip
+      # (rc==2, token missing) must NOT resolve the issue (it is not a recovery).
       - name: Resolve issue — no OTTO routes
-        if: steps.check.outputs.otto_present == 'false'
+        if: steps.check.outputs.otto_present == 'clean'
         run: |
           set -uo pipefail
           RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
