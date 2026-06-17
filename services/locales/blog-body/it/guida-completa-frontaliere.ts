@@ -7,7 +7,7 @@ Questa guida copre **ogni aspetto** del percorso frontaliero: dalla decisione in
 
 ## I numeri del fenomeno frontaliero nel 2025
 
-Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Secondo i dati dell'<a href="https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro/lavoratori-frontalieri.html" target="_blank" rel="noopener">Ufficio federale di statistica (UST)</a> (Q4 2025):
+Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Secondo i dati dell'<a href="https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro.html" target="_blank" rel="noopener">Ufficio federale di statistica (UST)</a> (Q4 2025):
 
 | Indicatore | Valore | Fonte |
 |---|---|---|

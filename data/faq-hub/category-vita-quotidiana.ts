@@ -189,7 +189,7 @@ export const FAQ_vitaQuotidiana: ReadonlyArray<FaqHubEntry> = [
         "En moyenne, les courses en Italie coûtent 40-50 % de moins qu'en Suisse à qualité égale [source : rapport OFS prix transfrontaliers 2024]. Pain, lait, viande, fruits et légumes nettement moins chers en Italie. Beaucoup de frontaliers font leurs courses à Esselunga, Coop Italia, Lidl IT, Conad et hypermarchés Como/Chiasso. Limites douane : aliments jusqu'à CHF 300/pers./jour en franchise (ordonnance sur les concessions douanières RS 631.012) [source : OFDF]. Au-delà, TVA suisse 8,1 %. Viande : 1 kg/pers./jour. Alcool : 5 L vin/pers., 1 L spiritueux. Déclaration à l'OFDF seulement si dépassement. En Suisse : Migros, Coop, Denner, Aldi avec promos hebdomadaires.",
     },
     sources: [
-      'https://www.bazg.admin.ch/bazg/it/home/privatpersonen.html',
+      'https://www.bazg.admin.ch/it',
     ],
   },
   {

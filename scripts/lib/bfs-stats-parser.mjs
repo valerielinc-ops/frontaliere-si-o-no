@@ -218,4 +218,4 @@ export async function fetchBfsCsv({ maxAttempts = 5, baseDelayMs = 4000 } = {}) 
 
 export const BFS_CSV_URL = CSV_URL;
 export const BFS_SOURCE_URL =
-  'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html';
+  'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html';

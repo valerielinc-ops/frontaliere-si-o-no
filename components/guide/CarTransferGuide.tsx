@@ -553,7 +553,7 @@ const CarTransferGuide: React.FC = () => {
  <h3 className="text-lg font-bold font-display text-strong mb-4">{t('carTransfer.links.title')}</h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  {[
- { label: t('carTransfer.links.bazg'), url: 'https://www.bazg.admin.ch/bazg/it/home.html' },
+ { label: t('carTransfer.links.bazg'), url: 'https://www.bazg.admin.ch/it' },
  { label: t('carTransfer.links.sc'), url: 'https://www4.ti.ch/di/sc' },
  { label: t('carTransfer.links.asa'), url: 'https://www.asa.ch/it/' },
  { label: t('carTransfer.links.tcs'), url: 'https://www.tcs.ch/it/' },

@@ -7,7 +7,7 @@
  * SEFRI (not MEBEKO / SRK). Muratore, elettricista, cuoco, cameriere, autista,
  * operaio edile — all vocational AFC/EFZ diplomas.
  *
- * Source: https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html
+ * Source: https://www.sbfi.admin.ch/it
  * Secondary citation: SECO — Osservatorio mercato del lavoro (CCL per settore)
  *
  * Rate-limit: 1 req/s. Falls back to curated snapshot on offline / CI.
@@ -25,7 +25,7 @@ const OUT = np.resolve(__dirname, '..', 'data', 'seo', 'sefri-equivalence.json')
 const SOURCES = [
   {
     authority: 'SEFRI',
-    url: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    url: 'https://www.sbfi.admin.ch/it',
     label: 'Segreteria di Stato per la formazione, la ricerca e l\'innovazione — Riconoscimento di diplomi esteri',
   },
   {
@@ -35,7 +35,7 @@ const SOURCES = [
   },
   {
     authority: 'SEFRI — Elenco professioni regolamentate',
-    url: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri/procedure.html',
+    url: 'https://www.sbfi.admin.ch/it',
     label: 'SEFRI — Procedure di riconoscimento',
   },
 ];
@@ -44,7 +44,7 @@ const TRADE_PROFESSIONS = {
   muratore: {
     itTitle: 'Muratore / Muratrice (edilizia principale)',
     authority: 'SEFRI',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Qualifica professionale triennale IeFP edilizia o diploma tecnico',
     swissEquivalent: 'Muratore AFC (Attestato federale di capacità, 3 anni apprendistato)',
     leadTimeMonths: [4, 6],
@@ -68,7 +68,7 @@ const TRADE_PROFESSIONS = {
   cuoco: {
     itTitle: 'Cuoco / Cuoca',
     authority: 'SEFRI',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Qualifica IeFP alberghiera o diploma IPSSAR (5 anni)',
     swissEquivalent: 'Cuoco AFC (3 anni apprendistato, specializzazione cucina)',
     leadTimeMonths: [2, 5],
@@ -80,7 +80,7 @@ const TRADE_PROFESSIONS = {
   cameriere: {
     itTitle: 'Cameriere / Cameriera di sala',
     authority: 'SEFRI',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Qualifica IeFP servizi di sala o diploma IPSSAR indirizzo sala',
     swissEquivalent: 'Specialista in ristorazione AFC oppure operatore ristorazione CFP (2 anni)',
     leadTimeMonths: [1, 4],
@@ -92,7 +92,7 @@ const TRADE_PROFESSIONS = {
   autista: {
     itTitle: 'Autista professionale (camion / autobus)',
     authority: 'USTRA + SEFRI',
-    authorityUrl: 'https://www.astra.admin.ch/astra/it/home/temi/patenti/riconoscimento.html',
+    authorityUrl: 'https://www.astra.admin.ch/astra/it/home.html',
     diplomaTypeIt: 'Patente CE/DE italiana + CQC (Carta Qualificazione Conducente)',
     swissEquivalent: 'Categoria C/CE/D/DE + OAut (Ordinanza sull\'ammissione alla circolazione, carta conducente)',
     leadTimeMonths: [1, 3],
@@ -104,7 +104,7 @@ const TRADE_PROFESSIONS = {
   operaio: {
     itTitle: 'Operaio di produzione / industriale',
     authority: 'Nessuno (non regolamentata)',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Qualsiasi qualifica o nessuna',
     swissEquivalent: 'Nessun riconoscimento richiesto',
     leadTimeMonths: [0, 0],
@@ -116,7 +116,7 @@ const TRADE_PROFESSIONS = {
   impiegato: {
     itTitle: 'Impiegato di commercio / amministrativo',
     authority: 'SEFRI (facoltativo)',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Diploma ITC, ragioneria o laurea triennale',
     swissEquivalent: 'Impiegato di commercio AFC oppure diploma KV / economia e gestione',
     leadTimeMonths: [2, 5],

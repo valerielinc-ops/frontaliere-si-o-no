@@ -881,7 +881,7 @@ function buildSections(
         title: shell.sectionHeadings.salary,
         paragraphs: [
           `La forchetta salariale tipica per ${strings.role} in Ticino nel 2026 è CHF ${fmtN(minSal)}–${fmtN(maxSal)} lordi annui su 13 mensilità, con un valore mediano stimato di CHF ${fmtN(facts.medianSalaryChf)} ricavato dal dataset interno Frontaliere Ticino (${facts.jobsCount} posizioni campione). Le voci variabili — turni notturni, festivi, reperibilità, straordinari — possono aggiungere dal 5 al 20 % al totale.`,
-          `Per stimare il netto personalizzato (frontaliere vecchio/nuovo, chilometraggio dal confine, stato civile, figli a carico) usa il calcolatore stipendio di Frontaliere Ticino. Ricorda che l'Accordo bilaterale 2020 distingue i "nuovi frontalieri" (assunti dopo il 17/07/2023) — tassati alla fonte al 80 % in CH + dichiarazione in Italia — dai "vecchi frontalieri" che mantengono il regime precedente. [Fonte: AFC — Imposta alla fonte](https://www.estv.admin.ch/estv/it/home/imposta-federale-diretta/imposta-alla-fonte.html).`,
+          `Per stimare il netto personalizzato (frontaliere vecchio/nuovo, chilometraggio dal confine, stato civile, figli a carico) usa il calcolatore stipendio di Frontaliere Ticino. Ricorda che l'Accordo bilaterale 2020 distingue i "nuovi frontalieri" (assunti dopo il 17/07/2023) — tassati alla fonte al 80 % in CH + dichiarazione in Italia — dai "vecchi frontalieri" che mantengono il regime precedente. [Fonte: AFC — Imposta alla fonte](https://www.estv.admin.ch/it/imposta-alla-fonte).`,
           `Le differenze fra cantoni sono minime sui salari (CCL nazionale) ma importanti sulle tasse comunali: Lugano, Mendrisio, Bellinzona hanno moltiplicatori diversi. Il calcolatore del sito tiene conto anche di questo dettaglio.`,
         ],
       },
@@ -946,7 +946,7 @@ function buildSections(
         title: shell.sectionHeadings.salary,
         paragraphs: [
           `The typical salary range for ${strings.role} in Ticino in 2026 is CHF ${fmtN(minSal)}–${fmtN(maxSal)} gross per year on 13 months, with an estimated median of CHF ${fmtN(facts.medianSalaryChf)} from the Frontaliere Ticino dataset (${facts.jobsCount} sampled openings). Variable compensation — night shifts, holidays, on-call, overtime — can add 5 to 20% to the total.`,
-          `To estimate the personalised net (old/new cross-border, km from the border, marital status, dependants) use the Frontaliere Ticino salary calculator. The 2020 bilateral agreement distinguishes "new cross-borderers" (hired after 17/07/2023) — taxed at source at 80% in Switzerland plus Italian declaration — from "old cross-borderers" who keep the previous regime. [source: AFC — Withholding tax](https://www.estv.admin.ch/estv/it/home/imposta-federale-diretta/imposta-alla-fonte.html).`,
+          `To estimate the personalised net (old/new cross-border, km from the border, marital status, dependants) use the Frontaliere Ticino salary calculator. The 2020 bilateral agreement distinguishes "new cross-borderers" (hired after 17/07/2023) — taxed at source at 80% in Switzerland plus Italian declaration — from "old cross-borderers" who keep the previous regime. [source: AFC — Withholding tax](https://www.estv.admin.ch/it/imposta-alla-fonte).`,
           `Inter-cantonal differences are minor on wages (national CLAs) but relevant on municipal tax: Lugano, Mendrisio, Bellinzona have different multipliers. The site calculator models this.`,
         ],
       },

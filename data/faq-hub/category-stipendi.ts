@@ -73,7 +73,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
     ],
     sources: [
       'https://www4.ti.ch/can/rl/ricerca-banche-dati/',
-      'https://www.seco.admin.ch/seco/it/home/Arbeit/Personenfreizugigkeit_Arbeitsbeziehungen/flankierende-massnahmen/gesamtarbeitsvertraege.html',
+      'https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro',
     ],
   },
   {
@@ -234,7 +234,7 @@ export const FAQ_stipendi: ReadonlyArray<FaqHubEntry> = [
         "Le Lohnausweis (certificat de salaire) est le récapitulatif annuel émis par l'employeur suisse au 31 mars (LIFD art. 127) [source : Fedlex LIFD RS 642.11]. Contient salaire brut, 13e mois, bonus, cotisations AVS/LPP/LAA, indemnités, prestations en nature (logement, voiture), impôt à la source. Pour le nouveau frontalier : pièce maîtresse de la déclaration italienne, annexée au Redditi PF pour justifier revenu (RC) et crédit d'impôt (CE). À conserver 10 ans. En litige avec AFC Tessin ou Agenzia Entrate : preuve principale. Modèle 11 unifié pour tous les cantons.",
     },
     sources: [
-      'https://www.estv.admin.ch/estv/it/home/direkte-bundessteuer/lohnausweis.html',
+      'https://www.estv.admin.ch/it/certificato-di-salario-e-attestazione-delle-rendite',
     ],
   },
   {

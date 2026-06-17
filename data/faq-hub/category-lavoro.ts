@@ -166,7 +166,7 @@ export const FAQ_lavoro: ReadonlyArray<FaqHubEntry> = [
         "La reconnaissance dépend de la profession. Professions réglementées (médecin, infirmier, avocat, architecte, enseignant) : le SEFRI délivre l'attestation d'équivalence selon la directive UE 2005/36/CE [source : portail SEFRI]. Demande en ligne sur sbfi.admin.ch avec diplômes traduits, taxe CHF 550-950. 4-6 mois. Médecins : MEBEKO. Infirmiers : Croix-Rouge suisse (CRS). Non réglementées (ingénieur, informatique, économiste) : pas d'obligation, l'employeur décide. Le SEFRI émet un avis de niveau CITE utile pour les concours. Enseignants : CDIP.",
     },
     sources: [
-      'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+      'https://www.sbfi.admin.ch/it',
     ],
   },
   {
