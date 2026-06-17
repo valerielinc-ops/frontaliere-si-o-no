@@ -155,6 +155,25 @@ export interface SerpJobTitleOptions {
   disambiguator?: string;
   brand?: string;
   maxChars?: number;
+  /**
+   * When `true`, the city is treated as DROPPABLE: it is included only when the
+   * full "{role} — {company} {conn} {city}" headline fits the budget verbatim;
+   * the moment that candidate would overflow (forcing the cascade to drop the
+   * company or truncate the role) the city is omitted so the role can occupy the
+   * whole budget without a mid-word `…`.
+   *
+   * Default `false` — city is mandatory (the standard cascade keeps it while it
+   * fits because it carries local-query intent AND guarantees multi-sede title
+   * uniqueness). Callers may opt in ONLY when they have proven, at the corpus
+   * level, that "{role} — {company}" (no city) is unique in the locale, so
+   * dropping the city cannot collapse two pages into a duplicate <title>
+   * (audit:title-uniqueness is a hard deploy gate). See the SSG plugin's
+   * `noCityTitleCollisionByLocale` guard (build-plugins/jobsSeoPagesPlugin.ts).
+   *
+   * Closes the #1931 follow-up #1932: cuts the residual mid-`…` titles
+   * (17.8 % active / 22.8 % expired) on non-colliding role+company pages.
+   */
+  cityOptional?: boolean;
 }
 
 /**
@@ -181,6 +200,18 @@ export interface SerpJobTitleOptions {
  * first token sacrificed: it already appears in the H1, meta description
  * and JSON-LD `hiringOrganization`.
  *
+ * EXCEPTION — `options.cityOptional` (#1932): for pages the caller has proven
+ * non-colliding without the city, the city is droppable. WHEN a company exists,
+ * the city survives only inside the full "role — company a city" candidate; the
+ * moment that overflows the cascade skips the "role a city" and city-tail-
+ * truncation steps and falls to the city-less "role — company" / "role" path so
+ * the role fills the budget without a mid-`…`. WHEN there is no company,
+ * "role a city" is the sole city-bearing candidate and is KEPT — so the city is
+ * dropped only on OVERFLOW (via the empty `cityTail` in the truncation branch),
+ * never when it would otherwise fit. This eliminates the residual mid-`…` titles
+ * (17.8 % active / 22.8 % expired) where role+city blew the 66-char cap without
+ * stripping the geo keyword from titles that had room for it.
+ *
  * The brand suffix is appended only when the final headline still fits
  * (buildTitleWithBrand policy). The optional disambiguator is budgeted
  * BEFORE the cascade so it always lands inside the cap.
@@ -205,16 +236,30 @@ export function composeSerpJobTitle(
   const disambToken = String(options.disambiguator || '').trim().replace(/\s+/g, ' ');
   const disamb = disambToken ? ` · ${disambToken}` : '';
   const budget = Math.max(1, maxChars - disamb.length);
+  const cityOptional = options.cityOptional === true;
 
+  // When the city is droppable, it survives ONLY in the full
+  // "role — company a city" candidate: once that overflows we fall straight to
+  // the city-less "role — company" path so the role takes the whole budget
+  // without a mid-word `…`. Otherwise the city is mandatory and stays while it
+  // fits (the standard cascade below).
+  //
+  // The "role a city" candidate is skipped only when the city is droppable AND
+  // a company exists to carry the city-less fallback — for a no-company job
+  // "role a city" is the ONLY candidate bearing the city, so keeping it ensures
+  // the city is dropped on OVERFLOW (via the `cityTail` logic below), never when
+  // it would otherwise fit. (#1932 reviewer 🔴.)
   const candidates = [
     cleanCompany && cleanCity ? `${role} — ${cleanCompany} ${connector} ${cleanCity}` : '',
-    cleanCity ? `${role} ${connector} ${cleanCity}` : '',
+    (!cityOptional || !cleanCompany) && cleanCity ? `${role} ${connector} ${cleanCity}` : '',
     cleanCompany ? `${role} — ${cleanCompany}` : '',
     role,
   ].filter(Boolean);
   let headline = candidates.find((c) => c.length <= budget);
   if (!headline) {
-    const cityTail = cleanCity ? ` ${connector} ${cleanCity}` : '';
+    // The city tail is preserved during truncation only when the city is
+    // mandatory; a droppable city is sacrificed before the role is truncated.
+    const cityTail = !cityOptional && cleanCity ? ` ${connector} ${cleanCity}` : '';
     const roleBudget = budget - cityTail.length;
     // Preserve the city tail while a meaningful role fragment (≥12 chars)
     // still fits; a malformed/oversized `city` (crawler body-text leak)
@@ -231,9 +276,12 @@ export function composeSerpJobTitle(
  * brand suffix. Thin wrapper over {@link composeSerpJobTitle} (no
  * disambiguator) kept for the SPA call sites (services/seoService.ts,
  * components/community/JobBoard.tsx) — the SSG composer additionally appends
- * a collision disambiguator, so SPA and static titles match for all
- * non-colliding jobs and diverge only by the ` · token` suffix on colliding
- * ones. Callers must apply their own multi-location guard before passing
+ * a collision disambiguator AND may drop the city on non-colliding pages
+ * (`cityOptional`, #1932), so SPA and static titles match for most
+ * non-colliding jobs and diverge by the ` · token` suffix on colliding ones
+ * or by a dropped city on overflow-prone unique ones. The indexed <title> is
+ * the static SSG HTML; the SPA keeps the city (no corpus map at runtime).
+ * Callers must apply their own multi-location guard before passing
  * `city` (the blob "ganz Schweiz" etc. must not become a city token).
  */
 export function buildJobTitleWithLocation(
