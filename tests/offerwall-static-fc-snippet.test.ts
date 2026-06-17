@@ -43,6 +43,13 @@ describe('OFFERWALL_FC_SNIPPET — registry', () => {
     expect(OFFERWALL_FC_SNIPPET).toMatch(/Promise\.resolve/);
   });
 
+  it('initialize() grants access to subscribers AND signed-in users (parity with index.html)', () => {
+    // Same dual gate as the index.html registry: an existing subscriber or a
+    // logged-in visitor (Firebase Auth session key) bypasses the Offerwall.
+    expect(OFFERWALL_FC_SNIPPET).toMatch(/newsletter_subscribed/);
+    expect(OFFERWALL_FC_SNIPPET).toMatch(/firebase:authUser:/);
+  });
+
   it('show() delegates to the React hook window.__ftOfferwallSubscribe', () => {
     expect(OFFERWALL_FC_SNIPPET).toMatch(/show\s*:\s*function/);
     expect(OFFERWALL_FC_SNIPPET).toMatch(/window\.__ftOfferwallSubscribe/);
