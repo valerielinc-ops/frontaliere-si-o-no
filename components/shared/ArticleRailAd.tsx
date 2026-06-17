@@ -43,8 +43,10 @@ const ArticleRailAd: React.FC<ArticleRailAdProps> = ({ side, enabled = true }) =
       enabled={enabled}
       minHeight={600}
       // Not sticky itself — it sits inside the rail's `sticky top-6` stack so it
-      // rides down the gutter. CSS-gated to the widened (≥1400px) rail.
-      className="hidden min-[1400px]:block w-full text-center mt-3"
+      // rides down the gutter. CSS-gated to the widened (≥1400px) rail via the
+      // `xlw` breakpoint (the arbitrary `min-[1400px]:` variant lost the v4
+      // cascade to `xl:`, so the rail never widened — see index.css @theme).
+      className="hidden xlw:block w-full text-center mt-3"
     />
   );
 };
