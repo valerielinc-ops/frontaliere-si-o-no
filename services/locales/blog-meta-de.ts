@@ -8124,6 +8124,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.candidato-medico-eoc-bellinzona.title': 'Arztkandidat in Bellinzona: EOC sucht Grenzgänger',
     'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'Das Kantonale Spital Bellinzona (EOC) sucht Ärzte für Innere Medizin und Intensivmedizin. Details sind noch nicht spezifiziert, aber es gibt eine Möglichkeit für Grenzgänger.',
     'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'EOC-Spital in Bellinzona, Kanton Tessin, sucht Grenzgänger-Ärzte für Innere Medizin und Intensivmedizin.',
+    'blog.article.naspi-svizzera-frontalieri.title': 'Schweizer Dispo: Naspi und Gaststätten für Grenzgänger',
+    'blog.article.naspi-svizzera-frontalieri.excerpt': 'Wie funktioniert der Schweizer Naspi für Grenzgänger, Dauer maximal 520 Tage und wie beantragte man die Steuerfreien Gaststätten in Italien.',
+    'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang, Symbol der Grenze und des Kantons Tessin.',
 };
 
 export default blogMetaDe;

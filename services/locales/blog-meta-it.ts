@@ -8126,6 +8126,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.candidato-medico-eoc-bellinzona.title': 'Candidato medico a Bellinzona: EOC cerca frontalieri',
     'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'L\'Ente Ospedaliero Cantonale di Bellinzona cerca medici per medicina interna e intensiva. Dettagli non ancora specificati, ma opportunità per frontalieri.',
     'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'Ospedale EOC di Bellinzona, Canton Ticino, cerca medici frontalieri per medicina interna e intensiva.',
+    'blog.article.naspi-svizzera-frontalieri.title': 'Disoccupazione Svizzera: Naspi e ristorni per i frontalieri',
+    'blog.article.naspi-svizzera-frontalieri.excerpt': 'Come funziona il Naspi svizzero per i frontalieri, durata massima 520 giorni e come ottenere i ristorni fiscali in Italia.',
+    'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande a Bellinzona al tramonto, simbolo del confine e del Canton Ticino.',
 };
 
 export default blogMetaIt;

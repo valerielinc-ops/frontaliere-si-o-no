@@ -25758,6 +25758,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'naspi-svizzera-frontalieri',
+ category: 'pratico',
+ date: '2026-06-17T01:48:28.014Z',
+ image: '/images/blog/naspi-svizzera-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
