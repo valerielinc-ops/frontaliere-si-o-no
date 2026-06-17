@@ -33,6 +33,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { classifySector } from './lib/employer-sectors.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -44,28 +45,28 @@ function arg(name, def) {
   return next && !next.startsWith('--') ? next : true; // boolean flags
 }
 
-// Enti pubblici / para-pubblici ticinesi: pubblicano concorsi obbligatori,
-// improbabili acquirenti di annunci sponsorizzati → esclusi di default.
-const PUBLIC_SECTOR = [
-  /ente ospedaliero|^eoc\b/i, /città di|comune di|municipio/i, /amministrazione cantonale/i,
-  /università|^usi\b|supsi/i, /istituti sociali|^lis\b/i, /ferrovie|^ffs\b|officine/i,
-  /pro senectute/i, /cantonal|repubblica e cantone/i,
-];
-const isPublic = (name) => PUBLIC_SECTOR.some((re) => re.test(name));
-
 const PRICE = 'CHF 49 al mese per annuncio';
 
-/** Le 4 email della sequenza. Tutte personalizzate col numero reale di candidati. */
-function buildSequence({ company, candidates, periodLabel, contactName }) {
+/**
+ * Le 4 email della sequenza. Personalizzazione Livello 4 (skill cold-email):
+ * numero REALE di candidati + RUOLO più cliccato, connessi al problema (i click
+ * si perdono). Tono da pari, una sola call-to-action a basso attrito per touch.
+ */
+function buildSequence({ company, candidates, periodLabel, contactName, topRole }) {
   const hi = contactName ? `Ciao ${contactName},` : 'Buongiorno,';
+  // Ruolo accorciato per leggibilità; fallback neutro se assente.
+  const role = (topRole || '').replace(/\s+/g, ' ').trim();
+  const pagina = role ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
   return [
     {
       touch: 1, gapDays: 0, subject: 'candidati inviati',
       body: `${hi}
 
-${periodLabel} abbiamo mandato ${candidates} persone alla vostra pagina lavoro da frontaliereticino.ch — gratis, dai vostri annunci che pubblichiamo.
+${periodLabel} vi abbiamo mandato ${candidates} persone alla vostra ${pagina} da frontaliereticino.ch — gratis, dagli annunci che pubblichiamo per voi.
 
-Possiamo mandarvene di più, e stavolta far arrivare le candidature (CV incluso) direttamente a voi invece che farle rimbalzare sul vostro sito. Vi interessa vedere come?
+Il punto è che quei click arrivano sul vostro sito e spesso si perdono. Possiamo farveli arrivare come candidature dirette, CV incluso, nella vostra casella.
+
+Ha senso che vi mostri come, sul vostro annuncio più visto?
 
 Valerie`,
     },
@@ -113,35 +114,36 @@ function run() {
   const outDir = arg('--out', path.join(ROOT, 'data/employer-outreach/drafts'));
   const top = Number(arg('--top', '10'));
   const min = Number(arg('--min', '10'));
-  const includePublic = arg('--include-public', false) === true;
-  const periodLabel = typeof arg('--days-label', 0) === 'string' ? arg('--days-label') : 'negli ultimi 90 giorni';
+  const periodLabel = typeof arg('--days-label', 0) === 'string' ? arg('--days-label') : 'negli ultimi 3 mesi';
 
   const report = loadJson(path.resolve(reportPath), null);
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
   const contacts = loadJson(path.resolve(contactsPath), {});
 
-  let targets = report.employers.filter((e) => e.candidates >= min);
-  if (!includePublic) targets = targets.filter((e) => !isPublic(e.name));
-  targets = targets.slice(0, top);
+  // Nessuna azienda esclusa: top `top` per candidati, sopra la soglia `min`.
+  const targets = report.employers.filter((e) => e.candidates >= min).slice(0, top);
 
   fs.mkdirSync(outDir, { recursive: true });
   console.log('═════════════════════════════════════════════════════════════');
   console.log(' ⚠️  DRY-RUN — SOLO BOZZE, NESSUN INVIO');
   console.log('═════════════════════════════════════════════════════════════');
   console.log(`Report: ${reportPath} (${report.source}, ${report.days}gg)`);
-  console.log(`Target: ${targets.length} aziende (top ${top}, min ${min} candidati, pubblici ${includePublic ? 'inclusi' : 'esclusi'})\n`);
+  console.log(`Target: ${targets.length} aziende (top ${top}, min ${min} candidati, nessuna esclusa)\n`);
 
   let withContact = 0;
   for (const e of targets) {
     const c = contacts[e.key] || contacts[e.name] || {};
     const email = c.email || null;
     if (email) withContact++;
-    const seq = buildSequence({ company: e.name, candidates: e.candidates, periodLabel, contactName: c.contactName });
+    const sector = c.sector || classifySector(e.name);
+    const seq = buildSequence({ company: e.name, candidates: e.candidates, periodLabel, contactName: c.contactName, topRole: c.topRole });
     const slug = e.key || e.name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const lines = [
       `# Cold email — ${e.name}`,
       ``,
       `- Candidati inviati (${periodLabel}): **${e.candidates}** · click totali: ${e.clicks}`,
+      `- Settore: ${sector} (calibra il tono a mano se serve)`,
+      `- Ruolo più cliccato: ${c.topRole || '(da arricchire)'}`,
       `- Pagina careers: ${e.careersUrl || '(da arricchire)'}`,
       `- Email contatto: ${email || '⚠️ MANCANTE — arricchire contacts.json'}`,
       `- Stato: BOZZA, non inviata`,
