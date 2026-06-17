@@ -64,9 +64,20 @@ function run() {
   if (!report || !Array.isArray(report.employers)) { console.error(`report illeggibile: ${reportPath}`); process.exit(1); }
   const contacts = loadJson(contactsPath, {});
 
+  const topExplicit = process.argv.includes('--top');
   let targets = report.employers.slice(0, top);
   if (onlyCompany && onlyCompany !== true) targets = report.employers.filter((e) => (e.key || '') === onlyCompany);
-  if (!targets.length) { console.error('nessun target (controlla --company / --report)'); process.exit(1); }
+  // Guard: a target without a usable candidate count would render "candidati: undefined".
+  const skipped = targets.filter((e) => !Number.isFinite(e?.candidates) || e.candidates <= 0);
+  if (skipped.length) console.warn(`↷ ${skipped.length} target senza candidati validi saltati: ${skipped.map((e) => e.name).join(', ').slice(0, 120)}`);
+  targets = targets.filter((e) => Number.isFinite(e?.candidates) && e.candidates > 0);
+  if (!targets.length) { console.error('nessun target valido (controlla --company / --report)'); process.exit(1); }
+  // Safety: in --test/--send without an explicit --company or --top, don't fan
+  // out to all `top` targets by surprise — limit to 1 (one preview / one send).
+  if ((isTest || isSend) && !onlyCompany && !topExplicit && targets.length > 1) {
+    console.warn(`⚠️  ${isTest ? 'test' : 'invio'} senza --company/--top: limito a 1 target (${targets[0].name}). Usa --top N per più.`);
+    targets = targets.slice(0, 1);
+  }
 
   // Costruisci i messaggi (touch richiesto) per ogni target.
   const messages = targets.map((e) => {
@@ -124,6 +135,12 @@ function run() {
     const { sent, failed } = await sendEmailCascade(queue, { concurrency: 1, delayMs: 1200 });
     console.log(`\n✅ inviate ${sent.length}, ❌ fallite ${failed.length}`);
     logProviderSummary();
+    if (failed.length) process.exitCode = 1; // segnala invii falliti al chiamante
+  }).catch((err) => {
+    // Senza questo, un reject (es. syncQuotasFromAPIs) resterebbe unhandled e
+    // l'exit 0 farebbe sembrare riuscito un invio non avvenuto.
+    console.error(`\n❌ invio non riuscito: ${err?.message || err}`);
+    process.exitCode = 1;
   });
 }
 
