@@ -24,6 +24,7 @@ describe('useKillSwitches', () => {
       weeklyEmployers: false,
       orphanLandings: false,
       gptPocSlot: false,
+      articleRailAds: false,
     });
   });
 
@@ -43,6 +44,7 @@ describe('useKillSwitches', () => {
     expect(result.current.weeklyEmployers).toBe(false);
     expect(result.current.orphanLandings).toBe(false);
     expect(result.current.gptPocSlot).toBe(false);
+    expect(result.current.articleRailAds).toBe(false);
   });
 
   it('reads each RC parameter name and returns true when the flag is "true"', async () => {
@@ -69,6 +71,7 @@ describe('useKillSwitches', () => {
       weeklyEmployers: false,
       orphanLandings: true,
       gptPocSlot: true,
+      articleRailAds: false,
     });
   });
 
@@ -78,7 +81,7 @@ describe('useKillSwitches', () => {
     renderHook(() => useKillSwitches());
 
     await waitFor(() => {
-      expect(rcMock).toHaveBeenCalledTimes(6);
+      expect(rcMock).toHaveBeenCalledTimes(7);
     });
 
     const callArgs = rcMock.mock.calls.map(([arg]) => arg);
@@ -88,5 +91,6 @@ describe('useKillSwitches', () => {
     expect(callArgs).toContain('KILL_WEEKLY_EMPLOYERS_LINKS');
     expect(callArgs).toContain('KILL_ORPHAN_LANDINGS_LINKS');
     expect(callArgs).toContain('KILL_GPT_POC_SLOT');
+    expect(callArgs).toContain('KILL_ARTICLE_RAIL_ADS');
   });
 });
