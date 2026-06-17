@@ -156,11 +156,17 @@ async function main() {
   // with no culprit PR). Preserve the existing perArticle so the meta stays
   // consistent with the unchanged .bin.
   let existingPerArticle = null;
+  // Prior committed vector count — used by the meta-only degraded path so a run
+  // that embeds ZERO new vectors preserves the previous count instead of writing
+  // 0 (a provider-drift reset zeroes `existingStore.count` in memory, but the
+  // committed .bin is untouched, so writing 0 would desync meta↔bin).
+  let priorMetaCount = null;
   if (!isFullRebuild && existsSync(OUTPUT_META)) {
     try {
       const m = JSON.parse(readFileSync(OUTPUT_META, 'utf8'));
       if (m && typeof m.model === 'string') existingStoreModel = m.model;
       if (m && m.perArticle && typeof m.perArticle === 'object') existingPerArticle = m.perArticle;
+      if (m && Number.isFinite(m.count)) priorMetaCount = m.count;
     } catch { /* unreadable meta → treat as unknown, no drift forcing */ }
   }
   let forceFullReembed = isFullRebuild;
@@ -230,6 +236,10 @@ async function main() {
       return;
     }
     console.error(`EMBEDDINGS_BUILD embedding ${toEmbed.length} new articles (incremental=${isIncremental || !isFullRebuild})`);
+    // Vectors already in `records` before this run's embed loop (preserved
+    // cached entries; 0 on a forced full re-embed). If the loop dies partway we
+    // compare against this to know whether ANY new vector was produced.
+    const baseRecords = records.length;
     try {
       for (let i = 0; i < toEmbed.length; i += BATCH_SIZE) {
         const batch = toEmbed.slice(i, i + BATCH_SIZE);
@@ -245,30 +255,41 @@ async function main() {
       }
     } catch (err) {
       // Graceful degradation (#1338): the keys ARE configured, but the embedding
-      // provider chain failed at REQUEST time — both Mistral and Cohere exhausted
-      // their free-tier quota / rate-limited / transiently down (embedBatch only
-      // throws after EVERY keyed provider fails). Embeddings are a similarity
-      // SIGNAL, not a hard dependency: cascadedScore falls through to the cluster
-      // median for any article that lacks a vector, so a missing embedding never
-      // blocks article generation. Crashing here would hard-fail the whole evidence
-      // build over a transient quota dip and brick the ~95%-revenue blog funnel
-      // (#1335). So: log loudly, write a meta-only sidecar preserving the existing
-      // store, and exit success — the next run retries the uncached articles once
-      // quota resets. (Distinct from the no-key path above, which never attempts.)
-      console.error(`EMBEDDINGS_BUILD skipped — embedding provider chain exhausted at request time (all keyed providers failed: ${err?.message || err}). ${toEmbed.length - records.length} article(s) left unembedded; cascadedScore will fall through to cluster median. Will retry next run.`);
-      const meta = {
-        model: existingStoreModel || EMBEDDING_MODEL,
-        dim: EMBEDDING_DIM,
-        count: existingStore.count,
-        builtAt: new Date().toISOString(),
-        skipped: 'provider chain exhausted at request time',
-        // Keep the hash→slug map of the untouched .bin so slug resolution
-        // (and the binary-store regression test) stays green on a degraded run.
-        ...(existingPerArticle ? { perArticle: existingPerArticle } : {}),
-      };
-      writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
-      console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
-      return;
+      // provider chain failed at REQUEST time (e.g. Mistral 401 + Cohere quota +
+      // Gemini free-tier 1000/day cap — embedBatch only throws after EVERY keyed
+      // provider fails). Embeddings are a similarity SIGNAL, not a hard
+      // dependency: cascadedScore falls through to the cluster median for any
+      // article without a vector, so a missing embedding never blocks article
+      // generation. Crashing would hard-fail the evidence build over a quota dip
+      // and brick the ~95%-revenue blog funnel (#1335).
+      const embeddedThisRun = records.length - baseRecords;
+      if (embeddedThisRun > 0) {
+        // PARTIAL PROGRESS: some new vectors were produced before the chain ran
+        // out (e.g. Gemini's 1000/day free cap mid-way through a ~2700-article
+        // re-embed). Persist them — DON'T discard — so the store advances and the
+        // NEXT daily run continues from here (model now matches → no re-drift,
+        // only the still-uncached articles are embedded). Falls through to the
+        // normal store write below. Over a few runs the corpus fully catches up.
+        console.error(`EMBEDDINGS_BUILD partial — embedded ${embeddedThisRun} new vector(s) this run before the provider chain ran out (${err?.message || err}). Persisting partial progress (total ${records.length}); ${toEmbed.length - embeddedThisRun} still uncached → next run continues. cascadedScore uses cluster median meanwhile.`);
+      } else {
+        // ZERO new vectors this run (chain exhausted on the very first batch, e.g.
+        // daily cap already spent). Don't touch the .bin; write a meta-only
+        // sidecar preserving the PRIOR count (a drift reset zeroed
+        // existingStore.count in memory, but the committed .bin is intact — never
+        // write 0 over it) + the hash→slug map so slug resolution stays green.
+        console.error(`EMBEDDINGS_BUILD skipped — embedding provider chain exhausted at request time with no new vectors (all keyed providers failed: ${err?.message || err}). ${toEmbed.length} article(s) left unembedded; cascadedScore will fall through to cluster median. Will retry next run.`);
+        const meta = {
+          model: existingStoreModel || EMBEDDING_MODEL,
+          dim: EMBEDDING_DIM,
+          count: priorMetaCount != null ? priorMetaCount : existingStore.count,
+          builtAt: new Date().toISOString(),
+          skipped: 'provider chain exhausted at request time',
+          ...(existingPerArticle ? { perArticle: existingPerArticle } : {}),
+        };
+        writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2) + '\n');
+        console.error(`EMBEDDINGS_BUILD wrote meta-only sidecar at ${OUTPUT_META}`);
+        return;
+      }
     }
   } else {
     console.error('EMBEDDINGS_BUILD no new articles to embed');
