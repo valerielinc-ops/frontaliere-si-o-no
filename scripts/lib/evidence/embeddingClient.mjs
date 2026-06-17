@@ -4,11 +4,15 @@
 // + scripts/lib/ai-models.mjs. Chain order:
 //   1. Mistral (`mistral-embed`, 1024-dim, EU-hosted)
 //   2. Cohere (`embed-multilingual-v3.0`, 1024-dim, multilingual)
-// Both share dim 1024 so the binary store format is provider-agnostic
-// across the chain.
+//   3. Gemini (`gemini-embedding-001`, outputDimensionality=1024, L2-normalized)
+// All emit dim 1024 so the binary store format is provider-agnostic across the
+// chain. Gemini is the rescue tail (added 2026-06-17): when Mistral 401'd and
+// Cohere was unset the chain exhausted and the embeddings build froze the store
+// → P1 `B.6.embedding-store-outdated` alert reddened the Quality-alerts monitor.
+// GEMINI_API_KEY is the project's live free key, so it keeps embeddings flowing.
 //
-// If both keys are missing, embedBatch throws a typed error with a stable
-// message — build-article-embeddings.mjs catches it and graceful-skips.
+// If NO key is present, embedBatch throws a typed error with a stable message —
+// build-article-embeddings.mjs catches it and graceful-skips.
 //
 // Runtime fallback: if the first keyed provider FAILS at request time (e.g.
 // Mistral returns 401 because its key was revoked, or 429/5xx), embedBatch
@@ -19,7 +23,23 @@
 
 import { EMBEDDING_DIM, EMBEDDING_PROVIDERS } from './constants.mjs';
 
-const NO_PROVIDER_MSG = 'no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY)';
+const NO_PROVIDER_MSG = 'no embedding provider configured (set MISTRAL_API_KEY, COHERE_API_KEY or GEMINI_API_KEY)';
+
+/**
+ * L2-normalize a vector in place and return it. Gemini's MRL-truncated
+ * embeddings (outputDimensionality < 3072) are NOT unit-norm from the API, so
+ * the caller must normalize for cosine/dot to be meaningful (Google guidance).
+ * No-op-safe on a zero vector.
+ */
+function l2normalize(vec) {
+  let sum = 0;
+  for (let i = 0; i < vec.length; i++) sum += vec[i] * vec[i];
+  const norm = Math.sqrt(sum);
+  if (norm > 0) {
+    for (let i = 0; i < vec.length; i++) vec[i] /= norm;
+  }
+  return vec;
+}
 
 /**
  * All providers whose API key is in env, in chain order. Empty if none.
@@ -87,6 +107,36 @@ async function callCohere({ provider, inputs, fetchImpl }) {
 }
 
 /**
+ * Gemini request adapter. `gemini-embedding-001:batchEmbedContents` takes
+ * `{ requests: [{ model, content:{parts:[{text}]}, outputDimensionality, taskType }] }`
+ * with the key in the `x-goog-api-key` header. Embeddings come back in order
+ * under `embeddings[].values`. outputDimensionality=1024 (MRL) matches the store;
+ * truncated vectors are L2-normalized here (not unit-norm from the API).
+ */
+async function callGemini({ provider, inputs, fetchImpl }) {
+  const model = `models/${provider.model}`;
+  const res = await fetchImpl(provider.url, {
+    method: 'POST',
+    headers: {
+      'x-goog-api-key': provider.key,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      requests: inputs.map((text) => ({
+        model,
+        content: { parts: [{ text }] },
+        outputDimensionality: provider.dim,
+        taskType: 'RETRIEVAL_DOCUMENT',
+      })),
+    }),
+  });
+  if (!res.ok) throw new Error(`gemini embeddings ${res.status}: ${await res.text()}`);
+  const data = await res.json();
+  const rows = data?.embeddings || [];
+  return rows.map((r) => l2normalize(Float32Array.from(r.values || [])));
+}
+
+/**
  * Compute embeddings for a batch of input strings.
  * Tries the configured provider chain; first provider with a key in env wins.
  *
@@ -131,6 +181,8 @@ export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
         vectors = await callMistral({ provider, inputs, fetchImpl });
       } else if (provider.id === 'cohere') {
         vectors = await callCohere({ provider, inputs, fetchImpl });
+      } else if (provider.id === 'gemini') {
+        vectors = await callGemini({ provider, inputs, fetchImpl });
       } else {
         throw new Error(`unknown embedding provider: ${provider.id}`);
       }
