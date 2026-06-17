@@ -9863,8 +9863,7 @@
         "it": [
           "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch",
           "analista-di-conformita-viaggi-e-spese-con-arabic-talent-pool-roche-ho-chi-minh",
-          "responsabile-del-prodotto-roche-ho-chi-minh",
-          "product-manager-roche-ch"
+          "responsabile-del-prodotto-roche-ho-chi-minh"
         ]
       }
     },
@@ -12943,7 +12942,7 @@
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
         "de": "strategic-account-executive-pathology-lab-roche-ch",
-        "fr": "strategic-account-executive-pathology-lab-roche-ch"
+        "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -12984,8 +12983,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel",
-        "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
+        "strategischer-account-executive-pathologielabor-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12995,7 +12993,6 @@
           "strategischer-account-executive-pathologielabor-roche-basel"
         ],
         "fr": [
-          "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
           "strategic-account-executive-pathology-lab-roche-ch"
         ]
       },
@@ -40678,11 +40675,7 @@
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "record-to-report-period-end-close-senior-analyste-roche-san-jose-costa-rica",
-          "record-to-report-period-end-close-senior-analyst-roche-ch"
-        ],
-        "it": [
-          "record-to-report-period-end-close-senior-analyst-roche-ch"
+          "record-to-report-period-end-close-senior-analyste-roche-san-jose-costa-rica"
         ]
       }
     },
@@ -50676,12 +50669,12 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-delle-utenze-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-delle-utenze-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
-        "fr": "utilities-manager-roche-ch"
+        "fr": "gestionnaire-des-services-publics-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -50721,16 +50714,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-delle-utenze-roche-basel",
-        "gestionnaire-des-services-publics-roche-basel"
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-delle-utenze-roche-basel",
           "utilities-manager-roche-ch"
         ],
         "fr": [
-          "gestionnaire-des-services-publics-roche-basel",
           "utilities-manager-roche-ch"
         ]
       },
@@ -71183,7 +71173,7 @@
       "slugByLocale": {
         "it": "ricercatore-di-design-roche-basel",
         "en": "design-researcher-roche-ch",
-        "de": "design-researcher-roche-ch",
+        "de": "designforscher-roche-basel",
         "fr": "design-researcher-roche-basel"
       },
       "company": "Roche",
@@ -71224,15 +71214,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "design-researcher-roche-ch",
-        "designforscher-roche-basel"
+        "design-researcher-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "design-researcher-roche-ch"
         ],
         "de": [
-          "designforscher-roche-basel",
           "design-researcher-roche-ch"
         ]
       },
@@ -89841,11 +89829,11 @@
     },
     {
       "id": "roche-187a3e59d0d8",
-      "slug": "2026-intern-finance-roche-ch",
+      "slug": "2026-tirocinante-finanza-roche-mississauga",
       "slugByLocale": {
         "en": "2026-intern-finance-roche-ch",
-        "it": "2026-intern-finance-roche-ch",
-        "de": "2026-intern-finance-roche-ch",
+        "it": "2026-tirocinante-finanza-roche-mississauga",
+        "de": "2026-praktikant-finanzen-roche-mississauga",
         "fr": "2026-intern-finance-roche-ch"
       },
       "company": "Roche",
@@ -89902,7 +89890,18 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-16T23:40:07.211Z"
+      "firstSeenAt": "2026-06-16T23:40:07.211Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2026-intern-finance-roche-ch"
+        ],
+        "de": [
+          "2026-intern-finance-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "2026-intern-finance-roche-ch"
+      ]
     },
     {
       "id": "roche-f737ed9437c4",
