@@ -117,8 +117,70 @@ function fingerprintFinding(text) {
   const lead = words.slice(0, 4);
   return lead.length >= 3 ? `fp:${lead.join('-')}` : null; // too short → still drop
 }
+// ---- `pr-body-contract` false-positive guard (DETERMINISTIC) ----------------
+// The `pr-body-contract` regex matches the contract VOCABULARY (`## Implementato`,
+// `## Non implementato`, `completeness contract`, …), but a reviewer line mentions
+// that vocabulary in three distinct senses, only ONE of which is a recurring agent
+// mistake worth escalating:
+//   (a) GENUINE violation — a section is missing/empty/incomplete, or a `Closes`
+//       multi-issue line. This is the escalation target.
+//   (b) AFFIRMATION — the reviewer states the contract is fine ("sezioni presenti
+//       e sensate", "completeness contract OK", "## Implementato accurato"). NOT a
+//       defect; counting it inflates the bucket (#2397/#2396 examples).
+//   (c) LOCATION LABEL — the finding is about a DIFFERENT topic (sibling count,
+//       stale comment, CSS) and merely cites `PR body ## Implementato L2` /
+//       `## Non implementato L1` as the line address. Those findings belong to
+//       their own bucket (sibling-class-fix / stale-comment), reached via the
+//       fingerprint net or another taxonomy entry — not pr-body-contract (#2409/
+//       #2408 examples).
+// Crucially the deterministic gate `pr-body-contract.yml` ALREADY enforces section
+// PRESENCE (`hasImpl`/`hasNon`, multi-issue `Closes`) — the structural fix this
+// escalation would ask for already shipped. So a GENUINE missing-section violation
+// can barely reach the reviewer (the gate flags it first); the bucket's recurrence
+// is dominated by (b)/(c) false positives. Only count (a). Pure → unit-tested.
+//
+// Same false-positive class as the `❓`/per-line dedup fixes in tallyFindings and
+// the `already-fixed` avoidability classifier: don't escalate non-defects.
+// Explicit "the section/Closes is broken" language → a real violation. Negation-
+// aware on the affirmation side (below): "non rispettato" must NOT read as "ok".
+const PR_BODY_CONTRACT_VIOLATION_RE =
+  /\b(manca\w*|mancant\w*|assent\w*|vuot\w*|incomplet\w*|placeholder|tbd|stub|multi-?issue)\b|sezion\w*\s+obbligator\w*\s+(manca|assent)|non\s+(è\s+|e\s+)?(corrisponde|rispettat\w*|accurat\w*|coerent\w*|corrett\w*)|senza testo|n\/a|claim.*non.*(diff|reale)|una riga sola/i;
+// Positive contract-state words. Only an AFFIRMATION when NOT negated by a
+// preceding "non " (so "non rispettato" / "non accurato" are not swallowed here).
+const PR_BODY_CONTRACT_AFFIRM_RE =
+  /(?<!non\s)\b(ok|presenti|presente|sensate?|accurat\w*|coerent\w*|corrett\w*|completo|in regola|rispettat\w*)\b|nessun\w*\s+(problema|drift|violazione|scope drift)/i;
+// Location-label tell: the finding cites `## Implementato`/`## Non implementato`
+// (optionally prefixed "PR body", optionally with an L<n> line ref) only as the
+// ADDRESS of a finding about another topic. Tolerant of arrows/quotes between
+// "PR body" and the section, and of the section being quoted.
+const PR_BODY_CONTRACT_LOCATION_RE =
+  /pr body\b[^a-z]*#{0,3}\s*"?\s*(non\s+)?implementato\b|#{2,3}\s*(non\s+)?implementato\s+l?\d|"\s*#{2,3}\s*(non\s+)?implementato\s*"\s*l?\d/i;
+export function isGenuinePrBodyContractViolation(text) {
+  const s = String(text || '');
+  // (a) explicit violation language wins — a real missing/empty/mismatched section
+  //     or a multi-issue Closes, regardless of any affirming word nearby.
+  if (PR_BODY_CONTRACT_VIOLATION_RE.test(s)) return true;
+  // (b) the line AFFIRMS the contract is fine (un-negated positive) → not a defect.
+  if (PR_BODY_CONTRACT_AFFIRM_RE.test(s)) return false;
+  // (c) section name used only as a `PR body ## X (L<n>)` location label for a
+  //     finding about a different topic → not a contract defect.
+  if (PR_BODY_CONTRACT_LOCATION_RE.test(s)) return false;
+  // Default: no affirmation, no location-label tell, matched the contract
+  // vocabulary → conservative: keep as a genuine violation.
+  return true;
+}
+
 export function bucketFinding(text) {
-  for (const t of TAXONOMY) if (t.re.test(text)) return t.key;
+  for (const t of TAXONOMY) {
+    if (!t.re.test(text)) continue;
+    // pr-body-contract: drop affirmations / location-label false positives so the
+    // bucket counts only genuine contract violations (the deterministic gate
+    // pr-body-contract.yml already blocks missing sections). Falls through to the
+    // next matching taxonomy entry / fingerprint net so a co-mentioned real defect
+    // (sibling-class-fix, stale-comment) still clusters in its own bucket.
+    if (t.key === 'pr-body-contract' && !isGenuinePrBodyContractViolation(text)) continue;
+    return t.key;
+  }
   return fingerprintFinding(text); // unbucketed → fingerprint safety net (or null)
 }
 
@@ -191,6 +253,40 @@ export function isAvoidableAlreadyFixed(title, labels) {
   if (m && Number(m[1]) >= 2) return false; // aggregate by explicit count
   if (/\b(?:sweep|batch|bulk)\b/i.test(String(title || ''))) return false; // aggregate by keyword
   return true; // single-item follow-up → the gate's real target → countable
+}
+
+// ---- `max-turns` avoidability classifier (DETERMINISTIC) --------------------
+// A `fix-outcome:max-turns` marker (issue-fix.yml granular telemetry: a fixer run
+// that died `error_max_turns`) is recurring-BURN worth escalating ONLY when the
+// run hit the cap on a task the automation COULD have completed in budget — i.e. a
+// genuinely-fixable loop. Two whole classes hit the cap DETERMINISTICALLY by their
+// own structure, and for them the structural fix ALREADY shipped (followup-drainer
+// pre-flight #2291 + the per-item circuit-breaker in issue-fix.yml). Re-tentando
+// li riproduce; raising max-turns is explicitly forbidden (AGENTS.md, reverts
+// #795/#802). Counting them re-fires escalation #2439 with no actionable fix left:
+//   1. AGGREGATE follow-ups ("N item deferred", N≥2, or sweep/batch/bulk): doing
+//      ALL items in one run blows the budget by construction (#2332 = 5 items). The
+//      circuit-breaker already caps the run at ONE item; a death here is the
+//      multi-item attempt the breaker is meant to stop, not a fixable loop.
+//   2. Issues the drainer has ALREADY PARKED `needs-human` (malformed body / network
+//      -audit / repeated-death too-large): the deterministic pre-flight detected the
+//      structural non-fixability and stopped re-queueing. The lingering marker is the
+//      run that triggered the park, expected — not preventable burn.
+// Single-item, still-routable follow-ups that die at the cap (no `needs-human`) are
+// the genuine signal — a fixable loop the budget should have covered → countable.
+// Same feedback-loop class as isAvoidableAlreadyFixed. Pure → unit-tested.
+// `labels` is an array of label-name strings.
+export function isAvoidableMaxTurns(title, labels) {
+  const names = Array.isArray(labels) ? labels : [];
+  const t = String(title || '');
+  // (2) drainer already parked it as structurally non-fixable → expected death.
+  if (names.includes('needs-human')) return false;
+  // (1) aggregate multi-item → over-budget by construction (circuit-breaker target),
+  //     not a fixable loop. Same detection as isAvoidableAlreadyFixed.
+  const m = t.match(/(\d+)\s+items?\s+deferred/i);
+  if (m && Number(m[1]) >= 2) return false; // aggregate by explicit count
+  if (/\b(?:sweep|batch|bulk)\b/i.test(t)) return false; // aggregate by keyword
+  return true; // single-item, still-routable → fixable loop → countable
 }
 
 // ---- 2. Recurring issue classes (created in window) ----
@@ -337,6 +433,14 @@ async function main() {
       // (root cause of #2290: bucket re-fired at 9/14d, all 5 examples aggregate or
       // non-follow-up). Single-item follow-ups — the gate's real target — still count.
       if (code === 'already-fixed' && !isAvoidableAlreadyFixed(issue.title, labelNames)) continue;
+      // `max-turns` on an aggregate multi-item issue (over-budget by construction,
+      // the per-item circuit-breaker's target) or on an issue the drainer has already
+      // parked `needs-human` (structurally non-fixable: malformed body / network-audit
+      // / repeated-death) is an EXPECTED deterministic death, not a fixable loop → no
+      // actionable structural fix beyond what shipped (#2291 + circuit-breaker), so
+      // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
+      // dominated by aggregate / parked runs). Single-item still-routable deaths count.
+      if (code === 'max-turns' && !isAvoidableMaxTurns(issue.title, labelNames)) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
