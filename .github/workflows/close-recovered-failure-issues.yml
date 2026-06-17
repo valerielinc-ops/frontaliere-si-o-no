@@ -1,7 +1,7 @@
 name: Close Recovered Failure Issues
 
 # Zero-Claude reconciler: auto-closes the auto-generated `Workflow Failure: <name>` /
-# `Crawler Failure: <name>` issues once the workflow has recovered (its next run after
+# `Crawler Failure: <name>` / `CI Failure: <name>` issues once the workflow has recovered (its next run after
 # the failure is green again). Mirrors the inline `github-issue-creator.mjs --resolve`
 # step centrally so EVERY scheduled workflow — present and future — gets its failure
 # issue closed on recovery, without wiring a per-workflow step into ~300 YAML files.
