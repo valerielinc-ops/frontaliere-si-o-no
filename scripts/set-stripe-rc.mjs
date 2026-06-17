@@ -36,6 +36,12 @@ const PROVIDER_KEYS = [
     description: 'Stripe recurring Price id for one ad-unit (CHF 49 / 30 days)',
   },
   {
+    rcParam: 'STRIPE_PRICE_AZIENDA',
+    envVar: 'STRIPE_PRICE_AZIENDA',
+    shapeHint: /^price_[A-Za-z0-9]+$/,
+    description: 'Stripe recurring Price id for Piano Azienda (CHF 299 / 30 days, ruoli illimitati)',
+  },
+  {
     rcParam: 'STRIPE_WEBHOOK_SECRET',
     envVar: 'STRIPE_WEBHOOK_SECRET',
     shapeHint: /^whsec_[A-Za-z0-9]+$/,
