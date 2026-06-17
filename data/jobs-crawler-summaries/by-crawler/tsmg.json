@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-06-17T14:10:06.204Z",
+  "generatedAt": "2026-06-17T23:34:18.929Z",
   "total": 33,
   "newCount": 0,
   "updatedCount": 33,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7893,
-  "avgDurationMs": 7893,
+  "durationMs": 4368,
+  "avgDurationMs": 4368,
   "durationHistory": [
-    7893
+    4368
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -310,6 +310,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -424,6 +425,7 @@
       "postalCode": "1950",
       "slugDisambiguator": "c23075ac",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -462,6 +464,7 @@
       "id": "tsmg-2d2283cb9788",
       "slugDisambiguator": "dfa1adf1",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -500,6 +503,7 @@
       "streetAddress": "",
       "postalCode": "9200",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -538,6 +542,7 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -576,6 +581,7 @@
       "streetAddress": "",
       "postalCode": "8500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -614,6 +620,7 @@
       "id": "tsmg-7a1622ef3f50",
       "slugDisambiguator": "061cc5b5",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -652,6 +659,7 @@
       "id": "tsmg-e43d201b4b27",
       "slugDisambiguator": "661cb622",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -690,6 +698,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -728,6 +737,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -766,6 +776,7 @@
       "streetAddress": "",
       "postalCode": "9500",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -804,6 +815,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -842,6 +854,7 @@
       "streetAddress": "",
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -880,6 +893,7 @@
       "id": "tsmg-6b9039517b65",
       "slugDisambiguator": "677ef911",
       "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -918,6 +932,7 @@
       "streetAddress": "",
       "postalCode": "7000",
       "firstSeenAt": "2026-05-17T11:16:47.206Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -956,6 +971,7 @@
       "streetAddress": "",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -994,6 +1010,7 @@
       "streetAddress": "",
       "postalCode": "6003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1032,6 +1049,7 @@
       "streetAddress": "",
       "postalCode": "8400",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
