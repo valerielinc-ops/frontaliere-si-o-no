@@ -117,6 +117,63 @@ describe('composeSerpJobTitle (role > city > company > brand cascade)', () => {
  });
 });
 
+describe('composeSerpJobTitle cityOptional (#1932: drop city on non-colliding pages)', () => {
+ it('still keeps the city when the full "role — company a city" headline fits', () => {
+ // cityOptional only changes behaviour on OVERFLOW; a fitting title is unchanged.
+ const out = composeSerpJobTitle('Sviluppatore', 'Acme', 'Lugano', 'it', { cityOptional: true });
+ expect(out).toBe('Sviluppatore — Acme a Lugano | Frontaliere Ticino');
+ });
+
+ it('drops the city tail during role truncation when the role itself overflows', () => {
+ // role(75) > 66: even the bare role must be truncated. Mandatory-city keeps a
+ // " a {city}" tail (shrinking the role further); cityOptional gives the whole
+ // budget to the role so more of the keyword-rich role survives.
+ const role = 'Specialista Senior Pianificazione Controllo Produzione Industriale Avanzata';
+ const withCity = composeSerpJobTitle(role, '', 'Lugano', 'it');
+ const dropped = composeSerpJobTitle(role, '', 'Lugano', 'it', { cityOptional: true });
+ // Mandatory: truncated role + preserved city tail.
+ expect(withCity).toMatch(/… a Lugano$/);
+ expect(withCity.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ // Optional: truncated role, NO city tail, ending in a bare ellipsis.
+ expect(dropped).toMatch(/…$/);
+ expect(dropped).not.toContain('Lugano');
+ expect(dropped.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ // The role fragment gets at least as much budget without the reserved tail.
+ expect(dropped.length).toBeGreaterThanOrEqual(withCity.replace(' a Lugano', '').length);
+ });
+
+ it('keeps the full role verbatim (no "…") when role+city overflows but role fits', () => {
+ // role(56) + " a Mendrisio"(12) = 68 > 66 but role alone (56) fits. The
+ // standard mandatory cascade already drops to bare role here; cityOptional
+ // produces the same clean, ellipsis-free role.
+ const role = 'Responsabile Pianificazione e Controllo della Produzione';
+ const dropped = composeSerpJobTitle(role, '', 'Mendrisio', 'it', { cityOptional: true });
+ expect(dropped).toBe(role);
+ expect(dropped).not.toContain('…');
+ expect(dropped).not.toContain('Mendrisio');
+ });
+
+ it('prefers role — company over role a city when the city would overflow', () => {
+ // "role — company"(54) fits, "role — company a city"(74) overflows, and
+ // "role a city"(66) also fits. Mandatory-city keeps the city (drops company);
+ // cityOptional keeps the company tail and drops the city instead.
+ const role = 'Impiegato amministrativo logistica e magazzino';
+ const mandatory = composeSerpJobTitle(role, 'Alpha', 'Castel San Pietro', 'it');
+ const optional = composeSerpJobTitle(role, 'Alpha', 'Castel San Pietro', 'it', { cityOptional: true });
+ expect(mandatory).toContain('Castel San Pietro');
+ expect(mandatory).not.toContain('Alpha');
+ expect(optional).toContain(`${role} — Alpha`);
+ expect(optional).not.toContain('Castel San Pietro');
+ expect(optional.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ });
+
+ it('budgets a disambiguator before the optional-city cascade', () => {
+ const out = composeSerpJobTitle('Sviluppatore', 'Acme', 'Lugano', 'it', { cityOptional: true, disambiguator: '80%' });
+ expect(out).toContain(' · 80%');
+ expect(out.length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+ });
+});
+
 describe('truncateHeadline', () => {
  it('returns input verbatim when within budget', () => {
  expect(truncateHeadline('Short core', 40)).toBe('Short core');
