@@ -42,6 +42,7 @@ import {
   staticPagesFlushed,
   salaryHubFlushed,
 } from './shared/buildSignals';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 interface InjectionTarget {
   readonly indexPath: string;
@@ -198,7 +199,10 @@ export function salaryHubIndexLinkPlugin(rootDir: string): Plugin {
       // index pages are written so anchored links resolve to a real file.
       await Promise.all([staticPagesFlushed, salaryHubFlushed]);
 
-      const targets = buildTargets(distDir);
+      // Per-locale shard build (BUILD_LOCALE): only inject into emitted locales
+      // (the write-gate skips the others → their pages are absent). No-op in the
+      // default all-locale build.
+      const targets = buildTargets(distDir).filter((t) => shouldEmitLocale(t.locale));
       const results = targets.map((t) => patchFile(t));
 
       const inserted = results.filter((r) => r.outcome === 'inserted').length;
