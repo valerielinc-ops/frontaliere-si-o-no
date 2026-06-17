@@ -175,6 +175,16 @@ function main() {
     if (j.slug) activeSlugSet.add(j.slug);
     if (j.slugByLocale) for (const s of Object.values(j.slugByLocale)) if (s) activeSlugSet.add(s);
     if (Array.isArray(j.previousSlugs)) for (const s of j.previousSlugs) activeSlugSet.add(s);
+    // Per-locale bridged slugs (incl. publisher-supersede bridges, which fold a
+    // superseded crawled job's per-locale slugs ONLY into previousSlugsByLocale)
+    // are already attributed to this active job → must not be re-emitted as an
+    // orphan to enrich/reconcile. Same class as buildActiveIndex.allSlugSet in
+    // reconcile-job-slugs.mjs (follow-up #2432).
+    if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(j.previousSlugsByLocale)) {
+        if (Array.isArray(arr)) for (const s of arr) if (s) activeSlugSet.add(s);
+      }
+    }
   }
   const enrichedSlugSet = new Set(enriched.map((e) => e.slug).filter(Boolean));
   const orphanSlugStringSet = new Set(

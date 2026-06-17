@@ -261,7 +261,20 @@ function buildActiveIndex(activeJobs) {
       byCompanyKey[ck].push(job);
     }
 
-    // Collect all known slugs
+    // Collect all known slugs. `allSlugSet` is the "already attributed to an
+    // active job" guard read by findBestMatch (early-return), reconcileOrphanSlugs
+    // and reconcileExpiredSlugs (the "already reconciled → skip" short-circuit).
+    // It MUST include `previousSlugsByLocale`, not only the flat `previousSlugs`:
+    // the publisher-supersede bridge (scripts/lib/publisher-supersede.mjs
+    // bridgeSlugHistory) folds a superseded crawled job's PER-LOCALE slugs ONLY
+    // into the kept publisher record's `previousSlugsByLocale[loc]` (the flat list
+    // gets just the canonical slug). A per-locale-only bridged slug missing here
+    // would look like an un-attributed expired/orphan slug → reconcile* could
+    // re-attribute it to a DIFFERENT active job → the same indexed source URL
+    // emits TWO conflicting 301s (canonical ambiguity, SEO equity loss). The
+    // sibling sets reconcileGhostExpired() and trackSlugHistoryDrift()'s knownNew
+    // in assemble-jobs-dataset.mjs already index previousSlugsByLocale; this keeps
+    // buildActiveIndex consistent with them (follow-up #2432, supersede PR #2408).
     if (job.slug) allSlugSet.add(job.slug);
     if (job.slugByLocale) {
       for (const s of Object.values(job.slugByLocale)) {
@@ -270,6 +283,11 @@ function buildActiveIndex(activeJobs) {
     }
     if (job.previousSlugs) {
       for (const s of job.previousSlugs) allSlugSet.add(s);
+    }
+    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(arr)) for (const s of arr) if (s) allSlugSet.add(s);
+      }
     }
 
     // Pre-tokenize all slugs (canonical + locale variants) — saves
