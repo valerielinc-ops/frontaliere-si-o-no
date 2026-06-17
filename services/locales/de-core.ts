@@ -802,6 +802,9 @@ const deCore: Record<string, string> = {
  'jobAlert.jobDetailPrompt.errorTitle': 'Fehler',
  'jobAlert.jobDetailPrompt.errorBody': 'Alert konnte nicht erstellt werden. Versuche es erneut oder verwalte ihn auf der Alert-Seite.',
  'jobAlert.jobDetailPrompt.retryCta': 'Erneut versuchen',
+ 'jobAlert.jobDetailButton.cta': 'Über diese Anzeige benachrichtigen',
+ 'jobAlert.jobDetailButton.success': 'Wir benachrichtigen dich über diese Anzeige ✓',
+ 'jobAlert.jobDetailButton.error': 'Alert konnte nicht erstellt werden. Erneut versuchen.',
  'jobAlert.keyword': 'Stichwörter',
  'jobAlert.keywordPlaceholder': 'z.B. Entwickler, Ingenieur, Buchhalter',
  'jobAlert.zone': 'Gebiet',
@@ -3384,6 +3387,9 @@ Regeln:
  'publisher.published.publishAnother': 'Weiteres Inserat aufgeben',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3530.title': 'Alert für eine einzelne Anzeige',
+ 'whatsNew.v3530.jobAdAlert.title': 'Über diese Anzeige benachrichtigen',
+ 'whatsNew.v3530.jobAdAlert.desc': 'Gesponserte Anzeigen haben jetzt einen Button «Über diese Anzeige benachrichtigen»: Ein Tippen erstellt einen Alert nur für diese eine Anzeige und wir benachrichtigen dich, sobald es Neuigkeiten gibt. Für angemeldete Nutzer verfügbar.',
  'whatsNew.v3520.title': 'Löhne nach Kanton',
  'whatsNew.v3520.cantonSalary.title': 'Lohnvergleich Kanton für Kanton',
  'whatsNew.v3520.cantonSalary.desc': 'Der Lohnvergleich hat jetzt eine Kantonsauswahl: Wählen Sie einen Schweizer Kanton und die Brutto- und Nettowerte passen sich dem realen Lohnniveau dieser Region an, basierend auf offiziellen BFS-Medianen (Lohnstrukturerhebung). Standard: Schweizer Landesdurchschnitt.',

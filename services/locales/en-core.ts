@@ -799,6 +799,9 @@ const enCore: Record<string, string> = {
  'jobAlert.jobDetailPrompt.errorTitle': 'Error',
  'jobAlert.jobDetailPrompt.errorBody': 'Couldn\'t create the alert. Retry, or manage it from the alerts page.',
  'jobAlert.jobDetailPrompt.retryCta': 'Retry',
+ 'jobAlert.jobDetailButton.cta': 'Notify me about this ad',
+ 'jobAlert.jobDetailButton.success': "We'll notify you about this ad ✓",
+ 'jobAlert.jobDetailButton.error': "Couldn't create the alert. Retry.",
  'jobAlert.keyword': 'Keywords',
  'jobAlert.keywordPlaceholder': 'e.g. developer, engineer, accountant',
  'jobAlert.zone': 'Area',
@@ -3381,6 +3384,9 @@ Rules:
  'publisher.published.publishAnother': 'Post another ad',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3530.title': 'Alert for a single ad',
+ 'whatsNew.v3530.jobAdAlert.title': 'Notify me about this ad',
+ 'whatsNew.v3530.jobAdAlert.desc': 'Sponsored listings now have a “Notify me about this ad” button: one tap creates an alert dedicated to that single ad and we email you as soon as there is news. Available to signed-in users.',
  'whatsNew.v3520.title': 'Salaries by canton',
  'whatsNew.v3520.cantonSalary.title': 'Canton-by-canton salary comparison',
  'whatsNew.v3520.cantonSalary.desc': 'The salary comparison now has a canton selector: pick a Swiss canton and the gross and net figures adapt to that region’s real wage level, based on official BFS medians (Swiss earnings structure survey). Default: Swiss national average.',

@@ -802,6 +802,9 @@ const frCore: Record<string, string> = {
  'jobAlert.jobDetailPrompt.errorTitle': 'Erreur',
  'jobAlert.jobDetailPrompt.errorBody': 'Impossible de créer l\'alerte. Réessayez ou gérez-la depuis la page des alertes.',
  'jobAlert.jobDetailPrompt.retryCta': 'Réessayer',
+ 'jobAlert.jobDetailButton.cta': "M'alerter pour cette annonce",
+ 'jobAlert.jobDetailButton.success': "Nous vous alerterons pour cette annonce ✓",
+ 'jobAlert.jobDetailButton.error': "Impossible de créer l'alerte. Réessayez.",
  'jobAlert.keyword': 'Mots-clés',
  'jobAlert.keywordPlaceholder': 'ex. développeur, ingénieur, comptable',
  'jobAlert.zone': 'Zone',
@@ -3384,6 +3387,9 @@ Règles :
  'publisher.published.publishAnother': 'Publier une autre annonce',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3530.title': 'Alerte pour une seule annonce',
+ 'whatsNew.v3530.jobAdAlert.title': "M'alerter pour cette annonce",
+ 'whatsNew.v3530.jobAdAlert.desc': "Les annonces sponsorisées ont désormais un bouton « M'alerter pour cette annonce » : un clic crée une alerte dédiée à cette seule annonce et nous vous écrivons dès qu'il y a du nouveau. Réservé aux utilisateurs connectés.",
  'whatsNew.v3520.title': 'Salaires par canton',
  'whatsNew.v3520.cantonSalary.title': 'Comparaison des salaires canton par canton',
  'whatsNew.v3520.cantonSalary.desc': 'La comparaison des salaires a désormais un sélecteur de canton : choisissez un canton suisse et les montants bruts et nets s’adaptent au niveau réel des salaires de cette région, sur la base des médianes officielles OFS (enquête sur la structure des salaires). Par défaut : moyenne nationale suisse.',

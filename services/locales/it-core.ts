@@ -839,6 +839,9 @@ const translations: Record<string, string> = {
  'jobAlert.jobDetailPrompt.errorTitle': 'Errore',
  'jobAlert.jobDetailPrompt.errorBody': "Non sono riuscito a creare l'alert. Riprova o gestiscilo dalla pagina alert.",
  'jobAlert.jobDetailPrompt.retryCta': 'Riprova',
+ 'jobAlert.jobDetailButton.cta': 'Avvisami per questo annuncio',
+ 'jobAlert.jobDetailButton.success': 'Ti avviseremo su questo annuncio ✓',
+ 'jobAlert.jobDetailButton.error': "Non sono riuscito a creare l'alert. Riprova.",
  'jobAlert.keyword': 'Parole chiave',
  'jobAlert.keywordPlaceholder': 'es. developer, ingegnere, contabile',
  'jobAlert.zone': 'Zona',
@@ -3471,6 +3474,9 @@ Regole:
  'publisher.published.publishAnother': 'Pubblica un altro annuncio',
 
  // ── What's New v3.50.0 (publisher portal redesign) ──
+ 'whatsNew.v3530.title': 'Avviso per un singolo annuncio',
+ 'whatsNew.v3530.jobAdAlert.title': 'Avvisami per questo annuncio',
+ 'whatsNew.v3530.jobAdAlert.desc': 'Sulle offerte sponsorizzate trovi ora il pulsante «Avvisami per questo annuncio»: con un tocco crei un avviso dedicato a quella singola offerta e ti scriviamo non appena ci sono novità. Riservato agli utenti con account.',
  'whatsNew.v3520.title': 'Stipendi per cantone',
  'whatsNew.v3520.cantonSalary.title': 'Confronto stipendi cantone per cantone',
  'whatsNew.v3520.cantonSalary.desc': 'Il confronto stipendi ora ha un selettore per cantone: scegli un cantone svizzero e le cifre lorde e nette si adattano al livello salariale reale di quella regione, sulla base delle mediane ufficiali BFS (rilevazione struttura salari). Predefinito: media nazionale svizzera.',
