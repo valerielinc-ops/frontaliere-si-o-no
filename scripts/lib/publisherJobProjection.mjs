@@ -88,6 +88,7 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   // Free tier is a plain crawler-style job: never featured (defense-in-depth on
   // top of the Firestore-rules guard).
   const isFree = pubJob.tier === 'free';
+  const isAzienda = pubJob.tier === 'azienda';
   const nowIso = opts.nowIso || null;
   const validDays = Number.isFinite(opts.validDays) ? opts.validDays : 30;
 
@@ -214,8 +215,10 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       firstSeenAt: firstSeenIso,
       // Refreshed (day-granularity) while the ad stays live → validThrough never goes stale.
       crawledAt: crawledAtIso,
-      featured: !isFree && pubJob.featured === true,
-      tier: isFree ? 'free' : 'sponsored',
+      // Piano Azienda: ogni annuncio è sempre in evidenza (promessa "illimitato +
+      // sempre featured"); sponsored: solo se il publisher l'ha marcato featured.
+      featured: isAzienda || (!isFree && pubJob.featured === true),
+      tier: isFree ? 'free' : (isAzienda ? 'azienda' : 'sponsored'),
       // Apply mode drives the candidate-side UI: 'external_url' → link out (free
       // tier is always this); 'forward_email' / 'in_house' → in-house apply form
       // that writes an `applications` doc (a CF forwards it). The publisher's

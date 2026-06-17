@@ -157,6 +157,16 @@ describe('publisherJobToRecords', () => {
     expect(r2.featured).toBe(false);
   });
 
+  it('Piano Azienda (tier=azienda): always featured + tier preserved', () => {
+    // Unlimited plan → every ad is featured by default, even without an explicit
+    // featured flag; the azienda tier must survive projection (not collapse to sponsored).
+    const [r] = publisherJobToRecords(paidJob({ tier: 'azienda' }), { nowIso: NOW });
+    expect(r.featured).toBe(true);
+    expect(r.tier).toBe('azienda');
+    // External apply still allowed (employer can keep their own URL); not forced to in-house.
+    expect(r.applyMode).toBe('external_url');
+  });
+
   it('dedupes case/whitespace-variant locations', () => {
     const recs = publisherJobToRecords(
       paidJob({ locations: [{ label: 'Lugano' }, { label: 'lugano ' }, { label: '' }] }),
