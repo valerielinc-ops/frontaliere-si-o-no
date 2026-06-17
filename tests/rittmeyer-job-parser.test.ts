@@ -18,10 +18,17 @@ describe('rittmeyer-job-parser', () => {
     `;
     const listings = parseRittmeyerListingsPage(html);
     expect(listings).toHaveLength(2);
+    // listings[0] carries "Ticino" in the href/title → genuine target listing.
     expect(isRittmeyerTicinoListing(listings[0])).toBe(true);
-    // Cathedral 2026-05-10: "Sales" in the URL/title matches "Sales" (municipality in SG),
-    // which is now a target canton. Both listings return true under 26-canton scope.
-    expect(isRittmeyerTicinoListing(listings[1])).toBe(true);
+    // listings[1] has NO location signal — only the word "Sales". Previously it
+    // matched the tiny commune Sâles (FR) and was wrongly read as a target
+    // listing (the Swatch Group US-jobs leak class, 2026-06-17). "sales" is now
+    // excluded from the city-token set, so a location-less listing is treated
+    // the same as every other location-less row: not a confirmable target
+    // listing. (It is the only stray-word exception that used to slip the
+    // listing-stage filter; location-bearing rows like listings[0] are
+    // unaffected.)
+    expect(isRittmeyerTicinoListing(listings[1])).toBe(false);
   });
 
   it('parses detail content and builds localized descriptions', () => {

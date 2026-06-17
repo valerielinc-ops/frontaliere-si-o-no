@@ -80,10 +80,15 @@ describe('Swiss municipality whitelist (BFS)', () => {
       expect(findSwissCityInText('We sell watches in Forte dei Marmi, Tuscany, Italy.')).toBe('');
     });
 
-    it('returns false-positive for short common words (caller must guard)', () => {
-      // "Sales" is a real FR canton commune. Caller should require length >= 4
-      // to reject; this assertion documents the known limitation.
-      expect(findSwissCityInText('Sales Assistant role')).toBe('sales');
+    it('does NOT match common job-prose words that collide with tiny communes', () => {
+      // "Sales" (Sâles, FR), "concise" (Concise, VD) and "court" (Court, BE) are
+      // real but tiny communes whose accent-stripped names are common words in
+      // ordinary job prose. They are excluded from the city-token sets
+      // (AMBIGUOUS_LOCATION_WORD_TOKENS) so a retail listing no longer reads as
+      // Swiss — the Swatch Group US-jobs leak (2026-06-17).
+      expect(findSwissCityInText('Sales Assistant role')).toBe('');
+      expect(findSwissCityInText('a concise summary of duties')).toBe('');
+      expect(findSwissCityInText('basketball court maintenance')).toBe('');
     });
   });
 });
