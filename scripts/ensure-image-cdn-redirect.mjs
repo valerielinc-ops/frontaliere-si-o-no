@@ -57,17 +57,21 @@ const OFFLOADED_PREFIXES = [
 const RULE_DESCRIPTION = 'Offloaded images -> CDN (apex 404 recovery)';
 const PHASE = 'http_request_dynamic_redirect';
 
-// Host-scoped to the apex. The rule lives at zone level, so without the host
-// clause it would also fire on any OTHER hostname in the zone. cdn.frontaliereticino.ch
-// is DNS-only today (not proxied), so the phase doesn't run on CDN requests — but if
-// the CDN were ever put behind Cloudflare (orange-cloud), every cdn…/images/brands/x.png
-// would match the prefix and 301 to itself → infinite redirect loop on every offloaded
-// image. The `http.host eq APEX` guard makes the rule fire ONLY on the apex, where the
-// offloaded paths genuinely 404. Reviewer 🔴 on #2396.
+// Host-scoped to apex + www. The rule lives at zone level; without a host guard
+// it would fire on every proxied hostname in the zone. cdn.frontaliereticino.ch
+// is DNS-only today (not proxied), so the Dynamic Redirect phase doesn't run on
+// CDN requests — but if the CDN were ever orange-clouded, the prefix match would
+// fire there too, 301-ing cdn…/images/brands/x.png to itself → infinite loop.
+// The host guard restricts the rule to apex and its www variant. www is included
+// because external referrers and Google-Images cache can hold www.frontaliereticino.ch
+// image URLs: if www→apex is a Page Rule it fires before this Dynamic Redirect
+// phase and browsers follow it, but CDN/scraper fetches may not traverse the
+// redirect chain and 404 instead. Covering www here recovers those at the edge
+// with no extra hop for browsers. Follow-up #2420 (adversarial check on #2396).
 const APEX_HOST = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 const buildExpression = () =>
   '(' + OFFLOADED_PREFIXES.map((p) => `starts_with(http.request.uri.path, "${p}")`).join(' or ') +
-  `) and http.host eq "${APEX_HOST}"`;
+  `) and (http.host eq "${APEX_HOST}" or http.host eq "www.${APEX_HOST}")`;
 
 const buildRule = () => ({
   action: 'redirect',
