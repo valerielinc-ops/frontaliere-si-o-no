@@ -128,10 +128,21 @@ async function callCohere({ provider, inputs, fetchImpl }) {
  * `{ requests: [{ model, content:{parts:[{text}]}, outputDimensionality, taskType }] }`
  * with the key in the `x-goog-api-key` header. Embeddings come back in order
  * under `embeddings[].values`. outputDimensionality=1024 (MRL) matches the store;
- * truncated vectors are L2-normalized here (not unit-norm from the API).
+ * truncated vectors are L2-normalized here (not unit-norm from the API). Inputs
+ * are split into ≤GEMINI_MAX_BATCH sub-batches (free-tier per-minute cap) and
+ * concatenated in order; each sub-batch retries on 429.
  */
-async function callGemini({ provider, inputs, fetchImpl, sleepImpl = realSleep, maxRetries = 6 }) {
-  const model = `models/${provider.model}`;
+// Gemini free tier is 100 embed requests / MINUTE / model and each input in a
+// batchEmbedContents call counts as one request, so a single 100-input call
+// consumes (or exceeds) the whole window and 429s — observed even on a fresh
+// minute during the one-time full re-embed (~2700 articles). Sub-batch well
+// under the cap so each call fits comfortably; the per-chunk 429-retry then
+// self-throttles total throughput to ~the per-minute budget. Incremental runs
+// (tens of new articles/day) finish in a chunk or two without ever waiting.
+const GEMINI_MAX_BATCH = 16;
+
+/** One gemini batchEmbedContents call (≤GEMINI_MAX_BATCH inputs) with 429-retry. */
+async function geminiEmbedChunk({ provider, inputs, fetchImpl, sleepImpl, maxRetries, model }) {
   const body = JSON.stringify({
     requests: inputs.map((text) => ({
       model,
@@ -140,11 +151,6 @@ async function callGemini({ provider, inputs, fetchImpl, sleepImpl = realSleep, 
       taskType: 'RETRIEVAL_DOCUMENT',
     })),
   });
-  // Free tier is 100 embed requests / MINUTE / model and a 100-input batch
-  // consumes the whole window in one call, so the one-time full re-embed
-  // (~2700 articles) 429s on every batch after the first. The limit is
-  // per-minute (not daily) → wait out the window and retry. Subsequent
-  // incremental runs (~tens of new articles/day) stay well under the cap.
   for (let attempt = 0; ; attempt++) {
     const res = await fetchImpl(provider.url, {
       method: 'POST',
@@ -159,12 +165,23 @@ async function callGemini({ provider, inputs, fetchImpl, sleepImpl = realSleep, 
     const text = await res.text();
     if (res.status === 429 && attempt < maxRetries) {
       const waitMs = parseGeminiRetryMs(text);
-      console.error(`gemini embeddings 429 (rate limit) — waiting ${Math.round(waitMs / 1000)}s then retrying (attempt ${attempt + 1}/${maxRetries})`);
+      console.error(`gemini embeddings 429 (rate limit) — waiting ${Math.round(waitMs / 1000)}s then retrying chunk (attempt ${attempt + 1}/${maxRetries})`);
       await sleepImpl(waitMs);
       continue;
     }
     throw new Error(`gemini embeddings ${res.status}: ${text}`);
   }
+}
+
+async function callGemini({ provider, inputs, fetchImpl, sleepImpl = realSleep, maxRetries = 8 }) {
+  const model = `models/${provider.model}`;
+  const out = [];
+  for (let i = 0; i < inputs.length; i += GEMINI_MAX_BATCH) {
+    const chunk = inputs.slice(i, i + GEMINI_MAX_BATCH);
+    const vecs = await geminiEmbedChunk({ provider, inputs: chunk, fetchImpl, sleepImpl, maxRetries, model });
+    out.push(...vecs);
+  }
+  return out;
 }
 
 /**
