@@ -29,7 +29,7 @@ const OUT = np.resolve(__dirname, '..', 'data', 'seo', 'mebeko-equivalence.json'
 const SOURCES = [
   {
     authority: 'MEBEKO',
-    url: 'https://www.bag.admin.ch/bag/it/home/berufe-im-gesundheitswesen/medizinalberufe/mebeko.html',
+    url: 'https://www.bag.admin.ch/it/commissione-delle-professioni-mediche-mebeko',
     label: 'Commissione federale delle professioni mediche (MEBEKO) — BAG',
   },
   {
@@ -39,7 +39,7 @@ const SOURCES = [
   },
   {
     authority: 'SEFRI — professioni sanitarie non universitarie',
-    url: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    url: 'https://www.sbfi.admin.ch/it',
     label: 'SEFRI — Riconoscimento di diplomi esteri',
   },
 ];
@@ -61,7 +61,7 @@ const HEALTHCARE_PROFESSIONS = {
   educatore: {
     itTitle: 'Educatore sociale / Operatore socio-pedagogico',
     authority: 'SEFRI (non sanitaria) — in alcuni contesti SRK',
-    authorityUrl: 'https://www.sbfi.admin.ch/sbfi/it/home/formazione/riconoscimento-di-diplomi-esteri.html',
+    authorityUrl: 'https://www.sbfi.admin.ch/it',
     diplomaTypeIt: 'Laurea triennale in Scienze dell\'Educazione, Servizio Sociale, Educazione Professionale',
     swissEquivalent: 'Bachelor SUP in Lavoro sociale o Educatore sociale HF (Scuola specializzata superiore)',
     leadTimeMonths: [3, 8],
