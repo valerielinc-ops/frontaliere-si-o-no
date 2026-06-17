@@ -242,8 +242,9 @@ export function composeJobPageTitle(
  city: string,
  locale: string,
  disambiguator?: string,
+ cityOptional?: boolean,
 ): string {
- return composeSerpJobTitle(jobTitle, company, city, locale, { disambiguator });
+ return composeSerpJobTitle(jobTitle, company, city, locale, { disambiguator, cityOptional });
 }
 
 /**
@@ -2201,6 +2202,18 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const titleCollisionByLocale: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
  it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
+ // ── No-city title-collision map (#1932) ──
+ // Parallel map keyed on the CITY-LESS composed title ("role — company", no
+ // city tail). Used to decide whether the city is safe to DROP on a
+ // non-colliding page: the city may only be omitted when the role+company
+ // headline is ALSO unique within the locale, otherwise dropping it would
+ // collapse two multi-sede pages (same role+company × different cities) into
+ // one <title> and trip the hard audit:title-uniqueness gate. Keyed on the
+ // no-disambiguator probe (cityOptional=true) so the count reflects exactly
+ // the string that would be emitted once the city is gone.
+ const noCityTitleCollisionByLocale: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
+ it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
+ };
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
@@ -2209,6 +2222,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const baseTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale);
  const bucket = titleCollisionByLocale[locale];
  bucket.set(baseTitle, (bucket.get(baseTitle) || 0) + 1);
+ const noCityTitle = composeJobPageTitle(lt, String(job.company || ''), loc, locale, undefined, true);
+ const noCityBucket = noCityTitleCollisionByLocale[locale];
+ noCityBucket.set(noCityTitle, (noCityBucket.get(noCityTitle) || 0) + 1);
  }
  }
 
@@ -2496,6 +2512,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // 1 call per page always, 2 when no collision (the common case).
  const baseTitleProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale);
  const collidesInLocale = (titleCollisionByLocale[locale].get(baseTitleProbe) || 0) > 1;
+ // City-drop decision (#1932): drop the city ONLY when this page does not
+ // collide on the full (with-city) title AND its city-less "role — company"
+ // headline is itself unique in the locale — so removing the city cannot
+ // collapse two multi-sede pages into a duplicate <title> (audit:title-
+ // uniqueness). On the residual mid-`…` pages (role+city > 66 char) this lets
+ // the bare role fill the budget verbatim instead of truncating mid-word.
+ const noCityProbe = composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, undefined, true);
+ const cityIsDroppable = !collidesInLocale
+  && (noCityTitleCollisionByLocale[locale].get(noCityProbe) || 0) <= 1;
  // Build a HUMAN-READABLE disambiguator from the job's metadata (cascade:
  // workHours/percentage → employmentType label → salary range → posted
  // month → job-id reference). Replaces the previous opaque
@@ -2505,9 +2530,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const disambiguatorToken = collidesInLocale
  ? pickJobDisambiguator(job as Record<string, unknown>, locale, baseTitleProbe)
  : '';
+ // `cityIsDroppable` only ever holds when the page does NOT collide, so
+ // `disambiguatorToken` is empty here and the droppable branch is `noCityProbe`.
  let title = disambiguatorToken
  ? composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, disambiguatorToken)
- : baseTitleProbe;
+ : (cityIsDroppable ? noCityProbe : baseTitleProbe);
  // <title> must differ from the <h1> (audit:h1-title-duplicates). With the
  // role>city>company cascade the title normally carries the city or brand
  // and differs structurally; the residual case is a city-less job whose
@@ -2519,17 +2546,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  title = composeJobPageTitle(
   localizedTitle, String(job.company || ''), jobLocation, locale,
   h1AvoidToken || `${REF_LABEL[locale] || REF_LABEL.it} ${fnv8(String(job.slug || job.id || localizedTitle))}`,
+  cityIsDroppable,
  );
  }
  // Cross-corpus uniqueness net (see claimUniqueTitle above): guarantees no
  // two emitted pages in this locale — active OR expired — share a <title>.
+ // The recompose preserves the city-drop decision so a clash falls back to a
+ // disambiguator on the SAME (city-less or city-bearing) headline shape.
  title = claimUniqueTitle(locale, title, `${String(job.slug || job.id || '')}::${locale}`,
- (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d));
- // Clean variant for og:title — same as `title` minus the trailing
- // " · {disambiguator}". The disambig is needed in the HTML <title>
- // for SEO uniqueness, but the social cards look better without the
- // trailing extra metadata. With no disambiguator `title === probe`,
- // so `ogTitle` is structurally identical to the no-disamb probe.
+ (d) => composeJobPageTitle(localizedTitle, String(job.company || ''), jobLocation, locale, d, cityIsDroppable));
+ // Clean variant for og:title — the city-bearing probe minus any trailing
+ // " · {disambiguator}". The disambig is needed in the HTML <title> for SEO
+ // uniqueness, but social cards look better without the trailing metadata.
+ // og:title deliberately KEEPS the city even when the <title> drops it
+ // (#1932): social cards have no SERP width cap, so the richer location-
+ // bearing headline is preferred there.
  const ogTitle = baseTitleProbe;
  recordPhase('title', __tPh_title);
  // stripLeadingSectionLabel: crawlers flatten the source page's
@@ -10621,9 +10652,22 @@ ${staticAnalyticsHtml}
  // Note: we work on the RAW headline (no HTML-escape) so `&` / `<` are not
  // expanded into multi-char entities that fool the length-based budget;
  // esc() is applied ONCE at the <title> call site downstream.
+ // City-drop on expired soft-landings (#1932): the city is droppable when the
+ // city-less "role — company" headline is unique among ACTIVE pages in this
+ // locale (noCityTitleCollisionByLocale). The shared claimUniqueTitle registry
+ // is the backstop — if the city-less title still clashes with another emitted
+ // page it recomposes with a `rif.` disambiguator, so dropping the city can
+ // never break audit:title-uniqueness, it only avoids the mid-`…` truncation
+ // on the non-colliding majority (22.8 % of expired titles overflowed at
+ // role+city > 66 char).
+ const __expiredNoCityProbe = hasRealTitle
+  ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { cityOptional: true })
+  : composeSerpJobTitle(copy.title, '', jobLocation, locale, { cityOptional: true });
+ const __expiredCityDroppable = hasRealTitle
+  && (noCityTitleCollisionByLocale[locale].get(__expiredNoCityProbe) || 0) <= 1;
  const __expiredCompose = (disambiguator?: string): string =>
   hasRealTitle
-   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator })
+   ? composeSerpJobTitle(jobTitle, jobCompany, jobLocation, locale, { disambiguator, cityOptional: __expiredCityDroppable })
    : composeSerpJobTitle(copy.title, '', jobLocation, locale, { disambiguator });
  let pageTitleRaw = __expiredCompose();
  // <h1> equality guard (audit:h1-title-duplicates): the static H1 below is
