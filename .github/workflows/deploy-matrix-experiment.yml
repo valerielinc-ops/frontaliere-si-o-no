@@ -1,0 +1,194 @@
+# Per-locale matrix build EXPERIMENT (study phase — does NOT deploy).
+#
+# Tests the proposed matrix-per-locale build: instead of one monolithic build
+# emitting all four locales, fan one build per locale across separate runners
+# (BUILD_LOCALE=<loc>), each emitting ONLY its own subtree. This validates the
+# missing prerequisite — the BUILD_LOCALE emit filter (build-plugins/shared/
+# localeEmitFilter.ts) — end-to-end on real data, and measures the per-runner
+# wall-time vs the ~23 min monolith.
+#
+# SAFETY: manual (workflow_dispatch) only. It NEVER pushes to the production
+# shard repos (frontaliere-{en,de,fr}/cdn) and NEVER touches GitHub Pages — it
+# builds, validates, reports timing, and discards the output. The live
+# deploy.yml is completely untouched.
+#
+# Each matrix job self-prepares the dataset (assemble + derived files). Because
+# every job checks out the SAME commit and the assemble cache is keyed on the
+# committed slice hashes, all jobs see a byte-identical snapshot — so the
+# experiment is deterministic. In production the recommended architecture adds
+# a single shared `prep` job that uploads the assembled dataset as an artifact
+# consumed by every locale, guaranteeing atomicity across the crawler-commit
+# window (see PR body "Non implementato").
+name: Deploy Matrix Experiment (per-locale, no deploy)
+
+on:
+  workflow_dispatch:
+    inputs:
+      locales:
+        description: 'Comma-separated locales to build in the matrix'
+        required: false
+        default: 'it,en,de,fr'
+      fast_build:
+        description: 'FAST_BUILD=1 (skip heavy feature plugins for a quick smoke test)'
+        type: boolean
+        required: false
+        default: false
+      parallel_plugins:
+        description: 'Run closeBundle plugins in parallel (default: sequential, like prod)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-matrix-experiment
+  cancel-in-progress: false
+
+jobs:
+  matrix-setup:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+    steps:
+      - name: Build locale matrix from input
+        id: build
+        env:
+          LOCALES_INPUT: ${{ github.event.inputs.locales }}
+        run: |
+          set -eo pipefail
+          RAW="${LOCALES_INPUT:-it,en,de,fr}"
+          # Keep only valid locales, in canonical order, de-duplicated.
+          JSON=$(node -e '
+            const all = ["it","en","de","fr"];
+            const want = new Set(String(process.env.RAW||"").split(",").map(s=>s.trim().toLowerCase()).filter(Boolean));
+            const out = all.filter(l => want.has(l));
+            process.stdout.write(JSON.stringify(out.length ? out : all));
+          ' RAW="$RAW")
+          echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
+          echo "Locale matrix: $JSON"
+
+  build-locale:
+    needs: matrix-setup
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
+    env:
+      BUILD_LOCALE: ${{ matrix.locale }}
+      FAST_BUILD: ${{ github.event.inputs.fast_build == 'true' && '1' || '' }}
+      SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
+      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Audit no merge conflict markers
+        run: npm run audit:no-merge-markers
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal for the build experiment)"
+
+      - name: Cache assemble-jobs output
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+
+      - name: Cache per-job OG images
+        uses: actions/cache@v5
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-
+
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Housekeeping (cross-crawler dedup + locale hardening)
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+
+      - name: Refresh weekly-employers footer link list
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
+      - name: Mine all job slugs for 404 coverage
+        run: node scripts/mine-all-job-slugs.mjs
+
+      - name: Canton-aware migration of slug registry
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: Generate responsive image thumbnails
+        run: node scripts/generate-image-thumbnails.mjs
+
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+
+      - name: Build (BUILD_LOCALE=${{ matrix.locale }})
+        run: |
+          set -eo pipefail
+          echo "::group::Build locale ${BUILD_LOCALE}"
+          START=$(date +%s)
+          npm run build:ci 2>&1 | tee /tmp/build-${BUILD_LOCALE}.log
+          END=$(date +%s)
+          echo "::endgroup::"
+          ELAPSED=$((END - START))
+          echo "BUILD_ELAPSED_SECONDS=$ELAPSED" >> "$GITHUB_ENV"
+          echo "⏱️  Locale '${BUILD_LOCALE}' build wall-time: ${ELAPSED}s ($((ELAPSED/60))m$((ELAPSED%60))s)"
+
+      - name: Prune to locale shard (filesystem-level, mirrors production push_shard)
+        # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
+        # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
+        # write every locale. This removes the non-owned locale output the same
+        # way deploy.yml copies only dist/<locale> to each shard repo.
+        run: node scripts/ci/prune-locale-shard.mjs dist
+
+      - name: Validate locale shard output
+        run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      - name: Report dist size + timing
+        if: always()
+        run: |
+          set -eo pipefail
+          SIZE=$(du -sh dist 2>/dev/null | cut -f1 || echo '?')
+          FILES=$(find dist -type f 2>/dev/null | wc -l | tr -d ' ' || echo '?')
+          echo "### Locale \`${BUILD_LOCALE}\` build summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| metric | value |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|" >> "$GITHUB_STEP_SUMMARY"
+          echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| dist size | ${SIZE} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| dist files | ${FILES} |" >> "$GITHUB_STEP_SUMMARY"
