@@ -203,6 +203,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Grenzgängersteuer: Neue Regelung beginnt bald',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'Die neue Steuerregelung für Grenzgänger wird vom Bundesrat genehmigt und wird bald in Kraft treten.',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Schweizer Italien Grenze Kontrolle',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Im Haushalt arbeiten in Tessin: komplette Anleitung',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Erfahren Sie, wie Sie als Hausdienstmitarbeiter im Tessin, Schweiz, arbeiten können. Voraussetzungen, Aufgaben und praktische Tipps.',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Haushaltsangestellte in einer Schweizer Wohnung',
 };
 
 export default blogMetaChDe;

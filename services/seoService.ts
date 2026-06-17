@@ -4069,6 +4069,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tasse-frontalieri-scambio-dati-stipendi-italia': { name: 'Tasse frontalieri', path: '/articoli-svizzera/tasse-frontalieri-scambio-dati-stipendi-italia/', parent: 'blog' },
     'blog-azienda-hoval-lavoro-ticino': { name: 'Lavoro Hoval Ticino', path: '/articoli-frontaliere/azienda-hoval-lavoro-ticino', parent: 'blog' },
     'blog-terzo-pilastro-3a-frontaliere-guida': { name: 'Terzo Pilastro 3a', path: '/articoli-frontaliere/terzo-pilastro-3a-frontaliere-guida', parent: 'blog' },
+    'blog-lavorare-nel-servizio-alla-casa-ticino': { name: 'Lavoro domestico', path: '/articoli-svizzera/lavorare-nel-servizio-alla-casa-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

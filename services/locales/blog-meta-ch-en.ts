@@ -203,6 +203,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.title': 'Cross-Border Taxes, Switzerland to Share Salary Data with Italy',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.excerpt': 'The new tax legislation for cross-border workers has been approved by the Federal Council and will come into effect in a few months. This new regulation aims to simplify the tax system for those who commute between Switzerland and Italy.',
     'blog.article.tasse-frontalieri-scambio-dati-stipendi-italia.imageAlt': 'Svizzera-Italy border control',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Working as a household service worker in Ticino',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Discover how to work as a household service worker in Ticino, Switzerland. Requirements, tasks and practical advice.',
+    'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Domestic worker in a Swiss residence',
 };
 
 export default blogMetaChEn;
