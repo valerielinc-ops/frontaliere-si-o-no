@@ -160,7 +160,23 @@ describe('embeddingClient — Gemini 429 retry (one-time backfill throttle)', ()
     } as unknown as Response));
     const sleepImpl = vi.fn(async () => {});
     await expect(embedBatch({ inputs: ['x'], fetchImpl, sleepImpl })).rejects.toThrow(/all embedding providers failed/);
-    // 1 initial + 6 retries = 7 attempts (maxRetries=6).
-    expect(fetchImpl).toHaveBeenCalledTimes(7);
+    // 1 initial + 8 retries = 9 attempts (maxRetries=8) on the single chunk.
+    expect(fetchImpl).toHaveBeenCalledTimes(9);
+  });
+
+  it('sub-batches inputs over GEMINI_MAX_BATCH (16) into multiple calls', async () => {
+    process.env.GEMINI_API_KEY = 'test-gemini-key';
+    const unit = (n: number) => Array.from({ length: n }, () =>
+      Array(EMBEDDING_DIM).fill(0).map((_, i) => (i === 0 ? 1 : 0)));
+    // 40 inputs → ceil(40/16) = 3 chunks (16 + 16 + 8).
+    const sizes: number[] = [];
+    const fetchImpl = vi.fn(async (_url: string, init: RequestInit) => {
+      const reqs = JSON.parse(init.body as string).requests;
+      sizes.push(reqs.length);
+      return geminiResponse(unit(reqs.length)) as unknown as Response;
+    });
+    const out = await embedBatch({ inputs: Array.from({ length: 40 }, (_, i) => `t${i}`), fetchImpl });
+    expect(out).toHaveLength(40);
+    expect(sizes).toEqual([16, 16, 8]);
   });
 });
