@@ -209,3 +209,86 @@ export function appendLedger(filePath, entries, trimLimit = 1000) {
   const out = { schemaVersion: 1, posted: trimmed };
   writeFileSync(filePath, JSON.stringify(out, null, 2) + '\n', 'utf-8');
 }
+
+// ── Article (blog) social helpers ───────────────────────────
+// Shared by the manual `post-to-facebook.mjs` CLI and the scheduled
+// `schedule-fb-articles-daily.mjs` cron so the FB article caption/URL logic
+// lives in ONE place (project rule: a helper/constant duplicated literally in
+// ≥2 files MUST be extracted). Job-specific caption/hashtag logic stays in the
+// per-job scheduler; this block is the blog-article twin.
+
+// Localized (IT) URL hub slug per article section. Mirrors the `indexSlug.it`
+// of `services/articleSections.ts` and the inline hub map in
+// `.github/workflows/generate-article.yml`. IT-only because the FB audience
+// reads Italian and the canonical og:url is the IT page.
+export const ARTICLE_HUB_SLUG_IT = {
+  frontaliere: 'articoli-frontaliere',
+  svizzera: 'articoli-svizzera',
+};
+
+// FB Place ID used to geo-anchor article posts for FB Search discovery.
+// 106534719384213 = "Lugano, Switzerland" (verified live) — the canonical
+// city for the cross-border / Ticino audience. Kept identical to the value
+// the per-deploy poster used so the scheduled poster is behaviourally a
+// drop-in replacement.
+export const ARTICLE_PLACE_ID = '106534719384213';
+
+// category → user-facing hashtag line / emoji. Default covers articles with no
+// (or an unknown) category. Values byte-identical to the historical
+// post-to-facebook.mjs maps so captions don't drift after the cutover.
+export const ARTICLE_CATEGORY_HASHTAGS = {
+  fiscale: '#frontalieri #ticino #tasse #fisco #svizzera #italia',
+  pratico: '#frontalieri #ticino #lavoro #svizzera #guidapratica',
+  novita: '#frontalieri #ticino #news #svizzera #italia #novità',
+  pensione: '#frontalieri #ticino #pensione #AVS #previdenza',
+};
+export const DEFAULT_ARTICLE_HASHTAGS = '#frontalieri #ticino #lavoro #svizzera #italia';
+export const ARTICLE_CATEGORY_EMOJI = {
+  fiscale: '📊',
+  pratico: '📋',
+  novita: '🗞️',
+  pensione: '🏦',
+};
+
+/**
+ * Build the canonical IT-locale article URL. Always trailing-slash (site
+ * convention — the no-slash form serves a JS redirect bridge with no OG meta,
+ * which the FB crawler can't follow). Returns null when section/slug missing.
+ *
+ * @param {'frontaliere'|'svizzera'} section
+ * @param {string} slugIt
+ */
+export function buildArticleUrl(section, slugIt) {
+  const hub = ARTICLE_HUB_SLUG_IT[section];
+  if (!hub || !slugIt) return null;
+  return `${SITE_URL}/${hub}/${slugIt}/`;
+}
+
+/**
+ * Build the FB caption for a blog article. Mirrors the original
+ * post-to-facebook.mjs message format byte-for-byte:
+ *
+ *   {emoji} {ogTitle}
+ *
+ *   {ogDescription}
+ *
+ *   👉 Leggi l'articolo completo:
+ *
+ *   {hashtags}
+ *
+ * @param {{ ogTitle: string, ogDescription?: string, category?: string }} article
+ */
+export function buildArticleCaption({ ogTitle, ogDescription, category }) {
+  const emoji = ARTICLE_CATEGORY_EMOJI[category] || '📰';
+  const hashtags = ARTICLE_CATEGORY_HASHTAGS[category] || DEFAULT_ARTICLE_HASHTAGS;
+  const description = ogDescription || '';
+  return [
+    `${emoji} ${ogTitle}`,
+    '',
+    description,
+    '',
+    `👉 Leggi l'articolo completo:`,
+    '',
+    hashtags,
+  ].join('\n').trim();
+}
