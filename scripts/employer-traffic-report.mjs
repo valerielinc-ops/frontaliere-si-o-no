@@ -21,8 +21,13 @@
  *       is_sponsored, custom dimension registrate). Solo dati POST-deploy
  *       (le custom dimension GA4 non sono retroattive).
  *
- * Metrica primaria = PERSONE DISTINTE (i candidati reali), non i click grezzi:
- * un candidato che clicca logo+titolo+bottone è UNA persona, non tre.
+ * Metrica per la pitch (`candidates`) = MIN(persone distinte, sessioni distinte),
+ * non i click grezzi: un candidato che clicca logo+titolo+bottone è UNA persona,
+ * non tre. Si usa il MINIMO perché `person_id` può GONFIARE per il traffico
+ * anonimo (reset cookie / cross-device / identity-merge non configurata) → la
+ * pitch ("vi abbiamo mandato N candidati") non deve mai sovrastimare (#2384).
+ * Il report mostra anche persone e sessioni separate + il rapporto P/S come
+ * segnale di stabilità (P/S ~1.0 = stabile; >>1 = person_id frammentato).
  *
  * Auth: stessa Firebase SA / PostHog key caricate da scripts/load-rc-env.mjs:
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=/path/sa.json node scripts/load-rc-env.mjs)"
@@ -76,9 +81,17 @@ async function fromPostHog(days) {
   const projectId = process.env.POSTHOG_PROJECT_ID;
   const host = (process.env.POSTHOG_HOST || 'https://eu.posthog.com').replace(/\/$/, '');
   if (!apiKey || !projectId) throw new Error('no POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID');
+  // Conta DUE metriche di unicità (#2384): persone distinte e SESSIONI distinte.
+  // Per il traffico anonimo `person_id` può essere INSTABILE (reset cookie,
+  // cross-device, identity-merge non configurata) → tende a GONFIARE il conteggio
+  // persone rispetto agli umani reali. `$session_id` è il floor per-sessione
+  // (≥ persone reali, ≤ persone gonfiate). Il numero usato nella pitch
+  // (`candidates`) è il MINIMO dei due → mai sovrastima il claim "vi abbiamo
+  // mandato N candidati". Il report mostra entrambi + il rapporto come segnale.
   const query = `
     SELECT splitByChar('_', coalesce(toString(properties.item_id), ''))[1] AS company,
-           count(DISTINCT person_id) AS candidates,
+           count(DISTINCT person_id) AS persons,
+           count(DISTINCT properties.$session_id) AS sessions,
            count() AS clicks
     FROM events
     WHERE event = 'select_content'
@@ -86,7 +99,7 @@ async function fromPostHog(days) {
       AND coalesce(toString(properties.item_id), '') != ''
       AND timestamp >= now() - interval ${days} day
     GROUP BY company
-    ORDER BY candidates DESC
+    ORDER BY persons DESC
     LIMIT 1000`.trim();
   const r = await fetch(`${host}/api/projects/${projectId}/query/`, {
     method: 'POST',
@@ -96,10 +109,18 @@ async function fromPostHog(days) {
   if (!r.ok) throw new Error(`posthog ${r.status}: ${(await r.text()).slice(0, 200)}`);
   const rows = (await r.json()).results || [];
   // PostHog non distingue sponsored vs free dalla label item_id → sponsored=0.
-  return rows.map(([company, candidates, clicks]) => ({
-    key: slugify(company), displayFromData: company, candidates: Number(candidates) || 0,
-    clicks: Number(clicks) || 0, sponsored: 0,
-  }));
+  return rows.map(([company, persons, sessions, clicks]) => {
+    const p = Number(persons) || 0;
+    const s = Number(sessions) || 0;
+    // Numero per la pitch = conservativo (min). Se 0 sessioni (proprietà assente
+    // su eventi vecchi), ricade su persone per non azzerare il report.
+    const candidates = s > 0 ? Math.min(p, s) : p;
+    return {
+      key: slugify(company), displayFromData: company,
+      candidates, persons: p, sessions: s,
+      clicks: Number(clicks) || 0, sponsored: 0,
+    };
+  });
 }
 
 // ───────────────────────── GA4 (job_apply, post-deploy) ─────────────────────────
@@ -121,7 +142,7 @@ async function fromGa4(days) {
     body: JSON.stringify({
       dateRanges: [{ startDate: `${days}daysAgo`, endDate: 'yesterday' }],
       dimensions: [{ name: 'customEvent:employer_key' }, { name: 'customEvent:is_sponsored' }],
-      metrics: [{ name: 'totalUsers' }, { name: 'eventCount' }],
+      metrics: [{ name: 'totalUsers' }, { name: 'sessions' }, { name: 'eventCount' }],
       dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'job_apply' } } },
       orderBys: [{ metric: { metricName: 'totalUsers' }, desc: true }],
       limit: 1000,
@@ -134,12 +155,17 @@ async function fromGa4(days) {
     const key = row.dimensionValues[0].value;
     const sponsored = row.dimensionValues[1].value === 'sponsored';
     const users = Number(row.metricValues[0].value) || 0;
-    const clicks = Number(row.metricValues[1].value) || 0;
-    const e = byKey.get(key) || { key, candidates: 0, clicks: 0, sponsored: 0 };
-    e.candidates += users; e.clicks += clicks; if (sponsored) e.sponsored += users;
+    const sessions = Number(row.metricValues[1].value) || 0;
+    const clicks = Number(row.metricValues[2].value) || 0;
+    const e = byKey.get(key) || { key, persons: 0, sessions: 0, clicks: 0, sponsored: 0 };
+    e.persons += users; e.sessions += sessions; e.clicks += clicks;
+    if (sponsored) e.sponsored += users;
     byKey.set(key, e);
   }
-  return [...byKey.values()];
+  // Stesso numero conservativo del path PostHog (#2384): pitch = min(persone, sessioni).
+  return [...byKey.values()].map(e => ({
+    ...e, candidates: e.sessions > 0 ? Math.min(e.persons, e.sessions) : e.persons,
+  }));
 }
 
 async function run() {
@@ -159,18 +185,36 @@ async function run() {
     .sort((a, b) => b.candidates - a.candidates);
 
   const totCand = rows.reduce((s, e) => s + e.candidates, 0);
+  const totPers = rows.reduce((s, e) => s + (e.persons || 0), 0);
+  const totSess = rows.reduce((s, e) => s + (e.sessions || 0), 0);
   const totClick = rows.reduce((s, e) => s + e.clicks, 0);
+  // Rapporto persone/sessioni: ~1.0 = stabile; >>1 = person_id frammentato
+  // (cookie reset / anonimo) → il conteggio persone gonfia. Segnale per l'owner.
+  const ratio = totSess > 0 ? (totPers / totSess) : 0;
 
   console.log(`\n📊 Candidati inviati per azienda — sorgente ${source}, ultimi ${days} giorni`);
-  console.log(`   ${rows.length} aziende · ${totCand} candidati distinti · ${totClick} click totali\n`);
-  console.log('  #  CAND  CLICK  AZIENDA');
+  console.log(`   ${rows.length} aziende · ${totCand} candidati (pitch, conservativo) · ${totClick} click totali`);
+  console.log(`   persone distinte: ${totPers} · sessioni distinte: ${totSess}${ratio ? ` · rapporto P/S: ${ratio.toFixed(2)}` : ''}`);
+  if (ratio > 1.3) {
+    console.log(`   ⚠️  person_id sembra instabile (P/S ${ratio.toFixed(2)} > 1.3): il conteggio PERSONE è gonfiato`);
+    console.log(`       per il traffico anonimo. La pitch usa già il MINIMO (sessioni) — non sovrastima.`);
+  }
+  console.log(`   ℹ️  "candidati" nella pitch = min(persone, sessioni): mai sovrastima il claim.\n`);
+  console.log('  #  CAND  PERS  SESS  CLICK  AZIENDA');
   rows.forEach((e, i) => {
-    console.log(`${String(i + 1).padStart(3)}  ${String(e.candidates).padStart(4)}  ${String(e.clicks).padStart(5)}  ${e.name}${e.careersUrl ? '  ' + e.careersUrl : ''}`);
+    console.log(`${String(i + 1).padStart(3)}  ${String(e.candidates).padStart(4)}  ${String(e.persons ?? '').padStart(4)}  ${String(e.sessions ?? '').padStart(4)}  ${String(e.clicks).padStart(5)}  ${e.name}${e.careersUrl ? '  ' + e.careersUrl : ''}`);
   });
   if (!rows.length) console.log('  (nessun dato per questa sorgente/finestra)');
 
   if (jsonPath) {
-    fs.writeFileSync(jsonPath, JSON.stringify({ source, days, totals: { candidates: totCand, clicks: totClick }, employers: rows }, null, 2));
+    fs.writeFileSync(jsonPath, JSON.stringify({
+      source, days,
+      // Disclaimer machine-readable per i consumer a valle (generate-cold-emails).
+      candidatesMetric: 'min(distinct_persons, distinct_sessions)',
+      identityNote: 'candidates è conservativo: min(persone, sessioni). person_id può gonfiare per traffico anonimo (reset cookie / cross-device); usare il numero così com\'è nella pitch non sovrastima.',
+      totals: { candidates: totCand, persons: totPers, sessions: totSess, clicks: totClick, personsToSessionsRatio: Number(ratio.toFixed(3)) },
+      employers: rows,
+    }, null, 2));
     console.log(`\n💾 JSON → ${jsonPath}`);
   }
 }

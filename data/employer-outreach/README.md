@@ -18,6 +18,11 @@ resta un passo separato, manuale e deliberato.
 eval "$(GOOGLE_APPLICATION_CREDENTIALS=/path/sa.json node scripts/load-rc-env.mjs)"
 node scripts/employer-traffic-report.mjs --source posthog --days 90 \
   --json data/employer-outreach/report.json
+#   Il numero "candidati" usato nella pitch è CONSERVATIVO = min(persone, sessioni):
+#   per il traffico anonimo `person_id` può gonfiare (reset cookie / cross-device),
+#   quindi il claim "vi abbiamo mandato N candidati" non sovrastima mai. Il report
+#   mostra anche persone e sessioni separate + il rapporto P/S (≈1.0 = stabile,
+#   >>1 = person_id frammentato → controllare l'identity-merge di PostHog).
 
 # 2) (enrichment manuale) crea contacts.json dalle email HR delle aziende target
 cp data/employer-outreach/contacts.example.json data/employer-outreach/contacts.json
