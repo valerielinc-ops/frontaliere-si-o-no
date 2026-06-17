@@ -8123,6 +8123,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-frontaliere-guida.title': '3e Pilier 3a pour les Frontaliers - Guide Complet',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Découvrez le fonctionnement du 3e pilier 3a pour les frontalier en Suisse, les avantages fiscaux et les règles pour la retraite privée individuelle.',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Vue panoramique de Lugano, centre financier du Tessin',
+    'blog.article.candidato-medico-eoc-bellinzona.title': 'Candidat médecin à Bellinzona : EOC recherche frontaliers',
+    'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'L\'Ente Ospedaliero Cantonale di Bellinzona cherche des médecins pour la médecine interne et intensive. Détails pas encore précisés, mais opportunité pour les frontaliers.',
+    'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'Hôpital EOC de Bellinzona, au Tessin, recherche médecins frontaliers pour médecine interne et soins intensifs.',
 };
 
 export default blogMetaFr;

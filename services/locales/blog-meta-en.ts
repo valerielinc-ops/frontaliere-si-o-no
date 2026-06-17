@@ -8122,6 +8122,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terzo-pilastro-3a-frontaliere-guida.title': 'Third Pillar 3a for Border Workers',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Discover how the third pillar 3a works for cross-border workers in Ticino, the tax benefits and rules for individual private pension schemes.',
     'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Panoramic view of Lugano, financial center of Ticino',
+    'blog.article.candidato-medico-eoc-bellinzona.title': 'Medical candidate in Bellinzona: EOC seeks cross-border staff',
+    'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'The Cantonal Hospital Authority of Bellinzona is looking for doctors in internal and intensive medicine. Details are not yet specified, but it is an opportunity for cross-border workers.',
+    'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'EOC hospital in Bellinzona, Ticino, seeking cross-border doctors for internal medicine and intensive care.',
 };
 
 export default blogMetaEn;
