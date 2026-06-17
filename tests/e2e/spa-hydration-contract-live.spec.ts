@@ -1,4 +1,5 @@
 import { test, expect } from 'playwright/test';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 // Mobile-first per CLAUDE.md rule #15 — 75% of traffic is mobile, so the
 // "is anything visible above the fold" assertion must measure a mobile viewport.
@@ -100,6 +101,24 @@ for (const target of TARGETS) {
       if (head.status() === 404 && target.tolerate404) {
         test.skip(true, `${url} returned 404 (content rotated)`);
         return;
+      }
+      // A legacy-redirect stub (legacyRedirectsPlugin emits a 200 "Pagina
+      // spostata" card carrying the `<!--REDIRECT_STUB-->` marker, with a
+      // canonical pointing at the moved URL) is the same signal as a 404 for
+      // this contract: the page intentionally MOVED, so the old path is no
+      // longer a hydrating SPA page. Without this the stub's ~150 visible
+      // chars trip the min-content assertion and turn an intentional redirect
+      // into a false validate-live failure (this is what the `tolerate404`
+      // escape-hatch already covered while the old URL still 404'd — adding a
+      // redirect for it must not silently re-arm the test). Treat it as a skip
+      // for tolerated targets; for a non-tolerated target a redirect stub IS a
+      // regression and should still fail below.
+      if (head.status() === 200 && target.tolerate404) {
+        const body = await head.text();
+        if (body.includes(REDIRECT_STUB_MARKER)) {
+          test.skip(true, `${url} is a legacy-redirect stub (content moved to canonical)`);
+          return;
+        }
       }
       expect(head.status(), `${url} should respond 200`).toBe(200);
 

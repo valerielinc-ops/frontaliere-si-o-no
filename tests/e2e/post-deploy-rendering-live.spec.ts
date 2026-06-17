@@ -1,5 +1,6 @@
 import { test, expect, type APIRequestContext } from 'playwright/test';
 import { resolveActiveJobDetailPath } from './lib/live-jobs';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 /**
  * Live post-deploy rendering smoke (regression guard for the 2026-04-30 incident).
@@ -114,6 +115,16 @@ for (const target of TARGETS) {
 
       if (fetched.status === 404 && target.tolerate404) {
         test.skip(true, `${url} returned 404 (content may have rotated)`);
+        return;
+      }
+
+      // A legacy-redirect stub (200 "Pagina spostata" carrying
+      // REDIRECT_STUB_MARKER, no SPA bundle) means the page intentionally
+      // moved to its canonical URL — same signal as a 404 here. Without this,
+      // adding a redirect for a tolerated path would trip the SPA-bundle
+      // assertion below and turn an intentional redirect into a false failure.
+      if (fetched.status === 200 && target.tolerate404 && fetched.body.includes(REDIRECT_STUB_MARKER)) {
+        test.skip(true, `${url} is a legacy-redirect stub (content moved to canonical)`);
         return;
       }
 
