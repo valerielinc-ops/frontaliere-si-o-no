@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
 
 export const GUESS_WORKABLE_ACCOUNT_ID = '452934';
 export const GUESS_WORKABLE_ACCOUNT_SLUG = 'guess-europe-sagl';
@@ -33,10 +34,11 @@ export function parseGuessWidgetJsonp(jsonp = '') {
 }
 
 export function isGuessTicinoWidgetJob(job = {}) {
-  const country = normalize(job.country || '');
   const signal = [job.city, job.state, job.department, job.country].filter(Boolean).join(' ');
+  // Recognise CH across alias formats (CH / CHE / 756 / object) instead of a
+  // strict `=== 'switzerland'`, which dropped valid CH rows (#2419, shared guard).
   return (
-    country === 'switzerland' &&
+    isChCountry(job.country) &&
     Boolean(inferSwissTargetCanton(signal) || isTargetSwissLocation(signal))
   );
 }
