@@ -2047,7 +2047,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     const fromCache = getCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string') {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
-      const sentinelFallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+      const sentinelFallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
       if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
@@ -2055,7 +2055,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       return '';
     }
     // DeepL first
-    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (deepl && deepl.length >= floor) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
@@ -2083,7 +2083,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
         }
       } catch { /* fallback below */ }
     }
-    const fallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+    const fallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
@@ -2093,7 +2093,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   }
 
   // No cache — simple free-translate fallback
-  const simple = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+  const simple = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
   return (simple && simple.length >= floor) ? simple : '';
 }
 
@@ -2313,7 +2313,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2369,7 +2369,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2424,7 +2424,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     if (missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+        const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2448,7 +2448,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       };
       for (const locale of targetLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale });
+        const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedFallback, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -4578,6 +4578,18 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     const val = normalizeSpace(u.searchParams.get(key));
     if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
   }
+
+  // A full UUID anywhere in the URL is the globally-unique per-job id — prefer it
+  // BEFORE the numeric/path heuristics below. The `\/jobs\/(\d+)` etc. rules
+  // would otherwise latch onto the LEADING DIGITS of a UUID slug
+  // (`…/jobs/69b0fccf-bb38-…` → captures `69`), collapsing every prospective.ch
+  // UUID job whose id starts with the same digit run onto ONE registry key
+  // (`prospective.ch|69`). That cross-job collision force-pins the wrong
+  // slugByLocale via registryPinnedLocaleSlug — e.g. a Gesundheitszentrum
+  // Dielsdorf "Nachtwache" vacancy adopting an unrelated SRO-Langenthal dietician
+  // slug (#2330 item 1). Matches mergeUrlKey's UUID-first priority.
+  const uuid = extractUuidLikeId(full);
+  if (uuid) return `${registrableDomain(host)}|${uuid}`;
 
   const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
   if (coopPathMatch?.[1]) {

@@ -35,6 +35,27 @@ describe('fingerprintJob → registry key', () => {
     const fp = fingerprintJob({ url: '', title: 'Nurse', location: 'Bern', company: 'X' });
     expect(fp.startsWith('tl|')).toBe(true);
   });
+
+  // #2330 item 1: a full UUID slug must NOT collapse onto its leading-digit
+  // prefix. Previously `/\/jobs\/(\d+)/` captured `69` from
+  // `…/jobs/69b0fccf-…`, collapsing every prospective.ch UUID job sharing that
+  // digit run onto ONE registry key (`prospective.ch|69`) — cross-job slug
+  // contamination via registryPinnedLocaleSlug.
+  it('keys a /jobs/<uuid> URL by the full UUID, not its leading digit prefix', () => {
+    const a = fingerprintJob({ url: 'https://ohws.prospective.ch/public/v1/jobs/69b0fccf-bb38-4f6a-b75d-1f4b21e776a0' });
+    const b = fingerprintJob({ url: 'https://ohws.prospective.ch/public/v1/jobs/69a1b2c3-1111-4f6a-b75d-aaaaaaaaaaaa' });
+    expect(a).toBe('id|prospective.ch|69b0fccf-bb38-4f6a-b75d-1f4b21e776a0');
+    expect(a).not.toBe('id|prospective.ch|69');
+    // Two distinct UUID jobs sharing a leading-digit prefix stay distinct.
+    expect(a).not.toBe(b);
+  });
+
+  it('still keys a plain numeric vacancy id (no UUID present) by that number', () => {
+    expect(fingerprintJob({ url: 'https://recruitingapp-2908.umantis.com/Vacancies/3164/Description/1' }))
+      .toBe('id|umantis.com|3164');
+    expect(fingerprintJob({ url: 'https://example.com/jobs/123456' }))
+      .toBe('id|example.com|123456');
+  });
 });
 
 describe('registerJobSlug', () => {
