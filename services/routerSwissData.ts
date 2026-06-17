@@ -90,6 +90,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'infermiere-lugano-lis': { it: 'infermiere-lugano-lis', en: 'nurses-lugano-lis', de: 'pfleger-lugano-lis', fr: 'infirmieres-lugano-lis' },
  'tasse-frontalieri-scambio-dati-stipendi-italia': { it: 'tasse-frontalieri-scambio-dati-stipendi-italia', en: 'switzerland-italy-tax-treaty', de: 'schweiz-italien-steuerabkommen', fr: 'suisses-italie-accord-fiscal' },
  'lavorare-nel-servizio-alla-casa-ticino': { it: 'lavorare-nel-servizio-alla-casa-ticino', en: 'working-in-household-services-ticino', de: 'arbeit-in-haushaltsdienst-ticino', fr: 'travailler-dans-services-a-la-maison-ticino' },
+ 'disoccupazione-transfrontaliera-svizzera': { it: 'disoccupazione-transfrontaliera-svizzera', en: 'cross-border-unemployment-switzerland', de: 'grenzueberschreitende-arbeitslosigkeit-schweiz', fr: 'chomage-transfrontalier-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

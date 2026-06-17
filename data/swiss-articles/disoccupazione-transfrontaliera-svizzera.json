@@ -1,0 +1,18 @@
+{
+  "id": "disoccupazione-transfrontaliera-svizzera",
+  "slug": "disoccupazione-transfrontaliera-svizzera",
+  "publishedAt": "2026-06-17T01:35:25.994Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pratico",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

@@ -206,6 +206,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.title': 'Working as a household service worker in Ticino',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.excerpt': 'Discover how to work as a household service worker in Ticino, Switzerland. Requirements, tasks and practical advice.',
     'blog.article.lavorare-nel-servizio-alla-casa-ticino.imageAlt': 'Domestic worker in a Swiss residence',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Cross-border unemployment in Switzerland: how it works',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'The complete guide to unemployment for cross-border workers in Switzerland: SECO rules, the U1 form, and state-to-state reimbursements.',
+    'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Swiss administrative office building with national flag',
 };
 
 export default blogMetaChEn;
