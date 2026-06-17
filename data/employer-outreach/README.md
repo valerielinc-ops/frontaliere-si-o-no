@@ -38,10 +38,20 @@ node scripts/generate-cold-emails.mjs \
 
 ## Targeting
 
-Di default il generatore **esclude gli enti pubblici** (EOC, Città di Lugano,
-Amministrazione Cantonale, USI/SUPSI, FFS…): pubblicano concorsi obbligatori e
-difficilmente comprano sponsorizzati. I target sono i datori privati ad alto
-volume di candidati inviati. Usa `--include-public` per forzarne l'inclusione.
+**Nessuna azienda è esclusa**: i target sono le prime `--top` per candidati
+inviati. Ogni contatto è etichettato col settore (`pubblico` /
+`multinazionale` / `pmi`) come contesto per calibrare il tono a mano — il tag
+non filtra nulla.
+
+## Enrichment contatti
+
+```bash
+node scripts/enrich-employer-contacts.mjs --report data/employer-outreach/report.json --top 15
+```
+
+Trova il ruolo più cliccato per azienda (PostHog) e prova a estrarre un'email HR
+dalle pagine careers/contatti (best-effort). Le email non trovate vanno
+completate a mano in `contacts.json` (LinkedIn / form).
 
 ## Prossimi step (non ancora implementati)
 
