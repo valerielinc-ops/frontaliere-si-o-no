@@ -20,7 +20,8 @@
 import type fsT from 'node:fs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, CDN_PRECONNECT_HINT } from './constants';
+import { asyncCssHeadBlock } from './htmlTemplate';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1197,8 +1198,8 @@ function buildHtml(args: BuildHtmlArgs): string {
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
-    ${SEO_STATIC_CSS_LINK}
+    <script type="application/ld+json">${collectionLd}</script>
+    ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
@@ -1781,8 +1782,8 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <link rel="canonical" href="${canonicalUrl}">
-    ${SEO_STATIC_CSS_LINK}
-    <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
+    <script type="application/ld+json">${breadcrumbLd}</script>${collectionLd ? `\n    <script type="application/ld+json">${collectionLd}</script>` : ''}
+    ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">

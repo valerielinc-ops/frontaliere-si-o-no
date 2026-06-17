@@ -8,7 +8,8 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, OFFERWALL_FC_SNIPPET, DARK_MODE_SCRIPT, SEO_STATIC_CSS_LINK, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
+import { asyncCssLink } from './htmlTemplate';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4532,7 +4533,14 @@ ${hrefTags}
  : `<link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
  <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
- <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
+ <script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
+ // seo-static.css carries the s-* utility classes. On the home/hub roots the
+ // bundle CSS is loaded blocking (var(--color-*) FOUC avoidance), so keep
+ // seo-static.css blocking there too; on every other static landing it rides
+ // the same media=print async swap as the entry sheet (issue #1991).
+ const seoStaticCssMarkup = useBlockingHomeCss
+ ? SEO_STATIC_CSS_LINK
+ : asyncCssLink(`/assets/${SEO_STATIC_CSS_FILENAME}`);
  // Hub sub-nav is hoisted OUT of <main> so it renders as a sibling (matching
  // the SPA DOM shape) — otherwise the max-width / padding of
  // `main.seo-static-content` squishes the sub-nav at wide viewports.
@@ -4586,7 +4594,7 @@ ${hrefTags}
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
- ${SEO_STATIC_CSS_LINK}
+ ${seoStaticCssMarkup}
  <style>${skeletonAnim}</style>
  ${ANALYTICS_SNIPPET}${isBlogDetailPage ? `\n ${OFFERWALL_FC_SNIPPET}` : ''}
  </head>

@@ -16,9 +16,9 @@ import {
   FAVICON_LINKS,
   GTAG_SNIPPET,
   ADSENSE_SNIPPET,
-  SEO_STATIC_CSS_LINK,
   CDN_PRECONNECT_HINT,
 } from './constants';
+import { asyncCssHeadBlock } from './htmlTemplate';
 import {
   JOB_RECENCY_LANDING_SLUGS,
   type JobRecencyVariant,
@@ -303,8 +303,8 @@ ${alternates}
             `/${SECTION_BY_LOCALE.it}/${JOB_RECENCY_LANDING_SLUGS[variant].it}`.replace(/\/+/g, '/'),
           )}">
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin>` : ''}
-    ${SEO_STATIC_CSS_LINK}
+    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${faqLd ? `\n    <script type="application/ld+json">${faqLd}</script>` : ''}
+    ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
   </head>

@@ -9,7 +9,8 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, OFFERWALL_FC_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_LINK, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, OFFERWALL_FC_SNIPPET, FAVICON_LINKS, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT } from './constants';
+import { asyncCssLink } from './htmlTemplate';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
@@ -1093,8 +1094,8 @@ ${headTags}
  <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">
  <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">
  <noscript><link rel="stylesheet" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true"></noscript>
- <script>setTimeout(function(){var l=document.querySelector('link[media="print"][href*="/assets/"]');if(l){l.media='all';try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:l.href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>${preloadTag}
- ${SEO_STATIC_CSS_LINK}
+ <script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>${preloadTag}
+ ${asyncCssLink(`/assets/${SEO_STATIC_CSS_FILENAME}`)}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  ${OFFERWALL_FC_SNIPPET}
