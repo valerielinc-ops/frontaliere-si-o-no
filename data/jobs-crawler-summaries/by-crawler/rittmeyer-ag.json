@@ -1,51 +1,18 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-06-17T13:39:16.563Z",
+  "generatedAt": "2026-06-17T23:16:59.297Z",
   "total": 11,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 11032,
-  "avgDurationMs": 11032,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 14471,
+  "avgDurationMs": 14471,
   "durationHistory": [
-    11032
+    14471
   ],
-  "newJobs": [
-    {
-      "title": "Technischer Projektleiter (a)",
-      "slug": "technischer-projektleiter-a-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/technischer-projektleiter-a/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-17",
-      "employmentType": "other",
-      "contractType": "other",
-      "validThrough": "",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -418,36 +385,38 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "ICT-Supporter (a) Romanshorn",
-      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
+      "title": "Technischer Projektleiter (a)",
+      "slug": "technischer-projektleiter-a-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/technischer-projektleiter-a/",
       "applyUrl": "",
       "company": "Rittmeyer AG",
       "companyKey": "rittmeyer-ag",
       "companyDomain": "rittmeyer.com",
-      "location": "Romanshorn",
-      "addressLocality": "Romanshorn",
-      "addressRegion": "TG",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
       "addressCountry": "CH",
-      "canton": "TG",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
       "country": "CH",
       "category": "other",
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
+      "postedDate": "2026-06-17",
+      "employmentType": "other",
+      "contractType": "other",
       "validThrough": "",
-      "id": "rittmeyer-ag-9c45889d6936",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "id": "rittmeyer-ag-da77c858db6f",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "currency": "CHF",
-      "streetAddress": "Romanshorn",
-      "postalCode": "8590",
-      "firstSeenAt": "2026-05-10T10:45:26.433Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:39:16.562Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -456,6 +425,5 @@
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
