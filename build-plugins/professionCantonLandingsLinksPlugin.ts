@@ -42,6 +42,7 @@ import {
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import { staticPagesFlushed, professionCantonsFlushed } from './shared/buildSignals';
 import { injectBlockAfterMain } from './shared/injectAfterMain';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const MARKER = 'data-profession-cantons-links';
 
@@ -153,6 +154,10 @@ export function professionCantonLandingsLinksPlugin(rootDir: string): Plugin {
       const failures: string[] = [];
       let injected = 0;
       for (const locale of PROFESSION_LOCALES) {
+        // Per-locale shard build (BUILD_LOCALE): skip locales this shard did
+        // not emit — their sitemap pages are absent and would hard-fail as
+        // missing-file. No-op in the default all-locale build.
+        if (!shouldEmitLocale(locale)) continue;
         const items = byLocale[locale];
         if (items.length === 0) continue; // nothing emitted for this locale
         const indexPath = np.join(distDir, SITEMAP_PAGE_DIR[locale], 'index.html');
