@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-06-17T00:01:18.672Z",
+  "assembledAt": "2026-06-17T14:04:04.907Z",
   "jobs": [
     {
       "id": "tschuggen-8d1a677afc27",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:54.667Z",
+      "crawledAt": "2026-06-17T14:04:02.540Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -109,7 +110,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T00:01:15.444Z",
+      "crawledAt": "2026-06-17T14:04:01.603Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -202,7 +203,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1347/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:52.624Z",
+      "crawledAt": "2026-06-17T14:04:00.635Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -232,6 +233,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:01.753Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -277,7 +279,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1346/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:51.598Z",
+      "crawledAt": "2026-06-17T14:03:59.678Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -304,6 +306,7 @@
         ]
       },
       "firstSeenAt": "2026-05-27T14:17:00.840Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -349,7 +352,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1345/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:50.577Z",
+      "crawledAt": "2026-06-17T14:03:58.743Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -379,6 +382,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T00:43:20.731Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -424,7 +428,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1351/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:49.477Z",
+      "crawledAt": "2026-06-17T14:03:57.805Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -454,6 +458,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T15:58:20.628Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -499,7 +504,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1362/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T00:01:10.942Z",
+      "crawledAt": "2026-06-17T14:03:56.838Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -562,7 +567,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1363/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:47.390Z",
+      "crawledAt": "2026-06-17T14:03:55.904Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -584,6 +589,7 @@
       "pensumMax": 100,
       "pensum": "100%",
       "firstSeenAt": "2026-06-08T13:57:08.540Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -614,22 +620,22 @@
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
         "en": "Nursing Service Internship",
-        "de": "Praktikum im Pflegedienst",
+        "de": "Stellvertretender Technischer Leiter in Jahresanstellung",
         "fr": "Stages en soins infirmiers"
       },
       "description": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Anfang Juli 2026 oder nach Vereinbarung | Abgeschlossene Berufsausbildung in den Bereichen Elektrik oder Sanitär erwünscht Kenntnisse von Bergbahnen und deren Machinistik sind von Vorteil Berufserfahrung als Techniker (im Hotel oder Gebäudeunterhalt) sind ebenfalls von Vorteil Fliessende Deutsch- und Englischkenntnisse Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken, Organisationstalent Freundliches Auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit und Flexibilität | Übernahme der Technikleitung bei Abwesenheit vom technischen Leiter Allgemeiner Gebäudeunterhalt (Hotelanlage, hauseigene Bergbahn \"Tschuggen Express\", Spa, Garagen, Mitarbeiterhaus) Mithilfe und Kontrolle bei der Wartung aller Installationen wie Heizung, Sanitär, Spa, Elektro, Brandmeldeanlage, Maschinen und unserem Eisspeicher Unterstützung unseres Technischen Leiters in täglichen Arbeitsablauf, bei Wartungen, Kontrollen ect. Diverse Umgebungsarbeiten (Reinigung, Garten, Schneeräumung) Kontrolle von Garantiearbeiten sowie Bindeglied zu externen Handwerkern Führen von Wartungsplänen für die Haustechnikanlage Mitverantwortlich für die Betriebssicherheit Übernahme von Pikettdiensten Arbeiten nach den Richtlinien der ISO 9001:2015 Zertifizierung der Tschuggen Collection AG sowie den allgemeinen Vorschriften der Sicherheit und Arbeitssicherheit | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
       "descriptionByLocale": {
         "it": "Stage servizio infermieristico - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all'impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all'anno e fornendo oltre 600'000 consulti ambulatoriali. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea per uno Stage servizio infermieristico Profilo Il Servizio infermieristico dell'Ospedale Regionale di Bellinzona e Valli offre la possibilità di svolgere diversi tipi di stage a coloro che desiderano intraprendere la formazione di base come infermiere: a) praticante : stage di orientamento per valutare un'eventuale iscrizione a una delle formazioni per ottenere il diploma di infermiere b) stagiaire pre-Supsi : stage richiesto dalla Supsi agli studenti che desiderano intraprendere il bachelor in cure infermieristiche c) stagiaire SSSCI : stage richiesto dalla SSSCI (Scuola specializzata superiore in cure infermieristica) agli studenti che desiderano intraprendere la formazione di infermiere SSS d) studente medico : stage richiesto da alcune facoltà di medicina svizzere da svolgere o prima dell'inizio degli studi o entro la fine del 1° anno di formazione universitaria La disponibilità di posti di stage è in funzione delle esigenze di servizio.\n• Requisiti necessari a) praticante : - intenzione di intraprendere una formazione professionale in ambito infermieristico - età minima 16 anni compiuti b) stagiaire pre-Supsi : - iscrizione alla SUPSI c) stagiaire SSSCI : - iscrizione alla SSSCI d) studente medico : - iscrizione alla facoltà di medicina di un'università svizzera Per informazioni sulle possibilità di formazione bisogna prendere contatto con le scuole ( SUPSI o SSSCI ). Osservazioni --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. EOC - insieme per curare meglio. Interessato/a?",
-        "en": "Nursing service internship - Ausschreibung The EOC, the multi-site hospital in Ticino, is present with its institutes throughout the entire cantonal territory for a total of 1,000 beds. The organization allows us to effectively combine a local approach and an overall vision, guaranteeing the population a global and local hospital offer, regardless of the place where the services are required. Thanks to the commitment and expertise of over 6,500 collaborators and their attention to human relationships, the EOC ensures quality healthcare by taking care of over 41,000 inpatients per year and providing over 600,000 outpatient consultations. The following position is aimed at candidates who wish to submit a spontaneous application for a nursing service internship. Profile The Nursing Service of the Regional Hospital of Bellinzona and Valli offers the possibility of carrying out different types of internships to those who wish to undertake basic training as a nurse: a) trainee: orientation internship to evaluate a possible enrollment in one of the training courses to obtain the nursing diploma b) stagiaire pre-Supsi: internship required by Supsi for students who wish to undertake a bachelor's degree in nursing c) stagiaire SSSCI: internship required by the SSSCI (Specialised Higher School of Nursing) for students who wish to undertake training as SSS nurses d) medical student: internship required by some Swiss medical faculties to be carried out either before the start of studies or by the end of the 1st year of university training. The availability of internship places depends on the needs of the service. • Necessary requirements a) practitioner: - intention to undertake professional training in the nursing field - minimum age 16 years of age b) pre-Supsi intern: - registration with SUPSI c) SSSCI intern: - registration with SSSCI d) medical student: - enrollment in the medical faculty of a Swiss university For information on training possibilities, contact the schools (SUPSI or SSSCI). Observations --> The applications of those who do not meet the above requirements will in no case be taken into consideration and will consequently be eliminated from our database. EOC - together to cure better. Interested?",
-        "de": "Pflegedienst-Praktikum - Ausschreibung Das EOC, das Multistandortspital im Tessin, ist mit seinen Instituten im gesamten Kantonsgebiet mit insgesamt 1.000 Betten vertreten. Die Organisation ermöglicht es uns, einen lokalen Ansatz und eine Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und lokales Krankenhausangebot zu garantieren, unabhängig vom Ort, an dem die Leistungen benötigt werden. Dank des Engagements und der Fachkompetenz von über 6.500 Mitarbeitern und ihrer Aufmerksamkeit für menschliche Beziehungen gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung, indem es jährlich über 41.000 stationäre Patienten betreut und über 600.000 ambulante Konsultationen durchführt. Die folgende Stelle richtet sich an Kandidaten, die sich spontan für ein Praktikum im Pflegedienst bewerben möchten. Profil Der Pflegedienst des Regionalspitals Bellinzona und Valli bietet denjenigen, die eine Grundausbildung als Krankenpfleger absolvieren möchten, die Möglichkeit, verschiedene Arten von Praktika durchzuführen: a) Trainee: Orientierungspraktikum zur Beurteilung einer möglichen Einschreibung in einen der Ausbildungsgänge zur Erlangung des Krankenpflegediploms b) stagiaire pre-Supsi: von Supsi gefordertes Praktikum für Studierende, die einen Bachelor-Abschluss in Krankenpflege absolvieren möchten c) stagiaire SSSCI: Praktikum erforderlich von der SSSCI (Specialised Higher School of Nursing) für Studierende, die eine Ausbildung als SSS-Krankenschwester absolvieren möchten. d) Medizinstudent: Von einigen medizinischen Fakultäten der Schweiz vorgeschriebenes Praktikum, das entweder vor Studienbeginn oder bis zum Ende des 1. Studienjahres absolviert werden muss. Die Verfügbarkeit von Praktikumsplätzen richtet sich nach dem Bedarf des Dienstes. • Notwendige Voraussetzungen a) Praktiker: - Absicht, eine Berufsausbildung im Pflegebereich zu absolvieren - Mindestalter 16 Jahre b) Pre-Supsi-Praktikant: - Registrierung bei SUPSI c) SSSCI-Praktikant: - Registrierung bei SSSCI d) Medizinstudent: - Einschreibung an der medizinischen Fakultät einer Schweizer Universität Für Informationen zu Ausbildungsmöglichkeiten wenden Sie sich an die Schulen (SUPSI oder SSSCI). Bemerkungen --> Bewerbungen von Personen, die die oben genannten Voraussetzungen nicht erfüllen, werden in keinem Fall berücksichtigt und daher aus unserer Datenbank gelöscht. EOC – gemeinsam besser heilen. Interessiert?",
-        "fr": "Stage en service de soins - Ausschreibung L'EOC, l'hôpital multisite du Tessin, est présent avec ses instituts sur tout le territoire cantonal pour un total de 1000 lits. L'organisation permet d'allier efficacement une approche locale et une vision globale, garantissant à la population une offre hospitalière globale et locale, quel que soit le lieu où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 collaborateurs et à leur souci des relations humaines, l'EOC assure des soins de qualité en prenant en charge plus de 41 000 patients hospitalisés par an et en assurant plus de 600 000 consultations ambulatoires. Le poste suivant s'adresse aux candidats qui souhaitent déposer une candidature spontanée pour un stage en service infirmier. Profil Le Service Infirmier de l'Hôpital Régional de Bellinzone et Valli offre la possibilité d'effectuer différents types de stages à ceux qui souhaitent entreprendre une formation de base d'infirmière : a) stagiaire : stage d'orientation pour évaluer une éventuelle inscription à l'une des formations pour l'obtention du diplôme d'infirmière b) stagiaire pré-Supsi : stage exigé par Supsi pour les étudiants qui souhaitent entreprendre un baccalauréat en soins infirmiers c) stagiaire SSSCI : stage exigé par la SSSCI (École Supérieure Spécialisée d'Infirmières) pour les étudiants qui souhaitent entreprendre une formation d'infirmière SSS d) étudiant en médecine : stage exigé par certaines facultés de médecine suisses à effectuer soit avant le début des études, soit avant la fin de la 1ère année de formation universitaire. La disponibilité des places de stage dépend des besoins du service. • Conditions nécessaires a) praticien : - intention d'entreprendre une formation professionnelle dans le domaine infirmier - âge minimum 16 ans b) stagiaire pré-Supsi : - inscription auprès de la SUPSI c) stagiaire SSSCI : - inscription auprès du SSSCI d) étudiant en médecine : - inscription dans la faculté de médecine d'une université suisse Pour obtenir des informations sur les possibilités de formation, contactez les écoles (SUPSI ou SSSCI). Observations --> Les candidatures de ceux qui ne satisferont pas aux exigences ci-dessus ne seront en aucun cas prises en considération et seront par conséquent éliminées de notre base de données. COE – ensemble pour mieux guérir. Intéressé?"
+        "en": "Nursing service internship - Ausschreibung The EOC, the multi-site hospital in Ticino, is present with its institutes throughout the entire cantonal territory for a total of 1,000 beds. The organization allows us to effectively combine a local approach and an overall vision, guaranteeing the population a global and local hospital offer, regardless of the place where the services are required. Thanks to the commitment and expertise of over 6,500 collaborators and their attention to human relationships, the EOC ensures quality healthcare by taking care of over 41,000 inpatients per year and providing over 600,000 outpatient consultations. The following position is aimed at candidates who wish to submit a spontaneous application for a nursing service internship. Profile The Nursing Service of the Regional Hospital of Bellinzona and Valli offers the possibility of carrying out different types of internships to those who wish to undertake basic training as a nurse: a) trainee: orientation internship to evaluate a possible enrollment in one of the training courses to obtain the nursing diploma b) stagiaire pre-Supsi: internship required by Supsi for students who wish to undertake a bachelor's degree in nursing c) stagiaire SSSCI: internship required by the SSSCI (Specialised Higher School of Nursing) for students who wish to undertake training as SSS nurses d) medical student: internship required by some Swiss medical faculties to be carried out either before the start of studies or by the end of the 1st year of university training. The availability of internship places depends on the needs of the service.\n• Necessary requirements a) practitioner: - intention to undertake professional training in the nursing field - minimum age 16 years of age b) pre-Supsi intern: - registration with SUPSI c) SSSCI intern: - registration with SSSCI d) medical student: - enrollment in the medical faculty of a Swiss university For information on training possibilities, contact the schools (SUPSI or SSSCI). Observations --> The applications of those who do not meet the above requirements will in no case be taken into consideration and will consequently be eliminated from our database. EOC - together to cure better. Interested?",
+        "de": "Das Tschuggen Grand Hotel in Arosa ist ein auf 1'800m Höhe gelegenes 5‑Sterne‑Superior‑Luxushotel in den Bündner Bergen. Als eines der vier Häuser der \"The Tschuggen Collection\", bietet unser Haus 128 individuell gestaltete Zimmer, Suiten und Mountainlofts, dazu vier stilvolle Restaurants – darunter das Gourmet‑Highlight La Brezza mit 19 Punkten Gault&Millau & zwei Michelin‑Sternen – sowie eine beeindruckende 5 000 m² grosse Spa‑Bergoase, designed by Mario Botta. UNSERE VISION - Wir geben der Zeit Ihren Wert zurück. Sie sind ein leidenschaftlicher und empathischer Gastgeber, wertschätzend & respektvoll? Dann sind Sie bei uns richtig. Eintritt per Anfang Juli 2026 oder nach Vereinbarung | Abgeschlossene Berufsausbildung in den Bereichen Elektrik oder Sanitär erwünscht Kenntnisse von Bergbahnen und deren Machinistik sind von Vorteil Berufserfahrung als Techniker (im Hotel oder Gebäudeunterhalt) sind ebenfalls von Vorteil Fliessende Deutsch- und Englischkenntnisse Bedingung, jede weitere Sprache von Vorteil Ausgeprägtes Servicedenken, Organisationstalent Freundliches Auftreten, Höflichkeit gegenüber Gästen Gepflegtes Erscheinungsbild Körperliche Belastbarkeit und Flexibilität | Übernahme der Technikleitung bei Abwesenheit vom technischen Leiter Allgemeiner Gebäudeunterhalt (Hotelanlage, hauseigene Bergbahn \"Tschuggen Express\", Spa, Garagen, Mitarbeiterhaus) Mithilfe und Kontrolle bei der Wartung aller Installationen wie Heizung, Sanitär, Spa, Elektro, Brandmeldeanlage, Maschinen und unserem Eisspeicher Unterstützung unseres Technischen Leiters in täglichen Arbeitsablauf, bei Wartungen, Kontrollen ect. Diverse Umgebungsarbeiten (Reinigung, Garten, Schneeräumung) Kontrolle von Garantiearbeiten sowie Bindeglied zu externen Handwerkern Führen von Wartungsplänen für die Haustechnikanlage Mitverantwortlich für die Betriebssicherheit Übernahme von Pikettdiensten Arbeiten nach den Richtlinien der ISO 9001:2015 Zertifizierung der Tschuggen Collection AG sowie den allgemeinen Vorschriften der Sicherheit und Arbeitssicherheit | Attraktive Mitarbeiterunterkünfte in der Nähe des Hotel Ausgewogenes Menü-Angebot in unserer Mitarbeitertrattoria mit vegetarischen & veganen Optionen 24/7 Nutzung unseres Fitnesscenters Einheimische Vorteile wie Spezialpreise bei Sportgeschäften, Skipässen und vielem mehr Spezialpreise für Übernachtungen in unseren Häusern der \"The Tschuggen Collection\" sowie den Swiss Deluxe Hotels | Fühlen Sie sich angesprochen - Bewerben Sie sich jetzt! Wir freuen uns über Ihr Bewerbungsdossier - gerne digital: Bewerbungsschreiben Vollständiger Lebenslauf inkl. Foto Zeugnisse & Diplome",
+        "fr": "Stage en service de soins - Ausschreibung L'EOC, l'hôpital multisite du Tessin, est présent avec ses instituts sur tout le territoire cantonal pour un total de 1000 lits. L'organisation permet d'allier efficacement une approche locale et une vision globale, garantissant à la population une offre hospitalière globale et locale, quel que soit le lieu où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 collaborateurs et à leur souci des relations humaines, l'EOC assure des soins de qualité en prenant en charge plus de 41 000 patients hospitalisés par an et en assurant plus de 600 000 consultations ambulatoires. Le poste suivant s'adresse aux candidats qui souhaitent déposer une candidature spontanée pour un stage en service infirmier. Profil Le Service Infirmier de l'Hôpital Régional de Bellinzone et Valli offre la possibilité d'effectuer différents types de stages à ceux qui souhaitent entreprendre une formation de base d'infirmière : a) stagiaire : stage d'orientation pour évaluer une éventuelle inscription à l'une des formations pour l'obtention du diplôme d'infirmière b) stagiaire pré-Supsi : stage exigé par Supsi pour les étudiants qui souhaitent entreprendre un baccalauréat en soins infirmiers c) stagiaire SSSCI : stage exigé par la SSSCI (École Supérieure Spécialisée d'Infirmières) pour les étudiants qui souhaitent entreprendre une formation d'infirmière SSS d) étudiant en médecine : stage exigé par certaines facultés de médecine suisses à effectuer soit avant le début des études, soit avant la fin de la 1ère année de formation universitaire. La disponibilité des places de stage dépend des besoins du service.\n• Conditions nécessaires a) praticien : - intention d'entreprendre une formation professionnelle dans le domaine infirmier - âge minimum 16 ans b) stagiaire pré-Supsi : - inscription auprès de la SUPSI c) stagiaire SSSCI : - inscription auprès du SSSCI d) étudiant en médecine : - inscription dans la faculté de médecine d'une université suisse Pour obtenir des informations sur les possibilités de formation, contactez les écoles (SUPSI ou SSSCI). Observations --> Les candidatures de ceux qui ne satisferont pas aux exigences ci-dessus ne seront en aucun cas prises en considération et seront par conséquent éliminées de notre base de données. COE – ensemble pour mieux guérir. Intéressé?"
       },
       "location": "Arosa",
       "canton": "GR",
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1367/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T14:43:46.386Z",
+      "crawledAt": "2026-06-17T14:03:54.991Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -650,8 +656,8 @@
       "previousSlugsByLocale": {
         "de": [
           "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
-          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "it": [
           "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch"
@@ -665,10 +671,9 @@
       },
       "previousSlugs": [
         "stellvertretender-technischer-leiter-in-jahresanstellung-tschuggen-ch",
-        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "firstSeenAt": "2026-06-11T23:42:44.909Z",
       "salaryMin": 48000,
@@ -716,7 +721,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1368/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T00:01:08.220Z",
+      "crawledAt": "2026-06-17T14:03:54.023Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
