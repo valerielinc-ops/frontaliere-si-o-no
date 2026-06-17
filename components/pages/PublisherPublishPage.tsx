@@ -595,6 +595,9 @@ const PublisherPublishPage: React.FC = () => {
  if (d.employmentType) setEmploymentType(String(d.employmentType));
  if (d.contractType) setContractType(String(d.contractType));
  if (d.applyUrl) setApplyUrl(String(d.applyUrl));
+ // Salary is stashed CHF-only by the claim CTA (the form submits currency: 'CHF').
+ if (d.salaryMin != null) setSalaryMin(String(d.salaryMin));
+ if (d.salaryMax != null) setSalaryMax(String(d.salaryMax));
  if (d.location) {
  setLocations([{ label: String(d.location), postalCode: '', canton: String(d.canton || 'TI'), street: '' }]);
  }
