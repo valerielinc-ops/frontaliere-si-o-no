@@ -8,6 +8,16 @@
     "ui-ux-pro-max@ui-ux-pro-max-skill": false
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "( node \"$CLAUDE_PROJECT_DIR/scripts/prune-merged-worktrees.mjs\" --apply >/dev/null 2>&1 & ) || true"
+          }
+        ]
+      }
+    ],
     "SessionEnd": [
       {
         "hooks": [
