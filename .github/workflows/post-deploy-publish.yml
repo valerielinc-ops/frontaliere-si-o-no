@@ -6,7 +6,8 @@ name: Post-deploy Publish (side-effects + mark good)
 # is the right place for IRREVERSIBLE side-effects:
 #
 #   - Sync previous-slug-winners.json (git push)
-#   - Post to Facebook + LinkedIn (workflow_dispatch only)
+#   - Post to LinkedIn + Reddit (workflow_dispatch only). Facebook moved to the
+#     standalone scheduled poster: .github/workflows/fb-articles-daily-schedule.yml
 #   - Submit URLs to Google Indexing API + IndexNow + GSC
 #   - Mark this run as last_known_good (rollback target)
 #
@@ -155,26 +156,13 @@ jobs:
             "$OG_TITLE" \
             "$OG_IMAGE"
 
-      - name: Post to Facebook Page
-        if: |
-          success() &&
-          inputs.deploy_event_name == 'workflow_dispatch' &&
-          fromJson(steps.deploy-meta.outputs.data || '{}').articleId != null &&
-          steps.wait_live_meta.outcome == 'success'
-        continue-on-error: true
-        env:
-          ARTICLE_ID: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleId }}
-          ARTICLE_URL: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleUrl }}
-          OG_TITLE: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogTitle }}
-          OG_DESCRIPTION: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').ogDescription }}
-          ARTICLE_CATEGORY: ${{ fromJson(steps.deploy-meta.outputs.data || '{}').articleCategory }}
-        run: |
-          node scripts/post-to-facebook.mjs \
-            "$ARTICLE_ID" \
-            "$ARTICLE_URL" \
-            "$OG_TITLE" \
-            "$OG_DESCRIPTION" \
-            "$ARTICLE_CATEGORY"
+      # NOTE: Facebook article posting is NOT here anymore. It moved to the
+      # standalone scheduled poster (.github/workflows/fb-articles-daily-schedule.yml
+      # → scripts/schedule-fb-articles-daily.mjs), which posts new articles
+      # independently of the deploy path and dedups via data/fb-posted-articles.json.
+      # This decouples FB announcements from the workflow_dispatch+articleId gate
+      # that left articles created outside that exact path unposted. LinkedIn and
+      # Reddit still post here (per-deploy, workflow_dispatch only).
 
       - name: Post to LinkedIn Company Page
         if: |

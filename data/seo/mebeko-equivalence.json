@@ -1,32 +1,19 @@
 {
-  "generatedAt": "2026-04-23T17:32:19.583Z",
   "sources": [
     {
       "authority": "MEBEKO",
       "url": "https://www.bag.admin.ch/it/commissione-delle-professioni-mediche-mebeko",
-      "label": "Commissione federale delle professioni mediche (MEBEKO) — BAG",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:14.823Z",
-      "elapsedMs": 319
+      "label": "Commissione federale delle professioni mediche (MEBEKO) — BAG"
     },
     {
       "authority": "SRK / Croce Rossa Svizzera",
       "url": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
-      "label": "Croce Rossa Svizzera — Riconoscimento dei diplomi esteri non universitari",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:17.424Z",
-      "elapsedMs": 1597
+      "label": "Croce Rossa Svizzera — Riconoscimento dei diplomi esteri non universitari"
     },
     {
       "authority": "SEFRI — professioni sanitarie non universitarie",
       "url": "https://www.sbfi.admin.ch/it",
-      "label": "SEFRI — Riconoscimento di diplomi esteri",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:18.581Z",
-      "elapsedMs": 156
+      "label": "SEFRI — Riconoscimento di diplomi esteri"
     }
   ],
   "professions": {
@@ -59,5 +46,31 @@
       "notes": "SUPSI Dipartimento Economia Aziendale, Sanità e Sociale (DEASS) offre programmi di allineamento."
     }
   },
-  "note": "Curated, hand-verified equivalence summary. Live fetch is used only for source probing (citation freshness). Update HEALTHCARE_PROFESSIONS when MEBEKO/SRK publish procedural changes."
+  "note": "Curated, hand-verified equivalence summary. Live fetch is used only for source probing (citation freshness). Update HEALTHCARE_PROFESSIONS when MEBEKO/SRK publish procedural changes.",
+  "_probe": {
+    "generatedAt": "2026-04-23T17:32:19.583Z",
+    "sources": [
+      {
+        "url": "https://www.bag.admin.ch/it/commissione-delle-professioni-mediche-mebeko",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:14.823Z",
+        "elapsedMs": 319
+      },
+      {
+        "url": "https://www.redcross.ch/it/offerte-della-crs/riconoscimento-di-diplomi-esteri",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:17.424Z",
+        "elapsedMs": 1597
+      },
+      {
+        "url": "https://www.sbfi.admin.ch/it",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:18.581Z",
+        "elapsedMs": 156
+      }
+    ]
+  }
 }

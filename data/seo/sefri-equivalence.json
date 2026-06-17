@@ -1,32 +1,19 @@
 {
-  "generatedAt": "2026-04-23T17:32:23.136Z",
   "sources": [
     {
       "authority": "SEFRI",
       "url": "https://www.sbfi.admin.ch/it",
-      "label": "Segreteria di Stato per la formazione, la ricerca e l'innovazione — Riconoscimento di diplomi esteri",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:19.913Z",
-      "elapsedMs": 161
+      "label": "Segreteria di Stato per la formazione, la ricerca e l'innovazione — Riconoscimento di diplomi esteri"
     },
     {
       "authority": "SECO",
       "url": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
-      "label": "SECO — Contratti collettivi di lavoro (CCL / GAV) di obbligatorietà generale",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:21.081Z",
-      "elapsedMs": 160
+      "label": "SECO — Contratti collettivi di lavoro (CCL / GAV) di obbligatorietà generale"
     },
     {
       "authority": "SEFRI — Elenco professioni regolamentate",
       "url": "https://www.sbfi.admin.ch/it",
-      "label": "SEFRI — Procedure di riconoscimento",
-      "reachable": false,
-      "bytes": 0,
-      "probedAt": "2026-04-23T17:32:22.134Z",
-      "elapsedMs": 50
+      "label": "SEFRI — Procedure di riconoscimento"
     }
   ],
   "professions": {
@@ -151,5 +138,31 @@
       "regulated": false
     }
   },
-  "note": "Curated, hand-verified equivalence summary. Update TRADE_PROFESSIONS when SEFRI / SECO publish CCL revisions. Regulated = requires authority pre-approval before employment."
+  "note": "Curated, hand-verified equivalence summary. Update TRADE_PROFESSIONS when SEFRI / SECO publish CCL revisions. Regulated = requires authority pre-approval before employment.",
+  "_probe": {
+    "generatedAt": "2026-04-23T17:32:23.136Z",
+    "sources": [
+      {
+        "url": "https://www.sbfi.admin.ch/it",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:19.913Z",
+        "elapsedMs": 161
+      },
+      {
+        "url": "https://www.seco.admin.ch/it/contratti-collettivi-di-lavoro",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:21.081Z",
+        "elapsedMs": 160
+      },
+      {
+        "url": "https://www.sbfi.admin.ch/it",
+        "reachable": false,
+        "bytes": 0,
+        "probedAt": "2026-04-23T17:32:22.134Z",
+        "elapsedMs": 50
+      }
+    ]
+  }
 }
