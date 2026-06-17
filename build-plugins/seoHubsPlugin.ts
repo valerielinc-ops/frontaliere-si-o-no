@@ -179,6 +179,23 @@ function withSlash(s: string): string {
   return s.endsWith('/') ? s : `${s}/`;
 }
 
+/**
+ * Normalises an item `href` into an absolute URL for `ListItem.url`. Handles
+ * every shape `href` can take across hub callers so we never emit a malformed
+ * `${BASE_URL}foo` or a double-origin URL in structured data:
+ *   - already-absolute (`https://…`, `http://…`) → passed through
+ *   - protocol-relative (`//cdn…`)               → passed through
+ *   - root-relative (`/cerca-lavoro-ticino/…`)   → origin prepended
+ *   - bare slug (`offerte-da-ieri/`)             → rooted with a leading slash
+ * Mirrors the guard introduced for thin-hub ItemLists (PR #2229 adversarial
+ * check #3) and is shared so the two emitters cannot drift.
+ */
+function absItemUrl(href: string): string {
+  return /^(https?:)?\/\//.test(href)
+    ? href
+    : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
+}
+
 function slugifyEmployer(value: string): string {
   return String(value || '').toLowerCase().normalize('NFD')
     .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
@@ -1075,7 +1092,10 @@ function buildHtml(args: BuildHtmlArgs): string {
         '@type': 'ListItem',
         position: (page - 1) * 100 + idx + 1,
         name: it.label,
-        url: `${BASE_URL}${it.href}`,
+        // Normalise to absolute: pageItems[].href is usually root-relative but
+        // may be already-absolute (per-locale job URLs from all-known-job-slugs)
+        // — bare `${BASE_URL}${href}` would double-prefix those (issue #2235).
+        url: absItemUrl(it.href),
       })),
     },
   });
@@ -1736,14 +1756,10 @@ function buildThinCantonHubHtml(args: {
           itemListElement: items.slice(0, 25).map((it, i) => ({
             '@type': 'ListItem',
             position: i + 1,
-            // PR #2229 adversarial-check #3: harden href→absolute. Already-
-            // absolute (http/https) and protocol-relative (//) URLs pass
-            // through; root-relative paths get the origin prepended; any other
-            // shape (rare bare slug) is rooted with a leading slash so we never
-            // emit a malformed `${BASE_URL}foo` or double-origin URL.
-            url: /^(https?:)?\/\//.test(it.href)
-              ? it.href
-              : `${BASE_URL}${it.href.startsWith('/') ? '' : '/'}${it.href}`,
+            // PR #2229 adversarial-check #3 / issue #2235: harden href→absolute
+            // via the shared normaliser (see absItemUrl) so the two ItemList
+            // emitters cannot drift.
+            url: absItemUrl(it.href),
             name: it.label,
           })),
         },
