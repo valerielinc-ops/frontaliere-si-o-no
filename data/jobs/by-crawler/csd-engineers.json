@@ -3158,12 +3158,12 @@
     },
     {
       "id": "csd-engineers-912ea19b2f35",
-      "slug": "baumanager-w-m-d-100-csd-engineers-ch",
+      "slug": "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln",
       "slugByLocale": {
         "de": "project-management-officer-pmo-80-100-w-m-d-csd-engineers-ch",
-        "it": "baumanager-w-m-d-100-csd-engineers-ch",
-        "en": "baumanager-w-m-d-100-csd-engineers-ch",
-        "fr": "baumanager-w-m-d-100-csd-engineers-ch"
+        "it": "responsabile-dei-lavori-f-m-d-al-100-csd-engineers-pratteln",
+        "en": "construction-manager-f-m-d-100-csd-engineers-pratteln",
+        "fr": "responsable-de-la-construction-f-m-d-a-100-csd-engineers-pratteln"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3219,7 +3219,21 @@
         }
       },
       "addressRegion": "BL",
-      "firstSeenAt": "2026-06-16T13:11:07.085Z"
+      "firstSeenAt": "2026-06-16T13:11:07.085Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "baumanager-w-m-d-100-csd-engineers-ch"
+        ],
+        "en": [
+          "baumanager-w-m-d-100-csd-engineers-ch"
+        ],
+        "fr": [
+          "baumanager-w-m-d-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "baumanager-w-m-d-100-csd-engineers-ch"
+      ]
     },
     {
       "id": "csd-engineers-7afeb14907d7",
@@ -3615,9 +3629,9 @@
       "slug": "collaboratore-trice-administration-con-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-administration-con-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers-bern",
-        "en": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers",
+        "en": "employee-administration-with-a-focus-on-project-controlling-80-100-m-f-d-csd-engineers-bern",
         "de": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers",
-        "fr": "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        "fr": "administration-des-employes-avec-un-accent-sur-le-controle-de-projet-80-100-l-v-d-csd-engineers-bern"
       },
       "company": "CSD ENGINEERS",
       "companyKey": "csd-engineers",
@@ -3664,6 +3678,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        ],
+        "en": [
+          "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
+        ],
+        "fr": [
+          "mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d-csd-engineers"
         ]
       },
       "firstSeenAt": "2026-06-09T22:15:26.576Z",
@@ -3687,7 +3707,7 @@
       "slugByLocale": {
         "fr": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
         "it": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
-        "en": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch",
+        "en": "senior-project-manager-80-100-f-m-d-csd-engineers-lancy",
         "de": "chef-de-projet-senior-80-100-f-h-d-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",

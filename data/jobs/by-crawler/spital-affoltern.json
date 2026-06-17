@@ -910,8 +910,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital",
         "it": "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-medizinische-onkologie-spital-affoltern-ag-affoltern-am-albis",
-        "en": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital",
-        "fr": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital"
+        "en": "medical-oncology-senior-physician-or-head-physician-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "medecin-chef-h-f-en-oncologie-medicale-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -956,6 +956,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-medizinische-onkologie-spital"
         ]
       },

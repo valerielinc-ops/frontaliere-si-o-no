@@ -6763,8 +6763,8 @@
       },
       "slugByLocale": {
         "it": "collaboratore-self-service-e-partner-commerciale-60-lidl-svizzera-aigle",
-        "en": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
-        "de": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
+        "en": "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
+        "de": "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle",
         "fr": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
       },
       "requirementsByLocale": {},
@@ -6776,19 +6776,15 @@
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ],
         "en": [
-          "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ],
         "de": [
-          "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle",
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle",
-        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
-        "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
-        "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle"
+        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -22183,9 +22179,6 @@
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-3t5gz5",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
           "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-tyv50x"
-        ],
-        "de": [
-          "erlernt-im-einzelhandel-cfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
         ]
       },
       "salaryMin": 41600,

@@ -79,12 +79,12 @@
     },
     {
       "id": "tecan-e1bacb2dd36c",
-      "slug": "strategy-sales-excellence-specialist-emea-tecan-mannedorf",
+      "slug": "specialista-in-strategia-ed-eccellenza-nelle-vendite-emea-tecan-mannedorf",
       "slugByLocale": {
         "en": "strategy-sales-excellence-specialist-emea-tecan-mannedorf",
-        "it": "strategy-sales-excellence-specialist-emea-tecan-mannedorf",
-        "de": "strategy-sales-excellence-specialist-emea-tecan-mannedorf",
-        "fr": "strategy-sales-excellence-specialist-emea-tecan-mannedorf"
+        "it": "specialista-in-strategia-ed-eccellenza-nelle-vendite-emea-tecan-mannedorf",
+        "de": "strategie-sales-excellence-spezialist-emea-tecan-mannedorf",
+        "fr": "specialiste-de-la-strategie-et-de-l-excellence-commerciale-emea-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -139,7 +139,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T14:31:44.987Z"
+      "firstSeenAt": "2026-06-16T14:31:44.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategy-sales-excellence-specialist-emea-tecan-mannedorf"
+        ],
+        "de": [
+          "strategy-sales-excellence-specialist-emea-tecan-mannedorf"
+        ],
+        "fr": [
+          "strategy-sales-excellence-specialist-emea-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "strategy-sales-excellence-specialist-emea-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-3f21e2fc75c9",
@@ -566,10 +580,10 @@
     },
     {
       "id": "tecan-070f2310a474",
-      "slug": "misurazione-di-tecnici-tecan-mannedorf",
+      "slug": "tecnico-di-metrologia-tecan-mannedorf",
       "slugByLocale": {
-        "it": "misurazione-di-tecnici-tecan-mannedorf",
-        "en": "messtechniker-tecan-mannedorf",
+        "it": "tecnico-di-metrologia-tecan-mannedorf",
+        "en": "metrology-technician-tecan-mannedorf",
         "de": "messtechniker-tecan-mannedorf",
         "fr": "technologie-de-mesure-tecan-mannedorf"
       },
@@ -647,6 +661,7 @@
         "messtechniker-tecan-mannedorf",
         "tecnologia-di-misura-tecan-mannedorf",
         "tecnico-della-misurazione-tecan-mannedorf",
+        "misurazione-di-tecnici-tecan-mannedorf",
         "measuring-technology-tecan-mannedorf",
         "measurement-technician-tecan-mannedorf",
         "measuring-technicians-tecan-mannedorf"
@@ -655,7 +670,8 @@
         "it": [
           "messtechniker-tecan-mannedorf",
           "tecnologia-di-misura-tecan-mannedorf",
-          "tecnico-della-misurazione-tecan-mannedorf"
+          "tecnico-della-misurazione-tecan-mannedorf",
+          "misurazione-di-tecnici-tecan-mannedorf"
         ],
         "en": [
           "measuring-technology-tecan-mannedorf",
@@ -985,7 +1001,7 @@
       "slug": "tecnico-della-documentazione-tecan-mannedorf",
       "slugByLocale": {
         "it": "tecnico-della-documentazione-tecan-mannedorf",
-        "en": "technical-writer-tecan-mannedorf",
+        "en": "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is",
         "de": "technical-writer-tecan-mannedorf",
         "fr": "ecrivain-technique-tecan-mannedorf"
       },

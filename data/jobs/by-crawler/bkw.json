@@ -20659,7 +20659,6 @@
         "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "building-services-engineer-heating-all-bkw-winterthur",
         "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur",
-        "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
         "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -21741,12 +21740,12 @@
     },
     {
       "id": "bkw-5c9431482947",
-      "slug": "servicemonteur-in-alle-bkw-ch",
+      "slug": "tecnico-di-assistenza-tutti-bkw-winterthur",
       "slugByLocale": {
         "de": "servicemonteur-in-alle-bkw-ch",
-        "it": "servicemonteur-in-alle-bkw-ch",
-        "en": "servicemonteur-in-alle-bkw-ch",
-        "fr": "servicemonteur-in-alle-bkw-ch"
+        "it": "tecnico-di-assistenza-tutti-bkw-winterthur",
+        "en": "service-technician-all-bkw-winterthur",
+        "fr": "technicien-de-service-tous-bkw-winterthur"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21804,20 +21803,23 @@
       },
       "firstSeenAt": "2026-06-16T13:05:47.843Z",
       "previousSlugs": [
-        "servicemonteur-in-alle-bkw-ch",
         "tecnico-di-assistenza-tutti-bkw-oensingen",
+        "servicemonteur-in-alle-bkw-ch",
         "service-technician-all-bkw-oensingen",
         "technicien-de-service-tous-bkw-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tecnico-di-assistenza-tutti-bkw-oensingen"
+          "tecnico-di-assistenza-tutti-bkw-oensingen",
+          "servicemonteur-in-alle-bkw-ch"
         ],
         "en": [
-          "service-technician-all-bkw-oensingen"
+          "service-technician-all-bkw-oensingen",
+          "servicemonteur-in-alle-bkw-ch"
         ],
         "fr": [
-          "technicien-de-service-tous-bkw-oensingen"
+          "technicien-de-service-tous-bkw-oensingen",
+          "servicemonteur-in-alle-bkw-ch"
         ]
       }
     },
@@ -21827,8 +21829,8 @@
       "slugByLocale": {
         "fr": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
         "it": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
-        "en": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch",
-        "de": "installateur-trice-sanitaire-avec-cfc-raboud-energie-sa-bkw-ch"
+        "en": "plumbers-with-cfc-raboud-energie-sa-bkw-bulle",
+        "de": "klempner-mit-cfc-raboud-energie-sa-bkw-bulle"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21888,12 +21890,12 @@
     },
     {
       "id": "bkw-6e7d2b8424c1",
-      "slug": "audio-video-techniker-in-alle-bkw-ch",
+      "slug": "tecnico-audio-video-tutti-bkw-kloten",
       "slugByLocale": {
         "de": "audio-video-techniker-in-alle-bkw-ch",
-        "it": "audio-video-techniker-in-alle-bkw-ch",
-        "en": "audio-video-techniker-in-alle-bkw-ch",
-        "fr": "audio-video-techniker-in-alle-bkw-ch"
+        "it": "tecnico-audio-video-tutti-bkw-kloten",
+        "en": "audio-video-technician-all-bkw-kloten",
+        "fr": "technicien-audio-video-tous-bkw-kloten"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -21949,7 +21951,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T13:05:47.820Z"
+      "firstSeenAt": "2026-06-16T13:05:47.820Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "audio-video-techniker-in-alle-bkw-ch"
+        ],
+        "en": [
+          "audio-video-techniker-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "audio-video-techniker-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "audio-video-techniker-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-c245eeb90d11",

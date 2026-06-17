@@ -540,12 +540,12 @@
     },
     {
       "id": "bitfinex-6c60e0951bfb",
-      "slug": "product-manager-100-remote-worldwide-bitfinex-ch",
+      "slug": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-ankara-ankara",
       "slugByLocale": {
         "en": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "it": "product-manager-100-remote-worldwide-bitfinex-ch",
+        "it": "product-manager-100-remoto-in-tutto-il-mondo-bitfinex-ankara-ankara",
         "de": "product-manager-100-remote-worldwide-bitfinex-ch",
-        "fr": "product-manager-100-remote-worldwide-bitfinex-ch"
+        "fr": "product-manager-100-distant-dans-le-monde-bitfinex-ankara-ankara"
       },
       "company": "Bitfinex",
       "companyKey": "bitfinex",
@@ -603,7 +603,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T12:59:06.143Z"
+      "firstSeenAt": "2026-06-16T12:59:06.143Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ],
+        "fr": [
+          "product-manager-100-remote-worldwide-bitfinex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-100-remote-worldwide-bitfinex-ch"
+      ]
     }
   ]
 }

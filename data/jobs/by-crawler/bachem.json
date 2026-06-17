@@ -800,12 +800,12 @@
     },
     {
       "id": "bachem-53b8742fc659",
-      "slug": "group-leader-shift-a-bachem-bubendorf",
+      "slug": "cambio-del-capo-gruppo-a-bachem-ag-bubendorf",
       "slugByLocale": {
         "de": "group-leader-shift-a-bachem-bubendorf",
-        "it": "group-leader-shift-a-bachem-bubendorf",
+        "it": "cambio-del-capo-gruppo-a-bachem-ag-bubendorf",
         "en": "group-leader-shift-a-bachem-bubendorf",
-        "fr": "group-leader-shift-a-bachem-bubendorf"
+        "fr": "changement-de-chef-de-groupe-a-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -860,7 +860,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T12:53:56.749Z"
+      "firstSeenAt": "2026-06-16T12:53:56.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-leader-shift-a-bachem-bubendorf"
+        ],
+        "fr": [
+          "group-leader-shift-a-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "group-leader-shift-a-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-b60dbd2a4a96",

@@ -155,12 +155,12 @@
     },
     {
       "id": "liebherr-01110ad3f015",
-      "slug": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
+      "slug": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
       "slugByLocale": {
         "fr": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "it": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "en": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens",
-        "de": "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
+        "it": "meccanico-per-macchinari-da-costruzione-per-movimenti-terra-liebherr-daillens",
+        "en": "earthmoving-construction-machinery-mechanic-liebherr-daillens",
+        "de": "erdbewegungsmechaniker-fur-baumaschinen-liebherr-daillens"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -216,7 +216,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-16T15:09:06.399Z"
+      "firstSeenAt": "2026-06-16T15:09:06.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
+        ],
+        "en": [
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
+        ],
+        "de": [
+          "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-machines-de-chantier-terrassement-liebherr-daillens"
+      ]
     },
     {
       "id": "liebherr-952065e7af14",
@@ -1524,12 +1538,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1572,17 +1586,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
-        "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-          "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ],
         "fr": [
-          "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ]
       },
