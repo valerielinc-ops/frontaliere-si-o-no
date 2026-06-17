@@ -25,16 +25,26 @@ export const CLUSTER_RAMPUP_DAYS = 14;
 export const SITE_DOMAIN = 'frontaliereticino.ch';
 export const SITE_URL = `https://${SITE_DOMAIN}/`;
 
-// Embedding provider chain — Mistral → Cohere fallback. Both share dim
+// Embedding provider chain — Mistral → Cohere → Gemini fallback. All emit dim
 // 1024 so the binary store format is provider-agnostic across the chain.
-// All credentials come from Firebase Remote Config (SERVER_MISTRAL_API_KEY,
-// SERVER_COHERE_API_KEY) via load-rc-env.mjs — no GitHub secrets needed.
+// Credentials come from Firebase Remote Config (MISTRAL_API_KEY,
+// COHERE_API_KEY, GEMINI_API_KEY) via load-rc-env.mjs — no GitHub secrets.
+//
+// Gemini was added (2026-06-17) as the rescue tail: the Mistral key went 401
+// (revoked) and Cohere was unset, so `embedBatch` exhausted the chain at request
+// time and `build-article-embeddings.mjs` graceful-skipped every run — the
+// embedding store froze at 2642 while live articles grew to 2698 (gap > 50),
+// firing the P1 `B.6.embedding-store-outdated` quality alert (main went red on
+// the daily "Quality alerts" monitor). `GEMINI_API_KEY` is the project's live
+// free AI key (already used by build-evidence-index in the same workflow), so
+// wiring Gemini embeddings restores the store without depending on a fresh
+// Mistral/Cohere key. gemini-embedding-001 is a DIFFERENT vector space → the
+// build's model-change detection triggers a one-time full re-embed.
 export const EMBEDDING_DIM = 1024;
 
-// Provider chain: ordered preference. The first provider whose API key is
-// present in env is used. The chain is consulted in order at every batch
-// call (no caching of "selected provider" — adapt to env changes).
-// `dim` MUST equal EMBEDDING_DIM for any provider used.
+// Provider chain: ordered preference. Every provider whose API key is present
+// is tried in order at request time; a provider that FAILS (401/429/5xx) falls
+// through to the next. `dim` MUST equal EMBEDDING_DIM for any provider used.
 export const EMBEDDING_PROVIDERS = [
   {
     id: 'mistral',
@@ -51,6 +61,16 @@ export const EMBEDDING_PROVIDERS = [
     // see embeddingClient.mjs for adapter logic.
     url: 'https://api.cohere.ai/v2/embed',
     keyEnv: 'COHERE_API_KEY',
+  },
+  {
+    id: 'gemini',
+    // gemini-embedding-001 emits 3072 dims natively; outputDimensionality=1024
+    // (MRL truncation) matches the store. Truncated dims (<3072) are NOT
+    // unit-norm from the API → the adapter L2-normalizes (Google guidance).
+    model: 'gemini-embedding-001',
+    dim: 1024,
+    url: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:batchEmbedContents',
+    keyEnv: 'GEMINI_API_KEY',
   },
 ];
 

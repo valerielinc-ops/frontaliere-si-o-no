@@ -88,6 +88,7 @@ export function publisherJobToRecords(pubJob, opts = {}) {
   // Free tier is a plain crawler-style job: never featured (defense-in-depth on
   // top of the Firestore-rules guard).
   const isFree = pubJob.tier === 'free';
+  const isAzienda = pubJob.tier === 'azienda';
   const nowIso = opts.nowIso || null;
   const validDays = Number.isFinite(opts.validDays) ? opts.validDays : 30;
 
@@ -214,8 +215,10 @@ export function publisherJobToRecords(pubJob, opts = {}) {
       firstSeenAt: firstSeenIso,
       // Refreshed (day-granularity) while the ad stays live → validThrough never goes stale.
       crawledAt: crawledAtIso,
-      featured: !isFree && pubJob.featured === true,
-      tier: isFree ? 'free' : 'sponsored',
+      // Piano Azienda: ogni annuncio è sempre in evidenza (promessa "illimitato +
+      // sempre featured"); sponsored: solo se il publisher l'ha marcato featured.
+      featured: isAzienda || (!isFree && pubJob.featured === true),
+      tier: isFree ? 'free' : (isAzienda ? 'azienda' : 'sponsored'),
       // Apply mode drives the candidate-side UI: 'external_url' → link out (free
       // tier is always this); 'forward_email' / 'in_house' → in-house apply form
       // that writes an `applications` doc (a CF forwards it). The publisher's
@@ -252,7 +255,9 @@ export function applyFeaturedSlotCap(records, cap = FEATURED_SLOTS_PER_CANTON) {
   if (!Array.isArray(records)) return [];
   const byCanton = new Map();
   for (const r of records) {
-    if (!r.featured) continue;
+    // Piano Azienda è "illimitato + sempre in evidenza": esente dal cap. Non viene
+    // mai demosso E non consuma slot, così non soffoca i featured sponsored a pagamento.
+    if (!r.featured || r.tier === 'azienda') continue;
     const key = r.canton || 'TI';
     if (!byCanton.has(key)) byCanton.set(key, []);
     byCanton.get(key).push(r);
