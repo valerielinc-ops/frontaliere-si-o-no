@@ -2,8 +2,10 @@
 /**
  * close-recovered-failure-issues.mjs — zero-Claude reconciler.
  *
- * Auto-closes the auto-generated `Workflow Failure: <name>` / `Crawler Failure: <name>`
- * issues once the workflow has recovered — i.e. its NEXT run after the failure is green.
+ * Auto-closes the auto-generated `Workflow Failure: <name>` / `Crawler Failure: <name>` /
+ * `CI Failure: <name>` issues once the workflow has recovered — i.e. its NEXT run after
+ * the failure is green. These three are the only failure-title prefixes minted by the
+ * github-issue-creator.mjs reporters across all workflows (Crawler 439, Workflow 50, CI 8).
  *
  * WHY this is centralized (one reconciler, not 300 per-workflow steps):
  * Every scheduled workflow already opens a stable-titled issue on `if: failure()` via
@@ -27,8 +29,13 @@
  *      → leave the issue open. Bias is conservative: never close while currently red.
  *
  * Best-effort and idempotent: safe to run on a schedule. `--dry-run` reports without
- * mutating. Scope is strictly the two auto-generated failure-title prefixes; follow-up,
+ * mutating. Scope is strictly the three auto-generated failure-title prefixes; follow-up,
  * tracker, validation-failure and other issues are never touched.
+ *
+ * One known edge: a workflow whose `CI Failure:` title is a literal that does NOT equal
+ * its `name:` (only `persist-job-stats`: title "Persist Job Stats" vs name "Persist Job
+ * Stats History") won't resolve via `gh run list -w <title>` → its issue stays open
+ * (conservative/safe). Fixing that mismatch belongs in persist-job-stats.yml, not here.
  */
 import { execFileSync } from 'node:child_process';
 import { resolveGithubIssue } from '../lib/github-issue-creator.mjs';
@@ -36,7 +43,7 @@ import { resolveGithubIssue } from '../lib/github-issue-creator.mjs';
 const DRY_RUN = process.argv.includes('--dry-run');
 // Stable titles minted by github-issue-creator.mjs failure reporters. Group 2 is the
 // workflow display name, which equals `github.workflow` (and `gh run list -w <name>`).
-const TITLE_RE = /^(?:Workflow|Crawler) Failure: (.+)$/;
+const TITLE_RE = /^(?:Workflow|Crawler|CI) Failure: (.+)$/;
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 
 function repoFlag() {
@@ -87,7 +94,7 @@ function latestCompletedRun(workflowName) {
 
 function main() {
   const issues = listFailureIssues();
-  console.log(`[close-recovered] ${issues.length} open Workflow/Crawler Failure issue(s)${DRY_RUN ? ' (dry-run)' : ''}`);
+  console.log(`[close-recovered] ${issues.length} open Workflow/Crawler/CI Failure issue(s)${DRY_RUN ? ' (dry-run)' : ''}`);
   let closed = 0;
   let kept = 0;
   let skipped = 0;
