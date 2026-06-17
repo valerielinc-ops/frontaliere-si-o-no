@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csd-engineers",
-  "assembledAt": "2026-06-16T22:40:11.235Z",
+  "assembledAt": "2026-06-17T12:52:56.397Z",
   "jobs": [
     {
       "id": "csd-engineers-01683e54e340",
@@ -33,7 +33,7 @@
       "url": "https://jobs.csd.ch/jobs/5761536-ingenieur-chef-de-projet-geotechnique-et-travaux-speciaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T13:11:25.787Z",
+      "crawledAt": "2026-06-17T12:52:54.229Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -64,8 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "retranslationAttempts": 1
+      "addressRegion": "VD"
     },
     {
       "id": "csd-engineers-b193302f66ca",
@@ -95,7 +94,7 @@
       "url": "https://jobs.csd.ch/jobs/5761617-projektleiter-in-bauingenieur-in-hochbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:08.786Z",
+      "crawledAt": "2026-06-17T12:52:53.891Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -170,7 +169,7 @@
       "url": "https://jobs.csd.ch/jobs/5761889-bauingenieur-in-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:08.458Z",
+      "crawledAt": "2026-06-17T12:52:53.560Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -245,7 +244,7 @@
       "url": "https://jobs.csd.ch/jobs/5761929-teamleiter-in-bauingenieur-in-hochbau-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:08.128Z",
+      "crawledAt": "2026-06-17T12:52:53.224Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -320,7 +319,7 @@
       "url": "https://jobs.csd.ch/jobs/5761953-zeichner-in-fachrichtung-ingenieurbau-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:07.791Z",
+      "crawledAt": "2026-06-17T12:52:52.886Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -395,7 +394,7 @@
       "url": "https://jobs.csd.ch/jobs/5762077-praktikant-in-bauingenieurwesen-oder-holzbau",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:07.460Z",
+      "crawledAt": "2026-06-17T12:52:52.553Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -473,7 +472,7 @@
       "url": "https://jobs.csd.ch/jobs/5762909-chef-de-projet-environnement-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:07.128Z",
+      "crawledAt": "2026-06-17T12:52:52.218Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -505,6 +504,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:18.208Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -547,7 +547,7 @@
       "url": "https://jobs.csd.ch/jobs/5882813-bauingenieur-als-projektleiter-geotechnik-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:06.794Z",
+      "crawledAt": "2026-06-17T12:52:51.876Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -604,7 +604,7 @@
       "titleByLocale": {
         "it": "Bauingenieur come Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
         "en": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
-        "de": "Projektingenieur für Tragwerksplanung (m/w/d)",
+        "de": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d)",
         "fr": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100 % (m/m/j)"
       },
       "description": "Bauingenieur als Projektingenieur Tragwerksplanung 80-100% (m/w/d) — CSD ENGINEERS, Bern",
@@ -619,7 +619,7 @@
       "url": "https://jobs.csd.ch/jobs/6136143-bauingenieur-als-projektingenieur-tragwerksplanung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T13:11:22.326Z",
+      "crawledAt": "2026-06-17T12:52:51.545Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -648,6 +648,7 @@
       "localeMismatchSuppressedLen": 88,
       "retranslationAttempts": 6,
       "firstSeenAt": "2026-06-02T23:14:17.411Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -693,7 +694,7 @@
       "url": "https://jobs.csd.ch/jobs/6354078-zeichner-im-bereich-tief-und-wasserbau-m-w-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:06.136Z",
+      "crawledAt": "2026-06-17T12:52:51.210Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -755,7 +756,7 @@
       "titleByLocale": {
         "it": "Chef de projet CVC 80-100% (f/h/d)",
         "en": "Project Chef CVC 80-100% (f/h/d)",
-        "de": "Chef de projet CVC 80-100 % (f/h/d)",
+        "de": "Chef de projet CVC 80-100% (f/h/d)",
         "fr": "Chef de projet CVC 80-100 % (f/h/d)"
       },
       "description": "Chef de projet CVC 80-100% (f/h/d) — CSD ENGINEERS, Lausanne",
@@ -767,7 +768,7 @@
       "url": "https://jobs.csd.ch/jobs/6563044-chef-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T13:11:21.501Z",
+      "crawledAt": "2026-06-17T12:52:50.876Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -798,8 +799,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "retranslationAttempts": 1
+      "addressRegion": "VD"
     },
     {
       "id": "csd-engineers-eab65ce3570e",
@@ -829,7 +829,7 @@
       "url": "https://jobs.csd.ch/jobs/6563154-collaborateur-de-projet-cvc-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-16T22:40:05.468Z",
+      "crawledAt": "2026-06-17T12:52:50.537Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -890,7 +890,7 @@
       "url": "https://jobs.csd.ch/jobs/6632866-praktikant-bauingenieurwesen-4-6-monate-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:05.134Z",
+      "crawledAt": "2026-06-17T12:52:50.197Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -965,7 +965,7 @@
       "url": "https://jobs.csd.ch/jobs/6632871-erfahrener-projektleiter-tiefbau-ruckbau-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T13:11:20.167Z",
+      "crawledAt": "2026-06-17T12:52:49.864Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -1010,8 +1010,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "retranslationAttempts": 1
+      "addressRegion": "ZH"
     },
     {
       "id": "csd-engineers-a6a9ec139ed8",
@@ -1041,7 +1040,7 @@
       "url": "https://jobs.csd.ch/jobs/6732528-dessinateur-en-genie-civil-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:04.475Z",
+      "crawledAt": "2026-06-17T12:52:49.530Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1119,7 +1118,7 @@
       "url": "https://jobs.csd.ch/jobs/6761296-projektleiter-umwelt-m-w-d-70-100-mit-schwerpunkt-teamentwicklung",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T13:11:19.290Z",
+      "crawledAt": "2026-06-17T12:52:49.192Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1164,8 +1163,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BL",
-      "retranslationAttempts": 1
+      "addressRegion": "BL"
     },
     {
       "id": "csd-engineers-ec479f56f58d",
@@ -1195,7 +1193,7 @@
       "url": "https://jobs.csd.ch/jobs/6771563-erfahrener-geologe-teamleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:03.810Z",
+      "crawledAt": "2026-06-17T12:52:48.860Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -1273,7 +1271,7 @@
       "url": "https://jobs.csd.ch/jobs/6794096-ingenieur-en-genie-civil-chef-de-projet-80-100-f-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:03.473Z",
+      "crawledAt": "2026-06-17T12:52:48.523Z",
       "addressLocality": "Bulle",
       "postalCode": "1630",
       "streetAddress": "Chem. des Mosseires 63",
@@ -1350,7 +1348,7 @@
       "url": "https://jobs.csd.ch/jobs/6900060-experte-hydrogeologie-60-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:03.133Z",
+      "crawledAt": "2026-06-17T12:52:48.186Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1376,6 +1374,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:12.541Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1421,7 +1420,7 @@
       "url": "https://jobs.csd.ch/jobs/6901991-projektleiter-altlasten-w-m-d-60-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:02.795Z",
+      "crawledAt": "2026-06-17T12:52:47.846Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -1492,7 +1491,7 @@
       "url": "https://jobs.csd.ch/jobs/6910104-chef-de-projet-infrastructures-routieres-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:02.462Z",
+      "crawledAt": "2026-06-17T12:52:47.509Z",
       "addressLocality": "Givisiez",
       "postalCode": "1762",
       "streetAddress": "Rte Jo Siffert 4",
@@ -1525,6 +1524,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.859Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1570,7 +1570,7 @@
       "url": "https://jobs.csd.ch/jobs/6964011-projektleiter-siedlungsentwasserung-und-digitales-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:02.128Z",
+      "crawledAt": "2026-06-17T12:52:47.163Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -1602,6 +1602,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:11.396Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1647,7 +1648,7 @@
       "url": "https://jobs.csd.ch/jobs/7022753-diagnostiker-bauschadstoffe-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:01.781Z",
+      "crawledAt": "2026-06-17T12:52:46.818Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Flurhofstrasse 150",
@@ -1679,6 +1680,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.920Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1724,7 +1726,7 @@
       "url": "https://jobs.csd.ch/jobs/7038517-chef-de-projet-infrastructures-routieres-experimente-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:01.444Z",
+      "crawledAt": "2026-06-17T12:52:46.477Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -1756,6 +1758,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:10.458Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -1801,7 +1804,7 @@
       "url": "https://jobs.csd.ch/jobs/7041166-chef-de-projet-energie-senior-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:01.110Z",
+      "crawledAt": "2026-06-17T12:52:46.140Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -1819,6 +1822,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-02T23:14:09.998Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -1864,7 +1868,7 @@
       "url": "https://jobs.csd.ch/jobs/7184735-ingenieur-junior-hydraulique-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:00.772Z",
+      "crawledAt": "2026-06-17T12:52:45.799Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -1921,6 +1925,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:17.486Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -1966,7 +1971,7 @@
       "url": "https://jobs.csd.ch/jobs/7221757-projektleiter-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:40:00.434Z",
+      "crawledAt": "2026-06-17T12:52:45.454Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -1998,6 +2003,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:09.195Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -2014,11 +2020,11 @@
     },
     {
       "id": "csd-engineers-cbb9b77ee626",
-      "slug": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2043,7 +2049,7 @@
       "url": "https://jobs.csd.ch/jobs/7237464-chef-de-projets-planification-grands-projets-bamo-dgt-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:40:00.105Z",
+      "crawledAt": "2026-06-17T12:52:45.114Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2061,17 +2067,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-gro-projekte-bamo-dgt-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-dgt-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.736Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2088,11 +2098,11 @@
     },
     {
       "id": "csd-engineers-6e8ca344904c",
-      "slug": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+      "slug": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
       "slugByLocale": {
-        "it": "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "it": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "en": "chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100-csd-engineers-lausanne",
-        "de": "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "de": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch",
         "fr": "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -2117,7 +2127,7 @@
       "url": "https://jobs.csd.ch/jobs/7237667-chef-de-projets-planification-grands-projets-bamo-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:59.764Z",
+      "crawledAt": "2026-06-17T12:52:44.773Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2135,17 +2145,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
+        "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
+        "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pianificazione-e-progetti-principali-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ],
         "de": [
+          "projektleiter-planung-und-gro-projekte-bamo-e-h-d-80-100-csd-engineers-lausanne",
           "chef-de-projets-planification-amp-grands-projets-bamo-f-h-d-80-100-csd-engineers-ch"
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:08.267Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2191,7 +2205,7 @@
       "url": "https://jobs.csd.ch/jobs/7361647-projektingenieur-siedlungsentwasserung-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:59.426Z",
+      "crawledAt": "2026-06-17T12:52:44.432Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2268,7 +2282,7 @@
       "url": "https://jobs.csd.ch/jobs/7678428-chef-de-departement-ouvrages-souterrains-et-travaux-speciaux-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:59.095Z",
+      "crawledAt": "2026-06-17T12:52:44.099Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2301,6 +2315,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.774Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -2346,7 +2361,7 @@
       "url": "https://jobs.csd.ch/jobs/7678706-stagiaire-en-physique-du-batiment-et-durabilite-label-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:58.758Z",
+      "crawledAt": "2026-06-17T12:52:43.758Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2378,6 +2393,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:06.304Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2423,7 +2439,7 @@
       "url": "https://jobs.csd.ch/jobs/7705442-zeichner-fachrichtung-ingenieurbau-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:58.423Z",
+      "crawledAt": "2026-06-17T12:52:43.416Z",
       "addressLocality": "Brugg",
       "postalCode": "5200",
       "streetAddress": "Bahnhofstrasse 19",
@@ -2452,6 +2468,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.840Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2497,7 +2514,7 @@
       "url": "https://jobs.csd.ch/jobs/7745880-geologue-chef-de-projets-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:58.092Z",
+      "crawledAt": "2026-06-17T12:52:43.081Z",
       "addressLocality": "Sion",
       "postalCode": "1950",
       "streetAddress": "Rue de l'Industrie 54",
@@ -2529,6 +2546,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:11:52.666Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2574,7 +2592,7 @@
       "url": "https://jobs.csd.ch/jobs/7762493-chef-de-projet-traitement-des-eaux-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:57.757Z",
+      "crawledAt": "2026-06-17T12:52:42.742Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2606,6 +2624,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:05.159Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2651,7 +2670,7 @@
       "url": "https://jobs.csd.ch/jobs/7774786-projektleiter-geologie-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:57.420Z",
+      "crawledAt": "2026-06-17T12:52:42.398Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -2683,6 +2702,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.700Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -2728,7 +2748,7 @@
       "url": "https://jobs.csd.ch/jobs/7798058-cartographe-sig-projeteur-et-technicien-en-environnement-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:57.090Z",
+      "crawledAt": "2026-06-17T12:52:42.063Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -2760,6 +2780,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T23:14:04.234Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -2805,7 +2826,7 @@
       "url": "https://jobs.csd.ch/jobs/7852725-stagiaire-traitement-et-gestion-des-eaux-6-mois-a-partir-de-juillet-2026-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:56.741Z",
+      "crawledAt": "2026-06-17T12:52:41.723Z",
       "addressLocality": "Lausanne",
       "postalCode": "1007",
       "streetAddress": "Chem. de Montelly 78",
@@ -2837,6 +2858,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:10.601Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2882,7 +2904,7 @@
       "url": "https://jobs.csd.ch/jobs/7853687-stagiaire-en-environnement-eau-f-h-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:56.408Z",
+      "crawledAt": "2026-06-17T12:52:41.380Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -2914,6 +2936,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:09.709Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "baseSalary": {
@@ -2959,7 +2982,7 @@
       "url": "https://jobs.csd.ch/jobs/7853694-praktikant-geologie-und-umwelt-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:56.075Z",
+      "crawledAt": "2026-06-17T12:52:41.041Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -2988,6 +3011,7 @@
         ]
       },
       "firstSeenAt": "2026-06-04T14:49:08.812Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -3033,7 +3057,7 @@
       "url": "https://jobs.csd.ch/jobs/7853916-praktikant-werkstudent-nachhaltiges-bauen-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:55.742Z",
+      "crawledAt": "2026-06-17T12:52:40.710Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3110,7 +3134,7 @@
       "url": "https://jobs.csd.ch/jobs/7856150-chef-de-projet-en-electricite-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:55.413Z",
+      "crawledAt": "2026-06-17T12:52:40.377Z",
       "addressLocality": "Yverdon-les-Bains",
       "postalCode": "1400",
       "streetAddress": "Av. des Sports 14",
@@ -3187,7 +3211,7 @@
       "url": "https://jobs.csd.ch/jobs/7856647-baumanager-w-m-d-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:55.077Z",
+      "crawledAt": "2026-06-17T12:52:40.035Z",
       "addressLocality": "Pratteln",
       "postalCode": "4133",
       "streetAddress": "Hohenrainstrasse 12C",
@@ -3205,6 +3229,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-16T13:11:07.085Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "baumanager-w-m-d-100-csd-engineers-ch"
@@ -3264,7 +3289,7 @@
       "url": "https://jobs.csd.ch/jobs/7857380-bauleiter-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:54.740Z",
+      "crawledAt": "2026-06-17T12:52:39.697Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3298,6 +3323,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T11:42:35.643Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3343,7 +3369,7 @@
       "url": "https://jobs.csd.ch/jobs/7867787-teilprojektleiter-architektur-80-100-w-m-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:54.402Z",
+      "crawledAt": "2026-06-17T12:52:39.350Z",
       "addressLocality": "Zürich",
       "postalCode": "8045",
       "streetAddress": "Giesshübelstrasse 62",
@@ -3375,6 +3401,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T12:45:29.856Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3420,7 +3447,7 @@
       "url": "https://jobs.csd.ch/jobs/7873607-apprenti-dessinateur-durant-4-annees-de-2027-a-2031-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:54.065Z",
+      "crawledAt": "2026-06-17T12:52:39.002Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -3454,6 +3481,7 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:17:28.345Z",
+      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "baseSalary": {
@@ -3499,7 +3527,7 @@
       "url": "https://jobs.csd.ch/jobs/7873966-ingenieur-en-genie-civil-f-h-d-80-100",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:53.728Z",
+      "crawledAt": "2026-06-17T12:52:38.661Z",
       "addressLocality": "Porrentruy",
       "postalCode": "2900",
       "streetAddress": "Rte de Courgenay 18",
@@ -3531,6 +3559,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:17:14.783Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -3576,7 +3605,7 @@
       "url": "https://jobs.csd.ch/jobs/7879468-projektleiter-umwelt-60-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:53.388Z",
+      "crawledAt": "2026-06-17T12:52:38.315Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Alexanderstrasse 16",
@@ -3643,8 +3672,8 @@
       },
       "description": "<p><span><strong>1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindergeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kunden mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz. Werden Sie Teil unseres Erfolges!</strong></span><br></p><p><span>Wir suchen für unseren Bereich <strong>Administration</strong> in <strong>Bern</strong> ab sofort oder nach Vereinbarung eine/n engagierte, kommunikative und teamorientierte Persönlichkeit als Mitarbeiter Administration mit Schwerpunkt Projektcontrolling (m/w/d) 80-100%.</span><br></p><p><span><strong>Aufgabengebiet</strong></span></p><ul><li><p><span>Unterstützung der Projektleitenden bei administrativen und finanziellen Fragestellungen</span></p></li><li class=\"MsoNormal\"><p><span>Verantwortung für die Projektabrechnung und Rechnungsstellung</span></p></li><li class=\"MsoNormal\"><p><span>Durchführung des projektbezogenen Controllings sowie Erstellung von monatlichen Auswertungen und Berichten</span></p></li><li class=\"MsoNormal\"><p><span>Mitarbeit bei der Führung von INGE-Buchhaltungen</span></p></li><li class=\"MsoNormal\"><p><span>Administrative Unterstützung der Mitarbeitenden am Standort sowie Bedienung der Telefonzentrale und Empfang</span><br></p></li></ul><p><span><strong>Profil</strong></span></p><ul><li class=\"MsoNormal\"><p><span>Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation mit einigen Jahren Berufserfahrung in einem Ingenieurbüro</span></p></li><li><p><span>Interesse an betriebswirtschaftlichen Zusammenhängen sowie Erfahrung im Projektcontrolling oder in einer vergleichbaren Funktion</span></p></li><li class=\"MsoNormal\"><p><span>Sicherer Umgang mit MS Office, insbesondere Excel; Kenntnisse von Dynamics 365 sind von Vorteil</span></p></li><li class=\"MsoNormal\"><p><span>Selbstständige, strukturierte und zuverlässige Arbeitsweise</span></p></li><li><p><span>Offene, flexible und teamorientierte Persönlichkeit mit schneller Auffassungsgabe und guten Kommunikationsfähigkeiten</span></p></li><li><p><span>Sehr gute Deutschkenntnisse, weitere Sprachkenntnisse von Vorteil</span></p></li></ul>",
       "descriptionByLocale": {
-        "it": "1000 dipendenti in 30 sedi in Svizzera e in Europa: il gruppo CSD è un'azienda di ingegneria dinamica e in costante crescita. Inventiva, competenza e multidisciplinarietà caratterizzano i nostri team; soluzioni ottimali per i nostri clienti con un vantaggio per la qualità della vita e per l'ambiente sono il nostro marchio di fabbrica. Ti piace lavorare in un ambiente professionale e agile e attribuisci grande importanza alla qualità e all'efficienza. Diventa parte del nostro successo! \n• Cerchiamo come impiegato amministrativo una personalità impegnata, comunicativa e orientata al team con particolare attenzione al controllo di progetto (m/f/d) 80-100% per il nostro dipartimento amministrativo a Berna con effetto immediato o su appuntamento. Area di responsabilità - Supportare i project manager nelle questioni amministrative e finanziarie - Responsabilità per la fatturazione e la fatturazione del progetto - Effettuare il controllo relativo al progetto e preparare valutazioni e rapporti mensili - Partecipazione alla gestione della contabilità INGE - Supporto amministrativo per i dipendenti in loco nonché gestione del centralino telefonico e della reception Profilo - Formazione commerciale completata o qualifica comparabile con diversi anni di esperienza professionale in uno studio di ingegneria - Interesse per la gestione aziendale ed esperienza nel controllo di progetto o in una funzione analoga - Utilizzo disinvolto di MS Office, soprattutto Excel; La conoscenza di Dynamics 365 è un vantaggio - Modo di lavorare indipendente, strutturato e affidabile - Personalità aperta, flessibile e orientata al team con rapida comprensione e buone capacità di comunicazione - Ottima conoscenza del tedesco, altre competenze linguistiche sono un vantaggio",
-        "en": "1000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, constantly growing engineering company. Inventiveness, competence and multidisciplinarity characterize our teams; optimal solutions for our customers with a plus for quality of life and for the environment are our trademark. You enjoy working in a professional and agile environment and attach great importance to quality and efficiency. Become part of our success! We are looking for a committed, communicative and team-oriented personality as an administration employee with a focus on project controlling (m/f/d) 80-100% for our administration department in Bern with immediate effect or by appointment. Area of responsibility - Supporting the project managers with administrative and financial issues - Responsibility for project billing and invoicing - Carrying out project-related controlling and preparing monthly evaluations and reports - Participation in the management of INGE accounting - Administrative support for employees at the site as well as operating the telephone switchboard and reception \n• Profile - Completed commercial training or comparable qualification with several years of professional experience in an engineering office - Interest in business management and experience in project controlling or in a comparable function - Confident use of MS Office, especially Excel; Knowledge of Dynamics 365 is an advantage - Independent, structured and reliable way of working - Open, flexible and team-oriented personality with quick comprehension and good communication skills - Very good knowledge of German, other language skills are an advantage",
+        "it": "1000 dipendenti in 30 sedi in Svizzera e in Europa: il gruppo CSD è un'azienda di ingegneria dinamica e in costante crescita. Inventiva, competenza e multidisciplinarietà caratterizzano i nostri team; soluzioni ottimali per i nostri clienti con un vantaggio per la qualità della vita e per l'ambiente sono il nostro marchio di fabbrica. Ti piace lavorare in un ambiente professionale e agile e attribuisci grande importanza alla qualità e all'efficienza. Diventa parte del nostro successo!\n• Cerchiamo come impiegato amministrativo una personalità impegnata, comunicativa e orientata al team con particolare attenzione al controllo di progetto (m/f/d) 80-100% per il nostro dipartimento amministrativo a Berna con effetto immediato o su appuntamento. Area di responsabilità - Supportare i project manager nelle questioni amministrative e finanziarie - Responsabilità per la fatturazione e la fatturazione del progetto - Effettuare il controllo relativo al progetto e preparare valutazioni e rapporti mensili - Partecipazione alla gestione della contabilità INGE - Supporto amministrativo per i dipendenti in loco nonché gestione del centralino telefonico e della reception Profilo - Formazione commerciale completata o qualifica comparabile con diversi anni di esperienza professionale in uno studio di ingegneria - Interesse per la gestione aziendale ed esperienza nel controllo di progetto o in una funzione analoga - Utilizzo disinvolto di MS Office, soprattutto Excel; La conoscenza di Dynamics 365 è un vantaggio - Modo di lavorare indipendente, strutturato e affidabile - Personalità aperta, flessibile e orientata al team con rapida comprensione e buone capacità di comunicazione - Ottima conoscenza del tedesco, altre competenze linguistiche sono un vantaggio",
+        "en": "1000 employees at 30 locations in Switzerland and Europe: The CSD Group is a dynamic, constantly growing engineering company. Inventiveness, competence and multidisciplinarity characterize our teams; optimal solutions for our customers with a plus for quality of life and for the environment are our trademark. You enjoy working in a professional and agile environment and attach great importance to quality and efficiency. Become part of our success! We are looking for a committed, communicative and team-oriented personality as an administration employee with a focus on project controlling (m/f/d) 80-100% for our administration department in Bern with immediate effect or by appointment. Area of responsibility - Supporting the project managers with administrative and financial issues - Responsibility for project billing and invoicing - Carrying out project-related controlling and preparing monthly evaluations and reports - Participation in the management of INGE accounting - Administrative support for employees at the site as well as operating the telephone switchboard and reception\n• Profile - Completed commercial training or comparable qualification with several years of professional experience in an engineering office - Interest in business management and experience in project controlling or in a comparable function - Confident use of MS Office, especially Excel; Knowledge of Dynamics 365 is an advantage - Independent, structured and reliable way of working - Open, flexible and team-oriented personality with quick comprehension and good communication skills - Very good knowledge of German, other language skills are an advantage",
         "de": "<p><span><strong>1000 Mitarbeitende an 30 Standorten in der Schweiz und in Europa: Die CSD Gruppe ist ein dynamisches, stetig wachsendes Ingenieurunternehmen. Erfindergeist, Kompetenz und Multidisziplinarität prägen unsere Teams, optimale Lösungen für unsere Kunden mit einem Plus für die Lebensqualität und für die Umwelt sind unser Markenzeichen. Sie arbeiten gerne in einem professionellen und agilen Umfeld und legen grossen Wert auf Qualität und Effizienz. Werden Sie Teil unseres Erfolges!</strong></span><br></p><p><span>Wir suchen für unseren Bereich <strong>Administration</strong> in <strong>Bern</strong> ab sofort oder nach Vereinbarung eine/n engagierte, kommunikative und teamorientierte Persönlichkeit als Mitarbeiter Administration mit Schwerpunkt Projektcontrolling (m/w/d) 80-100%.</span><br></p><p><span><strong>Aufgabengebiet</strong></span></p><ul><li><p><span>Unterstützung der Projektleitenden bei administrativen und finanziellen Fragestellungen</span></p></li><li class=\"MsoNormal\"><p><span>Verantwortung für die Projektabrechnung und Rechnungsstellung</span></p></li><li class=\"MsoNormal\"><p><span>Durchführung des projektbezogenen Controllings sowie Erstellung von monatlichen Auswertungen und Berichten</span></p></li><li class=\"MsoNormal\"><p><span>Mitarbeit bei der Führung von INGE-Buchhaltungen</span></p></li><li class=\"MsoNormal\"><p><span>Administrative Unterstützung der Mitarbeitenden am Standort sowie Bedienung der Telefonzentrale und Empfang</span><br></p></li></ul><p><span><strong>Profil</strong></span></p><ul><li class=\"MsoNormal\"><p><span>Abgeschlossene kaufmännische Ausbildung oder vergleichbare Qualifikation mit einigen Jahren Berufserfahrung in einem Ingenieurbüro</span></p></li><li><p><span>Interesse an betriebswirtschaftlichen Zusammenhängen sowie Erfahrung im Projektcontrolling oder in einer vergleichbaren Funktion</span></p></li><li class=\"MsoNormal\"><p><span>Sicherer Umgang mit MS Office, insbesondere Excel; Kenntnisse von Dynamics 365 sind von Vorteil</span></p></li><li class=\"MsoNormal\"><p><span>Selbstständige, strukturierte und zuverlässige Arbeitsweise</span></p></li><li><p><span>Offene, flexible und teamorientierte Persönlichkeit mit schneller Auffassungsgabe und guten Kommunikationsfähigkeiten</span></p></li><li><p><span>Sehr gute Deutschkenntnisse, weitere Sprachkenntnisse von Vorteil</span></p></li></ul>",
         "fr": "1000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une société d'ingénierie dynamique en constante croissance. Inventivité, compétence et pluridisciplinarité caractérisent nos équipes ; des solutions optimales pour nos clients avec un plus pour la qualité de vie et pour l'environnement sont notre marque de fabrique. Vous aimez travailler dans un environnement professionnel et agile et attachez une grande importance à la qualité et à l’efficacité. Faites partie de notre succès! Nous recherchons une personnalité engagée, communicative et orientée vers l'équipe en tant qu'employé administratif avec un accent sur le contrôle de projet (m/f/d) 80-100% pour notre service administratif à Berne avec effet immédiat ou sur rendez-vous. Domaine de responsabilité - Soutenir les chefs de projet dans les questions administratives et financières - Responsabilité de la facturation du projet - Effectuer le contrôle lié au projet et préparer les évaluations et rapports mensuels - Participation à la gestion de la comptabilité d'INGE - Soutien administratif aux employés du site ainsi que l'exploitation du standard téléphonique et de la réception Profil - Formation commerciale complétée ou qualification comparable avec plusieurs années d'expérience professionnelle dans un bureau d'ingénierie - Intérêt pour la gestion d'entreprise et expérience en contrôle de projet ou dans une fonction comparable - Utilisation confiante de MS Office, notamment Excel ; La connaissance de Dynamics 365 est un avantage - Mode de travail indépendant, structuré et fiable - Personnalité ouverte, flexible et orientée vers l'équipe avec une compréhension rapide et de bonnes capacités de communication - Très bonne connaissance de l'allemand, d'autres compétences linguistiques sont un avantage"
       },
@@ -3653,7 +3682,7 @@
       "url": "https://jobs.csd.ch/jobs/7881026-mitarbeiter-administration-mit-schwerpunkt-projektcontrolling-80-100-m-w-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:39:53.052Z",
+      "crawledAt": "2026-06-17T12:52:37.979Z",
       "addressLocality": "Bern",
       "postalCode": "3007",
       "streetAddress": "Belpstrasse 48",
@@ -3685,6 +3714,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:15:26.576Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -3730,7 +3760,7 @@
       "url": "https://jobs.csd.ch/jobs/7915869-chef-de-projet-senior-80-100-f-h-d",
       "source": "CSD ENGINEERS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-16T22:39:52.708Z",
+      "crawledAt": "2026-06-17T12:52:37.640Z",
       "addressLocality": "Lancy",
       "postalCode": "1212",
       "streetAddress": "Chem. des Semailles 50",
@@ -3748,6 +3778,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-06-16T13:11:03.730Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "baseSalary": {
@@ -3761,6 +3792,72 @@
         }
       },
       "addressRegion": "GE"
+    },
+    {
+      "id": "csd-engineers-dc086c1c8ef2",
+      "slug": "stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80",
+      "slugByLocale": {
+        "fr": "stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80",
+        "it": "stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80",
+        "en": "stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80",
+        "de": "stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80"
+      },
+      "company": "CSD ENGINEERS",
+      "companyKey": "csd-engineers",
+      "companyDomain": "csd.ch",
+      "title": "Stagiaire en Sciences et Ingénierie de l'Environnement (Juillet à Décembre 2026) (f/h/d) 80-100%",
+      "titleByLocale": {
+        "fr": "Stagiaire en Sciences et Ingénierie de l'Environnement (Juillet à Décembre 2026) (f/h/d) 80-100%",
+        "it": "Stagiaire en Sciences et Ingénierie de l'Environnement (Juillet à Décembre 2026) (f/m/d) 80-100%",
+        "en": "Stagiaire en Sciences et Ingénierie de l'Environnement (Juillet à Décembre 2026) (f/h/d) 80-100%",
+        "de": "Stagiaire en Sciences et Ingénierie de l'Environnement (Juillet à Décembre 2026) (f/h/d) 80-100%"
+      },
+      "description": "<p><span><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></span></p><p class=\"MsoNormal\"><span>Nous recherchons pour notre<strong> Succursale Environnement </strong>à<strong> Lausanne (VD), </strong>un <strong>Stagiaire en Sciences et Ingénierie de l'Environnement de janvier à juin 2026 (f/h/d) 80-100%.</strong></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer aux études en cours (études d’impact environnement, gravières, renaturation de cours d’eau, études de bruit, gestion des déchets et suivi de chantiers, etc.) en étant encadré dans une équipe dynamique et expérimentée</span></p></li><li class=\"MsoNormal\"><p><span>Réaliser des relevés de terrain, des mesures et collecter des données</span></p></li><li class=\"MsoNormal\"><p><span>Modéliser à l'aide de logiciels techniques (SIG, 3D acoustique, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à l'élaboration de rapports, plans et cartes dans les domaines précités</span></p></li></ul><p class=\"MsoNormal\"><span><em>Le poste implique des relevés de terrain pouvant avoir lieu tôt le matin ou en fin de journée. Une disponibilité permettant d’assurer ces interventions dans la région lausannoise est nécessaire</em></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Etudiant EPF/HES/UNI en Sciences et Ingénierie de l'Environnement ou formation jugée équivalente, Bachelor ou Master récemment diplômé. <em>Les dossiers de personnes diplômées depuis plus de 6 mois ne pourront pas être retenus</em></span></p></li><li class=\"MsoNormal\"><p><span>Bonnes connaissances des outils SIG (ArcGIS, QGIS) et Office (Excel, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Être titulaire du permis de conduire</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique et autonome avec le sens de l'initiative</span></p></li><li class=\"MsoNormal\"><p><span>Esprit d'analyse et de synthèse et facilité de rédaction</span></p></li></ul><p class=\"MsoNormal\"></p>",
+      "descriptionByLocale": {
+        "fr": "<p><span><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></span></p><p class=\"MsoNormal\"><span>Nous recherchons pour notre<strong> Succursale Environnement </strong>à<strong> Lausanne (VD), </strong>un <strong>Stagiaire en Sciences et Ingénierie de l'Environnement de janvier à juin 2026 (f/h/d) 80-100%.</strong></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer aux études en cours (études d’impact environnement, gravières, renaturation de cours d’eau, études de bruit, gestion des déchets et suivi de chantiers, etc.) en étant encadré dans une équipe dynamique et expérimentée</span></p></li><li class=\"MsoNormal\"><p><span>Réaliser des relevés de terrain, des mesures et collecter des données</span></p></li><li class=\"MsoNormal\"><p><span>Modéliser à l'aide de logiciels techniques (SIG, 3D acoustique, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à l'élaboration de rapports, plans et cartes dans les domaines précités</span></p></li></ul><p class=\"MsoNormal\"><span><em>Le poste implique des relevés de terrain pouvant avoir lieu tôt le matin ou en fin de journée. Une disponibilité permettant d’assurer ces interventions dans la région lausannoise est nécessaire</em></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Etudiant EPF/HES/UNI en Sciences et Ingénierie de l'Environnement ou formation jugée équivalente, Bachelor ou Master récemment diplômé. <em>Les dossiers de personnes diplômées depuis plus de 6 mois ne pourront pas être retenus</em></span></p></li><li class=\"MsoNormal\"><p><span>Bonnes connaissances des outils SIG (ArcGIS, QGIS) et Office (Excel, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Être titulaire du permis de conduire</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique et autonome avec le sens de l'initiative</span></p></li><li class=\"MsoNormal\"><p><span>Esprit d'analyse et de synthèse et facilité de rédaction</span></p></li></ul><p class=\"MsoNormal\"></p>",
+        "it": "<p><span><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></span></p><p class=\"MsoNormal\"><span>Nous recherchons pour notre<strong> Succursale Environnement </strong>à<strong> Lausanne (VD), </strong>un <strong>Stagiaire en Sciences et Ingénierie de l'Environnement de janvier à juin 2026 (f/h/d) 80-100%.</strong></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer aux études en cours (études d’impact environnement, gravières, renaturation de cours d’eau, études de bruit, gestion des déchets et suivi de chantiers, etc.) en étant encadré dans une équipe dynamique et expérimentée</span></p></li><li class=\"MsoNormal\"><p><span>Réaliser des relevés de terrain, des mesures et collecter des données</span></p></li><li class=\"MsoNormal\"><p><span>Modéliser à l'aide de logiciels techniques (SIG, 3D acoustique, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à l'élaboration de rapports, plans et cartes dans les domaines précités</span></p></li></ul><p class=\"MsoNormal\"><span><em>Le poste implique des relevés de terrain pouvant avoir lieu tôt le matin ou en fin de journée. Une disponibilité permettant d’assurer ces interventions dans la région lausannoise est nécessaire</em></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Etudiant EPF/HES/UNI en Sciences et Ingénierie de l'Environnement ou formation jugée équivalente, Bachelor ou Master récemment diplômé. <em>Les dossiers de personnes diplômées depuis plus de 6 mois ne pourront pas être retenus</em></span></p></li><li class=\"MsoNormal\"><p><span>Bonnes connaissances des outils SIG (ArcGIS, QGIS) et Office (Excel, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Être titulaire du permis de conduire</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique et autonome avec le sens de l'initiative</span></p></li><li class=\"MsoNormal\"><p><span>Esprit d'analyse et de synthèse et facilité de rédaction</span></p></li></ul><p class=\"MsoNormal\"></p>",
+        "en": "<p><span><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></span></p><p class=\"MsoNormal\"><span>Nous recherchons pour notre<strong> Succursale Environnement </strong>à<strong> Lausanne (VD), </strong>un <strong>Stagiaire en Sciences et Ingénierie de l'Environnement de janvier à juin 2026 (f/h/d) 80-100%.</strong></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer aux études en cours (études d’impact environnement, gravières, renaturation de cours d’eau, études de bruit, gestion des déchets et suivi de chantiers, etc.) en étant encadré dans une équipe dynamique et expérimentée</span></p></li><li class=\"MsoNormal\"><p><span>Réaliser des relevés de terrain, des mesures et collecter des données</span></p></li><li class=\"MsoNormal\"><p><span>Modéliser à l'aide de logiciels techniques (SIG, 3D acoustique, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à l'élaboration de rapports, plans et cartes dans les domaines précités</span></p></li></ul><p class=\"MsoNormal\"><span><em>Le poste implique des relevés de terrain pouvant avoir lieu tôt le matin ou en fin de journée. Une disponibilité permettant d’assurer ces interventions dans la région lausannoise est nécessaire</em></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Etudiant EPF/HES/UNI en Sciences et Ingénierie de l'Environnement ou formation jugée équivalente, Bachelor ou Master récemment diplômé. <em>Les dossiers de personnes diplômées depuis plus de 6 mois ne pourront pas être retenus</em></span></p></li><li class=\"MsoNormal\"><p><span>Bonnes connaissances des outils SIG (ArcGIS, QGIS) et Office (Excel, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Être titulaire du permis de conduire</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique et autonome avec le sens de l'initiative</span></p></li><li class=\"MsoNormal\"><p><span>Esprit d'analyse et de synthèse et facilité de rédaction</span></p></li></ul><p class=\"MsoNormal\"></p>",
+        "de": "<p><span><strong>Plus de 1 000 collaborateurs répartis sur 30 sites en Suisse et en Europe : le groupe CSD est une entreprise dynamique et en constante croissance. Grâce à l’ingéniosité, la compétence et la pluridisciplinarité qui caractérisent nos équipes, CSD offre des solutions innovantes et durables pour nos clients avec un « plus » pour la qualité de vie et l’environnement.</strong></span></p><p class=\"MsoNormal\"><span>Nous recherchons pour notre<strong> Succursale Environnement </strong>à<strong> Lausanne (VD), </strong>un <strong>Stagiaire en Sciences et Ingénierie de l'Environnement de janvier à juin 2026 (f/h/d) 80-100%.</strong></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Vos missions</strong></p><ul><li class=\"MsoNormal\"><p><span>Participer aux études en cours (études d’impact environnement, gravières, renaturation de cours d’eau, études de bruit, gestion des déchets et suivi de chantiers, etc.) en étant encadré dans une équipe dynamique et expérimentée</span></p></li><li class=\"MsoNormal\"><p><span>Réaliser des relevés de terrain, des mesures et collecter des données</span></p></li><li class=\"MsoNormal\"><p><span>Modéliser à l'aide de logiciels techniques (SIG, 3D acoustique, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Contribuer à l'élaboration de rapports, plans et cartes dans les domaines précités</span></p></li></ul><p class=\"MsoNormal\"><span><em>Le poste implique des relevés de terrain pouvant avoir lieu tôt le matin ou en fin de journée. Une disponibilité permettant d’assurer ces interventions dans la région lausannoise est nécessaire</em></span></p><p class=\"MsoNormal\"></p><p class=\"MsoNormal\"><strong>\n• Votre profil</strong></p><ul><li class=\"MsoNormal\"><p><span>Etudiant EPF/HES/UNI en Sciences et Ingénierie de l'Environnement ou formation jugée équivalente, Bachelor ou Master récemment diplômé. <em>Les dossiers de personnes diplômées depuis plus de 6 mois ne pourront pas être retenus</em></span></p></li><li class=\"MsoNormal\"><p><span>Bonnes connaissances des outils SIG (ArcGIS, QGIS) et Office (Excel, etc.)</span></p></li><li class=\"MsoNormal\"><p><span>Être titulaire du permis de conduire</span></p></li><li class=\"MsoNormal\"><p><span>Personnalité dynamique et autonome avec le sens de l'initiative</span></p></li><li class=\"MsoNormal\"><p><span>Esprit d'analyse et de synthèse et facilité de rédaction</span></p></li></ul><p class=\"MsoNormal\"></p>"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.csd.ch/jobs/7926546-stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80-100",
+      "source": "CSD ENGINEERS Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-17T12:52:37.296Z",
+      "addressLocality": "Lausanne",
+      "postalCode": "1007",
+      "streetAddress": "Chem. de Montelly 78",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Ingegneria / Ambiente",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://jobs.csd.ch/jobs/7926546-stagiaire-en-sciences-et-ingenierie-de-l-environnement-juillet-a-decembre-2026-f-h-d-80-100",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-06-17T12:52:37.296Z"
     }
   ]
 }
