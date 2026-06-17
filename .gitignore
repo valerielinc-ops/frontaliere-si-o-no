@@ -119,3 +119,8 @@ apm_modules/
 content-manifest.tsv
 prev-content-manifest.tsv
 __pycache__/
+
+# Employer outreach — local-only business contacts, traffic data, generated drafts
+data/employer-outreach/contacts.json
+data/employer-outreach/report.json
+data/employer-outreach/drafts/
