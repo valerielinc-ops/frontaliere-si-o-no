@@ -8120,6 +8120,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.azienda-hoval-lavoro-ticino.title': 'Azienda Hoval: opportunità di lavoro in Ticino per frontalieri',
     'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval cerca personale in Ticino. Opportunità per frontalieri italiani. Dettagli sul processo di candidatura e implicazioni pratiche.',
     'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'Vista di una sede aziendale moderna a Lugano, Ticino, con montagne sullo sfondo.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.title': 'Terzo Pilastro 3a per Frontalieri: Guida Completa',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Scopri come funziona il terzo pilastro 3a per i frontalieri in Ticino, i vantaggi fiscali e le regole per la previdenza privata individuale.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Vista panoramica di Lugano, centro finanziario del Ticino',
 };
 
 export default blogMetaIt;

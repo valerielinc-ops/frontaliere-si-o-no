@@ -8119,6 +8119,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.azienda-hoval-lavoro-ticino.title': 'Hoval: Job Opportunities in Ticino for Cross-Border Workers',
     'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval is seeking personnel in Ticino. Opportunities for Italian cross-border workers. Details on the application process and practical implications.',
     'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'View of a modern company building in Lugano, Ticino, with mountains behind.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.title': 'Third Pillar 3a for Border Workers',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Discover how the third pillar 3a works for cross-border workers in Ticino, the tax benefits and rules for individual private pension schemes.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Panoramic view of Lugano, financial center of Ticino',
 };
 
 export default blogMetaEn;
