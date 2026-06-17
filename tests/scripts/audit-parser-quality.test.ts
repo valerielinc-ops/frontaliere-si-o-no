@@ -17,6 +17,8 @@ import {
   applyNoStructureRatchet,
   applyDuplicateDescriptionRatchet,
   hasFormChrome,
+  fingerprintsForCrawler,
+  countDuplicates,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -297,6 +299,53 @@ describe('applyDuplicateDescriptionRatchet', () => {
 
     expect(report['templated-source'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
+  });
+});
+
+describe('fingerprintsForCrawler (location-aware title-aware mode)', () => {
+  // Regression: fielmann (Workday store-chain) ships the same role title verbatim
+  // across many stores — 37 "Augenoptiker (w/m/d)" across 35 cities with a
+  // templated body. The original title-only fingerprint collided on all of them
+  // (82% "duplicate listings") and tripped the ≥80% ratchet to CRITICAL even
+  // though each is a legitimate distinct per-store opening. Including the
+  // location in the fingerprint keeps them distinct.
+  const templatedBody =
+    'Wir suchen für unseren Standort eine Augenoptikerin oder einen Augenoptiker. ' +
+    'Sie beraten unsere Kundschaft und führen Sehtests durch. Wir bieten ein modernes Umfeld.';
+
+  function storeListing(city: string) {
+    return { title: 'Augenoptiker (w/m/d)', description: templatedBody, location: city };
+  }
+
+  it('does NOT collide for the same templated role across distinct cities', () => {
+    const jobs = ['Lugano', 'Zürich', 'Bern', 'Genève', 'Chur', 'Sion'].map(storeListing);
+    const dupes = countDuplicates(fingerprintsForCrawler(jobs, 'title-aware'));
+    expect(dupes).toBe(0);
+  });
+
+  it('STILL flags the same role re-posted at the SAME city (real duplicate)', () => {
+    // Same title + same body + same location twice = a genuine duplicate listing.
+    const jobs = [
+      storeListing('Lugano'),
+      storeListing('Lugano'),
+      storeListing('Zürich'),
+      storeListing('Bern'),
+    ];
+    const dupes = countDuplicates(fingerprintsForCrawler(jobs, 'title-aware'));
+    expect(dupes).toBe(2); // the two Lugano postings
+  });
+
+  it('desc-only mode stays location-blind (chrome-scraping signal intact)', () => {
+    // Chrome scraping makes every body identical regardless of title OR location;
+    // the desc-only fingerprint must still collapse them so the ≥95% chrome
+    // ratchet keeps firing.
+    const jobs = [
+      { title: 'Role A', description: templatedBody, location: 'Lugano' },
+      { title: 'Role B', description: templatedBody, location: 'Zürich' },
+      { title: 'Role C', description: templatedBody, location: 'Bern' },
+    ];
+    const dupes = countDuplicates(fingerprintsForCrawler(jobs, 'desc-only'));
+    expect(dupes).toBe(3);
   });
 });
 
