@@ -1,18 +1,55 @@
 {
   "key": "spital-sts",
   "label": "Spital STS",
-  "generatedAt": "2026-06-16T23:46:23.988Z",
+  "generatedAt": "2026-06-17T13:51:23.998Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 12024,
-  "avgDurationMs": 12024,
+  "durationMs": 8660,
+  "avgDurationMs": 8660,
   "durationHistory": [
-    12024
+    8660
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "spital-sts-26389c9344d0",
+      "slug": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dipl. Pflegefachfrau/-mann Chirurgie",
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/1953d39c-d8f1-45c3-9cd2-ad7010521204/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T13:51:16.398Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/1953d39c-d8f1-45c3-9cd2-ad7010521204",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "spital-sts-ca3af9646859",
@@ -27,7 +64,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5cf428e5-9bf4-4937-95d6-d1f4361271b8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:14.049Z",
+      "crawledAt": "2026-06-17T13:51:17.009Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +101,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/2c62d25b-df4c-4536-bad9-5b024ee5a7a6/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:14.792Z",
+      "crawledAt": "2026-06-17T13:51:17.634Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -101,7 +138,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7af25d74-121c-4534-9677-cab6a836fef8/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:15.719Z",
+      "crawledAt": "2026-06-17T13:51:18.240Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -138,7 +175,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/d7922b14-bc1f-47d7-a0f2-eefb871a7b57/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:16.829Z",
+      "crawledAt": "2026-06-17T13:51:18.822Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -175,7 +212,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/bc26f779-c496-40b7-a82a-f408b43caf49/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:18.059Z",
+      "crawledAt": "2026-06-17T13:51:19.474Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -212,7 +249,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/9ebf5831-65b5-4230-a3da-722730d57695/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:18.971Z",
+      "crawledAt": "2026-06-17T13:51:20.137Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -249,7 +286,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/985404f9-e545-424f-a78d-991bffb30901/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:20.089Z",
+      "crawledAt": "2026-06-17T13:51:20.762Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -286,7 +323,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c7c6e9a9-d32f-490c-9e6e-d36e7d25cf02/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:20.816Z",
+      "crawledAt": "2026-06-17T13:51:21.458Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -323,7 +360,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/c87ea77d-c64c-41c7-93e0-0efcee4b5938/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:46:21.442Z",
+      "crawledAt": "2026-06-17T13:51:22.069Z",
       "addressLocality": "Thun und Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -346,10 +383,12 @@
         "translation": 19,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "spital-sts-4e88fc5e8b91",
-      "slug": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+      "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
       "company": "Spital STS",
       "companyKey": "spital-sts",
       "companyDomain": "spitalstsag.ch",
@@ -376,15 +415,16 @@
       "postedDate": "2026-06-03",
       "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/c4819bf1-2f97-4808-9c34-5a33a85a15e2",
       "firstSeenAt": "2026-06-03T15:20:29.103Z",
-      "_qualityScore": 85,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
