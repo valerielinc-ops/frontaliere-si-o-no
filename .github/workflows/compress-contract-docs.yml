@@ -56,7 +56,13 @@ jobs:
           set -euo pipefail
           # file:ceiling (byte). Ceiling = size attuale + ~12-15% headroom; il
           # ratchet scatta quando il doc cresce oltre, segno che va ricompresso.
-          DOCS="AGENTS.md:24000 REVIEW.md:14000 ISSUES.md:17000 FOLLOWUP.md:11000"
+          # Ri-calibrati 2026-06-17 (#1569) dopo gentle-compress: i vecchi ceiling
+          # erano sotto il floor normativo dei contratti (cresciuti con nuovi gate
+          # legittimi). Compressa tutta la prosa-ridondante; i nuovi ceiling
+          # ancorano il floor compresso + ~12% headroom, senza poter scendere oltre
+          # se non tagliando regole. FOLLOWUP è il più denso (signal-list +
+          # veti auto-close + Appendice-spec): ceiling più alto del previgente.
+          DOCS="AGENTS.md:30000 REVIEW.md:19000 ISSUES.md:22000 FOLLOWUP.md:19000"
           over=""
           for entry in $DOCS; do
             f="${entry%%:*}"; c="${entry##*:}"
