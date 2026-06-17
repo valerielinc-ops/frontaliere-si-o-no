@@ -13,10 +13,10 @@
     "location": "Ticino",
     "addressLocality": "Ticino",
     "descriptionByLocale": {
-      "en": "Are you looking for a new challenge in a fast-paced Wealth Management environment? Do you want to be part of a high performing team?\n\nWe’re looking for a client associate to:\n\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes, e.g., account opening, initial and recurring KYC, and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner?",
-      "it": "Are you looking for a new challenge in a fast-paced Wealth Management environment? Do you want to be part of a high performing team?\n\nWe’re looking for a client associate to:\n\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes, e.g., account opening, initial and recurring KYC, and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner?",
-      "de": "Are you looking for a new challenge in a fast-paced Wealth Management environment? Do you want to be part of a high performing team?\n\nWe’re looking for a client associate to:\n\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes, e.g., account opening, initial and recurring KYC, and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner?",
-      "fr": "Are you looking for a new challenge in a fast-paced Wealth Management environment? Do you want to be part of a high performing team?\n\nWe’re looking for a client associate to:\n\n• be the direct contact for daily banking activities and administrative work for our clients\n• manage daily client transactions and carry out inquiries and troubleshooting\n• perform account maintenance tasks and client-related processes, e.g., account opening, initial and recurring KYC, and due diligence\n• research, follow-up and resolve client inquiries and problems through effective interaction with clients, and internal partners in a timely and professional manner?"
+      "en": "A Client Associate services clients and provides operational and administrative support to Financial Advisors.\nKey Responsibilities:\n* Educate clients on account services and capabilities\n* Input data in to financial planning tools\n* Assist with the preparation of reports and other materials for client meetings\n* Ensure appropriate documentation is collated for new accounts and service request",
+      "it": "A Client Associate services clients and provides operational and administrative support to Financial Advisors.\nKey Responsibilities:\n* Educate clients on account services and capabilities\n* Input data in to financial planning tools\n* Assist with the preparation of reports and other materials for client meetings\n* Ensure appropriate documentation is collated for new accounts and service request",
+      "de": "A Client Associate services clients and provides operational and administrative support to Financial Advisors.\nKey Responsibilities:\n* Educate clients on account services and capabilities\n* Input data in to financial planning tools\n* Assist with the preparation of reports and other materials for client meetings\n* Ensure appropriate documentation is collated for new accounts and service request",
+      "fr": "A Client Associate services clients and provides operational and administrative support to Financial Advisors.\nKey Responsibilities:\n* Educate clients on account services and capabilities\n* Input data in to financial planning tools\n* Assist with the preparation of reports and other materials for client meetings\n* Ensure appropriate documentation is collated for new accounts and service request"
     },
     "slugByLocale": {
       "en": "client-associate-ubs",
@@ -25,13 +25,720 @@
       "fr": "client-associate-ubs"
     },
     "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-17T14:07:38.471Z",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
     "previousSlugs": [
-      "cliente-associato-ubs-ticino",
-      "client-associate-ubs-6"
+      "client-associate-ubs-2",
+      "cliente-associato-ubs-ticino-ad21b8"
     ],
     "salaryMin": 49500,
     "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-associate-ubs-2",
+    "title": "Client Associate",
+    "titleByLocale": {
+      "en": "Client Associate",
+      "it": "Client Associate",
+      "de": "Client Associate",
+      "fr": "Client Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "• Are you truly service oriented? Do you know how to take care of people? We’re looking for someone like that who can provide operational and administrative support to Financial Advisors. You’ll:\n• – keep management systems up-to-date with client information\n• – educate clients on account services and capabilities\n• – help with the preparation of reports and other materials for client meetings\n• – collect the right documentation for opening new accounts and service requests\n• – plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "it": "• Are you truly service oriented? Do you know how to take care of people? We’re looking for someone like that who can provide operational and administrative support to Financial Advisors. You’ll:\n• – keep management systems up-to-date with client information\n• – educate clients on account services and capabilities\n• – help with the preparation of reports and other materials for client meetings\n• – collect the right documentation for opening new accounts and service requests\n• – plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "de": "• Are you truly service oriented? Do you know how to take care of people? We’re looking for someone like that who can provide operational and administrative support to Financial Advisors. You’ll:\n• – keep management systems up-to-date with client information\n• – educate clients on account services and capabilities\n• – help with the preparation of reports and other materials for client meetings\n• – collect the right documentation for opening new accounts and service requests\n• – plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+      "fr": "• Are you truly service oriented? Do you know how to take care of people? We’re looking for someone like that who can provide operational and administrative support to Financial Advisors. You’ll:\n• – keep management systems up-to-date with client information\n• – educate clients on account services and capabilities\n• – help with the preparation of reports and other materials for client meetings\n• – collect the right documentation for opening new accounts and service requests\n• – plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
+    },
+    "slugByLocale": {
+      "en": "client-associate-ubs",
+      "it": "client-associate-ubs-2",
+      "de": "client-associate-ubs-2",
+      "fr": "client-associate-ubs-2"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "client-associate-ubs-3",
+      "cliente-associato-ubs-ticino-b222e8"
+    ],
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "cash-equities-crb-quant-developer-ubs",
+    "title": "Cash Equities CRB Quant Developer",
+    "titleByLocale": {
+      "en": "Cash Equities CRB Quant Developer",
+      "it": "Cash Equities CRB Quant Sviluppatore",
+      "de": "Cash Equities CRB Quant Entwickler",
+      "fr": "Cash Equities CRB Quant Développeur"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
+      "it": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
+      "de": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
+      "fr": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department"
+    },
+    "slugByLocale": {
+      "en": "cash-equities-crb-quant-developer-ubs",
+      "it": "cash-equities-crb-quant-developer-ubs",
+      "de": "cash-equities-crb-quant-developer-ubs",
+      "fr": "cash-equities-crb-quant-developer-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "trade-client-service-specialista-ubs",
+    "title": "Trade & Client Service Specialist",
+    "titleByLocale": {
+      "it": "Trade & Client Service Specialista",
+      "en": "Trade & Client Service Specialist",
+      "de": "Trade & Client Service Spezialist",
+      "fr": "Trade & Client Service Spécialiste"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
+      "en": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
+      "de": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
+      "fr": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds."
+    },
+    "slugByLocale": {
+      "it": "trade-client-service-specialista-ubs",
+      "en": "trade-client-service-specialist-ubs",
+      "de": "trade-client-service-spezialist-ubs",
+      "fr": "trade-client-service-specialiste-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "trade-client-service-specialist-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "trade-client-service-specialist-ubs"
+      ],
+      "de": [
+        "trade-client-service-specialist-ubs"
+      ],
+      "fr": [
+        "trade-client-service-specialist-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "audit-expert-ib-derivatives-solutions-ubs",
+    "title": "Audit Expert, IB Derivatives & Solutions",
+    "titleByLocale": {
+      "en": "Audit Expert, IB Derivatives & Solutions",
+      "it": "Audit Expert, IB Derivatives & Solutions",
+      "de": "Audit Expert, IB Derivatives & Solutions",
+      "fr": "Audit Expert, IB Derivatives & Solutions"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you a sharp evaluator of risk, who enjoys investigating complex business processes and products? Do you want to play a key role in improving the effectiveness of business critical processes to help safeguard and strengthen UBS?\n\nWe’re looking for a Risk Expert or Auditor to:\n\n• plan, execute and lead audits, issue assurance, and risk assessment reviews according to our internal standards that are fully supported by the work done.\n• highlight where controls are functioning well or where UBS needs to act to better manage current and emerging risks, and escalate any significant concerns or issues appropriately.\n• meet our internal standards for the quality, execution and documentation of assurance work, taking account of legal entity coverage expectations, where required.\n• proactively and successfully collaborate with peers in and across audit teams.\n• build and maintain constructive relationships with colleagues and relevant stakeholders at all levels including senior management.\n• continuously assess the risk profile of the relevant UBS IB businesses.\n• participate in regulatory inspections and address inquiries from regulators",
+      "it": "Are you a sharp evaluator of risk, who enjoys investigating complex business processes and products? Do you want to play a key role in improving the effectiveness of business critical processes to help safeguard and strengthen UBS?\n\nWe’re looking for a Risk Expert or Auditor to:\n\n• plan, execute and lead audits, issue assurance, and risk assessment reviews according to our internal standards that are fully supported by the work done.\n• highlight where controls are functioning well or where UBS needs to act to better manage current and emerging risks, and escalate any significant concerns or issues appropriately.\n• meet our internal standards for the quality, execution and documentation of assurance work, taking account of legal entity coverage expectations, where required.\n• proactively and successfully collaborate with peers in and across audit teams.\n• build and maintain constructive relationships with colleagues and relevant stakeholders at all levels including senior management.\n• continuously assess the risk profile of the relevant UBS IB businesses.\n• participate in regulatory inspections and address inquiries from regulators",
+      "de": "Are you a sharp evaluator of risk, who enjoys investigating complex business processes and products? Do you want to play a key role in improving the effectiveness of business critical processes to help safeguard and strengthen UBS?\n\nWe’re looking for a Risk Expert or Auditor to:\n\n• plan, execute and lead audits, issue assurance, and risk assessment reviews according to our internal standards that are fully supported by the work done.\n• highlight where controls are functioning well or where UBS needs to act to better manage current and emerging risks, and escalate any significant concerns or issues appropriately.\n• meet our internal standards for the quality, execution and documentation of assurance work, taking account of legal entity coverage expectations, where required.\n• proactively and successfully collaborate with peers in and across audit teams.\n• build and maintain constructive relationships with colleagues and relevant stakeholders at all levels including senior management.\n• continuously assess the risk profile of the relevant UBS IB businesses.\n• participate in regulatory inspections and address inquiries from regulators",
+      "fr": "Are you a sharp evaluator of risk, who enjoys investigating complex business processes and products? Do you want to play a key role in improving the effectiveness of business critical processes to help safeguard and strengthen UBS?\n\nWe’re looking for a Risk Expert or Auditor to:\n\n• plan, execute and lead audits, issue assurance, and risk assessment reviews according to our internal standards that are fully supported by the work done.\n• highlight where controls are functioning well or where UBS needs to act to better manage current and emerging risks, and escalate any significant concerns or issues appropriately.\n• meet our internal standards for the quality, execution and documentation of assurance work, taking account of legal entity coverage expectations, where required.\n• proactively and successfully collaborate with peers in and across audit teams.\n• build and maintain constructive relationships with colleagues and relevant stakeholders at all levels including senior management.\n• continuously assess the risk profile of the relevant UBS IB businesses.\n• participate in regulatory inspections and address inquiries from regulators"
+    },
+    "slugByLocale": {
+      "en": "risk-expert-ib-derivatives-solutions-ubs",
+      "it": "audit-expert-ib-derivatives-solutions-ubs",
+      "de": "audit-expert-ib-derivatives-solutions-ubs",
+      "fr": "audit-expert-ib-derivatives-solutions-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "esperto-di-rischio-ib-derivati-soluzioni-ubs-ticino",
+      "esperto-del-rischio-ib-derivatives-solutions-ubs",
+      "risk-expert-derivati-e-soluzioni-ib-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "risikoexperte-ib-derivate-losungen-ubs-ticino",
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ],
+      "fr": [
+        "expert-en-risques-ib-derives-solutions-ubs-ticino",
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ],
+      "it": [
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ubs-card-center-ag-head-supply-demand-management-80-100-w-m-d-ubs",
+    "title": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
+    "titleByLocale": {
+      "de": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
+      "en": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
+      "it": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)",
+      "fr": "UBS Card Center AG - Head Supply & Demand Management 80 - 100% (w/m/d)"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "de": "• Steuerung und Optimierung der Lieferanten- und Partnerbeziehungen, inklusive Vertragsverhandlungen mit den grössten Partnern\n• Führung und Weiterentwicklung eines erfahrenen Teams im Bereich Supply & Demand Management\n• Weiterentwicklung des Operating Models für das Lieferantenmanagement über das gesamte Card Center\n• Setzen der Standards für zentrale Elemente komplexer Deals, wie RFP-Struktur, Business Case, Bewertung von Lösungen/Angeboten/Lizenzmodellen sowie Deal-Strukturierung und -Umsetzung\n• Führung von Vertragsüberarbeitungen und -verhandlungen mit Lieferanten in enger Abstimmung mit Supply Chain Sourcern und internen Fachbereichen\n• Steuerung von Optimierungsprojekten zur Umsetzung der Unternehmensstrategie\n• Steuerung und Umsetzung regulatorischer Compliance-Aktivitäten für das Third-Party Vendor Management, um finanzielle, operationelle und Reputationsrisiken für das Card Center zu minimieren",
+      "it": "• Steuerung und Optimierung der Lieferanten- und Partnerbeziehungen, inklusive Vertragsverhandlungen mit den grössten Partnern\n• Führung und Weiterentwicklung eines erfahrenen Teams im Bereich Supply & Demand Management\n• Weiterentwicklung des Operating Models für das Lieferantenmanagement über das gesamte Card Center\n• Setzen der Standards für zentrale Elemente komplexer Deals, wie RFP-Struktur, Business Case, Bewertung von Lösungen/Angeboten/Lizenzmodellen sowie Deal-Strukturierung und -Umsetzung\n• Führung von Vertragsüberarbeitungen und -verhandlungen mit Lieferanten in enger Abstimmung mit Supply Chain Sourcern und internen Fachbereichen\n• Steuerung von Optimierungsprojekten zur Umsetzung der Unternehmensstrategie\n• Steuerung und Umsetzung regulatorischer Compliance-Aktivitäten für das Third-Party Vendor Management, um finanzielle, operationelle und Reputationsrisiken für das Card Center zu minimieren",
+      "en": "• Steuerung und Optimierung der Lieferanten- und Partnerbeziehungen, inklusive Vertragsverhandlungen mit den grössten Partnern\n• Führung und Weiterentwicklung eines erfahrenen Teams im Bereich Supply & Demand Management\n• Weiterentwicklung des Operating Models für das Lieferantenmanagement über das gesamte Card Center\n• Setzen der Standards für zentrale Elemente komplexer Deals, wie RFP-Struktur, Business Case, Bewertung von Lösungen/Angeboten/Lizenzmodellen sowie Deal-Strukturierung und -Umsetzung\n• Führung von Vertragsüberarbeitungen und -verhandlungen mit Lieferanten in enger Abstimmung mit Supply Chain Sourcern und internen Fachbereichen\n• Steuerung von Optimierungsprojekten zur Umsetzung der Unternehmensstrategie\n• Steuerung und Umsetzung regulatorischer Compliance-Aktivitäten für das Third-Party Vendor Management, um finanzielle, operationelle und Reputationsrisiken für das Card Center zu minimieren",
+      "fr": "• Steuerung und Optimierung der Lieferanten- und Partnerbeziehungen, inklusive Vertragsverhandlungen mit den grössten Partnern\n• Führung und Weiterentwicklung eines erfahrenen Teams im Bereich Supply & Demand Management\n• Weiterentwicklung des Operating Models für das Lieferantenmanagement über das gesamte Card Center\n• Setzen der Standards für zentrale Elemente komplexer Deals, wie RFP-Struktur, Business Case, Bewertung von Lösungen/Angeboten/Lizenzmodellen sowie Deal-Strukturierung und -Umsetzung\n• Führung von Vertragsüberarbeitungen und -verhandlungen mit Lieferanten in enger Abstimmung mit Supply Chain Sourcern und internen Fachbereichen\n• Steuerung von Optimierungsprojekten zur Umsetzung der Unternehmensstrategie\n• Steuerung und Umsetzung regulatorischer Compliance-Aktivitäten für das Third-Party Vendor Management, um finanzielle, operationelle und Reputationsrisiken für das Card Center zu minimieren"
+    },
+    "slugByLocale": {
+      "de": "ubs-card-center-ag-head-supply-demand-management-80-100-w-m-d-ubs",
+      "it": "ubs-card-center-ag-head-supply-demand-management-80-100-w-m-d-ubs",
+      "en": "ubs-card-center-ag-head-supply-demand-management-80-100-w-m-d-ubs",
+      "fr": "ubs-card-center-ag-head-supply-demand-management-80-100-w-m-d-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "ubs-card-center-ag-responsabile-gestione-domanda-e-offerta-80-100-f-m-d-ubs-ticino"
+    ],
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "card-processing-specialist-ubs",
+    "title": "Card Processing Specialist",
+    "titleByLocale": {
+      "en": "Card Processing Specialist",
+      "it": "Card Processing Specialista",
+      "de": "Card Processing Spezialist",
+      "fr": "Card Processing Spécialiste"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
+      "it": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
+      "de": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk.",
+      "fr": "As a key member of the Cards Processing Team, you will serve as a hands-on individual contributor supporting critical card processing activities and ensuring accurate, timely, and well-controlled execution of daily operations between UBS, internal business partners, and card vendors. This role is ideal for a detail-oriented operations professional with strong accounting and reconciliation experience who can identify exceptions, research issues, and help maintain a high-quality experience for branch and business stakeholders by:\n\nSupport the end-to-end card lifecycle, including production, personalization, distribution, maintenance, and issue resolution, while helping ensure service levels are met and operational risks are identified and addressed promptly.\n\nPerform reconciliations across multiple general ledgers and card processing accounts, researching outages, transaction breaks, and exceptions to support timely resolution and reduce financial and operational risk."
+    },
+    "slugByLocale": {
+      "en": "card-processing-specialist-ubs",
+      "it": "card-processing-specialist-ubs",
+      "de": "card-processing-specialist-ubs",
+      "fr": "card-processing-specialist-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-associate-registered-ubs",
+    "title": "Client Associate Registered",
+    "titleByLocale": {
+      "en": "Client Associate Registered",
+      "it": "Client Associate Registered",
+      "de": "Client Associate Registered",
+      "fr": "Client Associate Registered"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "A Client Associate, Registered services clients and provides operational and administrative support to Financial Advisors. An employee must have both Series 7 and either Series 66 or 65/63 to be considered registered.",
+      "it": "A Client Associate, Registered services clients and provides operational and administrative support to Financial Advisors. An employee must have both Series 7 and either Series 66 or 65/63 to be considered registered.",
+      "de": "A Client Associate, Registered services clients and provides operational and administrative support to Financial Advisors. An employee must have both Series 7 and either Series 66 or 65/63 to be considered registered.",
+      "fr": "A Client Associate, Registered services clients and provides operational and administrative support to Financial Advisors. An employee must have both Series 7 and either Series 66 or 65/63 to be considered registered."
+    },
+    "slugByLocale": {
+      "en": "client-associate-registered-ubs",
+      "it": "client-associate-registered-ubs",
+      "de": "client-associate-registered-ubs",
+      "fr": "client-associate-registered-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "cliente-associato-registrato-ubs-ticino"
+    ],
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "s-4-hana-finance-lead-ubs",
+    "title": "S/4 Hana Finance Lead",
+    "titleByLocale": {
+      "en": "S/4 Hana Finance Lead",
+      "it": "S/4 Hana Finanza Lead",
+      "de": "S/4 Hana Finanzen Lead",
+      "fr": "S/4 Hana Finance Lead"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "\"The SAP S/4HANA Finance Delivery Lead supports the delivery of core SAP S/4HANA Finance capabilities within the ampliFi program, with primary accountability across General Ledger (GL), Group Reporting (GR), consolidation, reporting, and the broader Finance & Controlling (FI/CO) landscape. The role is responsible for driving disciplined execution across functional design, business validation, testing readiness, and production transition, ensuring that finance processes, close activities, and reporting outcomes are delivered in line with UBS accounting principles, governance, and control standards.\nThe role partners closely with Finance, Group Reporting and Consolidation teams, Data, Integration, and Technology stakeholders and acts as a functional representative for S/4HANA Finance within the delivery. It ensures that business requirements are translated into robust, well‑controlled finance solutions aligned with the target architecture and capable of supporting stable close, consolidation, and reporting cycles.\n\nKey Responsibilities\n- Support end‑to‑end functional delivery for assigned SAP S/4HANA Finance workstreams covering General Ledger, Group Reporting, consolidation, and reporting within the ampliFi finance stack, with clear ownership of outcomes.\n- Contribute to and review functional designs and configurations across FI/CO to ensure alignment with agreed solution architecture, accounting principles, and reporting requirements.\n- Ensure that S/4HANA Finance solutions support accurate posting, close, consolidation, and reporting outcomes, including integration with upstream subledgers and downstream reporting consumers.\n- Develop and maintain delivery plans covering functional scope, milestones, dependencies, and impacts across S/4HANA Finance integration points and reporting consumption.\n- Proactively manage risks, issues, and dependencies (RAID), with a focus on financial accuracy, close stability, consolidation integrity, and regulatory expectations, escalating where required.\n- Coordinate day‑to‑day delivery across Finance, Group Reporting, Data, Integration, Testing, and Deployment teams to ensure coherent end‑to‑end execution across close, consolidation, and reporting cycles.\n- Ensure adherence to agreed delivery standards, accounting principles, design decisions, and change control processes across the S/4HANA Finance scope.\n- Support SIT and UAT execution from a functional perspective, including validation of close and consolidation scenarios, assessment of defects based on finance impact, and support for business sign‑off.\n- Assist with production readiness and cutover preparation, focusing on stability of financial close and consolidation cycles, accuracy of balances and reports, and smooth transition to business‑as‑usual operations post go‑live.\n\"",
+      "it": "\"The SAP S/4HANA Finance Delivery Lead supports the delivery of core SAP S/4HANA Finance capabilities within the ampliFi program, with primary accountability across General Ledger (GL), Group Reporting (GR), consolidation, reporting, and the broader Finance & Controlling (FI/CO) landscape. The role is responsible for driving disciplined execution across functional design, business validation, testing readiness, and production transition, ensuring that finance processes, close activities, and reporting outcomes are delivered in line with UBS accounting principles, governance, and control standards.\nThe role partners closely with Finance, Group Reporting and Consolidation teams, Data, Integration, and Technology stakeholders and acts as a functional representative for S/4HANA Finance within the delivery. It ensures that business requirements are translated into robust, well‑controlled finance solutions aligned with the target architecture and capable of supporting stable close, consolidation, and reporting cycles.\n\nKey Responsibilities\n- Support end‑to‑end functional delivery for assigned SAP S/4HANA Finance workstreams covering General Ledger, Group Reporting, consolidation, and reporting within the ampliFi finance stack, with clear ownership of outcomes.\n- Contribute to and review functional designs and configurations across FI/CO to ensure alignment with agreed solution architecture, accounting principles, and reporting requirements.\n- Ensure that S/4HANA Finance solutions support accurate posting, close, consolidation, and reporting outcomes, including integration with upstream subledgers and downstream reporting consumers.\n- Develop and maintain delivery plans covering functional scope, milestones, dependencies, and impacts across S/4HANA Finance integration points and reporting consumption.\n- Proactively manage risks, issues, and dependencies (RAID), with a focus on financial accuracy, close stability, consolidation integrity, and regulatory expectations, escalating where required.\n- Coordinate day‑to‑day delivery across Finance, Group Reporting, Data, Integration, Testing, and Deployment teams to ensure coherent end‑to‑end execution across close, consolidation, and reporting cycles.\n- Ensure adherence to agreed delivery standards, accounting principles, design decisions, and change control processes across the S/4HANA Finance scope.\n- Support SIT and UAT execution from a functional perspective, including validation of close and consolidation scenarios, assessment of defects based on finance impact, and support for business sign‑off.\n- Assist with production readiness and cutover preparation, focusing on stability of financial close and consolidation cycles, accuracy of balances and reports, and smooth transition to business‑as‑usual operations post go‑live.\n\"",
+      "de": "\"The SAP S/4HANA Finance Delivery Lead supports the delivery of core SAP S/4HANA Finance capabilities within the ampliFi program, with primary accountability across General Ledger (GL), Group Reporting (GR), consolidation, reporting, and the broader Finance & Controlling (FI/CO) landscape. The role is responsible for driving disciplined execution across functional design, business validation, testing readiness, and production transition, ensuring that finance processes, close activities, and reporting outcomes are delivered in line with UBS accounting principles, governance, and control standards.\nThe role partners closely with Finance, Group Reporting and Consolidation teams, Data, Integration, and Technology stakeholders and acts as a functional representative for S/4HANA Finance within the delivery. It ensures that business requirements are translated into robust, well‑controlled finance solutions aligned with the target architecture and capable of supporting stable close, consolidation, and reporting cycles.\n\nKey Responsibilities\n- Support end‑to‑end functional delivery for assigned SAP S/4HANA Finance workstreams covering General Ledger, Group Reporting, consolidation, and reporting within the ampliFi finance stack, with clear ownership of outcomes.\n- Contribute to and review functional designs and configurations across FI/CO to ensure alignment with agreed solution architecture, accounting principles, and reporting requirements.\n- Ensure that S/4HANA Finance solutions support accurate posting, close, consolidation, and reporting outcomes, including integration with upstream subledgers and downstream reporting consumers.\n- Develop and maintain delivery plans covering functional scope, milestones, dependencies, and impacts across S/4HANA Finance integration points and reporting consumption.\n- Proactively manage risks, issues, and dependencies (RAID), with a focus on financial accuracy, close stability, consolidation integrity, and regulatory expectations, escalating where required.\n- Coordinate day‑to‑day delivery across Finance, Group Reporting, Data, Integration, Testing, and Deployment teams to ensure coherent end‑to‑end execution across close, consolidation, and reporting cycles.\n- Ensure adherence to agreed delivery standards, accounting principles, design decisions, and change control processes across the S/4HANA Finance scope.\n- Support SIT and UAT execution from a functional perspective, including validation of close and consolidation scenarios, assessment of defects based on finance impact, and support for business sign‑off.\n- Assist with production readiness and cutover preparation, focusing on stability of financial close and consolidation cycles, accuracy of balances and reports, and smooth transition to business‑as‑usual operations post go‑live.\n\"",
+      "fr": "\"The SAP S/4HANA Finance Delivery Lead supports the delivery of core SAP S/4HANA Finance capabilities within the ampliFi program, with primary accountability across General Ledger (GL), Group Reporting (GR), consolidation, reporting, and the broader Finance & Controlling (FI/CO) landscape. The role is responsible for driving disciplined execution across functional design, business validation, testing readiness, and production transition, ensuring that finance processes, close activities, and reporting outcomes are delivered in line with UBS accounting principles, governance, and control standards.\nThe role partners closely with Finance, Group Reporting and Consolidation teams, Data, Integration, and Technology stakeholders and acts as a functional representative for S/4HANA Finance within the delivery. It ensures that business requirements are translated into robust, well‑controlled finance solutions aligned with the target architecture and capable of supporting stable close, consolidation, and reporting cycles.\n\nKey Responsibilities\n- Support end‑to‑end functional delivery for assigned SAP S/4HANA Finance workstreams covering General Ledger, Group Reporting, consolidation, and reporting within the ampliFi finance stack, with clear ownership of outcomes.\n- Contribute to and review functional designs and configurations across FI/CO to ensure alignment with agreed solution architecture, accounting principles, and reporting requirements.\n- Ensure that S/4HANA Finance solutions support accurate posting, close, consolidation, and reporting outcomes, including integration with upstream subledgers and downstream reporting consumers.\n- Develop and maintain delivery plans covering functional scope, milestones, dependencies, and impacts across S/4HANA Finance integration points and reporting consumption.\n- Proactively manage risks, issues, and dependencies (RAID), with a focus on financial accuracy, close stability, consolidation integrity, and regulatory expectations, escalating where required.\n- Coordinate day‑to‑day delivery across Finance, Group Reporting, Data, Integration, Testing, and Deployment teams to ensure coherent end‑to‑end execution across close, consolidation, and reporting cycles.\n- Ensure adherence to agreed delivery standards, accounting principles, design decisions, and change control processes across the S/4HANA Finance scope.\n- Support SIT and UAT execution from a functional perspective, including validation of close and consolidation scenarios, assessment of defects based on finance impact, and support for business sign‑off.\n- Assist with production readiness and cutover preparation, focusing on stability of financial close and consolidation cycles, accuracy of balances and reports, and smooth transition to business‑as‑usual operations post go‑live.\n\""
+    },
+    "slugByLocale": {
+      "en": "s-4-hana-finance-lead-ubs",
+      "it": "s-4-hana-finance-lead-ubs",
+      "de": "s-4-hana-finance-lead-ubs",
+      "fr": "s-4-hana-finance-lead-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 68000,
+    "salaryMax": 103000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "team-administrator-ubs",
+    "title": "Team Administrator",
+    "titleByLocale": {
+      "en": "Team Administrator",
+      "it": "Team Administrator",
+      "de": "Team Administrator",
+      "fr": "Team Administrator"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Role Purpose:\n\nA Team Administrator leads the daily operations of the team and ensures service excellence for clients.\n\nKey Responsibilities:\n\n• Manage team of Client Service Associates (CSA) including; team schedule, preparation and review of client materials, monitor client and Financial Advisor requests and ensure timelines are met\n• Oversee CSA operations including; client meeting preparation, input of orders and completion of associated documentation\n• Educate clients on account services and capabilities and oversee the on boarding process for new clients*Provide support to Financial Advisors and act as a lead service provider for high priority relationships\nKey Deliverables:\n• Source and recruit CSAs to the team alongside being actively involved in the development of existing CSAs\n• Prioritize account service requests and review daily reports and alerts to ensure appropriate delegation and completion",
+      "it": "Role Purpose:\n\nA Team Administrator leads the daily operations of the team and ensures service excellence for clients.\n\nKey Responsibilities:\n\n• Manage team of Client Service Associates (CSA) including; team schedule, preparation and review of client materials, monitor client and Financial Advisor requests and ensure timelines are met\n• Oversee CSA operations including; client meeting preparation, input of orders and completion of associated documentation\n• Educate clients on account services and capabilities and oversee the on boarding process for new clients*Provide support to Financial Advisors and act as a lead service provider for high priority relationships\nKey Deliverables:\n• Source and recruit CSAs to the team alongside being actively involved in the development of existing CSAs\n• Prioritize account service requests and review daily reports and alerts to ensure appropriate delegation and completion",
+      "de": "Role Purpose:\n\nA Team Administrator leads the daily operations of the team and ensures service excellence for clients.\n\nKey Responsibilities:\n\n• Manage team of Client Service Associates (CSA) including; team schedule, preparation and review of client materials, monitor client and Financial Advisor requests and ensure timelines are met\n• Oversee CSA operations including; client meeting preparation, input of orders and completion of associated documentation\n• Educate clients on account services and capabilities and oversee the on boarding process for new clients*Provide support to Financial Advisors and act as a lead service provider for high priority relationships\nKey Deliverables:\n• Source and recruit CSAs to the team alongside being actively involved in the development of existing CSAs\n• Prioritize account service requests and review daily reports and alerts to ensure appropriate delegation and completion",
+      "fr": "Role Purpose:\n\nA Team Administrator leads the daily operations of the team and ensures service excellence for clients.\n\nKey Responsibilities:\n\n• Manage team of Client Service Associates (CSA) including; team schedule, preparation and review of client materials, monitor client and Financial Advisor requests and ensure timelines are met\n• Oversee CSA operations including; client meeting preparation, input of orders and completion of associated documentation\n• Educate clients on account services and capabilities and oversee the on boarding process for new clients*Provide support to Financial Advisors and act as a lead service provider for high priority relationships\nKey Deliverables:\n• Source and recruit CSAs to the team alongside being actively involved in the development of existing CSAs\n• Prioritize account service requests and review daily reports and alerts to ensure appropriate delegation and completion"
+    },
+    "slugByLocale": {
+      "en": "team-administrator-ubs",
+      "it": "team-administrator-ubs",
+      "de": "team-administrator-ubs",
+      "fr": "team-administrator-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "amministratore-del-team-ubs-ticino"
+    ],
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+    "title": "Associate Program - Client Advisor WM IT or FRA & BEL",
+    "titleByLocale": {
+      "en": "Associate Program - Client Advisor WM IT or FRA & BEL",
+      "it": "Associate Program - Client Consulente WM IT or FRA & BEL",
+      "de": "Associate Program - Client Berater WM IT or FRA & BEL",
+      "fr": "Associate Program - Client Conseiller WM IT or FRA & BEL"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you a true networker who loves to talk to potential clients?\nCan you also close a deal?\nDo you have a strong track record in advising and sales within the Italy, France or Belgium markets?\n\nif yes; our 18 months Wealth Management Associate Program extends your skills, provides a unique experience in Wealth Management, and establishes a platform for accelerated career development in a client facing role.\nParallel off-the-job education will provide you with the business specific knowledge, but the main focus is on-the-job, developing your book of clients. Upon successful completion of the program, you will be equipped with the necessary foundation to embark upon a rewarding career with UBS Wealth Management in one of our global locations.\n\nWe’re looking for someone who can:\n\n• develop to become a successful Relationship Manager through our training program; reaching (or preferably exceeding) both the financial and educational targets set within the program\n• build up a client book from your own existing network of wealthy individuals in Italy, France or Belgium\n• establish long-term mutually beneficial relationships with clients\n• continuously grow your network by referrals and by identifying new prospects\n• acquire the necessary knowledge and sales skills to deliver the UBS value proposition to clients, including timely completion of mandatory trainings and the WM Certificate",
+      "it": "Are you a true networker who loves to talk to potential clients?\nCan you also close a deal?\nDo you have a strong track record in advising and sales within the Italy, France or Belgium markets?\n\nif yes; our 18 months Wealth Management Associate Program extends your skills, provides a unique experience in Wealth Management, and establishes a platform for accelerated career development in a client facing role.\nParallel off-the-job education will provide you with the business specific knowledge, but the main focus is on-the-job, developing your book of clients. Upon successful completion of the program, you will be equipped with the necessary foundation to embark upon a rewarding career with UBS Wealth Management in one of our global locations.\n\nWe’re looking for someone who can:\n\n• develop to become a successful Relationship Manager through our training program; reaching (or preferably exceeding) both the financial and educational targets set within the program\n• build up a client book from your own existing network of wealthy individuals in Italy, France or Belgium\n• establish long-term mutually beneficial relationships with clients\n• continuously grow your network by referrals and by identifying new prospects\n• acquire the necessary knowledge and sales skills to deliver the UBS value proposition to clients, including timely completion of mandatory trainings and the WM Certificate",
+      "de": "Are you a true networker who loves to talk to potential clients?\nCan you also close a deal?\nDo you have a strong track record in advising and sales within the Italy, France or Belgium markets?\n\nif yes; our 18 months Wealth Management Associate Program extends your skills, provides a unique experience in Wealth Management, and establishes a platform for accelerated career development in a client facing role.\nParallel off-the-job education will provide you with the business specific knowledge, but the main focus is on-the-job, developing your book of clients. Upon successful completion of the program, you will be equipped with the necessary foundation to embark upon a rewarding career with UBS Wealth Management in one of our global locations.\n\nWe’re looking for someone who can:\n\n• develop to become a successful Relationship Manager through our training program; reaching (or preferably exceeding) both the financial and educational targets set within the program\n• build up a client book from your own existing network of wealthy individuals in Italy, France or Belgium\n• establish long-term mutually beneficial relationships with clients\n• continuously grow your network by referrals and by identifying new prospects\n• acquire the necessary knowledge and sales skills to deliver the UBS value proposition to clients, including timely completion of mandatory trainings and the WM Certificate",
+      "fr": "Are you a true networker who loves to talk to potential clients?\nCan you also close a deal?\nDo you have a strong track record in advising and sales within the Italy, France or Belgium markets?\n\nif yes; our 18 months Wealth Management Associate Program extends your skills, provides a unique experience in Wealth Management, and establishes a platform for accelerated career development in a client facing role.\nParallel off-the-job education will provide you with the business specific knowledge, but the main focus is on-the-job, developing your book of clients. Upon successful completion of the program, you will be equipped with the necessary foundation to embark upon a rewarding career with UBS Wealth Management in one of our global locations.\n\nWe’re looking for someone who can:\n\n• develop to become a successful Relationship Manager through our training program; reaching (or preferably exceeding) both the financial and educational targets set within the program\n• build up a client book from your own existing network of wealthy individuals in Italy, France or Belgium\n• establish long-term mutually beneficial relationships with clients\n• continuously grow your network by referrals and by identifying new prospects\n• acquire the necessary knowledge and sales skills to deliver the UBS value proposition to clients, including timely completion of mandatory trainings and the WM Certificate"
+    },
+    "slugByLocale": {
+      "en": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+      "it": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+      "de": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+      "fr": "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "programma-associato-consulente-clienti-wm-it-o-fra-bel-ubs-ticino"
+    ],
+    "previousSlugsByLocale": {
+      "fr": [
+        "programme-associe-conseiller-client-wm-it-ou-fra-bel-ubs-ticino",
+        "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+      ],
+      "it": [
+        "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+      ]
+    },
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "market-supervisory-officer-ubs",
+    "title": "Market Supervisory Officer",
+    "titleByLocale": {
+      "en": "Market Supervisory Officer",
+      "it": "Market Supervisory Officer",
+      "de": "Market Supervisory Officer",
+      "fr": "Market Supervisory Officer"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "it": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "de": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "fr": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe’re looking for someone like this to:\n\n• manage all hiring and personnel decisions, coach the supervisory team and provide training on supervisory tools, new compliance bulletins and operational procedures.\n• manage review of various supervision processes\n• drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required"
+    },
+    "slugByLocale": {
+      "en": "market-supervisory-officer-ubs",
+      "it": "market-supervisory-officer-ubs",
+      "de": "market-supervisory-officer-ubs",
+      "fr": "market-supervisory-officer-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "responsabile-del-controllo-di-mercato-ubs-ticino",
+      "responsabile-di-supervisione-del-mercato-ubs-ticino",
+      "market-supervisory-officer-ubs-2",
+      "supervisory-officer-ubs",
+      "addetto-amministrativo-mercato-ubs",
+      "market-administrative-officer-ubs",
+      "market-administrative-officer-ubs-2",
+      "responsabile-delle-operazioni-di-mercato-ubs",
+      "market-operation-officer-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "marktaufsichtsbeamter-ubs-ticino",
+        "market-supervisory-officer-ubs"
+      ],
+      "fr": [
+        "responsable-de-supervision-du-marche-ubs-ticino",
+        "market-supervisory-officer-ubs"
+      ],
+      "it": [
+        "market-supervisory-officer-ubs"
+      ]
+    },
+    "salaryMin": 50500,
+    "salaryMax": 89000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "supervisory-officer-ubs",
+    "title": "Supervisory Officer",
+    "titleByLocale": {
+      "en": "Supervisory Officer",
+      "it": "Supervisory Officer",
+      "de": "Supervisory Officer",
+      "fr": "Supervisory Officer"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "it": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "de": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required",
+      "fr": "Are you an expert on risk and supervision? Do you know how to make the right call in challenging situations?\n\nWe're looking for a Supervisory Officer who can:\n\n• help drive initiatives related to sales supervision, compliance and business risk, including implementation and education\n• review various supervision processes\n• support branches in the Branch Review and Group Internal Audit processes, visiting branches, and working on action plans for those with failed audits\n• partner with Compliance, including providing input to policy and supporting communication of policies\n• serve as a point of contact for issues that cannot be resolved, and escalate issues as required"
+    },
+    "slugByLocale": {
+      "en": "supervisory-officer-ubs",
+      "it": "supervisory-officer-ubs",
+      "de": "supervisory-officer-ubs",
+      "fr": "supervisory-officer-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "supervisore-ubs-ticino",
+      "market-supervisory-officer-ubs",
+      "responsabile-di-supervisione-del-mercato-ubs-ticino",
+      "marktaufsichtsbeamter-ubs-ticino",
+      "responsable-de-supervision-du-marche-ubs-ticino",
+      "responsabile-del-controllo-di-mercato-ubs-ticino",
+      "market-supervisory-officer-ubs-2",
+      "addetto-amministrativo-mercato-ubs",
+      "market-administrative-officer-ubs",
+      "market-administrative-officer-ubs-2",
+      "responsabile-delle-operazioni-di-mercato-ubs",
+      "market-operation-officer-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "aufsichtsbeamter-ubs-ticino",
+        "market-supervisory-officer-ubs",
+        "supervisory-officer-ubs"
+      ],
+      "fr": [
+        "superviseur-ubs-ticino",
+        "market-supervisory-officer-ubs",
+        "supervisory-officer-ubs"
+      ],
+      "it": [
+        "market-supervisory-officer-ubs",
+        "supervisory-officer-ubs"
+      ],
+      "en": [
+        "market-supervisory-officer-ubs"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "junior-product-manager-for-investment-funds-with-german-ubs",
+    "title": "Junior Product Manager for Investment Funds with German",
+    "titleByLocale": {
+      "en": "Junior Product Manager for Investment Funds with German",
+      "it": "Junior Product Manager for Investment Funds with German",
+      "de": "Junior Product Manager for Investment Funds with German",
+      "fr": "Junior Product Manager for Investment Funds with German"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "it": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "de": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "fr": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data."
+    },
+    "slugByLocale": {
+      "en": "junior-product-manager-for-investment-funds-with-german-ubs",
+      "it": "junior-product-manager-for-investment-funds-with-german-ubs",
+      "de": "junior-product-manager-for-investment-funds-with-german-ubs",
+      "fr": "junior-product-manager-for-investment-funds-with-german-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 46000,
+    "salaryMax": 78500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "global-wealth-management-marketing-strategist-apac-ubs",
+    "title": "Global Wealth Management Marketing Strategist, APAC",
+    "titleByLocale": {
+      "en": "Global Wealth Management Marketing Strategist, APAC",
+      "it": "Global Wealth Management Marketing Strategist, APAC",
+      "de": "Global Wealth Management Marketing Strategist, APAC",
+      "fr": "Global Wealth Management Marketing Strategist, APAC"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "en": "We are looking for a Marketing Strategist to support the UBS Global Wealth Management (GWM) business across the APAC region. Working as part of the regional Market Coverage team, you will set a clear, data-informed direction for brand and marketing activation across APAC countries and segments, ensure alignment with divisional priorities, and orchestrate partnerships that amplify growth, reputation, and client impact.\n\nScope & Impact\n• Work with the GWM regional marketing heads for Greater China, SEA/Japan and Australia and APAC Head of Marketing to shape the end-to-end Brand & Marketing planning process, integrating funnel goals and in-market priorities to deliver measurable outcomes.\n• Partner with IB and AM Marketing coverage and Media and Communications teams to foster stronger cross-divisional coordination and One Bank brand and marketing initiatives\n• Provide strategic guidance on value propositions, go-to-market strategies, key growth projects in partnership with the business and ensure narratives remain coherent and client-centric.\n• Lead a team specialised in digital client acquisition marketing efforts, collaborating across functions, divisions and external partners to design and execute innovative campaigns that drive awareness, interest and engagement in new and existing audiences\n• Work hand in hand with Marketing Excellence Labs (MELs), leveraging their expertise and insight for the benefit of the APAC region to deliver efficient and effective campaigns that grow existing clients and generate leads.\n• Act as a senior marketing advisor with an increased focus on Australia as a new and valuable GWM book and where IB is already strong and Japan where the business across the Group is ambitious to grow further.\n\nKey Responsibilities\n\nStrategy & Planning\n• Help define GWM’s multi-year marketing strategy and annual plan, including objectives by funnel stage and region, target-setting approach, and governance cadence.\n• Translate strategic priorities into integrated campaign roadmaps, briefing requirements, and KPIs; ensure consistency between top-funnel brand goals and mid/bottom-funnel performance targets.\n• Maintain a live portfolio view of programs, reallocating resources to the highest-impact opportunities amid constrained budgets and competitive noise.\n\nRegional & Cross-Divisional Support\n• Provide an objective APAC-wide perspective to avoid fragmented approaches and ensure cohesive regional strategy.\n• Support a cross-divisional construct offering strategic advice and partnering with on-the-ground teams to deliver integrated outcomes. Seek out efficiencies by collaborating with IB, AM and P&C divisions to collectively achieve positive business and client outcomes.\n• Bring to life regional on-the-ground knowledge of client behaviours and market dynamics for the benefit of all APAC country plans.\n\nBriefing & Creative Excellence\n• Co-create creative/media briefs that demand non-traditional ideas capable of breaking through clutter and driving earned amplification; steward agencies / internal teams to that quality bar.\n• Ensure briefs specify funnel requirements by market and articulate how partners will support GWM to align targets and evaluation frameworks.\n\nMeasurement & Optimization\n• Set and socialize measurement frameworks linking funnel progression to accelerate acquisition and business outcomes; run quarterly reviews to optimize mix, creative, and partnerships against target deltas.\n• Champion test-and-learn performance marketing (new formats/channels, neuroscience or message testing) to continuously sharpen propositions and creative effectiveness.",
+      "it": "We are looking for a Marketing Strategist to support the UBS Global Wealth Management (GWM) business across the APAC region. Working as part of the regional Market Coverage team, you will set a clear, data-informed direction for brand and marketing activation across APAC countries and segments, ensure alignment with divisional priorities, and orchestrate partnerships that amplify growth, reputation, and client impact.\n\nScope & Impact\n• Work with the GWM regional marketing heads for Greater China, SEA/Japan and Australia and APAC Head of Marketing to shape the end-to-end Brand & Marketing planning process, integrating funnel goals and in-market priorities to deliver measurable outcomes.\n• Partner with IB and AM Marketing coverage and Media and Communications teams to foster stronger cross-divisional coordination and One Bank brand and marketing initiatives\n• Provide strategic guidance on value propositions, go-to-market strategies, key growth projects in partnership with the business and ensure narratives remain coherent and client-centric.\n• Lead a team specialised in digital client acquisition marketing efforts, collaborating across functions, divisions and external partners to design and execute innovative campaigns that drive awareness, interest and engagement in new and existing audiences\n• Work hand in hand with Marketing Excellence Labs (MELs), leveraging their expertise and insight for the benefit of the APAC region to deliver efficient and effective campaigns that grow existing clients and generate leads.\n• Act as a senior marketing advisor with an increased focus on Australia as a new and valuable GWM book and where IB is already strong and Japan where the business across the Group is ambitious to grow further.\n\nKey Responsibilities\n\nStrategy & Planning\n• Help define GWM’s multi-year marketing strategy and annual plan, including objectives by funnel stage and region, target-setting approach, and governance cadence.\n• Translate strategic priorities into integrated campaign roadmaps, briefing requirements, and KPIs; ensure consistency between top-funnel brand goals and mid/bottom-funnel performance targets.\n• Maintain a live portfolio view of programs, reallocating resources to the highest-impact opportunities amid constrained budgets and competitive noise.\n\nRegional & Cross-Divisional Support\n• Provide an objective APAC-wide perspective to avoid fragmented approaches and ensure cohesive regional strategy.\n• Support a cross-divisional construct offering strategic advice and partnering with on-the-ground teams to deliver integrated outcomes. Seek out efficiencies by collaborating with IB, AM and P&C divisions to collectively achieve positive business and client outcomes.\n• Bring to life regional on-the-ground knowledge of client behaviours and market dynamics for the benefit of all APAC country plans.\n\nBriefing & Creative Excellence\n• Co-create creative/media briefs that demand non-traditional ideas capable of breaking through clutter and driving earned amplification; steward agencies / internal teams to that quality bar.\n• Ensure briefs specify funnel requirements by market and articulate how partners will support GWM to align targets and evaluation frameworks.\n\nMeasurement & Optimization\n• Set and socialize measurement frameworks linking funnel progression to accelerate acquisition and business outcomes; run quarterly reviews to optimize mix, creative, and partnerships against target deltas.\n• Champion test-and-learn performance marketing (new formats/channels, neuroscience or message testing) to continuously sharpen propositions and creative effectiveness.",
+      "de": "We are looking for a Marketing Strategist to support the UBS Global Wealth Management (GWM) business across the APAC region. Working as part of the regional Market Coverage team, you will set a clear, data-informed direction for brand and marketing activation across APAC countries and segments, ensure alignment with divisional priorities, and orchestrate partnerships that amplify growth, reputation, and client impact.\n\nScope & Impact\n• Work with the GWM regional marketing heads for Greater China, SEA/Japan and Australia and APAC Head of Marketing to shape the end-to-end Brand & Marketing planning process, integrating funnel goals and in-market priorities to deliver measurable outcomes.\n• Partner with IB and AM Marketing coverage and Media and Communications teams to foster stronger cross-divisional coordination and One Bank brand and marketing initiatives\n• Provide strategic guidance on value propositions, go-to-market strategies, key growth projects in partnership with the business and ensure narratives remain coherent and client-centric.\n• Lead a team specialised in digital client acquisition marketing efforts, collaborating across functions, divisions and external partners to design and execute innovative campaigns that drive awareness, interest and engagement in new and existing audiences\n• Work hand in hand with Marketing Excellence Labs (MELs), leveraging their expertise and insight for the benefit of the APAC region to deliver efficient and effective campaigns that grow existing clients and generate leads.\n• Act as a senior marketing advisor with an increased focus on Australia as a new and valuable GWM book and where IB is already strong and Japan where the business across the Group is ambitious to grow further.\n\nKey Responsibilities\n\nStrategy & Planning\n• Help define GWM’s multi-year marketing strategy and annual plan, including objectives by funnel stage and region, target-setting approach, and governance cadence.\n• Translate strategic priorities into integrated campaign roadmaps, briefing requirements, and KPIs; ensure consistency between top-funnel brand goals and mid/bottom-funnel performance targets.\n• Maintain a live portfolio view of programs, reallocating resources to the highest-impact opportunities amid constrained budgets and competitive noise.\n\nRegional & Cross-Divisional Support\n• Provide an objective APAC-wide perspective to avoid fragmented approaches and ensure cohesive regional strategy.\n• Support a cross-divisional construct offering strategic advice and partnering with on-the-ground teams to deliver integrated outcomes. Seek out efficiencies by collaborating with IB, AM and P&C divisions to collectively achieve positive business and client outcomes.\n• Bring to life regional on-the-ground knowledge of client behaviours and market dynamics for the benefit of all APAC country plans.\n\nBriefing & Creative Excellence\n• Co-create creative/media briefs that demand non-traditional ideas capable of breaking through clutter and driving earned amplification; steward agencies / internal teams to that quality bar.\n• Ensure briefs specify funnel requirements by market and articulate how partners will support GWM to align targets and evaluation frameworks.\n\nMeasurement & Optimization\n• Set and socialize measurement frameworks linking funnel progression to accelerate acquisition and business outcomes; run quarterly reviews to optimize mix, creative, and partnerships against target deltas.\n• Champion test-and-learn performance marketing (new formats/channels, neuroscience or message testing) to continuously sharpen propositions and creative effectiveness.",
+      "fr": "We are looking for a Marketing Strategist to support the UBS Global Wealth Management (GWM) business across the APAC region. Working as part of the regional Market Coverage team, you will set a clear, data-informed direction for brand and marketing activation across APAC countries and segments, ensure alignment with divisional priorities, and orchestrate partnerships that amplify growth, reputation, and client impact.\n\nScope & Impact\n• Work with the GWM regional marketing heads for Greater China, SEA/Japan and Australia and APAC Head of Marketing to shape the end-to-end Brand & Marketing planning process, integrating funnel goals and in-market priorities to deliver measurable outcomes.\n• Partner with IB and AM Marketing coverage and Media and Communications teams to foster stronger cross-divisional coordination and One Bank brand and marketing initiatives\n• Provide strategic guidance on value propositions, go-to-market strategies, key growth projects in partnership with the business and ensure narratives remain coherent and client-centric.\n• Lead a team specialised in digital client acquisition marketing efforts, collaborating across functions, divisions and external partners to design and execute innovative campaigns that drive awareness, interest and engagement in new and existing audiences\n• Work hand in hand with Marketing Excellence Labs (MELs), leveraging their expertise and insight for the benefit of the APAC region to deliver efficient and effective campaigns that grow existing clients and generate leads.\n• Act as a senior marketing advisor with an increased focus on Australia as a new and valuable GWM book and where IB is already strong and Japan where the business across the Group is ambitious to grow further.\n\nKey Responsibilities\n\nStrategy & Planning\n• Help define GWM’s multi-year marketing strategy and annual plan, including objectives by funnel stage and region, target-setting approach, and governance cadence.\n• Translate strategic priorities into integrated campaign roadmaps, briefing requirements, and KPIs; ensure consistency between top-funnel brand goals and mid/bottom-funnel performance targets.\n• Maintain a live portfolio view of programs, reallocating resources to the highest-impact opportunities amid constrained budgets and competitive noise.\n\nRegional & Cross-Divisional Support\n• Provide an objective APAC-wide perspective to avoid fragmented approaches and ensure cohesive regional strategy.\n• Support a cross-divisional construct offering strategic advice and partnering with on-the-ground teams to deliver integrated outcomes. Seek out efficiencies by collaborating with IB, AM and P&C divisions to collectively achieve positive business and client outcomes.\n• Bring to life regional on-the-ground knowledge of client behaviours and market dynamics for the benefit of all APAC country plans.\n\nBriefing & Creative Excellence\n• Co-create creative/media briefs that demand non-traditional ideas capable of breaking through clutter and driving earned amplification; steward agencies / internal teams to that quality bar.\n• Ensure briefs specify funnel requirements by market and articulate how partners will support GWM to align targets and evaluation frameworks.\n\nMeasurement & Optimization\n• Set and socialize measurement frameworks linking funnel progression to accelerate acquisition and business outcomes; run quarterly reviews to optimize mix, creative, and partnerships against target deltas.\n• Champion test-and-learn performance marketing (new formats/channels, neuroscience or message testing) to continuously sharpen propositions and creative effectiveness."
+    },
+    "slugByLocale": {
+      "en": "global-wealth-management-marketing-strategist-apac-ubs",
+      "it": "global-wealth-management-marketing-strategist-apac-ubs",
+      "de": "global-wealth-management-marketing-strategist-apac-ubs",
+      "fr": "global-wealth-management-marketing-strategist-apac-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 50500,
+    "salaryMax": 89000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "research-apac-equity-asian-tech-associate-ubs",
+    "title": "Research - APAC Equity - Asian Tech Associate",
+    "titleByLocale": {
+      "it": "Ricerca - APAC Equity - Asian Tech Associate",
+      "en": "Research - APAC Equity - Asian Tech Associate",
+      "de": "Forschung - APAC Equity - Asian Tech Associate",
+      "fr": "Recherche - APAC Equity - Asian Tech Associate"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you an expert in assessing value and risk? Do you love to give advice, as well as educate? We’re looking for someone like that who can:\n• conduct valuation analysis focusing on the Technology sectors\n• engage in publication of thematic research\n• convert industry knowledge into understandable investment opinions\n• build and maintain financial models to evaluate historical information and generate projections\n• provide investment recommendations based on modelling, valuation and risk assessments\n• remain current on market developments to help frame investment strategies",
+      "en": "Are you an expert in assessing value and risk? Do you love to give advice, as well as educate? We’re looking for someone like that who can:\n• conduct valuation analysis focusing on the Technology sectors\n• engage in publication of thematic research\n• convert industry knowledge into understandable investment opinions\n• build and maintain financial models to evaluate historical information and generate projections\n• provide investment recommendations based on modelling, valuation and risk assessments\n• remain current on market developments to help frame investment strategies",
+      "de": "Are you an expert in assessing value and risk? Do you love to give advice, as well as educate? We’re looking for someone like that who can:\n• conduct valuation analysis focusing on the Technology sectors\n• engage in publication of thematic research\n• convert industry knowledge into understandable investment opinions\n• build and maintain financial models to evaluate historical information and generate projections\n• provide investment recommendations based on modelling, valuation and risk assessments\n• remain current on market developments to help frame investment strategies",
+      "fr": "Are you an expert in assessing value and risk? Do you love to give advice, as well as educate? We’re looking for someone like that who can:\n• conduct valuation analysis focusing on the Technology sectors\n• engage in publication of thematic research\n• convert industry knowledge into understandable investment opinions\n• build and maintain financial models to evaluate historical information and generate projections\n• provide investment recommendations based on modelling, valuation and risk assessments\n• remain current on market developments to help frame investment strategies"
+    },
+    "slugByLocale": {
+      "it": "research-apac-equity-asian-tech-associate-ubs",
+      "en": "research-apac-equity-asian-tech-associate-ubs",
+      "de": "research-apac-equity-asian-tech-associate-ubs",
+      "fr": "research-apac-equity-asian-tech-associate-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "marketing-wealth-management-tirocinante-ubs",
+    "title": "Marketing Wealth Management Intern",
+    "titleByLocale": {
+      "it": "Marketing Wealth Management Tirocinante",
+      "en": "Marketing Wealth Management Intern",
+      "de": "Marketing Wealth Management Praktikant",
+      "fr": "Marketing Wealth Management Stagiaire"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Do you consider yourself a creative person and looking to learn more about the world of marketing? Do you have an special interest for events organization? Do you want to learn more on how the planning, content, logistics and execution of marketing events and other activities across the continent can add value to our clients? We’re looking for a marketing intern to help us:\n• support the plan, development and execution of marketing projects.\n• support administrative tasks for execution of UBS events in Latin America.\n• work collaboratively with internal partners across internal/corporate communications, brand, media, web platforms, external agency partners, and third-party event partners.\n• produce client literature including factsheets, presentations, email invitations, event announcements, among others.\n• make sure marketing materials comply with our brand guidelines, policies and regulatory requirements.",
+      "en": "Do you consider yourself a creative person and looking to learn more about the world of marketing? Do you have an special interest for events organization? Do you want to learn more on how the planning, content, logistics and execution of marketing events and other activities across the continent can add value to our clients? We’re looking for a marketing intern to help us:\n• support the plan, development and execution of marketing projects.\n• support administrative tasks for execution of UBS events in Latin America.\n• work collaboratively with internal partners across internal/corporate communications, brand, media, web platforms, external agency partners, and third-party event partners.\n• produce client literature including factsheets, presentations, email invitations, event announcements, among others.\n• make sure marketing materials comply with our brand guidelines, policies and regulatory requirements.",
+      "de": "Do you consider yourself a creative person and looking to learn more about the world of marketing? Do you have an special interest for events organization? Do you want to learn more on how the planning, content, logistics and execution of marketing events and other activities across the continent can add value to our clients? We’re looking for a marketing intern to help us:\n• support the plan, development and execution of marketing projects.\n• support administrative tasks for execution of UBS events in Latin America.\n• work collaboratively with internal partners across internal/corporate communications, brand, media, web platforms, external agency partners, and third-party event partners.\n• produce client literature including factsheets, presentations, email invitations, event announcements, among others.\n• make sure marketing materials comply with our brand guidelines, policies and regulatory requirements.",
+      "fr": "Do you consider yourself a creative person and looking to learn more about the world of marketing? Do you have an special interest for events organization? Do you want to learn more on how the planning, content, logistics and execution of marketing events and other activities across the continent can add value to our clients? We’re looking for a marketing intern to help us:\n• support the plan, development and execution of marketing projects.\n• support administrative tasks for execution of UBS events in Latin America.\n• work collaboratively with internal partners across internal/corporate communications, brand, media, web platforms, external agency partners, and third-party event partners.\n• produce client literature including factsheets, presentations, email invitations, event announcements, among others.\n• make sure marketing materials comply with our brand guidelines, policies and regulatory requirements."
+    },
+    "slugByLocale": {
+      "it": "marketing-wealth-management-tirocinante-ubs",
+      "en": "marketing-wealth-management-intern-ubs",
+      "de": "marketing-wealth-management-praktikant-ubs",
+      "fr": "marketing-wealth-management-stagiaire-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "marketing-wealth-management-intern-ubs"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "marketing-wealth-management-intern-ubs"
+      ],
+      "de": [
+        "marketing-wealth-management-intern-ubs"
+      ],
+      "fr": [
+        "marketing-wealth-management-intern-ubs"
+      ]
+    },
+    "salaryMin": 41600,
+    "salaryMax": 74000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "internship-in-hr-risk-data-protection-team-ubs",
+    "title": "Internship in HR Risk Data Protection Team",
+    "titleByLocale": {
+      "it": "Internship in Risorse Umane Risk Data Protection Team",
+      "en": "Internship in HR Risk Data Protection Team",
+      "de": "Internship in Personalwesen Risk Data Protection Team",
+      "fr": "Internship in Ressources Humaines Risk Data Protection Team"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "We’re looking for someone who can: - Drive ad hoc tasks to support the team - Treat sensitive information with professionalism and discretion - Develop UBS Persons Data Protection knowledge and be able to work on cases in the future - Minimalize risk across our team and organization",
+      "en": "We’re looking for someone who can: - Drive ad hoc tasks to support the team - Treat sensitive information with professionalism and discretion - Develop UBS Persons Data Protection knowledge and be able to work on cases in the future - Minimalize risk across our team and organization",
+      "de": "We’re looking for someone who can: - Drive ad hoc tasks to support the team - Treat sensitive information with professionalism and discretion - Develop UBS Persons Data Protection knowledge and be able to work on cases in the future - Minimalize risk across our team and organization",
+      "fr": "We’re looking for someone who can: - Drive ad hoc tasks to support the team - Treat sensitive information with professionalism and discretion - Develop UBS Persons Data Protection knowledge and be able to work on cases in the future - Minimalize risk across our team and organization"
+    },
+    "slugByLocale": {
+      "it": "internship-in-hr-risk-data-protection-team-ubs",
+      "en": "internship-in-hr-risk-data-protection-team-ubs",
+      "de": "internship-in-hr-risk-data-protection-team-ubs",
+      "fr": "internship-in-hr-risk-data-protection-team-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "salaryMin": 51500,
+    "salaryMax": 88000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "relationship-manager-wm-ubs",
+    "title": "Relationship Manager WM",
+    "titleByLocale": {
+      "it": "Relationship Manager WM",
+      "en": "Relationship Manager WM",
+      "de": "Relationship Manager WM",
+      "fr": "Relationship Manager WM"
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "addressLocality": "Ticino",
+    "descriptionByLocale": {
+      "it": "Are you a senior relationship manager with a strong commercial drive and an established network in Lebanon? Do you consistently deliver high-quality advisory to sophisticated clients and generate sustainable business growth? We are looking for a Relationship Manager to cover HNW/UHNW clients in the Near East segment who will:\n• Build, develop and grow a portfolio of HNW/UHNW clients, with a strong focus on Lebanon and the broader Near East region\n• Leverage an established personal network to drive new client acquisition and increase market share in the target segment\n• Deliver holistic, high-quality investment advice in close collaboration with investment specialists and product partners\n• Define and execute a structured client development plan with clear revenue and NNM objectives\n• Maintain a thorough understanding of client profiles, investment suitability and portfolio performance\n• Act as a first line of defense by ensuring full compliance with regulatory requirements and promoting a strong risk culture",
+      "en": "Are you a senior relationship manager with a strong commercial drive and an established network in Lebanon? Do you consistently deliver high-quality advisory to sophisticated clients and generate sustainable business growth? We are looking for a Relationship Manager to cover HNW/UHNW clients in the Near East segment who will:\n• Build, develop and grow a portfolio of HNW/UHNW clients, with a strong focus on Lebanon and the broader Near East region\n• Leverage an established personal network to drive new client acquisition and increase market share in the target segment\n• Deliver holistic, high-quality investment advice in close collaboration with investment specialists and product partners\n• Define and execute a structured client development plan with clear revenue and NNM objectives\n• Maintain a thorough understanding of client profiles, investment suitability and portfolio performance\n• Act as a first line of defense by ensuring full compliance with regulatory requirements and promoting a strong risk culture",
+      "de": "Are you a senior relationship manager with a strong commercial drive and an established network in Lebanon? Do you consistently deliver high-quality advisory to sophisticated clients and generate sustainable business growth? We are looking for a Relationship Manager to cover HNW/UHNW clients in the Near East segment who will:\n• Build, develop and grow a portfolio of HNW/UHNW clients, with a strong focus on Lebanon and the broader Near East region\n• Leverage an established personal network to drive new client acquisition and increase market share in the target segment\n• Deliver holistic, high-quality investment advice in close collaboration with investment specialists and product partners\n• Define and execute a structured client development plan with clear revenue and NNM objectives\n• Maintain a thorough understanding of client profiles, investment suitability and portfolio performance\n• Act as a first line of defense by ensuring full compliance with regulatory requirements and promoting a strong risk culture",
+      "fr": "Are you a senior relationship manager with a strong commercial drive and an established network in Lebanon? Do you consistently deliver high-quality advisory to sophisticated clients and generate sustainable business growth? We are looking for a Relationship Manager to cover HNW/UHNW clients in the Near East segment who will:\n• Build, develop and grow a portfolio of HNW/UHNW clients, with a strong focus on Lebanon and the broader Near East region\n• Leverage an established personal network to drive new client acquisition and increase market share in the target segment\n• Deliver holistic, high-quality investment advice in close collaboration with investment specialists and product partners\n• Define and execute a structured client development plan with clear revenue and NNM objectives\n• Maintain a thorough understanding of client profiles, investment suitability and portfolio performance\n• Act as a first line of defense by ensuring full compliance with regulatory requirements and promoting a strong risk culture"
+    },
+    "slugByLocale": {
+      "it": "relationship-manager-wm-ubs",
+      "en": "relationship-manager-wm-ubs",
+      "de": "relationship-manager-wm-ubs",
+      "fr": "relationship-manager-wm-ubs"
+    },
+    "sector": "Finanza / Banca",
+    "expiredAt": "2026-06-17T23:34:45.767Z",
+    "previousSlugs": [
+      "responsabile-relazioni-wm-ubs-ticino"
+    ],
+    "salaryMin": 68000,
+    "salaryMax": 103000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -1451,38 +2158,6 @@
     },
     "salaryMin": 68000,
     "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "client-associate-ubs-2",
-    "title": "Client Associate",
-    "titleByLocale": {
-      "en": "Client Associate",
-      "it": "Client Associate",
-      "de": "Client Associate",
-      "fr": "Client Associate"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for somebody to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "it": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for somebody to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "de": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for somebody to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
-      "fr": "Are you truly service oriented? Do you know how to take care of people?\n\nWe’re looking for somebody to:\n\n• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
-    },
-    "slugByLocale": {
-      "en": "client-associate-ubs",
-      "it": "client-associate-ubs-2",
-      "de": "client-associate-ubs-2",
-      "fr": "client-associate-ubs-2"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-16T14:32:05.555Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
@@ -5737,38 +6412,6 @@
     },
     "sector": "Finanza / Banca",
     "expiredAt": "2026-06-09T23:23:44.579Z",
-    "salaryMin": 49500,
-    "salaryMax": 75000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "cash-equities-crb-quant-developer-ubs",
-    "title": "Cash Equities CRB Quant Developer",
-    "titleByLocale": {
-      "en": "Cash Equities CRB Quant Developer",
-      "it": "Cash Equities CRB Quant Sviluppatore",
-      "de": "Cash Equities CRB Quant Entwickler",
-      "fr": "Cash Equities CRB Quant Développeur"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "Ticino",
-    "addressLocality": "Ticino",
-    "descriptionByLocale": {
-      "en": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
-      "it": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
-      "de": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department",
-      "fr": "• We are seeking an experienced candidate to join our Cash Equities CRB Quantitative Developer team within UBS Global Markets\n• This is a fast paced and collaborative team that are responsible for the development and enhancement of the best-in-class Cash Equities platform\n• The team sits within the Global Markets Principal Flow Trading stream, and has a business reporting line\n• You will be operating within a high-performing, fast paced quant development team, whose goals are directly aligned to the success of the business\n• You will take ownership of initiatives from initial analysis through to design, implementation and delivery\n• You will proactively suggest and drive through improvements to the platform and our framework\n• You will be involved in every aspect of algorithmic trading:\no Market connectivity\no Designing, implementing and back-testing hedging, risk management and execution strategies\no Designing and building analytics to assess model and platform performance\no Latency analysis and optimisation\no Enhancing the proprietary eTrading framework that is used across the department"
-    },
-    "slugByLocale": {
-      "en": "cash-equities-crb-quant-developer-ubs",
-      "it": "cash-equities-crb-quant-developer-ubs",
-      "de": "cash-equities-crb-quant-developer-ubs",
-      "fr": "cash-equities-crb-quant-developer-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-06-09T12:27:36.821Z",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
@@ -15144,52 +15787,6 @@
     },
     "salaryMin": 68000,
     "salaryMax": 103000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "trade-client-service-specialista-ubs",
-    "title": "Trade & Client Service Specialist",
-    "titleByLocale": {
-      "it": "Trade & Client Service Specialista",
-      "en": "Trade & Client Service Specialist",
-      "de": "Trade & Client Service Spezialist",
-      "fr": "Trade & Client Service Spécialiste"
-    },
-    "company": "UBS",
-    "companyKey": "ubs",
-    "location": "",
-    "addressLocality": "",
-    "descriptionByLocale": {
-      "it": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
-      "en": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
-      "de": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds.",
-      "fr": "Are you looking for a new challenge within the fast-paced Wealth Management environment? Do you want to be part of a high performing team? Are you curious, proactive, and always striving to bring positive impact to clients? We’re looking for a Tade and Client Service Specialist to:\n• Support Client Advisors in UK & Jersey\n• Process client orders on an execution only basis covering equities, ETF's, fixed income, structured products, FX options, SPI's and hedge funds.\n• Ensuring that administrative arrangements and client-related processes are completed accurately\n• Carry out daily transaction processing and complex troubleshooting in line with WMUK & Jersey trading rules\n• Dealing directly with external and internal clients\n• Ensure all risk management controls are adhered to in order to identify and mitigate any potential risk and appropriate management information (MI) is produced\n• Manage the input and release of payments for the Jersey business.\n• Perform call backs on payments that fall within the relevant thresholds."
-    },
-    "slugByLocale": {
-      "it": "trade-client-service-specialista-ubs",
-      "en": "trade-client-service-specialist-ubs",
-      "de": "trade-client-service-spezialist-ubs",
-      "fr": "trade-client-service-specialiste-ubs"
-    },
-    "sector": "Finanza / Banca",
-    "expiredAt": "2026-05-15T12:03:58.716Z",
-    "previousSlugs": [
-      "trade-client-service-specialist-ubs"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "trade-client-service-specialist-ubs"
-      ],
-      "de": [
-        "trade-client-service-specialist-ubs"
-      ],
-      "fr": [
-        "trade-client-service-specialist-ubs"
-      ]
-    },
-    "salaryMin": 49500,
-    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },
