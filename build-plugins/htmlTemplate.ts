@@ -50,9 +50,18 @@ export function asyncCssLink(href: string): string {
  * identical fallback in `staticPagesPlugin.ts` / `ogPagesPlugin.ts`, and the
  * `link[media="print"][href*="/assets/"]` selector the SPA boot path waits on
  * (`index.tsx#waitForAsyncStylesheet`). Emitted once per page.
+ *
+ * When the timer fires (i.e. the async swap fell back to the 3s timeout — the
+ * signal of an onload failure that can cause FOUC/CLS) it queues
+ * `sessionStorage._cssFallbackInfo`, which `services/analytics.ts` drains into
+ * the GA4 `css_fallback` event (`Analytics.trackCssFallback`). Keeping this
+ * telemetry here — identical to the sibling fallbacks — is what makes the
+ * post-deploy revert-trigger observable on every page that goes through
+ * `asyncCssHeadBlock` (job-detail, collection/faq, soft-landing, recency,
+ * sector, hub).
  */
 export const ASYNC_CSS_FALLBACK_SCRIPT =
-  `<script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}},3000)</script>`;
+  `<script>setTimeout(function(){var ls=document.querySelectorAll('link[media="print"][href*="/assets/"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,ts:new Date().toISOString()}))}catch(e){}}},3000)</script>`;
 
 /**
  * Full non-render-blocking CSS `<head>` block for static SEO landing pages:

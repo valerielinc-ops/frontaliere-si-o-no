@@ -54,6 +54,9 @@ describe('asyncCssHeadBlock', () => {
     // 3s belt-and-braces flip present, covering MULTIPLE links (querySelectorAll).
     expect(out).toContain('querySelectorAll');
     expect(out).toMatch(/setTimeout\(function\(\)\{[^}]*media="print"/);
+    // Fallback telemetry: queues _cssFallbackInfo for Analytics.trackCssFallback
+    // (parity with the sibling fallbacks — keeps the revert-trigger observable).
+    expect(out).toContain("sessionStorage.setItem('_cssFallbackInfo'");
   });
 
   it('omits the entry sheet when no SPA bundle is present but still async-loads seo-static.css', () => {
