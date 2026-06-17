@@ -591,6 +591,15 @@ input[type=number] { -moz-appearance: textfield; }
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
+  /* Extra desktop breakpoint between xl (1280) and 2xl (1536), used by the
+     article side-rail layout to widen the gutters to 300px half-page ad rails.
+     Defined as a real breakpoint (not the arbitrary `min-[1400px]:` variant)
+     because in v4 the arbitrary variant sorted BEFORE `xl:` and so lost the
+     cascade — the rail-widening never applied and rails stayed at 180px,
+     causing 300x600 creatives to overflow the article. A named breakpoint
+     sorts by value, so `xlw:` correctly overrides `xl:` at ≥1400px. */
+  --breakpoint-xlw: 1400px;
+
   --color-slate-850: #1e293b;
   --color-slate-950: #020617;
 
