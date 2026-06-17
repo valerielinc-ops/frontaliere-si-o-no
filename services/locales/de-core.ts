@@ -3264,6 +3264,7 @@ Regeln:
  'publisherDashboard.col.applyClicks': 'Bewerbungsklicks',
  'publisherDashboard.tier.free': 'Kostenlos',
  'publisherDashboard.tier.sponsored': 'Gesponsert',
+ 'publisherDashboard.tier.azienda': 'Unternehmensplan',
  'publisherDashboard.status.draft': 'Entwurf',
  'publisherDashboard.status.pending_payment': 'Zahlung ausstehend',
  'publisherDashboard.status.paid': 'Aktiv',
