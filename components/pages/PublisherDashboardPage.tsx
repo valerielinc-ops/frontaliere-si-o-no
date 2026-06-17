@@ -76,6 +76,14 @@ function tsToMillis(value: unknown): number | null {
   return null;
 }
 
+// Company name → slug, identical algorithm to scripts/lib/employer-sectors.mjs
+// slugify so the dashboard lookup key matches the employer_crawled_traffic doc id.
+function slugifyCompanyName(s: string): string {
+  return String(s || '')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
 const BILLING_PORTAL_ENDPOINT =
   'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherBillingPortal';
 const ARCHIVE_ENDPOINT =
@@ -163,6 +171,7 @@ const PublisherDashboardPage: React.FC = () => {
   const { user, loading, signIn } = useAuth();
   const [rows, setRows] = useState<DashboardRow[]>([]);
   const [apps, setApps] = useState<ApplicationRow[]>([]);
+  const [crawledCandidates, setCrawledCandidates] = useState(0);
   const [state, setState] = useState<'idle' | 'loading' | 'ready' | 'error'>('idle');
   const [billingBusy, setBillingBusy] = useState(false);
   const [barsMounted, setBarsMounted] = useState(false);
@@ -369,9 +378,25 @@ const PublisherDashboardPage: React.FC = () => {
           // applications optional / index building
         }
 
+        // Crawled "free traffic" we already send this employer (proof + upsell):
+        // match the publisher's company name → slug → employer_crawled_traffic doc.
+        let crawledCandidates = 0;
+        try {
+          const firstCompany = snap.docs.map((d) => (d.data() as Record<string, unknown>)?.company as { name?: string } | undefined)
+            .map((c) => c?.name).find(Boolean);
+          const companyKey = slugifyCompanyName(String(firstCompany || ''));
+          if (companyKey) {
+            const ct = await getDoc(doc(db, 'employer_crawled_traffic', companyKey));
+            if (ct.exists()) crawledCandidates = Number((ct.data() as Record<string, unknown>)?.candidates) || 0;
+          }
+        } catch {
+          // optional — panel just stays hidden if no match / not yet populated
+        }
+
         if (!cancelled) {
           setRows(result);
           setApps(appRows);
+          setCrawledCandidates(crawledCandidates);
           setState('ready');
           // Defer two frames so the funnel bars animate from 0 on first paint.
           requestAnimationFrame(() =>
@@ -578,6 +603,19 @@ const PublisherDashboardPage: React.FC = () => {
               )}
             </div>
           </section>
+
+          {/* ── Crawled "free traffic we already send you" (proof + upsell) ── */}
+          {crawledCandidates > 0 && (
+            <section aria-labelledby="dash-crawled-heading" className="mb-8 animate-fade-in-up">
+              <h2 id="dash-crawled-heading" className="sr-only">{t('publisherDashboard.crawled.heading')}</h2>
+              <div className="rounded-3xl border border-edge bg-success-subtle p-6 sm:p-7">
+                <div className="text-2xl font-extrabold font-display text-strong">
+                  {crawledCandidates} {t('publisherDashboard.crawled.unit')}
+                </div>
+                <p className="mt-1 text-sm text-body">{t('publisherDashboard.crawled.desc')}</p>
+              </div>
+            </section>
+          )}
 
           {/* ── Per-ad cards with conversion funnel ───────────────── */}
           <section aria-labelledby="dash-ads-heading">
