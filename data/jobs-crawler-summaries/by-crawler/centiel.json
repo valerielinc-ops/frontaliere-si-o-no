@@ -1,59 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-06-16T22:30:20.642Z",
+  "generatedAt": "2026-06-17T12:35:46.366Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 2190,
-  "avgDurationMs": 2190,
+  "unchangedCount": 0,
+  "durationMs": 3601,
+  "avgDurationMs": 3601,
   "durationHistory": [
-    2190
+    3601
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Research & Development Engineer",
-      "slug": "research-development-engineer-centiel-ticino",
-      "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
-      "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
-      "company": "Centiel",
-      "companyKey": "centiel",
-      "companyDomain": "centiel.com",
-      "location": "Cadro (Lugano)",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia / UPS / Power Protection",
-      "source": "centiel-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-06-16",
-      "employmentType": "100%",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Luserte 11",
-      "postalCode": "6572",
-      "id": "centiel-ced8dc312c7e",
-      "firstSeenAt": "2026-04-13T21:21:09.576Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "title": "Category Buyer",
       "slug": "category-buyer-centiel-ticino",
@@ -72,7 +32,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -109,7 +69,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -146,7 +106,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -161,6 +121,43 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Research & Development Engineer",
+      "slug": "research-development-engineer-centiel-ticino",
+      "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
+      "applyUrl": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
+      "company": "Centiel",
+      "companyKey": "centiel",
+      "companyDomain": "centiel.com",
+      "location": "Cadro (Lugano)",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia / UPS / Power Protection",
+      "source": "centiel-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-17",
+      "employmentType": "100%",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "id": "centiel-ced8dc312c7e",
+      "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
@@ -183,7 +180,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -202,5 +199,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
