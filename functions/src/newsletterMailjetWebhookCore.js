@@ -43,11 +43,16 @@ function mapMailjetEvent(event) {
 // ── Extract campaign ID from Mailjet event data ──────────────
 
 function extractCampaignId(eventData) {
- // CustomID is set by our email-cascade when sending via Mailjet Send API
+ // CustomID is set by our email-cascade (campaignIdTag → the `weekly_*` id) when
+ // sending via the Mailjet Send API, and Mailjet echoes it back on every event
+ // (incl. open/click). Preferring it here is what makes Mailjet open events
+ // match the A/B report's `events where campaign_id == weekly_*` query — keep it
+ // FIRST so opens are never bucketed under Mailjet's internal numeric id.
  if (eventData.CustomID) return String(eventData.CustomID);
  // customcampaign is Mailjet's own campaign name field
  if (eventData.customcampaign) return String(eventData.customcampaign);
- // mj_campaign_id is Mailjet's internal campaign ID
+ // mj_campaign_id is Mailjet's internal numeric campaign id (last-resort fallback
+ // only — the A/B report cannot match opens carrying this instead of weekly_*).
  if (eventData.mj_campaign_id) return String(eventData.mj_campaign_id);
  return 'unknown';
 }
