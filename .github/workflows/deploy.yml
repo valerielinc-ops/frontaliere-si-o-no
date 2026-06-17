@@ -1008,16 +1008,26 @@ jobs:
           # The offload step (which already read+rewrote every CONTENT html in a
           # top-level-only walk) emitted its verdict to
           # $RUNNER_TEMP/assets-same-origin.marker using the SAME superset regex
-          # (ASSETS_SAME_ORIGIN_RX, a 1:1 port of the ERE below) — covering every
-          # content *.html at ANY depth. Reuse it instead of re-reading the whole
-          # ~470k-file HTML corpus a second time (~6min). The marker does NOT cover
-          # the three TOP-LEVEL dist/{assets,data,images} dirs that walk skips
-          # (vite assets / *.json / binary — no *.html by construction), so belt-
-          # grep just those three roots here (cheap, near-empty) to keep coverage
-          # IDENTICAL to the original full-tree grep. FAIL-SAFE: a missing marker
-          # (offload crashed mid-walk) falls back to the original full-tree grep,
-          # so this guard is NEVER weaker than before.
-          ASSET_RX="[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)"
+          # (ASSETS_SAME_ORIGIN_RX) — covering every content *.html at ANY depth.
+          # Reuse it instead of re-reading the whole ~470k-file HTML corpus a second
+          # time (~6min). The marker does NOT cover the three TOP-LEVEL
+          # dist/{assets,data,images} dirs that walk skips (vite assets / *.json /
+          # binary — no *.html by construction), so belt-grep just those three roots
+          # here (cheap, near-empty) to keep coverage IDENTICAL to the original
+          # full-tree grep. FAIL-SAFE: a missing marker (offload crashed mid-walk)
+          # falls back to the original full-tree grep, so this guard is NEVER weaker
+          # than before.
+          # SINGLE SOURCE OF TRUTH (no copy-paste, AGENTS.md #6): the bash ERE below
+          # is NOT hand-maintained — it is the exact string the offload marker
+          # producer uses, exported as ASSETS_SAME_ORIGIN_ERE from
+          # build-plugins/shared/cdnAssetOffloadRx.mjs. Deriving it here makes a
+          # marker↔grep divergence (→ 404 on offloaded /assets/) impossible.
+          ASSET_RX="$(node -e "import('./build-plugins/shared/cdnAssetOffloadRx.mjs').then(m=>process.stdout.write(m.ASSETS_SAME_ORIGIN_ERE))" 2>/dev/null || true)"
+          if [ -z "$ASSET_RX" ]; then
+            # Defensive fallback (module unreadable for any reason): inline the same
+            # ERE literal so the guard is never weaker than before.
+            ASSET_RX="[\"'(]/?assets/[^\"'() ]*\.(js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)"
+          fi
           marker="${RUNNER_TEMP:-/tmp}/assets-same-origin.marker"
           # `|| true` on EVERY grep/tail pipe substitution below: the GitHub
           # default shell is `bash -eo pipefail`, so grep exiting 1 when it finds
