@@ -87,7 +87,7 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://www.fedlex.admin.ch/eli/cc/1994/2386_2386_2386/it',
-      'https://www.bsv.admin.ch/bsv/it/home/sozialversicherungen/bv.html',
+      'https://www.bsv.admin.ch/it',
     ],
   },
   {
@@ -158,7 +158,7 @@ export const FAQ_avsLpp: ReadonlyArray<FaqHubEntry> = [
     },
     sources: [
       'https://eur-lex.europa.eu/legal-content/IT/TXT/?uri=CELEX%3A32004R0883',
-      'https://www.zas.admin.ch/zas/it/home/particuliers/prestations-dans-un-etat-membre-de-l-u.html',
+      'https://www.zas.admin.ch/it',
     ],
   },
   {

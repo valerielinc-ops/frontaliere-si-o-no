@@ -25,9 +25,9 @@
  *   --out DIR        cartella bozze (default data/employer-outreach/drafts)
  *   --top N          genera per le prime N aziende per candidati (default 10)
  *   --min N          soglia minima candidati (default 10)
- *   --include-public includi anche enti pubblici (default: esclusi — concorsi
- *                    obbligatori, non comprano sponsorizzati)
- *   --days-label STR etichetta periodo nelle email (default "negli ultimi 90 giorni")
+ *   --days-label STR etichetta periodo nelle email (default "negli ultimi 3 mesi")
+ *
+ * Nessuna azienda è esclusa: il settore è solo un'etichetta di contesto.
  */
 
 import fs from 'node:fs';
@@ -52,11 +52,15 @@ const PRICE = 'CHF 49 al mese per annuncio';
  * numero REALE di candidati + RUOLO più cliccato, connessi al problema (i click
  * si perdono). Tono da pari, una sola call-to-action a basso attrito per touch.
  */
-function buildSequence({ company, candidates, periodLabel, contactName, topRole }) {
-  const hi = contactName ? `Ciao ${contactName},` : 'Buongiorno,';
-  // Ruolo accorciato per leggibilità; fallback neutro se assente.
+export function buildSequence({ company, candidates, periodLabel, contactName, topRole }) {
+  // Solo il nome di battesimo nel saluto ("Ciao Denise,"), non nome+cognome.
+  const firstName = (contactName || '').trim().split(/\s+/)[0];
+  const hi = firstName ? `Ciao ${firstName},` : 'Buongiorno,';
+  // Ruolo accorciato per leggibilità; fallback neutro se assente o generico
+  // (titoli-pagina tipo "Lavora con noi", "Concorsi", "Careers" non sono ruoli).
   const role = (topRole || '').replace(/\s+/g, ' ').trim();
-  const pagina = role ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
+  const GENERIC_ROLE = /lavora con noi|lavorare con noi|concors|careers?|^jobs?$|offerte di lavoro|posizioni aperte|unsolicited|spontane/i;
+  const pagina = role && !GENERIC_ROLE.test(role) ? `pagina di "${role.slice(0, 48)}"` : 'pagina lavoro';
   return [
     {
       touch: 1, gapDays: 0, subject: 'candidati inviati',
@@ -167,4 +171,5 @@ function run() {
   console.log('Nessun invio eseguito. Revisiona le bozze prima di qualunque step di invio.');
 }
 
-run();
+// Esegui solo se invocato direttamente (così buildSequence è importabile senza side-effect).
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) run();

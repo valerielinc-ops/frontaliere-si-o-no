@@ -204,7 +204,7 @@ export const FAQ_lamal: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www.bag.admin.ch/bag/it/home/versicherungen/krankenversicherung/krankenversicherung-versicherte-mit-wohnsitz-in-der-schweiz/praemien.html',
+      'https://www.bag.admin.ch/it/assicurazione-malattie',
       'https://www.priminfo.admin.ch/',
     ],
   },
