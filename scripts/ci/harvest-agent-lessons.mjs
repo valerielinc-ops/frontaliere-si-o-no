@@ -163,6 +163,36 @@ export function tallyFindings(prs, { bucketOf = bucketFinding } = {}) {
   return { counts, examples };
 }
 
+// ---- `already-fixed` avoidability classifier (DETERMINISTIC) ----
+// A `fix-outcome:already-fixed` marker is recurring-BURN signal worth escalating
+// ONLY when the zero-Claude pre-flight gate (check-issue-already-resolved.mjs)
+// COULD plausibly have caught it but didn't → a real gate gap. For two whole
+// classes of issue the gate, by its own deliberately-conservative design, NEVER
+// short-circuits — so a genuine Claude run discovering "already-fixed" is the
+// EXPECTED minimal-cost confirmation path, NOT a rule violation, and counting it
+// re-fires escalation #2290 perpetually with no actionable fix (you cannot make
+// the gate aggressive enough without dropping real bugs — explicitly forbidden by
+// the gate's bias-to-PROCEED invariant). Those two classes:
+//   1. AGGREGATE follow-ups ("N item deferred", N≥2, or sweep/batch/bulk): the gate
+//      refuses to short-circuit them (one item resolved ≠ all). Their title carries
+//      the count verbatim (post-merge-followup.yml batches them, AGENTS.md #925), so
+//      this is detectable from the title alone — no extra body fetch.
+//   2. NON-follow-up issues (crawler-health, validation-failure, free-form): the
+//      gate's scope is `follow-up`-labelled only; everything else is always let
+//      through. A crawler-health `stale` that auto-resolves transiently (#2147) can
+//      never be pre-empted by a content-token matcher.
+// Same feedback-loop class as the reconcile-bot / pre-flight-deterministic skips in
+// the outcome loop below: don't count burn that no safe gate could have prevented.
+// Pure → unit-tested. `labels` is an array of label-name strings.
+export function isAvoidableAlreadyFixed(title, labels) {
+  const names = Array.isArray(labels) ? labels : [];
+  if (!names.includes('follow-up')) return false; // out of the gate's scope
+  const m = String(title || '').match(/(\d+)\s+items?\s+deferred/i);
+  if (m && Number(m[1]) >= 2) return false; // aggregate by explicit count
+  if (/\b(?:sweep|batch|bulk)\b/i.test(String(title || ''))) return false; // aggregate by keyword
+  return true; // single-item follow-up → the gate's real target → countable
+}
+
 // ---- 2. Recurring issue classes (created in window) ----
 export function issueClass(title, labels) {
   const t = title || '';
@@ -256,8 +286,10 @@ async function main() {
   const outcomeCounts = {};
   const outcomeExamples = {};
   const fixIssues = ghJson(['issue', 'list', '--search', `label:agent:triaged updated:>=${sinceDay}`,
-    '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number']) || [];
-  for (const { number } of fixIssues.slice(0, MAX_ISSUES)) {
+    '--state', 'all', '--limit', String(MAX_ISSUES), '--json', 'number,title,labels']) || [];
+  for (const issue of fixIssues.slice(0, MAX_ISSUES)) {
+    const { number } = issue;
+    const labelNames = (issue.labels || []).map((l) => l.name);
     const data = ghJson(['issue', 'view', String(number), '--json', 'comments']);
     const comments = data?.comments || [];
     // Dedup PER-ISSUE: una stessa issue ri-accodata dal followup-drainer (rescue
@@ -299,6 +331,12 @@ async function main() {
           // quando rileva body malformato o audit-curl PRIMA di spendere un run Claude.
           // Contarli come burn gonfia il bucket e ri-scalderebbe l'escalation stessa.
           cb.includes('Pre-flight drainer (zero-Claude')) continue;
+      // `already-fixed` on an issue the pre-flight gate could NEVER safely have
+      // short-circuited (aggregate follow-up, or non-follow-up out of gate scope)
+      // is the EXPECTED confirmation path, not preventable burn → don't escalate it
+      // (root cause of #2290: bucket re-fired at 9/14d, all 5 examples aggregate or
+      // non-follow-up). Single-item follow-ups — the gate's real target — still count.
+      if (code === 'already-fixed' && !isAvoidableAlreadyFixed(issue.title, labelNames)) continue;
       const k = `fix-outcome:${code}`;
       if (seenThisIssue.has(k)) continue;
       seenThisIssue.add(k);
