@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-06-17T00:19:34.184Z",
+  "assembledAt": "2026-06-17T14:27:25.662Z",
   "jobs": [
     {
       "id": "company-lr4hby",
@@ -76,7 +76,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u553",
@@ -227,7 +228,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u552",
@@ -275,7 +277,7 @@
       },
       "slugByLocale": {
         "it": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
-        "en": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
+        "en": "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552",
         "de": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
         "fr": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano"
       },
@@ -323,8 +325,9 @@
       },
       "previousSlugs": [
         "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano",
-        "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552"
-      ]
+        "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54d",
@@ -416,7 +419,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s84r",
@@ -530,7 +534,8 @@
       "addressLocality": "manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54f",
@@ -579,7 +584,7 @@
       },
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-        "en": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
+        "en": "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano-l4u54f",
         "de": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
         "fr": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano"
       },
@@ -629,8 +634,10 @@
         ]
       },
       "previousSlugs": [
-        "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano-l4u54f"
-      ]
+        "master-mse-in-elektrotechnik-supsi-dti-lugano",
+        "master-mse-en-genie-electrique-supsi-dti-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54e",
@@ -680,7 +687,7 @@
       },
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-        "en": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
+        "en": "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e",
         "de": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
         "fr": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d"
       },
@@ -695,9 +702,33 @@
           "della termodinamica e fluidodinamica e della simulazione.",
           "Buona capacità di comunicazione e di presentazione in inglese."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "La frequenza del corso di Master MSE.",
+          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
+          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
+          "dei materiali polimerici e compositi;",
+          "dell’ingegneria meccanica;",
+          "della termodinamica e fluidodinamica e della simulazione.",
+          "Buona capacità di comunicazione e di presentazione in inglese."
+        ],
+        "de": [
+          "La frequenza del corso di Master MSE.",
+          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
+          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
+          "dei materiali polimerici e compositi;",
+          "dell’ingegneria meccanica;",
+          "della termodinamica e fluidodinamica e della simulazione.",
+          "Buona capacità di comunicazione e di presentazione in inglese."
+        ],
+        "fr": [
+          "La frequenza del corso di Master MSE.",
+          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
+          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
+          "dei materiali polimerici e compositi;",
+          "dell’ingegneria meccanica;",
+          "della termodinamica e fluidodinamica e della simulazione.",
+          "Buona capacità di comunicazione e di presentazione in inglese."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -736,9 +767,9 @@
       "previousSlugs": [
         "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano",
         "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
-        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano",
-        "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e"
-      ]
+        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54g",
@@ -870,7 +901,8 @@
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54c",
@@ -1014,7 +1046,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl58",
@@ -1081,9 +1114,36 @@
           "Disponibilità e interesse per l’attività di ricerca",
           "Padronanza della lingua italiana, di una seconda lingua nazionale e dell’inglese"
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "Laurea magistrale in geoscienze o ambiti affini",
+          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
+          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
+          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
+          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
+          "Capacità di muoversi in terreni impervi e di alta montagna",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
+          "Disponibilità e interesse per l’attività di ricerca"
+        ],
+        "de": [
+          "Laurea magistrale in geoscienze o ambiti affini",
+          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
+          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
+          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
+          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
+          "Capacità di muoversi in terreni impervi e di alta montagna",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
+          "Disponibilità e interesse per l’attività di ricerca"
+        ],
+        "fr": [
+          "Laurea magistrale in geoscienze o ambiti affini",
+          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
+          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
+          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
+          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
+          "Capacità di muoversi in terreni impervi e di alta montagna",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
+          "Disponibilità e interesse per l’attività di ricerca"
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1126,7 +1186,8 @@
         "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
         "assistant-titulaire-d-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
         "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl5a",
@@ -1165,7 +1226,7 @@
       "firstSeenAt": "2026-06-02T01:30:48.271Z",
       "slugByLocale": {
         "it": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "en": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
+        "en": "assistant-with-master-s-degree-for-the-master-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl5a",
         "de": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "fr": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
       },
@@ -1193,9 +1254,30 @@
           "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
           "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
+          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
+          "Attitudini creative e spirito di iniziativa.",
+          "Precisione e cura dei dettagli.",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
+          "Capacità di lavorare in autonomia rispettando le scadenze stabilite."
+        ],
+        "de": [
+          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
+          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
+          "Attitudini creative e spirito di iniziativa.",
+          "Precisione e cura dei dettagli.",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
+          "Capacità di lavorare in autonomia rispettando le scadenze stabilite."
+        ],
+        "fr": [
+          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
+          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
+          "Attitudini creative e spirito di iniziativa.",
+          "Precisione e cura dei dettagli.",
+          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
+          "Capacità di lavorare in autonomia rispettando le scadenze stabilite."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1230,9 +1312,9 @@
       },
       "previousSlugs": [
         "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio",
-        "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a",
-        "assistant-with-master-s-degree-for-the-master-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl5a"
-      ]
+        "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl59",
@@ -1351,7 +1433,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4l",
@@ -1395,7 +1478,7 @@
         "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
       },
       "titleByLocale": {
-        "en": "PhD student in Dynamics of advanced composite materials for drones",
+        "en": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
         "it": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
         "de": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
         "fr": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni"
@@ -1436,8 +1519,18 @@
           "Developing your skills to perform long-term scientific research, from literature research, over project planning, execution, data analysis and publication.",
           "Opportunities to present results at international conferences."
         ],
-        "de": [],
-        "fr": []
+        "de": [
+          "Requisiti essenziali",
+          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
+          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
+          "Requisiti preferenziali"
+        ],
+        "fr": [
+          "Requisiti essenziali",
+          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
+          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
+          "Requisiti preferenziali"
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1496,7 +1589,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u548",
@@ -1557,9 +1651,27 @@
           "Sostenibilità industriale.",
           "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "La frequenza del Master MSE.",
+          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
+          "Buone capacità di comunicazione e di presentazione in inglese.",
+          "Trasformazione digitale dei sistemi di produzione.",
+          "Sostenibilità industriale."
+        ],
+        "de": [
+          "La frequenza del Master MSE.",
+          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
+          "Buone capacità di comunicazione e di presentazione in inglese.",
+          "Trasformazione digitale dei sistemi di produzione.",
+          "Sostenibilità industriale."
+        ],
+        "fr": [
+          "La frequenza del Master MSE.",
+          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
+          "Buone capacità di comunicazione e di presentazione in inglese.",
+          "Trasformazione digitale dei sistemi di produzione.",
+          "Sostenibilità industriale."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1602,7 +1714,8 @@
         "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano",
         "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
         "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u549",
@@ -1640,7 +1753,7 @@
       "firstSeenAt": "2026-05-30T00:49:50.919Z",
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
-        "en": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
+        "en": "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
         "de": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
         "fr": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d"
       },
@@ -1667,9 +1780,33 @@
           "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
           "Sviluppo di applicazioni in ambito audio-visual processing."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
+          "Formazione Bachelor in informatica o scienza dei dati.",
+          "Interessi di ricerca multidisciplinare in ambito ICT.",
+          "Buona capacità di comunicazione e di presentazione in inglese.",
+          "Sviluppo di applicazioni in ambito data analysis e data processing.",
+          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
+          "Sviluppo di applicazioni in ambito audio-visual processing."
+        ],
+        "de": [
+          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
+          "Formazione Bachelor in informatica o scienza dei dati.",
+          "Interessi di ricerca multidisciplinare in ambito ICT.",
+          "Buona capacità di comunicazione e di presentazione in inglese.",
+          "Sviluppo di applicazioni in ambito data analysis e data processing.",
+          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
+          "Sviluppo di applicazioni in ambito audio-visual processing."
+        ],
+        "fr": [
+          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
+          "Formazione Bachelor in informatica o scienza dei dati.",
+          "Interessi di ricerca multidisciplinare in ambito ICT.",
+          "Buona capacità di comunicazione e di presentazione in inglese.",
+          "Sviluppo di applicazioni in ambito data analysis e data processing.",
+          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
+          "Sviluppo di applicazioni in ambito audio-visual processing."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1716,9 +1853,9 @@
         "bachelor-assistenten-in-der-ausbildung-mse-masterabschluss-in-informatik-oder-data-science-supsi-dti-lugano",
         "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
         "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
-        "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano",
-        "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549"
-      ]
+        "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54a",
@@ -1754,7 +1891,7 @@
       "firstSeenAt": "2026-05-30T00:49:50.919Z",
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
-        "en": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
+        "en": "bachelor-s-assistants-in-training-mse-master-in-data-science-supsi-dti-lugano-l4u54a",
         "de": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
         "fr": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d"
       },
@@ -1809,8 +1946,7 @@
         "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano-l4u54a",
         "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
         "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano",
-        "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-manno",
-        "bachelor-s-assistants-in-training-mse-master-in-data-science-supsi-dti-lugano-l4u54a"
+        "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-manno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1827,7 +1963,8 @@
           "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
           "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
@@ -1892,9 +2029,33 @@
           "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
           "Flessibilità rivolta al buon funzionamento del Servizio."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ],
+        "de": [
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ],
+        "fr": [
+          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
+          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
+          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
+          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
+          "Attitudine al lavoro di gruppo e alla collaborazione.",
+          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
+          "Flessibilità rivolta al buon funzionamento del Servizio."
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1920,14 +2081,14 @@
         "general-competition-educational-staff-childcare-2026-supsi-dti-ticino",
         "general-educational-personal-service-early-childhood-2026-supsi-dti-ticino",
         "general-competition-educational-staff-early-childhood-service-2026-supsi-dti-ticino",
+        "open-competition-early-childhood-service-educational-staff-2026-supsi-dti-ticino",
         "allgemeiner-wettbewerb-bildungspersonal-kinderbetreuung-2026-supsi-dti-ticino",
         "allgemein-bildungspersonal-dienst-kindheit-2026-supsi-dti-ticino",
         "allgemeiner-wettbewerb-padagogisches-personal-fruhkindlicher-dienst-2026-supsi-dti-ticino",
         "concours-general-personnel-educatif-garde-d-enfants-2026-supsi-dti-ticino",
         "concours-general-personnel-educatif-service-enfance-2026-supsi-dti-ticino",
         "concours-general-personnel-educatif-service-petite-enfance-2026-supsi-dti-ticino",
-        "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
-        "open-competition-early-childhood-service-educational-staff-2026-supsi-dti-ticino"
+        "personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -1946,7 +2107,8 @@
           "concours-general-personnel-educatif-service-enfance-2026-supsi-dti-ticino",
           "concours-general-personnel-educatif-service-petite-enfance-2026-supsi-dti-ticino"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s840",
@@ -2045,7 +2207,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s841",
@@ -2195,7 +2358,7 @@
       "crawledAt": "2026-05-21T00:28:42.108Z",
       "firstSeenAt": "2026-05-21T00:28:42.108Z",
       "titleByLocale": {
-        "en": "PhD student in Alpine orogenic processes",
+        "en": "Dottorando / Dottoranda in processi orogenici alpini",
         "it": "Dottorando / Dottoranda in processi orogenici alpini",
         "de": "Dottorando / Dottoranda in processi orogenici alpini",
         "fr": "Dottorando / Dottoranda in processi orogenici alpini"
@@ -2216,13 +2379,31 @@
           "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
           "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
+          "Esperienza di rilevamento geologico e cartografia.",
+          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
+          "Capacità di muoversi in ambienti alpini di alta montagna.",
+          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
+        ],
+        "de": [
+          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
+          "Esperienza di rilevamento geologico e cartografia.",
+          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
+          "Capacità di muoversi in ambienti alpini di alta montagna.",
+          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
+        ],
+        "fr": [
+          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
+          "Esperienza di rilevamento geologico e cartografia.",
+          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
+          "Capacità di muoversi in ambienti alpini di alta montagna.",
+          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
+        ]
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "en": "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "en": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
         "de": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
         "fr": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio"
       },
@@ -2257,7 +2438,8 @@
           "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio"
         ],
         "en": [
-          "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio"
+          "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+          "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
@@ -2267,7 +2449,8 @@
         "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
         "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio",
         "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u547",
@@ -2340,9 +2523,36 @@
           "familiarità con strumenti di laboratorio elettronico",
           "interesse per sistemi di controllo e automazione"
         ],
-        "en": [],
-        "de": [],
-        "fr": []
+        "en": [
+          "Iscrizione o intenzione di iscriversi al Master MSE",
+          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
+          "Buone competenze in elettronica analogica e digitale",
+          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
+          "Familiarità con sensori, attuatori e sistemi di misura",
+          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
+          "Conoscenza della lingua inglese",
+          "Buona capacità comunicativa e attitudine al lavoro in team"
+        ],
+        "de": [
+          "Iscrizione o intenzione di iscriversi al Master MSE",
+          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
+          "Buone competenze in elettronica analogica e digitale",
+          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
+          "Familiarità con sensori, attuatori e sistemi di misura",
+          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
+          "Conoscenza della lingua inglese",
+          "Buona capacità comunicativa e attitudine al lavoro in team"
+        ],
+        "fr": [
+          "Iscrizione o intenzione di iscriversi al Master MSE",
+          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
+          "Buone competenze in elettronica analogica e digitale",
+          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
+          "Familiarità con sensori, attuatori e sistemi di misura",
+          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
+          "Conoscenza della lingua inglese",
+          "Buona capacità comunicativa e attitudine al lavoro in team"
+        ]
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2383,7 +2593,8 @@
         "bachelor-in-bildung-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti-lugano",
         "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti",
         "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
