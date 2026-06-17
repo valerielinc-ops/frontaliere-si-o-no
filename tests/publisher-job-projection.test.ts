@@ -157,6 +157,16 @@ describe('publisherJobToRecords', () => {
     expect(r2.featured).toBe(false);
   });
 
+  it('Piano Azienda (tier=azienda): always featured + tier preserved', () => {
+    // Unlimited plan → every ad is featured by default, even without an explicit
+    // featured flag; the azienda tier must survive projection (not collapse to sponsored).
+    const [r] = publisherJobToRecords(paidJob({ tier: 'azienda' }), { nowIso: NOW });
+    expect(r.featured).toBe(true);
+    expect(r.tier).toBe('azienda');
+    // External apply still allowed (employer can keep their own URL); not forced to in-house.
+    expect(r.applyMode).toBe('external_url');
+  });
+
   it('dedupes case/whitespace-variant locations', () => {
     const recs = publisherJobToRecords(
       paidJob({ locations: [{ label: 'Lugano' }, { label: 'lugano ' }, { label: '' }] }),
@@ -262,6 +272,22 @@ describe('applyFeaturedSlotCap', () => {
     const recs = [{ canton: 'TI', featured: false, postedDate: '2026-06-01' }];
     applyFeaturedSlotCap(recs, 0);
     expect(recs[0].featured).toBe(false);
+  });
+
+  it('exempts Piano Azienda from the cap and does not let it consume sponsored slots', () => {
+    // 2 azienda (unlimited, always featured) + 2 sponsored, cap=1 per canton.
+    const recs = [
+      { canton: 'TI', tier: 'azienda', featured: true, postedDate: '2026-06-01' },
+      { canton: 'TI', tier: 'azienda', featured: true, postedDate: '2026-06-02' },
+      { canton: 'TI', tier: 'sponsored', featured: true, postedDate: '2026-06-03' },
+      { canton: 'TI', tier: 'sponsored', featured: true, postedDate: '2026-06-04' },
+    ];
+    applyFeaturedSlotCap(recs, 1);
+    // Both azienda stay featured (exempt); sponsored still capped to 1 (newest).
+    expect(recs.filter((r) => r.tier === 'azienda').every((r) => r.featured)).toBe(true);
+    const sponsoredKept = recs.filter((r) => r.tier === 'sponsored' && r.featured);
+    expect(sponsoredKept).toHaveLength(1);
+    expect(sponsoredKept[0].postedDate).toBe('2026-06-04');
   });
 });
 
