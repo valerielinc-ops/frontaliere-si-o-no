@@ -268,21 +268,37 @@ function estimateBoilerplateLength(plain) {
  *
  *   2. TEMPLATED SOURCES — the source company publishes the same role across
  *      many cities (reboot-monkey: 142 "Data Center Technician — Switzerland —
- *      <city>" listings; lidl-svizzera: 8 apprendistato in 8 filiali). Titles
- *      ARE distinct (one per city) but the body is templated so post-boilerplate
- *      slices collide. The parser is doing the right thing — flagging it as
- *      "chrome scraping" is a false positive.
+ *      <city>" listings; lidl-svizzera: 8 apprendistato in 8 filiali;
+ *      fielmann: 37 "Augenoptiker (w/m/d)" across 35 Workday store locations).
+ *      The body is templated so post-boilerplate slices collide. The parser is
+ *      doing the right thing — flagging it as a duplicate listing is a false
+ *      positive.
  *
  * We separate the two:
- *   - mode 'title-aware'  : title || desc-slice. Catches real duplicate listings
- *                           where multiple postings share the same title AND body
- *                           (bitfinex's Recruitee feed publishes 9× the same role).
+ *   - mode 'title-aware'  : title || location || desc-slice. Catches real
+ *                           duplicate listings where multiple postings share the
+ *                           same title AND body AT THE SAME LOCATION (bitfinex's
+ *                           Recruitee feed publishes 9× the same role; a feed
+ *                           re-posting the same store opening). Including the
+ *                           location keeps legitimate multi-store retailers
+ *                           unflagged EVEN WHEN their title omits the city
+ *                           (fielmann's Workday titles are "Augenoptiker (w/m/d)"
+ *                           verbatim across every store) — the original
+ *                           title-only fingerprint assumed templated sources
+ *                           always carry the city in the title, which is false
+ *                           for store-chain feeds. Same role at distinct cities →
+ *                           distinct fingerprints → not a duplicate. Same role
+ *                           re-posted at the same city → still collides → flagged.
  *   - mode 'desc-only'    : the original desc-only slice. Used at a stricter
  *                           threshold to keep chrome-scraping detection alive
  *                           (chrome makes ALL descriptions identical regardless
  *                           of title).
  */
-function fingerprintsForCrawler(jobs, mode = 'title-aware') {
+function jobLocationKey(job) {
+  return plainText(job?.location || job?.addressLocality || job?.city || '').toLowerCase();
+}
+
+export function fingerprintsForCrawler(jobs, mode = 'title-aware') {
   const plain = jobs.map((j) => plainText(j.description).toLowerCase());
   const boilerLen = estimateBoilerplateLength(plain);
   // Only strip when the boilerplate is long enough to be meaningful and not
@@ -292,13 +308,14 @@ function fingerprintsForCrawler(jobs, mode = 'title-aware') {
     const slice = p.slice(stripLen, stripLen + 500);
     if (mode === 'title-aware') {
       const title = plainText(jobs[i]?.title || '').toLowerCase();
-      return `${title}||${slice}`;
+      const location = jobLocationKey(jobs[i]);
+      return `${title}||${location}||${slice}`;
     }
     return slice;
   });
 }
 
-function countDuplicates(fps) {
+export function countDuplicates(fps) {
   const counts = new Map();
   for (const fp of fps) {
     if (fp.length < 20) continue; // skip empty/tiny
@@ -441,9 +458,12 @@ async function main() {
     // 5. Duplicate descriptions — strip common company boilerplate prefix first.
     //
     // Title-aware fingerprint catches REAL duplicate listings (same title +
-    // same body across many records, e.g. bitfinex's Recruitee feed posting
-    // the same role 9× with different IDs). Templated city-listings stay
-    // unflagged because each city has a distinct title.
+    // same body AT THE SAME LOCATION, e.g. bitfinex's Recruitee feed posting
+    // the same role 9× with different IDs). Templated multi-store listings stay
+    // unflagged because the fingerprint includes the location — so a retailer
+    // posting one role across many cities (fielmann's 37 "Augenoptiker (w/m/d)"
+    // across 35 Workday stores) yields distinct fingerprints even though the
+    // title is byte-identical and the body templated.
     //
     // The desc-only chrome signal (handled by applyChromeScrapingRatchet
     // below) keeps the original Moncucco-class detection alive — when ALL
