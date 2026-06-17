@@ -16,7 +16,11 @@
 //   • worktree detached / branch fantasma → remove worktree (no branch da toccare)
 //   • branch `worktree-agent-*` 0-ahead   → delete (orfano EnterWorktree)
 //   • branch locale (no worktree) con PR MERGED|CLOSED → delete
-//   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo)
+//   • branch/worktree `fix/issue-N` SENZA PR ma issue #N CLOSED → delete/remove
+//     (leftover issue-fix: pushato senza PR, spesso orfano shallow → ahead unknown;
+//      lo stato ISSUE lo sblocca dove il PR-state non esiste — cfr. AGENTS.md)
+//   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo;
+//      upstream-GONE segnalato nel report → tipico worktree Codex fuori dagli hook)
 //   • branch con PR OPEN o worktree del repo principale (main) → KEEP, mai toccato
 //
 // Uso:
@@ -142,6 +146,33 @@ function aheadOfMain(ref) {
   return Number.isNaN(v) ? null : v;
 }
 
+// Per i branch `fix/issue-N`: l'issue #N è CLOSED? La issue-fix automation crea
+// `fix/issue-<N>` ma a volte pusha senza mai aprire PR (run fallito/crash) e da
+// un checkout shallow → branch ORFANO (no common-ancestor → aheadOfMain=null).
+// Quei branch non hanno PR-state (NONE) e ahead unknown → finirebbero report-only
+// PER SEMPRE. Lo stato ISSUE (non PR) li sblocca: issue CLOSED = lavoro risolto
+// → leftover safe da cancellare (il branch è su origin/reflog se mai servisse).
+// Cache per non interrogare gh due volte (loop worktree + loop branch).
+const issueStateCache = new Map();
+function issueClosed(branch) {
+  if (!ghOk) return false;
+  const m = /^fix\/issue-(\d+)$/.exec(branch || '');
+  if (!m) return false;
+  const n = m[1];
+  if (!issueStateCache.has(n)) {
+    issueStateCache.set(n, sh(`gh issue view ${n} --json state --jq .state`, { allowFail: true }));
+  }
+  return issueStateCache.get(n) === 'CLOSED';
+}
+
+// Upstream configurato ma remote-tracking sparito → `[gone]` in %(upstream:track).
+// Segnala (REPORT-only, non cancella) i branch il cui remoto è stato cancellato:
+// tipico dei worktree Codex (fuori dagli hook Claude) il cui contenuto è stato
+// mergiato altrove. Diagnosi, non azione: ahead>0 + gone resta ambiguo.
+function upstreamGone(branch) {
+  return sh(`git for-each-ref --format='%(upstream:track)' refs/heads/${branch}`, { allowFail: true }).includes('gone');
+}
+
 // --- 1. WORKTREES -----------------------------------------------------------
 const wtPorcelain = sh('git worktree list --porcelain');
 const worktrees = [];
@@ -170,12 +201,17 @@ for (const wt of worktrees) {
     removeWt.push(wt);
   } else if (wt.detached) {
     reportWt.push({ ...wt, reason: 'detached HEAD, nessuna PR — probabile abbandono (rimuovi a mano se confermi)' });
+  } else if (issueClosed(wt.branch)) {
+    // fix/issue-N senza PR ma issue #N CLOSED → lavoro risolto, worktree leftover.
+    if (dirty) reportWt.push({ ...wt, reason: `issue #${/\d+/.exec(wt.branch)[0]} CLOSED ma worktree DIRTY — ispeziona a mano` });
+    else removeWt.push(wt);
   } else {
     // Worktree senza PR: NON auto-rimuovere mai. Un worktree clean+0-ahead è
     // indistinguibile da un agent che ha appena fatto EnterWorktree e non ha
     // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
-    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead ?? 'unknown'} no-PR — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
+    const gone = wt.branch && upstreamGone(wt.branch) ? ' upstream-GONE (remoto cancellato — probabile merged/closed altrove, es. worktree Codex)' : '';
+    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead ?? 'unknown'} no-PR${gone} — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
   }
 }
 
@@ -193,9 +229,10 @@ for (const b of allLocal) {
   if (state === 'OPEN') continue;
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
   if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
+  if (issueClosed(b)) { delBranch.push(b); continue; } // fix/issue-N, issue CLOSED, no PR → leftover
   const ahead = aheadOfMain(b);
   if (ahead === 0) delBranch.push(b); // contenuto già su main
-  else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR — possibile lavoro non in PR, REPORT-ONLY` });
+  else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR${upstreamGone(b) ? ' upstream-GONE' : ''} — possibile lavoro non in PR, REPORT-ONLY` });
 }
 
 // --- OUTPUT + APPLY ---------------------------------------------------------

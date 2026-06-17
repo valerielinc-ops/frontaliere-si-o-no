@@ -24,17 +24,25 @@ on:
         description: 'Solo log, niente delete'
         type: boolean
         default: false
+  # CLOSE ≠ MERGE: `delete_branch_on_merge` cancella il ref SOLO al merge, MAI alla
+  # chiusura-senza-merge → la PR chiusa lascia un branch orfano finché il cron (1×/g,
+  # best-effort) non passa. Questo trigger lo cancella SUBITO alla chiusura.
+  pull_request:
+    types: [closed]
 
 permissions:
   contents: write       # delete dei ref remoti
   pull-requests: read
 
 concurrency:
-  group: worktree-branch-janitor
+  # Sweep (schedule/dispatch) serializzato su un gruppo unico; ogni PR-close su un
+  # gruppo proprio → i close non bloccano lo sweep né si bloccano a vicenda.
+  group: worktree-branch-janitor-${{ github.event.pull_request.number || 'sweep' }}
   cancel-in-progress: false
 
 jobs:
   sweep:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
@@ -91,7 +99,19 @@ jobs:
             if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
               REASON="PR $STATE (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
             else
-              # no-PR. ahead via API compare (.ahead_by). EC1: un branch orfano
+              # no-PR. EC0 (PRIMA dell'ahead-check): se è `fix/issue-N`, consulta lo
+              # STATO ISSUE, non il PR-state. La issue-fix automation crea `fix/issue-N`
+              # ma a volte pusha senza mai aprire PR (run fallito) da un checkout
+              # shallow → branch ORFANO. Quei branch hanno PR-state NONE + ahead non
+              # calcolabile → EC1 sotto li risparmierebbe PER SEMPRE. Issue CLOSED =
+              # lavoro risolto → delete (recuperabile da reflog remoto se mai servisse).
+              ISSUE_N=$(echo "$NAME" | sed -nE 's#^fix/issue-([0-9]+)$#\1#p')
+              ISTATE=""
+              [ -n "$ISSUE_N" ] && ISTATE=$(gh api "repos/$REPO/issues/$ISSUE_N" --jq '.state' 2>/dev/null || true)
+              if [ "$ISTATE" = "closed" ]; then
+                REASON="fix/issue-$ISSUE_N, issue #$ISSUE_N CLOSED, no live PR (leftover issue-fix)"
+              else
+              # ahead via API compare (.ahead_by). EC1: un branch orfano
               # (history non correlata, es. content-branch) dà 404 "No common
               # ancestor" → l'output NON è un intero. Valida il formato: tutto ciò
               # che non è ^[0-9]+$ = ahead SCONOSCIUTO → report-only (mai delete su
@@ -122,6 +142,7 @@ jobs:
                   flagged=$((flagged+1)); continue
                 fi
               fi
+              fi
             fi
 
             echo "::warning::origin/$NAME STALE — $REASON → delete"
@@ -133,3 +154,31 @@ jobs:
             fi
           done
           echo "Sweep completo: $deleted cancellati, $flagged flaggati report-only."
+
+  # Cancellazione IMMEDIATA del head ref di una PR chiusa-SENZA-merge. I merge li
+  # copre già `delete_branch_on_merge`; i close-non-merged no → senza questo job
+  # restano orfani fino al prossimo cron (≤24h, best-effort). Solo head dello
+  # STESSO repo (no fork) e mai i branch protetti/default.
+  delete-closed-unmerged:
+    if: github.event_name == 'pull_request' && github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Delete head ref of closed-unmerged PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -uo pipefail
+          if [ "$HEAD_REPO" != "$REPO" ]; then echo "skip fork head ($HEAD_REPO)"; exit 0; fi
+          case "$HEAD_REF" in
+            "$DEFAULT_BRANCH"|gh-pages|HEAD) echo "skip protected $HEAD_REF"; exit 0 ;;
+          esac
+          if gh api -X DELETE "repos/$REPO/git/refs/heads/$HEAD_REF" 2>/dev/null; then
+            echo "deleted origin/$HEAD_REF (PR closed unmerged)"
+          else
+            echo "::warning::delete fallito o ref già assente: $HEAD_REF (branch-protection? già cancellato?)"
+          fi
