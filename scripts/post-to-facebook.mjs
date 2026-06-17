@@ -14,22 +14,14 @@
  * since the site already has all og:* meta tags configured.
  *
  * Exit code is always 0 (soft failure) — this script should never block CI.
+ *
+ * NOTE: this is now a MANUAL CLI tool. The automated FB article posting moved
+ * to the scheduled `scripts/schedule-fb-articles-daily.mjs` cron (the
+ * generate-article → deploy path no longer auto-posts to Facebook). Both share
+ * the caption/place-id logic from `scripts/lib/social-post-utils.mjs`.
  */
 
-const CATEGORY_HASHTAGS = {
-  fiscale:  '#frontalieri #ticino #tasse #fisco #svizzera #italia',
-  pratico:  '#frontalieri #ticino #lavoro #svizzera #guidapratica',
-  novita:   '#frontalieri #ticino #news #svizzera #italia #novità',
-  pensione: '#frontalieri #ticino #pensione #AVS #previdenza',
-};
-const DEFAULT_HASHTAGS = '#frontalieri #ticino #lavoro #svizzera #italia';
-
-const CATEGORY_EMOJI = {
-  fiscale:  '📊',
-  pratico:  '📋',
-  novita:   '🗞️',
-  pensione: '🏦',
-};
+import { buildArticleCaption, ARTICLE_PLACE_ID } from './lib/social-post-utils.mjs';
 
 async function main() {
   const args = process.argv.slice(2);
@@ -51,20 +43,8 @@ async function main() {
     process.exit(0);
   }
 
-  // Build the message
-  const emoji = CATEGORY_EMOJI[category] || '📰';
-  const hashtags = CATEGORY_HASHTAGS[category] || DEFAULT_HASHTAGS;
-  const description = ogDescription || '';
-
-  const message = [
-    `${emoji} ${ogTitle}`,
-    '',
-    description,
-    '',
-    `👉 Leggi l'articolo completo:`,
-    '',
-    hashtags,
-  ].join('\n').trim();
+  // Build the message (shared caption logic — see social-post-utils.mjs).
+  const message = buildArticleCaption({ ogTitle, ogDescription, category });
 
   console.log('─── Facebook Post ───');
   console.log(`Article: ${articleId}`);
@@ -139,7 +119,7 @@ async function main() {
     // audience. Override per-article in the future if we want sub-region
     // targeting (e.g., a Mendrisio-specific article).
     // Place ID 106534719384213 = "Lugano, Switzerland" (verified live).
-    body.append('place', '106534719384213');
+    body.append('place', ARTICLE_PLACE_ID);
 
     const response = await fetch(url, {
       method: 'POST',
