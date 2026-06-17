@@ -49,6 +49,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { ASSETS_SAME_ORIGIN_RX } from '../build-plugins/shared/cdnAssetOffloadRx.mjs';
 
 const ORIGIN = 'https://frontaliereticino.ch';
 const SCAN_EXT = new Set(['.html', '.xml', '.txt']);
@@ -140,14 +141,18 @@ function walkAll(dir, fn) {
 const OG_FILE = "([^\"'\\s)?]+?\\.(?:webp|png|jpe?g|avif|svg|ico|gif))";
 const ASSET_FILE = "([^\"'\\s)?]+?\\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json))";
 // Guard-B parity: the SUPERSET regex the deploy "Drop dist/assets" step greps
-// for, ported 1:1 from its bash ERE. A same-origin /assets/<file>.<ext> ref that
+// for, kept 1:1 with its bash ERE. A same-origin /assets/<file>.<ext> ref that
 // SURVIVES the rewrite below (e.g. a custom SSG path that didn't go through
 // ASSET_FILE) must KEEP dist/assets — exactly that step's Guard B. Non-global
 // (stateless .test); applied to HTML only at the callsite to match grep's
 // --include='*.html'. Since walk() above is now top-level-only, this marker sees
 // every content *.html at any depth, so it is the authoritative gate (the Drop
 // step reads our marker), kept byte-faithful to the old grep.
-const ASSETS_SAME_ORIGIN_RX = /["'(]\/?assets\/[^"'() ]*\.(?:js|mjs|css|woff2?|ttf|otf|eot|png|jpe?g|webp|avif|gif|svg|ico|json)/;
+// SINGLE SOURCE OF TRUTH (no copy-paste, AGENTS.md #6): ASSETS_SAME_ORIGIN_RX is
+// imported from build-plugins/shared/cdnAssetOffloadRx.mjs, which ALSO exports the
+// matching bash ERE (ASSETS_SAME_ORIGIN_ERE) consumed by the deploy "Drop dist/assets"
+// step — so the marker producer and the workflow grep can never drift (a divergence
+// would 404 offloaded /assets/ refs). See that module's header.
 const DATA_FILE = "([^\"'\\s)?<>]+?\\.(?:json|csv))";
 
 // ── Single-pass offload over dist HTML/XML/TXT ───────────────────────────────
