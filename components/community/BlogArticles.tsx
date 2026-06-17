@@ -1822,7 +1822,7 @@ function BlogArticles({
 
 
  return (
- <div className="max-w-3xl xl:max-w-6xl min-[1400px]:max-w-[1340px] 2xl:max-w-[1480px] mx-auto">
+ <div className="max-w-3xl xl:max-xlw:max-w-6xl xlw:max-w-[1440px] mx-auto">
  {/* Reading progress bar */}
  <div
  className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left [transform:var(--sx)]"
@@ -1844,9 +1844,14 @@ function BlogArticles({
  {t('blog.backToList')}
  </button>
 
- {/* 3-column grid: left rail | article | right rail. Rails widen to 300px at
-     ≥1400px to host the half-page side-rail ads (ArticleRailAd). */}
- <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6 min-[1400px]:grid-cols-[300px_minmax(0,1fr)_300px]">
+ {/* 3-column grid: left rail | article | right rail. Narrow 180px rails at
+     xl (1280–1399), widening to 300px at ≥1400px (the `xlw` breakpoint) to
+     host the half-page side-rail ads (ArticleRailAd). The two tiers use
+     MUTUALLY-EXCLUSIVE ranges (`xl:max-xlw:` = 1280–1399 only) instead of
+     letting `xl:` and `xlw:` both match ≥1400: in v4 the `xl:` rule emits
+     after `xlw:` and would win the cascade, pinning the rails at 180px and
+     making a 300px creative overflow the article (see index.css @theme). */}
+ <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop only) ── */}
  <aside className="hidden xl:block">
