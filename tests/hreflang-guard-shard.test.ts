@@ -1,0 +1,73 @@
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+
+/**
+ * filterExistingAlternates reads EMIT_ALL_LOCALES / shouldEmitLocale from
+ * localeEmitFilter, which parses BUILD_LOCALE once at module load — so each
+ * scenario sets the env var and re-imports via vi.resetModules().
+ */
+async function loadGuard(buildLocale: string | undefined) {
+  vi.resetModules();
+  const prev = process.env.BUILD_LOCALE;
+  if (buildLocale === undefined) delete process.env.BUILD_LOCALE;
+  else process.env.BUILD_LOCALE = buildLocale;
+  try {
+    return await import('../build-plugins/shared/hreflangGuard');
+  } finally {
+    if (prev === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = prev;
+  }
+}
+
+const BASE = 'https://frontaliereticino.ch';
+let dist: string;
+
+const ALTS = [
+  { locale: 'it', url: `${BASE}/cerca-lavoro-ticino/` },
+  { locale: 'en', url: `${BASE}/en/find-jobs-ticino/` },
+  { locale: 'de', url: `${BASE}/de/jobs-im-tessin/` },
+  { locale: 'fr', url: `${BASE}/fr/trouver-emploi-tessin/` },
+  { locale: 'x-default', url: `${BASE}/cerca-lavoro-ticino/` },
+];
+
+beforeEach(() => {
+  // dist with ONLY the en page on disk (simulates an en-shard build output).
+  dist = fs.mkdtempSync(path.join(os.tmpdir(), 'hreflang-shard-'));
+  fs.mkdirSync(path.join(dist, 'en', 'find-jobs-ticino'), { recursive: true });
+  fs.writeFileSync(path.join(dist, 'en', 'find-jobs-ticino', 'index.html'), '<html></html>');
+});
+afterEach(() => {
+  fs.rmSync(dist, { recursive: true, force: true });
+  vi.resetModules();
+});
+
+describe('hreflangGuard — default build (no BUILD_LOCALE) is unchanged', () => {
+  it('drops alternates whose target file is absent on disk', async () => {
+    const g = await loadGuard(undefined);
+    const kept = g.filterExistingAlternates(ALTS, dist, BASE).map((a) => a.locale);
+    // only en exists on disk → it/de/fr/x-default targets (it page) are dropped
+    expect(kept).toEqual(['en']);
+  });
+});
+
+describe('hreflangGuard — en shard keeps cross-shard alternates', () => {
+  it('keeps it/de/fr/x-default (other shards) and the existing en self-ref', async () => {
+    const g = await loadGuard('en');
+    const kept = g.filterExistingAlternates(ALTS, dist, BASE).map((a) => a.locale);
+    // en is real-checked (exists → kept); it/de/fr not emitted by this shard →
+    // kept unconditionally (live on another shard); x-default kept too.
+    expect(kept.sort()).toEqual(['de', 'en', 'fr', 'it', 'x-default']);
+  });
+
+  it('still drops a MISSING page of the emitted locale itself (real broken link)', async () => {
+    const g = await loadGuard('en');
+    const alts = [
+      { locale: 'en', url: `${BASE}/en/does-not-exist/` }, // emitted locale, absent → drop
+      { locale: 'de', url: `${BASE}/de/jobs-im-tessin/` }, // other shard → keep
+    ];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['de']);
+  });
+});
