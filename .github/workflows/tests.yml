@@ -10,21 +10,30 @@ name: tests
 # job ~8-13 min) and was the dominant slice of the auto-merge wait — every PR
 # blocks on the `vitest (unit + integration)` check before auto-merge-on-lgtm
 # proceeds. The suite (~847 files, `isolate:true` → +30% but deterministic) is
-# now SHARDED across 8 parallel runners via `vitest run --shard=i/8`, splitting
-# the vitest portion deterministically by file-path hash. Measured on a green
-# 4-shard run (#27614921918): per shard ~164s vitest + ~113s fixed overhead
-# (checkout 38s + npm ci 20s + assemble jobs.json 52s + lints/migrate ~3s) =
-# ~281s, slowest shard. At 8 shards the vitest portion ~halves to ~82s/shard so
-# the slowest shard drops to ~195s; the ~113s overhead is now the floor (paid
-# per shard, parallel). Why 8 and not more: past ~8 the fixed overhead
-# dominates, so extra shards barely move the wall while still spawning runners.
-# Splitting finer ALSO halves the per-runner file count (212→106), which cuts
-# CPU/memory contention so the heavy source-scan guards (no-inlanguage,
-# cathedral-no-ti-hardcodes, …) are far less likely to spike past their
-# per-test timeout — a documented flake source on slow runners. This is a
-# public repo → parallel runner minutes are free, so the 8× setup duplication
-# costs $0. Sharding is behaviour-preserving: every file still runs, split
-# deterministically by hash; no test is skipped and no threshold is relaxed.
+# SHARDED across parallel runners via `vitest run --shard=i/N`, splitting the
+# vitest portion deterministically (LPT-balanced, see vitest.config.ts) across
+# shards. Measured on a green 4-shard run (#27614921918): per shard ~164s
+# vitest + ~113s fixed overhead (checkout 38s + npm ci 20s + assemble jobs.json
+# 52s + lints/migrate ~3s) = ~281s, slowest shard.
+#
+# Why N=4 and not 8: the vitest check is NEVER the gating slice of a PR — every
+# PR ALSO blocks on the Claude review (`pr-review-loop`) before
+# auto-merge-on-lgtm proceeds, and that review averages ~11 min (median ~10 min,
+# fastest ever ~8 min / 475s observed over the last 40 runs). So as long as the
+# slowest vitest shard finishes well inside the review window it costs the PR
+# zero extra wall time. At 4 shards the slowest shard is ~281s (~4.7 min) — it
+# lands in under half the review median and comfortably under the fastest review
+# ever seen, so review stays the bottleneck either way. Going to 8 shards would
+# only trim the slowest shard to ~195s (a wall-time win the PR cannot observe,
+# since it still waits on the ~10 min review) while DOUBLING the runners spawned
+# per PR and the pressure on the shared Actions concurrency pool (deploy,
+# crawlers, lighthouse all compete for it). 4 is the documented-measured-green
+# config (#27614921918): ~212 files/shard keeps CPU/memory contention low enough
+# that the heavy source-scan guards (no-inlanguage, cathedral-no-ti-hardcodes,
+# …) don't spike past their per-test timeout — a documented flake source on slow
+# runners — so the safety margin of the 8-shard split is retained. Sharding is
+# behaviour-preserving: every file still runs, split deterministically; no test
+# is skipped and no threshold is relaxed.
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
@@ -50,17 +59,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Each shard runs ~1/8 of the test files in parallel. fail-fast:false so a
+  # Each shard runs ~1/4 of the test files in parallel. fail-fast:false so a
   # red shard does NOT cancel its siblings — one run surfaces the full failure
   # set instead of forcing re-runs to discover the next failing file.
   vitest-shard:
-    name: vitest shard ${{ matrix.shard }}/8
+    name: vitest shard ${{ matrix.shard }}/4
     runs-on: ubuntu-latest
     timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
-        shard: [1, 2, 3, 4, 5, 6, 7, 8]
+        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v5
 
@@ -130,14 +139,14 @@ jobs:
         # canton-aware section paths. The migration is idempotent.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: vitest run (shard ${{ matrix.shard }}/8)
+      - name: vitest run (shard ${{ matrix.shard }}/4)
         # Emit a per-file timing JSON alongside the default reporter. It feeds
         # scripts/ci/generate-shard-weights.mjs, which refreshes
         # tests/shard-weights.json (the LPT BalancedSequencer's input) from real
         # CI durations — local timings over-weight CPU-bound scan guards because
         # the dev box runs ~3-10× slower under contention. The json reporter is
         # additive (default reporter still prints), so failures stay visible.
-        run: npm test -- --shard=${{ matrix.shard }}/8 --reporter=default --reporter=json --outputFile=shard-timing-${{ matrix.shard }}.json
+        run: npm test -- --shard=${{ matrix.shard }}/4 --reporter=default --reporter=json --outputFile=shard-timing-${{ matrix.shard }}.json
 
       - name: Upload shard timing
         # always() so we still collect timings when a shard is red (a slow test
@@ -154,7 +163,7 @@ jobs:
   # consumer keys on — auto-merge-on-lgtm's "Block merge if vitest gate is RED"
   # step (`select(.name == "vitest (unit + integration)")`), auto-merge-eval
   # gate 3, and pr-autorebase's workflow_dispatch expectation. Green ONLY when
-  # all 8 shards are green; any shard failure/cancellation makes this RED, so
+  # all 4 shards are green; any shard failure/cancellation makes this RED, so
   # the merge gate behaves identically to the old single-job version.
   vitest:
     name: vitest (unit + integration)
@@ -170,4 +179,4 @@ jobs:
             echo "::error::one or more vitest shards did not succeed (result='$result') — gate is RED"
             exit 1
           fi
-          echo "all 8 vitest shards green — gate is GREEN"
+          echo "all 4 vitest shards green — gate is GREEN"
