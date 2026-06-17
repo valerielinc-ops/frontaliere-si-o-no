@@ -730,6 +730,7 @@ const translations: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Competenze richieste',
  'jobBoard.apply': 'Candidati',
  'jobBoard.backToList': 'Torna a tutti gli annunci',
+ 'jobBoard.copyAttribution.lead': 'Annuncio completo e candidatura su Frontaliere Ticino:',
  'jobBoard.notFoundTitle': 'Annuncio non trovato',
  'jobBoard.notFoundDescription': 'Questo annuncio non è più disponibile oppure è stato rimosso.',
  'jobBoard.authRequiredTitle': 'Accedi per vedere il dettaglio dell\'annuncio',

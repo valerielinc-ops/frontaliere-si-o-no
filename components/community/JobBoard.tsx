@@ -88,6 +88,7 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded, isJobSlugMapReady, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
@@ -6199,8 +6200,43 @@ const JobBoard: React.FC<JobBoardProps> = ({
  window.location.assign(gateCompanyHref.split('?')[0]);
  };
 
+ // Copy-attribution: replays show gated users copying the teaser lines and
+ // pasting them into Google to find the listing — handing themselves to the
+ // original source with none of our branding. Append our brand + the canonical
+ // URL of THIS listing to whatever they selected, so the paste carries a real
+ // backlink (rich editors/forums) and a search-box paste biases the result
+ // back to our canonical. Tiny selections are left untouched; errors never
+ // break the native copy.
+ const handleGateCopy = (e: React.ClipboardEvent<HTMLDivElement>) => {
+ try {
+ const sel = typeof window !== 'undefined' ? window.getSelection() : null;
+ const selectionText = sel?.toString() ?? '';
+ if (!shouldAttributeCopy(selectionText)) return;
+ let selectionHtml = '';
+ if (sel && sel.rangeCount > 0) {
+ const holder = document.createElement('div');
+ for (let i = 0; i < sel.rangeCount; i++) holder.appendChild(sel.getRangeAt(i).cloneContents());
+ selectionHtml = holder.innerHTML;
+ }
+ const { text, html } = buildJobCopyAttribution({
+ selectionText,
+ selectionHtml,
+ jobTitle: localizedTitle,
+ company: companyName,
+ url: `${PUBLIC_SITE_URL}${buildJobPath(selectedJob)}`,
+ lead: t('jobBoard.copyAttribution.lead'),
+ });
+ e.clipboardData.setData('text/plain', text);
+ e.clipboardData.setData('text/html', html);
+ e.preventDefault();
+ Analytics.trackSelectContent('job_gate_copy_attribution', `${companyName}_${localizedTitle}`);
+ } catch {
+ // leave the browser's native copy untouched on any failure
+ }
+ };
+
  return (
- <div className="space-y-5">
+ <div className="space-y-5" onCopy={handleGateCopy}>
  <button
  onClick={backToList}
  className="inline-flex items-center gap-2 min-h-[44px] text-sm font-semibold text-accent hover:underline"

@@ -693,6 +693,7 @@ const deCore: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Erforderliche Kompetenzen',
  'jobBoard.apply': 'Bewerben',
  'jobBoard.backToList': 'Zurück zu allen Stellen',
+ 'jobBoard.copyAttribution.lead': 'Vollständige Anzeige & Bewerbung auf Frontaliere Ticino:',
  'jobBoard.notFoundTitle': 'Stelle nicht gefunden',
  'jobBoard.notFoundDescription': 'Diese Stelle ist nicht mehr verfügbar oder wurde entfernt.',
  'jobBoard.authRequiredTitle': 'Anmelden, um die Stellenanzeige zu sehen',

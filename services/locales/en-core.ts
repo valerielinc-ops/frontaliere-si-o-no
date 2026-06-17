@@ -690,6 +690,7 @@ const enCore: Record<string, string> = {
  'jobBoard.requirementsHeading': 'Required skills',
  'jobBoard.apply': 'Apply',
  'jobBoard.backToList': 'Back to all listings',
+ 'jobBoard.copyAttribution.lead': 'Full listing & application on Frontaliere Ticino:',
  'jobBoard.notFoundTitle': 'Job not found',
  'jobBoard.notFoundDescription': 'This listing is no longer available or has been removed.',
  'jobBoard.authRequiredTitle': 'Sign in to view the full listing',
