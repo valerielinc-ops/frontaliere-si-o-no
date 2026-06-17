@@ -22,6 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { shouldEmitLocale, EMIT_ALL_LOCALES } from './localeEmitFilter';
 
 export interface LocaleAlternates {
   readonly locale: string;
@@ -46,7 +47,13 @@ export function filterExistingAlternates(
   baseUrl: string,
 ): readonly LocaleAlternates[] {
   const trimmedBase = baseUrl.replace(/\/+$/, '');
-  return alternates.filter(({ url }) => {
+  return alternates.filter(({ locale, url }) => {
+    // Per-locale shard build (BUILD_LOCALE): an alternate for a locale this
+    // shard did not emit points to a page that lives on ANOTHER shard. Its
+    // absence from THIS shard's dist is by design, not a broken link — keep
+    // it so the cross-shard hreflang graph stays complete. No-op in the
+    // default all-locale build (EMIT_ALL_LOCALES short-circuits).
+    if (!EMIT_ALL_LOCALES && !shouldEmitLocale(locale)) return true;
     const pathname = stripBaseAndTrailingSlash(url, trimmedBase);
     if (pathname === '' || pathname === '/') {
       // Root index — always exists if the build ran at all.
