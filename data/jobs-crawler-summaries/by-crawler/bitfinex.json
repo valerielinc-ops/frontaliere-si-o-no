@@ -1,18 +1,19 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-06-16T22:25:03.786Z",
+  "generatedAt": "2026-06-17T12:22:19.863Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2977,
-  "avgDurationMs": 2977,
+  "durationMs": 3050,
+  "avgDurationMs": 3050,
   "durationHistory": [
-    2977
+    3050
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bitfinex-48d8a6e17a56",
       "slug": "product-manager-100-remote-worldwide-bitfinex-ch",
@@ -25,7 +26,7 @@
       "url": "https://bitfinex.recruitee.com/o/product-manager-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.499Z",
+      "crawledAt": "2026-06-17T12:22:17.493Z",
       "addressLocality": "Lisboa",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -43,16 +44,15 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://careers.bitfinex.com/o/product-manager-100-remote-worldwide-12/c/new",
       "department": "Product",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-16T22:25:01.499Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bitfinex-b86df51291ef",
       "slug": "qa-automation-engineer-100-remote-worldwide-utc-7-9-bitfinex-ch",
@@ -65,7 +65,7 @@
       "url": "https://bitfinex.recruitee.com/o/qa-automation-engineer-100-remote-worldwide-utc79-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.542Z",
+      "crawledAt": "2026-06-17T12:22:17.556Z",
       "addressLocality": "Hong Kong SAR",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -105,7 +105,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-33",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.560Z",
+      "crawledAt": "2026-06-17T12:22:17.581Z",
       "addressLocality": "Prague",
       "addressRegion": "Praha, Hlavní město",
       "addressCountry": "",
@@ -145,7 +145,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.575Z",
+      "crawledAt": "2026-06-17T12:22:17.596Z",
       "addressLocality": "Prague",
       "addressRegion": "Praha, Hlavní město",
       "addressCountry": "",
@@ -185,7 +185,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-cet-timezone-10",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.586Z",
+      "crawledAt": "2026-06-17T12:22:17.606Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -225,7 +225,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-product-designer-100-remote-worldwide-cet-timezone-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.604Z",
+      "crawledAt": "2026-06-17T12:22:17.630Z",
       "addressLocality": "istanbul",
       "addressRegion": "İstanbul",
       "addressCountry": "",
@@ -265,7 +265,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-06-16T22:25:01.635Z",
+      "crawledAt": "2026-06-17T12:22:17.679Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
