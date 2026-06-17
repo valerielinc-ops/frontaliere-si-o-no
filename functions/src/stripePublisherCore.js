@@ -97,6 +97,67 @@ export async function handleCreatePublisherCheckout(req) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
   }
 
+  // ── Piano Azienda: flat per-publisher subscription (CHF 299), ruoli illimitati ──
+  // A single recurring price (no per-unit/discount math). On payment the webhook
+  // marks the publisher tier='azienda' and flips their ads to tier='azienda'
+  // (the projection then features them all). Kept fully separate from the per-ad
+  // path below so that proven flow is untouched.
+  if (body.plan === 'azienda') {
+    const aziendaPrice = await getRemoteConfigValue('STRIPE_PRICE_AZIENDA');
+    if (!aziendaPrice) return { status: 500, body: { ok: false, error: 'azienda_price_not_configured' } };
+
+    // Verify ownership of the jobs being published under the plan.
+    const ownedJobIds = [];
+    for (const jobId of jobIds) {
+      const snap = await db().collection('publisher_jobs').doc(String(jobId)).get();
+      if (!snap.exists) continue;
+      if (snap.data().publisherUid !== uid) return { status: 403, body: { ok: false, error: 'not_owner' } };
+      ownedJobIds.push(snap.id);
+    }
+    if (!ownedJobIds.length) return { status: 400, body: { ok: false, error: 'no_jobs' } };
+
+    const stripeA = await getStripe();
+    const pubRefA = db().collection('publishers').doc(uid);
+    const pubSnapA = await pubRefA.get();
+    let customerIdA = pubSnapA.exists ? pubSnapA.data().stripeCustomerId : undefined;
+    if (!customerIdA) {
+      const customer = await stripeA.customers.create({ email: decoded.email || undefined, metadata: { publisherUid: uid } });
+      customerIdA = customer.id;
+      await pubRefA.set({ stripeCustomerId: customerIdA, updatedAt: admin.firestore.FieldValue.serverTimestamp() }, { merge: true });
+    }
+
+    const orderRefA = db().collection('orders').doc();
+    await orderRefA.set({
+      publisherUid: uid, jobIds: ownedJobIds, plan: 'azienda', units: null,
+      amountChf: 299, currency: 'CHF', status: 'created', stripeCustomerId: customerIdA,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    const sessionA = await stripeA.checkout.sessions.create({
+      mode: 'subscription', customer: customerIdA,
+      line_items: [{ price: aziendaPrice, quantity: 1 }],
+      managed_payments: { enabled: true },
+      success_url: successUrl, cancel_url: cancelUrl,
+      client_reference_id: orderRefA.id,
+      metadata: { orderId: orderRefA.id, publisherUid: uid, plan: 'azienda' },
+      subscription_data: { metadata: { orderId: orderRefA.id, publisherUid: uid, plan: 'azienda' } },
+    });
+    await orderRefA.update({ stripeCheckoutSessionId: sessionA.id, updatedAt: admin.firestore.FieldValue.serverTimestamp() });
+
+    const batchA = db().batch();
+    for (const jobId of ownedJobIds) {
+      batchA.update(db().collection('publisher_jobs').doc(jobId), {
+        status: 'pending_payment', tier: 'azienda', orderId: orderRefA.id,
+        pendingPaymentAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      });
+    }
+    await batchA.commit();
+
+    return { status: 200, body: { ok: true, url: sessionA.url, orderId: orderRefA.id, plan: 'azienda', amountChf: 299 } };
+  }
+
   // Authoritative unit count: read the publisher's own jobs, sum distinct locations.
   let units = 0;
   const verifiedJobIds = [];
@@ -447,8 +508,16 @@ export async function handleStripeWebhook(req) {
     if (!subscriptionId) return;
     const orderSnap = await orderByStripeRef({ subscriptionId });
     if (orderSnap) {
+      const o = orderSnap.data();
       await orderSnap.ref.update({ status: 'canceled', updatedAt: ts });
-      await setJobsStatus(orderSnap.data().jobIds, 'expired');
+      await setJobsStatus(o.jobIds, 'expired');
+      if (o.plan === 'azienda') {
+        // Subscription gone → publisher is no longer azienda (revert to sponsored
+        // baseline; expired ads stay expired).
+        await db().collection('publishers').doc(o.publisherUid).set(
+          { tier: 'sponsored', updatedAt: ts }, { merge: true },
+        );
+      }
     }
   }
 
@@ -464,6 +533,14 @@ export async function handleStripeWebhook(req) {
           updatedAt: ts,
         });
         await setJobsStatus(order.jobIds, 'paid', { paidAt: ts, subscriptionId: obj.subscription || null });
+        if (order.plan === 'azienda') {
+          // Flag the publisher as azienda — the dashboard reflects the active plan
+          // and future ads can inherit the tier. The ads themselves already carry
+          // tier='azienda' (set at checkout); the projection features them all.
+          await db().collection('publishers').doc(order.publisherUid).set(
+            { tier: 'azienda', updatedAt: ts }, { merge: true },
+          );
+        }
         try {
           await storeRenewal(stripe, obj.subscription, order.jobIds, orderSnap.id);
         } catch { /* non-fatal: renewal date is best-effort */ }

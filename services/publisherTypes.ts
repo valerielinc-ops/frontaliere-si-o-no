@@ -73,7 +73,7 @@ export interface Publisher {
  *   sponsored — paid subscription: featured eligible, newsletter blast, all
  *               three apply modes, analytics. Goes through Stripe.
  */
-export type PublisherTier = 'free' | 'sponsored';
+export type PublisherTier = 'free' | 'sponsored' | 'azienda';
 
 /**
  * Lifecycle:
