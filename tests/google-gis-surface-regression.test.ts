@@ -29,10 +29,19 @@ describe('Google GIS surfaces', () => {
     expect(appSource).toContain('renderGoogleButtonWithReadiness');
     expect(appSource).toContain('const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);');
 
-    // New surfaces added for consistent social login coverage
-    expect(subscriptionCtaSource).toContain('renderGoogleButtonWithReadiness');
-    expect(subscriptionCtaSource).toContain('const [googleButtonReady, setGoogleButtonReady] = useState(false);');
-    expect(subscriptionCtaSource).toContain('signInWithLinkedIn');
+    // New surfaces added for consistent social login coverage.
+    // SubscriptionCTA now delegates the social-auth row to the shared
+    // SocialSignInButtons component (readiness-based GIS mount + LinkedIn
+    // sign-in live inside it), so the readiness pattern is asserted on the
+    // shared component instead of being inlined in the consumer.
+    const socialButtonsSource = readFileSync(resolve(root, 'components/shared/SocialSignInButtons.tsx'), 'utf8');
+    expect(socialButtonsSource).toContain('renderGoogleButtonWithReadiness');
+    expect(socialButtonsSource).toContain('const [googleButtonReady, setGoogleButtonReady] = useState(false);');
+    expect(socialButtonsSource).toContain('signInWithLinkedIn');
+    expect(subscriptionCtaSource).toContain('SocialSignInButtons');
+    // LeadMagnetCTA keeps the inlined readiness pattern for its compact variant
+    // (different sizing); the full variant uses the shared component.
+    expect(leadMagnetSource).toContain('SocialSignInButtons');
     expect(leadMagnetSource).toContain('renderGoogleButtonWithReadiness');
     expect(leadMagnetSource).toContain('const [googleButtonReady, setGoogleButtonReady] = useState(false);');
     expect(leadMagnetSource).toContain('signInWithLinkedIn');
