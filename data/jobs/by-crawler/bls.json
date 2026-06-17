@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-06-16T22:25:42.537Z",
+  "assembledAt": "2026-06-17T12:29:19.068Z",
   "jobs": [
     {
       "id": "bls-e310036fa7f0",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:39.941Z",
+      "crawledAt": "2026-06-17T12:29:16.100Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:43.687Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -131,7 +132,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-flottenmanagement/eaa6dfbf-e56d-4dc8-9c91-1d7a0b5c1736",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:39.198Z",
+      "crawledAt": "2026-06-17T12:29:15.250Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,6 +176,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:54.694Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -220,7 +222,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:38.464Z",
+      "crawledAt": "2026-06-17T12:29:14.389Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -263,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:40.769Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -308,7 +311,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/operator-in-bahntechnik-quereinstieg/6439d8d0-c9b5-4568-b026-37a7264fe008",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:37.724Z",
+      "crawledAt": "2026-06-17T12:29:13.526Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -357,100 +360,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:01:37.323Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "bls-04c117dc5e5f",
-      "slug": "controller-aziendale-in-bls-ag-bern",
-      "slugByLocale": {
-        "it": "controller-aziendale-in-bls-ag-bern",
-        "en": "business-controller-bls-ag-bern",
-        "de": "business-controller-in-bls-ch",
-        "fr": "controleur-d-entreprise-bls-ag-bern"
-      },
-      "company": "BLS AG",
-      "companyKey": "bls",
-      "companyDomain": "bls.ch",
-      "title": "Business Controller:in",
-      "titleByLocale": {
-        "it": "Controller aziendale:in",
-        "en": "Business Controller",
-        "de": "Business Controller:in",
-        "fr": "Contrôleur d'entreprise:"
-      },
-      "description": "Mit deinem Gespür für Zahlen gibst du die Richtung vor, wenn es um unsere finanzielle Steuerung geht. Du verbindest Daten, Menschen und Perspektiven. So entstehen glasklare Entscheidungsgrundlagen, die unsere Mobilität verlässlich und nachhaltig voranbringen. Ein Beitrag, der sichtbar wirkt und stolz macht.\n\nDas wartet auf dich:\n\n• Als Business Controller:in bist du nahe an der Bahnproduktion und begleitest Führungspersonen in Bönigen als Sparringpartner:in in finanziellen Fragestellungen\n\n• Mit deinem Wissen steuerst du Budget, Forecast und Mittelfristplanung\n\n• Deine Analysen schaffen klare Grundlagen für die Bahnproduktion\n\n• Du übernimmst Projektcontrolling und arbeitest in Projekten aktiv mit\n\nDas bringst du mit:\n\n• Bachelor in Betriebswirtschaft FH oder Uni oder Weiterbildung im Controlling/Finanzen\n\n• Erfahrung im Controlling und im Umgang mit Planungs- und Reportingprozessen\n\n• Mit SAP und MS Office erstellst du Analysen und bringst Zahlen auf den Punkt\n\n• Du denkst vernetzt und erkennst Zusammenhänge auch bei komplexen Fragestellungen\n\n• Als Persönlichkeit trittst du klar auf und bleibst auch bei Gegenwind ruhig und verbindlich\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "descriptionByLocale": {
-        "it": "Con il tuo senso di numeri, darai la direzione quando si tratta del nostro controllo finanziario. Connetti dati, persone e prospettive. Questo crea chiare basi decisionali che rendono la nostra mobilità più affidabile e sostenibile. Un contributo che sembra visibile e rende orgoglio. Questo ti aspetta:\n• Come responsabile del business: siete vicini alla produzione ferroviaria e accompagnate i leader a Bönigen come partner di anello di risparmio: in questioni finanziarie\n• Con la vostra conoscenza tassare il bilancio, le previsioni e la pianificazione a medio termine\n• Le tue analisi creano fondazioni chiare per la produzione web\n• Si assume il controllo del progetto e si lavora attivamente nei progetti Porta con te:\n• Corso di laurea in Business Administration FH o Università o formazione continua nel controllo/finanziario\n• Esperienza nel controllo e nel trattare con i processi di pianificazione e reporting\n• Con SAP e MS Office, inizierai l'analisi e porterà i numeri al punto\n• Pensi di avere connessioni in rete e capire anche in problemi complessi\n• Come personalità, noterete e resterete calmi e vincolanti sui vostri vantaggi – potete aspettarvi con ansia:\n• Ottieni una seconda classe GA, un GA 1. Classe o mezzo-taxabo.\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare cinque o dieci giorni di vacanza all'anno inoltre\n• Supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute. BEL Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-        "en": "With your sense of numbers, you will give the direction when it comes to our financial control. You connect data, people and perspectives. This creates clear decision-making bases that make our mobility more reliable and sustainable. A contribution that looks visible and makes pride. This is waiting for you:\n• As a business controller: you are close to railway production and accompany leaders in Bönigen as a savings ring partner: in financial questions\n• With your knowledge you tax budget, forecast and mid-term planning\n• Your analyses create clear foundations for web production\n• You take over project controlling and work actively in projects You bring with you:\n• Bachelor in Business Administration FH or University or Continuing Education in Controlling/Financial\n• Experience in Controlling and Dealing with Planning and Reporting Processes\n• With SAP and MS Office, you will start analysis and bring numbers to the point\n• You think networked and understand connections even in complex issues\n• As a personality, you will notice and stay calm and binding on your advantages – you can look forward to it:\n• Get a GA 2nd class, a GA 1. Class or half-taxabo.\n• Work where it suits you best. Whether in the home office or in the office. We promote part-time work, top and job sharing\n• It is possible to buy five to ten holiday days a year in addition\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health. BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
-        "de": "Mit deinem Gespür für Zahlen gibst du die Richtung vor, wenn es um unsere finanzielle Steuerung geht. Du verbindest Daten, Menschen und Perspektiven. So entstehen glasklare Entscheidungsgrundlagen, die unsere Mobilität verlässlich und nachhaltig voranbringen. Ein Beitrag, der sichtbar wirkt und stolz macht. Das wartet auf dich:\n• Als Business Controller:in bist du nahe an der Bahnproduktion und begleitest Führungspersonen in Bönigen als Sparringpartner:in in finanziellen Fragestellungen\n• Mit deinem Wissen steuerst du Budget, Forecast und Mittelfristplanung\n• Deine Analysen schaffen klare Grundlagen für die Bahnproduktion\n• Du übernimmst Projektcontrolling und arbeitest in Projekten aktiv mit Das bringst du mit:\n• Bachelor in Betriebswirtschaft FH oder Uni oder Weiterbildung im Controlling/Finanzen\n• Erfahrung im Controlling und im Umgang mit Planungs- und Reportingprozessen\n• Mit SAP und MS Office erstellst du Analysen und bringst Zahlen auf den Punkt\n• Du denkst vernetzt und erkennst Zusammenhänge auch bei komplexen Fragestellungen\n• Als Persönlichkeit trittst du klar auf und bleibst auch bei Gegenwind ruhig und verbindlich Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit. Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Avec votre sens des chiffres, vous donnerez la direction pour ce qui est de notre contrôle financier. Vous connectez les données, les personnes et les perspectives. Cela crée des bases de décision claires qui rendent notre mobilité plus fiable et durable. Une contribution qui semble visible et qui rend fière. Ceci vous attend:\n• En tant que contrôleur d'entreprise: vous êtes proche de la production ferroviaire et accompagnez les leaders à Bönigen comme partenaire de la bague d'épargne: en questions financières\n• Avec votre connaissance vous taxez le budget, les prévisions et la planification à mi-parcours\n• Vos analyses créent des bases claires pour la production web\n• Vous prenez le contrôle du projet et travaillez activement dans des projets Vous apportez avec vous:\n• Baccalauréat en administration des affaires FH ou Université ou formation continue en contrôle / financier\n• Expérience en contrôle et traitement des processus de planification et de rapport\n• Avec SAP et MS Office, vous commencerez l'analyse et apporterez des chiffres au point\n• Vous pensez réseauté et comprendre les connexions même dans des questions complexes\n• En tant que personnalité, vous remarquerez et resterez calme et lié à vos avantages – vous pouvez vous y attendre avec impatience:\n• Obtenez un GA 2ème classe, un GA 1. Classe ou demi-taxabo.\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau. Nous favorisons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter cinq à dix jours de vacances par an en plus\n• Un soutien financier pour la formation externe et une passionnante offre d'apprentissage interne et de cours sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé. BLS Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.bls.ch/offene-stellen/business-controller-in/a7a4ffa3-9a42-4583-b084-53649b04abe5",
-      "source": "BLS AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:37.058Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3008",
-      "streetAddress": "Europaplatz",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti / Ferrovia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-28",
-      "validThrough": "2026-06-26",
-      "pensum": "80-100%",
-      "salary": "122722",
-      "applyUrl": "https://jobs.bls.ch/apply/ats/a7a4ffa3-9a42-4583-b084-53649b04abe5",
-      "requirements": [
-        "Bachelor in Betriebswirtschaft FH oder Uni oder Weiterbildung im Controlling/Finanzen",
-        "Erfahrung im Controlling und im Umgang mit Planungs- und Reportingprozessen",
-        "Mit SAP und MS Office erstellst du Analysen und bringst Zahlen auf den Punkt",
-        "Du denkst vernetzt und erkennst Zusammenhänge auch bei komplexen Fragestellungen",
-        "Als Persönlichkeit trittst du klar auf und bleibst auch bei Gegenwind ruhig und verbindlich"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Bachelor in Betriebswirtschaft FH oder Uni oder Weiterbildung im Controlling/Finanzen",
-          "Erfahrung im Controlling und im Umgang mit Planungs- und Reportingprozessen",
-          "Mit SAP und MS Office erstellst du Analysen und bringst Zahlen auf den Punkt",
-          "Du denkst vernetzt und erkennst Zusammenhänge auch bei komplexen Fragestellungen",
-          "Als Persönlichkeit trittst du klar auf und bleibst auch bei Gegenwind ruhig und verbindlich"
-        ]
-      },
-      "previousSlugs": [
-        "business-controller-in-bls-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-controller-in-bls-ch"
-        ],
-        "en": [
-          "business-controller-in-bls-ch"
-        ],
-        "fr": [
-          "business-controller-in-bls-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-02T22:46:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -496,7 +406,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/leiter-in-immobilienentwicklung/877f2218-456f-42eb-949f-8c7acbeb3544",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:36.311Z",
+      "crawledAt": "2026-06-17T12:29:12.792Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -541,6 +451,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T12:57:20.047Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -586,7 +497,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/lokomotiven-instandhalter-in/53e51727-64ed-4a52-9d94-ca5b435e8848",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:35.653Z",
+      "crawledAt": "2026-06-17T12:29:12.076Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -620,6 +531,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:38.653Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -665,7 +577,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-wartung-lokomotiven/da2e6d50-dcd7-433c-9f30-f9661964fad8",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:34.992Z",
+      "crawledAt": "2026-06-17T12:29:11.339Z",
       "addressLocality": "Spiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:37.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -759,7 +672,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/e1d4abf3-9ab0-4d59-90ae-5f02770201b0",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:34.332Z",
+      "crawledAt": "2026-06-17T12:29:10.587Z",
       "addressLocality": "Hasle bei Burgdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -808,6 +721,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:35.340Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -853,7 +767,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/vorarbeiter-in/dbd67d58-b838-4e01-a0e1-91de615b02a6",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:33.600Z",
+      "crawledAt": "2026-06-17T12:29:09.550Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -903,6 +817,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:34.611Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -948,7 +863,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/teamleiter-in-instandhaltung-schienenfahrzeuge/2560f7be-3020-453c-8dac-0650df731afd",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:32.938Z",
+      "crawledAt": "2026-06-17T12:29:08.838Z",
       "addressLocality": "Bönigen",
       "addressCountry": "CH",
       "country": "CH",
@@ -994,6 +909,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.941Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1039,7 +955,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-nf-oder-automobilfachmann-frau-nf-lastwagenmechaniker-in-landmaschinenmechaniker-in/b902f38a-e2ae-46be-a6f8-d05911ff6585",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:32.173Z",
+      "crawledAt": "2026-06-17T12:29:08.004Z",
       "addressLocality": "Langnau im Emmental",
       "addressCountry": "CH",
       "country": "CH",
@@ -1087,6 +1003,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:33.211Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1132,7 +1049,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/instandhalter-in-schienenfahrzeuge/03bb9b0a-c98f-45e9-a0f0-ecd6aef3ec53",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:31.509Z",
+      "crawledAt": "2026-06-17T12:29:07.264Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1172,6 +1089,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:43.024Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1217,7 +1135,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/automechatroniker-in-lastwagenmechaniker-in-automatiker-in/48785895-2971-4c93-b40a-c433dc99a34a",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:30.841Z",
+      "crawledAt": "2026-06-17T12:29:06.523Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -1263,6 +1181,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:42.288Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1308,7 +1227,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/gleisbauer-in/3b765209-6647-406a-8e5b-231c5d0d1e8c",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:30.109Z",
+      "crawledAt": "2026-06-17T12:29:05.668Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1344,6 +1263,7 @@
         ]
       },
       "firstSeenAt": "2026-06-11T22:15:45.074Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1389,7 +1309,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/senior-sap-abap-virtuos-in/fa0faeac-0e3f-4bd1-a519-b222357e1bdc",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:29.379Z",
+      "crawledAt": "2026-06-17T12:29:04.748Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1428,6 +1348,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:32.553Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
@@ -1473,7 +1394,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/fachspezialist-in-fahrzeugreinigung/5cf9faa7-4e3c-4951-9b69-e921365abdce",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:28.636Z",
+      "crawledAt": "2026-06-17T12:29:03.887Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,6 +1435,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:31.813Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1559,7 +1481,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/mitarbeiter-in-gaesteservice-schifffahrt/0c8b7bfd-ec27-448b-8270-bf05c95ee2ae",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:27.976Z",
+      "crawledAt": "2026-06-17T12:29:03.169Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1595,6 +1517,7 @@
         ]
       },
       "firstSeenAt": "2026-06-05T21:38:31.757Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1640,7 +1563,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/rechtsanwaelt-in/ae1169b1-dec0-48b7-86f1-30f03c81044f",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:27.246Z",
+      "crawledAt": "2026-06-17T12:29:02.328Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1688,6 +1611,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:00:37.982Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1733,7 +1657,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/key-account-manager-in-industrie-mit-teamleitung/09f4bd5b-b798-4f50-bd20-484cfcfd63ee",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:25:26.576Z",
+      "crawledAt": "2026-06-17T12:29:01.602Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1785,6 +1709,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T22:46:29.457Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "baseSalary": {
