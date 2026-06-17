@@ -41,6 +41,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
+import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -172,13 +173,15 @@ function headHasVitestCheck(head) {
  * NON skippare il rebase quando vitest=`failure` — una PR behind+LGTM con vitest
  * rosso NON è mergeable-as-is (auto-merge-eval esige conclusion==success), quindi
  * va rebasata per ereditare eventuali fix lato main invece di restare stuck
- * (autorebase skippa, auto-merge rifiuta → loop). */
+ * (autorebase skippa, auto-merge rifiuta → loop). Prende l'ultimo check-run
+ * vitest COMPLETATO (per completed_at), non un `[0]` arbitrario, così un
+ * workflow_dispatch manuale cancellato sullo stesso SHA non avvelena il verdetto
+ * (stessa classe del bug #2394). Vedi lib/vitestCheck.mjs. */
 function vitestConclusion(head) {
   const out = gh(
-    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})][0].conclusion // ""`],
-    { json: false, allowFail: true });
-  return (out || '').trim();
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
+    { json: true, allowFail: true });
+  return latestCompletedVitestConclusion(out && out.check_runs);
 }
 
 /** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il

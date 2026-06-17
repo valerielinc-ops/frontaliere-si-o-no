@@ -34,6 +34,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -206,12 +207,16 @@ function main() {
     console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
   }
 
-  // 3. vitest check-run == success (NON solo != failure).
+  // 3. vitest check-run == success (NON solo != failure). Prende l'ultimo
+  // check-run vitest COMPLETATO (per completed_at), non un `[0]` arbitrario:
+  // un workflow_dispatch manuale di tests.yml sullo stesso SHA può lasciare un
+  // check-run `failure` stantio che, pescato per ordine API, mascherava il
+  // success reale → auto-merge bloccato pur coi test verdi (osservato #2394).
+  // Vedi lib/vitestCheck.mjs.
   let conclusion = '';
   try {
-    conclusion = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`,
-      '--jq', `[.check_runs[] | select(.name == ${JSON.stringify(VITEST_CHECK_NAME)})][0].conclusion // ""`],
-      { json: false }).trim();
+    const cr = gh(['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`]);
+    conclusion = latestCompletedVitestConclusion(cr && cr.check_runs);
   } catch (e) {
     return fail(`Impossibile leggere check-runs HEAD ${head}: ${String(e).slice(0, 160)} — skip.`);
   }
