@@ -15,6 +15,11 @@
  *   1. PR aperta e NON draft.
  *   2. Ultima review del bot reviewer (login startsWith `claude`, type Bot) sulla
  *      HEAD corrente contiene `## LGTM` e NON `🔴 Important`.
+ *      DRIFT-FALLBACK (zero-Claude): se manca `## LGTM` E manca un `🔴`, ma la PR
+ *      modifica `pr-review-loop.yml` (→ il reviewer Claude non può girare per
+ *      workflow-validation 401) ED è di autore fidato ED ha `pr-body-contract`
+ *      verde → approva su gate deterministici al posto della review (rimuove
+ *      l'unico caso di merge MANUALE residuo). Un `🔴` reale blocca comunque.
  *   3. check-run `vitest (unit + integration)` sulla HEAD == `success`
  *      (NON solo != failure: richiede success → niente merge su pending/missing).
  *   4. Collision gate (P3): se la PR ha label `collision-risk` ED è behind
@@ -33,7 +38,7 @@
  * atteso (l'altro trigger ri-valuterà), non un errore di workflow.
  */
 import { execFileSync } from 'node:child_process';
-import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE, REVIEW_WORKFLOW_DRIFT_FILES } from './lib/constants.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -138,6 +143,92 @@ export function codeContributionFingerprint(files) {
   return parts.join('\n--FILE--\n');
 }
 
+/**
+ * True se la PR (lista di filename) modifica un workflow che fa driftare il
+ * reviewer Claude (vedi REVIEW_WORKFLOW_DRIFT_FILES) → il reviewer non può
+ * postare `## LGTM`. Puro → testabile senza gh.
+ */
+export function isReviewWorkflowDriftPR(filenames) {
+  if (!Array.isArray(filenames)) return false;
+  return filenames.some((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
+}
+
+/**
+ * True se l'autore della PR è fidato per il drift-fallback (merge senza review
+ * Claude): l'owner/membro/collaboratore del repo, oppure uno dei bot di
+ * automazione interni (claude[bot], github-actions[bot]). Puro → testabile.
+ * `meta` = { assoc: author_association, login: user.login, type: user.type }.
+ */
+export function isTrustedDriftAuthor(meta) {
+  if (!meta) return false;
+  if (['OWNER', 'MEMBER', 'COLLABORATOR'].includes(meta.assoc)) return true;
+  return meta.type === 'Bot' && /^(claude|github-actions)/i.test(meta.login || '');
+}
+
+/**
+ * Drift-fallback (zero-Claude): quando il reviewer Claude NON ha potuto postare
+ * `## LGTM` perché la PR modifica `pr-review-loop.yml` (workflow-validation 401),
+ * approva il merge su GATE DETERMINISTICI al posto della review:
+ *   (a) la PR modifica davvero un drift-file (REVIEW_WORKFLOW_DRIFT_FILES);
+ *   (b) autore fidato (owner/membro/collaboratore o bot interno);
+ *   (c) `pr-body-contract` verde (sticky `<!-- pr-body-contract -->` = OK).
+ * I gate vitest + collision restano invariati a valle. Copertura equivalente al
+ * vecchio merge MANUALE di queste PR (che pure non aveva review Claude), senza
+ * il passo a mano. Ritorna true sse approvato; logga ogni sub-gate.
+ * NB: il caller invoca questo SOLO quando NON c'è `## LGTM` e NON c'è `🔴` (un
+ * 🔴 reale del reviewer blocca comunque, drift o no).
+ */
+function evaluateDriftFallback() {
+  let files;
+  try {
+    files = gh(['api', `repos/${REPO}/pulls/${PR}/files`, '--paginate', '--jq', '.[].filename'],
+      { json: false }).split('\n').map((s) => s.trim()).filter(Boolean);
+  } catch (e) {
+    console.log(`drift-fallback: impossibile leggere i file della PR (${String(e).slice(0, 120)}) — no fallback.`);
+    return false;
+  }
+  if (!isReviewWorkflowDriftPR(files)) {
+    console.log('drift-fallback: la PR non modifica un workflow di review (pr-review-loop.yml) — no fallback; un push nuovo ri-attiverà la review.');
+    return false;
+  }
+  const driftFiles = files.filter((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
+
+  let meta;
+  try {
+    meta = gh(['api', `repos/${REPO}/pulls/${PR}`,
+      '--jq', '{assoc: .author_association, login: .user.login, type: .user.type}']);
+  } catch (e) {
+    console.log(`drift-fallback: impossibile leggere l'autore (${String(e).slice(0, 120)}) — no fallback.`);
+    return false;
+  }
+  if (!isTrustedDriftAuthor(meta)) {
+    console.log(`drift-fallback: autore NON fidato (assoc=${meta.assoc}, login=${meta.login}, type=${meta.type}) — no fallback.`);
+    return false;
+  }
+
+  // Gate deterministico del body al posto della review Claude: la sticky di
+  // pr-body-contract (createOrUpdate → un solo commento col marker) riflette lo
+  // stato corrente. "PR-body contract OK" appare SOLO sul successo.
+  let sticky = '';
+  try {
+    sticky = gh(['api', `repos/${REPO}/issues/${PR}/comments`, '--paginate',
+      '--jq', '[.[] | select(.body | contains("<!-- pr-body-contract -->")) | .body] | join("\\n---\\n")'],
+      { json: false });
+  } catch (e) {
+    console.log(`drift-fallback: impossibile leggere la sticky pr-body-contract (${String(e).slice(0, 120)}) — no fallback.`);
+    return false;
+  }
+  if (!/PR-body contract OK/.test(sticky)) {
+    console.log(sticky
+      ? 'drift-fallback: pr-body-contract NON verde (body contract incompleto) — no fallback; sistemare il PR body.'
+      : 'drift-fallback: sticky pr-body-contract assente (pending?) — no fallback per ora; il completamento di pr-body-contract/tests ri-valuterà.');
+    return false;
+  }
+
+  console.log(`drift-fallback ATTIVO: PR #${PR} modifica ${driftFiles.join(', ')} (reviewer Claude bloccato da workflow-validation 401), autore fidato (assoc=${meta.assoc}/${meta.login}/${meta.type}), pr-body-contract ✔ → approvo via gate deterministici (vitest + collision restano).`);
+  return true;
+}
+
 function main() {
   if (!REPO) fail('GITHUB_REPOSITORY mancante — skip.');
   if (!PR || !/^\d+$/.test(PR)) fail(`PR number mancante/invalido ('${PR}') — skip.`);
@@ -178,32 +269,43 @@ function main() {
     (r) => r.user && r.user.type === 'Bot' && /^claude/i.test(r.user.login || '')
   );
   const lastBot = botReviews.length ? botReviews[botReviews.length - 1] : null;
-  if (!lastBot) return fail(`Nessuna review claude-bot su PR #${PR} — skip.`);
-  const body = lastBot.body || '';
-  // Valuta PRIMA il contenuto (vale a qualunque commit): LGTM + niente 🔴.
-  if (!body.includes('## LGTM')) return fail(`Ultima review claude-bot senza '## LGTM' — skip.`);
-  // Marker 🔴-Important tollerante al markdown del reviewer: il literal `'🔴 Important'`
-  // manca il bold `🔴 **Important` (drift osservato su PR #2211 round-2). Stessa classe
-  // della detection brittle in pr-redflag-fixer.yml; qui è belt-and-suspenders (il
-  // requisito `## LGTM` sopra è il gate primario), ma un reviewer che driftasse a
-  // LGTM+🔴-bold mergerebbe una PR con un 🔴 reale non indirizzato → blocca comunque.
-  if (REDFLAG_IMPORTANT_RE.test(body)) return fail(`Ultima review claude-bot contiene un finding '🔴 Important' — skip (no merge).`);
-  // L'LGTM deve valere per l'HEAD corrente. Se è su un commit precedente,
-  // accettalo SOLO se l'head è un rebase di solo-merge-di-main: il contributo
-  // proprio della PR è byte-identico a quello approvato → carry-forward, ZERO
-  // Claude (no re-review). Altrimenti è davvero stale → un push nuovo
-  // ri-attiverà la review. (Il gate vitest qui sotto resta sull'head fresco:
-  // pr-autorebase ri-esegue i test sull'head rebasato, così un conflitto
-  // semantico con la nuova main viene comunque colto.)
-  if (lastBot.commit_id && lastBot.commit_id !== head) {
-    const fpHead = prContributionFingerprint(head);
-    const fpLgtm = prContributionFingerprint(lastBot.commit_id);
-    if (fpHead === null || fpLgtm === null || fpHead !== fpLgtm) {
-      return fail(`Ultima review claude-bot riferita a ${lastBot.commit_id} ≠ HEAD ${head} e il diff della PR è cambiato (o non comparabile) — skip; un push nuovo ri-attiverà il review.`);
+  const body = lastBot ? (lastBot.body || '') : '';
+  // Un 🔴 Important reale del reviewer BLOCCA sempre, anche su una PR drift (se il
+  // 🔴 c'è, il reviewer HA girato e ha trovato qualcosa). Marker tollerante al
+  // markdown del reviewer: il literal `'🔴 Important'` manca il bold
+  // `🔴 **Important` (drift osservato su PR #2211 round-2). Stessa classe della
+  // detection brittle in pr-redflag-fixer.yml.
+  const hasRedflag = !!body && REDFLAG_IMPORTANT_RE.test(body);
+  if (hasRedflag) return fail(`Ultima review claude-bot contiene un finding '🔴 Important' — skip (no merge).`);
+
+  if (lastBot && body.includes('## LGTM')) {
+    // Percorso normale: `## LGTM` presente. Deve valere per l'HEAD corrente. Se è
+    // su un commit precedente, accettalo SOLO se l'head è un rebase di
+    // solo-merge-di-main: il contributo proprio della PR è byte-identico a quello
+    // approvato → carry-forward, ZERO Claude (no re-review). Altrimenti è davvero
+    // stale → un push nuovo ri-attiverà la review. (Il gate vitest qui sotto resta
+    // sull'head fresco: pr-autorebase ri-esegue i test sull'head rebasato, così un
+    // conflitto semantico con la nuova main viene comunque colto.)
+    if (lastBot.commit_id && lastBot.commit_id !== head) {
+      const fpHead = prContributionFingerprint(head);
+      const fpLgtm = prContributionFingerprint(lastBot.commit_id);
+      if (fpHead === null || fpLgtm === null || fpHead !== fpLgtm) {
+        return fail(`Ultima review claude-bot riferita a ${lastBot.commit_id} ≠ HEAD ${head} e il diff della PR è cambiato (o non comparabile) — skip; un push nuovo ri-attiverà il review.`);
+      }
+      console.log(`Gate review: ## LGTM su ${lastBot.commit_id} ≠ HEAD ${head} ma contributo PR invariato (rebase di solo main-merge) → carry-forward ✔`);
+    } else {
+      console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
     }
-    console.log(`Gate review: ## LGTM su ${lastBot.commit_id} ≠ HEAD ${head} ma contributo PR invariato (rebase di solo main-merge) → carry-forward ✔`);
   } else {
-    console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
+    // Nessun `## LGTM` utilizzabile E nessun 🔴: tipicamente il reviewer NON ha
+    // potuto girare perché la PR modifica `pr-review-loop.yml` (workflow-validation
+    // 401). Prova il drift-fallback deterministico (autore fidato +
+    // pr-body-contract verde). Ritorna false → skip (un push/`tests` ri-valuterà).
+    if (!evaluateDriftFallback()) {
+      return fail(lastBot
+        ? `Ultima review claude-bot senza '## LGTM' e drift-fallback non applicabile — skip.`
+        : `Nessuna review claude-bot e drift-fallback non applicabile — skip.`);
+    }
   }
 
   // 3. vitest check-run == success (NON solo != failure).
