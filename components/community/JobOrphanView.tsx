@@ -25,6 +25,7 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import ArticleRailAd from '@/components/shared/ArticleRailAd';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import { buildPath } from '@/services/router';
 
@@ -527,11 +528,16 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  <div className="space-y-5">
  {backButton}
 
- {/* 3-column grid: left rail | content | right rail (desktop xl only) */}
- <div className="xl:grid xl:grid-cols-[180px_1fr_180px] xl:gap-6">
+ {/* 3-column grid: left rail | content | right rail. 180px at xl (1280–1399),
+     300px at xlw (≥1400) to host ArticleRailAd half-page creatives. */}
+ <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="hidden xl:block" />
+ <aside className="hidden xl:block">
+ <div className="sticky top-6">
+ <ArticleRailAd side="left" />
+ </div>
+ </aside>
 
  {/* ── Center content ── */}
  <div className="space-y-4">
@@ -646,7 +652,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="hidden xl:block" />
+ <aside className="hidden xl:block">
+ <div className="sticky top-6">
+ <ArticleRailAd side="right" />
+ </div>
+ </aside>
 
  </div>
 
