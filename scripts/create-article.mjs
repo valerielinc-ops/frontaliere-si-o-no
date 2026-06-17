@@ -2859,7 +2859,7 @@ async function buildStatsBfsPromptContent(quarter) {
     'Se la variazione QoQ è positiva titola "in crescita", se negativa "in calo", se sotto ±0.3% "stabile".',
     'NON inventare percentuali, settori, comuni o aziende che non sono nei dati forniti. Se non sai, ometti.',
     `Includi link interno alla dashboard /statistiche/ ("vedi i grafici aggiornati") e alla pagina /calcola-stipendio/ (CTA finale).`,
-    `Fonte da citare: Ufficio Federale di Statistica (BFS), tabella DF_GGS_6 — link https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html`,
+    `Fonte da citare: Ufficio Federale di Statistica (BFS), tabella DF_GGS_6 — link https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html`,
   ].filter(Boolean).join('\n');
 }
 
@@ -3688,7 +3688,7 @@ Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni
 
   const prompt = `${systemRoleLine}
 
-SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html (BFS)' : url}
+SOURCE URL: ${url.startsWith('evergreen://') ? '(editorial research)' : url.startsWith('stats-bfs://') ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html (BFS)' : url}
 SOURCE CONTENT:
 ${truncatedContent}
 ${sourceContext?.headline ? `\nHEADLINE: ${sourceContext.headline}` : ''}
@@ -8107,7 +8107,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   // For stats-bfs:// articles, the URL is a synthetic per-quarter dedup key
   // — the human-readable citation must point to the public BFS landing page.
   const citationUrl = url.startsWith('stats-bfs://')
-    ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html'
+    ? 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html'
     : url;
   if (citationUrl && !citationUrl.startsWith('evergreen://')) {
     try {
