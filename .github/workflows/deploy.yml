@@ -297,32 +297,20 @@ jobs:
         # commit required to lower (see CLAUDE.md rule #1).
         run: npm run audit:active-jobs-regression
 
-      - name: Housekeeping (cross-crawler dedup + locale hardening)
-        env:
-          JOBS_SKIP_URL_VALIDATION: '1'
-        run: node scripts/cleanup-jobs.mjs
-
-      - name: Refresh weekly-employers footer link list (F5 link-graph closer)
-        # Regenerates data/weekly-employers-top-pairs.json from current jobs
-        # using the SAME logic the build plugin uses to materialise pages.
-        # Guarantees footer hrefs in WeeklyEmployersTeaser always point at
-        # static pages that exist in dist/, eliminating SPA-shell 404s.
-        run: node scripts/refresh-weekly-employers-top-pairs.mjs
-
-      - name: Mine all job slugs for comprehensive 404 coverage
-        run: node scripts/mine-all-job-slugs.mjs
-
-      - name: Canton-aware migration of slug registry
-        # mine-all-job-slugs writes every entry under the legacy TI section
-        # (LOCALE_PREFIXES hardcode). For non-TI jobs that stale path leaks
-        # into dist as soft-landing canonical/hreflang (selfUrl reads the
-        # registry verbatim) → gate:seo-source red post-merge (run
-        # 27352608929: VD job canonicalised to /cerca-lavoro-ticino/).
-        # tests.yml + post-deploy-validate-dist.yml already run this script
-        # before vitest; without it HERE the build consumes the unmigrated
-        # registry while the gates test a migrated copy — gate and artifact
-        # must see the same data.
-        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+      # Page-shaping data-prep BEFORE build:ci — the deduped + migrated +
+      # sitemap-cleaned dataset the canonical dist ships. Shared with
+      # cathedral-seo-gates-check.yml via a composite action so the gate
+      # audits the exact same page set deploy emits and the two can never
+      # drift (follow-up #2198; the #2121 OOM was caused by that drift).
+      # Steps inside (in order): cleanup-jobs (cross-crawler dedup + locale
+      # hardening, JOBS_SKIP_URL_VALIDATION=1), refresh-weekly-employers-top-pairs
+      # (footer link-graph closer), mine-all-job-slugs (404 coverage),
+      # migrate-all-known-job-slugs-canton-aware (non-TI canonical/hreflang —
+      # without it the build consumes the unmigrated registry while gates test
+      # a migrated copy, gate:seo-source red post-merge run 27352608929),
+      # cleanup-news-sitemap (stale news entries). None require secrets.
+      - name: SEO build data-prep (shared with cathedral-seo-gates-check.yml)
+        uses: ./.github/actions/seo-build-data-prep
 
       # Cluster-pages cache REMOVED (2026-05-09).
       # Build instrumentation on 5 recent deploys showed:
@@ -361,9 +349,6 @@ jobs:
 
       - name: Generate responsive image thumbnails
         run: node scripts/generate-image-thumbnails.mjs
-
-      - name: Cleanup stale news sitemap entries
-        run: node scripts/cleanup-news-sitemap.mjs
 
       - name: Cleanup stale job HTML (orphans from prior incremental builds)
         # vite.config.ts uses emptyOutDir:false to preserve admin data,
