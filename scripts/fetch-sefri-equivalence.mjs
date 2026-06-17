@@ -174,15 +174,28 @@ async function probeSources() {
 
 async function main() {
   console.log('[sefri] Probing public authority sources (1 req/s)…');
-  const sources = await probeSources();
-  const reachable = sources.filter((s) => s.reachable).length;
-  console.log(`[sefri] ${reachable}/${sources.length} sources reachable — writing curated equivalence snapshot.`);
+  const probed = await probeSources();
+  const reachable = probed.filter((s) => s.reachable).length;
+  console.log(`[sefri] ${reachable}/${probed.length} sources reachable — writing curated equivalence snapshot.`);
 
+  // Stable curated payload first; volatile per-run probe metadata isolated under
+  // a single top-level `_probe` block so the citeable `sources`/`professions`
+  // entries stay byte-stable across regens and no consumer can accidentally
+  // project run-specific fields (reachable/bytes/probedAt/elapsedMs) into output.
   const payload = {
-    generatedAt: new Date().toISOString(),
-    sources,
+    sources: SOURCES,
     professions: TRADE_PROFESSIONS,
     note: 'Curated, hand-verified equivalence summary. Update TRADE_PROFESSIONS when SEFRI / SECO publish CCL revisions. Regulated = requires authority pre-approval before employment.',
+    _probe: {
+      generatedAt: new Date().toISOString(),
+      sources: probed.map(({ url, reachable: ok, bytes, probedAt, elapsedMs }) => ({
+        url,
+        reachable: ok,
+        bytes,
+        probedAt,
+        elapsedMs,
+      })),
+    },
   };
 
   fs.mkdirSync(np.dirname(OUT), { recursive: true });
