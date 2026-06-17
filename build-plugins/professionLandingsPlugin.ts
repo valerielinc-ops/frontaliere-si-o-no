@@ -331,7 +331,7 @@ function renderSourcesBlock(id: ProfessionId, label: string): string {
     { url: facts.recognitionAuthorityUrl, label: `${facts.recognitionAuthority}` },
     { url: facts.cclUrl, label: `${facts.cclReference} (SECO)` },
     {
-      url: 'https://www.estv.admin.ch/estv/it/home/imposta-federale-diretta/imposta-alla-fonte.html',
+      url: 'https://www.estv.admin.ch/it/imposta-alla-fonte',
       label: 'AFC — Imposta alla fonte',
     },
     { url: 'https://www.sem.admin.ch', label: 'SEM — Permessi di lavoro' },
