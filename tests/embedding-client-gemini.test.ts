@@ -11,7 +11,7 @@
  */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { EMBEDDING_DIM, EMBEDDING_PROVIDERS } from '../scripts/lib/evidence/constants.mjs';
-import { embedBatch, lastUsedEmbeddingModel } from '../scripts/lib/evidence/embeddingClient.mjs';
+import { embedBatch, lastUsedEmbeddingModel, parseGeminiRetryMs } from '../scripts/lib/evidence/embeddingClient.mjs';
 
 const ENV_KEYS = ['MISTRAL_API_KEY', 'COHERE_API_KEY', 'GEMINI_API_KEY'];
 const saved: Record<string, string | undefined> = {};
@@ -107,5 +107,60 @@ describe('embeddingClient — Gemini adapter', () => {
     const wrongDim = [Array(EMBEDDING_DIM - 1).fill(0.1)];
     const fetchImpl = vi.fn(async () => geminiResponse(wrongDim) as unknown as Response);
     await expect(embedBatch({ inputs: ['x'], fetchImpl })).rejects.toThrow(/all embedding providers failed/);
+  });
+});
+
+describe('parseGeminiRetryMs', () => {
+  it('reads the structured RetryInfo retryDelay', () => {
+    expect(parseGeminiRetryMs('... "retryDelay": "51s" ...')).toBe(51_250);
+  });
+  it('reads the prose "retry in Ns" form', () => {
+    expect(parseGeminiRetryMs('Please retry in 51.83248591s.')).toBe(52_082);
+  });
+  it('defaults to ~60s when absent and clamps to [1s, 90s]', () => {
+    expect(parseGeminiRetryMs('')).toBe(60_250);
+    expect(parseGeminiRetryMs('"retryDelay": "0s"')).toBe(1_000); // clamped up
+    expect(parseGeminiRetryMs('"retryDelay": "999s"')).toBe(90_000); // clamped down
+  });
+});
+
+describe('embeddingClient — Gemini 429 retry (one-time backfill throttle)', () => {
+  it('waits out a 429 then succeeds on retry (free-tier 100 req/min window)', async () => {
+    process.env.GEMINI_API_KEY = 'test-gemini-key';
+    const unit = Array(EMBEDDING_DIM).fill(0).map((_, i) => (i === 0 ? 1 : 0));
+    let call = 0;
+    const fetchImpl = vi.fn(async () => {
+      call += 1;
+      if (call === 1) {
+        return {
+          ok: false,
+          status: 429,
+          text: async () => '{"error":{"message":"Quota exceeded ... Please retry in 2s","details":[{"retryDelay":"2s"}]}}',
+          json: async () => ({}),
+        } as unknown as Response;
+      }
+      return geminiResponse([unit]) as unknown as Response;
+    });
+    const sleeps: number[] = [];
+    const sleepImpl = vi.fn(async (ms: number) => { sleeps.push(ms); });
+
+    const out = await embedBatch({ inputs: ['x'], fetchImpl, sleepImpl });
+    expect(out).toHaveLength(1);
+    expect(out[0].length).toBe(EMBEDDING_DIM);
+    expect(fetchImpl).toHaveBeenCalledTimes(2); // 429 then 200
+    expect(sleepImpl).toHaveBeenCalledTimes(1);
+    expect(sleeps[0]).toBe(2_250); // 2s + 250ms cushion
+    expect(lastUsedEmbeddingModel()).toBe('gemini-embedding-001');
+  });
+
+  it('gives up after maxRetries of persistent 429 (no infinite loop)', async () => {
+    process.env.GEMINI_API_KEY = 'test-gemini-key';
+    const fetchImpl = vi.fn(async () => ({
+      ok: false, status: 429, text: async () => '"retryDelay": "1s"', json: async () => ({}),
+    } as unknown as Response));
+    const sleepImpl = vi.fn(async () => {});
+    await expect(embedBatch({ inputs: ['x'], fetchImpl, sleepImpl })).rejects.toThrow(/all embedding providers failed/);
+    // 1 initial + 6 retries = 7 attempts (maxRetries=6).
+    expect(fetchImpl).toHaveBeenCalledTimes(7);
   });
 });

@@ -41,6 +41,23 @@ function l2normalize(vec) {
   return vec;
 }
 
+const realSleep = (ms) => new Promise((resolve) => { setTimeout(resolve, ms); });
+
+/**
+ * Extract the retry-after delay (ms) from a Gemini 429 body. Honors both the
+ * structured RetryInfo (`"retryDelay": "51s"`) and the prose form
+ * (`Please retry in 51.83s`). Falls back to 60s (the free-tier window is
+ * per-minute), clamped to [1s, 90s] so a malformed/huge value can't hang a run.
+ */
+export function parseGeminiRetryMs(bodyText = '') {
+  const m =
+    /"retryDelay"\s*:\s*"([\d.]+)s"/.exec(bodyText) ||
+    /retry in ([\d.]+)\s*s/i.exec(bodyText);
+  const sec = m ? parseFloat(m[1]) : 60;
+  const ms = Math.round((Number.isFinite(sec) ? sec : 60) * 1000) + 250; // +250ms cushion
+  return Math.min(Math.max(ms, 1000), 90_000);
+}
+
 /**
  * All providers whose API key is in env, in chain order. Empty if none.
  * @returns {Array<{id:string, model:string, dim:number, url:string, key:string}>}
@@ -113,27 +130,41 @@ async function callCohere({ provider, inputs, fetchImpl }) {
  * under `embeddings[].values`. outputDimensionality=1024 (MRL) matches the store;
  * truncated vectors are L2-normalized here (not unit-norm from the API).
  */
-async function callGemini({ provider, inputs, fetchImpl }) {
+async function callGemini({ provider, inputs, fetchImpl, sleepImpl = realSleep, maxRetries = 6 }) {
   const model = `models/${provider.model}`;
-  const res = await fetchImpl(provider.url, {
-    method: 'POST',
-    headers: {
-      'x-goog-api-key': provider.key,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      requests: inputs.map((text) => ({
-        model,
-        content: { parts: [{ text }] },
-        outputDimensionality: provider.dim,
-        taskType: 'RETRIEVAL_DOCUMENT',
-      })),
-    }),
+  const body = JSON.stringify({
+    requests: inputs.map((text) => ({
+      model,
+      content: { parts: [{ text }] },
+      outputDimensionality: provider.dim,
+      taskType: 'RETRIEVAL_DOCUMENT',
+    })),
   });
-  if (!res.ok) throw new Error(`gemini embeddings ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const rows = data?.embeddings || [];
-  return rows.map((r) => l2normalize(Float32Array.from(r.values || [])));
+  // Free tier is 100 embed requests / MINUTE / model and a 100-input batch
+  // consumes the whole window in one call, so the one-time full re-embed
+  // (~2700 articles) 429s on every batch after the first. The limit is
+  // per-minute (not daily) → wait out the window and retry. Subsequent
+  // incremental runs (~tens of new articles/day) stay well under the cap.
+  for (let attempt = 0; ; attempt++) {
+    const res = await fetchImpl(provider.url, {
+      method: 'POST',
+      headers: { 'x-goog-api-key': provider.key, 'Content-Type': 'application/json' },
+      body,
+    });
+    if (res.ok) {
+      const data = await res.json();
+      const rows = data?.embeddings || [];
+      return rows.map((r) => l2normalize(Float32Array.from(r.values || [])));
+    }
+    const text = await res.text();
+    if (res.status === 429 && attempt < maxRetries) {
+      const waitMs = parseGeminiRetryMs(text);
+      console.error(`gemini embeddings 429 (rate limit) — waiting ${Math.round(waitMs / 1000)}s then retrying (attempt ${attempt + 1}/${maxRetries})`);
+      await sleepImpl(waitMs);
+      continue;
+    }
+    throw new Error(`gemini embeddings ${res.status}: ${text}`);
+  }
 }
 
 /**
@@ -167,7 +198,7 @@ export function lastUsedEmbeddingModel() {
   return _lastUsedModel;
 }
 
-export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
+export async function embedBatch({ inputs, fetchImpl = fetch, sleepImpl } = {}) {
   if (!Array.isArray(inputs) || inputs.length === 0) return [];
 
   const providers = selectProviders();
@@ -182,7 +213,7 @@ export async function embedBatch({ inputs, fetchImpl = fetch } = {}) {
       } else if (provider.id === 'cohere') {
         vectors = await callCohere({ provider, inputs, fetchImpl });
       } else if (provider.id === 'gemini') {
-        vectors = await callGemini({ provider, inputs, fetchImpl });
+        vectors = await callGemini({ provider, inputs, fetchImpl, ...(sleepImpl ? { sleepImpl } : {}) });
       } else {
         throw new Error(`unknown embedding provider: ${provider.id}`);
       }
