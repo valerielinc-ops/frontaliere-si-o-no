@@ -544,6 +544,21 @@ jobs:
           # path is short-circuited. Keeps local dev paths (where the cache IS
           # persisted) unchanged: unset this flag locally to re-enable.
           RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+          # Max-safety cap (=1) for the related-search-clusters postings
+          # pre-pass worker pool (#2453/#2464). Each per-locale worker builds a
+          # full 2/3-gram index (~hundreds of MB for ~11k jobs) that stays
+          # resident until the worker exits. #2453 batched the spawns by
+          # RELATED_SEARCH_PREPASS_CONCURRENCY (code default 2) instead of the
+          # old uncapped Promise.all-over-all-locales (up to 4 indexes resident
+          # at once → systemd-oomd SIGTERM/exit 143 on the 16 GB runner, on top
+          # of the ~9.7 GB build baseline). CONC=2 is unverifiable on `pull_request`
+          # (full SSG build only runs post-merge on `main`), so we pre-plumb the
+          # emergency knob to 1 here: at most ONE gram-index resident, the worker
+          # exits and frees its memory before the next locale starts. Output is
+          # byte-identical (workers seed the same tokenIndex); the only cost is a
+          # few tens of seconds of pre-pass wall-time. Raise to '2' (or unset, code
+          # default 2) once a deploy is confirmed green with the lower memory peak.
+          RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
           # POST_WALK_WORKERS rollback removed (commit 4b412bc8a + 36dfd0e9c
           # added explicit `.ts` extensions to the two extension-less local
           # imports the worker tree pulled in — `./blogContextualLinksData`
