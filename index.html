@@ -278,15 +278,27 @@
         var ow = g.offerwall = g.offerwall || {};
         var cc = ow.customchoice = ow.customchoice || {};
         if (cc.registry) return; // don't overwrite a registry set elsewhere
-        function alreadySubscribed(){
-          try { return window.localStorage.getItem('newsletter_subscribed') === 'true'; }
-          catch (e) { return false; }
+        // Grant access (suppress the Offerwall) for existing newsletter
+        // subscribers OR signed-in users. Firebase Auth persists the session in a
+        // `firebase:authUser:<…>` localStorage key (see authService
+        // hasPersistedAuthSession), so a logged-in user is detected synchronously
+        // — no async auth hydration wait (initialize must resolve in < 1s). Only
+        // anonymous, non-subscribed readers (the funnel target) see the Offerwall.
+        function hasAccess(){
+          try {
+            if (window.localStorage.getItem('newsletter_subscribed') === 'true') return true;
+            for (var i = 0; i < window.localStorage.length; i++) {
+              var k = window.localStorage.key(i);
+              if (k && k.indexOf('firebase:authUser:') === 0) return true;
+            }
+          } catch (e) { /* localStorage unavailable */ }
+          return false;
         }
         cc.registry = {
           // Must resolve in < 1s or the Offerwall fails to render.
           initialize: function(params){
             var E = cc.InitializeResponseEnum || {};
-            if (alreadySubscribed()) {
+            if (hasAccess()) {
               return Promise.resolve(E.ACCESS_GRANTED || 'ACCESS_GRANTED');
             }
             window.__ftOfferwallLang = (params && params.offerwallLanguageCode) || null;
