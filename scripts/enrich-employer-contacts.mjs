@@ -22,8 +22,10 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import dns from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
 import { classifySector, slugify } from './lib/employer-sectors.mjs';
+import { apexDomain, extractCompanyEmails, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -35,9 +37,16 @@ function arg(name, def) {
   return n && !n.startsWith('--') ? n : true;
 }
 
-const EMAIL_RE = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}/gi;
-const EMAIL_BAD = /(noreply|no-reply|example|sentry|wixpress|\.png|\.jpg|\.webp|@2x|domain\.|email\.com|yourcompany)/i;
-const EMAIL_PRIORITY = [/^(hr|risorseumane|risorse-umane|lavoro|lavora|candidature|recruiting|recruitment|jobs|career|personal)/i, /^(info|contact|contatto|amministrazione|segreteria)/i];
+// Third-party ATS / job-board domains: a careers/website URL pointing here is
+// NOT the employer's own domain, so its apex would be wrong (e.g. emailing
+// ncoreplat.com). Skip email-scraping when the resolved apex is one of these.
+const ATS_DOMAINS = new Set([
+  'lever.co', 'greenhouse.io', 'myworkdayjobs.com', 'workday.com', 'smartrecruiters.com',
+  'personio.de', 'personio.com', 'recruitee.com', 'ncoreplat.com', 'ostendis.com',
+  'refline.ch', 'prospective.ch', 'jobs.ch', 'jobscout24.ch', 'indeed.com',
+  'jobcloud.ch', 'softgarden.io', 'teamtailor.com', 'workable.com', 'bamboohr.com',
+  'orior.ch', 'oraclecloud.com', 'taleo.net', 'successfactors.com', 'eu.greenhouse.io',
+]);
 
 async function fetchText(url, timeoutMs = 8000) {
   try {
@@ -50,33 +59,46 @@ async function fetchText(url, timeoutMs = 8000) {
   } catch { return ''; }
 }
 
-function pickEmail(emails) {
-  const clean = [...new Set(emails.map((e) => e.toLowerCase()))].filter((e) => !EMAIL_BAD.test(e));
-  for (const re of EMAIL_PRIORITY) { const hit = clean.find((e) => re.test(e.split('@')[0])); if (hit) return hit; }
-  return clean[0] || null;
+async function mxOk(domain) {
+  try { const mx = await dns.resolveMx(domain); return Array.isArray(mx) && mx.length > 0; } catch { return false; }
 }
 
-async function findEmail(careersUrl, website) {
-  const bases = [careersUrl, website].filter(Boolean);
-  const paths = ['', '/contatti', '/contatti/', '/contact', '/contact/', '/chi-siamo', '/lavora-con-noi', '/lavora-con-noi/', '/jobs', '/careers'];
-  const seen = new Set();
-  const found = [];
-  for (const base of bases) {
-    let origin = '';
-    try { origin = new URL(base).origin; } catch { continue; }
-    const urls = [base, ...paths.map((p) => origin + p)];
-    for (const u of urls) {
-      if (seen.has(u) || found.length > 12) continue;
-      seen.add(u);
-      const html = await fetchText(u);
+/**
+ * Deep-scrape the employer's OWN domain (contact/impressum/careers pages) and
+ * return the on-domain emails found (third-party noise dropped by the domain
+ * filter in email-finder). Returns [] for unknown/ATS domains.
+ */
+async function scrapeCompanyEmails(domain) {
+  if (!domain || ATS_DOMAINS.has(domain)) return [];
+  const paths = ['', '/contatti', '/contatti/', '/it/contatti', '/contact', '/contact/', '/kontakt', '/impressum', '/chi-siamo', '/lavora-con-noi', '/lavora-con-noi/', '/jobs', '/careers', '/azienda/contatti'];
+  const origins = [`https://www.${domain}`, `https://${domain}`];
+  const found = new Set();
+  for (const origin of origins) {
+    for (const p of paths) {
+      const html = await fetchText(origin + p);
       if (!html) continue;
-      const m = html.match(EMAIL_RE);
-      if (m) found.push(...m);
-      const pick = pickEmail(found);
-      if (pick && EMAIL_PRIORITY[0].test(pick.split('@')[0])) return pick; // strong match → stop early
+      for (const e of extractCompanyEmails(html, domain)) found.add(e);
+      if (found.size >= 8) return [...found];
     }
+    if (found.size) break;
   }
-  return pickEmail(found);
+  return [...found];
+}
+
+/** Registry: company key → own website domain (apex), excluding ATS hosts. */
+function loadRegistryDomains() {
+  const out = new Map();
+  try {
+    const raw = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-companies-auto.json'), 'utf8'));
+    const list = Array.isArray(raw) ? raw : Array.isArray(raw.companies) ? raw.companies : Object.values(raw);
+    for (const c of list) {
+      if (!c || typeof c !== 'object') continue;
+      const key = slugify(c.key || c.name);
+      const apex = apexDomain(c.website || c.careersUrl || '');
+      if (key && apex && !ATS_DOMAINS.has(apex)) out.set(key, apex);
+    }
+  } catch { /* registry optional */ }
+  return out;
 }
 
 async function topRoles(targets, days) {
@@ -114,6 +136,7 @@ async function run() {
 
   const existing = fs.existsSync(contactsPath) ? JSON.parse(fs.readFileSync(contactsPath, 'utf8')) : {};
   const roles = await topRoles(targets, days);
+  const registryDomains = loadRegistryDomains();
 
   console.log(`Enrichment: ${targets.length} aziende target (nessuna esclusa)\n`);
   for (const e of targets) {
@@ -121,16 +144,42 @@ async function run() {
     const prev = existing[key] || {};
     const role = roles.get(key)?.role || prev.topRole || '';
     const sector = classifySector(e.name);
-    let email = prev.email || null; // never overwrite manual email
-    if (!email) email = await findEmail(e.careersUrl, prev.website);
-    existing[key] = { name: e.name, candidates: e.candidates, sector, topRole: role, careersUrl: e.careersUrl || prev.careersUrl || '', website: prev.website || '', contactName: prev.contactName || '', email: email || '' };
-    console.log(`  ${e.candidates.toString().padStart(3)}  [${sector.padEnd(13)}]  ${email ? '✓ ' + email : '⚠ no email'}  ${e.name}${role ? `  · ruolo top: ${role.slice(0, 46)}` : ''}`);
+    // Domain: registry website (own domain, ATS-filtered) → fallback apex(careersUrl).
+    const careersApex = apexDomain(e.careersUrl || prev.careersUrl || '');
+    const domain = registryDomains.get(key) || prev.domain || (ATS_DOMAINS.has(careersApex) ? '' : careersApex);
+
+    // Never overwrite a manually-set email. Otherwise scrape the own domain.
+    let email = prev.email || '';
+    let emailSource = prev.email ? (prev.emailSource || 'manual') : '';
+    let emailInferred = prev.emailInferred || '';
+    let mx = false;
+    if (domain) {
+      mx = await mxOk(domain);
+      if (!email) {
+        const found = await scrapeCompanyEmails(domain);
+        const best = pickBestEmail(found);
+        if (best) { email = best; emailSource = 'scraped'; }
+        // Personal-email guess for the named LinkedIn contact (pattern-learned).
+        if (prev.contactName && !emailInferred) {
+          emailInferred = inferPatternEmail(found, prev.contactName, domain) || '';
+        }
+      }
+    }
+    existing[key] = {
+      name: e.name, candidates: e.candidates, sector, topRole: role,
+      careersUrl: e.careersUrl || prev.careersUrl || '', domain,
+      contactName: prev.contactName || '', contactRole: prev.contactRole || '', linkedinUrl: prev.linkedinUrl || '',
+      email, emailSource, emailInferred, mxVerified: mx,
+    };
+    const tag = email ? `✓ ${email} (${emailSource}${mx ? ', mx✓' : ''})` : (emailInferred ? `~ ${emailInferred} (inferita)` : (domain ? '⚠ no email' : '⚠ no domain'));
+    console.log(`  ${e.candidates.toString().padStart(3)}  [${sector.padEnd(13)}]  ${tag}  ${e.name}`);
   }
 
   fs.mkdirSync(path.dirname(contactsPath), { recursive: true });
   fs.writeFileSync(contactsPath, JSON.stringify(existing, null, 2));
   const withEmail = Object.values(existing).filter((c) => c.email).length;
-  console.log(`\n${Object.keys(existing).length} contatti in contacts.json (${withEmail} con email). Email mancanti: completale a mano (LinkedIn / form).`);
+  const withInferred = Object.values(existing).filter((c) => !c.email && c.emailInferred).length;
+  console.log(`\n${Object.keys(existing).length} contatti (${withEmail} email verificate da sito, ${withInferred} solo inferite). Le mancanti: completale a mano (LinkedIn DM / form).`);
   console.log('Nessun invio. Prossimo: node scripts/generate-cold-emails.mjs --report <report.json>');
 }
 
