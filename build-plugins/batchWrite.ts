@@ -22,6 +22,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { getManifest } from './contentHash';
 import { claim, type ClaimOutcome } from './sharedWriteRegistry';
+import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
 
 export interface PendingWrite {
  filePath: string;
@@ -162,6 +163,7 @@ export class WriteCollector {
  private skipExisting: boolean;
  private _skippedByHash = 0;
  private _skippedByCollision = 0;
+ private _skippedByLocale = 0;
  private _overwrittenInPlugin = 0;
  private _distDir: string;
  private _pluginName: string;
@@ -183,6 +185,18 @@ export class WriteCollector {
 
  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
  add(filePath: string, content: string) {
+ // Per-locale shard build (BUILD_LOCALE): drop writes that belong to a
+ // locale this shard isn't responsible for. This gates the COLLECTOR writes
+ // only (the ~1M-page bulk) — direct fs.writeFileSync emitters in other
+ // plugins are NOT covered here and are cleaned up by the post-build prune
+ // (scripts/ci/prune-locale-shard.mjs). No-op (short-circuits) when the
+ // filter is inactive — the default build emits all four locales, so this is
+ // byte-for-byte identical to before. Locale is derived from the
+ // dist-relative path prefix (/en /de /fr → that locale, else it).
+ if (!EMIT_ALL_LOCALES && !shouldEmitPath(filePath, this._distDir)) {
+ this._skippedByLocale++;
+ return;
+ }
  if (this.skipExisting && fs.existsSync(filePath)) return;
  // Check content hash manifest — skip writing if content is identical to last build
  const manifest = getManifest();
@@ -278,6 +292,9 @@ export class WriteCollector {
  /** Pending in-memory writes not yet flushed (legacy semantic — same as before). */
  get count() { return this.writes.size; }
  get skippedByHash() { return this._skippedByHash; }
+ /** Number of add() calls dropped because the path's locale is not in the
+  * active BUILD_LOCALE shard set. Always 0 in the default (all-locale) build. */
+ get skippedByLocale() { return this._skippedByLocale; }
  /** Number of add() calls skipped because the path was already claimed
   * (idempotent re-write or declared-shared loser). */
  get skippedByCollision() { return this._skippedByCollision; }

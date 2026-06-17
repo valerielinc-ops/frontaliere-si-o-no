@@ -23,6 +23,7 @@ import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -2484,6 +2485,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  continue;
  }
  emittedActiveJobPaths.add(__activeJobKey);
+ // Per-locale shard build (BUILD_LOCALE): the dedup Set above is fully
+ // populated for EVERY locale BEFORE this skip — the sitemap shard pass
+ // (~line 8642) reads `emittedActiveJobPaths` to decide which job URLs to
+ // list, so the `it`/main shard's sitemap stays complete. We only skip the
+ // expensive per-locale render/minify/emit below for locales this shard is
+ // not responsible for. hreflang stays complete: the `alternates` block
+ // maps over the full `localeList` using the pre-loop `perLocaleSlug` map.
+ if (!shouldEmitLocale(locale)) {
+ recordEmit('active-job', __tActiveJob);
+ continue;
+ }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
