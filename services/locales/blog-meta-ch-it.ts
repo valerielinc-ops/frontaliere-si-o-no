@@ -209,6 +209,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.disoccupazione-transfrontaliera-svizzera.title': 'Disoccupazione transfrontaliera: come funziona in Svizzera',
     'blog.article.disoccupazione-transfrontaliera-svizzera.excerpt': 'La guida completa sulla disoccupazione per i lavoratori transfrontalieri in Svizzera: regole SECO, modulo U1 e rimborsi tra Stati.',
     'blog.article.disoccupazione-transfrontaliera-svizzera.imageAlt': 'Ufficio amministrativo in Svizzera con bandiera nazionale',
+    'blog.article.hoval-ticino-opportunita-lavoro.title': 'Hoval Ticino: opportunità lavoro nel settore tecnico',
+    'blog.article.hoval-ticino-opportunita-lavoro.excerpt': 'Hoval, azienda attiva nel riscaldamento e climatizzazione, cerca personale in Ticino. Scopri posizioni aperte, requisiti e come candidarsi.',
+    'blog.article.hoval-ticino-opportunita-lavoro.imageAlt': 'Sede Hoval a Ticino, Svizzera, con paesaggio collinare',
 };
 
 export default blogMetaChIt;
