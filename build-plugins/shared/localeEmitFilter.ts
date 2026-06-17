@@ -77,6 +77,33 @@ export function shouldEmitLocale(locale: string): boolean {
 }
 
 /**
+ * Map an hreflang locale VALUE to the base emit-locale that OWNS its target,
+ * for the shard-ownership decision only (NOT for resolving the target path).
+ *
+ * The hreflang guards short-circuit `!shouldEmitLocale(locale) → keep` to
+ * preserve cross-shard alternates whose page lives on another shard. But
+ * `shouldEmitLocale` only knows the 4 base locales (`it/en/de/fr`), so two
+ * value shapes slip through that short-circuit and get kept UNCONDITIONALLY —
+ * skipping the real file-existence check — even on the shard that owns their
+ * target page, where a missing file should be dropped as a broken hreflang:
+ *   - `x-default`: always points at the IT root, owned by the `it`/main shard.
+ *   - region/script-tagged values (`en-US`, `de-CH`, `fr-CH`): the page still
+ *     lives in the base-locale subtree owned by that shard.
+ *
+ * Normalising to the owning base locale before `shouldEmitLocale` lets the
+ * guard subject these to the existence check on the owning shard, while still
+ * keeping them unconditionally on shards that don't own the target. A plain
+ * base locale or an unknown value passes through unchanged (lowercased), so
+ * `shouldEmitLocale` classifies it exactly as before.
+ */
+export function ownerEmitLocale(locale: string): string {
+  const value = locale.trim().toLowerCase();
+  if (value === 'x-default') return 'it';
+  // Strip a region/script subtag: `en-us` → `en`, `de-ch` → `de`.
+  return value.split('-')[0];
+}
+
+/**
  * Locale that owns a dist output path. IT lives at the root (no prefix);
  * en/de/fr live under their `/en` `/de` `/fr` subtrees. Shared, non-locale
  * files (sitemaps, robots, /data, /og, /assets, build-id) have no locale

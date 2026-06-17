@@ -71,3 +71,48 @@ describe('hreflangGuard — en shard keeps cross-shard alternates', () => {
     expect(kept).toEqual(['de']);
   });
 });
+
+describe('hreflangGuard — x-default is existence-checked on the owning (it) shard', () => {
+  it('drops x-default when the IT root target is MISSING on the it shard', async () => {
+    // The it shard OWNS the x-default target (IT root). If that page failed to
+    // emit, x-default is a real broken link and must be dropped — not kept by
+    // the cross-shard short-circuit (item 1 of #2462).
+    const g = await loadGuard('it');
+    const alts = [
+      { locale: 'x-default', url: `${BASE}/cerca-lavoro-ticino/` }, // IT-owned, absent → drop
+      { locale: 'en', url: `${BASE}/en/find-jobs-ticino/` }, // other shard → keep
+    ];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['en']);
+  });
+
+  it('keeps x-default when the IT root target exists on the it shard', async () => {
+    fs.mkdirSync(path.join(dist, 'cerca-lavoro-ticino'), { recursive: true });
+    fs.writeFileSync(path.join(dist, 'cerca-lavoro-ticino', 'index.html'), '<html></html>');
+    const g = await loadGuard('it');
+    const alts = [{ locale: 'x-default', url: `${BASE}/cerca-lavoro-ticino/` }];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['x-default']);
+  });
+});
+
+describe('hreflangGuard — region-tagged locale is existence-checked on the owning shard', () => {
+  it('drops a region-tagged value (de-CH) whose page is MISSING on the de shard', async () => {
+    // de-CH normalises to de, owned by the de shard → real existence check,
+    // not the unconditional keep (item 3 of #2462).
+    const g = await loadGuard('de');
+    const alts = [
+      { locale: 'de-CH', url: `${BASE}/de/does-not-exist/` }, // de-owned, absent → drop
+      { locale: 'it', url: `${BASE}/cerca-lavoro-ticino/` }, // other shard → keep
+    ];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['it']);
+  });
+
+  it('keeps a region-tagged value owned by ANOTHER shard unconditionally', async () => {
+    const g = await loadGuard('it');
+    const alts = [{ locale: 'de-CH', url: `${BASE}/de/jobs-im-tessin/` }]; // de-owned, it shard → keep
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['de-CH']);
+  });
+});
