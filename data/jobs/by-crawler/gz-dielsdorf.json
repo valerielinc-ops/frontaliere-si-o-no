@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gz-dielsdorf",
-  "assembledAt": "2026-06-17T12:58:57.283Z",
+  "assembledAt": "2026-06-17T22:41:37.417Z",
   "jobs": [
     {
       "id": "gz-dielsdorf-81c3d6702dc3",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/4820db07-bd91-467a-b513-f3cf93661bb5",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.743Z",
+      "crawledAt": "2026-06-17T22:41:35.055Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,7 +133,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/d66a4ab9-818e-4fcd-92a2-dadb389c08b7",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.741Z",
+      "crawledAt": "2026-06-17T22:41:35.053Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/e4aaed55-da61-4406-a0a5-2b872d55ab3e",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.740Z",
+      "crawledAt": "2026-06-17T22:41:35.052Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5b978bf5-fe3c-4582-8202-6dd9ebc2ba0c",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.738Z",
+      "crawledAt": "2026-06-17T22:41:35.050Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -389,10 +389,16 @@
           "Style de travail autonome et responsable"
         ]
       },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
+        "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
+        "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
+        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gesundheitszentrum-dielsdorf-dielsdorf",
+        "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal",
+        "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf",
+        "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
           "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
@@ -402,20 +408,14 @@
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
+        "de": [
+          "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal"
+        ],
         "fr": [
           "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf",
           "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
-      "previousSlugs": [
-        "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal",
-        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
-        "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf",
-        "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
-      ],
       "firstSeenAt": "2026-05-19T17:51:20.845Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -462,7 +462,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/2599a747-7ace-4d9a-ac3f-022d6db88c9c",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.736Z",
+      "crawledAt": "2026-06-17T22:41:35.048Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -564,7 +564,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/549b168a-dbf8-4b8b-905a-0268326b034d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.734Z",
+      "crawledAt": "2026-06-17T22:41:35.046Z",
       "addressLocality": "Dielsdorf/Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -639,7 +639,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fc9174c0-d481-4608-8a2b-3fdcc1046018",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.732Z",
+      "crawledAt": "2026-06-17T22:41:35.044Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -719,7 +719,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ec7dbc72-e3ad-47c8-9808-866679acbc3d",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.730Z",
+      "crawledAt": "2026-06-17T22:41:35.042Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -798,7 +798,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/b766a5a3-ff7f-4aa4-8530-bf3536a9323a",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.728Z",
+      "crawledAt": "2026-06-17T22:41:35.040Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -815,24 +815,24 @@
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/682/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
+        "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf"
-        ],
         "it": [
-          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
-        ],
-        "fr": [
           "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
         ],
         "en": [
           "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
+        ],
+        "de": [
+          "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+        ],
+        "fr": [
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
         ]
       },
-      "previousSlugs": [
-        "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf",
-        "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
-      ],
       "firstSeenAt": "2026-05-27T23:05:52.372Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -879,7 +879,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/69b0fccf-bb38-4f6a-b75d-1f4b21e776a0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.727Z",
+      "crawledAt": "2026-06-17T22:41:35.039Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -896,11 +896,15 @@
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/686/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "nachtwache-gz-dielsdorf-regensdorf",
+        "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
+        "orologio-notturno-gesundheitszentrum-dielsdorf-regensdorf",
+        "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal",
+        "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
+        "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
-          "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal"
-        ],
         "it": [
           "nachtwache-gz-dielsdorf-regensdorf",
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
@@ -910,19 +914,15 @@
         "en": [
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf"
         ],
+        "de": [
+          "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
+          "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal"
+        ],
         "fr": [
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
           "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf"
         ]
       },
-      "previousSlugs": [
-        "nachtwache-gz-dielsdorf-regensdorf",
-        "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
-        "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
-        "orologio-notturno-gesundheitszentrum-dielsdorf-regensdorf",
-        "ernahrungsberater-in-bsc-60-zentrum-per-essstorungen-e-adipositas-zesa-sro-ag-spital-region-oberaargau-langenthal",
-        "montre-de-nuit-gesundheitszentrum-dielsdorf-regensdorf"
-      ],
       "firstSeenAt": "2026-05-29T12:33:18.356Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -969,7 +969,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f7a64efa-59de-4536-aaf4-1cf2d24d339b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.725Z",
+      "crawledAt": "2026-06-17T22:41:35.037Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1049,7 +1049,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/ccec12f8-cb6e-4da3-93df-a48d830b78c0",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.723Z",
+      "crawledAt": "2026-06-17T22:41:35.035Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1126,7 +1126,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/f8cfd5e1-10aa-4a1c-8d87-2dcacc16e4f2",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.721Z",
+      "crawledAt": "2026-06-17T22:41:35.032Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1175,9 +1175,9 @@
       "id": "gz-dielsdorf-598e05e45bb8",
       "slug": "collaboratore-trice-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf",
       "slugByLocale": {
-        "de": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf",
         "it": "collaboratore-trice-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf",
-        "en": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf",
+        "en": "associate-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf-dielsdorf",
+        "de": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf",
         "fr": "collaborateur-trice-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
@@ -1185,17 +1185,17 @@
       "companyDomain": "gz-dielsdorf.ch",
       "title": "Mitarbeiter:in Hauswirtschaft - Wäscherei",
       "titleByLocale": {
-        "de": "Mitarbeiter:in Hauswirtschaft - Wäscherei",
         "it": "Collaboratore/trice Hauswirtschaft - Wäscherei",
         "en": "Associate Hauswirtschaft - Wäscherei",
+        "de": "Mitarbeiter:in Hauswirtschaft - Wäscherei",
         "fr": "Collaborateur/trice Hauswirtschaft - Wäscherei"
       },
       "description": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p>\n\nAufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr\n\nAnforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Zeitgemässe IT-Kenntnisse\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
       "descriptionByLocale": {
-        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p>\n\nAufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr\n\nAnforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Zeitgemässe IT-Kenntnisse\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
-        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p>\n\nAufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr\n\nAnforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Zeitgemässe IT-Kenntnisse\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
-        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p>\n\nAufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr\n\nAnforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Zeitgemässe IT-Kenntnisse\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
-        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p>\n\nAufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr\n\nAnforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n\n• Hohe Sozial-, Methoden- und Fachkompetenz\n\n• Zeitgemässe IT-Kenntnisse\n\n• Selbstständige und verantwortungsbewusste Arbeitsweise\n\nWir bieten:\nWir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen."
+        "it": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p> Aufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr Anforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise Wir bieten: Wir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "en": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p> Aufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr Anforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise Wir bieten: Wir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "de": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p> Aufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr Anforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise Wir bieten: Wir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen.",
+        "fr": "<p>Das Gesundheitszentrum Dielsdorf ist ein modernes geriatrisches Kompetenzzentrum mit rund 500 Mitarbeitenden aus 35 Nationen. Unser Angebot reicht vom Beratungsangebot für ältere Menschen und ihre Angehörigen über die allgemeine und spezialisierte Langzeitpflege bis hin zur Pflege und Betreuung zu Hause. Mit über 200 Betten wird das stationäre Angebot der allgemeinen Langzeitpflege am Standort Dielsdorf durch spezialisierte Behandlungspfade für rehabilitative Akut- und Übergangspflege, Palliative Care, psychiatrische Geriatrie und den Schwerpunkt Demenz ergänzt.</p> Aufgaben:\n• Fachgerechte Aufbereitung, Pflege und Verteilung von Bewohnenden-, Berufs- und Betriebswäsche\n• Durchführung von Fleckenbehandlungen sowie Näh- und Änderungsarbeiten\n• Bedienung und Pflege von Wäschereimaschinen und Arbeitsgeräten\n• Einhaltung der innerbetrieblichen Weisungen und HCCP-Richtlinien\n• Arbeitszeiten von 07.00 bis 16.00 Uhr oder 08.00 bis 17.00 Uhr Anforderungen:\n• Abgeschlossene Ausbildung in den Bereichen Hotellerie, Gastronomie oder Hauswirtschaft (EBA oder EFZ) oder Erfahrung in diesem Bereich\n• Gute Deutschkenntnisse in Wort und Schrift (mindestens Level B1)\n• Hohe Sozial-, Methoden- und Fachkompetenz\n• Zeitgemässe IT-Kenntnisse\n• Selbstständige und verantwortungsbewusste Arbeitsweise Wir bieten: Wir bieten Ihnen eine verantwortungsvolle und interessante Tätigkeit in einem abwechslungsreichen, zukunftsorientierten und interprofessionellen Umfeld. Sie profitieren von unseren attraktiven Anstellungsbedingungen u.a. mit mind. 5 Wochen Ferien, guten Sozialleistungen, Vergünstigung bei SBB und Reka-Checks, individuellen Weiterbildungsmöglichkeiten, günstigen Preisen in unseren Restaurants und Gratisparkplätzen."
       },
       "needsRetranslation": true,
       "location": "Dielsdorf",
@@ -1203,7 +1203,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/5ffbc37b-4260-456b-b730-c90f3f2f10a6",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.718Z",
+      "crawledAt": "2026-06-17T22:41:35.029Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1219,20 +1219,22 @@
       "postedDate": "2026-06-09",
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/690/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
         ],
         "fr": [
           "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
-      ],
+      "firstSeenAt": "2026-06-17T12:58:54.718Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1244,8 +1246,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-17T12:58:54.718Z"
+      }
     },
     {
       "id": "gz-dielsdorf-9fef052ede37",
@@ -1279,7 +1280,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/fa7a0fbf-624c-4444-92bf-5872581443e2",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.716Z",
+      "crawledAt": "2026-06-17T22:41:35.027Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1350,7 +1351,7 @@
       "url": "https://ohws.prospective.ch/public/v1/jobs/7a94cb76-8b9f-4ac7-9b68-2ffbed5aec2b",
       "source": "Gesundheitszentrum Dielsdorf Dedicated Parser (Prospective medium 1005824)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T12:58:54.692Z",
+      "crawledAt": "2026-06-17T22:41:35.004Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1367,20 +1368,20 @@
       "applyUrl": "https://recruitingapp-2896.umantis.com/Vacancies/680/Application/CheckLogin/1?lang=ger",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+        "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
           "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
         ]
       },
-      "previousSlugs": [
-        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal",
-        "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
-      ],
       "firstSeenAt": "2026-06-12T12:12:33.488Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
