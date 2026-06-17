@@ -394,6 +394,17 @@ export function postWalkCoordinatorPlugin(
         const startTotal = Date.now();
 
         // ── Phase A: enumerate every emitted HTML file once ──────────
+        // INVARIANT (verified for #2462): `existingHtmlSet` is populated ONLY
+        // from `walkHtml(distDir)`, i.e. files that physically exist in THIS
+        // shard's dist at coordinator time — it is never seeded with paths of
+        // other locales. In a `BUILD_LOCALE=<loc>` shard the WriteCollector
+        // already dropped non-owned-locale pages, so their `index.html` is
+        // genuinely absent here and the `existsCheck` below returns false for a
+        // cross-shard alternate. This is exactly why hreflangGuard's
+        // `isCrossShardAlternate` short-circuit is NECESSARY (not merely
+        // redundant): without it the guard would strip the legitimate
+        // cross-shard alternate as a broken link. Do NOT seed this Set with
+        // cross-locale paths — it would silently defeat the shard guard.
         const __tWalk = profileStart();
         const allHtmlPaths: string[] = [];
         const processHtmlPaths: string[] = [];

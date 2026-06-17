@@ -36,8 +36,11 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
-import { filterExistingAlternates, type LocaleAlternates } from './shared/hreflangGuard.ts';
-import { shouldEmitLocale, EMIT_ALL_LOCALES } from './shared/localeEmitFilter.ts';
+import {
+  filterExistingAlternates,
+  isCrossShardAlternate,
+  type LocaleAlternates,
+} from './shared/hreflangGuard.ts';
 
 interface HreflangPostprocessOptions {
   readonly baseUrl: string;
@@ -172,8 +175,9 @@ function filterExistingAlternatesWith(
   return alternates.filter(({ locale, url }) => {
     // Per-locale shard build (BUILD_LOCALE): keep alternates for locales this
     // shard didn't emit — their pages live on another shard, not broken links.
-    // No-op in the default all-locale build.
-    if (!EMIT_ALL_LOCALES && !shouldEmitLocale(locale)) return true;
+    // Shared with filterExistingAlternates so x-default (→ it) + region-tagged
+    // values are normalised identically. No-op in the default all-locale build.
+    if (isCrossShardAlternate(locale)) return true;
     let p = url;
     if (p.startsWith(trimmedBase)) p = p.slice(trimmedBase.length);
     const q = p.indexOf('?');

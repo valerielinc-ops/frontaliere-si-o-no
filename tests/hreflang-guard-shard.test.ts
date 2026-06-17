@@ -71,3 +71,52 @@ describe('hreflangGuard — en shard keeps cross-shard alternates', () => {
     expect(kept).toEqual(['de']);
   });
 });
+
+// ── #2462 item 1: x-default must be existence-checked on the shard that owns
+// its target (the IT root), not kept unconditionally everywhere. ──────────
+describe('hreflangGuard — x-default is checked against the it-owning shard (#2462)', () => {
+  it('it shard with MISSING it root drops a broken x-default (and the it self-ref)', async () => {
+    // dist (from beforeEach) has ONLY the en page → no it root index.html.
+    const g = await loadGuard('it');
+    const alts = [
+      { locale: 'it', url: `${BASE}/cerca-lavoro-ticino/` }, // owned by it shard, absent → drop
+      { locale: 'en', url: `${BASE}/en/find-jobs-ticino/` }, // other shard → keep
+      { locale: 'x-default', url: `${BASE}/cerca-lavoro-ticino/` }, // target = it, absent → drop
+    ];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    // x-default → it ownership: its target is absent on the it shard → dropped.
+    expect(kept).toEqual(['en']);
+  });
+
+  it('it shard with PRESENT it target keeps it + x-default', async () => {
+    fs.mkdirSync(path.join(dist, 'cerca-lavoro-ticino'), { recursive: true });
+    fs.writeFileSync(path.join(dist, 'cerca-lavoro-ticino', 'index.html'), '<html></html>');
+    const g = await loadGuard('it');
+    const kept = g.filterExistingAlternates(ALTS, dist, BASE).map((a) => a.locale);
+    // it target present → it + x-default kept (real-checked); en present (other
+    // shard, the en page is on disk too) → kept; de/fr other shards → kept.
+    expect(kept.sort()).toEqual(['de', 'en', 'fr', 'it', 'x-default']);
+  });
+
+  it('en shard keeps x-default unconditionally (target it lives on another shard)', async () => {
+    const g = await loadGuard('en');
+    const alts = [{ locale: 'x-default', url: `${BASE}/cerca-lavoro-ticino/` }];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept).toEqual(['x-default']);
+  });
+});
+
+// ── #2462 item 3: region-tagged values (de-CH, en-US) normalise to their base
+// locale so a value the shard OWNS is still subject to the real check. ─────
+describe('hreflangGuard — region-tagged locales normalise to base (#2462)', () => {
+  it('en shard real-checks en-US (owned → present kept, absent dropped)', async () => {
+    const g = await loadGuard('en');
+    const alts = [
+      { locale: 'en-US', url: `${BASE}/en/find-jobs-ticino/` }, // present → keep
+      { locale: 'EN-us', url: `${BASE}/en/does-not-exist/` }, // absent → drop (case-insensitive)
+      { locale: 'de-CH', url: `${BASE}/de/jobs-im-tessin/` }, // other shard → keep unconditionally
+    ];
+    const kept = g.filterExistingAlternates(alts, dist, BASE).map((a) => a.locale);
+    expect(kept.sort()).toEqual(['de-CH', 'en-US']);
+  });
+});
