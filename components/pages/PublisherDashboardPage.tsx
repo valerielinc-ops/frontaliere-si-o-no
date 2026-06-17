@@ -380,14 +380,42 @@ const PublisherDashboardPage: React.FC = () => {
 
         // Crawled "free traffic" we already send this employer (proof + upsell):
         // match the publisher's company name → slug → employer_crawled_traffic doc.
+        // A publisher can post under several ragioni sociali (multi-company), so we
+        // try EVERY distinct company name across its ads (not just the first one)
+        // and sum the matched docs — exact-key lookups stay precise, so there is no
+        // risk of attributing another company's crawled traffic. Unmatched keys are
+        // logged for alias/fuzzy diagnostics (follow-up #2450).
         let crawledCandidates = 0;
         try {
-          const firstCompany = snap.docs.map((d) => (d.data() as Record<string, unknown>)?.company as { name?: string } | undefined)
-            .map((c) => c?.name).find(Boolean);
-          const companyKey = slugifyCompanyName(String(firstCompany || ''));
-          if (companyKey) {
-            const ct = await getDoc(doc(db, 'employer_crawled_traffic', companyKey));
-            if (ct.exists()) crawledCandidates = Number((ct.data() as Record<string, unknown>)?.candidates) || 0;
+          const companyKeys = Array.from(
+            new Set<string>(
+              snap.docs
+                .map((d) => (d.data() as Record<string, unknown>)?.company as { name?: string } | undefined)
+                .map((c) => slugifyCompanyName(String(c?.name || '')))
+                .filter((k): k is string => Boolean(k)),
+            ),
+          );
+          if (companyKeys.length) {
+            const lookups = await Promise.all(
+              companyKeys.map(async (key) => {
+                try {
+                  const ct = await getDoc(doc(db, 'employer_crawled_traffic', key));
+                  return { key, candidates: ct.exists() ? Number((ct.data() as Record<string, unknown>)?.candidates) || 0 : null };
+                } catch {
+                  return { key, candidates: null };
+                }
+              }),
+            );
+            crawledCandidates = lookups.reduce((sum, l) => sum + (l.candidates ?? 0), 0);
+            const unmatched = lookups.filter((l) => l.candidates === null).map((l) => l.key);
+            if (unmatched.length) {
+              // Diagnostic only (no PII): which lookup keys had no crawled-traffic doc.
+              // Surfaces name-variant mismatches that an alias map could later resolve.
+              reportCaughtError(
+                new Error(`publisherDashboard.crawled: no employer_crawled_traffic doc for keys [${unmatched.join(', ')}]`),
+                'publisherDashboard.crawled.unmatched',
+              );
+            }
           }
         } catch {
           // optional — panel just stays hidden if no match / not yet populated
