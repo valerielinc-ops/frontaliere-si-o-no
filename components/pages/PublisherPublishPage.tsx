@@ -614,7 +614,12 @@ const PublisherPublishPage: React.FC = () => {
  const { getFirestore: gf, doc: fDoc, getDoc: fGet } = await import('firebase/firestore');
  const snap = await fGet(fDoc(gf(await getApp()), 'publishers', user.uid));
  if (cancelled || !snap.exists()) return;
- const c = (snap.data() as { company?: Record<string, unknown> }).company;
+ const data = snap.data() as { company?: Record<string, unknown>; tier?: string };
+ // Auto-tier: an active azienda publisher inherits tier='azienda' by default
+ // so a new ad lands featured without re-picking the card. Only nudges the
+ // untouched default ('sponsored') — a manual switch (e.g. to 'free') wins.
+ if (data.tier === 'azienda') setTier((v) => (v === 'sponsored' ? 'azienda' : v));
+ const c = data.company;
  if (!c) return;
  if (c.name) setCompanyName((v) => v || String(c.name));
  if (c.legalForm) setLegalForm(c.legalForm as PublisherLegalForm);

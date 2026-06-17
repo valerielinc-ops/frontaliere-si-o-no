@@ -3264,6 +3264,7 @@ Règles :
  'publisherDashboard.col.applyClicks': 'Clics candidature',
  'publisherDashboard.tier.free': 'Gratuit',
  'publisherDashboard.tier.sponsored': 'Sponsorisé',
+ 'publisherDashboard.tier.azienda': 'Plan Entreprise',
  'publisherDashboard.status.draft': 'Brouillon',
  'publisherDashboard.status.pending_payment': 'En attente de paiement',
  'publisherDashboard.status.paid': 'Actif',

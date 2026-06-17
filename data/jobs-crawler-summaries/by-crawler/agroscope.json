@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-16T22:16:25.411Z",
+  "generatedAt": "2026-06-17T12:14:36.183Z",
   "total": 16,
   "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 1097,
-  "avgDurationMs": 1097,
+  "durationMs": 1119,
+  "avgDurationMs": 1119,
   "durationHistory": [
-    1097
+    1119
   ],
   "newJobs": [
     {
@@ -269,6 +269,43 @@
       }
     },
     {
+      "title": "Meccanico/a di macchine agricole AFC - 40 %",
+      "slug": "meccanico-a-di-macchine-agricole-afc-40-agroscope-reckenholz",
+      "url": "https://jobs.admin.ch/posti-vacanti/meccanico-a-di-macchine-agricole-afc/21c1ae87-ee82-4a79-be44-5081209a5324",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16334",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "8046 Reckenholz",
+      "addressLocality": "Reckenholz",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "it",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-09",
+      "validThrough": "2026-06-30",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-549965497a7a",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-06-09T10:52:26.272Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Praticante Informatica",
       "slug": "praticante-informatica-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/praticante-informatica/a6cf3326-0af8-423d-adf2-d7a633c20136",
@@ -302,43 +339,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Meccanico/a di macchine agricole AFC - 40 %",
-      "slug": "meccanico-a-di-macchine-agricole-afc-40-agroscope-reckenholz",
-      "url": "https://jobs.admin.ch/posti-vacanti/meccanico-a-di-macchine-agricole-afc/21c1ae87-ee82-4a79-be44-5081209a5324",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16334",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "8046 Reckenholz",
-      "addressLocality": "Reckenholz",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "it",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-06-09",
-      "validThrough": "2026-06-30",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-549965497a7a",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-06-09T10:52:26.272Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
         "translation": 21,
         "completeness": 22
       }
