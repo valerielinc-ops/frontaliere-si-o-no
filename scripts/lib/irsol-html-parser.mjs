@@ -27,6 +27,8 @@ function stripHtml(html = '') {
   return html
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
+    // Open each <li> as a line-start bullet so list structure survives the strip (#2476).
+    .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, '')
     .replace(/&amp;/g, '&')
