@@ -71,9 +71,19 @@ jobs:
           # built-in node:child_process) so the `Report failure` step can
           # actually create the alert issue instead of `Cannot find module`
           # being swallowed by continue-on-error (no issue ever created — FRO #1409).
+          #
+          # FRO #1697 (item 4): the bare `scripts` pattern matches recursively in
+          # gitignore semantics (a directory match pulls in all its contents), so
+          # scripts/lib/ is covered in theory. We add `scripts/lib` explicitly as
+          # a belt-and-suspenders guarantee: the entire Item-1 alerting path hinges
+          # on scripts/lib/github-issue-creator.mjs being present, and an explicit
+          # nested pattern removes any dependence on non-cone recursion edge cases
+          # (a top-level-only materialization would re-break Report-failure with
+          # `Cannot find module`). Harmless if redundant.
           sparse-checkout: |
             .github/workflows
             scripts
+            scripts/lib
           sparse-checkout-cone-mode: false
           fetch-depth: 1
 
@@ -101,12 +111,44 @@ jobs:
           # propagate the subshell exit to set -e/pipefail, so on API failure the
           # reap would silently no-op (empty zombies) while the step stays green,
           # contradicting the "a reap error fails the shard" guarantee (FRO #1409).
-          if ! queued_json=$(
-            gh api --paginate \
-              "/repos/${GITHUB_REPOSITORY}/actions/runs?status=queued&per_page=100" \
-              --jq ".workflow_runs[] | select(.created_at < \"${cutoff}\") | .id"
+          #
+          # FRO #1697 (item 3): fetch the RAW page bodies (no `--jq` extraction
+          # yet) so we can shape-validate before trusting an empty result. If the
+          # secondary-rate-limit / abuse-detection guard trips, GitHub can return
+          # HTTP 200 with a body that is an OBJECT carrying `message` /
+          # `documentation_url` instead of the runs collection (no HTTP error →
+          # `gh` exits 0). Extracting `.workflow_runs[]` straight away would make
+          # such a body yield an EMPTY id list → zero zombies reaped, step green,
+          # silent no-op (zombies accumulate across waves → capacity leak). We
+          # therefore require every page to be an object that actually contains a
+          # `workflow_runs` ARRAY; anything else aborts the shard so the failure
+          # is visible and Report-failure fires.
+          if ! queued_pages=$(
+            gh api --paginate --slurp \
+              "/repos/${GITHUB_REPOSITORY}/actions/runs?status=queued&per_page=100"
           ); then
             echo "🧟 reap: gh api error enumerating queued runs — aborting shard."
+            exit 1
+          fi
+          # `--slurp` returns a JSON array of page bodies. Validate each page is a
+          # run-collection object before extracting ids. We do NOT pass `jq -e`:
+          # `-e` exits 4 when the filter produces no output, which is exactly the
+          # common "no zombies" case (empty id list) and would false-abort every
+          # clean wave. Instead the shape assertion uses jq `error()`, which
+          # always raises a non-zero exit regardless of `-e`, so an
+          # abuse-detection body (no `workflow_runs` array) aborts while a
+          # legitimately-empty result exits 0 with empty output.
+          if ! queued_json=$(
+            printf '%s' "$queued_pages" | jq -r '
+              if type != "array" then error("reap: unexpected non-array slurp result") else . end
+              | ( map(select((type == "object") and (.workflow_runs | type == "array"))) | length ) as $valid
+              | if $valid != length then
+                  error("reap: a page body is not a runs collection (workflow_runs array missing — likely a 200 abuse-detection/secondary-rate-limit body)")
+                else . end
+              | [ .[].workflow_runs[] | select(.created_at < "'"${cutoff}"'") | .id ] | .[]
+            '
+          ); then
+            echo "🧟 reap: queued-runs response failed shape validation (possible HTTP 200 abuse-detection body) — aborting shard."
             exit 1
           fi
           mapfile -t zombies <<<"$queued_json"
