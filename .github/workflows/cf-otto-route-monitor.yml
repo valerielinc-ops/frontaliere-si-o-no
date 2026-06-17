@@ -1,0 +1,149 @@
+name: CF OTTO Route Monitor
+
+# Early-warning that the SearchAtlas "OTTO" Cloudflare Worker routes have
+# re-appeared on the production zone.
+#
+# Background (#2138 / #2142): the apex frontaliereticino.ch was 429'ing (CF
+# error 1027) + 504'ing REAL users — root cause was a SearchAtlas OTTO edge
+# Worker (`otto-pixel-worker`) bound to a catch-all `frontaliereticino.ch/*`
+# route whose backend was degraded. The routes were deleted via the CF API and
+# the apex returned 200. BUT SearchAtlas can re-create them automatically
+# (it reconnects with its own CF token); permanently disabling it is owner-only
+# (disconnect the integration / revoke its CF token in the SearchAtlas
+# dashboard — outside this repo). PR #2138's Lighthouse probe only *skips* the
+# audit on 429; it does not alert that OTTO is back. This monitor closes that
+# gap: a zero-Claude check (`scripts/cf-otto-route-monitor.mjs`) that lists the
+# zone's Worker routes via the CF REST API and opens/refreshes a tracked,
+# deduped issue when an OTTO route is present (auto-resolves on recovery).
+
+on:
+  schedule:
+    # Twice daily, off-peak (07:20 + 19:20 UTC). Re-appearance is rare but the
+    # blast radius is a full apex outage, so a ~12h detection ceiling is cheap
+    # insurance. Offset from other CF jobs (discover-404s 03:40) to avoid races
+    # on the shared RC/CF token rate budget.
+    - cron: '20 7,19 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# Serialize so a manual dispatch during a scheduled run can't race two
+# open/resolve operations on the same canonical issue.
+concurrency:
+  group: cf-otto-route-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Hydrates CF_API_TOKEN (+ CF_ACCOUNT_ID) from Firebase Remote Config
+        # into $GITHUB_ENV for the steps below.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check for OTTO Worker routes
+        id: check
+        env:
+          CF_API_TOKEN: ${{ env.CF_API_TOKEN }}
+        run: |
+          set -uo pipefail
+          # The monitor exits 0 (clean / token missing), 3 (OTTO detected), or
+          # 1 (hard error). Capture the code without `set -e` aborting the step.
+          node scripts/cf-otto-route-monitor.mjs && rc=0 || rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          if [ "$rc" = "3" ]; then
+            echo "otto_present=true" >> "$GITHUB_OUTPUT"
+          elif [ "$rc" = "0" ]; then
+            echo "otto_present=false" >> "$GITHUB_OUTPUT"
+          else
+            # rc=1 (or anything unexpected) → the monitor itself failed; let the
+            # failure reporter handle it. Fail the step so `failure()` fires.
+            echo "::error title=OTTO monitor error::cf-otto-route-monitor.mjs exited $rc (API/config error, not an OTTO detection)."
+            exit "$rc"
+          fi
+
+      # OTTO route detected → open (or refresh, via stable-title dedup) a tracked
+      # issue. NOT auto-routed to the CI fixer: deleting the routes + revoking the
+      # SearchAtlas token is owner/edge action, not an in-repo code fix.
+      # priority:urgent — a re-appearance is a live apex outage for real users.
+      - name: Open issue — OTTO routes re-appeared
+        if: steps.check.outputs.otto_present == 'true'
+        run: |
+          set -uo pipefail
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          node scripts/lib/github-issue-creator.mjs \
+            --title "OTTO/SearchAtlas Cloudflare routes re-appeared on production" \
+            --priority 1 \
+            --label funnel-monetization \
+            --label funnel-seo \
+            --workflow "CF OTTO Route Monitor" \
+            --reopen-within-hours 24 \
+            --description "The SearchAtlas **OTTO** Worker route(s) are back on the \`frontaliereticino.ch\` Cloudflare zone.
+
+          **Why it matters (funnel):** the OTTO catch-all route (\`frontaliereticino.ch/*\` → \`otto-pixel-worker\`) intercepts ALL apex traffic. When its backend degrades it 429s (CF error 1027) + 504s real users — 30.638 + 68.389 hits/24h during the 2026-06-15 incident (#2138) — suppressing organic traffic AND AdSense revenue.
+
+          **Detection:** \`scripts/cf-otto-route-monitor.mjs\` found a Worker route matching the OTTO signature (script name otto/searchatlas/pixel, or a foreign catch-all \`<host>/*\`). See the run log for the exact route id + pattern: $RUN_URL
+
+          **Fix (owner / edge — not an in-repo code change):**
+          1. Delete the OTTO route(s) via the CF API (\`DELETE /zones/{zone}/workers/routes/{id}\`). The apex returns 200 immediately.
+          2. PERMANENT: disconnect the SearchAtlas OTTO integration in the SearchAtlas dashboard, or revoke the Cloudflare API token SearchAtlas uses — otherwise it re-creates the route automatically and this fires again.
+
+          This issue auto-closes when a later run finds no OTTO routes."
+
+      # Recovery → auto-close the canonical issue so a cleared zone doesn't leave
+      # a stale open alert (mirror of the failure reporter; best-effort).
+      - name: Resolve issue — no OTTO routes
+        if: steps.check.outputs.otto_present == 'false'
+        run: |
+          set -uo pipefail
+          RUN_URL="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "OTTO/SearchAtlas Cloudflare routes re-appeared on production" \
+            --workflow "CF OTTO Route Monitor" \
+            --run-url "$RUN_URL"
+
+      # The monitor itself failed (CF API down / token scope / bad config) — a
+      # distinct signal from "OTTO is back". Track it so a broken monitor is not
+      # mistaken for a clean zone.
+      - name: Report monitor failure
+        if: failure()
+        continue-on-error: true
+        run: |
+          set -uo pipefail
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "The CF OTTO route monitor failed to run (API/config error, NOT an OTTO detection).
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Likely causes:** CF_API_TOKEN missing/expired in Remote Config, insufficient token scope (needs Zone → Workers Routes → Read), or a Cloudflare API outage." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
