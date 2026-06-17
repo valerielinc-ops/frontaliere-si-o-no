@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-06-17T13:21:35.940Z",
+  "assembledAt": "2026-06-17T14:55:18.608Z",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -997,82 +997,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:21:31.797Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kantonsspital-uri-ded1ee51c6ff",
-      "slug": "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-m-w-d-kantonsspital-uri-altdorf",
-      "slugByLocale": {
-        "it": "apprendistato-fachfrau-fachmann-betriebsunterhalt-cfc-m-w-d-kantonsspital-uri-altdorf",
-        "en": "apprenticeship-specialist-efz-f-m-d-kantonsspital-uri-altdorf",
-        "de": "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-w-m-d-kantonsspital-uri-altdorf",
-        "fr": "specialiste-en-apprentissage-efz-f-m-d-kantonsspital-uri-altdorf"
-      },
-      "company": "Kantonsspital Uri",
-      "companyKey": "kantonsspital-uri",
-      "companyDomain": "ksuri.ch",
-      "title": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)",
-      "titleByLocale": {
-        "it": "Specialista di Apprendistato EFZ (f/m/d)",
-        "en": "Apprenticeship Specialist EFZ (f/m/d)",
-        "de": "Lehrstelle Fachfrau / Fachmann Betriebsunterhalt EFZ (w/m/d)",
-        "fr": "Spécialiste en apprentissage EFZ (f/m/d)"
-      },
-      "description": "Deine Aufgaben während der Ausbildung::\n\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
-      "descriptionByLocale": {
-        "it": "Le tue attività durante la formazione: • Pulizia e manutenzione delle attrezzature e dei sistemi dei servizi edilizi per garantirne il corretto funzionamento. • Cura e manutenzione di edifici, stanze e strutture sanitarie affinché pazienti, visitatori e dipendenti si sentano a proprio agio. • Organizzazione ed esecuzione della manutenzione, nonché l'esecuzione di riparazioni di ogni tipo per garantire un funzionamento senza problemi. • Smaltimento professionale e separazione dei rifiuti per promuovere l'uso sostenibile delle risorse. • Manutenzione del giardino e delle aree verdi, così come piantumazione e manutenzione invernale per creare un ambiente ben curato e accogliente.",
-        "en": "Your tasks during the training: • Cleaning and maintenance of building services equipment and systems to ensure their proper functioning. • Care and maintenance of buildings, rooms and sanitary facilities so that patients, visitors and employees feel comfortable. • Organization and execution of maintenance as well as the execution of repairs of all kinds to ensure trouble-free operation. • Professional disposal and waste separation to promote the sustainable use of resources. • Garden maintenance and maintenance of the green areas as well as planting and winter maintenance to create a well-kept and inviting environment.",
-        "de": "Deine Aufgaben während der Ausbildung::\n\n• Reinigung und Unterhalt von gebäudetechnischen Geräten und Anlagen, um deren einwandfreie Funktion sicherzustellen.\n• Pflege und Instandhaltung von Gebäuden, Räumen und Sanitäranlagen, damit sich Patientinnen und Patienten, Besucher:innen und Mitarbeitende wohlfühlen.\n• Organisation und Durchführung von Wartungen sowie die Ausführung von Reparaturen aller Art, um einen störungsfreien Betrieb zu gewährleisten.\n• Fachgerechte Entsorgung und Abfalltrennung, um einen nachhaltigen Umgang mit Ressourcen zu fördern.\n• Gartenpflege und Unterhalt der Grünanlagen sowie Bepflanzung und Winterdienst, um ein gepflegtes und einladendes Umfeld zu schaffen.",
-        "fr": "Vos tâches pendant la formation : • Nettoyage et maintenance des équipements et systèmes des services du bâtiment afin d'assurer leur bon fonctionnement. • Entretien et entretien des bâtiments, chambres et installations sanitaires afin que patients, visiteurs et employés se sentent à l'aise. • Organisation et exécution de la maintenance ainsi que l'exécution de toutes sortes de réparations afin d'assurer un fonctionnement sans problème. • Élimination professionnelle et séparation des déchets afin de promouvoir l'utilisation durable des ressources. • Entretien du jardin et des espaces verts ainsi que plantations et entretien hivernal afin de créer un environnement bien entretenu et accueillant."
-      },
-      "location": "Altdorf",
-      "canton": "UR",
-      "url": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-wmd-de-j416.html",
-      "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:03:59.980Z",
-      "addressLocality": "Altdorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "applyUrl": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Betriebsunterhalt-EFZ-wmd-de-j416.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-w-m-d-kantonsspital-uri-altdorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-w-m-d-kantonsspital-uri-altdorf"
-        ],
-        "en": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-w-m-d-kantonsspital-uri-altdorf"
-        ],
-        "fr": [
-          "lehrstelle-fachfrau-fachmann-betriebsunterhalt-efz-w-m-d-kantonsspital-uri-altdorf"
-        ]
-      },
-      "firstSeenAt": "2026-06-12T12:21:31.353Z",
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -2115,82 +2039,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:18.341Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kantonsspital-uri-eefd73a6dc5d",
-      "slug": "facharztin-facharzt-oa-mba-o-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri-altdorf",
-      "slugByLocale": {
-        "it": "facharztin-facharzt-oa-mba-o-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri-altdorf",
-        "en": "specialist-oa-oa-mba-or-la-intensive-care-medicine-40-80-m-f-d-kantonsspital-uri-altdorf",
-        "de": "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri",
-        "fr": "specialiste-oa-oa-mba-ou-la-soins-intensifs-40-80-l-f-j-kantonsspital-uri-altdorf"
-      },
-      "company": "Kantonsspital Uri",
-      "companyKey": "kantonsspital-uri",
-      "companyDomain": "ksuri.ch",
-      "title": "Fachärztin/Facharzt (OA, OA mbA oder LA) Intensivmedizin 40-80% (m/w/d)",
-      "titleByLocale": {
-        "it": "Specialista (OA, OA mbA o LA) Terapia Intensiva 40-80% (lunedì/f/giorno)",
-        "en": "Specialist (OA, OA mbA or LA) Intensive Care Medicine 40-80% (m/f/d)",
-        "de": "Fachärztin/Facharzt (OA, OA mbA oder LA) Intensivmedizin 40-80% (m/w/d)",
-        "fr": "Spécialiste (OA, OA mbA ou LA) Soins intensifs 40-80 % (l/f/j)"
-      },
-      "description": "DEINE AUFGABEN:\n\n• Fachärztliche Mitverantwortung für eine qualitativ hochstehende Versorgung der intensivpflichtigen Patientinnen und Patienten\n• Mitgestaltung und Weiterentwicklung der Intensivstation (6 Betten) – gemeinsam mit dem Leiter Intensivmedizin und der Leitung Intensivpflege\n• Diagnostik, Therapie und Betreuung stationärer Patientinnen und Patienten der Allgemeinen Inneren Medizin\n• Teilnahme am Dienstbetrieb gemäss deiner fachärztlichen Ausbildung\n• Supervision und Weiterbildung von Assistenzärztinnen oder Assistenzärzten\n• Mitgestaltung der hausinternen Fortbildungen\n\nDEINE PERSPEKTIVEN:\n\n• Deine persönliche Entwicklung liegt uns ebenso am Herzen wie die Entwicklung unseres Spitals im Allgemeinen und der Intensivmedizin im Speziellen\n• Unterstützung von einem motivierten und bestens qualifizierten Team\n• Attraktive Anstellungsbedingungen und persönliche Entwicklungs- und Mitgestaltungsmöglichkeiten sowie weitere Benefits prägen unsere Unternehmenskultur und machen uns zu einem attraktiven Arbeitgeber Unser fachärztlicher Leiter der Intensivmedizin, Florian Mayer, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!\n• Herr Daniel Schibli\n• Leiter Human Resources\n• +41 41 875 51 61\n• Florian Mayer\n• Fachärztlicher Leiter Intensivmedizin\n• +41 41 875 53 15\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-      "descriptionByLocale": {
-        "it": "I VOSTRI COMPITI: • Corresponsabilità medica specialistica per un'assistenza di alta qualità ai pazienti che necessitano di terapia intensiva • Partecipazione alla progettazione e all'ulteriore sviluppo del reparto di terapia intensiva (6 posti letto) - insieme al primario di medicina intensiva e al primario di terapia intensiva • Diagnostica, terapia e cura dei pazienti stazionari in medicina interna generale • Partecipazione al servizio secondo la vostra formazione medica specialistica • Supervisione e formazione continua degli assistenti medici • Partecipazione ai corsi di formazione interni LE VOSTRE PROSPETTIVE: • I vostri lo sviluppo personale è per noi altrettanto importante quanto lo sviluppo del nostro ospedale in generale e della medicina intensiva in particolare • Supporto da parte di un team motivato e altamente qualificato • Condizioni di lavoro attraenti, opportunità di sviluppo personale e di partecipazione, nonché altri vantaggi modellano la nostra cultura aziendale e ci rendono un datore di lavoro attraente. Il nostro primario specialista in terapia intensiva Florian Mayer sarà lieto di fornirvi ulteriori informazioni. Aspettiamo con ansia la tua candidatura! • Signor Daniel Schibli • Responsabile delle risorse umane • 41 41 875 51 61 • Florian Mayer • Direttore medico di terapia intensiva • 41 41 875 53 15 • Colophon • Protezione dei dati • • • • • • Impostazioni Cookies",
-        "en": "YOUR TASKS: • Specialist medical co-responsibility for high-quality care for patients requiring intensive care • Participation in the design and further development of the intensive care unit (6 beds) - together with the head of intensive care medicine and the head of intensive care • Diagnostics, therapy and care of inpatients in general internal medicine • Participation in the service in accordance with your specialist medical training • Supervision and further training of assistant doctors • Participation in the in-house training courses YOURS PERSPECTIVES: • Your personal development is just as important to us as the development of our hospital in general and intensive care medicine in particular • Support from a motivated and highly qualified team • Attractive employment conditions and personal development and participation opportunities as well as other benefits shape our corporate culture and make us an attractive employer. Our specialist head of intensive care medicine, Florian Mayer, will be happy to provide you with further information. We look forward to your application! • Mr. Daniel Schibli • Head of Human Resources • 41 41 875 51 61 • Florian Mayer • Medical Director of Intensive Care Medicine • 41 41 875 53 15 • Imprint • Data Protection • • • • • • Settings Cookies",
-        "de": "DEINE AUFGABEN:\n\n• Fachärztliche Mitverantwortung für eine qualitativ hochstehende Versorgung der intensivpflichtigen Patientinnen und Patienten\n• Mitgestaltung und Weiterentwicklung der Intensivstation (6 Betten) – gemeinsam mit dem Leiter Intensivmedizin und der Leitung Intensivpflege\n• Diagnostik, Therapie und Betreuung stationärer Patientinnen und Patienten der Allgemeinen Inneren Medizin\n• Teilnahme am Dienstbetrieb gemäss deiner fachärztlichen Ausbildung\n• Supervision und Weiterbildung von Assistenzärztinnen oder Assistenzärzten\n• Mitgestaltung der hausinternen Fortbildungen\n\nDEINE PERSPEKTIVEN:\n\n• Deine persönliche Entwicklung liegt uns ebenso am Herzen wie die Entwicklung unseres Spitals im Allgemeinen und der Intensivmedizin im Speziellen\n• Unterstützung von einem motivierten und bestens qualifizierten Team\n• Attraktive Anstellungsbedingungen und persönliche Entwicklungs- und Mitgestaltungsmöglichkeiten sowie weitere Benefits prägen unsere Unternehmenskultur und machen uns zu einem attraktiven Arbeitgeber Unser fachärztlicher Leiter der Intensivmedizin, Florian Mayer, erteilt dir gerne weitere Auskünfte. Wir freuen uns auf deine Bewerbung!\n• Herr Daniel Schibli\n• Leiter Human Resources\n• +41 41 875 51 61\n• Florian Mayer\n• Fachärztlicher Leiter Intensivmedizin\n• +41 41 875 53 15\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "fr": "VOS TÂCHES : • Co-responsabilité médicale spécialisée pour des soins de haute qualité pour les patients nécessitant des soins intensifs • Participation à la conception et au développement de l'unité de soins intensifs (6 lits) - en collaboration avec le chef de médecine intensive et le chef des soins intensifs • Diagnostic, thérapie et soins des patients hospitalisés en médecine interne générale • Participation au service conformément à votre formation médicale spécialisée • Supervision et formation continue des médecins assistants • Participation aux formations internes VOS PERSPECTIVES : • Votre développement personnel est tout aussi important car le développement de notre hôpital en médecine générale et en soins intensifs en particulier • Le soutien d'une équipe motivée et hautement qualifiée • Des conditions de travail attrayantes et des possibilités de développement personnel et de participation ainsi que d'autres avantages façonnent notre culture d'entreprise et font de nous un employeur attractif. Notre chef spécialisé en médecine intensive, Florian Mayer, se fera un plaisir de vous fournir de plus amples informations. Nous attendons votre candidature avec impatience ! • M. Daniel Schibli • Responsable des ressources humaines • 41 41 875 51 61 • Florian Mayer • Directeur médical de la médecine intensive • 41 41 875 53 15 • Mentions légales • Protection des données • • • • • • Paramètres Cookies"
-      },
-      "location": "Altdorf",
-      "canton": "UR",
-      "url": "https://stellen.ksuri.ch/FachaerztinFacharzt-OA-OA-mbA-oder-LA-Intensivmedizin-40-8-de-j391.html",
-      "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:03:58.434Z",
-      "addressLocality": "Altdorf",
-      "addressRegion": "UR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6460",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://stellen.ksuri.ch/FachaerztinFacharzt-OA-OA-mbA-oder-LA-Intensivmedizin-40-8-de-j391.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
-        ],
-        "en": [
-          "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
-        ],
-        "fr": [
-          "facharztin-facharzt-oa-oa-mba-oder-la-intensivmedizin-40-80-m-w-d-kantonsspital-uri"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T13:42:12.710Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
