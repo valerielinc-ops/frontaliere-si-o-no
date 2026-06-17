@@ -60,6 +60,7 @@ import {
   injectBlockAfterMain,
   type InjectionOutcome,
 } from './shared/injectAfterMain';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 /** Idempotency marker for the AE-3 profession-links block. */
 const AE3_MARKER = 'data-ae3-profession-links';
@@ -274,7 +275,11 @@ export function professionLandingsLinksPlugin(rootDir: string): Plugin {
       // buildProfessionLandingPath which reads PROFESSION_SLUGS internally.)
       void PROFESSION_SLUGS;
 
-      const targets = buildTargets(distDir);
+      // Per-locale shard build (BUILD_LOCALE): only inject into targets whose
+      // locale this shard actually emitted. Without this the injector hard-fails
+      // on the other locales' pages that the write-gate legitimately skipped
+      // (missing-file). No-op in the default all-locale build.
+      const targets = buildTargets(distDir).filter((t) => shouldEmitLocale(t.locale));
 
       // Wait for both producers to flush before we read+patch. This replaces
       // the previous `waitForStable(t.indexPath)` mtime poll, which was
