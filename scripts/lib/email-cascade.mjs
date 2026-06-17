@@ -372,7 +372,7 @@ async function sendViaMailjet(email) {
         Subject: email.subject,
         HTMLPart: email.html,
         TextPart: email.text || undefined,
-        CustomID: email.tags?.[0]?.value || undefined,
+        CustomID: campaignIdTag(email),
       }],
     }),
   });
@@ -486,7 +486,7 @@ async function sendViaMailtrap(email) {
     html: email.html,
   };
   if (email.text) body.text = email.text;
-  if (email.tags?.length) body.category = email.tags[0].value;
+  if (email.tags?.length) body.category = campaignIdTag(email);
   if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
 
   const res = await fetch('https://send.api.mailtrap.io/api/send', {
@@ -883,6 +883,25 @@ function parseEmailAddress(from) {
 }
 
 /**
+ * The campaign id to stamp on providers that carry a single opaque tracking
+ * token (Mailjet `CustomID`, Mailtrap `category`). Looks the tag up BY NAME
+ * (`campaign_id`) rather than by position: the newsletter pipeline builds the
+ * `tags` array with `campaign_id` first, but that order is incidental, and a
+ * positional `tags[0]` silently stamps the wrong token if the order ever
+ * changes — breaking the A/B report's `events where campaign_id == weekly_*`
+ * match for Mailjet opens (those open events echo back this CustomID). Falls
+ * back to the first tag for non-newsletter callers that pass a single tag.
+ * @param {{ tags?: Array<{name?: string, value?: string}> }} email
+ * @returns {string|undefined}
+ */
+function campaignIdTag(email) {
+  const tags = email?.tags;
+  if (!Array.isArray(tags) || tags.length === 0) return undefined;
+  const named = tags.find((t) => t?.name === 'campaign_id');
+  return (named ?? tags[0])?.value || undefined;
+}
+
+/**
  * Total theoretical daily send capacity across the whole cascade —
  * the sum of every provider's daily limit (currently mailgun 100 + resend 100
  * + mailjet 200 + mailtrap 150 + maileroo 100 + cloudflare 100 = 750). Single
@@ -893,4 +912,4 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag };
