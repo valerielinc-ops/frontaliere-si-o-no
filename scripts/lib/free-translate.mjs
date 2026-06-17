@@ -980,7 +980,7 @@ export function balanceMarkdownMarkers(s) {
   return out.trim();
 }
 
-export async function freeTranslate({ text, sourceLang, targetLang }) {
+export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title' }) {
   const clean = normalizeSpace(text);
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
@@ -990,11 +990,15 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   // Single exit transform: balance markdown markers, then apply the
   // protected-term glossary so meaning-inverted MT output (e.g. German
   // "Nachtwache" → IT "orologio notturno") is corrected regardless of which
-  // tier produced it.
+  // tier produced it. `fieldType` defaults to 'title' (preserving the original
+  // behaviour for the short-text/title path); description callers pass
+  // 'description' so broad single-word fallback rules are skipped and legitimate
+  // body prose ("nel nostro orologio") is never rewritten.
   const finalize = (out) => applyGlossaryCorrections({
     sourceText: clean,
     translatedText: balanceMarkdownMarkers(out),
     targetLang,
+    fieldType,
   });
 
   /** Try a tier: track success/error, return result or '' */
@@ -1124,16 +1128,18 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
  * @param {string} options.text - Text to translate
  * @param {string} options.sourceLang - Source language
  * @param {string} options.targetLang - Target language
+ * @param {('title'|'description')} [options.fieldType='title'] - Field kind; forwarded
+ *   to the glossary so broad single-word fallbacks run on titles only.
  * @param {number} [options.maxRetries=2] - Max retry attempts after first failure
  * @returns {Promise<string>} Translated text or ''
  */
-export async function freeTranslateWithRetry({ text, sourceLang, targetLang, maxRetries = 2 }) {
-  const result = await freeTranslate({ text, sourceLang, targetLang });
+export async function freeTranslateWithRetry({ text, sourceLang, targetLang, fieldType = 'title', maxRetries = 2 }) {
+  const result = await freeTranslate({ text, sourceLang, targetLang, fieldType });
   if (result) return result;
 
   for (let i = 1; i <= maxRetries; i++) {
     await delay(i * 1000);
-    const retry = await freeTranslate({ text, sourceLang, targetLang });
+    const retry = await freeTranslate({ text, sourceLang, targetLang, fieldType });
     if (retry) return retry;
   }
 

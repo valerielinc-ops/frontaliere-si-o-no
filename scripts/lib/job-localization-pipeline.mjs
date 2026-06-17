@@ -340,8 +340,11 @@ export async function translateTextWithLocalPipeline({
   // Protected-term glossary: corrects meaning-inverted MT output (e.g. German
   // "Nachtwache" → IT "orologio notturno") that passes every language gate.
   // Applied to every accepted candidate, including memoized ones written before
-  // this guard existed.
-  const fixGlossary = (out) => applyGlossaryCorrections({ sourceText: clean, translatedText: out, targetLang });
+  // this guard existed. `fieldType` scopes broad single-word fallback rules to
+  // titles only, so a description body's legitimate "orologio"/"clock" prose is
+  // never rewritten (only the narrow compound rules run on bodies).
+  const fieldType = kind === 'title' ? 'title' : 'description';
+  const fixGlossary = (out) => applyGlossaryCorrections({ sourceText: clean, translatedText: out, targetLang, fieldType });
   const key = buildMemoryKey({ text: clean, sourceLang, targetLang, kind, context });
   const memoized = getMemoryEntry(key);
   if (memoized && passesQualityGate({ sourceText: clean, candidate: memoized, kind, minChars })) {

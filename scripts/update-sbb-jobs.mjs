@@ -893,6 +893,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
         text: localeDescriptions[resolvedSourceLocale],
         sourceLang: resolvedSourceLocale,
         targetLang: locale,
+        fieldType: 'description',
         maxRetries: 2,
       });
       // Keep the explicit >=120 floor alongside the ratio gate: isAcceptableTranslation's

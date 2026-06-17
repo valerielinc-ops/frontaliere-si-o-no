@@ -48,6 +48,11 @@ async function translateJobFieldWithFallback({
     text,
     sourceLang,
     targetLang,
+    // Forward the field kind so the glossary's broad single-word fallbacks
+    // (/\borologio\b/→a ciclo, /\bclock\b/→cycle) stay title-only on this
+    // cascade-fallback path too — otherwise a description body's legitimate
+    // "orologio"/"clock" prose would be rewritten (#2330 item 2).
+    fieldType: kind === 'title' ? 'title' : 'description',
     maxRetries: 2,
   });
   if (translated) return translated;
@@ -2047,7 +2052,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
     const fromCache = getCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string') {
       if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
-      const sentinelFallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+      const sentinelFallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
       if (sentinelFallback && sentinelFallback.length >= floor && sentinelFallback.toLowerCase() !== cleanDesc.toLowerCase()) {
         setCachedAiResponse(cacheKey, sentinelFallback);
         return sentinelFallback;
@@ -2055,7 +2060,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       return '';
     }
     // DeepL first
-    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+    const deepl = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (deepl && deepl.length >= floor) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
@@ -2083,7 +2088,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
         }
       } catch { /* fallback below */ }
     }
-    const fallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+    const fallback = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
     if (fallback && fallback.length >= floor && fallback.toLowerCase() !== cleanDesc.toLowerCase()) {
       setCachedAiResponse(cacheKey, fallback);
       return fallback;
@@ -2093,7 +2098,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   }
 
   // No cache — simple free-translate fallback
-  const simple = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale });
+  const simple = await freeTranslateWithRetry({ text: cleanDesc, sourceLang, targetLang: locale, fieldType: 'description' });
   return (simple && simple.length >= floor) ? simple : '';
 }
 
@@ -2313,7 +2318,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2369,7 +2374,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     };
     for (const locale of targetLocales) {
       // eslint-disable-next-line no-await-in-loop
-      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+      const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
       if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
         // eslint-disable-next-line no-await-in-loop
         const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2424,7 +2429,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     if (missingLocales.length > 0 && cleanedSource.length >= floor) {
       for (const locale of missingLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale });
+        const desc = await freeTranslateWithRetry({ text: cleanedSource, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedSource, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -2448,7 +2453,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       };
       for (const locale of targetLocales) {
         // eslint-disable-next-line no-await-in-loop
-        const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale });
+        const desc = await freeTranslateWithRetry({ text: cleanedFallback, sourceLang: sourceLang || 'en', targetLang: locale, fieldType: 'description' });
         if (desc && desc.length >= floor && isAcceptableTranslation(cleanedFallback, desc)) {
           // eslint-disable-next-line no-await-in-loop
           const localizedTitle = await freeTranslateWithRetry({ text: title, sourceLang: sourceLang || 'en', targetLang: locale });
@@ -4579,12 +4584,47 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
     if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
   }
 
+  // A per-job UUID in the LEAF path segment is the globally-unique id — prefer it
+  // BEFORE the numeric/path heuristics below. The `\/jobs\/(\d+)` etc. rules
+  // would otherwise latch onto the LEADING DIGITS of a UUID slug
+  // (`…/jobs/69b0fccf-bb38-…` → captures `69`), collapsing every prospective.ch
+  // UUID job whose id starts with the same digit run onto ONE registry key
+  // (`prospective.ch|69`). That cross-job collision force-pins the wrong
+  // slugByLocale via registryPinnedLocaleSlug — e.g. a Gesundheitszentrum
+  // Dielsdorf "Nachtwache" vacancy adopting an unrelated SRO-Langenthal dietician
+  // slug (#2330 item 1).
+  //
+  // Scope the UUID extraction to the LEAF segment — NOT the whole URL — to match
+  // mergeUrlKey Rule B (scripts/lib/job-url-key.mjs). A blind first-UUID scan of
+  // the full URL would grab a SHARED ANCESTOR uuid for shapes like cseb's
+  // `…/job-advertisement/<board-uuid>/<job-uuid>`, re-introducing the very
+  // ancestor-collapse this fix removes (every cseb job → one `cseb.ch|<board-uuid>`
+  // key). Vendors put the per-job reference in the rightmost segment; board/site
+  // uuids live in ancestor segments.
+  const leafSeg = u.pathname.split('/').filter(Boolean).pop() || '';
+  const leafUuid = extractUuidLikeId(leafSeg);
+  if (leafUuid) return `${registrableDomain(host)}|${leafUuid}`;
+
   const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
   if (coopPathMatch?.[1]) {
     const coopIdCandidate = normalizeSpace(coopPathMatch[1]);
     const coopUuid = extractUuidLikeId(coopIdCandidate) || extractUuidLikeId(full);
     if (coopUuid) return `${registrableDomain(host)}|${coopUuid}`;
     if (coopIdCandidate) return `${registrableDomain(host)}|${coopIdCandidate.toLowerCase()}`;
+  }
+
+  // Guard against the digit-prefix-of-a-UUID collapse for UUIDs the strict
+  // RFC4122 leaf check above misses (e.g. a non-conforming version/variant
+  // nibble). If the leaf is UUID-SHAPED (loose: 8-4-4-4-12 hex, any
+  // version/variant), the numeric `\/jobs\/(\d+)` rules below would capture only
+  // its leading digits (`…/jobs/69b0fccf-…` → `69`), re-collapsing distinct jobs
+  // onto the digit-prefix key (#2330). Key on the whole UUID-shaped leaf instead.
+  // This does NOT touch numeric-then-text ids (teamtailor `7887338-projektleiter`,
+  // hilti `17627-fr`) — those are not UUID-shaped, so the numeric rules still
+  // capture the real id.
+  const LOOSE_UUID_LEAF_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+  if (LOOSE_UUID_LEAF_RE.test(leafSeg)) {
+    return `${registrableDomain(host)}|${leafSeg.toLowerCase()}`;
   }
 
   const inPath = [
