@@ -54,7 +54,7 @@ export interface StatsData {
 // ─── Constants ───────────────────────────────────────────────
 
 export const SOURCE_LINK =
- 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-addetti/statistica-frontalieri.html';
+ 'https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi.html';
 
 const LOCAL_CACHE_KEY = 'bfs_stats_cache_v2';
 const FIRESTORE_COLLECTION = 'config';

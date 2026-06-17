@@ -38,7 +38,7 @@ export const FAQ_trasporti: ReadonlyArray<FaqHubEntry> = [
       },
     ],
     sources: [
-      'https://www.bazg.admin.ch/bazg/it/home/themen/einfuhr-in-die-schweiz.html',
+      'https://www.bazg.admin.ch/it',
     ],
   },
   {
