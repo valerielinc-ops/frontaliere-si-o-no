@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 /**
- * blast-publisher-ads.mjs — targeted newsletter blast for newly-paid SPONSORED ads.
+ * blast-publisher-ads.mjs — targeted newsletter blast for newly-paid PAID ads
+ * (tier `sponsored` or `azienda`).
  *
- * For each sponsored ad that is paid and not yet blasted, finds the matching
+ * For each paid ad (sponsored OR azienda) not yet blasted, finds the matching
  * newsletter subscribers (services/publisherBlastMatch.mjs) and emails them a
  * short alert, then stamps `blastSentAt` on the ad (idempotency — never blast twice).
+ *
+ * Azienda is the Piano Azienda tier (CHF 299/mese) whose perks include
+ * "priorità newsletter" — it MUST receive this blast just like sponsored.
  *
  * Free tier ads are NEVER blasted (no newsletter perk). Respects a per-run total
  * cap (free-tier ESP safety). Dry-run by default; --send actually emails.
@@ -42,10 +46,12 @@ async function initDb() {
 async function main() {
   const { admin, db } = await initDb();
 
-  // Sponsored + paid + not yet blasted.
+  // Paid (sponsored OR azienda) + not yet blasted. Both paid tiers carry the
+  // newsletter-blast perk; azienda would be silently excluded by a bare
+  // tier=='sponsored' gate (its "priorità newsletter" perk never delivered).
   const snap = await db
     .collection('publisher_jobs')
-    .where('tier', '==', 'sponsored')
+    .where('tier', 'in', ['sponsored', 'azienda'])
     .where('status', '==', 'paid')
     .get();
   const ads = snap.docs
@@ -53,7 +59,7 @@ async function main() {
     .filter((a) => !a.blastSentAt);
 
   if (ads.length === 0) {
-    console.log('[blast] no un-blasted sponsored paid ads — nothing to do.');
+    console.log('[blast] no un-blasted paid ads (sponsored/azienda) — nothing to do.');
     return;
   }
 
