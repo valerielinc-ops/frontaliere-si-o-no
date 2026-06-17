@@ -1,49 +1,18 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-06-16T22:59:13.115Z",
+  "generatedAt": "2026-06-17T12:58:28.310Z",
   "total": 13,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15867,
-  "avgDurationMs": 15867,
+  "unchangedCount": 0,
+  "durationMs": 16646,
+  "avgDurationMs": 16646,
   "durationHistory": [
-    15867
+    16646
   ],
-  "newJobs": [
-    {
-      "title": "Servicetechniker/in Wärmepumpen Zentralschweiz (m/w/d)",
-      "slug": "servicetechniker-in-warmepumpen-zentralschweiz-m-w-d-hoval-rc-mitte",
-      "url": "https://www.hoval.it/it_IT/job/3982",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3982/Application/New/1?DesignID=00&lang=ita",
-      "company": "Hoval",
-      "companyKey": "hoval",
-      "companyDomain": "hoval.it",
-      "location": "RC Mitte",
-      "addressLocality": "RC Mitte",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "CH",
-      "country": "CH",
-      "category": "technician",
-      "sector": "Assistenza Tecnica",
-      "source": "hoval-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
@@ -63,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -100,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -138,7 +107,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -175,23 +144,22 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "id": "hoval-04ed55471a14",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-05-27T12:51:49.485Z",
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -213,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -249,7 +217,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -287,7 +255,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -324,7 +292,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -341,6 +309,43 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "title": "Servicetechniker/in Wärmepumpen Zentralschweiz (m/w/d)",
+      "slug": "servicetechniker-in-warmepumpen-zentralschweiz-m-w-d-hoval-rc-mitte",
+      "url": "https://www.hoval.it/it_IT/job/3982",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3982/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "RC Mitte",
+      "addressLocality": "RC Mitte",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-17",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-d9a60b67085b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "",
+      "firstSeenAt": "2026-06-16T22:59:13.113Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 19
       }
     },
     {
@@ -361,7 +366,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -397,7 +402,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -415,10 +420,7 @@
         "translation": 21,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -437,7 +439,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -474,7 +476,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -493,5 +495,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
