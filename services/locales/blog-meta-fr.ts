@@ -8120,6 +8120,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.azienda-hoval-lavoro-ticino.title': 'Hoval : offres d\'emploi au Tessin pour les frontaliers',
     'blog.article.azienda-hoval-lavoro-ticino.excerpt': 'Hoval recherche du personnel au Tessin. Opportunités pour les frontaliers italiens. Détails sur le processus de candidature et implications pratiques.',
     'blog.article.azienda-hoval-lavoro-ticino.imageAlt': 'Vue d\'un bâtiment d\'entreprise moderne à Lugano, Tessin, avec des montagnes derrière.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.title': '3e Pilier 3a pour les Frontaliers - Guide Complet',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.excerpt': 'Découvrez le fonctionnement du 3e pilier 3a pour les frontalier en Suisse, les avantages fiscaux et les règles pour la retraite privée individuelle.',
+    'blog.article.terzo-pilastro-3a-frontaliere-guida.imageAlt': 'Vue panoramique de Lugano, centre financier du Tessin',
 };
 
 export default blogMetaFr;
