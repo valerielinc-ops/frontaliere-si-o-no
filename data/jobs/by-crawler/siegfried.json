@@ -973,8 +973,7 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-de-production-siegfried-zofingen",
-        "ingegnere-di-produzione-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1637,8 +1636,8 @@
       "slug": "tecnico-di-manutenzione-elettricita-siegfried-evionnaz",
       "slugByLocale": {
         "it": "tecnico-di-manutenzione-elettricita-siegfried-evionnaz",
-        "en": "technicien-de-maintenance-electricite-siegfried-ch",
-        "de": "technicien-de-maintenance-electricite-siegfried-ch",
+        "en": "maintenance-electricity-technician-siegfried-evionnaz",
+        "de": "wartungs-stromtechniker-siegfried-evionnaz",
         "fr": "technicien-de-maintenance-electricite-siegfried-ch"
       },
       "company": "Siegfried",
@@ -1682,9 +1681,7 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch",
-        "maintenance-electricity-technician-siegfried-evionnaz",
-        "wartungs-stromtechniker-siegfried-evionnaz"
+        "technicien-de-maintenance-electricite-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1692,10 +1689,10 @@
           "technicien-de-maintenance-electricite-siegfried-ch"
         ],
         "en": [
-          "maintenance-electricity-technician-siegfried-evionnaz"
+          "technicien-de-maintenance-electricite-siegfried-ch"
         ],
         "de": [
-          "wartungs-stromtechniker-siegfried-evionnaz"
+          "technicien-de-maintenance-electricite-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
@@ -1720,8 +1717,8 @@
       "slugByLocale": {
         "it": "consulente-legale-80-100-siegfried-zofingen",
         "en": "legal-counsel-80-100-siegfried-ch",
-        "de": "legal-counsel-80-100-siegfried-ch",
-        "fr": "legal-counsel-80-100-siegfried-ch"
+        "de": "rechtsberatung-80-100-siegfried-zofingen",
+        "fr": "conseiller-juridique-80-100-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1767,6 +1764,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "legal-counsel-80-100-siegfried-ch"
+        ],
+        "de": [
+          "legal-counsel-80-100-siegfried-ch"
+        ],
+        "fr": [
           "legal-counsel-80-100-siegfried-ch"
         ]
       },

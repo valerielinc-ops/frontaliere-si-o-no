@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "clinique-cic-8c5104c8ad43",
-      "slug": "infermiere-i-anestesista-clinique-cic-saxon-saxon",
+      "slug": "infermiere-anestetiche-clinique-cic-saxon-saxon",
       "slugByLocale": {
-        "it": "infermiere-i-anestesista-clinique-cic-saxon-saxon",
-        "en": "anesthesiologist-nurse-clinique-cic-saxon-saxon",
+        "it": "infermiere-anestetiche-clinique-cic-saxon-saxon",
+        "en": "infirmiere-anesthe-clinique-cic-saxon-saxon",
         "de": "anasthesiepfleger-in-clinique-cic-saxon-saxon",
         "fr": "infirmier-ere-anesthesiste-clinique-cic-saxon"
       },
@@ -72,16 +72,16 @@
       },
       "previousSlugs": [
         "infirmier-ere-anesthesiste-clinique-cic-saxon",
-        "infermiere-anestetiche-clinique-cic-saxon-saxon",
-        "infirmiere-anesthe-clinique-cic-saxon-saxon"
+        "infermiere-i-anestesista-clinique-cic-saxon-saxon",
+        "anesthesiologist-nurse-clinique-cic-saxon-saxon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-anesthesiste-clinique-cic-saxon",
-          "infermiere-anestetiche-clinique-cic-saxon-saxon"
+          "infermiere-i-anestesista-clinique-cic-saxon-saxon"
         ],
         "en": [
-          "infirmiere-anesthe-clinique-cic-saxon-saxon"
+          "anesthesiologist-nurse-clinique-cic-saxon-saxon"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:18.671Z",

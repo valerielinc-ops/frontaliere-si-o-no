@@ -617,9 +617,6 @@
         "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
         "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
         "fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "specialista-della-salute-efz-viva-luzern-luzern",
-        "healthcare-assistant-efz-viva-luzern-luzern",
-        "assistant-en-sante-efz-viva-luzern-luzern",
         "fachfrau-mann-gesundheit-cfc-viva-luzern"
       ],
       "previousSlugsByLocale": {
@@ -1212,9 +1209,9 @@
       "slug": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
       "slugByLocale": {
         "it": "stv-teamleiter-in-betreuung-e-pflege-viva-luzern",
-        "en": "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern",
+        "en": "deputy-team-leader-care-and-nursing-viva-luzern-luzern",
         "de": "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern",
-        "fr": "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        "fr": "chef-d-equipe-stv-en-soins-et-soins-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1261,6 +1258,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        ],
+        "en": [
+          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
+        ],
+        "fr": [
+          "stv-teamleiter-in-betreuung-und-pflege-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-06-16T14:51:25.702Z",
@@ -1282,9 +1285,9 @@
       "slug": "infermiera-notte-hf-viva-luzern-luzern",
       "slugByLocale": {
         "it": "infermiera-notte-hf-viva-luzern-luzern",
-        "en": "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern",
+        "en": "nurse-hf-night-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern",
-        "fr": "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern"
+        "fr": "nuit-d-insuffisance-cardiaque-infirmiere-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1333,6 +1336,12 @@
         "it": [
           "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern",
           "pflegefachfrau-mann-hf-nacht-viva-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern"
+        ],
+        "fr": [
+          "pflegefachfrau-mann-hf-nacht-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-06-16T14:51:25.699Z",
@@ -1354,9 +1363,9 @@
       "slug": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
       "slugByLocale": {
         "it": "assistent-in-gesundheit-e-soziales-o-pflegehelfer-in-srk-viva-luzern",
-        "en": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern",
+        "en": "health-and-social-affairs-assistant-or-src-nursing-assistant-viva-luzern-luzern",
         "de": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern",
-        "fr": "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        "fr": "assistant-en-sante-et-affaires-sociales-ou-assistant-infirmier-src-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1403,6 +1412,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        ],
+        "en": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
+        ],
+        "fr": [
+          "assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-06-16T14:51:25.698Z",
@@ -1424,9 +1439,9 @@
       "slug": "rai-experte-in-o-fachspezialist-in-interrai-ltcf-viva-luzern",
       "slugByLocale": {
         "it": "rai-experte-in-o-fachspezialist-in-interrai-ltcf-viva-luzern",
-        "en": "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern",
+        "en": "rai-expert-or-specialist-in-interrai-ltcf-viva-luzern-luzern",
         "de": "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern",
-        "fr": "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
+        "fr": "expert-rai-ou-specialiste-en-interrai-ltcf-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1472,6 +1487,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
+        ],
+        "en": [
+          "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
+        ],
+        "fr": [
           "rai-experte-in-oder-fachspezialist-in-interrai-ltcf-viva-luzern-luzern"
         ]
       },

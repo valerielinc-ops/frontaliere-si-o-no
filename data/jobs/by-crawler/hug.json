@@ -2095,12 +2095,12 @@
     },
     {
       "id": "hug-2d4a92551554",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2159,19 +2159,17 @@
       "firstSeenAt": "2026-06-16T22:59:50.156Z",
       "previousSlugsByLocale": {
         "it": [
-          "psicologo-80-hug-geneve"
+          "psychologue-80-hug-geneve"
         ],
         "en": [
-          "psychologist-80-hug-geneve"
+          "psychologue-80-hug-geneve"
         ],
         "de": [
-          "psychologe-80-hug-geneve"
+          "psychologue-80-hug-geneve"
         ]
       },
       "previousSlugs": [
-        "psicologo-80-hug-geneve",
-        "psychologist-80-hug-geneve",
-        "psychologe-80-hug-geneve"
+        "psychologue-80-hug-geneve"
       ]
     },
     {
@@ -4494,8 +4492,8 @@
       "slug": "medico-interno-per-la-ricerca-di-malattie-infettive-20-hug-geneve",
       "slugByLocale": {
         "it": "medico-interno-per-la-ricerca-di-malattie-infettive-20-hug-geneve",
-        "en": "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve",
-        "de": "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve",
+        "en": "internal-physician-for-infectious-diseases-research-20-hug-geneve",
+        "de": "innerer-arzt-fur-infektionskrankheiten-forschung-20-hug-geneve",
         "fr": "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve"
       },
       "company": "HUG",
@@ -4542,6 +4540,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve"
+        ],
+        "de": [
           "medecin-interne-de-recherche-au-service-des-maladies-infectieuses-20-hug-geneve"
         ]
       },

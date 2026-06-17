@@ -1453,9 +1453,9 @@
     },
     {
       "id": "sro-2bb05843b01c",
-      "slug": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "infermiere-diplomato-sss-spitex-sro-ag-spital-region-oberaargau-divers",
       "slugByLocale": {
-        "it": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "infermiere-diplomato-sss-spitex-sro-ag-spital-region-oberaargau-divers",
         "en": "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal",
         "de": "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal",
         "fr": "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
@@ -1512,13 +1512,15 @@
         ],
         "it": [
           "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-          "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers"
+          "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers",
+          "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "previousSlugs": [
         "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
         "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-ag-spital-region-oberaargau-divers",
-        "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers"
+        "dirigente-medico-ginecologia-60-100-sro-ag-spital-region-oberaargau-divers",
+        "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-05-22T23:38:55.232Z",
       "salaryMin": 68500,
@@ -1632,7 +1634,7 @@
       "slug": "kochin-koch-cfc-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "kochin-koch-cfc-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "kochin-koch-efz-80-100-sro-langenthal",
+        "en": "cook-efz-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "kochin-koch-efz-80-100-sro-langenthal",
         "fr": "kochin-koch-efz-80-100-sro-langenthal"
       },
@@ -1683,6 +1685,9 @@
       "firstSeenAt": "2026-06-16T14:35:37.577Z",
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-efz-80-100-sro-langenthal"
+        ],
+        "en": [
           "kochin-koch-efz-80-100-sro-langenthal"
         ]
       },

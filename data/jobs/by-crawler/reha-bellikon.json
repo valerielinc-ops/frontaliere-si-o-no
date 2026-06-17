@@ -1118,12 +1118,12 @@
     },
     {
       "id": "reha-bellikon-9d3bbc52411e",
-      "slug": "koch-kochin-efz-reha-bellikon-bellikon",
+      "slug": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "koch-kochin-efz-reha-bellikon-bellikon",
-        "en": "koch-kochin-efz-reha-bellikon-bellikon",
+        "it": "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
+        "en": "cook-cook-efz-rehaklinik-bellikon-bellikon",
         "de": "koch-kochin-efz-rehaklinik-bellikon-bellikon",
-        "fr": "koch-kochin-efz-reha-bellikon-bellikon"
+        "fr": "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1173,20 +1173,18 @@
       "previousSlugsByLocale": {
         "it": [
           "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-          "koch-kochin-cfc-rehaklinik-bellikon-bellikon"
+          "koch-kochin-efz-reha-bellikon-bellikon"
         ],
         "en": [
-          "cook-cook-efz-rehaklinik-bellikon-bellikon"
+          "koch-kochin-efz-reha-bellikon-bellikon"
         ],
         "fr": [
-          "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
+          "koch-kochin-efz-reha-bellikon-bellikon"
         ]
       },
       "previousSlugs": [
         "cucinare-cucinare-efz-rehaklinik-bellikon-bellikon",
-        "koch-kochin-cfc-rehaklinik-bellikon-bellikon",
-        "cook-cook-efz-rehaklinik-bellikon-bellikon",
-        "faire-cuire-faire-cuire-efz-rehaklinik-bellikon-bellikon"
+        "koch-kochin-efz-reha-bellikon-bellikon"
       ],
       "firstSeenAt": "2026-05-24T23:03:38.539Z",
       "salaryMin": 64500,
@@ -1710,10 +1708,10 @@
     },
     {
       "id": "reha-bellikon-58cac456ee84",
-      "slug": "medico-di-servizio-medico-di-notte-rehaklinik-bellikon-bellikon",
+      "slug": "assistente-assistente-dottore-notturno-dottore-notturno-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "medico-di-servizio-medico-di-notte-rehaklinik-bellikon-bellikon",
-        "en": "night-doctor-male-or-female-rehaklinik-bellikon-bellikon",
+        "it": "assistente-assistente-dottore-notturno-dottore-notturno-rehaklinik-bellikon-bellikon",
+        "en": "assistant-assistant-night-doctor-night-doctor-rehaklinik-bellikon-bellikon",
         "de": "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
         "fr": "medecin-de-service-medecin-de-nuit-rehaklinik-bellikon-bellikon"
       },
@@ -1763,11 +1761,17 @@
       "pensum": "10 - 30%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon"
+        "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
+        "medico-di-servizio-medico-di-notte-rehaklinik-bellikon-bellikon",
+        "night-doctor-male-or-female-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon"
+          "dienstarztin-dienstarzt-nachtarztin-nachtarzt-reha-bellikon-bellikon",
+          "medico-di-servizio-medico-di-notte-rehaklinik-bellikon-bellikon"
+        ],
+        "en": [
+          "night-doctor-male-or-female-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-06-02T14:25:06.241Z",
@@ -2033,9 +2037,9 @@
       "slug": "assistenz-qualitats-e-prozessmanagement-rehaklinik-bellikon",
       "slugByLocale": {
         "it": "assistenz-qualitats-e-prozessmanagement-rehaklinik-bellikon",
-        "en": "assistenz-qualitats-und-prozessmanagement-rehaklinik-bellikon-bellikon",
+        "en": "assistance-in-quality-and-process-management-rehaklinik-bellikon-bellikon",
         "de": "assistenz-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
-        "fr": "assistenz-qualitats-und-prozessmanagement-rehaklinik-bellikon-bellikon"
+        "fr": "assistance-en-matiere-de-qualite-et-de-gestion-des-processus-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -2083,11 +2087,18 @@
       "pensum": "60 - 80%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "assistenz-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
+        "assistenz-qualitats-und-prozessmanagement-reha-bellikon-bellikon",
+        "assistenz-qualitats-und-prozessmanagement-rehaklinik-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenz-qualitats-und-prozessmanagement-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "assistenz-qualitats-und-prozessmanagement-rehaklinik-bellikon-bellikon"
+        ],
+        "fr": [
+          "assistenz-qualitats-und-prozessmanagement-rehaklinik-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-06-12T12:48:46.315Z",
