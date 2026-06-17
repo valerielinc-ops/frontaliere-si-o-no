@@ -1,18 +1,48 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-06-17T12:14:36.183Z",
-  "total": 16,
-  "newCount": 1,
+  "generatedAt": "2026-06-17T22:04:52.649Z",
+  "total": 17,
+  "newCount": 2,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 1119,
-  "avgDurationMs": 1119,
+  "durationMs": 1034,
+  "avgDurationMs": 1034,
   "durationHistory": [
-    1119
+    1034
   ],
   "newJobs": [
+    {
+      "title": "Collaboratore/trice scientifico/a (90%) - Colture frutticole e qualità dei prodotti",
+      "slug": "collaboratore-trice-scientifico-a-90-colture-frutticole-e-qualita-dei-prodotti-agroscope-conthey",
+      "url": "https://jobs.admin.ch/posti-vacanti/collaboratore-trice-scientifico-a-colture-frutticole-e-qualita-dei-prodotti/38162dc3-6d77-46c9-a1d1-e6db845e6259",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19451",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Conthey, Svizzera",
+      "addressLocality": "Conthey",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-17",
+      "validThrough": "2026-07-19",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Collaboratore/trice scientifico/a nel settore agroambientale",
       "slug": "collaboratore-trice-scientifico-a-nel-settore-agroambientale-agroscope-zurich",
