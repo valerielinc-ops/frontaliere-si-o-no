@@ -8125,6 +8125,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.candidato-medico-eoc-bellinzona.title': 'Medical candidate in Bellinzona: EOC seeks cross-border staff',
     'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'The Cantonal Hospital Authority of Bellinzona is looking for doctors in internal and intensive medicine. Details are not yet specified, but it is an opportunity for cross-border workers.',
     'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'EOC hospital in Bellinzona, Ticino, seeking cross-border doctors for internal medicine and intensive care.',
+    'blog.article.naspi-svizzera-frontalieri.title': 'Swiss Permit for Cross-Border Workers: Naspi and Tax-Free Restaurants in Italy',
+    'blog.article.naspi-svizzera-frontalieri.excerpt': 'How the Swiss Naspi works for cross-border workers, maximum duration of 520 days, and how to obtain tax-free restaurants in Italy.',
+    'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande in Bellinzona at sunset, symbol of the border and Canton Ticino.',
 };
 
 export default blogMetaEn;

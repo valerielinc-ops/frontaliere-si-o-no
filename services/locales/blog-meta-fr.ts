@@ -8126,6 +8126,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.candidato-medico-eoc-bellinzona.title': 'Candidat médecin à Bellinzona : EOC recherche frontaliers',
     'blog.article.candidato-medico-eoc-bellinzona.excerpt': 'L\'Ente Ospedaliero Cantonale di Bellinzona cherche des médecins pour la médecine interne et intensive. Détails pas encore précisés, mais opportunité pour les frontaliers.',
     'blog.article.candidato-medico-eoc-bellinzona.imageAlt': 'Hôpital EOC de Bellinzona, au Tessin, recherche médecins frontaliers pour médecine interne et soins intensifs.',
+    'blog.article.naspi-svizzera-frontalieri.title': 'Naspi et ristorni fiscaux pour les frontaliers',
+    'blog.article.naspi-svizzera-frontalieri.excerpt': 'Comment fonctionne le permis G suisse pour les frontaliers, une durée maximale de 520 jours et comment obtenir les ristorni fiscaux en Italie.',
+    'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande à Bellinzone au coucher du soleil, symbole de la frontière et du canton du Tessin.',
 };
 
 export default blogMetaFr;
