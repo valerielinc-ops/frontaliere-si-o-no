@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-06-16T22:44:09.610Z",
+  "generatedAt": "2026-06-17T12:39:33.608Z",
   "total": 35,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 33,
-  "durationMs": 25274,
-  "avgDurationMs": 25274,
+  "durationMs": 22971,
+  "avgDurationMs": 22971,
   "durationHistory": [
-    25274
+    22971
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -185,7 +185,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.811Z",
+      "crawledAt": "2026-06-17T12:39:30.809Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-15",
@@ -272,7 +272,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.809Z",
+      "crawledAt": "2026-06-17T12:39:30.807Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-05-18",
@@ -365,7 +365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.808Z",
+      "crawledAt": "2026-06-17T12:39:30.806Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -419,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.807Z",
+      "crawledAt": "2026-06-17T12:39:30.805Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -535,7 +535,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.806Z",
+      "crawledAt": "2026-06-17T12:39:30.804Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -590,7 +590,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.805Z",
+      "crawledAt": "2026-06-17T12:39:30.803Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -720,7 +720,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.803Z",
+      "crawledAt": "2026-06-17T12:39:30.801Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -737,88 +737,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-06-16T22:44:06.802Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "country": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 22
       }
@@ -903,7 +821,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.802Z",
+      "crawledAt": "2026-06-17T12:39:30.800Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -922,6 +840,88 @@
         "richness": 25,
         "translation": 25,
         "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-06-17T12:39:30.799Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "country": "CH",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -1021,7 +1021,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.801Z",
+      "crawledAt": "2026-06-17T12:39:30.799Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1076,7 +1076,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.800Z",
+      "crawledAt": "2026-06-17T12:39:30.797Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1200,7 +1200,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.799Z",
+      "crawledAt": "2026-06-17T12:39:30.796Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1255,7 +1255,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.798Z",
+      "crawledAt": "2026-06-17T12:39:30.795Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1310,7 +1310,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.797Z",
+      "crawledAt": "2026-06-17T12:39:30.794Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",
@@ -1365,7 +1365,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.796Z",
+      "crawledAt": "2026-06-17T12:39:30.793Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1419,7 +1419,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.795Z",
+      "crawledAt": "2026-06-17T12:39:30.792Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1542,7 +1542,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.794Z",
+      "crawledAt": "2026-06-17T12:39:30.791Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1671,7 +1671,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.793Z",
+      "crawledAt": "2026-06-17T12:39:30.790Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1691,6 +1691,60 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-17T12:39:30.789Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
+      "country": "CH",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -1796,7 +1850,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.791Z",
+      "crawledAt": "2026-06-17T12:39:30.788Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -1815,60 +1869,6 @@
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-16T22:44:06.791Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "country": "CH",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -1999,7 +1999,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.788Z",
+      "crawledAt": "2026-06-17T12:39:30.787Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2054,7 +2054,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.784Z",
+      "crawledAt": "2026-06-17T12:39:30.783Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -2107,7 +2107,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-16T22:44:06.783Z",
+      "crawledAt": "2026-06-17T12:39:30.782Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
