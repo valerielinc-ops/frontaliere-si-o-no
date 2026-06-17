@@ -70,4 +70,74 @@ describe('translation glossary — protected-term corrections', () => {
     expect(applyGlossaryCorrections({ sourceText: '', translatedText: 'x', targetLang: 'it' })).toBe('x');
     expect(applyGlossaryCorrections({ sourceText: 'Nachtwache', translatedText: '', targetLang: 'it' })).toBe('');
   });
+
+  // ── #2330 item 3: article-aware regex covers contracted prepositions ──────────
+  it('absorbs contracted prepositions before the IT timepiece term (no dangling apostrophe)', () => {
+    for (const [contracted, translated] of [
+      ["dell'", "Responsabile dell'orologio notturno"],
+      ["nell'", "Turni nell'orologio notturno"],
+      ["all'", "Assegnato all'orologio notturno"],
+      ["sull'", "Report sull'orologio notturno"],
+    ] as const) {
+      const out = applyGlossaryCorrections({
+        sourceText: 'Pflegefachperson Nachtwache',
+        translatedText: translated,
+        targetLang: 'it',
+      });
+      // The corrected term is the canonical "la guardia notturna"; crucially no
+      // broken "dell'guardia" / "nell'guardia" is produced.
+      expect(out).toContain('la guardia notturna');
+      expect(out).not.toContain(`${contracted}guardia`);
+      expect(out).not.toMatch(/orolog/i);
+    }
+  });
+
+  it('absorbs FR contracted prepositions before "montre de nuit"', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'Pflegefachperson Nachtwache',
+      translatedText: 'Responsable du montre de nuit',
+      targetLang: 'fr',
+    })).toBe('Responsable la garde de nuit');
+  });
+
+  // ── #2330 item 2: glossary scoped to titles; description bodies preserved ─────
+  it('applies broad single-word fallback to TITLES (default fieldType)', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'Mechaniker Taktmontage',
+      translatedText: 'Montaggio orologio',
+      targetLang: 'it',
+    })).toBe('Montaggio a ciclo');
+  });
+
+  it('does NOT apply broad single-word fallback to DESCRIPTION bodies', () => {
+    // A legit "nel nostro orologio" in a long description must survive even when
+    // the SOURCE contains the Taktmontage trigger (the bare /\borologio\b/ rule
+    // is title-only).
+    const body = 'Lavorerai nel nostro orologio aziendale e nella catena di montaggio.';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Mechaniker Taktmontage in der Fabrik',
+      translatedText: body,
+      targetLang: 'it',
+      fieldType: 'description',
+    })).toBe(body);
+    // EN clock fallback is likewise title-only on bodies.
+    const enBody = 'You will work near the factory clock during your shift.';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Mechaniker Taktmontage',
+      translatedText: enBody,
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe(enBody);
+  });
+
+  it('STILL corrects the narrow compound mistranslation in DESCRIPTION bodies', () => {
+    // The narrow "orologio notturno" compound can only mean the mistranslation,
+    // so it is corrected in bodies too (body-safe rule, not title-only).
+    expect(applyGlossaryCorrections({
+      sourceText: 'Wir suchen für die Nachtwache eine Pflegefachperson.',
+      translatedText: "Cerchiamo una persona per l'orologio notturno nel reparto.",
+      targetLang: 'it',
+      fieldType: 'description',
+    })).toBe('Cerchiamo una persona per la guardia notturna nel reparto.');
+  });
 });

@@ -38,26 +38,46 @@ function matchCase(sample, replacement) {
 }
 
 /**
+ * @typedef {[RegExp, string]} BodySafeRule  A narrow [badPattern, correctTerm]
+ *           pair that only ever matches the specific mistranslated COMPOUND
+ *           (e.g. "orologio notturno"), so it is safe to apply to description
+ *           bodies as well as titles.
+ * @typedef {[RegExp, string, { titleOnly: true }]} TitleOnlyRule  A broad
+ *           single-word fallback (e.g. /\borologio\b/) that must NOT run over
+ *           description bodies — a legitimate "nel nostro orologio" in prose
+ *           would be corrupted into "nel nostro a ciclo". Applied to titles only.
+ * @typedef {BodySafeRule | TitleOnlyRule} GlossaryRule
+ *
  * @typedef {Object} GlossaryEntry
  * @property {RegExp} trigger  Matched against the SOURCE text (German).
- * @property {Record<string, Array<[RegExp, string]>>} fixes  Per target locale:
- *           [badPattern, correctTerm] pairs applied to the translated output.
+ * @property {Record<string, GlossaryRule[]>} fixes  Per target locale: rules
+ *           applied to the translated output, in order.
  */
+
+/** Marks a rule as title-only (skipped on description-body fields). */
+const TITLE_ONLY = { titleOnly: true };
 
 /** @type {GlossaryEntry[]} */
 export const TRANSLATION_GLOSSARY = [
   {
     // Nursing night-shift duty (Pflege "Nachtwache" / "Dauernachtwache").
-    // Article-aware rules run first so a preceding "l'"/"les" is absorbed into a
-    // grammatical "la guardia"/"la garde" instead of leaving "l'guardia"/"les garde".
+    // Article-aware rules run first so a preceding article / contracted
+    // preposition ("l'"/"dell'"/"nell'"/"les"/"du") is absorbed into a
+    // grammatical "la guardia"/"la garde" instead of leaving "dell'guardia".
     trigger: /nachtwache/i,
     fixes: {
       it: [
-        [/\b(?:l['’]|lo|la|il)\s*orolog\w*\s+notturn\w*/gi, 'la guardia notturna'],
+        // Contracted prepositions (dell'/nell'/all'/sull'/dall') + articles
+        // (l'/lo/la/il) + "col"/"con il". The whole preposition+timepiece span
+        // collapses to the canonical "la guardia notturna" (grammatical regardless
+        // of the original contraction) instead of leaving a dangling apostrophe.
+        [/\b(?:dell['’]|nell['’]|all['’]|sull['’]|dall['’]|l['’]|lo|la|il|con\s+il|col)\s*orolog\w*\s+notturn\w*/gi, 'la guardia notturna'],
         [/orolog\w*\s+notturn\w*/gi, 'guardia notturna'],
       ],
       fr: [
-        [/\b(?:les|la|l['’])\s*montres?\s+de\s+nuit/gi, 'la garde de nuit'],
+        // Articles (les/la/l') + contracted prepositions (du/des/aux) before the
+        // mistranslated "montre de nuit".
+        [/\b(?:les|la|l['’]|du|des|aux)\s*montres?\s+de\s+nuit/gi, 'la garde de nuit'],
         [/montres?\s+de\s+nuit/gi, 'garde de nuit'],
       ],
     },
@@ -68,11 +88,14 @@ export const TRANSLATION_GLOSSARY = [
     fixes: {
       it: [
         [/montaggio\s+meccanico\s+orologio/gi, 'meccanico montaggio a ciclo'],
-        [/\borologio\b/gi, 'a ciclo'],
+        // Bare-word fallback: title-only. In a description body "il nostro
+        // orologio" (a legit timepiece reference) must not become "a ciclo".
+        [/\borologio\b/gi, 'a ciclo', TITLE_ONLY],
       ],
       en: [
         [/mechanical\s+clock\s+assembly/gi, 'cycle assembly mechanic'],
-        [/\bclock\b/gi, 'cycle'],
+        // Bare-word fallback: title-only (same body-corruption risk as IT).
+        [/\bclock\b/gi, 'cycle', TITLE_ONLY],
       ],
       fr: [[/montage\s+m[eé]canique\s+de\s+l['’\s]?horloge/gi, 'montage à la chaîne']],
     },
@@ -98,16 +121,25 @@ export const TRANSLATION_GLOSSARY = [
  * @param {string} args.sourceText      The original (source-language) text.
  * @param {string} args.translatedText  The machine-translated output to correct.
  * @param {string} args.targetLang      Target locale (it/en/de/fr).
+ * @param {('title'|'description')} [args.fieldType='title']  Which field is being
+ *           corrected. Defaults to 'title' so existing title call sites are
+ *           unchanged. For 'description', broad single-word fallback rules
+ *           (flagged `titleOnly`) are skipped so legitimate prose containing the
+ *           target word (e.g. "il nostro orologio") is never rewritten — only the
+ *           narrow compound rules, which can only match the mistranslated phrase,
+ *           run on bodies.
  * @returns {string} The corrected translation (unchanged when no rule fires).
  */
-export function applyGlossaryCorrections({ sourceText, translatedText, targetLang }) {
+export function applyGlossaryCorrections({ sourceText, translatedText, targetLang, fieldType = 'title' }) {
   let out = String(translatedText || '');
   if (!out || !sourceText || !targetLang) return out;
+  const isTitle = fieldType === 'title';
   for (const entry of TRANSLATION_GLOSSARY) {
     if (!entry.trigger.test(sourceText)) continue;
     const rules = entry.fixes[targetLang];
     if (!rules) continue;
-    for (const [pattern, replacement] of rules) {
+    for (const [pattern, replacement, opts] of rules) {
+      if (!isTitle && opts && opts.titleOnly) continue;
       out = out.replace(pattern, (m) => matchCase(m, replacement));
     }
   }

@@ -99,6 +99,7 @@ async function main() {
           text: sourceDesc,
           sourceLang: sl,
           targetLang: locale,
+          fieldType: 'description',
           maxRetries: 1,
         });
 
