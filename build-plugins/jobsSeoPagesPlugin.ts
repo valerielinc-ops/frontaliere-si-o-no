@@ -10756,13 +10756,28 @@ ${staticAnalyticsHtml}
  // (the pages that actually had traffic), so the per-build prose count — and
  // memory — is bounded. Grace/no-traffic pages stay stripped + thin-shelled.
  //
- // Single source of truth: __slCandidatePaths (built once here, hoisted above
- // the body) feeds BOTH the prose gate (__slKeepProse) and the thin-shell gate
- // (__slDecision, in the emission block below). A prior version rebuilt the same candidate
- // set twice with two independent idioms (__slProsePaths here + __slCandidatePaths
- // below) — set-equal then, but a future mirror-source added to only one builder
- // would silently diverge the gates (prose kept on a thin-shelled page, or vice
- // versa). One builder, one decideMulti per gate, no drift by construction.
+ // Two gates, two DELIBERATELY DIFFERENT path-sets — built from ONE shared base
+ // (the candidate builder, hoisted above the body) so the per-locale legacy-bridge
+ // idiom lives in exactly one place (no drift by construction):
+ //   • Thin-shell gate (__slDecision, emission block below) probes __slCandidatePaths:
+ //     relPath + the current locale's own legacy bridge (only when locale!=='it',
+ //     because the IT legacy section IS the canonical relPath for a TI IT page) +
+ //     every OTHER locale's legacy section path.
+ //   • Prose / Auto-Ads gate (__slKeepProse) probes __slProsePaths = the candidate
+ //     set PLUS the IT-locale legacy mirror `/cerca-lavoro-ticino/${slug}`
+ //     UNCONDITIONALLY. This restores the original __slProsePaths semantics, which
+ //     looped over ALL locales (incl. the current one) and so ALWAYS included the IT
+ //     legacy section path. gsc-job-urls / gsc-orphan-job-slugs are IT-only sources
+ //     stored at `/cerca-lavoro-ticino/${slug}/`, so for an IT-locale canton-aware
+ //     page (relPath = `/cerca-lavoro-argovia/${slug}` etc.) that IT mirror is the
+ //     ONLY historical signal — dropping it from the prose gate would strip prose +
+ //     Auto Ads from genuinely-trafficked expired pages (reviewer 🔴, PR #2397).
+ //     The two sets are NOT set-equal for the IT locale: that gap is intentional and
+ //     scope-correct, not duplication — so we keep distinct sets but a single builder.
+ // The IT mirror is appended (with dedup) rather than folded into __slCandidatePaths
+ // so the THIN gate's set stays byte-identical to its prior behaviour (widening it
+ // would flip some IT canton-aware pages thin→full, changing the emitted shell +
+ // build footprint — out of scope here).
  // PR #743 lesson: non-IT locales also emit a legacy-locale bridge at legacyRel,
  // so traffic may land there — probe relPath + every locale variant.
  const __slCandidatePaths: string[] = [relPath];
@@ -10775,7 +10790,14 @@ ${staticAnalyticsHtml}
  const __slOtherPath = `/${localePrefix[__slOtherLocale]}/${sectionByLocale[__slOtherLocale]}/${slug}`.replace(/\/+/g, '/');
  if (!__slCandidatePaths.includes(__slOtherPath)) __slCandidatePaths.push(__slOtherPath);
  }
- const __slKeepProse = trafficFilter.decideMulti(__slCandidatePaths, 'soft-landing-expired').reason === 'has-traffic';
+ // Prose gate = candidate set ∪ { IT legacy mirror }. For non-IT locales the IT
+ // mirror is already present (added by the other-locale loop above), so the append
+ // is a no-op there; for an IT-locale canton-aware page it is the missing signal.
+ const __slItLegacyMirror = `/${localePrefix.it}/${sectionByLocale.it}/${slug}`.replace(/\/+/g, '/');
+ const __slProsePaths: string[] = __slCandidatePaths.includes(__slItLegacyMirror)
+ ? __slCandidatePaths
+ : [...__slCandidatePaths, __slItLegacyMirror];
+ const __slKeepProse = trafficFilter.decideMulti(__slProsePaths, 'soft-landing-expired').reason === 'has-traffic';
  const __tEjpBody = phaseTimer();
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.
