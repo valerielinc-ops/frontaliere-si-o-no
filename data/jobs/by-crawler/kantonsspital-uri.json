@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kantonsspital-uri",
-  "assembledAt": "2026-06-17T14:55:18.608Z",
+  "assembledAt": "2026-06-17T22:50:47.895Z",
   "jobs": [
     {
       "id": "kantonsspital-uri-a7ca34ef560a",
@@ -16,7 +16,7 @@
       "companyDomain": "ksuri.ch",
       "title": "Unterassistenten Innere Medizin",
       "titleByLocale": {
-        "it": "Medicina interna subassista",
+        "it": "Unterassistenten Innere Medizin",
         "en": "Assistant Internal Medicine",
         "de": "Unterassistenten Innere Medizin",
         "fr": "Sous-assistants en médecine interne"
@@ -31,7 +31,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Innere-Medizin-de-j34.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-16T23:04:06.026Z",
+      "crawledAt": "2026-06-17T22:50:45.899Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -68,8 +68,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "kantonsspital-uri-1d9b044c4b95",
@@ -100,7 +99,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Gynaekologie-und-Geburtshilfe-de-j37.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:33.293Z",
+      "crawledAt": "2026-06-17T22:50:45.382Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -168,7 +167,7 @@
       "url": "https://stellen.ksuri.ch/Unterassistenten-Chirurgie-und-Orthopaedie-de-j35.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:32.771Z",
+      "crawledAt": "2026-06-17T22:50:44.874Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -241,7 +240,7 @@
       "url": "https://stellen.ksuri.ch/Physiotherapeutin-mit-Zusatzfunktion-als-Berufsbildnerin-w-de-j409.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:32.318Z",
+      "crawledAt": "2026-06-17T22:50:44.445Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -343,7 +342,7 @@
       "url": "https://stellen.ksuri.ch/Pflegefachperson-HFFH-OnkologieHaematologie-40-80-wmd-de-j415.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:31.884Z",
+      "crawledAt": "2026-06-17T22:50:44.001Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -452,7 +451,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-Oberarzt-Kardiologie-50-100-wmd-de-j367.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:31.354Z",
+      "crawledAt": "2026-06-17T22:50:43.488Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -523,7 +522,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-Oberarzt-Innere-Medizin-60-100-wmd-de-j406.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:30.793Z",
+      "crawledAt": "2026-06-17T22:50:42.967Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -594,7 +593,7 @@
       "url": "https://stellen.ksuri.ch/Oberaerztin-Oberarzt-Anaesthesie-wmd-60-80-de-j408.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:30.347Z",
+      "crawledAt": "2026-06-17T22:50:42.541Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -637,9 +636,9 @@
       "id": "kantonsspital-uri-de14179114a4",
       "slug": "collaboratore-trice-raumpflege-in-der-spezialreinigung-m-w-d-100-kantonsspital-uri-altdorf",
       "slugByLocale": {
-        "de": "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf",
         "it": "collaboratore-trice-raumpflege-in-der-spezialreinigung-m-w-d-100-kantonsspital-uri-altdorf",
         "en": "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf",
+        "de": "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf",
         "fr": "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
       },
       "company": "Kantonsspital Uri",
@@ -647,17 +646,17 @@
       "companyDomain": "ksuri.ch",
       "title": "Mitarbeiter:in Raumpflege in der Spezialreinigung (w/m/d) 100%",
       "titleByLocale": {
-        "de": "Mitarbeiter:in Raumpflege in der Spezialreinigung (w/m/d) 100%",
         "it": "Collaboratore/trice Raumpflege in der Spezialreinigung (w/m/d) 100%",
         "en": "Associate Raumpflege in der Spezialreinigung (w/m/d) 100%",
+        "de": "Mitarbeiter:in Raumpflege in der Spezialreinigung (w/m/d) 100%",
         "fr": "Collaborateur/trice Raumpflege in der Spezialreinigung (w/m/d) 100%"
       },
       "description": "DEINE AUFGABEN:\n\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden\n\nDEINE PERSPEKTIVEN:\n\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
       "descriptionByLocale": {
-        "de": "DEINE AUFGABEN:\n\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden\n\nDEINE PERSPEKTIVEN:\n\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "it": "DEINE AUFGABEN:\n\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden\n\nDEINE PERSPEKTIVEN:\n\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "en": "DEINE AUFGABEN:\n\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden\n\nDEINE PERSPEKTIVEN:\n\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies",
-        "fr": "DEINE AUFGABEN:\n\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit\n\nDEIN PROFIL:\n\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden\n\nDEINE PERSPEKTIVEN:\n\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n•\n•\n•\n•\n•\n• Einstellungen Cookies"
+        "it": "DEINE AUFGABEN:\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit DEIN PROFIL:\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden DEINE PERSPEKTIVEN:\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n• •\n• •\n• • Einstellungen Cookies",
+        "en": "DEINE AUFGABEN:\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit DEIN PROFIL:\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden DEINE PERSPEKTIVEN:\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n• •\n• •\n• • Einstellungen Cookies",
+        "de": "DEINE AUFGABEN:\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit DEIN PROFIL:\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden DEINE PERSPEKTIVEN:\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n• •\n• •\n• • Einstellungen Cookies",
+        "fr": "DEINE AUFGABEN:\n• Durchführung von Fensterreinigungen (innen)\n• Grundreinigung von Bodenbelägen, Küchen- und Sanitäranlagen\n• Zwischenreinigungen und Pflegearbeiten verschiedener Oberflächen\n• Fachgerechte Bodenpflege und Teppichreinigung\n• Arbeiten mit Hebebühnen (Skyworker)\n• Unterstützung im Bereich der Unterhaltsreinigung bei Vertretungen und Engpässen\n• Anleitung und Schulung von Mitarbeitenden in der Spezialreinigung\n• Einhaltung der Arbeitssicherheitsvorgaben gemäss SUVA- und EKAS-Richtlinien\n• Sorgfältiger Umgang mit Reinigungsmitteln unter Einhaltung ökologischer Vorgaben\n• Sicherstellen einer hohen Reinigungsqualität und Kundenzufriedenheit DEIN PROFIL:\n• Abgeschlossene Ausbildung als Gebäudereiniger/in EFZ oder eine gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in der Reinigungsbranche\n• Sicherer Umgang mit Reinigungsmaschinen, Geräten und chemisch-technischen Produkten\n• Fundierte Kenntnisse der ökologischen Anforderungen und Richtlinien in der Reinigung\n• Gute körperliche Verfassung, um die täglichen Anforderungen problemlos zu bewältigen\n• Selbständige, effiziente und zuverlässige Arbeitsweise\n• Teamfähigkeit und eine kommunikative Persönlichkeit mit einem gepflegten Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Bereitschaft zu flexiblen Einsätzen, auch an Wochenenden und Abenden DEINE PERSPEKTIVEN:\n• Seit Sommer 2022 ein neues Spital mit modernster Infrastruktur\n• Flache Hierarchien und eine gelebte DU-Kultur\n• Ein familiäres und innovatives Regionalspital mit Vorbildcharakter\n• Motivierendes und dynamisches Arbeitsumfeld in einem engagierten Team\n• Attraktive Anstellungsbedingungen Unsere Teamleiterin Raumpflege, Frau Simona Walker erteilt Dir gerne weitere Auskünfte.\n• Frau Andrina Staub\n• Teamleiterin HR Services\n• +41 41 875 53 34\n• Frau Simona Walker\n• Teamleiterin Raumpflege\n• +41 41 875 51 82\n• Impressum\n• Datenschutz\n• •\n• •\n• • Einstellungen Cookies"
       },
       "needsRetranslation": true,
       "location": "Altdorf",
@@ -665,7 +664,7 @@
       "url": "https://stellen.ksuri.ch/Mitarbeiterin-Raumpflege-in-der-Spezialreinigung-wmd-100-de-j423.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:29.889Z",
+      "crawledAt": "2026-06-17T22:50:42.100Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -681,17 +680,16 @@
       "postedDate": "2026-06-17",
       "applyUrl": "https://stellen.ksuri.ch/Mitarbeiterin-Raumpflege-in-der-Spezialreinigung-wmd-100-de-j423.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-raumpflege-in-der-spezialreinigung-w-m-d-100-kantonsspital-uri-altdorf"
-      ],
+      "firstSeenAt": "2026-06-17T13:21:29.889Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -703,8 +701,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-17T13:21:29.889Z"
+      }
     },
     {
       "id": "kantonsspital-uri-7282ae1c3b0d",
@@ -727,17 +724,18 @@
       },
       "description": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
       "descriptionByLocale": {
-        "it": "I tuoi compiti durante la formazione: Con noi imparerai tutto ciò di cui hai bisogno nella vita quotidiana come assistente medico. Farai parte del nostro team fin dall'inizio: • Accoglienza calorosa e assistenza ai pazienti • Supporto ai medici con esami, consulenze e procedure minori • Eseguire esami di laboratorio e valutare i risultati • Accompagnare radiografie, ECG e test di funzionalità polmonare • Somministrare infusioni e iniezioni sotto guida • Pianificare appuntamenti, conservare documentazione e organizzare i processi",
-        "en": "Your tasks during the training: With us, you will learn everything you need for everyday life as a medical practice assistant. You will be part of our team from the very beginning: • Warmly welcome and care for patients • Support doctors with examinations, consultations and minor procedures • Carry out laboratory tests and evaluate results • Accompany X-rays, ECGs and lung function tests • Administer infusions and injections under guidance • Plan appointments, keep documentation and organize processes",
-        "de": "Deine Aufgaben während der Ausbildung::\nBei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
-        "fr": "Vos tâches pendant la formation : Avec nous, vous apprendrez tout ce dont vous avez besoin pour la vie quotidienne en tant qu'assistant médical. Vous ferez partie de notre équipe dès le tout début : • Accueillir chaleureusement et prendre soin des patients • Soutenir les médecins lors des examens, consultations et interventions mineures • Réaliser des analyses de laboratoire et évaluer les résultats • Accompagner les radiographies, ECG et tests de fonction pulmonaire • Administrer des perfusions et injections sous supervision • Planifier les rendez-vous, conserver la documentation et organiser les processus"
+        "it": "I tuoi compiti durante la formazione: Con noi imparerai tutto ciò di cui hai bisogno nella vita quotidiana come assistente medico. Farai parte del nostro team fin dall'inizio:\n• Accoglienza calorosa e assistenza ai pazienti\n• Supporto ai medici con esami, consulenze e procedure minori\n• Eseguire esami di laboratorio e valutare i risultati\n• Accompagnare radiografie, ECG e test di funzionalità polmonare\n• Somministrare infusioni e iniezioni sotto guida\n• Pianificare appuntamenti, conservare documentazione e organizzare i processi",
+        "en": "Your tasks during the training: With us, you will learn everything you need for everyday life as a medical practice assistant. You will be part of our team from the very beginning:\n• Warmly welcome and care for patients\n• Support doctors with examinations, consultations and minor procedures\n• Carry out laboratory tests and evaluate results\n• Accompany X-rays, ECGs and lung function tests\n• Administer infusions and injections under guidance\n• Plan appointments, keep documentation and organize processes",
+        "de": "Deine Aufgaben während der Ausbildung:: Bei uns lernst du alles, was du für den Alltag als Medizinische:r Praxisassistent:in brauchst. Du bist von Anfang an Teil unseres Teams:\n• Patientinnen und Patienten herzlich empfangen und betreuen\n• Ärztinnen und Ärzte bei Untersuchungen, Sprechstunden und kleinen Eingriffen unterstützen\n• Laboruntersuchungen durchführen und Ergebnisse auswerten\n• Röntgenaufnahmen, EKGs und Lungenfunktionstests begleiten\n• Infusionen und Injektionen unter Anleitung verabreichen\n• Termine planen, Dokumentationen führen und Abläufe organisieren",
+        "fr": "Vos tâches pendant la formation : Avec nous, vous apprendrez tout ce dont vous avez besoin pour la vie quotidienne en tant qu'assistant médical. Vous ferez partie de notre équipe dès le tout début :\n• Accueillir chaleureusement et prendre soin des patients\n• Soutenir les médecins lors des examens, consultations et interventions mineures\n• Réaliser des analyses de laboratoire et évaluer les résultats\n• Accompagner les radiographies, ECG et tests de fonction pulmonaire\n• Administrer des perfusions et injections sous supervision\n• Planifier les rendez-vous, conserver la documentation et organiser les processus"
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Medizinischer-Praxisassistentin-EFZ-wmd-de-j421.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:04:02.032Z",
+      "crawledAt": "2026-06-17T22:50:41.576Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -803,17 +801,18 @@
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
       "descriptionByLocale": {
-        "it": "I tuoi compiti durante la formazione: • L'uso di diversi metodi di cottura e tecniche di taglio per padroneggiare le basi delle arti culinarie. • La ricezione e il controllo dei beni, nonché il rispetto degli standard igienici per garantire la massima qualità. • La pianificazione creativa e il calcolo dei menù per sviluppare un senso di piatti equilibrati ed economici. • Lavorare in diverse posizioni come Garde Manger, Pâtisserie, Entremétier e Saucier per scoprire la diversità della cucina.",
-        "en": "Your tasks during the training: • The use of different cooking methods and cutting techniques to master the basics of the culinary arts. • The receipt and control of goods as well as compliance with hygiene standards to ensure the highest quality. • The creative planning and calculation of menus in order to develop a feeling for balanced and economical dishes. • Working in different positions such as Garde Manger, Pâtisserie, Entremétier and Saucier to discover the diversity of cuisine.",
-        "de": "Deine Aufgaben während der Ausbildung::\n\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
-        "fr": "Vos tâches pendant la formation : • L'utilisation de différentes méthodes de cuisson et techniques de coupe pour maîtriser les bases des arts culinaires. • La réception et le contrôle des marchandises ainsi que le respect des normes d'hygiène afin d'assurer la plus haute qualité. • La planification créative et le calcul des menus afin de développer un sentiment d'ouverture pour des plats équilibrés et économiques. • Travailler dans différents postes tels que Garde Manger, Pâtisserie, Entremétier et Saucier pour découvrir la diversité de la cuisine."
+        "it": "I tuoi compiti durante la formazione:\n• L'uso di diversi metodi di cottura e tecniche di taglio per padroneggiare le basi delle arti culinarie.\n• La ricezione e il controllo dei beni, nonché il rispetto degli standard igienici per garantire la massima qualità.\n• La pianificazione creativa e il calcolo dei menù per sviluppare un senso di piatti equilibrati ed economici.\n• Lavorare in diverse posizioni come Garde Manger, Pâtisserie, Entremétier e Saucier per scoprire la diversità della cucina.",
+        "en": "Your tasks during the training:\n• The use of different cooking methods and cutting techniques to master the basics of the culinary arts.\n• The receipt and control of goods as well as compliance with hygiene standards to ensure the highest quality.\n• The creative planning and calculation of menus in order to develop a feeling for balanced and economical dishes.\n• Working in different positions such as Garde Manger, Pâtisserie, Entremétier and Saucier to discover the diversity of cuisine.",
+        "de": "Deine Aufgaben während der Ausbildung::\n• Die Anwendung verschiedener Garmethoden und Schnitttechniken, um die Grundlagen der Kochkunst zu beherrschen.\n• Die Warenannahme und -kontrolle sowie die Einhaltung von Hygienestandards, um höchste Qualität sicherzustellen.\n• Die kreative Planung und Berechnung von Menüs, um ein Gespür für ausgewogene und wirtschaftliche Gerichte zu entwickeln.\n• Das Arbeiten auf unterschiedlichen Posten wie Garde Manger, Pâtisserie, Entremétier und Saucier, um die Vielfalt der Küche kennenzulernen.",
+        "fr": "Vos tâches pendant la formation :\n• L'utilisation de différentes méthodes de cuisson et techniques de coupe pour maîtriser les bases des arts culinaires.\n• La réception et le contrôle des marchandises ainsi que le respect des normes d'hygiène afin d'assurer la plus haute qualité.\n• La planification créative et le calcul des menus afin de développer un sentiment d'ouverture pour des plats équilibrés et économiques.\n• Travailler dans différents postes tels que Garde Manger, Pâtisserie, Entremétier et Saucier pour découvrir la diversité de la cuisine."
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Koechin-Koch-EFZ-wmd-de-j419.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:04:01.340Z",
+      "crawledAt": "2026-06-17T22:50:41.056Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -879,17 +878,18 @@
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
       "descriptionByLocale": {
-        "it": "I tuoi compiti durante la formazione: • Cura personale del paziente alla reception: Sei il primo punto di contatto per i nostri pazienti e i loro parenti. Sarai il primo punto di contatto sia telefonico che di persona e rappresenterai l'UriCantonal Hospital con il tuo aspetto professionale. Gestirai i casi amministrativi relativi ai pazienti. • Risorse Umane: Ti occuperai di compiti amministrativi relativi ai nostri dipendenti, come la registrazione presso l'assicurazione sociale, l'organizzazione di cene pensionistiche, la stesura dei contratti di lavoro, targhette con il nome, carte parcheggio, ecc. • Finanza: Supporterai la contabilità registrando e registrando in modo indipendente creditori e debitori, effettuando chiarimenti con pazienti e varie compagnie assicurative e aiutando nella fatturazione.",
-        "en": "Your tasks during the training: • Personal patient care at the reception: You are the first point of contact for our patients and their relatives. You will be the first point of contact by phone and in person and represent the Uri Cantonal Hospital with your professional appearance. You will handle patient-related administrative cases. • Human Resources: You will take on administrative tasks related to our employees, such as registering with social insurance, organizing retirement dinners, drafting employment contracts, name tags, parking cards, etc. • Finance: You will support accounting by independently recording and posting creditors and debtors, carry out clarifications with patients and various insurance companies and help with invoicing.",
-        "de": "Deine Aufgaben während der Ausbildung::\n\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
-        "fr": "Vos tâches pendant la formation : • Soins personnels aux patients à la réception : Vous êtes le premier point de contact pour nos patients et leurs proches. Vous serez le premier point de contact par téléphone et en personne et représenterez l'Hôpital cantonal d'Uri par votre apparence professionnelle. Vous vous occuperez des dossiers administratifs liés aux patients. • Ressources humaines : Vous assumerez des tâches administratives liées à nos employés, telles que l'enregistrement auprès de l'assurance sociale, l'organisation des dîners de retraite, la rédaction de contrats de travail, les badges, les cartes de stationnement, etc. • Finance : Vous soutiendrez la comptabilité en enregistrant et enregistrant indirectement les créanciers et débiteurs, effectuerez des clarifications auprès des patients et diverses compagnies d'assurance, et aiderez à la facturation."
+        "it": "I tuoi compiti durante la formazione:\n• Cura personale del paziente alla reception: Sei il primo punto di contatto per i nostri pazienti e i loro parenti. Sarai il primo punto di contatto sia telefonico che di persona e rappresenterai l'UriCantonal Hospital con il tuo aspetto professionale. Gestirai i casi amministrativi relativi ai pazienti.\n• Risorse Umane: Ti occuperai di compiti amministrativi relativi ai nostri dipendenti, come la registrazione presso l'assicurazione sociale, l'organizzazione di cene pensionistiche, la stesura dei contratti di lavoro, targhette con il nome, carte parcheggio, ecc.\n• Finanza: Supporterai la contabilità registrando e registrando in modo indipendente creditori e debitori, effettuando chiarimenti con pazienti e varie compagnie assicurative e aiutando nella fatturazione.",
+        "en": "Your tasks during the training:\n• Personal patient care at the reception: You are the first point of contact for our patients and their relatives. You will be the first point of contact by phone and in person and represent the Uri Cantonal Hospital with your professional appearance. You will handle patient-related administrative cases.\n• Human Resources: You will take on administrative tasks related to our employees, such as registering with social insurance, organizing retirement dinners, drafting employment contracts, name tags, parking cards, etc.\n• Finance: You will support accounting by independently recording and posting creditors and debtors, carry out clarifications with patients and various insurance companies and help with invoicing.",
+        "de": "Deine Aufgaben während der Ausbildung::\n• Persönliche Patientenbetreuung am Empfang: Du bist die erste Anlaufstelle für unsere Patientinnen und Patienten sowie deren Angehörige. Dabei bist du die erste Ansprechperson telefonisch und persönlich und repräsentierst das Kantonsspital Uri mit deinem professionellen Auftreten. Du bearbeitest patientenbezogene administrative Fälle.\n• Human Resources: Du übernimmst administrative Aufgaben rundum unsere Mitarbeitenden wie z.B. Anmeldung bei den Sozialversicherungen, Organisation von Pensionierungsessen, Erstellung von Arbeitsverträgen, Namensschildern, Parkkarten usw.\n• Finanzen: Du unterstützt das Rechnungswesen durch die selbständige Erfassung und Verbuchung von Kreditoren und Debitoren, führst Abklärungen mit Patientinnen und Patienten sowie mit verschiedene Versicherungen durch und hilfst bei der Fakturierung.",
+        "fr": "Vos tâches pendant la formation :\n• Soins personnels aux patients à la réception : Vous êtes le premier point de contact pour nos patients et leurs proches. Vous serez le premier point de contact par téléphone et en personne et représenterez l'Hôpital cantonal d'Uri par votre apparence professionnelle. Vous vous occuperez des dossiers administratifs liés aux patients.\n• Ressources humaines : Vous assumerez des tâches administratives liées à nos employés, telles que l'enregistrement auprès de l'assurance sociale, l'organisation des dîners de retraite, la rédaction de contrats de travail, les badges, les cartes de stationnement, etc.\n• Finance : Vous soutiendrez la comptabilité en enregistrant et enregistrant indirectement les créanciers et débiteurs, effectuerez des clarifications auprès des patients et diverses compagnies d'assurance, et aiderez à la facturation."
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Kauffrau-Kaufmann-EFZ-wmd-de-j417.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:04:00.835Z",
+      "crawledAt": "2026-06-17T22:50:40.635Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -955,17 +955,18 @@
       },
       "description": "Deine Aufgaben während der Ausbildung::\n\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
       "descriptionByLocale": {
-        "it": "I tuoi compiti durante la formazione: • Accompagnare, prendersi cura e prendersi cura di persone in diverse situazioni della vita – durante il loro ricovero ospedaliero. Sei una parte importante del loro processo di recupero e aiuti a migliorare la loro qualità di vita. • Anche compiti tecnici medici, come prelievi di sangue, cambi di medicazione e raddrizzazione e somministrazione dei farmaci, fanno anch'essi parte della tua area di responsabilità. Nel processo, imparerai a lavorare con precisione e responsabilità. • Supporti il team con servizi amministrativi e logistici che garantiscono una vita ospedaliera quotidiana senza intoppi. In questo modo, svilupperai un forte talento organizzativo e una comprensione dei processi nel settore sanitario.",
-        "en": "Your tasks during the training: • Accompanying, caring for and caring for people in different life situations – during their hospital stay. You are an important part of their recovery process and help to improve their quality of life. • Medical technical tasks, such as blood draws, dressing changes and the straightening and administration of medication, are also part of your area of responsibility. In the process, you will learn to work precisely and responsibly. • You support the team with administrative and logistical services that guarantee a smooth day-to-day hospital life. In this way, you will develop strong organizational talent and an understanding of the processes in the healthcare sector.",
-        "de": "Deine Aufgaben während der Ausbildung::\n\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
-        "fr": "Vos tâches pendant la formation : • Accompagner, prendre soin et prendre soin de personnes dans différentes situations de vie – pendant leur séjour à l'hôpital. Vous êtes une partie importante de leur processus de rétablissement et contribuez à améliorer leur qualité de vie. • Les tâches médicales techniques, telles que les prises de sang, le changement de pansements et le redressement et l'administration des médicaments, font également partie de votre domaine de responsabilité. Dans ce processus, vous apprendrez à travailler avec précision et responsabilité. • Vous soutenez l'équipe avec des services administratifs et logistiques garantissant une vie hospitalière quotidienne sans encombre. De cette manière, vous développerez de solides compétences organisationnelles et une compréhension des processus du secteur de la santé."
+        "it": "I tuoi compiti durante la formazione:\n• Accompagnare, prendersi cura e prendersi cura di persone in diverse situazioni della vita – durante il loro ricovero ospedaliero. Sei una parte importante del loro processo di recupero e aiuti a migliorare la loro qualità di vita.\n• Anche compiti tecnici medici, come prelievi di sangue, cambi di medicazione e raddrizzazione e somministrazione dei farmaci, fanno anch'essi parte della tua area di responsabilità. Nel processo, imparerai a lavorare con precisione e responsabilità.\n• Supporti il team con servizi amministrativi e logistici che garantiscono una vita ospedaliera quotidiana senza intoppi. In questo modo, svilupperai un forte talento organizzativo e una comprensione dei processi nel settore sanitario.",
+        "en": "Your tasks during the training:\n• Accompanying, caring for and caring for people in different life situations – during their hospital stay. You are an important part of their recovery process and help to improve their quality of life.\n• Medical technical tasks, such as blood draws, dressing changes and the straightening and administration of medication, are also part of your area of responsibility. In the process, you will learn to work precisely and responsibly.\n• You support the team with administrative and logistical services that guarantee a smooth day-to-day hospital life. In this way, you will develop strong organizational talent and an understanding of the processes in the healthcare sector.",
+        "de": "Deine Aufgaben während der Ausbildung::\n• Die Begleitung, Pflege und Betreuung von Menschen in unterschiedlichen Lebenssituationen – während ihres Spitalaufenthaltes. Du bist ein wichtiger Teil ihres Genesungsprozesses und trägst dazu bei, ihre Lebensqualität zu verbessern.\n• Medizinaltechnische Verrichtungen, wie Blutentnahmen, Verbandswechsel sowie das Richten und Verabreichen von Medikamenten, gehören ebenfalls zu deinem Aufgabenbereich. Dabei lernst du, präzise und verantwortungsvoll zu arbeiten.\n• Du unterstützt das Team durch administrative und logistische Dienstleistungen, die einen reibungslosen Spitalalltag garantieren. So entwickelst du starkes Organisationstalent und Verständnis für die Abläufe im Gesundheitswesen.",
+        "fr": "Vos tâches pendant la formation :\n• Accompagner, prendre soin et prendre soin de personnes dans différentes situations de vie – pendant leur séjour à l'hôpital. Vous êtes une partie importante de leur processus de rétablissement et contribuez à améliorer leur qualité de vie.\n• Les tâches médicales techniques, telles que les prises de sang, le changement de pansements et le redressement et l'administration des médicaments, font également partie de votre domaine de responsabilité. Dans ce processus, vous apprendrez à travailler avec précision et responsabilité.\n• Vous soutenez l'équipe avec des services administratifs et logistiques garantissant une vie hospitalière quotidienne sans encombre. De cette manière, vous développerez de solides compétences organisationnelles et une compréhension des processus du secteur de la santé."
       },
+      "needsRetranslation": false,
       "location": "Altdorf",
       "canton": "UR",
       "url": "https://stellen.ksuri.ch/Lehrstelle-Fachfrau-Fachmann-Gesundheit-EFZ-wmd-de-j418.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:04:00.416Z",
+      "crawledAt": "2026-06-17T22:50:40.215Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1042,7 +1043,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Operationstechnik-HF-wmd-80-100-de-j143.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:26.885Z",
+      "crawledAt": "2026-06-17T22:50:39.773Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1113,7 +1114,7 @@
       "url": "https://stellen.ksuri.ch/Fachperson-Gesundheit-FaGe-wmd-60100-mit-Zusatzfunktion-al-de-j413.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:26.349Z",
+      "crawledAt": "2026-06-17T22:50:39.248Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1216,7 +1217,7 @@
       "url": "https://stellen.ksuri.ch/Expert-in-Intensivpflege-NDS-HF-wmd-60-100-de-j347.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:25.821Z",
+      "crawledAt": "2026-06-17T22:50:38.797Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1315,7 +1316,7 @@
       "url": "https://stellen.ksuri.ch/Ernaehrungsberaterin-mwd-40-de-j400.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:25.291Z",
+      "crawledAt": "2026-06-17T22:50:38.282Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1396,7 +1397,7 @@
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachpersonen-HF-FH-wmd-60-100-de-j405.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:24.759Z",
+      "crawledAt": "2026-06-17T22:50:37.754Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1478,7 +1479,7 @@
       "url": "https://stellen.ksuri.ch/Dipl-Pflegefachperson-FH-mit-Fachverantwortung-Akutpflege--de-j369.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:24.234Z",
+      "crawledAt": "2026-06-17T22:50:37.238Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1574,7 +1575,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplaetze-Pflegefachfrau-mann-HF-wmd-100-de-j59.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:23.696Z",
+      "crawledAt": "2026-06-17T22:50:36.682Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1652,7 +1653,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Radiologiefachperson-HF-wmd-100-de-j397.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:23.266Z",
+      "crawledAt": "2026-06-17T22:50:36.241Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1723,7 +1724,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Anaesthesiepflege-NDS-HF-wmd-1-de-j407.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:22.823Z",
+      "crawledAt": "2026-06-17T22:50:35.793Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1794,7 +1795,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Dipl-FachfrauFachmann-Operationstechnik-H-de-j213.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:22.291Z",
+      "crawledAt": "2026-06-17T22:50:35.263Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1865,7 +1866,7 @@
       "url": "https://stellen.ksuri.ch/Ausbildungsplatz-Experte-in-Intensivpflege-NDS-HF-wmd-60-1-de-j210.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:21.764Z",
+      "crawledAt": "2026-06-17T22:50:34.732Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1942,7 +1943,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Allgemeine-Innere-Medizin-w-de-j222.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:21.204Z",
+      "crawledAt": "2026-06-17T22:50:34.200Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -2013,7 +2014,7 @@
       "url": "https://stellen.ksuri.ch/Assistenzaerztin-Assistenzarzt-Gynaekologie-und-Geburtshil-de-j402.html",
       "source": "Kantonsspital Uri Dedicated Parser (rexx systems stellen.ksuri.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:21:20.649Z",
+      "crawledAt": "2026-06-17T22:50:33.668Z",
       "addressLocality": "Altdorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
