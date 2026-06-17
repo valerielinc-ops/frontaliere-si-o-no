@@ -242,6 +242,22 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  '/cerca-lavoro-ticino/nachwuchskader-verkauf-coop-grigioni/': '/cerca-lavoro-ticino/vendita-quadri-junior-coop-grigioni/',
  '/cerca-lavoro-ticino/galenica-amavita-pharma-assistent-w-m-d-ascona/': '/cerca-lavoro-ticino/assistente-farmaceutico-f-m-d-amavita-galenica-ascona/',
  '/cerca-lavoro-ticino/kundenbetreuer-in-customer-center-mit-begeisterungsfahigkeit-und-noch-viel-mehr-pioniergei/': '/cerca-lavoro-ticino/responsabile-dell-assistenza-clienti-nel-customer-center-con-entusiasmo-e-molto-piu-spirit/',
+ // ── Cloudflare-confirmed feature-page 404s (2026-06-17 edge sweep) ──
+ // Real-traffic 404s on renamed/section-root non-job pages. Destinations
+ // verified 200 live. Only the OBSERVED paths are mapped (not the full
+ // crossing list) — /tempi-attesa-confine/ and bare /traffico-dogane/.../oggi/
+ // were never our own emitted paths, so enumerating all 26 crossings would be
+ // speculative (AGENTS.md #6). Border-wait pages were renamed to
+ // /guida-frontaliere/tempi-attesa-dogana/<crossing>/ (cf. the section redirect
+ // at /statistiche/traffico-dogane/ above); the old slugs also dropped the
+ // d-hyphen (ditalia → d-italia, dintelvi → d-intelvi), normalized here.
+ '/tempi-attesa-confine/chiasso-brogeda/': '/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/',
+ '/traffico-dogane/campione-ditalia-bissone/oggi/': '/guida-frontaliere/tempi-attesa-dogana/campione-d-italia-bissone/',
+ '/traffico-dogane/lanzo-dintelvi-arogno/oggi/': '/guida-frontaliere/tempi-attesa-dogana/lanzo-d-intelvi-arogno/',
+ // Fuel section-root (no index) → that fuel's localized "today" landing,
+ // keeping benzina↔benzina / diesel↔diesel (never cross fuels).
+ '/prezzi-benzina/': '/prezzi-benzina/oggi/',
+ '/prezzi-diesel/': '/prezzi-diesel/oggi/',
  };
 
  const normalize = (p: string): string => {
