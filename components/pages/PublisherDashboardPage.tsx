@@ -379,15 +379,41 @@ const PublisherDashboardPage: React.FC = () => {
         }
 
         // Crawled "free traffic" we already send this employer (proof + upsell):
-        // match the publisher's company name → slug → employer_crawled_traffic doc.
+        // Build candidate keys from all publisher job docs to handle naming variants
+        // (e.g. publisher entered "Migros SA" but PostHog key is "migros"):
+        //   1. company.companyKey (pre-computed slug from publisher profile)
+        //   2. slugify(company.name) — full slug of the display name
+        //   3. legal-suffix-stripped stem (strips -sa/-ag/-gmbh/… from the end)
+        // All unique keys are fetched in parallel; candidates are deduplicated by
+        // Firestore doc id before summing so the same doc is never counted twice.
         let crawledCandidates = 0;
         try {
-          const firstCompany = snap.docs.map((d) => (d.data() as Record<string, unknown>)?.company as { name?: string } | undefined)
-            .map((c) => c?.name).find(Boolean);
-          const companyKey = slugifyCompanyName(String(firstCompany || ''));
-          if (companyKey) {
-            const ct = await getDoc(doc(db, 'employer_crawled_traffic', companyKey));
-            if (ct.exists()) crawledCandidates = Number((ct.data() as Record<string, unknown>)?.candidates) || 0;
+          const candidateKeys = Array.from(new Set(
+            snap.docs.flatMap((d) => {
+              const co = (d.data() as Record<string, unknown>)?.company as { name?: string; companyKey?: string } | undefined;
+              const keys: string[] = [];
+              if (co?.companyKey) keys.push(String(co.companyKey));
+              const slug = slugifyCompanyName(String(co?.name || ''));
+              if (slug) {
+                keys.push(slug);
+                const stem = slug.replace(/-(sa|ag|gmbh|srl|sagl|ltd|spa|sas|snc|sapa)$/, '');
+                if (stem !== slug) keys.push(stem);
+              }
+              return keys;
+            }),
+          )).filter(Boolean);
+
+          if (candidateKeys.length) {
+            const snapshots = await Promise.all(
+              candidateKeys.map((key) => getDoc(doc(db, 'employer_crawled_traffic', key))),
+            );
+            const seen = new Set<string>();
+            for (const ct of snapshots) {
+              if (ct.exists() && !seen.has(ct.id)) {
+                seen.add(ct.id);
+                crawledCandidates += Number((ct.data() as Record<string, unknown>)?.candidates) || 0;
+              }
+            }
           }
         } catch {
           // optional — panel just stays hidden if no match / not yet populated
