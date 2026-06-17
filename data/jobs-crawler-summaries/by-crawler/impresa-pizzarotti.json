@@ -1,16 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-06-16T23:35:22.925Z",
+  "generatedAt": "2026-06-17T13:32:26.554Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1874,
-  "avgDurationMs": 1874,
+  "durationMs": 1699,
+  "avgDurationMs": 1699,
   "durationHistory": [
-    1874
+    1699
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Costruzioni & Infrastrutture",
       "source": "pizzarotti-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-06-17",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,11 +43,11 @@
       "firstSeenAt": "2026-05-17T10:52:26.697Z",
       "postalCode": "2000",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 19,
+        "translation": 16,
         "completeness": 22
       }
     }
