@@ -107,15 +107,28 @@ async function probeSources() {
 
 async function main() {
   console.log('[mebeko] Probing public authority sources (1 req/s)…');
-  const sources = await probeSources();
-  const reachable = sources.filter((s) => s.reachable).length;
-  console.log(`[mebeko] ${reachable}/${sources.length} sources reachable — writing curated equivalence snapshot.`);
+  const probed = await probeSources();
+  const reachable = probed.filter((s) => s.reachable).length;
+  console.log(`[mebeko] ${reachable}/${probed.length} sources reachable — writing curated equivalence snapshot.`);
 
+  // Stable curated payload first; volatile per-run probe metadata isolated under
+  // a single top-level `_probe` block so the citeable `sources`/`professions`
+  // entries stay byte-stable across regens and no consumer can accidentally
+  // project run-specific fields (reachable/bytes/probedAt/elapsedMs) into output.
   const payload = {
-    generatedAt: new Date().toISOString(),
-    sources,
+    sources: SOURCES,
     professions: HEALTHCARE_PROFESSIONS,
     note: 'Curated, hand-verified equivalence summary. Live fetch is used only for source probing (citation freshness). Update HEALTHCARE_PROFESSIONS when MEBEKO/SRK publish procedural changes.',
+    _probe: {
+      generatedAt: new Date().toISOString(),
+      sources: probed.map(({ url, reachable: ok, bytes, probedAt, elapsedMs }) => ({
+        url,
+        reachable: ok,
+        bytes,
+        probedAt,
+        elapsedMs,
+      })),
+    },
   };
 
   fs.mkdirSync(np.dirname(OUT), { recursive: true });
