@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { isChCountry } from './ch-country-guard.mjs';
 
 export const DEBIOPHARM_WORKABLE_ACCOUNT_SLUG = 'debiopharm';
 export const DEBIOPHARM_WORKABLE_ACCOUNT_UID = '0b48274e-6ab8-4036-83b2-fc59eb412891';
@@ -122,12 +123,13 @@ export function parseDebiopharmCareersHtml(html = '') {
  * payload's countryCode field rather than on the listing label.
  */
 export function isDebiopharmSwissJob(detail = {}) {
-  const cc = String(detail?.location?.countryCode || '').toUpperCase();
-  if (cc === 'CH') return true;
+  // Recognise CH across alias formats (CHE / 756 / object) so a valid CH row
+  // isn't dropped on an unexpected countryCode shape (#2419, shared guard).
+  if (isChCountry(detail?.location?.countryCode)) return true;
   // Also accept multi-locations where any locations[].countryCode is CH
   if (Array.isArray(detail?.locations)) {
     for (const loc of detail.locations) {
-      if (String(loc?.countryCode || '').toUpperCase() === 'CH') return true;
+      if (isChCountry(loc?.countryCode)) return true;
     }
   }
   return false;

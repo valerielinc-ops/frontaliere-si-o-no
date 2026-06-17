@@ -16,6 +16,7 @@ import { slugify, stripHtml, fetchJson, fetchHtml } from './crawler-template.mjs
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { extractJobPostingDescription } from './jobposting-jsonld.mjs';
+import { coerceCountryField, CH_COUNTRY_RX } from './ch-country-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -226,10 +227,10 @@ export async function fetchAllDecathlonJobs() {
     // posting would publish with a fictitious Swiss address. If the listing
     // exposes an explicit country indicator, honour it and skip non-CH rows;
     // when absent (the common case) we fall back to the domain trust unchanged.
-    const listingCountry = String(
-      listing.country ?? listing.countryCode ?? listing.address?.country ?? '',
-    ).trim();
-    if (listingCountry && !/^(ch|che|switzerland|suisse|schweiz|svizzera)$/i.test(listingCountry)) {
+    const listingCountry = coerceCountryField(
+      listing.country ?? listing.countryCode ?? listing.address?.country,
+    );
+    if (listingCountry && !CH_COUNTRY_RX.test(listingCountry)) {
       continue;
     }
 
