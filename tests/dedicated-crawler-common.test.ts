@@ -567,3 +567,71 @@ describe('mergePreserveLocaleData URL matching', () => {
     }
   });
 });
+
+describe('Swiss-only location filtering (Swatch Group US-jobs leak, 2026-06-17)', () => {
+  it('isTargetSwissLocation: bare common words that collide with tiny communes are not Swiss', async () => {
+    const { isTargetSwissLocation } = await import('../scripts/lib/target-swiss-locations.mjs');
+    // Sâles (FR), Concise (VD), Court (BE): real but tiny communes whose
+    // accent-stripped names are common job-prose words.
+    expect(isTargetSwissLocation('Retail Sales Advisor')).toBe(false);
+    expect(isTargetSwissLocation('a concise job description')).toBe(false);
+    expect(isTargetSwissLocation('tennis court attendant')).toBe(false);
+    // Genuine target locations still match.
+    expect(isTargetSwissLocation('Lugano, Ticino')).toBe(true);
+    expect(isTargetSwissLocation('Sion, Valais')).toBe(true);
+  });
+
+  it('foreign gates use word boundaries, not substrings ("company" must not match commune "Pany")', async () => {
+    const { isExplicitlyOutsideTarget, isLocationExplicitlyForeign } = await import(
+      '../scripts/lib/dedicated-crawler-common.mjs'
+    );
+    // "company address ... United States" must read as foreign — previously the
+    // substring "pany" matched commune "Pany" (GR) and cancelled the rejection.
+    const usText = 'Company address The Swatch Group (U.S.) Inc. 800 Waterford Way Miami FL United States';
+    expect(isExplicitlyOutsideTarget(usText)).toBe(true);
+    expect(isLocationExplicitlyForeign('Garden City, company HQ, United States')).toBe(true);
+  });
+
+  it('jobLocationBlockCountryIsForeign: reads the authoritative ATS job-location country', async () => {
+    const { jobLocationBlockCountryIsForeign } = await import(
+      '../scripts/lib/dedicated-crawler-common.mjs'
+    );
+    const usBlock =
+      'Job location • Stevens Creek Boulevard 2855 • 95050 Santa Clara CA (California) • United States • Company address • The Swatch Group (U.S.) Inc.';
+    const auBlock = 'Job location 2000 Sydney Company address The Swatch Group (Australia)';
+    const usTruncated = 'Job location 75225 Dallas TX Company address Swatch Group';
+    const chBlock =
+      'Job location Rue des Sors 3 2074 Marin (Neuchatel) Switzerland Company address Swatch Group';
+    expect(jobLocationBlockCountryIsForeign(usBlock)).toBe(true);
+    expect(jobLocationBlockCountryIsForeign(auBlock)).toBe(true);
+    expect(jobLocationBlockCountryIsForeign(usTruncated)).toBe(true);
+    // Swiss block (and Swiss-HQ boilerplate) must be kept.
+    expect(jobLocationBlockCountryIsForeign(chBlock)).toBe(false);
+    // No structured block, or casual prose, never matches.
+    expect(jobLocationBlockCountryIsForeign('this job location is flexible, some travel')).toBe(false);
+    expect(jobLocationBlockCountryIsForeign('')).toBe(false);
+  });
+
+  it('getMergeExclusionReasons excludes a US Swatch store but keeps a Swiss one', async () => {
+    const { getMergeExclusionReasons } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+    const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+    const usJob = {
+      title: 'Swatch Part Time Keyholder - Valley Fair (CA)',
+      company: 'The Swatch Group (U.S.) Inc.',
+      location: 'Ticino',
+      url: 'https://www.swatchgroup.com/en/job/31148',
+      description:
+        'Swatch Part Time Keyholder. As a member of the Retail Sales Team you will be coached on sales techniques. Job location • Stevens Creek Boulevard 2855 • 95050 Santa Clara CA (California) • United States • Company address • The Swatch Group (U.S.) Inc. • 800 Waterford Way • Miami FL 33126',
+    };
+    const chJob = {
+      title: 'SALES ASSOCIATE 50-100% ZÜRICH',
+      company: 'The Swatch Group',
+      location: 'Zürich',
+      url: 'https://www.swatchgroup.com/en/job/40000',
+      description:
+        'Sales Associate role in our boutique. Job location Bahnhofstrasse 69 8001 Zurich (Zurich) Switzerland Company address Swatch Group',
+    };
+    expect(getMergeExclusionReasons(usJob, cfg)).toContain('job_location_block_foreign');
+    expect(getMergeExclusionReasons(chJob, cfg)).not.toContain('job_location_block_foreign');
+  });
+});

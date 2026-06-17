@@ -43,6 +43,35 @@ function loadMunicipalityData() {
 
 const MUNICIPALITY_DATA = loadMunicipalityData();
 
+// ─── Ambiguous municipality tokens ─────────────────────────────────────────
+// A few real Swiss municipalities have single-word names that, after accent
+// stripping + lower-casing, collide with common words that routinely appear in
+// ordinary job-posting prose (especially worldwide retail listings). Matching
+// such a bare word as a standalone Swiss location token produces false
+// positives — e.g. "Retail Sales" → Sâles (FR), "concise job description" →
+// Concise (VD), "tennis court" / "in short, …" → Court (BE) — letting foreign
+// jobs leak into the Switzerland-only board (Swatch Group US "Keyholder" leak,
+// 2026-06-17: 50+ US/AU/UK jobs stamped canton=TI because "sales" matched
+// Sâles).
+//
+// These tokens are excluded from the city-token sets below, so the bare word
+// alone no longer classifies a job as Swiss. A genuine job in one of these
+// villages is still recognised via OTHER signals (canton name "Fribourg" /
+// "Vaud" / "Bern", "Switzerland", a 4-digit postal code, the "(FR)" canton
+// code, or a multi-word locality). The villages are tiny and well outside the
+// Ticino-frontaliere target, so the trade-off is safe.
+//
+// Criterion: single-word BFS token that is also a common EN/FR/DE/IT word
+// frequently present in job descriptions. Regenerate candidates by
+// cross-checking the BFS tokens against a dictionary; confirm each by hand
+// before adding (do NOT add distinctive town names like Locarno/Sion/Bern, and
+// note `Fully` (VS) is asserted by tests/target-swiss-locations.test.ts).
+export const AMBIGUOUS_LOCATION_WORD_TOKENS = new Set([
+  'sales',   // Sâles (FR)
+  'concise', // Concise (VD)
+  'court',   // Court (BE)
+]);
+
 /**
  * Get all city tokens (municipalities + aliases) for a canton.
  * Cached per canton code for performance.
@@ -56,7 +85,9 @@ function getCantonCityTokens(cantonCode) {
   const municipalities = entry?.municipalities || [];
   const aliases = entry?.aliases || [];
   const all = [...new Set([...municipalities, ...aliases])];
-  const tokens = all.map((city) => normalizeToken(city));
+  const tokens = all
+    .map((city) => normalizeToken(city))
+    .filter((token) => token && !AMBIGUOUS_LOCATION_WORD_TOKENS.has(token));
 
   _cantonCityTokensCache.set(cantonCode, tokens);
   return tokens;
