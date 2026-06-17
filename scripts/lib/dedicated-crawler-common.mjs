@@ -5155,7 +5155,10 @@ export function isExplicitlyOutsideTargetCantons(text) {
   const lower = String(text || '').toLowerCase();
   if (!lower) return false;
   // Any target-canton signal in the text means it's not "outside target".
-  if (isTargetSwissLocation(lower)) return false;
+  // includeBorderProximity:false so a foreign border town (Como, Varese, Evian)
+  // does NOT short-circuit this rejection gate as a Swiss location — same class
+  // as the foreign-rejection safeguards above.
+  if (isTargetSwissLocation(lower, { includeBorderProximity: false })) return false;
   // PLZ + 2-letter canton code pattern (e.g. "8001 Zürich ZH"): "outside" only
   // if the canton code is not in TARGET_CANTONS. With the cathedral CH-wide
   // expansion this branch never fires, but it stays correct if the scope is
