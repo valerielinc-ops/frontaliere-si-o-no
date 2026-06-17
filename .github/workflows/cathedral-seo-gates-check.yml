@@ -70,32 +70,21 @@ jobs:
       # ── Pre-build data prep — MUST mirror deploy.yml's build job ──────────
       # The gates audit `dist/`, so this workflow has to emit the SAME dist
       # deploy.yml ships. deploy dedups + migrates + cleans the dataset BEFORE
-      # build:ci; this workflow used to skip that and build the raw assembled
-      # dataset, which (a) audited a dist that never deploys — wrong gate
-      # inputs (duplicate job titles, stale sitemap entries, unmigrated
-      # canonicals) — and (b) emitted ~920 extra (cross-crawler duplicate /
-      # expired) job pages × 4 locales, pushing the full SEO build past the
-      # 16 GB runner's RAM → OOM (exit 134) before the gates step ran (issue
-      # #2121). deploy.yml builds the deduped set (≈11.2k jobs) and fits;
-      # building the raw set (≈12.1k) does not. Steps below are the
-      # page-shaping subset of deploy.yml's build job, in the same order.
-      # Keep in sync with deploy.yml. None require secrets.
-      - name: Housekeeping (cross-crawler dedup + locale hardening)
-        env:
-          JOBS_SKIP_URL_VALIDATION: '1'
-        run: node scripts/cleanup-jobs.mjs
-
-      - name: Refresh weekly-employers footer link list
-        run: node scripts/refresh-weekly-employers-top-pairs.mjs
-
-      - name: Mine all job slugs for comprehensive 404 coverage
-        run: node scripts/mine-all-job-slugs.mjs
-
-      - name: Canton-aware migration of slug registry
-        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-
-      - name: Cleanup stale news sitemap entries
-        run: node scripts/cleanup-news-sitemap.mjs
+      # build:ci; before this was shared, this workflow used to skip that and
+      # build the raw assembled dataset, which (a) audited a dist that never
+      # deploys — wrong gate inputs (duplicate job titles, stale sitemap
+      # entries, unmigrated canonicals) — and (b) emitted ~920 extra
+      # (cross-crawler duplicate / expired) job pages × 4 locales, pushing the
+      # full SEO build past the 16 GB runner's RAM → OOM (exit 134) before the
+      # gates step ran (issue #2121). deploy.yml builds the deduped set
+      # (≈11.2k jobs) and fits; building the raw set (≈12.1k) does not.
+      #
+      # These page-shaping steps now live in the shared composite action so
+      # deploy.yml and this gate can never drift apart again (follow-up
+      # #2198). Both reference the SAME action → adding a step there updates
+      # both workflows at once. None require secrets.
+      - name: SEO build data-prep (shared with deploy.yml)
+        uses: ./.github/actions/seo-build-data-prep
 
       - name: Build dist (full SEO output)
         env:
@@ -110,10 +99,13 @@ jobs:
           # 12288 — and 18 GB exceeds the 16 GB runner's RAM anyway.
           #
           # The two knobs below are deploy.yml's documented OOM controls
-          # (deploy.yml:481 + :532, build OOM #1290) — they cap the DOMINANT
-          # memory term, not the dataset size. deploy fits the full SEO build
-          # at 12288 BECAUSE of these; the dedup prep above is a smaller,
-          # complementary reduction. Keep both in sync with deploy.yml.
+          # (build OOM #1290) — they cap the DOMINANT memory term, not the
+          # dataset size. deploy fits the full SEO build at 12288 BECAUSE of
+          # these; the shared data-prep action above is a smaller,
+          # complementary reduction. These knobs stay inline (not in the
+          # shared action) because deploy.yml gates SEQUENTIAL_PROFILE on its
+          # `parallel_plugins` dispatch input, so the two are not
+          # byte-identical; this gate run is ALWAYS sequential.
           #
           # Cap the post-walk worker pool so it doesn't structured-clone the
           # full ~247K-path list into cpus()-many workers at once (the #1290

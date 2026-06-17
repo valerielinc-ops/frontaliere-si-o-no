@@ -1,0 +1,62 @@
+name: 'SEO build data-prep'
+description: >-
+  Page-shaping data-prep that MUST run before the full SEO build (`build:ci`)
+  in BOTH deploy.yml (the canonical dist that ships) and
+  cathedral-seo-gates-check.yml (the read-only gate that audits that dist).
+  The gate has to emit the SAME dist deploy ships, so it must apply the same
+  dedup + migration + cleanup the deploy build job does. Before this action,
+  the two workflows duplicated these steps and drifted: the cathedral run
+  skipped the dedup and built the raw assembled dataset (~12.1k jobs ×4
+  locales), which (a) audited a dist that never deploys (wrong gate inputs:
+  duplicate titles, stale sitemap entries, unmigrated canonicals) and
+  (b) pushed the full SEO build past the 16 GB runner RAM → OOM (exit 134)
+  before the gates step ran (issue #2121). deploy builds the deduped set
+  (~11.2k jobs) and fits.
+
+  This action is the single source of truth for that page-shaping subset:
+  add a new data-prep step here ONCE and both workflows pick it up — no
+  silent "Keep in sync with deploy.yml" drift (follow-up #2198).
+
+  Scope: runs the dedup + migration + sitemap-cleanup steps only. It does
+  NOT run `assemble-jobs-dataset.mjs` (callers run + cache that themselves
+  before invoking this action) nor the build itself. The two build OOM knobs
+  (POST_WALK_WORKERS / SEQUENTIAL_PROFILE) stay on each caller's `build:ci`
+  step env because deploy.yml gates SEQUENTIAL_PROFILE on its
+  `parallel_plugins` dispatch input (cathedral is always sequential), so they
+  are not byte-identical and cannot be a shared constant. None of these steps
+  require secrets.
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Housekeeping (cross-crawler dedup + locale hardening)
+      shell: bash
+      env:
+        JOBS_SKIP_URL_VALIDATION: '1'
+      run: node scripts/cleanup-jobs.mjs
+
+    - name: Refresh weekly-employers footer link list (F5 link-graph closer)
+      # Regenerates data/weekly-employers-top-pairs.json from current jobs
+      # using the SAME logic the build plugin uses to materialise pages.
+      # Guarantees footer hrefs in WeeklyEmployersTeaser always point at
+      # static pages that exist in dist/, eliminating SPA-shell 404s.
+      shell: bash
+      run: node scripts/refresh-weekly-employers-top-pairs.mjs
+
+    - name: Mine all job slugs for comprehensive 404 coverage
+      shell: bash
+      run: node scripts/mine-all-job-slugs.mjs
+
+    - name: Canton-aware migration of slug registry
+      # mine-all-job-slugs writes every entry under the legacy TI section
+      # (LOCALE_PREFIXES hardcode). For non-TI jobs that stale path leaks
+      # into dist as soft-landing canonical/hreflang (selfUrl reads the
+      # registry verbatim) → gate:seo-source red post-merge. The build must
+      # consume the migrated registry, and the gates test the migrated copy,
+      # so gate and artifact see the same data.
+      shell: bash
+      run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+    - name: Cleanup stale news sitemap entries
+      shell: bash
+      run: node scripts/cleanup-news-sitemap.mjs
