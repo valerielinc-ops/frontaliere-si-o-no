@@ -369,7 +369,10 @@ export async function fetchAllRolexJobs() {
       // ── Recommended fields ──
       addressLocality: location,
       postalCode: canton === 'GE' ? '1211' : undefined, // HQ postal (Genève)
-      addressRegion: canton === 'GE' ? 'Genève' : location,
+      // Region = canton (not the city name). For non-GE jobs the old
+      // `: location` branch leaked the city into addressRegion (#1720 item 3,
+      // same class as decathlon). Keep the friendly 'Genève' label for the GE HQ.
+      addressRegion: canton === 'GE' ? 'Genève' : canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(`${title} ${listing.department || ''}`),
