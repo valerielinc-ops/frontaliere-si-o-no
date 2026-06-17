@@ -48,6 +48,11 @@ async function translateJobFieldWithFallback({
     text,
     sourceLang,
     targetLang,
+    // Forward the field kind so the glossary's broad single-word fallbacks
+    // (/\borologio\b/→a ciclo, /\bclock\b/→cycle) stay title-only on this
+    // cascade-fallback path too — otherwise a description body's legitimate
+    // "orologio"/"clock" prose would be rewritten (#2330 item 2).
+    fieldType: kind === 'title' ? 'title' : 'description',
     maxRetries: 2,
   });
   if (translated) return translated;
