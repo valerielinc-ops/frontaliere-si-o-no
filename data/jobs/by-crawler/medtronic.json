@@ -210,12 +210,12 @@
     },
     {
       "id": "medtronic-f78f692e009a",
-      "slug": "sales-representative-ii-medtronic-ch",
+      "slug": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "sales-representative-ii-medtronic-ch",
+        "it": "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
         "en": "sales-representative-ii-medtronic-tolochenaz",
         "de": "sales-representative-ii-medtronic-ch",
-        "fr": "sales-representative-ii-medtronic-ch"
+        "fr": "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -258,16 +258,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R67468",
       "previousSlugs": [
-        "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
-        "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz"
+        "sales-representative-ii-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rappresentante-commerciale-ii-ablazione-svizzera-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ],
         "fr": [
-          "representant-e-commercial-e-ii-ablation-suisse-medtronic-tolochenaz",
           "sales-representative-ii-medtronic-ch"
         ]
       },
@@ -288,12 +285,12 @@
     },
     {
       "id": "medtronic-d5d16714c6c7",
-      "slug": "tech-consultant-medtronic-ch",
+      "slug": "consulente-tecnico-medtronic-bern",
       "slugByLocale": {
-        "it": "tech-consultant-medtronic-ch",
+        "it": "consulente-tecnico-medtronic-bern",
         "en": "tech-consultant-medtronic-bern",
         "de": "tech-consultant-medtronic-ch",
-        "fr": "tech-consultant-medtronic-ch"
+        "fr": "conseiller-technique-medtronic-bern"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -336,16 +333,13 @@
       "requirementsByLocale": {},
       "jobReqId": "R65639",
       "previousSlugs": [
-        "consulente-tecnico-medtronic-bern",
-        "conseiller-technique-medtronic-bern"
+        "tech-consultant-medtronic-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-tecnico-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ],
         "fr": [
-          "conseiller-technique-medtronic-bern",
           "tech-consultant-medtronic-ch"
         ]
       },
@@ -520,12 +514,12 @@
     },
     {
       "id": "medtronic-0aedcd69f796",
-      "slug": "manufacturing-supervisore-night-shift-medtronic-lausanne",
+      "slug": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
       "slugByLocale": {
-        "it": "manufacturing-supervisore-night-shift-medtronic-lausanne",
+        "it": "supervisore-di-fabbricazione-cambio-notturno-medtronic-lausanne",
         "en": "manufacturing-supervisor-night-shift-medtronic-ch",
-        "de": "manufacturing-vorgesetzter-night-shift-medtronic-lausanne",
-        "fr": "manufacturing-superviseur-night-shift-medtronic-lausanne"
+        "de": "manufacturing-supervisor-nachtschicht-medtronic-lausanne",
+        "fr": "superviseur-de-fabrication-service-de-nuit-medtronic-lausanne"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -567,17 +561,23 @@
       "requirementsByLocale": {},
       "jobReqId": "R64324",
       "previousSlugs": [
-        "manufacturing-supervisor-night-shift-medtronic-ch"
+        "manufacturing-supervisor-night-shift-medtronic-ch",
+        "manufacturing-supervisore-night-shift-medtronic-lausanne",
+        "manufacturing-vorgesetzter-night-shift-medtronic-lausanne",
+        "manufacturing-superviseur-night-shift-medtronic-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manufacturing-supervisor-night-shift-medtronic-ch"
+          "manufacturing-supervisor-night-shift-medtronic-ch",
+          "manufacturing-supervisore-night-shift-medtronic-lausanne"
         ],
         "de": [
-          "manufacturing-supervisor-night-shift-medtronic-ch"
+          "manufacturing-supervisor-night-shift-medtronic-ch",
+          "manufacturing-vorgesetzter-night-shift-medtronic-lausanne"
         ],
         "fr": [
-          "manufacturing-supervisor-night-shift-medtronic-ch"
+          "manufacturing-supervisor-night-shift-medtronic-ch",
+          "manufacturing-superviseur-night-shift-medtronic-lausanne"
         ]
       },
       "firstSeenAt": "2026-06-16T13:56:09.605Z",
@@ -597,12 +597,12 @@
     },
     {
       "id": "medtronic-8ea99ba76015",
-      "slug": "responsabile-del-programma-strategico-di-approvvigionamento-assemblaggi-elettronici-medtronic-tolochenaz",
+      "slug": "gestione-del-programma-di-sourcing-strategico-assemblee-elettroniche-medtronic-tolochenaz",
       "slugByLocale": {
-        "it": "responsabile-del-programma-strategico-di-approvvigionamento-assemblaggi-elettronici-medtronic-tolochenaz",
+        "it": "gestione-del-programma-di-sourcing-strategico-assemblee-elettroniche-medtronic-tolochenaz",
         "en": "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch",
-        "de": "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch",
-        "fr": "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch"
+        "de": "strategisches-beschaffungsprogramm-manager-elektronische-baugruppen-medtronic-tolochenaz",
+        "fr": "gestionnaire-de-programme-d-approvisionnement-strategique-assemblees-electroniques-medtronic-tolochenaz"
       },
       "company": "Medtronic",
       "companyKey": "medtronic",
@@ -644,10 +644,18 @@
       "requirementsByLocale": {},
       "jobReqId": "R68333",
       "previousSlugs": [
-        "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch"
+        "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch",
+        "responsabile-del-programma-strategico-di-approvvigionamento-assemblaggi-elettronici-medtronic-tolochenaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch",
+          "responsabile-del-programma-strategico-di-approvvigionamento-assemblaggi-elettronici-medtronic-tolochenaz"
+        ],
+        "de": [
+          "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch"
+        ],
+        "fr": [
           "strategic-sourcing-program-manager-electronic-assemblies-medtronic-ch"
         ]
       },

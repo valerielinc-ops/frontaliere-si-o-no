@@ -2267,7 +2267,7 @@
         "it": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "en": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "de": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
-        "fr": "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+        "fr": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2327,7 +2327,10 @@
         "fr": [
           "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
         ]
-      }
+      },
+      "previousSlugs": [
+        "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-0a6358c2e526",
@@ -3316,7 +3319,7 @@
       "slugByLocale": {
         "it": "direttore-associato-biostatistica-4-csl-behring-bern",
         "en": "associate-director-biostatistics-4-csl-behring-ch",
-        "de": "associate-director-biostatistik-4-csl-behring-bern",
+        "de": "associate-direktor-biostatistics-4-csl-behring-bern",
         "fr": "directeur-associe-biostatistique-4-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -3360,7 +3363,8 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "associate-director-biostatistics-4-csl-behring-ch"
+        "associate-director-biostatistics-4-csl-behring-ch",
+        "associate-director-biostatistik-4-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3370,7 +3374,8 @@
           "associate-director-biostatistics-4-csl-behring-ch"
         ],
         "de": [
-          "associate-director-biostatistics-4-csl-behring-ch"
+          "associate-director-biostatistics-4-csl-behring-ch",
+          "associate-director-biostatistik-4-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-06-16T22:40:20.844Z",

@@ -106,7 +106,7 @@
       "slug": "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
         "it": "studio-infermiere-iinfermiere-hf-specializzazione-cure-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
-        "en": "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
+        "en": "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "fr": "assistant-en-soins-de-sante-hf-specialisation-en-soins-de-longue-duree-gesundheitszentrum-dielsdorf-dielsdorf"
       },
@@ -185,7 +185,7 @@
         "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "studi-pflegefachfrau-mann-hf-dipartimento-di-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
         "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
-        "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
+        "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -194,7 +194,7 @@
           "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf"
         ],
         "en": [
-          "studie-pflegefachfrau-mann-hf-department-of-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
+          "health-care-assistant-hf-specialization-in-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T17:51:20.861Z",
@@ -313,12 +313,12 @@
     },
     {
       "id": "gz-dielsdorf-5ae977d52d95",
-      "slug": "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "medico-specialista-responsabile-mobile-trattamento-acuto-70-100-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
-        "it": "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "medico-specialista-responsabile-mobile-trattamento-acuto-70-100-gesundheitszentrum-dielsdorf-dielsdorf",
         "en": "head-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-        "fr": "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
+        "fr": "medecin-senior-traitement-mobile-aigu-70-100-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -391,27 +391,30 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal",
-          "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf"
+          "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal"
         ],
         "it": [
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
-          "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf"
+          "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
+          "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
           "dipl-pflegefachperson-hf-schwerpunkt-demenz-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "fr": [
-          "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf"
+          "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf",
+          "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
         "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal",
+        "dipl-pflegefachperson-hf-schwerpunkt-demenz-gz-dielsdorf-dielsdorf",
         "dipl-infermiere-a-specializzate-a-in-demenza-gesundheitszentrum-dielsdorf-dielsdorf",
+        "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-schwerpunkt-demenz-gesundheitszentrum-dielsdorf-dielsdorf",
-        "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf"
+        "diplome-e-en-soins-infirmiers-specialisation-en-soins-aux-personnes-atteintes-de-demence-gesundheitszentrum-dielsdorf",
+        "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-05-19T17:51:20.845Z",
       "salaryMin": 101500,
@@ -686,9 +689,9 @@
     },
     {
       "id": "gz-dielsdorf-33de3b8af461",
-      "slug": "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf",
+      "slug": "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
       "slugByLocale": {
-        "it": "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf",
+        "it": "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf",
         "en": "assistant-in-health-and-social-eba-focus-on-long-term-care-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
         "fr": "assistant-dans-le-domaine-de-la-sante-et-de-l-abe-sociale-se-concentrer-sur-les-soins-de-longue-duree-gesundheitszentrum"
@@ -735,12 +738,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
-        "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf"
+        "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf",
-          "assistente-in-salute-e-eba-sociale-concentrarsi-sulla-cura-a-lungo-termine-gesundheitszentrum-dielsdorf-dielsdorf"
+          "assistent-in-gesundheit-e-soziales-afp-schwerpunkt-langzeitpflege-gesundheitszentrum-dielsdorf"
         ],
         "en": [
           "assistent-in-gesundheit-und-soziales-eba-schwerpunkt-langzeitpflege-gz-dielsdorf-dielsdorf"
@@ -817,12 +820,10 @@
           "stv-kuchenchef-in-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "it": [
-          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
-          "stv-chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
         ],
         "fr": [
-          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf",
-          "chef-in-gesundheitszentrum-dielsdorf-dielsdorf"
+          "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
         ],
         "en": [
           "stv-kuchenchef-in-gz-dielsdorf-dielsdorf"
@@ -898,8 +899,7 @@
       "previousSlugsByLocale": {
         "de": [
           "nachtwache-gesundheitszentrum-dielsdorf-regensdorf",
-          "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal",
-          "nachtwache-gz-dielsdorf-regensdorf"
+          "ernahrungsberater-in-bsc-60-zentrum-fur-essstorungen-und-adipositas-zesa-sro-langenthal"
         ],
         "it": [
           "nachtwache-gz-dielsdorf-regensdorf",
@@ -944,7 +944,7 @@
         "it": "collaboratore-trice-zentralsekretariat-gesundheitszentrum-dielsdorf",
         "en": "associate-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf",
         "de": "mitarbeiter-in-zentralsekretariat-gz-dielsdorf-dielsdorf",
-        "fr": "collaborateur-trice-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
+        "fr": "personnel-du-secretariat-central-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -988,7 +988,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-zentralsekretariat-gz-dielsdorf-dielsdorf",
-        "mitarbeiter-in-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
+        "mitarbeiter-in-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf",
+        "collaborateur-trice-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -998,7 +999,8 @@
           "mitarbeiter-in-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
         ],
         "fr": [
-          "mitarbeiter-in-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
+          "mitarbeiter-in-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf",
+          "collaborateur-trice-zentralsekretariat-gesundheitszentrum-dielsdorf-dielsdorf"
         ]
       },
       "firstSeenAt": "2026-06-03T23:44:23.934Z",
@@ -1176,7 +1178,7 @@
         "de": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf",
         "it": "collaboratore-trice-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf",
         "en": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf",
-        "fr": "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
+        "fr": "collaborateur-trice-hauswirtschaft-wascherei-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1222,6 +1224,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-wascherei-gz-dielsdorf-dielsdorf"
         ]
       },
@@ -1315,9 +1320,9 @@
     },
     {
       "id": "gz-dielsdorf-978600055cb4",
-      "slug": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "infermiere-diplomato-sss-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
-        "it": "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "infermiere-diplomato-sss-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "en": "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
         "fr": "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
@@ -1364,16 +1369,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal",
-          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
+          "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf"
+          "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
+          "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "previousSlugs": [
+        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal",
         "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
+        "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "firstSeenAt": "2026-06-12T12:12:33.488Z",
       "salaryMin": 73500,

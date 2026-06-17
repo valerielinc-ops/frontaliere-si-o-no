@@ -969,12 +969,12 @@
     },
     {
       "id": "ubs-94724acec081",
-      "slug": "program-manager-house-view-portfolio-management-ubs",
+      "slug": "responsabile-programma-gestione-portafoglio-house-view-ubs-ticino",
       "slugByLocale": {
         "en": "program-manager-house-view-portfolio-management-ubs",
-        "it": "program-manager-house-view-portfolio-management-ubs",
+        "it": "responsabile-programma-gestione-portafoglio-house-view-ubs-ticino",
         "de": "program-manager-house-view-portfolio-management-ubs",
-        "fr": "program-manager-house-view-portfolio-management-ubs"
+        "fr": "chef-de-programme-gestion-de-portefeuille-house-view-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1038,12 +1038,19 @@
       },
       "firstSeenAt": "2026-06-15T15:36:48.068Z",
       "previousSlugs": [
-        "responsabile-del-programma-gestione-del-portafoglio-house-view-ubs-ticino",
-        "programmmanager-hausansicht-portfoliomanagement-ubs-ticino"
+        "programmmanager-hausansicht-portfoliomanagement-ubs-ticino",
+        "program-manager-house-view-portfolio-management-ubs",
+        "responsabile-del-programma-gestione-del-portafoglio-house-view-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
           "programmmanager-hausansicht-portfoliomanagement-ubs-ticino"
+        ],
+        "it": [
+          "program-manager-house-view-portfolio-management-ubs"
+        ],
+        "fr": [
+          "program-manager-house-view-portfolio-management-ubs"
         ]
       }
     },
@@ -1125,12 +1132,12 @@
     },
     {
       "id": "ubs-cca9a3528dfe",
-      "slug": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
+      "slug": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
       "slugByLocale": {
         "en": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-        "it": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
+        "it": "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino",
         "de": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs",
-        "fr": "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        "fr": "analyste-quantitatif-institutions-financieres-et-modeles-de-risque-de-credit-en-gros-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1194,14 +1201,18 @@
       },
       "firstSeenAt": "2026-06-15T15:36:48.080Z",
       "previousSlugs": [
-        "analista-quantitativo-istituzioni-finanziarie-e-modelli-di-rischio-di-credito-all-ingrosso-ubs-ticino"
+        "quant-analyst-finanzinstitute-und-gro-handels-kreditrisikomodelle-ubs-ticino",
+        "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
       ],
       "previousSlugsByLocale": {
         "de": [
           "quant-analyst-finanzinstitute-und-gro-handels-kreditrisikomodelle-ubs-ticino"
         ],
         "fr": [
-          "analyste-quantitatif-institutions-financieres-et-modeles-de-risque-de-credit-en-gros-ubs-ticino"
+          "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
+        ],
+        "it": [
+          "quant-analyst-financial-institutions-wholesale-credit-risk-models-ubs"
         ]
       }
     },
@@ -2405,12 +2416,12 @@
     },
     {
       "id": "ubs-229a66458d39",
-      "slug": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+      "slug": "programma-associato-consulente-clienti-wm-it-o-fra-bel-ubs-ticino",
       "slugByLocale": {
         "en": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
-        "it": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
+        "it": "programma-associato-consulente-clienti-wm-it-o-fra-bel-ubs-ticino",
         "de": "associate-program-client-advisor-wm-it-or-fra-bel-ubs",
-        "fr": "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+        "fr": "programme-associe-conseiller-client-wm-it-ou-fra-bel-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2473,7 +2484,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-16T14:32:05.434Z"
+      "firstSeenAt": "2026-06-16T14:32:05.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+        ],
+        "fr": [
+          "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "associate-program-client-advisor-wm-it-or-fra-bel-ubs"
+      ]
     },
     {
       "id": "ubs-d0046f6ad0fe",
@@ -2696,12 +2718,12 @@
     },
     {
       "id": "ubs-74c07ee216a7",
-      "slug": "market-supervisory-officer-ubs",
+      "slug": "responsabile-del-controllo-di-mercato-ubs-ticino",
       "slugByLocale": {
         "en": "market-supervisory-officer-ubs",
-        "it": "market-supervisory-officer-ubs",
-        "de": "market-supervisory-officer-ubs",
-        "fr": "market-supervisory-officer-ubs"
+        "it": "responsabile-del-controllo-di-mercato-ubs-ticino",
+        "de": "marktaufsichtsbeamter-ubs-ticino",
+        "fr": "responsable-de-supervision-du-marche-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2765,10 +2787,8 @@
       },
       "firstSeenAt": "2026-06-15T23:58:12.446Z",
       "previousSlugs": [
+        "market-supervisory-officer-ubs",
         "responsabile-di-supervisione-del-mercato-ubs-ticino",
-        "marktaufsichtsbeamter-ubs-ticino",
-        "responsable-de-supervision-du-marche-ubs-ticino",
-        "responsabile-del-controllo-di-mercato-ubs-ticino",
         "market-supervisory-officer-ubs-2",
         "supervisory-officer-ubs",
         "addetto-amministrativo-mercato-ubs",
@@ -2779,21 +2799,24 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "marktaufsichtsbeamter-ubs-ticino"
+          "market-supervisory-officer-ubs"
         ],
         "fr": [
-          "responsable-de-supervision-du-marche-ubs-ticino"
+          "market-supervisory-officer-ubs"
+        ],
+        "it": [
+          "market-supervisory-officer-ubs"
         ]
       }
     },
     {
       "id": "ubs-69f4d2e2ab97",
-      "slug": "supervisory-officer-ubs",
+      "slug": "supervisore-ubs-ticino",
       "slugByLocale": {
         "en": "supervisory-officer-ubs",
-        "it": "supervisory-officer-ubs",
-        "de": "supervisory-officer-ubs",
-        "fr": "supervisory-officer-ubs"
+        "it": "supervisore-ubs-ticino",
+        "de": "aufsichtsbeamter-ubs-ticino",
+        "fr": "superviseur-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2857,32 +2880,34 @@
       },
       "firstSeenAt": "2026-06-16T14:32:05.456Z",
       "previousSlugs": [
-        "supervisore-ubs-ticino",
+        "market-supervisory-officer-ubs",
+        "supervisory-officer-ubs",
         "responsabile-di-supervisione-del-mercato-ubs-ticino",
         "marktaufsichtsbeamter-ubs-ticino",
         "responsable-de-supervision-du-marche-ubs-ticino",
         "responsabile-del-controllo-di-mercato-ubs-ticino",
         "market-supervisory-officer-ubs-2",
-        "supervisory-officer-ubs",
         "addetto-amministrativo-mercato-ubs",
         "market-administrative-officer-ubs",
         "market-administrative-officer-ubs-2",
         "responsabile-delle-operazioni-di-mercato-ubs",
-        "market-operation-officer-ubs",
-        "market-supervisory-officer-ubs"
+        "market-operation-officer-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "market-supervisory-officer-ubs"
+          "market-supervisory-officer-ubs",
+          "supervisory-officer-ubs"
         ],
         "en": [
           "market-supervisory-officer-ubs"
         ],
         "de": [
-          "market-supervisory-officer-ubs"
+          "market-supervisory-officer-ubs",
+          "supervisory-officer-ubs"
         ],
         "fr": [
-          "market-supervisory-officer-ubs"
+          "market-supervisory-officer-ubs",
+          "supervisory-officer-ubs"
         ]
       }
     },
@@ -3179,12 +3204,12 @@
     },
     {
       "id": "ubs-8b39640fcbbe",
-      "slug": "risk-expert-ib-derivatives-solutions-ubs",
+      "slug": "esperto-di-rischio-ib-derivati-soluzioni-ubs-ticino",
       "slugByLocale": {
         "en": "risk-expert-ib-derivatives-solutions-ubs",
-        "it": "risk-expert-ib-derivatives-solutions-ubs",
-        "de": "risk-expert-ib-derivatives-solutions-ubs",
-        "fr": "risk-expert-ib-derivatives-solutions-ubs"
+        "it": "esperto-di-rischio-ib-derivati-soluzioni-ubs-ticino",
+        "de": "risikoexperte-ib-derivate-losungen-ubs-ticino",
+        "fr": "expert-en-risques-ib-derives-solutions-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3249,10 +3274,21 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-16T14:32:05.449Z",
       "previousSlugs": [
-        "esperto-di-rischio-ib-derivati-soluzioni-ubs-ticino",
+        "risk-expert-ib-derivatives-solutions-ubs",
         "esperto-del-rischio-ib-derivatives-solutions-ubs",
         "risk-expert-derivati-e-soluzioni-ib-ubs"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ],
+        "de": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ],
+        "fr": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-b2845bd0fcd5",
@@ -3563,7 +3599,7 @@
         "en": "monitoring-surveillance-analyst-cross-border-suitability-italian-ubs",
         "it": "junior-compliance-specialist-with-italian-ubs",
         "de": "junior-compliance-specialist-with-italian-ubs",
-        "fr": "junior-compliance-specialist-with-italian-ubs"
+        "fr": "specialiste-junior-de-la-conformite-avec-l-italien-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",

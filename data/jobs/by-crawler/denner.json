@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-90d955ff6c20",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-zollikofen",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner",
+        "it": "venditore-nel-salario-orario-denner-zollikofen",
+        "en": "seller-in-the-hourly-wage-denner-zollikofen",
         "de": "verkaufer-in-im-stundenlohn-denner-worb",
-        "fr": "verkaufer-in-im-stundenlohn-denner"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-zollikofen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -66,6 +66,7 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-17T12:43:41.065Z",
       "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-sissach",
         "verkaufer-in-im-stundenlohn-denner-therwil"
       ],
@@ -83,13 +84,24 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner"
+        ]
+      }
     },
     {
       "id": "denner-9c533c610ad4",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-direzione-della-filiale-denner-spreitenbach",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-direzione-della-filiale-denner-spreitenbach",
         "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
         "de": "assistent-in-filialleitung-denner-flims-dorf",
         "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
@@ -163,7 +175,15 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-5fe6816b5688",
@@ -247,12 +267,12 @@
     },
     {
       "id": "denner-6f82c840d8b0",
-      "slug": "stv-filialleiter-in-denner",
+      "slug": "assistente-di-negozio-denner-basel",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner",
+        "it": "assistente-di-negozio-denner-basel",
+        "en": "store-assistant-denner-basel",
         "de": "stv-filialleiter-in-denner-basel",
-        "fr": "stv-filialleiter-in-denner"
+        "fr": "assistant-de-magasin-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -309,6 +329,7 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-17T12:43:40.250Z",
       "previousSlugs": [
+        "stv-filialleiter-in-denner",
         "stv-filialleiter-in-denner-schaffhausen",
         "stv-filialleiter-in-denner-wadenswil"
       ],
@@ -326,7 +347,18 @@
           "unitText": "YEAR"
         }
       },
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner"
+        ]
+      }
     },
     {
       "id": "denner-55238b581587",
@@ -417,9 +449,9 @@
     },
     {
       "id": "denner-682a9b6d22ad",
-      "slug": "responsabile-di-filiale-denner-schluein",
+      "slug": "direttoredifiliale-denner-brugg-be",
       "slugByLocale": {
-        "it": "responsabile-di-filiale-denner-schluein",
+        "it": "direttoredifiliale-denner-brugg-be",
         "en": "responsabile-di-filiale-denner-schluein",
         "de": "filialleiter-in-denner-schluein-7k8gx6",
         "fr": "responsabile-di-filiale-denner-schluein"
@@ -479,11 +511,13 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-17T12:43:38.598Z",
       "previousSlugs": [
-        "filialleiter-in-denner"
+        "filialleiter-in-denner",
+        "responsabile-di-filiale-denner-schluein"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-denner"
+          "filialleiter-in-denner",
+          "responsabile-di-filiale-denner-schluein"
         ]
       },
       "needsRetranslation": true,
@@ -504,12 +538,12 @@
     },
     {
       "id": "denner-a9d3e660c799",
-      "slug": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+      "slug": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-dietlikon",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
-        "en": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+        "it": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-dietlikon",
+        "en": "department-manager-inbound-outbound-logistics-dietlikon-denner-dietlikon",
         "de": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "fr": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        "fr": "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-dietlikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -572,11 +606,19 @@
       "crawledAt": "2026-06-16T22:42:22.787Z",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner"
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        ],
+        "en": [
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        ],
+        "fr": [
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner"
+        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
+        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

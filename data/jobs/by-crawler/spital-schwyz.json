@@ -1796,9 +1796,9 @@
       "slug": "terapista-occupazionale-certificato-fh-80-spital-schwyz-schwyz",
       "slugByLocale": {
         "it": "terapista-occupazionale-certificato-fh-80-spital-schwyz-schwyz",
-        "en": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
+        "en": "certified-occupational-therapist-fh-80-spital-schwyz-schwyz",
         "de": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz",
-        "fr": "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
+        "fr": "ergotherapeute-certifie-fh-80-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1844,6 +1844,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
+        ],
+        "en": [
+          "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
+        ],
+        "fr": [
           "dipl-ergotherapeut-in-fh-80-spital-schwyz-schwyz"
         ]
       },

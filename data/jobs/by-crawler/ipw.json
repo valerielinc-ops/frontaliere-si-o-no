@@ -829,8 +829,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur",
         "it": "oberarztin-oberarzt-o-oberpsychologin-oberpsychologe-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur",
-        "fr": "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur"
+        "en": "senior-physician-senior-physician-or-senior-psychologist-senior-psychologist-integrierte-psychiatrie-winterthur-ipw",
+        "fr": "medecin-superieur-medecin-superieur-ou-psychologue-superieur-psychologue-superieur-integrierte-psychiatrie-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -879,6 +879,12 @@
       "pensum": "50 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur"
+        ],
+        "fr": [
           "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-ipw-winterthur"
         ]
       },

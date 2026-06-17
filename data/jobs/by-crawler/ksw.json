@@ -7,9 +7,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -52,7 +52,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -946,9 +948,9 @@
       "slug": "assistente-alla-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "assistente-alla-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+        "en": "medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -995,6 +997,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+        ],
+        "fr": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
         ]
       },
@@ -2093,12 +2101,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2141,16 +2149,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -2378,8 +2383,7 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3596,12 +3600,12 @@
     },
     {
       "id": "ksw-420055844159",
-      "slug": "fachfrau-fachmann-operationslagerung-ksw-ch",
+      "slug": "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "it": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "en": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "fr": "fachfrau-fachmann-operationslagerung-ksw-ch"
+        "it": "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
+        "en": "surgical-positioning-specialist-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3657,7 +3661,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-16T23:09:51.299Z"
+      "firstSeenAt": "2026-06-16T23:09:51.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationslagerung-ksw-ch"
+      ]
     },
     {
       "id": "ksw-f9ae208d0e8e",

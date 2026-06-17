@@ -980,7 +980,7 @@
         "it": "psychologe-eltern-kind-e-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos",
         "en": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
         "de": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch",
-        "fr": "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        "fr": "psychologue-parent-enfant-et-jeune-station-m-f-j-80-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1033,6 +1033,9 @@
       "previousSlugsByLocale": {
         "it": [
           "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "psychologe-eltern-kind-und-jugendstation-m-w-d-80-100-hochgebirgsklinik-davos-ch"
         ]
       },
       "firstSeenAt": "2026-06-16T13:35:51.730Z",
@@ -1052,12 +1055,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-fa2e5df5cc6d",
-      "slug": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
+      "slug": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "it": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "en": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
-        "fr": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        "it": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
+        "en": "personnel-rehabilitation-planning-m-f-d-50-70-hochgebirgsklinik-davos-davos",
+        "fr": "planification-de-la-readaptation-du-personnel-m-f-d-50-70-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1119,16 +1122,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T22:57:32.543Z"
+      "firstSeenAt": "2026-06-16T22:57:32.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
-      "slug": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+      "slug": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
-        "it": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "it": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
         "en": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
-        "fr": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1190,7 +1207,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T22:57:32.542Z"
+      "firstSeenAt": "2026-06-16T22:57:32.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-4ad37e4931fb",
@@ -1280,9 +1308,9 @@
       "slug": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "it": "assistente-medico-cardiologo-m-f-100-hochgebirgsklinik-davos-davos",
-        "en": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "en": "assistant-physician-cardiology-m-f-100-hochgebirgsklinik-davos-davos",
         "de": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch",
-        "fr": "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        "fr": "assistant-medecin-en-cardiologie-m-f-a-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1334,6 +1362,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
           "assistenzarzt-kardiologie-m-w-100-hochgebirgsklinik-davos-ch"
         ]
       },
@@ -1524,9 +1558,9 @@
       "slug": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
       "slugByLocale": {
         "it": "apprendistato-come-fachperson-gesundheit-fage-cfc-m-w-d-ab-august-2027-hochgebirgsklinik-davos",
-        "en": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
+        "en": "apprenticeship-as-a-specialist-health-fage-efz-f-m-d-from-august-2027-hochgebirgsklinik-davos-davos",
         "de": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos",
-        "fr": "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-f-m-d-a-partir-d-aout-2027-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1573,6 +1607,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
+        ],
+        "fr": [
           "lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027-hochgebirgsklinik-davos"
         ]
       },

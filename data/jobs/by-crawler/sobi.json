@@ -787,7 +787,7 @@
         "it": "senior-director-medicine-development-leader-sobi-basel",
         "en": "senior-director-medicine-development-leader-sobi-basel",
         "de": "senior-director-leiter-medizinentwicklung-sobi-basel",
-        "fr": "directeur-principal-chef-du-developpement-de-la-medecine-sobi-basel"
+        "fr": "directeur-principal-responsable-du-developpement-medical-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -829,11 +829,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-director-leader-du-developpement-de-la-medecine-sobi-basel"
+        "senior-director-leader-du-developpement-de-la-medecine-sobi-basel",
+        "directeur-principal-chef-du-developpement-de-la-medecine-sobi-basel"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "senior-director-leader-du-developpement-de-la-medecine-sobi-basel"
+          "senior-director-leader-du-developpement-de-la-medecine-sobi-basel",
+          "directeur-principal-chef-du-developpement-de-la-medecine-sobi-basel"
         ]
       },
       "firstSeenAt": "2026-06-10T12:58:03.399Z",
@@ -857,8 +859,8 @@
       "slugByLocale": {
         "it": "responsabile-sourcing-indiretto-a-tempo-fisso-12-mesi-sobi-basel",
         "en": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "de": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel",
-        "fr": "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        "de": "indirekter-beschaffungsmanager-befristete-12-monate-sobi-basel",
+        "fr": "gestionnaire-d-approvisionnement-indirect-duree-determinee-12-mois-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -904,6 +906,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "de": [
+          "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
+        ],
+        "fr": [
           "indirect-sourcing-manager-fixed-term-12-months-sobi-basel"
         ]
       },
@@ -1002,11 +1010,11 @@
     },
     {
       "id": "sobi-19f434e9010d",
-      "slug": "msat-technical-lead-sobi-basel",
+      "slug": "responsabile-tecnico-msat-sobi-basel",
       "slugByLocale": {
         "en": "msat-technical-lead-sobi-basel",
-        "it": "msat-technical-lead-sobi-basel",
-        "de": "msat-technical-lead-sobi-basel",
+        "it": "responsabile-tecnico-msat-sobi-basel",
+        "de": "msat-technischer-leiter-sobi-basel",
         "fr": "msat-responsable-technique-sobi-basel"
       },
       "company": "Sobi",
@@ -1063,7 +1071,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-16T23:46:06.543Z"
+      "firstSeenAt": "2026-06-16T23:46:06.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-technical-lead-sobi-basel"
+        ],
+        "de": [
+          "msat-technical-lead-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "msat-technical-lead-sobi-basel"
+      ]
     }
   ]
 }
