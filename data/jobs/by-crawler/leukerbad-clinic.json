@@ -1,9 +1,86 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-06-17T13:27:11.195Z",
+  "assembledAt": "2026-06-17T22:59:26.734Z",
   "jobs": [
     {
-      "id": "leukerbad-clinic-24f51169b1e8",
+      "id": "leukerbad-clinic-97372b1445ea",
+      "slug": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+      "slugByLocale": {
+        "fr": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+        "it": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+        "en": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+        "de": "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "Candidature spontanée pour un STAGE DANS LES SOINS",
+      "titleByLocale": {
+        "fr": "Candidature spontanée pour un STAGE DANS LES SOINS",
+        "it": "Candidature spontanée pour un STAGE DANS LES SOINS",
+        "en": "Candidature spontanée pour un STAGE DANS LES SOINS",
+        "de": "Candidature spontanée pour un STAGE DANS LES SOINS"
+      },
+      "description": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
+      "descriptionByLocale": {
+        "fr": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
+        "it": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
+        "en": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation.",
+        "de": "Soins\n\nà convenir · à convenir\n\nLa Leukerbad Clinic accueille et forme des stagiaires dans le domaine des soins.\nIntéressé/e ? N'hésitez plus et envoyez votre candidature pour un stage, avec votre CV et une brève lettre de motivation."
+      },
+      "location": "Loèche-les-Bains",
+      "canton": "VS",
+      "addressLocality": "Loèche-les-Bains",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "INTERN",
+      "experienceLevel": "intern",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/fr/page/jobs/",
+      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-17T22:59:24.843Z",
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-25T13:17:10.577Z",
+      "previousSlugs": [
+        "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        ],
+        "it": [
+          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
+          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
+        ]
+      }
+    },
+    {
+      "id": "leukerbad-clinic-121ff121f549",
       "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
@@ -14,19 +91,19 @@
       "company": "Leukerbad Clinic",
       "companyKey": "leukerbad-clinic",
       "companyDomain": "leukerbadclinic.ch",
-      "title": "Medizinische/r Praxisassistent/in (m/w)",
+      "title": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
       "titleByLocale": {
-        "de": "Medizinische/r Praxisassistent/in (m/w)",
-        "it": "Medizinische/r Praxisassistent/in (m/w)",
-        "en": "Medizinische/r Praxisassistent/in (m/w)",
-        "fr": "Medizinische/r Praxisassistent/in (m/w)"
+        "de": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+        "it": "Spontanbewerbung per eine Stelle come DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+        "en": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN",
+        "fr": "Spontanbewerbung für eine Stelle als DIPLOMIERTE/R PHYSIOTHERAPEUT/IN"
       },
-      "description": "60-100% · sofort oder nach Vereinbarung\n\nAuf 1'400 Metern Höhe gelegen, bietet die Leukerbad Clinic ihren Patientinnen und Patienten eine spezialisierte Betreuung in der muskuloskelettalen Rehabilitation sowie in der Inneren Medizin und Onkologie. Ihr Thermalwasser, der einzigartige multidisziplinäre Ansatz sowie die hohe Qualität des Personals haben ihren hervorragenden Ruf begründet.\nZur Verstärkung unseres Teams suchen wir im Rahmen der Weiterentwicklung der Arztpraxis eine/n dynamische/n und organisierte/n\n\nMEDIZINISCHE/R PRAXISASSISTENT/IN (M/W)\n\nBeschäftigungsgrad: 60 - 100 %, ohne Abend- oder Wochenenddienste\nSie sind verantwortlich für den Empfang von Patienten, die Verwaltung von Krankenakten, die Terminvergabe und die Unterstützung der Ärzte bei ihren täglichen Aufgaben.\n\nVERANTWORTLICHKEITEN:\n\n• Verwaltungsaufgaben: Empfang und Orientierung der Patienten, Verwaltung von Telefonanrufen und E-Mails, Vorbereitung und Aktualisierung von Krankenakten, Verwaltung von Terminen und der Planung der Ärzte.\n• Medizinische Handlungen: Durchführung von Blutentnahmen, subkutanen Injektionen und grundlegenden Laboruntersuchungen.\n• Medizinische Assistentin: Erfassen von medizinischen Leistungen.\n• Unterstützung der Ärzte bei den Sprechstunden.\n• Verwaltung des Materialbestands.\n• Gewährleistung der Verbindung zu anderen Angehörigen des Gesundheitswesens.\n\nERFORDERLICHE QUALIFIKATIONEN:\n\n• Abschluss als Arzthelferin oder gleichwertiger Abschluss.\n• Vorherige Erfahrung in einer ähnlichen Position.\n• Ausgezeichnete Kommunikations- und Organisationsfähigkeiten.\n• Sehr gute Deutschkenntnisse in Wort und Schrift, zusätzliche gute Französischkenntnisse ein Vorteil.\n• Beherrschung der EDV-Tools (Word, Excel, medizinische Software).\n• Fähigkeit, im Team zu arbeiten und mit Stress umzugehen.\n\nWIR BIETEN:\n\n• Ein angenehmes und herausforderndes Arbeitsumfeld.\n• Möglichkeiten zur Weiterbildung.\n• Ein wettbewerbsfähiges Gehalt und Sozialleistungen.\nSo bewerben Sie sich: Bitte senden Sie Ihren Lebenslauf, Ihre Diplome und Arbeitszeugnisse sowie ein Anschreiben.",
+      "description": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
       "descriptionByLocale": {
-        "de": "60-100% · sofort oder nach Vereinbarung\n\nAuf 1'400 Metern Höhe gelegen, bietet die Leukerbad Clinic ihren Patientinnen und Patienten eine spezialisierte Betreuung in der muskuloskelettalen Rehabilitation sowie in der Inneren Medizin und Onkologie. Ihr Thermalwasser, der einzigartige multidisziplinäre Ansatz sowie die hohe Qualität des Personals haben ihren hervorragenden Ruf begründet.\nZur Verstärkung unseres Teams suchen wir im Rahmen der Weiterentwicklung der Arztpraxis eine/n dynamische/n und organisierte/n\n\nMEDIZINISCHE/R PRAXISASSISTENT/IN (M/W)\n\nBeschäftigungsgrad: 60 - 100 %, ohne Abend- oder Wochenenddienste\nSie sind verantwortlich für den Empfang von Patienten, die Verwaltung von Krankenakten, die Terminvergabe und die Unterstützung der Ärzte bei ihren täglichen Aufgaben.\n\nVERANTWORTLICHKEITEN:\n\n• Verwaltungsaufgaben: Empfang und Orientierung der Patienten, Verwaltung von Telefonanrufen und E-Mails, Vorbereitung und Aktualisierung von Krankenakten, Verwaltung von Terminen und der Planung der Ärzte.\n• Medizinische Handlungen: Durchführung von Blutentnahmen, subkutanen Injektionen und grundlegenden Laboruntersuchungen.\n• Medizinische Assistentin: Erfassen von medizinischen Leistungen.\n• Unterstützung der Ärzte bei den Sprechstunden.\n• Verwaltung des Materialbestands.\n• Gewährleistung der Verbindung zu anderen Angehörigen des Gesundheitswesens.\n\nERFORDERLICHE QUALIFIKATIONEN:\n\n• Abschluss als Arzthelferin oder gleichwertiger Abschluss.\n• Vorherige Erfahrung in einer ähnlichen Position.\n• Ausgezeichnete Kommunikations- und Organisationsfähigkeiten.\n• Sehr gute Deutschkenntnisse in Wort und Schrift, zusätzliche gute Französischkenntnisse ein Vorteil.\n• Beherrschung der EDV-Tools (Word, Excel, medizinische Software).\n• Fähigkeit, im Team zu arbeiten und mit Stress umzugehen.\n\nWIR BIETEN:\n\n• Ein angenehmes und herausforderndes Arbeitsumfeld.\n• Möglichkeiten zur Weiterbildung.\n• Ein wettbewerbsfähiges Gehalt und Sozialleistungen.\nSo bewerben Sie sich: Bitte senden Sie Ihren Lebenslauf, Ihre Diplome und Arbeitszeugnisse sowie ein Anschreiben.",
-        "it": "60-100% · sofort oder nach Vereinbarung\n\nAuf 1'400 Metern Höhe gelegen, bietet die Leukerbad Clinic ihren Patientinnen und Patienten eine spezialisierte Betreuung in der muskuloskelettalen Rehabilitation sowie in der Inneren Medizin und Onkologie. Ihr Thermalwasser, der einzigartige multidisziplinäre Ansatz sowie die hohe Qualität des Personals haben ihren hervorragenden Ruf begründet.\nZur Verstärkung unseres Teams suchen wir im Rahmen der Weiterentwicklung der Arztpraxis eine/n dynamische/n und organisierte/n\n\nMEDIZINISCHE/R PRAXISASSISTENT/IN (M/W)\n\nBeschäftigungsgrad: 60 - 100 %, ohne Abend- oder Wochenenddienste\nSie sind verantwortlich für den Empfang von Patienten, die Verwaltung von Krankenakten, die Terminvergabe und die Unterstützung der Ärzte bei ihren täglichen Aufgaben.\n\nVERANTWORTLICHKEITEN:\n\n• Verwaltungsaufgaben: Empfang und Orientierung der Patienten, Verwaltung von Telefonanrufen und E-Mails, Vorbereitung und Aktualisierung von Krankenakten, Verwaltung von Terminen und der Planung der Ärzte.\n• Medizinische Handlungen: Durchführung von Blutentnahmen, subkutanen Injektionen und grundlegenden Laboruntersuchungen.\n• Medizinische Assistentin: Erfassen von medizinischen Leistungen.\n• Unterstützung der Ärzte bei den Sprechstunden.\n• Verwaltung des Materialbestands.\n• Gewährleistung der Verbindung zu anderen Angehörigen des Gesundheitswesens.\n\nERFORDERLICHE QUALIFIKATIONEN:\n\n• Abschluss als Arzthelferin oder gleichwertiger Abschluss.\n• Vorherige Erfahrung in einer ähnlichen Position.\n• Ausgezeichnete Kommunikations- und Organisationsfähigkeiten.\n• Sehr gute Deutschkenntnisse in Wort und Schrift, zusätzliche gute Französischkenntnisse ein Vorteil.\n• Beherrschung der EDV-Tools (Word, Excel, medizinische Software).\n• Fähigkeit, im Team zu arbeiten und mit Stress umzugehen.\n\nWIR BIETEN:\n\n• Ein angenehmes und herausforderndes Arbeitsumfeld.\n• Möglichkeiten zur Weiterbildung.\n• Ein wettbewerbsfähiges Gehalt und Sozialleistungen.\nSo bewerben Sie sich: Bitte senden Sie Ihren Lebenslauf, Ihre Diplome und Arbeitszeugnisse sowie ein Anschreiben.",
-        "en": "60-100% · sofort oder nach Vereinbarung\n\nAuf 1'400 Metern Höhe gelegen, bietet die Leukerbad Clinic ihren Patientinnen und Patienten eine spezialisierte Betreuung in der muskuloskelettalen Rehabilitation sowie in der Inneren Medizin und Onkologie. Ihr Thermalwasser, der einzigartige multidisziplinäre Ansatz sowie die hohe Qualität des Personals haben ihren hervorragenden Ruf begründet.\nZur Verstärkung unseres Teams suchen wir im Rahmen der Weiterentwicklung der Arztpraxis eine/n dynamische/n und organisierte/n\n\nMEDIZINISCHE/R PRAXISASSISTENT/IN (M/W)\n\nBeschäftigungsgrad: 60 - 100 %, ohne Abend- oder Wochenenddienste\nSie sind verantwortlich für den Empfang von Patienten, die Verwaltung von Krankenakten, die Terminvergabe und die Unterstützung der Ärzte bei ihren täglichen Aufgaben.\n\nVERANTWORTLICHKEITEN:\n\n• Verwaltungsaufgaben: Empfang und Orientierung der Patienten, Verwaltung von Telefonanrufen und E-Mails, Vorbereitung und Aktualisierung von Krankenakten, Verwaltung von Terminen und der Planung der Ärzte.\n• Medizinische Handlungen: Durchführung von Blutentnahmen, subkutanen Injektionen und grundlegenden Laboruntersuchungen.\n• Medizinische Assistentin: Erfassen von medizinischen Leistungen.\n• Unterstützung der Ärzte bei den Sprechstunden.\n• Verwaltung des Materialbestands.\n• Gewährleistung der Verbindung zu anderen Angehörigen des Gesundheitswesens.\n\nERFORDERLICHE QUALIFIKATIONEN:\n\n• Abschluss als Arzthelferin oder gleichwertiger Abschluss.\n• Vorherige Erfahrung in einer ähnlichen Position.\n• Ausgezeichnete Kommunikations- und Organisationsfähigkeiten.\n• Sehr gute Deutschkenntnisse in Wort und Schrift, zusätzliche gute Französischkenntnisse ein Vorteil.\n• Beherrschung der EDV-Tools (Word, Excel, medizinische Software).\n• Fähigkeit, im Team zu arbeiten und mit Stress umzugehen.\n\nWIR BIETEN:\n\n• Ein angenehmes und herausforderndes Arbeitsumfeld.\n• Möglichkeiten zur Weiterbildung.\n• Ein wettbewerbsfähiges Gehalt und Sozialleistungen.\nSo bewerben Sie sich: Bitte senden Sie Ihren Lebenslauf, Ihre Diplome und Arbeitszeugnisse sowie ein Anschreiben.",
-        "fr": "60-100% · sofort oder nach Vereinbarung\n\nAuf 1'400 Metern Höhe gelegen, bietet die Leukerbad Clinic ihren Patientinnen und Patienten eine spezialisierte Betreuung in der muskuloskelettalen Rehabilitation sowie in der Inneren Medizin und Onkologie. Ihr Thermalwasser, der einzigartige multidisziplinäre Ansatz sowie die hohe Qualität des Personals haben ihren hervorragenden Ruf begründet.\nZur Verstärkung unseres Teams suchen wir im Rahmen der Weiterentwicklung der Arztpraxis eine/n dynamische/n und organisierte/n\n\nMEDIZINISCHE/R PRAXISASSISTENT/IN (M/W)\n\nBeschäftigungsgrad: 60 - 100 %, ohne Abend- oder Wochenenddienste\nSie sind verantwortlich für den Empfang von Patienten, die Verwaltung von Krankenakten, die Terminvergabe und die Unterstützung der Ärzte bei ihren täglichen Aufgaben.\n\nVERANTWORTLICHKEITEN:\n\n• Verwaltungsaufgaben: Empfang und Orientierung der Patienten, Verwaltung von Telefonanrufen und E-Mails, Vorbereitung und Aktualisierung von Krankenakten, Verwaltung von Terminen und der Planung der Ärzte.\n• Medizinische Handlungen: Durchführung von Blutentnahmen, subkutanen Injektionen und grundlegenden Laboruntersuchungen.\n• Medizinische Assistentin: Erfassen von medizinischen Leistungen.\n• Unterstützung der Ärzte bei den Sprechstunden.\n• Verwaltung des Materialbestands.\n• Gewährleistung der Verbindung zu anderen Angehörigen des Gesundheitswesens.\n\nERFORDERLICHE QUALIFIKATIONEN:\n\n• Abschluss als Arzthelferin oder gleichwertiger Abschluss.\n• Vorherige Erfahrung in einer ähnlichen Position.\n• Ausgezeichnete Kommunikations- und Organisationsfähigkeiten.\n• Sehr gute Deutschkenntnisse in Wort und Schrift, zusätzliche gute Französischkenntnisse ein Vorteil.\n• Beherrschung der EDV-Tools (Word, Excel, medizinische Software).\n• Fähigkeit, im Team zu arbeiten und mit Stress umzugehen.\n\nWIR BIETEN:\n\n• Ein angenehmes und herausforderndes Arbeitsumfeld.\n• Möglichkeiten zur Weiterbildung.\n• Ein wettbewerbsfähiges Gehalt und Sozialleistungen.\nSo bewerben Sie sich: Bitte senden Sie Ihren Lebenslauf, Ihre Diplome und Arbeitszeugnisse sowie ein Anschreiben."
+        "de": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
+        "it": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
+        "en": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !",
+        "fr": "PHYSIOTHERAPIE\n\nnach Vereinbarung · nach Vereinbarung\n\nIHR PROFIL\n• Eine abgeschlossene Ausbildung als Physiotherapeut/in\n• Erfahrung in der Muskuloskelettalen Rehabilitation\n• Zweisprachigkeit deutsch/französisch mit guten Kenntnissen der anderen Sprache oder dem Wunsch, diese zu lernen\n• Interesse an der Betreuung von Physiotherapie-Praktikanten und -Schülern\n• Bereitschaft zur Teamarbeit nach den vier Kernwerten der Leukerbad Clinic : Professionalität – Engagement – Kompetenz – Empathie\nAUFGABEN\n• Betreuung und Behandlung von Patienten im Bereich der Muskuloskelletalen, Post-operativen und Orthopädischen Rehabilitation\n• Definition und Durchführung eines physiotherapeutischen Programms entsprechend den spezifischen Patientenbedürfnissen und medizinischen Empfehlungen\n• Administrative Führung der elektronischen Patientenunterlagen\n• Mitwirkung bei der Integration neuer Mitarbeiter und bei der Betreuung sowie Bewertung von Studenten und Praktikanten\n• Kenntnis und Anwendung der Prinzipien der Spitalhygiene, um den ordnungsgemäßen Betrieb der Physiotherapieabteilung zu gewährleisten\nWIR BIETEN\n• Abwechslungsreiche Arbeit in einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Ergotherapie, Sporttherapie und der Pflege\n• Möglichkeiten zur internen und externen Weiterbildung\n• Attraktive, zukunftsorientierte Klinik mit etabliertem Renommee (60-jähriges Firmenjubiläum)\n• Moderne Infrastruktur dank Renovierungen\n• Personalhaus und Personalrestaurant\n• Eine natürliche Umgebung im Herzen der Berge mit zahlreichen Möglichkeiten für sportliche Aktivitäten, die typisch für einen Skiort mit Thermalbädern sind\nWir freuen uns auf Ihre Bewerbungsunterlagen (Bewerbungsschreiben, Curriculum Vitae und Arbeitszeugnisse) !"
       },
       "location": "Leukerbad",
       "canton": "VS",
@@ -47,12 +124,12 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:27:08.774Z",
+      "crawledAt": "2026-06-17T22:59:24.843Z",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
           "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
+          "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
           "consulente-senior-m-w-leukerbad-clinic-leukerbad"
         ],
         "de": [
@@ -67,7 +144,7 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic-leukerbad",
         "consulente-senior-m-w-leukerbad-clinic-leukerbad",
         "senior-consultant-m-w-leukerbad-clinic-leukerbad",
@@ -88,82 +165,6 @@
         }
       },
       "firstSeenAt": "2026-05-25T13:17:10.577Z"
-    },
-    {
-      "id": "leukerbad-clinic-d80ce36d545a",
-      "slug": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-      "slugByLocale": {
-        "fr": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "it": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "en": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "de": "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
-      "titleByLocale": {
-        "fr": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
-        "it": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
-        "en": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E",
-        "de": "Candidature spontanée pour un poste de PHYSIOTHERAPEUTE DIPLOME-E"
-      },
-      "description": "Physiothérapie\n\nà convenir · à convenir\n\nClinique de réadaptation de référence depuis 61 ans, la Leukerbad Clinic met une équipe de professionnels de la santé et un cadre de soins unique à disposition de patients post-aigus ou chroniques, de tous âges et de tous niveaux d’entraînement.\nPROFIL\n• Formation achevée de physiothérapeute\n• Expérience dans le domaine de la réadaptation musculo-squelettique\n• Allemand ou français avec bonnes connaissance de l’autre langue ou désir de l’apprendre\n• Intérêt pour la coopération interdisciplinaire et la supervision de stagiaires et d’étudiants en physiothérapie\n• Désir de travailler en équipe selon les quatre valeurs de la Leukerbad Clinic : Professionnalisme, engagement, empathie, compétence\nMISSIONS\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique (patients stationnaires et ambulatoires)\n• Définition et exécution d’un programme de physiothérapie selon les besoins spécifiques des patients et recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l’intégration des nouveaux collaborateurs, à leur encadrement et à l’évaluation des étudiants ainsi que des stagiaires\n• Connaissance et application des principes de l'hygiène hospitalière afin de garantir le bon fonctionnement du service de physiothérapie\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie du sport et des soins\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\n\nNous nous réjouissons de recevoir votre candidature (dossier complet avec lettre de motivation, curriculum vitae et certificats de travail) !",
-      "descriptionByLocale": {
-        "fr": "Physiothérapie\n\nà convenir · à convenir\n\nClinique de réadaptation de référence depuis 61 ans, la Leukerbad Clinic met une équipe de professionnels de la santé et un cadre de soins unique à disposition de patients post-aigus ou chroniques, de tous âges et de tous niveaux d’entraînement.\nPROFIL\n• Formation achevée de physiothérapeute\n• Expérience dans le domaine de la réadaptation musculo-squelettique\n• Allemand ou français avec bonnes connaissance de l’autre langue ou désir de l’apprendre\n• Intérêt pour la coopération interdisciplinaire et la supervision de stagiaires et d’étudiants en physiothérapie\n• Désir de travailler en équipe selon les quatre valeurs de la Leukerbad Clinic : Professionnalisme, engagement, empathie, compétence\nMISSIONS\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique (patients stationnaires et ambulatoires)\n• Définition et exécution d’un programme de physiothérapie selon les besoins spécifiques des patients et recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l’intégration des nouveaux collaborateurs, à leur encadrement et à l’évaluation des étudiants ainsi que des stagiaires\n• Connaissance et application des principes de l'hygiène hospitalière afin de garantir le bon fonctionnement du service de physiothérapie\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie du sport et des soins\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\n\nNous nous réjouissons de recevoir votre candidature (dossier complet avec lettre de motivation, curriculum vitae et certificats de travail) !",
-        "it": "Physiothérapie\n\nà convenir · à convenir\n\nClinique de réadaptation de référence depuis 61 ans, la Leukerbad Clinic met une équipe de professionnels de la santé et un cadre de soins unique à disposition de patients post-aigus ou chroniques, de tous âges et de tous niveaux d’entraînement.\nPROFIL\n• Formation achevée de physiothérapeute\n• Expérience dans le domaine de la réadaptation musculo-squelettique\n• Allemand ou français avec bonnes connaissance de l’autre langue ou désir de l’apprendre\n• Intérêt pour la coopération interdisciplinaire et la supervision de stagiaires et d’étudiants en physiothérapie\n• Désir de travailler en équipe selon les quatre valeurs de la Leukerbad Clinic : Professionnalisme, engagement, empathie, compétence\nMISSIONS\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique (patients stationnaires et ambulatoires)\n• Définition et exécution d’un programme de physiothérapie selon les besoins spécifiques des patients et recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l’intégration des nouveaux collaborateurs, à leur encadrement et à l’évaluation des étudiants ainsi que des stagiaires\n• Connaissance et application des principes de l'hygiène hospitalière afin de garantir le bon fonctionnement du service de physiothérapie\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie du sport et des soins\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\n\nNous nous réjouissons de recevoir votre candidature (dossier complet avec lettre de motivation, curriculum vitae et certificats de travail) !",
-        "en": "Physiothérapie\n\nà convenir · à convenir\n\nClinique de réadaptation de référence depuis 61 ans, la Leukerbad Clinic met une équipe de professionnels de la santé et un cadre de soins unique à disposition de patients post-aigus ou chroniques, de tous âges et de tous niveaux d’entraînement.\nPROFIL\n• Formation achevée de physiothérapeute\n• Expérience dans le domaine de la réadaptation musculo-squelettique\n• Allemand ou français avec bonnes connaissance de l’autre langue ou désir de l’apprendre\n• Intérêt pour la coopération interdisciplinaire et la supervision de stagiaires et d’étudiants en physiothérapie\n• Désir de travailler en équipe selon les quatre valeurs de la Leukerbad Clinic : Professionnalisme, engagement, empathie, compétence\nMISSIONS\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique (patients stationnaires et ambulatoires)\n• Définition et exécution d’un programme de physiothérapie selon les besoins spécifiques des patients et recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l’intégration des nouveaux collaborateurs, à leur encadrement et à l’évaluation des étudiants ainsi que des stagiaires\n• Connaissance et application des principes de l'hygiène hospitalière afin de garantir le bon fonctionnement du service de physiothérapie\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie du sport et des soins\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\n\nNous nous réjouissons de recevoir votre candidature (dossier complet avec lettre de motivation, curriculum vitae et certificats de travail) !",
-        "de": "Physiothérapie\n\nà convenir · à convenir\n\nClinique de réadaptation de référence depuis 61 ans, la Leukerbad Clinic met une équipe de professionnels de la santé et un cadre de soins unique à disposition de patients post-aigus ou chroniques, de tous âges et de tous niveaux d’entraînement.\nPROFIL\n• Formation achevée de physiothérapeute\n• Expérience dans le domaine de la réadaptation musculo-squelettique\n• Allemand ou français avec bonnes connaissance de l’autre langue ou désir de l’apprendre\n• Intérêt pour la coopération interdisciplinaire et la supervision de stagiaires et d’étudiants en physiothérapie\n• Désir de travailler en équipe selon les quatre valeurs de la Leukerbad Clinic : Professionnalisme, engagement, empathie, compétence\nMISSIONS\n• Soins et traitement des patients dans le domaine de la réadaptation musculo-squelettique, postopératoire et orthopédique (patients stationnaires et ambulatoires)\n• Définition et exécution d’un programme de physiothérapie selon les besoins spécifiques des patients et recommandations médicales\n• Gestion administrative des dossiers électroniques des patients\n• Participation à l’intégration des nouveaux collaborateurs, à leur encadrement et à l’évaluation des étudiants ainsi que des stagiaires\n• Connaissance et application des principes de l'hygiène hospitalière afin de garantir le bon fonctionnement du service de physiothérapie\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements d'ergothérapie, de thérapie du sport et des soins\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\n\nNous nous réjouissons de recevoir votre candidature (dossier complet avec lettre de motivation, curriculum vitae et certificats de travail) !"
-      },
-      "location": "Loèche-les-Bains",
-      "canton": "VS",
-      "addressLocality": "Loèche-les-Bains",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/fr/page/jobs/",
-      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-17T13:27:08.774Z",
-      "needsRetranslation": true,
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-25T13:17:10.577Z",
-      "previousSlugs": [
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "domanda-spontanea-per-un-tirocinio-in-assistenza-leukerbad-clinic-loeche-les-bains"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
-        ],
-        "it": [
-          "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
-        ]
-      }
     }
   ]
 }
