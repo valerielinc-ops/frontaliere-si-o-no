@@ -89,6 +89,7 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   startTimer as profileStart,
@@ -2614,6 +2615,28 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
         }
         const __tRenderCluster = profileStart();
         const locale = ctx.candidate.locale;
+        // Locale-shard render-skip (BUILD_LOCALE, LOCALE-SHARD-BUILD-PLAN Fase 0):
+        // for a locale this shard is NOT emitting, skip the expensive
+        // renderClusterPage + collector writes (the bulk of this plugin's
+        // ~264s). Still record the canonical + legacy-mirror locs CHEAPLY
+        // (string-only via buildClusterPath, no render) so the it/main shard —
+        // which owns sitemap-search-clusters.xml and the sitemap-jobs.xml
+        // mirror-drop patch (issue #911) — keeps a complete cross-locale set.
+        // No-op in the default all-locale build (shouldEmitLocale always true).
+        if (!shouldEmitLocale(locale)) {
+          const __skUrlPath = buildClusterPath(locale, ctx.candidate.slug, ctx.cantonGroup);
+          sitemapLocs.push(`${BASE_URL}${__skUrlPath}`);
+          const __skMirror = new Set<string>();
+          for (const __skMc of [ctx.legacyCantonGroup, 'TI']) {
+            if (__skMc === AGGREGATE_KEY) continue;
+            __skMirror.add(buildClusterPath(locale, ctx.candidate.slug, __skMc));
+          }
+          const __skExtra = indexedClusterUrlsByKey.get(`${locale}::${ctx.candidate.slug}`);
+          if (__skExtra) for (const p of __skExtra) __skMirror.add(p);
+          __skMirror.delete(__skUrlPath);
+          for (const mp of __skMirror) crossSectionMirrorLocs.push(`${BASE_URL}${mp.replace(/\/+$/, '')}/`);
+          continue;
+        }
         // altKey was precomputed in the group-hreflang loop above and cached
         // on `altKeyByCtx` so we don't re-normalize ctx.keyword + ctx.city
         // here. Falls back to fresh compute for safety on the (impossible
