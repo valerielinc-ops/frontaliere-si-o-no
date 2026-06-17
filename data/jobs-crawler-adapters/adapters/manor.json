@@ -147,7 +147,6 @@
     "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Logistik-60/1355570555/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Floor-Manager-%28Confection-Dames%29-100/1338265455/",
     "https://positions.manor.ch/job/Sierre-Floor-Manager-100/1331582255/",
-    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-Parf%C3%BCmerieAccessoires-40/1326037555/",
     "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1352772755/",
     "https://positions.manor.ch/job/Morges-Collaborateurtrice-supermarch%C3%A9-%28Poissonnerie%29-70/1350380055/",
     "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Damenkonfektion-60/1350561855/",
@@ -169,11 +168,15 @@
     "https://positions.manor.ch/job/Biel-Collaborateurtrice-supermarch%C3%A9-%28boulangerie%29-0/1354528355/",
     "https://positions.manor.ch/job/Winterthur-Kassiererin-Non-Food-20/1355719455/",
     "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-30-100/962548755/",
+    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-Parf%C3%BCmerieAccessoires-40/1326037555/",
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistant-Floor-Manager-%28Confection-Messieurs%29-100/1355741355/",
+    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-50/1350373855/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-50/1352723855/",
-    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-50/1350373855/"
+    "https://positions.manor.ch/job/Vevey-Cuisinier-60/1355737755/",
+    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Dames%29-50/1355741655/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-17T13:28:15.410Z",
+  "updatedAt": "2026-06-17T23:06:58.742Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Verkauf-Bijouterie-60/1346337755/": {
       "company": "Manor AG",
@@ -731,10 +734,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-Parf%C3%BCmerieAccessoires-40/1326037555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1352772755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -819,11 +818,27 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-50/1352723855/": {
+    "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Kasse-Parf%C3%BCmerieAccessoires-40/1326037555/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Assistant-Floor-Manager-%28Confection-Messieurs%29-100/1355741355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-50/1350373855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28Epicerie%29-50/1352723855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Vevey-Cuisinier-60/1355737755/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Monthey-Collaborateurtrice-vente-%28Confection-Dames%29-50/1355741655/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
