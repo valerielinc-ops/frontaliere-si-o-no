@@ -184,6 +184,13 @@ const TIER_PERKS: Record<PublisherTier, string[]> = {
  'publisherLanding.compare.row.inHouse',
  'publisherLanding.compare.row.analytics',
  ],
+ azienda: [
+ 'publisher.tier.azienda.perk.allAds',
+ 'publisherLanding.compare.row.featured',
+ 'publisherLanding.compare.row.newsletter',
+ 'publisherLanding.compare.row.inHouse',
+ 'publisherLanding.compare.row.analytics',
+ ],
 };
 
 const inputClass =
@@ -920,6 +927,7 @@ const PublisherPublishPage: React.FC = () => {
  },
  body: JSON.stringify({
  jobIds,
+ ...(tier === 'azienda' ? { plan: 'azienda' } : {}),
  successUrl: `${window.location.origin}${window.location.pathname}?publisher_checkout=success`,
  cancelUrl: window.location.href,
  }),
@@ -1183,10 +1191,11 @@ const PublisherPublishPage: React.FC = () => {
  {/* ── Tier selector (plan cards) ─────────────────────── */}
  <section>
  <h2 className={sectionTitleClass}>{t('publisher.tier.section')}</h2>
- <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
  {([
  { value: 'free', titleKey: 'publisher.tier.free.title', price: t('publisher.price.free'), priceNote: '' },
  { value: 'sponsored', titleKey: 'publisher.tier.sponsored.title', price: `${PRICING_CURRENCY} ${PRICE_PER_UNIT_CHF}`, priceNote: t('publisherLanding.plan.sponsored.priceNote') },
+ { value: 'azienda', titleKey: 'publisher.tier.azienda.title', price: `${PRICING_CURRENCY} 299`, priceNote: t('publisher.tier.azienda.priceNote') },
  ] as const).map(opt => {
  const selected = tier === opt.value;
  const isSponsoredCard = opt.value === 'sponsored';

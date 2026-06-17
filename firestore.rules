@@ -177,8 +177,14 @@ service cloud.firestore {
       return d.tier == 'sponsored'
         && (d.status == 'draft' || d.status == 'pending_payment');
     }
+    // Piano Azienda ads: same client-write envelope as sponsored (draft →
+    // pending_payment); featured/paid state is set server-side via the webhook.
+    function aziendaJobOk(d) {
+      return d.tier == 'azienda'
+        && (d.status == 'draft' || d.status == 'pending_payment');
+    }
     function clientJobWriteOk(d) {
-      return freeJobOk(d) || sponsoredJobOk(d);
+      return freeJobOk(d) || sponsoredJobOk(d) || aziendaJobOk(d);
     }
     // Pure CONTENT edit on ANY status (fix a typo, update the description on an
     // already-paid ad). Allowed only when status / tier / owner are UNCHANGED —
