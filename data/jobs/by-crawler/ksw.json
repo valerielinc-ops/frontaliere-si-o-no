@@ -269,7 +269,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984381",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.301Z",
+      "crawledAt": "2026-06-16T13:57:16.889Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -308,7 +308,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -430,7 +429,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3905698",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.301Z",
+      "crawledAt": "2026-06-16T13:57:16.889Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -460,7 +459,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -626,9 +624,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -652,7 +650,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017422",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -671,7 +669,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -685,7 +685,6 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:13:04.763Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -961,7 +960,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4018498",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -994,7 +993,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:28:40.332Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1507,7 +1505,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013953",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1537,7 +1535,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T14:19:18.343Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1553,12 +1550,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1582,7 +1579,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4013823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1601,21 +1598,17 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T00:10:18.427Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1981,7 +1974,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004425",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2000,7 +1993,6 @@
       "requirementsByLocale": {},
       "department": "Pflege Chirurgie",
       "firstSeenAt": "2026-05-21T23:01:34.943Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2207,7 +2199,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4004540",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2238,7 +2230,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T22:46:53.993Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2848,7 +2839,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3983471",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2882,7 +2873,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2927,7 +2917,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3984098",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2960,7 +2950,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3005,7 +2994,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3979211",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.300Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3038,7 +3027,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3380,7 +3368,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4020178",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.299Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3410,7 +3398,6 @@
         ]
       },
       "firstSeenAt": "2026-06-12T12:28:09.257Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3688,7 +3675,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4000642",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.299Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3727,7 +3714,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -3772,7 +3758,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3965279",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.299Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3810,7 +3796,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:05:42.042Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -3855,7 +3840,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3949332",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.299Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3885,7 +3870,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.415Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4168,7 +4152,7 @@
       "url": "https://live.solique.ch/ksw/job/details/3989823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.299Z",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4201,7 +4185,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4246,7 +4229,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017388",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.298Z",
+      "crawledAt": "2026-06-16T13:57:16.887Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4279,7 +4262,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:48:43.718Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4324,7 +4306,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4017085",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.298Z",
+      "crawledAt": "2026-06-16T13:57:16.887Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4357,7 +4339,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T22:46:05.232Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4473,7 +4454,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4012963",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.298Z",
+      "crawledAt": "2026-06-16T13:57:16.887Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4506,7 +4487,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T00:20:37.293Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -4792,7 +4772,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4014560",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T23:09:51.297Z",
+      "crawledAt": "2026-06-16T13:57:16.886Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4823,7 +4803,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T00:15:33.566Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -4833,6 +4812,83 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ksw-804c498d34d4",
+      "slug": "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur",
+      "slugByLocale": {
+        "it": "mitarbeiterin-collaboratore-trice-sprechstundenzentrum-kantonsspital-winterthur-ksw-winterthur",
+        "en": "employee-employee-office-hours-centre-kantonsspital-winterthur-ksw-winterthur",
+        "de": "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch",
+        "fr": "centre-d-heures-de-bureau-des-employes-kantonsspital-winterthur-ksw-winterthur"
+      },
+      "company": "Kantonsspital Winterthur (KSW)",
+      "companyKey": "ksw",
+      "companyDomain": "ksw.ch",
+      "title": "Mitarbeiterin / Mitarbeiter Sprechstundenzentrum",
+      "titleByLocale": {
+        "it": "Mitarbeiterin / Collaboratore/trice Sprechstundenzentrum",
+        "en": "Employee / employee office hours centre",
+        "de": "Mitarbeiterin / Mitarbeiter Sprechstundenzentrum",
+        "fr": "Centre d'heures de bureau des employés"
+      },
+      "description": "Unsere drei Sprechstundenzentren sind die zentralen Dienstleistenden innerhalb der Chirurgie. In jeweils 25 Untersuchungszimmern werden Patientinnen und Patienten von verschiedenen chirurgischen Kliniken und weiteren ambulanten Bereichen betreut. Für die Sprechstundenzentren suchen wir per 1. August 2026 oder nach Vereinbarung eine engagierte und dienstleistungsorientierte Persönlichkeit. Du erhältst hier die Möglichkeit, zusammen mit unserem motivierten Team deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen.\n\nAufgaben:\n• Gemeinsam mit deinen Mitarbeitenden im Team bist du verantwortlich für den reibungslosen Betrieb des Sprechstundenzentrums, dazu gehört der zuvorkommende Empfang unserer Patientinnen und Patienten sowie die Aufnahme von Patientendaten\n• Du koordinierst allfällige Voruntersuchungen und stellst sicher, dass die Patientinnen und Patienten jederzeit am richtigen Ort abrufbar sind\n• Bei administrativen Fragen stehst du unseren Patientinnen und Patienten kompetent zur Verfügung\n• Zudem bist du für das Auffüllen und Bestellen von medizinischen Materialien und Medikamenten zuständig\n• Mit deinen Ideen zur Entwicklung und Optimierung unseres Sprechstundenzentrums bringst du dich aktiv ein\n\nProfil:\n• Du hast eine kaufmännische oder eine vergleichbare abgeschlossene Grundausbildung\n• Erfahrung im Gesundheitswesen ist von Vorteil\n• Du bist eine dienstleistungsorientierte Persönlichkeit und überzeugst uns mit deinem Organisationstalent\n• Du zeichnest dich aus durch selbständige, zuverlässige und exakte Arbeitsweise\n• Du hast sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse sind von Vorteil\n• Es bereitet dir Freude, in unseren drei Sprechstundenzentren zu rotieren\n\nBenefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: Pflege Chirurgie\n• Pensum: 50%",
+      "descriptionByLocale": {
+        "it": "I nostri tre centri di lavoro sono i fornitori di servizi centrali all'interno della chirurgia. In ciascuna di 25 sale di esame, i pazienti sono curati da varie cliniche chirurgiche e altre aree ambulatoriali. Per le ore di ufficio stiamo cercando 1. Agosto 2026 o d'accordo una personalità dedicata e orientata al servizio. Qui avrete l'opportunità, insieme al nostro team motivato, di contribuire alle vostre qualità professionali e umane in un ambiente di lavoro vario e interessante. Compiti:\n• Insieme ai membri del vostro team, siete responsabili del buon funzionamento del centro ufficio, compreso il cortese ricevimento dei nostri pazienti e la registrazione dei dati del paziente.\n• Coordinate eventuali esami preliminari e assicuratevi che i pazienti siano sempre disponibili al posto giusto.\n• Per domande amministrative, sei competente a disposizione dei nostri pazienti\n• Sei anche responsabile per il riempimento e l'ordinazione di materiali medici e farmaci\n• Con le vostre idee per lo sviluppo e l'ottimizzazione del nostro centro di ufficio siete attivamente coinvolti Profilo:\n• Hai una formazione di base commerciale o comparabile\n• L'esperienza sanitaria è benefica\n• Sei una personalità orientata al servizio e convinceci con il tuo talento organizzativo\n• Si distingue attraverso metodi di lavoro indipendenti, affidabili e precisi\n• Hai una buona conoscenza del tedesco, altre competenze linguistiche straniere sono un vantaggio\n• Ti dà il piacere di ruotare nei nostri tre centri di lavoro ore Vantaggi: KSW offre ai dipendenti condizioni che permettono loro di conciliare i loro obiettivi professionali e le esigenze personali. Orario di lavoro flessibile e flessibile, ufficio domestico, nonché un generoso congedo di maternità e livelli di occupazione adattati a situazioni diverse – tutto questo è possibile a KSW, fino a quando l'azienda lo permette. Ogni anno, il KSW offre 40 corsi di formazione interdisciplinari e 50 corsi di formazione professionale. Vi sosteniamo anche nel tempo e/o finanziariamente con la formazione esterna.; In situazioni straordinarie, ad esempio B. malattia prolungata, grave stress personale o esperienze difficili nella vita privata, così come nel lavoro quotidiano, varie offerte di conversazione sono a vostra disposizione.; La collaborazione apprezzata e amichevole all'interno delle squadre e nei dipartimenti caratterizza l'atmosfera di lavoro a KSW. Come segno di un forte spirito di squadra, il “tu” è stato introdotto come standard a KSW. Inoltre, il KSW supporta eventi di squadra annuali finanziariamente e organizza un grande evento di personale per tutta la casa ogni quattro anni. I dipendenti KSW beneficiano di benefici sociali molto buoni. Così, la soluzione di fondo pensionistico con BVK è molto superiore al minimo legale. Anche in caso di malattia o incidente, i dipendenti KSW sono molto ben coperti.; Con sconti su abbonamenti di fitness, opportunità di formazione interna e offerte di corso, vantaggi in farmacie e presso le più popolari compagnie di assicurazione sanitaria. È possibile beneficiare di un'offerta completa per la vostra salute.; Il nostro centro diurno La Luna con ampie ore di apertura si trova vicino al KSW. Inoltre, è possibile utilizzare il reddito dipendente, il sostegno finanziario dalla KSW per i costi della culla.; In collaborazione con partner culturali di Winterthur e dintorni, offriamo regolarmente sconti per concerti e spettacoli teatrali. Il prestito dei media nella biblioteca interna è anche gratuito per i dipendenti. Campo professionale: Amministrazione / ICT / Progettazione del processo e digitalizzazione\n• Area: Chirurgia di cura\n• Pensume: 50%",
+        "en": "Our three office hours centres are the central service providers within surgery. In each of 25 examination rooms, patients are looked after by various surgical clinics and other outpatient areas. For the office hours we are looking for 1. August 2026 or by agreement a dedicated and service-oriented personality. Here you will have the opportunity, together with our motivated team, to contribute your professional and human qualities in a diverse and interesting working environment. Tasks:\n• Together with your team members, you are responsible for the smooth operation of the office centre, including the courteous reception of our patients and the recording of patient data.\n• You coordinate any preliminary examinations and make sure that the patients are always available at the right place.\n• For administrative questions, you are competently available to our patients\n• You are also responsible for filling and ordering medical materials and medicines\n• With your ideas for the development and optimization of our office centre you are actively involved Profile:\n• You have a commercial or comparable completed basic training\n• Healthcare experience is beneficial\n• You are a service-oriented personality and convince us with your organizational talent\n• You distinguish yourself through independent, reliable and exact working methods\n• You have very good knowledge of German, other foreign language skills are an advantage\n• It gives you pleasure to rotate in our three office hours centers Benefits: KSW offers employees conditions that enable them to reconcile their professional goals and personal needs. Flexible, flexible working hours, home office as well as a generous maternity leave and employment levels adapted to different situations – all this is possible at KSW, as long as the company allows it. Every year, the KSW offers 40 interdisciplinary and 50 professional training courses. We also support you temporally and/or financially with external training.; In extraordinary situations, e.g. B. prolonged illness, severe personal stress or difficult experiences in private life as well as in everyday work, various offers of conversation are available to you.; The appreciative and friendly cooperation within the teams and across the departments characterizes the working atmosphere at KSW. As a sign of a strong team spirit, the “you” was introduced as a standard at KSW. In addition, the KSW supports annual team events financially and organizes a large staffing event for the whole house every four years. KSW employees benefit from very good social benefits. Thus, the pension fund solution with BVK is far above the legal minimum. Even in the event of illness or accident, KSW employees are very well covered.; With discounts on fitness subscriptions, internal training opportunities and course offers, perks in pharmacies as well as at the most popular health insurance companies. You can benefit from a comprehensive offer for your health.; Our daycare center La Luna with spacious opening hours is located next to the KSW. In addition, you can use the income-dependent, financial support from the KSW for the crib costs.; In cooperation with cultural partners in and around Winterthur, we regularly offer discounts for concerts and theater performances. The borrowing of media in the in-house library is also free of charge for employees. Professional field: Administration / ICT / Process design and digitalization\n• Area: Care surgery\n• Pensume: 50%",
+        "de": "Unsere drei Sprechstundenzentren sind die zentralen Dienstleistenden innerhalb der Chirurgie. In jeweils 25 Untersuchungszimmern werden Patientinnen und Patienten von verschiedenen chirurgischen Kliniken und weiteren ambulanten Bereichen betreut. Für die Sprechstundenzentren suchen wir per 1. August 2026 oder nach Vereinbarung eine engagierte und dienstleistungsorientierte Persönlichkeit. Du erhältst hier die Möglichkeit, zusammen mit unserem motivierten Team deine fachlichen und menschlichen Qualitäten in einem vielfältigen und interessanten Arbeitsumfeld einzubringen. Aufgaben:\n• Gemeinsam mit deinen Mitarbeitenden im Team bist du verantwortlich für den reibungslosen Betrieb des Sprechstundenzentrums, dazu gehört der zuvorkommende Empfang unserer Patientinnen und Patienten sowie die Aufnahme von Patientendaten\n• Du koordinierst allfällige Voruntersuchungen und stellst sicher, dass die Patientinnen und Patienten jederzeit am richtigen Ort abrufbar sind\n• Bei administrativen Fragen stehst du unseren Patientinnen und Patienten kompetent zur Verfügung\n• Zudem bist du für das Auffüllen und Bestellen von medizinischen Materialien und Medikamenten zuständig\n• Mit deinen Ideen zur Entwicklung und Optimierung unseres Sprechstundenzentrums bringst du dich aktiv ein Profil:\n• Du hast eine kaufmännische oder eine vergleichbare abgeschlossene Grundausbildung\n• Erfahrung im Gesundheitswesen ist von Vorteil\n• Du bist eine dienstleistungsorientierte Persönlichkeit und überzeugst uns mit deinem Organisationstalent\n• Du zeichnest dich aus durch selbständige, zuverlässige und exakte Arbeitsweise\n• Du hast sehr gute Deutschkenntnisse, weitere Fremdsprachenkenntnisse sind von Vorteil\n• Es bereitet dir Freude, in unseren drei Sprechstundenzentren zu rotieren Benefits: Das KSW bietet den Mitarbeitenden Bedingungen, die es ihnen ermöglichen, ihre beruflichen Ziele und persönlichen Bedürfnisse in Einklang zu bringen. Flexible, gleitende Arbeitszeiten, Homeoffice sowie ein grosszügiger Mutterschaftsurlaub und an verschiedene Lebenslagen angepasste Beschäftigungsgrade – das ist alles möglich am KSW, sofern es der Betrieb zulässt.; Jährlich bietet das KSW 40 überfachliche und 50 fachliche Fortbildungen an. Auch bei externen Weiterbildungen unterstützen wir dich zeitlich und/oder finanziell.; In ausserordentlichen Situationen, wie z. B. längerer Krankheit, starker persönlicher Belastung oder schwierigen Erlebnissen im Privaten sowie im Berufsalltag, stehen dir diverse Gesprächsangebote zur Verfügung.; Die wertschätzende und freundliche Zusammenarbeit innerhalb der Teams und über die Abteilungen hinweg zeichnet das Arbeitsklima am KSW aus. Als Zeichen für einen starken Teamgedanken wurde am KSW das «Du» als Standard eingeführt. Ausserdem unterstützt das KSW jährliche Team-Events finanziell und veranstaltet alle vier Jahre ein grosses Personalfest für das ganze Haus.; Mitarbeitende des KSW profitieren von sehr guten Sozialleistungen. So liegt die Pensionskassenlösung mit der BVK weit über dem gesetzlichen Minimum. Auch im Falle von Krankheit oder Unfall sind KSW-Mitarbeitende sehr gut abgesichert.; Mit Rabatten auf Fitness-Abonnements, internen Trainingsmöglichkeiten und Kursangeboten, Vergünstigungen in Apotheken sowie bei den beliebtesten Krankenkassen. Du kannst von einem umfassenden Angebot für deine Gesundheit profitieren.; Unsere Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten befindet sich direkt neben dem KSW. Zudem kannst du die einkommensabhängige, finanzielle Unterstützung durch das KSW für die Krippenkosten nutzen.; In Zusammenarbeit mit Kulturpartnern in und um Winterthur bieten wir regelmässig Vergünstigungen für Konzerte und Theatervorstellungen. Die Ausleihe von Medien in der hauseigenen Bibliothek ist für Mitarbeitende zudem kostenlos.\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: Pflege Chirurgie\n• Pensum: 50%",
+        "fr": "Nos trois centres d'heures de bureau sont les fournisseurs de services centraux en chirurgie. Dans chacune des 25 salles d'examen, les patients sont pris en charge par diverses cliniques chirurgicales et d'autres services ambulatoires. Pour les heures de bureau que nous cherchons 1. Août 2026 ou par accord une personnalité dédiée et orientée vers le service. Ici, vous aurez l'occasion, avec notre équipe motivée, de contribuer à vos qualités professionnelles et humaines dans un environnement de travail diversifié et intéressant. Tâches :\n• Avec les membres de votre équipe, vous êtes responsable du bon fonctionnement du bureau, y compris de la réception courtoise de nos patients et de l'enregistrement des données du patient.\n• Vous coordonnez les examens préliminaires et vous assurez que les patients sont toujours disponibles au bon endroit.\n• Pour les questions administratives, vous êtes à la disposition de nos patients\n• Vous êtes également responsable du remplissage et de la commande du matériel médical et des médicaments\n• Avec vos idées pour le développement et l'optimisation de notre bureau, vous êtes activement impliqué Profil :\n• Vous avez une formation de base commerciale ou comparable\n• L'expérience en soins de santé est bénéfique\n• Vous êtes une personnalité orientée vers le service et vous nous convainquez avec votre talent organisationnel\n• Vous vous distinguez par des méthodes de travail indépendantes, fiables et précises\n• Vous avez une très bonne connaissance de l'allemand, d'autres compétences linguistiques sont un avantage\n• Il vous donne le plaisir de tourner dans nos trois centres d'heures de bureau Avantages: KSW offre aux employés des conditions qui leur permettent de concilier leurs objectifs professionnels et leurs besoins personnels. Des horaires de travail flexibles et flexibles, un bureau à domicile ainsi qu'un congé de maternité généreux et des niveaux d'emploi adaptés à différentes situations – tout cela est possible chez KSW, tant que l'entreprise le permet. Chaque année, le KSW propose 40 formations interdisciplinaires et 50 formations professionnelles. Nous vous soutenons également dans le temps et/ou financièrement avec une formation externe; Dans des situations extraordinaires, p. ex. maladie prolongée de B., stress personnel grave ou expériences difficiles dans la vie privée ainsi que dans le travail quotidien, diverses offres de conversation sont disponibles pour vous. La coopération reconnaissante et amicale au sein des équipes et des départements caractérise l'atmosphère de travail de KSW. Comme signe d'un esprit d'équipe fort, le -you , a été introduit comme un standard chez KSW. De plus, le KSW soutient financièrement les activités annuelles de l'équipe et organise tous les quatre ans un important événement de dotation pour toute la maison. Les employés de KSW bénéficient de très bons avantages sociaux. Ainsi, la solution de fonds de pension avec BVK est bien au-dessus du minimum légal. Même en cas de maladie ou d'accident, les employés de KSW sont très bien couverts. Avec des réductions sur les abonnements de fitness, des possibilités de formation interne et des cours, avantages dans les pharmacies ainsi que dans les compagnies d'assurance santé les plus populaires. Vous pouvez bénéficier d'une offre complète pour votre santé; Notre garderie La Luna avec des heures d'ouverture spacieuses est situé à côté de la KSW. En outre, vous pouvez utiliser le soutien financier dépendant du revenu de la KSW pour les coûts du berceau. En collaboration avec des partenaires culturels à Winterthur et aux alentours, nous offrons régulièrement des réductions pour les concerts et les spectacles de théâtre. L'emprunt des médias dans la bibliothèque interne est également gratuit pour les employés. Domaine professionnel : Administration / TIC / Conception et numérisation des processus\n• Domaine: Chirurgie des soins\n• Pensum: 50%"
+      },
+      "location": "Winterthur",
+      "canton": "ZH",
+      "url": "https://live.solique.ch/ksw/job/details/4020001",
+      "source": "KSW Dedicated Parser (Solique tenant ksw)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-16T13:57:16.888Z",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "postalCode": "8400",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-12",
+      "applyUrl": "https://live.solique.ch/ksw/job/details/4020001",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege Chirurgie",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-sprechstundenzentrum-ksw-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-12T22:42:33.203Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
