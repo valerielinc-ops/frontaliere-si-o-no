@@ -84,3 +84,87 @@ describe('SPA does not override static HTML metadata for expired job pages', () 
     expect(schemaSection).toContain('initialJobSlug && !selectedJob');
   });
 });
+
+// Regression guard for PR #2397 🔴: the prose / Auto-Ads gate (__slKeepProse) and the
+// thin-shell gate (__slDecision) probe DELIBERATELY DIFFERENT path-sets. The dedup PR
+// #2397 originally collapsed them into one set, which dropped the legacy IT mirror
+// `/cerca-lavoro-ticino/${slug}` from the IT-locale prose gate for canton-aware jobs,
+// silently stripping prose + Auto Ads from genuinely-trafficked expired pages.
+describe('soft-landing prose gate path-set (PR #2397 set-equality)', () => {
+  it('prose gate uses its own __slProsePaths set distinct from the thin __slCandidatePaths', () => {
+    expect(pluginSource).toContain('const __slKeepProse = trafficFilter.decideMulti(__slProsePaths');
+    // The thin-shell gate keeps probing __slCandidatePaths (unchanged scope).
+    expect(pluginSource).toContain('const __slDecision = trafficFilter.decideMulti(__slCandidatePaths');
+  });
+
+  it('prose set unconditionally probes the IT legacy mirror (incl. for it-locale canton-aware jobs)', () => {
+    expect(pluginSource).toContain('const __slItLegacyMirror = `/${localePrefix.it}/${sectionByLocale.it}/${slug}`');
+    expect(pluginSource).toContain('[...__slCandidatePaths, __slItLegacyMirror]');
+  });
+
+  // Algebraic proof that the live builders reproduce the ORIGINAL __slProsePaths
+  // semantics (relPath ∪ {legacy section path for EVERY locale}) while keeping the
+  // thin __slCandidatePaths scope intact. We replicate the exact builder algebra and
+  // assert the invariant for an IT-locale NON-TI (canton-aware) job — the bug class.
+  const localeList = ['it', 'en', 'de', 'fr'] as const;
+  const localePrefix: Record<(typeof localeList)[number], string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+  const sectionByLocale: Record<(typeof localeList)[number], string> = {
+    it: 'cerca-lavoro-ticino',
+    en: 'find-jobs-ticino',
+    de: 'jobs-im-tessin',
+    fr: 'trouver-emploi-tessin',
+  };
+  const slug = 'sviluppatore-software-argovia';
+
+  // The ORIGINAL __slProsePaths (pre-#2397): relPath + every locale's legacy section.
+  function originalProsePaths(relPath: string): string[] {
+    const out: string[] = [relPath];
+    for (const L of localeList) {
+      const p = `/${localePrefix[L]}/${sectionByLocale[L]}/${slug}`.replace(/\/+/g, '/');
+      if (!out.includes(p)) out.push(p);
+    }
+    return out;
+  }
+
+  // The CURRENT builders (must mirror jobsSeoPagesPlugin.ts exactly).
+  function currentSets(locale: (typeof localeList)[number], relPath: string): { candidate: string[]; prose: string[] } {
+    const candidate: string[] = [relPath];
+    if (locale !== 'it') {
+      const legacyRel = `/${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
+      if (legacyRel !== relPath) candidate.push(legacyRel);
+    }
+    for (const other of localeList) {
+      if (other === locale) continue;
+      const p = `/${localePrefix[other]}/${sectionByLocale[other]}/${slug}`.replace(/\/+/g, '/');
+      if (!candidate.includes(p)) candidate.push(p);
+    }
+    const itMirror = `/${localePrefix.it}/${sectionByLocale.it}/${slug}`.replace(/\/+/g, '/');
+    const prose = candidate.includes(itMirror) ? candidate : [...candidate, itMirror];
+    return { candidate, prose };
+  }
+
+  it('IT-locale canton-aware page: prose set is set-equal to the original and contains the TI mirror', () => {
+    const relPath = `/cerca-lavoro-argovia/${slug}`; // non-TI IT canton-aware page
+    const { candidate, prose } = currentSets('it', relPath);
+    // Bug repro: thin-gate (candidate) MUST NOT contain the IT TI mirror...
+    expect(candidate).not.toContain(`/cerca-lavoro-ticino/${slug}`);
+    // ...but the prose gate MUST (this is the dropped historical signal).
+    expect(prose).toContain(`/cerca-lavoro-ticino/${slug}`);
+    // And the prose set is exactly the original __slProsePaths set (order-insensitive).
+    expect([...prose].sort()).toEqual([...originalProsePaths(relPath)].sort());
+  });
+
+  it('set-equality holds across all locales (incl. TI relPath)', () => {
+    const cases: Array<{ locale: (typeof localeList)[number]; relPath: string }> = [
+      { locale: 'it', relPath: `/cerca-lavoro-argovia/${slug}` },
+      { locale: 'it', relPath: `/cerca-lavoro-ticino/${slug}` },
+      { locale: 'en', relPath: `/en/find-jobs-aargau/${slug}` },
+      { locale: 'de', relPath: `/de/jobs-im-aargau/${slug}` },
+      { locale: 'fr', relPath: `/fr/trouver-emploi-argovie/${slug}` },
+    ];
+    for (const { locale, relPath } of cases) {
+      const { prose } = currentSets(locale, relPath);
+      expect([...prose].sort()).toEqual([...originalProsePaths(relPath)].sort());
+    }
+  });
+});
