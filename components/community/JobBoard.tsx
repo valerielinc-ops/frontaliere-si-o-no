@@ -552,6 +552,21 @@ const contractLabelKey: Record<ContractType, string> = {
  internship: 'internship',
 };
 
+/**
+ * Map a normalized contract type to the schema.org / publish-form
+ * `employmentType` enum (FULL_TIME, PART_TIME, …). Shared by the JobPosting
+ * structured data and the "Sei l'azienda?" claim pre-fill stash so a crawled
+ * listing seeds the publisher form's employmentType instead of leaving it at
+ * the default.
+ */
+const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
+ 'full-time': 'FULL_TIME',
+ 'part-time': 'PART_TIME',
+ temporary: 'TEMPORARY',
+ internship: 'INTERN',
+ contract: 'CONTRACTOR',
+};
+
 /** Append UTM referral parameters to an external job URL. */
 function buildReferralUrl(raw: string, job: JobListing): string {
  try {
@@ -3808,15 +3823,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- const CONTRACT_MAP: Record<string, string> = {
- 'full-time': 'FULL_TIME',
- 'part-time': 'PART_TIME',
- temporary: 'TEMPORARY',
- internship: 'INTERN',
- contract: 'CONTRACTOR',
- permanent: 'FULL_TIME',
- };
-
  const toIsoDateTime = (raw?: string): string => {
  if (!raw) return new Date().toISOString();
  const parsed = new Date(raw);
@@ -3876,7 +3882,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  inLanguage: locale,
  datePosted: toIsoDateTime(job.postedDate),
  validThrough: toValidThrough(job.postedDate),
- employmentType: CONTRACT_MAP[normalizeJobContract(job.contract, localizedTitle, description)] || 'OTHER',
+ employmentType: CONTRACT_TO_EMPLOYMENT_TYPE[normalizeJobContract(job.contract, localizedTitle, description)] || 'OTHER',
  identifier: {
  '@type': 'PropertyValue',
  name: job.company,
@@ -6897,10 +6903,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="mt-3 inline-block text-xs font-medium text-muted hover:text-accent underline underline-offset-2"
                     onClick={() => {
                       const cj = selectedJob as unknown as Record<string, unknown>;
+                      // Crawled listings carry no `employmentType` field — the value
+                      // lives in `contract`. Derive the form's employmentType from it
+                      // (same mapping the JobPosting structured data uses) so the claim
+                      // pre-fill seeds it instead of leaving it at the FULL_TIME default.
+                      const employmentType = CONTRACT_TO_EMPLOYMENT_TYPE[
+                        normalizeJobContract(selectedJob.contract, selectedJob.title, selectedJob.description)
+                      ];
                       try {
                         sessionStorage.setItem('claimJobPrefill', JSON.stringify({
                           company: cj.company, title: cj.title, description: cj.description,
-                          category: cj.category, sector: cj.sector, employmentType: cj.employmentType,
+                          category: cj.category, sector: cj.sector, employmentType,
                           contractType: cj.contract, location: cj.location, canton: cj.canton,
                           applyUrl: cj.applyUrl || cj.url,
                         }));
