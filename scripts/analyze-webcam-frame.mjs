@@ -54,19 +54,35 @@ const CONF_THRESHOLD = 0.35;            // min class confidence to keep a detect
 const IOU_THRESHOLD = 0.45;             // NMS overlap threshold
 const DEFAULT_CAPACITY = 10;            // "full road" vehicle count when a feed omits `capacity`
 const QUEUE_SCORE_GATE = 0.4;           // congestionScore above which a queue is flagged
+// Parse a numeric env var, treating empty/whitespace-only string as UNSET.
+// `Number('')` is 0 and `Number.isFinite(0)` is true, so a bare
+// `Number.isFinite(Number(process.env.X))` guard would let `WEBCAM_*=''`
+// silently coerce to 0 — disabling the warmup window (WARMUP_DAYS=0) or
+// collapsing the vote to any-one-camera (fraction 0 → threshold floored to 1).
+// Trim first and bail to the default when the result is blank.
+export function envNumber(raw, fallback) {
+  const trimmed = raw?.trim();
+  if (!trimmed) return fallback;
+  const n = Number(trimmed);
+  return Number.isFinite(n) ? n : fallback;
+}
+// Defaults for the env-tunable warmup window / vote fraction. Named so the
+// downstream range guards (isFeedWarmingUp / queueVoteThreshold) can fall back
+// to the REAL default rather than to the module constant itself — otherwise a
+// degenerate-but-finite env value (e.g. WARMUP_DAYS=0, fraction='0'/-1/>1) would
+// recurse onto its own degenerate value (no-op fallback). The literal closes
+// that loop by construction.
+const DEFAULT_WARMUP_DAYS = 14;
+const DEFAULT_QUEUE_VOTE_FRACTION = 0.5;
 // Warmup grace window: a feed introduced fewer than this many days ago is scored
 // informationally but excluded from the trusted queue vote (its calibration is
 // not yet validated against varied light/season/traffic conditions). Env-tunable
 // so the window can be widened/shortened without a code change.
-export const WARMUP_DAYS = Number.isFinite(Number(process.env.WEBCAM_WARMUP_DAYS))
-  ? Number(process.env.WEBCAM_WARMUP_DAYS)
-  : 14;
+export const WARMUP_DAYS = envNumber(process.env.WEBCAM_WARMUP_DAYS, DEFAULT_WARMUP_DAYS);
 // Fraction of good feeds that must agree before a crossing is flagged as a queue.
 // 0.5 ⇒ a strict majority (>= half, rounded up); env-tunable for calibration
 // without a deploy. With a single good feed the vote is trivially that feed.
-export const QUEUE_VOTE_FRACTION = Number.isFinite(Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION))
-  ? Number(process.env.WEBCAM_QUEUE_VOTE_FRACTION)
-  : 0.5;
+export const QUEUE_VOTE_FRACTION = envNumber(process.env.WEBCAM_QUEUE_VOTE_FRACTION, DEFAULT_QUEUE_VOTE_FRACTION);
 // COCO class ids that count as road vehicles.
 const VEHICLE_CLASS_IDS = new Set([2 /* car */, 3 /* motorcycle */, 5 /* bus */, 7 /* truck */]);
 
@@ -220,7 +236,7 @@ export function isFeedWarmingUp(feed, now = Date.now(), warmupDays = WARMUP_DAYS
   if (!feed?.introducedAt) return false;
   const introMs = new Date(feed.introducedAt).getTime();
   if (!Number.isFinite(introMs)) return false;
-  const days = Number.isFinite(warmupDays) && warmupDays > 0 ? warmupDays : WARMUP_DAYS;
+  const days = Number.isFinite(warmupDays) && warmupDays > 0 ? warmupDays : DEFAULT_WARMUP_DAYS;
   return now - introMs < days * 24 * 60 * 60 * 1000;
 }
 
@@ -235,7 +251,7 @@ export function isFeedWarmingUp(feed, now = Date.now(), warmupDays = WARMUP_DAYS
 export function queueVoteThreshold(goodCount, fraction = QUEUE_VOTE_FRACTION) {
   const n = Math.max(0, Math.floor(goodCount));
   if (n === 0) return 1;
-  const f = Number.isFinite(fraction) && fraction > 0 && fraction <= 1 ? fraction : QUEUE_VOTE_FRACTION;
+  const f = Number.isFinite(fraction) && fraction > 0 && fraction <= 1 ? fraction : DEFAULT_QUEUE_VOTE_FRACTION;
   return Math.max(1, Math.ceil(n * f));
 }
 
