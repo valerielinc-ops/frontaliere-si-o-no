@@ -22,7 +22,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { shouldEmitLocale, EMIT_ALL_LOCALES } from './localeEmitFilter.ts';
+import { shouldEmitLocale, ownerEmitLocale, EMIT_ALL_LOCALES } from './localeEmitFilter.ts';
 
 export interface LocaleAlternates {
   readonly locale: string;
@@ -53,7 +53,9 @@ export function filterExistingAlternates(
     // absence from THIS shard's dist is by design, not a broken link — keep
     // it so the cross-shard hreflang graph stays complete. No-op in the
     // default all-locale build (EMIT_ALL_LOCALES short-circuits).
-    if (!EMIT_ALL_LOCALES && !shouldEmitLocale(locale)) return true;
+    // Normalise first so `x-default` (IT-owned) and region-tagged values
+    // (`en-US`, `de-CH`) the shard actually owns still hit the existence check.
+    if (!EMIT_ALL_LOCALES && !shouldEmitLocale(ownerEmitLocale(locale))) return true;
     const pathname = stripBaseAndTrailingSlash(url, trimmedBase);
     if (pathname === '' || pathname === '/') {
       // Root index — always exists if the build ran at all.
