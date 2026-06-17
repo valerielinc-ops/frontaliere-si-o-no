@@ -694,6 +694,7 @@ const frCore: Record<string, string> = {
  'jobBoard.apply': 'Postuler',
   'jobBoard.claimCta': 'Vous êtes l\'entreprise ? Sponsorisez cette annonce',
  'jobBoard.backToList': 'Retour à toutes les offres',
+ 'jobBoard.copyAttribution.lead': 'Offre complète & candidature sur Frontaliere Ticino:',
  'jobBoard.notFoundTitle': 'Offre introuvable',
  'jobBoard.notFoundDescription': 'Cette offre n’est plus disponible ou a été supprimée.',
  'jobBoard.authRequiredTitle': 'Connectez-vous pour voir l’offre complète',

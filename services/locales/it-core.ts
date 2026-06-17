@@ -731,6 +731,7 @@ const translations: Record<string, string> = {
  'jobBoard.apply': 'Candidati',
   'jobBoard.claimCta': 'Sei l\'azienda? Rendi sponsorizzato questo annuncio',
  'jobBoard.backToList': 'Torna a tutti gli annunci',
+ 'jobBoard.copyAttribution.lead': 'Annuncio completo e candidatura su Frontaliere Ticino:',
  'jobBoard.notFoundTitle': 'Annuncio non trovato',
  'jobBoard.notFoundDescription': 'Questo annuncio non è più disponibile oppure è stato rimosso.',
  'jobBoard.authRequiredTitle': 'Accedi per vedere il dettaglio dell\'annuncio',
