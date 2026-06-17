@@ -54,6 +54,12 @@ describe('Offerwall custom-choice registry — index.html', () => {
     expect(REGISTRY_BLOCK).toMatch(/ACCESS_NOT_GRANTED/);
   });
 
+  it('initialize() also grants access to signed-in users (firebase:authUser session)', () => {
+    // A logged-in visitor must NOT see the Offerwall — the registry detects the
+    // Firebase Auth session synchronously via its localStorage key prefix.
+    expect(REGISTRY_BLOCK).toMatch(/firebase:authUser:/);
+  });
+
   it('show() delegates to the React hook and is defensive when it is absent', () => {
     expect(REGISTRY_BLOCK).toMatch(/window\.__ftOfferwallSubscribe/);
     expect(REGISTRY_BLOCK).toMatch(/typeof\s+fn\s*!==\s*['"]function['"]/);

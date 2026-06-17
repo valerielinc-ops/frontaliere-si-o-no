@@ -133,6 +133,27 @@ function normalizeLocale(code?: string | null, fallback?: string): OfferwallLoca
  * GPT framework) is delivered via GPT, so no separate FC CMP script is needed
  * alongside GPT. The page's GPT (GptPocSlot) provides the delivery surface.
  */
+/**
+ * Synchronous "already has access" check for the Offerwall gate. Grants access
+ * (suppresses the Offerwall) when the visitor is EITHER an existing newsletter
+ * subscriber (local flag set by markNewsletterSubscribedLocally) OR signed in to
+ * the site. Firebase Auth persists the session under a `firebase:authUser:<…>`
+ * localStorage key (mirrored from authService.hasPersistedAuthSession), so a
+ * logged-in user is detected without waiting for async auth hydration — the
+ * registry's initialize() must resolve in <1s. Keeps gating to anonymous,
+ * non-subscribed readers (the funnel target); registered users never see it.
+ */
+function offerwallHasAccess(w: any): boolean {
+  try {
+    if (w.localStorage.getItem('newsletter_subscribed') === 'true') return true;
+    for (let i = 0; i < w.localStorage.length; i++) {
+      const k = w.localStorage.key(i);
+      if (k && k.indexOf('firebase:authUser:') === 0) return true;
+    }
+  } catch { /* localStorage unavailable */ }
+  return false;
+}
+
 function ensureOfferwallRegistry(): void {
   if (typeof window === 'undefined') return;
   const w = window as any;
@@ -144,7 +165,7 @@ function ensureOfferwallRegistry(): void {
     initialize(params: { offerwallLanguageCode?: string } | undefined) {
       const E = cc.InitializeResponseEnum || {};
       try {
-        if (w.localStorage.getItem('newsletter_subscribed') === 'true') {
+        if (offerwallHasAccess(w)) {
           return Promise.resolve(E.ACCESS_GRANTED || 'ACCESS_GRANTED');
         }
       } catch { /* ignore */ }
@@ -343,6 +364,7 @@ const OfferwallNewsletterGate: React.FC = () => {
               onChange={setEmail}
               ariaLabel={copy.title}
               required
+              className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
             />
 
             <label className="flex items-start gap-2 text-xs text-muted">
