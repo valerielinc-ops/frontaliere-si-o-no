@@ -244,6 +244,14 @@ service cloud.firestore {
       allow write: if true;
     }
 
+    // Per-company crawled-traffic metrics (candidati gratuiti inviati), shown in
+    // the publisher dashboard. Aggregate counts only (no PII). Written exclusively
+    // by the daily cron via the Admin SDK (which bypasses rules) → client writes denied.
+    match /employer_crawled_traffic/{companyKey} {
+      allow read: if true;
+      allow write: if false;
+    }
+
     // Candidate applications (in-house / forward modes). Contains PII, so reads
     // are restricted to the publisher who owns the target job (denormalized
     // publisherUid) — never public. Create is open (candidate submits) but the

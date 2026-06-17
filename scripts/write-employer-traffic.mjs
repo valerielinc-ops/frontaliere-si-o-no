@@ -1,0 +1,85 @@
+#!/usr/bin/env node
+/**
+ * Write per-company crawled-traffic counts to Firestore for the publisher
+ * dashboard ("vi abbiamo mandato N candidati dai vostri annunci gratuiti").
+ *
+ * Input: the JSON produced by employer-traffic-report.mjs --json (employers[]
+ * with { key, name, candidates, clicks }). Writes one doc per company to
+ * `employer_crawled_traffic/{key}` (key = slugified company, matches the
+ * dashboard's slugify(companyName) lookup). Read-only public collection
+ * (firestore.rules); writes happen here via the Admin SDK only.
+ *
+ * Usage (CI, after the report):
+ *   node scripts/employer-traffic-report.mjs --json /tmp/report.json
+ *   node scripts/write-employer-traffic.mjs /tmp/report.json
+ *
+ * Auth: GOOGLE_APPLICATION_CREDENTIALS (service-account file) or
+ * FIREBASE_SERVICE_ACCOUNT_JSON. No-op-safe: empty/invalid report → exit 0.
+ */
+
+import fs from 'node:fs';
+
+const COLLECTION = 'employer_crawled_traffic';
+
+/** Shape the Firestore docs from a report JSON. Pure → unit-testable. */
+export function buildTrafficDocs(report) {
+  if (!report || !Array.isArray(report.employers)) return [];
+  const days = Number(report.days) || 0;
+  return report.employers
+    .filter((e) => e && e.key && Number.isFinite(e.candidates) && e.candidates > 0)
+    .map((e) => ({
+      key: String(e.key),
+      data: {
+        company: String(e.name || e.key),
+        candidates: Number(e.candidates) || 0,
+        clicks: Number(e.clicks) || 0,
+        windowDays: days,
+        source: String(report.source || 'posthog'),
+      },
+    }));
+}
+
+async function getDb() {
+  if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    const os = await import('node:os');
+    const path = await import('node:path');
+    const tmp = path.join(os.tmpdir(), `firebase-sa-${process.pid}.json`);
+    fs.writeFileSync(tmp, process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = tmp;
+  }
+  const credPath = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+  if (!credPath || !fs.existsSync(credPath)) throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
+  const { initializeApp, cert, getApps, applicationDefault } = await import('firebase-admin/app');
+  const { getFirestore, FieldValue } = await import('firebase-admin/firestore');
+  if (getApps().length === 0) {
+    const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
+    if (cred.project_id) initializeApp({ credential: cert(cred) });
+    else initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+  }
+  return { db: getFirestore(), FieldValue };
+}
+
+async function run() {
+  const reportPath = process.argv[2];
+  if (!reportPath) { console.error('usage: write-employer-traffic.mjs <report.json>'); process.exit(2); }
+  let report;
+  try { report = JSON.parse(fs.readFileSync(reportPath, 'utf8')); }
+  catch (e) { console.error(`report illeggibile: ${e.message}`); process.exit(1); }
+
+  const docs = buildTrafficDocs(report);
+  if (!docs.length) { console.log('Nessuna azienda con candidati > 0 — niente da scrivere.'); return; }
+
+  const { db, FieldValue } = await getDb();
+  const { commitInChunks } = await import('./lib/firestore-batch.mjs');
+  const written = await commitInChunks(db, docs, (batch, { key, data }) => {
+    batch.set(db.collection(COLLECTION).doc(key), { ...data, updatedAt: FieldValue.serverTimestamp() }, { merge: true });
+  });
+  console.log(`✅ ${COLLECTION}: scritte ${written} aziende (window ${report.days}gg, source ${report.source}).`);
+}
+
+// Esegui solo se invocato direttamente (buildTrafficDocs resta importabile per i test).
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  run().catch((e) => { console.error(e.message || e); process.exit(1); });
+}
