@@ -273,6 +273,22 @@ describe('applyFeaturedSlotCap', () => {
     applyFeaturedSlotCap(recs, 0);
     expect(recs[0].featured).toBe(false);
   });
+
+  it('exempts Piano Azienda from the cap and does not let it consume sponsored slots', () => {
+    // 2 azienda (unlimited, always featured) + 2 sponsored, cap=1 per canton.
+    const recs = [
+      { canton: 'TI', tier: 'azienda', featured: true, postedDate: '2026-06-01' },
+      { canton: 'TI', tier: 'azienda', featured: true, postedDate: '2026-06-02' },
+      { canton: 'TI', tier: 'sponsored', featured: true, postedDate: '2026-06-03' },
+      { canton: 'TI', tier: 'sponsored', featured: true, postedDate: '2026-06-04' },
+    ];
+    applyFeaturedSlotCap(recs, 1);
+    // Both azienda stay featured (exempt); sponsored still capped to 1 (newest).
+    expect(recs.filter((r) => r.tier === 'azienda').every((r) => r.featured)).toBe(true);
+    const sponsoredKept = recs.filter((r) => r.tier === 'sponsored' && r.featured);
+    expect(sponsoredKept).toHaveLength(1);
+    expect(sponsoredKept[0].postedDate).toBe('2026-06-04');
+  });
 });
 
 describe('applyMode projection', () => {

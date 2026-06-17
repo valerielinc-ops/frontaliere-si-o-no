@@ -255,7 +255,9 @@ export function applyFeaturedSlotCap(records, cap = FEATURED_SLOTS_PER_CANTON) {
   if (!Array.isArray(records)) return [];
   const byCanton = new Map();
   for (const r of records) {
-    if (!r.featured) continue;
+    // Piano Azienda è "illimitato + sempre in evidenza": esente dal cap. Non viene
+    // mai demosso E non consuma slot, così non soffoca i featured sponsored a pagamento.
+    if (!r.featured || r.tier === 'azienda') continue;
     const key = r.canton || 'TI';
     if (!byCanton.has(key)) byCanton.set(key, []);
     byCanton.get(key).push(r);

@@ -172,7 +172,8 @@ export function renderBody(rec: AdRecord, locale: AdLocale): string {
   const place = String(rec.location || rec.addressLocality || '').trim();
   const desc = localizedDescription(rec, locale);
   const jobs = JOBS_ROOT[locale];
-  const sponsored = rec.tier === 'sponsored';
+  // Piano Azienda ads are paid premium too → same rich-markdown + badge as sponsored.
+  const sponsored = rec.tier === 'sponsored' || rec.tier === 'azienda';
   const salary = Number.isFinite(rec.salaryMin) && Number(rec.salaryMin) > 0
     ? `${esc(rec.currency || 'CHF')} ${Number(rec.salaryMin).toLocaleString('de-CH')}${Number.isFinite(rec.salaryMax) && Number(rec.salaryMax) ? `–${Number(rec.salaryMax).toLocaleString('de-CH')}` : ''}`
     : null;
