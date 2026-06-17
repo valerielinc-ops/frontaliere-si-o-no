@@ -48,8 +48,17 @@ const OFFLOADED_PREFIXES = [
 const RULE_DESCRIPTION = 'Offloaded images -> CDN (apex 404 recovery)';
 const PHASE = 'http_request_dynamic_redirect';
 
+// Host-scoped to the apex. The rule lives at zone level, so without the host
+// clause it would also fire on any OTHER hostname in the zone. cdn.frontaliereticino.ch
+// is DNS-only today (not proxied), so the phase doesn't run on CDN requests — but if
+// the CDN were ever put behind Cloudflare (orange-cloud), every cdn…/images/brands/x.png
+// would match the prefix and 301 to itself → infinite redirect loop on every offloaded
+// image. The `http.host eq APEX` guard makes the rule fire ONLY on the apex, where the
+// offloaded paths genuinely 404. Reviewer 🔴 on #2396.
+const APEX_HOST = process.env.CF_ZONE_NAME || DEFAULT_ZONE_NAME;
 const buildExpression = () =>
-  '(' + OFFLOADED_PREFIXES.map((p) => `starts_with(http.request.uri.path, "${p}")`).join(' or ') + ')';
+  '(' + OFFLOADED_PREFIXES.map((p) => `starts_with(http.request.uri.path, "${p}")`).join(' or ') +
+  `) and http.host eq "${APEX_HOST}"`;
 
 const buildRule = () => ({
   action: 'redirect',
@@ -124,9 +133,13 @@ async function main() {
   }));
   if (idx >= 0) {
     const cur = existing[idx];
+    const curFv = cur.action_parameters?.from_value;
+    const wantFv = desired.action_parameters.from_value;
     if (cur.expression === desired.expression &&
-        cur.action_parameters?.from_value?.target_url?.expression === desired.action_parameters.from_value.target_url.expression &&
-        cur.action_parameters?.from_value?.status_code === 301 && cur.enabled) {
+        curFv?.target_url?.expression === wantFv.target_url.expression &&
+        curFv?.status_code === wantFv.status_code &&
+        curFv?.preserve_query_string === wantFv.preserve_query_string &&
+        cur.enabled === desired.enabled) {
       console.log('✅ Redirect Rule already present and current — no change.');
       return;
     }
