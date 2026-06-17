@@ -72,6 +72,9 @@ export interface Publisher {
  *               external-link only (exactly like a crawled job). No payment.
  *   sponsored — paid subscription: featured eligible, newsletter blast, all
  *               three apply modes, analytics. Goes through Stripe.
+ *   azienda   — Piano Azienda: flat CHF 299/mese, ruoli ILLIMITATI, sempre in
+ *               evidenza (featured by default), logo + report + priorità
+ *               newsletter. Stripe subscription a prezzo fisso (non per-annuncio).
  */
 export type PublisherTier = 'free' | 'sponsored' | 'azienda';
 
