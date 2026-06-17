@@ -56,6 +56,7 @@ import {
   type SectorHubKey,
 } from './jobSectorLanding';
 import { buildDayStampIso } from './shared/buildDayStamp';
+import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -82,63 +83,6 @@ const SECTION_NAME: Record<JobBoardLocale, string> = {
   en: 'Find jobs in Ticino',
   de: 'Jobs im Tessin',
   fr: 'Trouver un emploi au Tessin',
-};
-
-/**
- * Decorative per-sector emoji shown in the hero eyebrow (`aria-hidden`, never
- * in the H1 — keeps the H1 keyword clean for the SERP). Purely a friendly
- * visual cue so each sector hub reads less like a generic listing wall.
- */
-const SECTOR_EMOJI: Record<SectorHubKey, string> = {
-  infermieri: '🩺',
-  'case-anziani': '👵',
-  educatori: '🎓',
-  ingegneri: '⚙️',
-  autisti: '🚚',
-  sviluppatori: '💻',
-  ristorazione: '🍽️',
-  oss: '🧑‍⚕️',
-  logistica: '📦',
-  apprendistato: '🛠️',
-  medici: '🩺',
-  fisioterapisti: '🧑‍⚕️',
-  farmacisti: '💊',
-  'data-scientist': '📊',
-  cybersecurity: '🔒',
-  'project-manager': '📋',
-  contabili: '🧮',
-  banca: '🏦',
-  assicurazioni: '🛡️',
-  consulenza: '💼',
-  avvocati: '⚖️',
-  'risorse-umane': '👥',
-  marketing: '📣',
-  vendite: '🤝',
-  commercio: '🛍️',
-  trasporti: '🚆',
-  magazzino: '🏭',
-  meccanici: '🔧',
-  elettricisti: '⚡',
-  idraulici: '🚰',
-  edilizia: '🏗️',
-  falegnami: '🪚',
-  industria: '🏭',
-  orologeria: '⌚',
-  farmaceutica: '🧪',
-  chimica: '⚗️',
-  food: '🥫',
-  cuochi: '👨‍🍳',
-  camerieri: '🍷',
-  hotel: '🏨',
-  pulizie: '🧹',
-  sicurezza: '🛡️',
-  scuola: '🏫',
-  designer: '🎨',
-  architetti: '📐',
-  agricoltura: '🌱',
-  energia: '🔋',
-  media: '📰',
-  tecnici: '🔌',
 };
 
 function esc(s: unknown): string {
@@ -448,7 +392,7 @@ ${alternates}
           <span>${esc(seo.h1)}</span>
         </nav>
         <header class="s-sy52lX">
-          <p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_EMOJI[sector]}</span> ${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
+          <p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
           <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
           <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
           <p style="${BODY_STYLE}">${esc(seo.intro)}</p>

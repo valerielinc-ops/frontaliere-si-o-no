@@ -122,7 +122,14 @@ import {
  buildEmployerHubTitle,
  buildRoleHubTitle,
 } from '../services/seo/job-board-titles';
-import { formatSeoH1 } from './shared/seoContentTokens';
+import {
+ formatSeoH1,
+ renderStatGrid,
+ pickStatTileTone,
+ CTA_PRIMARY_CLASS,
+ HERO_EYEBROW_STYLE,
+} from './shared/seoContentTokens';
+import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import {
  buildCityHubMeta as buildCtrCityHubMeta,
  buildEmployerHubMeta,
@@ -6984,9 +6991,19 @@ ${staticAnalyticsHtml}
  itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
- const sUniqueCompanies = [...new Set(cappedJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
- const sUniqueLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+ // Honest counts over the full (uncapped) match set, not the 30 carded jobs —
+ // mirrors the TI sector hub (jobSectorPagesPlugin.ts) so the stat-grid /
+ // intro report the real market size rather than the cap.
+ const sUniqueCompanies = [...new Set(sJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
+ const sUniqueLocations = [...new Set(sJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  const sTopCompanies = sUniqueCompanies.slice(0, 5).map((c) => esc(c)).join(', ');
+ // Fresh listings in the last 7 days (same window/source as the TI hub).
+ const SECTOR_FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
+ const sectorFreshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - SECTOR_FRESH_WINDOW_MS;
+ const sFreshCount = sJobs.filter((j: any) => {
+ const t = Date.parse(String(j.datePosted || j.postedDate || j.crawledAt || '')) || 0;
+ return t >= sectorFreshCutoff;
+ }).length;
  const intro = (() => {
  if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${sJobs.length} offerte di lavoro</strong> per ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}, pubblicate da ${sUniqueCompanies.length} aziende in ${sUniqueLocations.length} località. Tra le aziende che assumono: ${sTopCompanies || '—'}. Gli annunci vengono aggiornati quotidianamente dal nostro crawler.</p>`;
  if (locale === 'en') return `<p>There are currently <strong>${sJobs.length} job openings</strong> for ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}, published by ${sUniqueCompanies.length} companies across ${sUniqueLocations.length} locations. Hiring companies include: ${sTopCompanies || '—'}. Listings are refreshed daily.</p>`;
@@ -7001,7 +7018,25 @@ ${staticAnalyticsHtml}
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const listHtml = jobCardListBody(cappedJobs, locale);
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${renderJobBoardListingDensityProse(locale, { subject: sectorDisplay, location: cDisplay, resultCount: sJobs.length, companyCount: sUniqueCompanies.length, locationCount: sUniqueLocations.length })}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
+ // Content-first hero: emoji eyebrow + lively colored stat grid + primary CTA,
+ // propagated from the TI sector hubs (PR #1118). The H1/headline keyword stays
+ // clean (emoji is aria-hidden, only in the eyebrow). Secondary tiles drop out
+ // when their signal is 0, so a thin sector degrades to one clean tile.
+ const updatedEyebrow = locale === 'it' ? `Aggiornato · ${dateStamp}` : locale === 'en' ? `Updated · ${dateStamp}` : locale === 'de' ? `Aktualisiert · ${dateStamp}` : `Mis à jour · ${dateStamp}`;
+ const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedEyebrow)}</p>`;
+ const activeLabel = locale === 'it' ? 'Offerte attive' : locale === 'en' ? 'Active jobs' : locale === 'de' ? 'Aktive Stellen' : 'Offres actives';
+ const freshLabel = locale === 'it' ? 'Nuove · 7gg' : locale === 'en' ? 'New · 7d' : locale === 'de' ? 'Neu · 7T' : 'Récent · 7j';
+ const companiesLabel = locale === 'it' ? 'Aziende' : locale === 'en' ? 'Companies' : locale === 'de' ? 'Unternehmen' : 'Entreprises';
+ const citiesLabel = locale === 'it' ? 'Località' : locale === 'en' ? 'Locations' : locale === 'de' ? 'Standorte' : 'Localités';
+ const statTiles: Array<{ label: string; value: string; tone: ReturnType<typeof pickStatTileTone> }> = [
+ { label: activeLabel, value: String(sJobs.length), tone: pickStatTileTone('openings', sJobs.length) },
+ ];
+ if (sFreshCount > 0) statTiles.push({ label: freshLabel, value: `+${sFreshCount}`, tone: pickStatTileTone('fresh', sFreshCount) });
+ if (sUniqueCompanies.length > 0) statTiles.push({ label: companiesLabel, value: String(sUniqueCompanies.length), tone: 'neutral' });
+ if (sUniqueLocations.length > 0) statTiles.push({ label: citiesLabel, value: String(sUniqueLocations.length), tone: 'neutral' });
+ const statGridHtml = renderStatGrid(statTiles);
+ const ctaHtml = `<a href="${sectionRootUrl}" class="${CTA_PRIMARY_CLASS}" style="margin:0 0 24px">${esc(openAllLabel)} →</a>`;
+ const bodyHtml = `${eyebrowHtml}\n<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${statGridHtml}\n${ctaHtml}\n${intro}\n<ul class="s-0WjlyL">${listHtml}</ul>\n${marketSection}\n${renderJobBoardListingDensityProse(locale, { subject: sectorDisplay, location: cDisplay, resultCount: sJobs.length, companyCount: sUniqueCompanies.length, locationCount: sUniqueLocations.length })}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
  const html = buildSeoPageHtml({
  locale,
