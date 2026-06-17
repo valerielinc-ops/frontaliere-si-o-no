@@ -200,8 +200,9 @@ export function prBodyContractOk(body = '') {
  * I gate vitest + collision restano invariati a valle. Copertura equivalente al
  * vecchio merge MANUALE di queste PR (che pure non aveva review Claude), senza
  * il passo a mano. Ritorna true sse approvato; logga ogni sub-gate.
- * NB: il caller invoca questo SOLO quando NON c'è `## LGTM` e NON c'è `🔴` (un
- * 🔴 reale del reviewer blocca comunque, drift o no).
+ * NB: il caller invoca questo SOLO quando NON esiste alcuna review claude
+ * (`lastBot` null → il reviewer non ha potuto girare). Un `🔴` reale o una review
+ * non-approvante esistente bloccano comunque a monte (drift o no).
  */
 function evaluateDriftFallback() {
   let files;
@@ -316,23 +317,25 @@ function main() {
       console.log('Gate review: ## LGTM presente, nessun 🔴 Important ✔');
     }
   } else {
-    // Nessun `## LGTM` utilizzabile E nessun 🔴. Se il reviewer HA EFFETTIVAMENTE
-    // girato sull'HEAD corrente e ha scelto di NON approvare (review con solo
-    // 🟡/❓ — es. un ❓ funnel-critical non escalato, dove REVIEW.md vieta
-    // `## LGTM`), RISPETTA la non-approvazione: il drift-fallback NON scavalca un
-    // giudizio esplicito del reviewer. Il fallback vale solo quando il reviewer
-    // NON ha potuto girare (workflow-validation 401 → nessuna review su questo
-    // head: `lastBot` null, oppure su un commit precedente).
-    if (lastBot && lastBot.commit_id === head) {
-      return fail(`Reviewer ha girato su HEAD ${head} ma non ha postato '## LGTM' (review non-approvante, es. ❓ aperto) — skip; il drift-fallback non scavalca una non-approvazione esplicita.`);
+    // Nessun `## LGTM` utilizzabile E nessun 🔴. Il drift-fallback vale SOLO
+    // quando il reviewer NON ha postato ALCUNA review (non ha potuto girare:
+    // workflow-validation 401 → `lastBot` null). Se una review claude ESISTE qui,
+    // per costruzione è NON-approvante: il ramo `## LGTM` sopra ha già consumato
+    // l'unico caso `lastBot`-non-null sicuro (`## LGTM` + fingerprint match), e un
+    // `🔴` ha già fatto `fail` prima. Quindi una review esistente che arriva fin
+    // qui è un 🟡/❓ senza LGTM (es. ❓ funnel-critical non escalato, dove
+    // REVIEW.md vieta `## LGTM`) — RISPETTALA, non scavalcarla, indipendentemente
+    // dal commit a cui si riferisce (la review poteva essere su un commit
+    // precedente, prima che la PR aggiungesse la modifica a `pr-review-loop.yml`).
+    if (lastBot) {
+      return fail(`Esiste una review claude-bot non-approvante (no '## LGTM', no 🔴 — es. ❓/🟡 aperto) — skip; il drift-fallback non scavalca una review esistente, serve un push fresco o risoluzione manuale.`);
     }
-    // Tipicamente il reviewer NON ha potuto girare perché la PR modifica
-    // `pr-review-loop.yml` (401). Prova il drift-fallback deterministico (autore
-    // fidato + body-contract). Ritorna false → skip (un push/`tests` ri-valuterà).
+    // Nessuna review affatto → tipicamente il reviewer non ha potuto girare perché
+    // la PR modifica `pr-review-loop.yml` (401). Prova il drift-fallback
+    // deterministico (autore fidato + body-contract). false → skip (ri-valuta al
+    // prossimo `tests`/push).
     if (!evaluateDriftFallback()) {
-      return fail(lastBot
-        ? `Ultima review claude-bot senza '## LGTM' e drift-fallback non applicabile — skip.`
-        : `Nessuna review claude-bot e drift-fallback non applicabile — skip.`);
+      return fail(`Nessuna review claude-bot e drift-fallback non applicabile — skip.`);
     }
   }
 
