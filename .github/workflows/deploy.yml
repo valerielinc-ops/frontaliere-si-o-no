@@ -336,18 +336,12 @@ jobs:
       # and committed to data/job-popularity.json. The build reads the file
       # directly — no Firestore read on every push.
 
-      - name: Cache responsive image thumbnails
-        id: thumb-cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            public/images/blog/thumbnails
-            public/images/places/thumbnails
-          key: thumbnails-v2-${{ github.run_id }}
-          restore-keys: |
-            thumbnails-v2-
-
-      - name: Generate responsive image thumbnails
+      # The 480w WebP thumbnails are committed to the repo, so they arrive with
+      # the checkout — no actions/cache needed (git IS the cache). This step is
+      # now a cheap safety-net: the committed-thumbnail fast path in the script
+      # skips every image whose `.webp` already exists WITHOUT reading/hashing
+      # it, and only encodes a source that somehow lacks a committed thumbnail.
+      - name: Generate responsive image thumbnails (safety-net for any uncommitted)
         run: node scripts/generate-image-thumbnails.mjs
 
       - name: Cleanup stale job HTML (orphans from prior incremental builds)
@@ -726,10 +720,10 @@ jobs:
           # (JS/CSS) whose URLs renderBuiltUrl already rebased to the CDN, and the
           # git-tracked full blog heroes (served at cdn.frontaliereticino.ch/images/
           # blog; finalize plugin already rewrote HTML + deleted dist heroes, so we
-          # push from the public/ source). The build-generated 480w thumbnails are
-          # written to public/images/blog/thumbnails/ by generate-image-thumbnails.mjs
-          # (gitignored but on disk at push time), so the public/images/blog copy
-          # below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
+          # push from the public/ source). The 480w thumbnails are committed under
+          # public/images/blog/thumbnails/ (generate-image-thumbnails.mjs encodes
+          # them; generate-article.yml commits each new one), so the public/images/blog
+          # copy below ALREADY pushes them to ${CDN}/images/blog/thumbnails/ — the offload
           # script then deletes the dist copy of dist/images/blog/thumbnails.
           [ -d dist/og ]           && cp -r dist/og           "$stage/og"
           [ -d dist/data ]         && cp -r dist/data         "$stage/data"
