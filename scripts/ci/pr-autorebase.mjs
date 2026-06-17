@@ -184,6 +184,25 @@ function vitestConclusion(head) {
   return latestCompletedVitestConclusion(out && out.check_runs);
 }
 
+/**
+ * Decisione rebase per una PR near-merge che è behind>0 (valutata DOPO il check
+ * CONFLITTO). Pura → testabile; il razionale del livelock è al call-site.
+ * @param {{lgtm: boolean, collisionRisk: boolean, vitestConclusion: string, hasVitestCheck: boolean}} s
+ * @returns {'rebase'|'skip'|'heal'}
+ *   'rebase' = la PR va rebasata (collision-risk esige 0-behind, OPPURE
+ *              vitest=failure va rebasato per ereditare i fix di main, OPPURE
+ *              non-LGTM → non near-merge-as-is).
+ *   'skip'   = LGTM, non-collision, vitest non-failure, check vitest PRESENTE →
+ *              non rebasare (main è non-strict, auto-merge la mergia behind);
+ *              rebasare orfanizzerebbe l'head (LIVELOCK).
+ *   'heal'   = come 'skip' MA head orfana (nessun check vitest) → dispatch tests
+ *              invece di rebasare, così il vitest atterra su head stabile.
+ */
+export function rebaseActionForLgtmPr({ lgtm, collisionRisk, vitestConclusion, hasVitestCheck }) {
+  if (!lgtm || collisionRisk || vitestConclusion === 'failure') return 'rebase';
+  return hasVitestCheck ? 'skip' : 'heal';
+}
+
 /** Dispatcha tests.yml sul branch → il check-run vitest atterra sull'head e il
  * suo `workflow_run: completed` ri-valuta auto-merge-on-lgtm (LGTM portato avanti
  * da auto-merge-eval). Best-effort: serve PAT con scope actions:write. */
@@ -405,14 +424,32 @@ async function processPR(pr) {
   // rebase serve DAVVERO: collision-risk (il gate collisione esige il rebase
   // oltre l'altra PR) e stale-review (drift/conflitto). Una LGTM'd+verde senza
   // collisione → lasciala ad auto-merge.
-  // NB: vitest deve essere non-`failure`. headHasVitestCheck (sola presenza) NON
-  // basta: una PR behind+LGTM con vitest=failure sull'head NON è mergeable-as-is
-  // (auto-merge-eval esige conclusion==success) → skipparla la lascia stuck per
-  // sempre (autorebase salta, auto-merge rifiuta, cron ripete). Su failure va
-  // rebasata per ereditare eventuali fix lato main. Pending/success/assente:
-  // comportamento invariato.
-  if (lgtm && headHasVitestCheck(head) && vitestConclusion(head) !== 'failure' && !labels.includes('collision-risk')) {
-    console.log(`PR #${num} LGTM + vitest non-failure sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla romperebbe il check).`);
+  // NB: vitest deve essere non-`failure`. Su failure va rebasata per ereditare
+  // eventuali fix lato main (una PR behind+LGTM con vitest=failure NON è
+  // mergeable-as-is: auto-merge-eval esige conclusion==success).
+  // NON gattare lo skip su headHasVitestCheck(head): era la race che innescava
+  // il LIVELOCK. Appena un rebase orfanizza l'head, headHasVitestCheck torna
+  // false → lo skip NON scattava → si ri-rebasava → nuova head orfana → loop
+  // (osservato 2026-06-17 su main caldo: #2415 rebasata 3× in 15min, vitest
+  // sempre queued/cancelled, mai verde, mai mergiata). Per una LGTM'd
+  // non-collision NON si rebasa MAI (main è non-strict → auto-merge la mergia
+  // behind così com'è); se l'head è orfana (nessun check vitest) lo SKIP da solo
+  // la lascerebbe stuck (gate 3 mai success) → la SANIAMO dispatchando tests
+  // (orphan-heal esteso a behind>0, prima solo behind===0), senza rebasare: il
+  // check vitest atterra su una head STABILE e auto-merge la mergia behind.
+  const action = rebaseActionForLgtmPr({
+    lgtm,
+    collisionRisk: labels.includes('collision-risk'),
+    vitestConclusion: vitestConclusion(head),
+    hasVitestCheck: headHasVitestCheck(head),
+  });
+  if (action === 'heal') {
+    console.log(`PR #${num} LGTM non-collision, ${behind} dietro main, head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests (heal, NO rebase: main non-strict, auto-merge la mergia behind).`);
+    dispatchTests(num, branch);
+    return;
+  }
+  if (action === 'skip') {
+    console.log(`PR #${num} LGTM + vitest non-failure sull'head, no collision, ${behind} dietro main → SKIP rebase (main non-strict: auto-merge la mergia così com'è; rebasarla orfanizzerebbe l'head).`);
     return;
   }
   console.log(`PR #${num} (${branch}) è ${behind} dietro main, near-merge → valuto rebase.`);
