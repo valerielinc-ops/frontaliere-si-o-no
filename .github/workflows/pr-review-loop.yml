@@ -35,16 +35,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          # Partial clone: il checkout `fetch-depth: 0` full scaricava ~11GB di
-          # history (.git, repo a heavy churn su data/jobs) → 184s misurati, il
-          # 54% del run-time della review (Claude pass: ~150s). `filter:
-          # blob:none` prende solo commit-graph + blob HEAD (working tree per
-          # `rg`/`Read`), defer dei blob storici (lazy-fetch on-demand se mai
-          # servono `git blame`/`git log -L`/`git show` — strumenti opzionali,
-          # REVIEW.md non li richiede). Feedback review ~3min prima. fetch-depth
-          # resta 0: serve il commit-graph completo per la lazy-fetch.
-          fetch-depth: 0
-          filter: blob:none
+          # Shallow checkout: il reviewer NON usa MAI la git-history. Tutto il suo
+          # lavoro è `gh pr view`/`gh pr diff` (GitHub API) + `rg`/`Read`/`Grep`
+          # sul working tree HEAD (cross-file probing scopato al CODE, REVIEW.md
+          # step 5). I soli strumenti che richiedono history — `git blame`,
+          # `git log -L`, `git show <hist-sha>` — REVIEW.md non li invoca.
+          #
+          # Storia: `fetch-depth: 0 + filter: blob:none` (partial clone) prendeva
+          # commit-graph completo + blob HEAD e deferiva i blob storici a una
+          # lazy-fetch on-demand. Due costi: (1) il commit-graph di un repo a
+          # heavy churn (data/jobs, ~11GB .git) è grande di suo → 58-94s baseline
+          # di Checkout; (2) la lazy-fetch del partial clone occasionalmente
+          # STALLAVA — osservato Checkout da 11 MINUTI (run 27672265799, PR #2394)
+          # che mangiava il budget del timeout 15min → la Claude review partiva
+          # con ~4min, veniva uccisa a metà pass → nessuna review postata → PR in
+          # idle/stallo (auto-merge mai triggerato). Causa #1 di "review idle".
+          #
+          # `fetch-depth: 1` elimina ENTRAMBI: niente commit-graph history (non
+          # scarica gli ~11GB di .git), niente partial clone → niente lazy-fetch
+          # → niente stallo. Working tree HEAD interamente presente (Read di un
+          # campione `data/**` funziona ancora). Checkout atteso ~10-20s. Se mai
+          # servisse la history per un caso futuro, ripristinare depth:0 — ma
+          # allora SENZA `filter: blob:none` (è il partial clone a stallare).
+          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -206,8 +219,8 @@ jobs:
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
-            2. `AGENTS.md` solo come contesto progetto (non-negotiables, architettura) — opzionale, leggi solo se serve.
-            3. Carica PR: `gh pr view $PR_NUMBER --json title,body,labels`, `gh pr view $PR_NUMBER --json files`, poi il diff del SOLO code: `gh pr diff $PR_NUMBER -- ':(exclude)data/**' ':(exclude)public/**' ':(exclude)reports/**' ':(exclude)_newsletter_variants/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
+            2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
+            3. Carica PR in UNA call: `gh pr view $PR_NUMBER --json title,body,labels,files`, poi il diff del SOLO code: `gh pr diff $PR_NUMBER -- ':(exclude)data/**' ':(exclude)public/**' ':(exclude)reports/**' ':(exclude)_newsletter_variants/**' ':(exclude)docs/**'`. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
 
             **Esegui workflow di review come specificato in REVIEW.md:**
             - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.

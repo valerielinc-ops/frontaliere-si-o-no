@@ -31,12 +31,13 @@ jobs:
           # Nessun uso della git history: il job legge solo il working tree
           # (`git diff --quiet data/url-first-seen.json`), poi `checkout -b`
           # + commit + push di un branch FRESCO (PR, mai push su main, nessun
-          # rebase né `git show <commit>:<file>`). Il `fetch-depth: 0` qui era
-          # cargo-cult: scaricava ~11GB di `.git` per nulla. `filter:
-          # blob:none` prende commit-graph + blob HEAD e differisce i blob
-          # storici (lazy) → checkout molto più rapido senza perdere capacità.
-          fetch-depth: 0
-          filter: blob:none
+          # rebase né `git show <commit>:<file>`). `fetch-depth: 1` (shallow):
+          # solo il working tree HEAD, niente commit-graph history (~11GB .git
+          # mai scaricati) e niente partial clone → niente lazy-fetch che possa
+          # stallare (stessa classe del Checkout di `pr-review-loop.yml`, dove un
+          # lazy-fetch da 11min mangiava il timeout). Prima era `fetch-depth: 0 +
+          # filter: blob:none` (cargo-cult: nessuna capacità history serviva).
+          fetch-depth: 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
