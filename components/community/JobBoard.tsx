@@ -6910,12 +6910,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       const employmentType = CONTRACT_TO_EMPLOYMENT_TYPE[
                         normalizeJobContract(selectedJob.contract, selectedJob.title, selectedJob.description)
                       ];
+                      // The publish form's salary inputs are CHF-only (submit hard-codes
+                      // currency: 'CHF'). Only seed salary from CHF crawled listings — an
+                      // EUR amount injected into a CHF field would be wrong, so leave it
+                      // blank for EUR and let the employer fill it.
+                      const salaryIsChf = selectedJob.currency !== 'EUR';
                       try {
                         sessionStorage.setItem('claimJobPrefill', JSON.stringify({
                           company: cj.company, title: cj.title, description: cj.description,
                           category: cj.category, sector: cj.sector, employmentType,
                           contractType: cj.contract, location: cj.location, canton: cj.canton,
                           applyUrl: cj.applyUrl || cj.url,
+                          ...(salaryIsChf && cj.salaryMin != null ? { salaryMin: cj.salaryMin } : {}),
+                          ...(salaryIsChf && cj.salaryMax != null ? { salaryMax: cj.salaryMax } : {}),
                         }));
                       } catch { /* storage blocked — publish page just won't prefill */ }
                       Analytics.trackSelectContent('job_board_claim_cta', `${selectedJob.company}_${selectedJob.title}`);
