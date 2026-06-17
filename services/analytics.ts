@@ -1405,6 +1405,22 @@ export const Analytics = {
  },
 
  /**
+ * Candidatura su un annuncio — emette `job_apply` con attribuzione per-azienda
+ * pulita. `employer_key` è una stable slug (companyKey o derivata dal nome) e
+ * `is_sponsored` distingue annunci sponsorizzati (featured) da quelli crawlati.
+ * Entrambi i parametri sono custom dimension GA4 registrate, così il report
+ * "candidati inviati per azienda" è interrogabile via Data API. Affianca (non
+ * sostituisce) lo `select_content('job_board_apply', …)` esistente.
+ */
+ trackJobApply: (employerKey: string, isSponsored: boolean, jobSlug?: string) => {
+ log('job_apply', {
+ employer_key: employerKey || 'unknown',
+ is_sponsored: isSponsored ? 'sponsored' : 'free',
+ job_slug: jobSlug || '',
+ });
+ },
+
+ /**
  * Interazione grafico — single event, no double-fire with select_content
  */
  trackChartInteraction: (chartType: string, action: string) => {

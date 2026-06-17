@@ -4813,6 +4813,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing) => {
  Analytics.trackSelectContent('job_board_apply', `${job.company}_${job.title}`);
+ Analytics.trackJobApply(canonicalCompanyRouteSlug(job.company, job.companyKey), Boolean(job.featured), job.slug || job.id);
  // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
@@ -6842,6 +6843,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  rel="nofollow noopener noreferrer"
  onClick={() => {
  Analytics.trackSelectContent('job_board_apply', `${selectedJob.company}_${selectedJob.title}`);
+ Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
  trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  >
