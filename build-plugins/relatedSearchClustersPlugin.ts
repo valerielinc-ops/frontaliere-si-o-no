@@ -2477,10 +2477,28 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
               const worker = new Worker(workerUrl, {
                 workerData: { jobs: slimJobs, locale: workerLocale, tokens: localeTokens },
               });
-              worker.once('message', resolve);
+              // Resolve on 'exit', NOT 'message': the worker holds its full
+              // per-locale gram index (~hundreds of MB) in memory until it tears
+              // down. Resolving on 'message' would let the next batch spawn while
+              // this batch's workers are still resident → up to 2×concurrency
+              // indexes overlapping at the OOM ceiling (worst case = the original
+              // all-at-once spawn, defeating the cap). Gating on 'exit' makes the
+              // reclamation airtight: batch N is fully torn down before N+1
+              // allocates. The message payload is captured first, then surfaced
+              // once the worker has exited cleanly.
+              let payload: { locale: Locale; entries: Array<{ token: string; list: number[] }> } | null = null;
+              worker.once('message', (msg) => {
+                payload = msg;
+              });
               worker.once('error', reject);
               worker.once('exit', (code) => {
-                if (code !== 0) reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
+                if (code !== 0) {
+                  reject(new Error(`relatedSearchPostingsWorker exited with code ${code}`));
+                } else if (!payload) {
+                  reject(new Error('relatedSearchPostingsWorker exited without posting a result'));
+                } else {
+                  resolve(payload);
+                }
               });
             },
           );
