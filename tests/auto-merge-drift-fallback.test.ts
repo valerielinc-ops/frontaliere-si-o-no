@@ -5,7 +5,7 @@
  * Rimuove l'unico merge MANUALE residuo. Vedi REVIEW_WORKFLOW_DRIFT_FILES.
  */
 import { describe, it, expect } from 'vitest';
-import { isReviewWorkflowDriftPR, isTrustedDriftAuthor } from '../scripts/ci/auto-merge-eval.mjs';
+import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
 
 describe('isReviewWorkflowDriftPR', () => {
@@ -54,5 +54,36 @@ describe('isTrustedDriftAuthor', () => {
   it('false per meta mancante', () => {
     expect(isTrustedDriftAuthor(null)).toBe(false);
     expect(isTrustedDriftAuthor(undefined)).toBe(false);
+  });
+});
+
+describe('prBodyContractOk (valutato dal body, non dalla sticky)', () => {
+  const goodBody = [
+    '## Implementato',
+    '- fa la cosa',
+    '',
+    '## Non implementato (ancora)',
+    '- niente altro',
+  ].join('\n');
+
+  it('true quando entrambi gli header ci sono e nessun Closes multi-issue', () => {
+    expect(prBodyContractOk(goodBody)).toBe(true);
+    // tollera testo in coda all\'header e il livello ###
+    expect(prBodyContractOk('### Implementato\nx\n### Non implementato (ancora)\ny')).toBe(true);
+  });
+
+  it('false se manca uno degli header obbligatori', () => {
+    expect(prBodyContractOk('## Implementato\n- x')).toBe(false);
+    expect(prBodyContractOk('## Non implementato\n- x')).toBe(false);
+    expect(prBodyContractOk('## Fix\n- x\n## Verify\n- y')).toBe(false);
+    expect(prBodyContractOk('')).toBe(false);
+  });
+
+  it('false su Closes multi-issue su una riga (anche con header presenti)', () => {
+    expect(prBodyContractOk(`${goodBody}\n\nCloses #12 #34`)).toBe(false);
+  });
+
+  it('true con Closes singolo per riga (forma corretta)', () => {
+    expect(prBodyContractOk(`${goodBody}\n\nCloses #12\nCloses #34`)).toBe(true);
   });
 });

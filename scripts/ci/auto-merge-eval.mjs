@@ -39,6 +39,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { VITEST_CHECK_NAME, REDFLAG_IMPORTANT_RE, REVIEW_WORKFLOW_DRIFT_FILES } from './lib/constants.mjs';
+import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
 
 const REPO = process.env.GITHUB_REPOSITORY || '';
 const PR = process.argv[2];
@@ -165,13 +166,37 @@ export function isTrustedDriftAuthor(meta) {
   return meta.type === 'Bot' && /^(claude|github-actions)/i.test(meta.login || '');
 }
 
+// Required-headers regex — MIRROR di `.github/workflows/pr-body-contract.yml`
+// (step `check`, righe ~46-47). Quel job è github-script SENZA `actions/checkout`
+// → non può `require` un modulo del repo, quindi non si può condividere via
+// import (stessa situazione del mirror REDFLAG_IMPORTANT_RE ↔ bash di
+// pr-redflag-fixer.yml). Tollerano testo in coda sulla stessa riga
+// (`## Non implementato (ancora)`); richiedono start-of-line.
+const PR_BODY_IMPL_RE = /^\s{0,3}#{2,3}\s+Implementato\b/im;
+const PR_BODY_NONIMPL_RE = /^\s{0,3}#{2,3}\s+Non implementato\b/im;
+
+/**
+ * Valuta il completeness contract del PR body DIRETTAMENTE dal body (non dalla
+ * sticky di pr-body-contract: il suo ramo all-clear AGGIORNA una sticky esistente
+ * ma NON la crea su una PR ben formata al primo tentativo → su una drift-PR
+ * corretta la sticky verde spesso non esiste). Stessi due check del contratto:
+ * (1) header `## Implementato` + `## Non implementato` presenti; (2) nessun
+ * `Closes #a #b` multi-issue su una riga (riusa `checkClosesLines`, lo stesso
+ * helper del workflow → niente drift di logica). Puro → testabile senza gh.
+ */
+export function prBodyContractOk(body = '') {
+  if (!PR_BODY_IMPL_RE.test(body) || !PR_BODY_NONIMPL_RE.test(body)) return false;
+  return checkClosesLines(body).ok;
+}
+
 /**
  * Drift-fallback (zero-Claude): quando il reviewer Claude NON ha potuto postare
  * `## LGTM` perché la PR modifica `pr-review-loop.yml` (workflow-validation 401),
  * approva il merge su GATE DETERMINISTICI al posto della review:
  *   (a) la PR modifica davvero un drift-file (REVIEW_WORKFLOW_DRIFT_FILES);
  *   (b) autore fidato (owner/membro/collaboratore o bot interno);
- *   (c) `pr-body-contract` verde (sticky `<!-- pr-body-contract -->` = OK).
+ *   (c) il PR body soddisfa il completeness contract (valutato direttamente dal
+ *       body via prBodyContractOk — header presenti + nessun Closes multi-issue).
  * I gate vitest + collision restano invariati a valle. Copertura equivalente al
  * vecchio merge MANUALE di queste PR (che pure non aveva review Claude), senza
  * il passo a mano. Ritorna true sse approvato; logga ogni sub-gate.
@@ -193,12 +218,14 @@ function evaluateDriftFallback() {
   }
   const driftFiles = files.filter((f) => REVIEW_WORKFLOW_DRIFT_FILES.includes(f));
 
+  // Autore + body in UNA call: la REST `pulls/{n}` porta sia author_association
+  // che il body, evitando una seconda chiamata.
   let meta;
   try {
     meta = gh(['api', `repos/${REPO}/pulls/${PR}`,
-      '--jq', '{assoc: .author_association, login: .user.login, type: .user.type}']);
+      '--jq', '{assoc: .author_association, login: .user.login, type: .user.type, body: (.body // "")}']);
   } catch (e) {
-    console.log(`drift-fallback: impossibile leggere l'autore (${String(e).slice(0, 120)}) — no fallback.`);
+    console.log(`drift-fallback: impossibile leggere PR meta (${String(e).slice(0, 120)}) — no fallback.`);
     return false;
   }
   if (!isTrustedDriftAuthor(meta)) {
@@ -206,26 +233,18 @@ function evaluateDriftFallback() {
     return false;
   }
 
-  // Gate deterministico del body al posto della review Claude: la sticky di
-  // pr-body-contract (createOrUpdate → un solo commento col marker) riflette lo
-  // stato corrente. "PR-body contract OK" appare SOLO sul successo.
-  let sticky = '';
-  try {
-    sticky = gh(['api', `repos/${REPO}/issues/${PR}/comments`, '--paginate',
-      '--jq', '[.[] | select(.body | contains("<!-- pr-body-contract -->")) | .body] | join("\\n---\\n")'],
-      { json: false });
-  } catch (e) {
-    console.log(`drift-fallback: impossibile leggere la sticky pr-body-contract (${String(e).slice(0, 120)}) — no fallback.`);
-    return false;
-  }
-  if (!/PR-body contract OK/.test(sticky)) {
-    console.log(sticky
-      ? 'drift-fallback: pr-body-contract NON verde (body contract incompleto) — no fallback; sistemare il PR body.'
-      : 'drift-fallback: sticky pr-body-contract assente (pending?) — no fallback per ora; il completamento di pr-body-contract/tests ri-valuterà.');
+  // Gate deterministico del body al posto della review Claude — valutato
+  // DIRETTAMENTE dal PR body (NON dalla sticky di pr-body-contract: il suo ramo
+  // all-clear aggiorna una sticky esistente ma non la crea su una PR ben formata,
+  // quindi sulla drift-PR corretta — caso comune — la sticky verde spesso non
+  // esiste; affidarsi ad essa rendeva il fallback un no-op). Zero dipendenze da
+  // ordering/posting esterno.
+  if (!prBodyContractOk(meta.body)) {
+    console.log('drift-fallback: PR body NON conforme al completeness contract (mancano header `## Implementato`/`## Non implementato` o c\'è un `Closes` multi-issue su una riga) — no fallback; sistemare il PR body.');
     return false;
   }
 
-  console.log(`drift-fallback ATTIVO: PR #${PR} modifica ${driftFiles.join(', ')} (reviewer Claude bloccato da workflow-validation 401), autore fidato (assoc=${meta.assoc}/${meta.login}/${meta.type}), pr-body-contract ✔ → approvo via gate deterministici (vitest + collision restano).`);
+  console.log(`drift-fallback ATTIVO: PR #${PR} modifica ${driftFiles.join(', ')} (reviewer Claude bloccato da workflow-validation 401), autore fidato (assoc=${meta.assoc}/${meta.login}/${meta.type}), PR-body contract ✔ → approvo via gate deterministici (vitest + collision restano).`);
   return true;
 }
 
