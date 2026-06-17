@@ -6890,6 +6890,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`);
+ Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
  trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
@@ -6918,6 +6919,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={(e) => {
  if (isInHouseApply) { e.preventDefault(); scrollToCandidatura(); }
  Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`);
+ Analytics.trackJobApply(canonicalCompanyRouteSlug(selectedJob.company, selectedJob.companyKey), Boolean(selectedJob.featured), selectedJob.slug || selectedJob.id);
  trackPublisherApplyClick(selectedJob as { publisherJobId?: string | null });
  }}
  className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
