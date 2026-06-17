@@ -18,6 +18,14 @@ const MANIFEST_NAME = '.thumbcache.json';
 // with `${thumbWebp} 480w, ${hero} 1200w`. Bumping the manifest version
 // forces a one-time regen so cached JPG/AVIF thumbnails are pruned by
 // the next build (manifest mismatch triggers re-encode for every source).
+//
+// The `.webp` outputs are COMMITTED to the repo (see .gitignore); generate-
+// article.yml encodes + commits the new thumbnail alongside each new hero,
+// and deploy reads them straight from the checkout. The SHA manifest below
+// stays LOCAL-ONLY (gitignored): committing it would create merge-conflict
+// churn on the single-line JSON for every concurrent article. In CI the
+// manifest is therefore absent, and the committed-thumbnail fast path in
+// processSourceDir skips untouched images without reading/hashing them.
 const MANIFEST_VERSION = 4;
 
 async function walk(dir) {
@@ -120,10 +128,24 @@ async function processSourceDir(sourceDir) {
     const outWebp = path.join(thumbDir, `${stem}-${WIDTH}w.webp`);
     const outputs = [outWebp];
 
-    const sha = await sha1File(inputPath);
     const cached = manifest[relKey];
+    const exists = await outputsExist(outputs);
 
-    if (cached === sha && (await outputsExist(outputs))) {
+    // Committed-thumbnail fast path. The `.webp` outputs are committed to the
+    // repo and source heroes are append-only (articles add new images; existing
+    // ones are never re-encoded in place). When the output already exists AND
+    // the manifest has no record for this source — the CI case, where the
+    // gitignored manifest is absent and thumbnails come from git — trust the
+    // committed thumbnail and skip WITHOUT reading+hashing the source. This is
+    // what keeps deploy from re-encoding all ~2.7k images every run.
+    if (exists && cached === undefined) {
+      skipped += 1;
+      continue;
+    }
+
+    // Manifest present (local dev): hash the source to catch in-place edits.
+    const sha = await sha1File(inputPath);
+    if (cached === sha && exists) {
       nextManifest[relKey] = sha;
       skipped += 1;
       continue;

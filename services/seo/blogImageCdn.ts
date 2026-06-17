@@ -7,9 +7,10 @@
 // the CDN repo under /images/blog, served at a STABLE URL — consistent with
 // og/data/assets, all on the one CDN (no jsDelivr).
 //
-// Scope: full hero images (~224 MB) AND the 480w responsive thumbnails (~49 MB)
-// move to the CDN. The thumbnails are build-generated (gitignored) under
-// /images/blog/thumbnails/; getResponsiveImageSet (components/community/
+// Scope: full hero images (~224 MB) AND the 480w responsive thumbnails (~51 MB)
+// move to the CDN. The thumbnails are committed under /images/blog/thumbnails/
+// (generate-image-thumbnails.mjs encodes them; generate-article.yml commits each
+// new one alongside its hero); getResponsiveImageSet (components/community/
 // BlogArticles.tsx) emits the CDN thumbnail URL so the responsive `srcSet` is a
 // CDN 480w + CDN 1200w pair, and scripts/offload-generated-images-cdn.mjs deletes
 // dist/images/blog/thumbnails after the deploy pushes them to the CDN. A
@@ -20,9 +21,10 @@
 // Fallback: if the CDN is briefly unreachable, installBlogImageCdnFallback()
 // rewrites the failing <img> to raw.githubusercontent.com at the build SHA
 // (git-tracked source). raw serves images fine — its text/plain MIME + nosniff
-// only block scripts, not images. NOTE: thumbnails have NO raw copy (gitignored),
-// so rawFallbackForBlog() returns null for /thumbnails/ URLs — the cleared srcSet
-// then degrades to the full CDN hero, which DOES recover on raw during an outage.
+// only block scripts, not images. NOTE: rawFallbackForBlog() still returns null
+// for /thumbnails/ URLs by design — even though thumbnails are now committed (so a
+// raw copy exists), clearing the srcSet degrades to the full CDN hero, which DOES
+// recover on raw during an outage; that hero-recovery path is preferred.
 
 const REPO = 'valerielinc-ops/frontaliere-si-o-no';
 
@@ -60,11 +62,12 @@ export function cdnBlogImage(path: string | undefined | null): string {
 /** Map a CDN blog URL to its raw.githubusercontent fallback, or null. */
 export function rawFallbackForBlog(url: string): string | null {
   if (!url.startsWith(CDN_BLOG_BASE + '/')) return null;
-  // 480w thumbnails are build-generated (gitignored) — they have NO raw.github
-  // copy, so there is nothing to fall back to. Returning null here also keeps the
-  // one-shot `cdnFallback` flag UNSET on the thumbnail <img>, so that when the
-  // cleared srcSet falls back to the full hero (git-tracked → raw exists) the
-  // capture listener fires again and recovers the hero on raw during a CDN outage.
+  // 480w thumbnails are committed (a raw.github copy DOES exist), but we still
+  // return null here by design: it keeps the one-shot `cdnFallback` flag UNSET on
+  // the thumbnail <img>, so that when the cleared srcSet falls back to the full
+  // hero (git-tracked → raw exists) the capture listener fires again and recovers
+  // the hero on raw during a CDN outage. Falling back the thumbnail directly would
+  // leave the flag set and suppress that hero recovery.
   if (url.includes('/thumbnails/')) return null;
   return RAW_BLOG_BASE + url.slice(CDN_BLOG_BASE.length);
 }

@@ -46,9 +46,13 @@ lighthouse-report.report.html
 lighthouse-report.report.json
 lighthouse-fresh.json
 
-# Auto-generated responsive thumbnails (created by prebuild script)
-public/images/blog/thumbnails/
-public/images/places/thumbnails/
+# Responsive 480w WebP thumbnails: the `.webp` outputs are COMMITTED
+# (generate-article.yml encodes + commits each new hero's thumbnail; deploy
+# reads them from the checkout and offloads to the CDN). Only the SHA cache
+# manifest stays local-only — committing the single-line JSON would create a
+# merge conflict on every concurrent article. See generate-image-thumbnails.mjs.
+public/images/blog/thumbnails/.thumbcache.json
+public/images/places/thumbnails/.thumbcache.json
 .agents/
 data/pending-releases.json
 data/batch-faq-progress.json
