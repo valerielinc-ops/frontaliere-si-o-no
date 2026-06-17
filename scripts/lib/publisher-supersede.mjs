@@ -5,17 +5,22 @@
 // otherwise the job appears twice (free crawled + the employer's ad), which
 // undermines the paid upgrade ("perché pago se il mio gratis resta lì?").
 //
-// Matching is on companyKey + normalized title so only the SAME role is
-// dropped — never an unrelated crawled opening from a company that also
-// sponsors a different role. The employer's own (publisher-submitted) record
-// is always kept; only crawled duplicates are removed.
+// Matching is on companyKey + normalized title + normalized LOCATION so only the
+// SAME role at the SAME place is dropped. Location is part of the key because:
+//   - the publisher projection emits ONE record per location (same title/companyKey);
+//   - crawlers tag companyKey at the company level;
+//   - each /lavoro/<slug-with-location> is a DISTINCT indexed SEO page.
+// Without location in the key, publishing a role for city A would also drop the
+// crawled pages for cities B and C (which the employer never published) → silent
+// de-index + traffic loss with no publisher replacement. The employer's own
+// (publisher-submitted) record is always kept; only crawled duplicates removed.
 
 import { slugifyPublisher, PUBLISHER_SOURCE_KEY } from './publisherJobProjection.mjs';
 
-/** Stable match key for "same employer + same role". */
+/** Stable match key for "same employer + same role + same location". */
 export function supersedeKey(job) {
   if (!job || !job.companyKey || !job.title) return null;
-  return `${job.companyKey}||${slugifyPublisher(job.title)}`;
+  return `${job.companyKey}||${slugifyPublisher(job.title)}||${slugifyPublisher(job.location || '')}`;
 }
 
 /**
