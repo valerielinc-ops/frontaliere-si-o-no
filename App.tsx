@@ -2342,7 +2342,13 @@ const App: React.FC = () => {
  ) : activeTab === 'stats' ? (
  <StatsTabContent />
  ) : activeTab === 'blog' ? (
- <div className="max-w-7xl mx-auto">
+ // Widen past max-w-7xl (1280) at ≥1400px so the article view's own
+ // 1440px cap can take effect — otherwise the 300px side-rail ad gutters
+ // never get room and stay collapsed to 180px. Mutually-exclusive ranges
+ // (`max-xlw:` < 1400, `xlw:` ≥ 1400) so the cascade order can't pin it to
+ // 7xl. Inner views self-cap (list at max-w-6xl), so only the article
+ // detail actually uses the extra width.
+ <div className="max-xlw:max-w-7xl xlw:max-w-[1440px] mx-auto">
  <BlogArticles
  section={blogSection}
  selectedArticle={blogSection === 'svizzera' ? (swissArticle as BlogArticleId | null) : blogArticle}
