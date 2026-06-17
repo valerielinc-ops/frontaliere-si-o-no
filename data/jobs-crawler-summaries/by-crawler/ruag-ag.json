@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-06-16T23:33:30.072Z",
+  "generatedAt": "2026-06-17T14:00:30.770Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 9382,
-  "avgDurationMs": 9382,
+  "durationMs": 9385,
+  "avgDurationMs": 9385,
   "durationHistory": [
-    9382
+    9385
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -76,17 +76,16 @@
       "contractType": "part-time",
       "validThrough": "2053-10-30",
       "id": "ruag-ag-af78506b1885",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "currency": "CHF",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
-      "_qualityScore": 90,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -113,17 +112,16 @@
       "contractType": "full-time",
       "validThrough": "2053-08-27",
       "id": "ruag-ag-38c458e9550e",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
-      "_qualityScore": 90,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -150,16 +148,15 @@
       "contractType": "full-time",
       "validThrough": "2053-07-26",
       "id": "ruag-ag-eb557c3f0e86",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -186,17 +183,16 @@
       "contractType": "part-time",
       "validThrough": "2053-10-30",
       "id": "ruag-ag-90303d17e796",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
       "postalCode": "3600",
       "firstSeenAt": "2026-06-16T14:15:55.157Z",
-      "_qualityScore": 90,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     }
