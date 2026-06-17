@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-06-17T13:06:34.046Z",
+  "assembledAt": "2026-06-17T22:44:57.609Z",
   "jobs": [
     {
       "id": "hilti-14822-en",
@@ -33,7 +33,7 @@
       "url": "https://careers.hilti.group/en/jobs/14822-en/intern-data-ai-product-owner-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T13:06:31.279Z",
+      "crawledAt": "2026-06-17T22:44:55.179Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -58,8 +58,8 @@
           "intern-data-ai-product-owner-m-f-x-hilti-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.629Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.629Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -104,7 +104,7 @@
       "url": "https://careers.hilti.group/en/jobs/14902-de/career-starter-marketing-sales-region-basel-100-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.276Z",
+      "crawledAt": "2026-06-17T22:44:55.177Z",
       "addressLocality": "Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -153,8 +153,8 @@
           "career-starter-marketing-sales-region-basel-100-m-w-d-hilti-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.628Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.628Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -199,7 +199,7 @@
       "url": "https://careers.hilti.group/en/jobs/11963-en/intern-cybersecurity-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T13:06:31.275Z",
+      "crawledAt": "2026-06-17T22:44:55.176Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -269,7 +269,7 @@
       "url": "https://careers.hilti.group/en/jobs/16530-de/verkaufsberater-in-der-region-basel-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.274Z",
+      "crawledAt": "2026-06-17T22:44:55.175Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "Basel",
@@ -303,8 +303,8 @@
           "verkaufsberater-in-der-region-basel-m-w-d-100-oder-jobsharing-50-70-moglich-hilti-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.626Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.626Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -349,7 +349,7 @@
       "url": "https://careers.hilti.group/en/jobs/14303-en/intern-it-business-analyst-corporate-functions-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T13:06:31.273Z",
+      "crawledAt": "2026-06-17T22:44:55.174Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "addressRegion": "St. Gallen",
@@ -389,8 +389,8 @@
           "intern-it-business-analyst-corporate-functions-m-f-x-hilti-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.624Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.624Z",
       "salaryMin": 54000,
       "salaryMax": 91500,
       "baseSalary": {
@@ -405,80 +405,88 @@
       }
     },
     {
-      "id": "hilti-16790-fr",
-      "slug": "addetto-alle-pratiche-dei-debitori-in-tedesco-e-francese-m-f-d-50-70-hilti-zurich",
+      "id": "hilti-17006-de",
+      "slug": "technical-sales-ingegnere-per-la-region-bern-m-w-d-80-100-hilti-basel-bern",
       "slugByLocale": {
-        "fr": "collaborateur-trice-aux-debiteurs-en-allemand-et-francais-m-f-d-50-70-hilti-zurich",
-        "it": "addetto-alle-pratiche-dei-debitori-in-tedesco-e-francese-m-f-d-50-70-hilti-zurich",
-        "en": "debtor-clerk-in-german-and-french-m-f-d-50-70-hilti-zurich",
-        "de": "sachbearbeiter-debitoren-in-deutsch-und-franzosisch-m-w-d-50-70-hilti-ch"
+        "it": "technical-sales-ingegnere-per-la-region-bern-m-w-d-80-100-hilti-basel-bern",
+        "en": "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+        "de": "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+        "fr": "technical-sales-ingenieur-fur-die-region-bern-m-w-d-80-100-hilti-basel-bern"
       },
       "company": "Hilti",
       "companyKey": "hilti",
       "companyDomain": "hilti.group",
-      "title": "Comptable (h/f/d) (50-70 %)",
+      "title": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
       "titleByLocale": {
-        "fr": "Comptable (h/f/d) (50-70 %)",
-        "en": "Comptable (h/f/d) (50-70 %)",
-        "it": "Comptable (f/m/d) (50-70 %)",
-        "de": "Comptable (h/f/d) (50-70 %)"
+        "it": "Technical Sales Ingegnere per la Region Bern (m/w/d) 80-100%",
+        "en": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
+        "de": "Technical Sales Ingenieur für die Region Bern (m/w/d) 80-100%",
+        "fr": "Technical Sales Ingénieur für die Region Bern (m/w/d) 80-100%"
       },
-      "description": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
+      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
       "descriptionByLocale": {
-        "fr": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
-        "it": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
-        "en": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
-        "de": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement."
+        "it": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "en": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "fr": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln."
       },
-      "location": "Zürich, Adliswil / Zurich, Suisse",
-      "canton": "ZH",
-      "url": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
+      "location": "Basel / Bern, Bern, Schweiz",
+      "canton": "BE",
+      "url": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
       "source": "Hilti Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-17T13:06:31.271Z",
-      "addressLocality": "Zürich",
-      "postalCode": "8001",
-      "addressRegion": "Adliswil / Zurich",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T22:44:55.173Z",
+      "addressLocality": "Basel / Bern",
+      "postalCode": "4001",
+      "addressRegion": "Bern",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Finanza",
+      "category": "Ingegneria",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
       "sector": "Construction tools & fastening technology (manufacturing)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-27",
-      "applyUrl": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
+      "postedDate": "2026-03-31",
+      "applyUrl": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+        "gebaudetechnikplaner-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+        "tecnico-di-pianificazione-degli-impianti-per-la-regione-di-berna-m-f-d-80-100-hilti-basel-bern",
+        "building-services-planner-for-the-bern-region-m-f-d-80-100-hilti-basel-bern",
+        "planificateur-de-techniques-du-batiment-pour-la-region-de-berne-h-f-d-80-100-hilti-basel-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "comptable-h-f-d-50-70-hilti-ch"
+          "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+          "gebaudetechnikplaner-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+          "tecnico-di-pianificazione-degli-impianti-per-la-regione-di-berna-m-f-d-80-100-hilti-basel-bern"
+        ],
+        "en": [
+          "building-services-planner-for-the-bern-region-m-f-d-80-100-hilti-basel-bern"
         ],
         "fr": [
-          "comptable-h-f-d-50-70-hilti-ch"
+          "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
+          "planificateur-de-techniques-du-batiment-pour-la-region-de-berne-h-f-d-80-100-hilti-basel-bern"
         ]
       },
-      "previousSlugs": [
-        "comptable-h-f-d-50-70-hilti-ch"
-      ],
       "needsRetranslation": true,
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "firstSeenAt": "2026-06-16T22:57:44.607Z",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 68500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-17T13:06:31.271Z"
+      }
     },
     {
       "id": "hilti-17041-de",
@@ -511,7 +519,7 @@
       "url": "https://careers.hilti.group/en/jobs/17041-de/verkaufsberater-in-hilti-store-munchenstein-80-100-m-w-d-m-w-d-jobsharing-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.263Z",
+      "crawledAt": "2026-06-17T22:44:55.172Z",
       "addressLocality": "Basel | Münchenstein",
       "postalCode": "",
       "addressRegion": "Basel",
@@ -567,8 +575,8 @@
           "verkaufsberater-in-hilti-store-munchenstein-80-100-m-w-d-m-w-d-jobsharing-moglich-hilti-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.619Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.619Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -578,90 +586,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "hilti-17006-de",
-      "slug": "technical-sales-ingegnere-per-la-region-bern-m-w-d-80-100-hilti-basel-bern",
-      "slugByLocale": {
-        "it": "technical-sales-ingegnere-per-la-region-bern-m-w-d-80-100-hilti-basel-bern",
-        "en": "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-        "de": "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-        "fr": "technical-sales-ingenieur-fur-die-region-bern-m-w-d-80-100-hilti-basel-bern"
-      },
-      "company": "Hilti",
-      "companyKey": "hilti",
-      "companyDomain": "hilti.group",
-      "title": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
-      "titleByLocale": {
-        "it": "Technical Sales Ingegnere per la Region Bern (m/w/d) 80-100%",
-        "en": "Technical Sales Engineer für die Region Bern (m/w/d) 80-100%",
-        "de": "Technical Sales Ingenieur für die Region Bern (m/w/d) 80-100%",
-        "fr": "Technical Sales Ingénieur für die Region Bern (m/w/d) 80-100%"
-      },
-      "description": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-      "descriptionByLocale": {
-        "it": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "en": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "de": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
-        "fr": "Beraten, überzeugen, verkaufen – Deine Chance im Bauumfeld! Hast du eine Passion für Gebäudetechnik und ein Flair für technische Beratung? Arbeitest du gerne in einem innovativen Umfeld, in dem du wirklich etwas bewegen kannst? Dann bist du die ideale Verstärkung für unser aufstrebendes Engineering-Team. Dein Profil\n• Erfahrung im Bereich Gebäudetechnik (z. B. SHKL-Planung, Installateur:in mit Weiterbildung etc.)\n• Erfahrung im Projektmanagement und in der Digitalisierung am Bau\n• hohe Vertriebsorientierung, Eigenmotivation, Engagement und Zielorientierung\n• Lernbereitschaft sowie die Fähigkeit, komplexe technische Inhalte verständlich zu vermitteln\n• Kommunikationsstärke und hohe Teamorientierung\n• sehr gute Deutsch- und Englischkenntnisse Impressum Haben wir dein Interesse geweckt, bei einem der besten Arbeitgeber der Schweiz zu arbeiten? Dann freuen wir uns auf deine aussagekräftige Online-Bewerbung. Deine vollständigen Unterlagen (Motivationsschreiben, CV, Zeugnisse) nehmen wir ausschliesslich über unser Online-Karrieretool entgegen. Frau Manuela Ancora, HR Talent Partner, freut sich auf dein Anschreiben und steht dir bei Fragen gerne zur Verfügung: chteamhrrecruiting@hilti.com Was kannst du erwarten, wenn du dich bei Hilti bewirbst?\n• Wir verpflichten uns, alle Bewerbungen von einem Menschen prüfen zu lassen. Auch wenn niemand unfehlbar ist, stehen wir bei allem, was wir tun, zu unserem personenzentrierten Ansatz.\n• Sobald du deine Bewerbung eingereicht hast, erhältst du automatische Benachrichtigungen von unserem System (ausgelöst durch unser Rekrutierungsteam).\n• Bewerbungen, die es nicht bis zum Vorstellungsgespräch mit einem einstellenden Manager schaffen, erhalten kein personalisiertes Feedback.\n• Du kannst davon ausgehen, dass du innerhalb von 2–3 Wochen (im Durchschnitt) von uns hörst – unabhängig vom Ergebnis. Der gesamte Einstellungsprozess kann zwischen 5 und 6 Wochen dauern.\n• Wir wünschen dir viel Erfolg in deinem Bewerbungsverfahren. Tipps zur Bewerbung und zum Vorstellungsgespräch findest du in unseren häufig gestellten Fragen zur Karriere. Sollten technische Probleme während der Bewerbung auftreten, kontaktiere bitte mycareer-techsupport@hilti.com. Verpflichtung zur Inklusion Inklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern. Warum Hilti Hilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln."
-      },
-      "location": "Basel / Bern, Bern, Schweiz",
-      "canton": "BE",
-      "url": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
-      "source": "Hilti Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.263Z",
-      "addressLocality": "Basel / Bern",
-      "postalCode": "4001",
-      "addressRegion": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Construction tools & fastening technology (manufacturing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "applyUrl": "https://careers.hilti.group/en/jobs/17006-de/technical-sales-engineer-fur-die-region-bern-m-w-d-80-100/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-        "gebaudetechnikplaner-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-        "tecnico-di-pianificazione-degli-impianti-per-la-regione-di-berna-m-f-d-80-100-hilti-basel-bern",
-        "building-services-planner-for-the-bern-region-m-f-d-80-100-hilti-basel-bern",
-        "planificateur-de-techniques-du-batiment-pour-la-region-de-berne-h-f-d-80-100-hilti-basel-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-          "gebaudetechnikplaner-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-          "tecnico-di-pianificazione-degli-impianti-per-la-regione-di-berna-m-f-d-80-100-hilti-basel-bern"
-        ],
-        "fr": [
-          "technical-sales-engineer-fur-die-region-bern-m-w-d-80-100-hilti-ch",
-          "planificateur-de-techniques-du-batiment-pour-la-region-de-berne-h-f-d-80-100-hilti-basel-bern"
-        ],
-        "en": [
-          "building-services-planner-for-the-bern-region-m-f-d-80-100-hilti-basel-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-16T22:57:44.607Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -697,7 +621,7 @@
       "url": "https://careers.hilti.group/en/jobs/17711-de/verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.262Z",
+      "crawledAt": "2026-06-17T22:44:55.171Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressRegion": "Graubünden",
@@ -753,8 +677,8 @@
           "verkaufsberater-im-aussendienst-region-graubunden-ohne-engadin-m-w-d-100-oder-jobsharing"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.618Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.618Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -799,7 +723,7 @@
       "url": "https://careers.hilti.group/en/jobs/16292-de/verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.261Z",
+      "crawledAt": "2026-06-17T22:44:55.170Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "Zentralschweiz",
@@ -854,8 +778,8 @@
           "verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.617Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.617Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -900,7 +824,7 @@
       "url": "https://careers.hilti.group/en/jobs/17921-de/bauingenieur-im-aussendienst-in-der-region-ostschweiz-st-gallen-chur-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.260Z",
+      "crawledAt": "2026-06-17T22:44:55.168Z",
       "addressLocality": "Ostschweiz St.Gallen / Chur",
       "postalCode": "7000",
       "addressRegion": "St. Gallen",
@@ -996,7 +920,7 @@
       "url": "https://careers.hilti.group/en/jobs/18312-fr/inside-sales-account-manager-en-francais-h-f-d-100-ou-possibilite-de-jobsharing-50-70/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-17T13:06:31.258Z",
+      "crawledAt": "2026-06-17T22:44:55.167Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "Adliswil / Zurich",
@@ -1021,8 +945,8 @@
           "inside-sales-account-manager-en-francais-h-f-d-100-ou-possibilite-de-jobsharing-50-70"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.614Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.614Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1067,7 +991,7 @@
       "url": "https://careers.hilti.group/en/jobs/12079-de/verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:06:31.236Z",
+      "crawledAt": "2026-06-17T22:44:55.165Z",
       "addressLocality": "Thun, Spiez, Interlaken",
       "postalCode": "3600",
       "addressRegion": "Berner Oberland",
@@ -1123,8 +1047,8 @@
           "verkaufsberater-fur-den-grossraum-berner-oberland-m-w-d-100-oder-jobsharing-50-70-moglich"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:55:38.563Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:55:38.563Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -1169,7 +1093,7 @@
       "url": "https://careers.hilti.group/en/jobs/18313-fr/conseiller-de-vente-en-externe-lausanne-h-f-d-100-ou-possibilite-de-jobsharing/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-17T13:06:31.232Z",
+      "crawledAt": "2026-06-17T22:44:55.164Z",
       "addressLocality": "Lausanne",
       "postalCode": "1003",
       "addressRegion": "Suisse romande",
@@ -1212,6 +1136,80 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "hilti-16790-fr",
+      "slug": "addetto-alle-pratiche-dei-debitori-in-tedesco-e-francese-m-f-d-50-70-hilti-zurich",
+      "slugByLocale": {
+        "it": "addetto-alle-pratiche-dei-debitori-in-tedesco-e-francese-m-f-d-50-70-hilti-zurich",
+        "en": "debtor-clerk-in-german-and-french-m-f-d-50-70-hilti-zurich",
+        "de": "sachbearbeiter-debitoren-in-deutsch-und-franzosisch-m-w-d-50-70-hilti-ch",
+        "fr": "collaborateur-trice-aux-debiteurs-en-allemand-et-francais-m-f-d-50-70-hilti-zurich"
+      },
+      "company": "Hilti",
+      "companyKey": "hilti",
+      "companyDomain": "hilti.group",
+      "title": "Comptable (h/f/d) (50-70 %)",
+      "titleByLocale": {
+        "it": "Comptable (f/m/d) (50-70 %)",
+        "en": "Comptable (h/f/d) (50-70 %)",
+        "de": "Comptable (h/f/d) (50-70 %)",
+        "fr": "Comptable (h/f/d) (50-70 %)"
+      },
+      "description": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
+      "descriptionByLocale": {
+        "it": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
+        "en": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
+        "de": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
+        "fr": "Le recouvrement et l'analyse de crédit, c'est ton domaine ? Alors rejoins notre équipe ! Nous te recherchons : une personne responsable et orientée solutions, avec d’excellentes compétences linguistiques en allemand et en français. Tes domaines d’activité seront centrés sur le recouvrement et l’analyse de crédit : tu veilles à ce que nos processus débiteurs fonctionnent de manière efficace et orientée client. Tu apprécies les échanges avec des interlocuteurs internes et externes, tu aimes évoluer dans un environnement dynamique et tu fais preuve de tact dans tes relations ? Alors nous aimerions absolument faire ta connaissance ! Vos atouts pour ce poste\n• Formation commerciale achevée – les personnes en reconversion ou celles reprenant une activité sont également les bienvenues.\n• Une expérience en comptabilité débiteur est un atout, mais pas indispensable – ta motivation compte avant tout !\n• Compétences linguistiques : allemand et français courants, l’anglais et l’italien sont un atout.\n• La maîtrise de SAP (module financier S4HANA) et de bonnes compétences en Excel sont un plus.\n• Tu es communicatif·ve, autonome, organisé·e et résistant·e au stress, même dans des situations exigeantes.\n• Esprit d’équipe, flexibilité et plaisir à collaborer complètent ton profil. Mentions légales Avons-nous éveillé ton intérêt à travailler pour l’un des meilleurs employeurs de Suisse ? Nous nous réjouissons de recevoir ta candidature en ligne. Merci de nous transmettre ton dossier complet (dans un seul document PDF incluant lettre de motivation, CV, certificats, etc.) exclusivement via notre plateforme de recrutement en ligne. Madame Joèlle Ochsner, HR Talent Partner, se réjouit de recevoir ta candidature et se tient à ta disposition pour toute question : chteamhrrecruiting@hilti.com À quoi peux-tu t’attendre en postulant chez Hilti ?\n• Nous nous engageons à ce que toutes les candidatures soient examinées par une personne. Même si nul n’est infaillible, notre approche reste centrée sur l’humain dans tout ce que nous faisons.\n• Après le dépôt de ta candidature, tu recevras des notifications automatiques de notre système (déclenchées par notre équipe de recrutement).\n• Les candidatures qui ne sont pas retenues pour un entretien avec un responsable du recrutement ne reçoivent pas de retour personnalisé.\n• Tu peux t’attendre à recevoir une réponse de notre part dans un délai moyen de 2 à 3 semaines, quel que soit le résultat. Le processus complet de recrutement peut durer entre 5 et 6 semaines. Nous te souhaitons plein succès dans ton processus de candidature. Tu trouveras des conseils pour ta candidature et tes entretiens dans notre FAQ carrière. En cas de problème technique lors de ta candidature, merci de contacter : mycareer-techsupport@hilti.com. Engagement en faveur de l'inclusion Chez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble. Pourquoi choisir Hilti Hilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement."
+      },
+      "location": "Zürich, Adliswil / Zurich, Suisse",
+      "canton": "ZH",
+      "url": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
+      "source": "Hilti Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-17T22:44:55.162Z",
+      "addressLocality": "Zürich",
+      "postalCode": "8001",
+      "addressRegion": "Adliswil / Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Construction tools & fastening technology (manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "applyUrl": "https://careers.hilti.group/en/jobs/16790-fr/comptable-h-f-d-50-70/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "comptable-h-f-d-50-70-hilti-ch"
+        ],
+        "it": [
+          "comptable-h-f-d-50-70-hilti-ch"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-h-f-d-50-70-hilti-ch"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:06:31.271Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
