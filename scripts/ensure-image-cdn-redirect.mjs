@@ -33,10 +33,19 @@ import { resolveZoneId, DEFAULT_ZONE_NAME, REST_BASE } from './lib/cf-analytics.
 
 const CDN_BASE = 'https://cdn.frontaliereticino.ch';
 
-// MUST stay in sync with CDN_OFFLOADED_IMAGE_PREFIXES in services/cdnImageBase.ts
-// (and IMAGE_TARGETS in scripts/offload-generated-images-cdn.mjs). `/images/places/`
-// is deliberately excluded — it stays same-origin.
+// The authoritative set is the offload script's deleted-from-dist TARGETS
+// (scripts/offload-generated-images-cdn.mjs `TARGETS[].url`): EVERY prefix it
+// pushes to the CDN and then removes from the artifact 404s on the apex for
+// external referrers / Google-Images cache — exactly the class this rule
+// recovers. That is a SUPERSET of CDN_OFFLOADED_IMAGE_PREFIXES in
+// services/cdnImageBase.ts (the 6 image prefixes rewritten at SPA/HTML render
+// time): it also includes `/og/` (per-job OG cards) and `/images/blog/thumbnails/`
+// (blog 480w thumbnails, offloaded via getResponsiveImageSet, not cdnImageUrl).
+// MUST stay in sync with that TARGETS list. `/images/places/` is deliberately
+// excluded — it stays same-origin (blog hero places). Reviewer 🔴 on #2396.
 const OFFLOADED_PREFIXES = [
+  '/og/',
+  '/images/blog/thumbnails/',
   '/images/brands/',
   '/images/insurers/',
   '/images/providers/',
