@@ -166,19 +166,11 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: npm run test:articles
 
-      - name: Cache responsive image thumbnails
-        if: steps.changes.outputs.has_changes == 'true'
-        id: thumb-cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            public/images/blog/thumbnails
-            public/images/places/thumbnails
-          key: thumbnails-v2-${{ github.run_id }}
-          restore-keys: |
-            thumbnails-v2-
-
-      - name: Generate responsive image thumbnails
+      # Encode the 480w WebP thumbnail for the new hero. The committed thumbnails
+      # arrive with the checkout (no actions/cache needed — git IS the cache), so
+      # the script skips all existing images via the committed-thumbnail fast path
+      # and only encodes the freshly-added one. `git add -A` below commits it.
+      - name: Generate responsive image thumbnail for new article
         if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
