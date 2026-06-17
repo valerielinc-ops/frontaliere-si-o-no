@@ -88,6 +88,24 @@ describe('localeEmitFilter — single-locale shard', () => {
   });
 });
 
+describe('localeEmitFilter — ownerEmitLocale normalises hreflang values to the owning base locale', () => {
+  it('maps x-default to it and strips region/script subtags', async () => {
+    const f = await loadFilter('en'); // filter-independent, any active value works
+    expect(f.ownerEmitLocale('x-default')).toBe('it');
+    expect(f.ownerEmitLocale('X-Default')).toBe('it');
+    // Region/script-tagged values collapse to their base locale.
+    expect(f.ownerEmitLocale('en-US')).toBe('en');
+    expect(f.ownerEmitLocale('de-CH')).toBe('de');
+    expect(f.ownerEmitLocale('fr-CH')).toBe('fr');
+    expect(f.ownerEmitLocale('zh-Hant')).toBe('zh');
+    // Plain base locales pass through (lowercased); unknown values unchanged.
+    expect(f.ownerEmitLocale('it')).toBe('it');
+    expect(f.ownerEmitLocale('EN')).toBe('en');
+    expect(f.ownerEmitLocale('  de  ')).toBe('de');
+    expect(f.ownerEmitLocale('es')).toBe('es');
+  });
+});
+
 describe('localeEmitFilter — multi-locale shard (comma list)', () => {
   it('BUILD_LOCALE=en,de emits both, drops it/fr', async () => {
     const f = await loadFilter('en, DE'); // trims + lowercases
