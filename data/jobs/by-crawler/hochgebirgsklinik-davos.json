@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-06-17T13:11:53.794Z",
+  "assembledAt": "2026-06-17T22:44:55.852Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-9be0377bcb5a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.311Z",
+      "crawledAt": "2026-06-17T22:44:53.797Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -101,8 +101,8 @@
           "senior-consultant-m-w-d-50-100-hochgebirgsklinik-davos-davos"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.483Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.483Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -148,7 +148,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.310Z",
+      "crawledAt": "2026-06-17T22:44:53.796Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -198,8 +198,8 @@
           "forschungspraktikum-kardiologie-100-w-m-d-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.482Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.482Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -245,7 +245,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.309Z",
+      "crawledAt": "2026-06-17T22:44:53.795Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -301,8 +301,8 @@
           "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-60-100-hochgebirgsklini"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.481Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.481Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -348,7 +348,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.309Z",
+      "crawledAt": "2026-06-17T22:44:53.794Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -398,105 +398,8 @@
           "fachperson-gesundheit-w-m-d-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
       "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-c634b3960b3a",
-      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
-        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
-        "de": "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
-        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Pflegefachperson (w/m/d)",
-      "titleByLocale": {
-        "it": "Assistente sanitario (m/f/d)",
-        "en": "Pflegefachperson (w/m/d)",
-        "de": "Pflegefachperson (w/m/d)",
-        "fr": "Aide-soignant (m/f/d)"
-      },
-      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
-      "descriptionByLocale": {
-        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ##\n• Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ##\n• Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
-        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ##\n• Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ##\n• What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
-        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
-        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ##\n• Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.308Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-17",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma di Assistente sanitario HF/FH o equivalente",
-          "Passione per l'assistenza acuta e di riabilitazione",
-          "Lavoro autonomo e responsabile",
-          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
-        ],
-        "en": [
-          "Diploma as a Nursing Assistant HF/FH or equivalent",
-          "Enjoyment of acute and rehabilitation nursing",
-          "Independent, responsible working",
-          "Interest in quality, development, and interdisciplinary collaboration"
-        ],
-        "fr": [
-          "Diplôme d'aide-soignant HF/FH ou équivalent",
-          "Plaisir des soins urgents et de réadaptation",
-          "Travail autonome et responsable",
-          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
-        ]
-      },
-      "department": "Pflege",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "Anic Gloor",
-      "contactPhone": "081 417 30 39",
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ],
-        "it": [
-          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
-      ],
       "firstSeenAt": "2026-04-13T10:43:15.479Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -542,7 +445,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.307Z",
+      "crawledAt": "2026-06-17T22:44:53.793Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -595,8 +498,105 @@
           "pflegehelfer-w-m-d-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.479Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-c634b3960b3a",
+      "slug": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "assistente-sanitario-m-f-d-hochgebirgsklinik-davos-davos",
+        "en": "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch",
+        "de": "pflegefachpersonal-w-m-d-hochgebirgsklinik-davos-davos",
+        "fr": "aide-soignant-m-f-d-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Pflegefachperson (w/m/d)",
+      "titleByLocale": {
+        "it": "Assistente sanitario (m/f/d)",
+        "en": "Pflegefachperson (w/m/d)",
+        "de": "Pflegefachperson (w/m/d)",
+        "fr": "Aide-soignant (m/f/d)"
+      },
+      "description": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+      "descriptionByLocale": {
+        "it": "Descrizione Vuoi vivere l'assistenza che fa la differenza? Nella nostra clinica di riabilitazione, accompagnerai pazienti e pazienti nel loro percorso di ritorno alla vita quotidiana, con un mix di medicina di riabilitazione e assistenza acuta. ## Compiti - Assistenza integrale: Lavorerai in modo medico, sociale, emotivo e funzionale - Agire in modo interdisciplinare: Fisioterapia, Ergoterapia, Sport, Psicologia, Medici, Servizio Sociale e altri - tutti insieme per il successo del trattamento - Promuovere l'autonomia: Accompagnerai i pazienti nel ritorno alla vita quotidiana e rafforzerai la loro fiducia nelle loro capacità - Vivere l'assistenza acuta: Compiti vari con casi interessanti dall'ospedale acuto - Partecipare: Porti idee e modelli attivamente i processi - a livello di squadra ##\n• Requisiti - Diploma di Assistente sanitario HF/FH o equivalente - Passione per l'assistenza acuta e di riabilitazione - Lavoro autonomo e responsabile - Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare ##\n• Cosa offriamo - Più tempo per l'assistenza relazionale: La piscina di accompagnamento e la farmacia alleggeriscono le attività di routine - Equilibrio tra lavoro e vita: Poche ore straordinarie, turni pianificabili, pochi o nessun turno di notte - Cultura familiare: Collaborazione a livello di squadra, assistenza nella direzione - Energia anche dopo il servizio: Più focus sulla relazione che sulla fatica fisica - Goditi la salute: Cucina mediterranea a piccoli prezzi",
+        "en": "Description Do you want to live nursing that makes a difference? In our rehabilitation clinic, you will accompany patients on their way back to everyday life – with a mix of rehabilitation medicine and acute care. ## Tasks - Comprehensive care: You will work medically, socially, emotionally, and functionally - Interdisciplinary action: Physio, Ergo, Sport, Psychology, Doctors, Social Service and others – all together for the success of treatment - Promote independence: You will accompany the patients back to everyday life and strengthen their trust in their abilities - Live acute care: Diverse tasks with exciting cases from the acute hospital - Participate: You bring ideas and actively shape processes – on an equal footing in the team ##\n• Requirements - Diploma as a Nursing Assistant HF/FH or equivalent - Enjoyment of acute and rehabilitation nursing - Independent, responsible working - Interest in quality, development, and interdisciplinary collaboration ##\n• What we offer - More time for relationship care: The companion pool and pharmacy relieve routine tasks - Work-life balance: Few overtime hours, schedulable shifts, few or no night shifts - Family culture: Collaboration on an equal footing, nursing in the management - Energy even after service: More focus on relationship than on physical strain - Enjoy health: Mediterranean cuisine at small prices",
+        "de": "Du möchtest Pflege leben, die wirkt? In unserer Rehabilitationsklinik begleitest du Patientinnen und Patienten auf ihrem Weg zurück in den Alltag – mit einem Mix aus Rehabilitationsmedizin und akutnaher Pflege. | Aufgaben:\n• Ganzheitlich pflegen: Du arbeitest medizinisch, sozial, emotional und funktionell.\n• Interdisziplinär handeln: Physio, Ergo, Sport, Psychologie, Ärzt:innen, Sozialdienst und weitere – gemeinsam für den Behandlungserfolg.\n• Selbstständigkeit fördern: Du begleitest die Patient:innen zurück in den Alltag und stärkst das Vertrauen der Patient:innen in ihre Fähigkeiten.\n• Akutnahe Pflege leben: Vielseitige Aufgaben mit spannenden Fällen aus dem Akutspital.\n• Mitgestalten: Du bringst Ideen ein und gestaltest Abläufe aktiv mit – auf Augenhöhe im Team. | Anforderungen:\n• Diplom als Pflegefachperson HF/FH oder gleichwertig\n• Freude an Akut- und Reha-Pflege\n• Selbstständiges, verantwortungsbewusstes Arbeiten\n• Interesse an Qualität, Entwicklung und interdisziplinärer Zusammenarbeit | Wir bieten:\n• Mehr Zeit für Beziehungspflege: Begleitpool und Apotheke entlasten Routineaufgaben.\n• Work-Life-Balance: Kaum Überstunden, planbare Dienste, wenig bis keine Nachtdienste\n• Familiäre Kultur: Zusammenarbeit auf Augenhöhe, Pflege in der Geschäftsleitung.\n• Energie auch nach dem Dienst: Mehr Fokus auf Beziehung als auf körperliche Belastung.\n• Gesund geniessen: mediterrane Küche zu kleinen Preisen.",
+        "fr": "Description Vous souhaitez vivre l'infirmier qui fait la différence? Dans notre clinique de réadaptation, vous accompagnez les patients dans leur retour à la vie quotidienne – avec un mélange de médecine de réadaptation et de soins urgents. ## Tâches - Soins complets: Vous travaillez médicalement, socialement, émotionnellement et fonctionnellement - Action interdisciplinaire: Physio, Ergo, Sport, Psychologie, Médecins, Service Social et autres – tous ensemble pour le succès du traitement - Promouvoir l'autonomie: Vous accompagnez les patients dans leur retour à la vie quotidienne et renforcez leur confiance en leurs capacités - Vivre les soins urgents: Tâches variées avec des cas intéressants de l'hôpital urgent - Participer: Vous apportez des idées et façonnez activement les processus – à l'égalité dans l'équipe ##\n• Exigences - Diplôme d'aide-soignant HF/FH ou équivalent - Plaisir des soins urgents et de réadaptation - Travail autonome et responsable - Intérêt pour la qualité, le développement et la collaboration interdisciplinaire ## Ce que nous offrons - Plus de temps pour les soins relationnels: La piscine d'accompagnement et la pharmacie soulage les tâches de routine - Équilibre travail-vie: Peu d'heures supplémentaires, des quarts planifiables, peu ou pas de quarts de nuit - Culture familiale: Collaboration à l'égalité, soins dans la direction - Énergie même après le service: Plus de focus sur la relation que sur la fatigue physique - Profitez de la santé: Cuisine méditerranéenne à petits prix"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-17T22:44:53.793Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-17",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/610/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma di Assistente sanitario HF/FH o equivalente",
+          "Passione per l'assistenza acuta e di riabilitazione",
+          "Lavoro autonomo e responsabile",
+          "Interesse per la qualità, lo sviluppo e la collaborazione interdisciplinare"
+        ],
+        "en": [
+          "Diploma as a Nursing Assistant HF/FH or equivalent",
+          "Enjoyment of acute and rehabilitation nursing",
+          "Independent, responsible working",
+          "Interest in quality, development, and interdisciplinary collaboration"
+        ],
+        "fr": [
+          "Diplôme d'aide-soignant HF/FH ou équivalent",
+          "Plaisir des soins urgents et de réadaptation",
+          "Travail autonome et responsable",
+          "Intérêt pour la qualité, le développement et la collaboration interdisciplinaire"
+        ]
+      },
+      "department": "Pflege",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "Anic Gloor",
+      "contactPhone": "081 417 30 39",
+      "previousSlugsByLocale": {
+        "de": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ],
+        "it": [
+          "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-w-m-d-hochgebirgsklinik-davos-ch"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.479Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -642,7 +642,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.306Z",
+      "crawledAt": "2026-06-17T22:44:53.792Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -679,8 +679,8 @@
           "oberarzt-oberarztin-kardiologie-m-w-80-100-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-15T21:45:59.207Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-15T21:45:59.207Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -726,7 +726,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.305Z",
+      "crawledAt": "2026-06-17T22:44:53.791Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -809,7 +809,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.304Z",
+      "crawledAt": "2026-06-17T22:44:53.790Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -848,8 +848,8 @@
           "physiotherapeut-m-w-d-70-80-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-05-27T12:42:17.137Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-27T12:42:17.137Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -895,7 +895,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.304Z",
+      "crawledAt": "2026-06-17T22:44:53.790Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -957,8 +957,8 @@
           "leitender-arzt-leitende-arztin-kardiologie-m-w-d-80-100-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-04-13T10:43:15.476Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T10:43:15.476Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -989,22 +989,22 @@
       "titleByLocale": {
         "it": "Psicologo genitori-figlio e stazione giovanile (m/f/d) 80 - 100 %",
         "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
-        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100 %",
+        "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Psychologue parent-enfant et jeune station (m/f/j) 80 - 100 %"
       },
       "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
       "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
-        "de": "Descrizione\n\nHinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung.\n\nMansioni\n\n- Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n- Planung und Leitung von themenspezifischen Gruppentherapien\n- Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n- Anleitung von Entspannungsverfahren\n- Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n- Aktive interdisziplinäre Zusammenarbeit\n\nRequisiti\n\n- Masterabschluss in Psychologie\n- Erfahrung in der Neuropsychologie\n- Kenntnisse in der ambulanten Testdiagnostik\n- Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n- Freude und Interesse am patientenorientierten Arbeiten\n- Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n- Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n- Gute PC-Anwenderkenntnisse",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Per ulteriori informazioni potete contattare il Dott. Raschid Gharbo, responsabile del reparto di psicosomatica, +41 81 417 30 83, sarà lieto di aiutarvi. Mansioni - Pianificazione e realizzazione autonoma di diagnosi psichiatriche e psicologiche infantili e dell'adolescenza nonché di psicoterapie individuali - Pianificazione e gestione di terapie di gruppo tematiche - Realizzazione di gruppi psicoeducativi e formazione per pazienti e familiari - Istruzioni per procedure di rilassamento - Documentazione corretta e responsabile e redazione di rapporti secondo le linee guida della clinica - Collaborazione interdisciplinare attiva \n• Requisiti - Master in psicologia - Esperienza in neuropsicologia - Conoscenza di test diagnostici ambulatoriali - Formazione in psicoterapia riconosciuta a livello federale completata o iniziata - Piacere e interesse per il lavoro orientato al paziente - Elevate abilità sociali e modo di lavorare indipendente e affidabile - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra - Buone capacità di utilizzo del PC",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. For additional information, please contact Dr. Raschid Gharbo, Head of Psychosomatics, +41 81 417 30 83 is happy to help. Mansioni - Independent planning and implementation of child and adolescent psychiatric and psychological diagnostics as well as individual psychotherapies - Planning and management of topic-specific group therapies - Implementation of psychoeducational groups and training for patients and their relatives - Instruction in relaxation procedures - Correct and responsible documentation and creation of reports according to the clinic's guidelines - Active interdisciplinary collaboration \n• Requisiti - Master's degree in psychology - Experience in neuropsychology - Knowledge of outpatient test diagnostics - Completed or begun federally recognized psychotherapy training - Enjoyment and interest in patient-oriented work - High social skills and independent and reliable way of working - Resilience, sense of responsibility, flexibility and ability to work in a team - Good PC user skills",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für ergänzende Auskünfte stehen Ihnen Herr Dr. Raschid Gharbo, Chefarzt Psychosomatik, +41 81 417 30 83 gerne zur Verfügung. | Aufgaben:\n• Selbstständige Planung und Durchführung von kinder- und jugendpsychiatrischer und psychologischer Diagnostik sowie Einzelpsychotherapien\n• Planung und Leitung von themenspezifischen Gruppentherapien\n• Durchführung von psychoedukativen Gruppen und Schulungen von Patientinnen und Patienten sowie deren Angehörigen\n• Anleitung von Entspannungsverfahren\n• Korrekte und verantwortungsbewusste Dokumentation und Erstellen von Berichten nach den Richtlinien der Klinik\n• Aktive interdisziplinäre Zusammenarbeit | Anforderungen:\n• Masterabschluss in Psychologie\n• Erfahrung in der Neuropsychologie\n• Kenntnisse in der ambulanten Testdiagnostik\n• Abgeschlossene oder begonnene eidgenössisch anerkannte Psychotherapie-Weiterbildung\n• Freude und Interesse am patientenorientierten Arbeiten\n• Hohe Sozialkompetenz sowie selbstständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit\n• Gute PC-Anwenderkenntnisse",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Pour plus d'informations, veuillez contacter le Dr Raschid Gharbo, responsable du département psychosomatique, +41 81 417 30 83, qui se fera un plaisir de vous aider. Mansioni - Planification et mise en œuvre indépendantes de diagnostics psychiatriques et psychologiques pour enfants et adolescents ainsi que de psychothérapies individuelles - Planification et gestion de thérapies de groupe thématiques - Mise en place de groupes psychoéducatifs et formation pour les patients et leurs proches - Instruction sur les procédures de relaxation - Documentation correcte et responsable et création de rapports selon les directives de la clinique - Collaboration interdisciplinaire active \n• Requisiti - Master en psychologie - Expérience en neuropsychologie - Connaissance des diagnostics de tests ambulatoires - Terminé ou commencé au niveau fédéral formation en psychothérapie - Appréciation et intérêt pour le travail axé sur le patient - Compétences sociales élevées et mode de travail indépendant et fiable - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe - Bonnes compétences d'utilisation de PC"
       },
       "location": "Davos",
       "canton": "GR",
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:57:32.545Z",
+      "crawledAt": "2026-06-17T22:44:53.787Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1039,6 +1039,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T13:35:51.730Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1057,9 +1058,9 @@
       "id": "hochgebirgsklinik-davos-fa2e5df5cc6d",
       "slug": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
         "it": "pianificazione-della-riabilitazione-del-personale-m-f-d-50-70-hochgebirgsklinik-davos-davos",
         "en": "personnel-rehabilitation-planning-m-f-d-50-70-hochgebirgsklinik-davos-davos",
+        "de": "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch",
         "fr": "planification-de-la-readaptation-du-personnel-m-f-d-50-70-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1067,24 +1068,24 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Sachbearbeiter Rehaplanung (m/w/d) 50 - 70%",
       "titleByLocale": {
-        "de": "Sachbearbeiter Rehaplanung (m/w/d) 50 - 70%",
         "it": "Pianificazione della riabilitazione del personale (m/f/d) 50 - 70 %",
         "en": "Personnel rehabilitation planning (m/f/d) 50 - 70 %",
+        "de": "Sachbearbeiter Rehaplanung (m/w/d) 50 - 70%",
         "fr": "Planification de la réadaptation du personnel (m/f/d) 50 - 70 %"
       },
       "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Wir freuen uns auf Ihre Bewerbung. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Disponieren von Arztterminen für Patientinnen und Patienten\n• Terminkoordination in den therapeutischen Bereichen\n• Elektronische Kommunikation, Dokumente elektronisch verarbeiten | Anforderungen:\n• Abgeschlossene Ausbildung zur/zum Kauffrau/-mann oder als MPA\n• Berufserfahrung in einer vergleichbaren Funktion im Gesundheitswesen von Vorteil\n• Gute PC-Kenntnisse (MS-Office), ggf. auch Kenntnisse im KISIM sind von Vorteil\n• Ausgeprägte Kommunikationsfähigkeiten mit hohem Organisationsgeschick und vernetzter Denkweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Engagiertes, freundliches und kundenorientiertes Auftreten, belastbare und flexible Persönlichkeit\n• Hohes Qualitätsbewusstsein",
       "descriptionByLocale": {
-        "de": "Descrizione\n\nHinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Wir freuen uns auf Ihre Bewerbung. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung.\n\nMansioni\n\n- Disponieren von Arztterminen für Patientinnen und Patienten\n- Terminkoordination in den therapeutischen Bereichen\n- Elektronische Kommunikation, Dokumente elektronisch verarbeiten\n\nRequisiti\n\n- Abgeschlossene Ausbildung zur/zum Kauffrau/-mann oder als MPA\n- Berufserfahrung in einer vergleichbaren Funktion im Gesundheitswesen von Vorteil\n- Gute PC-Kenntnisse (MS-Office), ggf. auch Kenntnisse im KISIM sind von Vorteil\n- Ausgeprägte Kommunikationsfähigkeiten mit hohem Organisationsgeschick und vernetzter Denkweise\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Engagiertes, freundliches und kundenorientiertes Auftreten, belastbare und flexible Persönlichkeit\n- Hohes Qualitätsbewusstsein\n\nCosa offriamo\n\n- Zeitgemässe Anstellungsbedingungen\n- Idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden\n\nContatto\n\nFrau Anne Göttlicher, Rehaplanung und Koordination\n\nTelefono: +41 81 417 38 80",
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Aspettiamo con ansia la tua candidatura. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Programmazione di visite mediche per pazienti - Coordinazione di appuntamenti nelle aree terapeutiche - Comunicazione elettronica, elaborazione di documenti elettronicamente Requisiti - Formazione completata come imprenditrice o MPA - Esperienza professionale in una funzione comparabile nel sistema sanitario è un vantaggio - Buone competenze informatiche (MS Office), eventualmente anche la conoscenza di KISIM sono un vantaggio - Forte comunicazione competenze con elevate capacità organizzative e un modo di pensare in rete - Ottima conoscenza della lingua tedesca, parlata e scritta - Comportamento impegnato, amichevole e orientato al cliente, personalità resiliente e flessibile - Consapevolezza di alta qualità Cosa offriamo - Condizioni di lavoro contemporanee - Luogo ideale per diverse attività del tempo libero nella regione turistica dei Grigioni Contatto Sig.ra Anne Göttlicher, pianificazione e coordinamento della riabilitazione Telefono: +41 81 417 38 80",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. We look forward to your application. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Scheduling medical appointments for patients - Coordinating appointments in the therapeutic areas - Electronic communication, processing documents electronically Requisiti - Completed training as a businesswoman or MPA - Professional experience in a comparable function in the healthcare system is an advantage - Good PC skills (MS Office), possibly also knowledge of KISIM are an advantage - Strong communication skills with high organizational skills and a networked way of thinking - Very good knowledge of German, spoken and written - Committed, friendly and customer-oriented demeanor, resilient and flexible personality - High quality awareness Cosa offriamo - Contemporary employment conditions - Ideal location for a variety of leisure activities in the Graubünden holiday region Contact Ms. Anne Göttlicher, rehabilitation planning and coordination Telephone: +41 81 417 38 80",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Nous attendons avec impatience votre candidature. Mme Anne Göttlicher, chargée de la planification et de la coordination de la rééducation, se fera un plaisir de vous renseigner au +41 81 417 38 80. Mansioni - Planification des rendez-vous médicaux des patients - Coordination des rendez-vous dans les domaines thérapeutiques - Communication électronique, traitement électronique des documents Conditions requises - Formation complète en tant que femme d'affaires ou MPA - Une expérience professionnelle dans une fonction comparable dans le système de santé est un avantage - De bonnes connaissances en informatique (MS Office), éventuellement également la connaissance de KISIM sont un avantage avantage - Fortes capacités de communication, grandes capacités d'organisation et mode de pensée en réseau - Très bonne connaissance de l'allemand, parlé et écrit - Attitude engagée, amicale et orientée vers le client, personnalité résiliente et flexible - Sensibilisation à la qualité Cosa offriamo - Conditions de travail contemporaines - Situation idéale pour de nombreuses activités de loisirs dans la région de vacances des Grisons Contact Mme Anne Göttlicher, planification et coordination de la réhabilitation Téléphone: +41 81 417 38 80"
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Aspettiamo con ansia la tua candidatura. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Programmazione di visite mediche per pazienti - Coordinazione di appuntamenti nelle aree terapeutiche - Comunicazione elettronica, elaborazione di documenti elettronicamente \n• Requisiti - Formazione completata come imprenditrice o MPA - Esperienza professionale in una funzione comparabile nel sistema sanitario è un vantaggio - Buone competenze informatiche (MS Office), eventualmente anche la conoscenza di KISIM sono un vantaggio - Forte comunicazione competenze con elevate capacità organizzative e un modo di pensare in rete - Ottima conoscenza della lingua tedesca, parlata e scritta - Comportamento impegnato, amichevole e orientato al cliente, personalità resiliente e flessibile - Consapevolezza di alta qualità \n• Cosa offriamo - Condizioni di lavoro contemporanee - Luogo ideale per diverse attività del tempo libero nella regione turistica dei Grigioni Contatto Sig.ra Anne Göttlicher, pianificazione e coordinamento della riabilitazione Telefono: +41 81 417 38 80",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. We look forward to your application. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Scheduling medical appointments for patients - Coordinating appointments in the therapeutic areas - Electronic communication, processing documents electronically \n• Requisiti - Completed training as a businesswoman or MPA - Professional experience in a comparable function in the healthcare system is an advantage - Good PC skills (MS Office), possibly also knowledge of KISIM are an advantage - Strong communication skills with high organizational skills and a networked way of thinking - Very good knowledge of German, spoken and written - Committed, friendly and customer-oriented demeanor, resilient and flexible personality - High quality awareness \n• Cosa offriamo - Contemporary employment conditions - Ideal location for a variety of leisure activities in the Graubünden holiday region Contact Ms. Anne Göttlicher, rehabilitation planning and coordination Telephone: +41 81 417 38 80",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Wir freuen uns auf Ihre Bewerbung. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Disponieren von Arztterminen für Patientinnen und Patienten\n• Terminkoordination in den therapeutischen Bereichen\n• Elektronische Kommunikation, Dokumente elektronisch verarbeiten | Anforderungen:\n• Abgeschlossene Ausbildung zur/zum Kauffrau/-mann oder als MPA\n• Berufserfahrung in einer vergleichbaren Funktion im Gesundheitswesen von Vorteil\n• Gute PC-Kenntnisse (MS-Office), ggf. auch Kenntnisse im KISIM sind von Vorteil\n• Ausgeprägte Kommunikationsfähigkeiten mit hohem Organisationsgeschick und vernetzter Denkweise\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Engagiertes, freundliches und kundenorientiertes Auftreten, belastbare und flexible Persönlichkeit\n• Hohes Qualitätsbewusstsein",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Nous attendons avec impatience votre candidature. Mme Anne Göttlicher, chargée de la planification et de la coordination de la rééducation, se fera un plaisir de vous renseigner au +41 81 417 38 80. Mansioni - Planification des rendez-vous médicaux des patients - Coordination des rendez-vous dans les domaines thérapeutiques - Communication électronique, traitement électronique des documents Conditions requises - Formation complète en tant que femme d'affaires ou MPA - Une expérience professionnelle dans une fonction comparable dans le système de santé est un avantage - De bonnes connaissances en informatique (MS Office), éventuellement également la connaissance de KISIM sont un avantage avantage - Fortes capacités de communication, grandes capacités d'organisation et mode de pensée en réseau - Très bonne connaissance de l'allemand, parlé et écrit - Attitude engagée, amicale et orientée vers le client, personnalité résiliente et flexible - Sensibilisation à la qualité \n• Cosa offriamo - Conditions de travail contemporaines - Situation idéale pour de nombreuses activités de loisirs dans la région de vacances des Grisons Contact Mme Anne Göttlicher, planification et coordination de la réhabilitation Téléphone: +41 81 417 38 80"
       },
       "location": "Davos",
       "canton": "GR",
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:57:32.543Z",
+      "crawledAt": "2026-06-17T22:44:53.786Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1099,9 +1100,7 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/652/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Verwaltung",
       "streetAddress": "Promenade 117",
       "pensumMin": 50,
@@ -1109,6 +1108,21 @@
       "pensum": "50 - 70%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T22:57:32.543Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1121,30 +1135,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T22:57:32.543Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
-        ],
-        "en": [
-          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiter-rehaplanung-m-w-d-50-70-hochgebirgsklinik-davos-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "hochgebirgsklinik-davos-d446aeb8d2aa",
       "slug": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
-        "de": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "it": "terapista-spa-m-f-50-60-hochgebirgsklinik-davos-davos",
         "en": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
+        "de": "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch",
         "fr": "therapeute-de-spa-m-f-50-60-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
@@ -1152,24 +1151,24 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Spa Therapeut (m/w) 50 - 60%",
       "titleByLocale": {
-        "de": "Spa Therapeut (m/w) 50 - 60 %",
-        "en": "Spa Therapeut (m/w) 50 - 60%",
         "it": "Terapista Spa (m/f) 50 - 60%",
+        "en": "Spa Therapeut (m/w) 50 - 60%",
+        "de": "Spa Therapeut (m/w) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
       },
       "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
       "descriptionByLocale": {
-        "de": "Descrizione\n\nHinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden.\n\nFür Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung.\n\nMansioni\n\n- Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n- Maniküre und kosmetische Fusspflege (Pediküre)\n- Professionelle Beratung unserer Gäste\n- Terminorganisation\n- Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich\n\nRequisiti\n\n- Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n- Erfahrungen im Bereich Wellnessmassagen\n- Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n- Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n- Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n- Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n- Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Esecuzione di diversi trattamenti benessere (massaggi, cosmetici, trattamenti per il viso) - Manicure e cura cosmetica dei piedi (pedicure) - Consulenza professionale per i nostri ospiti - Organizzazione di appuntamenti - Garantire un funzionamento sicuro e orientato al cliente nella zona sauna e bagno Requisiti - Certificato di formazione e risultati nel campo dei cosmetici - Esperienza nel campo dei massaggi benessere - Ottima conoscenza della lingua tedesca; Altre lingue sono un vantaggio - Aspetto curato e buone maniere sono un dato di fatto - Personalità impegnata con un modo di lavorare indipendente e affidabile - Elevate abilità sociali e pensiero orientato al cliente e al servizio - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Carrying out various wellness treatments (massage, cosmetics, facial treatments) - Manicures and cosmetic foot care (pedicures) - Professional advice for our guests - Organizing appointments - Ensuring safe and customer-oriented operations in the sauna and bathing area Requisiti - Certificate of training and achievements in the field of cosmetics - Experience in the field of wellness massages - Fluent in German; Other languages ​​are an advantage - Well-groomed appearance and good manners are a given - Committed personality with an independent and reliable way of working - High social skills as well as customer and service-oriented thinking - Resilience, sense of responsibility, flexibility and ability to work in a team",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mme Anne Göttlicher, responsable de la planification et de la coordination de la réadaptation, se fera un plaisir de vous fournir toutes informations au +41 81 417 38 80. Mansioni - Réalisation de divers soins de bien-être (massages, cosmétiques, soins du visage) - Manucures et soins esthétiques des pieds (pédicures) - Conseils professionnels pour nos clients - Organisation de rendez-vous - Assurer un fonctionnement sûr et orienté client dans le sauna et la zone de baignade Requisiti - Certificat de formation et de réussite dans le domaine de cosmétiques - Expérience dans le domaine des massages bien-être - Allemand courant ; D'autres langues sont un avantage - Une apparence soignée et de bonnes manières sont une évidence - Personnalité engagée avec une manière de travailler indépendante et fiable - Compétences sociales élevées ainsi qu'une pensée orientée client et service - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe"
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. La signora Anne Göttlicher, pianificazione e coordinamento della riabilitazione, sarà lieta di fornirvi tutte le informazioni al numero +41 81 417 38 80. Mansioni - Esecuzione di diversi trattamenti benessere (massaggi, cosmetici, trattamenti per il viso) - Manicure e cura cosmetica dei piedi (pedicure) - Consulenza professionale per i nostri ospiti - Organizzazione di appuntamenti - Garantire un funzionamento sicuro e orientato al cliente nella zona sauna e bagno \n• Requisiti - Certificato di formazione e risultati nel campo dei cosmetici - Esperienza nel campo dei massaggi benessere - Ottima conoscenza della lingua tedesca; Altre lingue sono un vantaggio - Aspetto curato e buone maniere sono un dato di fatto - Personalità impegnata con un modo di lavorare indipendente e affidabile - Elevate abilità sociali e pensiero orientato al cliente e al servizio - Resilienza, senso di responsabilità, flessibilità e capacità di lavorare in squadra",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Ms. Anne Göttlicher, rehabilitation planning and coordination, will be happy to provide you with any information on +41 81 417 38 80. Mansioni - Carrying out various wellness treatments (massage, cosmetics, facial treatments) - Manicures and cosmetic foot care (pedicures) - Professional advice for our guests - Organizing appointments - Ensuring safe and customer-oriented operations in the sauna and bathing area \n• Requisiti - Certificate of training and achievements in the field of cosmetics - Experience in the field of wellness massages - Fluent in German; Other languages ​​are an advantage - Well-groomed appearance and good manners are a given - Committed personality with an independent and reliable way of working - High social skills as well as customer and service-oriented thinking - Resilience, sense of responsibility, flexibility and ability to work in a team",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. Für Auskünfte steht Ihnen Frau Anne Göttlicher, Rehaplanung und Koordination unter der Telefonnummer +41 81 417 38 80 gerne zur Verfügung. | Aufgaben:\n• Durchführung diverser Wellness Behandlungen (Massage, Kosmetik, Gesichtsbehandlungen)\n• Maniküre und kosmetische Fusspflege (Pediküre)\n• Professionelle Beratung unserer Gäste\n• Terminorganisation\n• Gewährleistung eines sicheren und kundenorientierten Betriebes im Sauna- und Badebereich | Anforderungen:\n• Ausbildungs- und Leistungsausweis im Bereich Kosmetik\n• Erfahrungen im Bereich Wellnessmassagen\n• Fliessend in Deutsch; weitere Sprachen sind von Vorteil\n• Gepflegtes Auftreten und gute Umgangsformen sind selbsverständlich\n• Engagierte Persönlichkeit mit einer selbstständigen und zuverlässigen Arbeitsweise\n• Hohe Sozialkompetenz sowie kunden- und dienstleistungsorientiertes Denken\n• Belastbarkeit, Verantwortungsbewusstsein, Flexibilität und Teamfähigkeit",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mme Anne Göttlicher, responsable de la planification et de la coordination de la réadaptation, se fera un plaisir de vous fournir toutes informations au +41 81 417 38 80. Mansioni - Réalisation de divers soins de bien-être (massages, cosmétiques, soins du visage) - Manucures et soins esthétiques des pieds (pédicures) - Conseils professionnels pour nos clients - Organisation de rendez-vous - Assurer un fonctionnement sûr et orienté client dans le sauna et la zone de baignade \n• Requisiti - Certificat de formation et de réussite dans le domaine de cosmétiques - Expérience dans le domaine des massages bien-être - Allemand courant ; D'autres langues sont un avantage - Une apparence soignée et de bonnes manières sont une évidence - Personnalité engagée avec une manière de travailler indépendante et fiable - Compétences sociales élevées ainsi qu'une pensée orientée client et service - Résilience, sens des responsabilités, flexibilité et capacité à travailler en équipe"
       },
       "location": "Davos",
       "canton": "GR",
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:57:32.542Z",
+      "crawledAt": "2026-06-17T22:44:53.785Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1184,9 +1183,7 @@
       "postedDate": "2026-06-16",
       "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/653/Application/CheckLogin/1?lang=ger",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Therapie",
       "streetAddress": "Promenade 117",
       "pensumMin": 50,
@@ -1194,6 +1191,19 @@
       "pensum": "50 - 60%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
+      "previousSlugs": [
+        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T22:57:32.542Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -1206,19 +1216,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-06-16T22:57:32.542Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "previousSlugs": [
-        "spa-therapeut-m-w-50-60-hochgebirgsklinik-davos-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "hochgebirgsklinik-davos-4ad37e4931fb",
@@ -1251,7 +1249,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.298Z",
+      "crawledAt": "2026-06-17T22:44:53.784Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1324,17 +1322,17 @@
       },
       "description": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Betreuung von kardiologischen und herzchirurgische Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1) | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Kardiologie von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
       "descriptionByLocale": {
-        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Mansioni - Assistenza pazienti cardiologici e cardiochirurgici - Assistenza pazienti internistici-oncologici - Collaborazione interdisciplinare - Servizio medico di guardia per l'intera clinica - Ottima conoscenza della lingua tedesca parlata e scritta (Goethe C1) Requisiti - Diploma di medico federale o laurea in medicina con riconoscimento svizzero (MEBEKO) - Costituisce titolo preferenziale esperienza professionale nel campo della medicina interna o della cardiologia - Ottima conoscenza della lingua tedesca, parlata e scritta - Modalità di lavoro indipendente e affidabile - resilienza, flessibilità, senso di responsabilità e capacità di lavorare in una squadra",
-        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Mansioni - Care of cardiology and heart surgery patients - Care of internal medicine-oncology patients - Interdisciplinary cooperation - Medical on-call service for the entire clinic - Very good knowledge of spoken and written German (Goethe C1) Requisiti - Federal medical diploma or completed medical degree with Swiss recognition (MEBEKO) - Professional experience in the field of internal medicine or cardiology is an advantage - Very good knowledge of German, spoken and written - Self-employed and reliable way of working - resilience, flexibility, sense of responsibility and ability to work in a team",
-        "de": "Descrizione\n\nHinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden.\n\nMansioni\n\n- Betreuung von kardiologischen und herzchirurgische Patientinnen und Patienten\n- Betreuung von internistisch-onkologischen Patientinnen und Patienten\n- Interdisziplinäre Zusammenarbeit\n- Ärztlicher Bereitschaftsdienst für die gesamte Klinik\n- Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1)\n\nRequisiti\n\n- Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n- Berufserfahrung im Bereich Innere Medizin oder Kardiologie von Vorteil\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Selbständige und zuverlässige Arbeitsweise\n- Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
-        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mansioni - Soins aux patients en cardiologie et chirurgie cardiaque - Soins aux patients en médecine interne-oncologie - Coopération interdisciplinaire - Service médical de garde pour toute la clinique - Très bonne connaissance de l'allemand parlé et écrit (Goethe C1) Requisiti - Diplôme de médecine fédéral ou diplôme de médecine complété avec reconnaissance suisse (MEBEKO) - Une expérience professionnelle dans le domaine de la médecine interne ou de la cardiologie est un avantage - Très bonne connaissance de l'allemand, parlé et écrit - Mode de travail indépendant et fiable - résilience, flexibilité, sens des responsabilités et capacité à travailler en équipe"
+        "it": "Descrizione Dietro la nostra storia di successo c'è il team Hochgebirgsklinik con i suoi oltre 400 dipendenti dedicati. Le diverse aree di competenza e la stretta collaborazione tra i team consentono di assumere compiti responsabili e di avere opportunità creative. La Hochgebirgsklinik vi offre inoltre condizioni di lavoro moderne e una posizione ideale per una vasta gamma di attività per il tempo libero nella regione turistica dei Grigioni. Mansioni - Assistenza pazienti cardiologici e cardiochirurgici - Assistenza pazienti internistici-oncologici - Collaborazione interdisciplinare - Servizio medico di guardia per l'intera clinica - Ottima conoscenza della lingua tedesca parlata e scritta (Goethe C1) \n• Requisiti - Diploma di medico federale o laurea in medicina con riconoscimento svizzero (MEBEKO) - Costituisce titolo preferenziale esperienza professionale nel campo della medicina interna o della cardiologia - Ottima conoscenza della lingua tedesca, parlata e scritta - Modalità di lavoro indipendente e affidabile - resilienza, flessibilità, senso di responsabilità e capacità di lavorare in una squadra",
+        "en": "Description Behind our success story is the Hochgebirgsklinik team with its over 400 dedicated employees. The diverse areas of expertise and the close cooperation between the teams enable you to take on responsible tasks and have creative opportunities. The Hochgebirgsklinik also offers you contemporary employment conditions and an ideal location for a wide range of leisure activities in the Graubünden holiday region. Mansioni - Care of cardiology and heart surgery patients - Care of internal medicine-oncology patients - Interdisciplinary cooperation - Medical on-call service for the entire clinic - Very good knowledge of spoken and written German (Goethe C1) \n• Requisiti - Federal medical diploma or completed medical degree with Swiss recognition (MEBEKO) - Professional experience in the field of internal medicine or cardiology is an advantage - Very good knowledge of German, spoken and written - Self-employed and reliable way of working - resilience, flexibility, sense of responsibility and ability to work in a team",
+        "de": "Hinter unserer Erfolgsgeschichte steht das Hochgebirgsklinik-Team mit seinen über 400 engagierten Mitarbeitenden. Die vielseitigen Kompetenzbereiche und die enge Zusammenarbeit zwischen den Teams ermöglichen Ihnen eine verantwortungsvolle Aufgabe und Gestaltungsmöglichkeiten. Zudem bietet Ihnen die Hochgebirgsklinik zeitgemässe Anstellungsbedingungen sowie einen idealen Standort für vielseitige Freizeitaktivitäten in der Ferienregion Graubünden. | Aufgaben:\n• Betreuung von kardiologischen und herzchirurgische Patientinnen und Patienten\n• Betreuung von internistisch-onkologischen Patientinnen und Patienten\n• Interdisziplinäre Zusammenarbeit\n• Ärztlicher Bereitschaftsdienst für die gesamte Klinik\n• Sehr gute Deutschkenntnisse in Wort und Schrift (Goethe C1) | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Berufserfahrung im Bereich Innere Medizin oder Kardiologie von Vorteil\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
+        "fr": "Description Derrière notre réussite se cache l'équipe de la Hochgebirgsklinik et ses plus de 400 collaborateurs dévoués. La diversité des domaines d'expertise et la coopération étroite entre les équipes vous permettent d'assumer des tâches responsables et d'avoir des opportunités créatives. La Hochgebirgsklinik vous offre également des conditions de travail contemporaines et un emplacement idéal pour une large gamme d'activités de loisirs dans la région de vacances des Grisons. Mansioni - Soins aux patients en cardiologie et chirurgie cardiaque - Soins aux patients en médecine interne-oncologie - Coopération interdisciplinaire - Service médical de garde pour toute la clinique - Très bonne connaissance de l'allemand parlé et écrit (Goethe C1) \n• Requisiti - Diplôme de médecine fédéral ou diplôme de médecine complété avec reconnaissance suisse (MEBEKO) - Une expérience professionnelle dans le domaine de la médecine interne ou de la cardiologie est un avantage - Très bonne connaissance de l'allemand, parlé et écrit - Mode de travail indépendant et fiable - résilience, flexibilité, sens des responsabilités et capacité à travailler en équipe"
       },
       "location": "Davos",
       "canton": "GR",
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:57:32.540Z",
+      "crawledAt": "2026-06-17T22:44:53.782Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1417,7 +1415,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.296Z",
+      "crawledAt": "2026-06-17T22:44:53.781Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1500,7 +1498,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjQ0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T13:11:51.295Z",
+      "crawledAt": "2026-06-17T22:44:53.780Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1537,8 +1535,8 @@
           "assistenzarzt-pneumologie-m-w-d-100-01-januar-2027-hochgebirgsklinik-davos-ch"
         ]
       },
-      "firstSeenAt": "2026-05-11T11:51:46.132Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T11:51:46.132Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -1567,24 +1565,24 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
       "titleByLocale": {
-        "it": "Apprendistato come specialista Salute (FaGe) EFZ (f/m/d), da agosto 2027",
+        "it": "Apprendistato come Fachperson Gesundheit (FaGe) CFC (w/m/d), ab August 2027",
         "en": "Apprenticeship as a specialist Health (FaGe) EFZ (f/m/d), from August 2027",
         "de": "Lehrstelle als Fachperson Gesundheit (FaGe) EFZ (w/m/d), ab August 2027",
         "fr": "Apprentissage en tant que spécialiste de la santé (FaGe) EFZ (f/m/d), à partir d'août 2027"
       },
       "description": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
       "descriptionByLocale": {
-        "it": "Dal 1 agosto 2027 ti aspetta un triennio formativo vario ed entusiasmante; È possibile completare il baccalaureato professionale (BM) con un focus su “salute e affari sociali” parallelamente all’apprendistato. Ti offriamo due stage esterni (ospedale Davos AG e casa di cura della Fondazione Flury), nonché supporto e supporto da parte di un team di formazione competente durante il tuo apprendistato. | Compiti: • Prendersi cura e prendersi cura dei pazienti - anche in situazioni impegnative • Svolgere compiti medico-tecnici (ad es. prelievo di campioni di sangue, misurazione della pressione sanguigna, ecc.) • Sostenere il benessere fisico, sociale e psicologico dei pazienti • Costruire un rapporto rispettoso con i pazienti e agire in modo orientato alle esigenze • Svolgere attività amministrative e logistiche | Requisiti: • Titolo di studio di scuola media superiore o secondaria • Empatia e interesse nel sostenere le persone bisognose di cure e aiuto • Capacità di socievolezza e comunicazione • Forte senso di responsabilità nonché buone capacità di osservazione e percezione • Flessibilità, capacità di lavorare in squadra e resilienza (fisicamente e mentalmente)",
-        "en": "From August 1, 2027, a varied and exciting three-year training awaits you; It is possible to complete the vocational baccalaureate (BM) with a focus on “health and social affairs” parallel to the apprenticeship. We offer you two external internships (Davos AG hospital and Flury Foundation nursing home), as well as support and support from a competent training team during your apprenticeship. | Tasks: • Caring for and caring for patients - even in demanding situations • Carrying out medical-technical tasks (e.g. taking blood samples, measuring blood pressure, etc.) • Supporting the physical, social and psychological well-being of the patients • Building a respectful relationship with the patients and acting in a needs-oriented manner • Carrying out administrative and logistical work | Requirements: • Secondary or secondary school qualification • Empathy and interest in supporting people in need of care and help • Sociability and communication skills • Strong sense of responsibility as well as good observation and perception skills • Flexibility, ability to work in a team and resilience (physically and mentally)",
+        "it": "Dal 1 agosto 2027 ti aspetta un triennio formativo vario ed entusiasmante; È possibile completare il baccalaureato professionale (BM) con un focus su “salute e affari sociali” parallelamente all’apprendistato. Ti offriamo due stage esterni (ospedale Davos AG e casa di cura della Fondazione Flury), nonché supporto e supporto da parte di un team di formazione competente durante il tuo apprendistato. | Compiti:\n• Prendersi cura e prendersi cura dei pazienti - anche in situazioni impegnative\n• Svolgere compiti medico-tecnici (ad es. prelievo di campioni di sangue, misurazione della pressione sanguigna, ecc.)\n• Sostenere il benessere fisico, sociale e psicologico dei pazienti\n• Costruire un rapporto rispettoso con i pazienti e agire in modo orientato alle esigenze\n• Svolgere attività amministrative e logistiche | Requisiti:\n• Titolo di studio di scuola media superiore o secondaria\n• Empatia e interesse nel sostenere le persone bisognose di cure e aiuto\n• Capacità di socievolezza e comunicazione\n• Forte senso di responsabilità nonché buone capacità di osservazione e percezione\n• Flessibilità, capacità di lavorare in squadra e resilienza (fisicamente e mentalmente)",
+        "en": "From August 1, 2027, a varied and exciting three-year training awaits you; It is possible to complete the vocational baccalaureate (BM) with a focus on “health and social affairs” parallel to the apprenticeship. We offer you two external internships (Davos AG hospital and Flury Foundation nursing home), as well as support and support from a competent training team during your apprenticeship. | Tasks:\n• Caring for and caring for patients - even in demanding situations\n• Carrying out medical-technical tasks (e.g. taking blood samples, measuring blood pressure, etc.)\n• Supporting the physical, social and psychological well-being of the patients\n• Building a respectful relationship with the patients and acting in a needs-oriented manner\n• Carrying out administrative and logistical work | Requirements:\n• Secondary or secondary school qualification\n• Empathy and interest in supporting people in need of care and help\n• Sociability and communication skills\n• Strong sense of responsibility as well as good observation and perception skills\n• Flexibility, ability to work in a team and resilience (physically and mentally)",
         "de": "Ab dem 1. August 2027 erwartet dich eine abwechslungsreiche und spannende dreijährige Ausbildung; hierbei besteht die Möglichkeit, parallel zur Lehre die Berufsmaturität (BM) mit Ausrichtung «Gesundheit und Soziales» zu absolvieren. Wir bieten dir zwei externe Praktika (Spital Davos AG und Pflegeheim Flury Stiftung), ausserdem Unterstützung und Begleitung eines kompetenten Ausbildungsteams während deiner Lehre. | Aufgaben:\n• Pflegen und betreuen von Patienten/-innen – selbst in anspruchsvollen Situationen\n• Ausführen von medizinaltechnischen Verrichtungen (z. B. Blutentnahmen, Blutdruck messen usw.)\n• Unterstützen des körperlichen, sozialen und psychischen Wohlbefindens der Patienten/-innen\n• Aufbauen einer respektvollen Beziehung zu den Patienten/-innen und bedürfnisorientiertes Handeln\n• Administrative und logistische Arbeiten erledigen | Anforderungen:\n• Sekundar- oder Realschulabschluss\n• Einfühlungsvermögen sowie Interesse, pflege- und hilfsbedürftige Menschen zu unterstützen\n• Kontaktfreudigkeit und Kommunikationsvermögen\n• Ausgeprägtes Verantwortungsbewusstsein sowie gute Beobachtungs- und Wahrnehmungsgabe\n• Flexibilität, Teamfähigkeit und Belastbarkeit (körperlich wie psychisch)",
-        "fr": "A partir du 1er août 2027, une formation variée et passionnante sur trois ans vous attend ; Il est possible de réaliser un baccalauréat professionnel (BM) avec une spécialisation « santé et affaires sociales » parallèlement à l'apprentissage. Nous vous proposons deux stages externes (hôpital Davos AG et maison de retraite Flury Foundation), ainsi que l'accompagnement et l'accompagnement d'une équipe de formation compétente pendant votre apprentissage. | Tâches : • Prendre soin des patients - même dans des situations exigeantes • Effectuer des tâches médico-techniques (par exemple, prendre des échantillons de sang, mesurer la tension artérielle, etc.) • Soutenir le bien-être physique, social et psychologique des patients • Construire une relation respectueuse avec les patients et agir en fonction des besoins • Effectuer le travail administratif et logistique | Exigences : • Diplôme d'études secondaires ou secondaires • Empathie et intérêt pour le soutien aux personnes ayant besoin de soins et d'aide • Sociabilité et compétences en communication • Fort sens des responsabilités ainsi que bonnes capacités d'observation et de perception • Flexibilité, capacité à travailler en équipe et résilience (physique et mentale)"
+        "fr": "A partir du 1er août 2027, une formation variée et passionnante sur trois ans vous attend ; Il est possible de réaliser un baccalauréat professionnel (BM) avec une spécialisation « santé et affaires sociales » parallèlement à l'apprentissage. Nous vous proposons deux stages externes (hôpital Davos AG et maison de retraite Flury Foundation), ainsi que l'accompagnement et l'accompagnement d'une équipe de formation compétente pendant votre apprentissage. | Tâches :\n• Prendre soin des patients - même dans des situations exigeantes\n• Effectuer des tâches médico-techniques (par exemple, prendre des échantillons de sang, mesurer la tension artérielle, etc.)\n• Soutenir le bien-être physique, social et psychologique des patients\n• Construire une relation respectueuse avec les patients et agir en fonction des besoins\n• Effectuer le travail administratif et logistique | Exigences :\n• Diplôme d'études secondaires ou secondaires\n• Empathie et intérêt pour le soutien aux personnes ayant besoin de soins et d'aide\n• Sociabilité et compétences en communication\n• Fort sens des responsabilités ainsi que bonnes capacités d'observation et de perception\n• Flexibilité, capacité à travailler en équipe et résilience (physique et mentale)"
       },
       "location": "Davos",
       "canton": "GR",
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjUx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-16T22:57:32.528Z",
+      "crawledAt": "2026-06-17T22:44:53.770Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
