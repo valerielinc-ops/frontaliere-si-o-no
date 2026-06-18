@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-06-18T12:20:08.865Z",
+  "assembledAt": "2026-06-18T22:48:43.857Z",
   "jobs": [
     {
       "id": "ghol-fe34aa66233b",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.732Z",
+      "crawledAt": "2026-06-18T22:48:41.850Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -157,7 +158,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.731Z",
+      "crawledAt": "2026-06-18T22:48:41.849Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -259,7 +261,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.731Z",
+      "crawledAt": "2026-06-18T22:48:41.849Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -357,7 +360,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.730Z",
+      "crawledAt": "2026-06-18T22:48:41.848Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -432,7 +435,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.730Z",
+      "crawledAt": "2026-06-18T22:48:41.847Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -469,80 +473,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-7d0331e993ab",
-      "slug": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Technicien·ne en analyses biomédicales",
-      "titleByLocale": {
-        "it": "Analisi Biomedica Tecnica",
-        "en": "Biomedical Analysis Technician",
-        "de": "Biomedizinische Analysetechnik",
-        "fr": "Technicien·ne en analyses biomédicales"
-      },
-      "description": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
-      "descriptionByLocale": {
-        "it": "Descrizione\n• Come parte di un sostituto per il congedo di maternità, si unirà al nostro laboratorio di microbiologia dove si avrà una variegata attività. Sarete coinvolti in: - partecipazione alla risposta collettiva a oltre 100.000 richieste annuali di analisi mediche di laboratorio (tutte le discipline) - il monitoraggio, la manutenzione e la manutenzione delle attrezzature secondo le responsabilità matrice definite all'interno del servizio - la gestione e lo sviluppo di un campo di attività specifico (ad esempio PCR) Obbligo\n• Sarete l'architetto del vostro successo grazie al vostro - esperienza lavorativa di almeno 2 anni in un ambiente simile, idealmente compreso il lavoro di fine settimana (senza lavoro notturno), - padronanza di tecniche e conoscenze chiave di microbiologia, come la semina, la cultura, l'identificazione batterica, la lettura e l'interpretazione di tecniche antibiogrammi e PCR, - versatilità riconosciuta che consente di eseguire in modo indipendente, convalidare e trasmettere tutte le analisi di un laboratorio di microbiologia, - curiosità professionale e capacità di pensiero che ti portano a mettere in discussione il significato e lo scopo delle tue attività quotidiane. Cosa fare\n• Unire il team del laboratorio GHOL è integrare un team di solidarietà, lavorando in trasversalità con tutti i suoi partner di assistenza. Si evolverà all'interno di una struttura di dimensioni umane, dove versatilità, autonomia e collaborazione hanno un valore reale.\n• Nell'ambito della vostra carriera professionale, potrete beneficiare di un adeguato supporto durante la vostra integrazione, nonché delle opportunità di formazione continua che vi aiuteranno a sviluppare e sviluppare le vostre competenze. Contatto",
-        "en": "Descrizione\n• As part of a replacement for maternity leave, you will join our microbiology laboratory where you will have a varied activity. You will be involved in: - participation in the collective response to over 100,000 annual requests for laboratory medical analyses (all disciplines) - the monitoring, maintenance and maintenance of equipment according to the responsibilities matrix defined within the service - the management and development of a specific field of activity (e.g. PCR) Required\n• You will be the architect of your success thanks to your - work experience of at least 2 years in a similar environment, ideally including weekend work (no night work), - mastery of key microbiology techniques and knowledge, such as seeding, culture, bacterial identification, reading and interpretation of antibiograms and PCR techniques, - recognized versatility allowing you to independently perform, validate and transmit all analyses of a microbiology laboratory, - professional curiosity and thinking ability leading you to question the meaning and purpose of your daily activities. Cosa offeriamo\n• Joining the team of the GHOL laboratory is to integrate a team of solidarity, working in transversality with all its care partners. You will evolve within a structure of human size, where versatility, autonomy and collaboration have real value.\n• As part of your professional career, you will benefit from appropriate support during your integration as well as opportunities for continuing training that will help you develop and develop your skills. Contatto",
-        "de": "Beschreibung\n• Im Rahmen eines Ersatzes für den Mutterschaftsurlaub nehmen Sie an unserem Mikrobiologielabor teil, wo Sie eine abwechslungsreiche Aktivität haben werden. Sie werden an: - Teilnahme an der kollektiven Reaktion auf über 100.000 jährliche Anfragen für Labormedizinische Analysen (alle Disziplinen) - die Überwachung, Wartung und Wartung von Geräten gemäß der im Dienst definierten Verantwortungsmatrix - Verwaltung und Entwicklung eines spezifischen Tätigkeitsbereichs (z.B. PCR) Erforderlich\n• Sie werden der Architekt Ihres Erfolgs dank Ihrer - Arbeitserfahrung von mindestens 2 Jahren in einer ähnlichen Umgebung, ideal einschließlich Wochenendarbeit (keine Nachtarbeit), - Beherrschung der wichtigsten Mikrobiologie Techniken und Wissen, wie Saat, Kultur, bakterielle Identifizierung, Lesen und Interpretation von Antibiogrammen und PCR Techniken, - anerkannte Vielseitigkeit, die es Ihnen ermöglicht, unabhängig alle Analysen eines Mikrobiologielabors durchzuführen, zu validieren und zu übermitteln, - professionelle Neugier und Denkfähigkeit führen Sie dazu, die Bedeutung und den Zweck Ihrer täglichen Aktivitäten zu hinterfragen. Cosa offeriamo\n• Das Team des GHOL-Labors ist die Integration eines Teams von Solidarität, das in Transversalität mit allen seinen Pflegepartnern arbeitet. Sie entwickeln sich in einer Struktur menschlicher Größe, wo Vielseitigkeit, Autonomie und Zusammenarbeit einen echten Wert haben.\n• Im Rahmen Ihrer beruflichen Karriere profitieren Sie von einer angemessenen Unterstützung während Ihrer Integration sowie Möglichkeiten für Weiterbildung, die Ihnen helfen, Ihre Fähigkeiten zu entwickeln und zu entwickeln. Contattoo",
-        "fr": "Description de poste : Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR) Profil requis : Vous serez l’artisan de votre réussite grâce à votre\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes. Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées. Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire. Niveau de formation : Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé Avantages : Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur. Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "logistics",
-      "sector": "Salute / Ospedale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "url": "https://app.beehire.com/invite/SAEhDyjSq",
-      "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.729Z",
-      "previousSlugs": [
-        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-05-29T12:28:12.409Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -592,7 +522,7 @@
       "applyUrl": "https://app.beehire.com/invite/9HnYY9NDt",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.729Z",
+      "crawledAt": "2026-06-18T22:48:41.846Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
@@ -623,30 +553,30 @@
       }
     },
     {
-      "id": "ghol-092e113befd5",
-      "slug": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-7d0331e993ab",
+      "slug": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "specialista-hr-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "hr-specialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "personalspezialist-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "analisi-biomedica-tecnica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "biomedical-analysis-technician-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "biomedizinische-analysetechnik-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Spécialiste RH",
+      "title": "Technicien·ne en analyses biomédicales",
       "titleByLocale": {
-        "it": "Specialista HR",
-        "en": "HR Specialist",
-        "de": "Personalspezialist",
-        "fr": "Spécialiste RH"
+        "it": "Analisi Biomedica Tecnica",
+        "en": "Biomedical Analysis Technician",
+        "de": "Biomedizinische Analysetechnik",
+        "fr": "Technicien·ne en analyses biomédicales"
       },
-      "description": "À propos de nous :\n Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution.\n Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH.\n Description du poste :\n En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations.\n Tes responsabilités incluent notamment :\n Administration du personnel :\n\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n\n• Administration des tournus bi-annuels des médecins en formation\n\n• Mise à jour et contrôle des dossiers des collaborateurs·trices\n Gestion des salaires :\n\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n\n• Gestion des salaires en lien avec notre ERP OPALE\n\n• Réalisation du DTA\n\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels\n Optimisation des processus RH :\n\n• Participation active à la digitalisation et à l’automatisation des processus\n\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n\n• Rédaction, actualisation et communication des procédures et processus RH\n Conformité et conseil :\n\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n\n• Contribuer à des projets RH transverses selon profil\n Profil requis :\n Ton succès est garanti grâce à un/une:\n\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n\n• Autonomie fonctionnelle avérée\n\n• Maîtrise approfondie des assurances sociales suisses\n\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n\n• Aisance avec les outils numériques et les SIRH modernes\n\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n\n• Sens de la rigueur, de la confidentialité et de l’organisation\n Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes.\n Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre.\n Formation :\n Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout\n Ce que nous offrons :\n Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées).\n Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée.\n Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide.\n Un cadre de travail flexible.",
+      "description": "Description de poste :\n Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR)\n Profil requis :\n Vous serez l’artisan de votre réussite grâce à votre\n\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes.\n Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées.\n Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire.\n Niveau de formation :\n Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé\n Avantages :\n Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur.\n Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences.",
       "descriptionByLocale": {
-        "it": "Informazioni su di noi Il nostro team HR di dimensioni umane è al centro del supporto del nostro staff, impegnato in una missione di assistenza e supporto paziente. Apprezziamo la collaborazione, l'innovazione e l'ottimizzazione delle pratiche HR. Unire il nostro team sta integrando un ambiente stimolante, attento e in continua evoluzione. Descrizione del post Come specialista HR, si gioca un ruolo chiave nella gestione del ciclo di vita dei dipendenti. La vostra azione riguarda quattro contratti collettivi di lavoro, offrendo una vasta gamma di situazioni. Le tue responsabilità Amministrazione del personale\n• Gestione completa degli ingressi e delle uscite (contratti, permessi, autorizzazioni alla pratica, a bordo ecc.) per il personale pagato o non pagato (circa 1.300 persone)\n• Controllo attento delle assenze e dei casi di assicurazione sociale con partner interni ed esterni\n• Coordinamento delle interviste all'uscita e proposta di un processo di fuoribordo\n• Amministrazione delle rotazioni semestrali dei medici in formazione\n• Aggiornamento e controllo dei file dei dipendenti Gestione delle risorse\n• Controllo degli orari e dell'ingresso delle variabili per 1'100 giorni lavorativi\n• Gestione della salatura in relazione al nostro ERP OPALE\n• Attuazione del DTA\n• Monitoraggio e attuazione delle attività mensili di pagamento e dei conti annuali Ottimizzazione del processo HR\n• Partecipazione attiva alla digitalizzazione e all'automazione dei processi\n• Uso avanzato di un HRIS (RogerHR) in miglioramento continuo\n• Risposta di almeno uno dei nostri strumenti (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Redazione, aggiornamento e comunicazione di procedure e processi HR Compliance e consulenza\n• Assicurare la rigorosa applicazione del diritto del lavoro e degli accordi collettivi di lavoro\n• Contribuire a progetti HR cross-cuting secondo il profilo Profilo richiesto Il vostro successo è garantito da uno/uno:\n• Esperienza confermata (min. 5 anni) nella gestione operativa delle risorse umane in Svizzera\n• comprovata autonomia funzionale\n• Conoscenza approfondita dell'assicurazione sociale svizzera\n• Ottima conoscenza degli strumenti di ufficio (Word, Excel – TCD, formule)\n• Esperienza con strumenti digitali e moderno HRIS\n• Masterizzazione della lingua francese, sia scritta che orale\n• Senso di rigore, riservatezza e organizzazione Riconosciuto per la vostra efficienza, siete apprezzati per la vostra capacità di sviluppare relazioni di fiducia con i vostri colleghi e clienti interni. La vostra esperienza, una vera forza di proposta, testimonia la vostra resilienza e la vostra capacità di convincere. Formazione Il certificato federale di specialista delle assicurazioni sociali o specialista delle risorse umane sarebbe un bene Cosa offriamo Un ambiente HR in evoluzione, dove gli strumenti digitali non sono solo promesse, ma leve concrete di efficienza (OPALE, RogerHR, automazione mirata). Un'organizzazione con ruoli differenziati (partner HR, HRSI, amministrazione HR), che consente di concentrarsi sulle missioni con alto valore aggiunto. Integrazione metodica, con un riferimento identificato per ogni dominio, per garantire la vostra rapida autonomia. Un quadro flessibile.",
-        "en": "About us Our human-sized HR team is at the heart of the support of our staff, engaged in a patient care and support mission. We value collaboration, innovation and optimization of HR practices. Joining our team is integrating a stimulating, caring and constantly evolving environment. Description of post As a HR specialist, you play a key role in managing the life cycle of employees. Your scope of action covers four collective labour agreements, offering a wide variety of situations. Your responsibilities Personnel administration\n• Complete management of entrances and exits (contracts, permits, authorizations to practice, onboarding etc.) for paid or unpaid staff (approximately 1,300 persons)\n• Careful monitoring of absences and social insurance cases with internal and external partners\n• Coordination of exit interviews and proposal for an offboarding process\n• Administration of biannual rotations of doctors in training\n• Updating and checking employees' files Wage management\n• Control of schedules and input of variables for 1'100 paydays\n• Salary management in connection with our ERP OPALE\n• Implementation of DTA\n• Monitoring and implementation of monthly post-payment activities and annual accounts HR Process Optimization\n• Active participation in digitisation and process automation\n• Advanced use of a HRIS (RogerHR) in continuous improvement\n• Response of at least one of our tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Drafting, updating and communicating HR procedures and processes Compliance and advice\n• Ensure the strict application of labour law and collective labour agreements\n• Contribute to cross-cutting HR projects according to profile Profile required Your success is guaranteed by one/one:\n• Experience confirmed (min. 5 years) in operational HR management in Switzerland\n• Proven functional autonomy\n• In-depth knowledge of Swiss social insurance\n• Excellent knowledge of office tools (Word, Excel – TCD, formulas)\n• Experience with digital tools and modern HRIS\n• Mastery of the French language, both written and oral\n• Sense of rigour, confidentiality and organization Recognized for your efficiency, you are appreciated for your ability to develop relationships of trust with your colleagues and internal clients. Your experience, a real strength of proposal, testifies to your resilience and your ability to convince. Training The Federal Certificate of Social Insurance Specialist or Human Resources Specialist would be an asset What We Offer A changing HR environment, where digital tools are not mere promises, but concrete levers of efficiency (OPALE, RogerHR, targeted automation). An organization with differentiated roles (HR partner, HRSI, HR administration), which allows you to focus on missions with high added value. Methodical integration, with a reference identified for each domain, to ensure your fast autonomy. A flexible framework.",
-        "de": "Über uns Unser Personal im Personalbereich steht im Mittelpunkt der Unterstützung unserer Mitarbeiter, die sich mit einer Patienten- und Unterstützungsmission beschäftigt. Wir schätzen die Zusammenarbeit, Innovation und Optimierung von HR-Praktiken. Unser Team vereint eine anregende, pflegende und sich ständig weiterentwickelnde Umgebung. Beschreibung des Beitrags Als HR-Spezialist spielen Sie eine Schlüsselrolle bei der Verwaltung des Lebenszyklus von Mitarbeitern. Ihr Handlungsspielraum umfasst vier Tarifverträge, die eine Vielzahl von Situationen bieten. Ihre Verantwortung Personalverwaltung\n• Vollständige Verwaltung der Ein- und Ausstiege (Kontrakte, Genehmigungen, Zulassungen für die Praxis, Onboarding usw.) für bezahlte oder unbezahlte Mitarbeiter (etwa 1.300 Personen)\n• sorgfältige Überwachung von Abwesenheiten und Sozialversicherungsfällen mit internen und externen Partnern\n• Koordination von Ausstiegsinterviews und Vorschlag für einen Ausstiegsprozess\n• Verwaltung von zweijährigen Rotationen von Ärzten in der Ausbildung\n• Akten der Mitarbeiter aktualisieren und überprüfen Verwaltung von Steuern\n• Kontrolle der Termine und Eingabe der Variablen für 1'100 Zahltage\n• Salary Management im Zusammenhang mit unserem ERP OPALE\n• Implementierung von DTA\n• Überwachung und Durchführung von monatlichen Post-Zahlungsaktivitäten und Jahresabschlüssen HR Prozessoptimierung\n• Aktive Teilnahme an Digitalisierung und Prozessautomatisierung\n• Fortgeschrittene Nutzung einer HRIS (RogerHR) in kontinuierlicher Verbesserung\n• Antwort von mindestens einem unserer Tools (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Erstellung, Aktualisierung und Übermittlung von HR-Verfahren und -Prozessen Compliance und Beratung\n• Gewährleistung der strikten Anwendung von Arbeitsrecht und Tarifverträgen\n• Mithilfe von profilübergreifenden HR-Projekten Profil erforderlich Ihr Erfolg wird von einem/eins garantiert:\n• Erfahrung bestätigt (min. 5 Jahre) im operativen Personalmanagement in der Schweiz\n• bewährte funktionale Autonomie\n• Kenntnisse der Schweizer Sozialversicherung\n• Ausgezeichnete Kenntnisse der Bürowerkzeuge (Word, Excel – TCD, Formeln)\n• Erfahrung mit digitalen Werkzeugen und modernen HRIS\n• Meisterschaft der französischen Sprache, sowohl schriftlich als auch mündlich\n• Rigour, Vertraulichkeit und Organisation Erkennt für Ihre Effizienz, sind Sie für Ihre Fähigkeit, Beziehungen des Vertrauens mit Ihren Kollegen und internen Kunden zu entwickeln geschätzt. Ihre Erfahrung, eine wirkliche Stärke des Vorschlags, bezeugt Ihre Widerstandsfähigkeit und Ihre Fähigkeit zu überzeugen. Ausbildung Das Bundeszertifikat für Sozialversicherungsspezialist oder Personalspezialist wäre ein Vermögenswert Was wir anbieten Eine sich ändernde HR-Umgebung, in der digitale Werkzeuge nicht nur Versprechungen sind, sondern konkrete Hebel der Effizienz (OPALE, RogerHR, gezielte Automatisierung). Eine Organisation mit differenzierten Rollen (HR-Partner, HRSI, HR Administration), die es Ihnen ermöglicht, sich auf Missionen mit hohem Mehrwert zu konzentrieren. Methodische Integration, mit einer Referenz für jede Domain identifiziert, um Ihre schnelle Autonomie zu gewährleisten. Ein flexibler Rahmen.",
-        "fr": "À propos de nous : Notre équipe RH, à taille humaine, est au cœur de l’accompagnement de nos collaborateurs·trices, engagé·es dans une mission de soins et de soutien aux patients. Nous valorisons la collaboration, l’innovation et l’optimisation des pratiques RH. Rejoindre notre équipe, c’est intégrer un environnement stimulant, bienveillant et en constante évolution. Dans le cadre d’une redéfinition stratégique de nos rôles et responsabilités, ce poste s’inscrit dans une dynamique d’évolution te permettant de te concentrer sur l’expertise RH opérationnelle, tout en collaborant étroitement avec des collègues dédiés au partenariat RH ainsi qu’à la gestion et à l’optimisation du SIRH. Description du poste : En tant que spécialiste RH, tu joues un rôle clé dans la gestion du cycle de vie des collaborateurs·trices. Ton périmètre d’action couvre quatre conventions collectives de travail, offrant une grande variété de situations. Tes responsabilités incluent notamment : Administration du personnel :\n• Gestion complète des entrées et sorties (contrats, permis, autorisations de pratiquer, onboarding etc.) pour le personnel rémunéré ou non (environ 1'300 personnes)\n• Suivi rigoureux des absences et des dossiers d’assurances sociales avec les partenaires internes et externes\n• Coordination des entretiens de départ et proposition d’un processus d’ offboarding\n• Administration des tournus bi-annuels des médecins en formation\n• Mise à jour et contrôle des dossiers des collaborateurs·trices Gestion des salaires :\n• Contrôle des plannings et saisie des variables pour 1'100 paies\n• Gestion des salaires en lien avec notre ERP OPALE\n• Réalisation du DTA\n• Suivi et réalisation des activités mensuelles post-paie et des décomptes annuels Optimisation des processus RH :\n• Participation active à la digitalisation et à l’automatisation des processus\n• Utilisation avancée d’un SIRH (RogerHR) dans une démarche d’amélioration continue\n• Répondant d’au moins un de nos outils (PEP, MyCerty, RogerHR, OPALE, Sunet+)\n• Rédaction, actualisation et communication des procédures et processus RH Conformité et conseil :\n• Veiller à l’application rigoureuse du droit du travail et des conventions collectives de travail\n• Contribuer à des projets RH transverses selon profil Profil requis : Ton succès est garanti grâce à un/une:\n• Expérience confirmée (min. 5 ans) en gestion RH opérationnelle en Suisse\n• Autonomie fonctionnelle avérée\n• Maîtrise approfondie des assurances sociales suisses\n• Excellentes connaissances des outils bureautiques (Word, Excel – TCD, formules)\n• Aisance avec les outils numériques et les SIRH modernes\n• Maîtrise de la langue française, à l’écrit comme à l’oral\n• Sens de la rigueur, de la confidentialité et de l’organisation Reconnu·e pour ton efficacité, tu es apprécié.e pour ta faculté à développer des relations de confiance avec tes collègues et tes clients internes. Véritable force de proposition, ton expérience témoigne de ta résilience et de ta capacité à convaincre. Formation : Le brevet fédéral de spécialiste en assurances sociales ou de spécialiste en ressources humaines serait un atout Ce que nous offrons : Un environnement RH en pleine transformation, où les outils digitaux ne sont pas de simples promesses, mais des leviers concrets d’efficacité (OPALE, RogerHR, automatisations ciblées). Une organisation avec des rôles différenciés (partenariat RH, SIRH, administration RH), qui te permet de te concentrer sur des missions à forte valeur ajoutée. Une intégration méthodique, avec une référente identifiée pour chaque domaine, afin de garantir ton autonomie rapide. Un cadre de travail flexible."
+        "it": "Descrizione\n• Come parte di un sostituto per il congedo di maternità, si unirà al nostro laboratorio di microbiologia dove si avrà una variegata attività. Sarete coinvolti in: - partecipazione alla risposta collettiva a oltre 100.000 richieste annuali di analisi mediche di laboratorio (tutte le discipline) - il monitoraggio, la manutenzione e la manutenzione delle attrezzature secondo le responsabilità matrice definite all'interno del servizio - la gestione e lo sviluppo di un campo di attività specifico (ad esempio PCR) Obbligo\n• Sarete l'architetto del vostro successo grazie al vostro - esperienza lavorativa di almeno 2 anni in un ambiente simile, idealmente compreso il lavoro di fine settimana (senza lavoro notturno), - padronanza di tecniche e conoscenze chiave di microbiologia, come la semina, la cultura, l'identificazione batterica, la lettura e l'interpretazione di tecniche antibiogrammi e PCR, - versatilità riconosciuta che consente di eseguire in modo indipendente, convalidare e trasmettere tutte le analisi di un laboratorio di microbiologia, - curiosità professionale e capacità di pensiero che ti portano a mettere in discussione il significato e lo scopo delle tue attività quotidiane. Cosa fare\n• Unire il team del laboratorio GHOL è integrare un team di solidarietà, lavorando in trasversalità con tutti i suoi partner di assistenza. Si evolverà all'interno di una struttura di dimensioni umane, dove versatilità, autonomia e collaborazione hanno un valore reale.\n• Nell'ambito della vostra carriera professionale, potrete beneficiare di un adeguato supporto durante la vostra integrazione, nonché delle opportunità di formazione continua che vi aiuteranno a sviluppare e sviluppare le vostre competenze. Contatto",
+        "en": "Descrizione\n• As part of a replacement for maternity leave, you will join our microbiology laboratory where you will have a varied activity. You will be involved in: - participation in the collective response to over 100,000 annual requests for laboratory medical analyses (all disciplines) - the monitoring, maintenance and maintenance of equipment according to the responsibilities matrix defined within the service - the management and development of a specific field of activity (e.g. PCR) Required\n• You will be the architect of your success thanks to your - work experience of at least 2 years in a similar environment, ideally including weekend work (no night work), - mastery of key microbiology techniques and knowledge, such as seeding, culture, bacterial identification, reading and interpretation of antibiograms and PCR techniques, - recognized versatility allowing you to independently perform, validate and transmit all analyses of a microbiology laboratory, - professional curiosity and thinking ability leading you to question the meaning and purpose of your daily activities. Cosa offeriamo\n• Joining the team of the GHOL laboratory is to integrate a team of solidarity, working in transversality with all its care partners. You will evolve within a structure of human size, where versatility, autonomy and collaboration have real value.\n• As part of your professional career, you will benefit from appropriate support during your integration as well as opportunities for continuing training that will help you develop and develop your skills. Contatto",
+        "de": "Beschreibung\n• Im Rahmen eines Ersatzes für den Mutterschaftsurlaub nehmen Sie an unserem Mikrobiologielabor teil, wo Sie eine abwechslungsreiche Aktivität haben werden. Sie werden an: - Teilnahme an der kollektiven Reaktion auf über 100.000 jährliche Anfragen für Labormedizinische Analysen (alle Disziplinen) - die Überwachung, Wartung und Wartung von Geräten gemäß der im Dienst definierten Verantwortungsmatrix - Verwaltung und Entwicklung eines spezifischen Tätigkeitsbereichs (z.B. PCR) Erforderlich\n• Sie werden der Architekt Ihres Erfolgs dank Ihrer - Arbeitserfahrung von mindestens 2 Jahren in einer ähnlichen Umgebung, ideal einschließlich Wochenendarbeit (keine Nachtarbeit), - Beherrschung der wichtigsten Mikrobiologie Techniken und Wissen, wie Saat, Kultur, bakterielle Identifizierung, Lesen und Interpretation von Antibiogrammen und PCR Techniken, - anerkannte Vielseitigkeit, die es Ihnen ermöglicht, unabhängig alle Analysen eines Mikrobiologielabors durchzuführen, zu validieren und zu übermitteln, - professionelle Neugier und Denkfähigkeit führen Sie dazu, die Bedeutung und den Zweck Ihrer täglichen Aktivitäten zu hinterfragen. Cosa offeriamo\n• Das Team des GHOL-Labors ist die Integration eines Teams von Solidarität, das in Transversalität mit allen seinen Pflegepartnern arbeitet. Sie entwickeln sich in einer Struktur menschlicher Größe, wo Vielseitigkeit, Autonomie und Zusammenarbeit einen echten Wert haben.\n• Im Rahmen Ihrer beruflichen Karriere profitieren Sie von einer angemessenen Unterstützung während Ihrer Integration sowie Möglichkeiten für Weiterbildung, die Ihnen helfen, Ihre Fähigkeiten zu entwickeln und zu entwickeln. Contattoo",
+        "fr": "Description de poste : Dans le cadre d’un remplacement pour congé maternité, vous rejoindrez notre laboratoire de microbiologie au sein duquel vous exercerez une activité variée. Vous serez notamment impliqué dans:\n• la participation à la réponse collective aux plus de 100'000 demandes annuelles d’analyses médicales du laboratoire (toutes disciplines confondues)\n• le suivi, l’entretien et la maintenance des équipements, selon la matrice de responsabilités définie au sein du service\n• la gestion et le développement d’un domaine d’activité spécifique (par exemple : PCR) Profil requis : Vous serez l’artisan de votre réussite grâce à votre\n• expérience professionnelle d’au minimum 2 ans dans un environnement similaire, idéalement incluant une activité de week-end (sans travail de nuit),\n• maîtrise des principales techniques et connaissances en microbiologie, telles que l’ensemencement, la culture, l’identification bactérienne, la lecture et l’interprétation des antibiogrammes ainsi que les techniques de PCR,\n• polyvalence reconnue vous permettant de réaliser, valider et transmettre de manière autonome l’ensemble des analyses d’un laboratoire de microbiologie,\n• curiosité professionnelle et capacité de réflexion vous amenant à questionner le sens et la finalité de vos activités quotidiennes. Votre esprit d’équipe constituera un facteur clé de réussite. Votre enthousiasme facilitera votre intégration au sein de l’équipe actuelle. Grâce à votre engagement, vous contribuerez activement aux projets collectifs ainsi qu’aux missions qui vous seront confiées. Proactif et autonome, vous maîtrisez les outils du pack MS Office, disposez d’une forte orientation qualité et êtes à l’aise avec les systèmes informatiques et logiciels de laboratoire. Niveau de formation : Diplôme de Technicien en analyses biomédicales ES (ou diplôme équivalent reconnu par la Croix Rouge Suisse) exigé Avantages : Rejoindre l’équipe du laboratoire du GHOL, c’est intégrer une équipe solidaire, travaillant en transversalité avec l’ensemble de ses partenaires de soins. Vous évoluerez au sein d’une structure à taille humaine, où polyvalence, autonomie et collaboration ont une réelle valeur. Acteur de votre parcours professionnel, vous bénéficierez d’un accompagnement adapté lors de votre intégration ainsi que de possibilités de formation continue favorisant votre développement et l’évolution de vos compétences."
       },
       "location": "Nyon",
       "canton": "VD",
@@ -655,35 +585,35 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "human-resources",
+      "category": "logistics",
       "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-05",
-      "url": "https://app.beehire.com/invite/GgPc1sOFl",
-      "applyUrl": "https://app.beehire.com/invite/GgPc1sOFl",
+      "postedDate": "2026-05-29",
+      "url": "https://app.beehire.com/invite/SAEhDyjSq",
+      "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.727Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-06-18T22:48:41.845Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "specialiste-rh-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-06-05T22:04:25.846Z",
+      "firstSeenAt": "2026-05-29T12:28:12.409Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
@@ -742,7 +672,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.726Z",
+      "crawledAt": "2026-06-18T22:48:41.844Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -817,7 +747,7 @@
       "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:20:06.725Z",
+      "crawledAt": "2026-06-18T22:48:41.843Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
