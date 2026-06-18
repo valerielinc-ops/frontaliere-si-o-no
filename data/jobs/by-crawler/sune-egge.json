@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sune-egge",
-  "assembledAt": "2026-06-17T23:29:15.201Z",
+  "assembledAt": "2026-06-18T13:14:26.497Z",
   "jobs": [
     {
       "id": "sune-egge-3c2fc1f133e0",
@@ -33,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2645745",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:29:13.290Z",
+      "crawledAt": "2026-06-18T13:14:24.525Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,6 +50,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2645745",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "psychotherapeutin-psychotherapeuten-60-80-sune-egge-zurich"
       ],
@@ -106,7 +107,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:29:13.289Z",
+      "crawledAt": "2026-06-18T13:14:24.524Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,6 +124,7 @@
       "applyUrl": "https://swsieber.jobs.personio.com/job/2610155",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-60-100-tagdienst-sune-egge-zurich",
         "dipl-pflegefachfrau-mann-hf-80-100-sune-egge-zurich"
@@ -177,7 +179,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2595649",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:29:13.288Z",
+      "crawledAt": "2026-06-18T13:14:24.523Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -219,6 +221,7 @@
           "Excellentes compétences en allemand à l’oral et à l’écrit"
         ]
       },
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-fage-efz-60-100-fur-den-tagdienst-sune-egge-zurich",
