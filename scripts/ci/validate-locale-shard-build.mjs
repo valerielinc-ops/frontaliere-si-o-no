@@ -134,6 +134,33 @@ for (const loc of emit) {
   }
 }
 
+// (4) Sitemap cross-locale completeness (Fase 4) — only on the it/main shard,
+// which owns the root sitemaps. Proves the render-skips did NOT drop sibling-
+// locale entries: a root sitemap with xhtml:link alternates must reference all
+// four locales. Catches the manifest-divergence trap at the gate.
+if (emit.includes('it')) {
+  const smCandidates = [];
+  try {
+    for (const e of fs.readdirSync(distDir)) {
+      if (/^sitemap.*\.xml$/.test(e)) smCandidates.push(path.join(distDir, e));
+    }
+  } catch { /* no dist root */ }
+  const smWithAlts = smCandidates.find((p) => {
+    try { return /xhtml:link[^>]*hreflang=/.test(fs.readFileSync(p, 'utf-8')); } catch { return false; }
+  });
+  if (!smWithAlts) {
+    console.log('ℹ (4) no root sitemap with xhtml:link alternates found — skipping sitemap-completeness check');
+  } else {
+    const xml = fs.readFileSync(smWithAlts, 'utf-8');
+    const missingSm = ALL.filter((l) => !new RegExp(`hreflang=["']${l}["']`).test(xml));
+    if (missingSm.length) {
+      errors.push(`root sitemap ${path.basename(smWithAlts)} missing cross-locale alternates for [${missingSm.join(', ')}] — shard build dropped sibling-locale sitemap entries`);
+    } else {
+      console.log(`✓ (4) sitemap ${path.basename(smWithAlts)} → cross-locale alternates complete (it/en/de/fr)`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error('\n✖ Locale shard validation FAILED:');
   for (const e of errors) console.error(`  - ${e}`);
