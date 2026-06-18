@@ -3649,6 +3649,7 @@ ${staticAnalyticsHtml}
  // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
  if (isBrandAlias(cSlug)) continue;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompany = startTimer();
  const prefix = companyRoutePrefix[locale];
  const fullSlug = `${prefix}-${cSlug}`;
@@ -4587,6 +4588,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // so TI URLs stay byte-identical.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
  jobs: validJobs,
@@ -4731,6 +4733,7 @@ ${staticAnalyticsHtml}
  }
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdGazette = startTimer();
  const model = buildJobOfficialGazetteLandingModel({
  jobs: validJobs,
@@ -4892,6 +4895,7 @@ ${staticAnalyticsHtml}
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
  jobs: validJobs,
@@ -5072,6 +5076,7 @@ ${staticAnalyticsHtml}
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
  jobs: validJobs,
@@ -5261,6 +5266,7 @@ ${staticAnalyticsHtml}
  if (italianCareModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdCareVariant = startTimer();
  const model = buildJobCareVariantLandingModel({
  jobs: validJobs,
@@ -5431,6 +5437,7 @@ ${staticAnalyticsHtml}
  if (italianLocationModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdLocation = startTimer();
  const model = buildJobLocationLandingModel({
  jobs: validJobs,
@@ -5675,6 +5682,7 @@ ${staticAnalyticsHtml}
  if (italianTypeModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdContractType = startTimer();
  const model = buildJobLocationTypeLandingModel({
  jobs: validJobs,
@@ -5834,6 +5842,7 @@ ${staticAnalyticsHtml}
  if (italianSectorModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdSector = startTimer();
  const model = buildJobLocationSectorLandingModel({
  jobs: validJobs,
@@ -6163,6 +6172,7 @@ ${staticAnalyticsHtml}
  const isCityEmpty = cityJobs.length === 0;
  const fallbackCount = isCityEmpty ? cappedJobs.length : 0;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${citySlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -6367,6 +6377,7 @@ ${staticAnalyticsHtml}
  const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tPaginated = startTimer();
  const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
  const pgCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${pgSlug}`.replace(/\/+/g, '/'));
@@ -6484,6 +6495,7 @@ ${staticAnalyticsHtml}
  const pgJobs = cSorted.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tPaginated = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
@@ -6611,6 +6623,7 @@ ${staticAnalyticsHtml}
  const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const catSlugL = catSlugsMap[catKey][locale];
  const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
@@ -6760,6 +6773,7 @@ ${staticAnalyticsHtml}
  const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const cDisplay = cantonDisplayLocalCat(canton, locale);
@@ -6933,6 +6947,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sSorted.slice(0, SECTOR_JOB_LIST_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSectorCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const sectorSlug = SECTOR_HUB_SLUG[locale][sector];
@@ -7158,6 +7173,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -7380,6 +7396,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sortedJobs.slice(0, COMPANY_CITY_JOB_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCity = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -7557,6 +7574,7 @@ ${staticAnalyticsHtml}
  const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tGsc = startTimer();
  const kwFullSlug = `${searchRoutePrefix[locale]}-${kwSlug}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
@@ -7763,6 +7781,7 @@ ${staticAnalyticsHtml}
  if (fallbackMatchingJobs.length === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const matchingJobs = matchingJobsByLocale[locale].length > 0
  ? matchingJobsByLocale[locale]
  : fallbackMatchingJobs;
@@ -7965,6 +7984,7 @@ ${staticAnalyticsHtml}
  if (matchingJobs.length === 0) return;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSearchCombo = startTimer();
  const fullSlug = `${searchRoutePrefix[locale]}-${comboKey}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(fullSlug)) continue;
