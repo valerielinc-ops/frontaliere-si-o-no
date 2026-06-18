@@ -16,6 +16,7 @@ import type { ActiveTab } from '@/services/router';
 import { enableRuntimeSeo } from '@/hooks/seoHelpers';
 
 import { Analytics, unlockAchievement, fireCalcEntryIfNeeded } from '@/services/analyticsProxy';
+import { initPostHog } from '@/services/posthog';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -104,6 +105,13 @@ export function useUIState(activeTab: ActiveTab): UIState {
  // Idempotent via sessionStorage so it never double-fires.
  fireCalcEntryIfNeeded(`${window.location.pathname}${window.location.search}${window.location.hash}`);
  Analytics.initGlobalErrorTracking();
+ // PostHog (analytics + sampled session replay) moved here from App.tsx
+ // module-eval: eager init loaded posthog-js + the recorder onto the main
+ // thread during the React boot, competing with the LCP/TBT critical window
+ // on the heaviest SPA route (/cerca-lavoro-ticino/, Lighthouse #2350).
+ // Deferring it to this consent-gated idle path keeps it off the boot path;
+ // queued captures still flush via ensurePostHog() so no events are lost.
+ initPostHog();
  import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
  import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
  };
