@@ -780,10 +780,10 @@
       "id": "spitex-ch-32feb42cca73",
       "slug": "infermiere-dipl-sss-sup-somatik-stiftung-drei-tannen-wald-zh",
       "slugByLocale": {
-        "it": "infermiere-dipl-sss-sup-somatik-stiftung-drei-tannen-wald-zh",
+        "it": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh",
         "en": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh",
         "de": "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
-        "fr": "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
+        "fr": "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
       },
       "company": "Stiftung Drei Tannen",
       "companyKey": "spitex-ch",
@@ -828,15 +828,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
-        "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+        "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
-          "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+          "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-somatik-stiftung-drei-tannen-wald-zh"
+          "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
         ]
       },
       "firstSeenAt": "2026-06-17T13:54:53.787Z",
@@ -1311,9 +1310,9 @@
     },
     {
       "id": "spitex-ch-4982d608b9a5",
-      "slug": "specialista-della-salute-efz-spitex-regio-frick-frick",
+      "slug": "fachperson-gesundheit-cfc-spitex-regio-frick-frick",
       "slugByLocale": {
-        "it": "specialista-della-salute-efz-spitex-regio-frick-frick",
+        "it": "fachperson-gesundheit-cfc-spitex-regio-frick-frick",
         "en": "health-specialist-efz-spitex-regio-frick-frick",
         "de": "fachperson-gesundheit-efz-spitex-ch-frick",
         "fr": "specialiste-de-la-sante-efz-spitex-regio-frick-frick"
@@ -1361,7 +1360,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachperson-gesundheit-efz-spitex-ch-frick",
-        "fachperson-gesundheit-cfc-spitex-regio-frick-frick",
+        "specialista-della-salute-efz-spitex-regio-frick-frick",
         "health-professional-efz-spitex-regio-frick-frick",
         "professionnels-de-la-sante-efz-spitex-regio-frick-frick",
         "professionista-della-salute-efz-spitex-regio-frick-frick",
@@ -1374,7 +1373,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-efz-spitex-ch-frick"
+          "fachperson-gesundheit-efz-spitex-ch-frick",
+          "specialista-della-salute-efz-spitex-regio-frick-frick"
         ],
         "en": [
           "fachperson-gesundheit-efz-spitex-ch-frick"

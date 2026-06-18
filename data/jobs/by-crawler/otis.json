@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "otis-365f5aa39c3b",
-      "slug": "supervisor-svc-m-w-d-otis-chur",
+      "slug": "supervisore-svc-m-w-d-otis-sa-chur",
       "slugByLocale": {
         "en": "supervisor-svc-m-w-d-otis-chur",
-        "it": "supervisor-svc-m-w-d-otis-chur",
+        "it": "supervisore-svc-m-w-d-otis-sa-chur",
         "de": "supervisor-svc-m-w-d-otis-chur",
-        "fr": "supervisor-svc-m-w-d-otis-chur"
+        "fr": "superviseur-svc-m-w-d-otis-sa-chur"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -62,7 +62,18 @@
       "postalCode": "7000",
       "country": "CH",
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-18T12:53:20.467Z"
+      "firstSeenAt": "2026-06-18T12:53:20.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-svc-m-w-d-otis-chur"
+        ],
+        "fr": [
+          "supervisor-svc-m-w-d-otis-chur"
+        ]
+      },
+      "previousSlugs": [
+        "supervisor-svc-m-w-d-otis-chur"
+      ]
     },
     {
       "id": "otis-41b284511d9f",

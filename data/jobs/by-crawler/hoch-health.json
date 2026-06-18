@@ -2896,9 +2896,9 @@
       "slug": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil",
-        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
+        "en": "dipl-nursing-professional-80-100-hoch-health-ostschweiz-wil",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil",
-        "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-wil"
+        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-wil"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -5329,9 +5329,9 @@
       "slug": "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-60-100-hoch-health-ostschweiz-grabs",
-        "en": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
+        "en": "dipl-nursing-professional-60-100-hoch-health-ostschweiz-grabs",
         "de": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
-        "fr": "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
+        "fr": "dipl-professionnels-des-soins-infirmiers-60-100-hoch-health-ostschweiz-grabs"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -5374,20 +5374,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs",
-        "dipl-nursing-professional-60-100-hoch-health-ostschweiz-grabs",
-        "dipl-professionnels-des-soins-infirmiers-60-100-hoch-health-ostschweiz-grabs"
+        "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
         ],
         "en": [
-          "dipl-nursing-professional-60-100-hoch-health-ostschweiz-grabs",
           "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
         ],
         "fr": [
-          "dipl-professionnels-des-soins-infirmiers-60-100-hoch-health-ostschweiz-grabs",
           "dipl-pflegefachfrau-mann-60-100-hoch-health-grabs"
         ]
       },
@@ -9498,7 +9494,7 @@
       "slug": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+        "en": "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
         "fr": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
       },
@@ -9546,8 +9542,7 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-2",
-        "dipl-specialista-di-cura-80-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-specialista-di-cura-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9557,7 +9552,6 @@
           "dipl-specialista-di-cura-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
-          "dipl-care-specialist-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
         ]
       },
@@ -14161,9 +14155,9 @@
       "slug": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
         "it": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
-        "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
+        "en": "dipl-radiology-specialist-hf-80-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
+        "fr": "dipl-specialiste-en-radiologie-hf-80-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -14211,9 +14205,7 @@
         "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-specialista-di-radiologia-hf-80-100-hoch-health-ostschweiz-st",
         "specialista-in-radiologia-dipl-sss-80-100-hoch-health-ostschweiz-st",
-        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-radiology-specialist-hf-80-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-specialiste-en-radiologie-hf-80-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14225,11 +14217,9 @@
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
-          "dipl-radiology-specialist-hf-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-specialiste-en-radiologie-hf-80-100-hoch-health-ostschweiz-st-gallen",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ]
       },
@@ -14647,9 +14637,9 @@
       "slug": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
+        "en": "dipl-care-specialist-40-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
+        "fr": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -14694,9 +14684,7 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-specialista-di-cura-40-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-care-specialist-40-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-st-gallen"
+        "dipl-specialista-di-cura-40-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -14705,11 +14693,9 @@
           "dipl-specialista-di-cura-40-100-hoch-health-ostschweiz-st-gallen"
         ],
         "en": [
-          "dipl-care-specialist-40-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ]
       },

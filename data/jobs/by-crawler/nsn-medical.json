@@ -873,9 +873,9 @@
       "slug": "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-fakturierung-100-nsn-medical-group-zurich",
-        "en": "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
+        "en": "employee-invoicing-100-nsn-medical-group-zurich",
         "de": "mitarbeiter-in-fakturierung-100-nsn-medical-zurich",
-        "fr": "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
+        "fr": "employe-facturation-100-nsn-medical-group-zurich"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -922,6 +922,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
+        ],
+        "fr": [
           "mitarbeiter-in-fakturierung-100-nsn-medical-zurich"
         ]
       },

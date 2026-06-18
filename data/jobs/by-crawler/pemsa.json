@@ -159,8 +159,8 @@
       },
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-locarno",
-        "en": "carpentiere-edile-pemsa-locarno",
-        "de": "carpentiere-edile-pemsa-locarno",
+        "en": "education-pemsa-locarno",
+        "de": "bildung-pemsa-locarno",
         "fr": "carpentiere-edile-pemsa-locarno"
       },
       "id": "pemsa-317e99092e53",
@@ -219,9 +219,9 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-pemsa-locarno",
-        "en": "metalcostruttore-pemsa-locarno",
-        "de": "metalcostruttore-pemsa-locarno",
-        "fr": "metalcostruttore-pemsa-locarno"
+        "en": "metalcostructor-pemsa-locarno",
+        "de": "metallkostruktur-pemsa-locarno",
+        "fr": "metalcostructeur-pemsa-locarno"
       },
       "id": "pemsa-630f7a12e095",
       "needsRetranslation": true,
@@ -279,9 +279,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-climatizzazione-pemsa-lugano",
-        "en": "idraulico-impianti-climatizzazione-pemsa-lugano",
-        "de": "idraulico-impianti-climatizzazione-pemsa-lugano",
-        "fr": "idraulico-impianti-climatizzazione-pemsa-lugano"
+        "en": "hydraulic-air-conditioning-systems-pemsa-lugano",
+        "de": "hydraulische-klimaanlagen-pemsa-lugano",
+        "fr": "systemes-hydrauliques-de-climatisation-pemsa-lugano"
       },
       "id": "pemsa-b5310eb55a54",
       "needsRetranslation": true,
@@ -339,9 +339,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "en": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "de": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "fr": "idraulico-impianti-sanitari-pemsa-mendrisio"
+        "en": "hydraulic-health-plants-pemsa-mendrisio",
+        "de": "hydraulische-heilpflanzen-pemsa-mendrisio",
+        "fr": "installations-de-sante-hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-bb697991cd70",
       "needsRetranslation": true,
@@ -400,8 +400,8 @@
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
         "en": "metal-manufacturer-welder-pemsa-bellinzona",
-        "de": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "fr": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
+        "de": "metallkonstrukteur-sattel-pemsa-bellinzona",
+        "fr": "constructeur-de-metaux-saddle-pemsa-bellinzona"
       },
       "id": "pemsa-6bd543122cf9",
       "salaryMin": 49500,
@@ -460,8 +460,8 @@
       "slugByLocale": {
         "it": "muratore-carpentiere-pemsa-chiasso",
         "en": "mason-carpenter-pemsa-chiasso",
-        "de": "muratore-carpentiere-pemsa-chiasso",
-        "fr": "muratore-carpentiere-pemsa-chiasso"
+        "de": "wand-zimmermann-pemsa-chiasso",
+        "fr": "mur-charpentier-pemsa-chiasso"
       },
       "id": "pemsa-40442dc3beec",
       "salaryMin": 49500,
@@ -520,8 +520,8 @@
       "slugByLocale": {
         "it": "macchinista-autista-pemsa-locarno",
         "en": "driver-driver-pemsa-locarno",
-        "de": "macchinista-autista-pemsa-locarno",
-        "fr": "macchinista-autista-pemsa-locarno"
+        "de": "maschinen-pemsa-locarno",
+        "fr": "machinerie-pemsa-locarno"
       },
       "id": "pemsa-069bda07f59d",
       "salaryMin": 49500,
@@ -580,8 +580,8 @@
       "slugByLocale": {
         "it": "muratore-carpentiere-pemsa-locarno",
         "en": "mason-carpenter-pemsa-locarno",
-        "de": "muratore-carpentiere-pemsa-locarno",
-        "fr": "muratore-carpentiere-pemsa-locarno"
+        "de": "mord-pemsa-locarno",
+        "fr": "murder-pemsa-locarno"
       },
       "id": "pemsa-7c8d1f2c879a",
       "salaryMin": 49500,
@@ -700,8 +700,8 @@
       "slugByLocale": {
         "it": "montatore-di-pannelli-solari-pemsa-locarno",
         "en": "solar-panel-fitter-pemsa-locarno",
-        "de": "montatore-di-pannelli-solari-pemsa-locarno",
-        "fr": "montatore-di-pannelli-solari-pemsa-locarno"
+        "de": "solarpannelli-pemsa-locarno",
+        "fr": "pannelli-solaire-pemsa-locarno"
       },
       "id": "pemsa-05431b6639a0",
       "salaryMin": 49500,
@@ -760,8 +760,8 @@
       "slugByLocale": {
         "it": "carpentiere-tetti-pemsa-locarno",
         "en": "carpenter-roofs-pemsa-locarno",
-        "de": "carpentiere-tetti-pemsa-locarno",
-        "fr": "carpentiere-tetti-pemsa-locarno"
+        "de": "kapitel-tetti-pemsa-locarno",
+        "fr": "chapitre-tetti-pemsa-locarno"
       },
       "id": "pemsa-595fc0709f0b",
       "salaryMin": 49500,
@@ -881,7 +881,7 @@
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "en": "plasterer-plasterer-pemsa-bellinzona",
         "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "fr": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
+        "fr": "cartongesista-gessatore-pemsa-bellinzona"
       },
       "id": "pemsa-20e598c085ec",
       "salaryMin": 49500,
@@ -940,8 +940,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-mendrisio",
         "en": "hydraulic-pemsa-mendrisio",
-        "de": "idraulico-pemsa-mendrisio",
-        "fr": "idraulico-pemsa-mendrisio"
+        "de": "hydraulik-pemsa-mendrisio",
+        "fr": "hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-3b0c7725462f",
       "salaryMin": 49500,
@@ -1000,8 +1000,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
         "en": "plumber-pemsa-lugano",
-        "de": "idraulico-pemsa-lugano",
-        "fr": "idraulico-pemsa-lugano"
+        "de": "idraulierung-pemsa-lugano",
+        "fr": "idraulement-pemsa-lugano"
       },
       "id": "pemsa-bb3b3c28c389",
       "salaryMin": 49500,
@@ -1060,8 +1060,8 @@
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-mendrisio",
         "en": "plumbing-installer-pemsa-mendrisio",
-        "de": "installatore-idraulico-pemsa-mendrisio",
-        "fr": "installatore-idraulico-pemsa-mendrisio"
+        "de": "hydraulikinstallateur-pemsa-mendrisio",
+        "fr": "installation-hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-b19ddadbf55d",
       "salaryMin": 49500,
@@ -1179,8 +1179,8 @@
       "slugByLocale": {
         "it": "installatore-impianti-ventilazione-pemsa-rivera",
         "en": "ventilation-system-installer-pemsa-rivera",
-        "de": "installatore-impianti-ventilazione-pemsa-rivera",
-        "fr": "installatore-impianti-ventilazione-pemsa-rivera"
+        "de": "installation-von-luftungssystemen-pemsa-rivera",
+        "fr": "installation-des-systemes-de-ventilation-pemsa-rivera"
       },
       "id": "pemsa-eab4ee124d07",
       "salaryMin": 49500,
@@ -1239,8 +1239,8 @@
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-lugano",
         "en": "plumbing-installer-pemsa-lugano",
-        "de": "installatore-idraulico-pemsa-lugano",
-        "fr": "installatore-idraulico-pemsa-lugano"
+        "de": "hydraulikinstallateur-pemsa-lugano",
+        "fr": "installation-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-6fdafbf32949",
       "salaryMin": 49500,
@@ -1299,8 +1299,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-melide",
         "en": "plumbing-sanitary-systems-pemsa-melide",
-        "de": "idraulico-impianti-sanitari-pemsa-melide",
-        "fr": "idraulico-impianti-sanitari-pemsa-melide"
+        "de": "hydraulische-heilpflanzen-pemsa-melide",
+        "fr": "installations-de-sante-hydraulique-pemsa-melide"
       },
       "id": "pemsa-a0ba7a78ab98",
       "salaryMin": 49500,
@@ -1359,8 +1359,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-agno",
         "en": "hydraulic-pemsa-agno",
-        "de": "idraulico-pemsa-agno",
-        "fr": "idraulico-pemsa-agno"
+        "de": "hydraulik-pemsa-agno",
+        "fr": "hydraulique-pemsa-agno"
       },
       "id": "pemsa-16b250da59a5",
       "salaryMin": 49500,
@@ -1419,8 +1419,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "plumbing-heating-systems-pemsa-lugano",
-        "de": "idraulico-impianti-riscaldamento-pemsa-lugano",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
+        "de": "durchfuhrungen-pemsa-lugano",
+        "fr": "mise-en-uvre-pemsa-lugano"
       },
       "id": "pemsa-0698f0bf0be6",
       "salaryMin": 49500,
@@ -1479,8 +1479,8 @@
       "slugByLocale": {
         "it": "costruttore-stradale-pemsa-lugano",
         "en": "road-builder-pemsa-lugano",
-        "de": "costruttore-stradale-pemsa-lugano",
-        "fr": "costruttore-stradale-pemsa-lugano"
+        "de": "stra-enbau-pemsa-lugano",
+        "fr": "construction-routiere-pemsa-lugano"
       },
       "id": "pemsa-44662d06bdc1",
       "salaryMin": 49500,
@@ -1539,8 +1539,8 @@
       "slugByLocale": {
         "it": "copritetto-amp-8211-isolatore-amp-8211-lattoniere-pemsa-chiasso",
         "en": "roof-cover-insulator-tinsmith-pemsa-chiasso",
-        "de": "copritetto-amp-8211-isolatore-amp-8211-lattoniere-pemsa-chiasso",
-        "fr": "copritetto-amp-8211-isolatore-amp-8211-lattoniere-pemsa-chiasso"
+        "de": "abdeckung-isolator-lattonyre-pemsa-chiasso",
+        "fr": "couverture-isolant-lattonyre-pemsa-chiasso"
       },
       "id": "pemsa-969e9783a70d",
       "salaryMin": 49500,
@@ -1600,7 +1600,7 @@
         "it": "gruista-b-suva-pemsa-chiasso",
         "en": "gruista-b-suv-pemsa-chiasso",
         "de": "gruista-b-suva-pemsa-chiasso",
-        "fr": "gruista-b-suva-pemsa-chiasso"
+        "fr": "suv-gruista-b-pemsa-chiasso"
       },
       "id": "pemsa-e1fdce9b487a",
       "salaryMin": 49500,
@@ -1659,8 +1659,8 @@
       "slugByLocale": {
         "it": "carpentiere-metallico-pemsa-bellinzona",
         "en": "metal-carpenter-pemsa-bellinzona",
-        "de": "carpentiere-metallico-pemsa-bellinzona",
-        "fr": "carpentiere-metallico-pemsa-bellinzona"
+        "de": "tischler-aus-metall-pemsa-bellinzona",
+        "fr": "charpentier-metallique-pemsa-bellinzona"
       },
       "id": "pemsa-8486e4c1ca5a",
       "salaryMin": 49500,
@@ -1719,8 +1719,8 @@
       "slugByLocale": {
         "it": "idraulico-installatore-impianti-riscaldamento-sanitari-pemsa-mendrisio",
         "en": "hydraulic-installation-heating-sanitary-systems-pemsa-mendrisio",
-        "de": "idraulico-installatore-impianti-riscaldamento-sanitari-pemsa-mendrisio",
-        "fr": "idraulico-installatore-impianti-riscaldamento-sanitari-pemsa-mendrisio"
+        "de": "hydraulische-anlagenheizung-sanitaranlagen-pemsa-mendrisio",
+        "fr": "systemes-hydrauliques-de-chauffage-et-d-assainissement-pemsa-mendrisio"
       },
       "id": "pemsa-e0c18bf71f97",
       "salaryMin": 49500,
@@ -1779,8 +1779,8 @@
       "slugByLocale": {
         "it": "idraulico-con-esperienza-pemsa-agno",
         "en": "hydraulic-with-experience-pemsa-agno",
-        "de": "idraulico-con-esperienza-pemsa-agno",
-        "fr": "idraulico-con-esperienza-pemsa-agno"
+        "de": "hydraulisch-mit-erfahrung-pemsa-agno",
+        "fr": "hydraulique-avec-experience-pemsa-agno"
       },
       "id": "pemsa-aff65322f034",
       "salaryMin": 49500,
@@ -1839,8 +1839,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
-        "de": "idraulico-impianti-riscaldamento-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "de": "durchfuhrungen-pemsa-torricella",
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -1899,8 +1899,8 @@
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-lugano",
         "en": "hydraulic-health-plants-pemsa-lugano",
-        "de": "idraulico-impianti-sanitari-pemsa-lugano",
-        "fr": "idraulico-impianti-sanitari-pemsa-lugano"
+        "de": "hydraulische-heilpflanzen-pemsa-lugano",
+        "fr": "installations-de-sante-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-719eb541a949",
       "salaryMin": 49500,
@@ -2671,8 +2671,8 @@
       "slugByLocale": {
         "it": "saldatore-tubista-pemsa-torricella",
         "en": "welder-tubist-pemsa-torricella",
-        "de": "saldatore-tubista-pemsa-torricella",
-        "fr": "saldatore-tubista-pemsa-torricella"
+        "de": "sauce-tubist-pemsa-torricella",
+        "fr": "sauce-tubiste-pemsa-torricella"
       },
       "id": "pemsa-b13ee2fe413c",
       "salaryMin": 49500,

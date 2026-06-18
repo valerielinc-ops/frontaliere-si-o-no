@@ -1409,9 +1409,9 @@
       "slug": "medicina-interna-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "it": "medicina-interna-sanatorium-kilchberg-kilchberg",
-        "en": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
+        "en": "senior-physician-senior-physician-internal-medicine-sanatorium-kilchberg-kilchberg",
         "de": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg",
-        "fr": "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        "fr": "medecin-principal-medecin-principal-medecine-interne-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1459,6 +1459,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-innere-medizin-sanatorium-kilchberg-kilchberg"
         ]
       },
       "firstSeenAt": "2026-05-29T13:47:42.521Z",
@@ -1480,9 +1486,9 @@
       "slug": "primario-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "it": "primario-sanatorium-kilchberg-kilchberg",
-        "en": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
+        "en": "senior-physician-senior-physician-sanatorium-kilchberg-kilchberg",
         "de": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg",
-        "fr": "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        "fr": "medecin-superieur-medecin-superieur-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1529,6 +1535,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
           "oberarztin-oberarzt-sanatorium-kilchberg-kilchberg"
         ]
       },

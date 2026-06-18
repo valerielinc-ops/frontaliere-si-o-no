@@ -103,12 +103,12 @@
         "de": "Lösung Architektur Owner Kundeninteraktion (w/m/d)",
         "fr": "Solution Architecture Propriétaire Interaction client (f/m/d)"
       },
-      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
+      "slug": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
       "slugByLocale": {
-        "it": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
+        "it": "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
         "en": "solution-architecture-owner-customer-interaction-w-m-d-postfinance-bern",
         "de": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
-        "fr": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
+        "fr": "solution-architecture-proprietaire-interaction-client-f-m-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -144,17 +144,20 @@
       "previousSlugs": [
         "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
         "interazione-del-cliente-w-m-d-postfinance-bern",
-        "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern",
+        "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern",
         "kundeninteraktion-w-m-d-postfinance-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
           "interazione-del-cliente-w-m-d-postfinance-bern",
-          "interazione-clienti-del-proprietario-dell-architettura-della-soluzione-f-m-d-postfinance-bern"
+          "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance-bern"
         ],
         "de": [
           "kundeninteraktion-w-m-d-postfinance-bern"
+        ],
+        "fr": [
+          "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance"
         ]
       },
       "addressLocality": "Bern",
@@ -261,8 +264,8 @@
       "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
       "slugByLocale": {
         "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-        "en": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-        "de": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+        "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
+        "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
       },
       "sourceLang": "fr",
@@ -331,11 +334,11 @@
         "de": "Berater:ère clients en placement, Lausanne",
         "fr": "Conseiller:ère clientèle en placement, Lausanne"
       },
-      "slug": "consulente-per-clienti-investitori-losanna-postfinance-lausanne",
+      "slug": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
       "slugByLocale": {
-        "it": "consulente-per-clienti-investitori-losanna-postfinance-lausanne",
-        "en": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
-        "de": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+        "it": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
+        "en": "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne",
+        "de": "berater-ere-clients-en-placement-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-en-placement-lausanne-postfinance"
       },
       "sourceLang": "fr",
@@ -375,11 +378,19 @@
       "firstSeenAt": "2026-06-16T14:08:25.964Z",
       "previousSlugsByLocale": {
         "it": [
+          "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+          "consulente-per-clienti-investitori-losanna-postfinance-lausanne"
+        ],
+        "en": [
+          "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+        ],
+        "de": [
           "conseiller-ere-clientele-en-placement-lausanne-postfinance"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+        "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+        "consulente-per-clienti-investitori-losanna-postfinance-lausanne"
       ]
     }
   ]

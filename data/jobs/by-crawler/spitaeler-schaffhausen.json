@@ -2835,10 +2835,10 @@
       "id": "spitaeler-schaffhausen-709e9e7c0319",
       "slug": "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen",
+        "it": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "en": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "de": "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "fr": "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
+        "fr": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2882,15 +2882,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
+        "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-          "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
+          "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
           "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
         ]
       },
@@ -2987,12 +2985,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-2a341759238d",
-      "slug": "security-engineer-spitaeler-schaffhausen-schaffhausen",
+      "slug": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "security-engineer-spitaeler-schaffhausen-schaffhausen",
+        "it": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
         "en": "security-engineer-spitaler-schaffhausen-schaffhausen",
         "de": "security-engineer-spitaeler-schaffhausen-schaffhausen",
-        "fr": "security-engineer-spitaeler-schaffhausen-schaffhausen"
+        "fr": "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3035,18 +3033,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
-        "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen",
+        "security-engineer-spitaeler-schaffhausen-schaffhausen",
         "security-ingegnere-spitaler-schaffhausen-schaffhausen",
         "security-ingenieur-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
           "security-engineer-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen",
           "security-engineer-spitaeler-schaffhausen-schaffhausen"
         ]
       },
@@ -3529,9 +3524,9 @@
       "slug": "collaboratore-trice-hegebe-con-medizinischer-verantwortung-spitaler-schaffhausen",
       "slugByLocale": {
         "it": "collaboratore-trice-hegebe-con-medizinischer-verantwortung-spitaler-schaffhausen",
-        "en": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen",
+        "en": "employee-in-hegebe-with-medical-responsibility-spitaler-schaffhausen-schaffhausen",
         "de": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen",
-        "fr": "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        "fr": "employe-en-hegebe-avec-responsabilite-medicale-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3579,6 +3574,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "mitarbeiter-in-hegebe-mit-medizinischer-verantwortung-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-10T12:58:15.934Z",
@@ -3600,9 +3601,9 @@
       "slug": "medico-senior-medico-senior-psichiatria-dell-eta-vecchia-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "medico-senior-medico-senior-psichiatria-dell-eta-vecchia-spitaler-schaffhausen-schaffhausen",
-        "en": "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen",
+        "en": "senior-physician-senior-physician-old-age-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "oberarztin-oberarzt-alterspsychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen"
+        "fr": "medecin-superieur-medecin-superieur-psychiatrie-de-la-vieillesse-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3652,6 +3653,12 @@
         "it": [
           "oberarztin-oberarzt-alterspsychiatrie-spitaeler-schaffhausen-schaffhausen",
           "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-alterspsychiatrie-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-11T13:30:56.393Z",
@@ -3673,9 +3680,9 @@
       "slug": "responsabile-sozialdienst-per-la-spitaler-schaffhausen",
       "slugByLocale": {
         "it": "responsabile-sozialdienst-per-la-spitaler-schaffhausen",
-        "en": "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen",
+        "en": "head-of-social-service-for-hospitals-schaffhausen-spitaler-schaffhausen-schaffhausen",
         "de": "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen",
-        "fr": "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen"
+        "fr": "chef-du-service-social-des-hopitaux-schaffhausen-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3723,6 +3730,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "leiter-in-sozialdienst-fur-die-spitaler-schaffhausen-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-11T13:30:56.390Z",
@@ -3741,12 +3754,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-ede9d96ed9de",
-      "slug": "farmacista-specialista-farmacia-ospedale-spitaler-schaffhausen-schaffhausen",
+      "slug": "farmacista-specializzato-in-farmacia-ospedaliera-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "farmacista-specialista-farmacia-ospedale-spitaler-schaffhausen-schaffhausen",
-        "en": "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen",
+        "it": "farmacista-specializzato-in-farmacia-ospedaliera-spitaler-schaffhausen-schaffhausen",
+        "en": "specialist-pharmacist-in-hospital-pharmacy-spitaler-schaffhausen-schaffhausen",
         "de": "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen"
+        "fr": "pharmacie-specialiste-en-pharmacie-hospitaliere-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3790,11 +3803,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen",
-        "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen"
+        "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen",
+        "farmacista-specialista-farmacia-ospedale-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachapotheker-in-spitalpharmazie-spitaeler-schaffhausen-schaffhausen",
+          "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen",
+          "farmacista-specialista-farmacia-ospedale-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "fachapotheker-in-spitalpharmazie-spitaler-schaffhausen-schaffhausen"
         ]
       },
@@ -3814,12 +3835,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-c840286e650a",
-      "slug": "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen",
+      "slug": "psichiatria-medico-senior-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "en": "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen",
+        "it": "psichiatria-medico-senior-spitaler-schaffhausen-schaffhausen",
+        "en": "senior-physician-psychiatry-spitaler-schaffhausen-schaffhausen",
         "de": "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen",
-        "fr": "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+        "fr": "medecin-principal-psychiatrie-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3873,16 +3894,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-ce5338eaed28",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-spitaler-schaffhausen-schaffhausen",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3936,16 +3971,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-42eba5250cf1",
       "slug": "medizinische-r-praxisangestellte-r-fast-track-e-notfallhausarztepraxis-spitaler-schaffhausen",
       "slugByLocale": {
         "it": "medizinische-r-praxisangestellte-r-fast-track-e-notfallhausarztepraxis-spitaler-schaffhausen",
-        "en": "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaler-schaffhausen-schaffhausen",
+        "en": "medical-practice-staff-r-fast-track-and-emergency-home-practice-spitaler-schaffhausen-schaffhausen",
         "de": "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaeler",
-        "fr": "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaler-schaffhausen-schaffhausen"
+        "fr": "personnel-medical-pratique-r-fast-track-et-d-urgence-accueil-pratique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3988,11 +4034,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaeler"
+        "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaeler",
+        "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaeler"
+        ],
+        "en": [
+          "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "medizinische-r-praxisangestellte-r-fast-track-und-notfallhausarztepraxis-spitaler-schaffhausen-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-17T13:48:05.220Z",
@@ -4011,12 +4064,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-0240af830d4d",
-      "slug": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
+      "slug": "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-        "en": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
+        "it": "dipl-cura-professionale-hf-fh-esperienza-diversita-nella-piscina-flex-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-care-professional-hf-fh-experience-diversity-in-the-flex-pool-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen",
-        "fr": "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+        "fr": "dipl-soins-professionnels-hf-fh-experience-de-la-diversite-dans-le-pool-flexible-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4070,7 +4123,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-vielfalt-erleben-im-flex-pool-spitaeler-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-03aef7bd8d4b",
@@ -4223,9 +4290,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4272,6 +4339,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },

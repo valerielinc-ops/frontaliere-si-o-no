@@ -3165,8 +3165,8 @@
       "slugByLocale": {
         "en": "experience-quality-specialist-80-100-ikea-ch",
         "it": "experience-quality-specialist-80-100-ikea-ch",
-        "de": "experience-quality-specialist-80-100-ikea-ch",
-        "fr": "experience-quality-specialist-80-100-ikea-ch"
+        "de": "experience-qualitat-spezialist-80-100-ikea-spreitenbach-aargau-switzerland",
+        "fr": "experience-qualite-specialiste-80-100-ikea-spreitenbach-aargau-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3231,7 +3231,7 @@
         "de": "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
         "it": "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen",
         "en": "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
+        "fr": "collaborateur-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen-sankt-gallen-switzerland"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3277,6 +3277,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
         ]
       },
