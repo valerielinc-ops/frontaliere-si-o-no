@@ -235,6 +235,15 @@ jobs:
       - name: Validate locale shard output
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
+      - name: Hash-manifest the pruned shard dist (equivalence check)
+        run: node scripts/ci/dist-hash-manifest.mjs dist "/tmp/manifest-${BUILD_LOCALE}.txt"
+      - name: Upload shard manifest
+        uses: actions/upload-artifact@v7
+        with:
+          name: manifest-${{ matrix.locale }}
+          path: /tmp/manifest-${{ matrix.locale }}.txt
+          retention-days: 1
+
       - name: Report dist size + timing
         if: always()
         run: |
@@ -248,3 +257,95 @@ jobs:
           echo "| wall-time | ${BUILD_ELAPSED_SECONDS:-?}s |" >> "$GITHUB_STEP_SUMMARY"
           echo "| dist size | ${SIZE} |" >> "$GITHUB_STEP_SUMMARY"
           echo "| dist files | ${FILES} |" >> "$GITHUB_STEP_SUMMARY"
+
+  # ── Classic monolith build (all 4 locales) from the SAME prep snapshot ──
+  # Reference for the equivalence check. Same data + same wall-clock window as
+  # the shards (both start right after prep) ⇒ no time-variance. NO BUILD_LOCALE.
+  monolith:
+    needs: [matrix-setup, prep]
+    runs-on: ubuntu-latest
+    env:
+      SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
+      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+      - name: Download prepared snapshot
+        uses: actions/download-artifact@v7
+        with:
+          name: prepared-snapshot
+          path: /tmp/snapshot
+      - name: Restore prepared snapshot (identical data to the shards)
+        run: |
+          set -eo pipefail
+          tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
+          test -f data/jobs.json && echo "✓ data/jobs.json restored" || { echo "✖ missing"; exit 1; }
+      - name: Cache per-job OG images
+        uses: actions/cache@v5
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-
+      - name: Build monolith (all 4 locales, no BUILD_LOCALE)
+        run: npm run build:ci
+      - name: Hash-manifest the full monolith dist
+        run: node scripts/ci/dist-hash-manifest.mjs dist /tmp/manifest-monolith.txt
+      - name: Upload monolith manifest
+        uses: actions/upload-artifact@v7
+        with:
+          name: manifest-monolith
+          path: /tmp/manifest-monolith.txt
+          retention-days: 1
+
+  # ── Equivalence gate: recomposed 4 shards === monolith (byte/sha256) ──
+  compare:
+    needs: [build-locale, monolith]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (compare script)
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Download all manifests
+        uses: actions/download-artifact@v7
+        with:
+          path: /tmp/manifests
+          pattern: manifest-*
+          merge-multiple: false
+      - name: Compare recomposed matrix === monolith
+        run: |
+          set -eo pipefail
+          MONO=/tmp/manifests/manifest-monolith/manifest-monolith.txt
+          SHARDS=""
+          for loc in it en de fr; do
+            f="/tmp/manifests/manifest-$loc/manifest-$loc.txt"
+            [ -f "$f" ] && SHARDS="$SHARDS $f"
+          done
+          echo "monolith: $MONO"; echo "shards:$SHARDS"
+          node scripts/ci/compare-dist-manifests.mjs "$MONO" $SHARDS
