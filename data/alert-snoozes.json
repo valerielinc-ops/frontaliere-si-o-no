@@ -2,12 +2,12 @@
   "version": 1,
   "snoozes": {
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 36,
-      "lastSeen": "2026-06-17",
-      "snoozedUntil": "2026-06-24"
+      "consecutiveDays": 37,
+      "lastSeen": "2026-06-18",
+      "snoozedUntil": "2026-06-25"
     },
     "B.6.embedding-store-outdated": {
-      "consecutiveDays": 3,
+      "consecutiveDays": 0,
       "lastSeen": "2026-06-17",
       "snoozedUntil": "2026-06-24"
     }
