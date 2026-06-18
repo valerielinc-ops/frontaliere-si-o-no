@@ -1,7 +1,55 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-06-17T22:35:05.028Z",
+  "assembledAt": "2026-06-18T12:16:27.397Z",
   "jobs": [
+    {
+      "title": "Ausbildner/in Triebfahrzeugführende (VTE) 80-100% Landquart",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart_2026-2199/",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 1, 7302 Landquart",
+      "employmentType": "FULL_TIME",
+      "category": "transport",
+      "description": "Hai una buona preparazione tecnica e ti piace condividere le tue conoscenze con gli altri? In qualità di formatore/formatrice presso la RhB, preparerai gli apprendisti e chi proviene da altri settori in modo pratico all’entusiasmante e responsabile professione di macchinista.\n\nCosa puoi fare\n• Du übernimmst Verantwortung in der Führung von Ausbildungsklassen der VTE Kategorien A\n\n• Selbständiges durchführen von Triebfahrzeugkursen sowie VTE Schulungs-Modulen gehört zu deinen täglichen Arbeiten\n\n• Neben dem Durchführen von Schulungen im Klassenzimmer und auf Triebfahrzeugen entwickelts du Schulungskonzepte und hilfst mit die passenden Schulungsunterlagen und Lernmedien zu entwickeln\n\n• Neben den abwechslungsreichen Tätigkeit als Ausbilder wirst du zu 20-30% deines Pensums in deiner bisherigen Funktion tätig sein\n Ecco perché sei la persona giusta\n• Du verfügst über eine abgeschlossene Ausbildung als Triebfahrzeugführer/in (Kat. A bis Kat. B) und bist aktuell in dieser Funktion tätig\n\n• Du verfügst über eine Ausbildung in der Erwachsenenbildung wie beispielsweise SVEB 1 oder hast die Bereitschaft diese zu erlangen\n\n• Als kommunikative und initiative Persönlichkeit fällt dir der Umgang mit Menschen leicht\n\n• Freude und Affinität im Umgang mit IT-Mitteln und modernen Simulatoren runden dein Profil ab\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle (frühestens nach Ausbildungsabschluss)\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien (frühestens nach Ausbildungsabschluss)\n\n• Möglichkeit zu internen und externen Weiterbildung mit finanzieller Unterstützung",
+      "postedDate": "2026-06-18",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart",
+      "slugByLocale": {
+        "it": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart",
+        "en": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart",
+        "de": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart",
+        "fr": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart"
+      },
+      "titleByLocale": {
+        "de": "Ausbildner/in Triebfahrzeugführende (VTE) 80-100% Landquart"
+      },
+      "percentage": "80-100%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Landquart",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-18T12:16:27.396Z"
+    },
     {
       "title": "Projektleiter/in Logistik und Support (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -18,7 +66,7 @@
       "postedDate": "2026-06-16",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "project-manager-in-logistica-e-supporto-50-100-ferrovia-retica-rhb-chur",
+      "slug": "projektleiter-in-logistik-und-support-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
         "it": "project-manager-in-logistica-e-supporto-50-100-ferrovia-retica-rhb-chur",
         "en": "project-manager-in-logistics-and-support-50-100-ferrovia-retica-rhb-chur",
@@ -26,17 +74,17 @@
         "fr": "gestionnaire-de-projet-en-logistique-et-soutien-50-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
-        "de": "Projektleiter/in Logistik und Support (50-100%)",
         "it": "Project manager/in logistica e supporto (50-100%)",
         "en": "Project manager/in logistics and support (50-100%)",
+        "de": "Projektleiter/in Logistik und Support (50-100%)",
         "fr": "Gestionnaire de projet/en logistique et soutien (50-100%)"
       },
       "percentage": "50-100%",
       "crawledAt": "",
       "descriptionByLocale": {
-        "it": "In qualità di responsabile di progetto Magazzino e logistica, ti controlliai di progetti volti a migliorare i nostri processi logistici e a renderli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualità e il reporting sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB.\n\nCosa puoi fare\n• Gestione e realizzazione di progetti all'interno della logistica\n\n• Assistenza nel lavoro amministrativo di impianti di stoccaggio, attrezzature per la movimentazione dei materiali, controlli degli strumenti, sistemi di gestione e materiali di consumo\n\n• Coordinamento con i dipartimenti interni, partner esterni e autorità\n\n• Partecipazione all'orientamento strategico della logistica\nEcco perché sei la persona giusta\n• Istruzione superiore completata nella logistica o nella gestione dei progetti\n\n• Esperienza nella gestione di progetti complessi nella logistica o nell'ambiente ferroviario\n\n• Forte capacità di comunicazione e coordinamento\n\n• AbilitÃ di pensiero strategico, responsabilitÃ personale e metodi di lavoro indipendenti\n\n• “Hands-on mentality”\nCosa ti aspetta\n• Abbonamento generale di seconda classe\n\n• Biglietti e sconti gratuiti sui viaggi in treno all'estero\n\n• Telefono cellulare a pagamento e abbonamento per affari e uso privato\n\n• Modelli a tempo parziale flessibili\n\n• Prestazioni sociali attraenti e fondi pensione con benefici molto buoni\n\n• Acquisto supplementare di vacanze\n\n• Opportunità di formazione interna ed esterna con sostegno finanziario di RhB",
-        "en": "In qualità di responsabile di progetto Magazzino e logistica, ti occuperai di progetti volti a migliorare i nostri processi logistici e a renderli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualità e il reporting siano sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB.\n\nCosa puoi fare\n• Management and implementation of projects within logistics\n\n• Assistance in administrative work of storage facilities, material handling equipment, tool checks, management systems and consumables\n\n• Coordination with internal departments, external partners and authority\n\n• Participation in the strategic orientation of logistics\nEcco perché sei la persona giusta’\n• Completed higher education in logistics or project management\n\n• Experience in managing complex projects in logistics or in the railway environment\n\n• Strong communication and coordination skills\n\n• Strategic thinking skills, personal responsibility and independent working methods\n\n• “Hands-on mentality”\nCosa ti offriamo’\n• 2nd Class General Subscription\n\n• Free tickets and discounts on train travel abroad\n\n• Paid mobile phone and subscription for business and private use\n\n• Flexible part-time models\n\n• Attractive social benefits and pension fund with very good benefits\n\n• Additional purchase of holidays\n\n• Opportunity for internal and external training with financial support from RhB",
-        "fr": "En qualité di responsabile di progetto Magazzino e logistica, ti occupantai di progetti volti a migliorare i nostri processi logistici e a rendeli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualité e il reporting siano sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB.\n\nTarif Cosa puoi\n• Gestion et exécution de projets dans le cadre de la logistique\n\n• Assistance aux travaux administratifs des installations de stockage, des équipements de manutention, des contrôles d'outils, des systèmes de gestion et des consommables\n\n• Coordination avec les départements internes, les partenaires externes et les autorités\n\n• Participation à l'orientation stratégique de la logistique\nEcco perché sei la persona giusta\n• Enseignement supérieur en logistique ou en gestion de projet\n\n• Expérience dans la gestion de projets complexes en logistique ou dans l'environnement ferroviaire\n\n• Fortes compétences en communication et coordination\n\n• Capacités de réflexion stratégique, responsabilité personnelle et méthodes de travail indépendantes\n\n• La mentalité des mains\nCosa ti offriamo\n• Abonnement général de 2e classe\n\n• Billets gratuits et rabais sur les voyages en train à l'étranger\n\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n\n• Modèles flexibles à temps partiel\n\n• Prestations sociales attractives et fonds de pension avec de très bonnes prestations\n\n• Achat supplémentaire de vacances\n\n• Possibilité de formation interne et externe avec le soutien financier du RHB"
+        "it": "In qualità di responsabile di progetto Magazzino e logistica, ti controlliai di progetti volti a migliorare i nostri processi logistici e a renderli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualità e il reporting sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB. Cosa puoi fare\n• Gestione e realizzazione di progetti all'interno della logistica\n• Assistenza nel lavoro amministrativo di impianti di stoccaggio, attrezzature per la movimentazione dei materiali, controlli degli strumenti, sistemi di gestione e materiali di consumo\n• Coordinamento con i dipartimenti interni, partner esterni e autorità\n• Partecipazione all'orientamento strategico della logistica Ecco perché sei la persona giusta\n• Istruzione superiore completata nella logistica o nella gestione dei progetti\n• Esperienza nella gestione di progetti complessi nella logistica o nell'ambiente ferroviario\n• Forte capacità di comunicazione e coordinamento\n• AbilitÃ di pensiero strategico, responsabilitÃ personale e metodi di lavoro indipendenti\n• “Hands-on mentality” Cosa ti aspetta\n• Abbonamento generale di seconda classe\n• Biglietti e sconti gratuiti sui viaggi in treno all'estero\n• Telefono cellulare a pagamento e abbonamento per affari e uso privato\n• Modelli a tempo parziale flessibili\n• Prestazioni sociali attraenti e fondi pensione con benefici molto buoni\n• Acquisto supplementare di vacanze\n• Opportunità di formazione interna ed esterna con sostegno finanziario di RhB",
+        "en": "In qualità di responsabile di progetto Magazzino e logistica, ti occuperai di progetti volti a migliorare i nostri processi logistici e a renderli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualità e il reporting siano sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB. Cosa puoi fare\n• Management and implementation of projects within logistics\n• Assistance in administrative work of storage facilities, material handling equipment, tool checks, management systems and consumables\n• Coordination with internal departments, external partners and authority\n• Participation in the strategic orientation of logistics Ecco perché sei la persona giusta’\n• Completed higher education in logistics or project management\n• Experience in managing complex projects in logistics or in the railway environment\n• Strong communication and coordination skills\n• Strategic thinking skills, personal responsibility and independent working methods\n• “Hands-on mentality” Cosa ti offriamo’\n• 2nd Class General Subscription\n• Free tickets and discounts on train travel abroad\n• Paid mobile phone and subscription for business and private use\n• Flexible part-time models\n• Attractive social benefits and pension fund with very good benefits\n• Additional purchase of holidays\n• Opportunity for internal and external training with financial support from RhB",
+        "fr": "En qualité di responsabile di progetto Magazzino e logistica, ti occupantai di progetti volti a migliorare i nostri processi logistici e a rendeli più efficienti. Coordinerai i reparti interni, i partner esterni e le autorità, assicurandoti che la documentazione, la qualité e il reporting siano sempre corretti. Con la tua visione strategica e la tua mentalità pratica, contribuirai attivamente a plasmare il futuro della logistica RhB. Tarif Cosa puoi\n• Gestion et exécution de projets dans le cadre de la logistique\n• Assistance aux travaux administratifs des installations de stockage, des équipements de manutention, des contrôles d'outils, des systèmes de gestion et des consommables\n• Coordination avec les départements internes, les partenaires externes et les autorités\n• Participation à l'orientation stratégique de la logistique Ecco perché sei la persona giusta\n• Enseignement supérieur en logistique ou en gestion de projet\n• Expérience dans la gestion de projets complexes en logistique ou dans l'environnement ferroviaire\n• Fortes compétences en communication et coordination\n• Capacités de réflexion stratégique, responsabilité personnelle et méthodes de travail indépendantes\n• La mentalité des mains Cosa ti offriamo\n• Abonnement général de 2e classe\n• Billets gratuits et rabais sur les voyages en train à l'étranger\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n• Modèles flexibles à temps partiel\n• Prestations sociales attractives et fonds de pension avec de très bonnes prestations\n• Achat supplémentaire de vacances\n• Possibilité de formation interne et externe avec le soutien financier du RHB"
       },
       "needsRetranslation": true,
       "addressLocality": "Chur",
@@ -66,28 +114,25 @@
         "fr": [
           "projektleiter-in-logistik-und-support-50-100-ferrovia-retica-rhb-chur"
         ]
-      },
-      "previousSlugs": [
-        "projektleiter-in-logistik-und-support-50-100-ferrovia-retica-rhb-chur"
-      ]
+      }
     },
     {
       "title": "Handwerker/in Komponentenwechsel (50-100%)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
       "url": "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/",
-      "location": "Bernina",
+      "location": "Chur",
       "canton": "GR",
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "PART_TIME",
       "category": "engineering",
-      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità delle nostre infrastrutture in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nCosa puoi fare\n• Durchführung von Kontroll- und Revisionsarbeiten an Trieb- und Gliederzügen sowie Lokomotiven\n\n• Arbeiten an mechanischen, pneumatischen oder elektrischen Systemen nach Anleitung/Einführung\n\n• Tausch von Komponenten an Trieb- und Gliederzügen sowie Lokomotiven\n\n• Durchführung von Reparaturen, Mithilfe bei komplexeren Reparaturen\n Ecco perché sei la persona giusta\n• Abgeschlossene Lehre bevorzugt im elektrischen oder mechanischen Bereich oder mehrjährige Erfahrung bei mechanischen Arbeiten\n\n• Zuverlässige Arbeitsweise\n\n• Freude am Arbeiten im Team mit eigenverantwortlicher Ausführung der zugewiesenen Aufgaben\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità della nostra infrastruttura in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del funzionamento senza interruzioni dei nostri sistemi di sicurezza ferroviaria.\n\nCosa puoi fare\n• Durchführung von Kontroll- und Revisionsarbeiten an Trieb- und Gliederzügen sowie Lokomotiven\n\n• Arbeiten an mechanischen, pneumatischen oder elektrischen Systemen nach Anleitung/Einführung\n\n• Tausch von Komponenten an Trieb- und Gliederzügen sowie Lokomotiven\n\n• Durchführung von Reparaturen, Mithilfe bei komplexeren Reparaturen\n Ecco perché sei la persona giusta\n• Abgeschlossene Lehre bevorzugt im elektrischen oder mechanischen Bereich oder mehrjährige Erfahrung bei mechanischen Arbeiten\n\n• Zuverlässige Arbeitsweise\n\n• Freude am Arbeiten im Team mit eigenverantwortlicher Ausführung der zugewiesenen Aufgaben\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
       "postedDate": "2026-06-16",
       "source": "company-website",
       "sourceLang": "de",
-      "slug": "artigiano-in-cambio-componente-50-100-ferrovia-retica-rhb-bernina",
+      "slug": "handwerker-in-komponentenwechsel-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
         "it": "artigiano-in-cambio-componente-50-100-ferrovia-retica-rhb-bernina",
         "en": "craftsman-in-component-change-50-100-ferrovia-retica-rhb-bernina",
@@ -96,16 +141,16 @@
       },
       "titleByLocale": {
         "it": "Artigiano/in cambio componente (50-100%)",
-        "de": "Handwerker/in Komponentenwechsel (50-100%)",
         "en": "Craftsman/in component change (50-100%)",
+        "de": "Handwerker/in Komponentenwechsel (50-100%)",
         "fr": "Artisan/changement de composantes (50-100%)"
       },
       "percentage": "50-100%",
       "crawledAt": "",
       "descriptionByLocale": {
-        "it": "In questo ruolo di grande responsabilità, ti serviai di garantire la disponibilità delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nCosa puoi fare\n• Attuazione dei lavori di controllo e di controllo sui treni, treni articolati e locomotive\n\n• Lavorare su sistemi meccanici, pneumatici o elettrici dopo guida/introduzione\n\n• Scambio di componenti di treni e locomotive articolati\n\n• Riparazioni, aiuto con riparazioni più complesse\nEcco perché sei la persona giusta\n• Insegnamento completato preferibilmente nel campo elettrico o meccanico o diversi anni di esperienza nel lavoro meccanico\n\n• Metodi di lavoro affidabili\n\n• Divertiti a lavorare in una squadra con esecuzione auto-responsabile dei compiti assegnati\nCosa ti aspetta\n• Abbonamento generale di seconda classe\n\n• Sconti sui biglietti gratuiti all'estero\n\n• Telefono cellulare a pagamento e abbonamento per affari e uso privato\n\n• Prestazioni sociali attraenti e fondi pensione con benefici molto buoni\n\n• Acquisto supplementare di vacanze\n\n• Opportunità di formazione interna ed esterna con sostegno finanziario di RhB",
-        "en": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nCosa puoi fare\n• Implementation of control and inspection work on trainsets, articulated trains and locomotives\n\n• Work on mechanical, pneumatic or electrical systems after guidance/introduction\n\n• Exchange of components of rail and articulated trains and locomotives\n\n• Carry out repairs, help with more complex repairs\nEcco perché sei la persona giusta’\n• Completed teaching preferably in the electrical or mechanical field or several years of experience in mechanical work\n\n• Reliable working methods\n\n• Enjoy working in a team with self-responsible execution of the assigned tasks\nCosa ti offriamo’\n• 2nd Class General Subscription\n\n• Discounts on free tickets abroad\n\n• Paid mobile phone and subscription for business and private use\n\n• Attractive social benefits and pension fund with very good benefits\n\n• Additional purchase of holidays\n\n• Opportunity for internal and external training with financial support from RhB",
-        "fr": "Dans questo ruolo di grande responsabilità, ti occupantai di garantie la disponibilité delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del cortetto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nTarif Cosa puoi\n• Réalisation de travaux de contrôle et d'inspection sur les rames, trains articulés et locomotives\n\n• Travaux sur systèmes mécaniques, pneumatiques ou électriques après guidage/introduction\n\n• Échange de composants de trains et de locomotives articulés\n\n• Effectuer des réparations, aider à des réparations plus complexes\nEcco perché sei la persona giusta\n• Enseignement terminé de préférence dans le domaine électrique ou mécanique ou plusieurs années d'expérience dans le travail mécanique\n\n• Méthodes de travail fiables\n\n• Profitez de travailler en équipe avec l'exécution responsable des tâches assignées\nCosa ti offriamo\n• Abonnement général de 2e classe\n\n• Réductions sur les billets gratuits à l'étranger\n\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n\n• Prestations sociales attractives et fonds de pension avec de très bonnes prestations\n\n• Achat supplémentaire de vacances\n\n• Possibilité de formation interne et externe avec le soutien financier du RHB"
+        "it": "In questo ruolo di grande responsabilità, ti serviai di garantire la disponibilità delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur. Cosa puoi fare\n• Attuazione dei lavori di controllo e di controllo sui treni, treni articolati e locomotive\n• Lavorare su sistemi meccanici, pneumatici o elettrici dopo guida/introduzione\n• Scambio di componenti di treni e locomotive articolati\n• Riparazioni, aiuto con riparazioni più complesse Ecco perché sei la persona giusta\n• Insegnamento completato preferibilmente nel campo elettrico o meccanico o diversi anni di esperienza nel lavoro meccanico\n• Metodi di lavoro affidabili\n• Divertiti a lavorare in una squadra con esecuzione auto-responsabile dei compiti assegnati Cosa ti aspetta\n• Abbonamento generale di seconda classe\n• Sconti sui biglietti gratuiti all'estero\n• Telefono cellulare a pagamento e abbonamento per affari e uso privato\n• Prestazioni sociali attraenti e fondi pensione con benefici molto buoni\n• Acquisto supplementare di vacanze\n• Opportunità di formazione interna ed esterna con sostegno finanziario di RhB",
+        "en": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur. Cosa puoi fare\n• Implementation of control and inspection work on trainsets, articulated trains and locomotives\n• Work on mechanical, pneumatic or electrical systems after guidance/introduction\n• Exchange of components of rail and articulated trains and locomotives\n• Carry out repairs, help with more complex repairs Ecco perché sei la persona giusta’\n• Completed teaching preferably in the electrical or mechanical field or several years of experience in mechanical work\n• Reliable working methods\n• Enjoy working in a team with self-responsible execution of the assigned tasks Cosa ti offriamo’\n• 2nd Class General Subscription\n• Discounts on free tickets abroad\n• Paid mobile phone and subscription for business and private use\n• Attractive social benefits and pension fund with very good benefits\n• Additional purchase of holidays\n• Opportunity for internal and external training with financial support from RhB",
+        "fr": "Dans questo ruolo di grande responsabilità, ti occupantai di garantie la disponibilité delle nostre infrastrutture in a delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del cortetto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur. Tarif Cosa puoi\n• Réalisation de travaux de contrôle et d'inspection sur les rames, trains articulés et locomotives\n• Travaux sur systèmes mécaniques, pneumatiques ou électriques après guidage/introduction\n• Échange de composants de trains et de locomotives articulés\n• Effectuer des réparations, aider à des réparations plus complexes Ecco perché sei la persona giusta\n• Enseignement terminé de préférence dans le domaine électrique ou mécanique ou plusieurs années d'expérience dans le travail mécanique\n• Méthodes de travail fiables\n• Profitez de travailler en équipe avec l'exécution responsable des tâches assignées Cosa ti offriamo\n• Abonnement général de 2e classe\n• Réductions sur les billets gratuits à l'étranger\n• Téléphone mobile payant et abonnement pour les entreprises et les particuliers\n• Prestations sociales attractives et fonds de pension avec de très bonnes prestations\n• Achat supplémentaire de vacances\n• Possibilité de formation interne et externe avec le soutien financier du RHB"
       },
       "needsRetranslation": true,
       "addressLocality": "Bernina",
@@ -193,7 +238,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-12T12:05:47.509Z"
+      "firstSeenAt": "2026-06-12T12:05:47.509Z",
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in Autoverlad Selfranga (50-100%)",
@@ -303,21 +349,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:35:40.360Z"
+      "firstSeenAt": "2026-06-11T12:35:40.360Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spezialmonteur/in / Mechaniker/in Instandhaltung (80-100%)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
       "url": "https://www.rhb.ch/it/job/spezialmonteur-in-mechaniker-in-instandhaltung-80-100_2026-2209/",
-      "location": "Bernina",
+      "location": "Chur",
       "canton": "GR",
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "engineering",
-      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità delle nostre infrastrutture in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nCosa puoi fare\n• Du stellst den störungsfreien Betrieb der Sicherungsanlagen durch Inspektionen, Unterhalts- und Instandsetzungsmassnahmen sicher\n\n• Dein Fokus liegt auf der Wartung von Weichenstelleinrichtungen und Schrankenanlagen\n\n• Du behebst Störungen an in Betrieb stehenden Anlagen effizient und zuverlässig\n\n• Du führst und koordinierst Baustellen in enger Zusammenarbeit mit externen Partnern\n\n• Durch deine präzise Arbeitsweise trägst du massgeblich zu einem sicheren und pünktlichen Bahnverkehr bei\n Ecco perché sei la persona giusta\n\n• Du hast eine Berufslehre als Mechaniker/in, Elektromechaniker/in oder Polymechaniker/in erfolgreich abgeschlossen\n\n• Du bringst die Motivation mit, dich durch gezielte Schulungen zum Experten für Stellwerktechnik weiterzuentwickeln\n\n• Eine selbstständige Arbeitsweise und ein hohes Verantwortungsgefühl für die Sicherheit im Bahnbetrieb zeichnet dich aus\n\n• Unregelmässige Arbeitszeiten siehst du als Vorteil für eine individuelle und freie Freizeitgestaltung\n\n• Du besitzt einen Führerausweis der Kategorie B\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\nFlexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità della nostra infrastruttura in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del funzionamento senza interruzioni dei nostri sistemi di sicurezza ferroviaria.\n\nCosa puoi fare\n• Du stellst den störungsfreien Betrieb der Sicherungsanlagen durch Inspektionen, Unterhalts- und Instandsetzungsmassnahmen sicher\n\n• Dein Fokus liegt auf der Wartung von Weichenstelleinrichtungen und Schrankenanlagen\n\n• Du behebst Störungen an in Betrieb stehenden Anlagen effizient und zuverlässig\n\n• Du führst und koordinierst Baustellen in enger Zusammenarbeit mit externen Partnern\n\n• Durch deine präzise Arbeitsweise trägst du massgeblich zu einem sicheren und pünktlichen Bahnverkehr bei\n Ecco perché sei la persona giusta\n\n• Du hast eine Berufslehre als Mechaniker/in, Elektromechaniker/in oder Polymechaniker/in erfolgreich abgeschlossen\n\n• Du bringst die Motivation mit, dich durch gezielte Schulungen zum Experten für Stellwerktechnik weiterzuentwickeln\n\n• Eine selbstständige Arbeitsweise und ein hohes Verantwortungsgefühl für die Sicherheit im Bahnbetrieb zeichnet dich aus\n\n• Unregelmässige Arbeitszeiten siehst du als Vorteil für eine individuelle und freie Freizeitgestaltung\n\n• Du besitzt einen Führerausweis der Kategorie B\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\nFlexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
       "postedDate": "2026-06-16",
       "source": "company-website",
       "sourceLang": "de",
@@ -427,7 +474,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:02:38.196Z"
+      "firstSeenAt": "2026-06-10T12:02:38.196Z",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Bahndienst (80-100%)",
@@ -538,127 +586,6 @@
         }
       },
       "firstSeenAt": "2026-06-03T13:34:04.571Z"
-    },
-    {
-      "title": "Mechaniker/in Triebdrehgestellaufarbeitung Loks (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100_2026-2206/",
-      "location": "Bernina",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "description": "In questo ruolo di grande responsabilità, ti occuperai di garantire la disponibilità delle nostre infrastrutture in una delle regioni più suggestive della Svizzera. Sarai direttamente responsabile del corretto funzionamento degli impianti di sicurezza ferroviaria in Engadina, sul Bernina e sulla linea dell'Albula fino a Filisur.\n\nCosa puoi fare\n• Demontage und Montage von Triebdrehgestellen\n\n• Aufarbeitung von einzelnen Drehgestellkomponenten\n\n• Wartungs- und Reparaturarbeiten an Drehgestellen oder zeitweise an Fahrzeugen\n\n• Durchführung der Schlussprüfung der Drehgestelle mit Prüflauf\n\nEcco perché sei la persona giusta\n• Abgeschlossene 4 jährige Ausbildung im mechanischen Bereich\n\n• Selbstständige, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n\n• Freude an Arbeiten Alleine oder in kleinen Teams mit wechselnder Zusammensetzung\n\n• Erfahrung im Instandhaltungsumfeld von Vorteil\n\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-06-16",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-bernina",
-      "slugByLocale": {
-        "it": "ingegnere-meccanico-loks-80-100-ferrovia-retica-rhb-chur",
-        "en": "mechanical-engineer-loks-80-100-ferrovia-retica-rhb-chur",
-        "de": "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-chur",
-        "fr": "ingenieur-mecanique-loks-80-100-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Ingegnere meccanico Loks (80-100%)",
-        "en": "Mechanical engineer Loks (80-100%)",
-        "de": "Mechaniker/in Triebdrehgestellaufarbeitung Loks (80-100%)",
-        "fr": "Ingénieur mécanique Loks (80-100%)"
-      },
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Cosa puoi fare\n• smontaggio e montaggio del telaio di trasmissione\n• Lavorare singoli componenti per bogie\n• Lavori di manutenzione e riparazione su bogie o temporaneamente su veicoli\n• completamento del test finale delle bogie con prova Ecco perché essere la persona giusta\n• Completato 4 anni di formazione meccanica\n• Lavoro autonomo, orientato alla soluzione e responsabile\n• Piacere di lavorare da soli o in piccole squadre con composizione variabile\n• Esperienza nell'ambiente di manutenzione Cosa c'è da sapere\n• Abbonamento generale di seconda classe\n• Vantaggi sul biglietto gratuito all'estero\n• Telefono cellulare a pagamento e abo per affari e uso privato\n• Prestazioni sociali attraenti e fondi pensione con benefici molto buoni\n• Acquisto supplementare di vacanze\n• Formazione interna ed esterna con sostegno finanziario di RhB",
-        "en": "Cosa puoi fare\n• Disassembly and assembly of drive chassis\n• Working up individual bogie components\n• Maintenance and repair work on bogies or temporarily on vehicles\n• completion of the final test of the bogies with test run Ecco perché be la persona giusta\n• Completed 4 years of mechanical training\n• Self-employed, solution-oriented and responsible work\n• Pleasure to work alone or in small teams with varying composition\n• Experience in maintenance environment Cosa ti offriamo\n• 2nd class general subscription\n• Benefits on free ticket abroad\n• Paid mobile phone and abo for business and private use\n• Attractive social benefits and pension funds with very good benefits\n• Additional purchase of holidays\n• Internal and external training with financial support by RhB",
-        "de": "Cosa puoi fare\n• Demontage und Montage von Triebdrehgestellen\n• Aufarbeitung von einzelnen Drehgestellkomponenten\n• Wartungs- und Reparaturarbeiten an Drehgestellen oder zeitweise an Fahrzeugen\n• Durchführung der Schlussprüfung der Drehgestelle mit Prüflauf Ecco perché sei la persona giusta\n• Abgeschlossene 4 jährige Ausbildung im mechanischen Bereich\n• Selbstständige, lösungsorientierte und verantwortungsbewusste Arbeitsweise\n• Freude an Arbeiten Alleine oder in kleinen Teams mit wechselnder Zusammensetzung\n• Erfahrung im Instandhaltungsumfeld von Vorteil Cosa ti offriamo\n• 2. Klasse Generalabonnement\n• Vergünstigungen auf Freifahrscheine im Ausland\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n• Zusätzlicher Kauf von Ferien\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "fr": "Tarif Cosa puoi\n• démontage et montage du châssis d'entraînement\n• Monter des composants bogies individuels\n• Travaux d'entretien et de réparation sur bogies ou temporairement sur véhicules\n• achèvement de l'essai final des bogies avec essai Ecco perché être la persona giusta\n• Achevé 4 années de formation mécanique\n• Travail indépendant, orienté vers la solution et responsable\n• Le plaisir de travailler seul ou en petites équipes avec une composition variable\n• Expérience de l'environnement d'entretien Cosa ti offriamo\n• Abonnement général de 2ème classe\n• Avantages sur billet gratuit à l'étranger\n• Téléphone mobile payant et abo pour les entreprises et les particuliers\n• Prestations sociales attractives et fonds de pension avec de très bonnes prestations\n• Achat supplémentaire de vacances\n• Formation interne et externe avec un soutien financier de RHB"
-      },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-26T22:48:16.928Z",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-collaborator-swiss-medical-network-lugano",
-          "collaboratore-hr-swiss-medical-network-lugano",
-          "fachspezialist-in-rollmaterialeinsatzplanung-50-100-ferrovia-retica-rhb-chur",
-          "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-          "full-stack-java-sviluppatore-expert-relewant-chiasso",
-          "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9",
-          "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-          "motion-control-software-ingegnere-m-f-d-mikron-group-agno",
-          "fullstack-software-sviluppatore-m-f-d-mikron-group-agno",
-          "full-stack-java-entwickler-expert-relewant-chiasso",
-          "expert-en-developpement-java-full-stack-relewant-chiasso",
-          "full-stack-java-developpeur-expert-relewant-chiasso",
-          "collaboratore-hr-swiss-medical-network",
-          "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
-          "hr-collaborator-swiss-medical-network-lugano-gca7b9",
-          "elettricista-in-gestione-eventi-50-80-ferrovia-retica-rhb-chur",
-          "electrician-in-event-management-50-80-ferrovia-retica-rhb-chur",
-          "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-chur",
-          "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-bernina",
-          "ingegnere-meccanico-loks-80-100-ferrovia-retica-rhb-chur"
-        ],
-        "en": [
-          "full-stack-java-developer-expert-relewant-chiasso",
-          "motion-control-software-engineer-m-f-d-mikron",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
-          "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
-          "product-manager-in-commuter-traffic-and-collective-agreements-80-100-ferrovia-retica-rhb-davos",
-          "specialist-in-roll-material-deployment-planning-50-100-ferrovia-retica-rhb-chur",
-          "specialist-in-occupational-safety-50-100-ferrovia-retica-rhb-chur",
-          "financial-specialist-50-100-ferrovia-retica-rhb-chur",
-          "mechanical-engineer-loks-80-100-ferrovia-retica-rhb-chur"
-        ],
-        "de": [
-          "hr-mitarbeiter-swiss-medical-network-lugano"
-        ],
-        "fr": [
-          "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
-          "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio",
-          "gestionnaire-de-produits-dans-le-trafic-de-banlieue-et-les-conventions-collectives-80-100-ferrovia-retica-rhb-davos"
-        ]
-      },
-      "previousSlugs": [
-        "collaboratore-hr-swiss-medical-network-lugano",
-        "fachspezialist-in-rollmaterialeinsatzplanung-50-100-ferrovia-retica-rhb-chur",
-        "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-        "motion-control-software-ingegnere-m-f-d-mikron-group-agno",
-        "fullstack-software-sviluppatore-m-f-d-mikron-group-agno",
-        "full-stack-java-entwickler-expert-relewant-chiasso",
-        "expert-en-developpement-java-full-stack-relewant-chiasso",
-        "full-stack-java-developpeur-expert-relewant-chiasso",
-        "collaboratore-hr-swiss-medical-network",
-        "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
-        "hr-collaborator-swiss-medical-network-lugano-gca7b9",
-        "elettricista-in-gestione-eventi-50-80-ferrovia-retica-rhb-chur",
-        "electrician-in-event-management-50-80-ferrovia-retica-rhb-chur",
-        "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-chur",
-        "mechanical-engineer-loks-80-100-ferrovia-retica-rhb-chur",
-        "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-bernina",
-        "ingegnere-meccanico-loks-80-100-ferrovia-retica-rhb-chur",
-        "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-        "full-stack-java-sviluppatore-expert-relewant-chiasso",
-        "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9"
-      ]
     }
   ]
 }
