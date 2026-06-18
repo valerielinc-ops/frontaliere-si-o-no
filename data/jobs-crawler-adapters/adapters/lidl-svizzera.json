@@ -106,6 +106,7 @@
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-buchs-700550",
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-pfaeffikon-zh-701697",
     "https://team.lidl.ch/de/jobs/manager-in-marketing-engagement-m-w-d-80-100-weinfelden-700763",
+    "https://team.lidl.ch/de/jobs/manager-procurement-strategischer-einkauf-m-w-d-80-100-weinfelden-706367",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-1-stans-674353",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-arbon-692915",
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-ebikon-675980",
@@ -164,6 +165,7 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691873",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691880",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-spreitenbach-691879",
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-visp-612252",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-wettingen-702615",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zuerich-692649",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zuerich-692650",
@@ -171,7 +173,6 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zuerich-695016",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zuerich-701239",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-zug-668449",
-    "https://team.lidl.ch/de/jobs/team-manager-operations-m-w-d-80-100-sevaz-695454",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-altendorf-662617",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-altendorf-702396",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-chur-663491",
@@ -298,6 +299,7 @@
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-60-aigle-695910",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-courgevaux-663192",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-la-chaux-de-fonds-682582",
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-moudon-675411",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-oron-675422",
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191",
@@ -307,6 +309,8 @@
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-conthey-706125",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-40-geneve-705849",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-courgevaux-705947",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-etoy-705929",
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-705931",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-80-conthey-706115",
     "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-60-matran-704917",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
@@ -316,8 +320,53 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-06-18T12:42:42.122Z",
+  "updatedAt": "2026-06-18T23:09:56.163Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-mont-sur-lausanne-676669": {
+      "location": "Mont-sur-Lausanne",
+      "addressLocality": "Mont-sur-Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Temps Plein"
+    },
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-visp-612252": {
+      "location": "Visp",
+      "addressLocality": "Visp",
+      "canton": "VS",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-morges-705931": {
+      "location": "Morges",
+      "addressLocality": "Morges",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Temps Partiel"
+    },
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-etoy-705929": {
+      "location": "Etoy",
+      "addressLocality": "Etoy",
+      "canton": "VD",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Temps Partiel"
+    },
+    "https://team.lidl.ch/de/jobs/manager-procurement-strategischer-einkauf-m-w-d-80-100-weinfelden-706367": {
+      "location": "Weinfelden",
+      "addressLocality": "Weinfelden",
+      "canton": "TG",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
+    },
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-wettingen-702615": {
       "location": "Wettingen",
       "addressLocality": "Wettingen",
@@ -902,15 +951,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/team-manager-operations-m-w-d-80-100-sevaz-695454": {
-      "location": "Sévaz",
-      "addressLocality": "Sévaz",
-      "canton": "FR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Full-time"
     },
     "https://team.lidl.ch/de/jobs/allrounder-verkauf-m-w-d-20-40-1-brugg-702655": {
       "location": "Brugg",
