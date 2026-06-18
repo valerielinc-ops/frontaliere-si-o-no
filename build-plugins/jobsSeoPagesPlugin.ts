@@ -2323,6 +2323,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  for (const job of validJobs) {
   await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
  for (const locale of localeList) {
+ // Per-locale shard build (BUILD_LOCALE): the cleaned canonical
+ // description/requirements are consumed ONLY when rendering that locale's
+ // pages (JSON-LD/body content) — which this shard skips for non-emitted
+ // locales. So only enumerate tuples for the emitted locale → the worker
+ // pool processes ~1/4 the tuples. No-op in the default all-locale build.
+ if (!shouldEmitLocale(locale)) continue;
  const description = String(job?.descriptionByLocale?.[locale] || job.description || '');
  if (!description) continue;
  const requirements: string[] = Array.isArray(job?.requirementsByLocale?.[locale])
@@ -10677,6 +10683,12 @@ ${staticAnalyticsHtml}
  // actually-emitted paths, not just attempted ones.
  const __slPathKey = relPath.replace(/^\//, '').replace(/\/+$/, '');
  if (emittedSoftLandingPaths.has(__slPathKey)) continue;
+ // Per-locale shard build (BUILD_LOCALE): skip the expensive soft-landing
+ // render/emit for locales this shard isn't responsible for (this loop is
+ // ~57% of jobs-seo wall, 319k pages). The expired sitemap (it/main-owned,
+ // built below from `paths` + _writtenPaths(IT) + cross-locale alternates)
+ // is unaffected. No-op in the default all-locale build.
+ if (!shouldEmitLocale(locale)) continue;
  const __tExpiredSoftLanding = startTimer();
  const __tEjpTitle = phaseTimer();
  const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
