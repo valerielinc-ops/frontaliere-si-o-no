@@ -5159,8 +5159,8 @@
       "slugByLocale": {
         "de": "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch",
         "it": "sozialpadagogin-m-w-d-o-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch-psychiatrische-therapiestation-universitats-kinderspital-zurich",
-        "en": "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch",
-        "fr": "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch"
+        "en": "social-pedagogue-f-m-or-dipl-nursing-professional-dipl-nursing-specialist-80-100-psychosomatic-psychiatric-therapy",
+        "fr": "pedagogue-social-f-m-ou-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-80-100-poste-de"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5207,6 +5207,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch"
+        ],
+        "en": [
+          "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch"
+        ],
+        "fr": [
+          "sozialpadagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann-80-100-psychosomatisch"
         ]
       },
       "previousSlugs": [
@@ -5232,8 +5238,8 @@
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-60-100-breites-spektrum-an-padiatrischen",
         "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-60-100-breites-spektrum-an-padiatrischen",
-        "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-60-100-breites-spektrum-an-padiatrischen",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-60-100-breites-spektrum-an-padiatrischen"
+        "en": "dipl-expert-expert-anesthesia-care-nds-hf-60-100-broad-spectrum-of-pediatric-interventions-and-interventions",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-60-100-large-eventail-d-interventions-et-d-interventions-pediatriques"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",

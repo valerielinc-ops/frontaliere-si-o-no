@@ -2659,12 +2659,12 @@
     },
     {
       "id": "spital-zofingen-d696d6f0425b",
-      "slug": "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen",
+      "slug": "nutrizionista-bsc-area-ospedaliera-spital-zofingen-zofingen",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen",
-        "en": "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen",
+        "it": "nutrizionista-bsc-area-ospedaliera-spital-zofingen-zofingen",
+        "en": "dietitian-bsc-inpatient-department-spital-zofingen-zofingen",
         "de": "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen",
-        "fr": "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen"
+        "fr": "nutritionniste-bsc-departement-des-soins-hospitaliers-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2718,16 +2718,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-bsc-im-stationaren-bereich-spital-zofingen-zofingen"
+      ]
     },
     {
       "id": "spital-zofingen-487ed3bcaf20",
       "slug": "spontanbewerbung-come-fachperson-betreuung-cfc-spital-zofingen",
       "slugByLocale": {
         "it": "spontanbewerbung-come-fachperson-betreuung-cfc-spital-zofingen",
-        "en": "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen",
+        "en": "spontaneous-application-as-a-specialist-in-childcare-efz-spital-zofingen-zofingen",
         "de": "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen",
-        "fr": "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen"
+        "fr": "application-spontanee-en-tant-que-specialiste-de-la-gestion-de-l-enfance-efz-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2775,6 +2789,12 @@
       "previousSlugsByLocale": {
         "it": [
           "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "spontanbewerbung-als-fachperson-betreuung-efz-spital-zofingen-zofingen"
         ]
       },
       "firstSeenAt": "2026-06-17T13:38:02.744Z",
@@ -2793,12 +2813,12 @@
     },
     {
       "id": "spital-zofingen-377b14692ea9",
-      "slug": "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen",
+      "slug": "specialista-della-salute-pronto-soccorso-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen",
-        "it": "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen",
-        "en": "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen",
-        "fr": "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen"
+        "it": "specialista-della-salute-pronto-soccorso-spital-zofingen-zofingen",
+        "en": "health-specialist-emergency-department-spital-zofingen-zofingen",
+        "fr": "specialiste-de-la-sante-urgence-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2854,7 +2874,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:10:26.072Z"
+      "firstSeenAt": "2026-06-18T13:10:26.072Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfallstation-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

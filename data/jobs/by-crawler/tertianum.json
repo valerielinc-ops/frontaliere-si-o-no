@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "tertianum-9ede27d7fee6",
-      "slug": "fachfrau-mann-gesundheit-tertianum-zizers",
+      "slug": "specialista-della-salute-tertianum-zizers",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-tertianum-zizers",
-        "it": "fachfrau-mann-gesundheit-tertianum-zizers",
-        "en": "fachfrau-mann-gesundheit-tertianum-zizers",
-        "fr": "fachfrau-mann-gesundheit-tertianum-zizers"
+        "it": "specialista-della-salute-tertianum-zizers",
+        "en": "professional-health-tertianum-zizers",
+        "fr": "sante-professionnelle-tertianum-zizers"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -66,12 +66,24 @@
       },
       "firstSeenAt": "2026-06-18T13:21:16.544Z",
       "previousSlugs": [
+        "fachfrau-mann-gesundheit-tertianum-zizers",
         "salute-professionale-tertianum-zurich",
         "professional-health-tertianum-zurich",
         "fachfrau-mann-gesundheit-tertianum-zurich",
         "sante-professionnelle-tertianum-zurich",
         "fachfrau-mann-gesundheit-efz-50-100-tertianum-zurich"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-tertianum-zizers"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-tertianum-zizers"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-tertianum-zizers"
+        ]
+      }
     },
     {
       "id": "tertianum-34e0d853ed7e",
@@ -79,8 +91,8 @@
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers",
         "it": "pflegehelfer-in-srk-o-ags-80-100-tertianum-zizers",
-        "en": "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers",
-        "fr": "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers"
+        "en": "nursing-assistant-src-or-ags-80-100-tertianum-zizers",
+        "fr": "assistant-infirmier-en-srk-ou-ags-80-100-tertianum-zizers"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -125,6 +137,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers"
+        ],
+        "fr": [
           "pflegehelfer-in-srk-oder-ags-80-100-tertianum-zizers"
         ]
       },
@@ -497,11 +515,11 @@
     },
     {
       "id": "tertianum-bde9e20e1b40",
-      "slug": "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf",
+      "slug": "80-100-regional-training-officer-tertianum-dubendorf",
       "slugByLocale": {
         "fr": "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf",
-        "it": "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf",
-        "en": "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf",
+        "it": "80-100-regional-training-officer-tertianum-dubendorf",
+        "en": "80-100-regional-training-manager-tertianum-dubendorf",
         "de": "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf"
       },
       "company": "Tertianum",
@@ -557,7 +575,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:21:12.353Z"
+      "firstSeenAt": "2026-06-18T13:21:12.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf"
+        ],
+        "en": [
+          "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-regional-e-de-la-formation-a-80-100-tertianum-dubendorf"
+      ]
     },
     {
       "id": "tertianum-3f558a9b1e37",
@@ -642,9 +671,9 @@
       "slug": "praktikantin-praktikant-pflege-e-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn-tertianum-degersheim",
       "slugByLocale": {
         "it": "praktikantin-praktikant-pflege-e-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn-tertianum-degersheim",
-        "en": "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn",
+        "en": "intern-nursing-and-support-incl-breakfast-service-10-20-hourly-wage-tertianum-degersheim",
         "de": "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn",
-        "fr": "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn"
+        "fr": "internes-infirmiers-et-soutien-incluant-le-service-du-petit-dejeuner-10-a-20-de-salaire-horaire-tertianum-degersheim"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -690,6 +719,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn"
+        ],
+        "en": [
+          "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn"
+        ],
+        "fr": [
           "praktikantin-praktikant-pflege-und-betreuung-inkl-fruhstucksservice-10-20-im-stundenlohn"
         ]
       },
@@ -1996,11 +2031,11 @@
     },
     {
       "id": "tertianum-c972135774f7",
-      "slug": "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf",
+      "slug": "60-di-assenze-responsabile-della-gestione-per-la-regione-francofona-tertianum-dubendorf",
       "slugByLocale": {
-        "it": "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf",
-        "en": "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf",
-        "de": "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf",
+        "it": "60-di-assenze-responsabile-della-gestione-per-la-regione-francofona-tertianum-dubendorf",
+        "en": "60-absence-management-officer-for-the-french-speaking-region-tertianum-dubendorf",
+        "de": "60-abwesenheitsverwaltungsbeauftragter-fur-die-franzosischsprachige-region-tertianum-dubendorf",
         "fr": "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf"
       },
       "company": "Tertianum",
@@ -2054,16 +2089,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf"
+        ],
+        "en": [
+          "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf"
+        ],
+        "de": [
+          "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "charge-e-de-gestion-des-absences-a-60-pour-la-region-de-romandie-tertianum-dubendorf"
+      ]
     },
     {
       "id": "tertianum-27b38adfab6c",
       "slug": "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-per-la-region-romandie-tertianum-dubendorf",
       "slugByLocale": {
         "it": "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-per-la-region-romandie-tertianum-dubendorf",
-        "en": "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum",
+        "en": "absence-management-clerk-60-for-the-french-speaking-region-tertianum-dubendorf",
         "de": "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum",
-        "fr": "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum"
+        "fr": "commis-de-gestion-des-absences-60-pour-la-region-francophone-tertianum-dubendorf"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -2109,6 +2158,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum"
+        ],
+        "fr": [
           "sachbearbeiterin-sachbearbeiter-absenzmanagement-60-fur-die-region-romandie-tertianum"
         ]
       },
@@ -3911,9 +3966,9 @@
       "slug": "fachfrau-fachmann-gesundheit-cfc-50-100-im-tag-e-nachtdienst-tertianum-schlieren",
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-cfc-50-100-im-tag-e-nachtdienst-tertianum-schlieren",
-        "en": "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren",
+        "en": "health-specialist-efz-50-100-on-day-and-night-duty-tertianum-schlieren",
         "de": "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren",
-        "fr": "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren"
+        "fr": "specialiste-de-sante-efz-50-100-en-service-de-jour-comme-de-nuit-tertianum-schlieren"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3959,6 +4014,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-50-100-im-tag-und-nachtdienst-tertianum-schlieren"
         ]
       },
@@ -8249,7 +8310,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
@@ -11952,7 +12012,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-solothurn",
         "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistentin-assistent-gesundheit-und-soziales-eba-60-100-tertianum-solothurn",
-        "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil",
         "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn"
       ],
       "firstSeenAt": "2026-05-19T12:22:58.075Z",

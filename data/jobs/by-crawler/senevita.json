@@ -7517,12 +7517,12 @@
     },
     {
       "id": "senevita-d3dc5e8e2aee",
-      "slug": "collaboratrice-teur-a-la-planification-80-senevita-renens",
+      "slug": "collaboratore-di-pianificazione-80-senevita-renens",
       "slugByLocale": {
         "fr": "collaboratrice-teur-a-la-planification-80-senevita-renens",
-        "it": "collaboratrice-teur-a-la-planification-80-senevita-renens",
-        "en": "collaboratrice-teur-a-la-planification-80-senevita-renens",
-        "de": "collaboratrice-teur-a-la-planification-80-senevita-renens"
+        "it": "collaboratore-di-pianificazione-80-senevita-renens",
+        "en": "planning-collaborator-80-senevita-renens",
+        "de": "planungsmitarbeiter-80-senevita-renens"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7578,7 +7578,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:03:02.437Z"
+      "firstSeenAt": "2026-06-18T13:03:02.437Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-teur-a-la-planification-80-senevita-renens"
+        ],
+        "en": [
+          "collaboratrice-teur-a-la-planification-80-senevita-renens"
+        ],
+        "de": [
+          "collaboratrice-teur-a-la-planification-80-senevita-renens"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-teur-a-la-planification-80-senevita-renens"
+      ]
     },
     {
       "id": "senevita-7d6e0de9e6a0",

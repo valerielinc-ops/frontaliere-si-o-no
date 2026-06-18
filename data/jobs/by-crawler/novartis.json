@@ -9,7 +9,7 @@
         "it": "legal-apprendista-novartis-corporate-functions-novartis-basel-city",
         "en": "legal-trainee-novartis-corporate-functions-novartis-ch",
         "de": "legal-auszubildender-novartis-corporate-functions-novartis-basel-city",
-        "fr": "legal-trainee-novartis-corporate-functions-novartis-ch"
+        "fr": "stagiaire-juridique-novartis-fonctions-corporatives-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -57,6 +57,9 @@
         ],
         "de": [
           "legal-trainee-novartis-corporate-functions-novartis-ch"
+        ],
+        "fr": [
+          "legal-trainee-novartis-corporate-functions-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -83,7 +86,7 @@
         "it": "facilities-management-novartis-basel-city",
         "en": "facilities-management-lead-novartis-ch",
         "de": "facilities-management-lead-novartis-ch",
-        "fr": "facilities-management-lead-novartis-ch"
+        "fr": "responsable-de-la-gestion-des-installations-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -128,6 +131,9 @@
       "previousSlugsByLocale": {
         "it": [
           "facilities-management-lead-novartis-ch"
+        ],
+        "fr": [
+          "facilities-management-lead-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -154,7 +160,7 @@
         "it": "progettazione-e-gestione-delle-costruzioni-novartis-basel-city",
         "en": "head-design-construction-management-novartis-ch",
         "de": "head-design-construction-management-novartis-ch",
-        "fr": "head-design-construction-management-novartis-ch"
+        "fr": "direction-de-la-conception-et-de-la-construction-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -199,6 +205,9 @@
       "previousSlugsByLocale": {
         "it": [
           "head-design-construction-management-novartis-ch"
+        ],
+        "fr": [
+          "head-design-construction-management-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -225,7 +234,7 @@
         "it": "responsabile-conformita-qa-m-f-d-novartis-stein-aargau",
         "en": "qa-compliance-lead-m-f-d-novartis-ch",
         "de": "qa-compliance-lead-m-f-d-novartis-ch",
-        "fr": "qa-compliance-lead-m-f-d-novartis-ch"
+        "fr": "responsable-de-la-conformite-a-l-aq-m-f-d-novartis-stein-aargau"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -274,6 +283,9 @@
         ],
         "en": [
           "qa-compliance-lead-m-f-d-novartis-stein-aargau"
+        ],
+        "fr": [
+          "qa-compliance-lead-m-f-d-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -449,9 +461,9 @@
     },
     {
       "id": "novartis-d12f26b2bbea",
-      "slug": "therapeutic-area-strategy-director-oncology-hematology-novartis-ch",
+      "slug": "responsabile-strategia-area-terapeutica-oncologia-e-ematologia-novartis-basel-city",
       "slugByLocale": {
-        "it": "therapeutic-area-strategy-director-oncology-hematology-novartis-ch",
+        "it": "responsabile-strategia-area-terapeutica-oncologia-e-ematologia-novartis-basel-city",
         "en": "therapeutic-area-strategy-director-oncology-hematology-novartis-ch",
         "de": "therapeutic-area-strategy-direktor-oncology-hematology-novartis-basel-city",
         "fr": "therapeutic-area-strategy-directeur-oncology-hematology-novartis-basel-city"
@@ -508,7 +520,15 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "therapeutic-area-strategy-director-oncology-hematology-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "therapeutic-area-strategy-director-oncology-hematology-novartis-ch"
+      ]
     },
     {
       "id": "novartis-41abd3248fb1",
@@ -670,8 +690,8 @@
       "slugByLocale": {
         "it": "esperto-senior-di-scienza-e-tecnologia-novartis-basel-city",
         "en": "senior-expert-science-technology-novartis-ch",
-        "de": "senior-expert-science-technology-novartis-ch",
-        "fr": "senior-expert-science-technology-novartis-ch"
+        "de": "senior-expert-wissenschaft-und-technologie-novartis-basel-city",
+        "fr": "expert-principal-en-science-et-technologie-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -716,6 +736,12 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-expert-science-technology-novartis-ch"
+        ],
+        "de": [
+          "senior-expert-science-technology-novartis-ch"
+        ],
+        "fr": [
+          "senior-expert-science-technology-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -742,7 +768,7 @@
         "it": "medical-direttore-gastroenterology-early-clinical-development-novartis-basel-city",
         "en": "medical-director-gastroenterology-early-clinical-development-novartis-ch",
         "de": "medical-direktor-gastroenterology-early-clinical-development-novartis-basel-city",
-        "fr": "medical-director-gastroenterology-early-clinical-development-novartis-ch"
+        "fr": "directeur-medical-gastroenterologie-developpement-clinique-precoce-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -789,6 +815,9 @@
           "medical-director-gastroenterology-early-clinical-development-novartis-ch"
         ],
         "de": [
+          "medical-director-gastroenterology-early-clinical-development-novartis-ch"
+        ],
+        "fr": [
           "medical-director-gastroenterology-early-clinical-development-novartis-ch"
         ]
       },
@@ -1039,8 +1068,8 @@
       "slugByLocale": {
         "it": "product-manager-soluzioni-ai-agentiche-novartis-basel-city",
         "en": "product-manager-agentic-ai-solutions-novartis-ch",
-        "de": "product-manager-agentic-ai-solutions-novartis-ch",
-        "fr": "product-manager-agentic-ai-solutions-novartis-ch"
+        "de": "produktmanager-agentic-ai-solutions-novartis-basel-city",
+        "fr": "gestionnaire-de-produits-solutions-agentiques-ai-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1084,6 +1113,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "product-manager-agentic-ai-solutions-novartis-ch"
+        ],
+        "de": [
+          "product-manager-agentic-ai-solutions-novartis-ch"
+        ],
+        "fr": [
           "product-manager-agentic-ai-solutions-novartis-ch"
         ]
       },
@@ -1188,7 +1223,7 @@
         "it": "direttore-si-s-measurement-methodology-analytics-novartis-basel-city",
         "en": "director-si-s-measurement-methodology-analytics-novartis-ch",
         "de": "direktor-si-s-measurement-methodology-analytics-novartis-basel-city",
-        "fr": "director-si-s-measurement-methodology-analytics-novartis-ch"
+        "fr": "directeur-mesure-de-l-is-et-s-methodologie-et-analyse-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1235,6 +1270,9 @@
           "director-si-s-measurement-methodology-analytics-novartis-ch"
         ],
         "de": [
+          "director-si-s-measurement-methodology-analytics-novartis-ch"
+        ],
+        "fr": [
           "director-si-s-measurement-methodology-analytics-novartis-ch"
         ]
       },
@@ -1339,7 +1377,7 @@
         "it": "assistente-senior-in-contenzioso-brevettuale-novartis-basel-city",
         "en": "senior-patent-litigation-paralegal-novartis-ch",
         "de": "senior-patent-litigation-paralegal-novartis-ch",
-        "fr": "senior-patent-litigation-paralegal-novartis-ch"
+        "fr": "litige-principal-en-matiere-de-brevets-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1383,6 +1421,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-patent-litigation-paralegal-novartis-ch"
+        ],
+        "fr": [
           "senior-patent-litigation-paralegal-novartis-ch"
         ]
       },
@@ -1640,8 +1681,8 @@
       "slugByLocale": {
         "it": "leader-di-prova-di-scienze-cliniche-leader-di-prova-di-scienze-cliniche-medicina-traduttiva-multiple-listings-80-100",
         "en": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
-        "de": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational",
-        "fr": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
+        "de": "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translationale-medizin-mehrere-auflistungen-80-100",
+        "fr": "chef-des-essais-en-sciences-cliniques-chef-des-essais-en-sciences-cliniques-medecine-translationnelle-listes-multiples"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1686,6 +1727,12 @@
       "previousSlugsByLocale": {
         "it": [
           "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
+        ],
+        "de": [
+          "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
+        ],
+        "fr": [
+          "clinical-sciences-trial-leader-senior-clinical-sciences-trial-leader-translational"
         ]
       },
       "needsRetranslation": true,
@@ -1711,8 +1758,8 @@
       "slugByLocale": {
         "it": "fornitura-di-farmaci-esperti-novartis-basel-city",
         "en": "expert-drug-supply-novartis-ch",
-        "de": "expert-drug-supply-novartis-ch",
-        "fr": "expert-drug-supply-novartis-ch"
+        "de": "expertendrogenversorgung-novartis-basel-city",
+        "fr": "fourniture-de-medicaments-par-des-experts-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1757,6 +1804,12 @@
       "previousSlugsByLocale": {
         "it": [
           "expert-drug-supply-novartis-ch"
+        ],
+        "de": [
+          "expert-drug-supply-novartis-ch"
+        ],
+        "fr": [
+          "expert-drug-supply-novartis-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1783,7 +1836,7 @@
         "it": "head-data-privacy-ai-compliance-svizzera-germania-novartis-basel-city",
         "en": "head-data-privacy-ai-compliance-switzerland-germany-novartis-ch",
         "de": "head-data-privacy-ai-compliance-switzerland-germany-novartis-ch",
-        "fr": "head-data-privacy-ai-compliance-switzerland-germany-novartis-ch"
+        "fr": "protection-des-donnees-suisse-allemagne-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1827,6 +1880,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "head-data-privacy-ai-compliance-switzerland-germany-novartis-ch"
+        ],
+        "fr": [
           "head-data-privacy-ai-compliance-switzerland-germany-novartis-ch"
         ]
       },
@@ -1931,7 +1987,7 @@
         "it": "capo-affari-medici-internazionali-crm-novartis-basel-city",
         "en": "international-medical-affairs-head-crm-novartis-ch",
         "de": "international-medical-affairs-head-crm-novartis-ch",
-        "fr": "international-medical-affairs-head-crm-novartis-ch"
+        "fr": "chef-des-affaires-medicales-internationales-crm-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1975,6 +2031,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "international-medical-affairs-head-crm-novartis-ch"
+        ],
+        "fr": [
           "international-medical-affairs-head-crm-novartis-ch"
         ]
       },
@@ -2310,7 +2369,7 @@
         "it": "responsabile-globale-centro-di-eccellenza-e-standard-pv-novartis-basel-city",
         "en": "global-head-pv-centre-of-excellence-standards-novartis-ch",
         "de": "global-head-pv-centre-of-excellence-standards-novartis-ch",
-        "fr": "global-head-pv-centre-of-excellence-standards-novartis-ch"
+        "fr": "responsable-mondial-du-centre-d-excellence-et-de-normes-pv-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2354,6 +2413,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "global-head-pv-centre-of-excellence-standards-novartis-ch"
+        ],
+        "fr": [
           "global-head-pv-centre-of-excellence-standards-novartis-ch"
         ]
       },
@@ -2535,7 +2597,7 @@
         "it": "scienziato-principale-profilazione-di-sagnozzi-identificazione-e-ottimizzazione-dei-lead-80-100-novartis-basel-city",
         "en": "principal-scientist-assay-profiling-lead-identification-and-optimization-80-100-novartis",
         "de": "principal-scientist-assay-profiling-lead-identification-and-optimization-80-100-novartis",
-        "fr": "principal-scientist-assay-profiling-lead-identification-and-optimization-80-100-novartis"
+        "fr": "chercheur-principal-profil-d-essai-identification-et-optimisation-du-plomb-80-100-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2580,6 +2642,9 @@
       "previousSlugsByLocale": {
         "it": [
           "principal-scientist-assay-profiling-lead-identification-and-optimization-80-100-novartis"
+        ],
+        "fr": [
+          "principal-scientist-assay-profiling-lead-identification-and-optimization-80-100-novartis"
         ]
       },
       "needsRetranslation": true,
@@ -2605,8 +2670,8 @@
       "slugByLocale": {
         "it": "esperto-senior-ingegneria-sviluppo-di-dispositivi-medici-novartis-basel-city",
         "en": "senior-expert-engineering-medical-device-development-novartis-ch",
-        "de": "senior-expert-engineering-medical-device-development-novartis-ch",
-        "fr": "senior-expert-engineering-medical-device-development-novartis-ch"
+        "de": "senior-expert-engineering-entwicklung-von-medizinprodukten-novartis-basel-city",
+        "fr": "ingenieur-expert-senior-developpement-d-appareils-medicaux-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2650,6 +2715,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-expert-engineering-medical-device-development-novartis-ch"
+        ],
+        "de": [
+          "senior-expert-engineering-medical-device-development-novartis-ch"
+        ],
+        "fr": [
           "senior-expert-engineering-medical-device-development-novartis-ch"
         ]
       },
@@ -3060,8 +3131,8 @@
       "slugByLocale": {
         "it": "senior-principal-scientist-principal-scientist-i-ii-novartis-ch",
         "en": "senior-principal-scientist-principal-scientist-i-ii-novartis-ch",
-        "de": "senior-principal-scientist-principal-scientist-i-ii-novartis-ch",
-        "fr": "senior-principal-scientist-principal-scientist-i-ii-novartis-ch"
+        "de": "hauptwissenschaftler-hauptwissenschaftler-i-ii-novartis-basel-city",
+        "fr": "chercheur-principal-principal-chercheur-principal-i-ii-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3277,7 +3348,7 @@
         "it": "global-program-regulatory-manager-neuroscience-novartis-ch",
         "en": "global-program-regulatory-manager-neuroscience-novartis-ch",
         "de": "global-program-regulatory-manager-neuroscience-novartis-ch",
-        "fr": "global-program-regulatory-manager-neuroscience-novartis-ch"
+        "fr": "gestionnaire-de-la-reglementation-des-programmes-mondiaux-neuroscience-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3340,7 +3411,7 @@
         "it": "global-program-regulatory-manager-neuroscience-novartis-ch-2",
         "en": "global-program-regulatory-manager-neuroscience-novartis-ch",
         "de": "global-program-regulatory-manager-neuroscience-novartis-ch-2",
-        "fr": "global-program-regulatory-manager-neuroscience-novartis-ch-2"
+        "fr": "gestionnaire-de-la-reglementation-des-programmes-mondiaux-neuroscience-novartis-basel-city-c5d799"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3398,12 +3469,12 @@
     },
     {
       "id": "novartis-9d1fc0847f7f",
-      "slug": "regulatory-affairs-manager-senior-manager-cmc-novartis-ch",
+      "slug": "gestore-di-affari-regolamentari-responsor-manager-cmc-novartis-basel-city",
       "slugByLocale": {
-        "it": "regulatory-affairs-manager-senior-manager-cmc-novartis-ch",
+        "it": "gestore-di-affari-regolamentari-responsor-manager-cmc-novartis-basel-city",
         "en": "regulatory-affairs-manager-senior-manager-cmc-novartis-ch",
         "de": "regulatory-affairs-manager-senior-manager-cmc-novartis-ch",
-        "fr": "regulatory-affairs-manager-senior-manager-cmc-novartis-ch"
+        "fr": "gestionnaire-des-affaires-reglementaires-gestionnaire-principal-mcc-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3457,7 +3528,18 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-manager-senior-manager-cmc-novartis-ch"
+        ],
+        "fr": [
+          "regulatory-affairs-manager-senior-manager-cmc-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-manager-senior-manager-cmc-novartis-ch"
+      ]
     },
     {
       "id": "novartis-2f433bffd9a9",
@@ -3621,12 +3703,12 @@
     },
     {
       "id": "novartis-e91849a688c3",
-      "slug": "formulation-project-leader-m-f-d-novartis-ch",
+      "slug": "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
       "slugByLocale": {
-        "it": "formulation-project-leader-m-f-d-novartis-ch",
+        "it": "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
         "en": "formulation-project-leader-m-f-d-novartis-ch",
-        "de": "formulation-project-leader-m-f-d-novartis-ch",
-        "fr": "formulation-project-leader-m-f-d-novartis-ch"
+        "de": "formulierungsprojektleiter-m-w-d-novartis-basel-city",
+        "fr": "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3680,16 +3762,30 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ],
+        "de": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ],
+        "fr": [
+          "formulation-project-leader-m-f-d-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "formulation-project-leader-m-f-d-novartis-ch"
+      ]
     },
     {
       "id": "novartis-05272a0462cd",
-      "slug": "formulation-project-leader-early-phase-novartis-ch",
+      "slug": "leader-del-progetto-di-formulazione-fase-estrema-novartis-basel-city",
       "slugByLocale": {
-        "it": "formulation-project-leader-early-phase-novartis-ch",
+        "it": "leader-del-progetto-di-formulazione-fase-estrema-novartis-basel-city",
         "en": "formulation-project-leader-early-phase-novartis-ch",
-        "de": "formulation-project-leader-early-phase-novartis-ch",
-        "fr": "formulation-project-leader-early-phase-novartis-ch"
+        "de": "projektleiter-formulierung-fruhe-phase-novartis-basel-city",
+        "fr": "chef-de-projet-de-formulation-premiere-phase-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3743,7 +3839,21 @@
         }
       },
       "postalCode": "4001",
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "formulation-project-leader-early-phase-novartis-ch"
+        ],
+        "de": [
+          "formulation-project-leader-early-phase-novartis-ch"
+        ],
+        "fr": [
+          "formulation-project-leader-early-phase-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "formulation-project-leader-early-phase-novartis-ch"
+      ]
     }
   ]
 }

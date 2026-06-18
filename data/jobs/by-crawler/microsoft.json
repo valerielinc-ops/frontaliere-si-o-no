@@ -197,7 +197,7 @@
       "slugByLocale": {
         "en": "logistics-technician-microsoft-zurich",
         "it": "logistica-technician-microsoft-zurich",
-        "de": "logistik-techniker-microsoft-zurich",
+        "de": "logistiktechniker-microsoft-zurich",
         "fr": "logistique-technicien-microsoft-zurich"
       },
       "company": "Microsoft",
@@ -260,14 +260,16 @@
           "logistics-technician-microsoft-zurich"
         ],
         "de": [
-          "logistics-technician-microsoft-zurich"
+          "logistics-technician-microsoft-zurich",
+          "logistik-techniker-microsoft-zurich"
         ],
         "fr": [
           "logistics-technician-microsoft-zurich"
         ]
       },
       "previousSlugs": [
-        "logistics-technician-microsoft-zurich"
+        "logistics-technician-microsoft-zurich",
+        "logistik-techniker-microsoft-zurich"
       ]
     },
     {
@@ -275,9 +277,9 @@
       "slug": "logistica-technician-microsoft-zurich-88c79c",
       "slugByLocale": {
         "en": "logistics-technician-microsoft-zurich",
-        "it": "logistica-technician-microsoft-zurich-88c79c",
-        "de": "logistik-techniker-microsoft-zurich-88c79c",
-        "fr": "logistique-technicien-microsoft-zurich-88c79c"
+        "it": "logistics-technician-microsoft-zurich-2",
+        "de": "logistics-technician-microsoft-zurich-2",
+        "fr": "logistics-technician-microsoft-zurich-2"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -335,18 +337,16 @@
       "postalCode": "8058",
       "firstSeenAt": "2026-06-18T12:46:03.223Z",
       "previousSlugsByLocale": {
-        "it": [
-          "logistics-technician-microsoft-zurich-2"
-        ],
         "de": [
-          "logistics-technician-microsoft-zurich-2"
+          "logistik-techniker-microsoft-zurich-88c79c"
         ],
         "fr": [
-          "logistics-technician-microsoft-zurich-2"
+          "logistique-technicien-microsoft-zurich-88c79c"
         ]
       },
       "previousSlugs": [
-        "logistics-technician-microsoft-zurich-2"
+        "logistik-techniker-microsoft-zurich-88c79c",
+        "logistique-technicien-microsoft-zurich-88c79c"
       ]
     }
   ]

@@ -3496,12 +3496,12 @@
     },
     {
       "id": "spital-buelach-9b1ef3b9111b",
-      "slug": "oberarztin-oberarzt-angiologie-spital-buelach-bulach",
+      "slug": "angiologia-medica-senior-spital-bulach-bulach",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-angiologie-spital-buelach-bulach",
-        "it": "oberarztin-oberarzt-angiologie-spital-buelach-bulach",
-        "en": "oberarztin-oberarzt-angiologie-spital-buelach-bulach",
-        "fr": "oberarztin-oberarzt-angiologie-spital-buelach-bulach"
+        "it": "angiologia-medica-senior-spital-bulach-bulach",
+        "en": "senior-physician-angiology-spital-bulach-bulach",
+        "fr": "angiologie-des-medecins-ages-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3558,11 +3558,23 @@
       },
       "firstSeenAt": "2026-06-18T13:07:04.922Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-spital-buelach-bulach",
         "medico-specialista-in-radiologia-spital-bulach-bulach",
         "senior-radiologist-spital-bulach-bulach",
         "oberarztin-oberarzt-radiologie-spital-buelach-bulach",
         "medecin-specialiste-en-radiologie-spital-bulach-bulach"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-angiologie-spital-buelach-bulach"
+        ],
+        "en": [
+          "oberarztin-oberarzt-angiologie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-angiologie-spital-buelach-bulach"
+        ]
+      }
     }
   ]
 }

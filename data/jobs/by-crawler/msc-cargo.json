@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "responsabile-delle-destinazioni-di-viaggio-msc-group-geneva",
         "en": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -55,6 +55,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "de": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "fr": [
           "travelling-destination-manager-msc-geneva"
         ]
       },
@@ -381,7 +387,7 @@
         "it": "brand-manager-brand-product-msc-geneva",
         "en": "brand-manager-brand-product-msc-geneva",
         "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -439,12 +445,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204",
-      "previousSlugsByLocale": {
-        "it": [
-          "brand-manager-brand-product-msc-geneva"
-        ]
-      }
+      "postalCode": "1204"
     },
     {
       "id": "msc-cargo-37ffd0de68db",
@@ -453,7 +454,7 @@
         "it": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
         "de": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva",
-        "fr": "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "fr": "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -525,7 +526,7 @@
         "it": "responsabile-piattaforme-digitali-msc-group-geneva",
         "en": "digital-platforms-manager-msc-geneva",
         "de": "responsabile-piattaforme-digitali-msc-group-geneva",
-        "fr": "responsabile-piattaforme-digitali-msc-group-geneva"
+        "fr": "gestionnaire-de-plateformes-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -880,8 +881,8 @@
       "slugByLocale": {
         "it": "responsabile-prodotto-spa-msc-group-geneva",
         "en": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "spa-produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -927,6 +928,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "spa-product-manager-msc-geneva"
+        ],
+        "de": [
+          "spa-product-manager-msc-geneva"
+        ],
+        "fr": [
           "spa-product-manager-msc-geneva"
         ]
       },

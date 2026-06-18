@@ -1851,12 +1851,12 @@
     },
     {
       "id": "hug-f5cea6ba785c",
-      "slug": "psychologue-80-hug-geneve",
+      "slug": "psicologo-80-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-80-hug-geneve",
-        "it": "psychologue-80-hug-geneve",
-        "en": "psychologue-80-hug-geneve",
-        "de": "psychologue-80-hug-geneve"
+        "it": "psicologo-80-hug-geneve",
+        "en": "psychologist-80-hug-geneve",
+        "de": "psychologe-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1912,7 +1912,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-18T12:29:13.880Z"
+      "firstSeenAt": "2026-06-18T12:29:13.880Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-80-hug-geneve"
+        ],
+        "en": [
+          "psychologue-80-hug-geneve"
+        ],
+        "de": [
+          "psychologue-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-d8396a66383a",
@@ -3605,7 +3619,7 @@
       "slug": "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
       "slugByLocale": {
         "it": "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
-        "en": "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
+        "en": "administrative-clerk-weekender-20-hug-geneve",
         "de": "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
         "fr": "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
       },
@@ -3649,15 +3663,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
-        "administrative-clerk-weekender-20-hug-geneve"
+        "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ],
         "en": [
-          "administrative-clerk-weekender-20-hug-geneve",
           "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ]
       },
