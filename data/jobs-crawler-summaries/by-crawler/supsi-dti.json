@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-06-17T23:31:22.248Z",
+  "generatedAt": "2026-06-18T13:17:18.772Z",
   "total": 21,
   "newCount": 21,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 115339,
-  "avgDurationMs": 115339,
+  "durationMs": 151589,
+  "avgDurationMs": 151589,
   "durationHistory": [
-    115339
+    151589
   ],
   "newJobs": [
     {
@@ -140,6 +140,48 @@
       }
     },
     {
+      "id": "company-l4s84r",
+      "slug": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
+      "company": "SUPSI / DTI",
+      "title": "Professore / Professoressa associato/a in Politiche sociali e care",
+      "location": "manno",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "url": "https://www.supsi.ch/bando26_2010",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "manno",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-06-12T23:16:16.957Z",
+      "firstSeenAt": "2026-06-12T23:16:16.957Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 98,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 23,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-l4u54d",
       "slug": "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
@@ -182,48 +224,6 @@
       }
     },
     {
-      "id": "company-l4s84r",
-      "slug": "professore-professoressa-associato-a-in-politiche-sociali-e-care-supsi-dti-manno",
-      "company": "SUPSI / DTI",
-      "title": "Professore / Professoressa associato/a in Politiche sociali e care",
-      "location": "manno",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-12",
-      "url": "https://www.supsi.ch/bando26_2010",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "manno",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-06-12T23:16:16.957Z",
-      "firstSeenAt": "2026-06-12T23:16:16.957Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 17,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-l4u54f",
       "slug": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
       "company": "SUPSI / DTI",
@@ -234,7 +234,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5028",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -257,11 +257,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 18,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -276,7 +276,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "postedDate": "2026-06-11",
       "url": "https://www.supsi.ch/bando26_5029",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -299,11 +299,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 96,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -486,7 +486,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-30",
+      "postedDate": "2026-06-18",
       "url": "https://www.supsi.ch/bando26_1011",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -509,10 +509,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 17,
+        "richness": 25,
         "translation": 23,
         "completeness": 25
       }
@@ -738,7 +738,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "postedDate": "2026-05-24",
       "url": "https://www.supsi.ch/bando26_2004",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -780,7 +780,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-17",
+      "postedDate": "2026-05-24",
       "url": "https://www.supsi.ch/bando26_2005",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -803,10 +803,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 98,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
+        "richness": 21,
         "translation": 23,
         "completeness": 25
       }
@@ -822,7 +822,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-21",
+      "postedDate": "2026-06-18",
       "url": "https://www.supsi.ch/bando26_1009",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -835,7 +835,7 @@
       "crawledAt": "2026-05-21T00:28:42.108Z",
       "firstSeenAt": "2026-05-21T00:28:42.108Z",
       "country": "CH",
-      "sourceLang": "en",
+      "sourceLang": "it",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "streetAddress": "Via Cantonale 2C",
@@ -845,10 +845,10 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 17,
+        "richness": 25,
         "translation": 20,
         "completeness": 25
       }
