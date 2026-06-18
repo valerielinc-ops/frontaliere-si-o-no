@@ -40,16 +40,46 @@
         location.replace('https://frontaliereticino.ch' + location.pathname + location.search + location.hash);
       }
     </script>
-    <!-- SPA redirect: save URL and redirect to / so the React app can handle routing -->
+    <!-- Canton-drift recovery + SPA redirect. A job slug is globally unique, so an
+         orphaned canton-variant 404 (the canton drifted between crawls, leaving the
+         already-indexed URL behind) is redirected to the slug's CURRENT canonical
+         page via the sharded map at /job-canon/ (jobCanonRedirectMapPlugin). These
+         orphans cannot be recovered statically (a 404 URL has no GSC impressions),
+         so request-time lookup is the only way. Non-job 404s fall through to the SPA. -->
     <script>
       (function() {
         // Paths that are real static files — do NOT redirect (let 404 show)
         var staticExts = /\.(js|css|png|jpg|jpeg|gif|svg|ico|woff2?|ttf|json|xml|txt|map|webmanifest)$/i;
-        if (staticExts.test(location.pathname)) return;
-        // Save full URL (path + search + hash) so index.html can restore it
-        // Normalize to non-www canonical domain before saving
-        sessionStorage.redirect = location.href.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
-        location.replace('/');
+        var pathname = location.pathname;
+        if (staticExts.test(pathname)) return;
+        function spaRedirect() {
+          // Save full URL (path + search + hash) so index.html can restore it.
+          sessionStorage.redirect = location.href.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
+          location.replace('/');
+        }
+        // Job-detail path: /(en|de|fr)?/<jobsection>/<slug>/ — candidate for canton-drift recovery.
+        var jobRe = /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^\/]+)\/?$/;
+        var m = pathname.match(jobRe);
+        if (!m) { spaRedirect(); return; }
+        var slug = decodeURIComponent(m[1]).toLowerCase();
+        var sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
+        if (sk.length < 2) sk = (sk + '__').slice(0, 2);
+        var done = false;
+        function finish(fn) { if (done) return; done = true; clearTimeout(timer); fn(); }
+        var timer = setTimeout(function() { finish(spaRedirect); }, 1500);
+        fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(map) {
+            var prefix = map && map[slug];
+            var canon = prefix ? (prefix + '/' + slug + '/') : null;
+            // Only redirect when the canonical differs from the requested path.
+            if (canon && canon !== pathname.replace(/\/+$/, '') + '/') {
+              finish(function() { location.replace(canon + location.search + location.hash); });
+            } else {
+              finish(spaRedirect);
+            }
+          })
+          .catch(function() { finish(spaRedirect); });
       })();
     </script>
     <!-- Firebase/GA4 error tracking for 404 page (only fires if redirect didn't happen) -->
