@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2834,
+ "numberOfItems": 2835,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7478,7 +7478,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2831, "name": "Hoval Ticino: opportunità lavoro nel settore te...", "url": `${BASE_URL}/articoli-frontaliere/hoval-ticino-opportunita-lavoro` },
           { "@type": "ListItem", "position": 2832, "name": "Ufficio postale di Chiasso: stato attuale e ser...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-postale-chiasso-aggiornamenti` },
           { "@type": "ListItem", "position": 2833, "name": "Agenzie di lavoro temporaneo a Lugano: guida pr...", "url": `${BASE_URL}/articoli-frontaliere/agenzie-interim-lugano-ticino-frontaliere` },
-          { "@type": "ListItem", "position": 2834, "name": "Frontalieri: Roma blocca i ristorni? Il Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/bloccare-ridurre-ristorni-frontalieri-roma` }
+          { "@type": "ListItem", "position": 2834, "name": "Frontalieri: Roma blocca i ristorni? Il Ticino ...", "url": `${BASE_URL}/articoli-frontaliere/bloccare-ridurre-ristorni-frontalieri-roma` },
+          { "@type": "ListItem", "position": 2835, "name": "Offerte di lavoro a Roche: posizioni aperte a B...", "url": `${BASE_URL}/articoli-frontaliere/roche-basel-offerte-lavoro` }
  ]
  },
  {

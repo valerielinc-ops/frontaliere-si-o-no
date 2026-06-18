@@ -218,6 +218,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontaliers: Berna ferme o taglia ristorni?',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Levicoli chiede a Berna di interrompere o ridurre le sovvenzioni ai frontalieri per pressioni fiscali. Almeno due casi oltre 30 milioni hanno prodotto risultati.',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Vue aérienne du fleuve Ticino et du front de mer de Locarno en automne, symbole des frontaliers et des tensions fiscales entre la Suisse et l\'Italie',
+    'blog.article.roche-basel-offerte-lavoro.title': 'Offres d\'emploi à Roche : postes ouverts à Bâle',
+    'blog.article.roche-basel-offerte-lavoro.excerpt': 'Augmentation des opportunités d\'emploi dans le secteur pharmaceutique à Bâle, avec des détails en cours de définition',
+    'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Vue aérienne du siège social de Roche à Bâle, Suisse, mettant en valeur les bâtiments modernes et les installations de recherche',
 };
 
 export default blogMetaChFr;

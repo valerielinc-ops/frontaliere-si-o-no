@@ -218,6 +218,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontalieri: Roma blocca i ristorni?',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati.',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Luftaufnahme des Ticino-Flusses und der Uferpromenade von Locarno im Herbstlicht, Symbol für Grenzgänger und steuerliche Spannungen zwischen der Schweiz und Italien',
+    'blog.article.roche-basel-offerte-lavoro.title': 'Arbeitsangebote bei Roche: Stellen in Basel',
+    'blog.article.roche-basel-offerte-lavoro.excerpt': 'Erhöhung der Arbeitschancen im pharmazeutischen Bereich in Basel, Details in Planung',
+    'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerialansicht der Roche-Zentrale in Basel, Schweiz, mit Fokus auf moderne Bürogebäude und Forschungsanlagen',
 };
 
 export default blogMetaChDe;

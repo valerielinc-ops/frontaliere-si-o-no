@@ -218,6 +218,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Ticino wants to halt or cut cross-border workers\' benefits',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino asks Bern to block or reduce cross-border workers\' benefits due to tax pressures. Two cases over 30 million have shown results.',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Aerial view of the Ticino river and Locarno waterfront in autumn light, symbolizing cross-border workers and fiscal tensions between Switzerland and Italy',
+    'blog.article.roche-basel-offerte-lavoro.title': 'Job offers at Roche: open positions in Basel',
+    'blog.article.roche-basel-offerte-lavoro.excerpt': 'Increase in job opportunities in the pharmaceutical sector in Basel, with details being finalized',
+    'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerial view of Roche\'s headquarters in Basel, Switzerland, showcasing modern office buildings and research facilities',
 };
 
 export default blogMetaChEn;
