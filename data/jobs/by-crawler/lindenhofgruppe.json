@@ -2677,12 +2677,12 @@
     },
     {
       "id": "lindenhofgruppe-ed04548157f7",
-      "slug": "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch",
+      "slug": "documentario-medico-documentario-medico-lindenhofgruppe-engeried",
       "slugByLocale": {
         "de": "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch",
-        "it": "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch",
-        "en": "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch",
-        "fr": "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+        "it": "documentario-medico-documentario-medico-lindenhofgruppe-engeried",
+        "en": "medical-documentary-medical-documentary-lindenhofgruppe-engeried",
+        "fr": "document-medical-document-medical-lindenhofgruppe-engeried"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2737,7 +2737,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:43:23.176Z"
+      "firstSeenAt": "2026-06-18T12:43:23.176Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-dokumentarin-medizinischer-dokumentar-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-8e1d52c2f0d3",

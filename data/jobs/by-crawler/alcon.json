@@ -184,12 +184,12 @@
     },
     {
       "id": "alcon-738f6d10999b",
-      "slug": "hr-intern-alcon-ch",
+      "slug": "risorse-umane-tirocinante-alcon-fribourg",
       "slugByLocale": {
         "en": "hr-intern-alcon-ch",
-        "it": "hr-intern-alcon-ch",
-        "de": "hr-intern-alcon-ch",
-        "fr": "hr-intern-alcon-ch"
+        "it": "risorse-umane-tirocinante-alcon-fribourg",
+        "de": "personalwesen-praktikant-alcon-fribourg",
+        "fr": "ressources-humaines-stagiaire-alcon-fribourg"
       },
       "company": "Alcon",
       "companyKey": "alcon",
@@ -246,7 +246,21 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-06-18T22:14:18.257Z"
+      "firstSeenAt": "2026-06-18T22:14:18.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-alcon-ch"
+        ],
+        "de": [
+          "hr-intern-alcon-ch"
+        ],
+        "fr": [
+          "hr-intern-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-alcon-ch"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hirslanden-f6834582f993",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern",
+      "slug": "infermiere-qualificato-a-40-100-focalizzato-sulla-medicina-hirslanden-klinik-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern",
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern",
-        "en": "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern"
+        "it": "infermiere-qualificato-a-40-100-focalizzato-sulla-medicina-hirslanden-klinik-bern",
+        "en": "qualified-nurse-a-40-100-focus-on-medicine-hirslanden-klinik-bern",
+        "fr": "dipl-specialiste-des-soins-infirmiers-a-40-100-se-concentrent-sur-la-medecine-hirslanden-klinik-bern"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:39:59.447Z"
+      "firstSeenAt": "2026-06-18T12:39:59.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-40-100-schwerpunkt-medizin-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-6cc508c5a119",
-      "slug": "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau",
+      "slug": "tirocinante-a-infermieristica-3-6-mesi-80-100-hirslanden-klinik-aarau",
       "slugByLocale": {
         "de": "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau",
-        "it": "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau",
-        "en": "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau",
-        "fr": "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau"
+        "it": "tirocinante-a-infermieristica-3-6-mesi-80-100-hirslanden-klinik-aarau",
+        "en": "intern-intern-a-care-3-6-months-80-100-hirslanden-klinik-aarau",
+        "fr": "interne-a-infirmiere-3-6-mois-80-100-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -128,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:39:58.542Z"
+      "firstSeenAt": "2026-06-18T12:39:58.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau"
+        ],
+        "en": [
+          "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau"
+        ],
+        "fr": [
+          "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-aarau"
+      ]
     },
     {
       "id": "hirslanden-ce1062e9e865",
@@ -13327,7 +13355,7 @@
       "slug": "principali-hirslanden-klinik-search-da8f74",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-da8f74",
-        "en": "floor-hostess-hirslanden-klinik-geneve",
+        "en": "bed-and-breakfast-hirslanden-klinik-geneve",
         "de": "hote-sse-d-etage-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-29"
       },
@@ -13379,6 +13407,7 @@
         "hote-sse-d-etage-hirslanden-geneve",
         "hostel-stairs-hirslanden-klinik-geneve",
         "floor-host-hostess-hirslanden-klinik-geneve",
+        "floor-hostess-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -13389,7 +13418,8 @@
         "en": [
           "hostel-stairs-hirslanden-klinik-geneve",
           "floor-host-hostess-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-29"
+          "taches-principales-hirslanden-search-29",
+          "floor-hostess-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -21741,7 +21771,7 @@
       "slug": "principali-hirslanden-klinik-search-a746b8",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-a746b8",
-        "en": "taches-principales-hirslanden-search-38",
+        "en": "dietician-at-80-20-flex-hirslanden-klinik-geneve",
         "de": "dieteticien-ne-a-80-20-flex-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-38"
       },
@@ -21788,7 +21818,6 @@
         "taches-principales-hirslanden-search-38",
         "dieteticien-ne-a-80-20-flex-hirslanden-geneve",
         "dietitian-80-20-flex-hirslanden-klinik-geneve",
-        "dietician-at-80-20-flex-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -21798,7 +21827,7 @@
         ],
         "en": [
           "dietitian-80-20-flex-hirslanden-klinik-geneve",
-          "dietician-at-80-20-flex-hirslanden-klinik-geneve"
+          "taches-principales-hirslanden-search-38"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -28834,7 +28863,6 @@
         "chef-fe-de-projet-immobilier-hirslanden-geneve",
         "chef-fe-de-projet-immobilier-hirslanden-klinik-geneve",
         "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search",
         "activite-principale-du-poste-hirslanden-search-3"
       ],
       "previousSlugsByLocale": {
@@ -28848,7 +28876,6 @@
           "haupt-aktivitat-hirslanden-klinik-search",
           "chef-fe-de-projet-analyste-hirslanden-geneve",
           "chef-fe-de-projet-immobilier-hirslanden-geneve",
-          "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve",
           "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve"
         ]
       },
@@ -31254,8 +31281,7 @@
         "chef-fe-de-projet-analyste-hirslanden-geneve",
         "activite-principale-du-poste-hirslanden-search-3",
         "un-e-infirmier-ere-hpci-a-100-hirslanden-geneve",
-        "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve",
-        "activite-principale-du-poste-hirslanden-search-2"
+        "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -31264,7 +31290,6 @@
         ],
         "de": [
           "activite-principale-du-poste-hirslanden-search",
-          "chef-fe-de-projet-immobilier-hirslanden-geneve",
           "un-e-pharmacien-ne-hospitalier-ere-avec-fhp-a-100-hirslanden-geneve"
         ]
       },
@@ -31542,7 +31567,7 @@
       "slug": "principali-hirslanden-klinik-search-2c3a1e",
       "slugByLocale": {
         "it": "principali-hirslanden-klinik-search-2c3a1e",
-        "en": "apprenticeship-catering-specialist-efz-hirslanden-klinik-geneve",
+        "en": "learning-specialist-in-cfc-restoration-hirslanden-klinik-geneve",
         "de": "apprentissage-specialiste-en-restauration-cfc-hirslanden-geneve",
         "fr": "taches-principales-hirslanden-search-5"
       },
@@ -31595,8 +31620,8 @@
       "previousSlugs": [
         "taches-principales-hirslanden-search-5",
         "apprentissage-specialiste-en-restauration-cfc-hirslanden-geneve",
-        "learning-specialist-in-cfc-restoration-hirslanden-klinik-geneve",
         "apprentice-cfc-specialist-in-hospitality-hirslanden-klinik-geneve",
+        "apprenticeship-catering-specialist-efz-hirslanden-klinik-geneve",
         "taches-principales-hirslanden-search"
       ],
       "previousSlugsByLocale": {
@@ -31605,9 +31630,9 @@
           "apprentissage-specialiste-en-restauration-cfc-hirslanden-geneve"
         ],
         "en": [
-          "learning-specialist-in-cfc-restoration-hirslanden-klinik-geneve",
           "apprentice-cfc-specialist-in-hospitality-hirslanden-klinik-geneve",
-          "taches-principales-hirslanden-search-5"
+          "taches-principales-hirslanden-search-5",
+          "apprenticeship-catering-specialist-efz-hirslanden-klinik-geneve"
         ],
         "de": [
           "taches-principales-hirslanden-search"
@@ -31717,7 +31742,7 @@
       "slugByLocale": {
         "it": "infirmier-e-en-soins-continus-hirslanden-geneve",
         "en": "continuing-care-nurse-hirslanden-klinik-geneve",
-        "de": "infirmier-e-en-soins-continus-hirslanden-geneve",
+        "de": "pflegekraft-fur-weiterbildung-hirslanden-klinik-geneve",
         "fr": "infirmier-e-en-soins-continus-hirslanden-geneve"
       },
       "company": "Hirslanden Klinik",
@@ -31759,14 +31784,6 @@
       "crawledAt": "2026-06-18T12:27:29.691Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegekraft-fur-weiterbildung-hirslanden-klinik-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "pflegekraft-fur-weiterbildung-hirslanden-klinik-geneve"
-      ],
       "firstSeenAt": "2026-06-17T22:45:44.226Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -34637,7 +34654,7 @@
         "de": "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-und-akut-schmerzdienst-a-80-100",
         "it": "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-e-akut-schmerzdienst-a-80-100-hirslanden-klinik-zurich",
         "en": "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-und-akut-schmerzdienst-a-80-100",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-und-akut-schmerzdienst-a-80-100"
+        "fr": "dipl-specialiste-des-soins-infirmiers-medecine-perioperatoire-et-services-de-douleur-aigue-a-80-100-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -34683,6 +34700,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-und-akut-schmerzdienst-a-80-100"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-perioperative-medizin-und-akut-schmerzdienst-a-80-100"
         ]
       },
       "previousSlugs": [
@@ -34704,10 +34724,10 @@
     },
     {
       "id": "hirslanden-ac89f6713e45",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne",
+      "slug": "90-community-health-and-care-assistant-hirslanden-klinik-lausanne",
       "slugByLocale": {
         "de": "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne",
-        "it": "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne",
+        "it": "90-community-health-and-care-assistant-hirslanden-klinik-lausanne",
         "en": "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne",
         "fr": "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne"
       },
@@ -34764,7 +34784,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:26:57.449Z"
+      "firstSeenAt": "2026-06-18T12:26:57.449Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-a-90-hirslanden-lausanne"
+      ]
     },
     {
       "id": "hirslanden-7f8e92512c77",

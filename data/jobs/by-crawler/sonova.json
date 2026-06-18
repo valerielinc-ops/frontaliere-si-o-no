@@ -457,7 +457,7 @@
       "slug": "payroll-specialista-teilzeit-sonova-staefa",
       "slugByLocale": {
         "it": "payroll-specialista-teilzeit-sonova-staefa",
-        "en": "payroll-specialist-part-time-sonova-staefa-switzerland",
+        "en": "payroll-specialist-teilzeit-sonova-staefa-switzerland",
         "de": "payroll-specialist-teilzeit-sonova-ch",
         "fr": "payroll-specialiste-teilzeit-sonova-staefa"
       },
@@ -499,14 +499,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-specialist-teilzeit-sonova-ch"
+        "payroll-specialist-teilzeit-sonova-ch",
+        "payroll-specialist-part-time-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-specialist-teilzeit-sonova-ch"
         ],
         "en": [
-          "payroll-specialist-teilzeit-sonova-ch"
+          "payroll-specialist-teilzeit-sonova-ch",
+          "payroll-specialist-part-time-sonova-staefa-switzerland"
         ],
         "fr": [
           "payroll-specialist-teilzeit-sonova-ch"

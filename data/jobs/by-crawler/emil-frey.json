@@ -8009,12 +8009,12 @@
     },
     {
       "id": "emil-frey-2155b1187c90",
-      "slug": "carrosseriespengler-in-emil-frey-dubendorf",
+      "slug": "idraulico-per-carrozzerie-emil-frey-dubendorf",
       "slugByLocale": {
         "de": "carrosseriespengler-in-emil-frey-dubendorf",
-        "it": "carrosseriespengler-in-emil-frey-dubendorf",
+        "it": "idraulico-per-carrozzerie-emil-frey-dubendorf",
         "en": "carrosseriespengler-in-emil-frey-dubendorf",
-        "fr": "carrosseriespengler-in-emil-frey-dubendorf"
+        "fr": "plombier-carrosserie-emil-frey-dubendorf"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -8072,10 +8072,19 @@
       },
       "firstSeenAt": "2026-06-18T12:14:10.343Z",
       "previousSlugs": [
+        "carrosseriespengler-in-emil-frey-dubendorf",
         "fahrzeugdisponent-in-emil-frey-dubendorf",
         "vehicle-disponent-emil-frey-dubendorf",
         "dispositeur-de-vehicules-emil-frey-dubendorf"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosseriespengler-in-emil-frey-dubendorf"
+        ],
+        "fr": [
+          "carrosseriespengler-in-emil-frey-dubendorf"
+        ]
+      }
     },
     {
       "id": "emil-frey-753894963cd1",
@@ -8083,8 +8092,8 @@
       "slugByLocale": {
         "de": "logistiker-in-hochregallager-emil-frey-harkingen",
         "it": "impiegato-a-in-logistica-hochregallager-emil-frey-harkingen",
-        "en": "logistiker-in-hochregallager-emil-frey-harkingen",
-        "fr": "logistiker-in-hochregallager-emil-frey-harkingen"
+        "en": "logistics-specialist-in-high-bay-warehouse-emil-frey-harkingen",
+        "fr": "logisticien-dans-un-entrepot-a-grande-baie-emil-frey-harkingen"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -8130,6 +8139,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-hochregallager-emil-frey-harkingen"
+        ],
+        "en": [
+          "logistiker-in-hochregallager-emil-frey-harkingen"
+        ],
+        "fr": [
           "logistiker-in-hochregallager-emil-frey-harkingen"
         ]
       },

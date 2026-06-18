@@ -2194,8 +2194,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3256,22 +3254,17 @@
           "ricercatore-senior-tech-ops-csl-behring-bern"
         ],
         "en": [
-          "senior-laboratory-specialist-tech-ops-csl-behring-ch",
           "senior-scientist-tech-ops-csl-behring-ch"
         ],
         "de": [
-          "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
           "leitender-wissenschaftler-tech-ops-csl-behring-bern"
         ],
         "fr": [
-          "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
           "chercheur-principal-operations-techniques-csl-behring-bern"
         ]
       },
       "previousSlugs": [
         "senior-laboratory-specialist-tech-ops-csl-behring-ch",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern",
-        "specialiste-de-laboratoire-senior-tech-ops-csl-behring-bern",
         "specialista-di-laboratorio-tech-ops-csl-behring-bern",
         "senior-scientist-tech-ops-csl-behring-ch",
         "leitender-projektmanager-tech-ops-csl-behring-bern",
@@ -3281,7 +3274,6 @@
         "chef-de-projet-senior-tech-ops-csl-behring-bern",
         "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern",
         "specialiste-de-laboratoire-operations-techniques-csl-behring-bern",
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
         "ricercatore-tech-ops-csl-behring-bern",
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
@@ -3307,12 +3299,12 @@
     },
     {
       "id": "csl-behring-a29ed86d08c6",
-      "slug": "senior-laboratory-specialist-f-m-x-csl-behring-ch",
+      "slug": "specialista-senior-di-laboratorio-f-m-x-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-laboratory-specialist-f-m-x-csl-behring-ch",
-        "it": "senior-laboratory-specialist-f-m-x-csl-behring-ch",
-        "de": "senior-laboratory-specialist-f-m-x-csl-behring-ch",
-        "fr": "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+        "it": "specialista-senior-di-laboratorio-f-m-x-csl-behring-bern",
+        "de": "senior-laborspezialist-f-m-x-csl-behring-bern",
+        "fr": "specialiste-de-laboratoire-principal-f-m-x-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3368,16 +3360,30 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-18T12:10:06.861Z"
+      "firstSeenAt": "2026-06-18T12:10:06.861Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+        ],
+        "de": [
+          "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-9711694bba97",
-      "slug": "laboratory-specialist-technical-operations-csl-behring-ch",
+      "slug": "specialista-di-laboratorio-operazioni-tecniche-csl-behring-bern",
       "slugByLocale": {
         "en": "laboratory-specialist-technical-operations-csl-behring-ch",
-        "it": "laboratory-specialist-technical-operations-csl-behring-ch",
-        "de": "laboratory-specialist-technical-operations-csl-behring-ch",
-        "fr": "laboratory-specialist-technical-operations-csl-behring-ch"
+        "it": "specialista-di-laboratorio-operazioni-tecniche-csl-behring-bern",
+        "de": "laborspezialist-technische-ablaufe-csl-behring-bern",
+        "fr": "specialiste-de-laboratoire-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3433,7 +3439,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-18T12:10:06.032Z"
+      "firstSeenAt": "2026-06-18T12:10:06.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-specialist-technical-operations-csl-behring-ch"
+        ],
+        "de": [
+          "laboratory-specialist-technical-operations-csl-behring-ch"
+        ],
+        "fr": [
+          "laboratory-specialist-technical-operations-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-specialist-technical-operations-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-cfc7dbb07625",

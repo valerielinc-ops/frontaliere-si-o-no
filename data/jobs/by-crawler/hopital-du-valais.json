@@ -250,7 +250,7 @@
       "slug": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
       "slugByLocale": {
         "it": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
-        "en": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+        "en": "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp",
         "de": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
         "fr": "infirmiere-80-100-chirurgie-urologie-5-ouest-hopital-du-valais-visp"
       },
@@ -296,15 +296,13 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
-        "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp"
+        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ],
         "en": [
-          "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp",
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ]
       },
@@ -1237,12 +1235,12 @@
     },
     {
       "id": "hopital-du-valais-cd4040017e97",
-      "slug": "ergotherapeut-in-80-100-hopital-du-valais-brig",
+      "slug": "terapista-in-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "it": "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "en": "ergotherapeut-in-80-100-hopital-du-valais-brig",
-        "fr": "ergotherapeut-in-80-100-hopital-du-valais-brig"
+        "it": "terapista-in-80-100-hopital-du-valais-brig",
+        "en": "occupational-therapist-in-80-100-hopital-du-valais-brig",
+        "fr": "ergotherapie-en-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1299,7 +1297,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-18T12:28:14.611Z"
+      "firstSeenAt": "2026-06-18T12:28:14.611Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeut-in-80-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "ergotherapeut-in-80-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "ergotherapeut-in-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeut-in-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-645aabd3b001",
@@ -2303,9 +2315,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -2354,7 +2366,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
         "de": [
@@ -2363,7 +2374,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
         "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
       ],
       "needsRetranslation": true,
@@ -2385,9 +2396,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -2436,7 +2447,6 @@
       "previousSlugsByLocale": {
         "it": [
           "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
         "de": [
@@ -2446,7 +2456,7 @@
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
         "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
       ],
@@ -4071,8 +4081,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion",
         "it": "fachfrau-mann-gesundheit-o-diplomierte-pflegefachfrau-mann-con-zusatzfunktion-berufsbildner-in-80-100-medizin-3-ost-hopital-du-valais-visp",
-        "en": "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion",
-        "fr": "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion"
+        "en": "specialist-health-or-qualified-nurse-mann-with-additional-function-vocational-trainer-in-80-100-medicine-3-east-hopital",
+        "fr": "specialiste-de-la-sante-ou-infirmier-qualifie-mann-avec-fonction-supplementaire-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4118,6 +4128,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-oder-diplomierte-pflegefachfrau-mann-mit-zusatzfunktion"
         ]
       },
       "previousSlugs": [
@@ -4141,12 +4157,12 @@
     },
     {
       "id": "hopital-du-valais-6a298c192f32",
-      "slug": "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
+      "slug": "professionista-60-medicina-6-est-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
-        "it": "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
-        "en": "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp",
-        "fr": "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp"
+        "it": "professionista-60-medicina-6-est-hopital-du-valais-visp",
+        "en": "care-professional-60-medicine-6-east-hopital-du-valais-visp",
+        "fr": "professionnel-de-soins-60-medecine-6-est-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4203,7 +4219,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-18T12:28:01.162Z"
+      "firstSeenAt": "2026-06-18T12:28:01.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp"
+        ],
+        "en": [
+          "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-60-medizin-6-ost-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-850f770a48aa",

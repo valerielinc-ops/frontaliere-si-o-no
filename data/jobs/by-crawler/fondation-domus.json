@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "fondation-domus-2b912583adcc",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-50-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch",
-        "it": "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch",
-        "en": "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-50-fondation-domus-ardon",
+        "en": "community-health-and-care-assistant-50-fondation-domus-ardon",
         "de": "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch"
       },
       "company": "Fondation Domus",
@@ -64,7 +64,18 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-18T12:17:47.386Z"
+      "firstSeenAt": "2026-06-18T12:17:47.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-50-fondation-domus-ch"
+      ]
     }
   ]
 }

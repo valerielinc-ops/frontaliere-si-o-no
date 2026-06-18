@@ -3006,10 +3006,10 @@
     },
     {
       "id": "ikea-9b070926d983",
-      "slug": "experience-quality-specialist-80-100-ikea-ch",
+      "slug": "specialista-qualita-esperienza-80-100-ikea-spreitenbach-aargau-switzerland",
       "slugByLocale": {
         "en": "experience-quality-specialist-80-100-ikea-ch",
-        "it": "experience-quality-specialist-80-100-ikea-ch",
+        "it": "specialista-qualita-esperienza-80-100-ikea-spreitenbach-aargau-switzerland",
         "de": "experience-qualitat-spezialist-80-100-ikea-spreitenbach-aargau-switzerland",
         "fr": "experience-qualite-specialiste-80-100-ikea-spreitenbach-aargau-switzerland"
       },
@@ -3066,7 +3066,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:29:02.642Z"
+      "firstSeenAt": "2026-06-18T12:29:02.642Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experience-quality-specialist-80-100-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experience-quality-specialist-80-100-ikea-ch"
+      ]
     },
     {
       "id": "ikea-d29547c0c0a3",
@@ -3074,7 +3082,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
         "it": "collaboratore-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen",
-        "en": "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch",
+        "en": "employee-ikea-bistro-swedish-shop-20-50-ikea-st-gallen-sankt-gallen-switzerland",
         "fr": "collaborateur-trice-ikea-bistro-schwedenshop-20-50-ikea-st-gallen-sankt-gallen-switzerland"
       },
       "company": "IKEA",
@@ -3123,6 +3131,9 @@
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
         ],
         "fr": [
+          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
+        ],
+        "en": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-ikea-ch"
         ]
       },
