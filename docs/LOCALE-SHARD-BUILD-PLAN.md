@@ -1,8 +1,19 @@
 # Locale-Shard BUILD Plan — render-isolated per-locale build
 
-> Stato: **fase di studio / prototipo**. NON wira il deploy di produzione finché
-> il workflow esperimento non prova wall-time + correttezza.
+> Stato: **completamento strutturale per direttiva utente.** Fase 0+1a+1b+2+3
+> implementate (opt-in/dormiente, `deploy.yml` live intatto). Fase 4 (validator
+> esteso) + Fase 5 (wiring) sotto.
 > Companion: `LOCALE-SHARD-DEPLOY-PLAN.md` (split dell'OUTPUT, già in prod).
+
+> ⚠️ **CAVEAT WALL-TIME (misurato, robusto):** la matrix NON scende a ~15min e
+> resta ≈ o sopra il monolite (~23min). È **overhead-bound**: ogni shard paga
+> il costo fisso del build (vite bundle, post-walk, tar, npm ci — non divisibili
+> per locale, non spostabili nel prep) + il render del proprio locale; lo shard
+> **IT** (primario, ~3/4 delle pagine) fissa il wall a ~30-34min. Il render-skip
+> (Fase 0-2) ha tagliato il best-shard 38→~26-29min ma NON il collo IT. Il
+> sistema è **completo e corretto**, ma il suo valore è la *correttezza
+> per-locale / il cap-10GB*, **non** la velocità. Wiring prod (Fase 5)
+> **flag-gated default OFF** → non rallenta mai il deploy live.
 
 ## Obiettivo
 
@@ -106,3 +117,34 @@ build monolitico in 1 commit.
 
 F0 ½gg · F1 2-3gg (34 loop) · F2 1-2gg · F3 1gg · F4 1-2gg · F5 1gg+live · F6 ½gg.
 **~1,5-2 settimane**, collo = cicli CI lenti, ~6 PR sequenziali.
+
+---
+
+## Fase 5 — Wiring `deploy.yml` (spec design-complete, flag-gated, NON attivato)
+
+> **Non costruito sul `deploy.yml` di produzione** per scelta: dato il caveat
+> overhead-bound (la matrix è ≈/più lenta del monolite), wirare un percorso più
+> lento nel deploy live del sito-revenue aggiunge rischio per zero beneficio di
+> velocità. Spec pronta; attivazione = decisione utente esplicita.
+
+**Reference implementation validata:** `deploy-matrix-experiment.yml` (prep +
+matrix `build-locale` + prune + validate, tutto verde). È il template del
+percorso matrix.
+
+**Wiring proposto (quando/se attivato):**
+1. Repo var `LOCALE_MATRIX_BUILD` (default unset/OFF).
+2. In `deploy.yml`, dietro `if: vars.LOCALE_MATRIX_BUILD == 'true'`:
+   - job `prep` (assemble/cleanup/mine/migrate/thumbnails → artifact snapshot);
+   - job `build-locale` matrix `[it,en,de,fr]` `needs:[prep]`, `BUILD_LOCALE=<loc>`,
+     consuma snapshot, `build:ci`, `prune-locale-shard`, `validate-locale-shard`;
+   - ogni shard pusha il suo subtree allo shard repo (riusa `push_shard()` esistente);
+   - lo shard `it` produce root+shared+sitemaps → Pages + CDN.
+3. Il percorso monolitico resta il default (`else`): zero rischio finché OFF.
+4. **Gate pre-attivazione:** step `recompose+audit` (scarica i 4 dist, ricompone,
+   gira i gate SEO esistenti audit-hreflang/sitemap/broken-link/structured-data)
+   == verdi identici al monolite. Senza questo, NON attivare.
+
+**Rollback:** `LOCALE_MATRIX_BUILD=false` → ritorno immediato al monolite.
+
+**Raccomandazione:** lasciare OFF. Attivare solo se un giorno il cap 10GB di
+Pages impone build per-locale per *dimensione* (non per velocità).
