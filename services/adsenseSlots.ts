@@ -79,6 +79,32 @@ export const AD_SLOTS = {
  // 1100 reduces shift to ~66px; collapses to 0 when unfilled (offscreen guard).
  placeholderMinHeight: 1100,
  },
+ /** Drive-by SEO landings: above-the-fold display, right after the primary
+  *  data area (health premiums, fuel daily, border wait — DRIVEBY_AD_SNIPPET).
+  *
+  *  Dedicated unit so the drive-by RPM lift can be measured in isolation
+  *  instead of aggregated with the homepage placement (issue #1911 item 1).
+  *
+  *  Slot id currently MIRRORS HOMEPAGE_MID_DISPLAY ('2093992129') — the only
+  *  ACTIVE display unit the build can reference today. A dedicated
+  *  `FT_DRIVEBY_ATF_DISPLAY` ad unit CANNOT be created from this automation:
+  *  AdSense Management API v2 `adClients.adunits.create` returns 403
+  *  PERMISSION_DENIED even with a full `https://www.googleapis.com/auth/adsense`
+  *  write-scope token (verified 2026-06-18 with a valid 300x250/1x3 payload —
+  *  not a scope or format issue; ad-unit creation is console-only for this
+  *  account/OAuth client). Owner action to isolate reporting:
+  *    1. AdSense console → Ads → By ad unit → create a Display unit named
+  *       `FT_DRIVEBY_ATF_DISPLAY` (responsive).
+  *    2. Replace the `slot` below with the new data-ad-slot id — that single
+  *       edit re-points every drive-by landing; nothing else changes.
+  *  Config matches HOMEPAGE_MID_DISPLAY so the rendered <ins> and the
+  *  CLS-reserving min-height stay identical until the swap. */
+ FT_DRIVEBY_ATF_DISPLAY: {
+ slot: '2093992129',
+ format: 'autorelaxed',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 1100,
+ },
  /** Job detail: between related jobs and related articles sections */
  JOBDETAIL_BETWEEN_SECTIONS: {
  slot: '7767335647',
