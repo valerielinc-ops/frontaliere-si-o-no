@@ -52,11 +52,26 @@ prep (1 runner)                    build-locale (matrix ×4 paralleli)
 
 ## Fasi (1 PR ciascuna, gate misurabile)
 
-- **Fase 0 — Prototipo di misura** *(questa PR)*. Render-skip in
+- **Fase 0 — Prototipo di misura** *(PR #2473)*. Render-skip in
   `related-search-clusters` (1 loop, 264s, isolato). Preserva il bookkeeping
   cross-locale cheap (`sitemapLocs` + `crossSectionMirrorLocs` via
   `buildClusterPath`, senza render). Gate: clusters ~264→~70s su uno shard,
   validate verde, sitemap del main-shard completa.
+  - **Hardening consumer sitemap (follow-up #2477).** Il ramo skip alimenta
+    `sitemapLocs` con un set cross-locale completo, ma il consumer a valle
+    `writeSitemap → dropOverwrittenLocs` **rilegge l'HTML in `dist/`** di ogni
+    loc per droppare URL noindex/non-self-canonical. Su uno shard
+    `BUILD_LOCALE=it` l'HTML cluster EN/DE/FR non è mai scritto (gated da
+    `WriteCollector.add`→`shouldEmitPath`), quindi senza guard ogni loc
+    cross-shard verrebbe flaggato `DROP_MISSING` → `sitemap-search-clusters.xml`
+    troncato a IT-only. Fix: in `dropOverwrittenLocs` un loc il cui locale
+    *owner* non è emesso da questo shard viene **tenuto incondizionatamente**
+    (vive su un altro shard; assenza del file attesa, non URL rotto), come fa
+    `hreflangGuard` con `!shouldEmitLocale → keep`. Default build
+    (`EMIT_ALL_LOCALES`) byte-identico. Il consumer `crossSectionMirrorLocs` →
+    `dropMirrorLocsFromSitemapJobs` (patch #911) è invece già safe: è un drop
+    per-membership su `sitemap-jobs.xml` (file di un altro plugin), senza
+    rilettura dell'HTML cluster. Guard pinnato da `tests/sitemap-clusters-shard-keep.test.ts`.
 - **Fase 1 — `jobs-seo-pages` (856s, 34 loop)**. Render-skip per loop, ognuno
   dopo lo stato cross-locale (pattern `emittedActiveJobPaths`→sitemap r.8642;
   slug-map pre-loop hreflang). La parte grossa.
