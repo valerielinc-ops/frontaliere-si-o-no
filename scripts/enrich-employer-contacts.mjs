@@ -26,6 +26,7 @@ import dns from 'node:dns/promises';
 import { fileURLToPath } from 'node:url';
 import { classifySector, slugify } from './lib/employer-sectors.mjs';
 import { apexDomain, extractCompanyEmails, pickBestEmail, inferPatternEmail } from './lib/email-finder.mjs';
+import { extractDdgDomains, guessDomains, rankDomains } from './lib/domain-finder.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -61,6 +62,28 @@ async function fetchText(url, timeoutMs = 8000) {
 
 async function mxOk(domain) {
   try { const mx = await dns.resolveMx(domain); return Array.isArray(mx) && mx.length > 0; } catch { return false; }
+}
+
+// Find the employer's own domain when the registry lacks it: web search +
+// heuristic guesses, validated by MX + a name-token match (rejects directories).
+let _lastDdg = 0;
+async function findDomain(name) {
+  const wait = 2500 - (Date.now() - _lastDdg); // space DDG calls (avoid throttling)
+  if (wait > 0) await new Promise((r) => setTimeout(r, wait));
+  _lastDdg = Date.now();
+  let candidates = [];
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 9000);
+    const r = await fetch('https://html.duckduckgo.com/html/?q=' + encodeURIComponent(name + ' sito ufficiale'),
+      { signal: ctrl.signal, headers: { 'User-Agent': 'Mozilla/5.0', 'Accept-Language': 'it' } });
+    clearTimeout(t);
+    if (r.ok) candidates = extractDdgDomains(await r.text());
+  } catch { /* search unavailable → fall back to guesses */ }
+  candidates.push(...guessDomains(name));
+  const valid = [];
+  for (const d of [...new Set(candidates)]) { if (!ATS_DOMAINS.has(d) && await mxOk(d)) valid.push(d); if (valid.length >= 6) break; }
+  return rankDomains(valid, name)[0] || '';
 }
 
 /**
@@ -144,9 +167,11 @@ async function run() {
     const prev = existing[key] || {};
     const role = roles.get(key)?.role || prev.topRole || '';
     const sector = classifySector(e.name);
-    // Domain: registry website (own domain, ATS-filtered) → fallback apex(careersUrl).
+    // Domain: registry website (own domain, ATS-filtered) → fallback apex(careersUrl)
+    // → web-search discovery (domain-finder) when still unknown.
     const careersApex = apexDomain(e.careersUrl || prev.careersUrl || '');
-    const domain = registryDomains.get(key) || prev.domain || (ATS_DOMAINS.has(careersApex) ? '' : careersApex);
+    let domain = registryDomains.get(key) || prev.domain || (ATS_DOMAINS.has(careersApex) ? '' : careersApex);
+    if (!domain) domain = await findDomain(e.name);
 
     // Never overwrite a manually-set email. Otherwise scrape the own domain.
     let email = prev.email || '';
