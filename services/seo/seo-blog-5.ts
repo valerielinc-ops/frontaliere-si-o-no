@@ -44534,6 +44534,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agenzie-interim-lugano-ticino-frontaliere': {
+    title: 'Agenzie di lavoro temporaneo a Lugano: guida pratica per frontalieri',
+    description: 'Panoramica sulle agenzie interim a Lugano, opportunità per frontalieri e procedure di inserimento nel mercato ticinese. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, agenzie, lavoro, temporaneo, lugano',
+    ogTitle: 'Agenzie lavoro temporaneo Lugano: guida per frontalieri',
+    ogDescription: 'Panoramica sulle agenzie interim a Lugano, opportunità per frontalieri e procedure di inserimento.',
+    canonicalPath: '/articoli-frontaliere/agenzie-interim-lugano-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agenzie di lavoro temporaneo a Lugano: guida pratica per frontalieri",
+      "description": "Panoramica sulle agenzie interim a Lugano, opportunità per frontalieri e procedure di inserimento nel mercato ticinese. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/agenzie-interim-lugano-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del centro di Lugano con uffici e persone in movimento."
+      },
+      "datePublished": "2026-06-18T07:53:13+00:00",
+      "dateModified": "2026-06-18T07:53:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agenzie-interim-lugano-ticino-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

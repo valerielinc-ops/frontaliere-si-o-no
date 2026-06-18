@@ -8128,6 +8128,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.naspi-svizzera-frontalieri.title': 'Swiss Permit for Cross-Border Workers: Naspi and Tax-Free Restaurants in Italy',
     'blog.article.naspi-svizzera-frontalieri.excerpt': 'How the Swiss Naspi works for cross-border workers, maximum duration of 520 days, and how to obtain tax-free restaurants in Italy.',
     'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande in Bellinzona at sunset, symbol of the border and Canton Ticino.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Temporary employment agencies in Lugano: practical guide',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Overview of placement agencies in Lugano, opportunities for cross-border workers, and procedures for entering the Ticino job market.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Lugano city center with offices and people commuting.',
 };
 
 export default blogMetaEn;
