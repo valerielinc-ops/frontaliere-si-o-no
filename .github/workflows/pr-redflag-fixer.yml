@@ -98,6 +98,28 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.ref }}
 
+      # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
+      # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
+      # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
+      # re-review (ri-triggerata dal push del fix sotto) fallirebbe `401 Workflow
+      # validation failed`, review vuota, niente `## LGTM`, niente auto-merge — e il
+      # 🔴-fix risulterebbe RED senza colpa propria (osservato 2× nel campione 7gg).
+      # Allineare i workflow PRIMA: `merge origin/main` no-op se già fresh; il merge
+      # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
+      # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
+      - name: Align review workflows (merge origin/main, anti-401 drift)
+        run: |
+          set -uo pipefail
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git fetch origin main -q || true
+          if git merge --no-edit origin/main; then
+            echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
+          else
+            echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
+            git merge --abort || true
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -216,9 +238,26 @@ jobs:
           REPO: ${{ github.repository }}
         run: git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/${REPO}.git"
 
+      # SHA di partenza (post-merge origin/main, pre-Claude): il classify finale lo
+      # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
+      # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
+      # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel
+      # campione 7gg pushavano un commit ma il job restava RED → failure-rate
+      # gonfiato nel loop-health-report #1951).
+      - name: Record base SHA (pre-Claude)
+        id: base
+        if: steps.guard.outputs.proceed == 'true'
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: Run Claude 🔴-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'
+        # Non far fallire il job sull'exit non-zero della action: lo `Classify
+        # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
+        # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
+        # fallimento del round. I fail genuini (nessun push) vengono ri-marcati RED
+        # dal classify → il segnale "non-progress" resta visibile nel loop-health.
+        continue-on-error: true
         uses: anthropics/claude-code-action@v1
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -268,3 +307,37 @@ jobs:
       - name: Cleanup Firebase credentials
         if: always()
         run: rm -f /tmp/firebase-sa.json
+
+      # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
+      #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
+      #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
+      #  • nessun push + Claude FAILED          → non-progress reale → RED (segnale
+      #    preservato per il loop-health-report + escalation round-cap).
+      #  • nessun push + Claude SUCCESS          → terminale pulito (es. "🔴 non
+      #    auto-fixabile") → GREEN, niente da fixare nel workflow.
+      # I fail infra a monte (npm ci, setup, load-rc) restano RED da soli: quegli
+      # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
+      # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always() && steps.guard.outputs.proceed == 'true'
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          CLAUDE_OUTCOME: ${{ steps.claude_review.outcome }}
+        run: |
+          set -uo pipefail
+          HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
+          git fetch origin "$HEAD_REF" -q 2>/dev/null || true
+          REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
+          echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA claude=$CLAUDE_OUTCOME"
+          if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
+            echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se la CLI è uscita '$CLAUDE_OUTCOME'."
+            exit 0
+          fi
+          if [ "$CLAUDE_OUTCOME" = "failure" ]; then
+            echo "::error::🔴-fix: nessun commit pushato e la run Claude è fallita ('$CLAUDE_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            exit 1
+          fi
+          echo "Nessun push ma Claude terminato pulito ('$CLAUDE_OUTCOME') → terminale legittimo (es. non auto-fixabile). Job verde."
+          exit 0
