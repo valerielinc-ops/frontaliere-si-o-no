@@ -137,6 +137,21 @@ jobs:
             --label revenue \
             --workflow "rpm-canary"
 
+      # Recovery mirror: on a clean probe, close the canonical open issue this
+      # canary opened (custom title → NOT covered by close-recovered-failure-issues.mjs,
+      # which only matches the generic `Workflow|Crawler|CI Failure: <name>` prefixes,
+      # nor by any sibling --resolve step). Without this the regression issue stays
+      # open forever after RPM recovers. Best-effort, always exits 0.
+      - name: Resolve open issue on green
+        if: steps.canary.outcome == 'success' && steps.canary.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "RPM canary: AdSense RPM crash detected" \
+            --workflow "rpm-canary" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
       - name: Fail the workflow if RPM regression detected
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'
         run: |
