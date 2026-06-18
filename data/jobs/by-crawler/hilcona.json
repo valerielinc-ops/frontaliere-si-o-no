@@ -9,7 +9,7 @@
         "it": "collaboratore-trice-export-intercompany-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "mitarbeiter-export-intercompany-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "de": "mitarbeiter-export-intercompany-m-w-d-hilcona-seevetal",
-        "fr": "mitarbeiter-export-intercompany-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+        "fr": "interentreprise-d-exportation-des-employes-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -45,11 +45,15 @@
       "crawledAt": "2026-06-17T22:44:52.941Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-export-intercompany-m-w-d-hilcona-seevetal"
+        "mitarbeiter-export-intercompany-m-w-d-hilcona-seevetal",
+        "mitarbeiter-export-intercompany-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-export-intercompany-m-w-d-hilcona-seevetal"
+        ],
+        "fr": [
+          "mitarbeiter-export-intercompany-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ]
       },
       "firstSeenAt": "2026-06-16T22:56:56.474Z",
@@ -71,12 +75,12 @@
     },
     {
       "id": "hilcona-78c00918a540",
-      "slug": "produktmanager-m-w-d-hilcona-seevetal",
+      "slug": "product-manager-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
-        "it": "produktmanager-m-w-d-hilcona-seevetal",
+        "it": "product-manager-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "produktmanager-m-w-d-hilcona-seevetal",
         "de": "produktmanager-m-w-d-hilcona-seevetal",
-        "fr": "produktmanager-m-w-d-hilcona-seevetal"
+        "fr": "gestionnaire-de-produits-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -126,7 +130,18 @@
       },
       "postalCode": "7000",
       "country": "CH",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-m-w-d-hilcona-seevetal"
+        ],
+        "fr": [
+          "produktmanager-m-w-d-hilcona-seevetal"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-m-w-d-hilcona-seevetal"
+      ]
     },
     {
       "id": "hilcona-85464e607cb8",
@@ -208,9 +223,9 @@
       "slug": "vice-caposquadra-hlkk-bell-schweiz-ag-zell",
       "slugByLocale": {
         "it": "vice-caposquadra-hlkk-bell-schweiz-ag-zell",
-        "en": "stv-teamleiter-hlkk-hilcona-zell",
+        "en": "stv-team-leader-hlkk-bell-schweiz-ag-zell",
         "de": "stv-teamleiter-hlkk-hilcona-zell",
-        "fr": "stv-teamleiter-hlkk-hilcona-zell"
+        "fr": "chef-d-equipe-stv-hlkk-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -250,6 +265,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stv-teamleiter-hlkk-hilcona-zell"
+        ],
+        "en": [
+          "stv-teamleiter-hlkk-hilcona-zell"
+        ],
+        "fr": [
           "stv-teamleiter-hlkk-hilcona-zell"
         ]
       },
@@ -476,9 +497,9 @@
       "slug": "vice-caporeparto-caporeparto-elaborazione-100-bell-schweiz-ag-zell",
       "slugByLocale": {
         "it": "vice-caporeparto-caporeparto-elaborazione-100-bell-schweiz-ag-zell",
-        "en": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell",
+        "en": "stv-head-of-department-processing-100-bell-schweiz-ag-zell",
         "de": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
-        "fr": "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
+        "fr": "chef-de-departement-traitement-100-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -521,6 +542,12 @@
         "it": [
           "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-hilcona-zell",
           "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "stv-abteilungsleiterin-abteilungsleiter-verarbeitung-100-bell-schweiz-ag-zell"
         ]
       },
       "firstSeenAt": "2026-06-12T12:15:45.513Z",
@@ -545,9 +572,9 @@
       "slug": "assistenza-nell-acquisto-di-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
         "it": "assistenza-nell-acquisto-di-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-        "en": "assistenz-im-einkauf-m-w-d-hilcona-seevetal",
+        "en": "assistance-in-purchasing-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "de": "assistenz-im-einkauf-m-w-d-hilcona-seevetal",
-        "fr": "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
+        "fr": "aide-a-l-achat-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -587,6 +614,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
+        ],
+        "en": [
+          "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
+        ],
+        "fr": [
           "assistenz-im-einkauf-m-w-d-hilcona-seevetal"
         ]
       },
@@ -1039,9 +1072,9 @@
       "slug": "meccatronica-m-w-d-hfc-gmbh-bad-wunnenberg",
       "slugByLocale": {
         "it": "meccatronica-m-w-d-hfc-gmbh-bad-wunnenberg",
-        "en": "mechatroniker-m-w-d-hilcona-bad-wunnenberg",
+        "en": "mechatronics-m-w-d-hfc-gmbh-bad-wunnenberg",
         "de": "mechatroniker-m-w-d-hilcona-bad-wunnenberg",
-        "fr": "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
+        "fr": "mecatronique-m-w-d-hfc-gmbh-bad-wunnenberg"
       },
       "company": "HFC GmbH",
       "companyKey": "hilcona",
@@ -1081,6 +1114,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
+        ],
+        "en": [
+          "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
+        ],
+        "fr": [
           "mechatroniker-m-w-d-hilcona-bad-wunnenberg"
         ]
       },
@@ -1181,9 +1220,9 @@
       "slug": "apprendista-elettrotecnico-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "apprendista-elettrotecnico-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "lehrling-elektrotechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "apprentice-electrical-engineering-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt",
-        "fr": "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
+        "fr": "apprentis-genie-electrique-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -1219,10 +1258,17 @@
       "crawledAt": "2026-06-17T22:44:48.946Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
+        "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt",
+        "lehrling-elektrotechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "lehrling-elektrotechnik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
           "lehrling-elektrotechnik-m-w-d-hilcona-pfaffstatt"
         ]
       },
@@ -1248,9 +1294,9 @@
       "slug": "apprendista-metalmeccanico-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "apprendista-metalmeccanico-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "lehrling-metallbearbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "apprentice-metalworker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "lehrling-metallbearbeiter-m-w-d-hilcona-pfaffstatt",
-        "fr": "lehrling-metallbearbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "apprenti-metallurgique-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -1292,6 +1338,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrling-metallbearbeiter-m-w-d-hilcona-pfaffstatt",
+          "lehrling-metallbearbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "lehrling-metallbearbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
           "lehrling-metallbearbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
@@ -1395,9 +1447,9 @@
       "slug": "direzione-distrettuale-in-servizio-esterno-food-service-m-w-d-berlino-brandeburgo-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "it": "direzione-distrettuale-in-servizio-esterno-food-service-m-w-d-berlino-brandeburgo-hugli-nahrungsmittel-gmbh-radolfzell",
-        "en": "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "district-management-in-the-field-service-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hilcona-radolfzell",
-        "fr": "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell"
+        "fr": "gestion-des-districts-sur-le-terrain-service-alimentaire-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -1443,6 +1495,12 @@
         ],
         "de": [
           "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell"
+        ],
+        "en": [
+          "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell"
+        ],
+        "fr": [
+          "bezirksleitung-im-aussendienst-food-service-m-w-d-berlin-brandenburg-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "firstSeenAt": "2026-05-21T22:39:35.081Z",
@@ -1467,9 +1525,9 @@
       "slug": "conduttore-di-linea-conduttore-di-macchina-m-w-d-hfc-gmbh-bad-wunnenberg",
       "slugByLocale": {
         "it": "conduttore-di-linea-conduttore-di-macchina-m-w-d-hfc-gmbh-bad-wunnenberg",
-        "en": "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg",
+        "en": "line-guide-machine-guide-m-w-d-hfc-gmbh-bad-wunnenberg",
         "de": "linienfuehrer-maschinenfuehrer-m-w-d-hilcona-bad-wunnenberg",
-        "fr": "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
+        "fr": "guide-de-ligne-m-w-d-hfc-gmbh-bad-wunnenberg"
       },
       "company": "HFC GmbH",
       "companyKey": "hilcona",
@@ -1514,6 +1572,12 @@
           "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
         ],
         "de": [
+          "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
+        ],
+        "en": [
+          "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
+        ],
+        "fr": [
           "linienfuehrer-maschinenfuehrer-m-w-d-hfc-gmbh-bad-wunnenberg"
         ]
       },
@@ -1618,9 +1682,9 @@
       "slug": "capo-reparto-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "capo-reparto-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "abteilungsleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "head-of-department-food-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
-        "fr": "abteilungsleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "chef-du-departement-production-alimentaire-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -1666,6 +1730,12 @@
         ],
         "de": [
           "abteilungsleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "abteilungsleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "abteilungsleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "firstSeenAt": "2026-05-20T23:07:43.134Z",
@@ -1690,9 +1760,9 @@
       "slug": "referente-in-pianificazione-della-produzione-pps-administration-60-bell-schweiz-ag-zell",
       "slugByLocale": {
         "it": "referente-in-pianificazione-della-produzione-pps-administration-60-bell-schweiz-ag-zell",
-        "en": "sachbearbeiter-in-produktionsplanung-pps-administration-60-bell-schweiz-ag-zell",
+        "en": "personnel-in-production-planning-pps-administration-60-bell-schweiz-ag-zell",
         "de": "sachbearbeiter-in-produktionsplanung-pps-administration-60-hilcona-zell",
-        "fr": "sachbearbeiter-in-produktionsplanung-pps-administration-60-bell-schweiz-ag-zell"
+        "fr": "personnel-en-planification-de-production-administration-des-pps-60-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1734,6 +1804,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-produktionsplanung-pps-administration-60-hilcona-zell",
+          "sachbearbeiter-in-produktionsplanung-pps-administration-60-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "sachbearbeiter-in-produktionsplanung-pps-administration-60-bell-schweiz-ag-zell"
+        ],
+        "fr": [
           "sachbearbeiter-in-produktionsplanung-pps-administration-60-bell-schweiz-ag-zell"
         ]
       },
@@ -1987,9 +2063,9 @@
       "slug": "capogruppo-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "it": "capogruppo-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
+        "en": "group-leader-production-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "de": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
-        "fr": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
+        "fr": "production-leader-du-groupe-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -2034,6 +2110,12 @@
         ],
         "de": [
           "gruppenleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "en": [
+          "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
+        ],
+        "fr": [
+          "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
         ]
       },
       "firstSeenAt": "2026-05-21T12:09:05.530Z",
@@ -2202,9 +2284,9 @@
       "slug": "vicedirettore-imballaggio-m-w-d-inter-planing-gmbh-neuburg",
       "slugByLocale": {
         "it": "vicedirettore-imballaggio-m-w-d-inter-planing-gmbh-neuburg",
-        "en": "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg",
+        "en": "deputy-head-of-packerei-m-w-d-inter-planing-gmbh-neuburg",
         "de": "stellvertretender-leiter-packerei-m-w-d-hilcona-neuburg",
-        "fr": "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg"
+        "fr": "chef-adjoint-de-packerei-m-w-d-inter-planing-gmbh-neuburg"
       },
       "company": "Inter-Planing GmbH",
       "companyKey": "hilcona",
@@ -2249,6 +2331,12 @@
           "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg"
         ],
         "de": [
+          "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg"
+        ],
+        "en": [
+          "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg"
+        ],
+        "fr": [
           "stellvertretender-leiter-packerei-m-w-d-inter-planing-gmbh-neuburg"
         ]
       },
@@ -2507,9 +2595,9 @@
       "slug": "camionista-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "camionista-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
+        "en": "truck-driver-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "lkw-fahrer-m-w-d-hilcona-pfaffstatt",
-        "fr": "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        "fr": "conducteur-de-camion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -2554,6 +2642,12 @@
         ],
         "de": [
           "lkw-fahrer-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
+        ],
+        "fr": [
+          "lkw-fahrer-m-w-d-hilcona-pfaffstatt"
         ]
       },
       "firstSeenAt": "2026-05-21T12:09:02.544Z",
@@ -2578,9 +2672,9 @@
       "slug": "responsabile-linea-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "responsabile-linea-produzione-alimentare-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "food-production-line-manager-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
-        "fr": "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "directeur-de-ligne-de-production-alimentaire-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -2623,6 +2717,12 @@
         "it": [
           "linienleiter-lebensmittelproduktion-m-w-d-hilcona-pfaffstatt",
           "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "linienleiter-lebensmittelproduktion-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "firstSeenAt": "2026-05-21T12:09:02.266Z",
@@ -2647,9 +2747,9 @@
       "slug": "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "it-collaboratore-trice-m-w-d-con-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "it-employees-m-w-d-with-focus-on-software-implementation-digitalization-hubers-landhendl-gmbh-pfaffstatt",
         "de": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "elle-emploie-m-w-d-en-mettant-l-accent-sur-la-numerisation-de-la-mise-en-uvre-des-logiciels-hubers-landhendl-gmbh"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -2690,10 +2790,17 @@
         ],
         "it": [
           "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt"
+        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hilcona-pfaffstatt",
+        "it-mitarbeiter-m-w-d-mit-schwerpunkt-softwareimplementierung-digitalisierung-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "firstSeenAt": "2026-05-21T12:09:01.656Z",
       "salaryMin": 64500,
@@ -2865,9 +2972,9 @@
       "slug": "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "collaboratore-trice-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "employees-final-service-30-hours-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "employes-service-final-30-heures-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -2908,10 +3015,17 @@
         ],
         "it": [
           "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt"
+        "mitarbeiter-schlussdienst-30-std-m-w-d-hilcona-pfaffstatt",
+        "mitarbeiter-schlussdienst-30-std-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "firstSeenAt": "2026-05-21T12:08:59.665Z",
       "salaryMin": 64500,
@@ -3089,9 +3203,9 @@
       "slug": "vice-direttore-di-produzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "vice-direttore-di-produzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "deputy-production-manager-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "directeur-adjoint-de-la-production-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -3133,6 +3247,12 @@
         ],
         "de": [
           "stellvertretender-produktionsleiter-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "stellvertretender-produktionsleiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -3162,9 +3282,9 @@
       "slug": "tecnico-del-freddo-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "tecnico-del-freddo-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "kaelte-technician-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "technicien-kaelte-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -3206,6 +3326,12 @@
         ],
         "de": [
           "kaeltetechniker-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "kaeltetechniker-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -3234,9 +3360,9 @@
       "slug": "elettricista-d-esercizio-manutenzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "elettricista-d-esercizio-manutenzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "service-electrician-maintenance-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "fr": "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "service-entretien-electricien-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -3278,6 +3404,12 @@
         ],
         "de": [
           "betriebselektriker-instandhaltung-m-w-d-hilcona-pfaffstatt"
+        ],
+        "en": [
+          "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
+          "betriebselektriker-instandhaltung-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
@@ -3306,7 +3438,7 @@
       "slug": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "installateur-m-w-d-hilcona-pfaffstatt",
+        "en": "installer-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "installateur-m-w-d-hilcona-pfaffstatt",
         "fr": "installateur-m-w-d-hilcona-pfaffstatt"
       },
@@ -3351,6 +3483,9 @@
         "it": [
           "installateur-m-w-d-hilcona-pfaffstatt",
           "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "installateur-m-w-d-hilcona-pfaffstatt"
         ]
       },
       "firstSeenAt": "2026-05-21T12:08:57.799Z",
@@ -3509,9 +3644,9 @@
       "slug": "capo-ufficio-vendita-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
         "it": "capo-ufficio-vendita-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "en": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "head-of-sales-operations-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "fr": "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "fr": "chef-des-operations-de-vente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -3553,6 +3688,12 @@
         ],
         "de": [
           "leiter-vertriebsinnendienst-m-w-d-hilcona-radolfzell"
+        ],
+        "en": [
+          "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        ],
+        "fr": [
+          "leiter-vertriebsinnendienst-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "previousSlugs": [
@@ -3581,9 +3722,9 @@
       "slug": "schlosser-collaboratore-trice-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
       "slugByLocale": {
         "it": "schlosser-collaboratore-trice-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
-        "en": "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
+        "en": "schlosser-employee-technology-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
         "de": "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach",
-        "fr": "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
+        "fr": "schlosser-technologie-des-employes-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
       },
       "company": "Bell Schwarzwälder Schinken GmbH",
       "companyKey": "hilcona",
@@ -3624,10 +3765,17 @@
         ],
         "it": [
           "schlosser-mitarbeiter-technik-m-w-d-hilcona-schiltach"
+        ],
+        "en": [
+          "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
+        ],
+        "fr": [
+          "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
         ]
       },
       "previousSlugs": [
-        "schlosser-mitarbeiter-technik-m-w-d-hilcona-schiltach"
+        "schlosser-mitarbeiter-technik-m-w-d-hilcona-schiltach",
+        "schlosser-mitarbeiter-technik-m-w-d-bell-schwarzwalder-schinken-gmbh-schiltach"
       ],
       "firstSeenAt": "2026-05-21T12:08:55.625Z",
       "salaryMin": 64500,
@@ -3720,7 +3868,7 @@
         "it": "werkstudent-m-w-d-projects-area-operazioni-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "werkstudent-m-w-d-projekte-bereich-operations-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell",
-        "fr": "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
+        "fr": "etudiante-active-m-w-d-projets-operations-sur-le-terrain-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -3760,6 +3908,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
+        ],
+        "fr": [
           "werkstudent-m-w-d-projekte-bereich-operations-hilcona-radolfzell"
         ]
       },
@@ -4080,9 +4231,9 @@
       "slug": "formazione-per-meccanica-industriale-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
         "it": "formazione-per-meccanica-industriale-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "ausbildung-zum-industriemechaniker-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "en": "training-for-industrial-mechanic-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "ausbildung-zum-industriemechaniker-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "fr": "ausbildung-zum-industriemechaniker-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        "fr": "formation-de-mecanicien-industriel-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -4124,6 +4275,12 @@
         ],
         "de": [
           "ausbildung-zum-industriemechaniker-m-w-d-hilcona-harkebrugge"
+        ],
+        "en": [
+          "ausbildung-zum-industriemechaniker-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "fr": [
+          "ausbildung-zum-industriemechaniker-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "previousSlugs": [
@@ -4152,9 +4309,9 @@
       "slug": "istruzione-lo-specialista-della-tecnologia-alimentare-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
       "slugByLocale": {
         "it": "istruzione-lo-specialista-della-tecnologia-alimentare-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
-        "en": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
+        "en": "training-for-specialist-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
         "de": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht",
-        "fr": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht"
+        "fr": "formation-pour-le-specialiste-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -4196,6 +4353,12 @@
         ],
         "de": [
           "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-edewecht"
+        ],
+        "en": [
+          "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht"
+        ],
+        "fr": [
+          "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-bell-deutschland-gmbh-co-kg-edewecht"
         ]
       },
       "previousSlugs": [
@@ -4224,9 +4387,9 @@
       "slug": "formazione-per-elettronica-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
         "it": "formazione-per-elettronica-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "en": "training-as-an-electronics-engineer-for-operating-technology-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "fr": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        "fr": "formation-comme-ingenieur-en-electronique-pour-la-technologie-d-exploitation-m-w-d-bell-deutschland-gmbh-co-kg"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -4268,6 +4431,12 @@
         ],
         "de": [
           "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-harkebrugge"
+        ],
+        "en": [
+          "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "fr": [
+          "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "previousSlugs": [
@@ -4451,9 +4620,9 @@
       "slug": "collaboratore-trice-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "collaboratore-trice-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "mitarbeiter-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "employees-incoming-goods-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "mitarbeiter-wareneingang-m-w-d-hilcona-pfaffstatt",
-        "fr": "mitarbeiter-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "employes-en-provenance-des-biens-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -4497,6 +4666,12 @@
           "mitarbeiter-wareneingang-m-w-d-hilcona-pfaffstatt"
         ],
         "de": [
+          "mitarbeiter-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "en": [
+          "mitarbeiter-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        ],
+        "fr": [
           "mitarbeiter-wareneingang-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
@@ -4937,7 +5112,7 @@
         "it": "sap-sd-inhouse-consulente-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "en": "sap-sd-inhouse-consultant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined",
-        "fr": "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
+        "fr": "sap-sd-conseiller-interne-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -4985,7 +5160,8 @@
           "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ],
         "fr": [
-          "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+          "sap-sd-inhouse-consultant-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+          "sap-sd-inhouse-consultant-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
@@ -5750,9 +5926,9 @@
       "slug": "venditore-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
         "it": "venditore-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "en": "kaufmaennischer-sachbearbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "en": "commercial-clerk-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "kaufmaennischer-sachbearbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "commis-commercial-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -5798,16 +5974,18 @@
           "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ampfing"
         ],
         "en": [
-          "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "kaufmaennischer-sachbearbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
-          "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "kaufmaennischer-sachbearbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "kaufmaennischer-sachbearbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ampfing"
+        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ampfing",
+        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:46.239Z",
       "salaryMin": 64500,
@@ -5908,9 +6086,9 @@
     },
     {
       "id": "hilcona-9215a6e64f54",
-      "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+      "slug": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
-        "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
+        "it": "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
         "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -5954,9 +6132,9 @@
           "doppio-programma-di-studi-impiegato-industriale-laurea-triennale-in-amministrazione-aziendale-m-w-d-bell-deutschland",
           "programma-di-studio-duale-per-impiegati-industriali-laurea-triennale-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
-          "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
           "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal"
+          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
+          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
@@ -5964,9 +6142,9 @@
         "doppio-programma-di-studi-impiegato-industriale-laurea-triennale-in-amministrazione-aziendale-m-w-d-bell-deutschland",
         "programma-di-studio-duale-per-impiegati-industriali-laurea-triennale-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "corso-di-laurea-bwl-m-w-bell-deutschland-gmbh-co-kg-seevetal",
-        "doppio-studio-industriale-uomini-d-affari-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal"
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:44.562Z",
       "salaryMin": 64500,
@@ -5990,9 +6168,9 @@
       "slug": "ausbildung-come-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "ausbildung-come-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-als-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+        "en": "training-as-an-industrial-businessman-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "de": "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "ausbildung-als-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+        "fr": "formation-en-tant-qu-homme-d-affaires-industriel-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -6037,17 +6215,19 @@
           "ausbildung-come-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ],
         "en": [
-          "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "ausbildung-als-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ],
         "fr": [
-          "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "ausbildung-als-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ]
       },
       "previousSlugs": [
         "ausbildung-als-industriekaufmann-m-w-d-hilcona-seevetal",
         "ausbildung-als-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
-        "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "ausbildung-come-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+        "ausbildung-come-industriekaufmann-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+        "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:44.289Z",
       "salaryMin": 64500,
@@ -6071,9 +6251,9 @@
       "slug": "meccanica-industriale-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
         "it": "meccanica-industriale-suddeutsche-truthahn-ag-ampfing",
-        "en": "industriemechaniker-suddeutsche-truthahn-ag-ampfing",
+        "en": "industrial-mechanics-suddeutsche-truthahn-ag-ampfing",
         "de": "industriemechaniker-hilcona-ag-bell-food-group-landquart",
-        "fr": "industriemechaniker-suddeutsche-truthahn-ag-ampfing"
+        "fr": "mecanique-industrielle-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -6119,16 +6299,18 @@
           "industriemechaniker-hilcona-ampfing"
         ],
         "en": [
-          "industriemechaniker-hilcona-ag-bell-food-group-landquart"
+          "industriemechaniker-hilcona-ag-bell-food-group-landquart",
+          "industriemechaniker-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
-          "industriemechaniker-hilcona-ag-bell-food-group-landquart"
+          "industriemechaniker-hilcona-ag-bell-food-group-landquart",
+          "industriemechaniker-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "industriemechaniker-suddeutsche-truthahn-ag-ampfing",
-        "industriemechaniker-hilcona-ag-bell-food-group-landquart",
-        "industriemechaniker-hilcona-ampfing"
+        "industriemechaniker-hilcona-ampfing",
+        "industriemechaniker-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:43.716Z",
       "salaryMin": 64500,
@@ -6318,9 +6500,9 @@
       "slug": "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hilcona-ag-bell-food-group-landquart",
-        "en": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "apprentice-machines-and-plant-managers-m-w-d-with-focus-on-food-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
-        "fr": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hugli-nahrungsmittel-gmbh-radolfzell"
+        "fr": "machines-d-apprentissage-et-gestionnaires-d-usines-m-w-d-en-mettant-l-accent-sur-les-aliments-hugli-nahrungsmittel-gmbh"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -6365,17 +6547,19 @@
           "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hugli-nahrungsmittel-gmbh-radolfzell"
         ],
         "en": [
-          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined"
+          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
+          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hugli-nahrungsmittel-gmbh-radolfzell"
         ],
         "fr": [
-          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined"
+          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
+          "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "previousSlugs": [
         "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-radolfzell",
         "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hugli-nahrungsmittel-gmbh-radolfzell",
-        "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
-        "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hugli-nahrungsmittel-gmbh-radolfzell"
+        "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hugli-nahrungsmittel-gmbh-radolfzell",
+        "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:42.873Z",
       "salaryMin": 64500,
@@ -6401,7 +6585,7 @@
         "it": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
         "en": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
         "de": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined",
-        "fr": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
+        "fr": "stage-industriel-hommes-d-affaires-m-w-d-avec-qualification-supplementaire-international-economic-management-hugli"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -6451,14 +6635,16 @@
           "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli"
         ],
         "fr": [
-          "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli"
+          "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
+          "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
         ]
       },
       "previousSlugs": [
         "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-radolfzell",
         "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli-nahrungsmittel-gmbh-radolfzell",
         "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
-        "auszubildende-industriekaufleute-m-w-d-con-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli"
+        "auszubildende-industriekaufleute-m-w-d-con-zusatzqualifikation-internationales-wirtschaftsmanagement-hugli",
+        "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:42.609Z",
       "salaryMin": 64500,
@@ -6479,12 +6665,12 @@
     },
     {
       "id": "hilcona-b27ee66cce78",
-      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+      "slug": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
       "slugByLocale": {
-        "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-        "en": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "en": "trainee-fuer-lagerlogistik-specialist-warehouse-is-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-        "fr": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        "fr": "stagiaire-fuer-lagerlogistik-entrepot-specialise-est-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       },
       "company": "Hügli Nahrungsmittel GmbH",
       "companyKey": "hilcona",
@@ -6526,9 +6712,15 @@
           "specializzato-in-logistica-magazzino-tirocinante-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "apprendista-specialista-in-logistica-di-magazzino-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-          "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
           "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
-          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell"
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
+        ],
+        "en": [
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
+        ],
+        "fr": [
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "previousSlugs": [
@@ -6537,9 +6729,9 @@
         "specializzato-in-logistica-magazzino-tirocinante-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "apprendista-specialista-in-logistica-di-magazzino-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "specialista-di-apprendistato-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
-        "trainee-fuer-lagerlogistik-magazzino-specializzato-e-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
         "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
-        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell"
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
       ],
       "firstSeenAt": "2026-05-21T12:08:42.342Z",
       "salaryMin": 64500,
@@ -7262,9 +7454,9 @@
       "slug": "specialista-in-logistica-di-magazzino-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
         "it": "specialista-in-logistica-di-magazzino-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge",
+        "en": "specialist-warehouse-logistics-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge",
-        "fr": "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge"
+        "fr": "logistique-des-entrepots-specialises-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -7309,6 +7501,12 @@
         ],
         "de": [
           "fachkraft-lagerlogistik-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "en": [
+          "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge"
+        ],
+        "fr": [
+          "fachkraft-lagerlogistik-m-w-d-hilcona-harkebrugge"
         ]
       },
       "firstSeenAt": "2026-05-22T22:23:50.246Z",
@@ -7333,9 +7531,9 @@
       "slug": "praktikum-waehrend-des-studiums-30-1-jahr-befristet-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "praktikum-waehrend-des-studiums-30-1-jahr-befristet-hilcona-ag-bell-food-group-landquart",
-        "en": "praktikum-waehrend-des-studiums-30-1-jahr-befristet-bell-schweiz-ag-zell",
+        "en": "internship-during-study-30-1-year-temporary-bell-schweiz-ag-zell",
         "de": "praktikum-waehrend-des-studiums-30-1-jahr-befristet-hilcona-undefined",
-        "fr": "praktikum-waehrend-des-studiums-30-1-jahr-befristet-bell-schweiz-ag-zell"
+        "fr": "stage-pendant-l-etude-30-1-an-temporaire-bell-schweiz-ag-zell"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -7379,6 +7577,12 @@
           "praktikum-waehrend-des-studiums-30-1-jahr-befristet-bell-schweiz-ag-zell",
           "praktikum-waehrend-des-studiums-30-1-jahr-befristet-hilcona-zell",
           "stage-mentre-studia-30-1-anno-periodo-bell-schweiz-ag-zell"
+        ],
+        "en": [
+          "praktikum-waehrend-des-studiums-30-1-jahr-befristet-bell-schweiz-ag-zell"
+        ],
+        "fr": [
+          "praktikum-waehrend-des-studiums-30-1-jahr-befristet-bell-schweiz-ag-zell"
         ]
       },
       "previousSlugs": [
@@ -7409,9 +7613,9 @@
       "slug": "personale-di-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "it": "personale-di-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "production-staff-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "de": "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "fr": "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "fr": "personnel-de-production-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -7453,6 +7657,12 @@
         ],
         "de": [
           "produktionsmitarbeiter-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "previousSlugs": [
@@ -7481,9 +7691,9 @@
       "slug": "ingegnere-di-manutenzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "it": "ingegnere-di-manutenzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "maintenance-technician-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "de": "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "fr": "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "fr": "technicien-d-entretien-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -7525,6 +7735,12 @@
         ],
         "de": [
           "instandhaltungstechniker-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "fr": [
+          "instandhaltungstechniker-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "previousSlugs": [
@@ -7687,9 +7903,9 @@
       "slug": "vertriebsinnendienst-collaboratore-trice-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "vertriebsinnendienst-collaboratore-trice-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "vertriebsinnendienst-mitarbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "en": "sales-department-employees-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "vertriebsinnendienst-mitarbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "employes-du-service-des-ventes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -7734,17 +7950,19 @@
           "vertriebsinnendienst-collaboratore-trice-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "en": [
-          "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "vertriebsinnendienst-mitarbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
-          "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "vertriebsinnendienst-mitarbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ampfing",
         "vertriebsinnendienst-mitarbeiter-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "vertriebsinnendienst-collaboratore-trice-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "vertriebsinnendienst-collaboratore-trice-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "vertriebsinnendienst-mitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:38.054Z",
       "salaryMin": 64500,
@@ -7768,9 +7986,9 @@
       "slug": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
-        "en": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart",
+        "en": "koch-koechin-baecker-baeckerin-or-butcher-butcher-hilcona-ag-schaan",
         "de": "koch-koechin-baecker-baeckerin-oder-metzger-metzgerin-hilcona-undefined",
-        "fr": "koch-koechin-baecker-baeckerin-o-metzger-metzgerin-hilcona-ag-bell-food-group-landquart"
+        "fr": "koch-koechin-baecker-baeckerin-ou-boucher-boucher-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -7919,9 +8137,9 @@
       "slug": "produzione-alimentare-specializzata-hilcona-ag-schaan",
       "slugByLocale": {
         "it": "produzione-alimentare-specializzata-hilcona-ag-schaan",
-        "en": "fachkraefte-lebensmittelproduktion-hilcona-schaan",
+        "en": "specialist-food-production-hilcona-ag-schaan",
         "de": "fachkraefte-lebensmittelproduktion-hilcona-ag-bell-food-group-landquart",
-        "fr": "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+        "fr": "production-alimentaire-specialisee-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -7959,6 +8177,12 @@
       "firstSeenAt": "2026-06-16T13:34:52.228Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+        ],
+        "en": [
+          "fachkraefte-lebensmittelproduktion-hilcona-schaan"
+        ],
+        "fr": [
           "fachkraefte-lebensmittelproduktion-hilcona-schaan"
         ]
       },
@@ -8233,9 +8457,9 @@
       "slug": "pulizia-industriale-m-w-d-hfc-gmbh-bad-wunnenberg",
       "slugByLocale": {
         "it": "pulizia-industriale-m-w-d-hfc-gmbh-bad-wunnenberg",
-        "en": "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg",
+        "en": "industrial-cleaner-m-w-d-hfc-gmbh-bad-wunnenberg",
         "de": "industriereiniger-m-w-d-hilcona-bad-wunnenberg",
-        "fr": "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg"
+        "fr": "nettoyant-industriel-hfc-gmbh-bad-wunnenberg"
       },
       "company": "HFC GmbH",
       "companyKey": "hilcona",
@@ -8278,6 +8502,12 @@
         "it": [
           "industriereiniger-m-w-d-hilcona-bad-wunnenberg",
           "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg"
+        ],
+        "en": [
+          "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg"
+        ],
+        "fr": [
+          "industriereiniger-m-w-d-hfc-gmbh-bad-wunnenberg"
         ]
       },
       "firstSeenAt": "2026-06-02T13:21:15.692Z",
@@ -8302,9 +8532,9 @@
       "slug": "collaboratore-trice-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
         "it": "collaboratore-trice-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "en": "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "en": "employee-quality-safety-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing",
-        "fr": "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "securite-de-la-qualite-des-employes-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8340,11 +8570,18 @@
       "crawledAt": "2026-06-17T22:44:26.217Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
+        "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing",
+        "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-qualitaetssicherheit-m-w-d-hilcona-ampfing"
+        ],
+        "en": [
+          "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        ],
+        "fr": [
+          "mitarbeiter-qualitaetssicherheit-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "firstSeenAt": "2026-06-11T12:45:10.398Z",
@@ -8436,9 +8673,9 @@
       "slug": "meccanico-industriale-fabbro-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
         "it": "meccanico-industriale-fabbro-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "en": "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "en": "industrial-mechanic-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "mecanicien-industriel-schlosseur-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8484,16 +8721,18 @@
           "industriemechaniker-schlosser-m-w-d-hilcona-ampfing"
         ],
         "en": [
-          "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ],
         "fr": [
-          "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
       "previousSlugs": [
         "industriemechaniker-schlosser-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "industriemechaniker-schlosser-m-w-d-hilcona-ampfing"
+        "industriemechaniker-schlosser-m-w-d-hilcona-ampfing",
+        "industriemechaniker-schlosser-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:35.336Z",
       "salaryMin": 64500,
@@ -8597,9 +8836,9 @@
       "slug": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
       "slugByLocale": {
         "it": "prelievo-m-w-d-suddeutsche-truthahn-ag-ampfing",
-        "en": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing",
+        "en": "order-picking-m-w-d-suddeutsche-truthahn-ag-ampfing",
         "de": "kommissionierung-m-w-d-hilcona-ampfing",
-        "fr": "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        "fr": "cueillette-de-commande-m-w-d-suddeutsche-truthahn-ag-ampfing"
       },
       "company": "Süddeutsche Truthahn AG",
       "companyKey": "hilcona",
@@ -8641,6 +8880,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kommissionierung-m-w-d-hilcona-ampfing",
+          "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        ],
+        "en": [
+          "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
+        ],
+        "fr": [
           "kommissionierung-m-w-d-suddeutsche-truthahn-ag-ampfing"
         ]
       },
@@ -8745,9 +8990,9 @@
       "slug": "personale-di-produzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
         "it": "personale-di-produzione-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "en": "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "en": "production-staff-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "de": "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "fr": "personnel-de-production-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -8793,16 +9038,18 @@
           "produktionsmitarbeiter-m-w-d-hilcona-pfaffstatt"
         ],
         "en": [
-          "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
-          "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+          "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+          "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "previousSlugs": [
         "produktionsmitarbeiter-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
-        "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "produktionsmitarbeiter-m-w-d-hilcona-pfaffstatt"
+        "produktionsmitarbeiter-m-w-d-hilcona-pfaffstatt",
+        "produktionsmitarbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "firstSeenAt": "2026-05-21T12:08:34.223Z",
       "salaryMin": 64500,
@@ -8828,7 +9075,7 @@
         "it": "insegnamento-meccatronica-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "lehrling-mechatronik-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lehrling-mechatronik-m-w-d-hilcona-undefined",
-        "fr": "lehrling-mechatronik-m-w-d-hilcona-undefined"
+        "fr": "apprentis-mecatronics-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       },
       "company": "Hubers Landhendl GmbH",
       "companyKey": "hilcona",
@@ -8875,7 +9122,8 @@
           "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ],
         "fr": [
-          "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+          "lehrling-mechatronik-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+          "lehrling-mechatronik-m-w-d-hilcona-undefined"
         ]
       },
       "previousSlugs": [
@@ -8902,12 +9150,12 @@
     },
     {
       "id": "hilcona-0108fbccef2a",
-      "slug": "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+      "slug": "servizio-vendita-interno-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
-        "it": "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "it": "servizio-vendita-interno-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "internal-sales-service-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "de": "vertriebsinnendienst-m-w-d-hilcona-marchtrenk",
-        "fr": "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "fr": "service-de-vente-interne-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -8943,11 +9191,19 @@
       "crawledAt": "2026-06-17T22:44:23.777Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "vertriebsinnendienst-m-w-d-hilcona-marchtrenk"
+        "vertriebsinnendienst-m-w-d-hilcona-marchtrenk",
+        "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vertriebsinnendienst-m-w-d-hilcona-marchtrenk"
+          "vertriebsinnendienst-m-w-d-hilcona-marchtrenk",
+          "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "en": [
+          "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "fr": [
+          "vertriebsinnendienst-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "firstSeenAt": "2026-06-16T22:56:26.266Z",
@@ -8972,9 +9228,9 @@
       "slug": "assistente-alla-produzione-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
         "it": "assistente-alla-produzione-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "en": "production-assistant-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "produktionshelfer-m-w-d-hilcona-harkebrugge",
-        "fr": "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        "fr": "assistant-de-production-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -9017,6 +9273,12 @@
         "it": [
           "produktionshelfer-m-w-d-hilcona-harkebrugge",
           "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "en": [
+          "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "fr": [
+          "produktionshelfer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "firstSeenAt": "2026-06-12T22:29:49.526Z",
@@ -9041,9 +9303,9 @@
       "slug": "maschinen-e-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
       "slugByLocale": {
         "it": "maschinen-e-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
-        "en": "maschinen-und-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
+        "en": "machines-and-plant-managers-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge",
         "de": "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge",
-        "fr": "maschinen-und-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        "fr": "machines-et-gestionnaires-d-usines-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       },
       "company": "Bell Deutschland GmbH & Co. KG",
       "companyKey": "hilcona",
@@ -9079,11 +9341,18 @@
       "crawledAt": "2026-06-17T22:44:23.226Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge"
+        "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge",
+        "maschinen-und-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maschinen-und-anlagenfuehrer-m-w-d-hilcona-harkebrugge"
+        ],
+        "en": [
+          "maschinen-und-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
+        ],
+        "fr": [
+          "maschinen-und-anlagenfuehrer-m-w-d-bell-deutschland-gmbh-co-kg-harkebrugge"
         ]
       },
       "firstSeenAt": "2026-06-12T22:29:49.240Z",

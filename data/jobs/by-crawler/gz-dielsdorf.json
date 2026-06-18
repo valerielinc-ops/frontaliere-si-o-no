@@ -1248,9 +1248,9 @@
       "slug": "teamleitung-pflege-e-stv-pflegedienstleitung-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "teamleitung-pflege-e-stv-pflegedienstleitung-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf",
+        "en": "team-management-care-and-stv-care-services-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf",
-        "fr": "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        "fr": "gestion-d-equipe-soins-et-services-de-soins-stv-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1298,6 +1298,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        ],
+        "en": [
+          "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
+        ],
+        "fr": [
+          "teamleitung-pflege-und-stv-pflegedienstleitung-gz-dielsdorf-regensdorf"
         ]
       },
       "firstSeenAt": "2026-06-11T22:44:03.326Z",
@@ -1319,9 +1325,9 @@
       "slug": "infermiere-diplomato-sss-spitex-gesundheitszentrum-dielsdorf-regensdorf",
       "slugByLocale": {
         "it": "infermiere-diplomato-sss-spitex-gesundheitszentrum-dielsdorf-regensdorf",
-        "en": "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-care-professional-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf",
         "de": "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
-        "fr": "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
+        "fr": "dipl-soins-professionnels-hf-spitex-gesundheitszentrum-dielsdorf-regensdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1366,7 +1372,9 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-spitex-gz-dielsdorf-regensdorf",
         "assistente-sanitario-e-sociale-ags-assistente-di-cura-60-sro-ag-spital-region-oberaargau-langenthal",
-        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
+        "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal",
+        "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal",
+        "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1375,6 +1383,12 @@
         ],
         "de": [
           "assistent-in-gesundheit-und-soziales-ags-pflegeassistent-in-60-sro-langenthal"
+        ],
+        "en": [
+          "health-and-social-care-assistant-ags-care-assistant-60-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "fr": [
+          "assistant-e-en-sante-et-social-ags-assistant-e-en-soins-60-sro-ag-spital-region-oberaargau-langenthal"
         ]
       },
       "firstSeenAt": "2026-06-12T12:12:33.488Z",

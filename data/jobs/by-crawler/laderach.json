@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-14d71b5bc169",
-      "slug": "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+      "slug": "venditore-60-nel-salario-orario-chocolaterie-house-of-laderach-f-m-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
-        "it": "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
-        "en": "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+        "it": "venditore-60-nel-salario-orario-chocolaterie-house-of-laderach-f-m-d-laderach-schweiz-ag-bilten",
+        "en": "seller-60-in-the-hourly-wage-chocolaterie-house-of-laderach-f-m-d-laderach-schweiz-ag-bilten",
         "de": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
-        "fr": "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        "fr": "vendeur-60-dans-le-salaire-horaire-chocolaterie-maison-de-laderach-f-m-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -59,16 +59,30 @@
         }
       },
       "country": "CH",
-      "addressRegion": "GL"
+      "addressRegion": "GL",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        ],
+        "en": [
+          "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        ],
+        "fr": [
+          "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-60-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-f6e807c3dbf0",
       "slug": "it-projektleiter-risorse-umane-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "it": "it-projektleiter-risorse-umane-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
-        "en": "it-projektleiter-risorse-umane-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten",
+        "en": "it-project-manager-hr-corporate-service-applications-f-m-d-laderach-schweiz-ag-bilten",
         "de": "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
-        "fr": "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten"
+        "fr": "gestionnaire-de-projet-en-ti-ressources-humaines-et-applications-des-services-ministeriels-f-m-d-laderach-schweiz-ag"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -108,6 +122,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten"
+        ],
+        "fr": [
           "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten"
         ]
       },

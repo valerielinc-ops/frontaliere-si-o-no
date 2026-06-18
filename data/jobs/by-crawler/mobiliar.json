@@ -94,9 +94,9 @@
       "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
       "slugByLocale": {
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-uster-die-mobiliar-uster",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-die-mobiliar-uster",
+        "en": "sales-support-m-f-d-generalagentur-uster-die-mobiliar-uster",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-die-mobiliar-uster"
+        "fr": "support-vente-m-f-d-generalagentur-uster-die-mobiliar-uster"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -153,11 +153,18 @@
       },
       "sfJobId": "1164463655",
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-die-mobiliar-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-die-mobiliar-uster"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-die-mobiliar-uster"
         ]
       },
       "firstSeenAt": "2026-06-17T13:54:48.437Z",
@@ -6541,11 +6548,11 @@
     },
     {
       "id": "mobiliar-8e909c18d0a5",
-      "slug": "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+      "slug": "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
       "slugByLocale": {
-        "it": "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+        "it": "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
         "en": "insurance-and-pensions-advisor-f-h-d-at-the-general-agency-in-moutier-saint-imier-die-mobiliar-moutier",
-        "de": "versicherungs-und-versorgungsberater-w-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+        "de": "versicherungs-und-vorsorgeberater-f-m-d-bei-der-generalagentur-moutier-saint-imier-die-mobiliar-moutier",
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
       },
       "company": "die Mobiliar",
@@ -6590,15 +6597,15 @@
       "previousSlugs": [
         "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
         "consigliere-assicurativo-e-previdenziale-f-h-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
-        "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
+        "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier",
         "versicherungs-und-pensionsberater-f-h-d-bei-der-generalagentur-in-moutier-saint-imier-die-mobiliar-moutier",
-        "versicherungs-und-vorsorgeberater-f-m-d-bei-der-generalagentur-moutier-saint-imier-die-mobiliar-moutier"
+        "versicherungs-und-versorgungsberater-w-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
           "consigliere-assicurativo-e-previdenziale-f-h-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier",
-          "consulente-assicurativo-e-di-previdenza-f-m-d-presso-l-agenzia-generale-di-moutier-saint-imier-die-mobiliar-moutier"
+          "assicurazione-e-consulente-f-h-d-presso-moutier-general-agency-saint-imier-die-mobiliar-moutier"
         ],
         "en": [
           "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
@@ -6606,7 +6613,7 @@
         "de": [
           "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
           "versicherungs-und-pensionsberater-f-h-d-bei-der-generalagentur-in-moutier-saint-imier-die-mobiliar-moutier",
-          "versicherungs-und-vorsorgeberater-f-m-d-bei-der-generalagentur-moutier-saint-imier-die-mobiliar-moutier"
+          "versicherungs-und-versorgungsberater-w-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier"
         ]
       },
       "firstSeenAt": "2026-05-10T22:09:21.325Z",

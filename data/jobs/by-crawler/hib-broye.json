@@ -2331,11 +2331,11 @@
     },
     {
       "id": "hib-broye-fa703cdb6fb4",
-      "slug": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
+      "slug": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-        "it": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
-        "en": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac",
+        "it": "assistente-medico-in-ginecologia-a-80-o-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "medical-assistant-in-gynaecology-at-80-or-2-x-40-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "de": "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -2391,7 +2391,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:43:37.125Z"
+      "firstSeenAt": "2026-06-17T22:43:37.125Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-en-cabinet-de-gynecologie-a-80-ou-2-x-40-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-627208cb3b46",

@@ -7,8 +7,8 @@
       "slug": "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "it": "capo-unita-pulizia-igiene-e-ambiente-m-f-al-100-hopital-riviera-chablais-hrc-rennaz",
-        "en": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
-        "de": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz",
+        "en": "head-of-unit-hygiene-and-environment-100-h-f-hopital-riviera-chablais-hrc-rennaz",
+        "de": "leiter-der-abteilung-hygiene-und-umwelt-100-h-f-hopital-riviera-chablais-hrc-rennaz",
         "fr": "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -56,6 +56,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
+        ],
+        "en": [
+          "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
+        ],
+        "de": [
           "chef-d-unite-proprete-hygiene-et-environnement-h-f-a-100-hrc-rennaz"
         ]
       },
@@ -615,8 +621,8 @@
       "slug": "bioncleaning-agente-h-f-cdi-oraria-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
         "it": "bioncleaning-agente-h-f-cdi-oraria-hopital-riviera-chablais-hrc-rennaz",
-        "en": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
-        "de": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz",
+        "en": "bioncleaning-agent-h-f-hourly-cdi-hopital-riviera-chablais-hrc-rennaz",
+        "de": "bioreinigungsmittel-h-f-stundliche-cdi-hopital-riviera-chablais-hrc-rennaz",
         "fr": "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -665,6 +671,12 @@
       "previousSlugsByLocale": {
         "it": [
           "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
+        ],
+        "en": [
+          "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
+        ],
+        "de": [
+          "agent-de-bionettoyage-h-f-cdi-horaire-hrc-rennaz"
         ]
       },
       "firstSeenAt": "2026-06-15T14:33:37.230Z",
@@ -683,9 +695,9 @@
     },
     {
       "id": "hrc-203129f1e1e5",
-      "slug": "stagiaire-communication-h-f-a-100-hrc-rennaz",
+      "slug": "interno-di-comunicazione-h-f-al-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "stagiaire-communication-h-f-a-100-hrc-rennaz",
+        "it": "interno-di-comunicazione-h-f-al-100-hopital-riviera-chablais-hrc-rennaz",
         "en": "stagiaire-communication-h-f-a-100-hrc-rennaz",
         "de": "stagiaire-communication-h-f-a-100-hrc-rennaz",
         "fr": "stagiaire-communication-h-f-a-100-hrc-rennaz"
@@ -742,7 +754,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-communication-h-f-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-communication-h-f-a-100-hrc-rennaz"
+      ]
     }
   ]
 }
