@@ -110,6 +110,93 @@ const FAIL_OPEN_CACHE_TTL = 86400; // 24 h — apex-keyed Cache API copy (fail-o
 // transiently 404'd retries fresh soon after.
 const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 
+// Canton-drift 404 recovery — real HTTP 301 (upgrade of the soft-404+JS path).
+//
+// A job slug is globally unique, but the canton (URL section) was re-derived
+// every crawl, so the same slug migrated between sections and the previously-
+// indexed URL orphaned → 404. public/404.html already recovers these at request
+// time (look the slug up in /job-canon/<shard>.json, then `location.replace`),
+// but that is a soft-404: GitHub Pages serves the orphan with HTTP 404 and only
+// the JS does the redirect, so Google may not pass full link equity. For the
+// en/de/fr shard traffic this Worker already sees, we can do better: on a shard-
+// origin 404 for a job-detail path whose slug IS in the map (a confirmed orphan
+// with a real canonical 200 page), respond with a genuine HTTP 301 → full equity
+// transfer, no JS round-trip. (Scope: only known slugs get a 301 — an unknown/
+// expired slug, or a freshly-published URL that 404'd transiently, falls through
+// to the existing 404 + 404.html JS soft-fallback, so we never PERMANENTLY
+// redirect a path we can't confirm. IT traffic is not routed through this Worker
+// and keeps the soft path — see wrangler.toml.)
+//
+// The slug→section-prefix map is emitted at the IT dist root
+// (jobCanonRedirectMapPlugin → /job-canon/<shard>.json) and fetched here from the
+// public apex; that path is outside the Worker's locale routes, so the subrequest
+// flows straight to the IT Pages origin (no Worker re-entry) and is edge-cached
+// (cacheEverything + cacheTtl) so repeat 404s for the same shard don't re-hit the
+// origin. Best-effort throughout: any miss/timeout/parse error returns null and
+// the normal 404 path runs.
+//
+// Matching MIRRORS public/404.html (jobRe + shard key) and jobCanonRedirectMapPlugin
+// (shard key). It is duplicated, not imported: this Worker is a standalone runtime
+// deployed by wrangler, not part of the Vite bundle, so it cannot share the TS
+// build-plugin modules. Keep the three copies in lockstep when touching any one.
+const JOB_DETAIL_RE =
+  /^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|jobs-im|jobs-in|trouver-emploi|job-search|jobsuche|recherche-emploi)-[a-z-]+\/([^/]+)\/?$/;
+const MAP_FETCH_TIMEOUT_MS = 2000;
+const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
+
+// Shard key for /job-canon/<sk>.json. MIRRORS public/404.html + the plugin's
+// shardKey(): first 2 chars of the lowercased slug, non-alphanumerics → '_',
+// padded to length 2.
+function jobCanonShardKey(slug) {
+  let sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
+  if (sk.length < 2) sk = (sk + '__').slice(0, 2);
+  return sk;
+}
+
+// Returns a 301 Response to the slug's current canonical page when the requested
+// path is a job-detail orphan whose slug is in the map AND the canonical differs
+// from the requested path; otherwise null (caller serves the normal 404).
+async function recoverCantonDriftOrphan(url) {
+  const m = url.pathname.match(JOB_DETAIL_RE);
+  if (!m) return null;
+  let slug;
+  try {
+    slug = decodeURIComponent(m[1]).toLowerCase();
+  } catch {
+    slug = m[1].toLowerCase(); // malformed %-escape → use raw segment
+  }
+  const sk = jobCanonShardKey(slug);
+
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), MAP_FETCH_TIMEOUT_MS);
+  let map;
+  try {
+    const mapUrl = new URL(`/job-canon/${sk}.json`, url.origin);
+    const resp = await fetch(mapUrl.toString(), {
+      signal: controller.signal,
+      cf: { cacheEverything: true, cacheTtl: JOB_CANON_CACHE_TTL },
+    });
+    if (!resp.ok) return null;
+    map = await resp.json();
+  } catch {
+    return null; // miss / timeout / parse error → fall through to the 404
+  } finally {
+    clearTimeout(timer);
+  }
+
+  const prefix = map && map[slug];
+  if (!prefix) return null; // unknown/expired slug → keep the soft 404 fallback
+  const canonical = `${prefix}/${slug}/`;
+  // Never 301 to the path we are already on (avoids a redirect loop).
+  if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
+
+  const location = canonical + url.search + url.hash;
+  return new Response(null, {
+    status: 301,
+    headers: { Location: location, 'Cache-Control': NOT_FOUND_CACHE_CONTROL },
+  });
+}
+
 // Per-attempt upstream timeout + one retry. A healthy shard origin answers in
 // ~0.1-0.2s, so 6s is generous for a slow-but-ok fetch yet fails a hung
 // connection fast; 6s×2=12s stays comfortably under Cloudflare's gateway
@@ -291,6 +378,15 @@ export default {
         );
       }
       return new Response(body, { status: 200, statusText: resp.statusText, headers });
+    }
+
+    // Canton-drift recovery: upgrade a job-detail orphan 404 with a known slug
+    // to a real HTTP 301 (full link-equity transfer) instead of the soft-404+JS
+    // redirect. Unknown slugs fall through to the soft 404 below. See
+    // recoverCantonDriftOrphan / NOT_FOUND_CACHE_CONTROL.
+    if (request.method === 'GET' && resp.status === 404) {
+      const redirect = await recoverCantonDriftOrphan(url);
+      if (redirect) return redirect;
     }
 
     // Stamp Cache-Control on 404s too: see NOT_FOUND_CACHE_CONTROL. GitHub
