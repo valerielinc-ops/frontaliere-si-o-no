@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-wyssholzli",
-  "assembledAt": "2026-06-18T12:35:59.310Z",
+  "assembledAt": "2026-06-18T23:04:27.190Z",
   "jobs": [
     {
       "title": "Chefpsychologin 06/2026",
@@ -147,7 +147,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Psychiater In Ambulant 2025–60% 80",
@@ -223,7 +224,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pflegefachfrau Hf 60–80% 012026",
@@ -370,7 +372,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
@@ -398,7 +401,7 @@
       "description": "Die Klinik Wysshölzli ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau (Herzogenbuchsee, BE).\n\nStelle: Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026.\n\nDie Klinik Wysshölzli ist eine führende Fachklinik für Frauen mit Abhängigkeitserkrankungen und Essstörungen und bietet 37 stationäre Behandlungsplätze sowie zwei Ambulatorien. Die Klinik ist auf der Spitalliste des Kantons Bern, hat einen Leistungsvertrag mit der kantonalen Gesundheits- und Fürsorgedirektion und Verträge mit den Krankenversicherern. Der Standort im Oberaargau, Kanton Bern, an ruhiger Lage überzeugt mit herrlicher Natur und der Nähe zu Bern, Solothurn, Olten und Langenthal. Wir suchen per sofort oder nach Vereinbarung eine:n Mitarbeiter:in Administration mit Zusatzfunktion IT-Support 60 – 100 % \n• Ihre Aufgaben ‐ Sie sind zuständig für den First-Level-Support ‐ Sie sind verantwortlich für die IT-Infrastruktur (Gerätemanagement, Netzwerk, Telefonie) ‐ Sie wirken im Usermanagement mit ‐ Sie arbeiten mit unserem externen IT-Dienstleister und den Applikationslieferanten zusammen ‐ Sie erstellen und aktualisieren die Anwender- und Systemdokumentationen ‐ Sie arbeiten in IT- und Digitalisierungsprojekten und bei der Weiterentwicklung unserer Systeme mit ‐ Sie unterstützen die Patientenadministration ‐ Sie erfüllen administrative \n• Aufgaben im Qualitätsmanagement und bei Auswertungen ‐ Abhängig der persönlichen Interessen und der Höhe des Beschäftigungsgrads sind weitere administrative \n• Aufgaben innerhalb der Klinik möglich \n• Ihr Profil ‐ Sie haben eine Grundausbildung als Informatiker:in EFZ, ICT-Fachfrau/-mann EFZ oder Mediamatiker:in EFZ abgeschlossen ‐ Sie verfügen über ausgezeichnete Informatik-Kenntnisse ‐ Sie zeigen Interesse an einem breiten Aufgabengebiet ‐ Sie sind ein:e Teamplayer:in mit ausgeprägter Dienstleistungsorientierung ‐ Sie sind diskret, belastbar und selbständig Ihre Chance ‐ eine vielseitige, anspruchs- und vertrauensvolle Tätigkeit in einem lebendigen Betrieb ‐ Arbeit in einem motivierten, interprofessionellen Team und ein sehr gutes Betriebsklima, welches geprägt ist von Transparenz und gegenseitigem Respekt ‐ attraktive Anstellungsbedingungen ‐ vergünstigte Verpflegungsmöglichkeiten und ein kostenloser Parkplatz Frau Karin Affolter, Leiterin Finanzen und Administration erteilt Ihnen gerne nähere Auskunft: Tel. 062 510 58 07, www.wysshoelzli.ch Bitte bewerben Sie sich über das Onlineportal auf unserer Website oder senden Sie Ihre Bewerbung an personal@wysshoelzli.ch\n\nQuelle (PDF): https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-Administration-mit-Zusatzfunktion-IT-Support-_60_100_06_2026.pdf\n\nKarriereportal: https://www.wysshoelzli.ch/jobs-karriere\n\nSektor: Psychiatrie und Psychotherapie / Suchterkrankungen / Essstörungen",
       "titleByLocale": {
         "it": "Mitarbeiterin Administration con Zusatzfunktion It Support 60–100% 06/2026",
-        "en": "Employee Administration With additional function It Support 60–100% 06/2026",
+        "en": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
         "de": "Mitarbeiterin Administration Mit Zusatzfunktion It Support 60–100% 06/2026",
         "fr": "Administration des employés Avec fonction supplémentaire It Support 60–100% 06/2026"
       },
@@ -410,7 +413,7 @@
       },
       "slugByLocale": {
         "it": "mitarbeiterin-administration-mit-zusatzfunktion-it-support-60-100-06-2026-klinik-wyssholzli",
-        "en": "employee-administration-with-additional-function-it-support-60-100-06-2026-klinik-wyssholzli-herzogenbuchsee",
+        "en": "mitarbeiterin-administration-mit-zusatzfunktion-it-support-60-100-06-2026-klinik-wyssholzli",
         "de": "mitarbeiterin-administration-mit-zusatzfunktion-it-support-60-100-06-2026-klinik-wyssholzli",
         "fr": "administration-des-employes-avec-fonction-supplementaire-it-support-60-100-06-2026-klinik-wyssholzli-herzogenbuchsee"
       },
@@ -419,6 +422,14 @@
       },
       "id": "klinik-wyssholzli-101dcb2ca155",
       "firstSeenAt": "2026-06-10T12:24:11.922Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "employee-administration-with-additional-function-it-support-60-100-06-2026-klinik-wyssholzli-herzogenbuchsee"
+        ]
+      },
+      "previousSlugs": [
+        "employee-administration-with-additional-function-it-support-60-100-06-2026-klinik-wyssholzli-herzogenbuchsee"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -460,7 +471,7 @@
       "description": "Die Klinik Wysshölzli ist eine spezialisierte psychiatrische und psychotherapeutische Privatklinik im Oberaargau (Herzogenbuchsee, BE).\n\nStelle: Mitarbeiterin It Support 40 06/2026.\n\nDie Klinik Wysshölzli ist eine führende Fachklinik für Frauen mit Abhängigkeitserkrankungen und Essstörungen und bietet 37 stationäre Behandlungsplätze sowie zwei Ambulatorien. Die Klinik ist auf der Spitalliste des Kantons Bern, hat einen Leistungsvertrag mit der kantonalen Gesundheits- und Fürsorgedirektion und Verträge mit den Krankenversicherern. Der Standort im Oberaargau, Kanton Bern, an ruhiger Lage überzeugt mit herrlicher Natur und der Nähe zu Bern, Solothurn, Olten und Langenthal. Wir suchen per sofort oder nach Vereinbarung eine:n Mitarbeiter:in IT-Support 40 % \n• Ihre Aufgaben ‐ Sie sind zuständig für den First-Level-Support ‐ Sie sind verantwortlich für die IT-Infrastruktur (Gerätemanagement, Netzwerk, Telefonie) ‐ Sie wirken im Usermanagement mit ‐ Sie arbeiten mit unserem externen IT-Dienstleister und den Applikationslieferanten zusammen ‐ Sie erstellen und aktualisieren die Anwender- und Systemdokumentationen ‐ Sie arbeiten in IT- und Digitalisierungsprojekten und bei der Weiterentwicklung unserer Systeme mit \n• Ihr Profil ‐ Sie haben eine Grundausbildung als Informatiker:in EFZ, ICT-Fachfrau/-mann EFZ oder eine gleichwertige Ausbildung abgeschlossen ‐ Sie verfügen über ausgezeichnete Informatik-Kenntnisse ‐ Sie zeigen Interesse an einem breiten Aufgabengebiet ‐ Sie sind ein:e Teamplayer:in mit ausgeprägter Dienstleistungsorientierung ‐ Sie sind diskret, belastbar und selbständig Ihre Chance ‐ eine vielseitige, anspruchs- und vertrauensvolle Tätigkeit in einem lebendigen Betrieb ‐ Arbeit in einem motivierten, interprofessionellen Team und ein sehr gutes Betriebsklima, welches geprägt ist von Transparenz und gegenseitigem Respekt ‐ attraktive Anstellungsbedingungen ‐ vergünstigte Verpflegungsmöglichkeiten und ein kostenloser Parkplatz Frau Karin Affolter, Leiterin Finanzen und Administration erteilt Ihnen gerne nähere Auskunft: Tel. 062 510 58 07, www.wysshoelzli.ch Bitte bewerben Sie sich über das Onlineportal auf unserer Website oder senden Sie Ihre Bewerbung an personal@wysshoelzli.ch\n\nQuelle (PDF): https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Mitarbeiterin-IT-Support-40-_06_2026.pdf\n\nKarriereportal: https://www.wysshoelzli.ch/jobs-karriere\n\nSektor: Psychiatrie und Psychotherapie / Suchterkrankungen / Essstörungen",
       "titleByLocale": {
         "it": "Dipendente Supporta 40 06/2026",
-        "en": "Employee It Support 40 06/2026",
+        "en": "Mitarbeiterin It Support 40 06/2026",
         "de": "Mitarbeiterin It Support 40 06/2026",
         "fr": "Employés à l'appui 40 06/2026"
       },
