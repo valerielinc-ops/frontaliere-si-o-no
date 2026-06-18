@@ -3538,16 +3538,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-director-analysis-design-delivery-lead-novartis-ch",
-          "associate-direttore-analysis-design-delivery-lead-novartis-basel-city"
+          "associate-director-analysis-design-delivery-lead-novartis-ch"
         ],
         "de": [
-          "associate-director-analysis-design-delivery-lead-novartis-ch",
-          "associate-direktor-analysis-design-delivery-lead-novartis-basel-city"
+          "associate-director-analysis-design-delivery-lead-novartis-ch"
         ],
         "fr": [
-          "associate-director-analysis-design-delivery-lead-novartis-ch",
-          "associate-directeur-analysis-design-delivery-lead-novartis-basel-city"
+          "associate-director-analysis-design-delivery-lead-novartis-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T23:09:41.374Z",
@@ -3617,16 +3614,13 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-automation-logistics-delivery-lead-novartis-ch",
-          "lab-automation-logistica-delivery-lead-novartis-basel-city"
+          "lab-automation-logistics-delivery-lead-novartis-ch"
         ],
         "de": [
-          "lab-automation-logistics-delivery-lead-novartis-ch",
-          "lab-automation-logistik-delivery-lead-novartis-basel-city"
+          "lab-automation-logistics-delivery-lead-novartis-ch"
         ],
         "fr": [
-          "lab-automation-logistics-delivery-lead-novartis-ch",
-          "lab-automation-logistique-delivery-lead-novartis-basel-city"
+          "lab-automation-logistics-delivery-lead-novartis-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T23:09:40.558Z",
@@ -3801,12 +3795,12 @@
     },
     {
       "id": "novartis-1109ac8be9b5",
-      "slug": "ai-specialist-in-biomedical-research-novartis-ch",
+      "slug": "ai-specialista-in-biomedical-ricerca-novartis-basel-city",
       "slugByLocale": {
         "en": "ai-specialist-in-biomedical-research-novartis-ch",
-        "it": "ai-specialist-in-biomedical-research-novartis-ch",
-        "de": "ai-specialist-in-biomedical-research-novartis-ch",
-        "fr": "ai-specialist-in-biomedical-research-novartis-ch"
+        "it": "ai-specialista-in-biomedical-ricerca-novartis-basel-city",
+        "de": "ai-spezialist-in-biomedical-forschung-novartis-basel-city",
+        "fr": "ai-specialiste-in-biomedical-recherche-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3862,7 +3856,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-18T23:17:53.255Z"
+      "firstSeenAt": "2026-06-18T23:17:53.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ],
+        "de": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ],
+        "fr": [
+          "ai-specialist-in-biomedical-research-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ai-specialist-in-biomedical-research-novartis-ch"
+      ]
     },
     {
       "id": "novartis-9a31316bc44f",

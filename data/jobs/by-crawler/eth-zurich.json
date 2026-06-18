@@ -7539,12 +7539,12 @@
     },
     {
       "id": "eth-zurich-fb8eff4fe775",
-      "slug": "research-assistants-access-to-justice-eth-zurich-ch",
+      "slug": "assistenti-di-ricerca-accesso-alla-giustizia-eth-zurich-zurich",
       "slugByLocale": {
         "en": "research-assistants-access-to-justice-eth-zurich-ch",
-        "it": "research-assistants-access-to-justice-eth-zurich-ch",
-        "de": "research-assistants-access-to-justice-eth-zurich-ch",
-        "fr": "research-assistants-access-to-justice-eth-zurich-ch"
+        "it": "assistenti-di-ricerca-accesso-alla-giustizia-eth-zurich-zurich",
+        "de": "forschungsassistenten-zugang-zur-justiz-eth-zurich-zurich",
+        "fr": "assistants-de-recherche-acces-a-la-justice-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7599,16 +7599,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-18T12:15:58.525Z"
+      "firstSeenAt": "2026-06-18T12:15:58.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-assistants-access-to-justice-eth-zurich-ch"
+        ],
+        "de": [
+          "research-assistants-access-to-justice-eth-zurich-ch"
+        ],
+        "fr": [
+          "research-assistants-access-to-justice-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-assistants-access-to-justice-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ff50cf110940",
-      "slug": "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
+      "slug": "assistente-alla-ricerca-didattica-per-l-innovazione-pedagogica-e-workshop-pratici-sui-materiali-rigeneranti-eth-zurich",
       "slugByLocale": {
         "en": "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
-        "it": "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
-        "de": "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on",
-        "fr": "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on"
+        "it": "assistente-alla-ricerca-didattica-per-l-innovazione-pedagogica-e-workshop-pratici-sui-materiali-rigeneranti-eth-zurich",
+        "de": "forschungs-lehrassistent-fur-padagogische-innovationen-und-praktische-workshops-zu-regenerativen-materialien-eth-zurich",
+        "fr": "assistant-de-recherche-d-enseignement-pour-l-innovation-pedagogique-et-des-ateliers-pratiques-sur-les-materiaux"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7663,16 +7677,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-18T12:15:58.060Z"
+      "firstSeenAt": "2026-06-18T12:15:58.060Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on"
+        ],
+        "de": [
+          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on"
+        ],
+        "fr": [
+          "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on"
+        ]
+      },
+      "previousSlugs": [
+        "research-teaching-assistant-for-pedagogical-innovation-and-hands-on-workshops-on"
+      ]
     },
     {
       "id": "eth-zurich-7ba024d674bc",
-      "slug": "research-assistant-in-digital-health-technologies-eth-zurich-ch",
+      "slug": "assistente-di-ricerca-nelle-tecnologie-della-salute-digitale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "research-assistant-in-digital-health-technologies-eth-zurich-ch",
-        "it": "research-assistant-in-digital-health-technologies-eth-zurich-ch",
+        "it": "assistente-di-ricerca-nelle-tecnologie-della-salute-digitale-eth-zurich-zurich",
         "de": "forschung-assistent-in-digital-health-technologies-eth-zurich-zurich",
-        "fr": "research-assistant-in-digital-health-technologies-eth-zurich-ch"
+        "fr": "assistant-de-recherche-en-technologies-de-sante-numeriques-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7727,7 +7755,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-18T12:15:57.572Z"
+      "firstSeenAt": "2026-06-18T12:15:57.572Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-assistant-in-digital-health-technologies-eth-zurich-ch"
+        ],
+        "fr": [
+          "research-assistant-in-digital-health-technologies-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "research-assistant-in-digital-health-technologies-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-81442ddfd033",

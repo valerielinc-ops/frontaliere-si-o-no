@@ -72,12 +72,12 @@
     },
     {
       "id": "spital-limmattal-412ccb8f6238",
-      "slug": "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch",
+      "slug": "amministrazione-personale-paziente-80-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch",
-        "it": "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch",
-        "en": "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch",
-        "fr": "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch"
+        "it": "amministrazione-personale-paziente-80-spital-limmattal-schlieren",
+        "en": "personnel-patient-administration-80-spital-limmattal-schlieren",
+        "fr": "administration-du-personnel-patient-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -137,7 +137,21 @@
         }
       },
       "firstSeenAt": "2026-06-18T13:08:41.453Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenadministration-80-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-55e2739de6b1",
@@ -2364,8 +2378,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-spital-limmattal-ch",
-        "specialiste-de-radiologie-spital-limmattal-schlieren",
-        "specialista-della-radiologia-spital-limmattal-schlieren"
+        "specialiste-de-radiologie-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3887,8 +3900,7 @@
         "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
         "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren",
         "dipl-specialista-hf-fh-f-u00fcr-2-j-u00e4hige-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal-schliere",
-        "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren",
-        "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-emergency-care-nds-hf-spital-limmattal"
+        "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-d-urgence-nds-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3967,8 +3979,7 @@
         "dipl-pflegefachperson-hf-fh-f-u00fcr-das-2-j-u00e4hrige-nds-zur-dipl-expertin-experte",
         "dipl-nurse-hf-fh-f-u00fcr-2-j-u00e4hr-nds-pour-dipl-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
         "dipl-specialista-hf-fh-f-u00fcr-2-j-u00e4hige-nds-per-dipl-assistenza-intensiva-per-esperti-nds-hf-spital-limmattal-schl",
-        "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren",
-        "dipl-infermiera-hf-fh-f-u00fcr-il-2-j-u00e4hr-nds-per-dipl-expert-expert-cura-intensiva-nds-hf-spital-limmattal"
+        "dipl-specialiste-des-soins-hf-fh-expert-expert-soins-intensifs-nds-hf-spital-limmattal-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [

@@ -3571,7 +3571,7 @@
       "crawledAt": "2026-05-21T10:59:05.586Z",
       "firstSeenAt": "2026-05-21T10:59:05.586Z",
       "slugByLocale": {
-        "it": "technical-support-ingegnere-abb-svizzera-sede-ticino-b6xpma",
+        "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "en": "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "de": "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "fr": "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege"
@@ -3610,17 +3610,20 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
+        "technical-support-ingegnere-abb-svizzera-sede-ticino-b6xpma",
         "technical-support-engineer-abb-svizzera-sede-ticino",
         "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino",
         "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino",
         "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
-        "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
-        "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege"
-      ]
+        "technischer-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-support-ingegnere-abb-svizzera-sede-ticino-b6xpma"
+        ]
+      }
     },
     {
       "id": "company-noo56s",
