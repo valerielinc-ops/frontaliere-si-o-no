@@ -212,6 +212,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.hoval-ticino-opportunita-lavoro.title': 'Hoval Ticino: job opportunities in the technical sector',
     'blog.article.hoval-ticino-opportunita-lavoro.excerpt': 'Hoval, a company active in heating and air conditioning, is looking for staff in Ticino. Discover open positions, requirements, and how to apply.',
     'blog.article.hoval-ticino-opportunita-lavoro.imageAlt': 'Hoval headquarters in Ticino, Switzerland, with hilly landscape',
+    'blog.article.ufficio-postale-chiasso-aggiornamenti.title': 'Chiasso Post Office: Current Status and Services',
+    'blog.article.ufficio-postale-chiasso-aggiornamenti.excerpt': 'Up-to-date information on the Chiasso post office, available services, and access procedures for residents and local users.',
+    'blog.article.ufficio-postale-chiasso-aggiornamenti.imageAlt': 'Facade of the Chiasso post office on a sunny day',
 };
 
 export default blogMetaChEn;

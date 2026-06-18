@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2831,
+ "numberOfItems": 2832,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7475,7 +7475,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2828, "name": "Candidato medico a Bellinzona: EOC cerca fronta...", "url": `${BASE_URL}/articoli-frontaliere/candidato-medico-eoc-bellinzona` },
           { "@type": "ListItem", "position": 2829, "name": "Disoccupazione transfrontaliera: come funziona ...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-transfrontaliera-svizzera` },
           { "@type": "ListItem", "position": 2830, "name": "Disoccupazione Svizzera: Naspi e ristorni per i...", "url": `${BASE_URL}/articoli-frontaliere/naspi-svizzera-frontalieri` },
-          { "@type": "ListItem", "position": 2831, "name": "Hoval Ticino: opportunità lavoro nel settore te...", "url": `${BASE_URL}/articoli-frontaliere/hoval-ticino-opportunita-lavoro` }
+          { "@type": "ListItem", "position": 2831, "name": "Hoval Ticino: opportunità lavoro nel settore te...", "url": `${BASE_URL}/articoli-frontaliere/hoval-ticino-opportunita-lavoro` },
+          { "@type": "ListItem", "position": 2832, "name": "Ufficio postale di Chiasso: stato attuale e ser...", "url": `${BASE_URL}/articoli-frontaliere/ufficio-postale-chiasso-aggiornamenti` }
  ]
  },
  {

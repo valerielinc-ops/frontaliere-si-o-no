@@ -92,6 +92,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lavorare-nel-servizio-alla-casa-ticino': { it: 'lavorare-nel-servizio-alla-casa-ticino', en: 'working-in-household-services-ticino', de: 'arbeit-in-haushaltsdienst-ticino', fr: 'travailler-dans-services-a-la-maison-ticino' },
  'disoccupazione-transfrontaliera-svizzera': { it: 'disoccupazione-transfrontaliera-svizzera', en: 'cross-border-unemployment-switzerland', de: 'grenzueberschreitende-arbeitslosigkeit-schweiz', fr: 'chomage-transfrontalier-suisse' },
  'hoval-ticino-opportunita-lavoro': { it: 'hoval-ticino-opportunita-lavoro', en: 'hoval-ticino-job-opportunities', de: 'hoval-tessin-arbeitsmoeglichkeiten', fr: 'hoval-tessin-opportunites-emploi' },
+ 'ufficio-postale-chiasso-aggiornamenti': { it: 'ufficio-postale-chiasso-aggiornamenti', en: 'chiasso-post-office-updates', de: 'postfiliale-chiasso-updates', fr: 'mises-a-jour-bureau-poste-chiasso' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

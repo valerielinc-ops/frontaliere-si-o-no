@@ -4077,6 +4077,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-transfrontaliera-svizzera': { name: 'Disoccupazione transfrontaliera', path: '/articoli-svizzera/disoccupazione-transfrontaliera-svizzera/', parent: 'blog' },
     'blog-naspi-svizzera-frontalieri': { name: 'Disoccupazione', path: '/articoli-frontaliere/naspi-svizzera-frontalieri', parent: 'blog' },
     'blog-hoval-ticino-opportunita-lavoro': { name: 'Hoval Ticino lavoro', path: '/articoli-svizzera/hoval-ticino-opportunita-lavoro/', parent: 'blog' },
+    'blog-ufficio-postale-chiasso-aggiornamenti': { name: 'Ufficio postale Chiasso', path: '/articoli-svizzera/ufficio-postale-chiasso-aggiornamenti/', parent: 'blog' },
  };
 
  const info = sectionNames[section];
