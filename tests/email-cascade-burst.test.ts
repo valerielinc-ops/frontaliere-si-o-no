@@ -1,7 +1,6 @@
 // @ts-nocheck
 import {
   isRateLimitedError,
-  isProviderMisconfiguredError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
   fetchCloudflareUsage,
@@ -45,29 +44,6 @@ describe('isRateLimitedError', () => {
   });
 });
 
-/* ------------------------------------------------------------------ */
-/*  isProviderMisconfiguredError — deterministic per-run config errors */
-/* ------------------------------------------------------------------ */
-
-describe('isProviderMisconfiguredError', () => {
-  it('matches the CF sender-not-onboarded error (10202 email.invalid)', () => {
-    expect(isProviderMisconfiguredError('Cloudflare 400 code=10202: email.sending.error.email.invalid')).toBe(true);
-  });
-
-  it('matches the CF invalid request schema error (10001)', () => {
-    expect(isProviderMisconfiguredError('Cloudflare 400 code=10001: email.sending.error.invalid_request_schema')).toBe(true);
-  });
-
-  it('does NOT match a transient CF rate-limit (10004) — that path is the rate-limit retirement', () => {
-    expect(isProviderMisconfiguredError('Cloudflare 429 code=10004: throttled')).toBe(false);
-  });
-
-  it('does NOT match unrelated provider errors', () => {
-    expect(isProviderMisconfiguredError('Mailgun 500: internal error')).toBe(false);
-    expect(isProviderMisconfiguredError('')).toBe(false);
-    expect(isProviderMisconfiguredError(undefined)).toBe(false);
-  });
-});
 
 /* ------------------------------------------------------------------ */
 /*  fetchMailtrapDailyUsage — delivery_count lag must not under-count  */
@@ -216,6 +192,43 @@ describe('sendEmailCascade — cloudflare provider', () => {
     expect(sent.length).toBe(1);
     expect(sent[0].provider).toBe('cloudflare');
     expect(sent[0].messageId).toBe('<abc@frontaliereticino.ch>');
+  });
+
+  it('strips the Feedback-ID header (CF rejects it with 10202) but keeps List-Unsubscribe', async () => {
+    let sentHeaders: Record<string, string> | undefined;
+    globalThis.fetch = (async (url: string, opts?: any) => {
+      if (String(url).includes(CF_SEND)) {
+        sentHeaders = JSON.parse(opts.body).headers;
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({ success: true, result: { message_id: '<m@frontaliereticino.ch>' } }),
+          text: async () => '{}',
+        } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}), text: async () => '{}' } as any;
+    }) as any;
+
+    const { sent } = await sendEmailCascade(
+      [{
+        payload: {
+          from: 'a@b.ch', to: ['x@y.com'], subject: 's', html: '<p>h</p>',
+          headers: {
+            'List-Unsubscribe': '<https://x.ch/u>, <mailto:u@x.ch>',
+            'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+            'Feedback-ID': 'camp:weekly:frontaliere-ticino',
+          },
+        },
+        recipient: { email: 'x@y.com' }, meta: {},
+      }],
+      { forceProvider: 'cloudflare', delayMs: 0 },
+    );
+
+    expect(sent.length).toBe(1);
+    expect(sentHeaders).toBeDefined();
+    expect(sentHeaders!['Feedback-ID']).toBeUndefined();
+    expect(sentHeaders!['List-Unsubscribe']).toBe('<https://x.ch/u>, <mailto:u@x.ch>');
+    expect(sentHeaders!['List-Unsubscribe-Post']).toBe('List-Unsubscribe=One-Click');
   });
 
   it('falls back to the default CF_API_TOKEN when no dedicated token is set', async () => {
