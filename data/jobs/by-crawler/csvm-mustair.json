@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-06-17T22:28:11.349Z",
+  "assembledAt": "2026-06-18T12:08:54.013Z",
   "jobs": [
     {
       "id": "csvm-mustair-2ca53ce6ff78",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T22:28:09.426Z",
+      "crawledAt": "2026-06-18T12:08:52.131Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -70,27 +70,27 @@
           "Bonne santé et endurance physique"
         ]
       },
-      "firstSeenAt": "2026-05-19T10:23:25.014Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "lehrstellen-2026-csvm-mustair-mustair"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstellen-2026-csvm-mustair-mustair"
         ]
       },
-      "previousSlugs": [
-        "lehrstellen-2026-csvm-mustair-mustair"
-      ]
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -124,7 +124,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T22:28:09.099Z",
+      "crawledAt": "2026-06-18T12:08:51.825Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T22:28:08.670Z",
+      "crawledAt": "2026-06-18T12:08:51.566Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T22:28:08.128Z",
+      "crawledAt": "2026-06-18T12:08:51.148Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -305,6 +305,17 @@
       "applyUrl": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        ]
+      },
       "firstSeenAt": "2026-05-21T22:13:17.732Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -317,18 +328,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
-        ],
-        "fr": [
-          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
-        ]
-      },
-      "previousSlugs": [
-        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
-      ]
+      }
     },
     {
       "id": "csvm-mustair-b510abc4e696",
@@ -362,7 +362,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T22:28:06.863Z",
+      "crawledAt": "2026-06-18T12:08:49.995Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -379,19 +379,9 @@
       "applyUrl": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-21T22:13:17.730Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
@@ -400,9 +390,19 @@
           "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
         ]
       },
-      "previousSlugs": [
-        "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
-      ]
+      "firstSeenAt": "2026-05-21T22:13:17.730Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
