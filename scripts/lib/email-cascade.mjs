@@ -600,13 +600,8 @@ async function sendViaResend(email) {
 // Normalize a recipient/sender into the RFC822 string the CF API expects, whether
 // it arrives as a plain string or a { email, name } object.
 function cloudflareAddress(addr) {
-  // Cloudflare Email Sending REST API only accepts a BARE email string for
-  // from/to. Empirically: a {email,name} object → code 10001
-  // (invalid_request_schema), an RFC822 "Name <email>" string → code 10202
-  // (email.invalid). The {email,name} object is the Workers API form, NOT the
-  // REST API. So strip any display name to the bare address.
-  // Docs: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
-  return parseEmailAddress(addr).email;
+  const parsed = parseEmailAddress(addr);
+  return parsed.name ? `${parsed.name} <${parsed.email}>` : parsed.email;
 }
 
 async function sendViaCloudflare(email) {
@@ -715,6 +710,21 @@ function isRateLimitedError(msg) {
   return false;
 }
 
+/**
+ * Detect a deterministic provider misconfiguration that will fail EVERY send
+ * for the rest of the run, so the cascade should retire the provider after the
+ * first hit instead of retrying per-recipient.
+ *
+ * Currently the Cloudflare Email Sending sender/domain-not-onboarded errors:
+ *   code 10202 (email.invalid)  — no verified sending identity for the `from`
+ *   code 10001 (invalid_request_schema)
+ * These are config state, not transient, so they repeat identically per email.
+ */
+function isProviderMisconfiguredError(msg) {
+  if (!msg) return false;
+  return /Cloudflare \d+ code=(10202|10001)\b/.test(msg);
+}
+
 async function sendSingle(email, forceProvider, finalizeForProvider) {
   const errors = [];
   const providers = forceProvider
@@ -740,6 +750,13 @@ async function sendSingle(email, forceProvider, finalizeForProvider) {
       if (isRateLimitedError(err.message)) {
         incrementCounter(provider.id, remainingQuota(provider.id));
         console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run`);
+      } else if (isProviderMisconfiguredError(err.message)) {
+        // Deterministic config error (e.g. CF Email Sending sender/domain not
+        // onboarded → 10202/10001 on EVERY send). Retrying per-recipient just
+        // burns hundreds of calls + log lines, so retire the provider for the
+        // run after the first hit.
+        incrementCounter(provider.id, remainingQuota(provider.id));
+        console.warn(`⚠️  ${provider.id} misconfigured (${err.message.slice(0, 80)}) — skipping for rest of run`);
       }
     }
   }
@@ -931,4 +948,4 @@ export function getCascadeDailyCapacity() {
   return PROVIDERS.reduce((sum, p) => sum + p.dailyLimit, 0);
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, campaignIdTag };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs, isRateLimitedError, isProviderMisconfiguredError, campaignIdTag };

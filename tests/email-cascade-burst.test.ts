@@ -1,6 +1,7 @@
 // @ts-nocheck
 import {
   isRateLimitedError,
+  isProviderMisconfiguredError,
   sendEmailCascade,
   fetchMailtrapDailyUsage,
   fetchCloudflareUsage,
@@ -41,6 +42,30 @@ describe('isRateLimitedError', () => {
     expect(isRateLimitedError('Mailgun 500: internal error')).toBe(false);
     expect(isRateLimitedError('')).toBe(false);
     expect(isRateLimitedError(undefined)).toBe(false);
+  });
+});
+
+/* ------------------------------------------------------------------ */
+/*  isProviderMisconfiguredError — deterministic per-run config errors */
+/* ------------------------------------------------------------------ */
+
+describe('isProviderMisconfiguredError', () => {
+  it('matches the CF sender-not-onboarded error (10202 email.invalid)', () => {
+    expect(isProviderMisconfiguredError('Cloudflare 400 code=10202: email.sending.error.email.invalid')).toBe(true);
+  });
+
+  it('matches the CF invalid request schema error (10001)', () => {
+    expect(isProviderMisconfiguredError('Cloudflare 400 code=10001: email.sending.error.invalid_request_schema')).toBe(true);
+  });
+
+  it('does NOT match a transient CF rate-limit (10004) — that path is the rate-limit retirement', () => {
+    expect(isProviderMisconfiguredError('Cloudflare 429 code=10004: throttled')).toBe(false);
+  });
+
+  it('does NOT match unrelated provider errors', () => {
+    expect(isProviderMisconfiguredError('Mailgun 500: internal error')).toBe(false);
+    expect(isProviderMisconfiguredError('')).toBe(false);
+    expect(isProviderMisconfiguredError(undefined)).toBe(false);
   });
 });
 
