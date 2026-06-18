@@ -98,7 +98,54 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
           }
         } catch { /* unreadable coverage list — use whatever the hot-list gave */ }
       }
+      // Third source (OPT-IN): the full Cloudflare-imported 404 accumulator.
+      // Every path Google/CF has hit at the edge lands here (appended daily by
+      // discover-404s-via-cloudflare.mjs), so it carries the canton-drift orphans
+      // the bounded hot-list and GSC export miss. Synthetic floor of 1 (below the
+      // GSC floor) so genuinely hot + GSC-confirmed paths still win the hard cap
+      // first; the rest fill the remaining cap. DEFAULT OFF: it can push emit from
+      // ~49k toward the 250k cap on the OOM-prone SSG path (unmeasurable pre-merge)
+      // — enable with CF_HOT_404_INCLUDE_ACCUMULATOR=1 after a deploy confirms the
+      // mem/wall-time headroom. The slug→canonical resolution below already
+      // upgrades the existing hot-list + GSC bridges to real pages without it.
+      const ACCUMULATOR_SYNTHETIC_HITS = 1;
+      if (process.env.CF_HOT_404_INCLUDE_ACCUMULATOR === '1') {
+        const accumulatorFile = path.resolve(rootDir, 'data/seo-404-compat-paths.json');
+        if (fs.existsSync(accumulatorFile)) {
+          try {
+            const raw = JSON.parse(fs.readFileSync(accumulatorFile, 'utf-8'));
+            for (const p of (Array.isArray(raw?.paths) ? raw.paths : []) as unknown[]) {
+              addPath(p, ACCUMULATOR_SYNTHETIC_HITS);
+            }
+          } catch { /* unreadable accumulator — use the hot-list + coverage union */ }
+        }
+      }
       if (hitsByPath.size === 0) return;
+
+      // Slug → canonical-path index for canton-drift recovery: a job slug is
+      // globally unique, so an orphaned canton-variant 404 (/cerca-lavoro-<X>/<slug>)
+      // resolves to the real (200) page at the slug's CURRENT canonical canton
+      // instead of the bare listing. Built once from the committed tracking ledger
+      // (data/all-known-job-slugs.json). Keyed by localized slug (last path
+      // segment of each locale path). Best-effort: missing/unreadable ledger →
+      // the resolver simply falls back to the section listing.
+      const slugCanonical = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>();
+      try {
+        const tracking = JSON.parse(
+          fs.readFileSync(path.resolve(rootDir, 'data/all-known-job-slugs.json'), 'utf-8'),
+        ) as Record<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>;
+        for (const key of Object.keys(tracking)) {
+          const entry = tracking[key];
+          if (!entry) continue;
+          for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+            const p = entry[loc];
+            if (!p) continue;
+            const seg = p.replace(/\/+$/, '').split('/').pop();
+            if (seg && !slugCanonical.has(seg)) slugCanonical.set(seg, entry);
+          }
+        }
+      } catch { /* no tracking ledger — canton-drift recovery falls back to listings */ }
+      const slugIndex = slugCanonical.size > 0 ? slugCanonical : undefined;
 
       // Highest-traffic first, then hard-cap.
       const ordered = [...hitsByPath.entries()]
@@ -111,7 +158,7 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
       let skippedUnresolved = 0;
 
       for (const { path: rawPath } of ordered) {
-        const resolution = resolveSearchConsoleCompatTarget(rawPath);
+        const resolution = resolveSearchConsoleCompatTarget(rawPath, slugIndex);
         if (!resolution) { skippedUnresolved++; continue; }
 
         const from = withSlash(rawPath);
@@ -126,13 +173,19 @@ export function cfHot404BridgePlugin(rootDir: string): Plugin {
 
         const to = withSlash(resolution.canonicalPath);
         const kind = resolution.kind;
+        // canton-moved: the canonical IS the same job at its current canton path
+        // (a real 200 page), so word the bridge as a relocation and point the CTA
+        // straight at it. Other kinds land on a listing/landing.
+        const body = kind === 'canton-moved'
+          ? `Questo annuncio e stato spostato. Lo trovi aggiornato alla pagina collegata qui sotto.`
+          : `Questa pagina ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`;
         const html = buildCanonicalBridgePage({
           canonicalUrl: `${BASE_URL}${to}`,
           pathLabel: to,
-          title: 'Pagina archiviata | Frontaliere Ticino',
-          description: `Annuncio non piu disponibile collegato a ${to}.`,
-          body: `Questa pagina ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : "dell annuncio"} non e piu disponibile. Abbiamo mantenuto una pagina compatibile per evitare un errore e mostrarti le offerte aggiornate per questa zona.`,
-          ctaLabel: 'Vedi le offerte aggiornate',
+          title: kind === 'canton-moved' ? 'Annuncio spostato | Frontaliere Ticino' : 'Pagina archiviata | Frontaliere Ticino',
+          description: kind === 'canton-moved' ? `Annuncio spostato: vedi ${to}.` : `Annuncio non piu disponibile collegato a ${to}.`,
+          body,
+          ctaLabel: kind === 'canton-moved' ? 'Vai all annuncio' : 'Vedi le offerte aggiornate',
           noindex: true,
         });
 

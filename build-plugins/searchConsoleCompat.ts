@@ -151,13 +151,30 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/en\/lavoro\//, canonical: '/en/find-jobs-ticino/', locale: 'en' },
 ];
 
-export type SearchConsoleCompatKind = 'search' | 'expired-job' | 'company' | 'legacy';
+export type SearchConsoleCompatKind = 'search' | 'expired-job' | 'company' | 'legacy' | 'canton-moved';
 
 export interface SearchConsoleCompatResolution {
  canonicalPath: string;
  kind: SearchConsoleCompatKind;
  locale: SupportedLocale;
 }
+
+/**
+ * Optional slug→canonical-path index for canton-drift recovery. A job slug is
+ * globally unique (company + city + hash), but the URL SECTION encodes the
+ * canton, and the canton was re-derived every crawl (inferAnyCanton's
+ * municipality DB grows / job.location text varies) → the same slug migrated
+ * between canton sections, orphaning the previously-emitted (Google-indexed)
+ * URL. When this index is supplied, a job-detail 404 whose slug is a KNOWN job
+ * under a DIFFERENT canonical path resolves to that real (200) page instead of
+ * the bare section listing — recovering the specific page, not just the section.
+ * Build it as a Map<localizedSlug, {it,en,de,fr}> from data/all-known-job-slugs.json.
+ */
+export interface JobSlugCanonicalIndex {
+ get(localizedSlug: string): Partial<Record<SupportedLocale, string>> | undefined;
+}
+
+const ensureTrailingSlash = (p: string): string => (p.endsWith('/') ? p : `${p}/`);
 
 function normalizePath(input: string): string {
  const clean = `/${String(input || '').trim().replace(/^\/+/, '')}`.replace(/\/+/g, '/');
@@ -214,7 +231,10 @@ const JOB_BOARD_PAGINATION_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BO
 // Two segments after the section, so the single-segment job pattern above never matches them.
 const JOB_BOARD_TRAILING_ID_PATTERN = new RegExp(`^\\/(?:(en|de|fr)\\/)?(${JOB_BOARD_SECTION_PATTERN_SEGMENT})\\/[^/]+\\/\\d+\\/?$`);
 
-export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConsoleCompatResolution | null {
+export function resolveSearchConsoleCompatTarget(
+ inputPath: string,
+ slugIndex?: JobSlugCanonicalIndex,
+): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
  const exact = COMPAT_REDIRECTS[path] || COMPAT_REDIRECTS[`${path}/`];
  if (exact) {
@@ -261,15 +281,37 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
 
  const jobSectionMatch = path.match(JOB_BOARD_SECTION_COMPAT_PATTERN);
  if (jobSectionMatch) {
- // Canonicalize to the canton listing already encoded IN THE URL (capture
- // group 2), not one re-derived from the slug. The slug here is the *expired*
- // job slug — absent from the slug→canton index, so getCantonForSlug() used
- // to return 'TI', drifting a /cerca-lavoro-san-gallo/<expired>/ recovery
- // page onto /cerca-lavoro-ticino/ (wrong-canton UX on the ~8.6k CF-hot 404
- // bridges, #2041). The matched section IS the canton Google/the user
- // referenced and is always resolvable, so it is the authoritative signal.
  const urlSection = jobSectionMatch[2];
+ const slug = jobSectionMatch[3];
  const prefix = JOB_BOARD_PREFIX_BY_LOCALE[locale];
+ // Canton-drift recovery (the dominant residual-404 cohort): the slug is
+ // globally unique, so if it is a KNOWN job whose current canonical path sits
+ // under a DIFFERENT section than the one requested, the request is an ORPHANED
+ // canton variant (the canton was re-derived between crawls and the job migrated
+ // sections). Point the recovery page at the real (200) canonical job page —
+ // recovering the specific page, not just the listing. Prefer the request's own
+ // locale, fall back to the IT canonical.
+ if (slugIndex) {
+ const known = slugIndex.get(slug);
+ if (known) {
+ const target = known[locale] || known.it;
+ if (target) {
+ const targetNorm = normalizePath(target);
+ if (targetNorm !== path) {
+ return {
+ canonicalPath: ensureTrailingSlash(target),
+ kind: 'canton-moved',
+ locale,
+ };
+ }
+ }
+ }
+ }
+ // Fallback (slug unknown / already this path): canonicalize to the canton
+ // listing already encoded IN THE URL (capture group 2), not one re-derived
+ // from the slug. The matched section IS the canton Google/the user referenced
+ // and is always resolvable, so it is the authoritative signal (wrong-canton
+ // listing regression #2041).
  return {
  canonicalPath: `${prefix}/${urlSection}/`.replace(/\/+/g, '/'),
  kind: 'expired-job',

@@ -1218,6 +1218,25 @@ async function assembleJobs() {
   // ── Canton validation — fix mismatches using BFS data ──────────────
   // Some crawlers assign HQ canton instead of the actual city's canton.
   // Use inferAnyCanton (backed by 2,110 BFS municipalities) to correct.
+  //
+  // ── Canton PIN ledger (drift kill) ─────────────────────────────────
+  // The canton drives the URL SECTION (/cerca-lavoro-<canton>/<slug>/). It was
+  // re-derived every build, so it flipped whenever inferAnyCanton's municipality
+  // DB grew or job.location text varied between crawls → the previously-emitted
+  // (and Google-indexed) URL orphaned → 404. This is the #1 source of residual
+  // Cloudflare 404s (canton drift). The pin freezes each job's canton, keyed by
+  // its URL-first stable identity, the first time the location yields a CONFIDENT
+  // canton (inferred != null). Murky-location jobs stay flexible until their city
+  // resolves, then pin. Once pinned, the pin always wins — the URL section can
+  // never drift again. Recovery of ALREADY-orphaned URLs lives on the
+  // emit/resolver side (build-plugins/searchConsoleCompat.ts).
+  const cantonPinsPath = path.join(ROOT, 'data', 'job-canton-pins.json');
+  let cantonPins = {};
+  try { cantonPins = JSON.parse(fs.readFileSync(cantonPinsPath, 'utf-8')) || {}; }
+  catch { cantonPins = {}; }
+  let cantonPinsFrozen = 0;
+  let cantonPinsAdded = 0;
+
   let cantonFixes = 0;
   let lowercaseFixes = 0;
   for (const job of swissValidated) {
@@ -1227,8 +1246,8 @@ async function assembleJobs() {
       lowercaseFixes++;
     }
     const city = String(job.addressLocality || job.location || '').trim();
-    if (!city || city.length < 2 || city === 'CH') continue;
-    const inferred = inferAnyCanton(city);
+    const hasCity = city.length >= 2 && city !== 'CH';
+    const inferred = hasCity ? inferAnyCanton(city) : null;
     if (inferred && job.canton && job.canton !== inferred) {
       job.canton = inferred;
       if (job.addressRegion && job.addressRegion.length === 2) {
@@ -1236,9 +1255,34 @@ async function assembleJobs() {
       }
       cantonFixes++;
     }
+    // Freeze/restore via the pin ledger so an already-indexed URL never migrates
+    // sections. The freeze applies to EVERY job (even one whose city dropped out
+    // of this crawl); a NEW pin is recorded only with a confident inferred canton.
+    const pinId = buildStableJobIdentity(job);
+    if (pinId) {
+      const pinned = cantonPins[pinId];
+      if (pinned) {
+        if (job.canton !== pinned) {
+          job.canton = pinned;
+          if (job.addressRegion && job.addressRegion.length === 2) job.addressRegion = pinned;
+          cantonPinsFrozen++;
+        }
+      } else if (inferred) {
+        cantonPins[pinId] = job.canton;
+        cantonPinsAdded++;
+      }
+    }
+  }
+  try {
+    fs.writeFileSync(cantonPinsPath, JSON.stringify(cantonPins) + '\n', 'utf-8');
+  } catch (e) {
+    console.warn(`  ⚠️  Canton pins: failed to persist ledger (${e?.message || e})`);
   }
   if (cantonFixes > 0 || lowercaseFixes > 0) {
     console.log(`  🏔️  Canton validation: fixed ${cantonFixes} mismatches, ${lowercaseFixes} lowercase codes`);
+  }
+  if (cantonPinsFrozen > 0 || cantonPinsAdded > 0) {
+    console.log(`  📌 Canton pins: froze ${cantonPinsFrozen} to indexed canton, added ${cantonPinsAdded} (ledger ${Object.keys(cantonPins).length})`);
   }
 
   // ── Backfill empty description from descriptionByLocale ────────────
