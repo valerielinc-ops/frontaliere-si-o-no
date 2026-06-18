@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-06-17T22:17:39.098Z",
-  "total": 5,
+  "generatedAt": "2026-06-18T11:57:51.298Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 2305,
-  "avgDurationMs": 2305,
+  "unchangedCount": 4,
+  "durationMs": 1865,
+  "avgDurationMs": 1865,
   "durationHistory": [
-    2305
+    1865
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -92,46 +92,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://recruit.casale.ch/o/project-manager-2",
-      "applyUrl": "https://recruit.casale.ch/o/project-manager-2/c/new",
-      "title": "HSE Specialist",
-      "company": "Casale SA",
-      "companyKey": "casale",
-      "location": "Lugano, Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giulio Pocobelli 6",
-      "slug": "hse-specialista-casale-sa-lugano",
-      "category": "quality",
-      "datePosted": "2025-05-20",
-      "source": "casale-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Ingegneria / Chimica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:19:25.409Z",
-      "id": "casale-6eac33d20ff5",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 20
       }
