@@ -24,6 +24,8 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
+import { useAuth } from '@/services/authService';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -37,6 +39,7 @@ type OfferwallLocale = 'it' | 'en' | 'de' | 'fr';
 const COPY: Record<OfferwallLocale, {
   title: string;
   body: string;
+  orWithEmail: string;
   consent: string;
   submit: string;
   dismiss: string;
@@ -48,6 +51,7 @@ const COPY: Record<OfferwallLocale, {
   it: {
     title: 'Continua a leggere gratis',
     body: 'Iscriviti alla newsletter dei frontalieri (cambio CHF, fisco, lavoro) e accedi subito al contenuto. Niente spam, disiscrizione con un clic.',
+    orWithEmail: 'oppure con email',
     consent: 'Acconsento a ricevere la newsletter e accetto la privacy policy.',
     submit: 'Iscriviti e leggi',
     dismiss: 'No grazie',
@@ -59,6 +63,7 @@ const COPY: Record<OfferwallLocale, {
   en: {
     title: 'Keep reading for free',
     body: 'Subscribe to the cross-border workers newsletter (CHF rate, tax, jobs) and unlock this content now. No spam, one-click unsubscribe.',
+    orWithEmail: 'or with email',
     consent: 'I agree to receive the newsletter and accept the privacy policy.',
     submit: 'Subscribe & read',
     dismiss: 'No thanks',
@@ -70,6 +75,7 @@ const COPY: Record<OfferwallLocale, {
   de: {
     title: 'Kostenlos weiterlesen',
     body: 'Abonnieren Sie den Grenzgänger-Newsletter (CHF-Kurs, Steuern, Jobs) und schalten Sie diesen Inhalt sofort frei. Kein Spam, Abmeldung mit einem Klick.',
+    orWithEmail: 'oder mit E-Mail',
     consent: 'Ich willige ein, den Newsletter zu erhalten, und akzeptiere die Datenschutzerklärung.',
     submit: 'Abonnieren & lesen',
     dismiss: 'Nein danke',
@@ -81,6 +87,7 @@ const COPY: Record<OfferwallLocale, {
   fr: {
     title: 'Continuez à lire gratuitement',
     body: 'Abonnez-vous à la newsletter des frontaliers (cours CHF, fiscalité, emploi) et accédez immédiatement au contenu. Pas de spam, désinscription en un clic.',
+    orWithEmail: 'ou par e-mail',
     consent: 'J’accepte de recevoir la newsletter et la politique de confidentialité.',
     submit: 'S’abonner et lire',
     dismiss: 'Non merci',
@@ -220,6 +227,7 @@ function drainOfferwallShowQueue(hook: (offerwallLang?: string | null) => Promis
 
 const OfferwallNewsletterGate: React.FC = () => {
   const { locale } = useTranslation();
+  const { user } = useAuth();
   const [open, setOpen] = useState(false);
   const [activeLocale, setActiveLocale] = useState<OfferwallLocale>('it');
   const [email, setEmail] = useState('');
@@ -274,6 +282,21 @@ const OfferwallNewsletterGate: React.FC = () => {
       if (resolverRef.current) settle(false);
     };
   }, [settle]);
+
+  // Grant access when the visitor signs in via the social buttons while the gate
+  // is open. Google sign-in/One Tap completes in-page → `user` flips here → we
+  // grant the Offerwall reward immediately. (Auth providers auto-subscribe to the
+  // newsletter — same as NewsletterPopup — so no extra subscribe call is needed.)
+  // The LinkedIn flow redirects away and returns logged-in: the gate is gone by
+  // then, but offerwallHasAccess()'s firebase:authUser scan suppresses the
+  // Offerwall on the returning pageview, so access is granted there too.
+  useEffect(() => {
+    if (open && user) {
+      markNewsletterSubscribedLocally();
+      try { Analytics.trackUIInteraction('offerwall_gate', 'social', 'access_granted', String(activeLocale)); } catch { /* no-op */ }
+      settle(true);
+    }
+  }, [open, user, settle, activeLocale]);
 
   const copy = COPY[activeLocale];
 
@@ -358,6 +381,23 @@ const OfferwallNewsletterGate: React.FC = () => {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <p className="text-sm text-muted">{copy.body}</p>
+
+            {/* Same social row as the newsletter popup: a Google sign-in completes
+                in-page (One Tap / GIS) and LinkedIn redirects; either way the
+                visitor ends up authenticated (and auto-subscribed), which the
+                grant-on-auth effect above turns into the Offerwall reward. */}
+            <SocialSignInButtons
+              locale={activeLocale}
+              errorContext="offerwallGate"
+              googleWidth={360}
+            />
+
+            <div className="relative py-1">
+              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-edge" /></div>
+              <div className="relative flex justify-center">
+                <span className="px-2 bg-surface text-xs text-muted uppercase tracking-wider">{copy.orWithEmail}</span>
+              </div>
+            </div>
 
             <EmailInput
               value={email}
