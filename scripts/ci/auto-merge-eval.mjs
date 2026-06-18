@@ -417,6 +417,41 @@ function main() {
     return false;
   };
 
+  // Race "head out of date": tra il gate (collision: 0 dietro main) e la
+  // chiamata di merge, un merge concorrente fa avanzare main → GitHub rifiuta
+  // con "Head branch is out of date. Review and try the merge again."
+  // (mergeStateStatus BEHIND quando branch protection esige up-to-date). NON
+  // è un problema di token/scope — il vecchio fallback GITHUB_TOKEN dava lo
+  // stesso errore e poi exit 1 ROSSO, richiedendo un rerun manuale (PR #2494,
+  // run 27739578956). Auto-recovery: aggiorna il branch col PAT (merge di main
+  // nella head). Il push del PAT ri-triggera `tests`; al suo completamento il
+  // trigger workflow_run di auto-merge ri-valuta gli stessi gate e mergia — la
+  // catena si chiude da sola, zero azioni manuali. La LGTM esistente fa
+  // carry-forward (la review resta sulla PR). Esce 0: non è un fallimento, è
+  // un retry deferito al prossimo trigger.
+  const isStaleHeadRace = (err) => /out of date|not up to date|base branch was modified/i.test(String(err));
+  const recoverStaleHead = () => {
+    if (confirmedMergedAfterRace()) {
+      console.log(`PR #${PR} gia' mergiata da un run concorrente — successo, nessun update-branch.`);
+      return;
+    }
+    console.log(`Race "head out of date": branch dietro main tra gate e merge. Aggiorno il branch col PAT (update-branch) → tests ri-gira → auto-merge ri-valuta e mergia. Nessuna azione manuale.`);
+    try {
+      gh(['pr', 'update-branch', PR, '--repo', REPO], { json: false, token: primary });
+      console.log(`PR #${PR} branch aggiornato su main. Il completamento di "tests" ri-attiverà l'auto-merge.`);
+    } catch (eu) {
+      if (confirmedMergedAfterRace()) {
+        console.log(`PR #${PR} mergiata durante l'update-branch — successo.`);
+        return;
+      }
+      // update-branch può fallire per: branch gia' aggiornato (no-op, race con
+      // pr-autorebase) o conflitto reale di merge. In nessuno dei due casi è un
+      // errore di questo job: pr-autorebase / il prossimo trigger / il reviewer
+      // lo gestiscono. Warning (non error) → niente CI rossa fittizia.
+      console.log(`::warning::update-branch PR #${PR} non applicato (${String(eu).slice(0, 120)}) — gia' aggiornato o conflitto; pr-autorebase / prossimo trigger ri-proveranno.`);
+    }
+  };
+
   const mergeArgs = ['pr', 'merge', PR, '--squash', '--delete-branch', '--repo', REPO];
   try {
     gh(mergeArgs, { json: false, token: primary });
@@ -424,6 +459,10 @@ function main() {
   } catch (e) {
     if (confirmedMergedAfterRace()) {
       console.log(`PR #${PR} gia' mergiata da un run concorrente (race trigger review/tests) — successo, nessun retry.`);
+      return;
+    }
+    if (isStaleHeadRace(e)) {
+      recoverStaleHead();
       return;
     }
     if (hasPat && fallback) {
@@ -434,6 +473,10 @@ function main() {
       } catch (e2) {
         if (confirmedMergedAfterRace()) {
           console.log(`PR #${PR} gia' mergiata da un run concorrente (race trigger review/tests) — successo.`);
+          return;
+        }
+        if (isStaleHeadRace(e2)) {
+          recoverStaleHead();
           return;
         }
         console.error(`::error::Merge fallito anche col fallback: ${String(e2).slice(0, 200)}`);
