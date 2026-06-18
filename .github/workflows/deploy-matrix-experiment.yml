@@ -135,7 +135,7 @@ jobs:
             tar -czf /tmp/prepared-snapshot.tgz data
           ls -lh /tmp/prepared-snapshot.tgz
       - name: Upload prepared snapshot
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: prepared-snapshot
           path: /tmp/prepared-snapshot.tgz
@@ -195,7 +195,7 @@ jobs:
       # every shard builds the IDENTICAL dataset. OG images are still rendered
       # per-shard during build:ci (og-jobs cache shared across runs).
       - name: Download prepared snapshot
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: prepared-snapshot
           path: /tmp/snapshot
