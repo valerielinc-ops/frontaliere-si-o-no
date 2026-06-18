@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rss-surselva",
-  "assembledAt": "2026-06-18T13:00:22.256Z",
+  "assembledAt": "2026-06-18T23:28:21.355Z",
   "jobs": [
     {
       "id": "rss-surselva-2d9dd6691ec9",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit/5v8rk1h0is40xkzgfbf10xdtptmcs830jqwgj45p6jbumpnr55zyjsjoa0zuco64",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.913Z",
+      "crawledAt": "2026-06-18T23:28:19.369Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -108,7 +108,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.754Z",
+      "crawledAt": "2026-06-18T23:28:19.264Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -133,6 +133,14 @@
         "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
         "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilan"
       ],
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+        ]
+      },
       "firstSeenAt": "2026-05-17T10:58:29.809Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -146,15 +154,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
-        ]
-      }
+      "addressRegion": "GR"
     },
     {
       "id": "rss-surselva-63f466a3672c",
@@ -187,7 +187,7 @@
       "url": "https://link.ostendis.com/publication/fachperson-gesundheit-efz-imc-awr/c3f2ela2mxjars58dynuu0c6j0qvq28mmdswiijor2vpdduviki1opamdkvd05ai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.595Z",
+      "crawledAt": "2026-06-18T23:28:19.160Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -268,7 +268,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-fuer-unsere-interdisziplinaere-abteilung/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.435Z",
+      "crawledAt": "2026-06-18T23:28:19.055Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -337,7 +337,7 @@
       "title": "Dipl. Pflegefachperson HF IMC/AWR 40 - 80 %",
       "titleByLocale": {
         "it": "Infermiere qualificato HF IMC/AWR 40 - 80 %",
-        "en": "Dipl. Nurse HF IMC/AWR 40 - 80%",
+        "en": "Dipl. Pflegefachperson HF IMC/AWR 40 - 80 %",
         "de": "Dipl. Pflegefachperson HF IMC/AWR 40 - 80 %",
         "fr": "Dipl. Infirmière HF IMC/AWR 40 - 80%"
       },
@@ -353,7 +353,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-imc-awr/s2k3jjw8ohwa0xannz483hm3ul5318ixidpvqze6z4c4q0fxpjlqmf2sdcx5tuu3",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.277Z",
+      "crawledAt": "2026-06-18T23:28:18.949Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -393,6 +393,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:14:31.495Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -438,7 +439,7 @@
       "url": "https://link.ostendis.com/publication/chefarztsekretaerin-orthopaedie-befristet/0n6y0d3zv7b7k05er7bjl8dzzkd3zqeiq23wr825zdsibv68mv4pj7ub6xpi0h5d",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:19.114Z",
+      "crawledAt": "2026-06-18T23:28:18.843Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -475,15 +476,16 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:49:50.801Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -520,7 +522,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistenz-mpa-efz-praxis-mediselva/xm7gk9mln3phjf2ohmzjbgscd2lxsmuxipr4jwv8iypzrbv3c6s61epwx3vjylt4",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.956Z",
+      "crawledAt": "2026-06-18T23:28:18.738Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -595,7 +597,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.795Z",
+      "crawledAt": "2026-06-18T23:28:18.632Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -656,7 +658,7 @@
         "it": "dipl-fachperson-operationstechnik-hf-o-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz",
         "en": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz",
         "de": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss-sursel",
-        "fr": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
+        "fr": "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -664,7 +666,7 @@
       "title": "Dipl. Fachperson Operationstechnik HF oder Dipl. Pflegefachperson HF im OP 60 - 100 %",
       "titleByLocale": {
         "it": "Dipl. Fachperson Operationstechnik HF o Dipl. Pflegefachperson HF im OP 60 - 100 %",
-        "en": "Dipl. Specialist surgical technique HF or Dipl. Nurse HF in OP 60 - 100%",
+        "en": "Dipl. Fachperson Operationstechnik HF oder Dipl. Pflegefachperson HF im OP 60 - 100 %",
         "de": "Dipl. Fachperson Operationstechnik HF oder Dipl. Pflegefachperson HF im OP 60 - 100 %",
         "fr": "Dipl. Technique chirurgicale spécialisée HF ou Dipl. Infirmière HF en OP 60 - 100%"
       },
@@ -680,7 +682,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.636Z",
+      "crawledAt": "2026-06-18T23:28:18.524Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -702,7 +704,8 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss"
+        "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss",
+        "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -710,9 +713,13 @@
         ],
         "de": [
           "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
         ]
       },
       "firstSeenAt": "2026-05-17T10:58:28.987Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -729,12 +736,12 @@
     },
     {
       "id": "rss-surselva-609a7aff3056",
-      "slug": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
+      "slug": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
       "slugByLocale": {
-        "it": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
+        "it": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
         "en": "dipl-experten-expertin-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "de": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
-        "fr": "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz"
+        "fr": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -742,7 +749,7 @@
       "title": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert SSS Emergency Care 100%",
-        "en": "Dipl. Expert / Expert HF Emergency Care 100%",
+        "en": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
         "de": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
         "fr": "Dipl. Expert / Expert HF Soins d'urgence 100%"
       },
@@ -758,7 +765,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experten-expertin-hf-notfallpflege/vfrppklwtsu2zvfvrwyyo4vr68txzlxik0hr17bvv7d0f0nlfaui3vjq7rx0ucfn",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.474Z",
+      "crawledAt": "2026-06-18T23:28:18.419Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -782,20 +789,24 @@
       "previousSlugs": [
         "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-        "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+        "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
+        "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz",
         "dipl-expert-expert-hf-emergency-care-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
           "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
+          "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ],
         "fr": [
+          "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz",
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T10:58:28.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -812,10 +823,10 @@
     },
     {
       "id": "rss-surselva-9b4c791a3514",
-      "slug": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
+      "slug": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
       "slugByLocale": {
-        "it": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
-        "en": "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
+        "it": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+        "en": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "de": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "fr": "radiologie-fachperson-mtr-hf-80-100-regionalspital-surselva-ilanz"
       },
@@ -827,7 +838,7 @@
         "it": "Specialista in RADIOLOGIA (MTR HF) 80-100%",
         "en": "Radiology Professional (MTR HF) 80-100 %",
         "de": "Radiologie-Fachperson (MTR HF) 80-100 %",
-        "fr": "Spécialiste de la radiologie (MTR HF) 80-100 %"
+        "fr": "Radiologie-Fachperson (MTR HF) 80-100 %"
       },
       "description": "Radiologie-Fachperson (MTR HF) 80-100 % — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
@@ -841,7 +852,7 @@
       "url": "https://link.ostendis.com/publication/radiologie-fachperson-mtr-hf/cqc4g5hihd3yo54po3ii8ehjvonrxgybwaivmkx4gr3nd7235opk8fp2uzqsp6rt",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.315Z",
+      "crawledAt": "2026-06-18T23:28:18.314Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -863,18 +874,22 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "previousSlugs": [
-        "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+        "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
+        "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
         "specialista-di-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
         ],
         "en": [
+          "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T10:58:28.751Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -920,7 +935,7 @@
       "url": "https://link.ostendis.com/publication/endoskopie-assistent-in-oder-nach-vereinbarung-hf-mpa-fage/pjowye3v5s1642mzp7y6seoye8t8nn4dz4r5iwkh0m8tnmrfpqoayaqtgsxi2sku",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:18.155Z",
+      "crawledAt": "2026-06-18T23:28:18.209Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -953,6 +968,7 @@
         "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
       ],
       "firstSeenAt": "2026-06-16T14:41:05.915Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -998,7 +1014,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-paediatrie-kombinierbar-mit-praxistaetigkeit/lb2tlrhc70p0pm0mj6wanl2ju39g8kak2ypzkl5vv22xty7rznbw5ctk41la4nyj",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:17.995Z",
+      "crawledAt": "2026-06-18T23:28:18.102Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1017,6 +1033,7 @@
       "requirementsByLocale": {},
       "department": "Ärzte",
       "firstSeenAt": "2026-05-17T10:58:28.279Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch"
@@ -1028,15 +1045,15 @@
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch"
       ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -1073,7 +1090,7 @@
       "url": "https://link.ostendis.com/publication/hausaerztin-hausarzt/0na83sidjo3kfcjdj75k3827g7efq03w8zpm0mwfg38n3a5rs2unhxe8eezypgum",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:00:16.915Z",
+      "crawledAt": "2026-06-18T23:28:17.558Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
