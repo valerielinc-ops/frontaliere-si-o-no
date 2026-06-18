@@ -69,6 +69,7 @@ on:
           - mailtrap
           - maileroo
           - resend
+          - cloudflare
 
 permissions:
   contents: read
