@@ -38,6 +38,15 @@ const DEFAULT_STALE_HOURS = 6;
 // few-KB placeholder. Anything under this is treated as a broken feed.
 const MIN_WEBCAM_BYTES = 10 * 1024;
 const WEBCAM_FETCH_TIMEOUT_MS = 15000;
+// HTTP statuses that an access-control / rate-limit / geo-block layer returns and
+// that commonly DISCRIMINATE BY CLIENT IP — a residential browser (the real
+// frontaliere user) gets 200 while a cloud/datacenter runner gets blocked. Seeing
+// one of these from the monitor's single cloud vantage is INDETERMINATE, exactly
+// like a TCP-level failure (see `networkError` below): it does not prove the feed
+// is broken FOR END USERS, so it must not page. A feed that is genuinely gone
+// returns 404/410, a server fault returns 5xx, and a stub returns a tiny body —
+// all of which remain confirmed-broken signals that DO page.
+const IP_DISCRIMINATING_STATUSES = new Set([401, 403, 407, 429, 451]);
 
 // ── Pure logic (unit-tested; NO network/IO) ─────────────────────────
 
@@ -140,6 +149,13 @@ export function evaluateWebcamResult(result, minBytes = MIN_WEBCAM_BYTES) {
   // are confirmed-broken signals.
   if (result && result.networkError === true) {
     return { broken: false, indeterminate: true, reason: `unreachable from monitor (${result.status}) — not confirmed broken` };
+  }
+  // An access-control / rate-limit / geo-block status (401/403/407/429/451) from
+  // the monitor's single cloud IP is INDETERMINATE for the same reason a TCP
+  // failure is: such layers routinely block datacenter ranges while serving
+  // residential browsers (the real users) a healthy 200. Don't page; report it.
+  if (result && result.ok !== true && IP_DISCRIMINATING_STATUSES.has(result.status)) {
+    return { broken: false, indeterminate: true, reason: `blocked from monitor (HTTP ${result.status}) — likely cloud-IP block, not confirmed broken` };
   }
   if (!result || result.ok !== true) {
     return { broken: true, reason: `HTTP ${result?.status ?? 'error'}` };
