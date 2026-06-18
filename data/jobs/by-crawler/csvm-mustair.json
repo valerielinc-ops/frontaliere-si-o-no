@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "csvm-mustair-2ca53ce6ff78",
-      "slug": "lehrstellen-2026-csvm-mustair-mustair",
+      "slug": "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
-        "it": "lehrstellen-2026-csvm-mustair-mustair",
+        "it": "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
         "en": "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
         "de": "lehrstellen-2026-csvm-mustair-mustair",
         "fr": "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
@@ -82,7 +82,15 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstellen-2026-csvm-mustair-mustair"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstellen-2026-csvm-mustair-mustair"
+      ]
     },
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -250,12 +258,12 @@
     },
     {
       "id": "csvm-mustair-d47dac55c65d",
-      "slug": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+      "slug": "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
-        "it": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
+        "it": "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta",
         "en": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
         "de": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
-        "fr": "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        "fr": "assistant-infirmier-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
       },
       "company": "Center da Sanda Val Müstair (CSVM)",
       "companyKey": "csvm-mustair",
@@ -309,16 +317,27 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
+      ]
     },
     {
       "id": "csvm-mustair-b510abc4e696",
-      "slug": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
+      "slug": "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
       "slugByLocale": {
-        "it": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
+        "it": "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
         "en": "summer-internship-in-a-nursing-home-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
         "de": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-        "fr": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
+        "fr": "stage-d-ete-a-la-maison-de-retraite-center-da-sanda-val-mustair-csvm-sta"
       },
       "company": "Center da Sanda Val Müstair (CSVM)",
       "companyKey": "csvm-mustair",
@@ -372,7 +391,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
+        ],
+        "fr": [
+          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
+        ]
+      },
+      "previousSlugs": [
+        "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
+      ]
     }
   ]
 }

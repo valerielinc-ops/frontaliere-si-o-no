@@ -250,10 +250,10 @@
     },
     {
       "id": "crr-suva-sion-1ef627a9dcec",
-      "slug": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
+      "slug": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
       "slugByLocale": {
-        "it": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
-        "en": "assistant-e-qualite-et-processus-crr-suva-sion-sion",
+        "it": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
+        "en": "quality-assistant-and-process-clinique-romande-de-readaptation-crr-suva-sion",
         "de": "assistent-e-qualite-et-processus-clinique-romande-de-readaptation-crr-suva-sion",
         "fr": "assistant-e-qualite-et-processus-crr-suva-sion-sion"
       },
@@ -308,7 +308,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+        ],
+        "en": [
+          "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-qualite-et-processus-crr-suva-sion-sion"
+      ]
     }
   ]
 }

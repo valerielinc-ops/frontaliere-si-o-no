@@ -79,12 +79,12 @@
     },
     {
       "id": "tecan-103b3bee5bb1",
-      "slug": "vp-head-system-solutions-r-d-tecan-mannedorf",
+      "slug": "vp-responsabile-r-d-delle-soluzioni-di-sistema-tecan-mannedorf",
       "slugByLocale": {
-        "it": "vp-head-system-solutions-r-d-tecan-mannedorf",
+        "it": "vp-responsabile-r-d-delle-soluzioni-di-sistema-tecan-mannedorf",
         "en": "vp-head-system-solutions-r-d-tecan-mannedorf",
         "de": "vp-head-system-solutions-r-d-tecan-mannedorf",
-        "fr": "vp-head-system-solutions-r-d-tecan-mannedorf"
+        "fr": "vp-r-d-des-solutions-de-systemes-de-tete-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -137,16 +137,27 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vp-head-system-solutions-r-d-tecan-mannedorf"
+        ],
+        "fr": [
+          "vp-head-system-solutions-r-d-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "vp-head-system-solutions-r-d-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-c7aa3258a651",
-      "slug": "product-environmental-compliance-manager-tecan-mannedorf",
+      "slug": "responsabile-della-conformita-ambientale-del-prodotto-tecan-mannedorf",
       "slugByLocale": {
-        "it": "product-environmental-compliance-manager-tecan-mannedorf",
+        "it": "responsabile-della-conformita-ambientale-del-prodotto-tecan-mannedorf",
         "en": "product-environmental-compliance-manager-tecan-mannedorf",
-        "de": "product-environmental-compliance-manager-tecan-mannedorf",
-        "fr": "product-environmental-compliance-manager-tecan-mannedorf"
+        "de": "produkt-umwelt-compliance-manager-tecan-mannedorf",
+        "fr": "gestionnaire-de-la-conformite-environnementale-des-produits-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -199,7 +210,21 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "product-environmental-compliance-manager-tecan-mannedorf"
+        ],
+        "de": [
+          "product-environmental-compliance-manager-tecan-mannedorf"
+        ],
+        "fr": [
+          "product-environmental-compliance-manager-tecan-mannedorf"
+        ]
+      },
+      "previousSlugs": [
+        "product-environmental-compliance-manager-tecan-mannedorf"
+      ]
     },
     {
       "id": "tecan-f1e527196bc9",
@@ -306,8 +331,7 @@
           "reasoning-the-target-language-specified-in-the-request-is-english-en-the-original-title-is-already-in-english-technical",
           "technical-editor-tecan-mannedorf",
           "technical-writers-tecan-mannedorf",
-          "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is",
-          "technical-writer-tecan-mannedorf"
+          "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is"
         ],
         "fr": [
           "redacteur-technique-tecan-mannedorf"
@@ -832,7 +856,7 @@
       "slug": "tecnico-di-metrologia-tecan-mannedorf",
       "slugByLocale": {
         "it": "tecnico-di-metrologia-tecan-mannedorf",
-        "en": "messtechniker-tecan-mannedorf",
+        "en": "metrology-technician-tecan-mannedorf",
         "de": "messtechniker-tecan-mannedorf",
         "fr": "technologie-de-mesure-tecan-mannedorf"
       },
@@ -913,8 +937,7 @@
         "misurazione-di-tecnici-tecan-mannedorf",
         "measuring-technology-tecan-mannedorf",
         "measurement-technician-tecan-mannedorf",
-        "measuring-technicians-tecan-mannedorf",
-        "metrology-technician-tecan-mannedorf"
+        "measuring-technicians-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -927,7 +950,6 @@
           "measuring-technology-tecan-mannedorf",
           "measurement-technician-tecan-mannedorf",
           "measuring-technicians-tecan-mannedorf",
-          "metrology-technician-tecan-mannedorf",
           "messtechniker-tecan-mannedorf"
         ]
       },

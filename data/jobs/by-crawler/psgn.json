@@ -7,7 +7,7 @@
       "slug": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
       "slugByLocale": {
         "it": "infermieristica-in-psychiatrie-st-gallen-wil-sg",
-        "en": "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
+        "en": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
         "de": "pflegepraktikant-in-psgn-wil-sg",
         "fr": "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
       },
@@ -53,6 +53,7 @@
       "previousSlugs": [
         "pflegepraktikant-in-psgn-wil-sg",
         "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+        "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
         "sachbearbeiterin-sachbearbeiter-psychiatrie-st-gallen-wil-sg",
         "sachbearbeiterin-sachbearbeiter-psgn-wil-sg",
         "neuropsicologo-neuropsicologo-psychiatrie-st-gallen-wil-sg",
@@ -77,7 +78,6 @@
           "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg"
         ],
         "en": [
-          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
           "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg"
         ]
       },
@@ -708,7 +708,7 @@
         "it": "infermiere-laureato-in-hf-fh-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
         "de": "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "fr": "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
+        "fr": "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
@@ -751,7 +751,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -759,7 +760,7 @@
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "firstSeenAt": "2026-06-16T14:18:36.585Z",

@@ -2521,9 +2521,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
+        "en": "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
         "de": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
+        "fr": "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -2565,20 +2565,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
-        "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil"
+        "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ],
         "en": [
-          "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil",
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ]
       },
@@ -3273,12 +3269,12 @@
     },
     {
       "id": "spz-ad50ae5646c7",
-      "slug": "bildungsverantwortliche-r-pflege-spz-nottwil",
+      "slug": "responsabile-della-formazione-infermieristica-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "de": "bildungsverantwortliche-r-pflege-spz-nottwil",
-        "it": "bildungsverantwortliche-r-pflege-spz-nottwil",
-        "en": "bildungsverantwortliche-r-pflege-spz-nottwil",
-        "fr": "bildungsverantwortliche-r-pflege-spz-nottwil"
+        "it": "responsabile-della-formazione-infermieristica-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "en": "educationmanager-nursing-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "responsable-de-l-education-soins-infirmiers-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3335,6 +3331,7 @@
       },
       "firstSeenAt": "2026-06-17T23:30:24.254Z",
       "previousSlugs": [
+        "bildungsverantwortliche-r-pflege-spz-nottwil",
         "responsabile-dell-educazione-assistenziale-schweizer-paraplegiker-zentrum-spz-nottwil",
         "education-and-training-coordinator-schweizer-paraplegiker-zentrum-spz-nottwil",
         "directeur-de-l-education-schweizer-paraplegiker-zentrum-spz-nottwil",
@@ -3346,9 +3343,19 @@
         "graphic-design-responsible-schweizer-paraplegiker-zentrum-spz-nottwil",
         "fachverantwortliche-r-grafik-design-spz-nottwil",
         "responsable-graphisme-et-design-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "responsabile-della-formazione-infermieristica-schweizer-paraplegiker-zentrum-spz-nottwil",
         "responsable-de-la-formation-en-soins-infirmiers-schweizer-paraplegiker-zentrum-spz-nottwil"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bildungsverantwortliche-r-pflege-spz-nottwil"
+        ],
+        "en": [
+          "bildungsverantwortliche-r-pflege-spz-nottwil"
+        ],
+        "fr": [
+          "bildungsverantwortliche-r-pflege-spz-nottwil"
+        ]
+      }
     }
   ]
 }

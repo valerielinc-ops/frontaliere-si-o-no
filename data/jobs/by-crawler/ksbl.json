@@ -5381,9 +5381,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
-        "en": "certified-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
-        "fr": "infirmiere-certifiee-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal-8"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5430,11 +5430,13 @@
         "dipl-career-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-care-specialist-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-nurse-a-kantonsspital-baselland-ksbl-liestal",
+        "certified-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal-b13e95",
         "dipl-carriere-a-kantonsspital-baselland-ksbl-liestal",
         "specialiste-des-soins-a-kantonsspital-baselland-ksbl-liestal",
-        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal"
+        "infirmiere-diplomee-a-kantonsspital-baselland-ksbl-liestal",
+        "infirmiere-certifiee-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -6665,7 +6667,7 @@
       "slug": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "dipl-infermiere-di-cardiologia-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
+        "en": "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
         "fr": "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
       },
@@ -6710,7 +6712,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal",
-        "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
@@ -6718,7 +6719,6 @@
           "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
         ],
         "en": [
-          "dipl-cardiology-nurse-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-kardiologie-a-ksbl-liestal"
         ]
       },
@@ -7325,9 +7325,9 @@
       "slug": "infermiere-certificata-clinica-femminile-urologia-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "it": "infermiere-certificata-clinica-femminile-urologia-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
+        "en": "certified-nurse-women-s-clinic-urology-a-kantonsspital-baselland-ksbl-liestal",
         "de": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
+        "fr": "clinique-feminine-infirmiere-certifiee-urologie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7369,20 +7369,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal",
-        "certified-nurse-women-s-clinic-urology-a-kantonsspital-baselland-ksbl-liestal",
-        "clinique-feminine-infirmiere-certifiee-urologie-a-kantonsspital-baselland-ksbl-liestal"
+        "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
         ],
         "en": [
-          "certified-nurse-women-s-clinic-urology-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
         ],
         "fr": [
-          "clinique-feminine-infirmiere-certifiee-urologie-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-frauenklinik-urologie-a-ksbl-liestal"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "privatklinik-hohenegg-d6a9741ea7a9",
-      "slug": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+      "slug": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
       "slugByLocale": {
         "de": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-        "it": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
+        "it": "hf-infermiera-con-un-focus-sulla-psichiatria-60-100-privatklinik-hohenegg-meilen",
         "en": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch",
-        "fr": "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        "fr": "infirmiere-hf-avec-un-accent-sur-la-psychiatrie-60-100-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -67,7 +67,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T23:11:53.425Z"
+      "firstSeenAt": "2026-06-17T23:11:53.425Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
+          "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-mit-schwerpunkt-psychiatrie-60-100-privatklinik-hohenegg-ch"
+      ]
     },
     {
       "id": "privatklinik-hohenegg-726875029776",
@@ -75,8 +86,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
         "it": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-meilen",
-        "en": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        "en": "certified-nurse-hf-in-training-privatklinik-hohenegg-meilen",
+        "fr": "infirmiere-certifiee-en-hf-en-formation-privatklinik-hohenegg-meilen"
       },
       "company": "Privatklinik Hohenegg",
       "companyKey": "privatklinik-hohenegg",
@@ -124,6 +135,12 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-in-ausbildung-privatklinik-hohenegg-ch"
         ]
       },

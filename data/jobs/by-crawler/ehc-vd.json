@@ -1826,7 +1826,7 @@
         "fr": "infirmier-f-h-en-ctr-ehc-vd-gilly",
         "it": "infermiere-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
         "en": "nurse-f-m-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly",
-        "de": "infirmier-f-h-en-ctr-ehc-vd-gilly"
+        "de": "krankenschwester-f-h-in-ctr-ensemble-hospitalier-de-la-cote-ehc-gilly"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -1871,6 +1871,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "infirmier-f-h-en-ctr-ehc-vd-gilly"
+        ],
+        "de": [
           "infirmier-f-h-en-ctr-ehc-vd-gilly"
         ]
       },
@@ -3306,11 +3309,11 @@
     },
     {
       "id": "ehc-vd-142b31e9f8f7",
-      "slug": "secretaire-medicale-back-office-f-h-ehc-vd-morges",
+      "slug": "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "secretaire-medicale-back-office-f-h-ehc-vd-morges",
-        "it": "secretaire-medicale-back-office-f-h-ehc-vd-morges",
-        "en": "secretaire-medicale-back-office-f-h-ehc-vd-morges",
+        "it": "servizio-medico-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "medical-secretary-back-office-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "secretaire-medicale-back-office-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3366,7 +3369,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:31:42.255Z"
+      "firstSeenAt": "2026-06-17T22:31:42.255Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-back-office-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "secretaire-medicale-back-office-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-back-office-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-68e61457298e",
@@ -3891,11 +3905,11 @@
     },
     {
       "id": "ehc-vd-4711f95efae4",
-      "slug": "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "caregiver-premaman-e-assistente-per-la-salute-paediatrica-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges",
-        "de": "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges",
+        "it": "caregiver-premaman-e-assistente-per-la-salute-paediatrica-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "caregiver-maternity-and-paediatric-health-assistant-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "mutterschaft-und-padiatrische-gesundheitsassistentin-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -3939,10 +3953,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges"
+        "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges",
+        "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges",
+          "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-m-w-d-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ],
+        "en": [
+          "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges"
+        ],
+        "de": [
           "aide-soignant-auxiliaire-de-sante-maternite-et-pediatrie-f-h-ehc-vd-morges"
         ]
       },
@@ -3962,10 +3984,10 @@
     },
     {
       "id": "ehc-vd-d5740c81a7f7",
-      "slug": "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges",
+      "slug": "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges",
-        "en": "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges",
+        "it": "atsso-assistente-tecnico-specializzato-in-sala-operatoria-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "atsso-technical-assistant-specialized-in-operating-room-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "atsso-assistent-technique-specialise-en-salle-d-operation-f-h-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
       },
@@ -4021,7 +4043,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "atsso-assistant-technique-specialise-en-salle-d-operation-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-a8a01f186a16",
@@ -4096,11 +4129,11 @@
     },
     {
       "id": "ehc-vd-f685590d802a",
-      "slug": "medecin-specialiste-en-obesite-ehc-vd-morges",
+      "slug": "medico-specializzato-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
-        "it": "medecin-specialiste-en-obesite-ehc-vd-morges",
-        "en": "medecin-specialiste-en-obesite-ehc-vd-morges",
-        "de": "medecin-specialiste-en-obesite-ehc-vd-morges",
+        "it": "medico-specializzato-in-obesita-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "physician-specializing-in-obesity-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "arzt-spezialisiert-auf-fettleibigkeit-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-specialiste-en-obesite-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4155,7 +4188,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-en-obesite-ehc-vd-morges"
+        ],
+        "en": [
+          "medecin-specialiste-en-obesite-ehc-vd-morges"
+        ],
+        "de": [
+          "medecin-specialiste-en-obesite-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-en-obesite-ehc-vd-morges"
+      ]
     }
   ]
 }

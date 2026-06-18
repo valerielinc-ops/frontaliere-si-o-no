@@ -636,7 +636,7 @@
         "it": "store-leader-incubation-m-w-d-ost-e-zentralschweiz-decathlon-zurich",
         "en": "store-leader-incubation-m-f-d-eastern-and-central-switzerland-decathlon-zurich",
         "de": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch",
-        "fr": "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        "fr": "incubation-du-chef-de-magasin-m-f-d-suisse-orientale-et-centrale-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -692,6 +692,9 @@
         ],
         "en": [
           "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
+        ],
+        "fr": [
+          "store-leader-incubation-m-w-d-ost-und-zentralschweiz-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.823Z",
@@ -710,12 +713,12 @@
     },
     {
       "id": "decathlon-53e6b2815a1e",
-      "slug": "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach",
+      "slug": "consulente-sportivo-a-di-vendita-60-80-decathlon-spreitenbach",
       "slugByLocale": {
-        "it": "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach",
-        "en": "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach",
+        "it": "consulente-sportivo-a-di-vendita-60-80-decathlon-spreitenbach",
+        "en": "sports-consultant-sales-consultant-60-80-decathlon-spreitenbach",
         "de": "sportberater-in-verkaufsberater-in-60-80-decathlon-ch",
-        "fr": "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
+        "fr": "conseiller-ere-sportif-ve-conseiller-ere-de-vente-60-80-decathlon-spreitenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -757,12 +760,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sportberater-in-verkaufsberater-in-60-80-decathlon-ch",
-        "sportberater-in-verkaufsberater-in-50-70-decathlon-ch"
+        "sportberater-in-verkaufsberater-in-50-70-decathlon-ch",
+        "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportberater-in-verkaufsberater-in-60-80-decathlon-ch",
-          "sportberater-in-verkaufsberater-in-50-70-decathlon-ch"
+          "sportberater-in-verkaufsberater-in-50-70-decathlon-ch",
+          "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
+        ],
+        "en": [
+          "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
+        ],
+        "fr": [
+          "sportberater-in-verkaufsberater-in-60-80-decathlon-spreitenbach"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.822Z",
@@ -936,7 +947,7 @@
         "it": "leader-del-negozio-m-f-d-decathlon-winterthur-decathlon-winterthur",
         "en": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
         "de": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch",
-        "fr": "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
+        "fr": "chef-de-magasin-m-f-j-decathlon-winterthur-decathlon-winterthur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -987,7 +998,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "chef-de-magasin-m-m-j-decathlon-winterthur-decathlon-winterthur",
-          "chef-de-magasin-m-f-j-decathlon-winterthur-decathlon-winterthur"
+          "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
         ],
         "it": [
           "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
@@ -995,7 +1006,6 @@
       },
       "previousSlugs": [
         "chef-de-magasin-m-m-j-decathlon-winterthur-decathlon-winterthur",
-        "chef-de-magasin-m-f-j-decathlon-winterthur-decathlon-winterthur",
         "store-leader-m-w-d-decathlon-winterthur-decathlon-ch"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.819Z",
@@ -1097,7 +1107,7 @@
         "it": "store-leader-incubation-m-w-d-nord-e-westschweiz-decathlon-bern",
         "en": "store-leader-incubation-m-f-d-northern-and-western-switzerland-decathlon-bern",
         "de": "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch",
-        "fr": "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        "fr": "incubation-du-chef-de-magasin-m-f-d-suisse-du-nord-et-de-l-ouest-decathlon-bern"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1152,6 +1162,9 @@
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ],
         "en": [
+          "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
+        ],
+        "fr": [
           "store-leader-incubation-m-w-d-nord-und-westschweiz-decathlon-ch"
         ]
       },
@@ -1530,8 +1543,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "kundenservice-teamleiter-m-w-x-festangestellt-100-niederwangen-bern-decathlon-koniz",
-          "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch"
+          "kundenservice-teamleiter-m-w-x-festangestellt-100-niederwangen-bern-decathlon-koniz"
         ],
         "it": [
           "customer-service-team-leader-m-f-x-permanent-100-niederwangen-bern-decathlon-ch"
@@ -1717,7 +1729,7 @@
         "it": "tecnico-di-officina-60-citta-di-zurigo-decathlon-zurich",
         "en": "workshop-technician-60-city-of-zurich-decathlon-zurich",
         "de": "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "fr": "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
+        "fr": "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -1759,7 +1771,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
           "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
           "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
         ],
@@ -1768,9 +1779,8 @@
         ]
       },
       "previousSlugs": [
-        "technicien-d-atelier-60-ville-de-zurich-decathlon-zurich",
-        "werkstatt-techniker-60-stadt-zurich-decathlon-ch",
-        "technicien-atelier-60-ville-de-zurich-decathlon-zurich"
+        "technicien-atelier-60-ville-de-zurich-decathlon-zurich",
+        "werkstatt-techniker-60-stadt-zurich-decathlon-ch"
       ],
       "firstSeenAt": "2026-06-11T07:53:18.829Z",
       "salaryMin": 73500,
@@ -2238,9 +2248,9 @@
     },
     {
       "id": "decathlon-609b3c8853ca",
-      "slug": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
+      "slug": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
       "slugByLocale": {
-        "it": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
+        "it": "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "en": "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "de": "kundenserviceberater-fr-de-eng-befristeter-vertrag-decathlon-onnens",
         "fr": "conseiller-en-service-client-fr-de-eng-contrat-a-duree-determinee-decathlon-onnens"
@@ -2291,7 +2301,6 @@
       "previousSlugsByLocale": {
         "it": [
           "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
-          "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
           "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch"
         ],
         "de": [
@@ -2303,7 +2312,7 @@
       },
       "previousSlugs": [
         "consulente-assistenza-clienti-fr-de-eng-contratto-a-tempo-determinato-decathlon-onnens",
-        "servizio-clienti-consulente-fr-de-eng-fixed-term-contract-decathlon-onnens",
+        "customer-service-advisor-fr-de-eng-fixed-term-contract-decathlon-ch",
         "kundendienst-berater-fr-de-eng-fixed-term-contract-decathlon-onnens",
         "service-client-conseiller-fr-de-eng-fixed-term-contract-decathlon-onnens"
       ],
@@ -2328,7 +2337,7 @@
         "it": "commercialista-junior-contabili-fornitori-m-f-x-contratto-a-tempo-determinato-decathlon-bussigny",
         "en": "junior-accounts-payable-accountant-m-f-x-fixed-term-contract-decathlon-ch",
         "de": "junior-kreditorenbuchhalter-m-f-x-befristeter-vertrag-decathlon-bussigny",
-        "fr": "junior-accounts-payable-accountant-m-f-x-fixed-term-contract-decathlon-ch"
+        "fr": "comptable-junior-m-f-x-contrat-a-duree-determinee-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -2385,6 +2394,9 @@
         "de": [
           "junior-accounts-payable-accountant-m-f-x-fixed-term-contract-decathlon-ch",
           "junior-accounts-payable-buchhalter-m-f-x-fixed-term-contract-decathlon-bussigny"
+        ],
+        "fr": [
+          "junior-accounts-payable-accountant-m-f-x-fixed-term-contract-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.799Z",
@@ -2484,8 +2496,8 @@
       "slugByLocale": {
         "it": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
         "en": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
-        "de": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch",
-        "fr": "financial-planning-and-budget-leader-8-months-cdd-lausanne-m-f-x-decathlon-ch"
+        "de": "finanzplanung-und-haushaltsleiter-8-monate-cdd-lausanne-m-w-x-decathlon-bussigny",
+        "fr": "responsable-de-la-planification-financiere-et-du-budget-8-mois-cdd-lausanne-m-f-x-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3312,7 +3324,7 @@
       "slug": "workshop-tecnico-100-h-f-white-geneva-decathlon-vernier",
       "slugByLocale": {
         "it": "workshop-tecnico-100-h-f-white-geneva-decathlon-vernier",
-        "en": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch",
+        "en": "technician-workshop-100-h-f-white-geneva-decathlon-vernier",
         "de": "techniker-workshop-100-h-f-weiss-geneva-decathlon-vernier",
         "fr": "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch"
       },
@@ -3367,7 +3379,8 @@
           "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch"
         ],
         "en": [
-          "workshop-technician-100-h-f-white-geneva-decathlon-vernier"
+          "workshop-technician-100-h-f-white-geneva-decathlon-vernier",
+          "technicien-atelier-100-h-f-geneve-blandonnet-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.784Z",
@@ -3469,9 +3482,9 @@
     },
     {
       "id": "decathlon-0124f9bc568d",
-      "slug": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch",
+      "slug": "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
       "slugByLocale": {
-        "it": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch",
+        "it": "ciclo-meccanico-tecnico-h-f-60-80-cdi-neuchatel-marin-decathlon-marin-epagnier",
         "en": "mechanic-cycle-technician-m-f-60-80-permanent-contract-neuchatel-marin-decathlon-marin-epagnier",
         "de": "mechaniker-fahrradtechniker-m-w-60-80-unbefristeter-vertrag-neuchatel-marin-decathlon-marin-epagnier",
         "fr": "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
@@ -3526,11 +3539,13 @@
         ]
       },
       "previousSlugs": [
-        "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier"
+        "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
+        "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier"
+          "meccanico-tecnico-ciclista-m-f-contratto-permanente-60-80-neuchatel-marin-decathlon-marin-epagnier",
+          "mecanicien-ne-technicien-ne-cycle-h-f-60-80-cdi-neuchatel-marin-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:00.782Z",
@@ -4008,7 +4023,7 @@
       "slug": "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens",
       "slugByLocale": {
         "it": "workshop-technician-h-f-csd-4-mesi-federal-workshop-onnens-vd-decathlon-onnens",
-        "en": "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch",
+        "en": "workshop-technician-h-f-csd-4-months-100-federal-workshop-onnens-vd-decathlon-onnens",
         "de": "werkstatttechniker-m-f-cdd-4-monate-bundeswerkstatt-onnens-vd-decathlon-onnens",
         "fr": "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
       },
@@ -4069,7 +4084,8 @@
         ],
         "en": [
           "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch",
-          "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens"
+          "workshop-technician-h-f-csd-4-months-federal-workshop-onnens-vd-decathlon-onnens",
+          "technicien-ne-atelier-h-f-cdd-4-mois-100-federal-workshop-onnens-vd-decathlon-ch"
         ],
         "de": [
           "technicien-ne-atelier-h-f-cdd-4-mois-federal-workshop-onnens-vd-decathlon-ch"
@@ -4091,9 +4107,9 @@
     },
     {
       "id": "decathlon-bc0698c7b29c",
-      "slug": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
+      "slug": "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
       "slugByLocale": {
-        "it": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch",
+        "it": "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
         "en": "mechanic-technician-cycle-h-f-80-100-cdi-conthey-decathlon-conthey",
         "de": "mechaniker-techniker-zyklus-h-f-80-100-cdi-conthey-decathlon-conthey",
         "fr": "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
@@ -4145,14 +4161,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
           "meccanico-tecnico-di-ciclismo-m-f-80-100-cdi-conthey-decathlon-conthey",
           "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "ciclo-meccanico-tecnico-h-f-80-100-cdi-contesto-decathlon-conthey",
-        "meccanico-tecnico-di-ciclismo-m-f-80-100-cdi-conthey-decathlon-conthey"
+        "meccanico-tecnico-di-ciclismo-m-f-80-100-cdi-conthey-decathlon-conthey",
+        "mecanicien-ne-technicien-ne-cycle-h-f-80-100-cdi-conthey-decathlon-ch"
       ],
       "firstSeenAt": "2026-06-10T09:03:00.768Z",
       "salaryMin": 60500,

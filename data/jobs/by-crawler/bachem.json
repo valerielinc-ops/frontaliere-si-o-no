@@ -276,7 +276,7 @@
         "de": "manager-qa-for-qc-w-m-d-100-bachem-bubendorf",
         "it": "manager-qa-for-qc-w-m-d-100-bachem-bubendorf",
         "en": "manager-qa-for-qc-w-m-d-100-bachem-bubendorf",
-        "fr": "manager-qa-for-qc-w-m-d-100-bachem-bubendorf"
+        "fr": "gestionnaire-de-l-aq-pour-le-qc-f-m-d-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -556,12 +556,12 @@
     },
     {
       "id": "bachem-3721eea76f00",
-      "slug": "technical-author-a-100-bachem-bubendorf",
+      "slug": "autore-tecnico-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "technical-author-a-100-bachem-bubendorf",
+        "it": "autore-tecnico-a-100-bachem-ag-bubendorf",
         "en": "technical-author-a-100-bachem-bubendorf",
         "de": "technical-author-a-100-bachem-bubendorf",
-        "fr": "technical-author-a-100-bachem-bubendorf"
+        "fr": "auteur-technique-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -614,7 +614,18 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-author-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "technical-author-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "technical-author-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-463c36e92848",

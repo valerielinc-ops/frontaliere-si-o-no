@@ -7587,8 +7587,8 @@
       },
       "slugByLocale": {
         "it": "collaboratore-self-service-e-partner-commerciale-60-lidl-svizzera-aigle",
-        "en": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
-        "de": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
+        "en": "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
+        "de": "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle",
         "fr": "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
       },
       "requirementsByLocale": {},
@@ -7600,19 +7600,15 @@
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ],
         "en": [
-          "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ],
         "de": [
-          "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle",
           "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
         ]
       },
       "previousSlugs": [
         "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle",
-        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93",
-        "part-time-self-service-and-sales-associate-60-lidl-svizzera-aigle",
-        "mitarbeiter-in-fur-selbstbedienung-und-verkauf-60-lidl-svizzera-aigle"
+        "collaborateur-collaboratrice-libre-service-et-vente-60-lidl-svizzera-aigle-4olj93"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

@@ -4480,12 +4480,12 @@
     },
     {
       "id": "emmi-31d550dea609",
-      "slug": "account-manager-emmi-ch",
+      "slug": "gestione-account-emmi-luzern-luzern",
       "slugByLocale": {
-        "it": "account-manager-emmi-ch",
+        "it": "gestione-account-emmi-luzern-luzern",
         "en": "account-manager-emmi-luzern",
         "de": "account-manager-emmi-ch",
-        "fr": "account-manager-emmi-ch"
+        "fr": "gestionnaire-de-compte-emmi-luzern-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4543,16 +4543,13 @@
         ]
       },
       "previousSlugs": [
-        "gestione-account-emmi-luzern-luzern",
-        "gestionnaire-de-compte-emmi-luzern-luzern"
+        "account-manager-emmi-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-account-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ],
         "fr": [
-          "gestionnaire-de-compte-emmi-luzern-luzern",
           "account-manager-emmi-ch"
         ]
       },
@@ -4922,9 +4919,9 @@
       "slug": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
       "slugByLocale": {
         "it": "conduttore-dell-impianto-in-produzione-di-formaggio-emmi-kirchberg-bern",
-        "en": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
+        "en": "system-operator-in-cheese-production-emmi-kirchberg-bern",
         "de": "anlagenfuhrer-in-kaseproduktion-emmi-ch",
-        "fr": "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+        "fr": "operateur-du-systeme-dans-la-production-de-fromage-emmi-kirchberg-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -4983,6 +4980,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+        ],
+        "en": [
+          "anlagenfuhrer-in-kaseproduktion-emmi-ch"
+        ],
+        "fr": [
           "anlagenfuhrer-in-kaseproduktion-emmi-ch"
         ]
       },
@@ -5080,8 +5083,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
         "it": "collaboratore-trice-in-der-kasekonfektionierung-emmi-emmen",
-        "en": "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch",
-        "fr": "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        "en": "associate-in-der-kasekonfektionierung-emmi-emmen-luzern",
+        "fr": "collaborateur-trice-in-der-kasekonfektionierung-emmi-emmen-luzern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5138,6 +5141,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-in-der-kasekonfektionierung-emmi-ch"
         ]
       },

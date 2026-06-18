@@ -2552,11 +2552,11 @@
     },
     {
       "id": "cnp-7aa9f29e6e83",
-      "slug": "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
+      "slug": "pedopsichiatra-ambulatorio-della-crisi-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
-        "en": "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
-        "de": "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier",
+        "it": "pedopsichiatra-ambulatorio-della-crisi-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "pedopsychiatrist-ambulatory-of-crisis-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "de": "padopsychiater-ambulatorium-der-krise-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2611,7 +2611,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+        ],
+        "en": [
+          "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+        ],
+        "de": [
+          "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "pedopsychiatre-ambulatoire-de-crise-cnp-marin-epagnier"
+      ]
     }
   ]
 }

@@ -2072,12 +2072,12 @@
     },
     {
       "id": "claraspital-06184ed2a7bf",
-      "slug": "ernahrungsberater-in-claraspital-basel",
+      "slug": "nutrizione-st-claraspital-basel",
       "slugByLocale": {
         "de": "ernahrungsberater-in-claraspital-basel",
-        "it": "ernahrungsberater-in-claraspital-basel",
-        "en": "ernahrungsberater-in-claraspital-basel",
-        "fr": "ernahrungsberater-in-claraspital-basel"
+        "it": "nutrizione-st-claraspital-basel",
+        "en": "nutritionist-st-claraspital-basel",
+        "fr": "nutritionniste-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2132,16 +2132,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:20:15.217Z"
+      "firstSeenAt": "2026-06-17T22:20:15.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-claraspital-basel"
+        ],
+        "en": [
+          "ernahrungsberater-in-claraspital-basel"
+        ],
+        "fr": [
+          "ernahrungsberater-in-claraspital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-claraspital-basel"
+      ]
     },
     {
       "id": "claraspital-896b6bb5d5c9",
-      "slug": "psychologin-psychologe-claraspital-basel",
+      "slug": "psicologo-st-claraspital-basel",
       "slugByLocale": {
         "de": "psychologin-psychologe-claraspital-basel",
-        "it": "psychologin-psychologe-claraspital-basel",
-        "en": "psychologin-psychologe-claraspital-basel",
-        "fr": "psychologin-psychologe-claraspital-basel"
+        "it": "psicologo-st-claraspital-basel",
+        "en": "psychologist-psychologist-st-claraspital-basel",
+        "fr": "psychologue-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2196,7 +2210,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:20:15.208Z"
+      "firstSeenAt": "2026-06-17T22:20:15.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-claraspital-basel"
+        ],
+        "en": [
+          "psychologin-psychologe-claraspital-basel"
+        ],
+        "fr": [
+          "psychologin-psychologe-claraspital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-claraspital-basel"
+      ]
     }
   ]
 }

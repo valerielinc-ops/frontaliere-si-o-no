@@ -3195,9 +3195,9 @@
       "slug": "apprendistato-kochin-koch-cfc-spital-bulach",
       "slugByLocale": {
         "it": "apprendistato-kochin-koch-cfc-spital-bulach",
-        "en": "lehrstelle-kochin-koch-efz-spital-buelach-bulach",
+        "en": "kitchen-assistant-efz-spital-bulach-bulach",
         "de": "lehrstelle-kochin-koch-efz-spital-buelach-bulach",
-        "fr": "lehrstelle-kochin-koch-efz-spital-buelach-bulach"
+        "fr": "assistant-de-cuisine-efz-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3244,6 +3244,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kochin-koch-efz-spital-buelach-bulach"
+        ],
+        "en": [
+          "lehrstelle-kochin-koch-efz-spital-buelach-bulach"
+        ],
+        "fr": [
+          "lehrstelle-kochin-koch-efz-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-06-15T15:30:39.116Z",
@@ -3267,7 +3273,7 @@
         "it": "infermieristica-chirurgica-certificata-spital-bulach-bulach",
         "en": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
         "de": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach",
-        "fr": "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        "fr": "chirurgie-infirmiere-certifiee-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3314,6 +3320,9 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-chirurgie-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-06-15T15:30:39.139Z",
@@ -3335,9 +3344,9 @@
       "slug": "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach",
       "slugByLocale": {
         "it": "studi-post-laurea-in-terapia-intensiva-hf-spital-bulach-bulach",
-        "en": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
+        "en": "postgraduate-studies-hf-intensive-care-spital-bulach-bulach",
         "de": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach",
-        "fr": "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+        "fr": "etudes-postuniversitaires-en-soins-intensifs-en-hf-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3384,6 +3393,12 @@
       "previousSlugsByLocale": {
         "it": [
           "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+        ],
+        "en": [
+          "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
+        ],
+        "fr": [
+          "nachdiplomstudium-hf-intensivpflege-spital-buelach-bulach"
         ]
       },
       "firstSeenAt": "2026-06-16T14:38:27.256Z",
@@ -3402,12 +3417,12 @@
     },
     {
       "id": "spital-buelach-ca28abb0eb6f",
-      "slug": "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
+      "slug": "sviluppo-infermieristico-medicina-geriatrica-spital-bulach-bulach",
       "slugByLocale": {
         "de": "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
-        "it": "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
-        "en": "pflegeentwicklung-altersmedizin-spital-buelach-bulach",
-        "fr": "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+        "it": "sviluppo-infermieristico-medicina-geriatrica-spital-bulach-bulach",
+        "en": "nursing-development-geriatric-medicine-spital-bulach-bulach",
+        "fr": "developpement-infirmier-en-medecine-geriatrique-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3462,7 +3477,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T23:22:29.749Z"
+      "firstSeenAt": "2026-06-17T23:22:29.749Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+        ],
+        "en": [
+          "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+        ],
+        "fr": [
+          "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeentwicklung-altersmedizin-spital-buelach-bulach"
+      ]
     }
   ]
 }

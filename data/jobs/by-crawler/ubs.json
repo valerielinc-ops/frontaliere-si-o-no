@@ -148,12 +148,12 @@
     },
     {
       "id": "ubs-c0371bce6b47",
-      "slug": "research-analyst-global-growth-equity-ubs",
+      "slug": "ricerca-analista-global-growth-equity-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-global-growth-equity-ubs",
-        "it": "research-analyst-global-growth-equity-ubs",
+        "it": "ricerca-analista-global-growth-equity-ubs-ticino",
         "de": "research-analyst-global-growth-equity-ubs",
-        "fr": "research-analyst-global-growth-equity-ubs"
+        "fr": "recherche-analyste-global-growth-equity-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -218,11 +218,10 @@
       },
       "firstSeenAt": "2026-06-16T14:32:05.432Z",
       "previousSlugs": [
-        "ricerca-analista-global-growth-equity-ubs-ticino"
+        "research-analyst-global-growth-equity-ubs"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "recherche-analyste-global-growth-equity-ubs-ticino",
           "research-analyst-global-growth-equity-ubs"
         ],
         "it": [
@@ -378,14 +377,10 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "junior-compliance-specialist-mit-italienisch-ubs",
-          "junior-compliance-specialist-with-italian-ubs"
+          "junior-compliance-specialist-mit-italienisch-ubs"
         ],
         "fr": [
           "specialiste-junior-de-la-conformite-avec-l-italien-ubs-ticino"
-        ],
-        "it": [
-          "junior-compliance-specialist-with-italian-ubs"
         ]
       }
     },
@@ -541,11 +536,11 @@
     },
     {
       "id": "ubs-7151d01e95f1",
-      "slug": "market-director-ubs",
+      "slug": "market-direttore-ubs-ticino",
       "slugByLocale": {
         "en": "market-director-ubs",
-        "it": "market-director-ubs",
-        "de": "market-director-ubs",
+        "it": "market-direttore-ubs-ticino",
+        "de": "market-direktor-ubs-ticino",
         "fr": "market-director-ubs"
       },
       "company": "UBS",
@@ -609,7 +604,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.352Z"
+      "firstSeenAt": "2026-06-17T14:07:38.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-director-ubs"
+        ],
+        "de": [
+          "market-director-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-director-ubs"
+      ]
     },
     {
       "id": "ubs-69cbc807a7d3",
@@ -974,12 +980,12 @@
     },
     {
       "id": "ubs-234618a4760b",
-      "slug": "research-analyst-industrials-ubs",
+      "slug": "ricerca-analista-industrials-ubs-ticino",
       "slugByLocale": {
         "en": "research-analyst-industrials-ubs",
-        "it": "research-analyst-industrials-ubs",
+        "it": "ricerca-analista-industrials-ubs-ticino",
         "de": "research-analyst-industrials-ubs",
-        "fr": "research-analyst-industrials-ubs"
+        "fr": "recherche-analyste-industrials-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1042,7 +1048,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.347Z"
+      "firstSeenAt": "2026-06-17T14:07:38.347Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "research-analyst-industrials-ubs"
+        ],
+        "fr": [
+          "research-analyst-industrials-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "research-analyst-industrials-ubs"
+      ]
     },
     {
       "id": "ubs-1e30fed23cfc",
@@ -3508,12 +3525,12 @@
     },
     {
       "id": "ubs-970844009323",
-      "slug": "ib-research-associate-analyst-ubs",
+      "slug": "ib-ricerca-associate-analista-ubs-ticino",
       "slugByLocale": {
         "en": "ib-research-associate-analyst-ubs",
-        "it": "ib-research-associate-analyst-ubs",
+        "it": "ib-ricerca-associate-analista-ubs-ticino",
         "de": "ib-research-associate-analyst-ubs",
-        "fr": "ib-research-associate-analyst-ubs"
+        "fr": "ib-recherche-associate-analyste-ubs-ticino"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3576,16 +3593,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.343Z"
+      "firstSeenAt": "2026-06-17T14:07:38.343Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-research-associate-analyst-ubs"
+        ],
+        "fr": [
+          "ib-research-associate-analyst-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "ib-research-associate-analyst-ubs"
+      ]
     },
     {
       "id": "ubs-ff70a229d6b9",
-      "slug": "ib-research-associate-analyst-ubs-2",
+      "slug": "ib-ricerca-associate-analista-ubs-ticino-47ff84",
       "slugByLocale": {
         "en": "ib-research-associate-analyst-ubs",
-        "it": "ib-research-associate-analyst-ubs-2",
+        "it": "ib-ricerca-associate-analista-ubs-ticino-47ff84",
         "de": "ib-research-associate-analyst-ubs-2",
-        "fr": "ib-research-associate-analyst-ubs-2"
+        "fr": "ib-recherche-associate-analyste-ubs-ticino-47ff84"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3648,7 +3676,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.342Z"
+      "firstSeenAt": "2026-06-17T14:07:38.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-research-associate-analyst-ubs-2"
+        ],
+        "fr": [
+          "ib-research-associate-analyst-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "ib-research-associate-analyst-ubs-2"
+      ]
     }
   ]
 }

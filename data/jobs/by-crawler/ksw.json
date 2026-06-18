@@ -7,9 +7,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -52,7 +52,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -235,12 +237,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -283,16 +285,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -391,8 +390,8 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -438,15 +437,13 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
