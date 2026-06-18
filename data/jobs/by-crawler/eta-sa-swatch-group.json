@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-06-18T13:20:53.357Z",
+  "assembledAt": "2026-06-18T23:46:51.613Z",
   "jobs": [
     {
       "id": "company-6oyzsm",
@@ -82,7 +82,8 @@
       },
       "previousSlugs": [
         "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzsl",
@@ -225,7 +226,8 @@
       },
       "previousSlugs": [
         "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzsp",
@@ -373,7 +375,8 @@
       "previousSlugs": [
         "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso",
         "polymecanique-dans-le-domaine-de-l-erosion-80-100-sur-place-eta-sa-swatch-group-ticino"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6oz0cg",
@@ -448,7 +451,8 @@
       "previousSlugs": [
         "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
         "installation-production-de-pieces-en-plastique-100-sur-place-eta-sa-swatch-group-ticino"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6oz0ch",
@@ -528,7 +532,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     },
     {
       "id": "company-6oz0cc",
@@ -608,7 +613,8 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "needsRetranslation": true
     }
   ]
 }
