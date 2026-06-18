@@ -943,7 +943,16 @@ jobs:
               SHARD_HISTORY_CAP="${SHARD_HISTORY_CAP:-50}"
               incremental=0
               dcount=0
-              if git clone -q --depth 1 --filter=blob:none \
+              # --no-checkout is LOAD-BEARING: without it `git clone` materializes
+              # HEAD's working tree, which under --filter=blob:none lazily fetches
+              # ALL ~2.5 GB of blobs (defeating the bandwidth win — it would just
+              # trade a 2.5 GB upload for a 2.5 GB download). With --no-checkout the
+              # clone fetches only the commit+tree graph (~no blob bytes); the index
+              # is still populated from HEAD, so the `git add -A` over the
+              # re-materialized build below produces a DELTA (not a from-scratch
+              # tree) and stages deletions of removed pages. The working tree starts
+              # EMPTY, so the find-wipe below is a harmless no-op on this path.
+              if git clone -q --depth 1 --filter=blob:none --no-checkout \
                    "git@github.com:valerielinc-ops/frontaliere-$loc.git" "$stage" 2>/dev/null \
                  && [ -d "$stage/.git" ]; then
                 [ -f "$stage/.shard-deploys" ] && dcount="$(cat "$stage/.shard-deploys" 2>/dev/null || echo 0)"
@@ -994,8 +1003,14 @@ jobs:
               git add -A
               # Nothing changed since the last deploy → no commit, skip the push
               # entirely (idempotent; the remote already serves this exact tree).
-              if [ "$incremental" = 1 ] && git diff --cached --quiet; then
-                echo "$loc shard: no changes vs remote — skipping push (already current)"
+              # The no-change check EXCLUDES the bookkeeping markers (.shard-deploys
+              # bumps every run, .shard-filecount could too) — otherwise the counter
+              # delta would always trip the diff and the skip would be dead code. We
+              # only care whether the SERVED CONTENT changed; if it didn't, there is
+              # nothing to publish and bumping the history counter is pointless.
+              if [ "$incremental" = 1 ] \
+                 && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
+                echo "$loc shard: no content changes vs remote — skipping push (already current)"
               else
                 git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
                 # Incremental: fast-forward push on top of the cloned tip (delta only).
