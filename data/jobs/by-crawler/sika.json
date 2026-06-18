@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-06-18T13:05:38.396Z",
+  "assembledAt": "2026-06-18T23:33:09.693Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -33,7 +33,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-801917fc-80ba-4766-a2ec-8beac8c4bb54.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:05:35.786Z",
+      "crawledAt": "2026-06-18T23:33:07.065Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -104,7 +104,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-58b3351c-0ec0-41a5-ab88-e354e2a55f65.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:21:02.964Z",
+      "crawledAt": "2026-06-18T23:33:06.692Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -122,7 +122,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-58b3351c-0ec0-41a5-ab88-e354e2a55f65.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:40.547Z",
+      "previousSlugs": [
+        "customer-insights-intern-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "customer-insights-intern-sika-ch"
@@ -134,9 +136,7 @@
           "customer-insights-intern-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "customer-insights-intern-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:40.547Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -165,7 +165,7 @@
       "title": "Automatiker/Elektriker Instandhaltung (m/w)",
       "titleByLocale": {
         "it": "Manutenzione automatica/elettrica (m/f)",
-        "en": "Automatic/electrician maintenance (m/f)",
+        "en": "Automatiker/Elektriker Instandhaltung (m/w)",
         "de": "Automatiker/Elektriker Instandhaltung (m/w)",
         "fr": "Entretien automatique/électrique (m/f)"
       },
@@ -181,7 +181,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:21:01.734Z",
+      "crawledAt": "2026-06-18T23:33:06.320Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -199,6 +199,20 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f1183c9e-17fe-4fdf-b9c9-94baffe60d35.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ],
+        "en": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ],
+        "fr": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:57:38.750Z",
       "salaryMin": 68500,
@@ -212,21 +226,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
-        ],
-        "en": [
-          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
-        ],
-        "fr": [
-          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-elektriker-instandhaltung-m-w-sika-ch"
-      ]
+      }
     },
     {
       "id": "sika-a5c998e21afd",
@@ -234,7 +234,7 @@
       "slugByLocale": {
         "it": "senior-solution-architetto-project-manager-sap-fin-sika-zurich",
         "en": "senior-solution-architect-project-manager-sap-fin-sika-ch",
-        "de": "senior-solution-architect-project-manager-sap-fin-sika-ch",
+        "de": "senior-solution-architect-projektmanager-sap-fin-sika-zurich",
         "fr": "senior-solution-architecte-project-manager-sap-fin-sika-zurich"
       },
       "company": "Sika",
@@ -259,7 +259,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:21:00.685Z",
+      "crawledAt": "2026-06-18T23:33:05.178Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -277,19 +277,22 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-044292c9-b524-45f0-9eb3-903addfac2a1.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:57:36.947Z",
+      "previousSlugs": [
+        "senior-solution-architect-project-manager-sap-fin-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-solution-architect-project-manager-sap-fin-sika-ch"
         ],
         "fr": [
           "senior-solution-architect-project-manager-sap-fin-sika-ch"
+        ],
+        "de": [
+          "senior-solution-architect-project-manager-sap-fin-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-solution-architect-project-manager-sap-fin-sika-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:36.947Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -334,7 +337,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:59.038Z",
+      "crawledAt": "2026-06-18T23:33:02.830Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -352,6 +355,20 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ],
+        "en": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ],
+        "fr": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:57:35.192Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -364,21 +381,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ],
-        "en": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ],
-        "fr": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-      ]
+      }
     },
     {
       "id": "sika-3dd995c5afa2",
@@ -401,7 +404,7 @@
       },
       "description": "As a core member of our infrastructure team, you won’t just \"maintain\" systems; you will be an architect of stability and a driver of automation. We are looking for an expert who can bridge the gap between traditional system administration and modern cloud operations, ensuring our multinational environment remains scalable, secure, and cutting-edge. Cloud Orchestration: Take full ownership of our Azure cloud ecosystem, ensuring IT services are high-performing and resilient. DevOps Evolution: Actively improve DevOps workflows within the team , championing automation and CI/CD best practices to speed up delivery. Infrastructure Lifecycle: Lead the charge on planning, migrating, and implementing complex infrastructure systems, transitioning them seamlessly into production. Stability & Monitoring: Keep a pulse on system health through proactive monitoring, handling incident and change management with precision. Security & Compliance: Guard our environment by implementing robust IT security policies and maintaining detailed documentation. Collaborative Leadership: Partner with external providers and mentor internal stakeholders through workshops and knowledge-sharing sessions. Operational Excellence: Participate in a 24x7 on-call rotation, ensuring our global services never sleep.",
       "descriptionByLocale": {
-        "it": "Come membro centrale del nostro team di infrastrutture, non sarà solo \"mantenere\" i sistemi; sarete un architetto di stabilità e un driver di automazione. Stiamo cercando un esperto in grado di colmare il divario tra l'amministrazione del sistema tradizionale e le moderne operazioni cloud, garantendo che il nostro ambiente multinazionale resti scalabile, sicuro e all'avanguardia. Cloud Orchestration: Assumere la piena proprietà del nostro ecosistema cloud Azure, assicurando che i servizi IT siano altamente performanti e resilienti. DevOps Evolution: migliora attivamente i flussi di lavoro DevOps all'interno del team, sostenendo l'automazione e le best practice CI/CD per accelerare la consegna. Il ciclo di vita delle infrastrutture: guidare la carica sulla pianificazione, la migrazione e l'attuazione di sistemi infrastrutturali complessi, transizione senza soluzione di continuità nella produzione. Stabilità & Monitoraggio: Mantenere un impulso sulla salute del sistema attraverso il monitoraggio proattivo, la gestione degli incidenti e la gestione dei cambiamenti con precisione. Sicurezza e conformità: proteggere il nostro ambiente implementando robuste politiche di sicurezza IT e mantenendo la documentazione dettagliata. Leadership collaborativa: Partner con i fornitori esterni e gli stakeholder interni del mentore attraverso workshop e sessioni di condivisione delle conoscenze. Eccellenza Operativa: Partecipa a una rotazione su chiamata 24x7, assicurando che i nostri servizi globali non dormano mai.",
+        "it": "Come membro centrale del nostro team di infrastrutture, non sarà solo \"mantenere\" i sistemi; sarete un architetto di stabilità e un driver di automazione. \n• Stiamo cercando un esperto in grado di colmare il divario tra l'amministrazione del sistema tradizionale e le moderne operazioni cloud, garantendo che il nostro ambiente multinazionale resti scalabile, sicuro e all'avanguardia. Cloud Orchestration: Assumere la piena proprietà del nostro ecosistema cloud Azure, assicurando che i servizi IT siano altamente performanti e resilienti. DevOps Evolution: migliora attivamente i flussi di lavoro DevOps all'interno del team, sostenendo l'automazione e le best practice CI/CD per accelerare la consegna. Il ciclo di vita delle infrastrutture: guidare la carica sulla pianificazione, la migrazione e l'attuazione di sistemi infrastrutturali complessi, transizione senza soluzione di continuità nella produzione. Stabilità & Monitoraggio: Mantenere un impulso sulla salute del sistema attraverso il monitoraggio proattivo, la gestione degli incidenti e la gestione dei cambiamenti con precisione. Sicurezza e conformità: proteggere il nostro ambiente implementando robuste politiche di sicurezza IT e mantenendo la documentazione dettagliata. Leadership collaborativa: Partner con i fornitori esterni e gli stakeholder interni del mentore attraverso workshop e sessioni di condivisione delle conoscenze. Eccellenza Operativa: Partecipa a una rotazione su chiamata 24x7, assicurando che i nostri servizi globali non dormano mai.",
         "en": "As a core member of our infrastructure team, you won’t just \"maintain\" systems; you will be an architect of stability and a driver of automation. We are looking for an expert who can bridge the gap between traditional system administration and modern cloud operations, ensuring our multinational environment remains scalable, secure, and cutting-edge. Cloud Orchestration: Take full ownership of our Azure cloud ecosystem, ensuring IT services are high-performing and resilient. DevOps Evolution: Actively improve DevOps workflows within the team , championing automation and CI/CD best practices to speed up delivery. Infrastructure Lifecycle: Lead the charge on planning, migrating, and implementing complex infrastructure systems, transitioning them seamlessly into production. Stability & Monitoring: Keep a pulse on system health through proactive monitoring, handling incident and change management with precision. Security & Compliance: Guard our environment by implementing robust IT security policies and maintaining detailed documentation. Collaborative Leadership: Partner with external providers and mentor internal stakeholders through workshops and knowledge-sharing sessions. Operational Excellence: Participate in a 24x7 on-call rotation, ensuring our global services never sleep.",
         "de": "Als Kernmitglied unseres Infrastrukturteams werden Sie nicht nur Systeme \"instandhalten\", Sie werden ein Architekt der Stabilität und ein Treiber der Automatisierung sein. Wir suchen einen Experten, der die Lücke zwischen traditioneller Systemadministration und modernem Cloud-Betrieb schließen kann, um sicherzustellen, dass unsere multinationale Umgebung skalierbar, sicher und modern bleibt. Cloud Orchestration: Übernehmen Sie die volle Verantwortung für unser Azure-Cloud-Ökosystem und stellen Sie sicher, dass IT-Services leistungsstark und widerstandsfähig sind. DevOps Evolution: DevOps-Workflows im Team aktiv verbessern und sich für Automatisierung und CI/CD Best Practices einsetzen, um die Bereitstellung zu beschleunigen. Infrastructure Lifecycle: Führen Sie die Verantwortung für die Planung, Migration und Implementierung komplexer Infrastruktursysteme und überführen Sie sie nahtlos in die Produktion. Stabilität & Überwachung: Halten Sie einen Puls auf Systemzustand durch proaktive Überwachung, Umgang mit Incident und Change Management mit Präzision. Security & Compliance: Schützen Sie unsere Umgebung, indem Sie robuste IT-Sicherheitsrichtlinien implementieren und eine detaillierte Dokumentation durchführen. Collaborative Leadership: Partnerschaft mit externen Anbietern und Mentoren interner Stakeholder durch Workshops und Wissensaustauschsitzungen. Operational Excellence: Nehmen Sie an einer 24x7-On-Call-Rotation teil, um sicherzustellen, dass unsere globalen Dienste niemals schlafen.",
         "fr": "En tant que membre principal de notre équipe d'infrastructure, vous n'avez gagné qu'à \"maintenir\" les systèmes ; vous serez un architecte de stabilité et un moteur d'automatisation. Nous recherchons un expert capable de combler l'écart entre l'administration traditionnelle du système et les opérations infonuagiques modernes, assurant ainsi que notre environnement multinational demeure évolutif, sûr et de pointe. L'orchestration en nuage: Prenez la pleine propriété de notre écosystème nuageux Azure, assurant des services informatiques hautement performants et résilients. DevOps Evolution: Améliorer activement les flux de travail de DevOps au sein de l'équipe, en défendant l'automatisation et les meilleures pratiques de CI/CD pour accélérer la livraison. Cycle de vie de l'infrastructure : Diriger les frais de planification, de migration et de mise en oeuvre de systèmes d'infrastructure complexes, en les transformant de façon transparente en production. Stabilité et surveillance : garder un pouls sur la santé du système par une surveillance proactive, la gestion des incidents et la gestion du changement avec précision. Sécurité et conformité : Surveillez notre environnement en appliquant des politiques de sécurité informatique robustes et en maintenant une documentation détaillée. Leadership collaboratif : Partenaire avec des fournisseurs externes et mentor des intervenants internes au moyen d'ateliers et de séances de partage des connaissances. Excellence opérationnelle : Participez à une rotation 24x7 sur appel, assurant que nos services mondiaux ne dorment jamais."
@@ -411,7 +414,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48caac1b-4c20-4da6-b5f5-6cb710571336.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:57.594Z",
+      "crawledAt": "2026-06-18T23:33:01.623Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -429,7 +432,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-48caac1b-4c20-4da6-b5f5-6cb710571336.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:34.130Z",
+      "previousSlugs": [
+        "ict-system-engineer-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-sika-ch"
@@ -441,9 +446,7 @@
           "ict-system-engineer-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "ict-system-engineer-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:34.130Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -488,7 +491,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:56.109Z",
+      "crawledAt": "2026-06-18T23:32:59.741Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -506,7 +509,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-5c159c3b-6f5e-407d-ac74-ef35ffc50d29.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:32.932Z",
+      "previousSlugs": [
+        "senior-technical-consultant-sap-development-transportation-management-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
@@ -518,9 +523,7 @@
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-technical-consultant-sap-development-transportation-management-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:32.932Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -565,7 +568,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-38ff13c5-35d4-4c51-bc64-402bf61f1c9f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:54.575Z",
+      "crawledAt": "2026-06-18T23:32:56.964Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -583,7 +586,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-38ff13c5-35d4-4c51-bc64-402bf61f1c9f.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:31.323Z",
+      "previousSlugs": [
+        "program-manager-sap-logistics-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "program-manager-sap-logistics-sika-ch"
@@ -595,9 +600,7 @@
           "program-manager-sap-logistics-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "program-manager-sap-logistics-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:31.323Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -642,7 +645,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:53.385Z",
+      "crawledAt": "2026-06-18T23:32:54.817Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -660,22 +663,22 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-a83ab262-97a6-4d10-a5a4-e2269c5bfc4a.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:57:30.183Z",
+      "previousSlugs": [
+        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ],
-        "fr": [
+        "de": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ],
-        "de": [
+        "fr": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:30.183Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -720,7 +723,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:51.635Z",
+      "crawledAt": "2026-06-18T23:32:52.932Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -738,7 +741,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-3208a53f-8b20-4e4c-a5f3-d63a19f65549.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "previousSlugs": [
+        "equipment-operator-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "equipment-operator-sika-ch"
@@ -747,9 +752,8 @@
           "equipment-operator-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "equipment-operator-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:28.934Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -794,7 +798,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-62fa031c-f546-4479-b8c4-c130a4f4429b.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:50.207Z",
+      "crawledAt": "2026-06-18T23:32:51.862Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -871,7 +875,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-7524868e-8aaa-4fce-af3c-1fb51b67a8c4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:49.151Z",
+      "crawledAt": "2026-06-18T23:32:49.973Z",
       "addressLocality": "Widen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -950,7 +954,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-995aed39-1670-40c1-a4c5-9add8a4ad9bd.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:47.813Z",
+      "crawledAt": "2026-06-18T23:32:49.590Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -998,9 +1002,9 @@
     },
     {
       "id": "sika-57904af66408",
-      "slug": "projekt-manager-scm-w-m-d-100-sika-ch",
+      "slug": "project-manager-scm-w-m-d-100-sika-birr",
       "slugByLocale": {
-        "it": "projekt-manager-scm-w-m-d-100-sika-ch",
+        "it": "project-manager-scm-w-m-d-100-sika-birr",
         "en": "projekt-manager-scm-w-m-d-100-sika-ch",
         "de": "projekt-manager-scm-w-m-d-100-sika-ch",
         "fr": "gestionnaire-de-projet-scm-w-m-d-100-sika-birr-aargau-switzerland"
@@ -1011,7 +1015,7 @@
       "title": "Projekt-Manager (SCM) (W/M/D) 100%",
       "titleByLocale": {
         "it": "Project Manager (SCM) (W/M/D) 100%",
-        "en": "Project Manager (SCM) (W/M/D) 100%",
+        "en": "Projekt-Manager (SCM) (W/M/D) 100%",
         "de": "Projekt-Manager (SCM) (W/M/D) 100%",
         "fr": "Gestionnaire de projet (SCM) (W/M/D) 100%"
       },
@@ -1027,7 +1031,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-225018cc-701c-4277-b715-54c0dc18286c.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:46.488Z",
+      "crawledAt": "2026-06-18T23:32:47.507Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1047,6 +1051,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:57:21.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projekt-manager-scm-w-m-d-100-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projekt-manager-scm-w-m-d-100-sika-ch"
+      ],
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -1066,7 +1078,7 @@
       "slugByLocale": {
         "it": "senior-solution-architetto-project-manager-sap-ewm-sika-zurich",
         "en": "senior-solution-architect-project-manager-sap-ewm-sika-ch",
-        "de": "senior-solution-architect-project-manager-sap-ewm-sika-ch",
+        "de": "senior-solution-architect-projektmanager-sap-ewm-sika-zurich",
         "fr": "senior-solution-architecte-project-manager-sap-ewm-sika-zurich"
       },
       "company": "Sika",
@@ -1091,7 +1103,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:44.276Z",
+      "crawledAt": "2026-06-18T23:32:46.573Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1109,19 +1121,22 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-14ec562b-e189-4f29-a2f7-af58ab74c7f4.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:57:19.553Z",
+      "previousSlugs": [
+        "senior-solution-architect-project-manager-sap-ewm-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-solution-architect-project-manager-sap-ewm-sika-ch"
         ],
         "fr": [
           "senior-solution-architect-project-manager-sap-ewm-sika-ch"
+        ],
+        "de": [
+          "senior-solution-architect-project-manager-sap-ewm-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-solution-architect-project-manager-sap-ewm-sika-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:57:19.553Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "baseSalary": {
@@ -1166,7 +1181,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-92d05c4c-329f-4781-a49d-615338512dd2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:43.282Z",
+      "crawledAt": "2026-06-18T23:32:45.358Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1184,7 +1199,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-92d05c4c-329f-4781-a49d-615338512dd2.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:18.592Z",
+      "previousSlugs": [
+        "accounting-specialist-financial-accounting-50-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "accounting-specialist-financial-accounting-50-sika-ch"
@@ -1193,9 +1210,8 @@
           "accounting-specialist-financial-accounting-50-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "accounting-specialist-financial-accounting-50-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:18.592Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1240,7 +1256,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c83d7b4a-0719-40f6-b661-e6a9ad719274.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:42.260Z",
+      "crawledAt": "2026-06-18T23:32:43.115Z",
       "addressLocality": "Baar",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1258,7 +1274,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-c83d7b4a-0719-40f6-b661-e6a9ad719274.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:17.306Z",
+      "previousSlugs": [
+        "internship-analytics-engineer-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "internship-analytics-engineer-sika-ch"
@@ -1270,9 +1288,7 @@
           "internship-analytics-engineer-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "internship-analytics-engineer-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:17.306Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1317,7 +1333,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4b36ff42-9605-4fab-8179-f8c2e29695c6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-18T13:05:09.695Z",
+      "crawledAt": "2026-06-18T23:32:41.449Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1395,7 +1411,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:39.702Z",
+      "crawledAt": "2026-06-18T23:32:40.088Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1413,6 +1429,20 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-9708cf86-6355-4cad-a7fb-19a1174aebf9.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ],
+        "en": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:57:14.492Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1425,21 +1455,7 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ],
-        "en": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ],
-        "fr": [
-          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
-      ]
+      }
     },
     {
       "id": "sika-6c473d5691a0",
@@ -1472,7 +1488,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:37.408Z",
+      "crawledAt": "2026-06-18T23:32:38.097Z",
       "addressLocality": "Romanshorn",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1490,6 +1506,20 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f6406866-8261-42b2-b18c-75a219d69ce1.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "automatiker-m-w-d-sika-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-m-w-d-sika-ch"
+        ],
+        "en": [
+          "automatiker-m-w-d-sika-ch"
+        ],
+        "fr": [
+          "automatiker-m-w-d-sika-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:57:12.304Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1502,21 +1532,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "automatiker-m-w-d-sika-ch"
-        ],
-        "en": [
-          "automatiker-m-w-d-sika-ch"
-        ],
-        "fr": [
-          "automatiker-m-w-d-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "automatiker-m-w-d-sika-ch"
-      ]
+      }
     },
     {
       "id": "sika-f29f6c1b2d83",
@@ -1549,7 +1565,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e62349e4-b260-46b1-b5b1-558137b84dfa.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:35.340Z",
+      "crawledAt": "2026-06-18T23:32:36.627Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1626,7 +1642,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f60aaabf-46d6-48de-bd14-7b67aa95a9ba.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-17T23:20:34.366Z",
+      "crawledAt": "2026-06-18T23:32:35.347Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1653,6 +1669,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:08.974Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1697,7 +1714,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-465ec003-7a5e-4cd9-881a-2b492edbf36f.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:32.926Z",
+      "crawledAt": "2026-06-18T23:32:33.126Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1774,7 +1791,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-00070f8e-b43c-46c7-9d5d-94e7dab3912d.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:31.356Z",
+      "crawledAt": "2026-06-18T23:32:32.370Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1851,7 +1868,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-aaa2ca3a-8fad-44a2-9748-f838280ae5a4.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:29.860Z",
+      "crawledAt": "2026-06-18T23:32:29.820Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1884,6 +1901,7 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
+      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "baseSalary": {
@@ -1912,7 +1930,7 @@
       "title": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer (m/w/d) Extrusionslinien - Process Operatore (m/w/d)",
-        "en": "Installation operator (m/f/d) Extrusion lines - Process operator (m/f/d)",
+        "en": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "de": "Anlagenführer (m/w/d) Extrusionslinien - Process Operator (m/w/d)",
         "fr": "Anlagenführer (m/w/d) Extrusionslinien - Process Opérateur (m/w/d)"
       },
@@ -1928,7 +1946,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:27.708Z",
+      "crawledAt": "2026-06-18T23:32:26.958Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -1946,21 +1964,22 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-bdfb0e95-97e0-4a0d-af2c-174bfdd23681.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "previousSlugs": [
+        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ],
-        "fr": [
+        "en": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ],
-        "en": [
+        "fr": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:02.407Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -1989,7 +2008,7 @@
       "title": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
       "titleByLocale": {
         "it": "Anlagenführer Recycling (m/w/d) - Process Operatore Recycling (m/w/d)",
-        "en": "Plant Manager Recycling (m/f/d) - Process Operator Recycling (m/f/d)",
+        "en": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "de": "Anlagenführer Recycling (m/w/d) - Process Operator Recycling (m/w/d)",
         "fr": "Anlagenführer Recycling (m/w/d) - Process Opérateur Recycling (m/w/d)"
       },
@@ -2005,7 +2024,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:25.894Z",
+      "crawledAt": "2026-06-18T23:32:25.845Z",
       "addressLocality": "Sarnen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2023,7 +2042,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-0923cb82-640a-4fe7-a00e-b8832c0307a9.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "previousSlugs": [
+        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
@@ -2032,9 +2053,8 @@
           "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "anlagenfuhrer-recycling-m-w-d-process-operator-recycling-m-w-d-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:57:00.845Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "baseSalary": {
@@ -2079,7 +2099,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1336504d-3025-444e-8331-3eb62851fd3e.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:23.920Z",
+      "crawledAt": "2026-06-18T23:32:24.540Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2142,7 +2162,7 @@
       "title": "HR Process & SuccessFactors Specialist (m/w/d)",
       "titleByLocale": {
         "it": "Risorse Umane Process & SuccessFactors Specialista (m/w/d)",
-        "en": "HR Process & SuccessFactors Specialist (m/f/d)",
+        "en": "HR Process & SuccessFactors Specialist (m/w/d)",
         "de": "Personalwesen Process & SuccessFactors Spezialist (m/w/d)",
         "fr": "Ressources Humaines Process & SuccessFactors Spécialiste (m/w/d)"
       },
@@ -2158,7 +2178,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-dbf6ce4d-81e1-435c-8c7b-6b03807f59c2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:22.562Z",
+      "crawledAt": "2026-06-18T23:32:23.178Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2176,8 +2196,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-dbf6ce4d-81e1-435c-8c7b-6b03807f59c2.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:56:57.086Z",
+      "previousSlugs": [
+        "hr-process-successfactors-specialist-m-w-d-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-process-successfactors-specialist-m-w-d-sika-ch"
@@ -2186,9 +2207,8 @@
           "hr-process-successfactors-specialist-m-w-d-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "hr-process-successfactors-specialist-m-w-d-sika-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:56:57.086Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2207,7 +2227,7 @@
       "slug": "project-manager-sap-ewm-m-f-d-sika-birr-aargau-switzerland",
       "slugByLocale": {
         "it": "project-manager-sap-ewm-m-f-d-sika-birr-aargau-switzerland",
-        "en": "projektleiter-sap-ewm-m-w-d-sika-ch",
+        "en": "project-manager-sap-ewm-m-f-d-sika-birr",
         "de": "projektleiter-sap-ewm-m-w-d-sika-ch",
         "fr": "gestionnaire-de-projet-sap-ewm-m-f-d-sika-birr-aargau-switzerland"
       },
@@ -2233,7 +2253,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-e4d8e3c0-d578-4803-81e6-ebe05a58d9b2.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:21.422Z",
+      "crawledAt": "2026-06-18T23:32:22.422Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2262,19 +2282,22 @@
         ],
         "fr": [
           "projektleiter-sap-ewm-m-w-d-sika-ch"
+        ],
+        "en": [
+          "projektleiter-sap-ewm-m-w-d-sika-ch"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:56:55.465Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 85500,
+      "salaryMax": 129500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 85500,
+          "maxValue": 129500,
           "unitText": "YEAR"
         }
       }
@@ -2294,7 +2317,7 @@
       "title": "Payroll Specialist 100% (m/w/d)",
       "titleByLocale": {
         "it": "Payroll Specialista 100% (m/w/d)",
-        "en": "Payroll Specialist 100% (m/f/d)",
+        "en": "Payroll Specialist 100% (m/w/d)",
         "de": "Payroll Spezialist 100% (m/w/d)",
         "fr": "Payroll Spécialiste 100% (m/w/d)"
       },
@@ -2310,7 +2333,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:20.375Z",
+      "crawledAt": "2026-06-18T23:32:19.218Z",
       "addressLocality": "Birr",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2328,8 +2351,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-cc02fe66-5134-4982-8603-c40180c5ab03.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-17T13:56:52.994Z",
+      "previousSlugs": [
+        "payroll-specialist-100-m-w-d-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-specialist-100-m-w-d-sika-ch"
@@ -2338,9 +2362,8 @@
           "payroll-specialist-100-m-w-d-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "payroll-specialist-100-m-w-d-sika-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-17T13:56:52.994Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2377,7 +2400,7 @@
       "descriptionByLocale": {
         "it": "In questo Internship IAM, fai parte del team Sika Identity & Access Management (IAM), aiutando a costruire e supportare la soluzione IAM globale di Sika. Aiuta con i progetti, le richieste di cambiamento e gli incidenti legati all'AM. Siete in contatto con vari stakeholder. Impostare e mantenere identità, account, gruppi, risorse, regole e politiche Aiutare con i requisiti di raccolta, pianificazione dello sviluppo e documentazione Aiutare con le attività di test Ricezione e creazione di biglietti di supporto (gestione degli incidenti) e le richieste di cambiamento (gestione dei cambiamenti) per la piattaforma IAM Coordinamento delle soluzioni di supporto con il fornitore IAM e altri stakeholder interni o esterni a livello globale Coordinamento ed esecuzione di modifiche di massa di identità e altri dati",
         "en": "In this IAM Internship , you are part of the Sika Identity & Access Management (IAM) team, helping to build and support Sika’s global IAM solution. You help with IAM-related projects, change requests, and incidents. You are in contact with various stakeholders. Setting up and maintaining identities, accounts, groups, resources, rules, and policies Helping with requirements gathering, development planning, and documentation Helping with testing activities Receiving and creating support tickets (incident management) and change requests (change management) for the IAM platform Coordinating the support solutions with the IAM vendor and other internal or external stakeholders globally Coordinating and executing bulk and mass changes of identities and other data",
-        "de": "In diesem IAM-Praktikum sind Sie Teil des Sika Identity & Access Management (IAM)-Teams und unterstützen Sikas globale IAM-Lösung. Sie helfen bei IAM-bezogenen Projekten, Änderungsanforderungen und Vorfällen. Sie stehen in Kontakt mit verschiedenen Stakeholdern. Einrichtung und Pflege von Identitäten, Konten, Gruppen, Ressourcen, Regeln und Richtlinien Unterstützung bei der Erfassung von Anforderungen, Entwicklungsplanung und Dokumentation Unterstützung bei Testaktivitäten Erhalt und Erstellung von Supporttickets (Incident Management) und Änderungsanforderungen (Change Management) für die IAM-Plattform Koordinierung der Supportlösungen mit dem IAM-Anbieter und anderen internen oder externen Stakeholdern weltweit Koordinierung und Durchführung von Massen- und Massenänderungen von Identitäten und anderen Daten",
+        "de": "In diesem IAM-Praktikum sind Sie Teil des Sika Identity & Access Management (IAM)-Teams und unterstützen Sikas globale IAM-Lösung. Sie helfen bei IAM-bezogenen Projekten, Änderungsanforderungen und Vorfällen. Sie stehen in Kontakt mit verschiedenen Stakeholdern. Einrichtung und Pflege von Identitäten, Konten, Gruppen, Ressourcen, Regeln und Richtlinien Unterstützung bei der Erfassung von \n• Anforderungen, Entwicklungsplanung und Dokumentation Unterstützung bei Testaktivitäten Erhalt und Erstellung von Supporttickets (Incident Management) und Änderungsanforderungen (Change Management) für die IAM-Plattform Koordinierung der Supportlösungen mit dem IAM-Anbieter und anderen internen oder externen Stakeholdern weltweit Koordinierung und Durchführung von Massen- und Massenänderungen von Identitäten und anderen Daten",
         "fr": "Dans ce stage IAM , vous faites partie de l'équipe Sika Identity & Access Management (IAM), aidant à construire et à soutenir la solution IAM globale de Sika. Vous aidez les projets liés à l'IAM, les demandes de changement et les incidents. Vous êtes en contact avec divers intervenants. Mettre en place et maintenir des identités, des comptes, des groupes, des ressources, des règles et des politiques Aide à la collecte des exigences, à la planification du développement et à la documentation Aide aux activités de test Réception et création de tickets d'assistance (gestion des incidents) et de demandes de changement (gestion du changement) pour la plateforme IAM Coordination des solutions de soutien avec le fournisseur IAM et d'autres parties prenantes internes ou externes à l'échelle mondiale Coordination et exécution de grands changements d'identité et d'autres données"
       },
       "location": "Zürich, Zurich, Switzerland",
@@ -2385,7 +2408,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f724b276-7bbb-462a-be82-28b329b8ff87.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:18.653Z",
+      "crawledAt": "2026-06-18T23:32:17.271Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2403,7 +2426,9 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-f724b276-7bbb-462a-be82-28b329b8ff87.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-17T13:56:51.401Z",
+      "previousSlugs": [
+        "identity-access-management-iam-intern-sika-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "identity-access-management-iam-intern-sika-ch"
@@ -2415,9 +2440,7 @@
           "identity-access-management-iam-intern-sika-ch"
         ]
       },
-      "previousSlugs": [
-        "identity-access-management-iam-intern-sika-ch"
-      ],
+      "firstSeenAt": "2026-06-17T13:56:51.401Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2462,7 +2485,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-d60c6ce1-5511-421d-bb24-b7240688f0c5.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:16.841Z",
+      "crawledAt": "2026-06-18T23:32:15.298Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2539,7 +2562,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-6a2c4b22-d8ce-4c8f-a8ae-ebef8bb94bb6.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:20:15.050Z",
+      "crawledAt": "2026-06-18T23:32:13.103Z",
       "addressLocality": "Düdingen",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2617,7 +2640,7 @@
       "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "source": "Sika Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:20:13.010Z",
+      "crawledAt": "2026-06-18T23:32:11.019Z",
       "addressLocality": "Zürich",
       "postalCode": "6341",
       "streetAddress": "",
@@ -2635,7 +2658,19 @@
       "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-4f40f20f-63b6-4ab9-8a6b-5cacf7ed4132.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        ],
+        "fr": [
+          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:56:47.313Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -2647,84 +2682,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
-        ],
-        "fr": [
-          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
-        ]
-      },
-      "previousSlugs": [
-        "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
-      ]
-    },
-    {
-      "id": "sika-4a837ce460ff",
-      "slug": "emea-senior-talent-acquisition-manager-sika-ch",
-      "slugByLocale": {
-        "en": "emea-senior-talent-acquisition-manager-sika-ch",
-        "it": "emea-senior-talent-acquisition-manager-sika-ch",
-        "de": "emea-senior-talent-acquisition-manager-sika-ch",
-        "fr": "emea-senior-talent-acquisition-manager-sika-ch"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "EMEA Senior Talent Acquisition Manager",
-      "titleByLocale": {
-        "en": "EMEA Senior Talent Acquisition Manager",
-        "it": "EMEA Senior Talent Acquisition Manager",
-        "de": "EMEA Senior Talent Acquisition Manager",
-        "fr": "EMEA Senior Talent Acquisition Manager"
-      },
-      "description": "We are looking for our EMEA Talent Management team, a Talent Acquisition professional who will lead and elevate talent acquisition across EMEA, with a strong focus on general management and business-critical roles. This role is pivotal in shaping the organization’s leadership pipeline and ensuring we attract, assess, and hire top-tier talent aligned with strategic priorities. Beyond recruitment delivery, the role will drive best-in-class hiring practices, processes, and stakeholder partnerships across the region, in close collaboration with Global TA teams. Key responsibilities 1. Strategic Hiring Lead end-to-end recruitment for senior leadership, general management, and mission-critical roles across EMEA Act as a trusted advisor to senior stakeholders (regional leaders, Area HR managers) on talent acquisition strategy, market insights, and candidate positioning Contribute to build and maintain strong pipelines for key leadership positions Execute confidential and high-impact searches with professionalism and discretion 2. Talent Acquisition Strategy & Processes Co-design, implement, and continuously improve scalable, high-quality hiring processes across the region Drive best practices aligned with Group guidelines in: Candidate assessment frameworks, Interview methodologies, Hiring governance, Selection and decision-making processes Ensure consistent, inclusive, and high-quality candidate experience throughout the hiring journey Conduct ongoing talent market mapping and competitor analysis across EMEA Contribute to strengthening the EMEA employer brand approach and talent attraction Contribute to the harmonize the Trainees/Apprenticeship approach in EMEA 3. Stakeholder Partnership Partner closely with Area HR managers Challenge and influence stakeholders to ensure hiring decisions align with long-term business and talent strategy Collaborate with Talent Development within the team and other HR to align hiring with broader people priorities 4. Data & Reporting Track and report on key recruitment metrics Use data insights to improve efficiency, effectiveness, and decision-making Drive continuous improvement initiatives across TA practices in EMEA",
-      "descriptionByLocale": {
-        "en": "We are looking for our EMEA Talent Management team, a Talent Acquisition professional who will lead and elevate talent acquisition across EMEA, with a strong focus on general management and business-critical roles. This role is pivotal in shaping the organization’s leadership pipeline and ensuring we attract, assess, and hire top-tier talent aligned with strategic priorities. Beyond recruitment delivery, the role will drive best-in-class hiring practices, processes, and stakeholder partnerships across the region, in close collaboration with Global TA teams. Key responsibilities 1. Strategic Hiring Lead end-to-end recruitment for senior leadership, general management, and mission-critical roles across EMEA Act as a trusted advisor to senior stakeholders (regional leaders, Area HR managers) on talent acquisition strategy, market insights, and candidate positioning Contribute to build and maintain strong pipelines for key leadership positions Execute confidential and high-impact searches with professionalism and discretion 2. Talent Acquisition Strategy & Processes Co-design, implement, and continuously improve scalable, high-quality hiring processes across the region Drive best practices aligned with Group guidelines in: Candidate assessment frameworks, Interview methodologies, Hiring governance, Selection and decision-making processes Ensure consistent, inclusive, and high-quality candidate experience throughout the hiring journey Conduct ongoing talent market mapping and competitor analysis across EMEA Contribute to strengthening the EMEA employer brand approach and talent attraction Contribute to the harmonize the Trainees/Apprenticeship approach in EMEA 3. Stakeholder Partnership Partner closely with Area HR managers Challenge and influence stakeholders to ensure hiring decisions align with long-term business and talent strategy Collaborate with Talent Development within the team and other HR to align hiring with broader people priorities 4. Data & Reporting Track and report on key recruitment metrics Use data insights to improve efficiency, effectiveness, and decision-making Drive continuous improvement initiatives across TA practices in EMEA",
-        "it": "We are looking for our EMEA Talent Management team, a Talent Acquisition professional who will lead and elevate talent acquisition across EMEA, with a strong focus on general management and business-critical roles. This role is pivotal in shaping the organization’s leadership pipeline and ensuring we attract, assess, and hire top-tier talent aligned with strategic priorities. Beyond recruitment delivery, the role will drive best-in-class hiring practices, processes, and stakeholder partnerships across the region, in close collaboration with Global TA teams. Key responsibilities 1. Strategic Hiring Lead end-to-end recruitment for senior leadership, general management, and mission-critical roles across EMEA Act as a trusted advisor to senior stakeholders (regional leaders, Area HR managers) on talent acquisition strategy, market insights, and candidate positioning Contribute to build and maintain strong pipelines for key leadership positions Execute confidential and high-impact searches with professionalism and discretion 2. Talent Acquisition Strategy & Processes Co-design, implement, and continuously improve scalable, high-quality hiring processes across the region Drive best practices aligned with Group guidelines in: Candidate assessment frameworks, Interview methodologies, Hiring governance, Selection and decision-making processes Ensure consistent, inclusive, and high-quality candidate experience throughout the hiring journey Conduct ongoing talent market mapping and competitor analysis across EMEA Contribute to strengthening the EMEA employer brand approach and talent attraction Contribute to the harmonize the Trainees/Apprenticeship approach in EMEA 3. Stakeholder Partnership Partner closely with Area HR managers Challenge and influence stakeholders to ensure hiring decisions align with long-term business and talent strategy Collaborate with Talent Development within the team and other HR to align hiring with broader people priorities 4. Data & Reporting Track and report on key recruitment metrics Use data insights to improve efficiency, effectiveness, and decision-making Drive continuous improvement initiatives across TA practices in EMEA",
-        "de": "We are looking for our EMEA Talent Management team, a Talent Acquisition professional who will lead and elevate talent acquisition across EMEA, with a strong focus on general management and business-critical roles. This role is pivotal in shaping the organization’s leadership pipeline and ensuring we attract, assess, and hire top-tier talent aligned with strategic priorities. Beyond recruitment delivery, the role will drive best-in-class hiring practices, processes, and stakeholder partnerships across the region, in close collaboration with Global TA teams. Key responsibilities 1. Strategic Hiring Lead end-to-end recruitment for senior leadership, general management, and mission-critical roles across EMEA Act as a trusted advisor to senior stakeholders (regional leaders, Area HR managers) on talent acquisition strategy, market insights, and candidate positioning Contribute to build and maintain strong pipelines for key leadership positions Execute confidential and high-impact searches with professionalism and discretion 2. Talent Acquisition Strategy & Processes Co-design, implement, and continuously improve scalable, high-quality hiring processes across the region Drive best practices aligned with Group guidelines in: Candidate assessment frameworks, Interview methodologies, Hiring governance, Selection and decision-making processes Ensure consistent, inclusive, and high-quality candidate experience throughout the hiring journey Conduct ongoing talent market mapping and competitor analysis across EMEA Contribute to strengthening the EMEA employer brand approach and talent attraction Contribute to the harmonize the Trainees/Apprenticeship approach in EMEA 3. Stakeholder Partnership Partner closely with Area HR managers Challenge and influence stakeholders to ensure hiring decisions align with long-term business and talent strategy Collaborate with Talent Development within the team and other HR to align hiring with broader people priorities 4. Data & Reporting Track and report on key recruitment metrics Use data insights to improve efficiency, effectiveness, and decision-making Drive continuous improvement initiatives across TA practices in EMEA",
-        "fr": "We are looking for our EMEA Talent Management team, a Talent Acquisition professional who will lead and elevate talent acquisition across EMEA, with a strong focus on general management and business-critical roles. This role is pivotal in shaping the organization’s leadership pipeline and ensuring we attract, assess, and hire top-tier talent aligned with strategic priorities. Beyond recruitment delivery, the role will drive best-in-class hiring practices, processes, and stakeholder partnerships across the region, in close collaboration with Global TA teams. Key responsibilities 1. Strategic Hiring Lead end-to-end recruitment for senior leadership, general management, and mission-critical roles across EMEA Act as a trusted advisor to senior stakeholders (regional leaders, Area HR managers) on talent acquisition strategy, market insights, and candidate positioning Contribute to build and maintain strong pipelines for key leadership positions Execute confidential and high-impact searches with professionalism and discretion 2. Talent Acquisition Strategy & Processes Co-design, implement, and continuously improve scalable, high-quality hiring processes across the region Drive best practices aligned with Group guidelines in: Candidate assessment frameworks, Interview methodologies, Hiring governance, Selection and decision-making processes Ensure consistent, inclusive, and high-quality candidate experience throughout the hiring journey Conduct ongoing talent market mapping and competitor analysis across EMEA Contribute to strengthening the EMEA employer brand approach and talent attraction Contribute to the harmonize the Trainees/Apprenticeship approach in EMEA 3. Stakeholder Partnership Partner closely with Area HR managers Challenge and influence stakeholders to ensure hiring decisions align with long-term business and talent strategy Collaborate with Talent Development within the team and other HR to align hiring with broader people priorities 4. Data & Reporting Track and report on key recruitment metrics Use data insights to improve efficiency, effectiveness, and decision-making Drive continuous improvement initiatives across TA practices in EMEA"
-      },
-      "location": "Zürich, Zurich, Switzerland",
-      "canton": "ZH",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-560f846d-7307-46a4-8330-167ca6b735f0.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-18T13:04:36.400Z",
-      "addressLocality": "Zürich",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-560f846d-7307-46a4-8330-167ca6b735f0.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-18T13:04:36.400Z"
+      }
     }
   ]
 }
