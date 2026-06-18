@@ -20,10 +20,14 @@
  *     - porta label `collision-risk` o `stale-review`.
  *     Altrimenti skip.
  *   - behind = commit di origin/main non nella head. behind==0 (già allineata):
- *     di norma skip, MA se l'head è "orfano" (0 check-run `vitest`, lasciato da
- *     un push PAT che non ri-triggera `pull_request` o da un rebase pre-#1597
- *     che non dispatchava) → dispatch tests.yml (HEAL) così auto-merge-eval può
- *     gattare+mergiare. Senza, la PR near-merge resta stuck per sempre (#1595/#1526).
+ *     di norma skip, MA si HEAL-dispatcha tests.yml (no rebase) in due casi così
+ *     auto-merge-eval può gattare+mergiare, senza i quali la PR near-merge resta
+ *     stuck per sempre: (a) head "orfana" (0 check-run `vitest`, lasciata da un
+ *     push PAT che non ri-triggera `pull_request` o da un rebase pre-#1597 che
+ *     non dispatchava) — #1595/#1526; (b) vitest `failure` ma da shard CANCELLATI
+ *     da concurrency (transient, non test rotti) e senza run fresco pendente —
+ *     #2438 (vedi vitestFailureIsTransientCancellation). Un `failure` REALE → skip
+ *     (niente re-run gratis: AGENTS #5 + frugalità CI).
  *   - mergeable (gh pr view --json mergeable; UNKNOWN → poll una volta dopo una
  *     breve attesa; se ancora UNKNOWN → skip questo run).
  *   - MERGEABLE → fetch + checkout branch + `git merge origin/main` (identity
@@ -41,7 +45,7 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { VITEST_CHECK_NAME } from './lib/constants.mjs';
-import { latestCompletedVitestConclusion } from './lib/vitestCheck.mjs';
+import { latestCompletedVitestConclusion, vitestFailureIsTransientCancellation } from './lib/vitestCheck.mjs';
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
@@ -182,6 +186,19 @@ function vitestConclusion(head) {
     ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
     { json: true, allowFail: true });
   return latestCompletedVitestConclusion(out && out.check_runs);
+}
+
+/** Il `failure` del check vitest sull'head è una cancellazione transient (shard
+ * `cancelled` da concurrency) e NON un test rotto? Riapre gli shard sottostanti
+ * per ricostruire l'informazione che l'aggregatore collassa in `failure`. Serve
+ * al ramo behind===0: senza, una PR LGTM+behind=0 con vitest `failure` da shard
+ * cancellati restava ferma (heal solo su check ASSENTE, non su failure). Vedi
+ * lib/vitestCheck.mjs (#2438). */
+function vitestFailureIsTransient(head) {
+  const out = gh(
+    ['api', `repos/${REPO}/commits/${head}/check-runs?per_page=100`],
+    { json: true, allowFail: true });
+  return vitestFailureIsTransientCancellation(out && out.check_runs);
 }
 
 /**
@@ -366,6 +383,15 @@ async function processPR(pr) {
         console.log(`PR #${num} 0 dietro main ma head ${head.slice(0, 8)} SENZA check-run vitest → dispatch tests.yml (heal, no rebase).`);
         dispatchTests(num, branch);
       }
+    } else if (vitestFailureIsTransient(head)) {
+      // Il check vitest ESISTE ma è `failure` da shard CANCELLATI (concurrency),
+      // non da test rotti, e nessun run fresco è già pendente (#2438): l'head
+      // resterebbe ferma (heal sopra scatta solo su check ASSENTE; auto-merge
+      // esige `success`) finché un evento esterno non ri-dispatcha. Ri-dispatch
+      // tests.yml (heal), NESSUN rebase. Un `failure` REALE non passa di qui →
+      // niente re-run gratis (AGENTS #5 + frugalità CI).
+      console.log(`PR #${num} 0 dietro main, vitest=failure ma da shard CANCELLATI (transient) → dispatch tests.yml (heal, no rebase).`);
+      dispatchTests(num, branch);
     } else {
       console.log(`PR #${num} 0 dietro main, vitest già presente sull'head — skip.`);
     }

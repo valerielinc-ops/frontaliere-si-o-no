@@ -15,6 +15,20 @@
 export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
 
 /**
+ * Matcha il nome dei check-run dei singoli SHARD vitest in `tests.yml`
+ * (`name: vitest shard ${{ matrix.shard }}/4` → `vitest shard 1/4`, …). Distinto
+ * da `VITEST_CHECK_NAME`, che è il job AGGREGATORE: l'aggregatore collassa
+ * QUALSIASI shard non-`success` (incluso `cancelled`) in un unico `failure`
+ * (`needs.vitest-shard.result != success → exit 1`), perdendo l'informazione su
+ * SE la failure è un test rotto o una cancellazione transient (concurrency
+ * `cancel-in-progress` durante un'ondata di push su main). `vitestCheck.mjs` usa
+ * questo regex per ri-aprire gli shard sottostanti e distinguere i due casi
+ * (vedi `vitestFailureIsTransientCancellation`). `\d+\/\d+` resta valido se il
+ * numero di shard cambia. Drift dal `name:` del job → guard in
+ * `tests/ci-vitest-check-name.test.ts`. */
+export const VITEST_SHARD_NAME_RE = /^vitest shard \d+\/\d+$/;
+
+/**
  * Detects a `🔴 Important` finding in a reviewer body, TOLERANT to the reviewer's
  * markdown: `🔴 Important`, `🔴 **Important`, `🔴**Important**` all match. The plain
  * literal `'🔴 Important'` (used historically) misses the bold form, which the

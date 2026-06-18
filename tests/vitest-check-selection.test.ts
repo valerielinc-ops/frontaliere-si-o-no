@@ -10,7 +10,10 @@
  * vince l'ultimo COMPLETATO per `completed_at`, ignorando i run in-progress.
  */
 import { describe, it, expect } from 'vitest';
-import { latestCompletedVitestConclusion } from '../scripts/ci/lib/vitestCheck.mjs';
+import {
+  latestCompletedVitestConclusion,
+  vitestFailureIsTransientCancellation,
+} from '../scripts/ci/lib/vitestCheck.mjs';
 import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
 
 const vitest = (conclusion: string | null, completed_at: string | null, status = 'completed') => ({
@@ -73,5 +76,139 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
   it('input non-array → "" (difensivo, niente throw)', () => {
     expect(latestCompletedVitestConclusion(undefined as unknown as [])).toBe('');
     expect(latestCompletedVitestConclusion(null as unknown as [])).toBe('');
+  });
+});
+
+/**
+ * vitestFailureIsTransientCancellation (#2438): l'aggregatore `vitest (unit +
+ * integration)` collassa OGNI shard non-`success` (incluso `cancelled` da
+ * concurrency) in un unico `failure`. Il helper riapre gli shard per distinguere
+ * una cancellazione transient (sicura da ri-dispatchare / heal) da un test rotto
+ * reale (NON ri-eseguire). Una PR LGTM+behind=0 con questo `failure` transient
+ * altrimenti resta ferma: pr-autorebase la skippava, auto-merge esige `success`.
+ */
+const agg = (conclusion: string | null, completed_at: string | null, status = 'completed') => ({
+  name: VITEST_CHECK_NAME,
+  status,
+  conclusion,
+  completed_at,
+});
+const shard = (n: number, conclusion: string | null, status = 'completed') => ({
+  name: `vitest shard ${n}/4`,
+  status,
+  conclusion,
+  completed_at: status === 'completed' ? '2026-06-17T08:00:00Z' : null,
+});
+const cancelledRun = [
+  agg('failure', '2026-06-17T08:05:00Z'),
+  shard(1, 'cancelled'),
+  shard(2, 'cancelled'),
+  shard(3, 'success'),
+  shard(4, 'cancelled'),
+];
+
+describe('vitestFailureIsTransientCancellation (#2438 cancelled→failure heal)', () => {
+  it('aggregatore failure + shard cancelled (nessun fail reale) → true (heal)', () => {
+    expect(vitestFailureIsTransientCancellation(cancelledRun)).toBe(true);
+  });
+
+  it('tutti gli shard cancellati → true', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        agg('failure', '2026-06-17T08:05:00Z'),
+        shard(1, 'cancelled'),
+        shard(2, 'cancelled'),
+        shard(3, 'cancelled'),
+        shard(4, 'cancelled'),
+      ]),
+    ).toBe(true);
+  });
+
+  it('un shard FAILURE reale (+ altri cancelled) → false (NON ri-eseguire, AGENTS #5)', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        agg('failure', '2026-06-17T08:05:00Z'),
+        shard(1, 'failure'),
+        shard(2, 'cancelled'),
+        shard(3, 'success'),
+        shard(4, 'cancelled'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('uno shard timed_out → false (fail reale, non transient)', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        agg('failure', '2026-06-17T08:05:00Z'),
+        shard(1, 'timed_out'),
+        shard(2, 'cancelled'),
+        shard(3, 'cancelled'),
+        shard(4, 'cancelled'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('nessuno shard cancelled (failure aggregato senza cancellazioni) → false', () => {
+    // Difensivo: aggregatore failure ma shard tutti success (es. aggregatore
+    // rosso per ragione propria) → niente cancellazione da sanare.
+    expect(
+      vitestFailureIsTransientCancellation([
+        agg('failure', '2026-06-17T08:05:00Z'),
+        shard(1, 'success'),
+        shard(2, 'success'),
+        shard(3, 'success'),
+        shard(4, 'success'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('run fresco pendente (shard in_progress) → false (attende, non ri-dispatcha)', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        ...cancelledRun,
+        shard(1, null, 'in_progress'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('aggregatore in_progress sopra agli shard cancellati → false (run fresco pendente)', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        ...cancelledRun,
+        agg(null, null, 'queued'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('ultimo aggregatore COMPLETATO è success (run fresco già verde) → false', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        ...cancelledRun,
+        agg('success', '2026-06-17T08:20:00Z'),
+        shard(1, 'success'),
+        shard(2, 'success'),
+        shard(3, 'success'),
+        shard(4, 'success'),
+      ]),
+    ).toBe(false);
+  });
+
+  it('aggregatore failure ma NESSUN check-run shard presente → false', () => {
+    expect(
+      vitestFailureIsTransientCancellation([agg('failure', '2026-06-17T08:05:00Z')]),
+    ).toBe(false);
+  });
+
+  it('nessun check-run vitest del tutto → false', () => {
+    expect(
+      vitestFailureIsTransientCancellation([
+        { name: 'lighthouse', status: 'completed', conclusion: 'success', completed_at: '2026-06-17T08:00:00Z' },
+      ]),
+    ).toBe(false);
+  });
+
+  it('input non-array → false (difensivo, niente throw)', () => {
+    expect(vitestFailureIsTransientCancellation(undefined as unknown as [])).toBe(false);
+    expect(vitestFailureIsTransientCancellation(null as unknown as [])).toBe(false);
   });
 });

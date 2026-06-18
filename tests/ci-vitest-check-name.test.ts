@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
+import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from '../scripts/ci/lib/constants.mjs';
 
 /**
  * Guard per il drift descritto in #1602: il nome del check-run vitest è la
@@ -74,5 +74,33 @@ describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
     }
     expect(offenders, `script con literal hardcoded ESEGUIBILE (devono importare VITEST_CHECK_NAME): ${offenders.join(', ')}`)
       .toEqual([]);
+  });
+});
+
+/**
+ * Guard analogo per VITEST_SHARD_NAME_RE (#2438): il regex deve matchare il
+ * `name:` del job SHARD in tests.yml (`vitest shard ${{ matrix.shard }}/4`).
+ * `vitestFailureIsTransientCancellation` lo usa per riaprire gli shard sotto
+ * l'aggregatore; un rename del job senza aggiornare il regex farebbe leggere 0
+ * shard → l'heal transient non scatterebbe mai (silenzioso, come #1602).
+ */
+describe('VITEST_SHARD_NAME_RE (#2438 shard-name drift guard)', () => {
+  it('matcha il name: del job shard reso da tests.yml per ogni indice della matrice', () => {
+    const m = TESTS_YML.match(/^\s*vitest-shard:\s*\n(?:.*\n)*?\s*name:\s*(.+?)\s*$/m);
+    expect(m, 'job `vitest-shard:` con `name:` non trovato in tests.yml').toBeTruthy();
+    const tpl = (m![1] || '').replace(/^['"]|['"]$/g, '');
+    // Estrae il count statico dal template `vitest shard ${{ matrix.shard }}/N`.
+    const countMatch = tpl.match(/\}\}\/(\d+)\s*$/);
+    expect(countMatch, `count statico /N non trovato in name: "${tpl}"`).toBeTruthy();
+    const count = Number(countMatch![1]);
+    // Espande il template per ogni shard della matrice e verifica il match.
+    for (let i = 1; i <= count; i++) {
+      const rendered = tpl.replace(/\$\{\{\s*matrix\.shard\s*\}\}/g, String(i));
+      expect(VITEST_SHARD_NAME_RE.test(rendered), `regex non matcha shard "${rendered}"`).toBe(true);
+    }
+  });
+
+  it('NON matcha il nome dell’aggregatore (i due check-name restano distinti)', () => {
+    expect(VITEST_SHARD_NAME_RE.test(VITEST_CHECK_NAME)).toBe(false);
   });
 });
