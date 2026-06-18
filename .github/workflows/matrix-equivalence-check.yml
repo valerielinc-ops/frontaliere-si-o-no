@@ -100,7 +100,7 @@ jobs:
           if [ -f /tmp/live/artifact.tar ]; then
             mkdir -p /tmp/live/dist && tar -xf /tmp/live/artifact.tar -C /tmp/live/dist
           fi
-          find /tmp/live -maxdepth 2 -type d | head
+          find /tmp/live -maxdepth 2 -type d 2>/dev/null | head -20 || true
       - name: Manifest the live monolith it+shared
         run: |
           set -eo pipefail
