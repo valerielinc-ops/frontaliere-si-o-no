@@ -9816,7 +9816,6 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-stgag-ch"
       ],
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -9836,9 +9835,9 @@
       "slug": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "it": "dipl-pflegefachmann-frau-hf-fh-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "en": "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-munsterlingen",
         "de": "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
-        "fr": "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "fr": "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -9887,7 +9886,9 @@
         "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-hf-fh-stgag-ch",
-        "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-munsterlingen",
+        "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9897,7 +9898,8 @@
         "en": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3",
           "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
+          "dipl-nursing-specialist-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "de": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch"
@@ -9905,7 +9907,8 @@
         "fr": [
           "dipl-pflegefachmann-frau-hf-fh-stgag-ch-3",
           "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-munsterlingen",
-          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-hf-fh-stgag-munsterlingen",
+          "dipl-specialiste-en-soins-infirmiers-en-hf-fh-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-06-12T13:01:39.781Z",
@@ -11721,7 +11724,6 @@
           "pflegeexperten-in-apn-psychiatrie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T14:30:56.839Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
