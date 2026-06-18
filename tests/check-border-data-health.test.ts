@@ -109,10 +109,26 @@ describe('evaluateWebcamResult', () => {
     expect(r.broken).toBe(false);
   });
 
-  it('flags a non-200 response as broken', () => {
-    const r = evaluateWebcamResult({ ok: false, status: 403, bytes: 0 });
-    expect(r.broken).toBe(true);
-    expect(r.reason).toMatch(/HTTP 403/);
+  it('treats an IP-discriminating block (403/401/429/451) as INDETERMINATE, not broken', () => {
+    // A 403 from the monitor's single cloud IP does NOT prove the feed is broken
+    // for end users: access-control / geo / rate-limit layers routinely block
+    // datacenter ranges while serving residential browsers a healthy 200.
+    // (lagomaggiorexperience.it canneroriviera case, issue #2336: 200/147KB from a
+    // residential IP, stable 403 from the GitHub Actions runner.)
+    for (const status of [401, 403, 407, 429, 451]) {
+      const r = evaluateWebcamResult({ ok: false, status, bytes: 0 });
+      expect(r.broken, `status ${status}`).toBe(false);
+      expect(r.indeterminate, `status ${status}`).toBe(true);
+      expect(r.reason).toMatch(/cloud-IP block|blocked from monitor/i);
+    }
+  });
+
+  it('flags a genuinely-gone (404/410) or server-fault (5xx) response as broken', () => {
+    for (const status of [404, 410, 500, 502, 503]) {
+      const r = evaluateWebcamResult({ ok: false, status, bytes: 0 });
+      expect(r.broken, `status ${status}`).toBe(true);
+      expect(r.reason).toMatch(new RegExp(`HTTP ${status}`));
+    }
   });
 
   it('flags a tiny body (error/placeholder page) as broken', () => {
