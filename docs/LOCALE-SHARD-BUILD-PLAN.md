@@ -1,8 +1,19 @@
 # Locale-Shard BUILD Plan — render-isolated per-locale build
 
-> Stato: **fase di studio / prototipo**. NON wira il deploy di produzione finché
-> il workflow esperimento non prova wall-time + correttezza.
+> Stato: **completamento strutturale per direttiva utente.** Fase 0+1a+1b+2+3
+> implementate (opt-in/dormiente, `deploy.yml` live intatto). Fase 4 (validator
+> esteso) + Fase 5 (wiring) sotto.
 > Companion: `LOCALE-SHARD-DEPLOY-PLAN.md` (split dell'OUTPUT, già in prod).
+
+> ⚠️ **CAVEAT WALL-TIME (misurato, robusto):** la matrix NON scende a ~15min e
+> resta ≈ o sopra il monolite (~23min). È **overhead-bound**: ogni shard paga
+> il costo fisso del build (vite bundle, post-walk, tar, npm ci — non divisibili
+> per locale, non spostabili nel prep) + il render del proprio locale; lo shard
+> **IT** (primario, ~3/4 delle pagine) fissa il wall a ~30-34min. Il render-skip
+> (Fase 0-2) ha tagliato il best-shard 38→~26-29min ma NON il collo IT. Il
+> sistema è **completo e corretto**, ma il suo valore è la *correttezza
+> per-locale / il cap-10GB*, **non** la velocità. Wiring prod (Fase 5)
+> **flag-gated default OFF** → non rallenta mai il deploy live.
 
 ## Obiettivo
 
