@@ -250,9 +250,9 @@
       "slug": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
       "slugByLocale": {
         "it": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
-        "en": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+        "en": "nurse-80-100-surgery-urology-5-west-hopital-du-valais-visp",
         "de": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
-        "fr": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp"
+        "fr": "infirmiere-80-100-chirurgie-urologie-5-ouest-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -300,6 +300,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
+        ],
+        "en": [
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ]
       },
@@ -2232,9 +2235,9 @@
     },
     {
       "id": "hopital-du-valais-c8e757d35e02",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
         "de": "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
@@ -2281,14 +2284,13 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
         "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
         ],
@@ -2316,9 +2318,9 @@
     },
     {
       "id": "hopital-du-valais-47cdde9e836d",
-      "slug": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+      "slug": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
+        "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-100-hopital-du-valais-sion",
         "de": "apotheker-in-der-krankenhausapotheke-80-100-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
@@ -2365,13 +2367,12 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
         "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
+        "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion",
         "pharmazie-spezialist-fur-krankenhaus-apotheke-80-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-di-farmacia-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "farmacista-specialista-in-farmacia-ospedaliera-80-100-hopital-du-valais-sion",
           "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-100-hopital-du-valais-sion"
         ],
@@ -3672,11 +3673,11 @@
     },
     {
       "id": "hopital-du-valais-bba8e020a4d6",
-      "slug": "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du",
+      "slug": "infermiera-all-80-per-il-servizio-medico-generale-h4-dell-ospedale-sion-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du",
-        "en": "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du",
-        "de": "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du",
+        "it": "infermiera-all-80-per-il-servizio-medico-generale-h4-dell-ospedale-sion-hopital-du-valais-sion",
+        "en": "nurse-at-80-for-the-general-medical-service-h4-of-the-sion-hospital-hopital-du-valais-sion",
+        "de": "krankenschwester-bei-80-fur-den-allgemeinen-medizinischen-dienst-h4-des-sion-hospital-hopital-du-valais-sion",
         "fr": "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du"
       },
       "company": "Hôpital du Valais",
@@ -3735,16 +3736,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du"
+        ],
+        "en": [
+          "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du"
+        ],
+        "de": [
+          "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-pour-le-service-de-medecine-generale-h4-de-l-hopital-de-sion-hopital-du"
+      ]
     },
     {
       "id": "hopital-du-valais-eb3bc8d6ca84",
       "slug": "dirigente-medico-al-100-traumatologia-hopital-du-valais-visp",
       "slugByLocale": {
         "it": "dirigente-medico-al-100-traumatologia-hopital-du-valais-visp",
-        "en": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
+        "en": "senior-doctor-doctor-100-traumatology-hopital-du-valais-visp",
         "de": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp",
-        "fr": "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
+        "fr": "medecin-docteur-principal-100-traumatologie-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3793,6 +3808,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-100-traumatologie-hopital-du-valais-visp"
         ]
       },
       "needsRetranslation": true,
@@ -3814,11 +3835,11 @@
     },
     {
       "id": "hopital-du-valais-233b779b6c7c",
-      "slug": "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital",
+      "slug": "70-infermiera-per-il-dipartimento-di-medicina-palliativa-dell-ospedale-martigny-hopital-du-valais-martigny",
       "slugByLocale": {
-        "it": "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital",
-        "en": "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital",
-        "de": "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital",
+        "it": "70-infermiera-per-il-dipartimento-di-medicina-palliativa-dell-ospedale-martigny-hopital-du-valais-martigny",
+        "en": "70-nurse-for-the-palliative-medicine-department-of-the-martigny-hospital-hopital-du-valais-martigny",
+        "de": "70-krankenschwester-fur-die-palliativmedizin-abteilung-des-krankenhauses-martigny-hopital-du-valais-martigny",
         "fr": "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital"
       },
       "company": "Hôpital du Valais",
@@ -3877,16 +3898,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital"
+        ],
+        "en": [
+          "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital"
+        ],
+        "de": [
+          "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-70-pour-le-service-de-medecine-palliative-de-l-hopital-de-martigny-hopital"
+      ]
     },
     {
       "id": "hopital-du-valais-c90e855bfb63",
-      "slug": "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp",
+      "slug": "medico-senior-80-chirurgia-generale-e-viscerale-hopital-du-valais-visp",
       "slugByLocale": {
-        "it": "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp",
-        "en": "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp",
+        "it": "medico-senior-80-chirurgia-generale-e-viscerale-hopital-du-valais-visp",
+        "en": "senior-physician-80-general-visceral-surgery-hopital-du-valais-visp",
         "de": "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp",
-        "fr": "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp"
+        "fr": "medecin-senior-80-chirurgie-generale-et-viscerale-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3944,7 +3979,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp"
+        ],
+        "en": [
+          "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-80-allgemein-viszeralchirurgie-hopital-du-valais-visp"
+      ]
     }
   ]
 }

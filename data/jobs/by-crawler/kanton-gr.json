@@ -1048,12 +1048,12 @@
     },
     {
       "id": "kanton-gr-31abae010ca0",
-      "slug": "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
-        "it": "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz",
+        "it": "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz",
         "en": "strassenwart-in-kanton-gr-ch",
         "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "strassenwart-in-kanton-gr-ch"
+        "fr": "gardien-de-rue-in-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1101,13 +1101,16 @@
       "previousSlugs": [
         "strassenwart-in-kanton-gr-ch",
         "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
-        "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz"
+        "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassenwart-in-kanton-gr-ch",
           "strassenwart-in-kantonale-verwaltung-graubunden-ilanz",
-          "streetkeeper-in-kantonale-verwaltung-graubunden-ilanz"
+          "responsabile-della-manutenzione-stradale-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "fr": [
+          "strassenwart-in-kanton-gr-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1236,12 +1239,12 @@
     },
     {
       "id": "kanton-gr-56f1d94ae3c7",
-      "slug": "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz",
+      "slug": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
-        "it": "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz",
-        "en": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
+        "it": "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz",
+        "en": "property-valuer-kantonale-verwaltung-graubunden-ilanz",
         "de": "immobilienbewerter-in-kanton-gr-ch",
-        "fr": "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
+        "fr": "valeur-des-biens-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1289,13 +1292,19 @@
       "previousSlugs": [
         "immobilienbewerter-in-kanton-gr-ch",
         "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
-        "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz"
+        "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "immobilienbewerter-in-kanton-gr-ch",
           "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz",
-          "valore-della-proprieta-kantonale-verwaltung-graubunden-ilanz"
+          "perito-immobiliare-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "en": [
+          "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "fr": [
+          "immobilienbewerter-in-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "needsRetranslation": true,
@@ -1715,9 +1724,9 @@
       "slug": "responsabile-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz",
       "slugByLocale": {
         "it": "responsabile-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz",
-        "en": "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz",
+        "en": "head-in-district-civil-engineering-office-ilanz-kantonale-verwaltung-graubunden-ilanz",
         "de": "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch",
-        "fr": "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
+        "fr": "chef-du-bureau-de-genie-civil-de-district-ilanz-kantonale-verwaltung-graubunden-ilanz"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1763,11 +1772,18 @@
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugs": [
-        "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch"
+        "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch",
+        "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-bezirkstiefbauamt-ilanz-kanton-gr-ch"
+        ],
+        "en": [
+          "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
+        ],
+        "fr": [
+          "leiter-in-bezirkstiefbauamt-ilanz-kantonale-verwaltung-graubunden-ilanz"
         ]
       },
       "needsRetranslation": true,

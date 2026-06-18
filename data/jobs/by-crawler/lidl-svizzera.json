@@ -42,7 +42,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
-        "en": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
+        "en": "all-rounder-sale-m-f-d-20-40-1-dietikon-lidl-svizzera-dietikon",
         "de": "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v",
         "fr": "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v"
       },
@@ -52,10 +52,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon"
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon",
+        "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-dietikon-a6qr9v"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

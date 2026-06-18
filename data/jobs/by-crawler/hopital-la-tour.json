@@ -550,8 +550,8 @@
       "slug": "infermiera-pediatrica-hom-9-mesi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "it": "infermiera-pediatrica-hom-9-mesi-80-hopital-de-la-tour-meyrin",
-        "en": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
-        "de": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin",
+        "en": "paediatric-nurse-hom-9-months-80-hopital-de-la-tour-meyrin",
+        "de": "padiatrische-krankenschwester-hom-9-monate-80-hopital-de-la-tour-meyrin",
         "fr": "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
@@ -600,6 +600,12 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80-hopital-la-tour-meyrin"
         ]
       },
       "firstSeenAt": "2026-06-10T22:49:02.296Z",
@@ -621,8 +627,8 @@
       "slug": "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "it": "infermiera-pediatrica-cdi-50-hopital-de-la-tour-meyrin",
-        "en": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
-        "de": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin",
+        "en": "paediatric-nurse-cdi-50-hopital-de-la-tour-meyrin",
+        "de": "padiatrische-krankenschwester-cdi-50-hopital-de-la-tour-meyrin",
         "fr": "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
@@ -671,6 +677,12 @@
       "previousSlugsByLocale": {
         "it": [
           "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-iere-puericultrice-en-pediatrie-cdi-50-hopital-la-tour-meyrin"
         ]
       },
       "firstSeenAt": "2026-06-10T22:49:02.287Z",
@@ -693,7 +705,7 @@
       "slugByLocale": {
         "it": "dietician-in-cdi-80-hopital-de-la-tour-meyrin",
         "en": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
-        "de": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
+        "de": "diatetiker-in-cdi-80-hopital-de-la-tour-meyrin",
         "fr": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
@@ -741,6 +753,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
+        ],
+        "de": [
           "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin"
         ]
       },

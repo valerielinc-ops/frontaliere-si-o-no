@@ -181,7 +181,7 @@
         "it": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich",
         "en": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
         "de": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
-        "fr": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+        "fr": "gestionnaire-taxe-des-transactions-fusions-et-acquisitions-pwc-switzerland-zurich"
       },
       "id": "pwc-b3069d6d2adc",
       "salaryMin": 101500,
@@ -201,6 +201,9 @@
       "firstSeenAt": "2026-06-15T15:50:02.438Z",
       "previousSlugsByLocale": {
         "it": [
+          "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
+        ],
+        "fr": [
           "manager-deals-tax-mergers-and-acquisitions-pwc-zurich"
         ]
       },
@@ -387,7 +390,7 @@
       "slugByLocale": {
         "it": "senior-associate-audit-servizi-finanziari-asset-management-pwc-switzerland-geneva",
         "en": "senior-associate-audit-financial-services-asset-management-pwc-geneva",
-        "de": "senior-associate-audit-financial-services-asset-management-pwc-geneva",
+        "de": "senior-associate-prufung-finanzdienstleistungen-vermogensverwaltung-pwc-switzerland-geneva",
         "fr": "senior-associate-audit-financial-services-asset-management-pwc-geneva"
       },
       "id": "pwc-6408e0db5b60",
@@ -408,6 +411,9 @@
       "firstSeenAt": "2026-06-11T13:19:37.886Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-associate-audit-financial-services-asset-management-pwc-geneva"
+        ],
+        "de": [
           "senior-associate-audit-financial-services-asset-management-pwc-geneva"
         ]
       },
@@ -454,7 +460,7 @@
         "it": "senior-associate-responsabile-immobiliare-e-strutture-aziendali-pwc-switzerland-geneve",
         "en": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
         "de": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
-        "fr": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
+        "fr": "senior-associate-gestionnaire-immobilier-et-installations-d-entreprise-pwc-switzerland-lausanne"
       },
       "id": "pwc-8068e33f565b",
       "salaryMin": 75500,
@@ -474,9 +480,9 @@
       "firstSeenAt": "2026-06-10T23:18:45.554Z",
       "previousSlugs": [
         "senior-associate-corporate-real-estate-facility-manager-pwc-zurich",
-        "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
         "senior-associate-corporate-real-estate-facility-manager-pwc-switzerland-lausanne",
         "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne",
+        "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
         "senior-associate-direttore-immobiliare-e-delle-strutture-aziendali-pwc-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
@@ -493,7 +499,8 @@
           "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne"
         ],
         "fr": [
-          "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne"
+          "senior-associate-corporate-real-estate-facility-manager-pwc-lausanne",
+          "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
         ]
       }
     },
@@ -536,7 +543,7 @@
         "it": "senior-associate-responsabile-immobiliare-e-strutture-aziendali-pwc-switzerland-geneve",
         "en": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
         "de": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve",
-        "fr": "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
+        "fr": "senior-associate-gestionnaire-immobilier-et-installations-d-entreprise-pwc-switzerland-geneve"
       },
       "id": "pwc-8068e33f565b",
       "salaryMin": 75500,
@@ -565,6 +572,9 @@
         ],
         "it": [
           "senior-associate-corporate-real-estate-facility-manager-pwc-zurich",
+          "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
+        ],
+        "fr": [
           "senior-associate-corporate-real-estate-facility-manager-pwc-geneve"
         ]
       }
@@ -608,7 +618,7 @@
         "it": "associato-manager-transazione-di-consulenza-immobiliare-pwc-switzerland-zurich",
         "en": "associate-manager-real-estate-advisory-transaction-pwc-zurich",
         "de": "associate-manager-real-estate-advisory-transaction-pwc-zurich",
-        "fr": "associate-manager-real-estate-advisory-transaction-pwc-zurich"
+        "fr": "associe-manager-transaction-de-conseil-immobilier-pwc-switzerland-zurich"
       },
       "id": "pwc-afa934f06c66",
       "salaryMin": 68000,
@@ -628,6 +638,9 @@
       "firstSeenAt": "2026-06-10T23:18:45.554Z",
       "previousSlugsByLocale": {
         "it": [
+          "associate-manager-real-estate-advisory-transaction-pwc-zurich"
+        ],
+        "fr": [
           "associate-manager-real-estate-advisory-transaction-pwc-zurich"
         ]
       },
@@ -673,8 +686,8 @@
       "slugByLocale": {
         "it": "senior-manager-contabilita-fiscale-pwc-switzerland-zurich",
         "en": "senior-manager-tax-accounting-pwc-zurich",
-        "de": "senior-manager-tax-accounting-pwc-zurich",
-        "fr": "senior-manager-tax-accounting-pwc-zurich"
+        "de": "senior-manager-steuerbuchhaltung-pwc-switzerland-zurich",
+        "fr": "senior-manager-comptabilite-fiscale-pwc-switzerland-zurich"
       },
       "id": "pwc-babe045ca3c5",
       "salaryMin": 68000,
@@ -694,6 +707,12 @@
       "firstSeenAt": "2026-06-10T12:50:57.954Z",
       "previousSlugsByLocale": {
         "it": [
+          "senior-manager-tax-accounting-pwc-zurich"
+        ],
+        "de": [
+          "senior-manager-tax-accounting-pwc-zurich"
+        ],
+        "fr": [
           "senior-manager-tax-accounting-pwc-zurich"
         ]
       },
@@ -737,16 +756,17 @@
         "fr": "L’impôt sur les sociétés ne consiste pas seulement à aider les entreprises à se conformer aux réglementations. Nous conseillons également les entreprises actives au niveau national ou international en ce qui concerne les réglementations et évolutions fiscales pertinentes. Cela leur permet de construire des structures efficaces, de prendre en compte les implications fiscales des modèles économiques possibles et d’éviter les risques fiscaux. En tant que membre précieux de l’équipe, vous conseillerez les clients (entreprises et particuliers) sur diverses questions fiscales et contribuerez à la gestion de projets ambitieux. • Conseiller des personnes morales de divers secteurs et industries en matière fiscale. • Soutenir la planification fiscale des entreprises de nos clients nationaux et internationaux et calculer les provisions fiscales nécessaires afin de fournir les meilleurs résultats possibles. • Gérer des demandes fiscales difficiles et complexes dans un environnement international et utiliser votre expertise pour trouver les meilleures solutions possibles. • Travailler sur des projets exigeants, souvent transfrontaliers, dans les domaines de la restructuration, des acquisitions et des ventes d'entreprises. Apportez votre savoir-faire pour contribuer avec succès à la réussite du projet. • Profitez des échanges prometteurs au sein des services fiscaux et juridiques pour vous développer rapidement tant sur le plan personnel que professionnel. • Travaillez au sein d'une équipe inspirante et suivez une formation continue à temps partiel pour devenir diplômé fédéral. dipl. Expert fiscal/expert fiscal. Utilisez les connaissances que vous avez acquises pour obtenir des résultats idéaux. • Diplôme d'une université ou d'un collège technique, idéalement en économie ou en droit. • Vous êtes intéressé par les questions fiscales et avez déjà acquis une première expérience dans le domaine des impôts/taxes sur les sociétés. • Apportez votre sens des questions juridiques ainsi que des chiffres et des contextes commerciaux et aimez travailler à l'interface entre le droit et l'économie. • Être flexible, persévérant et ouvert aux situations difficiles et complexes et valoriser le travail d'équipe. Utilisez vos compétences individuelles pour obtenir les meilleurs résultats possibles. • Etes-vous intéressé par les problématiques interdisciplinaires et l'échange avec nos clients. • Démontrer une confiance stylistique en allemand et avoir une très bonne connaissance de l'anglais afin de pouvoir opérer avec succès dans un environnement international."
       },
       "slugByLocale": {
-        "it": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "it": "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-luzern",
         "en": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
         "de": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-        "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
+        "fr": "associe-debut-de-carriere-en-conseil-fiscal-80-100-pwc-switzerland-luzern"
       },
       "id": "pwc-7f6ee3851b03",
       "previousSlugsByLocale": {
         "it": [
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
-          "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug"
+          "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
         ],
         "en": [
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
@@ -756,14 +776,15 @@
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
         ],
         "fr": [
-          "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
         ]
       },
       "previousSlugs": [
         "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
         "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
-        "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern",
-        "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-luzern"
+        "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "associate-karriereeinstieg-steuerberatung-80-100-pwc-switzerland-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -783,7 +804,7 @@
     },
     {
       "title": "Associate - Karriereeinstieg Steuerberatung 80 - 100%",
-      "slug": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+      "slug": "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-zug",
       "url": "https://jobs.pwc.ch/job-vacancies/associate-karriereeinstieg-steuerberatung/c6d91f26-9041-4651-99cb-39bed7d02747",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zug/Karriereeinstieg-in-die-Steuerberatung-Zentralschweiz_618080WD-1/apply",
       "company": "PwC Switzerland",
@@ -817,10 +838,10 @@
         "fr": "L’impôt sur les sociétés ne consiste pas seulement à aider les entreprises à se conformer aux réglementations. Nous conseillons également les entreprises actives au niveau national ou international en ce qui concerne les réglementations et évolutions fiscales pertinentes. Cela leur permet de construire des structures efficaces, de prendre en compte les implications fiscales des modèles économiques possibles et d’éviter les risques fiscaux. En tant que membre précieux de l’équipe, vous conseillerez les clients (entreprises et particuliers) sur diverses questions fiscales et contribuerez à la gestion de projets ambitieux. • Conseiller des personnes morales de divers secteurs et industries en matière fiscale. • Soutenir la planification fiscale des entreprises de nos clients nationaux et internationaux et calculer les provisions fiscales nécessaires afin de fournir les meilleurs résultats possibles. • Gérer des demandes fiscales difficiles et complexes dans un environnement international et utiliser votre expertise pour trouver les meilleures solutions possibles. • Travailler sur des projets exigeants, souvent transfrontaliers, dans les domaines de la restructuration, des acquisitions et des ventes d'entreprises. Apportez votre savoir-faire pour contribuer avec succès à la réussite du projet. • Profitez des échanges prometteurs au sein des services fiscaux et juridiques pour vous développer rapidement tant sur le plan personnel que professionnel. • Travaillez au sein d'une équipe inspirante et suivez une formation continue à temps partiel pour devenir diplômé fédéral. dipl. Expert fiscal/expert fiscal. Utilisez les connaissances que vous avez acquises pour obtenir des résultats idéaux. • Diplôme d'une université ou d'un collège technique, idéalement en économie ou en droit. • Vous êtes intéressé par les questions fiscales et avez déjà acquis une première expérience dans le domaine des impôts/taxes sur les sociétés. • Apportez votre sens des questions juridiques ainsi que des chiffres et des contextes commerciaux et aimez travailler à l'interface entre le droit et l'économie. • Être flexible, persévérant et ouvert aux situations difficiles et complexes et valoriser le travail d'équipe. Utilisez vos compétences individuelles pour obtenir les meilleurs résultats possibles. • Etes-vous intéressé par les problématiques interdisciplinaires et l'échange avec nos clients. • Démontrer une confiance stylistique en allemand et avoir une très bonne connaissance de l'anglais afin de pouvoir opérer avec succès dans un environnement international."
       },
       "slugByLocale": {
-        "it": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "it": "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-zug",
         "en": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
         "de": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
-        "fr": "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
+        "fr": "associe-debut-de-carriere-en-conseil-fiscal-80-100-pwc-switzerland-zug"
       },
       "id": "pwc-7f6ee3851b03",
       "salaryMin": 69500,
@@ -839,8 +860,10 @@
       "postalCode": "6300",
       "firstSeenAt": "2026-06-10T12:50:57.954Z",
       "previousSlugs": [
-        "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-luzern",
-        "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug"
+        "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern",
+        "associate-career-entry-tax-consulting-80-100-pwc-switzerland-zug",
+        "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug",
+        "associato-carriera-inizia-la-consulenza-fiscale-80-100-pwc-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -853,6 +876,9 @@
         ],
         "en": [
           "associate-karriereeinstieg-steuerberatung-80-100-pwc-luzern"
+        ],
+        "fr": [
+          "associate-karriereeinstieg-steuerberatung-80-100-pwc-zug"
         ]
       }
     },
@@ -1106,7 +1132,7 @@
         "it": "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
         "en": "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
         "de": "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen",
-        "fr": "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-st-gallen"
+        "fr": "debut-de-carriere-audit-metier-industries-et-services-a-partir-de-l-automne-2026-pwc-switzerland-st-gallen"
       },
       "id": "pwc-e70baddf8837",
       "salaryMin": 57500,
@@ -1134,8 +1160,9 @@
         ]
       },
       "previousSlugs": [
-        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich",
-        "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen"
+        "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-zurich",
+        "debut-de-carriere-verification-commerce-industries-et-services-ab-herbst-2026-pwc-switzerland-st-gallen",
+        "career-start-audit-trade-industries-services-ab-herbst-2026-pwc-zurich"
       ]
     },
     {
@@ -1454,9 +1481,9 @@
       },
       "slugByLocale": {
         "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
+        "en": "young-talent-programme-limited-revisions-70-100-pwc-switzerland-zurich",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
+        "fr": "programme-des-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-311c28947999",
       "salaryMin": 49500,
@@ -1479,10 +1506,10 @@
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1495,12 +1522,14 @@
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "fr": [
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
@@ -1550,9 +1579,9 @@
       },
       "slugByLocale": {
         "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
+        "en": "young-talent-programme-limited-revisions-70-100-pwc-switzerland-bern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
+        "fr": "programme-des-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-bern"
       },
       "id": "pwc-311c28947999",
       "salaryMin": 49500,
@@ -1575,11 +1604,11 @@
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-bern",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1593,12 +1622,14 @@
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "fr": [
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-bern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
@@ -1650,9 +1681,9 @@
       },
       "slugByLocale": {
         "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
-        "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
+        "en": "young-talent-programme-limited-revisions-70-100-pwc-switzerland-luzern",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
+        "fr": "programme-des-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-luzern"
       },
       "id": "pwc-311c28947999",
       "salaryMin": 49500,
@@ -1674,11 +1705,11 @@
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-luzern",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1691,12 +1722,14 @@
         "en": [
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zug",
           "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "fr": [
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
-          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern"
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-luzern",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
@@ -1749,7 +1782,7 @@
         "it": "young-talent-programme-revisioni-limitate-70-100-pwc-switzerland-zug",
         "en": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "de": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
-        "fr": "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
+        "fr": "programme-des-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug"
       },
       "id": "pwc-311c28947999",
       "salaryMin": 49500,
@@ -1773,9 +1806,9 @@
         "young-talent-programs-limited-revisions-70-100-pwc-switzerland-zurich",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
         "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
+        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-luzern",
-        "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug",
         "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-switzerland-zurich",
         "giovani-programmi-di-talento-revisioni-limitate-70-100-pwc-switzerland-zug",
         "giovani-programmi-talent-revisioni-limitate-70-100-pwc-switzerland-zug",
@@ -1791,7 +1824,8 @@
         ],
         "fr": [
           "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zug",
-          "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich"
+          "programmes-pour-jeunes-talents-revisions-limitees-70-100-pwc-switzerland-zurich",
+          "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zug"
         ],
         "it": [
           "young-talent-programme-eingeschrankte-revisionen-70-100-pwc-zurich",
@@ -1841,9 +1875,9 @@
       },
       "slugByLocale": {
         "it": "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug",
-        "en": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
+        "en": "assistant-manager-future-mandate-manager-limited-audits-sme-audit-70-100-pwc-switzerland-zurich",
         "de": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-        "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
+        "fr": "assistant-responsable-responsable-du-mandat-futur-audits-limites-et-audit-pme-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-c8d370000ed7",
       "salaryMin": 68000,
@@ -1866,10 +1900,10 @@
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-switzerland-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
@@ -1881,12 +1915,14 @@
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
           "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
           "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
@@ -1936,9 +1972,9 @@
       },
       "slugByLocale": {
         "it": "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug",
-        "en": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
+        "en": "assistant-manager-future-mandate-manager-limited-audits-sme-audit-70-100-pwc-switzerland-bern",
         "de": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-        "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
+        "fr": "assistant-responsable-responsable-du-mandat-futur-audits-limites-et-audit-pme-70-100-pwc-switzerland-bern"
       },
       "id": "pwc-c8d370000ed7",
       "salaryMin": 68000,
@@ -1961,11 +1997,11 @@
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-switzerland-bern",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
@@ -1977,12 +2013,14 @@
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
           "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
           "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-bern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
@@ -2033,9 +2071,9 @@
       },
       "slugByLocale": {
         "it": "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug",
-        "en": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
+        "en": "assistant-manager-future-mandate-manager-limited-audits-sme-audit-70-100-pwc-switzerland-st-gallen",
         "de": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-        "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
+        "fr": "assistant-responsable-responsable-du-mandat-futur-audits-limites-et-audit-pme-70-100-pwc-switzerland-st-gallen"
       },
       "id": "pwc-c8d370000ed7",
       "salaryMin": 68000,
@@ -2058,11 +2096,11 @@
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-switzerland-st-gallen",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
@@ -2073,12 +2111,14 @@
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
           "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
           "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
@@ -2129,9 +2169,9 @@
       },
       "slugByLocale": {
         "it": "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug",
-        "en": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
+        "en": "assistant-manager-future-mandate-manager-limited-audits-sme-audit-70-100-pwc-switzerland-luzern",
         "de": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-        "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
+        "fr": "assistant-responsable-responsable-du-mandat-futur-audits-limites-et-audit-pme-70-100-pwc-switzerland-luzern"
       },
       "id": "pwc-c8d370000ed7",
       "salaryMin": 68000,
@@ -2153,11 +2193,11 @@
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-switzerland-luzern",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
@@ -2168,12 +2208,14 @@
         "en": [
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
           "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
           "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
-          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern"
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
@@ -2223,9 +2265,9 @@
       },
       "slugByLocale": {
         "it": "assistente-manager-future-mandate-manager-audit-limitato-e-audit-pmi-70-100-pwc-switzerland-zug",
-        "en": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
+        "en": "assistant-manager-future-mandate-manager-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "de": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
-        "fr": "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
+        "fr": "assistant-responsable-responsable-du-mandat-futur-audits-limites-et-audit-pme-70-100-pwc-switzerland-zug"
       },
       "id": "pwc-c8d370000ed7",
       "salaryMin": 68000,
@@ -2247,11 +2289,11 @@
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
         "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
+        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
         "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-luzern",
-        "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug",
         "assistant-manager-future-r-capo-del-mandato-in-audit-limitati-pmi-70-100-pwc-switzerland-zug",
         "assistant-manager-future-r-mandate-manager-revisioni-limitate-pmi-audit-70-100-pwc-switzerland-zug",
         "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-st-gallen",
@@ -2261,11 +2303,13 @@
         "en": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-luzern",
           "assistant-manager-future-r-head-of-mandate-in-limited-audits-sme-audit-70-100-pwc-switzerland-zug",
-          "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug"
+          "assistant-manager-future-r-head-of-mission-in-restricted-revisions-sme-audit-70-100-pwc-switzerland-zug",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "fr": [
           "assistant-gestionnaire-futur-r-chef-du-mandat-verifications-limitees-et-verification-des-pme-70-100-pwc-switzerland-zug",
-          "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug"
+          "assistant-gestionnaire-avenir-r-chef-de-mission-dans-revisions-restreintes-audit-pme-70-100-pwc-switzerland-zug",
+          "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zug"
         ],
         "it": [
           "assistant-manager-zukunftige-r-mandatsleiter-in-eingeschrankte-revisionen-kmu-audit-70-100-pwc-zurich",
@@ -2312,9 +2356,9 @@
       },
       "slugByLocale": {
         "it": "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug",
-        "en": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
+        "en": "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
         "de": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
-        "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
+        "fr": "transverse-entree-etape-suivante-senior-associe-revision-limitee-70-100-pwc-switzerland-zurich"
       },
       "id": "pwc-8d4e51c20519",
       "salaryMin": 68000,
@@ -2338,11 +2382,11 @@
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
+        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
@@ -2356,13 +2400,15 @@
           "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "fr": [
           "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
@@ -2412,9 +2458,9 @@
       },
       "slugByLocale": {
         "it": "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug",
-        "en": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
+        "en": "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-bern",
         "de": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
-        "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
+        "fr": "transverse-entree-etape-suivante-senior-associe-revision-limitee-70-100-pwc-switzerland-bern"
       },
       "id": "pwc-8d4e51c20519",
       "salaryMin": 68000,
@@ -2438,12 +2484,12 @@
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern",
+        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-bern",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
@@ -2458,13 +2504,15 @@
           "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "fr": [
           "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-bern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
@@ -2516,9 +2564,9 @@
       },
       "slugByLocale": {
         "it": "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug",
-        "en": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
+        "en": "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-luzern",
         "de": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
-        "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
+        "fr": "transverse-entree-etape-suivante-senior-associe-revision-limitee-70-100-pwc-switzerland-luzern"
       },
       "id": "pwc-8d4e51c20519",
       "salaryMin": 68000,
@@ -2541,12 +2589,12 @@
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
+        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-luzern",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
@@ -2560,13 +2608,15 @@
           "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "fr": [
           "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
-          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern"
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
@@ -2617,9 +2667,9 @@
       },
       "slugByLocale": {
         "it": "trasversale-ingresso-prossimo-passo-senior-associato-revisione-limitata-70-100-pwc-switzerland-zug",
-        "en": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
+        "en": "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "de": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
-        "fr": "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
+        "fr": "transverse-entree-etape-suivante-senior-associe-revision-limitee-70-100-pwc-switzerland-zug"
       },
       "id": "pwc-8d4e51c20519",
       "salaryMin": 68000,
@@ -2639,15 +2689,14 @@
       "firstSeenAt": "2026-05-30T00:13:22.657Z",
       "previousSlugs": [
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
-        "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
         "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
+        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
         "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-luzern",
-        "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug",
         "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-switzerland-zurich",
         "transverse-entrata-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
         "quer-input-passo-successivo-senior-associate-revisione-limitata-70-100-pwc-switzerland-zug",
@@ -2658,14 +2707,15 @@
       "previousSlugsByLocale": {
         "en": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-luzern",
-          "transverse-entry-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
           "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zug",
-          "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich"
+          "quer-input-next-step-senior-associate-limited-revision-70-100-pwc-switzerland-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "fr": [
           "entree-transverse-etape-suivante-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
           "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zug",
-          "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich"
+          "quer-input-prochaine-etape-aine-associe-revision-limitee-70-100-pwc-switzerland-zurich",
+          "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zug"
         ],
         "it": [
           "quer-einstieg-nachster-schritt-senior-associate-eingeschrankte-revision-70-100-pwc-zurich",
@@ -3574,8 +3624,7 @@
         "senior-associate-tax-accounting-pwc-switzerland-zurich",
         "senior-associate-contabilita-fiscale-pwc-switzerland-luzern",
         "senior-associate-tax-accounting-pwc-zug",
-        "senior-associate-contabilita-fiscale-pwc-switzerland-zug-gt3nwv",
-        "senior-associate-contabilita-fiscale-pwc-switzerland-zurich"
+        "senior-associate-contabilita-fiscale-pwc-switzerland-zug-gt3nwv"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -3662,8 +3711,7 @@
         "senior-associate-tax-accounting-pwc-switzerland-luzern",
         "senior-associate-tax-accounting-pwc-zug",
         "senior-associate-contabilita-fiscale-pwc-switzerland-zug-gt3nwv",
-        "senior-associate-contabilita-fiscale-pwc-switzerland-zurich",
-        "senior-associate-contabilita-fiscale-pwc-switzerland-luzern"
+        "senior-associate-contabilita-fiscale-pwc-switzerland-zurich"
       ],
       "previousSlugsByLocale": {
         "fr": [
@@ -5471,7 +5519,7 @@
       },
       "slugByLocale": {
         "it": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
-        "en": "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
+        "en": "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
         "de": "audit-assistent-manager-financial-services-competence-center-pwc-switzerland-zurich",
         "fr": "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
       },
@@ -5493,6 +5541,7 @@
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
         "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich",
+        "audit-assistant-manager-financial-services-competence-center-pwc-zurich",
         "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
         "gestionnaire-de-la-verification-assistant-services-financiers-centre-de-competences-pwc-switzerland-bern",
         "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-bern",
@@ -5504,7 +5553,8 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich"
+          "audit-assistant-manager-financial-services-competence-center-pwc-switzerland-zurich",
+          "audit-assistant-manager-financial-services-competence-center-pwc-zurich"
         ],
         "fr": [
           "manager-assistant-de-revision-services-financiers-centre-de-competence-pwc-switzerland-bern",
@@ -5932,7 +5982,7 @@
         "fr": "Expéditions - Prüfe Prozesse et bilans annuels de l'assurance sociale (1ère et 2ème colonne Suisse). - Vous contribuez activement à la transformation numérique de la comptabilité et utilisez des outils numériques modernes et des approches innovantes. - Créez une valeur réelle pour nos clients avec une équipe affamée. - Travailler dans un environnement dynamique et apprendre à connaître différents secteurs et domaines de compétence. - Évaluer les processus opérationnels et appuyer les questions comptables selon différentes normes. - approfondir votre compréhension d'un large éventail de clients, construire et cultiver des relations client durables. - Vous contribuez activement à la définition de l'avenir du secteur des pensions dans le cadre de l'équipe d'assurance sociale PwC. - Formation à titre de syndic ou de premier cycle en économie d'affaires et l'intention d'entreprendre une formation pour devenir un économiste d'affaires certifié. - Intérêt pour le monde de l'assurance sociale et motivation à approfondir les connaissances dans ce domaine. - Expérience pratique dans le domaine de la 1ère colonne, affinité pour le nombre et la compréhension des concepts d'affaires. - Intérêt à long terme pour une carrière en audit, compétences avancées en Excel et intérêt pour les tendances technologiques de la numérisation. - Profitez du travail d'équipe et de la relation avec des clients stimulants et intéressants. - Expression claire et précise en allemand et en anglais. - Disponibilité à travailler sur les envois avec des voyages en Suisse allemande et occasionnellement envoyé à l'hôtel. - Être un joueur d'équipe et profiter du travail avec des personnes apparentées.\n• Exigences - Formation à titre de syndic ou de premier cycle en économie d'affaires et l'intention d'entreprendre une formation pour devenir un économiste d'affaires certifié. - Intérêt pour le monde de l'assurance sociale et motivation à approfondir les connaissances dans ce domaine. - Expérience pratique dans le domaine de la 1ère colonne, affinité pour le nombre et la compréhension des concepts d'affaires. - Intérêt à long terme pour une carrière en audit, compétences avancées en Excel et intérêt pour les tendances technologiques de la numérisation. - Profitez du travail d'équipe et de la relation avec des clients stimulants et intéressants. - Expression claire et précise en allemand et en anglais. - Disponibilité à travailler sur les envois avec des voyages en Suisse allemande et occasionnellement envoyé à l'hôtel. - Être un joueur d'équipe et profiter du travail avec des personnes apparentées. Ce que nous offrons - Excellentes conditions de travail pour commencer votre carrière en mettant l'accent sur l'assurance sociale (1ère et 2ème colonne Suisse). - La possibilité d'apprendre tout ce dont vous avez besoin pour un succès commun et pour une économie durable et forte. - Travailler dans un environnement dynamique et apprendre à connaître différents secteurs et domaines de compétence. - Contribuer activement à la définition de l'avenir du secteur de la sécurité dans le cadre de l'équipe d'assurance sociale PwC. Profitez du travail d'équipe et de la relation avec les personnes apparentées. Personne à contacter - Pour plus d'informations, contactez notre équipe de ressources humaines."
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+        "it": "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
         "fr": "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern"
@@ -5957,15 +6007,14 @@
         "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-bern",
-        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern-0fyqg3",
-        "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern"
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern-0fyqg3"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -5986,13 +6035,14 @@
         ],
         "it": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
         ]
       }
     },
     {
       "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
-      "slug": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel",
+      "slug": "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-basel",
       "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-vorsorgespezialist-in-september-2026/c4547598-afc3-4b4d-b048-208f602f568e",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Career-Start-in-Audit---Vorsorgespezialist-in---September-2026_680335WD-2/apply",
       "company": "PwC Switzerland",
@@ -6026,10 +6076,10 @@
         "fr": "Exigences de carrière - Mansioni : Expérience dans le domaine de l'audit, notamment en matière de sécurité sociale. - Exigences : - Expérience dans le domaine des assurances sociales (1er et 2e pilier Suisse). - Connaissance des processus et des comptes annuels dans le domaine des assurances sociales (1er et 2ème pilier Suisse). - Cosa ofriamo : - Façonner la transformation numérique de l'audit. - Développement d'outils de tests numériques modernes et d'approches innovantes. - Collaboration avec une équipe bien rodée. - Contact : - Expérience dans un environnement dynamique. - Connaissance de divers domaines et industries spécialisés. - Évaluation des processus métiers et accompagnement pour les questions de comptabilité selon différentes normes. - Description : Formation réussie en tant que fiduciaire ou baccalauréat en administration des affaires complété avec succès et possibilité de façonner l'avenir du secteur des retraites au sein de l'équipe des assurances sociales de PwC. Opportunités de carrière - Rapidité du succès : Formation réussie en tant que syndic ou baccalauréat en administration des affaires complété avec succès. - Compétences avancées en Excel : Intérêt à long terme pour une carrière dans l'audit. - Tendances techniques : Intérêt pour les tendances techniques dans le contexte de la digitalisation. - Travail d'équipe : Appréciation du travail en équipe et de la relation avec des clients exigeants et passionnants. - Travail sur mandats : Volonté de travailler sur des mandats avec des itinéraires de voyage en Suisse alémanique ainsi que des mandats hôteliers occasionnels."
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+        "it": "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-basel",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+        "fr": "debut-de-carriere-en-audit-specialiste-des-retraites-septembre-2026-pwc-switzerland-basel"
       },
       "id": "pwc-fdcc133e3c78",
       "salaryMin": 62000,
@@ -6055,6 +6105,8 @@
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
@@ -6076,17 +6128,20 @@
           "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
           "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
         ],
         "it": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-basel"
         ]
       }
     },
     {
       "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
-      "slug": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+      "slug": "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-luzern",
       "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-vorsorgespezialist-in-september-2026/c4547598-afc3-4b4d-b048-208f602f568e",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Career-Start-in-Audit---Vorsorgespezialist-in---September-2026_680335WD-2/apply",
       "company": "PwC Switzerland",
@@ -6120,10 +6175,10 @@
         "fr": "Exigences de carrière - Mansioni : Expérience dans le domaine de l'audit, notamment en matière de sécurité sociale. - Exigences : - Expérience dans le domaine des assurances sociales (1er et 2e pilier Suisse). - Connaissance des processus et des comptes annuels dans le domaine des assurances sociales (1er et 2ème pilier Suisse). - Cosa ofriamo : - Façonner la transformation numérique de l'audit. - Développement d'outils de tests numériques modernes et d'approches innovantes. - Collaboration avec une équipe bien rodée. - Contact : - Expérience dans un environnement dynamique. - Connaissance de divers domaines et industries spécialisés. - Évaluation des processus métiers et accompagnement pour les questions de comptabilité selon différentes normes. - Description : Formation réussie en tant que fiduciaire ou baccalauréat en administration des affaires complété avec succès et possibilité de façonner l'avenir du secteur des retraites au sein de l'équipe des assurances sociales de PwC. Opportunités de carrière - Rapidité du succès : Formation réussie en tant que syndic ou baccalauréat en administration des affaires complété avec succès. - Compétences avancées en Excel : Intérêt à long terme pour une carrière dans l'audit. - Tendances techniques : Intérêt pour les tendances techniques dans le contexte de la digitalisation. - Travail d'équipe : Appréciation du travail en équipe et de la relation avec des clients exigeants et passionnants. - Travail sur mandats : Volonté de travailler sur des mandats avec des itinéraires de voyage en Suisse alémanique ainsi que des mandats hôteliers occasionnels."
       },
       "slugByLocale": {
-        "it": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
+        "it": "inizio-carriera-in-audit-specialista-pensionistico-settembre-2026-pwc-switzerland-luzern",
         "en": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
         "de": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-        "fr": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+        "fr": "debut-de-carriere-en-audit-specialiste-des-retraites-septembre-2026-pwc-switzerland-luzern"
       },
       "id": "pwc-fdcc133e3c78",
       "salaryMin": 69500,
@@ -6142,11 +6197,15 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
-        "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
         "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
+        "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
         "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
+        "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
         "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-luzern",
         "debut-de-carriere-en-verification-specialiste-de-la-precaution-septembre-2026-pwc-switzerland-luzern",
+        "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-bern",
         "career-start-in-audit-specialista-precauzionale-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-luzern",
         "career-start-in-audit-specialista-precauzionale-in-settembre-2026-pwc-switzerland-bern",
@@ -6156,13 +6215,11 @@
         "en": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-bern",
           "career-start-in-audit-precautionary-specialist-in-september-2026-pwc-switzerland-luzern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern"
         ],
         "de": [
           "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-bern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern",
-          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern"
+          "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-switzerland-luzern"
         ],
         "fr": [
           "debut-de-carriere-en-verification-specialiste-de-precaution-en-septembre-2026-pwc-switzerland-bern",
@@ -6651,8 +6708,8 @@
       "slugByLocale": {
         "it": "director-in-quality-regulatory-management-advisory-services-pwc-basel",
         "en": "director-in-quality-regulatory-management-advisory-services-pwc-zurich",
-        "de": "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-zurich",
-        "fr": "directeur-de-la-gestion-de-la-qualite-et-de-la-reglementation-services-consultatifs-pwc-switzerland-zurich"
+        "de": "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-basel",
+        "fr": "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel"
       },
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -6678,25 +6735,22 @@
           "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich"
         ],
         "de": [
-          "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-basel"
+          "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-zurich"
         ],
         "fr": [
-          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel",
-          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich"
+          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich",
+          "directeur-de-la-gestion-de-la-qualite-et-de-la-reglementation-services-consultatifs-pwc-switzerland-zurich"
         ]
       },
       "previousSlugs": [
         "director-in-quality-regulatory-management-advisory-services-pwc-zurich",
         "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-basel",
         "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich",
-        "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel",
-        "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich",
-        "direttore-di-gestione-della-qualita-e-regolazione-servizi-consultivi-pwc-switzerland-zurich",
-        "direttore-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich-3l9g2t",
         "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-zurich",
+        "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich",
         "directeur-de-la-gestion-de-la-qualite-et-de-la-reglementation-services-consultatifs-pwc-switzerland-zurich",
-        "direttore-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich"
+        "direttore-di-gestione-della-qualita-e-regolazione-servizi-consultivi-pwc-switzerland-zurich",
+        "direttore-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich-3l9g2t"
       ],
       "firstSeenAt": "2026-04-13T22:16:12.621Z"
     },
@@ -6774,13 +6828,11 @@
           "director-in-quality-regulatory-management-advisory-services-pwc-switzerland-zurich"
         ],
         "de": [
-          "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-zurich",
-          "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-basel"
+          "direktor-in-qualitat-regulatory-management-advisory-services-pwc-switzerland-zurich"
         ],
         "fr": [
           "directeur-de-la-gestion-de-la-qualite-et-de-la-reglementation-services-consultatifs-pwc-switzerland-zurich",
-          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich",
-          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-basel"
+          "directeur-in-qualite-regulatory-management-advisory-services-pwc-switzerland-zurich"
         ],
         "it": [
           "director-in-quality-regulatory-management-advisory-services-pwc-zurich",
@@ -6854,8 +6906,7 @@
       "previousSlugsByLocale": {
         "en": [
           "manager-im-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve",
-          "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui",
-          "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneva"
+          "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui"
         ],
         "de": [
           "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui"
@@ -8555,8 +8606,7 @@
       "previousSlugs": [
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
         "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
-        "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8",
-        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich"
+        "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8"
       ],
       "previousSlugsByLocale": {
         "fr": [
@@ -8607,7 +8657,7 @@
       },
       "slugByLocale": {
         "it": "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
-        "en": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-luzern",
+        "en": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zug",
         "de": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-luzern",
         "fr": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug"
       },
@@ -8630,7 +8680,7 @@
       "previousSlugs": [
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
         "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
-        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zug",
+        "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-luzern",
         "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
         "associato-senior-assistente-responsabile-revisione-del-commercio-delle-industrie-e-h2npx8"
       ],
@@ -8647,7 +8697,7 @@
         ],
         "en": [
           "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich",
-          "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-zug"
+          "senior-associate-assistant-manager-audit-trade-industries-services-pwc-switzerland-luzern"
         ]
       }
     },
@@ -9062,7 +9112,7 @@
         "fr": "• Aider l'équipe d'engagement à planifier, exécuter et mener à bien les tâches d'audit au sein des audits de groupe et locaux. Votre attention portera sur les activités de trésorerie et de négoce de produits de base des clients de différentes industries.\n• Participer à des projets de consultation portant sur le modèle opérationnel, les processus opérationnels et le choix et l'utilisation des technologies de la trésorerie et du commerce.\n• Travailler dans les locaux du client, au bureau et/ou à la maison.\n• Acquérir une connaissance approfondie d'un large éventail de clients et travailler dans une équipe motivée, axée sur la recherche d'opportunités pour ajouter de la valeur à nos clients et équipes et à vous-même.\n• Collaborer avec un réseau d'experts hautement talentueux et compétents.\n• S'efforcer de faire la différence dans l'ensemble de l'organisation et d'agir comme catalyseur du changement.\n• Baccalauréat, maîtrise ou diplôme en économie, et vous êtes dans le processus ou la planification d'obtenir un diplôme d'audit (comme le CPA suisse).\n• 5 à 7 ans d'expérience et de pratique en matière d'audit dans l'utilisation des IFRS et ou des GAAP américains.\n• Fluent en anglais, toute autre langue (en particulier l'allemand) est un plus.\n• Compétences analytiques et interpersonnelles que vous démontrez lorsque vous travaillez avec vos clients et vos équipes.\n• A travaillé dans une équipe connue pour son partage, sa culture communicative avec laquelle d'autres membres du personnel aspirent à travailler et avec qui vous aimez être en contact avec les clients.\n• Capable de partager activement votre expertise et votre expérience en coachant les autres."
       },
       "slugByLocale": {
-        "it": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
+        "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve"
@@ -9093,9 +9143,7 @@
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
         "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
-        "senior-auditor-treasury-and-commodity-trading-pwc-zurich-ki2xlt",
-        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
-        "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich"
+        "senior-auditor-treasury-and-commodity-trading-pwc-zurich-ki2xlt"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -9111,7 +9159,8 @@
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
+          "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
+          "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
         ],
         "de": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel"
@@ -9156,7 +9205,7 @@
       "slugByLocale": {
         "it": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
-        "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
+        "de": "senior-auditor-treasury-und-rohstoffhandelsunternehmen-pwc-schweiz-pwc-switzerland-basel",
         "fr": "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
       },
       "id": "pwc-a850de8307a2",
@@ -9182,12 +9231,12 @@
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve",
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
+        "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
         "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
-        "senior-auditor-treasury-and-commodity-trading-pwc-zurich-ki2xlt",
-        "senior-auditor-treasury-and-commodity-trading-pwc-basel"
+        "senior-auditor-treasury-and-commodity-trading-pwc-zurich-ki2xlt"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -9201,6 +9250,9 @@
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
+        ],
+        "de": [
+          "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
         ]
       }
     },
@@ -9242,7 +9294,7 @@
       "slugByLocale": {
         "it": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
         "en": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
-        "de": "senior-auditor-treasury-and-commodity-trading-pwc-geneve",
+        "de": "senior-auditor-treasury-und-rohstoffhandelsunternehmen-pwc-schweiz-pwc-switzerland-geneve",
         "fr": "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
       },
       "id": "pwc-a850de8307a2",
@@ -9262,12 +9314,14 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
-        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
+        "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
         "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich",
+        "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve",
         "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
         "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
+        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-geneve",
         "revisore-senior-tesoreria-e-commodity-trading-pwc-switzerland-zurich",
         "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
@@ -9278,19 +9332,16 @@
           "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
           "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel",
           "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich",
-          "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
+          "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich"
         ],
         "fr": [
           "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-geneve",
           "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
+          "senior-auditor-treasury-and-commodity-trading-pwc-basel"
         ],
         "it": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel",
-          "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
-          "senior-auditor-treasury-and-commodity-trading-pwc-geneve"
+          "senior-auditor-treasury-and-commodity-trading-pwc-zurich"
         ],
         "de": [
           "senior-auditor-treasury-and-commodity-trading-pwc-basel"
@@ -9333,7 +9384,7 @@
         "fr": "Descrizione Vous faites partie d'une équipe qui non seulement vérifie les nombres, mais reconnaît les relations. Chez PwC dans le domaine de l'audit - Services financiers (banques, gestionnaire d'actifs, assurance), vous analysez les entreprises : Quelle est leur réussite? Où sont les possibilités et les risques? Comment peuvent-ils devenir plus durables? Ici, vous travaillez avec des gens curieux et ambitieux pour façonner l'économie de demain – numérique, durable et globale. Chaque projet est unique et vous offre la possibilité de grandir et de faire une différence. La diversité est notre force. Votre perspective compte et nous vous soutenons pour atteindre vos objectifs. Tu ne veux pas juste un boulot, tu veux faire quelque chose ? Bienvenue à PwC ! Ici vous pouvez: Mansioni - Comprendre et transformer les entreprises : vérifier les comptes consolidés et les comptes annuels et s'assurer qu'ils répondent aux exigences réglementaires - sur place, au bureau ou avec souplesse à partir du bureau principal. - Façonner l'avenir numériquement : utiliser des outils modernes, l'IA et l'analyse des données pour porter l'audit à un nouveau niveau. Comptez vos idées ! - Promouvoir la durabilité : soutenir l'évaluation des rapports ESG et aider les entreprises sur la voie de la sensibilisation à l'environnement et de la responsabilité sociale. - Créer des réseaux : travailler avec les équipes de leadership et les OFC et relier les contacts qui façonneront votre carrière. - Responsabilité : développez vos compétences en leadership dans une équipe internationale qui vous encourage et vous inspire. En particulier dans l'intense saison de travail de janvier à Pâques, vous apportez une contribution décisive au succès de nos clients.\n• Requisiti - Un baccalauréat ou une maîtrise en économie, en informatique (économique), en STEM ou dans un autre domaine d'études. - L'enthousiasme pour les chiffres, les tendances numériques et la durabilité. - La volonté de travailler dans un environnement international et de travailler avec des personnes de différentes cultures. - Bonne communication en allemand et en anglais. - L'esprit d'équipe et la capacité de résoudre les défis avec de nouvelles idées.\n• Cosa offriamo - Temps et soutien financier: Nous vous accompagnons de manière complète dans votre formation chez/pour dipl. Comptable:in. Vous bénéficiez non seulement d'un soutien financier, mais aussi de la flexibilité nécessaire pour optimiser votre temps d'apprentissage. - Flexibilité qui vous convient : Nos modèles de temps de travail vous donnent la liberté, la profession, l'apprentissage et les loisirs à concilier. - Mentoring et développement : Vous êtes accompagné de collègues expérimentés qui vous encouragent et vous inspirent. - Une équipe qui vous renforce : avec nous, vous trouverez une communauté qui apprécie la diversité, célèbre les idées et vous encourage à grandir au-delà de vous. Contatto Si vous n'êtes toujours pas sûr de l'apparence de la vie quotidienne dans l'audit, essayez notre expérience de cas virtuel. En 3-4 heures, vous pouvez résoudre de vraies questions d'affaires et obtenir un aperçu de la pratique. Rejoignez maintenant et faites partie de notre Communauté des Solvers. Ensemble, nous façonnons l'avenir de l'audit - numérique, durable et mondial."
       },
       "slugByLocale": {
-        "it": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
+        "it": "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
         "en": "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-zurich",
         "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-zurich",
         "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich"
@@ -9356,16 +9407,17 @@
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "previousSlugs": [
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
-        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich-r55tbe",
-        "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich"
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich-r55tbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
         ],
         "de": [
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe"
@@ -9374,7 +9426,7 @@
     },
     {
       "title": "Audit – Career Start im Bereich Financial Services - Herbst 2026",
-      "slug": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
+      "slug": "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
       "url": "https://jobs.pwc.ch/job-vacancies/audit-career-start-im-bereich-financial-services-herbst-2026/2add8415-5909-4616-afd1-af269dd36672",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Audit---Career-Start-im-Bereich-Trade--Industries---Services---Herbst-2026_660761WD/apply",
       "company": "PwC Switzerland",
@@ -9408,10 +9460,10 @@
         "fr": "Vous faites partie d'une équipe qui non seulement vérifie les numéros, mais reconnaît également les connexions. Chez PwC, au sein du département Audit - Services financiers (banques, gestionnaires d'actifs, compagnies d'assurance), vous analysez les entreprises : quel est leur succès ? Où sont les opportunités et les risques ? Comment peuvent-ils devenir plus durables ? Ici, vous travaillerez avec des personnes curieuses et ambitieuses pour façonner l'économie de demain - numérique, durable et mondiale. Chaque projet est unique et vous offre la possibilité de grandir et de faire la différence. La diversité est notre force. Votre point de vue compte et nous vous accompagnons dans la réalisation de vos objectifs. Vous ne voulez pas seulement un emploi, vous voulez faire une différence ? Bienvenue chez PwC ! Ici, vous pouvez : • Comprendre et transformer les entreprises : vérifier les états financiers consolidés et annuels et vous assurer qu'ils répondent aux exigences réglementaires - sur place, au bureau ou de manière flexible depuis votre domicile. • Façonner l'avenir numériquement : utilisez des outils de pointe, l'IA et l'analyse de données pour faire passer l'audit à un nouveau niveau. Vos idées comptent ! • Promouvoir le développement durable : soutenir la révision des rapports ESG et accompagner les entreprises sur la voie d'une plus grande conscience environnementale et d'une plus grande responsabilité sociale. • Construisez des réseaux : collaborez avec les équipes de direction et les directeurs financiers et établissez des liens qui façonneront votre carrière. • Prendre des responsabilités : Développez vos compétences en leadership au sein d'une équipe internationale qui vous soutient et vous inspire. Vous apportez une contribution cruciale au succès de nos clients, en particulier pendant la haute saison de janvier à Pâques. Si vous ne savez toujours pas à quoi ressemble la vie quotidienne en matière d'audit, essayez notre expérience de cas virtuel. En 3 à 4 heures, vous pouvez résoudre de vraies questions commerciales et avoir un aperçu de la pratique. Ce qui compte pour nous, c'est votre personnalité, vos compétences et votre envie de rendre le monde meilleur. Ce que vous devez également apporter avec vous : • Un baccalauréat ou une maîtrise en cours ou terminé en économie, en technologie de l'information (commerciale), en STEM ou dans un autre domaine d'études. • Enthousiasme pour les chiffres, les tendances numériques et la durabilité. • Le désir de travailler dans un environnement international et de collaborer avec des personnes de cultures différentes. • Solides compétences en communication en allemand et en anglais. • Esprit d'équipe et capacité à résoudre des défis avec de nouvelles idées. Votre point de vue - Plus qu'un simple emploi Nous savons que démarrer votre vie professionnelle peut être passionnant mais aussi stimulant. C'est pourquoi nous vous accompagnons sur votre chemin - avec un plan clair et un soutien solide : • Un soutien en temps et en argent : Nous vous apportons un soutien complet dans votre formation continue pour devenir qualifié. Auditeur. Vous bénéficiez non seulement d’un soutien financier, mais également de la flexibilité nécessaire pour organiser votre temps d’apprentissage de manière optimale. • Une flexibilité qui vous convient : nos modèles de temps de travail vous offrent la liberté de concilier travail, apprentissage et loisirs. • Mentorat et développement : Vous serez soutenu par des collègues expérimentés qui vous soutiendront et vous inspireront. • Une équipe qui vous renforce : Avec nous, vous trouverez une communauté qui valorise la diversité, célèbre les idées et vous encourage à vous dépasser. Pourquoi PwC ? Parce que nous savons ce qui est important pour vous. Un travail significatif qui fait la différence. Une équipe qui vous inspire. Et la possibilité de façonner activement l’avenir. Postulez maintenant et faites partie de notre communauté de solveurs. Ensemble, nous façonnons l'avenir de l'audit - numérique, durable et mondial."
       },
       "slugByLocale": {
-        "it": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
+        "it": "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "en": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
-        "fr": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
+        "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-st-gallen"
       },
       "id": "pwc-a72cc4506abb",
       "salaryMin": 57500,
@@ -9430,8 +9482,12 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:54:12.475Z",
       "previousSlugs": [
-        "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
+        "audit-career-start-in-financial-services-autumn-2026-pwc-switzerland-zurich",
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
+        "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen",
         "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
+        "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-zurich",
         "audit-inizio-carriera-nei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st-gallen",
         "audit-career-start-nel-settore-dei-servizi-finanziari-autunno-2026-pwc-switzerland-st",
@@ -9445,7 +9501,8 @@
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe"
         ],
         "fr": [
-          "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich"
+          "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-zurich",
+          "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-st-gallen"
         ],
         "it": [
           "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
@@ -9658,9 +9715,7 @@
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve",
-        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich-b0p3fj",
-        "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
-        "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-zurich"
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich-b0p3fj"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -9678,7 +9733,7 @@
     },
     {
       "title": "Manager / Senior Manager - Cyber Technology and Transformation",
-      "slug": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
+      "slug": "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-geneve",
       "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-cyber-technology-and-transformation/c594027a-c567-4a9b-8477-1ab26a5e7e82",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-Cyber-Technology-and-Transformation_616683WD-1/apply",
       "company": "PwC Switzerland",
@@ -9712,7 +9767,7 @@
         "fr": "Êtes-vous prêt à contribuer à la réussite des engagements en matière de cybertechnologie et de transformation ? Il s'agit d'une opportunité passionnante de rejoindre notre équipe de cybertechnologie et de transformation en pleine croissance. Nous accompagnons nos clients tout au long du parcours de cybersécurité, depuis les évaluations technologiques, l'identification et la mise en œuvre de cybersolutions, la définition de la cyberstratégie et bien d'autres encore. Vous bénéficiez d’une formidable équipe avec laquelle travailler et de nos vastes engagements vous permettant de vous épanouir personnellement et professionnellement. • Faites partie de notre équipe diversifiée de cybersécurité et jouez un rôle central dans la mise en œuvre d'engagements de sécurité couvrant la gestion de l'exposition, l'architecture de sécurité, la sécurité du cloud et bien d'autres. • Servir de contact clé pour nos clients, en prenant en charge la gestion de bout en bout et la réussite de nos engagements. • Fournir des conseils stratégiques aux clients pour les soutenir dans leur cyber parcours. • Piloter l'évaluation et la mise en œuvre des cybertechnologies pour améliorer la maturité en matière de cybersécurité de nos clients. • Construisez et pilotez votre propre cybercapacité, du développement commercial à la contribution au développement de services innovants au sein de notre pratique de cybertechnologie et de transformation. • Former et encadrer des équipes interfonctionnelles pour développer et exécuter des relations clients à long terme et accélérer un environnement de travail collaboratif. • Min. 5 ans d'expérience pertinente en cybersécurité et une expérience préalable en conseil dans un cabinet de conseil ou dans une fonction ou un rôle de conseil interne en entreprise. • Diplôme de maîtrise ou de licence ou qualification professionnelle équivalente. Des certificats supplémentaires tels que CISSP, CISM, SSCP sont un plus. • Connaissance et expérience pratique de la gestion de projets de sécurité dans des domaines clés tels que les opérations de sécurité, l'architecture de sécurité, la gestion des identités et des accès (IAM), la sécurité du cloud, etc. • Solides compétences en communication verbale et écrite pour interagir efficacement avec tous les niveaux de direction et du personnel. • Anglais courant ; L'allemand ou le français sont un plus."
       },
       "slugByLocale": {
-        "it": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
+        "it": "manager-senior-manager-tecnologia-cibernetica-e-trasformazione-pwc-switzerland-geneve",
         "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "de": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
         "fr": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
@@ -9734,10 +9789,13 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-04-13T22:16:12.621Z",
       "previousSlugs": [
-        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
+        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich",
         "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-geneve",
         "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich-b0p3fj",
         "manager-senior-manager-cyber-technology-e-trasformazione-pwc-switzerland-zurich"
@@ -9753,7 +9811,8 @@
         ],
         "it": [
           "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve",
-          "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj"
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
+          "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve"
         ]
       }
     },
@@ -9824,8 +9883,7 @@
         "senior-cyber-security-architect-manager-senior-manager-pwc-zurich",
         "senior-cyber-security-architecte-manager-senior-manager-pwc-switzerland-geneve-8bzrry",
         "senior-cyber-security-architecte-manager-senior-manager-pwc-switzerland-zurich",
-        "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-geneve-4gb3cq",
-        "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-zurich"
+        "manager-senior-manager-senior-cyber-security-architetto-pwc-switzerland-geneve-4gb3cq"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -9923,8 +9981,7 @@
         ],
         "en": [
           "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-zurich",
-          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich",
-          "manager-senior-manager-senior-cyber-security-architect-pwc-switzerland-geneve"
+          "manager-senior-manager-senior-cyber-security-architect-pwc-zurich"
         ],
         "it": [
           "senior-cyber-security-architect-manager-senior-manager-pwc-switzerland-geneve",

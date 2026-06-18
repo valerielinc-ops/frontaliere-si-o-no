@@ -224,12 +224,12 @@
     },
     {
       "id": "kispi-zurich-6cfcd0f41191",
-      "slug": "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "it": "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
+        "it": "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "dipl-nursing-professional-dipl-care-professional-40-60-universitats-kinderspital-zurich-kispi-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-40-60-universitats-kinderspital-zurich-kispi"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -273,12 +273,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
-        "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich"
+        "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich",
-          "dipl-infermieristica-professionale-dipl-cura-professionale-40-60-universitats-kinderspital-zurich-kispi-zurich"
+          "infermiere-certificato-40-60-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-60-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-10T12:20:09.432Z",
@@ -374,9 +380,9 @@
       "slug": "interno-per-infermieri-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "interno-per-infermieri-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
+        "en": "nursing-intern-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
         "de": "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
-        "fr": "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        "fr": "stagiaire-infirmier-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -424,6 +430,12 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        ],
+        "en": [
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-06-11T12:53:41.659Z",
@@ -447,7 +459,7 @@
         "it": "risorse-umane-controller-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich",
         "en": "hr-controller-m-w-40-50-kispi-zurich-zurich",
         "de": "hr-controller-m-w-40-50-kispi-zurich-zurich",
-        "fr": "hr-controller-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich"
+        "fr": "controleur-hr-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -490,11 +502,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-controller-m-w-40-50-kispi-zurich-zurich"
+        "hr-controller-m-w-40-50-kispi-zurich-zurich",
+        "hr-controller-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-controller-m-w-40-50-kispi-zurich-zurich"
+        ],
+        "fr": [
+          "hr-controller-m-w-40-50-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-06-12T22:37:56.644Z",
@@ -667,7 +683,7 @@
         "it": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
         "en": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
         "de": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich",
-        "fr": "staff-mass-spectrometrist-m-f-100-kispi-zurich-zurich"
+        "fr": "spectrometriste-de-masse-du-personnel-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",

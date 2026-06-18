@@ -953,12 +953,12 @@
     },
     {
       "id": "klinik-sgm-b6ff7f653b51",
-      "slug": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
+      "slug": "ergotherapeuta-ergotherapeuta-temporaneo-klinik-sgm-langenthal-langenthal",
       "slugByLocale": {
-        "it": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
+        "it": "ergotherapeuta-ergotherapeuta-temporaneo-klinik-sgm-langenthal-langenthal",
         "en": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
         "de": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal",
-        "fr": "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
+        "fr": "ergo-therapeute-ergo-therapeute-temporaire-klinik-sgm-langenthal-langenthal"
       },
       "company": "Klinik SGM Langenthal",
       "companyKey": "klinik-sgm",
@@ -1011,7 +1011,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeut-befristet-klinik-sgm-langenthal"
+      ]
     }
   ]
 }

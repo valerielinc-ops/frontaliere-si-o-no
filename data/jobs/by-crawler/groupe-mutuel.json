@@ -24,11 +24,11 @@
         "de": "Versicherungs- und Versicherungsberater (h/f) 80-100%",
         "fr": "Conseiller en Assurances et Prévoyance (h/f) 80-100%"
       },
-      "slug": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+      "slug": "consulente-assicurativo-h-f-80-100-groupe-mutuel-neuchatel",
       "slugByLocale": {
-        "it": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
-        "en": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
-        "de": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel",
+        "it": "consulente-assicurativo-h-f-80-100-groupe-mutuel-neuchatel",
+        "en": "insurance-and-insurance-advisor-h-f-80-100-groupe-mutuel-neuchatel",
+        "de": "versicherungs-und-versicherungsberater-h-f-80-100-groupe-mutuel-neuchatel",
         "fr": "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
       },
       "category": "insurance",
@@ -63,7 +63,21 @@
       "addressLocality": "Neuchâtel",
       "addressCountry": "CH",
       "addressRegion": "NE",
-      "firstSeenAt": "2026-06-17T12:58:41.171Z"
+      "firstSeenAt": "2026-06-17T12:58:41.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ],
+        "de": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ]
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4138?c=groupemutuel&lang=fr-FR",
@@ -90,9 +104,9 @@
       "slug": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
       "slugByLocale": {
         "it": "coach-di-vendita-specialista-previdenziale-m-f-80-100-groupe-mutuel-st-gallen",
-        "en": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
+        "en": "sales-coach-pension-specialist-m-f-80-100-groupe-mutuel-st-gallen",
         "de": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
-        "fr": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        "fr": "entraineur-commercial-specialiste-des-pensions-m-f-80-100-groupe-mutuel-st-gallen"
       },
       "category": "sales",
       "datePosted": "2026-06-15",
@@ -130,6 +144,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -161,9 +181,9 @@
       "slug": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
       "slugByLocale": {
         "it": "incaricato-salute-sinistri-m-f-60-groupe-mutuel-fribourg",
-        "en": "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
+        "en": "personnel-health-damage-cases-m-f-60-groupe-mutuel-fribourg",
         "de": "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel",
-        "fr": "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
+        "fr": "sante-du-personnel-dommages-m-f-60-groupe-mutuel-fribourg"
       },
       "category": "claims",
       "datePosted": "2026-06-12",
@@ -201,6 +221,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
+        ],
+        "en": [
+          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
+        ],
+        "fr": [
+          "sachbearbeiter-gesundheit-schadenfalle-m-w-60-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -232,8 +258,8 @@
       "slug": "business-analista-prevoyance-individuelle-h-f-80-100-groupe-mutuel-martigny",
       "slugByLocale": {
         "it": "business-analista-prevoyance-individuelle-h-f-80-100-groupe-mutuel-martigny",
-        "en": "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel",
-        "de": "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel",
+        "en": "business-analyst-individual-vision-h-f-80-100-groupe-mutuel-martigny",
+        "de": "business-analyst-individual-vision-h-w-80-100-groupe-mutuel-martigny",
         "fr": "business-analyste-prevoyance-individuelle-h-f-80-100-groupe-mutuel-martigny"
       },
       "category": "insurance",
@@ -275,6 +301,12 @@
         ],
         "fr": [
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
+        ],
+        "de": [
+          "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -306,9 +338,9 @@
       "slug": "specialista-precauzionale-m-f-80-100-groupe-mutuel-winterthur",
       "slugByLocale": {
         "it": "specialista-precauzionale-m-f-80-100-groupe-mutuel-winterthur",
-        "en": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
+        "en": "sales-coach-pension-specialist-m-f-80-100-groupe-mutuel-winterthur",
         "de": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
-        "fr": "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        "fr": "entraineur-commercial-specialiste-des-pensions-m-f-80-100-groupe-mutuel-winterthur"
       },
       "category": "sales",
       "datePosted": "2026-06-09",
@@ -347,6 +379,12 @@
         "it": [
           "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel",
           "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel-2"
+        ],
+        "en": [
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "verkaufscoach-vorsorgespezialist-m-w-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -379,8 +417,8 @@
       "slug": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "ausiliario-medico-m-f-100-temporaneo-6-mesi-groupe-mutuel-sion",
-        "en": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
-        "de": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
+        "en": "medical-assistant-h-f-100-temporary-6-months-groupe-mutuel-sion",
+        "de": "medizinische-assistenz-h-f-100-vorubergehende-6-monate-groupe-mutuel-sion",
         "fr": "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
       },
       "category": "healthcare",
@@ -402,6 +440,12 @@
         "it": [
           "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel",
           "auxiliaire-medical-m-w-d-100-temporaire-6-mois-groupe-mutuel-sion"
+        ],
+        "en": [
+          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
+        ],
+        "de": [
+          "auxiliaire-medical-h-f-100-temporaire-6-mois-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -452,8 +496,8 @@
       "slug": "sales-manager-m-f-80-100-groupe-mutuel-delemont",
       "slugByLocale": {
         "it": "sales-manager-m-f-80-100-groupe-mutuel-delemont",
-        "en": "responsable-de-vente-h-f-80-100-groupe-mutuel",
-        "de": "responsable-de-vente-h-f-80-100-groupe-mutuel",
+        "en": "sales-manager-h-f-80-100-groupe-mutuel-delemont",
+        "de": "verkaufsleiter-h-f-80-100-groupe-mutuel-delemont",
         "fr": "responsable-de-vente-h-f-80-100-groupe-mutuel"
       },
       "category": "sales",
@@ -491,6 +535,12 @@
       "previousSlugsByLocale": {
         "it": [
           "responsable-de-vente-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "responsable-de-vente-h-f-80-100-groupe-mutuel"
+        ],
+        "de": [
+          "responsable-de-vente-h-f-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -522,9 +572,9 @@
       "slug": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-basel",
       "slugByLocale": {
         "it": "consulente-clienti-agenzie-m-f-80-100-groupe-mutuel-basel",
-        "en": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
+        "en": "client-advisor-agencies-m-f-80-100-groupe-mutuel-basel",
         "de": "kundenberater-agenturen-m-w-80-100-groupe-mutuel",
-        "fr": "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        "fr": "agences-de-conseil-a-la-clientele-m-f-80-100-groupe-mutuel-basel"
       },
       "category": "customer-service",
       "datePosted": "2026-06-08",
@@ -562,6 +612,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "en": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ],
+        "fr": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -593,7 +649,7 @@
       "slug": "analista-m-f-80-100-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "analista-m-f-80-100-groupe-mutuel-sion",
-        "en": "analyste-h-f-80-100-groupe-mutuel",
+        "en": "analyst-h-f-80-100-groupe-mutuel-sion",
         "de": "analyste-h-f-80-100-groupe-mutuel",
         "fr": "analyste-h-f-80-100-groupe-mutuel"
       },
@@ -632,6 +688,9 @@
       "firstSeenAt": "2026-06-08T12:57:07.729Z",
       "previousSlugsByLocale": {
         "it": [
+          "analyste-h-f-80-100-groupe-mutuel"
+        ],
+        "en": [
           "analyste-h-f-80-100-groupe-mutuel"
         ]
       },
@@ -1889,7 +1948,7 @@
       "slugByLocale": {
         "it": "candidatura-spontanee-groupe-mutuel-suisse",
         "en": "candidature-spontanee-groupe-mutuel",
-        "de": "candidature-spontanee-groupe-mutuel",
+        "de": "kandidatur-spontanee-groupe-mutuel-suisse",
         "fr": "candidature-spontanee-groupe-mutuel"
       },
       "category": "general",
@@ -1926,6 +1985,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "candidature-spontanee-groupe-mutuel"
+        ],
+        "de": [
           "candidature-spontanee-groupe-mutuel"
         ]
       },

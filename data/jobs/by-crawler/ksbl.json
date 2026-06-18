@@ -4102,12 +4102,12 @@
     },
     {
       "id": "ksbl-9019aad02f15",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital",
       "slugByLocale": {
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
-        "en": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital",
+        "en": "dipl-expert-expert-emergency-care-nds-hf-dipl-nursing-professional-emergency-centre-a-kantonsspital-baselland-ksbl",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
-        "fr": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+        "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-dipl-professionnels-des-soins-infirmiers-centre-d-urgence-a-kantonsspital"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -4161,7 +4161,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+        ],
+        "en": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+        ],
+        "fr": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+      ]
     },
     {
       "id": "ksbl-e183290c3a4f",

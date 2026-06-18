@@ -294,10 +294,10 @@
       "id": "denner-55238b581587",
       "slug": "responsabiledi-filiale-in-formazione-regione-basilea-denner-binningen",
       "slugByLocale": {
-        "it": "responsabiledi-filiale-in-formazione-regione-basilea-denner-binningen",
-        "en": "branch-manager-in-training-region-basel-denner-binningen",
+        "it": "direttore-di-filiale-in-formazione-nella-regione-di-basilea-denner-ag-binningen",
+        "en": "branch-manager-in-education-region-basel-denner-ag-binningen-7ch1bc",
         "de": "filialleiter-in-in-ausbildung-region-basel-denner",
-        "fr": "responsable-de-la-formation-region-bale-denner-binningen"
+        "fr": "directeur-de-succursale-en-formation-dans-la-region-de-bale-denner-ag-binningen-7ch1bc"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -354,17 +354,21 @@
       "sourceLang": "de",
       "crawledAt": "2026-06-17T22:30:14.102Z",
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-region-basel-denner"
+        "filialleiter-in-in-ausbildung-region-basel-denner",
+        "branch-manager-in-training-region-basel-denner-binningen",
+        "responsable-de-la-formation-region-bale-denner-binningen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-region-basel-denner"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-region-basel-denner"
+          "filialleiter-in-in-ausbildung-region-basel-denner",
+          "branch-manager-in-training-region-basel-denner-binningen"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-region-basel-denner"
+          "filialleiter-in-in-ausbildung-region-basel-denner",
+          "responsable-de-la-formation-region-bale-denner-binningen"
         ]
       },
       "needsRetranslation": true,
@@ -782,10 +786,10 @@
       "id": "denner-a9d3e660c799",
       "slug": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-dietlikon",
       "slugByLocale": {
-        "it": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-dietlikon",
-        "en": "department-manager-inbound-outbound-logistics-dietlikon-denner-dietlikon",
+        "it": "responsabile-di-reparto-entrata-uscita-merci-dietlikon-denner-ag-dietlikon",
+        "en": "department-manager-inbound-outbound-logistics-dietlikon-denner-ag-dietlikon",
         "de": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "fr": "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-dietlikon"
+        "fr": "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-ag-dietlikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -847,7 +851,9 @@
       "crawledAt": "2026-06-17T22:30:10.768Z",
       "previousSlugs": [
         "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+        "department-manager-inbound-outbound-logistics-dietlikon-denner-dietlikon",
+        "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-dietlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -855,10 +861,12 @@
           "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
         ],
         "en": [
-          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+          "department-manager-inbound-outbound-logistics-dietlikon-denner-dietlikon"
         ],
         "fr": [
-          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+          "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+          "responsable-de-departement-entree-sortie-de-marchandises-dietlikon-denner-dietlikon"
         ]
       },
       "firstSeenAt": "2026-06-16T22:42:22.787Z",
@@ -976,9 +984,9 @@
       "id": "denner-c31476f76733",
       "slug": "venditore-venditore-denner-versoix",
       "slugByLocale": {
-        "it": "venditore-venditore-denner-versoix",
-        "en": "seller-seller-denner-versoix",
-        "de": "verkaufer-verkaufer-denner-versoix",
+        "it": "addetto-a-alle-vendite-denner-sa-versoix",
+        "en": "sales-assistant-denner-sa-versoix",
+        "de": "verkaufer-verkauferin-denner-sa-versoix",
         "fr": "vendeur-vendeuse-denner-geneve"
       },
       "company": "Denner",
@@ -1036,7 +1044,9 @@
       "crawledAt": "2026-06-17T22:30:10.303Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner",
-        "vendeur-vendeuse-denner-versoix"
+        "vendeur-vendeuse-denner-versoix",
+        "seller-seller-denner-versoix",
+        "verkaufer-verkaufer-denner-versoix"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1044,10 +1054,12 @@
           "vendeur-vendeuse-denner-versoix"
         ],
         "en": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "seller-seller-denner-versoix"
         ],
         "de": [
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "verkaufer-verkaufer-denner-versoix"
         ]
       },
       "firstSeenAt": "2026-06-16T22:42:22.754Z",

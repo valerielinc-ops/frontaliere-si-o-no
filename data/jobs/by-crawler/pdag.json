@@ -5878,12 +5878,12 @@
     },
     {
       "id": "pdag-f184c3fac565",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+      "slug": "dipl-infermiere-dipl-infermiere-abbandoni-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+        "it": "dipl-infermiere-dipl-infermiere-abbandoni-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "dipl-nurse-dipl-nurse-abandonment-psychiatrische-dienste-aargau-pdag-windisch",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
+        "fr": "infirmiere-diplomee-infirmiere-diplomee-abandon-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5938,27 +5938,30 @@
         }
       },
       "previousSlugs": [
+        "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+        "dipl-nurse-nurse-specialist-dependence-diseases-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-pflegefachfrau-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
+        "dipl-infirmier-troubles-de-la-dependance-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-carriera-dipl-cura-specialista-malattie-della-dipendenza-psychiatrische-dienste-aargau-pdag-windisch",
         "dipl-career-dipl-care-specialist-dependency-diseases-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch",
-        "dipl-carriere-dipl-specialiste-des-maladies-de-dependance-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-nurse-nurse-specialist-dependence-diseases-psychiatrische-dienste-aargau-pdag-windisch",
-        "dipl-infirmier-troubles-de-la-dependance-psychiatrische-dienste-aargau-pdag-windisch"
+        "dipl-carriere-dipl-specialiste-des-maladies-de-dependance-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-infermiera-infermiera-specialista-dipendenze-malattie-psychiatrische-dienste-aargau-pdag-windisch",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
         ],
         "en": [
-          "dipl-nurse-nurse-specialist-dependence-diseases-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-nurse-nurse-specialist-dependence-diseases-psychiatrische-dienste-aargau-pdag-windisch",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
         ],
         "fr": [
-          "dipl-infirmier-troubles-de-la-dependance-psychiatrische-dienste-aargau-pdag-windisch"
+          "dipl-infirmier-troubles-de-la-dependance-psychiatrische-dienste-aargau-pdag-windisch",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-pdag-windisch"
         ]
       }
     }

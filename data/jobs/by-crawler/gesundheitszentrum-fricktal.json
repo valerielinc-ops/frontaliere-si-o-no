@@ -617,9 +617,9 @@
       "slug": "fachexperte-m-w-d-infektionspravention-e-spitalhygiene-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "it": "fachexperte-m-w-d-infektionspravention-e-spitalhygiene-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal",
+        "en": "expert-m-f-d-infection-prevention-and-hospital-hygiene-gesundheitszentrum-fricktal-rheinfelden",
         "de": "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal",
-        "fr": "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal"
+        "fr": "expert-m-f-d-prevention-des-infections-et-hygiene-hospitaliere-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -667,6 +667,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal"
+        ],
+        "en": [
+          "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal"
+        ],
+        "fr": [
+          "fachexperte-m-w-d-infektionspravention-und-spitalhygiene-gesundheitszentrum-fricktal"
         ]
       },
       "firstSeenAt": "2026-06-17T12:55:10.776Z",
@@ -685,12 +691,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-ab5b0957ab60",
-      "slug": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "dipl-esperto-nella-cura-dell-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
         "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "it": "dipl-esperto-nella-cura-dell-anestesia-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-expert-in-anesthesia-care-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "dipl-expert-soins-anesthesiques-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -745,7 +751,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:38:41.003Z"
+      "firstSeenAt": "2026-06-17T22:38:41.003Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     }
   ]
 }

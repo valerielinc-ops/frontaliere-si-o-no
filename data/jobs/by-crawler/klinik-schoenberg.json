@@ -219,8 +219,7 @@
       "previousSlugsByLocale": {
         "de": [
           "vorlehre-pflege-w-m-d-100-klinik-schoenberg-gunten",
-          "vorlehre-pflege-w-m-d-100-klinik-schonberg-ag-gunten",
-          "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich"
+          "vorlehre-pflege-w-m-d-100-klinik-schonberg-ag-gunten"
         ],
         "it": [
           "vorlehre-pflege-w-m-d-100-klinik-schoenberg-gunten",
@@ -231,7 +230,6 @@
         ],
         "fr": [
           "apprentissage-en-soins-infirmiers-h-f-d-100-klinik-schonberg-ag-gunten",
-          "ete-2027-departement-d-enseignement-sante-efz-sante-professionnelle-efz-psychiatrie-de-la-zone-de-soins-100-privatklinik",
           "ete-2027-departement-d-enseignement-sante-efz-sante-professionnelle-efz-psychiatrie-de-la-zone-de-soins-100-klinik"
         ]
       },
@@ -241,8 +239,6 @@
         "apprendistato-in-assistenza-infermieristica-w-m-d-100-klinik-schonberg-ag-gunten",
         "apprenticeship-in-nursing-care-m-f-d-100-klinik-schonberg-ag-gunten",
         "apprentissage-en-soins-infirmiers-h-f-d-100-klinik-schonberg-ag-gunten",
-        "ete-2027-departement-d-enseignement-sante-efz-sante-professionnelle-efz-psychiatrie-de-la-zone-de-soins-100-privatklinik",
-        "sommer-2027-lehrstelle-fachfrau-gesundheit-efz-fachmann-gesundheit-efz-versorgungsbereich",
         "ete-2027-departement-d-enseignement-sante-efz-sante-professionnelle-efz-psychiatrie-de-la-zone-de-soins-100-klinik"
       ],
       "firstSeenAt": "2026-05-20T06:08:36.649Z",
@@ -506,9 +502,9 @@
       "slug": "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-o-physikalische-medizin-e-rehabilitation-m-w-d-80-100-klinik-schonberg-ag-gunten",
       "slugByLocale": {
         "it": "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-o-physikalische-medizin-e-rehabilitation-m-w-d-80-100-klinik-schonberg-ag-gunten",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische",
+        "en": "specialist-doctor-general-internal-medicine-practical-doctor-doctor-or-physical-medicine-and-rehabilitation-f-m-d-80-100",
         "de": "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische"
+        "fr": "medecin-specialiste-medecine-interne-generale-medecine-pratique-medecin-medecin-ou-medecine-physique-et-readaptation-f-m"
       },
       "company": "Klinik Schönberg AG",
       "companyKey": "klinik-schoenberg",
@@ -557,6 +553,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische"
+        ],
+        "fr": [
           "facharztin-facharzt-allgemeine-innere-medizin-praktische-r-arztin-arzt-oder-physikalische"
         ]
       },
@@ -691,9 +693,9 @@
       "slug": "apprendistato-2027-fachfrau-mann-hotellerie-hauswirtschaft-cfc-100-klinik-schonberg-ag-gunten",
       "slugByLocale": {
         "it": "apprendistato-2027-fachfrau-mann-hotellerie-hauswirtschaft-cfc-100-klinik-schonberg-ag-gunten",
-        "en": "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten",
+        "en": "apprenticeship-2027-professional-hotel-industry-efz-100-klinik-schonberg-ag-gunten",
         "de": "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten",
-        "fr": "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
+        "fr": "apprentissage-2027-industrie-hoteliere-professionnelle-efz-100-klinik-schonberg-ag-gunten"
       },
       "company": "Klinik Schönberg AG",
       "companyKey": "klinik-schoenberg",
@@ -743,6 +745,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
+        ],
+        "en": [
+          "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
+        ],
+        "fr": [
+          "lehrstelle-2027-fachfrau-mann-hotellerie-hauswirtschaft-efz-100-klinik-schoenberg-gunten"
         ]
       },
       "firstSeenAt": "2026-06-09T22:38:31.937Z",
@@ -764,9 +772,9 @@
       "slug": "apprendistato-2027-praktiker-in-hotellerie-hauswirtschaft-afp-100-klinik-schonberg-ag-gunten",
       "slugByLocale": {
         "it": "apprendistato-2027-praktiker-in-hotellerie-hauswirtschaft-afp-100-klinik-schonberg-ag-gunten",
-        "en": "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten",
+        "en": "apprenticeship-2027-practitioner-in-the-hotel-industry-eba-100-klinik-schonberg-ag-gunten",
         "de": "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten",
-        "fr": "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
+        "fr": "apprentissage-2027-pratique-dans-l-hotellerie-eba-100-klinik-schonberg-ag-gunten"
       },
       "company": "Klinik Schönberg AG",
       "companyKey": "klinik-schoenberg",
@@ -815,6 +823,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
+        ],
+        "en": [
+          "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
+        ],
+        "fr": [
           "lehrstelle-2027-praktiker-in-hotellerie-hauswirtschaft-eba-100-klinik-schoenberg-gunten"
         ]
       },

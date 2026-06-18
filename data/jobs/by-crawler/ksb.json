@@ -6778,12 +6778,12 @@
     },
     {
       "id": "ksb-bd9662eda15c",
-      "slug": "mpa-labormedizin-80-100-ksb-ch",
+      "slug": "medicina-di-laboratorio-mpa-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "mpa-labormedizin-80-100-ksb-ch",
-        "en": "mpa-labormedizin-80-100-ksb-ch",
+        "it": "medicina-di-laboratorio-mpa-80-100-kantonsspital-baden-ksb-baden",
+        "en": "mpa-laboratory-medicine-80-100-kantonsspital-baden-ksb-baden",
         "de": "mpa-labormedizin-80-100-ksb-ch",
-        "fr": "mpa-labormedizin-80-100-ksb-ch"
+        "fr": "mpa-medecine-de-laboratoire-80-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -6837,16 +6837,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-labormedizin-80-100-ksb-ch"
+        ],
+        "en": [
+          "mpa-labormedizin-80-100-ksb-ch"
+        ],
+        "fr": [
+          "mpa-labormedizin-80-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-labormedizin-80-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-550b080565ef",
-      "slug": "leiter-in-operationstechnik-100-kantonsspital-baden-ksb-baden",
+      "slug": "responsabile-della-tecnologia-operativa-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "leiter-in-operationstechnik-100-kantonsspital-baden-ksb-baden",
-        "en": "leiter-in-operationstechnik-100-ksb-ch",
+        "it": "responsabile-della-tecnologia-operativa-100-kantonsspital-baden-ksb-baden",
+        "en": "head-of-operations-technology-100-kantonsspital-baden-ksb-baden",
         "de": "leiter-in-operationstechnik-100-ksb-ch",
-        "fr": "leiter-in-operationstechnik-100-ksb-ch"
+        "fr": "responsable-de-la-technologie-operationnelle-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -6889,10 +6903,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-operationstechnik-100-ksb-ch"
+        "leiter-in-operationstechnik-100-ksb-ch",
+        "leiter-in-operationstechnik-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-operationstechnik-100-ksb-ch",
+          "leiter-in-operationstechnik-100-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "leiter-in-operationstechnik-100-ksb-ch"
+        ],
+        "fr": [
           "leiter-in-operationstechnik-100-ksb-ch"
         ]
       },
@@ -6915,9 +6937,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-auf-der-chirurgie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-auf-der-chirurgie-kantonsspital-baden-ksb-baden",
-        "en": "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch",
+        "en": "specialist-mann-health-efz-on-surgery-kantonsspital-baden-ksb-baden",
         "de": "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch",
-        "fr": "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch"
+        "fr": "efz-sur-la-chirurgie-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -6964,6 +6986,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-auf-der-chirurgie-ksb-ch"
         ]
       },

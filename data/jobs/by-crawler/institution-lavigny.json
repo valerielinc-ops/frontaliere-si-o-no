@@ -308,12 +308,12 @@
     },
     {
       "id": "institution-lavigny-b061d173a096",
-      "slug": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution",
+      "slug": "medico-senior-presso-l-universita-neurorehabilitation-service-80-al-100-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution",
-        "it": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution",
-        "en": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution",
-        "de": "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution"
+        "it": "medico-senior-presso-l-universita-neurorehabilitation-service-80-al-100-institution-de-lavigny-lavigny",
+        "en": "senior-physician-at-the-university-neurorehabilitation-service-80-to-100-institution-de-lavigny-lavigny",
+        "de": "oberarzt-an-der-universitat-neurorehabilitation-service-80-bis-100-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -369,16 +369,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:48:42.228Z"
+      "firstSeenAt": "2026-06-17T22:48:42.228Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution"
+        ],
+        "en": [
+          "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution"
+        ],
+        "de": [
+          "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-au-service-universitaire-de-neurorehabilitation-80-a-100-institution"
+      ]
     },
     {
       "id": "institution-lavigny-112083cc27e2",
-      "slug": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100-institution-de-lavigny",
+      "slug": "responsabile-clinica-o-assistente-servizio-di-neuroriabilitazione-universitaria-50-al-100-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100",
-        "it": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100-institution-de-lavigny",
-        "en": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100",
-        "de": "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100"
+        "it": "responsabile-clinica-o-assistente-servizio-di-neuroriabilitazione-universitaria-50-al-100-institution-de-lavigny-lavigny",
+        "en": "head-of-clinic-or-assistant-university-neurorehabilitation-service-50-to-100-institution-de-lavigny-lavigny",
+        "de": "leiter-der-klinik-oder-assistent-universitat-neurorehabilitation-service-50-bis-100-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -424,11 +438,19 @@
       "careerSiteUrl": "https://www.ilavigny.ch/emploi/",
       "previousSlugsByLocale": {
         "it": [
+          "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100",
+          "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100-institution-de-lavigny"
+        ],
+        "en": [
+          "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100"
+        ],
+        "de": [
           "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100"
         ]
       },
       "previousSlugs": [
-        "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100"
+        "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100",
+        "chef-fe-de-clinique-ou-adjoint-e-au-service-universitaire-de-neurorehabilitation-50-a-100-institution-de-lavigny"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -446,11 +468,11 @@
     },
     {
       "id": "institution-lavigny-13289417a5cc",
-      "slug": "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny",
+      "slug": "assistente-di-gestione-al-55-dal-50-al-60-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny",
-        "it": "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny",
-        "en": "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny",
+        "it": "assistente-di-gestione-al-55-dal-50-al-60-institution-de-lavigny-lavigny",
+        "en": "a-management-assistant-at-55-50-to-60-institution-de-lavigny-lavigny",
         "de": "un-e-assistent-e-de-direction-a-55-50-a-60-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
@@ -507,7 +529,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:48:42.223Z"
+      "firstSeenAt": "2026-06-17T22:48:42.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-assistant-e-de-direction-a-55-50-a-60-institution-lavigny-lavigny"
+      ]
     }
   ]
 }
