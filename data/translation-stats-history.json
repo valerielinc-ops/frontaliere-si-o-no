@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-29T17:42:55.642Z",
-    "label": "after",
-    "total": 8967,
-    "needsRetranslation": 2008,
-    "incomplete": 547,
-    "complete": 8420,
-    "missingByLocale": {
-      "it": 418,
-      "en": 316,
-      "de": 202,
-      "fr": 408
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 75
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Roche",
-        "pending": 36
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 24
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Nestlé",
-        "pending": 16
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-29T17:46:42.918Z",
-    "label": "before",
-    "total": 8967,
-    "needsRetranslation": 5744,
-    "incomplete": 758,
-    "complete": 8209,
-    "missingByLocale": {
-      "it": 533,
-      "en": 444,
-      "de": 267,
-      "fr": 550
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 108
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 78
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 76
-      },
-      {
-        "company": "Roche",
-        "pending": 40
-      },
-      {
-        "company": "UBS",
-        "pending": 29
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 24
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Nestlé",
-        "pending": 16
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-29T20:56:17.776Z",
     "label": "after",
     "total": 8967,
@@ -11335,6 +11223,120 @@
       {
         "company": "Manor AG",
         "pending": 118
+      },
+      {
+        "company": "PostAuto",
+        "pending": 97
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 80
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 70
+      },
+      {
+        "company": "Roche",
+        "pending": 70
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 58
+      },
+      {
+        "company": "Implenia",
+        "pending": 55
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-18T04:54:26.448Z",
+    "label": "before",
+    "total": 17367,
+    "needsRetranslation": 4700,
+    "suppressed": 720,
+    "incomplete": 2947,
+    "complete": 14420,
+    "missingByLocale": {
+      "it": 1833,
+      "en": 1548,
+      "de": 969,
+      "fr": 1377
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1222
+      },
+      {
+        "company": "Fresh Food & Beverage Group",
+        "pending": 643
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "PostAuto",
+        "pending": 97
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 80
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 70
+      },
+      {
+        "company": "Roche",
+        "pending": 70
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 58
+      },
+      {
+        "company": "Implenia",
+        "pending": 55
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-18T08:33:13.339Z",
+    "label": "after",
+    "total": 17367,
+    "needsRetranslation": 4026,
+    "suppressed": 720,
+    "incomplete": 2312,
+    "complete": 15055,
+    "missingByLocale": {
+      "it": 1230,
+      "en": 930,
+      "de": 958,
+      "fr": 783
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1192
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Fresh Food & Beverage Group",
+        "pending": 99
       },
       {
         "company": "PostAuto",
