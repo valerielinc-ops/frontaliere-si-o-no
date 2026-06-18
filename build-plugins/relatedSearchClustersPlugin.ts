@@ -89,7 +89,7 @@ import {
   type RawJob,
 } from './relatedSearchClustersData';
 import { jobsSeoPagesFlushed } from './shared/buildSignals';
-import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { shouldEmitLocale, EMIT_ALL_LOCALES, localeOfDistPath } from './shared/localeEmitFilter';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import {
   startTimer as profileStart,
@@ -2041,8 +2041,22 @@ function normalizeLocForCanonicalCmp(u: string): string {
  * (no counter); this path collapses both `existsSync` probes into the
  * `readFile` attempts and flags `DROP_MISSING` only for logging-skip — the
  * net output is identical (loc absent from result, no log line).
+ *
+ * Locale-shard awareness (BUILD_LOCALE, LOCALE-SHARD-BUILD-PLAN Fase 0):
+ * on a single-locale shard the render-skip branch pushes a complete
+ * cross-locale `sitemapLocs` set (cheap, string-only) so the it/main shard's
+ * `sitemap-search-clusters.xml` stays complete — but the EN/DE/FR cluster
+ * HTML for the non-owned locales is NEVER written to dist (WriteCollector.add
+ * gates it via shouldEmitPath). Without a guard the file-existence check below
+ * would flag every cross-shard loc as DROP_MISSING and silently truncate the
+ * sitemap to IT-only. So a loc whose OWNING locale this shard does not emit is
+ * KEPT unconditionally (it lives on another shard; the dist-file absence is
+ * expected, not a broken/overwritten URL). This mirrors hreflangGuard's
+ * `!shouldEmitLocale → keep` short-circuit (build-plugins/shared/hreflangGuard.ts).
+ * No-op in the default all-locale build (EMIT_ALL_LOCALES short-circuits to the
+ * unconditional file-existence path → byte-identical sitemap).
  */
-async function dropOverwrittenLocs(
+export async function dropOverwrittenLocs(
   distDir: string,
   locs: ReadonlyArray<string>,
 ): Promise<string[]> {
@@ -2069,6 +2083,14 @@ async function dropOverwrittenLocs(
       const i = cursor++;
       const loc = locs[i];
       const urlPath = new URL(loc).pathname.replace(/\/+$/, '');
+      // Cross-shard keep: when running a single-locale shard, a loc whose
+      // owning locale this shard does not emit has no HTML on disk by design —
+      // keep it so the it/main shard's sitemap stays complete. Skipped entirely
+      // in the default build (EMIT_ALL_LOCALES) so behaviour is byte-identical.
+      if (!EMIT_ALL_LOCALES && !shouldEmitLocale(localeOfDistPath(urlPath, ''))) {
+        flags[i] = KEEP;
+        continue;
+      }
       const indexPath = path.join(distDir, urlPath, 'index.html');
       const flatPath = path.join(distDir, urlPath + '.html');
       let html: string | null = null;
