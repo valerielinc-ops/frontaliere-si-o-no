@@ -37,6 +37,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
   BASE_URL,
   countHtmlBodyWords,
@@ -863,6 +864,13 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       };
 
       for (const cluster of clusters) {
+        // Per-locale shard build (BUILD_LOCALE): a pure non-it shard renders
+        // ONLY its own locale's orphan landings. The it/main shard (EMIT_LOCALES
+        // has 'it') keeps rendering ALL locales because it owns the root
+        // sitemap-orphan-landings.xml, whose per-page inclusion depends on the
+        // rendered indexability (matchingJobs>=3 && wordCount>=MIN) — not
+        // derivable without rendering. No-op in the default all-locale build.
+        if (!shouldEmitLocale(cluster.locale) && !EMIT_LOCALES.has('it')) continue;
         const matching = filterMatchingJobs(jobs, cluster, 15);
         const render = renderPage({
           cluster,

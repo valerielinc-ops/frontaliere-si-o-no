@@ -28,6 +28,7 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildJobPostingSchema } from './shared/jobPostingSchema';
+import { truncateCodeUnits } from './shared/safeTruncate';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { WriteCollector } from './batchWrite';
 import { renderPublisherMarkdown } from '../services/publisherMarkdown';
@@ -397,7 +398,9 @@ export function publisherAdPagesPlugin(rootDir: string): Plugin {
           const company = String(rec.company || '').trim();
           const place = String(rec.location || rec.addressLocality || '').trim();
           const metaTitle = `${title}${company ? ` — ${company}` : ''}${place ? `, ${place}` : ''} | Frontaliere Ticino`;
-          const metaDesc = localizedDescription(rec, locale).replace(/\s+/g, ' ').slice(0, 160);
+          // Surrogate-safe: ad bodies are user-submitted and contain emoji; a raw
+          // slice can split a pair and leave a lone surrogate (� in the SERP snippet).
+          const metaDesc = truncateCodeUnits(localizedDescription(rec, locale).replace(/\s+/g, ' '), 160);
 
           const html = buildSeoPageHtml({
             locale,
