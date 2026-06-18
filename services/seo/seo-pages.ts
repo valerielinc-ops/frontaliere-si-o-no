@@ -9618,12 +9618,12 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  'vacanze-scolastiche-ticino-2026': {
- title: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
+ title: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
  h1: 'Vacanze scolastiche Ticino 2026-2027 — calendario ufficiale DECS, ferie, carnevale, estate',
- description: 'Vacanze scolastiche Ticino 2026-2027: date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per genitori frontalieri.',
- keywords: 'calendario scolastico ticino 2026, calendario scolastico ticino 2026/27, calendario scolastico ticino 2027, vacanze scolastiche ticino 2026, vacanze scolastiche ticino 2027, DECS ticino, carnevale ticino 2027, estate scuole ticino, vacanze pasqua ticino',
- ogTitle: 'Vacanze Scolastiche Ticino 2026-2027: Date DECS',
- ogDescription: 'Date ufficiali DECS per Carnevale, Pasqua, estate, autunno e Natale. Calendario rapido per famiglie frontaliere.',
+ description: 'Calendario scolastico Ticino 2026-2027: date ufficiali DECS, inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale.',
+ keywords: 'calendario scolastico ticino 2026, calendario scolastico ticino 2026/27, calendario scolastico ticino 2027, vacanze scolastiche ticino 2026, vacanze scolastiche ticino 2027, fine scuola ticino 2026, DECS ticino, carnevale ticino 2027, estate scuole ticino, vacanze pasqua ticino',
+ ogTitle: 'Calendario Scolastico Ticino 2026-2027: Vacanze e Date DECS',
+ ogDescription: 'Date ufficiali DECS: inizio e fine scuola, vacanze di Carnevale, Pasqua, estate, autunno e Natale per famiglie frontaliere.',
  canonicalPath: '/vita-in-ticino/vacanze-scolastiche-ticino-2026/',
  structuredData: [
  {
