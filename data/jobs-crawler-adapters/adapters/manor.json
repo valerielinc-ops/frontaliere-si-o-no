@@ -152,7 +152,6 @@
     "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Damenkonfektion-40/1355430255/",
     "https://positions.manor.ch/job/Spreitenbach-Kassiererin-Non-Food-30/1355448455/",
     "https://positions.manor.ch/job/Nyon-Collaborateurtrice-supermarch%C3%A9-%28Food%29-65/1350561755/",
-    "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-%28Service-Clients%29-50/1355150355/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-50/1350378655/",
     "https://positions.manor.ch/job/Morges-Collaborateurtrice-vente-%28Lanc%C3%B4meL&apos;Or%C3%A9al-Prestige%29%2C-50/1351338155/",
     "https://positions.manor.ch/job/Lausanne-Boulanger%C3%A8re-100/1354322455/",
@@ -173,11 +172,12 @@
     "https://positions.manor.ch/job/Emmen-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1355004555/",
     "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1355425855/",
     "https://positions.manor.ch/job/Emmen-Konditorin-80/1351843055/",
+    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1355712155/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie-p%C3%A2tisserie%29-70/1354931755/",
-    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1355712155/"
+    "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-%28Service-Clients%29-50/1355150355/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-18T12:48:54.953Z",
+  "updatedAt": "2026-06-18T23:16:28.617Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Fribourg-Droguiste-%28Derma-Center%29-100/1342973855/": {
       "company": "Manor AG",
@@ -755,10 +755,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-%28Service-Clients%29-50/1355150355/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Supermarch%C3%A9%29-50/1350378655/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -839,11 +835,15 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
+    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1355712155/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Boulangerie-p%C3%A2tisserie%29-70/1354931755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-60/1355712155/": {
+    "https://positions.manor.ch/job/Del%C3%A9mont-Collaborateurtrice-%28Service-Clients%29-50/1355150355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
