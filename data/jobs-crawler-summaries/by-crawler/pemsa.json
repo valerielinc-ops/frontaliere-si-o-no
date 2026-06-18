@@ -1,18 +1,49 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-17T23:15:20.681Z",
-  "total": 61,
-  "newCount": 0,
+  "generatedAt": "2026-06-18T12:55:37.342Z",
+  "total": 62,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 54,
-  "durationMs": 166594,
-  "avgDurationMs": 166594,
+  "durationMs": 156199,
+  "avgDurationMs": 156199,
   "durationHistory": [
-    166594
+    156199
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "ELETTROMECCANICO PER IMPIANTI DI BETONAGGIO",
+      "slug": "elettromeccanico-per-impianti-di-betonaggio-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/elettromeccanico-per-impianti-di-betonaggio-2679610/",
+      "applyUrl": "https://www.pemsa.ch/it/job/elettromeccanico-per-impianti-di-betonaggio-2679610/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "meccanica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-06-18",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-07-03",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 14,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "POSATORE DI SERRAMENTI",
