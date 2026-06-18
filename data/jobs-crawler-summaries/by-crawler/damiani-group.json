@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-06-17T22:29:38.102Z",
+  "generatedAt": "2026-06-18T12:11:09.597Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4249,
-  "avgDurationMs": 4249,
+  "durationMs": 5642,
+  "avgDurationMs": 5642,
   "durationHistory": [
-    4249
+    5642
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-17",
+      "validThrough": "2026-06-18",
       "id": "damiani-group-1b9e5efdfbd8",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -112,7 +112,7 @@
       "postedDate": "2026-06-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-17",
+      "validThrough": "2026-06-18",
       "id": "damiani-group-1e3bfdd1100f",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -120,13 +120,11 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-05-17T10:04:40.485Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -151,7 +149,7 @@
       "postedDate": "2026-05-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-17",
+      "validThrough": "2026-06-18",
       "id": "damiani-group-f5ab2d7c6cb7",
       "salaryMin": 49500,
       "salaryMax": 75000,
