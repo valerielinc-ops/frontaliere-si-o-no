@@ -324,7 +324,7 @@
       "slug": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "it": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich",
-        "en": "stv-leitung-physiotherapie-privatklinik-bethanien",
+        "en": "stv-head-of-physiotherapy-privatklinik-bethanien-zurich",
         "de": "stv-leitung-physiotherapie-privatklinik-bethanien",
         "fr": "stv-leitung-physiotherapie-privatklinik-bethanien"
       },
@@ -375,6 +375,9 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leitung-physiotherapie-privatklinik-bethanien"
+        ],
+        "en": [
+          "stv-leitung-physiotherapie-privatklinik-bethanien"
         ]
       },
       "firstSeenAt": "2026-06-10T23:17:17.070Z",
@@ -396,9 +399,9 @@
       "slug": "collaboratore-trice-in-reception-80-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-in-reception-80-privatklinik-bethanien-zurich",
-        "en": "mitarbeiter-in-reception-80-privatklinik-bethanien",
+        "en": "employee-reception-80-privatklinik-bethanien-zurich",
         "de": "mitarbeiter-in-reception-80-privatklinik-bethanien",
-        "fr": "mitarbeiter-in-reception-80-privatklinik-bethanien"
+        "fr": "reception-des-employes-80-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -447,6 +450,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reception-80-privatklinik-bethanien"
+        ],
+        "en": [
+          "mitarbeiter-in-reception-80-privatklinik-bethanien"
+        ],
+        "fr": [
+          "mitarbeiter-in-reception-80-privatklinik-bethanien"
         ]
       },
       "firstSeenAt": "2026-06-12T23:00:36.572Z",
@@ -465,12 +474,12 @@
     },
     {
       "id": "privatklinik-bethanien-5fd596421c91",
-      "slug": "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien",
+      "slug": "direttore-aggiunto-dell-infermiera-privatklinik-bethanien-zurich",
       "slugByLocale": {
-        "it": "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien",
-        "en": "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien",
+        "it": "direttore-aggiunto-dell-infermiera-privatklinik-bethanien-zurich",
+        "en": "deputy-nursing-director-privatklinik-bethanien-zurich",
         "de": "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien",
-        "fr": "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien"
+        "fr": "directeur-adjoint-des-soins-infirmiers-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -525,16 +534,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien"
+        ],
+        "en": [
+          "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien"
+        ],
+        "fr": [
+          "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-pflegedirektor-pflegedirektorin-privatklinik-bethanien"
+      ]
     },
     {
       "id": "privatklinik-bethanien-307f3bab909e",
-      "slug": "gruppenleitung-patientenservice-privatklinik-bethanien",
+      "slug": "gestione-del-gruppo-privatklinik-bethanien-zurich",
       "slugByLocale": {
-        "it": "gruppenleitung-patientenservice-privatklinik-bethanien",
-        "en": "gruppenleitung-patientenservice-privatklinik-bethanien",
+        "it": "gestione-del-gruppo-privatklinik-bethanien-zurich",
+        "en": "group-management-patient-service-privatklinik-bethanien-zurich",
         "de": "gruppenleitung-patientenservice-privatklinik-bethanien",
-        "fr": "gruppenleitung-patientenservice-privatklinik-bethanien"
+        "fr": "gestion-de-groupe-service-patient-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -589,7 +612,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleitung-patientenservice-privatklinik-bethanien"
+        ],
+        "en": [
+          "gruppenleitung-patientenservice-privatklinik-bethanien"
+        ],
+        "fr": [
+          "gruppenleitung-patientenservice-privatklinik-bethanien"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleitung-patientenservice-privatklinik-bethanien"
+      ]
     }
   ]
 }

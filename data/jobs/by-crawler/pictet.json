@@ -74,8 +74,8 @@
       "slugByLocale": {
         "it": "responsabile-vendite-pictet-group-taipei",
         "en": "sales-manager-pictet-taipei",
-        "de": "sales-manager-pictet-taipei",
-        "fr": "sales-manager-pictet-taipei"
+        "de": "verkaufsleiter-pictet-group-taipei",
+        "fr": "directeur-des-ventes-pictet-group-taipei"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -121,6 +121,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sales-manager-pictet-taipei"
+        ],
+        "de": [
+          "sales-manager-pictet-taipei"
+        ],
+        "fr": [
           "sales-manager-pictet-taipei"
         ]
       },
@@ -294,7 +300,7 @@
         "it": "responsabile-della-conformita-aziendale-pictet-group-nassau",
         "en": "business-compliance-manager-pictet-nassau",
         "de": "business-compliance-manager-pictet-nassau",
-        "fr": "business-compliance-manager-pictet-nassau"
+        "fr": "gestionnaire-de-la-conformite-des-entreprises-pictet-group-nassau"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -340,6 +346,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "business-compliance-manager-pictet-nassau"
+        ],
+        "fr": [
           "business-compliance-manager-pictet-nassau"
         ]
       },
@@ -590,12 +599,12 @@
     },
     {
       "id": "pictet-67859b3443fe",
-      "slug": "economist-pictet-tokyo",
+      "slug": "economista-pictet-group-tokyo",
       "slugByLocale": {
-        "it": "economist-pictet-tokyo",
+        "it": "economista-pictet-group-tokyo",
         "en": "economist-pictet-tokyo",
-        "de": "economist-pictet-tokyo",
-        "fr": "economist-pictet-tokyo"
+        "de": "okonom-pictet-group-tokyo",
+        "fr": "economiste-pictet-group-tokyo"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -650,16 +659,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1204"
+      "postalCode": "1204",
+      "previousSlugsByLocale": {
+        "it": [
+          "economist-pictet-tokyo"
+        ],
+        "de": [
+          "economist-pictet-tokyo"
+        ],
+        "fr": [
+          "economist-pictet-tokyo"
+        ]
+      },
+      "previousSlugs": [
+        "economist-pictet-tokyo"
+      ]
     },
     {
       "id": "pictet-7bcbd6f76163",
-      "slug": "it-logistics-specialist-pictet-tokyo",
+      "slug": "it-logistica-specialista-pictet-group-tokyo",
       "slugByLocale": {
         "en": "it-logistics-specialist-pictet-tokyo",
-        "it": "it-logistics-specialist-pictet-tokyo",
-        "de": "it-logistics-specialist-pictet-tokyo",
-        "fr": "it-logistics-specialist-pictet-tokyo"
+        "it": "it-logistica-specialista-pictet-group-tokyo",
+        "de": "it-logistik-spezialist-pictet-group-tokyo",
+        "fr": "it-logistique-specialiste-pictet-group-tokyo"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -716,7 +739,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-18T12:55:26.927Z"
+      "firstSeenAt": "2026-06-18T12:55:26.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-logistics-specialist-pictet-tokyo"
+        ],
+        "de": [
+          "it-logistics-specialist-pictet-tokyo"
+        ],
+        "fr": [
+          "it-logistics-specialist-pictet-tokyo"
+        ]
+      },
+      "previousSlugs": [
+        "it-logistics-specialist-pictet-tokyo"
+      ]
     }
   ]
 }

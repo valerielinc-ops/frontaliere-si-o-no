@@ -195,12 +195,12 @@
     },
     {
       "id": "microsoft-200040152",
-      "slug": "logistics-technician-microsoft-zurich",
+      "slug": "logistica-technician-microsoft-zurich",
       "slugByLocale": {
         "en": "logistics-technician-microsoft-zurich",
-        "it": "logistics-technician-microsoft-zurich",
-        "de": "logistics-technician-microsoft-zurich",
-        "fr": "logistics-technician-microsoft-zurich"
+        "it": "logistica-technician-microsoft-zurich",
+        "de": "logistik-techniker-microsoft-zurich",
+        "fr": "logistique-technicien-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -257,16 +257,30 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-06-18T12:46:03.225Z"
+      "firstSeenAt": "2026-06-18T12:46:03.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-technician-microsoft-zurich"
+        ],
+        "de": [
+          "logistics-technician-microsoft-zurich"
+        ],
+        "fr": [
+          "logistics-technician-microsoft-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-technician-microsoft-zurich"
+      ]
     },
     {
       "id": "microsoft-200040151",
-      "slug": "logistics-technician-microsoft-zurich-2",
+      "slug": "logistica-technician-microsoft-zurich-88c79c",
       "slugByLocale": {
         "en": "logistics-technician-microsoft-zurich",
-        "it": "logistics-technician-microsoft-zurich-2",
-        "de": "logistics-technician-microsoft-zurich-2",
-        "fr": "logistics-technician-microsoft-zurich-2"
+        "it": "logistica-technician-microsoft-zurich-88c79c",
+        "de": "logistik-techniker-microsoft-zurich-88c79c",
+        "fr": "logistique-technicien-microsoft-zurich-88c79c"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -323,7 +337,21 @@
       },
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
-      "firstSeenAt": "2026-06-18T12:46:03.223Z"
+      "firstSeenAt": "2026-06-18T12:46:03.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-technician-microsoft-zurich-2"
+        ],
+        "de": [
+          "logistics-technician-microsoft-zurich-2"
+        ],
+        "fr": [
+          "logistics-technician-microsoft-zurich-2"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-technician-microsoft-zurich-2"
+      ]
     }
   ]
 }

@@ -329,12 +329,12 @@
     },
     {
       "id": "schindler-1020d8fe1109",
-      "slug": "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil",
+      "slug": "tecnico-di-riparazione-nelle-regioni-zh-lu-ag-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
-        "it": "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil",
-        "en": "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil",
+        "it": "tecnico-di-riparazione-nelle-regioni-zh-lu-ag-m-f-d-80-100-schindler-wettswil",
+        "en": "repair-technician-in-regions-zh-lu-ag-m-f-d-80-100-schindler-wettswil",
         "de": "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil",
-        "fr": "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil"
+        "fr": "technicien-de-reparation-dans-les-regions-zh-lu-ag-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -390,7 +390,21 @@
         }
       },
       "streetAddress": "",
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil"
+        ]
+      },
+      "previousSlugs": [
+        "reparaturtechiker-in-regionen-zh-lu-ag-m-w-d-80-100-schindler-wettswil"
+      ]
     },
     {
       "id": "schindler-a832eda91fed",
@@ -1973,9 +1987,9 @@
       "slug": "montatore-di-ascensori-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "montatore-di-ascensori-m-f-d-80-100-schindler-wettswil",
-        "en": "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil",
+        "en": "elevator-fitter-m-f-d-80-100-schindler-wettswil",
         "de": "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil",
-        "fr": "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil"
+        "fr": "monteur-d-ascenseur-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2022,6 +2036,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "aufzugsmonteur-in-m-w-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -2046,9 +2066,9 @@
       "slug": "servicetechniker-in-regione-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "servicetechniker-in-regione-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil",
-        "en": "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil",
+        "en": "service-technician-in-gold-coast-city-of-zurich-m-f-d-80-100-schindler-wettswil",
         "de": "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil",
-        "fr": "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil"
+        "fr": "technicien-de-service-a-gold-coast-ville-de-zurich-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2095,6 +2115,12 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "servicetechniker-in-region-goldkuste-stadt-zurich-m-w-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -2121,7 +2147,7 @@
         "it": "montagechef-region-aargau-e-zurich-west-80-100-m-w-d-schindler-wettswil",
         "en": "montagechef-region-aargau-und-zurich-west-80-100-m-w-d-schindler-wettswil",
         "de": "montagechef-region-aargau-und-zurich-west-80-100-m-w-d-schindler-wettswil",
-        "fr": "montagechef-region-aargau-und-zurich-west-80-100-m-w-d-schindler-wettswil"
+        "fr": "gestionnaire-d-assemblees-region-argovie-et-zurich-ouest-80-100-m-f-d-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2168,6 +2194,9 @@
       "previousSlugsByLocale": {
         "it": [
           "montagechef-region-aargau-und-zurich-west-80-100-m-w-d-schindler-wettswil"
+        ],
+        "fr": [
+          "montagechef-region-aargau-und-zurich-west-80-100-m-w-d-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -2192,9 +2221,9 @@
       "slug": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "en": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+        "en": "service-technician-in-the-zurich-area-m-f-d-80-100-schindler-wettswil",
         "de": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "fr": "servicetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
+        "fr": "technicien-de-service-dans-la-region-de-zurich-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2257,9 +2286,9 @@
       "slug": "tecnico-di-ammissione-nell-area-di-zurigo-lun-venerdi-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "tecnico-di-ammissione-nell-area-di-zurigo-lun-venerdi-d-80-100-schindler-wettswil",
-        "en": "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
+        "en": "acceptance-technician-in-the-zurich-area-m-f-d-80-100-schindler-wettswil",
         "de": "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil",
-        "fr": "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
+        "fr": "technicien-d-acceptation-dans-la-region-de-zurich-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2306,6 +2335,12 @@
       "previousSlugsByLocale": {
         "it": [
           "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "abnahmetechniker-in-raum-zurich-m-w-d-80-100-schindler-wettswil"
         ]
       },
       "needsRetranslation": true,
@@ -2330,9 +2365,9 @@
       "slug": "aufzugsmonteur-in-modernisierungen-region-zurich-e-aargau-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "aufzugsmonteur-in-modernisierungen-region-zurich-e-aargau-m-w-d-80-100-schindler-wettswil",
-        "en": "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler",
+        "en": "elevator-fitter-in-modernizations-region-of-zurich-and-aargau-m-f-d-80-100-schindler-wettswil",
         "de": "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler",
-        "fr": "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler"
+        "fr": "installation-d-ascenseurs-dans-la-region-de-zurich-et-d-argovie-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2379,6 +2414,12 @@
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler"
+        ],
+        "en": [
+          "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler"
+        ],
+        "fr": [
+          "aufzugsmonteur-in-modernisierungen-region-zurich-und-aargau-m-w-d-80-100-schindler"
         ]
       },
       "needsRetranslation": true,
@@ -2403,9 +2444,9 @@
       "slug": "gestione-del-prodotto-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "gestione-del-prodotto-m-w-d-80-100-schindler-wettswil",
-        "en": "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
+        "en": "elevator-fitter-modernizations-region-central-switzerland-m-f-d-80-100-schindler-wettswil",
         "de": "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil",
-        "fr": "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
+        "fr": "modernisation-des-ascenseurs-region-suisse-centrale-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2451,6 +2492,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
           "aufzugsmonteur-modernisierungen-region-zentralschweiz-m-w-d-80-100-schindler-wettswil"
         ]
       },
@@ -3188,7 +3235,7 @@
         "it": "schnupperlehre-come-kaufmann-frau-cfc-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
         "en": "schnupperlehre-als-kaufmann-frau-efz-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
         "de": "schnupperlehre-als-kaufmann-frau-efz-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
-        "fr": "schnupperlehre-als-kaufmann-frau-efz-lehrstart-2027-in-schonbuhl-schindler-schonbuhl"
+        "fr": "schnupperlehre-en-tant-que-kaufmann-frau-efz-debut-de-la-formation-2027-a-schonbuhl-schindler-schonbuhl"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3235,6 +3282,9 @@
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-als-kaufmann-frau-efz-lehrstart-2027-in-schonbuhl-schindler-schonbuhl"
+        ],
+        "fr": [
+          "schnupperlehre-als-kaufmann-frau-efz-lehrstart-2027-in-schonbuhl-schindler-schonbuhl"
         ]
       },
       "needsRetranslation": true,
@@ -3259,9 +3309,9 @@
       "slug": "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
       "slugByLocale": {
         "it": "schnupperlehre-come-anlagen-e-apparatebauer-in-cfc-con-schwerpunkt-liftmontage-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
-        "en": "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
+        "en": "schnupperlehre-as-a-plant-and-apparatus-manufacturer-in-efz-with-a-focus-on-lift-assembly-training-start-2027-in",
         "de": "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-        "fr": "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
+        "fr": "schnupperlehre-en-tant-que-fabricant-d-installations-et-d-appareils-a-efz-avec-un-accent-sur-le-montage-de-levage"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3308,6 +3358,12 @@
       "previousSlugsByLocale": {
         "it": [
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
+        ],
+        "en": [
+          "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
+        ],
+        "fr": [
+          "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart"
         ]
       },
       "needsRetranslation": true,
@@ -3332,9 +3388,9 @@
       "slug": "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
       "slugByLocale": {
         "it": "schnupperlehre-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-lehrstart-2027-in-schonbuhl-schindler-schonbuhl",
-        "en": "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in",
+        "en": "trial-apprenticeship-as-a-polymechanic-efz-with-a-focus-on-lift-assembly-training-start-2027-in-schonbuhl-schindler",
         "de": "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in",
-        "fr": "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in"
+        "fr": "l-apprentissage-d-essai-en-tant-que-polymecanicien-efz-avec-un-accent-sur-l-assemblage-d-ascenseurs-debut-de-la"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3380,6 +3436,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in"
+        ],
+        "en": [
+          "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in"
+        ],
+        "fr": [
           "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027-in"
         ]
       },
@@ -5381,9 +5443,9 @@
       "slug": "project-manager-m-w-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "it": "project-manager-m-w-d-80-100-schindler-wettswil",
-        "en": "projektleiter-in-m-w-d-80-100-schindler-wettswil",
+        "en": "project-manager-m-f-d-80-100-schindler-wettswil",
         "de": "projektleiter-in-m-w-d-80-100-schindler-wettswil",
-        "fr": "projektleiter-in-m-w-d-80-100-schindler-wettswil"
+        "fr": "gestionnaire-de-projet-m-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -5429,6 +5491,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "projektleiter-in-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
           "projektleiter-in-m-w-d-80-100-schindler-wettswil"
         ]
       },

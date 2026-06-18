@@ -764,7 +764,7 @@
         "it": "responsabile-senior-delle-relazioni-fiduciarie-80-100-lombard-odier-bermuda",
         "en": "senior-trust-relationship-manager-80-100-lombard-odier-ch",
         "de": "senior-trust-relationship-manager-80-100-lombard-odier-ch",
-        "fr": "senior-trust-relationship-manager-80-100-lombard-odier-ch"
+        "fr": "gestionnaire-principal-des-relations-de-confiance-80-100-lombard-odier-bermuda"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -808,6 +808,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-trust-relationship-manager-80-100-lombard-odier-ch"
+        ],
+        "fr": [
           "senior-trust-relationship-manager-80-100-lombard-odier-ch"
         ]
       },
@@ -1294,7 +1297,7 @@
         "it": "amministratore-di-gestione-identita-e-accesso-80-100-lombard-odier-luxembourg",
         "en": "identity-access-management-administrator-80-100-lombard-odier-ch",
         "de": "identity-access-management-administrator-80-100-lombard-odier-ch",
-        "fr": "identity-access-management-administrator-80-100-lombard-odier-ch"
+        "fr": "administrateur-de-la-gestion-de-l-identite-et-de-l-acces-80-100-lombard-odier-luxembourg"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
@@ -1338,6 +1341,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "identity-access-management-administrator-80-100-lombard-odier-ch"
+        ],
+        "fr": [
           "identity-access-management-administrator-80-100-lombard-odier-ch"
         ]
       },
@@ -1970,7 +1976,7 @@
       "slug": "junior-contabile-comptabilite-titres-80-100-lombard-odier-geneva",
       "slugByLocale": {
         "it": "junior-contabile-comptabilite-titres-80-100-lombard-odier-geneva",
-        "en": "junior-accountant-comptabilite-titres-80-100-lombard-odier-ch",
+        "en": "junior-accountant-securities-accounting-80-100-lombard-odier-geneva",
         "de": "junior-buchhalter-comptabilite-titres-80-100-lombard-odier-geneva",
         "fr": "junior-accountant-comptabilite-titres-80-100-lombard-odier-ch"
       },
@@ -2019,6 +2025,9 @@
         ],
         "de": [
           "junior-accountant-comptabilite-titres-80-100-lombard-odier-ch"
+        ],
+        "en": [
+          "junior-accountant-comptabilite-titres-80-100-lombard-odier-ch"
         ]
       },
       "previousSlugs": [
@@ -2045,8 +2054,8 @@
       "slugByLocale": {
         "en": "test-architect-80-100-lombard-odier-ch",
         "it": "test-architect-80-100-lombard-odier-ch",
-        "de": "test-architect-80-100-lombard-odier-ch",
-        "fr": "test-architect-80-100-lombard-odier-ch"
+        "de": "testarchitekt-80-100-lombard-odier-geneva",
+        "fr": "architecte-d-essai-80-100-lombard-odier-geneva"
       },
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",

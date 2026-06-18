@@ -152,12 +152,12 @@
     },
     {
       "id": "sika-bfc6f75a4bf8",
-      "slug": "automatiker-elektriker-instandhaltung-m-w-sika-ch",
+      "slug": "manutenzione-automatica-elettrica-m-f-sika-dudingen-canton-of-fribourg-switzerland",
       "slugByLocale": {
-        "it": "automatiker-elektriker-instandhaltung-m-w-sika-ch",
-        "en": "automatiker-elektriker-instandhaltung-m-w-sika-ch",
+        "it": "manutenzione-automatica-elettrica-m-f-sika-dudingen-canton-of-fribourg-switzerland",
+        "en": "automatic-electrician-maintenance-m-f-sika-dudingen-canton-of-fribourg-switzerland",
         "de": "automatiker-elektriker-instandhaltung-m-w-sika-ch",
-        "fr": "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        "fr": "entretien-automatique-electrique-m-f-sika-dudingen-canton-of-fribourg-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -212,7 +212,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ],
+        "en": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ],
+        "fr": [
+          "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-elektriker-instandhaltung-m-w-sika-ch"
+      ]
     },
     {
       "id": "sika-a5c998e21afd",
@@ -291,12 +305,12 @@
     },
     {
       "id": "sika-feac34a42cc0",
-      "slug": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
+      "slug": "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland",
       "slugByLocale": {
-        "it": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
-        "en": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
+        "it": "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland",
+        "en": "operational-mechanic-polymechanic-industrial-mechanic-sika-sarnen-obwalden-switzerland",
         "de": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
-        "fr": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        "fr": "mecanicien-operationnel-polymecanique-mecanicien-industriel-sika-sarnen-obwalden-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -350,7 +364,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ],
+        "en": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ],
+        "fr": [
+          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
+      ]
     },
     {
       "id": "sika-3dd995c5afa2",
@@ -436,7 +464,7 @@
         "it": "senior-technical-consulente-sap-development-transportation-management-sika-zurich",
         "en": "senior-technical-consultant-sap-development-transportation-management-sika-ch",
         "de": "senior-technical-berater-sap-development-transportation-management-sika-zurich",
-        "fr": "senior-technical-consultant-sap-development-transportation-management-sika-ch"
+        "fr": "consultant-technique-principal-gestion-des-transports-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -484,6 +512,9 @@
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
         ],
         "de": [
+          "senior-technical-consultant-sap-development-transportation-management-sika-ch"
+        ],
+        "fr": [
           "senior-technical-consultant-sap-development-transportation-management-sika-ch"
         ]
       },
@@ -586,7 +617,7 @@
       "slugByLocale": {
         "it": "senior-project-manager-solution-architetto-sap-tm-transportation-management-sika-zurich",
         "en": "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
-        "de": "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch",
+        "de": "senior-projektmanager-losungsarchitekt-sap-tm-transportation-management-sika-zurich-zurich-switzerland",
         "fr": "senior-project-manager-solution-architecte-sap-tm-transportation-management-sika-zurich"
       },
       "company": "Sika",
@@ -636,6 +667,9 @@
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ],
         "fr": [
+          "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
+        ],
+        "de": [
           "senior-project-manager-solution-architect-sap-tm-transportation-management-sika-ch"
         ]
       },
@@ -734,9 +768,9 @@
       "slug": "laborant-entwicklung-von-kleb-e-dichtstoffen-sika-zurich",
       "slugByLocale": {
         "it": "laborant-entwicklung-von-kleb-e-dichtstoffen-sika-zurich",
-        "en": "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch",
+        "en": "laboratory-development-of-adhesives-and-sealants-sika-zurich-zurich-switzerland",
         "de": "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch",
-        "fr": "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch"
+        "fr": "laboratoire-developpement-d-adhesifs-et-de-scellants-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -784,6 +818,12 @@
       "previousSlugsByLocale": {
         "it": [
           "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch"
+        ],
+        "en": [
+          "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch"
+        ],
+        "fr": [
+          "laborant-entwicklung-von-kleb-und-dichtstoffen-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:27.277Z",
@@ -802,12 +842,12 @@
     },
     {
       "id": "sika-50cac2982cd9",
-      "slug": "anwendungstechniker-in-sika-widen",
+      "slug": "tecnico-di-applicazione-sika-widen-aargau-switzerland",
       "slugByLocale": {
-        "it": "anwendungstechniker-in-sika-widen",
-        "en": "anwendungstechniker-in-sika-widen",
+        "it": "tecnico-di-applicazione-sika-widen-aargau-switzerland",
+        "en": "application-technician-sika-widen-aargau-switzerland",
         "de": "anwendungstechniker-in-sika-ch",
-        "fr": "anwendungstechniker-in-sika-widen"
+        "fr": "technicien-en-application-sika-widen-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -850,11 +890,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anwendungstechniker-in-sika-ch"
+        "anwendungstechniker-in-sika-ch",
+        "anwendungstechniker-in-sika-widen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-in-sika-ch"
+          "anwendungstechniker-in-sika-ch",
+          "anwendungstechniker-in-sika-widen"
+        ],
+        "en": [
+          "anwendungstechniker-in-sika-widen"
+        ],
+        "fr": [
+          "anwendungstechniker-in-sika-widen"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:25.086Z",
@@ -876,9 +924,9 @@
       "slug": "magazzino-e-speditionsmitarbeiter-in-100-sika-birr",
       "slugByLocale": {
         "it": "magazzino-e-speditionsmitarbeiter-in-100-sika-birr",
-        "en": "lager-und-speditionsmitarbeiter-in-100-sika-ch",
+        "en": "warehouse-and-forwarding-staff-100-sika-birr-aargau-switzerland",
         "de": "lager-und-speditionsmitarbeiter-in-100-sika-ch",
-        "fr": "lager-und-speditionsmitarbeiter-in-100-sika-ch"
+        "fr": "entrepots-et-transitaires-100-sika-birr-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -926,6 +974,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lager-und-speditionsmitarbeiter-in-100-sika-ch"
+        ],
+        "en": [
+          "lager-und-speditionsmitarbeiter-in-100-sika-ch"
+        ],
+        "fr": [
+          "lager-und-speditionsmitarbeiter-in-100-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:22.906Z",
@@ -949,7 +1003,7 @@
         "it": "projekt-manager-scm-w-m-d-100-sika-ch",
         "en": "projekt-manager-scm-w-m-d-100-sika-ch",
         "de": "projekt-manager-scm-w-m-d-100-sika-ch",
-        "fr": "projekt-manager-scm-w-m-d-100-sika-ch"
+        "fr": "gestionnaire-de-projet-scm-w-m-d-100-sika-birr-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1312,12 +1366,12 @@
     },
     {
       "id": "sika-0fffcc3ad47a",
-      "slug": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch",
+      "slug": "specialista-in-gestione-dei-dati-dei-materiali-locali-mdm-sika-birr-aargau-switzerland",
       "slugByLocale": {
-        "it": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch",
-        "en": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch",
+        "it": "specialista-in-gestione-dei-dati-dei-materiali-locali-mdm-sika-birr-aargau-switzerland",
+        "en": "specialist-in-local-material-data-management-mdm-sika-birr-aargau-switzerland",
         "de": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch",
-        "fr": "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        "fr": "specialiste-en-gestion-des-donnees-sur-le-materiel-local-sika-birr-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1371,16 +1425,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ],
+        "en": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-lokal-materialdatenmanagement-mdm-sika-ch"
+      ]
     },
     {
       "id": "sika-6c473d5691a0",
-      "slug": "automatiker-m-w-d-sika-ch",
+      "slug": "automatico-m-f-d-sika-romanshorn-thurgau-switzerland",
       "slugByLocale": {
-        "it": "automatiker-m-w-d-sika-ch",
-        "en": "automatiker-m-w-d-sika-ch",
+        "it": "automatico-m-f-d-sika-romanshorn-thurgau-switzerland",
+        "en": "automatic-m-f-d-sika-romanshorn-thurgau-switzerland",
         "de": "automatiker-m-w-d-sika-ch",
-        "fr": "automatiker-m-w-d-sika-ch"
+        "fr": "automatique-m-f-d-sika-romanshorn-thurgau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1434,16 +1502,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-m-w-d-sika-ch"
+        ],
+        "en": [
+          "automatiker-m-w-d-sika-ch"
+        ],
+        "fr": [
+          "automatiker-m-w-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-m-w-d-sika-ch"
+      ]
     },
     {
       "id": "sika-f29f6c1b2d83",
       "slug": "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen",
       "slugByLocale": {
         "it": "apprendistato-come-anlagenfuhrer-in-cfc-2027-sika-sarnen",
-        "en": "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
+        "en": "apprenticeship-as-plant-manager-in-efz-2027-sika-sarnen-obwalden-switzerland",
         "de": "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch",
-        "fr": "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
+        "fr": "apprentissage-en-tant-que-gestionnaire-d-usine-en-efz-2027-sika-sarnen-obwalden-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1490,6 +1572,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
+        ],
+        "fr": [
           "lehrstelle-als-anlagenfuhrer-in-efz-2027-sika-ch"
         ]
       },
@@ -1583,9 +1671,9 @@
       "slug": "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen",
       "slugByLocale": {
         "it": "apprendistato-come-automatiker-in-cfc-2027-sika-sarnen",
-        "en": "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
+        "en": "apprenticeship-as-an-automatic-engineer-in-efz-2027-sika-sarnen-obwalden-switzerland",
         "de": "lehrstelle-als-automatiker-in-efz-2027-sika-ch",
-        "fr": "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
+        "fr": "apprentissage-en-tant-qu-ingenieur-automatique-dans-efz-2027-sika-sarnen-obwalden-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1633,6 +1721,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-automatiker-in-efz-2027-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:07.963Z",
@@ -1654,9 +1748,9 @@
       "slug": "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen",
       "slugByLocale": {
         "it": "apprendistato-come-impiegato-a-in-logistica-cfc-2027-sika-sarnen",
-        "en": "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
+        "en": "apprenticeship-as-a-logistician-in-efz-2027-sika-sarnen-obwalden-switzerland",
         "de": "lehrstelle-als-logistiker-in-efz-2027-sika-ch",
-        "fr": "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+        "fr": "apprentissage-en-tant-que-logisticien-en-efz-2027-sika-sarnen-obwalden-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1704,6 +1798,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-logistiker-in-efz-2027-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:05.923Z",
@@ -1725,9 +1825,9 @@
       "slug": "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen",
       "slugByLocale": {
         "it": "apprendistato-come-kaufmann-frau-cfc-2027-sika-sarnen",
-        "en": "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
+        "en": "apprenticeship-as-a-businessman-woman-efz-2027-sika-sarnen-obwalden-switzerland",
         "de": "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch",
-        "fr": "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
+        "fr": "apprentissage-en-tant-qu-homme-d-affaires-femme-efz-2027-sika-sarnen-obwalden-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1775,6 +1875,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-kaufmann-frau-efz-2027-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:57:03.685Z",
@@ -1796,7 +1902,7 @@
       "slug": "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen",
       "slugByLocale": {
         "it": "anlagenfuhrer-m-w-d-extrusionslinien-process-operatore-m-w-d-sika-sarnen",
-        "en": "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
+        "en": "installation-operator-m-f-d-extrusion-lines-process-operator-m-f-d-sika-sarnen-obwalden-switzerland",
         "de": "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch",
         "fr": "anlagenfuhrer-m-w-d-extrusionslinien-process-operateur-m-w-d-sika-sarnen"
       },
@@ -1846,6 +1952,9 @@
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ],
         "fr": [
+          "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
+        ],
+        "en": [
           "anlagenfuhrer-m-w-d-extrusionslinien-process-operator-m-w-d-sika-ch"
         ]
       },
@@ -1941,12 +2050,12 @@
     },
     {
       "id": "sika-926fb3cf0c33",
-      "slug": "prozessingenieur-w-m-d-100-sika-zurich",
+      "slug": "ingegnere-di-processo-f-m-d-100-sika-zurich-zurich-switzerland",
       "slugByLocale": {
-        "it": "prozessingenieur-w-m-d-100-sika-zurich",
-        "en": "prozessingenieur-w-m-d-100-sika-zurich",
+        "it": "ingegnere-di-processo-f-m-d-100-sika-zurich-zurich-switzerland",
+        "en": "process-engineer-f-m-d-100-sika-zurich-zurich-switzerland",
         "de": "prozessingenieur-w-m-d-100-sika-ch",
-        "fr": "prozessingenieur-w-m-d-100-sika-zurich"
+        "fr": "ingenieur-de-procede-f-m-j-100-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1989,11 +2098,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prozessingenieur-w-m-d-100-sika-ch"
+        "prozessingenieur-w-m-d-100-sika-ch",
+        "prozessingenieur-w-m-d-100-sika-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "prozessingenieur-w-m-d-100-sika-ch"
+          "prozessingenieur-w-m-d-100-sika-ch",
+          "prozessingenieur-w-m-d-100-sika-zurich"
+        ],
+        "en": [
+          "prozessingenieur-w-m-d-100-sika-zurich"
+        ],
+        "fr": [
+          "prozessingenieur-w-m-d-100-sika-zurich"
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:59.268Z",
@@ -2087,12 +2204,12 @@
     },
     {
       "id": "sika-46633f57c49f",
-      "slug": "projektleiter-sap-ewm-m-w-d-sika-birr",
+      "slug": "project-manager-sap-ewm-m-f-d-sika-birr-aargau-switzerland",
       "slugByLocale": {
-        "it": "projektleiter-sap-ewm-m-w-d-sika-birr",
+        "it": "project-manager-sap-ewm-m-f-d-sika-birr-aargau-switzerland",
         "en": "projektleiter-sap-ewm-m-w-d-sika-ch",
         "de": "projektleiter-sap-ewm-m-w-d-sika-ch",
-        "fr": "projektleiter-sap-ewm-m-w-d-sika-ch"
+        "fr": "gestionnaire-de-projet-sap-ewm-m-f-d-sika-birr-aargau-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2135,10 +2252,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-sap-ewm-m-w-d-sika-ch"
+        "projektleiter-sap-ewm-m-w-d-sika-ch",
+        "projektleiter-sap-ewm-m-w-d-sika-birr"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-sap-ewm-m-w-d-sika-ch",
+          "projektleiter-sap-ewm-m-w-d-sika-birr"
+        ],
+        "fr": [
           "projektleiter-sap-ewm-m-w-d-sika-ch"
         ]
       },
@@ -2314,9 +2436,9 @@
       "slug": "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen",
       "slugByLocale": {
         "it": "apprendistato-polymechaniker-in-cfc-2027-sika-dudingen",
-        "en": "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
+        "en": "polymechanical-apprenticeship-in-efz-2027-sika-dudingen-canton-of-fribourg-switzerland",
         "de": "lehrstelle-polymechaniker-in-efz-2027-sika-ch",
-        "fr": "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
+        "fr": "l-apprentissage-polymecanique-en-efz-2027-sika-dudingen-canton-of-fribourg-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2364,6 +2486,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
+        ],
+        "fr": [
+          "lehrstelle-polymechaniker-in-efz-2027-sika-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T13:56:50.007Z",
@@ -2385,9 +2513,9 @@
       "slug": "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-in-logistica-cfc-2027-sika-dudingen",
-        "en": "lehrstelle-logistiker-in-efz-2027-sika-ch",
+        "en": "apprenticeship-logistics-manager-in-efz-2027-sika-dudingen-canton-of-fribourg-switzerland",
         "de": "lehrstelle-logistiker-in-efz-2027-sika-ch",
-        "fr": "lehrstelle-logistiker-in-efz-2027-sika-ch"
+        "fr": "gestionnaire-logistique-d-apprentissage-en-efz-2027-sika-dudingen-canton-of-fribourg-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2435,6 +2563,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-logistiker-in-efz-2027-sika-ch"
+        ],
+        "en": [
+          "lehrstelle-logistiker-in-efz-2027-sika-ch"
+        ],
+        "fr": [
+          "lehrstelle-logistiker-in-efz-2027-sika-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2454,12 +2588,12 @@
     },
     {
       "id": "sika-1753dff27e4e",
-      "slug": "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
+      "slug": "master-thesis-student-analisi-degli-appalti-e-intelligenza-dei-materiali-sika-zurich-zurich-switzerland",
       "slugByLocale": {
-        "it": "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
+        "it": "master-thesis-student-analisi-degli-appalti-e-intelligenza-dei-materiali-sika-zurich-zurich-switzerland",
         "en": "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
         "de": "master-thesis-student-procurement-analytics-material-intelligence-sika-ch",
-        "fr": "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        "fr": "maitre-etudiant-de-these-analyse-d-approvisionnement-et-renseignement-materiel-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2513,7 +2647,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        ],
+        "fr": [
+          "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "master-thesis-student-procurement-analytics-material-intelligence-sika-ch"
+      ]
     },
     {
       "id": "sika-4a837ce460ff",

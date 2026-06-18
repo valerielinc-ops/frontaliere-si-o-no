@@ -2173,9 +2173,9 @@
       "slug": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
         "it": "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol",
-        "en": "oberarztin-oberarzt-pdgr-ch-2",
+        "en": "senior-physician-senior-physician-psychiatrische-dienste-graubunden-samedan-scuol",
         "de": "oberarztin-oberarzt-pdgr-ch",
-        "fr": "oberarztin-oberarzt-pdgr-ch-2"
+        "fr": "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2230,6 +2230,12 @@
         ],
         "de": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol"
+        ],
+        "en": [
+          "oberarztin-oberarzt-pdgr-ch-2"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-pdgr-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -2253,9 +2259,9 @@
       "slug": "specialista-psicologo-psychiatrische-dienste-graubunden-samedan-scuol",
       "slugByLocale": {
         "it": "specialista-psicologo-psychiatrische-dienste-graubunden-samedan-scuol",
-        "en": "fachpsychologe-in-pdgr-ch",
+        "en": "specialist-psychologist-psychiatrische-dienste-graubunden-samedan-scuol",
         "de": "fachpsychologe-in-pdgr-ch",
-        "fr": "fachpsychologe-in-pdgr-ch"
+        "fr": "psychologue-specialise-psychiatrische-dienste-graubunden-samedan-scuol"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2310,6 +2316,12 @@
         ],
         "de": [
           "fachpsychologe-in-psychiatrische-dienste-graubunden-samedan-scuol"
+        ],
+        "en": [
+          "fachpsychologe-in-pdgr-ch"
+        ],
+        "fr": [
+          "fachpsychologe-in-pdgr-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2437,10 +2449,10 @@
       "id": "pdgr-79ffc180b41a",
       "slug": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis",
+        "it": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
-        "fr": "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2487,15 +2499,13 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
-        "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+        "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-pdgr-ch",
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis"
+          "dipl-pflegefachperson-hf-pdgr-ch"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis",
           "dipl-specialiste-des-soins-hf-psychiatrische-dienste-graubunden-cazis"
         ]
       },
@@ -2607,12 +2617,12 @@
     },
     {
       "id": "pdgr-7d82aa45ee20",
-      "slug": "ergotherapeut-in-pdgr-ch",
+      "slug": "ergotherapist-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "ergotherapeut-in-pdgr-ch",
+        "it": "ergotherapist-psychiatrische-dienste-graubunden-chur",
         "en": "ergotherapeut-in-psychiatrische-dienste-graubunden-chur",
         "de": "ergotherapeut-in-pdgr-ch",
-        "fr": "ergotherapeut-in-pdgr-ch"
+        "fr": "ergotherapeute-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2658,16 +2668,13 @@
       "pensumMax": 10,
       "pensum": "10%",
       "previousSlugs": [
-        "ergotherapist-psychiatrische-dienste-graubunden-chur",
-        "ergotherapeute-psychiatrische-dienste-graubunden-chur"
+        "ergotherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapist-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ],
         "fr": [
-          "ergotherapeute-psychiatrische-dienste-graubunden-chur",
           "ergotherapeut-in-pdgr-ch"
         ]
       },
@@ -3092,12 +3099,12 @@
     },
     {
       "id": "pdgr-09c3ab3dcea3",
-      "slug": "sporttherapeut-in-pdgr-ch",
+      "slug": "terapista-sportivo-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
-        "it": "sporttherapeut-in-pdgr-ch",
+        "it": "terapista-sportivo-psychiatrische-dienste-graubunden-cazis",
         "en": "sporttherapeut-in-psychiatrische-dienste-graubunden-cazis",
         "de": "sporttherapeut-in-pdgr-ch",
-        "fr": "sporttherapeut-in-pdgr-ch"
+        "fr": "therapeute-du-sport-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3143,16 +3150,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "terapista-sportivo-psychiatrische-dienste-graubunden-cazis",
-        "therapeute-du-sport-psychiatrische-dienste-graubunden-cazis"
+        "sporttherapeut-in-pdgr-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "terapista-sportivo-psychiatrische-dienste-graubunden-cazis",
           "sporttherapeut-in-pdgr-ch"
         ],
         "fr": [
-          "therapeute-du-sport-psychiatrische-dienste-graubunden-cazis",
           "sporttherapeut-in-pdgr-ch"
         ]
       },

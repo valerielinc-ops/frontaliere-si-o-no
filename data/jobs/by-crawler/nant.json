@@ -321,8 +321,8 @@
       "slug": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
       "slugByLocale": {
         "it": "stewardship-dipendente-contratto-orario-6h-settimana-fondation-de-nant-chateau-d-x",
-        "en": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
-        "de": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x",
+        "en": "stewardship-employee-hourly-contract-6h-week-fondation-de-nant-chateau-d-x",
+        "de": "stewardship-mitarbeiter-stundenvertrag-6h-woche-fondation-de-nant-chateau-d-x",
         "fr": "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
       },
       "company": "Fondation de Nant",
@@ -371,6 +371,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        ],
+        "en": [
+          "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
+        ],
+        "de": [
           "employe-e-en-intendance-contrat-horaire-6h-semaine-nant-chateau-d-x"
         ]
       },
@@ -704,9 +710,9 @@
     },
     {
       "id": "nant-600fc38f569c",
-      "slug": "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse",
+      "slug": "assistente-sociale-al-50-60-cdd-fondation-de-nant-vaud-suisse",
       "slugByLocale": {
-        "it": "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse",
+        "it": "assistente-sociale-al-50-60-cdd-fondation-de-nant-vaud-suisse",
         "en": "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse",
         "de": "assistent-e-social-e-a-50-60-cdd-fondation-de-nant-vaud-suisse",
         "fr": "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse"
@@ -764,7 +770,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-social-e-a-50-60-cdd-nant-vaud-suisse"
+      ]
     }
   ]
 }

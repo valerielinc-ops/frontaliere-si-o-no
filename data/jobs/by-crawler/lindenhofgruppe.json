@@ -464,9 +464,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -510,8 +510,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -524,11 +522,9 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -1676,7 +1672,7 @@
         "it": "direttore-finanziario-cfo-lindenhofgruppe-lindenhofgruppe",
         "en": "chief-financial-officer-cfo-lindenhofgruppe-ch",
         "de": "chief-financial-officer-cfo-lindenhofgruppe-ch",
-        "fr": "chief-financial-officer-cfo-lindenhofgruppe-ch"
+        "fr": "directeur-financier-cfo-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -1723,6 +1719,9 @@
       "previousSlugsByLocale": {
         "it": [
           "chief-financial-officer-cfo-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "chief-financial-officer-cfo-lindenhofgruppe-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1745,9 +1744,9 @@
       "slug": "professionista-della-salute-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "it": "professionista-della-salute-lindenhofgruppe-lindenhofspital",
-        "en": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "en": "health-professional-lindenhofgruppe-lindenhofspital",
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fr": "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "fr": "professionnels-de-la-sante-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -1796,6 +1795,12 @@
         "it": [
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
           "fachfrau-mann-gesundheit-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1818,9 +1823,9 @@
       "slug": "encoder-trice-medico-a-lindenhofgruppe-muristalden",
       "slugByLocale": {
         "it": "encoder-trice-medico-a-lindenhofgruppe-muristalden",
-        "en": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+        "en": "medical-coder-lindenhofgruppe-muristalden",
         "de": "medizinische-r-codierer-in-lindenhofgruppe-ch",
-        "fr": "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        "fr": "codeur-medical-lindenhofgruppe-muristalden"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -1869,6 +1874,12 @@
         "it": [
           "medizinische-r-codierer-in-lindenhofgruppe-ch",
           "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        ],
+        "en": [
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        ],
+        "fr": [
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
         ]
       },
       "needsRetranslation": true,
@@ -1891,9 +1902,9 @@
       "slug": "dipl-expertin-experte-intensivpflege-nds-hf-o-dipl-pflegefachfrau-mann-con-imc-kurs-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
         "it": "dipl-expertin-experte-intensivpflege-nds-hf-o-dipl-pflegefachfrau-mann-con-imc-kurs-lindenhofgruppe-sonnenhofspital",
-        "en": "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs",
+        "en": "dipl-expert-expert-intensive-care-nds-hf-or-dipl-nursing-professional-with-imc-course-lindenhofgruppe-sonnenhofspital",
         "de": "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs",
-        "fr": "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-ou-dipl-professionnel-infirmier-avec-cours-imc-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -1940,6 +1951,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs"
+        ],
+        "en": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs"
+        ],
+        "fr": [
+          "dipl-expertin-experte-intensivpflege-nds-hf-oder-dipl-pflegefachfrau-mann-mit-imc-kurs"
         ]
       },
       "needsRetranslation": true,
@@ -1962,9 +1979,9 @@
       "slug": "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "it": "principale-medico-medico-generale-medicina-interna-lindenhofgruppe-lindenhofspital",
-        "en": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
+        "en": "chief-physician-chief-physician-general-internal-medicine-lindenhofgruppe-lindenhofspital",
         "de": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch",
-        "fr": "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+        "fr": "medecin-en-chef-medecin-en-chef-general-medecine-interne-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2011,6 +2028,12 @@
       "previousSlugsByLocale": {
         "it": [
           "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "chefarztin-chefarzt-allgemeine-innere-medizin-lindenhofgruppe-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2030,12 +2053,12 @@
     },
     {
       "id": "lindenhofgruppe-c90539a958da",
-      "slug": "infermiere-laureato-fh-hf-lindenhofgruppe-sonnenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
-        "it": "infermiere-laureato-fh-hf-lindenhofgruppe-sonnenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital",
+        "en": "dipl-nursing-professional-fh-hf-lindenhofgruppe-sonnenhofspital",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+        "fr": "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-sonnenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2080,14 +2103,20 @@
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-        "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+        "infermiere-laureato-fh-hf-lindenhofgruppe-sonnenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-sonnenhofspital",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-4",
-          "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-sonnenhofspital"
+          "infermiere-laureato-fh-hf-lindenhofgruppe-sonnenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-7"
         ]
       },
       "needsRetranslation": true,
@@ -2110,9 +2139,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-con-fachverantwortung-berufsbildung-lindenhofgruppe-sonnenhofspital",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-hf-fh-with-professional-responsibility-vocational-training-lindenhofgruppe-sonnenhofspital",
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-a-responsabilite-professionnelle-formation-professionnelle-lindenhofgruppe"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2159,6 +2188,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-fachverantwortung-berufsbildung-lindenhofgruppe-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2181,9 +2216,9 @@
       "slug": "kauffrau-mann-cfc-in-ausbildung-lindenhofgruppe-muristalden",
       "slugByLocale": {
         "it": "kauffrau-mann-cfc-in-ausbildung-lindenhofgruppe-muristalden",
-        "en": "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch",
+        "en": "businesswoman-man-efz-in-training-lindenhofgruppe-muristalden",
         "de": "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch",
-        "fr": "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
+        "fr": "entreprise-homme-efz-en-formation-lindenhofgruppe-muristalden"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2229,6 +2264,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "kauffrau-mann-efz-in-ausbildung-lindenhofgruppe-ch"
         ]
       },
@@ -2323,9 +2364,9 @@
       "slug": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "it": "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-in-ausbildung-schwerpunkt-hotellerie-lindenhofgruppe-lindenhofspital",
-        "en": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
+        "en": "professional-hotel-industry-efz-in-training-focus-on-hotel-industry-lindenhofgruppe-lindenhofspital",
         "de": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie",
-        "fr": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
+        "fr": "industrie-hoteliere-professionnelle-efz-en-formation-accent-sur-l-hotellerie-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2372,6 +2413,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
+        ],
+        "en": [
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
+        ],
+        "fr": [
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-in-ausbildung-schwerpunkt-hotellerie"
         ]
       },
       "needsRetranslation": true,
@@ -2394,9 +2441,9 @@
       "slug": "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
         "it": "fachfrau-mann-gesundheit-cfc-in-ausbildung-lindenhofspital-o-sonnenhofspital-lindenhofgruppe-lindenhofspital",
-        "en": "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
+        "en": "specialist-health-efz-in-education-lindenhofspital-or-sonnenhofspital-lindenhofgruppe-lindenhofspital",
         "de": "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital",
-        "fr": "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        "fr": "sante-specialisee-efz-dans-l-education-lindenhofspital-ou-sonnenhofspital-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2443,6 +2490,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-efz-in-ausbildung-lindenhofspital-oder-sonnenhofspital"
         ]
       },
       "needsRetranslation": true,
@@ -2462,12 +2515,12 @@
     },
     {
       "id": "lindenhofgruppe-d41865412e99",
-      "slug": "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital",
+        "en": "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
+        "fr": "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2510,12 +2563,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+        "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5",
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+          "infermiere-laureato-fh-hf-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-5"
         ]
       },
       "needsRetranslation": true,
@@ -2535,12 +2596,12 @@
     },
     {
       "id": "lindenhofgruppe-2bc572a2d7f6",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
+        "en": "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-27510f",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        "fr": "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-27510f"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2582,10 +2643,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
         ]
       },

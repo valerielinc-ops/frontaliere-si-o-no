@@ -2817,9 +2817,9 @@
     },
     {
       "id": "reboot-monkey-c97166227cd2",
-      "slug": "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias",
+      "slug": "data-center-technician-svizzera-les-acacias-in-loco-reboot-monkey-les-acacias",
       "slugByLocale": {
-        "it": "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias",
+        "it": "data-center-technician-svizzera-les-acacias-in-loco-reboot-monkey-les-acacias",
         "en": "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias",
         "de": "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias",
         "fr": "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias"
@@ -2887,11 +2887,13 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias-2"
+        "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias-2",
+        "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias-2"
+          "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias-2",
+          "data-center-technician-switzerland-les-acacias-on-site-reboot-monkey-les-acacias"
         ]
       },
       "needsRetranslation": true,
@@ -4004,9 +4006,9 @@
     },
     {
       "id": "reboot-monkey-82b75718ba1a",
-      "slug": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+      "slug": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
       "slugByLocale": {
-        "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
+        "it": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "de": "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "fr": "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
@@ -4073,11 +4075,13 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+          "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
         ]
       },
       "needsRetranslation": true,
@@ -4308,9 +4312,9 @@
     },
     {
       "id": "reboot-monkey-7ba163dc0e88",
-      "slug": "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz-2",
+      "slug": "data-center-technician-svizzera-rotkreuz-in-loco-reboot-monkey-rotkreuz",
       "slugByLocale": {
-        "it": "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz-2",
+        "it": "data-center-technician-svizzera-rotkreuz-in-loco-reboot-monkey-rotkreuz",
         "en": "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz",
         "de": "data-center-techniker-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz",
         "fr": "data-center-technicien-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz"
@@ -4391,7 +4395,15 @@
         }
       },
       "postalCode": "1950",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz-2"
+        ]
+      },
+      "previousSlugs": [
+        "data-center-technician-switzerland-rotkreuz-on-site-reboot-monkey-rotkreuz-2"
+      ]
     },
     {
       "id": "reboot-monkey-fff4e5b7ee38",

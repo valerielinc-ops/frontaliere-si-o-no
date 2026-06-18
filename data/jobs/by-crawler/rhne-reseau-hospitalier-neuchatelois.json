@@ -7,8 +7,8 @@
       "slug": "capo-del-reparto-di-radioterapia-oncologica-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
         "it": "capo-del-reparto-di-radioterapia-oncologica-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
-        "de": "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "en": "chief-medical-officer-of-80-100-radio-oncology-service-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "chief-medical-officer-von-80-100-radioonkologie-service-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -57,6 +57,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "en": [
+          "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "de": [
           "medecin-chef-fe-de-service-radio-oncologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
         ]
       },
@@ -154,11 +160,11 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-cfbaff77d2fa",
-      "slug": "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "100-controllo-medico-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "100-controllo-medico-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "100-medical-controller-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "100-medizinischer-controller-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -214,13 +220,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-euse-medical-e-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a381185334d0",
-      "slug": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "en": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
         "de": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
         "fr": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
@@ -278,15 +298,23 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-427401eb7d8d",
-      "slug": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "chief-medical-officer-of-80-100-clinic-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "chief-medical-officer-der-80-100-klinik-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -342,15 +370,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-625bcbb39612",
-      "slug": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slug": "medico-assistente-anestesiologia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois",
-        "de": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois",
+        "it": "medico-assistente-anestesiologia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "physician-assistant-anesthesiology-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "arzt-assistenz-anasthesiologie-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -395,10 +437,18 @@
       "requirementsByLocale": {},
       "externalId": "2560297",
       "previousSlugs": [
-        "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois"
+        "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois",
+        "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois",
+          "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        ],
+        "en": [
+          "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "de": [
           "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois"
         ]
       },
