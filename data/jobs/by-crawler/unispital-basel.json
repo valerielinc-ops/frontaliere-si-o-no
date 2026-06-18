@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "fellow-cardiology-universitatsspital-basel-basel",
         "en": "fellow-cardiology-unispital-basel-ch",
-        "de": "fellow-kardiologie-universitatsspital-basel-basel",
-        "fr": "fellow-cardiologie-universitatsspital-basel-basel"
+        "de": "fellow-cardiology-unispital-basel-ch",
+        "fr": "fellow-cardiology-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -51,21 +51,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fellow-cardiology-unispital-basel-ch"
+        "fellow-cardiology-unispital-basel-ch",
+        "fellow-kardiologie-universitatsspital-basel-basel",
+        "fellow-cardiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-cardiology-unispital-basel-ch"
         ],
         "de": [
+          "fellow-kardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ],
         "fr": [
+          "fellow-cardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -146,7 +149,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -310,7 +312,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -458,11 +459,11 @@
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -472,11 +473,11 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "en": [
+          "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -576,7 +577,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "en": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
       },
@@ -622,12 +623,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -636,11 +639,10 @@
           "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -725,7 +727,6 @@
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -827,7 +828,7 @@
         "it": "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "en": "nds-experte-expertin-notfallpflege-nfz-universitatsspital-basel-basel",
         "de": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "fr": "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
+        "fr": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -871,12 +872,14 @@
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -885,11 +888,10 @@
           "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
         ],
         "fr": [
-          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -990,7 +992,7 @@
         "it": "fellowship-abdominelle-e-onkologische-radiologie-universitatsspital-basel",
         "en": "fellowship-abdominelle-und-onkologische-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fr": "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
+        "fr": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1033,7 +1035,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
+        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel",
+        "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1041,11 +1044,11 @@
           "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
         ],
         "fr": [
+          "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel",
           "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1619,7 +1622,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1638,7 +1640,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
@@ -1683,6 +1685,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-cje476",
@@ -1697,11 +1700,11 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ],
         "en": [
+          "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1782,7 +1785,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1945,7 +1947,6 @@
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2125,7 +2126,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2198,11 +2198,11 @@
           "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
         ],
         "fr": [
+          "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
           "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2302,7 +2302,7 @@
       "slug": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
-        "en": "study-nurse-neurosurgery-universitatsspital-basel-basel",
+        "en": "study-nurse-neurochirurgie-unispital-basel-ch",
         "de": "study-nurse-neurochirurgie-unispital-basel-ch",
         "fr": "study-nurse-neurochirurgie-universitatsspital-basel-basel"
       },
@@ -2346,18 +2346,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-neurochirurgie-unispital-basel-ch"
+        "study-nurse-neurochirurgie-unispital-basel-ch",
+        "study-nurse-neurosurgery-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ],
         "en": [
+          "study-nurse-neurosurgery-universitatsspital-basel-basel",
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2376,7 +2377,7 @@
       "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
-        "en": "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel"
       },
@@ -2421,7 +2422,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
+        "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2429,11 +2431,11 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
         ],
         "en": [
+          "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2517,7 +2519,6 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2647,7 +2648,7 @@
         "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "fr": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2692,7 +2693,7 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
@@ -2700,7 +2701,9 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2709,11 +2712,10 @@
           "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2879,7 +2881,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -2888,10 +2889,11 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3061,7 +3063,6 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
@@ -3074,10 +3075,11 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3156,7 +3158,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3389,7 +3390,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3652,12 +3652,12 @@
     },
     {
       "id": "unispital-basel-b9d4c734c71a",
-      "slug": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
       "slugByLocale": {
-        "it": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3699,18 +3699,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+        "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ],
         "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4320,7 +4322,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4339,9 +4340,9 @@
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
-        "en": "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4383,21 +4384,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
+        "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "en": [
+          "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "fr": [
+          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5003,6 +5007,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -5010,11 +5015,11 @@
           "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
         ],
         "fr": [
+          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
           "pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5033,9 +5038,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
-        "en": "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5077,21 +5082,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+        "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
+        "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "en": [
+          "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "fr": [
+          "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5472,7 +5480,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -6055,14 +6062,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6224,11 +6232,11 @@
           "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
         ],
         "fr": [
+          "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
           "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6334,7 +6342,7 @@
         "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "fr": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "fr": "ergotherapeute-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6377,6 +6385,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel",
         "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -6384,11 +6394,10 @@
           "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeute-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7093,9 +7102,9 @@
       "slug": "study-nurse-rheumatologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "study-nurse-rheumatologie-universitatsspital-basel-basel",
-        "en": "study-nurse-rheumatology-universitatsspital-basel-basel",
+        "en": "study-nurse-rheumatologie-unispital-basel-ch",
         "de": "study-nurse-rheumatologie-unispital-basel-ch",
-        "fr": "infirmiere-rhumatologie-universitatsspital-basel-basel"
+        "fr": "study-nurse-rheumatologie-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7137,21 +7146,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-rheumatologie-unispital-basel-ch"
+        "study-nurse-rheumatologie-unispital-basel-ch",
+        "study-nurse-rheumatology-universitatsspital-basel-basel",
+        "infirmiere-rhumatologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "en": [
+          "study-nurse-rheumatology-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "fr": [
+          "infirmiere-rhumatologie-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7246,9 +7258,9 @@
       "slug": "payroll-spezialist-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "payroll-spezialist-in-universitatsspital-basel-basel",
-        "en": "payroll-specialist-universitatsspital-basel-basel",
+        "en": "payroll-spezialist-in-unispital-basel-ch",
         "de": "payroll-spezialist-in-unispital-basel-ch",
-        "fr": "specialiste-de-la-paie-universitatsspital-basel-basel"
+        "fr": "payroll-spezialist-in-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7290,21 +7302,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-spezialist-in-unispital-basel-ch"
+        "payroll-spezialist-in-unispital-basel-ch",
+        "payroll-specialist-universitatsspital-basel-basel",
+        "specialiste-de-la-paie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "en": [
+          "payroll-specialist-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "fr": [
+          "specialiste-de-la-paie-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.256Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7551,7 +7566,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -7566,7 +7580,10 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7671,7 +7688,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -7682,7 +7698,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
@@ -7755,7 +7774,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:35:48.852Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8136,9 +8154,9 @@
       "slug": "op-koordinator-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "op-koordinator-in-universitatsspital-basel-basel",
-        "en": "op-coordinator-universitatsspital-basel-basel",
+        "en": "op-koordinator-in-unispital-basel-ch",
         "de": "op-koordinator-in-unispital-basel-ch",
-        "fr": "coordinateur-op-universitatsspital-basel-basel"
+        "fr": "op-koordinator-in-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8180,21 +8198,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "op-koordinator-in-unispital-basel-ch"
+        "op-koordinator-in-unispital-basel-ch",
+        "op-coordinator-universitatsspital-basel-basel",
+        "coordinateur-op-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "op-koordinator-in-unispital-basel-ch"
         ],
         "en": [
+          "op-coordinator-universitatsspital-basel-basel",
           "op-koordinator-in-unispital-basel-ch"
         ],
         "fr": [
+          "coordinateur-op-universitatsspital-basel-basel",
           "op-koordinator-in-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8363,16 +8384,16 @@
       "title": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
       "titleByLocale": {
         "de": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
-        "it": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
-        "en": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool",
-        "fr": "Fachfrau/Fachmann OP-Lagerung HF/FH im Springerpool"
+        "it": "Specialista OR posizionando HF/FH nel pool di saltatori",
+        "en": "Specialist OR positioning HF/FH in the jumper pool",
+        "fr": "Spécialiste OU positionnement HF/FH dans la piscine de sauteurs"
       },
       "description": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n\n• Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n\n• Berücksichtigen der Prävention möglicher Schäden\n\n• Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n\n• Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n\n• Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nAnforderungen:\n• Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n\n• Basis- und Fachkurs Operationslagerungspflege von Vorteil\n\n• Grundkenntnisse in Anatomie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "Descrizione\n- Gewährleisten eines persönlichen Empfanges der Patientinnen und Patienten sowie deren Betreuung\n- Situationsbezogenes Lagern und Vorbereiten jeglicher Patientinnen und Patienten auf dem Operationstisch\n- Berücksichtigen der Prävention möglicher Schäden\n- Sicherstellen der Asepsis und Hygiene in der Operationsabteilung\n- Einrichten von Extensionen, Anlegen von postoperativen Gips- und Operationsverbänden\n- Vor- und Nachbereiten von Materialien, Bewirtschaften, Bedienen und Kontrollieren hochspezialisierter, medizintechnischer Geräte\n\nRequisiti\n- Eidg. Berufsattest, z.B. als Assistent*in Gesundheit & Soziales, Eidg. Fähigkeitszeugnis als Fachperson Gesundheit und Betreuung oder vergleichbare Ausbildung mit Abschluss\n- Basis- und Fachkurs Operationslagerungspflege von Vorteil\n- Grundkenntnisse in Anatomie\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n\nCosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\nContatto",
+        "it": "Descrizione - Assicurare un ricevimento personale dei pazienti e la loro cura - Conservazione e preparazione di tutti i pazienti sul tavolo operatorio - Considerazione della prevenzione dei possibili danni - Assicurare asepsi e igiene nel reparto operativo - Impostazione di estensioni, creazione di intonaco postoperatorio e associazioni chirurgiche - Preparazione e follow-up di materiali, gestione, funzionamento e controllo di attrezzature mediche altamente specializzate Requisiti - Eidg. Certificato professionale, ad esempio come assistente sanitario e affari sociali, Eidg. Certificato di competenza come specialista in salute e cura o formazione comparabile con una laurea - Corso di base e specialistico in assistenza di magazzino chirurgico di vantaggio - Conoscenze di base in anatomia - Molto buone competenze linguistiche tedesche in parola e scrittura Cosa offrono - Politica salariale attraente e benefici sociali eccezionali - Sconti nelle aree di shopping, sport e tempo libero - Supporto per lo spostamento e la ricerca di alloggi - 25 giorni di vacanza più 5 anche libero flexitage - Supporto per ulteriori istruzione e pianificazione di carriera",
+        "en": "Descrizione - Ensuring a personal reception of patients as well as their care - Situational storage and preparation of all patients on the operating table - Consideration of the prevention of possible damage - Ensuring asepsis and hygiene in the operating department - Setting up extensions, creation of postoperative plaster and surgical associations - Preparation and follow-up of materials, management, operation and control of highly specialised medical equipment Requisiti - Eidg. Professional certificate, e.g. as an assistant health & social affairs, Eidg. Certificate of competence as a specialist in health and care or comparable training with a degree - Basic and specialist course in surgical warehouse care of advantage - Basic knowledge in anatomy - Very good German language skills in word and writing Cosa offriamo - Attractive wage policy and outstanding social benefits - Discounts in the areas of shopping, sports and leisure - Support for moving and finding accommodation - 25 holiday days plus 5 also free flexitage - Support for further education and career planning - Campus in the heart of Basel and in the tri-country area - Comprehensive childcare options - Free sports and exercise programme Contatto",
+        "fr": "Descrizione - Assurer l'accueil personnel des patients ainsi que leurs soins - Stockage de situation et préparation de tous les patients sur la table d'opération - Examen de la prévention des dommages éventuels - Assurer l'asepsis et l'hygiène dans le service d'exploitation - Mise en place d'extensions, création d'associations postopératoires de plâtre et de chirurgie - Préparation et suivi de matériaux, gestion, fonctionnement et contrôle d'équipements médicaux hautement spécialisés Requisiti - Eidg. Certificat professionnel, par exemple en tant qu'assistant en santé et affaires sociales, Eidg. Certificat de compétence en tant que spécialiste de la santé et des soins ou formation comparable avec un diplôme - Cours de base et de spécialiste des soins chirurgicaux en entrepôt d'avantages - Connaissances de base en anatomie - Très bonne maîtrise de la langue allemande en paroles et en écriture Cosa offriamo - Politique salariale attrayante et avantages sociaux exceptionnels - Réductions dans les domaines du shopping, du sport et des loisirs - Soutien au déménagement et à la recherche d'un logement - 25 jours de vacances plus 5 jours de flexitage gratuit - Soutien à la poursuite de l'éducation et de la planification de carrière - Campus au cœur de Bâle et dans la région trinationale - Options complètes pour la garde d'enfants - Programme de sports et d'exercices gratuits Contatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8398,7 +8419,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8428,16 +8448,16 @@
       "title": "Fachfrau/Fachmann Operationstechnik HF/FH im Springerpool",
       "titleByLocale": {
         "de": "Fachfrau/Fachmann Operationstechnik HF/FH im Springerpool",
-        "it": "Fachfrau/Fachmann Operationstechnik HF/FH im Springerpool",
-        "en": "Fachfrau/Fachmann Operationstechnik HF/FH im Springerpool",
-        "fr": "Fachfrau/Fachmann Operationstechnik HF/FH im Springerpool"
+        "it": "Specialista/Expert Operations Technology HF/FH nella Springerpool",
+        "en": "Surgical Technique Specialist HF/FH in the Jumper Pool",
+        "fr": "Technologie d'exploitation spécialisée/experte HF/FH dans le Springerpool"
       },
       "description": "Aufgaben:\n• Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n\n• Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n\n• Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n\n• Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n\n• Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nAnforderungen:\n• Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n\n• Sie haben idealerweise Berufserfahrung in einem Akutspital\n\n• Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n\n• Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n\n• Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n\n• Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n\n• Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n\n• Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n\n• Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nAnforderungen:\n• Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n\n• Sie haben idealerweise Berufserfahrung in einem Akutspital\n\n• Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n\n• Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n\n• Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n\n• Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n\n• Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n\n• Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n\n• Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nAnforderungen:\n• Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n\n• Sie haben idealerweise Berufserfahrung in einem Akutspital\n\n• Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n\n• Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n\n• Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n\n• Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n\n• Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n\n• Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n\n• Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nAnforderungen:\n• Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n\n• Sie haben idealerweise Berufserfahrung in einem Akutspital\n\n• Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n\n• Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n\n• Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n\n• Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n\n• Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n\n• Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n\n• Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nAnforderungen:\n• Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n\n• Sie haben idealerweise Berufserfahrung in einem Akutspital\n\n• Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n\n• Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n\n• Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "Descrizione\n- Fachkundiges, ruhiges und situationsgerechtes Instrumentieren und Zudienen bei chirurgischen Interventionen sowie Durchführung von perioperativen Tätigkeiten\n- Mitverantwortung für die Einhaltung der Asepsis und der notwendigen hygienischen Massnahmen\n- Planung und Besprechung der Arbeit sowie Sicherstellung der zeitnahen Dokumentationen\n- Vielfältige und spannende operative Eingriffe in unterschiedlichen Fachbereichen\n- Anwendung modernster Medizintechnik und innovativer OP-Verfahren\n\nRequisiti\n- Sie haben eine abgeschlossene Berufsausbildung als dipl. Fachperson Operationstechnik HF oder TOA/OTA\n- Sie haben idealerweise Berufserfahrung in einem Akutspital\n- Sie sind offen und neugierig und schätzen die Abwechslung in der Arbeit mit verschiedenen Spezialistenteams\n- Sie sind eine belastbare, kommunikative und offene Persönlichkeit, die gerne selbständig und exakt arbeitet und Wert auf eine gute Zusammenarbeit legt\n- Sie sind flexibel und können sich schnell auf neue Situationen und Menschen einlassen\n\nCosa offriamo\n- Attraktive Lohnpolitik und hervorragende Sozialleistungen\n- Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n- Unterstützung bei Umzug und Wohnungssuche\n- 25 Ferientage plus 5 ebenfalls freie Flexitage\n- Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n- Campus im Herzen Basels und im Dreiländereck\n- Umfassende Kinderbetreuungsmöglichkeiten\n- Kostenloses Sport- und Bewegungsprogramm\n\nContatto",
+        "it": "Descrizione - Strumentazione e servizio mirati alla situazione e alla calma in interventi chirurgici, nonché implementazione di attività perioperative - Co-responsabilità per il rispetto dell'asi e delle misure igieniche necessarie - Pianificazione e discussione del lavoro, oltre a garantire la documentazione tempestiva - Interventi chirurgici vari ed emozionanti in diverse aree specialistiche - Applicazione delle più recenti tecnologie mediche e procedure chirurgiche innovative Requisiti - Hai completato la formazione professionale come dipl. Tecnologia chirurgica specialistica HF o TOA/OTA - Hai idealmente esperienza professionale in un ospedale acuto - Sei aperto e curioso e apprezzi la varietà di lavoro con diversi team specializzati - Sei una personalità resiliente, comunicativa e aperta che ama lavorare in modo indipendente e preciso e valori di buona cooperazione - Sei flessibile e può rapidamente partecipare a nuove situazioni e persone Cosa offriamo - Attraente politica salariale e eccellenti benefici sociali - Sconti nei settori dello shopping, dello sport e del tempo libero - Supporto nelle aree di spostamento e di ricerca di alloggio - 25 giorni di vacanza più 5 anche free flexitage - Supporto in ulteriore formazione e pianificazione della carriera - Campus nel cuore di Basilea e nel triangolo di confine - Opzioni complete di assistenza all'infanzia - Free sport e programma di esercizio Contatto",
+        "en": "Descrizione - Specialist, calm and situation-appropriate instrumentation and service in surgical interventions as well as implementation of perioperative activities - Co-responsibility for compliance with the asepsis and the necessary hygienic measures - Planning and discussion of the work as well as ensuring timely documentation - Various and exciting surgical interventions in different specialist areas - Application of the latest medical technology and innovative surgical procedures Requisiti - You have completed vocational training as a dipl. Specialist surgical technology HF or TOA/OTA - You ideally have professional experience in an acute hospital - You are open and curious and appreciate the variety of work with different specialist teams - You are a resilient, communicative and open personality who likes to work independently and exactly and values good cooperation - You are flexible and can quickly get involved in new situations and people Cosa offriamo - Attractive wage policy and excellent social benefits - Discounts in the areas of shopping, sports and leisure - Support in the areas of moving and finding accommodation - 25 holiday days plus 5 also free flexitage - Support in further education and career planning - Campus in the heart of Basel and in the border triangle - Comprehensive childcare options - Free sports and exercise programme Contatto",
+        "fr": "Descrizione - Instrumentation et service spécialisés, calmes et adaptés à la situation dans les interventions chirurgicales ainsi que dans la mise en oeuvre des activités périopératoires - Coresponsabilité pour le respect de l'asepsis et des mesures d'hygiène nécessaires - Planification et discussion du travail ainsi que pour assurer la documentation en temps opportun - Interventions chirurgicales diverses et passionnantes dans différents domaines spécialisés - Application de la dernière technologie médicale et des procédures chirurgicales innovantes Requisiti - Vous avez suivi une formation professionnelle en tant que dipl. Technologie chirurgicale spécialisée HF ou TOA/OTA - Vous avez idéalement une expérience professionnelle dans un hôpital aigu - Vous êtes ouvert et curieux et appréciez la variété du travail avec différentes équipes spécialisées - Vous êtes une personnalité résiliente, communicative et ouverte qui aime travailler indépendamment et exactement et apprécie la bonne coopération - Vous êtes flexible et pouvez rapidement vous impliquer dans de nouvelles situations et les personnes Cosa offriamo - Attractive politique salariale et d'excellents avantages sociaux - Réductions dans les domaines du shopping, du sport et des loisirs - Soutien dans les domaines du déménagement et de la recherche d'hébergement - 25 jours de vacances plus 5 flexitage gratuit - Soutien dans la formation continue et la planification de carrière - Campus au cœur de Bâle et dans le triangle frontalier - Options globales de garde d'enfants - Programme de sports et d'exercices gratuits Contatto"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8463,7 +8483,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-operationstechnik-hf-fh-im-springerpool-unispital-basel-ch"
