@@ -8129,6 +8129,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.naspi-svizzera-frontalieri.title': 'Disoccupazione Svizzera: Naspi e ristorni per i frontalieri',
     'blog.article.naspi-svizzera-frontalieri.excerpt': 'Come funziona il Naspi svizzero per i frontalieri, durata massima 520 giorni e come ottenere i ristorni fiscali in Italia.',
     'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande a Bellinzona al tramonto, simbolo del confine e del Canton Ticino.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Agenzie di lavoro temporaneo a Lugano: guida pratica per frontalieri',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Panoramica sulle agenzie di placement a Lugano, opportunità per frontalieri e procedure di inserimento nel mercato ticinese.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Panorama del centro di Lugano con uffici e persone in movimento.',
 };
 
 export default blogMetaIt;

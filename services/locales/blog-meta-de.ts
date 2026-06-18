@@ -8127,6 +8127,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.naspi-svizzera-frontalieri.title': 'Schweizer Dispo: Naspi und Gaststätten für Grenzgänger',
     'blog.article.naspi-svizzera-frontalieri.excerpt': 'Wie funktioniert der Schweizer Naspi für Grenzgänger, Dauer maximal 520 Tage und wie beantragte man die Steuerfreien Gaststätten in Italien.',
     'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang, Symbol der Grenze und des Kantons Tessin.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Zeitarbeitsagenturen Lugano',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Überblick über die Zeitarbeitsagenturen in Lugano, Chancen für Grenzgänger und Einstieg in den tessinischen Markt.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Lugano Stadtzentrum mit Büros und Pendlern.',
 };
 
 export default blogMetaDe;
