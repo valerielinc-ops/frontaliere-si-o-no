@@ -600,13 +600,13 @@ async function sendViaResend(email) {
 // Normalize a recipient/sender into the RFC822 string the CF API expects, whether
 // it arrives as a plain string or a { email, name } object.
 function cloudflareAddress(addr) {
-  // Cloudflare Email Sending REST API rejects the RFC822 "Name <email>" string
-  // form with code 10202 (email.invalid). Named addresses must use the
-  // structured object {email, name}; a plain string is only accepted when it is
-  // a bare address. So: object when a display name is present, bare email else.
+  // Cloudflare Email Sending REST API only accepts a BARE email string for
+  // from/to. Empirically: a {email,name} object → code 10001
+  // (invalid_request_schema), an RFC822 "Name <email>" string → code 10202
+  // (email.invalid). The {email,name} object is the Workers API form, NOT the
+  // REST API. So strip any display name to the bare address.
   // Docs: https://developers.cloudflare.com/email-service/api/send-emails/rest-api/
-  const parsed = parseEmailAddress(addr);
-  return parsed.name ? { email: parsed.email, name: parsed.name } : parsed.email;
+  return parseEmailAddress(addr).email;
 }
 
 async function sendViaCloudflare(email) {
