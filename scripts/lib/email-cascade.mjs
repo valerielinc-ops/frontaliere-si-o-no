@@ -634,7 +634,21 @@ async function sendViaCloudflare(email) {
     // 429 (code 10004 throttled) and quota-exceeded bodies are caught by
     // isRateLimitedError → provider retired for the rest of the run.
     const err = await res.text().catch(() => '');
-    throw new Error(`Cloudflare ${res.status}: ${err.slice(0, 200)}`);
+    // Surface the CF error code/message as discrete fields. The raw JSON body
+    // gets truncated in CI logs right after `"code":` (GitHub secret masking),
+    // so parse it and log the numeric code + human message explicitly.
+    let cfCode = '?';
+    let cfMsg = '';
+    try {
+      const parsed = JSON.parse(err);
+      const first = Array.isArray(parsed?.errors) ? parsed.errors[0] : null;
+      if (first) {
+        cfCode = first.code ?? '?';
+        cfMsg = first.message ?? '';
+      }
+    } catch {}
+    console.warn(`   ⚠️  [cf-send] HTTP ${res.status} code=${cfCode} message="${String(cfMsg).slice(0, 160)}"`);
+    throw new Error(`Cloudflare ${res.status} code=${cfCode}: ${String(cfMsg || err).slice(0, 200)}`);
   }
 
   const data = await res.json().catch(() => ({}));
