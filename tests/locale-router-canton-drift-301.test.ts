@@ -33,9 +33,13 @@ afterEach(() => {
 
 /**
  * Mock fetch: the shard origin (origin-{loc}.…) returns `originStatus`; a
- * /job-canon/<sk>.json request returns `map` (or 404 when map is null).
+ * /job-canon/<sk>.json request returns `map` (or 404 when map is null). The map
+ * value is the real per-locale object the plugin emits ({ it, en, de, fr }).
  */
-function mockFetch(originStatus: number, map: Record<string, string> | null): void {
+function mockFetch(
+  originStatus: number,
+  map: Record<string, Record<string, string>> | null,
+): void {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
     if (u.includes('/job-canon/')) {
@@ -49,7 +53,7 @@ function mockFetch(originStatus: number, map: Record<string, string> | null): vo
 
 describe('locale-router canton-drift 301', () => {
   it('301s a known orphan slug to its current canonical page', async () => {
-    mockFetch(404, { 'some-job-xyz': '/en/find-jobs-zurich' });
+    mockFetch(404, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
@@ -57,8 +61,47 @@ describe('locale-router canton-drift 301', () => {
     expect(res.headers.get('Location')).toBe('/en/find-jobs-zurich/some-job-xyz/');
   });
 
+  it('301s within the request locale, never cross-locale to the IT page', async () => {
+    // The slug exists under every locale (identical slug segment, localized
+    // prefix). A /de orphan must 301 to the DE page, NOT the it prefix — the
+    // cross-locale collapse this PR fixes.
+    mockFetch(404, {
+      'some-job-xyz': {
+        it: '/cerca-lavoro-zurigo',
+        en: '/en/find-jobs-zurich',
+        de: '/de/jobs-in-zurich',
+        fr: '/fr/trouver-emploi-zurich',
+      },
+    });
+
+    const res = await worker.fetch(new Request(`${APEX}/de/jobs-im-zuerich/some-job-xyz/`), {}, ctx);
+
+    expect(res.status).toBe(301);
+    expect(res.headers.get('Location')).toBe('/de/jobs-in-zurich/some-job-xyz/');
+  });
+
+  it('falls through to the soft 404 when no prefix exists for the request locale', async () => {
+    // Slug tracked only under it → a /en orphan must NOT 301 to the IT page; it
+    // keeps the soft-404 path rather than emitting a permanent cross-locale 301.
+    mockFetch(404, { 'some-job-xyz': { it: '/cerca-lavoro-zurigo' } });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+  });
+
+  it('falls through to the soft 404 for a legacy string map value (stale deploy)', async () => {
+    // A not-yet-rebuilt map may still hold the old flat string value; the Worker
+    // must NOT 301 on it (would be cross-locale), it falls through to the 404.
+    mockFetch(404, { 'some-job-xyz': '/en/find-jobs-zurich' as unknown as Record<string, string> });
+
+    const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
+
+    expect(res.status).toBe(404);
+  });
+
   it('preserves query + hash on the 301 Location', async () => {
-    mockFetch(404, { 'some-job-xyz': '/en/find-jobs-zurich' });
+    mockFetch(404, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
     const res = await worker.fetch(
       new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/?utm=x#frag`),
@@ -71,7 +114,7 @@ describe('locale-router canton-drift 301', () => {
   });
 
   it('falls through to the soft 404 for an unknown slug', async () => {
-    mockFetch(404, { 'other-slug': '/en/find-jobs-zurich' });
+    mockFetch(404, { 'other-slug': { en: '/en/find-jobs-zurich' } });
 
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
@@ -88,7 +131,7 @@ describe('locale-router canton-drift 301', () => {
   });
 
   it('does not redirect a non-job 404 path (no map lookup)', async () => {
-    mockFetch(404, { 'some-job-xyz': '/en/find-jobs-zurich' });
+    mockFetch(404, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
     const res = await worker.fetch(new Request(`${APEX}/en/guida-frontaliere/`), {}, ctx);
 
@@ -100,7 +143,7 @@ describe('locale-router canton-drift 301', () => {
 
   it('does not 301 to the path already requested (no redirect loop)', async () => {
     // Map points the slug back at the same section it was requested under.
-    mockFetch(404, { 'some-job-xyz': '/en/jobs-in-zurich' });
+    mockFetch(404, { 'some-job-xyz': { en: '/en/jobs-in-zurich' } });
 
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
@@ -108,7 +151,7 @@ describe('locale-router canton-drift 301', () => {
   });
 
   it('leaves a healthy 200 untouched (no map lookup)', async () => {
-    mockFetch(200, { 'some-job-xyz': '/en/find-jobs-zurich' });
+    mockFetch(200, { 'some-job-xyz': { en: '/en/find-jobs-zurich' } });
 
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 

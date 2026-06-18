@@ -64,6 +64,10 @@
         var slug = decodeURIComponent(m[1]).toLowerCase();
         var sk = slug.slice(0, 2).replace(/[^a-z0-9]/g, '_');
         if (sk.length < 2) sk = (sk + '__').slice(0, 2);
+        // Request locale (en|de|fr, else it). The map value is per-locale because
+        // the slug segment is identical across locales — only the prefix differs.
+        var localeMatch = pathname.match(/^\/(en|de|fr)(?:\/|$)/);
+        var locale = localeMatch ? localeMatch[1] : 'it';
         // The canton SECTION is encoded in the URL and its listing root is always a
         // 200 page. So EVERY job-detail 404 recovers: known slug → its exact
         // canonical page; unknown/expired slug (slug-form drift, never tracked) →
@@ -78,7 +82,12 @@
         fetch('/job-canon/' + sk + '.json', { cache: 'force-cache' })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(map) {
-            var prefix = map && map[slug];
+            var entry = map && map[slug];
+            // Per-locale object → pick this request's locale; legacy string value
+            // (IT-only map) is used ONLY for it, so en/de/fr never cross-locale.
+            var prefix = entry && typeof entry === 'object'
+              ? entry[locale]
+              : (typeof entry === 'string' && locale === 'it' ? entry : null);
             var canon = prefix ? (prefix + '/' + slug + '/') : null;
             // Exact canonical page when the slug is known AND it differs from the
             // requested (orphaned) path; otherwise the canton listing.

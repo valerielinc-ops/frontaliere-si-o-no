@@ -127,13 +127,22 @@ const NOT_FOUND_CACHE_CONTROL = 'public, max-age=300, s-maxage=7200';
 // redirect a path we can't confirm. IT traffic is not routed through this Worker
 // and keeps the soft path — see wrangler.toml.)
 //
-// The slug→section-prefix map is emitted at the IT dist root
+// The slug→{locale: section-prefix} map is emitted at the IT dist root
 // (jobCanonRedirectMapPlugin → /job-canon/<shard>.json) and fetched here from the
 // public apex; that path is outside the Worker's locale routes, so the subrequest
 // flows straight to the IT Pages origin (no Worker re-entry) and is edge-cached
 // (cacheEverything + cacheTtl) so repeat 404s for the same shard don't re-hit the
 // origin. Best-effort throughout: any miss/timeout/parse error returns null and
 // the normal 404 path runs.
+//
+// LOCALE-AWARE (do NOT collapse): the slug segment is IDENTICAL across all 4
+// locales — only the section prefix is localized. The map value is therefore a
+// per-locale object `{ it, en, de, fr }`; we look up the prefix for the REQUEST's
+// own locale. A bare string value (legacy IT-only map, e.g. served during a
+// deploy window where the new Worker runs against a not-yet-rebuilt map) or a
+// missing per-locale prefix returns null → soft 404, so the Worker NEVER issues a
+// permanent 301 that crosses locales (which would de-index the localized canonical
+// and is far worse than the soft-404 it replaces).
 //
 // Matching MIRRORS public/404.html (jobRe + shard key) and jobCanonRedirectMapPlugin
 // (shard key). It is duplicated, not imported: this Worker is a standalone runtime
@@ -154,9 +163,11 @@ function jobCanonShardKey(slug) {
 }
 
 // Returns a 301 Response to the slug's current canonical page when the requested
-// path is a job-detail orphan whose slug is in the map AND the canonical differs
-// from the requested path; otherwise null (caller serves the normal 404).
-async function recoverCantonDriftOrphan(url) {
+// path is a job-detail orphan whose slug is in the map (with a prefix for the
+// request's `locale`) AND the canonical differs from the requested path;
+// otherwise null (caller serves the normal 404). `locale` is the request's locale
+// (en|de|fr) so the 301 stays within-locale, never cross-locale to IT.
+async function recoverCantonDriftOrphan(url, locale) {
   const m = url.pathname.match(JOB_DETAIL_RE);
   if (!m) return null;
   let slug;
@@ -184,8 +195,12 @@ async function recoverCantonDriftOrphan(url) {
     clearTimeout(timer);
   }
 
-  const prefix = map && map[slug];
-  if (!prefix) return null; // unknown/expired slug → keep the soft 404 fallback
+  const entry = map && map[slug];
+  // Per-locale object only: a legacy string value (IT-only map from a stale
+  // deploy) or a missing per-locale prefix → null, so we never 301 cross-locale.
+  if (!entry || typeof entry !== 'object') return null;
+  const prefix = entry[locale];
+  if (!prefix) return null; // unknown/expired slug for this locale → soft 404 fallback
   const canonical = `${prefix}/${slug}/`;
   // Never 301 to the path we are already on (avoids a redirect loop).
   if (canonical === url.pathname.replace(/\/+$/, '') + '/') return null;
@@ -385,7 +400,8 @@ export default {
     // redirect. Unknown slugs fall through to the soft 404 below. See
     // recoverCantonDriftOrphan / NOT_FOUND_CACHE_CONTROL.
     if (request.method === 'GET' && resp.status === 404) {
-      const redirect = await recoverCantonDriftOrphan(url);
+      // match[1] is the request's locale (en|de|fr) — keep the 301 within-locale.
+      const redirect = await recoverCantonDriftOrphan(url, match[1]);
       if (redirect) return redirect;
     }
 

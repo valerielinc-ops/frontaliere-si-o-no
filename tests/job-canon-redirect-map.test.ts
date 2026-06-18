@@ -6,12 +6,14 @@ import path from 'node:path';
 import { jobCanonRedirectMapPlugin } from '../build-plugins/jobCanonRedirectMapPlugin';
 
 /**
- * The plugin emits dist/job-canon/<shard>.json (slug → canonical section prefix)
- * from data/all-known-job-slugs.json, so public/404.html can redirect a
- * canton-drift orphan (same slug, wrong/old canton section) to the slug's
+ * The plugin emits dist/job-canon/<shard>.json (slug → {locale: section prefix})
+ * from data/all-known-job-slugs.json, so public/404.html / the Worker can redirect
+ * a canton-drift orphan (same slug, wrong/old canton section) to the slug's
  * current canonical page at request time. Invariants:
  *   - the slug is keyed under the 2-char shard of its localized last segment,
- *   - the value is the canonical section prefix (URL minus the slug segment),
+ *   - the value is a PER-LOCALE object of canonical section prefixes (URL minus the
+ *     slug segment) — NOT collapsed to one locale, since the slug is identical
+ *     across locales and a flat value would 301 en/de/fr orphans to the IT page,
  *   - the same slug under a DIFFERENT requested canton rebuilds to the canonical.
  */
 describe('jobCanonRedirectMapPlugin', () => {
@@ -40,28 +42,36 @@ describe('jobCanonRedirectMapPlugin', () => {
     fs.rmSync(tmp, { recursive: true, force: true });
   });
 
-  const readShard = (slug: string): Record<string, string> => {
+  const readShard = (slug: string): Record<string, Record<string, string>> => {
     const sk = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
     return JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', `${sk}.json`), 'utf-8'));
   };
 
   it('maps the IT localized slug to its canonical section prefix', () => {
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
-    expect(shard['capo-ottimizzazione-portafoglio-ffs-zollikofen']).toBe('/cerca-lavoro-berna');
+    expect(shard['capo-ottimizzazione-portafoglio-ffs-zollikofen'].it).toBe('/cerca-lavoro-berna');
   });
 
-  it('maps the DE localized slug under its own locale-prefixed section', () => {
+  it('keeps the DE prefix under its own locale (no cross-locale collapse to IT)', () => {
+    // it + de share the same last segment; the per-locale object preserves BOTH,
+    // so a /de orphan never 301s to the IT page (the bug this map shape prevents).
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
-    // it + de share the same last segment here → first-write-wins keeps the IT prefix.
-    expect(shard['capo-ottimizzazione-portafoglio-ffs-zollikofen']).toBe('/cerca-lavoro-berna');
+    const entry = shard['capo-ottimizzazione-portafoglio-ffs-zollikofen'];
+    expect(entry.it).toBe('/cerca-lavoro-berna');
+    expect(entry.de).toBe('/de/jobs-in-bern');
   });
 
-  it('rebuilds a canton-orphan request to the canonical page (404.html logic)', () => {
-    // Request the same slug under the WRONG canton — the 404 page rebuilds the URL.
+  it('rebuilds a canton-orphan request to the canonical page per locale (consumer logic)', () => {
+    // Request the same slug under the WRONG canton — the consumer rebuilds the URL
+    // using the prefix for the REQUEST's own locale.
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
     const slug = 'capo-ottimizzazione-portafoglio-ffs-zollikofen';
-    const canon = `${shard[slug]}/${slug}/`;
-    expect(canon).toBe('/cerca-lavoro-berna/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
-    expect(canon).not.toBe('/cerca-lavoro-ticino/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
+    const itCanon = `${shard[slug].it}/${slug}/`;
+    expect(itCanon).toBe('/cerca-lavoro-berna/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
+    expect(itCanon).not.toBe('/cerca-lavoro-ticino/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
+    const deCanon = `${shard[slug].de}/${slug}/`;
+    // A /de orphan must resolve to the DE page, never the IT one.
+    expect(deCanon).toBe('/de/jobs-in-bern/capo-ottimizzazione-portafoglio-ffs-zollikofen/');
+    expect(deCanon).not.toBe(itCanon);
   });
 });

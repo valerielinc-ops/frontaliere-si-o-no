@@ -12,13 +12,21 @@
  * redirects to its current canonical page.
  *
  * Output: dist/job-canon/<shard>.json where <shard> = first 2 chars of the slug
- * (lowercased, non-alnum → '_'). Value is the canonical section prefix
- * (`/cerca-lavoro-zurigo`, `/de/jobs-in-zurich`, …); 404.html rebuilds the URL as
- * `${value}/${slug}/`. Emitted at the dist ROOT (not /data/, which is
- * CDN-offloaded → same-origin 404) so the 404.html fetch is same-origin.
+ * (lowercased, non-alnum → '_'). Value is a PER-LOCALE object of canonical
+ * section prefixes, `{ it: '/cerca-lavoro-zurigo', en: '/en/find-jobs-zurich',
+ * de: '/de/jobs-in-zurich', fr: '/fr/trouver-emploi-zurich' }`; the consumer
+ * (Worker / 404.html) picks the prefix matching the REQUEST's locale and rebuilds
+ * the URL as `${prefix}/${slug}/`. Locale-keyed because the slug segment is
+ * IDENTICAL across all 4 locales (only the section prefix is localized): a single
+ * flat `{slug: prefix}` value collapsed to whichever locale wrote first (it), so
+ * the en/de/fr Worker 301'd every orphan to the ITALIAN page — a permanent
+ * cross-locale redirect that de-indexed the localized canonical. Keying by locale
+ * keeps each locale's real section (no transform of the IT one). Emitted at the
+ * dist ROOT (not /data/, which is CDN-offloaded → same-origin 404) so the
+ * 404.html fetch is same-origin.
  *
  * Streaming + bounded: one small JSON per shard (a few hundred slugs each), keyed
- * by the localized last segment across all 4 locales, built once from
+ * by the localized last segment (identical across all 4 locales), built once from
  * data/all-known-job-slugs.json. apply:'build', enforce:'post', closeBundle.
  */
 
@@ -58,8 +66,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         return; // no tracking ledger — nothing to emit
       }
 
-      // shard → { slug: sectionPrefix }
-      const shards = new Map<string, Record<string, string>>();
+      // shard → { slug: { it, en, de, fr } } — per-locale section prefixes. The
+      // slug segment is identical across locales, so a flat {slug: prefix} would
+      // collapse to whichever locale wrote first; keep each locale's own prefix.
+      type LocalePrefixes = Partial<Record<'it' | 'en' | 'de' | 'fr', string>>;
+      const shards = new Map<string, Record<string, LocalePrefixes>>();
       let entries = 0;
       for (const key of Object.keys(tracking)) {
         const e = tracking[key];
@@ -74,9 +85,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           const sk = shardKey(slug);
           let bucket = shards.get(sk);
           if (!bucket) { bucket = {}; shards.set(sk, bucket); }
-          // First write wins (the tracking ledger is already first-write-wins per
-          // slug); skip duplicates so a re-keyed locale can't clobber.
-          if (!(slug in bucket)) { bucket[slug] = prefix; entries++; }
+          let perLocale = bucket[slug];
+          if (!perLocale) { perLocale = {}; bucket[slug] = perLocale; entries++; }
+          // First write wins PER LOCALE (the ledger is first-write-wins per slug),
+          // so a re-keyed locale can't clobber another locale's prefix.
+          if (!(loc in perLocale)) perLocale[loc] = prefix;
         }
       }
       if (shards.size === 0) return;
