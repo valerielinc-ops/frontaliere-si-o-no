@@ -23,7 +23,7 @@
  * vitest è ancora concluso ritorna '' (gate in attesa) — preserva l'invariante
  * #1454 "niente merge su pending/missing".
  */
-import { VITEST_CHECK_NAME } from './constants.mjs';
+import { VITEST_CHECK_NAME, VITEST_SHARD_NAME_RE } from './constants.mjs';
 
 /**
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
@@ -45,4 +45,67 @@ export function latestCompletedVitestConclusion(checkRuns) {
     .sort((a, b) => Date.parse(a.completed_at) - Date.parse(b.completed_at));
   const last = completed[completed.length - 1];
   return last ? last.conclusion || '' : '';
+}
+
+/**
+ * Il `failure` del check vitest AGGREGATORE sull'HEAD è una cancellazione
+ * TRANSIENT (shard cancellati da concurrency) e NON un test rotto?
+ *
+ * Perché serve (#2438): `tests.yml` ha N shard (`vitest shard i/4`) + un job
+ * aggregatore `vitest (unit + integration)` che fa `exit 1` se
+ * `needs.vitest-shard.result != success`. Una cancellazione di massa
+ * (`cancel-in-progress` durante un'ondata di rebase/push su main) lascia gli
+ * shard `cancelled` → l'aggregatore COLLASSA `cancelled` in `failure` (RED),
+ * indistinguibile da un fail reale al solo aggregatore. Una PR LGTM'd,
+ * non-collision, behind=0 con questo `failure` transient veniva SKIPPATA da
+ * pr-autorebase (il ramo behind=0 ri-dispatcha solo se il check vitest è ASSENTE,
+ * non se è `failure`) e BLOCCATA da auto-merge-eval (gate `success`) → ferma
+ * finché un evento esterno non ri-dispatcha i test.
+ *
+ * Riapriamo gli shard sottostanti per ricostruire l'informazione che
+ * l'aggregatore ha perso: la failure è transient SOLO se TUTTI gli shard sono
+ * `completed`, NESSUNO è una failure reale (`failure`/`timed_out`/
+ * `action_required`/`stale`), e ALMENO uno è `cancelled`. Un solo shard
+ * `failure` → fail reale, NON ri-eseguire (AGENTS #5: «test fail = right finché
+ * non provato contrario»; frugalità CI).
+ *
+ * Guardie anti-spuria:
+ *  - L'aggregatore COMPLETATO più recente dev'essere `failure` (riusa
+ *    `latestCompletedVitestConclusion`): se l'ultimo run è già `success` non c'è
+ *    nulla da sanare.
+ *  - NESSUN check-run vitest (aggregatore o shard) dev'essere in-progress/queued:
+ *    un run fresco già in coda risolverà da sé → non ri-dispatchare (il caso che
+ *    #2438 lascia scoperto è ESATTAMENTE "cancelled→failure SENZA run fresco
+ *    pendente"). Questo gestisce anche i duplicati su SHA immutabile: se esiste
+ *    un set di shard più nuovo ancora in corso, attendiamo invece di sommare.
+ *
+ * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
+ *   L'array `.check_runs` della GitHub check-runs API per l'HEAD SHA.
+ * @returns {boolean} true SOLO se il `failure` aggregato è una cancellazione
+ *   transient sicura da ri-dispatchare (heal); false su fail reale, run fresco
+ *   pendente, aggregatore non-`failure`, o input non valido.
+ */
+export function vitestFailureIsTransientCancellation(checkRuns) {
+  if (!Array.isArray(checkRuns)) return false;
+
+  const vitestRuns = checkRuns.filter(
+    (c) =>
+      c &&
+      (c.name === VITEST_CHECK_NAME || VITEST_SHARD_NAME_RE.test(c.name || '')),
+  );
+  if (vitestRuns.length === 0) return false;
+
+  // Run fresco pendente (aggregatore o shard non concluso) → attendi, non sanare.
+  if (vitestRuns.some((c) => c.status !== 'completed')) return false;
+
+  // L'esito aggregato corrente dev'essere proprio un failure da sanare.
+  if (latestCompletedVitestConclusion(checkRuns) !== 'failure') return false;
+
+  const shards = vitestRuns.filter((c) => VITEST_SHARD_NAME_RE.test(c.name || ''));
+  if (shards.length === 0) return false;
+
+  const REAL_FAILURE = new Set(['failure', 'timed_out', 'action_required', 'stale']);
+  if (shards.some((c) => REAL_FAILURE.has(c.conclusion))) return false;
+
+  return shards.some((c) => c.conclusion === 'cancelled');
 }
