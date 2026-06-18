@@ -59,8 +59,21 @@ lines.push(`| PV-RPM (CHF) | **${r.current.rpm.toFixed(2)}** | ${r.baseline.rpm.
 lines.push(`| Earnings (CHF) | ${r.current.earnings.toFixed(2)} | ${r.baseline.earnings.toFixed(2)} |`);
 lines.push(`| Page views | ${r.current.pageViews} | — |`);
 lines.push("");
-lines.push(`**Ratio current/baseline:** ${(r.ratio * 100).toFixed(0)}%`);
-lines.push(`**Thresholds:** ratio < ${(r.floors.ratio * 100).toFixed(0)}% OR absolute < ${r.floors.absoluteCHF.toFixed(2)} CHF`);
+lines.push(`**RPM ratio current/baseline:** ${(r.ratio * 100).toFixed(0)}%`);
+if (typeof r.earningsRatio === "number") {
+  lines.push(`**Earnings ratio current/baseline:** ${(r.earningsRatio * 100).toFixed(0)}%`);
+}
+const earningsFloorTxt =
+  r.floors && typeof r.floors.earnings === "number"
+    ? ` AND earnings < ${(r.floors.earnings * 100).toFixed(0)}% of baseline`
+    : "";
+lines.push(
+  `**Thresholds:** (RPM ratio < ${(r.floors.ratio * 100).toFixed(0)}% OR absolute < ${r.floors.absoluteCHF.toFixed(2)} CHF)${earningsFloorTxt}`,
+);
+lines.push("");
+lines.push(
+  "> This alert fires only when earnings are ALSO down — a low RPM with healthy earnings is a benign page-view spike (bot/AI crawl or a Discover hit), not lost revenue. Because earnings are confirmed down here, treat it as a real revenue regression and work the checklist below.",
+);
 lines.push("");
 lines.push("### Triggered conditions");
 for (const reason of r.reasons || []) {

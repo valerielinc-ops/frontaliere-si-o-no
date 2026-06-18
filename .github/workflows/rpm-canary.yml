@@ -4,15 +4,22 @@ name: rpm-canary
 # `article-content-canary.yml` (which watches the cause).
 #
 # Runs once a day, pulls daily PAGE_VIEWS_RPM via the AdSense API, and
-# opens a deduplicated GitHub issue if yesterday's RPM is below either
-# of:
-#   - 65% of the trailing 7-day baseline (T-10..T-4), OR
-#   - 1.00 CHF absolute floor
+# opens a deduplicated GitHub issue only when the latest fully-closed
+# day's RPM is down AND earnings confirm it:
+#   - RPM < 65% of the trailing 7-day baseline (T-9..T-3) OR < 1.00 CHF, AND
+#   - earnings < 65% of the baseline earnings.
+#
+# The earnings gate kills false alarms from page-view spikes: RPM is
+# earnings ÷ page views, so a traffic spike with healthy earnings halves
+# RPM without losing a cent (issue #2176, 2026-06-15..17). A real incident
+# collapses earnings too, so the catch is preserved. The still-open current
+# UTC day is never measured (its earnings aren't settled). See
+# scripts/lib/canaryRpmClassify.mjs for the unit-tested classifier.
 #
 # Catches ANY revenue-affecting regression within ~24h — article stubs,
 # ads.txt issues, AdSense policy hits, ad slot misconfig, demand drops.
 # Incident 2026-05-28 (3.04 → 1.74 CHF/day) would have triggered the
-# morning of 2026-05-28 with the ratio fired at 56% of baseline.
+# morning of 2026-05-28: both RPM and earnings cratered (stubs served no ads).
 #
 # Why daily (not hourly): AdSense daily data is only available ~10h
 # after UTC midnight. Hourly cadence would burn API quota on identical
@@ -33,6 +40,11 @@ on:
         description: 'Alert if RPM < absolute_floor CHF. Default 1.0.'
         required: false
         default: '1.0'
+        type: string
+      earnings_floor:
+        description: 'Only alert if earnings also < (earnings_floor × baseline earnings). Default 0.65.'
+        required: false
+        default: '0.65'
         type: string
 
 concurrency:
@@ -86,12 +98,14 @@ jobs:
         env:
           RATIO_FLOOR: ${{ github.event.inputs.ratio_floor || '0.65' }}
           ABSOLUTE_FLOOR: ${{ github.event.inputs.absolute_floor || '1.0' }}
+          EARNINGS_FLOOR: ${{ github.event.inputs.earnings_floor || '0.65' }}
         run: |
           set -o pipefail
           node scripts/canary-rpm.mjs \
             --json \
             --ratio-floor="$RATIO_FLOOR" \
             --absolute-floor="$ABSOLUTE_FLOOR" \
+            --earnings-floor="$EARNINGS_FLOOR" \
             > rpm-canary-result.json 2> rpm-canary.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
@@ -136,6 +150,21 @@ jobs:
             --label rpm-canary \
             --label revenue \
             --workflow "rpm-canary"
+
+      # Recovery mirror: on a clean probe, close the canonical open issue this
+      # canary opened (custom title → NOT covered by close-recovered-failure-issues.mjs,
+      # which only matches the generic `Workflow|Crawler|CI Failure: <name>` prefixes,
+      # nor by any sibling --resolve step). Without this the regression issue stays
+      # open forever after RPM recovers. Best-effort, always exits 0.
+      - name: Resolve open issue on green
+        if: steps.canary.outcome == 'success' && steps.canary.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "RPM canary: AdSense RPM crash detected" \
+            --workflow "rpm-canary" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - name: Fail the workflow if RPM regression detected
         if: steps.canary.outcome == 'failure' || steps.canary.outputs.exit_code == '1'

@@ -213,7 +213,7 @@ const ForEmployersPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
           {/* Free plan — understated */}
           <div className="rounded-3xl border border-edge bg-surface-alt p-6 sm:p-7">
             <p className="text-sm font-semibold text-subtle uppercase tracking-wide">
@@ -272,6 +272,41 @@ const ForEmployersPage: React.FC = () => {
             >
               <Star className="w-4 h-4 fill-current" aria-hidden="true" />
               {t('publisherLanding.plan.sponsored.cta')}
+            </a>
+          </div>
+
+          {/* Piano Azienda — flat unlimited tier, premium accent identity */}
+          <div className="relative rounded-3xl border-2 border-accent bg-accent-subtle p-6 sm:p-7">
+            <span className="absolute -top-3 left-6 inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold bg-accent text-on-accent shadow-sm">
+              <BarChart3 className="w-3.5 h-3.5" aria-hidden="true" />
+              {t('publisherLanding.plan.azienda.badge')}
+            </span>
+            <p className="text-sm font-semibold text-link uppercase tracking-wide">
+              {t('publisherLanding.plan.azienda.name')}
+            </p>
+            <p className="mt-2 flex items-baseline gap-1.5">
+              <span className="text-3xl font-bold font-display text-strong">{PRICING_CURRENCY} 299</span>
+              <span className="text-sm text-subtle">{t('publisherLanding.plan.azienda.priceNote')}</span>
+            </p>
+            <p className="mt-1 text-sm text-body">{t('publisherLanding.plan.azienda.tagline')}</p>
+            <ul className="mt-5 space-y-2.5">
+              <li className="flex items-start gap-2.5 text-sm">
+                <Star className="w-4 h-4 text-link shrink-0 mt-0.5 fill-current" aria-hidden="true" />
+                <span className="font-semibold text-strong">{t('publisherLanding.plan.azienda.allAds')}</span>
+              </li>
+              {FEATURES.filter(f => !f.free).map(f => (
+                <li key={f.labelKey} className="flex items-start gap-2.5 text-sm text-body">
+                  <span className="text-link shrink-0 mt-0.5">{f.icon}</span>
+                  <span className="font-medium text-strong">{t(f.labelKey)}</span>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={`${publishPath}?tier=azienda`}
+              className="mt-6 w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-on-accent bg-link hover:opacity-90 rounded-xl transition-opacity shadow-sm no-underline"
+              onClick={() => Analytics.trackUIInteraction('publisher', 'cta', 'plan_azienda', 'click')}
+            >
+              {t('publisherLanding.plan.azienda.cta')}
             </a>
           </div>
         </div>

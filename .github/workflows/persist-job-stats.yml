@@ -51,6 +51,11 @@ jobs:
           git config user.email "github-actions@github.com"
           git config user.name "GitHub Actions"
           git add data/jobs-stats-history.json data/jobs-keys-snapshot.json
+          # job-canton-pins.json is gitignored (like all-known-job-slugs.json) but
+          # force-tracked: it persists the per-job canton freeze that kills URL
+          # drift (assemble-jobs-dataset.mjs writes it on every run). -f stages it
+          # past the ignore rule.
+          git add -f data/job-canton-pins.json 2>/dev/null || true
           git diff --cached --quiet && echo "No stats changes to commit" && exit 0
           git commit -m "📈 Auto-update job board stats history"
           # Centralized rebase-retry helper survives concurrent pushes from
@@ -58,7 +63,7 @@ jobs:
           # stats artifacts on the rebased base (the assemble script is
           # deterministic given the latest jobs.json + Firestore stats).
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs --stats && git add data/jobs-stats-history.json data/jobs-keys-snapshot.json"
+            --regenerate-cmd "node scripts/assemble-jobs-dataset.mjs --stats && git add data/jobs-stats-history.json data/jobs-keys-snapshot.json && (git add -f data/job-canton-pins.json 2>/dev/null || true)"
 
       - name: Report failure to GitHub Issues
         if: failure()
