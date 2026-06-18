@@ -386,6 +386,7 @@ export const COMPANY_HQ = {
   // ── Cathedral Phase 2 Wave C Batch 2 ──
   'nestle':                       { city: 'Vevey',              canton: 'VD', postalCode: '1800', addressRegion: 'VD' },
   'migros-hq':                    { city: 'Zürich',             canton: 'ZH', postalCode: '8005', addressRegion: 'ZH' },
+  'microsoft':                    { city: 'Zürich',             canton: 'ZH', postalCode: '8058', addressRegion: 'ZH' },
   'schindler':                    { city: 'Ebikon',             canton: 'LU', postalCode: '6030', addressRegion: 'LU' },
   // ── Cathedral Phase 2 Wave C Batch 3 ──
   'swiss-re':                     { city: 'Zürich',             canton: 'ZH', postalCode: '8022', addressRegion: 'ZH' },
