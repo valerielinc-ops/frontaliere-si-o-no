@@ -364,7 +364,7 @@ const OfferwallNewsletterGate: React.FC = () => {
               onChange={setEmail}
               ariaLabel={copy.title}
               required
-              className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent text-strong text-sm"
+              className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent text-strong text-sm"
             />
 
             <label className="flex items-start gap-2 text-xs text-muted">
