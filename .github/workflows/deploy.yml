@@ -849,8 +849,14 @@ jobs:
       # removes them from the MAIN artifact ONLY once the proxy is verified
       # live. Until that variable is set, this push changes nothing about the
       # served site — the locales still ship in the main artifact as before.
-      # Mirrors the frontaliere-cdn push pattern (per-repo write-only deploy
-      # key, single force-pushed commit so shard history never accumulates).
+      # Mirrors the frontaliere-cdn push pattern (per-repo write-only deploy key).
+      # PUSH MODE (#2246 item 2): each deploy clones the remote shard BLOBLESS
+      # (graph only, ~no bytes) and commits the new build on top, so `git push`
+      # sends only the DELTA (changed/new job pages) instead of re-uploading the
+      # whole ~2.5 GB tree every run (the ~13 min bottleneck). Periodically the
+      # history is flattened with an orphan force-push to bound .git growth (see
+      # SHARD_HISTORY_CAP below). First push / clone failure → orphan full push
+      # (fail-safe, never weaker than the prior behavior).
       - name: Push locale shards (en/de/fr → frontaliere-{loc} / Pages)
         if: github.event.inputs.profile_sequential != 'true'
         continue-on-error: true
@@ -894,17 +900,83 @@ jobs:
             # EVERYTHING that builds the shard tree AND pushes runs inside one
             # `set -e` subshell with the integrity gates before the push. A failed
             # copy / truncated tree ABORTS before push: a monco tree is never
-            # force-pushed over a good shard, the ok-marker is never written → the
-            # strip step skips this locale (stays in main, no 404). The copy is
+            # pushed over a good shard, the ok-marker is never written → the strip
+            # step skips this locale (stays in main, no 404). The copy is
             # hardlinked when same-filesystem (cp -al) to avoid duplicating
             # ~2.5 GB per locale on a tight runner disk, falling back to cp -r.
             # NB: run the guarded build+push as a STANDALONE subshell and capture
             # its exit ($?), NOT as an `if (...)` condition — bash neuters an
             # inner `set -e` when the subshell runs in a condition/&&/|| context,
             # which would let a failed gate fall through to the push.
+            # ── Incremental delta push (#2246 item 2) ────────────────────────
+            # A blobless clone of the existing shard repo seeds $stage/.git with the
+            # remote's commit+tree graph (NO blob download → cheap, ~no bytes for a
+            # 2.5 GB tree). Overlaying the new build into that working tree and
+            # committing ON TOP of the existing tip lets `git push` negotiate the
+            # DELTA: only blobs the remote LACKS (new/changed job pages) go over the
+            # wire — unchanged pages (the vast majority deploy-to-deploy) cost
+            # nothing. Measured 25× less data vs the orphan `git init` force-push
+            # that re-sent the WHOLE tree every deploy (the ~13 min shard-push
+            # bottleneck). `git add -A` over the freshly-overlaid tree stages
+            # adds+changes+DELETIONS, so the pushed tree still EXACTLY equals the
+            # new build (removed job pages vanish) — identical end-state to the old
+            # orphan push, just transferred incrementally.
+            # FAIL-SAFE: any clone failure (first push / transient / corrupt remote)
+            # falls back to the original orphan `git init` + force-push (full tree),
+            # so this is NEVER weaker than before. Both paths run inside the SAME
+            # `set -e` subshell AFTER the integrity gates, so a monco tree is never
+            # pushed and the ok-marker is only written on a clean push.
             (
               set -e
               rm -rf "$stage"; mkdir -p "$stage"
+              # Seed history from the remote (blobless = graph only, no blob bytes)
+              # so the push below sends only the delta. depth:1 keeps the clone to a
+              # single commit's trees. Non-fatal: on failure $incremental stays 0
+              # and we orphan-init below (full push) exactly as before.
+              # SHARD_HISTORY_CAP: deploys between forced history flattens. Each
+              # incremental push appends one commit, so the remote .git accumulates
+              # superseded-blob packs over time (the published SITE stays the same
+              # size — only .git grows). Every Nth deploy we orphan-reset to flatten
+              # history back to a single commit, bounding .git growth while keeping
+              # the delta benefit on the other N-1 deploys. The counter lives in the
+              # committed .shard-deploys marker (read from the cloned tip).
+              SHARD_HISTORY_CAP="${SHARD_HISTORY_CAP:-50}"
+              incremental=0
+              dcount=0
+              # --no-checkout is LOAD-BEARING: without it `git clone` materializes
+              # HEAD's working tree, which under --filter=blob:none lazily fetches
+              # ALL ~2.5 GB of blobs (defeating the bandwidth win — it would just
+              # trade a 2.5 GB upload for a 2.5 GB download). With --no-checkout the
+              # clone fetches only the commit+tree graph (~no blob bytes); the index
+              # is still populated from HEAD, so the `git add -A` over the
+              # re-materialized build below produces a DELTA (not a from-scratch
+              # tree) and stages deletions of removed pages. The working tree starts
+              # EMPTY, so the find-wipe below is a harmless no-op on this path.
+              if git clone -q --depth 1 --filter=blob:none --no-checkout \
+                   "git@github.com:valerielinc-ops/frontaliere-$loc.git" "$stage" 2>/dev/null \
+                 && [ -d "$stage/.git" ]; then
+                [ -f "$stage/.shard-deploys" ] && dcount="$(cat "$stage/.shard-deploys" 2>/dev/null || echo 0)"
+                [[ "$dcount" =~ ^[0-9]+$ ]] || dcount=0
+                if [ "$dcount" -ge "$SHARD_HISTORY_CAP" ]; then
+                  # History cap reached → flatten: drop the cloned .git and start a
+                  # fresh orphan commit (full push), resetting the deploy counter.
+                  echo "$loc shard: history cap $SHARD_HISTORY_CAP reached (dcount=$dcount) — flattening with orphan force-push"
+                  rm -rf "$stage"; mkdir -p "$stage"
+                  git -C "$stage" init -q
+                  git -C "$stage" checkout -q -b main
+                  dcount=0
+                else
+                  # Wipe the checked-out working tree (keep .git) — we re-materialize
+                  # the entire shard from the fresh build below, so `git add -A`
+                  # produces the exact new tree (and stages deletions of gone pages).
+                  find "$stage" -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} + 2>/dev/null || true
+                  incremental=1
+                fi
+              else
+                echo "$loc shard: no prior clone (first push / transient) — full orphan push"
+                git -C "$stage" init -q
+                git -C "$stage" checkout -q -b main
+              fi
               : > "$stage/.nojekyll"                                  # serve every path verbatim
               printf 'origin-%s.frontaliereticino.ch' "$loc" > "$stage/CNAME"  # shard custom domain
               cp -al "dist/$loc" "$stage/$loc" 2>/dev/null || cp -r "dist/$loc" "$stage/$loc"
@@ -915,23 +987,38 @@ jobs:
               #     files as the source — a partial cp (disk-full) lands fewer → abort.
               test -s "$stage/$loc/index.html"
               [ "$n" -ge "$src_n" ]
-              # (b) regression guard: refuse a force-push that would shrink the shard
+              # (b) regression guard: refuse a push that would shrink the shard
               #     >50% vs its last-published count (suspected upstream build
               #     regression emitting a partial locale). First seed → prev_n 0 → skip.
               if [ "$prev_n" -gt 0 ] && [ "$((n * 2))" -lt "$prev_n" ]; then
-                echo "::error::$loc shard would shrink $prev_n -> $n files (>50%) — refusing force-push (suspected build regression)"
+                echo "::error::$loc shard would shrink $prev_n -> $n files (>50%) — refusing push (suspected build regression)"
                 exit 1
               fi
               printf '%s' "$n" > "$stage/.shard-filecount"   # high-water-mark for the next run's gate (b)
-              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n)"
+              printf '%s' "$((dcount + 1))" > "$stage/.shard-deploys"  # commits since last flatten (history-cap counter)
+              echo "$loc shard: $(du -sh "$stage" 2>/dev/null | cut -f1), $n files (src $src_n, prev $prev_n, incremental=$incremental, deploys-since-flatten=$((dcount + 1)))"
               cd "$stage"
-              git init -q
-              git checkout -q -b main
               git config user.email "deploy-bot@frontaliereticino.ch"
               git config user.name "deploy-bot"
               git add -A
-              git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
-              git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
+              # Nothing changed since the last deploy → no commit, skip the push
+              # entirely (idempotent; the remote already serves this exact tree).
+              # The no-change check EXCLUDES the bookkeeping markers (.shard-deploys
+              # bumps every run, .shard-filecount could too) — otherwise the counter
+              # delta would always trip the diff and the skip would be dead code. We
+              # only care whether the SERVED CONTENT changed; if it didn't, there is
+              # nothing to publish and bumping the history counter is pointless.
+              if [ "$incremental" = 1 ] \
+                 && git diff --cached --quiet -- . ':!.shard-deploys' ':!.shard-filecount'; then
+                echo "$loc shard: no content changes vs remote — skipping push (already current)"
+              else
+                git commit -qm "locale shard $loc ${GITHUB_SHA::8} (run ${GITHUB_RUN_ID})"
+                # Incremental: fast-forward push on top of the cloned tip (delta only).
+                # Orphan fallback: force-push the single fresh commit (full tree) as
+                # before. `-f` is harmless on the incremental ff-path and required on
+                # the orphan path, so use it for both.
+                git push -f "git@github.com:valerielinc-ops/frontaliere-$loc.git" main
+              fi
             )
             rc=$?
             if [ "$rc" -eq 0 ]; then
