@@ -1,18 +1,57 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-06-18T12:59:09.435Z",
-  "total": 7,
+  "generatedAt": "2026-06-18T23:26:40.756Z",
+  "total": 8,
   "newCount": 1,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3192,
-  "avgDurationMs": 3192,
+  "durationMs": 3325,
+  "avgDurationMs": 3325,
   "durationHistory": [
-    3192
+    3325
   ],
   "newJobs": [
+    {
+      "id": "rhne-reseau-hospitalier-neuchatelois-27732adabfe3",
+      "slug": "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Médecin chef·fe adjoint·e à 80-100%",
+      "needsRetranslation": true,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560761&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-18T23:26:38.794Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560761&cat=all",
+      "externalId": "2560761",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-5cfb2789242a",
       "slug": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -20,13 +59,13 @@
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Ergothérapeute à 100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.407Z",
+      "crawledAt": "2026-06-18T23:26:38.795Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -42,19 +81,18 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
       "externalId": "2560526",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-06-18T12:59:07.407Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-625bcbb39612",
-      "slug": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slug": "medecin-chef-fe-adjoint-e-anesthesiologie-a-80-rhne-reseau-hospitalier-neuchatelois",
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
@@ -65,7 +103,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560297&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.409Z",
+      "crawledAt": "2026-06-18T23:26:38.796Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -82,11 +120,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560297&cat=all",
       "externalId": "2560297",
       "firstSeenAt": "2026-06-17T13:49:20.494Z",
-      "_qualityScore": 72,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -103,7 +141,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.411Z",
+      "crawledAt": "2026-06-18T23:26:38.797Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -120,11 +158,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
       "externalId": "2560294",
       "firstSeenAt": "2026-06-17T13:49:20.496Z",
-      "_qualityScore": 72,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -141,7 +179,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560283&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.412Z",
+      "crawledAt": "2026-06-18T23:26:38.797Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -158,11 +196,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560283&cat=all",
       "externalId": "2560283",
       "firstSeenAt": "2026-06-17T13:49:20.497Z",
-      "_qualityScore": 72,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -179,7 +217,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.412Z",
+      "crawledAt": "2026-06-18T23:26:38.798Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -196,11 +234,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
       "externalId": "2559837",
       "firstSeenAt": "2026-06-16T14:19:05.751Z",
-      "_qualityScore": 75,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 19,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -217,7 +255,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559185&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.413Z",
+      "crawledAt": "2026-06-18T23:26:38.798Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -234,11 +272,11 @@
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559185&cat=all",
       "externalId": "2559185",
       "firstSeenAt": "2026-06-12T12:49:51.210Z",
-      "_qualityScore": 75,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 19,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -255,7 +293,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.413Z",
+      "crawledAt": "2026-06-18T23:26:38.798Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
