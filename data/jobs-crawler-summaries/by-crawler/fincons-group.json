@@ -1,18 +1,19 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-06-17T22:36:03.818Z",
+  "generatedAt": "2026-06-18T12:17:02.648Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1971,
-  "avgDurationMs": 1971,
+  "durationMs": 1429,
+  "avgDurationMs": 1429,
   "durationHistory": [
-    1971
+    1429
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Corporate PMO / Business Operations Expert",
       "slug": "corporate-pmo-business-operations-expert-fincons-group-lugano-lugano-switzerland",
@@ -42,16 +43,20 @@
         "listingLocation": "Lugano, Lugano, Switzerland",
         "listingDepartment": ""
       },
-      "_qualityScore": 68,
+      "id": "fincons-group-b472ba0be2ab",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "firstSeenAt": "2026-06-17T22:36:03.816Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Cyber Security Expert",
       "slug": "cyber-security-expert-fincons-group-lugano-lugano-switzerland",
