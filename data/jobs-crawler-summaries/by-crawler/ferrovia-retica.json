@@ -1,18 +1,19 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-06-18T12:16:27.398Z",
+  "generatedAt": "2026-06-18T22:44:52.274Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28244,
-  "avgDurationMs": 28244,
+  "durationMs": 19396,
+  "avgDurationMs": 19396,
   "durationHistory": [
-    28244
+    19396
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Ausbildner/in Triebfahrzeugführende (VTE) 80-100% Landquart",
       "company": "Ferrovia Retica (RhB)",
@@ -30,16 +31,23 @@
       "sourceLang": "de",
       "slug": "ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart",
       "percentage": "80-100%",
-      "_qualityScore": 62,
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "addressLocality": "Landquart",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-18T12:16:27.396Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 17
+        "translation": 23,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Projektleiter/in Logistik und Support (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -340,41 +348,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mechaniker/in Triebdrehgestellaufarbeitung Loks (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100_2026-2206/",
-      "location": "Bernina",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "postedDate": "2026-06-16",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-bernina",
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-26T22:48:16.928Z",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Ausbildner/in Triebfahrzeugführende (VTE) 80-100% Landquart",
@@ -398,12 +372,16 @@
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "addressRegion": "GR",
-      "_qualityScore": 62,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-06-18T12:16:27.396Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 17
+        "translation": 23,
+        "completeness": 22
       }
     },
     {
