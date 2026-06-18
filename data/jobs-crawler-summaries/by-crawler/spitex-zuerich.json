@@ -1,16 +1,16 @@
 {
   "key": "spitex-zuerich",
   "label": "Spitex Zürich",
-  "generatedAt": "2026-06-18T13:11:22.007Z",
+  "generatedAt": "2026-06-18T23:39:34.306Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16678,
-  "avgDurationMs": 16678,
+  "durationMs": 17073,
+  "avgDurationMs": 17073,
   "durationHistory": [
-    16678
+    17073
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0ltsce1nk44swtiyyxom5pdobyx4j1p",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:13.199Z",
+      "crawledAt": "2026-06-18T23:39:24.677Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +48,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "spitex-zuerich-5f5195d70b7e",
       "slug": "stoma-kontinenztherapeut-in-60-100-a-spitex-zuerich-zurich",
@@ -56,13 +58,13 @@
       "companyKey": "spitex-zuerich",
       "companyDomain": "spitex-zuerich.ch",
       "title": "Stoma- & Kontinenztherapeut/-in 60-100% (a)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/y1021j9fob6lxa62gi6xmosqiof8itr",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:19.697Z",
+      "crawledAt": "2026-06-18T23:39:31.967Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/y1021j9fob6lxa62gi6xmosqiof8itr",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-06-18T13:11:19.697Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "spitex-zuerich-c92d56fb2361",
       "slug": "mitarbeitende-hauswirtschaft-e-betreuung-50-70-a-spitex-zurich",
@@ -100,7 +101,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/uxnd9n2w77zl0spdig5tk7verwaggef",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:09.140Z",
+      "crawledAt": "2026-06-18T23:39:20.814Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,7 +138,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/wr557vv4v1xzvpakrhpkueo4p88kupo",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:10.522Z",
+      "crawledAt": "2026-06-18T23:39:22.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -174,7 +175,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/m6pttk2bqih13nqd4pbab9zfy4ntcpd",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:11.852Z",
+      "crawledAt": "2026-06-18T23:39:23.387Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,7 +212,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/3z63p0d34rnt62mbsgjnxdzoby4vvsl",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:14.614Z",
+      "crawledAt": "2026-06-18T23:39:25.958Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/h5ckt43pibs9l71bqg0t16niag5z31f",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:15.294Z",
+      "crawledAt": "2026-06-18T23:39:27.239Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,7 +286,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/sqzbxsh68m08holyxet8qzjku4e3905",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:16.113Z",
+      "crawledAt": "2026-06-18T23:39:28.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -322,7 +323,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/0hvcablla6m534814uijakia2tl33cc",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:17.429Z",
+      "crawledAt": "2026-06-18T23:39:29.346Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -359,7 +360,7 @@
       "url": "https://spitex-zuerich.onlyfy.jobs/de/job/8ppyds219vjmye1fory75j5tt413uy7",
       "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:11:18.309Z",
+      "crawledAt": "2026-06-18T23:39:30.649Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -384,46 +385,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "spitex-zuerich-0e9a10d6e509",
-      "slug": "fachfrau-mann-gesundheit-fage-region-ost-40-90-a-spitex-zurich",
-      "company": "Spitex Zürich",
-      "companyKey": "spitex-zuerich",
-      "companyDomain": "spitex-zuerich.ch",
-      "title": "Fachfrau/-mann Gesundheit (FaGe) – Region Ost 40-90% (a)",
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://spitex-zuerich.onlyfy.jobs/de/job/acyvj8k21gua2zs1trmrl9ksk9ph92j",
-      "source": "Spitex Zürich Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:26:44.755Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://spitex-zuerich.onlyfy.jobs/de/job/acyvj8k21gua2zs1trmrl9ksk9ph92j",
-      "firstSeenAt": "2026-06-05T22:51:26.079Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
