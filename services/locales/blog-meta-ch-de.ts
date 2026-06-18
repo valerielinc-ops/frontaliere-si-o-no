@@ -215,6 +215,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ufficio-postale-chiasso-aggiornamenti.title': 'Postamt Chiasso: Aktueller Stand und Dienstleistungen',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.excerpt': 'Aktuelle Informationen zum Postamt Chiasso, den verfügbaren Dienstleistungen und Zugänglichkeiten für die Bewohner und Benutzer des Gebiets.\n\n## Servizi disponibili\n- **Briefe und Pakete**: Versand und Abholung von Briefen und Paketen\n- **Geldtransfers**: Überweisungen von Geldern innerhalb der Schweiz und ins Ausland\n- **G-Bewilligung**: Informationen und Anträge für die G-Bewilligung\n\n## Zugänglichkeit\n- Öffnungszeiten: [testo tradotto](nav:azione)\n- Barrierefreiheit: [testo tradotto](nav:azione)\n\n## Weitere Informationen\n- **Swissminiatur**: Informationen über die Miniaturwelt in Melide\n- **Frontalier**: Informationen über das Leben als Grenzgänger\n\n## Hinweise und Warnungen\n⚠️ Beachten Sie die aktuellen Regeln und Vorschriften für die G-Bewilligung.\n📊 Informieren Sie sich über die aktuellen Preise und Tarife für die Dienstleistungen.\n💡 Nutzen Sie die Online-Dienste für eine schnelle und einfache Abwicklung.',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.imageAlt': 'Fassade der Postfiliale in Chiasso an einem sonnigen Tag',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontalieri: Roma blocca i ristorni?',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati.',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Luftaufnahme des Ticino-Flusses und der Uferpromenade von Locarno im Herbstlicht, Symbol für Grenzgänger und steuerliche Spannungen zwischen der Schweiz und Italien',
 };
 
 export default blogMetaChDe;

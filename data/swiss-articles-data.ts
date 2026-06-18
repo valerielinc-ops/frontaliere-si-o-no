@@ -647,6 +647,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bloccare-ridurre-ristorni-frontalieri-roma',
+    category: 'fiscale',
+    date: '2026-06-18T08:07:12.467Z',
+    image: '/images/blog/bloccare-ridurre-ristorni-frontalieri-roma.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

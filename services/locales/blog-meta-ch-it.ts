@@ -215,6 +215,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ufficio-postale-chiasso-aggiornamenti.title': 'Ufficio postale di Chiasso: stato attuale e servizi',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.excerpt': 'Informazioni aggiornate sull\'ufficio postale di Chiasso, i servizi disponibili e le modalità di accesso per i residenti e gli utenti del territorio.',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.imageAlt': 'Facciata dell\'ufficio postale di Chiasso in una giornata di sole',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontalieri: Roma blocca i ristorni? Il Ticino propone stop o tagli',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati.',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Vista aerea del fiume Ticino e del lungolago di Locarno in autunno, simbolo dei frontalieri e delle tensioni fiscali tra Svizzera e Italia',
 };
 
 export default blogMetaChIt;
