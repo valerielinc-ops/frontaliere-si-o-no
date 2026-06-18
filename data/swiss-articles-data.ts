@@ -656,6 +656,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'roche-basel-offerte-lavoro',
+    category: 'pratico',
+    date: '2026-06-18T10:50:48.694Z',
+    image: '/images/blog/roche-basel-offerte-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

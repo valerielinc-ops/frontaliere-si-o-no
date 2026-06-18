@@ -218,6 +218,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontalieri: Roma blocca i ristorni? Il Ticino propone stop o tagli',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati.',
     'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Vista aerea del fiume Ticino e del lungolago di Locarno in autunno, simbolo dei frontalieri e delle tensioni fiscali tra Svizzera e Italia',
+    'blog.article.roche-basel-offerte-lavoro.title': 'Offerte di lavoro a Roche: posizioni aperte a Basilea',
+    'blog.article.roche-basel-offerte-lavoro.excerpt': 'Aumento delle opportunità di lavoro nel settore farmaceutico a Basilea, con dettagli in fase di definizione',
+    'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerea dell\'edificio principale di Roche a Basilea, Svizzera, con dettagli sulle strutture moderne e di ricerca',
 };
 
 export default blogMetaChIt;

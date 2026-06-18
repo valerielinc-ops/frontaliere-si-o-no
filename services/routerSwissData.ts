@@ -94,6 +94,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'hoval-ticino-opportunita-lavoro': { it: 'hoval-ticino-opportunita-lavoro', en: 'hoval-ticino-job-opportunities', de: 'hoval-tessin-arbeitsmoeglichkeiten', fr: 'hoval-tessin-opportunites-emploi' },
  'ufficio-postale-chiasso-aggiornamenti': { it: 'ufficio-postale-chiasso-aggiornamenti', en: 'chiasso-post-office-updates', de: 'postfiliale-chiasso-updates', fr: 'mises-a-jour-bureau-poste-chiasso' },
  'bloccare-ridurre-ristorni-frontalieri-roma': { it: 'bloccare-ridurre-ristorni-frontalieri-roma', en: 'cross-border-workers-block-reduce-reimbursements-rome', de: 'grenzaer-blockieren-verringern-erstattung-roma', fr: 'frontaliers-bloquer-reduire-restitutions-rome' },
+ 'roche-basel-offerte-lavoro': { it: 'roche-basel-offerte-lavoro', en: 'roche-basel-job-openings', de: 'roche-basel-stellenangebote', fr: 'offres-d-emploi-roche-basel' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
