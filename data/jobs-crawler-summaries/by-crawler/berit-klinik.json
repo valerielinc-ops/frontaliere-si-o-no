@@ -1,56 +1,19 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-06-17T22:12:38.877Z",
-  "total": 14,
+  "generatedAt": "2026-06-18T11:53:06.742Z",
+  "total": 13,
   "newCount": 0,
-  "updatedCount": 14,
-  "removedCount": 0,
+  "updatedCount": 13,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5034,
-  "avgDurationMs": 5034,
+  "durationMs": 1729,
+  "avgDurationMs": 1729,
   "durationHistory": [
-    5034
+    1729
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Logistiker:in, 100%",
-      "slug": "logistiker-in-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_logistiker_in_100__fb375a3261.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_logistiker_in_100__fb375a3261.pdf"
-      },
-      "id": "berit-klinik-be5ec3f62e24",
-      "firstSeenAt": "2026-05-20T05:18:01.368Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "title": "Praktikant:In Berit Sportslab",
       "slug": "praktikant-in-berit-sportslab-berit-klinik",
@@ -533,6 +496,46 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Logistiker:in, 100%",
+      "slug": "impiegata-impiegato-in-logistica-100-berit-klinik-speicher",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_logistiker_in_100__fb375a3261.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_logistiker_in_100__fb375a3261.pdf"
+      },
+      "id": "berit-klinik-be5ec3f62e24",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
