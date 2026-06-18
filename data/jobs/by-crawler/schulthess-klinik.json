@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-06-18T13:02:45.289Z",
+  "assembledAt": "2026-06-18T23:31:06.124Z",
   "jobs": [
     {
       "id": "schulthess-klinik-a8427269ab05",
@@ -34,7 +34,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/teamleitung-med-massage/30e07e1f-96db-4c77-b05c-d029d3bc5084",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.930Z",
+      "crawledAt": "2026-06-18T23:31:04.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,7 +93,7 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Disponentin / Disponent Fusschirurgie",
       "titleByLocale": {
-        "it": "Chirurgia del piede di spacco",
+        "it": "Disponentin / Disponent Fusschirurgie",
         "en": "Disponent/dispatch foot surgery",
         "de": "Disponentin / Disponent Fusschirurgie",
         "fr": "Chirurgie des pieds/dépôts"
@@ -111,7 +111,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/disponentin-disponent-fusschirurgie/7b86763b-0a3f-4ef3-bf89-81fc2488da24",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.928Z",
+      "crawledAt": "2026-06-18T23:31:04.080Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-hueft-und-kniechirurgie/671cc735-c5a4-4d1d-b569-360e97824983",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.927Z",
+      "crawledAt": "2026-06-18T23:31:04.079Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -275,7 +275,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/404b647e-b231-4701-98d9-a2b4ec0da839",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.924Z",
+      "crawledAt": "2026-06-18T23:31:04.077Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -352,7 +352,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-einkauf/df7e3610-240a-43e1-ada1-38b3c8e0528c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.921Z",
+      "crawledAt": "2026-06-18T23:31:04.075Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -384,15 +384,15 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:08:04.842Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -411,7 +411,7 @@
       "companyDomain": "schulthess-klinik.ch",
       "title": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
       "titleByLocale": {
-        "it": "Med. assistente di pratica / Med. Assistente di pratica Rheumatology & Rehabilitation",
+        "it": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "en": "Med. practice assistant / Med. Practice assistant Rheumatology & Rehabilitation",
         "de": "Med. Praxisassistentin / Med. Praxisassistent Rheumatologie & Rehabilitation",
         "fr": "Med. assistant de pratique / Med. assistant de pratique Rheumatology & Rehabilitation"
@@ -429,7 +429,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/3ffb96ec-37cc-4a3c-b0af-ce35d3983c9c",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.919Z",
+      "crawledAt": "2026-06-18T23:31:04.071Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-abendreinigung/bb80d999-f343-4117-9089-a719a7bc15b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.916Z",
+      "crawledAt": "2026-06-18T23:31:04.069Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -587,7 +587,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/experte-expertin-anaesthesiepflege-nds-hf-in-ausbildung/b875938d-269e-4c26-908f-b9fbff344713",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T13:02:42.894Z",
+      "crawledAt": "2026-06-18T23:31:04.046Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -604,6 +604,20 @@
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1976",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+        ],
+        "en": [
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+        ],
+        "fr": [
+          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
+        ]
+      },
       "firstSeenAt": "2026-06-17T13:43:58.672Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -616,21 +630,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
-        ],
-        "en": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
-        ],
-        "fr": [
-          "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
-        ]
-      },
-      "previousSlugs": [
-        "experte-expertin-anasthesiepflege-nds-hf-in-ausbildung-schulthess-klinik-lengghalde-2"
-      ]
+      }
     }
   ]
 }
