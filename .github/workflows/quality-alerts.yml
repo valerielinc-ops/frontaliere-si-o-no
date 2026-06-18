@@ -17,7 +17,21 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: node scripts/quality-alerts.mjs
+      - name: Run quality alerts
+        id: alerts
+        run: |
+          # quality-alerts.mjs exits with a DISTINCT code (8 = ALERT_SIGNAL_EXIT)
+          # when a fresh P0/P1 alert is active. That non-zero exit turns the job
+          # red on purpose so GitHub's native workflow-failure email reaches the
+          # maintainer — it is the alert delivery channel, NOT an infra bug.
+          # Capture the code so the "Report failure" step can tell that
+          # intentional signal apart from a genuine crash (exit 1) and avoid
+          # filing a spurious "Workflow Failure" bug issue for every alert (#2288).
+          set +e
+          node scripts/quality-alerts.mjs
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
       - name: Commit alert state
         if: always()
         run: |
@@ -62,7 +76,11 @@ jobs:
           exit 1
 
       - name: Report failure to GitHub Issues
-        if: failure()
+        # Skip when the failure is an intentional quality alert (exit code 8 =
+        # ALERT_SIGNAL_EXIT): the red job + native email are the alert channel,
+        # not an infra bug. Any other failure (genuine crash = 1, or an earlier
+        # step like npm ci where exit_code is unset) still files the bug issue.
+        if: failure() && steps.alerts.outputs.exit_code != '8'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

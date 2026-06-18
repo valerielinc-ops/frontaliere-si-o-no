@@ -4,8 +4,18 @@
 // Phase 5 — quality-alerts daily runner. Loads evidence, quota state, the
 // last N article sidecars and embedding meta, dispatches the four detector
 // categories, applies snoozer logic, writes the GitHub job summary, and
-// exits 1 when any P0/P1 alert is active (so the workflow fails and
+// exits non-zero when any P0/P1 alert is active (so the workflow fails and
 // GitHub's native email goes out).
+//
+// Exit codes:
+//   0                   — healthy / only snoozed alerts.
+//   ALERT_SIGNAL_EXIT   — an active P0/P1 alert fired. This is an INTENTIONAL
+//                         signal, not a crash: the red job triggers the
+//                         maintainer email, and the workflow's failure-report
+//                         step skips this code so it does NOT file a spurious
+//                         "Workflow Failure" bug issue (#2288).
+//   1                   — genuine crash (unhandled throw in main()). The
+//                         workflow DOES file an infra-bug issue for this.
 //
 // Spec: docs/superpowers/specs/2026-05-07-traffic-quality-algorithm-design.md § 8
 
@@ -232,10 +242,20 @@ export async function run(opts = {}) {
   };
 }
 
+// Distinct from the crash code (1) so the workflow can tell an intentional
+// quality alert apart from an infrastructure failure. Any non-zero code turns
+// the job red and fires GitHub's native failure email — only the bug-issue
+// filing is gated on this value. See header + .github/workflows/quality-alerts.yml.
+export const ALERT_SIGNAL_EXIT = 8;
+
 async function main() {
   const result = await run();
   console.error(`QUALITY_ALERTS active=${result.activeAlerts.length} snoozed=${result.snoozedAlerts.length} exit=${result.exitCode}`);
-  process.exit(result.exitCode);
+  // run() returns exitCode 1 only for an active P0/P1 alert (a genuine crash
+  // throws and is caught below). Remap that intentional signal to a distinct
+  // process code so the workflow surfaces the red job + email WITHOUT filing a
+  // spurious "Workflow Failure" bug issue (#2288).
+  process.exit(result.exitCode === 1 ? ALERT_SIGNAL_EXIT : result.exitCode);
 }
 
 const invokedDirectly = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
