@@ -20,6 +20,7 @@ import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
+import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
@@ -1613,7 +1614,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Strip tags and collapse whitespace so length math reflects visible text.
  const plain = String(input).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
  if (plain.length <= MAX_JSONLD_DESCRIPTION_CHARS) return plain;
- const window = plain.slice(0, MAX_JSONLD_DESCRIPTION_CHARS);
+ // Surrogate-safe window: a raw slice can split an emoji pair and leave a lone
+ // surrogate that breaks JSON-LD parsing if the word/sentence fallback keeps it.
+ const window = truncateCodeUnits(plain, MAX_JSONLD_DESCRIPTION_CHARS);
  // Prefer the last sentence boundary inside the window.
  const sentenceMatch = window.match(/^[\s\S]*[.!?](?=\s)/);
  if (sentenceMatch && sentenceMatch[0].length >= 200) {
@@ -2626,7 +2629,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (s.length <= max) return s;
  let cut = s.lastIndexOf(' ', max - 1);
  if (cut <= 0) cut = max - 1;
- let result = s.substring(0, cut).trimEnd();
+ let result = truncateCodeUnits(s, cut).trimEnd();
  // Strip trailing hyphens, dashes, and common prepositions
  result = result.replace(/[\s\-–—]+$/, '').replace(/\s+(di|da|per|a|in|con|su|del|della|dei|delle|at|in|for|of|the|an|bei|für|im|von|chez|pour|au|du|de|des|les)\s*$/i, '');
  return result + '...';
@@ -2873,14 +2876,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  descriptionHtmlParts.push(`<ul>${block.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>`);
  }
  }
- const jobPostingDescriptionHtml = descriptionHtmlParts.join('').slice(0, 5000);
+ // Surrogate-safe 5000-cap: this string is the JSON-LD JobPosting.description;
+ // a raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
+ const jobPostingDescriptionHtml = truncateCodeUnits(descriptionHtmlParts.join(''), 5000);
  // Fallback: use plain text description or metaIntro if HTML assembly is empty
  const jobPostingDescription = jobPostingDescriptionHtml.length >= 50
  ? jobPostingDescriptionHtml
  : (localizedDescription.length >= 50
- ? plainTextToHtml(localizedDescription).slice(0, 5000) || localizedDescription.slice(0, 5000)
- : plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()).slice(0, 5000)
- || `${metaIntro} ${localizedDescription}`.trim().slice(0, 5000));
+ ? truncateCodeUnits(plainTextToHtml(localizedDescription), 5000) || truncateCodeUnits(localizedDescription, 5000)
+ : truncateCodeUnits(plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()), 5000)
+ || truncateCodeUnits(`${metaIntro} ${localizedDescription}`.trim(), 5000));
  // CLAUDE.md rule #3: JobPosting schema MUST always be emitted for active
  // jobs. If the aggregated description is too thin, synthesize a default
  // from the structured fields we already have (title, company, city,
@@ -3649,6 +3654,7 @@ ${staticAnalyticsHtml}
  // duplicating umbrella content (brand-dedup main-red #1247 / PR #1274).
  if (isBrandAlias(cSlug)) continue;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompany = startTimer();
  const prefix = companyRoutePrefix[locale];
  const fullSlug = `${prefix}-${cSlug}`;
@@ -4587,6 +4593,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // so TI URLs stay byte-identical.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
  jobs: validJobs,
@@ -4731,6 +4738,7 @@ ${staticAnalyticsHtml}
  }
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdGazette = startTimer();
  const model = buildJobOfficialGazetteLandingModel({
  jobs: validJobs,
@@ -4892,6 +4900,7 @@ ${staticAnalyticsHtml}
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
  jobs: validJobs,
@@ -5072,6 +5081,7 @@ ${staticAnalyticsHtml}
  // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
  const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
  jobs: validJobs,
@@ -5261,6 +5271,7 @@ ${staticAnalyticsHtml}
  if (italianCareModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdCareVariant = startTimer();
  const model = buildJobCareVariantLandingModel({
  jobs: validJobs,
@@ -5431,6 +5442,7 @@ ${staticAnalyticsHtml}
  if (italianLocationModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdLocation = startTimer();
  const model = buildJobLocationLandingModel({
  jobs: validJobs,
@@ -5675,6 +5687,7 @@ ${staticAnalyticsHtml}
  if (italianTypeModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdContractType = startTimer();
  const model = buildJobLocationTypeLandingModel({
  jobs: validJobs,
@@ -5834,6 +5847,7 @@ ${staticAnalyticsHtml}
  if (italianSectorModel.totalJobs === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tEdSector = startTimer();
  const model = buildJobLocationSectorLandingModel({
  jobs: validJobs,
@@ -6163,6 +6177,7 @@ ${staticAnalyticsHtml}
  const isCityEmpty = cityJobs.length === 0;
  const fallbackCount = isCityEmpty ? cappedJobs.length : 0;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${citySlug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
@@ -6367,6 +6382,7 @@ ${staticAnalyticsHtml}
  const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tPaginated = startTimer();
  const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
  const pgCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${pgSlug}`.replace(/\/+/g, '/'));
@@ -6484,6 +6500,7 @@ ${staticAnalyticsHtml}
  const pgJobs = cSorted.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tPaginated = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
@@ -6611,6 +6628,7 @@ ${staticAnalyticsHtml}
  const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const catSlugL = catSlugsMap[catKey][locale];
  const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
@@ -6760,6 +6778,7 @@ ${staticAnalyticsHtml}
  const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
  if (catPageJobs.length === 0) break;
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCategory = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const cDisplay = cantonDisplayLocalCat(canton, locale);
@@ -6933,6 +6952,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sSorted.slice(0, SECTOR_JOB_LIST_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSectorCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const sectorSlug = SECTOR_HUB_SLUG[locale][sector];
@@ -7158,6 +7178,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCanton = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -7380,6 +7401,7 @@ ${staticAnalyticsHtml}
  });
  const cappedJobs = sortedJobs.slice(0, COMPANY_CITY_JOB_CAP);
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tCompanyCity = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
@@ -7557,6 +7579,7 @@ ${staticAnalyticsHtml}
  const kwUniqueCompanies = [...new Set(kwJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
  const kwUniqueLocations = [...new Set(kwJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tGsc = startTimer();
  const kwFullSlug = `${searchRoutePrefix[locale]}-${kwSlug}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
@@ -7763,6 +7786,7 @@ ${staticAnalyticsHtml}
  if (fallbackMatchingJobs.length === 0) continue;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const matchingJobs = matchingJobsByLocale[locale].length > 0
  ? matchingJobsByLocale[locale]
  : fallbackMatchingJobs;
@@ -7965,6 +7989,7 @@ ${staticAnalyticsHtml}
  if (matchingJobs.length === 0) return;
 
  for (const locale of localeList) {
+ if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
  const __tSearchCombo = startTimer();
  const fullSlug = `${searchRoutePrefix[locale]}-${comboKey}`;
  if (editorialSearchSlugsByLocale.get(locale)?.has(fullSlug)) continue;

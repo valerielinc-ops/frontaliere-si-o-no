@@ -69,8 +69,80 @@ jobs:
           echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
           echo "Locale matrix: $JSON"
 
+  # ── Shared prep (Fase 3): assemble the dataset ONCE → atomic snapshot artifact.
+  # Removes the ×4 duplicated data-prep from the locale shards and guarantees
+  # every shard builds from the IDENTICAL job snapshot (no crawler-commit-window
+  # divergence). OG images stay per-shard (rendered in build:ci, og-jobs cache).
+  prep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Audit no merge conflict markers
+        run: npm run audit:no-merge-markers
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+      - name: Cache assemble-jobs output
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+      - name: Housekeeping (cross-crawler dedup + locale hardening)
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+      - name: Refresh weekly-employers footer link list
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+      - name: Mine all job slugs for 404 coverage
+        run: node scripts/mine-all-job-slugs.mjs
+      - name: Canton-aware migration of slug registry
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+      - name: Generate responsive image thumbnails
+        run: node scripts/generate-image-thumbnails.mjs
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+      - name: Pack prepared snapshot (generated data + thumbnails)
+        run: |
+          set -eo pipefail
+          tar -czf /tmp/prepared-snapshot.tgz \
+            data \
+            public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
+            tar -czf /tmp/prepared-snapshot.tgz data
+          ls -lh /tmp/prepared-snapshot.tgz
+      - name: Upload prepared snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: prepared-snapshot
+          path: /tmp/prepared-snapshot.tgz
+          retention-days: 1
+
   build-locale:
-    needs: matrix-setup
+    needs: [matrix-setup, prep]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -118,13 +190,20 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal for the build experiment)"
 
-      - name: Cache assemble-jobs output
-        uses: actions/cache@v5
+      # Fase 3: consume the shared atomic snapshot from the prep job instead of
+      # re-running assemble/cleanup/mine/migrate/thumbnails per shard. Guarantees
+      # every shard builds the IDENTICAL dataset. OG images are still rendered
+      # per-shard during build:ci (og-jobs cache shared across runs).
+      - name: Download prepared snapshot
+        uses: actions/download-artifact@v4
         with:
-          path: .cache/assemble-jobs
-          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
+          name: prepared-snapshot
+          path: /tmp/snapshot
+      - name: Restore prepared snapshot (data + thumbnails)
+        run: |
+          set -eo pipefail
+          tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
+          test -f data/jobs.json && echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)" || { echo "✖ data/jobs.json missing after restore"; exit 1; }
 
       - name: Cache per-job OG images
         uses: actions/cache@v5
@@ -133,29 +212,6 @@ jobs:
           key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
           restore-keys: |
             og-jobs-${{ runner.os }}-
-
-      - name: Assemble jobs dataset from per-crawler slices
-        run: node scripts/assemble-jobs-dataset.mjs --stats
-
-      - name: Housekeeping (cross-crawler dedup + locale hardening)
-        env:
-          JOBS_SKIP_URL_VALIDATION: '1'
-        run: node scripts/cleanup-jobs.mjs
-
-      - name: Refresh weekly-employers footer link list
-        run: node scripts/refresh-weekly-employers-top-pairs.mjs
-
-      - name: Mine all job slugs for 404 coverage
-        run: node scripts/mine-all-job-slugs.mjs
-
-      - name: Canton-aware migration of slug registry
-        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
-
-      - name: Generate responsive image thumbnails
-        run: node scripts/generate-image-thumbnails.mjs
-
-      - name: Cleanup stale news sitemap entries
-        run: node scripts/cleanup-news-sitemap.mjs
 
       - name: Build (BUILD_LOCALE=${{ matrix.locale }})
         run: |

@@ -68,6 +68,7 @@ data/expired-jobs.json
 data/jobs-meta.json
 data/jobs-crawler-summaries.json
 data/all-known-job-slugs.json
+data/job-canton-pins.json
 data/jobs-crawler-audit.json
 data/jobs-stats.json
 # data/jobs-ai-cache.json — tracked: shared crawler AI response cache, persists across CI runs

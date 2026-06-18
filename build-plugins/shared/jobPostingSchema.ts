@@ -39,6 +39,7 @@ import {
   TICINO_MIN_ANNUAL_CHF,
   type SalaryBand,
 } from './salaryDefaults';
+import { truncateCodeUnits } from './safeTruncate';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -323,8 +324,11 @@ function resolveDescription(
   const short = (locale || 'it').slice(0, 2).toLowerCase();
   const byLocale = job.descriptionByLocale?.[short] || job.descriptionByLocale?.[locale];
   const base = String(byLocale || job.description || '').trim();
-  if (base.length >= 50) return base.slice(0, 5000);
-  return buildDescriptionFallback(title, company, city, locale).slice(0, 5000);
+  // Surrogate-safe cap: a raw 5000-char slice can split an emoji pair (jobs are
+  // crawled from ATS bodies that contain emoji) and leave a lone surrogate that
+  // breaks JSON-LD parsing. truncateCodeUnits drops the dangling half whole.
+  if (base.length >= 50) return truncateCodeUnits(base, 5000);
+  return truncateCodeUnits(buildDescriptionFallback(title, company, city, locale), 5000);
 }
 
 /** Resolve the hiring organisation name with a localised fallback. */

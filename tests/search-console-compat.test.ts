@@ -19,6 +19,66 @@ describe('Search Console 404 compatibility resolver', () => {
     });
   });
 
+  // Canton-drift recovery: a job slug is globally unique, so an orphaned
+  // canton-variant 404 (the canton was re-derived between crawls and the job
+  // migrated sections) must resolve to the slug's CURRENT canonical job page —
+  // not the bare section listing — when a slug index is supplied. This is the
+  // dominant residual-404 cohort (≈94% of live Cloudflare job-detail 404s).
+  it('redirects an orphaned canton-variant to the slug\'s real canonical page', () => {
+    const idx = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>([
+      ['capo-ottimizzazione-portafoglio-ffs-zollikofen', {
+        it: '/cerca-lavoro-berna/capo-ottimizzazione-portafoglio-ffs-zollikofen',
+        de: '/de/jobs-in-bern/capo-ottimizzazione-portafoglio-ffs-zollikofen',
+      }],
+    ]);
+    // Requested under the legacy/orphan TI section → recovered to the real berna page.
+    expect(
+      resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/capo-ottimizzazione-portafoglio-ffs-zollikofen', idx),
+    ).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/capo-ottimizzazione-portafoglio-ffs-zollikofen/',
+      kind: 'canton-moved',
+      locale: 'it',
+    });
+    // Prefers the request's own locale canonical.
+    expect(
+      resolveSearchConsoleCompatTarget('/de/jobs-im-tessin/capo-ottimizzazione-portafoglio-ffs-zollikofen', idx),
+    ).toEqual({
+      canonicalPath: '/de/jobs-in-bern/capo-ottimizzazione-portafoglio-ffs-zollikofen/',
+      kind: 'canton-moved',
+      locale: 'de',
+    });
+  });
+
+  it('falls back to the URL-section listing when the slug is unknown or already canonical', () => {
+    const idx = new Map<string, Partial<Record<'it' | 'en' | 'de' | 'fr', string>>>([
+      ['data-engineer-acme-lugano', { it: '/cerca-lavoro-ticino/data-engineer-acme-lugano' }],
+    ]);
+    // Unknown slug → listing of the canton already in the URL (no drift onto TI).
+    expect(
+      resolveSearchConsoleCompatTarget('/cerca-lavoro-san-gallo/some-expired-slug-unknown', idx),
+    ).toEqual({
+      canonicalPath: '/cerca-lavoro-san-gallo/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+    // Slug maps to the SAME path requested → not a move; listing fallback.
+    expect(
+      resolveSearchConsoleCompatTarget('/cerca-lavoro-ticino/data-engineer-acme-lugano', idx),
+    ).toEqual({
+      canonicalPath: '/cerca-lavoro-ticino/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+    // No index supplied → unchanged legacy behavior (listing fallback).
+    expect(
+      resolveSearchConsoleCompatTarget('/cerca-lavoro-berna/whatever-expired-slug'),
+    ).toEqual({
+      canonicalPath: '/cerca-lavoro-berna/',
+      kind: 'expired-job',
+      locale: 'it',
+    });
+  });
+
   // Regression: a search-style slug under a NON-Ticino canton section must
   // canonicalize to that canton's listing, not drift onto Ticino. The search
   // branch runs before the expired-job branch, so without canton-awareness
