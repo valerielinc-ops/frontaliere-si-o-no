@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-06-18T11:56:38.378Z",
+  "generatedAt": "2026-06-18T22:25:45.303Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3002,
-  "avgDurationMs": 3002,
+  "durationMs": 3940,
+  "avgDurationMs": 3940,
   "durationHistory": [
-    3002
+    3940
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "currency": "CHF",
       "postedDate": "2026-06-18",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-06-18T11:56:36.498Z",
+      "crawledAt": "2026-06-18T22:25:43.088Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
