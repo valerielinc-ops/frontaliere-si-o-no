@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-06-17T23:14:04.235Z",
+  "generatedAt": "2026-06-18T12:54:47.106Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 17501,
-  "avgDurationMs": 17501,
+  "durationMs": 12702,
+  "avgDurationMs": 12702,
   "durationHistory": [
-    17501
+    12702
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -101,51 +101,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Lead-Developer-%28wmd%29/1381588933/",
-      "title": "Lead Developer (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "lead-sviluppatore-w-m-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-21",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-7b604c82531b",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-21T12:58:33.524Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "addressRegion": "BE",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Zofingen-Homeoffice-Kundenbetreuerin-Customer-Center/1274662601/",
