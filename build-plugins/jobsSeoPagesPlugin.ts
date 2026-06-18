@@ -11369,6 +11369,11 @@ ${staticAnalyticsHtml}
  for (const baseLocale of localeList) {
  const baseSlug = slugByLocale[baseLocale];
  if (!baseSlug) continue;
+ // Per-locale shard build (BUILD_LOCALE): the expired cross-locale bridge is
+ // written under baseLocale's prefix, so skip it for locales this shard
+ // doesn't own (Fase 1c, same class as the active-job bridge loops below).
+ // No-op in the all-locale build.
+ if (!shouldEmitLocale(baseLocale)) continue;
  const baseHtml = expiredSoftLandingCache.get(`${baseLocale}:${baseSlug}`);
  if (!baseHtml) continue;
  const foreignSlugs = new Set<string>();
@@ -11559,6 +11564,13 @@ ${staticAnalyticsHtml}
  const currentSlug = localizedSlug(job, locale);
  const cachedHtml = jobHtmlCache.get(`${locale}:${currentSlug}`);
  if (!cachedHtml) continue;
+ // Per-locale shard build (BUILD_LOCALE): skip the expensive previousSlugs
+ // bridge render/emit for locales this shard isn't responsible for (Fase 1c,
+ // deferred from #2494). The winners registry (data/previous-slug-winners.json)
+ // is resolved in the pre-scan loops above with NO gating, so cross-build URL
+ // stability is unaffected; this guard only skips the per-locale HTML write,
+ // whose output a shard build would prune anyway. No-op in the all-locale build.
+ if (!shouldEmitLocale(locale)) continue;
 
  // Locale-specific previous slugs + legacy (unknown locale → all locales)
  const prevSlugsForLocale = [
@@ -11790,6 +11802,12 @@ ${staticAnalyticsHtml}
  for (const baseLocale of localeList) {
  const baseSlug = slugPerLocale[baseLocale];
  if (!baseSlug) continue;
+ // Per-locale shard build (BUILD_LOCALE): the cross-locale bridge is written
+ // under baseLocale's prefix, so skip it for locales this shard doesn't own
+ // (Fase 1c, same class as the previousSlugs bridge above). slugPerLocale is
+ // still built for ALL locales above so foreignSlugs detection is unaffected.
+ // No-op in the all-locale build.
+ if (!shouldEmitLocale(baseLocale)) continue;
  const cachedHtml = jobHtmlCache.get(`${baseLocale}:${baseSlug}`);
  if (!cachedHtml) continue;
  const foreignSlugs = new Set<string>();
@@ -11848,6 +11866,11 @@ ${staticAnalyticsHtml}
  for (const locale of localeList) {
  const relPath = paths?.[locale];
  if (!relPath) continue;
+ // Per-locale shard build (BUILD_LOCALE): the self-healing tombstone is
+ // written under this locale's prefix, so skip it for locales this shard
+ // doesn't own (Fase 1c, same class as the bridge loops above). No-op in the
+ // all-locale build (the it/main shard still heals every locale).
+ if (!shouldEmitLocale(locale)) continue;
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
  if (_writtenPaths.has(absFile)) continue;
  const __tSelfHealing = startTimer();
