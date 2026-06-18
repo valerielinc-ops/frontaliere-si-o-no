@@ -11,7 +11,7 @@
 
 import { extractTerms } from './termExtractor.mjs';
 import { findTopK, cosineSimilarity } from './embeddingMatcher.mjs';
-import { embedOne, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
+import { embedQuery, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import {
   GSC_MIN_SIGNAL,
@@ -173,7 +173,7 @@ export function scoreFromGsc(terms, gscBlock, opts = {}) {
  */
 export async function scoreFromEmbedding(headline, evidence, opts = {}) {
   const ga4Pages = evidence?.ga4?.pages || {};
-  const embedFn = opts.embedFn || embedOne;
+  const embedFn = opts.embedFn || embedQuery;
 
   let queryVec = lruGet(headline);
   if (!queryVec) {
