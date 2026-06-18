@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-18T11:55:33.637Z",
+  "generatedAt": "2026-06-18T22:24:18.036Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 18664,
-  "avgDurationMs": 18664,
+  "durationMs": 15752,
+  "avgDurationMs": 15752,
   "durationHistory": [
-    18664
+    15752
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Studentenaushilfe 100% (m/w/div.) - REF228518B",
+      "slug": "studentenaushilfe-100-m-w-div-ref228518b-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF228518B-studentenaushilfe-100-m-w-div-ref228518b",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000132895336-studentenaushilfe-100-m-w-div-ref228518b?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-06-18",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle als Kaufmann/-frau 2027 REF286890O",
@@ -230,10 +261,12 @@
         "translation": 21,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Laborant in der Produktentwicklung (w/m/d) REF283636C",
-      "slug": "laborant-in-der-produktentwicklung-w-m-d-ref283636c-bosch-frauenfeld",
+      "slug": "laboratorio-di-sviluppo-del-prodotto-w-m-d-ref2836-c-bosch-thermotechnik-ag-frauenfeld",
       "url": "https://jobs.bosch.com/en/job/REF283636C-laborant-in-der-produktentwicklung-w-m-d-ref283636c",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000121440567-laborant-in-der-produktentwicklung-w-m-d-ref283636c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -268,7 +301,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Key Account Manager – Bosch Building Technologies 100% (w/m/div.) REF287492K",
