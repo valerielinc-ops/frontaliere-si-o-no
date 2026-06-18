@@ -64,6 +64,36 @@ describe('buildListItemJobPosting', () => {
     expect((jp!.description as string).length).toBeLessThanOrEqual(LIST_ITEM_DESCRIPTION_CAP + 1);
   });
 
+  it('does not leave a lone surrogate when the cap lands mid-emoji (regression: "Truncated Unicode character")', () => {
+    // Reproduces the live bug: a JobPosting description whose char-300 boundary
+    // fell between the two halves of 🤝 (U+1F91D), emitting a lone \uD83E that
+    // Google rejected as "Dati strutturati non analizzabili / Carattere Unicode
+    // troncato" and that broke parsing of the whole <script> block.
+    const head = 'Lass uns «zämä erfolgrich» sein. '.padEnd(LIST_ITEM_DESCRIPTION_CAP - 1, 'x');
+    const description = `${head}\u{1F91D} mehr Text der weit über die Grenze hinausgeht.`;
+    const jp = buildListItemJobPosting(
+      {
+        title: 'Verkäufer',
+        company: 'Migros',
+        city: 'Herisau',
+        canton: 'AR',
+        datePosted: '2026-05-26',
+        description,
+        salaryMin: 65000,
+        salaryMax: 98500,
+        url: OPTS.url,
+      },
+      OPTS,
+    );
+    expect(jp).not.toBeNull();
+    const out = jp!.description as string;
+    // No unpaired surrogate anywhere in the emitted description.
+    const hasLoneSurrogate = /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(out);
+    expect(hasLoneSurrogate).toBe(false);
+    // The serialized JSON-LD round-trips cleanly.
+    expect(() => JSON.parse(JSON.stringify({ description: out }))).not.toThrow();
+  });
+
   it('never throws on sparse input (returns null or a builder-defaulted JobPosting)', () => {
     // The builder fills heavy defaults, so sparse input usually still yields a
     // valid schema; the contract that matters is that the helper NEVER throws

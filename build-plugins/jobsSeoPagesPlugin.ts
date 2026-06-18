@@ -20,6 +20,7 @@ import { stripLiteralMarkdown as stripLiteralMarkdownFromTitle } from './shared/
 import { minifyHtml } from './shared/htmlMinify';
 import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import { expiredJobSlugVariants } from './shared/expiredSlugVariants';
+import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildBridgeThinHtml } from './shared/bridgeThinShell';
 import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
@@ -1613,7 +1614,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Strip tags and collapse whitespace so length math reflects visible text.
  const plain = String(input).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
  if (plain.length <= MAX_JSONLD_DESCRIPTION_CHARS) return plain;
- const window = plain.slice(0, MAX_JSONLD_DESCRIPTION_CHARS);
+ // Surrogate-safe window: a raw slice can split an emoji pair and leave a lone
+ // surrogate that breaks JSON-LD parsing if the word/sentence fallback keeps it.
+ const window = truncateCodeUnits(plain, MAX_JSONLD_DESCRIPTION_CHARS);
  // Prefer the last sentence boundary inside the window.
  const sentenceMatch = window.match(/^[\s\S]*[.!?](?=\s)/);
  if (sentenceMatch && sentenceMatch[0].length >= 200) {
@@ -2626,7 +2629,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (s.length <= max) return s;
  let cut = s.lastIndexOf(' ', max - 1);
  if (cut <= 0) cut = max - 1;
- let result = s.substring(0, cut).trimEnd();
+ let result = truncateCodeUnits(s, cut).trimEnd();
  // Strip trailing hyphens, dashes, and common prepositions
  result = result.replace(/[\s\-–—]+$/, '').replace(/\s+(di|da|per|a|in|con|su|del|della|dei|delle|at|in|for|of|the|an|bei|für|im|von|chez|pour|au|du|de|des|les)\s*$/i, '');
  return result + '...';
@@ -2873,14 +2876,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  descriptionHtmlParts.push(`<ul>${block.bullets.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>`);
  }
  }
- const jobPostingDescriptionHtml = descriptionHtmlParts.join('').slice(0, 5000);
+ // Surrogate-safe 5000-cap: this string is the JSON-LD JobPosting.description;
+ // a raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
+ const jobPostingDescriptionHtml = truncateCodeUnits(descriptionHtmlParts.join(''), 5000);
  // Fallback: use plain text description or metaIntro if HTML assembly is empty
  const jobPostingDescription = jobPostingDescriptionHtml.length >= 50
  ? jobPostingDescriptionHtml
  : (localizedDescription.length >= 50
- ? plainTextToHtml(localizedDescription).slice(0, 5000) || localizedDescription.slice(0, 5000)
- : plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()).slice(0, 5000)
- || `${metaIntro} ${localizedDescription}`.trim().slice(0, 5000));
+ ? truncateCodeUnits(plainTextToHtml(localizedDescription), 5000) || truncateCodeUnits(localizedDescription, 5000)
+ : truncateCodeUnits(plainTextToHtml(`${metaIntro} ${localizedDescription}`.trim()), 5000)
+ || truncateCodeUnits(`${metaIntro} ${localizedDescription}`.trim(), 5000));
  // CLAUDE.md rule #3: JobPosting schema MUST always be emitted for active
  // jobs. If the aggregated description is too thin, synthesize a default
  // from the structured fields we already have (title, company, city,

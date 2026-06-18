@@ -14,6 +14,7 @@ import { cdnBlogImage } from './seo/blogImageCdn';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildTitleWithBrand, buildJobTitleWithLocation, clampMetaDescription } from '../build-plugins/shared/titleSuffix';
+import { truncateCodeUnits } from '../build-plugins/shared/safeTruncate';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -165,7 +166,9 @@ function normalizeSeoText(input: string): string {
 function compactSeoDescription(input: string, maxChars = 320): string {
  const cleaned = normalizeSeoText(input).replace(/<[^>]+>/g, ' ');
  if (cleaned.length <= maxChars) return cleaned;
- return `${cleaned.slice(0, maxChars - 1).trim()}…`;
+ // Surrogate-safe cut: this feeds the SPA-runtime JSON-LD `description`; a raw
+ // slice can split an emoji pair and leave a lone surrogate that breaks parsing.
+ return `${truncateCodeUnits(cleaned, maxChars - 1).trim()}…`;
 }
 
 function companyLogoFromJob(job: any): string {
@@ -560,7 +563,7 @@ function applySerpTitleDescriptionVariant(
   * The `| A |` arises when the cut lands mid-way through a ` | Foo` part.
   */
  function safeTruncate(s: string, maxLen: number): string {
-   const truncated = s.slice(0, maxLen).trimEnd();
+   const truncated = truncateCodeUnits(s, maxLen).trimEnd();
    // Strip any trailing incomplete ` | <partial>` segment (e.g. "| A" or "| Ag")
    return truncated.replace(/\s*\|\s*[^|]*$/, '').trimEnd();
  }

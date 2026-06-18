@@ -24,6 +24,8 @@
  *      to preserve) must call {@link truncateHeadline} explicitly.
  */
 
+import { truncateCodeUnits } from './safeTruncate';
+
 export const TITLE_BRAND_SUFFIX = ' | Frontaliere Ticino';
 /**
  * Target SERP-display length. 60 char ≈ ~600 px on desktop SERP, the budget
@@ -53,8 +55,9 @@ export const TITLE_MAX_CHARS = 66;
 export function truncateHeadline(headline: string, max: number): string {
   const safe = String(headline || '');
   if (safe.length <= max) return safe;
-  // Reserve 1 char for the trailing ellipsis.
-  const sliced = safe.slice(0, max - 1);
+  // Reserve 1 char for the trailing ellipsis. Surrogate-safe so the hard-cut
+  // fallback can never leave a lone surrogate (split emoji) in a meta tag.
+  const sliced = truncateCodeUnits(safe, max - 1);
   const lastSpace = sliced.lastIndexOf(' ');
   // Only use the word boundary if it sits past the halfway mark — otherwise
   // we'd amputate too much content and the truncation looks worse than a hard cut.

@@ -14,6 +14,7 @@ import { asyncCssLink } from './htmlTemplate';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, clampMetaDescription } from './shared/titleSuffix';
+import { truncateCodeUnits } from './shared/safeTruncate';
 import { findChunkFile, findChunkFiles } from './shared/chunkFiles';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -165,8 +166,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  if (!answerRaw) continue;
  const cleanAnswer = stripMarkdownForFaq(answerRaw);
  if (!cleanAnswer) continue;
+ // Surrogate-safe: this answer becomes FAQPage JSON-LD acceptedAnswer.text; a
+ // raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
  const truncated = cleanAnswer.length > 300
- ? cleanAnswer.slice(0, 297) + '...'
+ ? truncateCodeUnits(cleanAnswer, 297) + '...'
  : cleanAnswer;
  pairs.push({ question: heading, answer: truncated });
  }
@@ -726,7 +729,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  : localizedDesc;
  // Truncate to ≤155 chars for Bing/Google snippet display
  const metaDesc = metaDescRaw.length > 155
- ? metaDescRaw.substring(0, 152) + '…'
+ ? truncateCodeUnits(metaDescRaw, 152) + '…'
  : metaDescRaw;
  // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
  // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
