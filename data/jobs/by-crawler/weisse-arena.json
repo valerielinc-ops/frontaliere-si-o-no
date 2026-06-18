@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-06-17T23:38:05.902Z",
+  "assembledAt": "2026-06-18T13:23:35.241Z",
   "jobs": [
     {
       "id": "weisse-arena-3ba6d893ef9b",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4462&jobTitle=Restaurantleiter%3Ain+Camino",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.019Z",
+      "crawledAt": "2026-06-18T13:23:33.291Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -120,7 +121,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4461&jobTitle=Stellvertretende%3Ar+K%C3%BCchenchef%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.019Z",
+      "crawledAt": "2026-06-18T13:23:33.291Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -184,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -229,7 +231,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4507&jobTitle=Koch%2FK%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.018Z",
+      "crawledAt": "2026-06-18T13:23:33.290Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -309,7 +311,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4502&jobTitle=Elektroinstallateur%3Ain%2FTechniker%3Ain+Infrastruktur",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.018Z",
+      "crawledAt": "2026-06-18T13:23:33.290Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -397,7 +399,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4499&jobTitle=Mitarbeiter%3Ain+PR-+und+Corporate+Communication",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.018Z",
+      "crawledAt": "2026-06-18T13:23:33.290Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -485,7 +487,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4514&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.017Z",
+      "crawledAt": "2026-06-18T13:23:33.289Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -566,7 +568,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4512&jobTitle=Pizzaiolo%3Aa+%2F+Koch%2FK%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.017Z",
+      "crawledAt": "2026-06-18T13:23:33.289Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -646,7 +648,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.017Z",
+      "crawledAt": "2026-06-18T13:23:33.289Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -696,6 +698,81 @@
       "addressRegion": "GR"
     },
     {
+      "id": "weisse-arena-f75d8e4df5ab",
+      "slug": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
+        "en": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
+        "de": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
+        "fr": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Koch/Köchin mit Feuer und Leidenschaft",
+      "titleByLocale": {
+        "it": "Koch/Köchin con Feuer e Leidenschaft",
+        "en": "Koch/Köchin mit Feuer und Leidenschaft",
+        "de": "Koch/Köchin mit Feuer und Leidenschaft",
+        "fr": "Koch/Köchin mit Feuer und Leidenschaft"
+      },
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "en": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
+        "fr": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-18T13:23:33.288Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4518&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Grandis Ustria da vin",
+      "jobNumber": "WAG02382",
+      "pensum": "100%",
+      "contractLabel": "Festanstellung",
+      "previousSlugs": [
+        "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
       "id": "weisse-arena-5c5b05a18eeb",
       "slug": "dipendente-del-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
@@ -726,7 +803,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.016Z",
+      "crawledAt": "2026-06-18T13:23:33.288Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -803,7 +880,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4515&jobTitle=Event+Manager",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.016Z",
+      "crawledAt": "2026-06-18T13:23:33.288Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -848,81 +925,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "weisse-arena-f75d8e4df5ab",
-      "slug": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
-        "de": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
-        "fr": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Koch/Köchin mit Feuer und Leidenschaft",
-      "titleByLocale": {
-        "it": "Koch/Köchin con Feuer e Leidenschaft",
-        "en": "Koch/Köchin mit Feuer und Leidenschaft",
-        "de": "Koch/Köchin mit Feuer und Leidenschaft",
-        "fr": "Koch/Köchin mit Feuer und Leidenschaft"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "en": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com",
-        "fr": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Das Restaurant Grandis Vinoteca & Grill in Laax mit klarem Fokus auf Qualität und Gastfreundschaft ist ein Ort, der Weinliebhaber und Feinschmecker gleichermssen begeistert. Unser Konzept verbindet eine erstklassige Vinothek mit einem modernen Grillrestaurant, das höchste kulinarische Ansprüche erfüllt. | Für unser Restaurant, das sich ganz der regionalen, saisonalen Küche und einer bewussten Fleischwahl verschrieben hat, suchen wir ab sofort oder nach Vereinbarung eine engagierte und kreative Persönlichkeit, die das Handwerk des Kochens in seiner ursprünglichsten Form lebt: nur mit Feuer. | Was du bewegst:\n• Du pflegst eine Küche, die ganz auf hochwertigste Produkte aus der Region setzt – möglichst naturbelassen, nachhaltig produziert und sorgfältig ausgewählt\n• Du nutzt die Spielwiese, auf der das Kochen über dem Feuer im Zentrum steht\n• Du suchst ein kleines, leidenschaftliches Team mit grossen Ansprüchen an Qualität, Handwerk und Authentizität\n• Du schätzt die Möglichkeit, Teil eines besonderen kulinarischen Projekts zu werden, das Bewusstsein schafft und Genuss mit Verantwortung verbindet | Was dich ausmacht:\n• Eine Persönlichkeit mit Charakter, Haltung und Liebe zum Detail. Jemand, der oder die mit Begeisterung mit anpackt, kreativ denkt und das Feuer nicht nur in der Küche, sondern auch im Herzen trägt\n• Du bist ausgebildeter Koch, hast Erfahrung in der gehobenen Küche und teilst unsere Werte in Bezug auf Nachhaltigkeit, Tierwohl und Produktqualität\n• Du liebst es, mit dem Feuer zu kochen – über offenem Grill oder mit der Glut\n• Du arbeitest mit Respekt gegenüber den Zutaten und weisst, wie man aus regionalen und saisonalen Produkten das Beste herausholt\n• Du schätzt die Einfachheit genauso wie die Raffinesse und bringst eigene Ideen mit ein | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Startgels AG Grandis Vinoteca & Grill Silvija Hodobasa Tel. +41 79 369 94 74 www.grandislaax.ch I www.weissearena.com I www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.015Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4518&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Grandis Ustria da vin",
-      "jobNumber": "WAG02382",
-      "pensum": "100%",
-      "contractLabel": "Festanstellung",
-      "previousSlugs": [
-        "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-16T14:41:43.955Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "weisse-arena-c79c97c1152d",
       "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
@@ -953,7 +955,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-17T23:38:04.014Z",
+      "crawledAt": "2026-06-18T13:23:33.287Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
