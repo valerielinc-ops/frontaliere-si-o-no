@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-06-17T23:13:06.699Z",
+  "assembledAt": "2026-06-18T12:59:47.148Z",
   "jobs": [
     {
       "id": "rapelli-85e9378f6294",
@@ -43,11 +43,12 @@
       "url": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:04.572Z",
+      "crawledAt": "2026-06-18T12:59:45.087Z",
       "previousSlugs": [
         "digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-05-16T10:50:15.276Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -105,7 +106,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratricecollaboratore-Spedizione%2C-100-TI/1390401733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:04.265Z",
+      "crawledAt": "2026-06-18T12:59:44.814Z",
       "previousSlugs": [
         "collaboratrice-collaboratore-spedizione-100-rapelli-stabio"
       ],
@@ -115,6 +116,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.045Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -172,7 +174,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:04.046Z",
+      "crawledAt": "2026-06-18T12:59:44.534Z",
       "previousSlugs": [
         "collaboratore-pulizia-100-rapelli-stabio",
         "collaboratore-cleaning-100-rapelli-orior-food-ag-stabio",
@@ -251,7 +253,7 @@
       "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:03.758Z",
+      "crawledAt": "2026-06-18T12:59:44.272Z",
       "previousSlugs": [
         "manutentore-maintenance-technician-100-rapelli-orior-food-ag-stabio",
         "manutentore-tecnico-di-manutenzione-al-100-rapelli-orior-food-ag-stabio",
@@ -263,6 +265,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:16.320Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -284,7 +287,7 @@
       "slug": "tecnologo-alimentare-100-rapelli-stabio",
       "slugByLocale": {
         "it": "tecnologo-alimentare-100-rapelli-stabio",
-        "en": "food-technology-100-rapelli-orior-food-ag-stabio",
+        "en": "tecnologo-alimentare-100-rapelli-stabio",
         "de": "tecnologo-alimentare-100-rapelli-stabio",
         "fr": "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
       },
@@ -320,11 +323,18 @@
       "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:03.445Z",
+      "crawledAt": "2026-06-18T12:59:43.907Z",
       "previousSlugs": [
+        "food-technology-100-rapelli-orior-food-ag-stabio",
         "tecnologia-alimentare-100-rapelli-orior-food-ag-stabio"
       ],
       "firstSeenAt": "2026-05-16T10:50:16.045Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "food-technology-100-rapelli-orior-food-ag-stabio"
+        ]
+      },
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -382,7 +392,7 @@
       "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-06-17T23:13:03.033Z",
+      "crawledAt": "2026-06-18T12:59:43.623Z",
       "previousSlugs": [
         "supply-chain-planner-100-rapelli-orior-food-ag-stabio"
       ],
@@ -392,6 +402,7 @@
         ]
       },
       "firstSeenAt": "2026-05-16T10:50:15.815Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
