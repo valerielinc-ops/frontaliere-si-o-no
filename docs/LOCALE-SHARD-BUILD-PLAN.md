@@ -1,8 +1,14 @@
 # Locale-Shard BUILD Plan — render-isolated per-locale build
 
-> Stato: **fase di studio / prototipo**. NON wira il deploy di produzione finché
-> il workflow esperimento non prova wall-time + correttezza.
+> Stato: **CHIUSO — non procedere oltre Fase 1a.** Vedi "Conclusione empirica"
+> in fondo. Le Fasi 0+1a sono merged (opt-in/dormiente, deploy live intatto);
+> Fase 2-5 NON danno speedup netto sul monolite → non implementare.
 > Companion: `LOCALE-SHARD-DEPLOY-PLAN.md` (split dell'OUTPUT, già in prod).
+
+> ⚠️ **Obiettivo ~15min NON raggiungibile.** Misurato: i locali sono di taglia
+> disuguale (IT primario = la maggior parte delle pagine) → lo **shard IT
+> domina il wall** e non scende a ~1/4. Anche con manifest+prep il wall plateaua
+> a ~25-27min ≈ monolite ~23min, a 4× compute. Dettaglio sotto.
 
 ## Obiettivo
 
@@ -106,3 +112,54 @@ build monolitico in 1 commit.
 
 F0 ½gg · F1 2-3gg (34 loop) · F2 1-2gg · F3 1gg · F4 1-2gg · F5 1gg+live · F6 ½gg.
 **~1,5-2 settimane**, collo = cicli CI lenti, ~6 PR sequenziali.
+
+---
+
+## Conclusione empirica (2026-06-18) — CHIUSO
+
+Implementate e misurate **Fase 0** (clusters render-skip) + **Fase 1a** (jobs-seo:
+soft-landing 274s + canonical-fallback 199s). Risultato wall per shard (run
+27737258033, Fase 0+1a merged):
+
+| shard | jobs-seo | wall | note |
+|---|---|---|---|
+| **it** | 646s | **34m47s** | ← collo (wall = shard più lento) |
+| en | 545s | 29m12s | best |
+| de | 629s | 33m04s | |
+| fr | 690s | 33m20s | |
+
+Monolite a regime ~23min. Quindi Fase 0+1a hanno tagliato il best-shard da
+~38→29min, **ma il wall (shard IT) resta ~34min > monolite**.
+
+### Perché il target ~15min NON è raggiungibile
+
+1. **Locali di taglia disuguale.** IT è il locale primario e genera la maggior
+   parte delle pagine → lo **shard IT fa ~3/4 del lavoro** e fissa il wall. Lo
+   sharding per-locale dà shard squilibrati: il più grosso domina. Il modello
+   "~1/4 per shard" è falso.
+2. **`orphan-query-landings` (~222s) non è skippabile pulito.** La sitemap orphan
+   (root, it-owned) include una pagina solo se `indexable = matchingJobs≥3 &&
+   wordCount≥50`; il `wordCount` richiede il render (su 500 pagine, 74 noindex,
+   mix dei due gate). Usare il solo job-count come proxy includerebbe pagine
+   noindex in sitemap (viola il gate). Spostare il render orphan al prep-job è
+   controproducente (lavoro serial sul critical-path, non locale-invariante).
+3. **Overhead per-shard irriducibile** (vite bundle 60s, post-walk, tar, npm ci)
+   pagato ×4; il prep-job (Fase 3) lo fattorizza solo in parte.
+
+Stima ottimistica anche completando manifest+prep (Fase 3-4): wall ~25-27min
+(collo shard IT) ≈ monolite ~23min, a **4× compute** + complessità + tassa di
+coupling cross-locale ricorrente + rischio SEO-divergence (sitemap/hreflang).
+
+### Raccomandazione
+
+**Non implementare Fase 2-5.** Il guadagno netto sul monolite è nullo/negativo.
+Mantenere lo split dell'**output** (architettura attuale) che è più semplice e
+comparabile. L'infra Fase 0+1a resta su main **opt-in/dormiente** (zero impatto:
+`BUILD_LOCALE` unset = byte-identico) — utile solo se il **cap 10GB** un giorno
+imponesse build per-locale per *dimensione* (non per velocità).
+
+Per velocizzare davvero il build servirebbe un'altra strada: ottimizzare i plugin
+dominanti in sé (jobs-seo/clusters/orphan — ne beneficia anche il monolite),
+oppure bilanciare gli shard NON per-locale ma per *volume di pagine* (es. shard
+per range di canton/slug), che però rompe l'allineamento con lo split-output
+esistente per-locale.
