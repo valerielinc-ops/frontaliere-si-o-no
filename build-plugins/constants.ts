@@ -512,14 +512,20 @@ export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=w
  * fold (2026-06 revenue deep dive). A slot near the primary data area makes
  * the adsense lazy loader's IntersectionObserver fire at first paint, so
  * adsbygoogle.js loads immediately instead of waiting for the idle
- * fallback. Markup comes from adSlotHtml('HOMEPAGE_MID_DISPLAY') so format
- * (autorelaxed multiplex) and the CLS-reserving min-height stay driven by
- * the services/adsenseSlots registry — never hand-roll the <ins> here
- * (PR #1910 review). Reuses that ACTIVE unit because ad-unit creation via
- * API needs a write-scope OAuth token the automation does not hold.
+ * fallback. Markup comes from adSlotHtml('FT_DRIVEBY_ATF_DISPLAY') so format
+ * and the CLS-reserving min-height stay driven by the services/adsenseSlots
+ * registry — never hand-roll the <ins> here (PR #1910 review).
+ *
+ * The registry's FT_DRIVEBY_ATF_DISPLAY entry currently mirrors the ACTIVE
+ * HOMEPAGE_MID_DISPLAY slot id because the AdSense Management API forbids
+ * ad-unit creation (403 PERMISSION_DENIED, verified 2026-06-18 even with a
+ * full adsense write-scope token — console-only for this account). The owner
+ * isolates drive-by reporting from the homepage by creating the dedicated
+ * console unit and swapping that one slot id in services/adsenseSlots.ts —
+ * this snippet needs no further change (issue #1911 item 1).
  */
 export const DRIVEBY_AD_SNIPPET = `<div class="my-6">
-    ${adSlotHtml('HOMEPAGE_MID_DISPLAY')}
+    ${adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')}
   </div>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
