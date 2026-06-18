@@ -30,14 +30,13 @@ describe('evidence-index constants', () => {
     expect(constants.GSC_MIN_IMP).toBe(5);
     expect(constants.GA4_MIN_SESSIONS).toBe(3);
     expect(constants.CLUSTER_MIN_N).toBe(5);
-    expect(constants.EMBEDDING_DIM).toBe(1024);
-    expect(constants.EMBEDDING_MODEL).toBe('mistral-embed');
-    // Chain: mistral → cohere → gemini (gemini added as the rescue tail when
-    // the Mistral key 401'd and froze the embedding store — see embeddingClient).
-    expect(constants.EMBEDDING_PROVIDERS).toHaveLength(3);
-    expect(constants.EMBEDDING_PROVIDERS[0].id).toBe('mistral');
-    expect(constants.EMBEDDING_PROVIDERS[1].id).toBe('cohere');
-    expect(constants.EMBEDDING_PROVIDERS[2].id).toBe('gemini');
+    // Local ONNX embeddings (multilingual-e5-small, 384-dim) replaced the
+    // Mistral/Cohere/Gemini API chain once every free-tier key died/exhausted —
+    // see embeddingClient.mjs. No keys, no quota.
+    expect(constants.EMBEDDING_DIM).toBe(384);
+    expect(constants.EMBEDDING_MODEL).toBe('Xenova/multilingual-e5-small');
+    expect(constants.EMBEDDING_PROVIDERS).toHaveLength(1);
+    expect(constants.EMBEDDING_PROVIDERS[0].id).toBe('local');
     expect(constants.EMBEDDING_PROVIDERS.every((p) => p.dim === constants.EMBEDDING_DIM)).toBe(true);
   });
 });

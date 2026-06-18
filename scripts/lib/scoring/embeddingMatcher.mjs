@@ -133,13 +133,14 @@ export function cosineSimilarity(a, b) {
  *
  * @param {Float32Array} queryVec
  * @param {{ store?: object, meta?: object, k?: number, queryModel?: string|null }} [opts]
- *   queryModel — model id (e.g. 'mistral-embed') that produced queryVec. When
- *   provided AND the store's meta.model is known AND they differ, the comparison
- *   is skipped (returns []). mistral-embed and embed-multilingual-v3.0 share
- *   dim=1024 but are DIFFERENT vector spaces — cross-model cosine is garbage and
- *   would silently mis-rank near-duplicates. Degrading to [] reproduces the
- *   pre-fallback "clean skip" behaviour when the active provider drifts from the
- *   model the store was built with.
+ *   queryModel — model id (e.g. 'Xenova/multilingual-e5-small') that produced
+ *   queryVec. When provided AND the store's meta.model is known AND they differ,
+ *   the comparison is skipped (returns []). Embeddings from DIFFERENT models live
+ *   in DIFFERENT vector spaces (even at the same dim) — cross-model cosine is
+ *   garbage and would silently mis-rank near-duplicates. Degrading to []
+ *   reproduces the "clean skip" behaviour when the active model drifts from the
+ *   one the store was built with (e.g. the 2026-06 switch mistral-embed →
+ *   multilingual-e5-small, which forces a one-time full re-embed).
  * @returns {Array<{ slug: string|null, hash: string, cosine: number, index: number }>}
  */
 export function findTopK(queryVec, opts = {}) {
