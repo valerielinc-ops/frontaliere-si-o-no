@@ -22,7 +22,7 @@ import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
-const ArticleRailAd = lazyRetry(() => import('@/components/shared/ArticleRailAd'));
+const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -1737,6 +1737,9 @@ function BlogArticles({
  // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
  const adEligibleInline = adEligible;
+ // Number of stacked side-rail ad panels, scaled to body length so the chain
+ // fills (but doesn't overcrowd) the gutter: ~1 panel per 700 words, 1–4.
+ const railAdCount = Math.min(4, Math.max(1, Math.round(bodyWordCount / 700)));
 
  // Slot config lookup table (positions 1..5 → AD_SLOTS entries). Cycled by the
  // per-paragraph and inter-segment ad renderers — Google AdSense allows the
@@ -1854,15 +1857,18 @@ function BlogArticles({
  <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6 space-y-3">
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ {/* Top content rides the gutter top: sticky at the narrow xl tier, static at
+     xlw so the ad chain below can claim the full column height. */}
+ <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
  <p className="text-xs font-medium text-muted uppercase tracking-wider">
  {t('affiliate.sectionTitle')}
  </p>
  {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
- {/* Desktop half-page rail ad (≥1400px) — rides down the sticky gutter */}
- <Suspense fallback={null}><ArticleRailAd side="left" enabled={adEligible} /></Suspense>
  </div>
+ {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter
+     top-to-bottom instead of one ad leaving the lower gutter empty. */}
+ <Suspense fallback={null}><ArticleRailAdStack side="left" enabled={adEligible} count={railAdCount} /></Suspense>
  </aside>
 
  <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
@@ -2403,8 +2409,10 @@ function BlogArticles({
  </article>
 
  {/* ── Right Rail (desktop only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6 space-y-3">
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ {/* Top content (TOC + resources) rides the gutter top: sticky at the narrow
+     xl tier, static at xlw so the ad chain below claims the full column. */}
+ <div className="space-y-3 xl:max-xlw:sticky xl:max-xlw:top-6 xlw:flex-none">
  {/* Desktop TOC */}
  {showToc && (
  <nav className="max-h-[calc(100vh-8rem)] overflow-y-auto pb-3 mb-1" aria-label={t('blog.toc.title')}>
@@ -2457,9 +2465,9 @@ function BlogArticles({
  <p className="text-sm text-muted leading-tight">
  {t('affiliate.disclosure')}
  </p>
- {/* Desktop half-page rail ad (≥1400px) — rides down the sticky gutter */}
- <Suspense fallback={null}><ArticleRailAd side="right" enabled={adEligible} /></Suspense>
  </div>
+ {/* Full-length half-page rail-ad chain (≥1400px) — covers the gutter top-to-bottom. */}
+ <Suspense fallback={null}><ArticleRailAdStack side="right" enabled={adEligible} count={railAdCount} /></Suspense>
  </aside>
 
  </div>
