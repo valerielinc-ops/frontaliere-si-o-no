@@ -1,18 +1,56 @@
 {
   "key": "clinique-de-genolier",
   "label": "Clinique de Genolier",
-  "generatedAt": "2026-06-18T12:03:39.987Z",
+  "generatedAt": "2026-06-18T22:32:36.944Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13784,
-  "avgDurationMs": 13784,
+  "durationMs": 12828,
+  "avgDurationMs": 12828,
   "durationHistory": [
-    13784
+    12828
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clinique-de-genolier-1019d3d11d68",
+      "slug": "dieteticien-ne-diplome-e-clinique-de-genolier",
+      "company": "Clinique de Genolier",
+      "companyKey": "clinique-de-genolier",
+      "companyDomain": "swissmedical.net",
+      "title": "Diététicien(ne) diplomé(e)",
+      "needsRetranslation": true,
+      "location": "Genolier",
+      "canton": "VD",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132892492-dieteticien-ne-diplome-e-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132892492-dieteticien-ne-diplome-e-",
+      "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-18T22:32:28.619Z",
+      "addressLocality": "Genolier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1272",
+      "streetAddress": "Route du Muids 3, 1272 Genolier",
+      "category": "Sanità / Ospedali",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "datePosted": "2026-06-18",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "clinique-de-genolier-6bf649606366",
@@ -28,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132374882-receptionniste-stagiaire",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:31.365Z",
+      "crawledAt": "2026-06-18T22:32:29.513Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132139301-secretaire-medical-e-a-40-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:32.368Z",
+      "crawledAt": "2026-06-18T22:32:30.417Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -104,7 +142,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131671899-stagiaire-controle-de-gestion",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:33.313Z",
+      "crawledAt": "2026-06-18T22:32:31.321Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -142,7 +180,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131402193-infirmier-e-referent-e-clinique-et-formation",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:34.267Z",
+      "crawledAt": "2026-06-18T22:32:32.219Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -180,7 +218,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131151869-infirmier-ere-polyvalent-e-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:35.221Z",
+      "crawledAt": "2026-06-18T22:32:33.131Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -218,7 +256,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000130777024-assistant-e-medical-e-",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:36.172Z",
+      "crawledAt": "2026-06-18T22:32:34.031Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -256,7 +294,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000129497007-secretaire-medical-e-en-radiologie",
       "source": "Clinique de Genolier Dedicated Parser (SMN clinic=CDG)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:03:37.072Z",
+      "crawledAt": "2026-06-18T22:32:34.983Z",
       "addressLocality": "Genolier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -279,15 +317,16 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "clinique-de-genolier-98dd5d711259",
-      "slug": "infirmier-ere-medecine-oncologie-clinique-de-genolier",
+      "slug": "infermiere-oncologia-clinique-de-genolier-genolier",
       "company": "Clinique de Genolier",
       "companyKey": "clinique-de-genolier",
       "companyDomain": "swissmedical.net",
       "title": "Infirmier(ère) médecine oncologie",
-      "needsRetranslation": false,
       "location": "Genolier",
       "canton": "VD",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126016550-infirmier-ere-medecine-oncologie",
@@ -310,15 +349,16 @@
       "postedDate": "2026-05-26",
       "datePosted": "2026-05-26",
       "firstSeenAt": "2026-05-26T14:08:07.461Z",
-      "_qualityScore": 83,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
