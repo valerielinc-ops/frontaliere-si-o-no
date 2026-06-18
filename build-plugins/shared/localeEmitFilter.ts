@@ -18,6 +18,10 @@
  * - The cross-locale dedup Set (`emittedActiveJobPaths`) that the sitemap
  *   shard pass reads is populated for EVERY locale before any loop-skip, so
  *   the sitemap stays complete in the `it`/main shard build.
+ * - The EXPIRED sitemap's hreflang alternates read `tracking[slug]` (`paths`),
+ *   built upstream for every locale with NO `shouldEmitLocale` gating, so the
+ *   `it`/main shard emits all locale alternates regardless of `BUILD_LOCALE`
+ *   (verified #2491; anchored at the altLinks site in jobsSeoPagesPlugin).
  *
  * Scope — this filter gates the `WriteCollector` writes only, NOT every
  * write in the build:

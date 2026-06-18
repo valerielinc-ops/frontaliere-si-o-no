@@ -11268,6 +11268,19 @@ ${staticAnalyticsHtml}
  const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
  const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
  if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
+ // Shard-invariance of the expired-sitemap hreflang (verify #2491, follow-up
+ // to the render-skip lever #2484): `paths` is `tracking[slug]`, which is
+ // populated UPSTREAM (L~9572/9681/9697/9744/10067) with NO `shouldEmitLocale`/
+ // `BUILD_LOCALE` gating — the active-jobs/implicit-prev branches iterate the
+ // full `localeList`, the orphan/compat branches add the locale inherent to
+ // the source record. The only `shouldEmitLocale` skips in this plugin
+ // (L2331/L2508/L10691) gate render/emit, never `paths` population. So in the
+ // `it`/main shard (the only shard that builds this sitemap) every locale's
+ // alternate is present regardless of `BUILD_LOCALE`. A `!p` here therefore
+ // reflects a genuinely partial cluster (orphan/compat slug with no localized
+ // path), NOT a shard skip — do NOT force-populate the 4 locales to "fix" it,
+ // that would fabricate hreflang to non-existent pages. Same guarantee the
+ // localeEmitFilter docblock gives for the active-job sitemap alternates.
  const altLinks = localeList.map((l) => {
  const p = paths[l];
  if (!p) return '';
