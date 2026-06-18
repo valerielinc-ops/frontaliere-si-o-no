@@ -18,6 +18,16 @@ jobs:
           cache: 'npm'
       - run: npm ci
 
+      # Persist the local embedding model (multilingual-e5-small, ~120MB)
+      # downloaded once from the public HF CDN by @huggingface/transformers, so
+      # build-article-embeddings.mjs doesn't re-download it every run (~5 min).
+      # No API key involved — purely a CDN artifact cache.
+      - name: Cache local embedding model
+        uses: actions/cache@v4
+        with:
+          path: .cache/transformers
+          key: transformers-multilingual-e5-small-v1
+
       - name: Prepare Firebase service-account credentials
         run: |
           echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}' > /tmp/firebase-sa.json
@@ -39,6 +49,10 @@ jobs:
 
       - name: Build article embeddings (incremental)
         run: node scripts/build-article-embeddings.mjs --incremental
+        env:
+          # Local ONNX embeddings (no API key). Cache model weights in-repo so the
+          # actions/cache step above persists them across runs.
+          TRANSFORMERS_CACHE: .cache/transformers
 
       - name: Commit evidence
         run: |

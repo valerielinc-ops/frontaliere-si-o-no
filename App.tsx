@@ -96,14 +96,18 @@ import { useNavigationState } from '@/hooks/useNavigationState';
 import { setDefaultConsent } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
 import { installBlogImageCdnFallback } from '@/services/seo/blogImageCdn';
-import { initPostHog } from '@/services/posthog';
 import { useSeoPageTracking } from '@/hooks/useSeoPageTracking';
 import { useKillSwitches } from '@/hooks/useKillSwitches';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
-// Initialize PostHog EU Cloud analytics (async, non-blocking)
-initPostHog();
+// PostHog init is NOT eager here: firing it at module-eval pulled posthog-js +
+// the session-recorder onto the main thread DURING the React boot, competing with
+// vendor-react + the lazy JobBoard chunk in the LCP/TBT window (~336ms of recorder
+// + array.js main-thread work measured on /cerca-lavoro-ticino/, Lighthouse #2350).
+// It now runs in the deferred, consent-gated idle path in hooks/useUIState.ts
+// alongside Analytics/Clarity/webVitals (FRO-329) — queued captures still flush via
+// ensurePostHog(), so no events are lost.
 // SEO helpers live in hooks/seoHelpers.ts — shared between App.tsx and extracted hooks.
 import { updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 import { useTranslation, getCantonI18nParams } from '@/services/i18n';
