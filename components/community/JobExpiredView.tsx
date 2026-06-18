@@ -26,7 +26,7 @@ import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
-import ArticleRailAd from '@/components/shared/ArticleRailAd';
+import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
 import Callout from '@/components/shared/Callout';
 import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
@@ -705,10 +705,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="xl:grid xl:max-xlw:grid-cols-[180px_1fr_180px] xl:gap-6 xlw:grid-cols-[300px_minmax(0,1fr)_300px]">
 
  {/* ── Left Rail (desktop xl only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6">
- <ArticleRailAd side="left" />
- </div>
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="left" />
  </aside>
 
  {/* ── Center content ── */}
@@ -836,10 +834,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {/* ── Right Rail (desktop xl only) ── */}
- <aside className="hidden xl:block">
- <div className="sticky top-6">
- <ArticleRailAd side="right" />
- </div>
+ <aside className="hidden xl:max-xlw:block xlw:flex xlw:flex-col">
+ <ArticleRailAdStack side="right" />
  </aside>
 
  </div>
