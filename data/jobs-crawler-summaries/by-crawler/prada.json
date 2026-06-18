@@ -1,18 +1,48 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-06-17T23:11:05.660Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-06-18T12:56:45.366Z",
+  "total": 2,
+  "newCount": 1,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7384,
-  "avgDurationMs": 7384,
+  "durationMs": 9973,
+  "avgDurationMs": 9973,
   "durationHistory": [
-    7384
+    9973
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "prada-7855882b63f8",
+      "slug": "miu-miu-client-advisor-porto-cervo-season-2026-prada-group-porto-cervo",
+      "company": "Prada Group",
+      "companyKey": "prada",
+      "companyDomain": "pradagroup.com",
+      "title": "MIU MIU Client Advisor Porto Cervo - Season 2026",
+      "location": "Porto Cervo",
+      "canton": "TI",
+      "addressLocality": "Porto Cervo",
+      "addressCountry": "CH",
+      "category": "fashion",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "url": "https://jobs.pradagroup.com/job/Porto-Cervo-MIU-MIU-Client-Advisor-Porto-Cervo-Season-2026/1269175301/",
+      "source": "Prada Group Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-18T12:56:39.689Z",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "prada-332f237b0ca4",
@@ -34,7 +64,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:11:01.190Z",
+      "crawledAt": "2026-06-18T12:56:38.978Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -45,44 +75,43 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "prada-b9ae973c94ba",
-      "slug": "responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo-prada-group-montevarchi-responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo",
+      "id": "prada-7855882b63f8",
+      "slug": "miu-miu-client-advisor-porto-cervo-season-2026-prada-group-porto-cervo",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
-      "title": "Responsabile Laboratorio di Collezione Abbigliamento Lifestyle Uomo",
-      "location": "Ticino",
+      "title": "MIU MIU Client Advisor Porto Cervo - Season 2026",
+      "location": "Porto Cervo",
       "canton": "TI",
-      "addressLocality": "Ticino",
+      "addressLocality": "Porto Cervo",
       "addressCountry": "CH",
       "category": "fashion",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
-      "url": "https://jobs.pradagroup.com/job/Montevarchi-Responsabile-Laboratorio-di-Collezione-Abbigliamento-Lifestyle-Uomo/1256446201/",
+      "postedDate": "2026-06-18",
+      "url": "https://jobs.pradagroup.com/job/Porto-Cervo-MIU-MIU-Client-Advisor-Porto-Cervo-Season-2026/1269175301/",
       "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-06-16T23:24:37.485Z",
-      "firstSeenAt": "2026-06-16T13:57:20.262Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "sourceLang": "en",
+      "crawledAt": "2026-06-18T12:56:39.689Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "_qualityScore": 92,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 18,
+        "translation": 21,
         "completeness": 22
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "store-manager-miu-miu-saint-moritz-prada-group-st-moritz",
@@ -103,7 +132,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-17T23:11:01.190Z",
+      "crawledAt": "2026-06-18T12:56:38.978Z",
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
