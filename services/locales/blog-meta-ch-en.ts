@@ -215,6 +215,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ufficio-postale-chiasso-aggiornamenti.title': 'Chiasso Post Office: Current Status and Services',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.excerpt': 'Up-to-date information on the Chiasso post office, available services, and access procedures for residents and local users.',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.imageAlt': 'Facade of the Chiasso post office on a sunny day',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Ticino wants to halt or cut cross-border workers\' benefits',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Ticino asks Bern to block or reduce cross-border workers\' benefits due to tax pressures. Two cases over 30 million have shown results.',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Aerial view of the Ticino river and Locarno waterfront in autumn light, symbolizing cross-border workers and fiscal tensions between Switzerland and Italy',
 };
 
 export default blogMetaChEn;

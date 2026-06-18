@@ -215,6 +215,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ufficio-postale-chiasso-aggiornamenti.title': 'Bureau de poste de Chiasso : état actuel et services',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.excerpt': 'Informations actualisées sur le bureau de poste de Chiasso, les services disponibles et les modalités d\'accès pour les résidents et les usagers du territoire.',
     'blog.article.ufficio-postale-chiasso-aggiornamenti.imageAlt': 'Façade du bureau de poste de Chiasso par une journée ensoleillée',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.title': 'Frontaliers: Berna ferme o taglia ristorni?',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.excerpt': 'Levicoli chiede a Berna di interrompere o ridurre le sovvenzioni ai frontalieri per pressioni fiscali. Almeno due casi oltre 30 milioni hanno prodotto risultati.',
+    'blog.article.bloccare-ridurre-ristorni-frontalieri-roma.imageAlt': 'Vue aérienne du fleuve Ticino et du front de mer de Locarno en automne, symbole des frontaliers et des tensions fiscales entre la Suisse et l\'Italie',
 };
 
 export default blogMetaChFr;

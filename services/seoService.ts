@@ -4079,6 +4079,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-hoval-ticino-opportunita-lavoro': { name: 'Hoval Ticino lavoro', path: '/articoli-svizzera/hoval-ticino-opportunita-lavoro/', parent: 'blog' },
     'blog-ufficio-postale-chiasso-aggiornamenti': { name: 'Ufficio postale Chiasso', path: '/articoli-svizzera/ufficio-postale-chiasso-aggiornamenti/', parent: 'blog' },
     'blog-agenzie-interim-lugano-ticino-frontaliere': { name: 'Agenzie lavoro Lugano', path: '/articoli-frontaliere/agenzie-interim-lugano-ticino-frontaliere', parent: 'blog' },
+    'blog-bloccare-ridurre-ristorni-frontalieri-roma': { name: 'Frontalieri', path: '/articoli-svizzera/bloccare-ridurre-ristorni-frontalieri-roma/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

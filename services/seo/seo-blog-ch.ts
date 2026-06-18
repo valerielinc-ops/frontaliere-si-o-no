@@ -2711,6 +2711,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bloccare-ridurre-ristorni-frontalieri-roma': {
+    title: 'Frontalieri: Roma blocca i ristorni? Il Ticino propone stop o tagli',
+    description: 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, roma, blocca, ristorni, propone',
+    ogTitle: 'Frontalieri: Roma blocca i ristorni? Il Ticino propone st',
+    ogDescription: 'Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati.',
+    canonicalPath: '/articoli-svizzera/bloccare-ridurre-ristorni-frontalieri-roma/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: Roma blocca i ristorni? Il Ticino propone stop o tagli",
+      "description": "Ticino chiede a Berna di bloccare o ridurre i ristorni ai frontalieri per pressioni fiscali. Due casi oltre 30 milioni hanno dato risultati. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bloccare-ridurre-ristorni-frontalieri-roma.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del fiume Ticino e del lungolago di Locarno in autunno, simbolo dei frontalieri e delle tensioni fiscali tra Svizzera e Italia"
+      },
+      "datePublished": "2026-06-18T08:07:12+00:00",
+      "dateModified": "2026-06-18T08:07:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bloccare-ridurre-ristorni-frontalieri-roma/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
