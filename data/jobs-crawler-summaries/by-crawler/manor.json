@@ -1,90 +1,18 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-06-18T12:48:58.574Z",
+  "generatedAt": "2026-06-18T23:16:32.123Z",
   "total": 167,
-  "newCount": 16,
-  "updatedCount": 151,
+  "newCount": 13,
+  "updatedCount": 154,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 301014,
-  "avgDurationMs": 301014,
+  "durationMs": 295591,
+  "avgDurationMs": 295591,
   "durationHistory": [
-    301014
+    295591
   ],
   "newJobs": [
-    {
-      "title": "Mitarbeiter*in Visual Merchandising 80%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Zug-Mitarbeiterin-Visual-Merchandising-80/1355819255/",
-      "location": "Zug Mitarbeiterin Visual Merchandising",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "design",
-      "descriptionIt": "- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farben und Formen",
-      "postedDate": "2026-06-18",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising",
-      "sourceLang": "de",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 59,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 7,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaboratore/trice Cassa (Confezione Uomo) 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-Cassa-%28Confezione-Uomo%29-40/1355804655/",
-      "location": "Locarno Collaboratoretrice Cassa (Confezione",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Puntualità e rispetto degli orari, motivazione e interesse per il lavoro, precisione nello svolgere i compiti in cassa, buona collaborazione con il team, conoscenza delle procedure di base, responsabilità e affidabilità",
-      "postedDate": "2026-06-18",
-      "source": "company-website",
-      "slug": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno-collaboratoretrice-cassa-confezione",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 14,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaborateur/trice cuisine Etudiant 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Sion-Collaborateurtrice-cuisine-Etudiant-20/1355807355/",
-      "location": "Sion Collaborateurtrice cuisine Etudiant",
-      "canton": "VS",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "Collaborateur/trice cuisine Etudiant 20% presso Manor, con sede a Sion Collaborateurtrice cuisine Etudiant, Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-18",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-cuisine-etudiant-20-sion-collaborateurtrice-cuisine-etudiant",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 14,
-        "completeness": 11
-      }
-    },
     {
       "title": "Head of Retail Media 100%",
       "company": "Manor AG",
@@ -516,6 +444,78 @@
         "cleanliness": 25,
         "richness": 7,
         "translation": 19,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Visual Merchandising 80%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Zug-Mitarbeiterin-Visual-Merchandising-80/1355819255/",
+      "location": "Zug Mitarbeiterin Visual Merchandising",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "design",
+      "descriptionIt": "- Ausgezeichnetes räumliches Vorstellungsvermögen\n- Handwerkliche Fähigkeiten\n- Sinn für Farben und Formen",
+      "postedDate": "2026-06-18",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-visual-merchandising-80-zug-mitarbeiterin-visual-merchandising",
+      "sourceLang": "de",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 59,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Collaboratore/trice Cassa (Confezione Uomo) 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-Cassa-%28Confezione-Uomo%29-40/1355804655/",
+      "location": "Locarno Collaboratoretrice Cassa (Confezione",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "descriptionIt": "Puntualità e rispetto degli orari, motivazione e interesse per il lavoro, precisione nello svolgere i compiti in cassa, buona collaborazione con il team, conoscenza delle procedure di base, responsabilità e affidabilità",
+      "postedDate": "2026-06-18",
+      "source": "company-website",
+      "slug": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno-collaboratoretrice-cassa-confezione",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 14,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Collaborateur/trice cuisine Etudiant 20%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Sion-Collaborateurtrice-cuisine-Etudiant-20/1355807355/",
+      "location": "Sion Collaborateurtrice cuisine Etudiant",
+      "canton": "VS",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "Collaborateur/trice cuisine Etudiant 20% presso Manor, con sede a Sion Collaborateurtrice cuisine Etudiant, Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-06-18",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-cuisine-etudiant-20-sion-collaborateurtrice-cuisine-etudiant",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 14,
         "completeness": 11
       }
     },
@@ -1046,78 +1046,6 @@
         "translation": 16,
         "completeness": 11
       }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf Damenkonfektion 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Damenkonfektion-40/1355430255/",
-      "location": "Spreitenbach Mitarbeiterin Verkauf Damenkonfektion",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Mitarbeiter*in Verkauf Damenkonfektion 40% presso Manor, con sede a Spreitenbach Mitarbeiterin Verkauf Damenkonfektion, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-15",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-damenkonfektion-40-spreitenbach-mitarbeiterin-verkauf-damenkonfektion",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Kassierer*in Non Food 30%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Kassiererin-Non-Food-30/1355448455/",
-      "location": "Spreitenbach Kassiererin Non Food",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Kassierer*in Non Food 30% presso Manor, con sede a Spreitenbach Kassiererin Non Food, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-15",
-      "source": "company-website",
-      "slug": "manor-kassierer-in-non-food-30-spreitenbach-kassiererin-non-food",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf Parfümerie 30%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1355425855/",
-      "location": "Spreitenbach Mitarbeiterin Verkauf Parfümerie",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Mitarbeiter*in Verkauf Parfümerie 30% presso Manor, con sede a Spreitenbach Mitarbeiterin Verkauf Parfümerie, Canton Argovia, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-06-15",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-parfumerie-30-spreitenbach-mitarbeiterin-verkauf-parfumerie",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
     }
   ],
   "removedJobs": [
@@ -1136,7 +1064,6 @@
       "slug": "manor-teamleiter-in-facility-security-non-food-100-hochdorf-teamleiterin-facility",
       "sourceLang": "de",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-f19e6ecceba9",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1147,11 +1074,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6003",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "_qualityScore": 74,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 20,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1170,7 +1097,6 @@
       "slug": "manor-mitarbeiter-in-saal-abwaschkuche-40-basel-mitarbeiterin-saalabwaschkuche-40",
       "sourceLang": "it",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "manor-51e95e03eb49",
       "salaryMin": 67500,
       "salaryMax": 84500,
@@ -1181,11 +1107,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "4001",
       "firstSeenAt": "2026-06-10T23:09:21.713Z",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     }
