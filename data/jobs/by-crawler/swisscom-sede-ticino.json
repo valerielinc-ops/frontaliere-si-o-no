@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-06-18T13:15:56.968Z",
+  "assembledAt": "2026-06-18T23:43:32.203Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Business-Engineer_R-0005408-1",
@@ -74,7 +74,8 @@
       },
       "previousSlugs": [
         "business-engineer-swisscom-bern-wlhqa0"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Escalation-Manager-Operation-Control-Center_R-0004579-1",
@@ -307,7 +308,8 @@
       },
       "previousSlugs": [
         "business-process-operations-specialist-funds-swisscom-olten-1teks8"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Solution-Sales-B2B_R-0005699",
@@ -381,7 +383,8 @@
       },
       "previousSlugs": [
         "solution-sales-b2b-swisscom-zurich-7ixo0n"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",
@@ -536,7 +539,8 @@
       },
       "previousSlugs": [
         "devops-system-engineer-swisscom-bern-q3zzbu"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-SAP-Technology-Consultant_R-0005423-1",
@@ -614,7 +618,8 @@
       },
       "previousSlugs": [
         "senior-sap-technology-consultant-swisscom-zurich-6txn43"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Enterprise-Architect_R-0005711-1",
@@ -680,7 +685,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-03T01:22:50.225Z"
+      "firstSeenAt": "2026-06-03T01:22:50.225Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PAM-PKI_R-0005223",
@@ -761,7 +767,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pam-pki-swisscom-bern-jdh6dq"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer_R-0005544",
@@ -926,7 +933,8 @@
       "postalCode": "4600",
       "addressRegion": "SO",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-22T00:03:38.031Z"
+      "firstSeenAt": "2026-05-22T00:03:38.031Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",
@@ -1242,7 +1250,8 @@
       },
       "previousSlugs": [
         "system-architect-ansible-swisscom-bern-5dk2mo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PKI_R-0005527",
@@ -1321,7 +1330,8 @@
       "previousSlugs": [
         "devops-engineer-pki-swisscom-bern-7g85ru",
         "devops-ingenieur-pki-swisscom-sede-ticino-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/DevOps-Engineer-BCA-Cloud_R-0005258-1",
@@ -1402,7 +1412,8 @@
       },
       "previousSlugs": [
         "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner---Kubernetes-Platform_R-0005123",
@@ -1506,12 +1517,12 @@
         "de": "Technischer Eigentümer OpenShift",
         "fr": "Propriétaire du produit technique OpenShift"
       },
-      "slug": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
+      "slug": "technical-product-owner-openshift-swisscom-zurich-s7ze68",
       "slugByLocale": {
-        "it": "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
+        "it": "technical-product-owner-openshift-swisscom-zurich-s7ze68",
         "en": "technical-product-owner-openshift-swisscom-sede-ticino-zurich",
         "de": "technical-product-owner-openshift-swisscom-zurich-s7ze68",
-        "fr": "proprietaire-du-produit-technique-openshift-swisscom-sede-ticino-zurich"
+        "fr": "technical-product-owner-openshift-swisscom-zurich-s7ze68"
       },
       "category": "production",
       "datePosted": "2026-05-12",
@@ -1547,7 +1558,8 @@
       "firstSeenAt": "2026-05-12T23:06:10.710Z",
       "previousSlugs": [
         "product-owner-openshift-swisscom-sede-ticino-zurich",
-        "technical-product-owner-openshift-swisscom-zurich-s7ze68",
+        "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
+        "proprietaire-du-produit-technique-openshift-swisscom-sede-ticino-zurich",
         "technischer-eigentumer-openshift-swisscom-sede-ticino-zurich",
         "proprietario-del-prodotto-openshift-swisscom-sede-ticino-zurich",
         "product-owner-openshift-swisscom-zurich-s7ze68"
@@ -1555,9 +1567,11 @@
       "previousSlugsByLocale": {
         "it": [
           "product-owner-openshift-swisscom-sede-ticino-zurich",
+          "titolare-del-prodotto-tecnico-openshift-swisscom-sede-ticino-zurich",
           "technical-product-owner-openshift-swisscom-zurich-s7ze68"
         ],
         "fr": [
+          "proprietaire-du-produit-technique-openshift-swisscom-sede-ticino-zurich",
           "technical-product-owner-openshift-swisscom-zurich-s7ze68"
         ],
         "de": [
@@ -1597,7 +1611,7 @@
         "it": "business-ingegnere-syrius-swisscom-sede-ticino-zurich",
         "en": "business-engineer-syrius-swisscom-sede-ticino-zurich",
         "de": "business-engineer-syrius-swisscom-zurich-b0d1aa",
-        "fr": "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich"
+        "fr": "business-engineer-syrius-swisscom-zurich-b0d1aa"
       },
       "category": "technology",
       "datePosted": "2026-04-30",
@@ -1636,12 +1650,15 @@
           "business-engineer-syrius-swisscom-zurich-b0d1aa"
         ],
         "fr": [
+          "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich",
           "business-engineer-syrius-swisscom-zurich-b0d1aa"
         ]
       },
       "previousSlugs": [
-        "business-engineer-syrius-swisscom-zurich-b0d1aa"
-      ]
+        "business-engineer-syrius-swisscom-zurich-b0d1aa",
+        "ingenieur-d-affaires-syrius-swisscom-sede-ticino-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Cyber-Security-Analyst_R-0004250-1",
@@ -1723,7 +1740,8 @@
         "senior-data-analyst-data-engineer-swisscom-sede-ticino-zurich",
         "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g",
         "senior-data-analyste-data-ingenieur-swisscom-sede-ticino-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Design---Multimedia-Specialist-Corporate-Communications_R-0004388",
@@ -1902,7 +1920,8 @@
       },
       "previousSlugs": [
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -2058,7 +2077,8 @@
       },
       "previousSlugs": [
         "devops-engineer-open-source-collab-betrieb-swisscom-bern-kv6k1v"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant---Full-Stack-Software-Engineer_R-0004536-1",
@@ -2133,88 +2153,8 @@
       },
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej"
-      ]
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Onsite-IT-Support-Specialist-in-Vevey_R-0003999",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Vevey/Onsite-IT-Support-Specialist-in-Vevey_R-0003999",
-      "title": "Onsite VIP IT Support Specialist Vevey",
-      "company": "Swisscom (sede Ticino)",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Vevey",
-      "addressLocality": "Vevey",
-      "canton": "VD",
-      "country": "CH",
-      "description": "# Onsite VIP IT Support Specialist Vevey\n\n## Il tuo futuro inizia qui\nTu assures le support IT directement sur site chez notre client à Vevey. Tu fournis du support premium à une population VIP sur des solutions Microsoft 365, Copilot, ChatGPT, la mobilité ou encore la visioconférence, et tu formes les utilisatrices et utilisateurs aux nouveautés. Grâce à ton sens du service, tu représentes Swisscom chez le client et garantis une qualité de service élevée. Tu rejoins une équipe polyvalente et engagée qui travaille main dans la main pour satisfaire la clientèle.\n- Support IT sur site pour Microsoft 365, Copilot et ChatGPT, ainsi que la mobilité et la visioconférence\n- Formation des utilisatrices et utilisateurs aux nouvelles fonctionnalités applicatives\n- Support ponctuellement en dehors des horaires standards, y compris après 17 h 30\n- Participation occasionnelle au service de piquet\n\n## Tes compétences\n- Diplôme professionnel (CFC) en informatique ou titre jugé équivalent, avec une première expérience\n- Très bon niveau de français et d'anglais obligatoire\n- Excellente maîtrise de Microsoft 365, avec de bonnes connaissances des outils IA.\n- Forte orientation client, écoute active et communication claire\n- Esprit d’initiative, proactivité et sens des responsabilités\n- Sens du travail d’équipe, bonne capacité d’intégration et flexibilité\n- Connaissances Mac (un plus)\n\nTu utiliseras des méthodes de travail agiles et les dernières technologies. Nous proposons des horaires de travail flexibles adaptés à tes besoins personnels. En tant que collaborateur/-trice de Swisscom, tu disposes d’avantages attrayants qui enrichiront ton expérience professionnelle. Ces derniers incluent un environnement de travail agréable, des avantages financiers et des opportunités passionnantes d’évolution professionnelle. Découvre tes avantages.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "# Onsite VIP IT Support Specialist Vevey ## Il tuo futuro inizia qui Tu assures le support IT directement sur site chez notre client à Vevey. Tu fournis du support premium à une population VIP sur des solutions Microsoft 365, Copilot, ChatGPT, la mobilité ou encore la visioconférence, et tu formes les utilisatrices et utilisateurs aux nouveautés. Grâce à ton sens du service, tu représentes Swisscom chez le client et garantis une qualité de service élevée. Tu rejoins une équipe polyvalente et engagée qui travaille main dans la main pour satisfaire la clientèle. - Support IT sur site pour Microsoft 365, Copilot et ChatGPT, ainsi que la mobilité et la visioconférence - Formation des utilisatrices et utilisateurs aux nouvelles fonctionnalités applicatives - Support ponctuellement en dehors des horaires standards, y compris après 17 h 30 - Participation occasionnelle au service de piquet ## Tes compétences - Diplôme professionnel (CFC) en informatique ou titre jugé équivalent, avec une première expérience - Très bon niveau de français et d'anglais obligatoire - Excellente maîtrise de Microsoft 365, avec de bonnes connaissances des outils IA. - Forte orientation client, écoute active et communication claire - Esprit d’initiative, proactivité et sens des responsabilités - Sens du travail d’équipe, bonne capacité d’intégration et flexibilité - Connaissances Mac (un plus) Tu utiliseras des méthodes de travail agiles et les dernières technologies.\n• Nous proposons des horaires de travail flexibles adaptés à tes besoins personnels. En tant que collaborateur/-trice de Swisscom, tu disposes d’avantages attrayants qui enrichiront ton expérience professionnelle. Ces derniers incluent un environnement de travail agréable, des avantages financiers et des opportunités passionnantes d’évolution professionnelle. Découvre tes avantages. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "en": "# Onsite VIP IT Support Specialist Vevey ## Il tuo futuro inizia qui Tu assures le support IT directement sur site chez notre client à Vevey. Tu fournis du support premium à une population VIP sur des solutions Microsoft 365, Copilot, ChatGPT, la mobilité ou encore la visioconférence, et tu formes les utilisatrices et utilisateurs aux nouveautés. Grâce à ton sens du service, tu représentes Swisscom chez le client et garantis une qualité de service élevée. Tu rejoins une équipe polyvalente et engagée qui travaille main dans la main pour satisfaire la clientèle. - Support IT sur site pour Microsoft 365, Copilot et ChatGPT, ainsi que la mobilité et la visioconférence - Formation des utilisatrices et utilisateurs aux nouvelles fonctionnalités applicatives - Support ponctuellement en dehors des horaires standards, y compris après 17 h 30 - Participation occasionnelle au service de piquet ## Tes compétences - Diplôme professionnel (CFC) en informatique ou titre jugé équivalent, avec une première expérience - Très bon niveau de français et d'anglais obligatoire - Excellente maîtrise de Microsoft 365, avec de bonnes connaissances des outils IA. - Forte orientation client, écoute active et communication claire - Esprit d’initiative, proactivité et sens des responsabilités - Sens du travail d’équipe, bonne capacité d’intégration et flexibilité - Connaissances Mac (un plus) Tu utiliseras des méthodes de travail agiles et les dernières technologies.\n• Nous proposons des horaires de travail flexibles adaptés à tes besoins personnels. En tant que collaborateur/-trice de Swisscom, tu disposes d’avantages attrayants qui enrichiront ton expérience professionnelle. Ces derniers incluent un environnement de travail agréable, des avantages financiers et des opportunités passionnantes d’évolution professionnelle. Découvre tes avantages. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "de": "# Onsite VIP IT Support Specialist Vevey ## Il tuo futuro inizia qui Tu assures le support IT directement sur site chez notre client à Vevey. Tu fournis du support premium à une population VIP sur des solutions Microsoft 365, Copilot, ChatGPT, la mobilité ou encore la visioconférence, et tu formes les utilisatrices et utilisateurs aux nouveautés. Grâce à ton sens du service, tu représentes Swisscom chez le client et garantis une qualité de service élevée. Tu rejoins une équipe polyvalente et engagée qui travaille main dans la main pour satisfaire la clientèle. - Support IT sur site pour Microsoft 365, Copilot et ChatGPT, ainsi que la mobilité et la visioconférence - Formation des utilisatrices et utilisateurs aux nouvelles fonctionnalités applicatives - Support ponctuellement en dehors des horaires standards, y compris après 17 h 30 - Participation occasionnelle au service de piquet ## Tes compétences - Diplôme professionnel (CFC) en informatique ou titre jugé équivalent, avec une première expérience - Très bon niveau de français et d'anglais obligatoire - Excellente maîtrise de Microsoft 365, avec de bonnes connaissances des outils IA. - Forte orientation client, écoute active et communication claire - Esprit d’initiative, proactivité et sens des responsabilités - Sens du travail d’équipe, bonne capacité d’intégration et flexibilité - Connaissances Mac (un plus) Tu utiliseras des méthodes de travail agiles et les dernières technologies.\n• Nous proposons des horaires de travail flexibles adaptés à tes besoins personnels. En tant que collaborateur/-trice de Swisscom, tu disposes d’avantages attrayants qui enrichiront ton expérience professionnelle. Ces derniers incluent un environnement de travail agréable, des avantages financiers et des opportunités passionnantes d’évolution professionnelle. Découvre tes avantages. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa",
-        "fr": "# Onsite VIP IT Support Specialist Vevey ## Il tuo futuro inizia qui Tu assures le support IT directement sur site chez notre client à Vevey. Tu fournis du support premium à une population VIP sur des solutions Microsoft 365, Copilot, ChatGPT, la mobilité ou encore la visioconférence, et tu formes les utilisatrices et utilisateurs aux nouveautés. Grâce à ton sens du service, tu représentes Swisscom chez le client et garantis une qualité de service élevée. Tu rejoins une équipe polyvalente et engagée qui travaille main dans la main pour satisfaire la clientèle. - Support IT sur site pour Microsoft 365, Copilot et ChatGPT, ainsi que la mobilité et la visioconférence - Formation des utilisatrices et utilisateurs aux nouvelles fonctionnalités applicatives - Support ponctuellement en dehors des horaires standards, y compris après 17 h 30 - Participation occasionnelle au service de piquet ## Tes compétences - Diplôme professionnel (CFC) en informatique ou titre jugé équivalent, avec une première expérience - Très bon niveau de français et d'anglais obligatoire - Excellente maîtrise de Microsoft 365, avec de bonnes connaissances des outils IA. - Forte orientation client, écoute active et communication claire - Esprit d’initiative, proactivité et sens des responsabilités - Sens du travail d’équipe, bonne capacité d’intégration et flexibilité - Connaissances Mac (un plus) Tu utiliseras des méthodes de travail agiles et les dernières technologies.\n• Nous proposons des horaires de travail flexibles adaptés à tes besoins personnels. En tant que collaborateur/-trice de Swisscom, tu disposes d’avantages attrayants qui enrichiront ton expérience professionnelle. Ces derniers incluent un environnement de travail agréable, des avantages financiers et des opportunités passionnantes d’évolution professionnelle. Découvre tes avantages. ## Is it a match? Candidati ora. ## Scopri le tue possibilità ## Hai delle domande? Qui troverai risposte alle domande più importanti e frequenti. A tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti. ## Persona di contatto ## La tua base operativa"
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
-      "titleByLocale": {
-        "it": "Onsite VIP IT Support Specialista Vevey",
-        "en": "Onsite VIP IT Support Specialist Vevey",
-        "de": "Onsite VIP IT Support Spezialist Vevey",
-        "fr": "Onsite VIP IT Support Spécialiste Vevey"
-      },
-      "slug": "onsite-vip-it-support-specialista-vevey-swisscom-sede-ticino-vevey",
-      "slugByLocale": {
-        "it": "onsite-vip-it-support-specialista-vevey-swisscom-sede-ticino-vevey",
-        "en": "onsite-vip-it-support-specialist-vevey-swisscom-sede-ticino-vevey",
-        "de": "onsite-vip-it-support-spezialist-vevey-swisscom-sede-ticino-vevey",
-        "fr": "onsite-vip-it-support-specialiste-vevey-swisscom-sede-ticino-vevey"
-      },
-      "category": "technology",
-      "datePosted": "2026-03-16",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "VD",
-        "location": "Vevey"
-      },
-      "sourceLang": "fr",
-      "jobReqId": "R-0003999",
-      "crawledAt": "",
-      "id": "swisscom-sede-ticino-62a7efe2c30c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1800",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-        ],
-        "de": [
-          "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-        ],
-        "fr": [
-          "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-        ]
-      },
-      "previousSlugs": [
-        "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Avaloq-Consultant---Expert-Credit_R-0004266",
@@ -2372,7 +2312,8 @@
       },
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
