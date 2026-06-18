@@ -41,6 +41,7 @@ export const COMPANY_HQ_ADDRESSES: Record<string, CompanyHqAddress> = {
   'helsinn': { streetAddress: 'Via Pian Scairolo 9', postalCode: '6912', addressLocality: 'Lugano', addressRegion: 'TI' },
   'ibsa-institut-biochimique': { streetAddress: 'Via del Piano 29', postalCode: '6926', addressLocality: 'Montagnola', addressRegion: 'TI' },
   'medacta-international': { streetAddress: 'Strada Regina', postalCode: '6874', addressLocality: 'Castel San Pietro', addressRegion: 'TI' },
+  microsoft: { streetAddress: 'The Circle 02', postalCode: '8058', addressLocality: 'Zürich', addressRegion: 'ZH' },
   'rsi-radiotelevisione-svizzera': { streetAddress: 'Via Canevascini 7', postalCode: '6903', addressLocality: 'Lugano', addressRegion: 'TI' },
   'usi-universita-della-svizzera-italiana': { streetAddress: 'Via G. Buffi 13', postalCode: '6904', addressLocality: 'Lugano', addressRegion: 'TI' },
   'supsi-dti': { streetAddress: 'Via Cantonale 2c', postalCode: '6928', addressLocality: 'Manno', addressRegion: 'TI' },

@@ -3294,6 +3294,7 @@ export const COMPANY_DEFAULTS = {
   'sunrise-sede-ticino':                  { streetAddress: 'Via Industria 7',          postalCode: '6814', addressLocality: 'Cadempino',         addressRegion: 'TI', addressCountry: 'CH' },
   'lis-lugano-istituti-sociali':          { streetAddress: 'Via Trevano 55',           postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'medacta-international':                { streetAddress: 'Strada Regina',            postalCode: '6874', addressLocality: 'Castel San Pietro', addressRegion: 'TI', addressCountry: 'CH' },
+  'microsoft':                            { streetAddress: 'The Circle 02',            postalCode: '8058', addressLocality: 'Zürich',            addressRegion: 'ZH', addressCountry: 'CH' },
   'zurich-insurance-sede-ticino':         { streetAddress: 'Via Pretorio 22',          postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
 };
 

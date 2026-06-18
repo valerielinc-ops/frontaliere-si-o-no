@@ -320,6 +320,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'medtronic': cLogo('medtronic.com'),
  'merian-iselin': cLogo('merianiselin.ch'),
  'michel-gruppe-ag': cLogo('michel-gruppe.ch'),
+ 'microsoft': cLogo('microsoft.com'),
  'migros-hq': cLogo('migros.ch'),
  'migros-ticino': gFavicon('migros.ch'),
  'mikron': '/images/brands/mikron.png',
