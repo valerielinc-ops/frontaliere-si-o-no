@@ -603,6 +603,16 @@ const PublisherPublishPage: React.FC = () => {
  }
  }, [user]);
 
+ // Preselect a tier from `?tier=` (e.g. the "Piano Azienda" CTA on /per-le-aziende/
+ // links here with ?tier=azienda). Only on a fresh ad, only the untouched default.
+ useEffect(() => {
+ if (isEdit) return;
+ const want = new URLSearchParams(window.location.search).get('tier');
+ if (want === 'azienda' || want === 'sponsored' || want === 'free') {
+ setTier((v) => (v === 'sponsored' ? (want as PublisherTier) : v));
+ }
+ }, [isEdit]);
+
  // Prefill the company section from a saved publisher profile (repeat posters
  // shouldn't re-type their company on every ad). Skipped in edit mode — the
  // edited ad's own company snapshot is the source of truth there.
@@ -1207,13 +1217,19 @@ const PublisherPublishPage: React.FC = () => {
  ] as const).map(opt => {
  const selected = tier === opt.value;
  const isSponsoredCard = opt.value === 'sponsored';
- // Sponsored = warm "gold" identity (warning token + Star); free = neutral.
+ const isAziendaCard = opt.value === 'azienda';
+ // Three distinct identities so the options read at a glance: sponsored = warm
+ // "gold" (Star), azienda = accent "premium" (Illimitato), free = neutral.
  const selectedRing = isSponsoredCard
  ? 'border-warning ring-2 ring-warning-border bg-warning-subtle'
- : 'border-accent ring-2 ring-accent-border bg-accent-subtle';
+ : isAziendaCard
+ ? 'border-accent ring-2 ring-accent-border bg-accent-subtle'
+ : 'border-strong/50 ring-2 ring-edge bg-surface-alt';
  const idleRing = isSponsoredCard
  ? 'border-warning-border bg-warning-subtle/40 hover:border-warning'
- : 'border-edge bg-surface-alt hover:border-accent';
+ : isAziendaCard
+ ? 'border-accent-border bg-accent-subtle/40 hover:border-accent'
+ : 'border-edge bg-surface-alt hover:border-strong/40';
  return (
  <button
  key={opt.value}
@@ -1228,6 +1244,11 @@ const PublisherPublishPage: React.FC = () => {
  <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-warning text-on-accent shadow-sm">
  <Star className="w-3 h-3 fill-current" aria-hidden="true" />
  {t('publisherLanding.plan.sponsored.badge')}
+ </span>
+ )}
+ {isAziendaCard && (
+ <span className="absolute -top-2.5 right-4 inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-accent text-on-accent shadow-sm">
+ {t('publisherLanding.plan.azienda.badge')}
  </span>
  )}
  <span className="flex items-center justify-between gap-2">

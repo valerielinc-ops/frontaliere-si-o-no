@@ -3,14 +3,26 @@
  * canary-rpm.mjs — AdSense RPM crash detector.
  *
  * Pulls daily AdSense PAGE_VIEWS_RPM for the last 14 days, computes a
- * trailing 7-day baseline (days T-10..T-4), compares yesterday (T-1)
- * against it, and exits non-zero if yesterday's RPM is below either of:
- *   - `--ratio-floor` × baseline (default 0.65 → alert when RPM < 65% of baseline)
- *   - `--absolute-floor` CHF (default 1.0 CHF, regardless of baseline)
+ * trailing 7-day baseline (days T-9..T-3), compares the latest fully-closed
+ * day against it, and exits non-zero only when BOTH hold:
+ *   - the RPM signal fires — RPM below `--ratio-floor` × baseline
+ *     (default 0.65) OR below `--absolute-floor` CHF (default 1.0), AND
+ *   - earnings confirm it — current-day earnings below `--earnings-floor`
+ *     × baseline earnings (default 0.65).
+ *
+ * The earnings gate exists because RPM is a ratio (earnings ÷ page views):
+ * a page-view spike with healthy earnings halves RPM without losing a
+ * cent (issue #2176, 2026-06-15..17 — earnings ~5.5 CHF/day while PV
+ * spiked to 3625, so RPM "crashed" to 1.51 with zero lost revenue). A
+ * REAL incident collapses earnings, so gating on earnings keeps the catch
+ * while silencing benign traffic spikes. The classification (and the
+ * "never measure the still-open current UTC day" rule) lives in the
+ * unit-tested lib scripts/lib/canaryRpmClassify.mjs.
  *
  * Why exists: incident 2026-05-28 — AdSense RPM crashed 3.04 → 1.74
  * CHF/day in 48h because ~2,540 of ~2,607 articles started serving a
- * 1.7 KB infinite-redirect stub (no SPA bundle, no ad slots). The
+ * 1.7 KB infinite-redirect stub (no SPA bundle, no ad slots) — earnings
+ * cratered alongside RPM, so the earnings gate still fires. The
  * upstream cause is caught at dist-time by `audit:no-dotfile-html` and
  * at content-time by `article-content-canary.yml`. This RPM canary is
  * the LAST line of defense: catches ANY revenue-affecting regression
@@ -30,10 +42,11 @@
  * Usage:
  *   node scripts/canary-rpm.mjs
  *   node scripts/canary-rpm.mjs --json
- *   node scripts/canary-rpm.mjs --ratio-floor=0.7 --absolute-floor=1.5
+ *   node scripts/canary-rpm.mjs --ratio-floor=0.7 --absolute-floor=1.5 --earnings-floor=0.6
  */
 
 import process from "node:process";
+import { classifyRpm } from "./lib/canaryRpmClassify.mjs";
 
 const args = process.argv.slice(2);
 const wantsJson = args.includes("--json");
@@ -46,9 +59,7 @@ const parseFlag = (name, fallback) => {
 
 const RATIO_FLOOR = parseFlag("ratio-floor", 0.65);
 const ABSOLUTE_FLOOR = parseFlag("absolute-floor", 1.0);
-const BASELINE_DAYS = 7;
-const BASELINE_LAG_DAYS = 3; // baseline ends at T-4 (skips noisy last 3 days)
-const REQUIRED_BASELINE_SAMPLES = 5; // need at least 5 days of baseline data
+const EARNINGS_FLOOR = parseFlag("earnings-floor", 0.65);
 
 const log = (line) => {
   if (wantsJson) console.error(line);
@@ -124,76 +135,17 @@ async function fetchDailyRpm() {
   return { account, rows };
 }
 
-function classify(rows) {
-  if (rows.length < BASELINE_LAG_DAYS + REQUIRED_BASELINE_SAMPLES) {
-    return {
-      verdict: "insufficient-data",
-      reason: `need ≥${BASELINE_LAG_DAYS + REQUIRED_BASELINE_SAMPLES} days of data, got ${rows.length}`,
-    };
-  }
-  // Latest fully-closed day = the most recent row whose pageViews looks
-  // "complete" (≥ 60% of the prior day's PV). AdSense daily data is
-  // sometimes truncated for the current UTC day until ~10am UTC the next
-  // day, so we drop trailing rows whose PV looks incomplete.
-  let latestClosedIdx = rows.length - 1;
-  if (rows.length >= 2) {
-    const prior = rows[rows.length - 2].pageViews;
-    const last = rows[rows.length - 1].pageViews;
-    if (prior > 0 && last < prior * 0.5) {
-      // The last row is probably still being collected — skip it.
-      latestClosedIdx = rows.length - 2;
-    }
-  }
-  const currentRow = rows[latestClosedIdx];
-  const baselineEnd = latestClosedIdx - (BASELINE_LAG_DAYS - 1);
-  const baselineStart = baselineEnd - BASELINE_DAYS;
-  if (baselineStart < 0 || baselineEnd <= baselineStart) {
-    return { verdict: "insufficient-data", reason: "baseline window underflowed" };
-  }
-  const baselineRows = rows.slice(baselineStart, baselineEnd);
-  if (baselineRows.length < REQUIRED_BASELINE_SAMPLES) {
-    return {
-      verdict: "insufficient-data",
-      reason: `baseline window has ${baselineRows.length} samples, need ${REQUIRED_BASELINE_SAMPLES}`,
-    };
-  }
-  const baselineRpm =
-    baselineRows.reduce((s, r) => s + (r.rpm || 0), 0) / baselineRows.length;
-  const baselineEarnings =
-    baselineRows.reduce((s, r) => s + (r.earnings || 0), 0) / baselineRows.length;
-  const ratio = baselineRpm > 0 ? currentRow.rpm / baselineRpm : 1;
-
-  const reasons = [];
-  if (currentRow.rpm < ABSOLUTE_FLOOR) {
-    reasons.push(`RPM ${currentRow.rpm.toFixed(2)} < absolute floor ${ABSOLUTE_FLOOR.toFixed(2)}`);
-  }
-  if (baselineRpm > 0 && ratio < RATIO_FLOOR) {
-    reasons.push(
-      `RPM ${currentRow.rpm.toFixed(2)} = ${(ratio * 100).toFixed(0)}% of baseline ${baselineRpm.toFixed(2)} (floor ${(RATIO_FLOOR * 100).toFixed(0)}%)`,
-    );
-  }
-  return {
-    verdict: reasons.length > 0 ? "regression" : "healthy",
-    current: { date: currentRow.date, rpm: currentRow.rpm, earnings: currentRow.earnings, pageViews: currentRow.pageViews },
-    baseline: {
-      from: baselineRows[0].date,
-      to: baselineRows[baselineRows.length - 1].date,
-      rpm: Number(baselineRpm.toFixed(3)),
-      earnings: Number(baselineEarnings.toFixed(2)),
-      samples: baselineRows.length,
-    },
-    ratio: Number((ratio || 0).toFixed(3)),
-    floors: { ratio: RATIO_FLOOR, absoluteCHF: ABSOLUTE_FLOOR },
-    reasons,
-  };
-}
-
 async function main() {
   let result;
   try {
     const { account, rows } = await fetchDailyRpm();
     log(`[canary-rpm] account=${account}, ${rows.length} daily rows`);
-    result = classify(rows);
+    result = classifyRpm(rows, {
+      ratioFloor: RATIO_FLOOR,
+      absoluteFloor: ABSOLUTE_FLOOR,
+      earningsFloor: EARNINGS_FLOOR,
+      todayUtc: fmtDate(new Date()),
+    });
     result.account = account;
     result.rows = rows;
   } catch (err) {
@@ -211,19 +163,25 @@ async function main() {
     }
     if (result.baseline) {
       log(`baseline ${result.baseline.from}..${result.baseline.to}: RPM=${result.baseline.rpm.toFixed(2)} earnings=${result.baseline.earnings.toFixed(2)} (${result.baseline.samples} samples)`);
-      log(`ratio=${(result.ratio * 100).toFixed(0)}%   floors: ratio=${(RATIO_FLOOR * 100).toFixed(0)}%, absolute=${ABSOLUTE_FLOOR.toFixed(2)} CHF`);
+      log(`RPM ratio=${(result.ratio * 100).toFixed(0)}%   earnings ratio=${((result.earningsRatio || 0) * 100).toFixed(0)}%   floors: rpm=${(RATIO_FLOOR * 100).toFixed(0)}%, absolute=${ABSOLUTE_FLOOR.toFixed(2)} CHF, earnings=${(EARNINGS_FLOOR * 100).toFixed(0)}%`);
     }
     for (const r of result.reasons || []) log(`  ALERT: ${r}`);
+    if (result.note) log(`  NOTE: ${result.note}`);
   }
   if (result.verdict === "regression") {
-    console.error(`\x1b[31m[canary-rpm]\x1b[0m FAIL — RPM regression`);
+    console.error(`\x1b[31m[canary-rpm]\x1b[0m FAIL — RPM regression (RPM + earnings both below floor)`);
     process.exit(1);
   }
   if (result.verdict === "insufficient-data") {
     console.error(`\x1b[33m[canary-rpm]\x1b[0m SKIP — ${result.reason}`);
     process.exit(0);
   }
-  console.log(`\x1b[32m[canary-rpm]\x1b[0m PASS — RPM healthy`);
+  // Use stderr so --json keeps stdout as pure parseable JSON.
+  console.error(
+    result.note
+      ? `\x1b[32m[canary-rpm]\x1b[0m PASS — RPM dip is benign (earnings healthy)`
+      : `\x1b[32m[canary-rpm]\x1b[0m PASS — RPM healthy`,
+  );
   process.exit(0);
 }
 
