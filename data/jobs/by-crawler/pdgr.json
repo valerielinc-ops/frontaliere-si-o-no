@@ -3316,12 +3316,12 @@
     },
     {
       "id": "pdgr-4506611dc0ea",
-      "slug": "betreuer-in-pdgr-ch",
+      "slug": "carriera-psychiatrische-dienste-graubunden-landquart",
       "slugByLocale": {
         "de": "betreuer-in-pdgr-ch",
-        "it": "betreuer-in-pdgr-ch",
-        "en": "betreuer-in-pdgr-ch",
-        "fr": "betreuer-in-pdgr-ch"
+        "it": "carriera-psychiatrische-dienste-graubunden-landquart",
+        "en": "caregiver-psychiatrische-dienste-graubunden-landquart",
+        "fr": "soins-psychiatrische-dienste-graubunden-landquart"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3381,7 +3381,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-18T12:54:15.903Z"
+      "firstSeenAt": "2026-06-18T12:54:15.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betreuer-in-pdgr-ch"
+        ],
+        "en": [
+          "betreuer-in-pdgr-ch"
+        ],
+        "fr": [
+          "betreuer-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betreuer-in-pdgr-ch"
+      ]
     }
   ]
 }

@@ -3051,7 +3051,7 @@
       "slug": "esperto-a-di-cure-apn-70-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "esperto-a-di-cure-apn-70-hoch-health-ostschweiz-st-gallen",
-        "en": "pflegeexpert-in-apn-70-hoch-health-st-gallen",
+        "en": "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "pflegeexpert-in-apn-70-hoch-health-st-gallen",
         "fr": "expert-en-soins-apn-70-hoch-health-ostschweiz-st-gallen"
       },
@@ -3102,12 +3102,12 @@
           "pflegeexpert-in-apn-70-kssg-ch"
         ],
         "en": [
-          "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "pflegeexpert-in-apn-70-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "pflegeexpert-in-apn-70-kssg-ch",
-        "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "pflegeexpert-in-apn-70-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T13:02:11.519Z",
@@ -4571,7 +4571,7 @@
       "slug": "esperto-esperta-di-cure-intensive-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "esperto-esperta-di-cure-intensive-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen",
+        "en": "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen",
         "fr": "diplome-e-en-soins-intensifs-80-100-hoch-health-ostschweiz-st-gallen"
       },
@@ -4622,12 +4622,12 @@
           "dipl-experte-expertin-intensivpflege-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-experte-expertin-intensivpflege-80-100-kssg-ch",
-        "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T11:39:14.279Z",
@@ -5020,12 +5020,12 @@
     },
     {
       "id": "kssg-4983ea71ea1e",
-      "slug": "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-professionale-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-5b548a",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-40-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-40-100-kssg-ch-3",
-        "fr": "dipl-pflegefachfrau-mann-40-100-kssg-ch-3"
+        "it": "dipl-infermieristica-professionale-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-5b548a",
+        "en": "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-5b548a",
+        "fr": "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-5b548a"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -5070,11 +5070,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-40-100-kssg-ch-3",
+          "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-40-100-kssg-ch-3"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-40-100-kssg-ch-3"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-40-100-kssg-ch-3"
+        "dipl-pflegefachfrau-mann-40-100-kssg-ch-3",
+        "dipl-pflegefachfrau-mann-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7287,7 +7295,7 @@
       "slug": "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
+        "en": "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
         "fr": "diplome-e-en-soins-infirmiers-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
       },
@@ -7338,12 +7346,12 @@
           "dipl-pflegefachfrau-mann-springerpool-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+          "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-springerpool-80-100-kssg-ch",
-        "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:55:58.439Z",
@@ -7887,8 +7895,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch",
         "it": "collaboratore-trice-zentrales-patientenmanagement-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch",
-        "fr": "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch"
+        "en": "employee-central-patient-management-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "gestion-des-employes-centrale-des-patients-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7934,6 +7942,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-zentrales-patientenmanagement-60-100-kssg-ch"
         ]
       },
       "previousSlugs": [
@@ -7955,12 +7969,12 @@
     },
     {
       "id": "kssg-a0c97dbdf1ba",
-      "slug": "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "assistente-medico-pratico-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-40-kssg-ch",
-        "it": "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "fr": "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "it": "assistente-medico-pratico-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "medical-practical-assistant-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "assistant-medical-pratique-en-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8005,11 +8019,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-40-kssg-ch"
+          "medizinische-r-praxisassistent-in-40-kssg-ch",
+          "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-40-kssg-ch"
+        "medizinische-r-praxisassistent-in-40-kssg-ch",
+        "medizinische-r-praxisassistent-in-40-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8252,12 +8274,12 @@
     },
     {
       "id": "kssg-c2dde9fbfd5c",
-      "slug": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "fr": "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        "it": "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-519e9c",
+        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-519e9c"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8302,11 +8324,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+          "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-80-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8553,8 +8583,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-integration-medizin-informatik-80-100-hoch-health-st-gallen",
         "it": "specialista-in-medicina-dell-integrazione-scienza-informatica-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "specialista-in-medicina-dell-integrazione-scienza-informatica-80-100-hoch-health-ostschweiz-st-gallen",
-        "fr": "specialista-in-medicina-dell-integrazione-scienza-informatica-80-100-hoch-health-ostschweiz-st-gallen"
+        "en": "specialist-in-integration-medicine-computer-science-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "specialiste-en-integration-medecine-informatique-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",

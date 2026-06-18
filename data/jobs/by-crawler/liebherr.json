@@ -344,12 +344,12 @@
     },
     {
       "id": "liebherr-c1578274ccff",
-      "slug": "employe-de-maison-polyvalent-h-f-x-liebherr-bulle",
+      "slug": "lavoratore-domestico-multiuso-h-f-x-liebherr-bulle",
       "slugByLocale": {
         "fr": "employe-de-maison-polyvalent-h-f-x-liebherr-bulle",
-        "it": "employe-de-maison-polyvalent-h-f-x-liebherr-bulle",
-        "en": "employe-de-maison-polyvalent-h-f-x-liebherr-bulle",
-        "de": "employe-de-maison-polyvalent-h-f-x-liebherr-bulle"
+        "it": "lavoratore-domestico-multiuso-h-f-x-liebherr-bulle",
+        "en": "multipurpose-household-worker-h-f-x-liebherr-bulle",
+        "de": "mehrzweck-haushaltsarbeiter-h-w-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -405,7 +405,21 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-18T12:41:14.218Z"
+      "firstSeenAt": "2026-06-18T12:41:14.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-de-maison-polyvalent-h-f-x-liebherr-bulle"
+        ],
+        "en": [
+          "employe-de-maison-polyvalent-h-f-x-liebherr-bulle"
+        ],
+        "de": [
+          "employe-de-maison-polyvalent-h-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "employe-de-maison-polyvalent-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-17d9666afa47",
@@ -7673,12 +7687,12 @@
     },
     {
       "id": "liebherr-6519cc3749bd",
-      "slug": "versatile-housekeeper-f-m-x-liebherr-bulle",
+      "slug": "governante-versatile-f-m-x-liebherr-bulle",
       "slugByLocale": {
         "en": "versatile-housekeeper-f-m-x-liebherr-bulle",
-        "it": "versatile-housekeeper-f-m-x-liebherr-bulle",
-        "de": "versatile-housekeeper-f-m-x-liebherr-bulle",
-        "fr": "versatile-housekeeper-f-m-x-liebherr-bulle"
+        "it": "governante-versatile-f-m-x-liebherr-bulle",
+        "de": "vielseitige-haushalterin-f-m-x-liebherr-bulle",
+        "fr": "gardien-polyvalent-f-m-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -7734,7 +7748,21 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-18T12:40:44.598Z"
+      "firstSeenAt": "2026-06-18T12:40:44.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versatile-housekeeper-f-m-x-liebherr-bulle"
+        ],
+        "de": [
+          "versatile-housekeeper-f-m-x-liebherr-bulle"
+        ],
+        "fr": [
+          "versatile-housekeeper-f-m-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "versatile-housekeeper-f-m-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-1483d652ed94",

@@ -1001,12 +1001,12 @@
     },
     {
       "id": "rennbahnklinik-8a190b717933",
-      "slug": "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
+      "slug": "dipl-medico-tecnica-r-specialista-di-radiologia-60-100-rennbahnklinik-muttenz",
       "slugByLocale": {
-        "it": "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
-        "en": "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
+        "it": "dipl-medico-tecnica-r-specialista-di-radiologia-60-100-rennbahnklinik-muttenz",
+        "en": "dipl-medical-technical-r-radiology-specialist-60-100-rennbahnklinik-muttenz",
         "de": "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz",
-        "fr": "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+        "fr": "specialiste-en-radiologie-medicale-technique-r-60-100-rennbahnklinik-muttenz"
       },
       "company": "Rennbahnklinik",
       "companyKey": "rennbahnklinik",
@@ -1061,7 +1061,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+        ],
+        "en": [
+          "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+        ],
+        "fr": [
+          "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-medizinisch-technische-r-radiologiefachfrau-mann-60-100-rennbahnklinik-muttenz"
+      ]
     }
   ]
 }

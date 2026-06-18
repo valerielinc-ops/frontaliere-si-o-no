@@ -24,12 +24,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zweisimmen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-zweisimmen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-zweisimmen",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-zweisimmen"
       },
       "sourceLang": "de",
       "department": "",
@@ -68,17 +68,23 @@
       "firstSeenAt": "2026-06-18T13:00:32.846Z",
       "previousSlugsByLocale": {
         "en": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-3"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post"
         ],
         "fr": [
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-3"
+        ],
+        "it": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-3"
       ]
     },
     {
@@ -103,12 +109,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-nebikon",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-nebikon",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-nebikon",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-nebikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -129,20 +135,25 @@
       "id": "posta-svizzera-centro-regionale-94733c64c0ec",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-3"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-2"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-3"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -190,7 +201,7 @@
         "it": "punti-di-contatto-con-il-cliente-dell-architettono-soluzione-die-schweizerische-post-bellinzona",
         "de": "solution-architekt-in-customer-touchpoints-post",
         "en": "solution-architekt-in-customer-touchpoints-post",
-        "fr": "punti-di-contatto-con-il-cliente-dell-architettono-soluzione-die-schweizerische-post-bellinzona"
+        "fr": "solution-architecte-dans-les-points-de-contact-clients-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -258,12 +269,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-hinwil",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-hinwil",
+        "en": "delivery-in-packages-die-schweizerische-post-hinwil",
         "de": "zusteller-in-pakete-die-schweizerische-post-hinwil",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-hinwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -298,7 +309,21 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "postalCode": "8001",
-      "firstSeenAt": "2026-06-18T13:00:32.846Z"
+      "firstSeenAt": "2026-06-18T13:00:32.846Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74117-de_DE",
@@ -322,12 +347,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bosingen",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post-3",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bosingen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-bosingen",
         "de": "zusteller-in-briefe-und-pakete-post-3",
-        "fr": "zusteller-in-briefe-und-pakete-post-3"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-bosingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -347,11 +372,19 @@
       "id": "posta-svizzera-centro-regionale-02b290924bc5",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-3"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post-3"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-3"
+        "zusteller-in-briefe-und-pakete-post-3",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -397,9 +430,9 @@
       "slug": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur",
       "slugByLocale": {
         "it": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur",
-        "en": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur",
+        "en": "team-leader-in-ticket-control-and-customer-advice-postauto-chur",
         "de": "teamleiter-in-fahrausweiskontrolle-und-kundenberatung-chur-postauto-chur",
-        "fr": "teamleiter-in-fahrausweiskontrolle-e-kundenberatung-chur-postauto-chur"
+        "fr": "chef-d-equipe-en-controle-des-billets-et-conseils-a-la-clientele-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -467,12 +500,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-buchs-ag",
+        "en": "delivery-in-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-pakete-die-schweizerische-post-hinwil",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -511,14 +544,22 @@
       "firstSeenAt": "2026-06-17T13:25:00.907Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-pakete-post-2"
+          "zusteller-in-pakete-post-2",
+          "zusteller-in-pakete-post"
         ],
         "de": [
           "zusteller-in-pakete-die-schweizerische-post-buchs-ag"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
         ]
       },
       "previousSlugs": [
         "zusteller-in-pakete-post-2",
+        "zusteller-in-pakete-post",
         "zusteller-in-pakete-die-schweizerische-post-buchs-ag"
       ]
     },
@@ -544,12 +585,12 @@
         "de": "Sales Manager ePost",
         "fr": "Directeur des ventes ePost"
       },
-      "slug": "sales-manager-epost-post",
+      "slug": "responsabile-vendite-epost-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "sales-manager-epost-post",
+        "it": "responsabile-vendite-epost-die-schweizerische-post-bern",
         "en": "sales-manager-epost-post",
         "de": "sales-manager-epost-post",
-        "fr": "sales-manager-epost-post"
+        "fr": "directeur-des-ventes-epost-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -585,7 +626,18 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-17T13:25:00.907Z"
+      "firstSeenAt": "2026-06-17T13:25:00.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-epost-post"
+        ],
+        "fr": [
+          "sales-manager-epost-post"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-epost-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73501-de_DE",
@@ -612,9 +664,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lyss",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lyss",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-lyss",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-lyss"
       },
       "sourceLang": "de",
       "department": "",
@@ -654,6 +706,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -685,9 +743,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-weggis",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-weggis",
-        "en": "zusteller-in-briefe-und-pakete-post-2",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-weggis",
         "de": "zusteller-in-briefe-und-pakete-post-2",
-        "fr": "zusteller-in-briefe-und-pakete-post-2"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-weggis"
       },
       "sourceLang": "de",
       "department": "",
@@ -710,6 +768,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-2"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post-2"
         ]
       },
       "previousSlugs": [
@@ -757,12 +821,12 @@
         "de": "Servicetechniker:in",
         "fr": "Technicien des services :"
       },
-      "slug": "servicetechniker-in-post",
+      "slug": "tecnico-di-servizio-die-schweizerische-post-frauenfeld",
       "slugByLocale": {
-        "it": "servicetechniker-in-post",
-        "en": "servicetechniker-in-die-schweizerische-post-frauenfeld",
+        "it": "tecnico-di-servizio-die-schweizerische-post-frauenfeld",
+        "en": "service-technician-die-schweizerische-post-frauenfeld",
         "de": "servicetechniker-in-die-schweizerische-post-frauenfeld",
-        "fr": "servicetechniker-in-die-schweizerische-post-frauenfeld"
+        "fr": "technicien-des-services-die-schweizerische-post-frauenfeld"
       },
       "sourceLang": "de",
       "department": "",
@@ -798,7 +862,22 @@
       "addressRegion": "TG",
       "addressCountry": "CH",
       "postalCode": "8500",
-      "firstSeenAt": "2026-06-17T13:25:00.907Z"
+      "firstSeenAt": "2026-06-17T13:25:00.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-post"
+        ],
+        "en": [
+          "servicetechniker-in-die-schweizerische-post-frauenfeld"
+        ],
+        "fr": [
+          "servicetechniker-in-die-schweizerische-post-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-post",
+        "servicetechniker-in-die-schweizerische-post-frauenfeld"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Teamleiterin-Auftrags-und-Leistungsverrechnung-FM/73822-de_DE",
@@ -825,9 +904,9 @@
       "slug": "teamleiter-in-auftrags-e-leistungsverrechnung-fm-die-schweizerische-post-lausanne",
       "slugByLocale": {
         "it": "teamleiter-in-auftrags-e-leistungsverrechnung-fm-die-schweizerische-post-lausanne",
-        "en": "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post",
+        "en": "team-leader-in-order-and-service-billing-fm-die-schweizerische-post-lausanne",
         "de": "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post",
-        "fr": "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post"
+        "fr": "chef-d-equipe-en-ordre-et-facturation-de-service-fm-die-schweizerische-post-lausanne"
       },
       "sourceLang": "de",
       "department": "",
@@ -867,6 +946,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post"
+        ],
+        "en": [
+          "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post"
+        ],
+        "fr": [
+          "teamleiter-in-auftrags-und-leistungsverrechnung-fm-post"
         ]
       },
       "previousSlugs": [
@@ -895,12 +980,12 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "autista-postbus-postauto-wilderswil",
+      "slug": "postbus-driver-in-postauto-wilderswil",
       "slugByLocale": {
-        "it": "autista-postbus-postauto-wilderswil",
+        "it": "postbus-driver-in-postauto-wilderswil",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-wilderswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -939,11 +1024,16 @@
       "firstSeenAt": "2026-06-16T14:07:19.531Z",
       "previousSlugsByLocale": {
         "it": [
+          "postauto-fahrer-in-post",
+          "autista-postbus-postauto-wilderswil"
+        ],
+        "fr": [
           "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-post"
+        "postauto-fahrer-in-post",
+        "autista-postbus-postauto-wilderswil"
       ]
     },
     {
@@ -971,9 +1061,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-frauenfeld",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-frauenfeld",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-frauenfeld",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-frauenfeld"
       },
       "sourceLang": "de",
       "department": "",
@@ -1013,6 +1103,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -1044,9 +1140,9 @@
       "slug": "specialista-in-sicurezza-elettrica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "specialista-in-sicurezza-elettrica-die-schweizerische-post-bern",
-        "en": "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern",
+        "en": "specialist-in-electrical-safety-die-schweizerische-post-bern",
         "de": "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern",
-        "fr": "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern"
+        "fr": "specialiste-en-securite-electrique-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1086,10 +1182,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-elektrosicherheit-post"
+        ],
+        "en": [
+          "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-elektrosicherheit-post"
+        "fachspezialist-in-elektrosicherheit-post",
+        "fachspezialist-in-elektrosicherheit-die-schweizerische-post-bern"
       ]
     },
     {
@@ -1117,9 +1220,9 @@
       "slug": "tecnico-di-manutenzione-die-schweizerische-post-zurich-mulligen",
       "slugByLocale": {
         "it": "tecnico-di-manutenzione-die-schweizerische-post-zurich-mulligen",
-        "en": "techniker-in-instandhaltung-post",
+        "en": "technician-in-maintenance-die-schweizerische-post-zurich-mulligen",
         "de": "techniker-in-instandhaltung-die-schweizerische-post-zurich-mulligen",
-        "fr": "techniker-in-instandhaltung-post"
+        "fr": "technicien-entretien-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -1159,6 +1262,12 @@
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-instandhaltung-post"
+        ],
+        "en": [
+          "techniker-in-instandhaltung-post"
+        ],
+        "fr": [
+          "techniker-in-instandhaltung-post"
         ]
       },
       "previousSlugs": [
@@ -1190,9 +1299,9 @@
       "slug": "consulente-clienti-die-schweizerische-post-zug",
       "slugByLocale": {
         "it": "consulente-clienti-die-schweizerische-post-zug",
-        "en": "kundenberater-in-die-schweizerische-post-zug",
+        "en": "customer-advisor-in-die-schweizerische-post-zug",
         "de": "kundenberater-in-die-schweizerische-post-zug",
-        "fr": "kundenberater-in-die-schweizerische-post-zug"
+        "fr": "conseiller-client-in-die-schweizerische-post-zug"
       },
       "sourceLang": "de",
       "department": "",
@@ -1232,10 +1341,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-zug"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-zug"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-post"
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-zug"
       ]
     },
     {
@@ -1260,12 +1376,12 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-hausen-am-albis",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-hausen-am-albis",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-hausen-am-albis"
       },
       "sourceLang": "de",
       "department": "",
@@ -1305,16 +1421,21 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post-2",
-          "autista-postbus-postauto-hausen-am-albis"
+          "autista-postbus-postauto-hausen-am-albis",
+          "postauto-fahrer-in-post"
         ],
         "de": [
           "postauto-fahrer-in-postauto-hausen-am-albis"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
         "postauto-fahrer-in-post-2",
-        "postauto-fahrer-in-postauto-hausen-am-albis",
-        "autista-postbus-postauto-hausen-am-albis"
+        "autista-postbus-postauto-hausen-am-albis",
+        "postauto-fahrer-in-post",
+        "postauto-fahrer-in-postauto-hausen-am-albis"
       ]
     },
     {
@@ -1339,12 +1460,12 @@
         "en": "PostBus driver:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "postbus-driver-in-postauto-engelburg",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post",
+        "it": "postbus-driver-in-postauto-engelburg",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-wilderswil",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-engelburg"
       },
       "sourceLang": "de",
       "department": "",
@@ -1365,7 +1486,8 @@
       "id": "posta-svizzera-centro-regionale-bf2947cb041f",
       "previousSlugsByLocale": {
         "it": [
-          "postauto-fahrer-in-post-2"
+          "postauto-fahrer-in-post-2",
+          "postauto-fahrer-in-post"
         ],
         "en": [
           "postauto-fahrer-in-post-2"
@@ -1374,11 +1496,13 @@
           "postauto-fahrer-in-postauto-engelburg"
         ],
         "fr": [
-          "postauto-fahrer-in-post-2"
+          "postauto-fahrer-in-post-2",
+          "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
         "postauto-fahrer-in-post-2",
+        "postauto-fahrer-in-post",
         "postauto-fahrer-in-postauto-engelburg"
       ],
       "salaryMin": 57500,
@@ -1426,9 +1550,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hinwil",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hinwil",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-hinwil",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-hinwil"
       },
       "sourceLang": "de",
       "department": "",
@@ -1467,6 +1591,12 @@
       "firstSeenAt": "2026-06-15T15:21:42.597Z",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -1561,12 +1691,12 @@
         "de": "Strategische:r Einkäufer:in Facility Management & Gebäudetechnik",
         "fr": "Achat stratégique:dans la gestion des installations et la technologie du bâtiment"
       },
-      "slug": "gestione-strategica-delle-strutture-per-acquirenti-e-tecnologia-edilizia-die-schweizerische-post-bern",
+      "slug": "strategico-r-acquirente-in-gestione-della-facility-building-technology-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "gestione-strategica-delle-strutture-per-acquirenti-e-tecnologia-edilizia-die-schweizerische-post-bern",
-        "en": "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post",
+        "it": "strategico-r-acquirente-in-gestione-della-facility-building-technology-die-schweizerische-post-bern",
+        "en": "strategic-r-purchaser-in-facility-management-building-technology-die-schweizerische-post-bern",
         "de": "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post",
-        "fr": "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post"
+        "fr": "achat-strategique-dans-la-gestion-des-installations-et-la-technologie-du-batiment-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1606,12 +1736,18 @@
       "previousSlugsByLocale": {
         "it": [
           "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post",
-          "strategico-r-acquirente-in-gestione-della-facility-building-technology-die-schweizerische-post-bern"
+          "gestione-strategica-delle-strutture-per-acquirenti-e-tecnologia-edilizia-die-schweizerische-post-bern"
+        ],
+        "en": [
+          "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post"
+        ],
+        "fr": [
+          "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post"
         ]
       },
       "previousSlugs": [
         "strategische-r-einkaufer-in-facility-management-gebaudetechnik-post",
-        "strategico-r-acquirente-in-gestione-della-facility-building-technology-die-schweizerische-post-bern"
+        "gestione-strategica-delle-strutture-per-acquirenti-e-tecnologia-edilizia-die-schweizerische-post-bern"
       ]
     },
     {
@@ -1636,12 +1772,12 @@
         "de": "Sicherheitsspezialist:in Öffentlicher Verkehr - Fahrausweiskontrolle",
         "fr": "Spécialiste de la sécurité:dans les transports publics - contrôle des billets"
       },
-      "slug": "specialista-in-sicurezza-del-trasporto-pubblico-ispezione-biglietti-postauto-brig",
+      "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig",
       "slugByLocale": {
-        "it": "specialista-in-sicurezza-del-trasporto-pubblico-ispezione-biglietti-postauto-brig",
-        "en": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
+        "it": "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig",
+        "en": "security-specialist-in-public-transport-ticket-control-postauto-brig",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig",
-        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-controle-des-billets-postauto-brig"
       },
       "sourceLang": "de",
       "department": "",
@@ -1681,12 +1817,19 @@
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-post",
-          "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
+          "specialista-in-sicurezza-del-trasporto-pubblico-ispezione-biglietti-postauto-brig"
+        ],
+        "en": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
+        ],
+        "fr": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
         ]
       },
       "previousSlugs": [
         "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-post",
-        "specialista-di-sicurezza-nei-trasporti-pubblici-controllo-dei-biglietti-postauto-brig"
+        "specialista-in-sicurezza-del-trasporto-pubblico-ispezione-biglietti-postauto-brig",
+        "sicherheitsspezialist-in-offentlicher-verkehr-fahrausweiskontrolle-postauto-brig"
       ]
     },
     {
@@ -1716,7 +1859,7 @@
         "it": "asset-manager-in-mit-portfolioverantwortung-rem-post",
         "en": "asset-manager-in-mit-portfolioverantwortung-rem-post",
         "de": "asset-manager-in-mit-portfolioverantwortung-rem-post",
-        "fr": "asset-manager-in-mit-portfolioverantwortung-rem-post"
+        "fr": "gestionnaire-d-actifs-avec-responsabilite-de-portefeuille-rem-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1781,7 +1924,7 @@
         "it": "asset-manager-in-regione-ovest-die-schweizerische-post-bern",
         "en": "asset-manager-in-region-west-post",
         "de": "asset-manager-in-region-west-post",
-        "fr": "asset-manager-in-region-west-post"
+        "fr": "gestionnaire-d-actifs-dans-la-region-ouest-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1821,6 +1964,9 @@
       "previousSlugsByLocale": {
         "it": [
           "asset-manager-in-region-west-post"
+        ],
+        "fr": [
+          "asset-manager-in-region-west-post"
         ]
       },
       "previousSlugs": [
@@ -1852,9 +1998,9 @@
       "slug": "specialista-nella-gestione-immobiliare-sostenibilita-gestione-della-qualita-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "specialista-nella-gestione-immobiliare-sostenibilita-gestione-della-qualita-die-schweizerische-post-bern",
-        "en": "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post",
+        "en": "specialist-in-real-estate-management-sustainability-quality-management-die-schweizerische-post-bern",
         "de": "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post",
-        "fr": "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post"
+        "fr": "specialiste-en-gestion-immobiliere-durabilite-gestion-de-la-qualite-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1892,6 +2038,12 @@
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post"
+        ],
+        "en": [
+          "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post"
+        ],
+        "fr": [
           "fachspezialist-in-immobilienbewirtschaftung-nachhaltigkeit-qualitatsmanagement-post"
         ]
       },
@@ -2004,9 +2156,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munchenbuchsee",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munchenbuchsee",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munchenbuchsee",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munchenbuchsee"
       },
       "sourceLang": "de",
       "department": "",
@@ -2046,6 +2198,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -2079,7 +2237,7 @@
         "it": "senior-everyday-ai-spezialist-in-post",
         "en": "senior-everyday-ai-spezialist-in-post",
         "de": "senior-everyday-ai-spezialist-in-post",
-        "fr": "senior-everyday-ai-spezialist-in-post"
+        "fr": "specialiste-principal-de-l-ia-au-quotidien-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -2143,9 +2301,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sumiswald",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-sumiswald",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-sumiswald",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-sumiswald"
       },
       "sourceLang": "de",
       "department": "",
@@ -2184,20 +2342,23 @@
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
       "previousSlugsByLocale": {
         "en": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post"
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "it": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ]
     },
     {
@@ -2293,7 +2454,7 @@
         "it": "specialista-dell-esperienza-dei-dipendenti-digitali-senior-in-die-schweizerische-post-bellinzona",
         "en": "senior-digital-employee-experience-spezialist-in-post",
         "de": "senior-digital-employee-experience-spezialist-in-post",
-        "fr": "senior-digital-employee-experience-spezialist-in-post"
+        "fr": "specialiste-de-l-experience-des-employes-numeriques-seniors-in-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -2334,6 +2495,9 @@
       "previousSlugsByLocale": {
         "it": [
           "senior-digital-employee-experience-spezialist-in-post"
+        ],
+        "fr": [
+          "senior-digital-employee-experience-spezialist-in-post"
         ]
       },
       "previousSlugs": [
@@ -2365,9 +2529,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-burgdorf",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-burgdorf",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-burgdorf",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-burgdorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -2392,18 +2556,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-2"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2446,12 +2613,12 @@
         "de": "Zusteller:in Abendzustellung",
         "fr": "Livraison:en soirée"
       },
-      "slug": "fattorino-serale-die-schweizerische-post-burgdorf",
+      "slug": "consegna-in-consegna-serale-die-schweizerische-post-burgdorf",
       "slugByLocale": {
-        "it": "fattorino-serale-die-schweizerische-post-burgdorf",
-        "en": "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf",
+        "it": "consegna-in-consegna-serale-die-schweizerische-post-burgdorf",
+        "en": "delivery-in-evening-delivery-die-schweizerische-post-burgdorf",
         "de": "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf",
-        "fr": "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf"
+        "fr": "livraison-en-soiree-die-schweizerische-post-burgdorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -2491,12 +2658,19 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-abendzustellung-post",
-          "consegna-in-consegna-serale-die-schweizerische-post-burgdorf"
+          "fattorino-serale-die-schweizerische-post-burgdorf"
+        ],
+        "en": [
+          "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf"
+        ],
+        "fr": [
+          "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf"
         ]
       },
       "previousSlugs": [
         "zusteller-in-abendzustellung-post",
-        "consegna-in-consegna-serale-die-schweizerische-post-burgdorf"
+        "fattorino-serale-die-schweizerische-post-burgdorf",
+        "zusteller-in-abendzustellung-die-schweizerische-post-burgdorf"
       ]
     },
     {
@@ -2521,12 +2695,12 @@
         "de": "Springer:in Frühzustellung",
         "fr": "Springer: en début de livraison"
       },
-      "slug": "consegna-anticipata-del-maglione-presto-urdorf",
+      "slug": "springer-in-pronta-consegna-presto-urdorf",
       "slugByLocale": {
-        "it": "consegna-anticipata-del-maglione-presto-urdorf",
-        "en": "springer-in-fruhzustellung-post",
+        "it": "springer-in-pronta-consegna-presto-urdorf",
+        "en": "springer-in-early-delivery-presto-urdorf",
         "de": "springer-in-fruhzustellung-presto-urdorf",
-        "fr": "springer-in-fruhzustellung-post"
+        "fr": "springer-en-debut-de-livraison-presto-urdorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -2566,12 +2740,18 @@
       "previousSlugsByLocale": {
         "it": [
           "springer-in-fruhzustellung-post",
-          "springer-in-pronta-consegna-presto-urdorf"
+          "consegna-anticipata-del-maglione-presto-urdorf"
+        ],
+        "en": [
+          "springer-in-fruhzustellung-post"
+        ],
+        "fr": [
+          "springer-in-fruhzustellung-post"
         ]
       },
       "previousSlugs": [
         "springer-in-fruhzustellung-post",
-        "springer-in-pronta-consegna-presto-urdorf"
+        "consegna-anticipata-del-maglione-presto-urdorf"
       ]
     },
     {
@@ -2599,9 +2779,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-emmenbrucke",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-emmenbrucke",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -2626,18 +2806,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-3"
+          "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-3"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-3"
+          "zusteller-in-briefe-und-pakete-post-3",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-3",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2746,12 +2929,12 @@
         "de": "Immobilienbewirtschafter:in",
         "fr": "Gestionnaire immobilier:in"
       },
-      "slug": "gestore-immobiliare-die-schweizerische-post-zurich",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-zurich",
       "slugByLocale": {
-        "it": "gestore-immobiliare-die-schweizerische-post-zurich",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-zurich",
+        "en": "property-manager-in-die-schweizerische-post-zurich",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-bern",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
+        "fr": "gestionnaire-immobilier-in-die-schweizerische-post-zurich"
       },
       "sourceLang": "de",
       "department": "",
@@ -2790,24 +2973,26 @@
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
       "previousSlugsByLocale": {
         "en": [
-          "immobilienbewirtschafter-in-die-schweizerische-post-bern"
+          "immobilienbewirtschafter-in-die-schweizerische-post-bern",
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
         ],
         "de": [
           "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
         ],
         "fr": [
-          "immobilienbewirtschafter-in-die-schweizerische-post-bern"
+          "immobilienbewirtschafter-in-die-schweizerische-post-bern",
+          "immobilienbewirtschafter-in-die-schweizerische-post-zurich"
         ],
         "it": [
           "immobilienbewirtschafter-in-post",
-          "responsabile-della-proprieta-in-die-schweizerische-post-zurich"
+          "gestore-immobiliare-die-schweizerische-post-zurich"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-in-die-schweizerische-post-bern",
         "immobilienbewirtschafter-in-die-schweizerische-post-zurich",
         "immobilienbewirtschafter-in-post",
-        "responsabile-della-proprieta-in-die-schweizerische-post-zurich"
+        "gestore-immobiliare-die-schweizerische-post-zurich"
       ]
     },
     {
@@ -2832,12 +3017,12 @@
         "de": "Zusteller:in Abend Pakete",
         "fr": "Livraison: en colis du soir"
       },
-      "slug": "fattorino-serale-die-schweizerische-post-gwatt-thun",
+      "slug": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
       "slugByLocale": {
-        "it": "fattorino-serale-die-schweizerische-post-gwatt-thun",
-        "en": "zusteller-in-abend-pakete-post",
+        "it": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
+        "en": "delivery-in-evening-packages-die-schweizerische-post-gwatt-thun",
         "de": "zusteller-in-abend-pakete-post",
-        "fr": "zusteller-in-abend-pakete-post"
+        "fr": "livraison-en-colis-du-soir-die-schweizerische-post-gwatt-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -2877,12 +3062,18 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-abend-pakete-post",
-          "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun"
+          "fattorino-serale-die-schweizerische-post-gwatt-thun"
+        ],
+        "en": [
+          "zusteller-in-abend-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-abend-pakete-post"
         ]
       },
       "previousSlugs": [
         "zusteller-in-abend-pakete-post",
-        "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun"
+        "fattorino-serale-die-schweizerische-post-gwatt-thun"
       ]
     },
     {
@@ -2910,9 +3101,9 @@
       "slug": "zusteller-in-brief-e-pakete-die-schweizerische-post-kerzers",
       "slugByLocale": {
         "it": "zusteller-in-brief-e-pakete-die-schweizerische-post-kerzers",
-        "en": "zusteller-in-brief-und-pakete-post",
+        "en": "delivery-in-letter-and-packages-die-schweizerische-post-kerzers",
         "de": "zusteller-in-brief-und-pakete-post",
-        "fr": "zusteller-in-brief-und-pakete-post"
+        "fr": "livraison-en-lettre-et-en-colis-die-schweizerische-post-kerzers"
       },
       "sourceLang": "de",
       "department": "",
@@ -2952,6 +3143,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-brief-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-brief-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-brief-und-pakete-post"
         ]
       },
       "previousSlugs": [
@@ -2980,12 +3177,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "corriere-pacchi-die-schweizerische-post-gwatt-thun",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-gwatt-thun",
       "slugByLocale": {
-        "it": "corriere-pacchi-die-schweizerische-post-gwatt-thun",
-        "en": "zusteller-in-pakete-post-3",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-gwatt-thun",
+        "en": "delivery-in-packages-die-schweizerische-post-gwatt-thun",
         "de": "zusteller-in-pakete-die-schweizerische-post-ostermundigen",
-        "fr": "zusteller-in-pakete-post-3"
+        "fr": "livraison-en-paquets-die-schweizerische-post-gwatt-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -3028,13 +3225,20 @@
         ],
         "it": [
           "zusteller-in-pakete-post",
-          "consegna-in-pacchetti-die-schweizerische-post-gwatt-thun"
+          "corriere-pacchi-die-schweizerische-post-gwatt-thun"
+        ],
+        "en": [
+          "zusteller-in-pakete-post-3"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post-3"
         ]
       },
       "previousSlugs": [
         "zusteller-in-pakete-die-schweizerische-post-gwatt-thun",
         "zusteller-in-pakete-post",
-        "consegna-in-pacchetti-die-schweizerische-post-gwatt-thun"
+        "corriere-pacchi-die-schweizerische-post-gwatt-thun",
+        "zusteller-in-pakete-post-3"
       ]
     },
     {
@@ -3062,9 +3266,9 @@
       "slug": "pianificatore-di-trasporto-in-regione-nazionale-est-die-schweizerische-post-frauenfeld",
       "slugByLocale": {
         "it": "pianificatore-di-trasporto-in-regione-nazionale-est-die-schweizerische-post-frauenfeld",
-        "en": "transportplaner-in-national-region-ost-post",
+        "en": "transport-planner-in-national-region-east-die-schweizerische-post-frauenfeld",
         "de": "transportplaner-in-national-region-ost-post",
-        "fr": "transportplaner-in-national-region-ost-post"
+        "fr": "planificateur-de-transport-dans-la-region-nationale-est-die-schweizerische-post-frauenfeld"
       },
       "sourceLang": "de",
       "department": "",
@@ -3104,6 +3308,12 @@
       "previousSlugsByLocale": {
         "it": [
           "transportplaner-in-national-region-ost-post"
+        ],
+        "en": [
+          "transportplaner-in-national-region-ost-post"
+        ],
+        "fr": [
+          "transportplaner-in-national-region-ost-post"
         ]
       },
       "previousSlugs": [
@@ -3135,9 +3345,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-nanikon",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-nanikon",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-nanikon",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-nanikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -3162,18 +3372,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-4"
+          "zusteller-in-briefe-und-pakete-post-4",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-4"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-4"
+          "zusteller-in-briefe-und-pakete-post-4",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-4",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3220,9 +3433,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schmerikon",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schmerikon",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-schmerikon",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-schmerikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -3247,18 +3460,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-5"
+          "zusteller-in-briefe-und-pakete-post-5",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-5"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-5"
+          "zusteller-in-briefe-und-pakete-post-5",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-5",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3304,9 +3520,9 @@
       "slug": "specialista-di-sicurezza-nei-trasporti-pubblici-wallisellen-postauto-wallisellen",
       "slugByLocale": {
         "it": "specialista-di-sicurezza-nei-trasporti-pubblici-wallisellen-postauto-wallisellen",
-        "en": "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen",
+        "en": "security-specialist-in-public-transport-wallisellen-postauto-wallisellen",
         "de": "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen",
-        "fr": "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen"
+        "fr": "specialiste-de-la-securite-dans-les-transports-publics-wallisellen-postauto-wallisellen"
       },
       "sourceLang": "de",
       "department": "",
@@ -3346,10 +3562,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-post"
+        ],
+        "en": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen"
+        ],
+        "fr": [
+          "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen"
         ]
       },
       "previousSlugs": [
-        "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-wallisellen-postauto-wallisellen"
       ]
     },
     {
@@ -3442,9 +3665,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kaufdorf",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kaufdorf",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kaufdorf",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kaufdorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -3469,18 +3692,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-6"
+          "zusteller-in-briefe-und-pakete-post-6",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-6"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-6"
+          "zusteller-in-briefe-und-pakete-post-6",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-6",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3526,9 +3752,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-st-niklaus-vs",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-st-niklaus-vs",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-st-niklaus-vs",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-st-niklaus-vs"
       },
       "sourceLang": "de",
       "department": "",
@@ -3553,18 +3779,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-8"
+          "zusteller-in-briefe-und-pakete-post-8",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-8"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-8"
+          "zusteller-in-briefe-und-pakete-post-8",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-8",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3610,9 +3839,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hagendorf",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-hagendorf",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-hagendorf",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-hagendorf"
       },
       "sourceLang": "de",
       "department": "",
@@ -3637,18 +3866,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-9"
+          "zusteller-in-briefe-und-pakete-post-9",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-9"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-9"
+          "zusteller-in-briefe-und-pakete-post-9",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-9",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3694,9 +3926,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gunten",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-gunten",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-gunten"
       },
       "sourceLang": "de",
       "department": "",
@@ -3721,18 +3953,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-10"
+          "zusteller-in-briefe-und-pakete-post-10",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-10"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-10"
+          "zusteller-in-briefe-und-pakete-post-10",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-10",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3779,9 +4014,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-fiesch",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-fiesch",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-fiesch",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-fiesch"
       },
       "sourceLang": "de",
       "department": "",
@@ -3806,18 +4041,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-12"
+          "zusteller-in-briefe-und-pakete-post-12",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-12"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-12"
+          "zusteller-in-briefe-und-pakete-post-12",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-12",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3942,9 +4180,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adliswil",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-adliswil",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-adliswil",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-adliswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -3967,6 +4205,12 @@
         "it": [
           "zusteller-in-briefe-und-pakete-post-14",
           "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-14"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
@@ -4014,12 +4258,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "corriere-pacchi-die-schweizerische-post-wadenswil",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-wadenswil",
       "slugByLocale": {
-        "it": "corriere-pacchi-die-schweizerische-post-wadenswil",
-        "en": "zusteller-in-pakete-post-2",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-wadenswil",
+        "en": "delivery-in-packages-die-schweizerische-post-wadenswil",
         "de": "zusteller-in-pakete-die-schweizerische-post-wadenswil",
-        "fr": "zusteller-in-pakete-post-2"
+        "fr": "livraison-en-paquets-die-schweizerische-post-wadenswil"
       },
       "sourceLang": "de",
       "department": "",
@@ -4042,13 +4286,19 @@
         "it": [
           "zusteller-in-pakete-post-2",
           "zusteller-in-pakete-post",
-          "consegna-in-pacchetti-die-schweizerische-post-wadenswil"
+          "corriere-pacchi-die-schweizerische-post-wadenswil"
+        ],
+        "en": [
+          "zusteller-in-pakete-post-2"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post-2"
         ]
       },
       "previousSlugs": [
         "zusteller-in-pakete-post-2",
         "zusteller-in-pakete-post",
-        "consegna-in-pacchetti-die-schweizerische-post-wadenswil"
+        "corriere-pacchi-die-schweizerische-post-wadenswil"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4091,12 +4341,12 @@
         "de": "Immobilienbewirtschafter:in",
         "fr": "Gestionnaire immobilier:in"
       },
-      "slug": "gestore-immobiliare-die-schweizerische-post-bern",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "gestore-immobiliare-die-schweizerische-post-bern",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-bern",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-bern",
+        "en": "property-manager-in-die-schweizerische-post-bern",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-bern",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-bern"
+        "fr": "gestionnaire-immobilier-in-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -4119,13 +4369,20 @@
         "it": [
           "immobilienbewirtschafter-in-post-3",
           "immobilienbewirtschafter-in-post",
-          "responsabile-della-proprieta-in-die-schweizerische-post-bern"
+          "gestore-immobiliare-die-schweizerische-post-bern"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-bern"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-in-post-3",
         "immobilienbewirtschafter-in-post",
-        "responsabile-della-proprieta-in-die-schweizerische-post-bern"
+        "gestore-immobiliare-die-schweizerische-post-bern",
+        "immobilienbewirtschafter-in-die-schweizerische-post-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4168,12 +4425,12 @@
         "de": "Immobilienbewirtschafter:in",
         "fr": "Gestionnaire immobilier:in"
       },
-      "slug": "gestore-immobiliare-die-schweizerische-post-olten",
+      "slug": "responsabile-della-proprieta-in-die-schweizerische-post-olten",
       "slugByLocale": {
-        "it": "gestore-immobiliare-die-schweizerische-post-olten",
-        "en": "immobilienbewirtschafter-in-die-schweizerische-post-olten",
+        "it": "responsabile-della-proprieta-in-die-schweizerische-post-olten",
+        "en": "property-manager-in-die-schweizerische-post-olten",
         "de": "immobilienbewirtschafter-in-die-schweizerische-post-olten",
-        "fr": "immobilienbewirtschafter-in-die-schweizerische-post-olten"
+        "fr": "gestionnaire-immobilier-in-die-schweizerische-post-olten"
       },
       "sourceLang": "de",
       "department": "",
@@ -4196,13 +4453,20 @@
         "it": [
           "immobilienbewirtschafter-in-post-4",
           "immobilienbewirtschafter-in-post",
-          "responsabile-della-proprieta-in-die-schweizerische-post-olten"
+          "gestore-immobiliare-die-schweizerische-post-olten"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-olten"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-in-die-schweizerische-post-olten"
         ]
       },
       "previousSlugs": [
         "immobilienbewirtschafter-in-post-4",
         "immobilienbewirtschafter-in-post",
-        "responsabile-della-proprieta-in-die-schweizerische-post-olten"
+        "gestore-immobiliare-die-schweizerische-post-olten",
+        "immobilienbewirtschafter-in-die-schweizerische-post-olten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4245,12 +4509,12 @@
         "de": "Sachbearbeiter:in Support Geldautomaten",
         "fr": "Personnel:dans les guichets automatiques de soutien"
       },
-      "slug": "bancomat-di-supporto-agli-amministratori-die-schweizerische-post-bern",
+      "slug": "personale-negli-sportelli-di-supporto-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "bancomat-di-supporto-agli-amministratori-die-schweizerische-post-bern",
-        "en": "sachbearbeiter-in-support-geldautomaten-post",
+        "it": "personale-negli-sportelli-di-supporto-die-schweizerische-post-bern",
+        "en": "personnel-in-support-atms-die-schweizerische-post-bern",
         "de": "sachbearbeiter-in-support-geldautomaten-post",
-        "fr": "sachbearbeiter-in-support-geldautomaten-post"
+        "fr": "personnel-dans-les-guichets-automatiques-de-soutien-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -4290,12 +4554,18 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-support-geldautomaten-post",
-          "personale-negli-sportelli-di-supporto-die-schweizerische-post-bern"
+          "bancomat-di-supporto-agli-amministratori-die-schweizerische-post-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-support-geldautomaten-post"
+        ],
+        "fr": [
+          "sachbearbeiter-in-support-geldautomaten-post"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-support-geldautomaten-post",
-        "personale-negli-sportelli-di-supporto-die-schweizerische-post-bern"
+        "bancomat-di-supporto-agli-amministratori-die-schweizerische-post-bern"
       ]
     },
     {
@@ -4401,9 +4671,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
       },
       "sourceLang": "de",
       "department": "",
@@ -4428,18 +4698,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-15"
+          "zusteller-in-briefe-und-pakete-post-15",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-15"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-15"
+          "zusteller-in-briefe-und-pakete-post-15",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-15",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4484,9 +4757,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ennenda",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ennenda",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-ennenda",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ennenda"
       },
       "sourceLang": "de",
       "department": "",
@@ -4511,18 +4784,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-16"
+          "zusteller-in-briefe-und-pakete-post-16",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-16"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-16"
+          "zusteller-in-briefe-und-pakete-post-16",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-16",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4567,9 +4843,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-belp",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-belp",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-belp",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-belp"
       },
       "sourceLang": "de",
       "department": "",
@@ -4594,18 +4870,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-17"
+          "zusteller-in-briefe-und-pakete-post-17",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-17"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-17"
+          "zusteller-in-briefe-und-pakete-post-17",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-17",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4729,9 +5008,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gumligen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gumligen",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-gumligen",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-gumligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -4756,18 +5035,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-18"
+          "zusteller-in-briefe-und-pakete-post-18",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-18"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-18"
+          "zusteller-in-briefe-und-pakete-post-18",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-18",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4811,12 +5093,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livraison:en paquets"
       },
-      "slug": "corriere-pacchi-die-schweizerische-post-ostermundigen",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-ostermundigen",
       "slugByLocale": {
-        "it": "corriere-pacchi-die-schweizerische-post-ostermundigen",
-        "en": "zusteller-in-pakete-post-3",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-ostermundigen",
+        "en": "delivery-in-packages-die-schweizerische-post-ostermundigen",
         "de": "zusteller-in-pakete-die-schweizerische-post-ostermundigen",
-        "fr": "zusteller-in-pakete-post-3"
+        "fr": "livraison-en-paquets-die-schweizerische-post-ostermundigen"
       },
       "sourceLang": "de",
       "department": "",
@@ -4839,13 +5121,19 @@
         "it": [
           "zusteller-in-pakete-post-3",
           "zusteller-in-pakete-post",
-          "consegna-in-pacchetti-die-schweizerische-post-ostermundigen"
+          "corriere-pacchi-die-schweizerische-post-ostermundigen"
+        ],
+        "en": [
+          "zusteller-in-pakete-post-3"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post-3"
         ]
       },
       "previousSlugs": [
         "zusteller-in-pakete-post-3",
         "zusteller-in-pakete-post",
-        "consegna-in-pacchetti-die-schweizerische-post-ostermundigen"
+        "corriere-pacchi-die-schweizerische-post-ostermundigen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4976,9 +5264,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-oetwil-am-see",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-oetwil-am-see",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-oetwil-am-see",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-oetwil-am-see"
       },
       "sourceLang": "de",
       "department": "",
@@ -5003,18 +5291,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-19"
+          "zusteller-in-briefe-und-pakete-post-19",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-19"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-19"
+          "zusteller-in-briefe-und-pakete-post-19",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-19",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5060,9 +5351,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-ehrendingen",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-ehrendingen",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-ehrendingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -5087,18 +5378,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-20"
+          "zusteller-in-briefe-und-pakete-post-20",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-20"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-20"
+          "zusteller-in-briefe-und-pakete-post-20",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-20",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5141,12 +5435,12 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Pilote PostBus:in"
       },
-      "slug": "autista-postbus-postauto-stans",
+      "slug": "postbus-driver-in-postauto-stans",
       "slugByLocale": {
-        "it": "autista-postbus-postauto-stans",
+        "it": "postbus-driver-in-postauto-stans",
         "en": "postauto-fahrer-in-post",
         "de": "postauto-fahrer-in-postauto-stans",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "pilote-postbus-in-postauto-stans"
       },
       "sourceLang": "de",
       "department": "",
@@ -5185,12 +5479,15 @@
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-stans"
+          "autista-postbus-postauto-stans"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
         "postauto-fahrer-in-post",
-        "postbus-driver-in-postauto-stans"
+        "autista-postbus-postauto-stans"
       ]
     },
     {
@@ -5364,9 +5661,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -5391,18 +5688,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-23"
+          "zusteller-in-briefe-und-pakete-post-23",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-23"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-23"
+          "zusteller-in-briefe-und-pakete-post-23",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-23",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5448,9 +5748,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen-57d440",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munsingen-57d440",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-munsingen-57d440",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-munsingen-57d440"
       },
       "sourceLang": "de",
       "department": "",
@@ -5475,18 +5775,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-24"
+          "zusteller-in-briefe-und-pakete-post-24",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-24"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-24"
+          "zusteller-in-briefe-und-pakete-post-24",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-24",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5532,9 +5835,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bern",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-bern",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -5559,18 +5862,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-25"
+          "zusteller-in-briefe-und-pakete-post-25",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-25"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-25"
+          "zusteller-in-briefe-und-pakete-post-25",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-25",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5616,9 +5922,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kaufdorf-023dfa",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-kaufdorf-023dfa",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-kaufdorf-023dfa",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-kaufdorf-023dfa"
       },
       "sourceLang": "de",
       "department": "",
@@ -5643,18 +5949,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-26"
+          "zusteller-in-briefe-und-pakete-post-26",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-26"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-26"
+          "zusteller-in-briefe-und-pakete-post-26",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-26",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5700,9 +6009,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bern-7c65d8",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-bern-7c65d8",
-        "en": "zusteller-in-briefe-und-pakete-post-14",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-bern-7c65d8",
         "de": "zusteller-in-briefe-und-pakete-post-14",
-        "fr": "zusteller-in-briefe-und-pakete-post-14"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-bern-7c65d8"
       },
       "sourceLang": "de",
       "department": "",
@@ -5727,18 +6036,21 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "zusteller-in-briefe-und-pakete-post-27"
+          "zusteller-in-briefe-und-pakete-post-27",
+          "zusteller-in-briefe-und-pakete-post-14"
         ],
         "de": [
           "zusteller-in-briefe-und-pakete-post-27"
         ],
         "fr": [
-          "zusteller-in-briefe-und-pakete-post-27"
+          "zusteller-in-briefe-und-pakete-post-27",
+          "zusteller-in-briefe-und-pakete-post-14"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-27",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-briefe-und-pakete-post-14"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5863,9 +6175,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-affoltern-am",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-post"
       },
       "sourceLang": "de",
       "department": "",
@@ -5904,20 +6216,23 @@
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
       "previousSlugsByLocale": {
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ],
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
       ]
     },
     {
@@ -5945,9 +6260,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-5a032d",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-5a032d",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-rapperswil-sg",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-5a032d"
       },
       "sourceLang": "de",
       "department": "",
@@ -5972,18 +6287,21 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -6029,9 +6347,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-5d8e9e",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-5d8e9e",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-wadenswil",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-5d8e9e"
       },
       "sourceLang": "de",
       "department": "",
@@ -6056,18 +6374,21 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-3",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -6113,9 +6434,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-sirnach",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-sirnach",
-        "en": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
+        "en": "teaching-as-a-logistician-in-efz-distribution-package-delivery-die-schweizerische-post-sirnach",
         "de": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        "fr": "enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-sirnach"
       },
       "sourceLang": "de",
       "department": "",
@@ -6140,13 +6461,15 @@
           "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ],
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-2"
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-2",
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-2"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-2"
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-2",
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ]
       },
       "previousSlugs": [
@@ -6197,9 +6520,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-7a9f64",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-7a9f64",
-        "en": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
+        "en": "teaching-as-a-logistician-in-efz-distribution-package-delivery-die-schweizerische-post-sirnach-7a9f64",
         "de": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
+        "fr": "enseignement-en-tant-que-logisticien-dans-efz-distribution-package-delivery-die-schweizerische-post-sirnach-7a9f64"
       },
       "sourceLang": "de",
       "department": "",
@@ -6224,13 +6547,15 @@
           "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ],
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-4"
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-4",
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-4"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-4"
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post-4",
+          "lehre-als-logistiker-in-efz-distribution-paketzustellung-post"
         ]
       },
       "previousSlugs": [
@@ -6281,9 +6606,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-37d734",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-37d734",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-appenzell",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-37d734"
       },
       "sourceLang": "de",
       "department": "",
@@ -6306,6 +6631,12 @@
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ]
       },
       "previousSlugs": [
@@ -6355,9 +6686,9 @@
       "slug": "apprendistato-come-kaufmann-frau-cfc-way-up-dienstleistung-e-administration-die-schweizerische-post-basel",
       "slugByLocale": {
         "it": "apprendistato-come-kaufmann-frau-cfc-way-up-dienstleistung-e-administration-die-schweizerische-post-basel",
-        "en": "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3",
+        "en": "teaching-as-a-merchant-efz-way-up-service-and-administration-die-schweizerische-post-basel",
         "de": "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3",
-        "fr": "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3"
+        "fr": "enseignement-en-tant-que-marchand-efz-way-up-service-et-administration-die-schweizerische-post-basel"
       },
       "sourceLang": "de",
       "department": "",
@@ -6380,6 +6711,12 @@
         "it": [
           "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3",
           "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post"
+        ],
+        "en": [
+          "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3"
+        ],
+        "fr": [
+          "lehre-als-kaufmann-frau-efz-way-up-dienstleistung-und-administration-post-3"
         ]
       },
       "previousSlugs": [
@@ -6430,9 +6767,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-fe19a8",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-fe19a8",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-basel",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-fe19a8"
       },
       "sourceLang": "de",
       "department": "",
@@ -6457,18 +6794,21 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "en": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ],
         "de": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5"
         ],
         "fr": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-5",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-4"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -6588,11 +6928,11 @@
         "de": "Driver CarPostal, CDD 6 Monate, Aubonne, Gimel",
         "fr": "Conductrice/Conducteur CarPostal, CDD 6 mois, Aubonne,Gimel"
       },
-      "slug": "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post",
+      "slug": "driver-carpostal-cdd-6-mesi-aubonne-gimel-carpostal-aubonne",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post",
-        "en": "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post",
-        "de": "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post",
+        "it": "driver-carpostal-cdd-6-mesi-aubonne-gimel-carpostal-aubonne",
+        "en": "driver-carpostal-cdd-6-months-aubonne-gimel-carpostal-aubonne",
+        "de": "driver-carpostal-cdd-6-monate-aubonne-gimel-carpostal-aubonne",
         "fr": "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post"
       },
       "sourceLang": "fr",
@@ -6629,7 +6969,21 @@
       "addressRegion": "VD",
       "addressCountry": "CH",
       "postalCode": "1003",
-      "firstSeenAt": "2026-06-17T13:25:00.907Z"
+      "firstSeenAt": "2026-06-17T13:25:00.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post"
+        ],
+        "en": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post"
+        ],
+        "de": [
+          "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post"
+        ]
+      },
+      "previousSlugs": [
+        "conductrice-conducteur-carpostal-cdd-6-mois-aubonne-gimel-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Conseill%C3%A8reConseiller-client%C3%A8le-PME/73679-fr_FR",
@@ -6653,11 +7007,11 @@
         "de": "Berater/Kundenberater KMU",
         "fr": "Conseillère/Conseiller clientèle PME"
       },
-      "slug": "conseillere-conseiller-clientele-pme-post",
+      "slug": "consulente-client-advisor-pmi-la-poste-suisse-fribourg",
       "slugByLocale": {
-        "it": "conseillere-conseiller-clientele-pme-post",
-        "en": "conseillere-conseiller-clientele-pme-post",
-        "de": "conseillere-conseiller-clientele-pme-post",
+        "it": "consulente-client-advisor-pmi-la-poste-suisse-fribourg",
+        "en": "advisor-client-advisor-smes-la-poste-suisse-fribourg",
+        "de": "berater-kundenberater-kmu-la-poste-suisse-fribourg",
         "fr": "conseillere-conseiller-clientele-pme-la-poste-suisse-fribourg"
       },
       "sourceLang": "fr",
@@ -6694,7 +7048,21 @@
       "addressRegion": "FR",
       "addressCountry": "CH",
       "postalCode": "1700",
-      "firstSeenAt": "2026-06-17T13:25:00.907Z"
+      "firstSeenAt": "2026-06-17T13:25:00.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-clientele-pme-post"
+        ],
+        "en": [
+          "conseillere-conseiller-clientele-pme-post"
+        ],
+        "de": [
+          "conseillere-conseiller-clientele-pme-post"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-clientele-pme-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Travail-%C3%A0-l'heure-ConductriceConducteur-CarPostal/73803-fr_FR",
@@ -6718,11 +7086,11 @@
         "de": "Arbeit pro Stunde CarPostal Driver",
         "fr": "Travail à l'heure Conductrice/Conducteur CarPostal"
       },
-      "slug": "lavoro-orario-postautista-di-autobus-carpostal-gland",
+      "slug": "lavorare-all-ora-carpostal-driver-carpostal-gland",
       "slugByLocale": {
-        "it": "lavoro-orario-postautista-di-autobus-carpostal-gland",
-        "en": "travail-a-l-heure-conductrice-conducteur-carpostal-post",
-        "de": "travail-a-l-heure-conductrice-conducteur-carpostal-post",
+        "it": "lavorare-all-ora-carpostal-driver-carpostal-gland",
+        "en": "work-per-hour-carpostal-driver-carpostal-gland",
+        "de": "arbeit-pro-stunde-carpostal-driver-carpostal-gland",
         "fr": "travail-a-l-heure-conductrice-conducteur-carpostal-carpostal-gland"
       },
       "sourceLang": "fr",
@@ -6763,12 +7131,18 @@
       "previousSlugsByLocale": {
         "it": [
           "travail-a-l-heure-conductrice-conducteur-carpostal-post",
-          "lavorare-all-ora-carpostal-driver-carpostal-gland"
+          "lavoro-orario-postautista-di-autobus-carpostal-gland"
+        ],
+        "en": [
+          "travail-a-l-heure-conductrice-conducteur-carpostal-post"
+        ],
+        "de": [
+          "travail-a-l-heure-conductrice-conducteur-carpostal-post"
         ]
       },
       "previousSlugs": [
         "travail-a-l-heure-conductrice-conducteur-carpostal-post",
-        "lavorare-all-ora-carpostal-driver-carpostal-gland"
+        "lavoro-orario-postautista-di-autobus-carpostal-gland"
       ]
     },
     {
@@ -6791,11 +7165,11 @@
         "de": "Business Employee Lernen SWC, Dienstleistungen und Verwaltung - Jura",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Jura"
       },
-      "slug": "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy",
+      "slug": "apprendimento-dei-dipendenti-swc-servizi-e-amministrazione-aziendale-jura-la-poste-suisse-porrentruy",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy",
-        "en": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
-        "de": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
+        "it": "apprendimento-dei-dipendenti-swc-servizi-e-amministrazione-aziendale-jura-la-poste-suisse-porrentruy",
+        "en": "business-employee-learning-swc-services-and-administration-jura-la-poste-suisse-porrentruy",
+        "de": "business-employee-lernen-swc-dienstleistungen-und-verwaltung-jura-la-poste-suisse-porrentruy",
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-la-poste-suisse-porrentruy"
       },
       "sourceLang": "fr",
@@ -6835,12 +7209,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
-          "apprendimento-dei-dipendenti-swc-servizi-e-amministrazione-aziendale-jura-la-poste-suisse-porrentruy"
+          "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
+        ],
+        "en": [
+          "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post"
+        ],
+        "de": [
+          "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-jura-post",
-        "apprendimento-dei-dipendenti-swc-servizi-e-amministrazione-aziendale-jura-la-poste-suisse-porrentruy"
+        "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-jura-la-poste-suisse-porrentruy"
       ]
     },
     {
@@ -6865,11 +7245,11 @@
         "de": "Logistiker/Logistiker lernen AFP - Waadt",
         "fr": "Apprentissage de logisticienne/logisticien AFP - Vaud"
       },
-      "slug": "apprendistato-come-logistico-afp-vaud-la-poste-suisse-daillens",
+      "slug": "logisticista-logistician-learning-afp-vaud-la-poste-suisse-daillens",
       "slugByLocale": {
-        "it": "apprendistato-come-logistico-afp-vaud-la-poste-suisse-daillens",
-        "en": "apprentissage-de-logisticienne-logisticien-afp-vaud-post",
-        "de": "apprentissage-de-logisticienne-logisticien-afp-vaud-post",
+        "it": "logisticista-logistician-learning-afp-vaud-la-poste-suisse-daillens",
+        "en": "logistician-logistician-learning-afp-vaud-la-poste-suisse-daillens",
+        "de": "logistiker-logistiker-lernen-afp-waadt-la-poste-suisse-daillens",
         "fr": "apprentissage-de-logisticienne-logisticien-afp-vaud-la-poste-suisse-daillens"
       },
       "sourceLang": "fr",
@@ -6910,12 +7290,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-logisticienne-logisticien-afp-vaud-post",
-          "logisticista-logistician-learning-afp-vaud-la-poste-suisse-daillens"
+          "apprendistato-come-logistico-afp-vaud-la-poste-suisse-daillens"
+        ],
+        "en": [
+          "apprentissage-de-logisticienne-logisticien-afp-vaud-post"
+        ],
+        "de": [
+          "apprentissage-de-logisticienne-logisticien-afp-vaud-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-de-logisticienne-logisticien-afp-vaud-post",
-        "logisticista-logistician-learning-afp-vaud-la-poste-suisse-daillens"
+        "apprendistato-come-logistico-afp-vaud-la-poste-suisse-daillens"
       ]
     },
     {
@@ -6940,11 +7326,11 @@
         "de": "Logistiker/Logistiker lernen CFC Verteilung - Waadt",
         "fr": "Apprentissage de logisticienne/logisticien CFC Distribution - Vaud"
       },
-      "slug": "apprendistato-come-logistico-cfc-distribuzione-vaud-la-poste-suisse-daillens",
+      "slug": "logisticista-logistician-learning-cfc-distribuzione-vaud-la-poste-suisse-daillens",
       "slugByLocale": {
-        "it": "apprendistato-come-logistico-cfc-distribuzione-vaud-la-poste-suisse-daillens",
-        "en": "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post",
-        "de": "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post",
+        "it": "logisticista-logistician-learning-cfc-distribuzione-vaud-la-poste-suisse-daillens",
+        "en": "logistician-logistician-learning-cfc-distribution-vaud-la-poste-suisse-daillens",
+        "de": "logistiker-logistiker-lernen-cfc-verteilung-waadt-la-poste-suisse-daillens",
         "fr": "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-la-poste-suisse-daillens"
       },
       "sourceLang": "fr",
@@ -6985,12 +7371,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post",
-          "logisticista-logistician-learning-cfc-distribuzione-vaud-la-poste-suisse-daillens"
+          "apprendistato-come-logistico-cfc-distribuzione-vaud-la-poste-suisse-daillens"
+        ],
+        "en": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post"
+        ],
+        "de": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-de-logisticienne-logisticien-cfc-distribution-vaud-post",
-        "logisticista-logistician-learning-cfc-distribuzione-vaud-la-poste-suisse-daillens"
+        "apprendistato-come-logistico-cfc-distribuzione-vaud-la-poste-suisse-daillens"
       ]
     },
     {
@@ -7015,11 +7407,11 @@
         "de": "Logistiker/Logistiker lernen CFC Distribution - Bern (französisch sprechend)",
         "fr": "Apprentissage de logisticienne/logisticien CFC Distribution - Berne (francophone)"
       },
-      "slug": "apprendistato-come-logistico-efz-distribution-berna-francofono-la-poste-suisse-bienne",
+      "slug": "logistician-logistician-learning-cfc-distribution-bern-lingua-francese-la-poste-suisse-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-logistico-efz-distribution-berna-francofono-la-poste-suisse-bienne",
-        "en": "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post",
-        "de": "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post",
+        "it": "logistician-logistician-learning-cfc-distribution-bern-lingua-francese-la-poste-suisse-bienne",
+        "en": "logistician-logistician-learning-cfc-distribution-bern-french-speaking-la-poste-suisse-bienne",
+        "de": "logistiker-logistiker-lernen-cfc-distribution-bern-franzosisch-sprechend-la-poste-suisse-bienne",
         "fr": "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-la-poste-suisse-bienne"
       },
       "sourceLang": "fr",
@@ -7060,12 +7452,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post",
-          "logistician-logistician-learning-cfc-distribution-bern-lingua-francese-la-poste-suisse-bienne"
+          "apprendistato-come-logistico-efz-distribution-berna-francofono-la-poste-suisse-bienne"
+        ],
+        "en": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post"
+        ],
+        "de": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-de-logisticienne-logisticien-cfc-distribution-berne-francophone-post",
-        "logistician-logistician-learning-cfc-distribution-bern-lingua-francese-la-poste-suisse-bienne"
+        "apprendistato-come-logistico-efz-distribution-berna-francofono-la-poste-suisse-bienne"
       ]
     },
     {
@@ -7090,11 +7488,11 @@
         "de": "Logistiker/Logistiker lernen CFC Verteilung - Neuenburg",
         "fr": "Apprentissage de logisticienne/logisticien CFC Distribution - Neuchâtel"
       },
-      "slug": "apprendistato-come-logistico-cfc-distribuzione-neuchatel-la-poste-suisse-colombier-ne",
+      "slug": "logisticista-logistician-learning-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne",
       "slugByLocale": {
-        "it": "apprendistato-come-logistico-cfc-distribuzione-neuchatel-la-poste-suisse-colombier-ne",
-        "en": "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post",
-        "de": "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post",
+        "it": "logisticista-logistician-learning-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne",
+        "en": "logistician-logistician-learning-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne",
+        "de": "logistiker-logistiker-lernen-cfc-verteilung-neuenburg-la-poste-suisse-colombier-ne",
         "fr": "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne"
       },
       "sourceLang": "fr",
@@ -7136,12 +7534,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post",
-          "logisticista-logistician-learning-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne"
+          "apprendistato-come-logistico-cfc-distribuzione-neuchatel-la-poste-suisse-colombier-ne"
+        ],
+        "en": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post"
+        ],
+        "de": [
+          "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-de-logisticienne-logisticien-cfc-distribution-neuchatel-post",
-        "logisticista-logistician-learning-cfc-distribution-neuchatel-la-poste-suisse-colombier-ne"
+        "apprendistato-come-logistico-cfc-distribuzione-neuchatel-la-poste-suisse-colombier-ne"
       ]
     },
     {
@@ -7166,11 +7570,11 @@
         "de": "Business Employee Lernen SWC, Dienstleistungen und Verwaltung Genf",
         "fr": "Apprentissage d'employé-e de commerce CFC, Services et administration - Genève"
       },
-      "slug": "apprendistato-commerciale-efz-servizi-e-amministrazione-ginevra-la-poste-suisse-geneve",
+      "slug": "imparare-i-dipendenti-swc-i-servizi-e-l-amministrazione-ginevra-la-poste-suisse-geneve",
       "slugByLocale": {
-        "it": "apprendistato-commerciale-efz-servizi-e-amministrazione-ginevra-la-poste-suisse-geneve",
-        "en": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post",
-        "de": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post",
+        "it": "imparare-i-dipendenti-swc-i-servizi-e-l-amministrazione-ginevra-la-poste-suisse-geneve",
+        "en": "business-employee-learning-swc-services-and-administration-geneva-la-poste-suisse-geneve",
+        "de": "business-employee-lernen-swc-dienstleistungen-und-verwaltung-genf-la-poste-suisse-geneve",
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-la-poste-suisse-geneve"
       },
       "sourceLang": "fr",
@@ -7211,12 +7615,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post",
-          "imparare-i-dipendenti-swc-i-servizi-e-l-amministrazione-ginevra-la-poste-suisse-geneve"
+          "apprendistato-commerciale-efz-servizi-e-amministrazione-ginevra-la-poste-suisse-geneve"
+        ],
+        "en": [
+          "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post"
+        ],
+        "de": [
+          "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-employe-e-de-commerce-cfc-services-et-administration-geneve-post",
-        "imparare-i-dipendenti-swc-i-servizi-e-l-amministrazione-ginevra-la-poste-suisse-geneve"
+        "apprendistato-commerciale-efz-servizi-e-amministrazione-ginevra-la-poste-suisse-geneve"
       ]
     },
     {
@@ -7241,11 +7651,11 @@
         "de": "Information Technology Learning CFC - Neuenburg",
         "fr": "Apprentissage d'informaticienne / informaticien CFC - Neuchâtel"
       },
-      "slug": "apprendistato-come-informatico-efz-neuchatel-la-poste-suisse-neuchatel",
+      "slug": "information-technology-learning-cfc-neuchatel-la-poste-suisse-neuchatel",
       "slugByLocale": {
-        "it": "apprendistato-come-informatico-efz-neuchatel-la-poste-suisse-neuchatel",
+        "it": "information-technology-learning-cfc-neuchatel-la-poste-suisse-neuchatel",
         "en": "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-la-poste-suisse-neuchatel",
-        "de": "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-post",
+        "de": "information-technology-learning-cfc-neuenburg-la-poste-suisse-neuchatel",
         "fr": "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-la-poste-suisse-neuchatel"
       },
       "sourceLang": "fr",
@@ -7286,12 +7696,15 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-post",
-          "information-technology-learning-cfc-neuchatel-la-poste-suisse-neuchatel"
+          "apprendistato-come-informatico-efz-neuchatel-la-poste-suisse-neuchatel"
+        ],
+        "de": [
+          "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-informaticienne-informaticien-cfc-neuchatel-post",
-        "information-technology-learning-cfc-neuchatel-la-poste-suisse-neuchatel"
+        "apprendistato-come-informatico-efz-neuchatel-la-poste-suisse-neuchatel"
       ]
     },
     {
@@ -7314,11 +7727,11 @@
         "de": "SWC Way-up Employee Learning Services und Administration - Neuenburg",
         "fr": "Apprentissage d'employée/employé de commerce CFC way-up Services et administration - Neuchâtel"
       },
-      "slug": "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-neuchatel-la-poste-suisse-colombier-ne",
+      "slug": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-neuchatel-la-poste-suisse-colombier-ne",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-neuchatel-la-poste-suisse-colombier-ne",
-        "en": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post",
-        "de": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post",
+        "it": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-neuchatel-la-poste-suisse-colombier-ne",
+        "en": "swc-way-up-employee-learning-services-and-administration-neuchatel-la-poste-suisse-colombier-ne",
+        "de": "swc-way-up-employee-learning-services-und-administration-neuenburg-la-poste-suisse-colombier-ne",
         "fr": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-la-poste-suisse-colombier"
       },
       "sourceLang": "fr",
@@ -7360,12 +7773,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post",
-          "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-neuchatel-la-poste-suisse-colombier-ne"
+          "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-neuchatel-la-poste-suisse-colombier-ne"
+        ],
+        "en": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post"
+        ],
+        "de": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-neuchatel-post",
-        "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-neuchatel-la-poste-suisse-colombier-ne"
+        "apprendistato-come-impiegato-commerciale-efz-servizi-e-amministrazione-neuchatel-la-poste-suisse-colombier-ne"
       ]
     },
     {
@@ -7388,11 +7807,11 @@
         "de": "SWC Way-up Employee Learning Services und Administration - Waadt",
         "fr": "Apprentissage d'employée/employé de commerce CFC way-up Services et administration - Vaud"
       },
-      "slug": "apprendistato-come-dipendente-commerciale-efz-servizi-e-amministrazione-vaud-la-poste-suisse-daillens",
+      "slug": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vaud-la-poste-suisse-daillens",
       "slugByLocale": {
-        "it": "apprendistato-come-dipendente-commerciale-efz-servizi-e-amministrazione-vaud-la-poste-suisse-daillens",
-        "en": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post",
-        "de": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post",
+        "it": "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vaud-la-poste-suisse-daillens",
+        "en": "swc-way-up-employee-learning-services-and-administration-vaud-la-poste-suisse-daillens",
+        "de": "swc-way-up-employee-learning-services-und-administration-waadt-la-poste-suisse-daillens",
         "fr": "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-la-poste-suisse-daillens"
       },
       "sourceLang": "fr",
@@ -7433,12 +7852,18 @@
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post",
-          "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vaud-la-poste-suisse-daillens"
+          "apprendistato-come-dipendente-commerciale-efz-servizi-e-amministrazione-vaud-la-poste-suisse-daillens"
+        ],
+        "en": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post"
+        ],
+        "de": [
+          "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post"
         ]
       },
       "previousSlugs": [
         "apprentissage-d-employee-employe-de-commerce-cfc-way-up-services-et-administration-vaud-post",
-        "servizi-di-apprendimento-e-amministrazione-dei-dipendenti-vaud-la-poste-suisse-daillens"
+        "apprendistato-come-dipendente-commerciale-efz-servizi-e-amministrazione-vaud-la-poste-suisse-daillens"
       ]
     },
     {

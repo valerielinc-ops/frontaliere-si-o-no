@@ -1607,8 +1607,7 @@
           "stagiaire-talent-acquisition-development-audemars-piguet-le-brassus-switzerland"
         ],
         "en": [
-          "stagiaire-talent-acquisition-development-audemars-piguet-le-brassus-switzerland",
-          "trainee-talent-acquisition-development-audemars-piguet-le-brassus"
+          "stagiaire-talent-acquisition-development-audemars-piguet-le-brassus-switzerland"
         ],
         "de": [
           "stagiaire-talent-acquisition-development-audemars-piguet-le-brassus-switzerland"
@@ -1630,10 +1629,10 @@
     },
     {
       "id": "audemars-piguet-b339993d063c",
-      "slug": "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland",
+      "slug": "formazione-e-sviluppo-audemars-piguet-le-brassus-switzerland",
       "slugByLocale": {
         "fr": "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland",
-        "it": "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland",
+        "it": "formazione-e-sviluppo-audemars-piguet-le-brassus-switzerland",
         "en": "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland",
         "de": "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland"
       },
@@ -1691,7 +1690,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T11:50:02.940Z"
+      "firstSeenAt": "2026-06-18T11:50:02.940Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-learning-development-audemars-piguet-le-brassus-switzerland"
+      ]
     }
   ]
 }

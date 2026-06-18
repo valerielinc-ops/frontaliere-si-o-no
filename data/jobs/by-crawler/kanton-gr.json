@@ -428,12 +428,12 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
+      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
-        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
+        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
-        "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
+        "fr": "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -495,11 +495,20 @@
       "addressRegion": "GR",
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
       "previousSlugs": [
+        "systems-engineer-in-windows-server-kanton-gr-ch",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
         "systemingenieur-in-windows-anwendungen-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-windows-applikationen-kantonale-verwaltung-graubunden-chur",
         "ingenieur-e-systeme-pour-applications-windows-kantonale-verwaltung-graubunden-chur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "systems-engineer-in-windows-server-kanton-gr-ch"
+        ],
+        "fr": [
+          "systems-engineer-in-windows-server-kanton-gr-ch"
+        ]
+      }
     },
     {
       "id": "kanton-gr-bd3fe645cf0f",
@@ -584,8 +593,8 @@
       "slugByLocale": {
         "de": "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch",
         "it": "praktikant-in-fachstelle-stipendien-befristet-6-monate-kantonale-verwaltung-graubunden-chur",
-        "en": "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch",
-        "fr": "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch"
+        "en": "trainee-scholarships-limited-to-6-months-kantonale-verwaltung-graubunden-chur",
+        "fr": "stagiaire-bourses-d-etudes-duree-limitee-a-6-mois-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -634,6 +643,12 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch"
+        ],
+        "en": [
+          "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch"
+        ],
+        "fr": [
           "praktikant-in-fachstelle-stipendien-befristet-6-monate-kanton-gr-ch"
         ]
       },
@@ -734,12 +749,12 @@
     },
     {
       "id": "kanton-gr-7de0b91842c6",
-      "slug": "strassenwart-vorarbeiter-in-kanton-gr-ch",
+      "slug": "caposquadra-di-strada-kantonale-verwaltung-graubunden-thusis",
       "slugByLocale": {
         "de": "strassenwart-vorarbeiter-in-kanton-gr-ch",
-        "it": "strassenwart-vorarbeiter-in-kanton-gr-ch",
-        "en": "strassenwart-vorarbeiter-in-kanton-gr-ch",
-        "fr": "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        "it": "caposquadra-di-strada-kantonale-verwaltung-graubunden-thusis",
+        "en": "road-maintenance-foreman-kantonale-verwaltung-graubunden-thusis",
+        "fr": "contremaitre-contremaitresse-de-voirie-kantonale-verwaltung-graubunden-thusis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -801,20 +816,32 @@
       "addressRegion": "GR",
       "firstSeenAt": "2026-06-18T12:32:58.977Z",
       "previousSlugs": [
+        "strassenwart-vorarbeiter-in-kanton-gr-ch",
         "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
         "strassenwart-in-kanton-gr-ch",
         "streetkeeper-in-kantonale-verwaltung-graubunden-samedan",
         "gardien-de-rue-in-kantonale-verwaltung-graubunden-samedan"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ],
+        "en": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ],
+        "fr": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch"
+        ]
+      }
     },
     {
       "id": "kanton-gr-637b20fb3375",
-      "slug": "strassenwart-vorarbeiter-in-kanton-gr-ch-2",
+      "slug": "streetkeeper-foreman-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
       "slugByLocale": {
         "de": "strassenwart-vorarbeiter-in-kanton-gr-ch",
-        "it": "strassenwart-vorarbeiter-in-kanton-gr-ch-2",
+        "it": "streetkeeper-foreman-in-kantonale-verwaltung-graubunden-davos-frauenkirch",
         "en": "strassenwart-vorarbeiter-in-kanton-gr-ch-2",
-        "fr": "strassenwart-vorarbeiter-in-kanton-gr-ch-2"
+        "fr": "contremaitre-de-rue-in-kantonale-verwaltung-graubunden-davos-frauenkirch"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -874,7 +901,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-18T12:32:58.317Z"
+      "firstSeenAt": "2026-06-18T12:32:58.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch-2"
+        ],
+        "fr": [
+          "strassenwart-vorarbeiter-in-kanton-gr-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "strassenwart-vorarbeiter-in-kanton-gr-ch-2"
+      ]
     },
     {
       "id": "kanton-gr-411b4f827a54",
