@@ -10,6 +10,7 @@ import { EMBEDDING_DIM, EMBEDDING_MODEL } from '../scripts/lib/evidence/constant
 import {
   embedBatch,
   embedOne,
+  embedQuery,
   lastUsedEmbeddingModel,
   selectProvider,
   setEmbedderForTests,
@@ -57,6 +58,15 @@ describe('embeddingClient — local provider', () => {
   it('embedOne returns a single 384-dim vector', async () => {
     setEmbedderForTests(fakeExtractor(unitVec));
     const v = await embedOne('frontaliere');
+    expect(v.length).toBe(EMBEDDING_DIM);
+  });
+
+  it('embedQuery uses "query:" prefix for asymmetric retrieval (headline → passage store)', async () => {
+    const ex = fakeExtractor(unitVec);
+    setEmbedderForTests(ex);
+    const v = await embedQuery('Aumento salari Svizzera 2024');
+    expect(ex.calls).toHaveLength(1);
+    expect(ex.calls[0].inputs).toEqual(['query: Aumento salari Svizzera 2024']);
     expect(v.length).toBe(EMBEDDING_DIM);
   });
 

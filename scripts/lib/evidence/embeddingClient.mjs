@@ -73,19 +73,22 @@ export function lastUsedEmbeddingModel() {
  * Embed a batch of strings locally. Returns one unit-norm Float32Array(384) per
  * input, in order. No network, no key, no batch-size cap (CPU-bound only).
  *
+ * prefix: e5 task prefix applied before each input.
+ *   "passage" (default) — for document/passage encoding: store building,
+ *     dedup where both sides are full article text (title + excerpt).
+ *   "query" — for the retrieval query side: a shorter text (e.g. a headline)
+ *     searched against a passage-encoded store. Use embedQuery() instead of
+ *     calling this directly with prefix:"query".
+ *
  * @param {object} options
  * @param {string[]} options.inputs
+ * @param {'passage'|'query'} [options.prefix='passage']
  * @returns {Promise<Float32Array[]>}
  */
-export async function embedBatch({ inputs } = {}) {
+export async function embedBatch({ inputs, prefix = 'passage' } = {}) {
   if (!Array.isArray(inputs) || inputs.length === 0) return [];
   const extractor = await getExtractor();
-  // e5 models expect a task prefix. The store and query side both embed article
-  // text and we compare article↔article (dedup/clustering) + article↔store
-  // (findTopK), a symmetric retrieval use, so both sides use the "passage:"
-  // prefix consistently (a query/passage split would only matter for asymmetric
-  // short-query search, which this isn't).
-  const prefixed = inputs.map((t) => `passage: ${String(t ?? '')}`);
+  const prefixed = inputs.map((t) => `${prefix}: ${String(t ?? '')}`);
   const out = await extractor(prefixed, { pooling: 'mean', normalize: true });
   const rows = typeof out?.tolist === 'function' ? out.tolist() : out;
   if (!Array.isArray(rows) || rows.length !== inputs.length) {
@@ -101,9 +104,20 @@ export async function embedBatch({ inputs } = {}) {
   return vecs;
 }
 
-/** Convenience wrapper for a single input. */
+/** Convenience wrapper: passage-encode a single string (store building, symmetric dedup). */
 export async function embedOne(text, options = {}) {
   const [vec] = await embedBatch({ inputs: [text], ...options });
+  return vec;
+}
+
+/**
+ * Query-encode a single string for asymmetric retrieval against the passage-encoded
+ * article store. Use in scoreFromEmbedding (headline → findTopK) where the querying
+ * side is shorter than the stored passages. Mirrors the multilingual-e5-small
+ * training setup: query: prefix on the search side, passage: on the document side.
+ */
+export async function embedQuery(text) {
+  const [vec] = await embedBatch({ inputs: [text], prefix: 'query' });
   return vec;
 }
 

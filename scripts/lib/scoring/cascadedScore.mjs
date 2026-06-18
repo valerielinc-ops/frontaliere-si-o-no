@@ -11,7 +11,7 @@
 
 import { extractTerms } from './termExtractor.mjs';
 import { findTopK, cosineSimilarity } from './embeddingMatcher.mjs';
-import { embedOne, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
+import { embedQuery, lastUsedEmbeddingModel } from '../evidence/embeddingClient.mjs';
 import { classifyByRegex } from '../cluster-classifier-prompt.mjs';
 import {
   GSC_MIN_SIGNAL,
@@ -173,7 +173,7 @@ export function scoreFromGsc(terms, gscBlock, opts = {}) {
  */
 export async function scoreFromEmbedding(headline, evidence, opts = {}) {
   const ga4Pages = evidence?.ga4?.pages || {};
-  const embedFn = opts.embedFn || embedOne;
+  const embedFn = opts.embedFn || embedQuery;
 
   let queryVec = lruGet(headline);
   if (!queryVec) {
@@ -198,6 +198,12 @@ export async function scoreFromEmbedding(headline, evidence, opts = {}) {
   if (topK[0].cosine < EMBEDDING_MIN_COSINE) return null;
 
   // Quality-weighted prediction: sum(sessions_i * cosine_i) / sum(cosine_i).
+  // The /sum(cosine) normalisation makes this a scale-insensitive weighted
+  // mean: a uniform shift of the top-K cosine band (as the query:/passage:
+  // asymmetric encoding may induce vs the prior symmetric one) largely
+  // cancels in the ratio. What drives the weighting is the RELATIVE ordering
+  // of the top-K hits, which the asymmetric encoding preserves (it is e5's
+  // intended retrieval mode). So the weighting is not re-tuned here either.
   let weightedSum = 0;
   let weightTotal = 0;
   for (const hit of topK) {
