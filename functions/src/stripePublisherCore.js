@@ -37,6 +37,7 @@ import { revertPendingJobsToDraft } from './publisherPendingReapCore.js';
 
 // ── Stripe client (lazy, cached) ────────────────────────────────────────────
 let _stripe = null;
+const _productTaxCodeEnsured = new Set();
 async function getStripe() {
   if (_stripe) return _stripe;
   const key = await getRemoteConfigValue('STRIPE_SECRET_KEY');
@@ -80,6 +81,20 @@ async function ensureVolumeCoupon(stripe, rate) {
     });
   }
   return id;
+}
+
+/**
+ * Idempotent: assigns taxCode to the Stripe product linked to priceId if it
+ * has no tax_code yet. Required for managed_payments. Cached per instance.
+ */
+async function ensureProductTaxCode(stripe, priceId, taxCode) {
+  if (_productTaxCodeEnsured.has(priceId)) return;
+  const price = await stripe.prices.retrieve(priceId, { expand: ['product'] });
+  const product = price.product;
+  if (product && !product.tax_code) {
+    await stripe.products.update(product.id, { tax_code: taxCode });
+  }
+  _productTaxCodeEnsured.add(priceId);
 }
 
 // ── createPublisherCheckout ─────────────────────────────────────────────────
@@ -182,6 +197,7 @@ export async function handleCreatePublisherCheckout(req) {
   if (!priceId) return { status: 500, body: { ok: false, error: 'price_not_configured' } };
 
   const stripe = await getStripe();
+  await ensureProductTaxCode(stripe, priceId, 'txcd_20000000');
 
   // Reuse the publisher's Stripe customer if we have one.
   const pubRef = db().collection('publishers').doc(uid);
@@ -218,11 +234,7 @@ export async function handleCreatePublisherCheckout(req) {
     customer: customerId,
     line_items: [{ price: priceId, quantity: units }],
     discounts: couponId ? [{ coupon: couponId }] : undefined,
-    // NB: `managed_payments` was removed — Stripe rejects it (400 "product tax
-    // code is missing") unless the price's product has an eligible tax_code, so
-    // it broke every per-ad checkout. Re-enable only after setting tax_code on
-    // the products (Managed Payments). Verified live 2026-06-18: without it the
-    // session creates 200 OK; with it, 400.
+    managed_payments: { enabled: true },
     success_url: successUrl,
     cancel_url: cancelUrl,
     client_reference_id: orderRef.id,
