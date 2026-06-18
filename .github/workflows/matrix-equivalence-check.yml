@@ -1,0 +1,111 @@
+# Matrix ≡ Monolith equivalence check (no deploy modification).
+#
+# Implements the "reuse the live monolith artifact" idea: instead of rebuilding
+# the monolith, download the github-pages artifact (it + shared, en/de/fr
+# stripped) that a real deploy.yml run already produced, then build the MATRIX
+# it-shard FROM THE SAME COMMIT and diff them byte-for-byte (sha256).
+#
+# Why it+shared only: the live en/de/fr shard repos are force-pushed per deploy
+# and drift across runs (no coherent same-commit all-4 snapshot exists). The
+# github-pages artifact IS a coherent single-commit snapshot of it + ALL shared
+# files — which is exactly the cross-locale risk surface: every sitemap (with
+# 4-locale xhtml:link alternates), hreflang, assets, /data, /og, build-id.
+#
+# Same commit ⇒ same committed crawler slices ⇒ deterministic assemble ⇒ same
+# data/jobs.json ⇒ pages must be byte-identical. Any diff is a real matrix bug.
+name: Matrix Equivalence Check (it+shared vs live monolith)
+
+on:
+  workflow_dispatch:
+    inputs:
+      sha:
+        description: 'Commit SHA the live deploy was built from (matches the artifact)'
+        required: true
+      deploy_run_id:
+        description: 'deploy.yml run id whose github-pages artifact to compare against'
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: matrix-equivalence-${{ github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  equivalence:
+    runs-on: ubuntu-latest
+    env:
+      BUILD_LOCALE: it
+      SEQUENTIAL_PROFILE: '1'
+      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+    steps:
+      - name: Checkout the equivalence tooling (this branch)
+        uses: actions/checkout@v5
+        with:
+          path: tooling
+      - name: Checkout the BUILD commit (must match the live artifact)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.inputs.sha }}
+          path: build
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        working-directory: build
+        run: npm ci
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        working-directory: build
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+      - name: Reproduce the deploy data snapshot (deterministic from committed slices)
+        working-directory: build
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: |
+          set -eo pipefail
+          node scripts/assemble-jobs-dataset.mjs --stats
+          node scripts/cleanup-jobs.mjs
+          node scripts/refresh-weekly-employers-top-pairs.mjs
+          node scripts/mine-all-job-slugs.mjs
+          node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+          node scripts/generate-image-thumbnails.mjs
+          node scripts/cleanup-news-sitemap.mjs
+      - name: Build matrix it-shard (BUILD_LOCALE=it) from the commit
+        working-directory: build
+        run: npm run build:ci
+      - name: Prune to it shard (root + shared, drop en/de/fr) — mirrors deploy strip
+        run: node tooling/scripts/ci/prune-locale-shard.mjs build/dist
+      - name: Manifest the matrix it-shard
+        run: node tooling/scripts/ci/dist-hash-manifest.mjs build/dist /tmp/matrix-it.txt
+      - name: Download the live github-pages artifact (monolith it + shared)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -eo pipefail
+          mkdir -p /tmp/live
+          gh run download "${{ github.event.inputs.deploy_run_id }}" \
+            -R "${{ github.repository }}" -n github-pages -D /tmp/live
+          # The github-pages artifact is a single artifact.tar inside.
+          if [ -f /tmp/live/artifact.tar ]; then
+            mkdir -p /tmp/live/dist && tar -xf /tmp/live/artifact.tar -C /tmp/live/dist
+          fi
+          find /tmp/live -maxdepth 2 -type d | head
+      - name: Manifest the live monolith it+shared
+        run: |
+          set -eo pipefail
+          LIVE_DIST=/tmp/live/dist
+          [ -d "$LIVE_DIST" ] || LIVE_DIST=/tmp/live
+          node tooling/scripts/ci/dist-hash-manifest.mjs "$LIVE_DIST" /tmp/live-it.txt
+      - name: Compare matrix it-shard ≡ live monolith it+shared
+        run: node tooling/scripts/ci/compare-dist-manifests.mjs /tmp/live-it.txt /tmp/matrix-it.txt
