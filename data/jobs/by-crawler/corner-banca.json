@@ -414,8 +414,8 @@
       "slugByLocale": {
         "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+        "de": "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
+        "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -613,8 +613,8 @@
       "slugByLocale": {
         "it": "employee-collection-team-zurich-corner-banca-wallisellen",
         "en": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "fr": "employee-collection-team-zurich-corner-banca-wallisellen"
+        "de": "mitarbeitersammlung-team-zurich-corner-banca-wallisellen",
+        "fr": "equipe-de-recouvrement-des-employes-zurich-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1109,7 +1109,7 @@
       "slugByLocale": {
         "it": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
         "en": "legal-collection-case-manager-corner-banca-wallisellen",
-        "de": "legal-collection-case-manager-corner-banca-wallisellen",
+        "de": "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
         "fr": "legal-collection-case-manager-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
@@ -1173,6 +1173,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "legal-collection-case-manager-corner-banca-wallisellen"
+        ],
+        "de": [
           "legal-collection-case-manager-corner-banca-wallisellen"
         ]
       },

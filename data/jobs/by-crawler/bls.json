@@ -1175,8 +1175,8 @@
       "slugByLocale": {
         "de": "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
         "it": "kaltesystemtechniker-in-luftung-e-klima-bls-ag-bern",
-        "en": "kaltesystemtechniker-in-luftung-und-klima-bls-ch",
-        "fr": "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
+        "en": "refrigeration-system-technician-in-ventilation-and-air-conditioning-bls-ag-bern",
+        "fr": "techniciens-en-systemes-de-refrigeration-en-ventilation-et-climatisation-bls-ag-bern"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1240,6 +1240,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
+        ],
+        "en": [
+          "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
+        ],
+        "fr": [
           "kaltesystemtechniker-in-luftung-und-klima-bls-ch"
         ]
       },

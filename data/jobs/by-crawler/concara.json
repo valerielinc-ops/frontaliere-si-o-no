@@ -4641,12 +4641,10 @@
           "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
         ],
         "en": [
-          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
-          "associate-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
+          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
         ],
         "fr": [
-          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara",
-          "collaborateur-trice-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara-domicil-spitex-bern-munchenbuchsee"
+          "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-srk-60-80-concara"
         ]
       },
       "firstSeenAt": "2026-06-16T13:07:26.963Z",
@@ -4719,12 +4717,10 @@
           "mitarbeiter-in-betreuung-und-pflege-80-100-concara-thun"
         ],
         "en": [
-          "mitarbeiter-in-betreuung-und-pflege-80-100-concara-thun",
-          "associate-betreuung-und-pflege-80-100-concara-domicil-spitex-bern-thun"
+          "mitarbeiter-in-betreuung-und-pflege-80-100-concara-thun"
         ],
         "fr": [
-          "mitarbeiter-in-betreuung-und-pflege-80-100-concara-thun",
-          "collaborateur-trice-betreuung-und-pflege-80-100-concara-domicil-spitex-bern-thun"
+          "mitarbeiter-in-betreuung-und-pflege-80-100-concara-thun"
         ]
       },
       "firstSeenAt": "2026-06-16T13:07:26.957Z",
@@ -4743,12 +4739,12 @@
     },
     {
       "id": "concara-cfe57662235c",
-      "slug": "fachspezialist-in-controlling-60-80-concara-bern",
+      "slug": "specialista-nel-controllo-del-60-80-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-controlling-60-80-concara-bern",
-        "en": "fachspezialist-in-controlling-60-80-concara-bern",
+        "it": "specialista-nel-controllo-del-60-80-concara-domicil-spitex-bern-bern",
+        "en": "specialist-in-controlling-60-80-concara-domicil-spitex-bern-bern",
         "de": "fachspezialist-in-controlling-60-80-concara-bern",
-        "fr": "fachspezialist-in-controlling-60-80-concara-bern"
+        "fr": "specialiste-en-controle-60-80-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4802,16 +4798,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-controlling-60-80-concara-bern"
+        ],
+        "en": [
+          "fachspezialist-in-controlling-60-80-concara-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-controlling-60-80-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-controlling-60-80-concara-bern"
+      ]
     },
     {
       "id": "concara-0e5410a021f7",
-      "slug": "pharma-betriebsassistent-in-60-100-concara-bern",
+      "slug": "assistente-farmaceutico-nel-60-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "pharma-betriebsassistent-in-60-100-concara-bern",
-        "en": "pharma-betriebsassistent-in-60-100-concara-bern",
+        "it": "assistente-farmaceutico-nel-60-100-concara-domicil-spitex-bern-bern",
+        "en": "pharmaceutical-assistant-in-60-100-concara-domicil-spitex-bern-bern",
         "de": "pharma-betriebsassistent-in-60-100-concara-bern",
-        "fr": "pharma-betriebsassistent-in-60-100-concara-bern"
+        "fr": "assistant-pharmaceutique-en-60-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -4865,7 +4875,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-betriebsassistent-in-60-100-concara-bern"
+        ],
+        "en": [
+          "pharma-betriebsassistent-in-60-100-concara-bern"
+        ],
+        "fr": [
+          "pharma-betriebsassistent-in-60-100-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-betriebsassistent-in-60-100-concara-bern"
+      ]
     }
   ]
 }

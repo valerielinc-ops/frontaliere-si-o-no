@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "straumann-eb23725c23b7",
-      "slug": "director-fp-a-strategic-finance-emea-straumann-ch",
+      "slug": "direttore-fp-a-finanza-strategica-emea-straumann-basel",
       "slugByLocale": {
         "en": "director-fp-a-strategic-finance-emea-straumann-ch",
-        "it": "director-fp-a-strategic-finance-emea-straumann-ch",
-        "de": "director-fp-a-strategic-finance-emea-straumann-ch",
+        "it": "direttore-fp-a-finanza-strategica-emea-straumann-basel",
+        "de": "direktor-fp-a-strategische-finanzen-emea-straumann-basel",
         "fr": "director-fp-a-strategic-finance-emea-straumann-ch"
       },
       "company": "Straumann",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T23:28:10.075Z"
+      "firstSeenAt": "2026-06-17T23:28:10.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-fp-a-strategic-finance-emea-straumann-ch"
+        ],
+        "de": [
+          "director-fp-a-strategic-finance-emea-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "director-fp-a-strategic-finance-emea-straumann-ch"
+      ]
     },
     {
       "id": "straumann-b47875ac568b",

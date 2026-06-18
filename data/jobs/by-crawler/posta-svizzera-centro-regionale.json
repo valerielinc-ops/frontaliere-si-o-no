@@ -384,9 +384,9 @@
         "de": "Zusteller:in Briefe und Pakete",
         "fr": "Zusteller:in Briefe und Pakete"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-weggis",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-weggis",
         "en": "zusteller-in-briefe-und-pakete-post-2",
         "de": "zusteller-in-briefe-und-pakete-post-2",
         "fr": "zusteller-in-briefe-und-pakete-post-2"
@@ -410,11 +410,13 @@
       "id": "posta-svizzera-centro-regionale-8bd7dc16a615",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4998,7 +5000,7 @@
         "it": "e-mobility-solution-engineer-post",
         "en": "e-mobility-solution-engineer-post",
         "de": "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona",
-        "fr": "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona"
+        "fr": "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -5037,12 +5039,11 @@
       "firstSeenAt": "2026-05-28T13:45:02.562Z",
       "previousSlugsByLocale": {
         "fr": [
-          "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona",
           "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona"
         ]
       },
       "previousSlugs": [
-        "ingenieur-de-solution-de-mobilite-electronique-die-schweizerische-post-bellinzona",
+        "e-mobility-solution-ingenieur-die-schweizerische-post-bellinzona",
         "e-mobility-solution-ingegnere-die-schweizerische-post-bellinzona"
       ],
       "needsRetranslation": true

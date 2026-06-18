@@ -2762,7 +2762,7 @@
         "it": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "en": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
         "de": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
+        "fr": "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -2805,20 +2805,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich",
-        "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2",
+        "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich",
         "dipl-infermiere-a-hf-fh-sorveglianza-infermieristica-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-nursing-professional-hf-fh-post-operative-care-m-f-d-80-100-universitatsklinik-balgrist-zurich",
         "dipl-pflegefachperson-hf-fh-uberwachungspflege-m-w-d-80-100-balgrist-zurich",
-        "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich",
-        "diplomato-a-della-cura-infermieristica-hf-fh-m-f-d-50-100-universitatsklinik-balgrist-zurich",
-        "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
+        "diplome-e-en-soins-infirmiers-hf-fh-surveillance-post-operatoire-h-f-80-100-universitatsklinik-balgrist-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-m-w-d-50-100-balgrist-zurich-2"
+          "diplome-e-en-soins-infirmiers-hf-fh-h-f-50-100-universitatsklinik-balgrist-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T21:36:39.702Z",
@@ -4371,12 +4369,12 @@
     },
     {
       "id": "balgrist-d54b2de2734d",
-      "slug": "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich",
+      "slug": "manager-unita-trial-clinici-f-m-d-80-100-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
-        "it": "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich",
+        "it": "manager-unita-trial-clinici-f-m-d-80-100-universitatsklinik-balgrist-zurich",
         "en": "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich",
         "de": "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich",
-        "fr": "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich"
+        "fr": "responsable-de-l-unite-d-essais-cliniques-f-m-d-80-100-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -4429,7 +4427,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich"
+        ],
+        "fr": [
+          "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manager-in-clinical-trial-unit-w-m-d-80-100-balgrist-zurich"
+      ]
     }
   ]
 }

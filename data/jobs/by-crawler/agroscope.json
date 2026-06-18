@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-scientifico-a-90-colture-frutticole-e-qualita-dei-prodotti-agroscope-conthey",
-        "en": "collaboratore-trice-scientifico-a-90-colture-frutticole-e-qualita-dei-prodotti-agroscope-conthey",
-        "de": "collaboratore-trice-scientifico-a-90-colture-frutticole-e-qualita-dei-prodotti-agroscope-conthey",
-        "fr": "collaboratore-trice-scientifico-a-90-colture-frutticole-e-qualita-dei-prodotti-agroscope-conthey"
+        "en": "scientific-collaborator-90-fruit-crops-and-product-quality-agroscope-conthey-svizzera",
+        "de": "wissenschaftlicher-mitarbeiter-90-obstkulturen-und-produktqualitat-agroscope-conthey-svizzera",
+        "fr": "collaborateur-scientifique-90-cultures-fruitieres-et-qualite-des-produits-agroscope-conthey-svizzera"
       },
       "id": "agroscope-7de44a42b2b2",
       "salaryMin": 60500,
@@ -342,7 +342,7 @@
       },
       "slugByLocale": {
         "it": "praticante-informatica-agroscope-posieux",
-        "en": "praticante-informatica-agroscope-posieux",
+        "en": "computer-practitioner-agroscope-1725-posieux",
         "de": "computerpraktiker-agroscope-1725-posieux",
         "fr": "specialiste-de-l-informatique-agroscope-1725-posieux"
       },
@@ -365,13 +365,11 @@
       "firstSeenAt": "2026-06-02T12:00:03.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "it-practitioner-agroscope-1725-posieux",
-          "computer-practitioner-agroscope-1725-posieux"
+          "it-practitioner-agroscope-1725-posieux"
         ]
       },
       "previousSlugs": [
-        "it-practitioner-agroscope-1725-posieux",
-        "computer-practitioner-agroscope-1725-posieux"
+        "it-practitioner-agroscope-1725-posieux"
       ],
       "needsRetranslation": true
     },

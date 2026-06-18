@@ -705,12 +705,12 @@
     },
     {
       "id": "bethesda-spital-7e6e8912d886",
-      "slug": "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
+      "slug": "infermiera-hf-fh-70-100-bethesda-spital-basel",
       "slugByLocale": {
         "de": "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
-        "it": "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
-        "en": "kmu-supporter-in-im-aussendienst-w-m-d-80-100",
-        "fr": "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+        "it": "infermiera-hf-fh-70-100-bethesda-spital-basel",
+        "en": "dipl-nurse-hf-fh-70-100-bethesda-spital-basel",
+        "fr": "infirmiere-diplomee-hf-fh-70-100-bethesda-spital-basel"
       },
       "company": "Bethesda Spital",
       "companyKey": "bethesda-spital",
@@ -765,7 +765,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:14:37.769Z"
+      "firstSeenAt": "2026-06-17T22:14:37.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+        ],
+        "en": [
+          "kmu-supporter-in-im-aussendienst-w-m-d-80-100"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-70-100-bethesda-spital-basel",
+        "kmu-supporter-in-im-aussendienst-w-m-d-80-100"
+      ]
     }
   ]
 }

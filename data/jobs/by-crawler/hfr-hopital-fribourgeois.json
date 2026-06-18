@@ -161,9 +161,9 @@
     },
     {
       "id": "hfr-hopital-fribourgeois-4f25bdf90fb6",
-      "slug": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
+      "slug": "segretario-medico-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "it": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
+        "it": "segretario-medico-80-medizinische-r-sekretar-in-80-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
         "de": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg",
         "fr": "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
@@ -220,13 +220,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-80-medizinische-r-sekretar-in-80-hfr-hopital-fribourgeois-fribourg"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-b1e1661a297e",
-      "slug": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
+      "slug": "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
       "slugByLocale": {
-        "it": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
+        "it": "segretariato-medico-60-medizinische-r-sekretar-in-60-hopital-fribourgeois-hfr-fribourg",
         "en": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "de": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg",
         "fr": "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
@@ -283,15 +291,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-60-medizinische-r-sekretar-in-60-hfr-hopital-fribourgeois-fribourg"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-f23bee1d6a1d",
-      "slug": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
+      "slug": "qualita-dei-rispondenti-per-l-igiene-degli-endoscopi-e-responsabile-della-rielaborazione-degli-endoscopi-flessibili-20",
       "slugByLocale": {
-        "it": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
-        "en": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
-        "de": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des",
+        "it": "qualita-dei-rispondenti-per-l-igiene-degli-endoscopi-e-responsabile-della-rielaborazione-degli-endoscopi-flessibili-20",
+        "en": "respondent-quality-for-endoscope-hygiene-and-responsible-for-reprocessing-flexible-endoscopes-20-hopital-fribourgeois",
+        "de": "befragtenqualitat-fur-endoskophygiene-und-verantwortlich-fur-die-wiederaufbereitung-flexibler-endoskope-20-hopital",
         "fr": "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
       },
       "company": "Hôpital fribourgeois (HFR)",
@@ -346,7 +362,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+        ],
+        "en": [
+          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+        ],
+        "de": [
+          "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+        ]
+      },
+      "previousSlugs": [
+        "repondant-e-qualite-pour-l-hygiene-des-endoscopes-et-responsable-du-retraitement-des"
+      ]
     },
     {
       "id": "hfr-hopital-fribourgeois-fed31e702ca3",
