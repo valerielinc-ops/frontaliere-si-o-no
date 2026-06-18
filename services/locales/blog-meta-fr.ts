@@ -8129,6 +8129,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.naspi-svizzera-frontalieri.title': 'Naspi et ristorni fiscaux pour les frontaliers',
     'blog.article.naspi-svizzera-frontalieri.excerpt': 'Comment fonctionne le permis G suisse pour les frontaliers, une durée maximale de 520 jours et comment obtenir les ristorni fiscaux en Italie.',
     'blog.article.naspi-svizzera-frontalieri.imageAlt': 'Castelgrande à Bellinzone au coucher du soleil, symbole de la frontière et du canton du Tessin.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.title': 'Agences Lugano',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.excerpt': 'Présentation des agences d\'intérim à Lugano, opportunités pour les frontaliers et procédures d\'insertion sur le marché tessinois.',
+    'blog.article.agenzie-interim-lugano-ticino-frontaliere.imageAlt': 'Centre-ville de Lugano avec bureaux et personnes en déplacement.',
 };
 
 export default blogMetaFr;
