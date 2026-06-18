@@ -218,7 +218,11 @@ export async function handleCreatePublisherCheckout(req) {
     customer: customerId,
     line_items: [{ price: priceId, quantity: units }],
     discounts: couponId ? [{ coupon: couponId }] : undefined,
-    managed_payments: { enabled: true },
+    // NB: `managed_payments` was removed — Stripe rejects it (400 "product tax
+    // code is missing") unless the price's product has an eligible tax_code, so
+    // it broke every per-ad checkout. Re-enable only after setting tax_code on
+    // the products (Managed Payments). Verified live 2026-06-18: without it the
+    // session creates 200 OK; with it, 400.
     success_url: successUrl,
     cancel_url: cancelUrl,
     client_reference_id: orderRef.id,
