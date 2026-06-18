@@ -2110,7 +2110,15 @@
       },
       "postalCode": "1204",
       "addressRegion": "GE",
-      "firstSeenAt": "2026-06-17T23:01:28.302Z"
+      "firstSeenAt": "2026-06-17T23:01:28.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "test-architetto-80-100-lombard-odier-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "test-architetto-80-100-lombard-odier-geneva"
+      ]
     },
     {
       "id": "lombard-odier-66a76e85ee63",
