@@ -68,7 +68,6 @@
           "fellow-cardiology-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -88,9 +87,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -133,7 +132,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -147,7 +148,6 @@
           "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -250,9 +250,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -295,7 +295,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -309,7 +311,6 @@
           "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -329,7 +330,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -380,7 +381,8 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -394,7 +396,6 @@
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -541,13 +542,14 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -556,11 +558,9 @@
           "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -807,7 +807,6 @@
         "care-gynecological-oncological-ambulatory-breast-clinic-universitatsspital-basel-basel",
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -873,13 +872,14 @@
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -888,11 +888,9 @@
           "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1212,7 +1210,6 @@
           "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1627,7 +1624,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1647,9 +1643,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1692,7 +1688,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1706,7 +1704,6 @@
           "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1807,9 +1804,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1852,7 +1849,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1866,7 +1865,6 @@
           "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1948,7 +1946,6 @@
         "amministrativo-r-dipendente-in-gestione-di-casi-universitatsspital-basel-basel",
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2047,7 +2044,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch",
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -2150,7 +2146,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2193,7 +2189,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2205,7 +2202,6 @@
           "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2281,7 +2277,6 @@
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2549,7 +2544,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2716,7 +2710,6 @@
         "administrative-r-mitarbeiter-in-patienten-services-unispital-basel-ch-2",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2735,7 +2728,7 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
@@ -2791,21 +2784,20 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2889,7 +2881,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -2898,9 +2889,10 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2979,7 +2971,6 @@
         "dipl-career-dipl-care-specialist-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3210,8 +3201,8 @@
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ],
         "en": [
           "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
@@ -3227,7 +3218,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
@@ -3241,9 +3231,10 @@
         "assistentin-assistent-gesundheit-und-soziales-dialyse-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T13:25:45.876Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3398,7 +3389,6 @@
           "study-nurse-clinical-trial-coordinator-mit-labor-amp-biobanking-erfahrung-unispital-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3722,7 +3712,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4332,7 +4321,6 @@
           "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -4413,7 +4401,6 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5053,7 +5040,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5096,7 +5083,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5107,7 +5095,6 @@
           "pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5188,7 +5175,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5347,7 +5333,6 @@
           "kaderarztin-kaderarzt-pneumologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -6015,14 +6000,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6194,7 +6180,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6237,7 +6223,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6249,7 +6236,6 @@
           "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -6353,7 +6339,7 @@
       "id": "unispital-basel-28c2fd6de85f",
       "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
         "fr": "ergotherapeute-universitatsspital-basel-basel"
@@ -6399,19 +6385,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
-          "ergotherapeute-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7102,7 +7087,6 @@
           "study-nurse-rheumatologie-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7335,7 +7319,6 @@
           "payroll-spezialist-in-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:24:02.256Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7603,7 +7586,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -7614,7 +7596,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
@@ -7681,7 +7666,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -7696,7 +7680,10 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7786,7 +7773,6 @@
           "administrative-r-mitarbeiter-in-leistungskontrolle-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T14:35:48.852Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8107,17 +8093,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Medizinische*r Praxisassistent*in MPA (Frauenpoliklinik)",
       "titleByLocale": {
-        "it": "Medizinische*r Praxisassistent*in MPA (Frauenpoliklinik)",
-        "en": "Medizinische*r Praxisassistent*in MPA (Frauenpoliklinik)",
+        "it": "Assistente di pratica medica MPA (poliklinik delle donne)",
+        "en": "Medizinische*r Pra Pr",
         "de": "Medizinische*r Praxisassistent*in MPA (Frauenpoliklinik)",
-        "fr": "Medizinische*r Praxisassistent*in MPA (Frauenpoliklinik)"
+        "fr": "Assistant(e) médical(e) MPA (policlinique pour femmes)"
       },
       "description": "Aufgaben:\n• Organisation der Sprechstunden sowie sorgfältige Vorbereitung der Konsultationen\n\n• Terminkoordination und kompetente Ansprechperson für Patientinnen – telefonisch wie vor Ort\n\n• Mitbetreuung der ambulanten Patientinnen in den gynäkologischen und geburtshilflichen Sprechstunden\n\n• Selbständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Abstrichen\n\n• Assistenz bei kleinen Eingriffen (Amniozentesen, Chorionzottenbiopsien, Hydrosono, Zystoskopien, Spiraleinlagen)\n\n• Übernahme administrativer Aufgaben sowie Mitbetreuung von Studierenden in Ausbildung\n\nAnforderungen:\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in (MPA) oder vergleichbarer Abschluss im Gesundheitswesen, idealerweise mit mehrjähriger Berufserfahrung im Spital- oder Praxisumfeld\n\n• Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie\n\n• Stilsicheres Deutsch sowie Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil\n\n• Sehr gute PC-Anwenderkenntnisse und hohe Dienstleistungsorientierung\n\n• Präzise, zuverlässige und selbstständige Arbeitsweise\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Organisation der Sprechstunden sowie sorgfältige Vorbereitung der Konsultationen\n• Terminkoordination und kompetente Ansprechperson für Patientinnen – telefonisch wie vor Ort\n• Mitbetreuung der ambulanten Patientinnen in den gynäkologischen und geburtshilflichen Sprechstunden\n• Selbständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Abstrichen\n• Assistenz bei kleinen Eingriffen (Amniozentesen, Chorionzottenbiopsien, Hydrosono, Zystoskopien, Spiraleinlagen)\n• Übernahme administrativer Aufgaben sowie Mitbetreuung von Studierenden in Ausbildung Anforderungen:\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in (MPA) oder vergleichbarer Abschluss im Gesundheitswesen, idealerweise mit mehrjähriger Berufserfahrung im Spital- oder Praxisumfeld\n• Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie\n• Stilsicheres Deutsch sowie Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil\n• Sehr gute PC-Anwenderkenntnisse und hohe Dienstleistungsorientierung\n• Präzise, zuverlässige und selbstständige Arbeitsweise Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Organisation der Sprechstunden sowie sorgfältige Vorbereitung der Konsultationen\n• Terminkoordination und kompetente Ansprechperson für Patientinnen – telefonisch wie vor Ort\n• Mitbetreuung der ambulanten Patientinnen in den gynäkologischen und geburtshilflichen Sprechstunden\n• Selbständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Abstrichen\n• Assistenz bei kleinen Eingriffen (Amniozentesen, Chorionzottenbiopsien, Hydrosono, Zystoskopien, Spiraleinlagen)\n• Übernahme administrativer Aufgaben sowie Mitbetreuung von Studierenden in Ausbildung Anforderungen:\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in (MPA) oder vergleichbarer Abschluss im Gesundheitswesen, idealerweise mit mehrjähriger Berufserfahrung im Spital- oder Praxisumfeld\n• Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie\n• Stilsicheres Deutsch sowie Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil\n• Sehr gute PC-Anwenderkenntnisse und hohe Dienstleistungsorientierung\n• Präzise, zuverlässige und selbstständige Arbeitsweise Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Organisation der Sprechstunden sowie sorgfältige Vorbereitung der Konsultationen\n• Terminkoordination und kompetente Ansprechperson für Patientinnen – telefonisch wie vor Ort\n• Mitbetreuung der ambulanten Patientinnen in den gynäkologischen und geburtshilflichen Sprechstunden\n• Selbständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Abstrichen\n• Assistenz bei kleinen Eingriffen (Amniozentesen, Chorionzottenbiopsien, Hydrosono, Zystoskopien, Spiraleinlagen)\n• Übernahme administrativer Aufgaben sowie Mitbetreuung von Studierenden in Ausbildung Anforderungen:\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in (MPA) oder vergleichbarer Abschluss im Gesundheitswesen, idealerweise mit mehrjähriger Berufserfahrung im Spital- oder Praxisumfeld\n• Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie\n• Stilsicheres Deutsch sowie Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil\n• Sehr gute PC-Anwenderkenntnisse und hohe Dienstleistungsorientierung\n• Präzise, zuverlässige und selbstständige Arbeitsweise Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Organisation der Sprechstunden sowie sorgfältige Vorbereitung der Konsultationen\n• Terminkoordination und kompetente Ansprechperson für Patientinnen – telefonisch wie vor Ort\n• Mitbetreuung der ambulanten Patientinnen in den gynäkologischen und geburtshilflichen Sprechstunden\n• Selbständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Abstrichen\n• Assistenz bei kleinen Eingriffen (Amniozentesen, Chorionzottenbiopsien, Hydrosono, Zystoskopien, Spiraleinlagen)\n• Übernahme administrativer Aufgaben sowie Mitbetreuung von Studierenden in Ausbildung Anforderungen:\n• Abgeschlossene Ausbildung als medizinische*r Praxisassistent*in (MPA) oder vergleichbarer Abschluss im Gesundheitswesen, idealerweise mit mehrjähriger Berufserfahrung im Spital- oder Praxisumfeld\n• Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie\n• Stilsicheres Deutsch sowie Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil\n• Sehr gute PC-Anwenderkenntnisse und hohe Dienstleistungsorientierung\n• Präzise, zuverlässige und selbstständige Arbeitsweise Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Descrizione\n\n- Organizzazione delle ore di ricevimento e preparazione delle consultazioni con cura\n- Coordinamento degli orari e contatto per le pazienti - sia telefonico che in loco\n- Assistenza alle pazienti ambulatoriali nelle sedute ginecologiche e ostetriche\n- Esecuzione indipendente di prelievi di sangue, iniezioni, vaccinazioni e strappi\n- Assistenza in piccoli interventi (amniocentesi, biopsie di cotone corionico, ecografia, zonoscopy, inserimento spirale)\n- Esecuzione di compiti amministrativi e assistenza a studenti in formazione\n\nRequisiti\n\n- Laurea in assistenza sanitaria (MPA) o titolo equivalente nel settore sanitario, preferibilmente con esperienza lavorativa di più anni in ospedale o ambulatorio\n- Buone conoscenze della terminologia medica, preferibilmente nel campo della ginecologia\n- Buona conoscenza del tedesco e conoscenze di lingue straniere (francese/inglese) di vantaggio\n- Buone conoscenze di PC e alta orientamento al servizio\n- Lavoro preciso, affidabile e autonomo\n\nCosa offriamo\n\n- Politica salariale attraente e eccellenti prestazioni sociali\n- Sconti nei settori shopping, sport e tempo libero\n- Supporto per il trasloco e la ricerca di alloggio\n- 25 giorni di ferie più 5 giorni di libertà flessibile\n- Supporto per la formazione e la pianificazione della carriera\n- Campus nel cuore di Basilea e nel triangolo di confine\n- Possibilità di cura dei bambini\n- Programma di sport e movimento gratuito\n\nContatto",
+        "en": "Description - Organization of office hours and preparation of consultations with care - Coordination of schedules and contact for patients - both by telephone and on site - Assistance to outpatients in gynecological and obstetric sessions - Independent execution of blood samples, injections, vaccinations and tears - Assistance in small operations (amniocentesis, chorionic cotton biopsies, ultrasound, zonoscopy, coil insertion) - Execution of administrative tasks and assistance to students in training Requirements - Bachelor's degree in healthcare (MPA) or equivalent qualification in the healthcare sector, preferably with several years' work experience in a hospital or outpatient clinic - Good knowledge of medical terminology, preferably in the field of gynecology - Good knowledge of German and foreign language skills (French/English) of advantage - Good PC knowledge and high service orientation - Precise, reliable and self-employed work What we offer - Attractive salary policy and excellent social benefits - Discounts in the areas of shopping, sports and leisure - Support for moving and finding accommodation - 25 days holiday plus 5 days of flexible freedom - Support for training and career planning - Campus in the heart of Basel and in the border triangle - Childcare options - Free sports and exercise program Contact",
+        "de": "Beschreibung - Organisation von Sprechstunden und Vorbereitung von Beratungsgesprächen mit Sorgfalt - Terminkoordination und Kontaktaufnahme für Patienten - sowohl telefonisch als auch vor Ort - Unterstützung ambulanter Patienten in gynäkologischen und geburtshilflichen Sitzungen - Selbstständige Durchführung von Blutentnahmen, Injektionen, Impfungen und Tränen - Mithilfe bei kleinen Operationen (Amniozentese, Chorion-Baumwollbiopsien, Ultraschall, Zonoskopie, Spuleneinlage) - Erledigung administrativer Aufgaben und Unterstützung von Studierenden in der Ausbildung. Voraussetzungen - Bachelor-Abschluss im Gesundheitswesen (MPA) oder gleichwertiger Abschluss im Gesundheitswesen, vorzugsweise mit mehrjähriger Berufserfahrung in einem Krankenhaus oder einer Ambulanz - Gute Kenntnisse der medizinischen Terminologie, vorzugsweise im Bereich Gynäkologie - Gute Deutsch- und Fremdsprachenkenntnisse (Französisch/Englisch) von Vorteil - Gute PC-Kenntnisse und hohe Serviceorientierung - Präzises, zuverlässiges und selbstständiges Arbeiten Was wir bieten - Attraktive Gehaltspolitik und hervorragende Sozialleistungen - Vergünstigungen in den Bereichen Einkaufen, Sport und Freizeit - Unterstützung bei Umzug und Wohnungssuche - 25 Tage Urlaub plus 5 Tage flexibler Freiheit - Unterstützung bei Ausbildung und Karriereplanung - Campus im Herzen von Basel und im Dreiländereck - Kinderbetreuungsmöglichkeiten - Kostenloses Sport- und Bewegungsprogramm Kontakt",
+        "fr": "Description - Organisation des heures de bureau et préparation des consultations avec soins - Coordination des plannings et des contacts avec les patients - tant par téléphone que sur place - Assistance aux patients ambulatoires lors des séances gynécologiques et obstétricales - Exécution autonome des prélèvements sanguins, injections, vaccinations et déchirures - Assistance aux petites opérations (amniocentèse, biopsies de coton chorial, échographie, zonoscopie, pose de coils) - Exécution des tâches administratives et assistance aux étudiants en formation Exigences - Baccalauréat en soins de santé (MPA) ou qualification équivalente en dans le secteur de la santé, de préférence avec plusieurs années d'expérience professionnelle dans un hôpital ou une clinique externe - Bonne connaissance de la terminologie médicale, de préférence dans le domaine de la gynécologie - Bonne connaissance de l'allemand et des langues étrangères (français/anglais) un avantage - Bonne connaissance de l'informatique et grande orientation vers le service - Travail précis, fiable et indépendant Ce que nous proposons - Politique salariale attractive et excellentes prestations sociales - Réductions dans les domaines du shopping, du sport et des loisirs - Aide au déménagement et à la recherche de logement - 25 jours de vacances plus 5 jours de liberté flexible - Aide à la formation et planification de carrière - Campus au cœur de Bâle et dans le triangle frontalier - Possibilités de garde d'enfants - Programme de sport et d'exercice gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8149,7 +8135,6 @@
           "medizinische-r-praxisassistent-in-mpa-frauenpoliklinik-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T14:05:10.961Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8179,16 +8164,16 @@
       "title": "OP Koordinator*in",
       "titleByLocale": {
         "it": "OP Koordinator*in",
-        "en": "OP Koordinator*in",
-        "de": "OP Koordinator*in",
-        "fr": "OP Koordinator*in"
+        "en": "OP Coordinator",
+        "de": "OP-Koordinator*in",
+        "fr": "Coordinateur OP"
       },
       "description": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache\n\nAnforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache Anforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache Anforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache Anforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache Anforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti: • Formazione commerciale completata, formazione come FaGe, MPA o qualifica comparabile con perfezionamento nel settore sanitario • Esperienza professionale pluriennale nell'amministrazione dei pazienti o nel settore sanitario, nonché esperienza in processi amministrativi complessi • Forti capacità organizzative e un modo di lavorare strutturato e indipendente • Elevate capacità di comunicazione e di squadra in un ambiente interdisciplinare • Ottima conoscenza del tedesco e preferibilmente conoscenza della terminologia medica e di un'altra lingua straniera Requisiti: • Coordinamento e controllo dei processi amministrativi lungo il percorso operativo del paziente • Supporto tecnico in questioni complesse relative al paziente ricovero, pianificazione dell'intervento, registrazione delle prestazioni e assicurazione dei costi • Garantire elevata qualità, efficienza e uniformità dei processi amministrativi • Partecipazione attiva e ulteriore sviluppo di processi, standard e strumenti di lavoro • Promozione della cooperazione interdisciplinare e ottimizzazione delle interfacce tra professione medica, infermieristica, amministrazione e partner esterni Offriamo: • Politica salariale attrattiva ed eccellenti prestazioni sociali • Riduzioni nei settori acquisti, sport e tempo libero • Supporto durante il trasloco e nella ricerca di un alloggio • 25 giorni di ferie più 5 giorni flessibili, anch'essi gratuiti • Supporto per la formazione continua e la carriera pianificazione • Campus nel cuore di Basilea e nel triangolo di confine • Ampia possibilità di assistenza ai bambini • Programma sportivo e di movimento gratuito",
+        "en": "Tasks: • Completed commercial training, training as FaGe, MPA or a comparable qualification with further training in the healthcare sector • Several years of professional experience in patient administration or in the healthcare sector as well as experience in complex administrative processes • Strong organizational skills and a structured, independent way of working • High communication and team skills in an interdisciplinary environment • Very good knowledge of German and ideally knowledge of medical terminology and another foreign language Requirements: • Coordination and control of administrative processes along the operational Patient path • Technical support with complex issues relating to patient admission, surgery planning, service recording and cost assurance • Ensuring high quality, efficiency and uniformity of administrative processes • Active participation and further development of processes, standards and work tools • Promoting interdisciplinary cooperation and optimization of interfaces between the medical profession, nursing, administration and external partners We offer: • Attractive wage policy and excellent social benefits • Discounts in the areas of shopping, sports and leisure • Support when moving and looking for accommodation • 25 days of vacation plus 5 flexi days, which are also free • Support with further training and career planning • Campus in the heart of Basel and in the border triangle • Comprehensive childcare options • Free sports and exercise program",
+        "de": "Aufgaben:\n• Abgeschlossene kaufmännische Ausbildung, Ausbildung als FaGe, MPA oder eine vergleichbare Qualifikation mit Weiterbildung im Gesundheitswesen\n\n• Mehrjährige Berufserfahrung in der Patientenadministration oder im Gesundheitswesen sowie Erfahrung in komplexen administrativen Abläufen\n\n• Ausgeprägte Organisationsfähigkeit und eine strukturierte, selbstständige Arbeitsweise\n\n• Hohe Kommunikations- und Teamkompetenz im interdisziplinären Umfeld\n\n• Sehr gute Deutschkenntnisse sowie idealerweise Kenntnisse der medizinischen Terminologie und einer weiteren Fremdsprache\n\nAnforderungen:\n• Koordination und Steuerung der administrativen Prozesse entlang des operativen Patientenpfads\n\n• Fachliche Unterstützung bei komplexen Fragestellungen rund um Patientenaufnahme, OP-Planung, Leistungserfassung und Kostensicherung\n\n• Sicherstellung einer hohen Qualität, Effizienz und Einheitlichkeit der administrativen Abläufe\n\n• Aktive Mitgestaltung und Weiterentwicklung von Prozessen, Standards und Arbeitsinstrumenten\n\n• Förderung der interdisziplinären Zusammenarbeit und Optimierung von Schnittstellen zwischen Ärzteschaft, Pflege, Administration und externen Partnern\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
+        "fr": "Tâches : • Formation commerciale terminée, formation FaGe, MPA ou diplôme comparable avec formation continue dans le secteur de la santé • Plusieurs années d'expérience professionnelle dans la gestion des patients ou dans le secteur de la santé ainsi que de l'expérience dans des processus administratifs complexes • Solides compétences organisationnelles et méthode de travail structurée et indépendante • Hautes capacités de communication et d'équipe dans un environnement interdisciplinaire • Très bonne connaissance de l'allemand et idéalement connaissance de la terminologie médicale et d'une autre langue étrangère Exigences : • Coordination et contrôle des processus administratifs tout au long du parcours opérationnel du patient • Assistance technique pour les questions complexes liées au patient admission, planification chirurgicale, enregistrement des prestations et assurance des coûts • Garantir une qualité élevée, une efficacité et une uniformité des processus administratifs • Participation active et développement continu des processus, des normes et des outils de travail • Promouvoir la coopération interdisciplinaire et l'optimisation des interfaces entre le corps médical, les soins, l'administration et les partenaires externes Nous proposons : • Une politique salariale attractive et d'excellentes prestations sociales • Des réductions dans les domaines du shopping, du sport et des loisirs • Un accompagnement lors du déménagement et de la recherche d'un logement • 25 jours de vacances plus 5 jours flexibles, qui sont également gratuits • Un accompagnement pour la formation continue et la planification de carrière • Campus au cœur de Bâle et dans le triangle frontalier • Possibilités complètes de garde d'enfants • Programme de sport et d'exercice gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8220,7 +8205,6 @@
           "op-koordinator-in-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8249,17 +8233,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Medizinische*r Praxisassistent*in (Springerpool)",
       "titleByLocale": {
-        "it": "Medizinische*r Praxisassistent*in (Springerpool)",
-        "en": "Medizinische*r Praxisassistent*in (Springerpool)",
+        "it": "Assistente Medico (Springerpool)",
+        "en": "Medical Practice Assistant (Springerpool)",
         "de": "Medizinische*r Praxisassistent*in (Springerpool)",
-        "fr": "Medizinische*r Praxisassistent*in (Springerpool)"
+        "fr": "Assistant en pratique médicale (Springerpool)"
       },
       "description": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards Anforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards Anforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards Anforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards Anforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti: • Svolgere autonomamente compiti amministrativi e tecnico-medichi negli orari di consultazione ambulatoriale dell'USB • Supportare i medici con trattamenti diagnostici, terapeutici e interventistici • Assumere semplici compiti infermieristici in ambito ambulatoriale e in sala operatoria ambulatoriale • Preparare gli esami e garantire la disponibilità di materiali e attrezzature • Garantire un processo regolare nel rispetto degli standard di qualità, igiene e sicurezza Requisiti: • Formazione completata come assistente di studio medico (MPA), preferibilmente con Esperienza professionale in un ambiente ospedaliero o ambulatoriale • Esperienza anche in compiti amministrativi come utilizzo disinvolto delle applicazioni digitali • Comprensione tecnica e piacere nel lavorare con apparecchi e apparecchiature mediche • Forte orientamento al servizio, capacità organizzative nonché comunicazione aperta e riconoscente • Ottima conoscenza del tedesco parlato e scritto e di altre lingue straniere sono un vantaggio Offriamo: • Politica salariale interessante ed eccellenti prestazioni sociali • Riduzioni nei settori dello shopping, dello sport e del tempo libero • Supporto nel trasloco e nella ricerca di un appartamento • 25 giorni di ferie più 5 anche gratuiti Flexitage • Supporto nella formazione continua e nella pianificazione della carriera • Campus nel cuore di Basilea e nel triangolo di confine • Ampia possibilità di assistenza all'infanzia • Programma sportivo e di movimento gratuito",
+        "en": "Tasks: • Independently carrying out administrative and medical-technical tasks in the outpatient consultation hours of the USB • Supporting doctors with diagnostic, therapeutic and interventional treatments • Taking on simple nursing tasks in the outpatient area and in the outpatient operating room • Preparing examinations and ensuring the availability of materials and equipment • Ensuring a smooth process in compliance with quality, hygiene and safety standards Requirements: • Completed training as a medical practice assistant (MPA), ideally with Professional experience in a hospital or practice environment • Experience in administrative tasks as well as confident use of digital applications • Technical understanding and enjoyment of working with medical devices and equipment • Strong service orientation, organizational skills as well as open and appreciative communication • Very good knowledge of spoken and written German as well as other foreign language skills are an advantage We offer: • Attractive wage policy and excellent social benefits • Discounts in the areas of shopping, sports and leisure • Support with moving and looking for an apartment • 25 days of vacation plus 5 also free Flexitage • Support with further training and career planning • Campus in the heart of Basel and in the border triangle • Comprehensive childcare options • Free sports and exercise program",
+        "de": "Aufgaben:\n• Selbstständige Durchführung administrativer und medizintechnischer Aufgaben in den ambulanten Sprechstunden des USB\n\n• Unterstützung der Ärztinnen und Ärzte bei diagnostischen, therapeutischen und interventionellen Behandlungen\n\n• Übernahme einfacher pflegerischer Tätigkeiten im ambulanten Bereich und im ambulanten OP\n\n• Vorbereitung von Untersuchungen sowie Sicherstellung der Material- und Geräteverfügbarkeit\n\n• Gewährleistung eines reibungslosen Ablaufs unter Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Med. Praxisassistentin/Praxisassistent (MPA), idealerweise mit Berufserfahrung im Spital- oder Praxisumfeld\n\n• Erfahrung in administrativen Aufgaben sowie sicherer Umgang mit digitalen Anwendungen\n\n• Technisches Verständnis und Freude am Umgang mit medizinischen Geräten und Apparaturen\n\n• Ausgeprägte Dienstleistungsorientierung, Organisationsgeschick sowie eine offene und wertschätzende Kommunikation\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift sowie weitere Fremdsprachenkenntnisse von Vorteil\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
+        "fr": "Tâches : • Effectuer de manière autonome des tâches administratives et médico-techniques pendant les heures de consultation ambulatoire de l'USB • Accompagner les médecins dans les traitements diagnostiques, thérapeutiques et interventionnels • Assumer des tâches infirmières simples en zone ambulatoire et au bloc opératoire ambulatoire • Préparer les examens et assurer la disponibilité du matériel et des équipements • Assurer le bon déroulement du processus dans le respect des normes de qualité, d'hygiène et de sécurité Exigences : • Formation complétée d'assistant de pratique médicale (MPA), idéalement avec une expérience professionnelle en milieu hospitalier ou de cabinet • Expérience dans les tâches administratives également ainsi qu'une utilisation sûre des applications numériques • Compréhension technique et plaisir de travailler avec des appareils et équipements médicaux • Forte orientation vers le service, compétences organisationnelles ainsi qu'une communication ouverte et appréciée • Une très bonne connaissance de l'allemand parlé et écrit ainsi que d'autres langues étrangères sont un avantage Nous offrons : • Une politique salariale attractive et d'excellentes prestations sociales • Des réductions dans les domaines du shopping, du sport et des loisirs • Une aide au déménagement et à la recherche d'un appartement • 25 jours de vacances plus 5 également gratuits Flexitage • Un soutien à la formation continue et à la planification de carrière • Campus au cœur de Bâle et dans le triangle frontalier • Possibilités complètes de garde d'enfants • Programme de sport et d'exercice gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8291,7 +8275,6 @@
           "medizinische-r-praxisassistent-in-springerpool-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T14:05:10.959Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8320,17 +8303,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Medizinische*r Praxisassistent*in MPA (Frauenklinik)",
       "titleByLocale": {
-        "it": "Medizinische*r Praxisassistent*in MPA (Frauenklinik)",
-        "en": "Medizinische*r Praxisassistent*in MPA (Frauenklinik)",
+        "it": "Assistente Pratica Medica MPA (Clinica Femminile)",
+        "en": "Medical Practice Assistant MPA (Women's Clinic)",
         "de": "Medizinische*r Praxisassistent*in MPA (Frauenklinik)",
-        "fr": "Medizinische*r Praxisassistent*in MPA (Frauenklinik)"
+        "fr": "Assistant de pratique médicale MPA (Clinique pour femmes)"
       },
       "description": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute PC-Kenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs Anforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n• Sehr gute PC-Kenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs Anforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n• Sehr gute PC-Kenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "de": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs Anforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n• Sehr gute PC-Kenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs Anforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n• Sehr gute PC-Kenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti: • Organizzazione e amministrazione di diverse ore di consulenza, compresa la pianificazione e il coordinamento degli appuntamenti • Preparazione, documentazione e mantenimento dei dati dei pazienti nonché supporto amministrativo per studi clinici • Svolgimento di compiti diagnostici e terapeutici di routine in base al livello di formazione (ad es. campioni di sangue, raccolta di parametri vitali, biopsie) • Servizi di registrazione ed elaborazione di corrispondenza, richieste telefoniche ed e-mail • Supporto indipendente di processi amministrativi e supporto per un processo di pratica regolare Requisiti: • Formazione professionale completata come medico. Assistente ambulatoriale (MPA) o qualifica professionale comparabile • Preferibilmente esperienza pluriennale in un ospedale o in uno studio medico più grande • La conoscenza dell'oncologia con particolare attenzione alla ginecologia è un vantaggio • Capacità di elaborare compiti complessi in modo rapido e preciso e quindi garantire sia la qualità che l'efficienza dei processi di lavoro • Tedesco elegante; La conoscenza delle lingue straniere è un vantaggio • Ottima conoscenza del computer Offriamo: • Politica salariale interessante ed eccellenti prestazioni sociali • Riduzioni nei settori dello shopping, dello sport e del tempo libero • Supporto per il trasloco e la ricerca di un appartamento • 25 giorni di ferie più 5 giorni flessibili gratuiti • Supporto per la formazione continua e la pianificazione della carriera • Campus nel cuore di Basilea e nel triangolo di confine • Ampia possibilità di assistenza ai bambini • Programma gratuito di sport e movimento",
+        "en": "Tasks: • Organization and administration of various consultation hours including appointment planning and coordination • Preparation, documentation and maintenance of patient data as well as administrative support for clinical studies • Carrying out routine diagnostic and therapeutic tasks according to the level of training (e.g. blood samples, collecting vital parameters, punch biopsies) • Recording services and processing correspondence, telephone inquiries and emails • Independent support of administrative processes and support of a smooth practice process Requirements: • Completed professional training as a doctor. Practice assistant (MPA) or a comparable professional qualification • Preferably several years of professional experience in a hospital or in a larger doctor's practice • Knowledge of oncology with a focus on gynecology is an advantage • Ability to process complex tasks quickly and precisely and thereby ensure both the quality and efficiency of work processes • Stylish German; Foreign language skills are an advantage • Very good PC skills We offer: • Attractive wage policy and excellent social benefits • Discounts in the areas of shopping, sports and leisure • Support with moving and looking for an apartment • 25 days of vacation plus 5 free flexi days • Support with further training and career planning • Campus in the heart of Basel and in the border triangle • Comprehensive childcare options • Free sports and exercise program",
+        "de": "Aufgaben:\n• Organisation und Administration verschiedener Sprechstunden inklusive Terminplanung und -koordination\n\n• Vorbereitung, Dokumentation und Pflege von Patientendaten sowie administrative Unterstützung bei klinischen Studien\n\n• Durchführung diagnostischer und therapeutischer Routineaufgaben gemäss Ausbildungsstand (z. B. Blutentnahmen, Erhebung von Vitalparametern, Stanzbiopsien)\n\n• Erfassung von Leistungen sowie Bearbeitung von Korrespondenz, Telefonanfragen und E-Mails\n\n• Selbstständige Betreuung administrativer Prozesse und Unterstützung eines reibungslosen Praxisablaufs\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Med. Praxisassistentin/Praxisassistent (MPA) oder eine vergleichbare Berufsqualifikation\n\n• Vorzugsweise mehrjährige Berufserfahrung in einem Spital oder in einer grösseren Arztpraxis\n\n• Kenntnisse in der Onkologie mit Schwerpunkt Gynäkologie von Vorteil\n\n• Fähigkeit, komplexe Aufgaben schnell und präzise zu bearbeiten und dadurch sowohl die Qualität als auch die Effizienz der Arbeitsabläufe sicherzustellen\n\n• Stilsicheres Deutsch; Fremdsprachenkenntnisse von Vorteil\n\n• Sehr gute PC-Kenntnisse\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
+        "fr": "Tâches : • Organisation et administration de diverses heures de consultation, y compris la planification et la coordination des rendez-vous. • Préparation, documentation et maintenance des données des patients ainsi que soutien administratif aux études cliniques. Assistant de cabinet (MPA) ou qualification professionnelle comparable • De préférence plusieurs années d'expérience professionnelle dans un hôpital ou dans un cabinet médical plus grand • Une connaissance de l'oncologie avec un accent sur la gynécologie est un avantage • Capacité à traiter des tâches complexes rapidement et avec précision et ainsi garantir à la fois la qualité et l'efficacité des processus de travail • Allemand élégant ; Des connaissances en langues étrangères sont un avantage • De très bonnes connaissances en informatique Nous proposons : • Une politique salariale attractive et d'excellentes prestations sociales • Des réductions dans les domaines du shopping, du sport et des loisirs • Une aide au déménagement et à la recherche d'un appartement • 25 jours de vacances plus 5 jours flexibles gratuits • Une aide à la formation continue et à la planification de carrière • Campus au cœur de Bâle et dans le triangle frontalier • Possibilités complètes de garde d'enfants • Programme de sport et d'exercice gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -8362,7 +8345,6 @@
           "medizinische-r-praxisassistent-in-mpa-frauenklinik-unispital-basel-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T14:05:10.951Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
