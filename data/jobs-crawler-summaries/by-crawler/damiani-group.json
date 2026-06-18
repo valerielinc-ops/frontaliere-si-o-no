@@ -1,18 +1,49 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-06-18T12:11:09.597Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-06-18T22:39:21.799Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5642,
-  "avgDurationMs": 5642,
+  "durationMs": 6171,
+  "avgDurationMs": 6171,
   "durationHistory": [
-    5642
+    6171
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Customer Service Specialist - German Speaking",
+      "slug": "customer-service-specialist-german-speaking-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-German-Speaking/1355847255/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1355847255/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-18",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-18",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "IT Business Intelligence Specialist",
