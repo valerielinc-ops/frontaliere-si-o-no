@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-06-18T12:20:19.010Z",
+  "assembledAt": "2026-06-18T22:49:07.328Z",
   "jobs": [
     {
       "id": "giardino-0b33b9c1e8d8",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-chef-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T12:20:17.112Z",
+      "crawledAt": "2026-06-18T22:49:05.024Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -118,6 +118,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:25:38.938Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -162,7 +163,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-commis-de-rang/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T12:20:17.111Z",
+      "crawledAt": "2026-06-18T22:49:05.023Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -218,6 +219,7 @@
         ]
       },
       "firstSeenAt": "2026-06-09T22:25:38.937Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
