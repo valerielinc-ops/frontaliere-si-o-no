@@ -3185,11 +3185,11 @@
     },
     {
       "id": "ardentis-c38b2862e9d4",
-      "slug": "medecin-dentiste-suisse-romande-ardentis-puidoux",
+      "slug": "medico-dentale-swiss-romande-ardentis-puidoux",
       "slugByLocale": {
-        "it": "medecin-dentiste-suisse-romande-ardentis-puidoux",
-        "en": "medecin-dentiste-suisse-romande-ardentis-puidoux",
-        "de": "medecin-dentiste-suisse-romande-ardentis-puidoux",
+        "it": "medico-dentale-swiss-romande-ardentis-puidoux",
+        "en": "dental-doctor-swiss-romande-ardentis-puidoux",
+        "de": "zahnarzt-swiss-romande-ardentis-puidoux",
         "fr": "medecin-dentiste-suisse-romande-ardentis-puidoux"
       },
       "company": "Ardentis",
@@ -3245,7 +3245,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-dentiste-suisse-romande-ardentis-puidoux"
+        ],
+        "en": [
+          "medecin-dentiste-suisse-romande-ardentis-puidoux"
+        ],
+        "de": [
+          "medecin-dentiste-suisse-romande-ardentis-puidoux"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-dentiste-suisse-romande-ardentis-puidoux"
+      ]
     }
   ]
 }

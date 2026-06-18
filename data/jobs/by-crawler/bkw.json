@@ -20559,7 +20559,6 @@
         "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "building-services-engineer-heating-all-bkw-winterthur",
         "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur",
-        "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
         "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -22246,8 +22245,8 @@
       "slugByLocale": {
         "de": "lehrstelle-heizungsinstallateur-in-alle-bkw-ch",
         "it": "apprendistato-heizungsinstallateur-in-alle-bkw-sarnen",
-        "en": "lehrstelle-heizungsinstallateur-in-alle-bkw-ch",
-        "fr": "lehrstelle-heizungsinstallateur-in-alle-bkw-ch"
+        "en": "apprenticeship-heating-installer-in-all-bkw-sarnen",
+        "fr": "installateur-de-chauffage-d-apprentissage-en-tous-bkw-sarnen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22293,6 +22292,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-heizungsinstallateur-in-alle-bkw-ch"
+        ],
+        "en": [
+          "lehrstelle-heizungsinstallateur-in-alle-bkw-ch"
+        ],
+        "fr": [
           "lehrstelle-heizungsinstallateur-in-alle-bkw-ch"
         ]
       },

@@ -6061,12 +6061,12 @@
     },
     {
       "id": "eth-zurich-662c18b07c5c",
-      "slug": "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
+      "slug": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore",
+        "it": "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore",
         "en": "phd-researcher-bone-organoids-eth-zurich-ch",
-        "de": "phd-researcher-bone-organoids-eth-zurich-ch",
-        "fr": "phd-researcher-bone-organoids-eth-zurich-ch"
+        "de": "phd-forscher-knochenorganoide-eth-zurich-singapore",
+        "fr": "chercheur-au-doctorat-organoides-oses-eth-zurich-singapore"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6107,12 +6107,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "phd-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
+        "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "phd-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-di-dottorato-bone-organoids-eth-zurich-singapore"
+          "ricercatore-di-dottorato-organoidi-ossei-eth-zurich-singapore"
+        ],
+        "de": [
+          "phd-researcher-bone-organoids-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-researcher-bone-organoids-eth-zurich-ch"
         ]
       },
       "needsRetranslation": true,
@@ -6136,8 +6142,8 @@
       "slugByLocale": {
         "it": "ricercatore-di-dottorato-micro-multifisica-eth-zurich-singapore",
         "en": "phd-researcher-micro-multiphysics-eth-zurich-ch",
-        "de": "phd-researcher-micro-multiphysics-eth-zurich-ch",
-        "fr": "phd-researcher-micro-multiphysics-eth-zurich-ch"
+        "de": "phd-forscher-mikro-multiphysik-eth-zurich-singapore",
+        "fr": "chercheur-au-doctorat-micro-multiphysique-eth-zurich-singapore"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6182,6 +6188,12 @@
       "previousSlugsByLocale": {
         "it": [
           "phd-researcher-micro-multiphysics-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-researcher-micro-multiphysics-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-researcher-micro-multiphysics-eth-zurich-ch"
         ]
       },
       "needsRetranslation": true,
@@ -6201,12 +6213,12 @@
     },
     {
       "id": "eth-zurich-ecd9fd3077f4",
-      "slug": "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
+      "slug": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
       "slugByLocale": {
-        "it": "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore",
+        "it": "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore",
         "en": "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-        "de": "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
+        "de": "postdoktorandin-knochenorganoide-eth-zurich-singapore",
+        "fr": "chercheur-postdoctoral-organoides-osseux-eth-zurich-singapore"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6247,12 +6259,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-        "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
+        "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-researcher-bone-organoids-eth-zurich-ch",
-          "ricercatore-post-dottorato-bone-organoids-eth-zurich-singapore"
+          "ricercatore-post-dottorato-organoidi-ossei-eth-zurich-singapore"
+        ],
+        "de": [
+          "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-bone-organoids-eth-zurich-ch"
         ]
       },
       "needsRetranslation": true,
@@ -7159,12 +7177,12 @@
     },
     {
       "id": "eth-zurich-4056bc578fc5",
-      "slug": "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
+      "slug": "posizione-del-dottorato-meccanica-di-rottura-del-terremoto-computazionale-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
+        "it": "posizione-del-dottorato-meccanica-di-rottura-del-terremoto-computazionale-eth-zurich-zurich",
         "en": "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-        "de": "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch",
-        "fr": "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
+        "de": "phd-position-computational-erdbebenbruch-mechanik-eth-zurich-zurich",
+        "fr": "doctorat-mecanique-informatique-de-rupture-sismique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7218,16 +7236,30 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-computational-earthquake-rupture-mechanics-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-6ded0f570574",
-      "slug": "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch",
+      "slug": "coordinatore-del-programma-in-scienze-della-salute-e-tecnologia-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch",
+        "it": "coordinatore-del-programma-in-scienze-della-salute-e-tecnologia-m-f-d-eth-zurich-zurich",
         "en": "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch",
         "de": "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch",
-        "fr": "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch"
+        "fr": "coordonnateur-du-programme-sciences-et-technologie-de-la-sante-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7281,16 +7313,27 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "studiengangskoordinator-in-health-sciences-and-technology-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-f75cee4576a7",
-      "slug": "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
+      "slug": "responsabile-del-dipartimento-in-stv-management-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
-        "en": "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
+        "it": "responsabile-del-dipartimento-in-stv-management-m-f-d-eth-zurich-zurich",
+        "en": "department-manager-in-stv-management-m-f-d-eth-zurich-zurich",
         "de": "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch",
-        "fr": "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
+        "fr": "gestionnaire-de-departement-in-stv-management-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7344,16 +7387,30 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "departementsmanager-in-stv-geschaftsfuhrung-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-fd4e18144df1",
-      "slug": "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
+      "slug": "scientifico-r-editore-in-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
-        "en": "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
+        "it": "scientifico-r-editore-in-m-f-d-eth-zurich-zurich",
+        "en": "scientific-r-editor-in-m-f-d-eth-zurich-zurich",
         "de": "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch",
-        "fr": "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
+        "fr": "editeur-scientifique-in-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7407,16 +7464,30 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftliche-r-redaktor-in-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1753b8ffe7a6",
-      "slug": "teaching-assistant-position-eth-zurich-ch",
+      "slug": "posizione-assistente-didattica-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "teaching-assistant-position-eth-zurich-ch",
+        "it": "posizione-assistente-didattica-eth-zurich-zurich",
         "en": "teaching-assistant-position-eth-zurich-ch",
         "de": "teaching-assistent-position-eth-zurich-zurich",
-        "fr": "teaching-assistant-position-eth-zurich-ch"
+        "fr": "assistant-pedagogique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7470,7 +7541,18 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "teaching-assistant-position-eth-zurich-ch"
+        ],
+        "fr": [
+          "teaching-assistant-position-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teaching-assistant-position-eth-zurich-ch"
+      ]
     }
   ]
 }

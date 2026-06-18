@@ -715,7 +715,7 @@
         "it": "it-business-applications-consulente-proalpha-m-w-d-coopers-group-ag-bern-grossraum",
         "en": "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
         "de": "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum",
-        "fr": "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+        "fr": "conseiller-en-applications-operationnelles-de-ti-proalpha-coopers-group-ag-bern-grossraum"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -774,6 +774,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
+        ],
+        "fr": [
           "it-business-applications-consultant-proalpha-m-w-d-coopers-bern-grossraum"
         ]
       },
@@ -3998,9 +4001,9 @@
       "slug": "gestore-immobiliare-m-f-d-coopers-group-ag-basel-region",
       "slugByLocale": {
         "it": "gestore-immobiliare-m-f-d-coopers-group-ag-basel-region",
-        "en": "immobilienbewirtschafter-in-m-w-d-coopers-basel-region",
+        "en": "real-estate-manager-in-m-f-d-coopers-group-ag-basel-region",
         "de": "immobilienbewirtschafter-in-m-w-d-coopers-basel-region",
-        "fr": "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
+        "fr": "directeur-immobilier-en-m-f-d-coopers-group-ag-basel-region"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4061,6 +4064,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
+        ],
+        "en": [
+          "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
+        ],
+        "fr": [
           "immobilienbewirtschafter-in-m-w-d-coopers-basel-region"
         ]
       },
@@ -4618,8 +4627,8 @@
       "slugByLocale": {
         "en": "quality-control-inspector-m-w-d-coopers-luzern",
         "it": "quality-assurance-engineer-m-f-d-coopers-luzern",
-        "de": "quality-assurance-engineer-m-f-d-coopers-luzern",
-        "fr": "quality-assurance-engineer-m-f-d-coopers-luzern"
+        "de": "qualitat-assurance-ingenieur-m-f-d-coopers-group-ag-luzern",
+        "fr": "qualite-assurance-ingenieur-m-f-d-coopers-group-ag-luzern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -4697,9 +4706,9 @@
       "slug": "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft",
       "slugByLocale": {
         "it": "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft",
-        "en": "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft",
+        "en": "operational-r-transport-manager-in-m-f-d-coopers-group-ag-basel-region",
         "de": "leiter-in-bu-transport-m-w-d-coopers-basel-landschaft",
-        "fr": "responsabile-bu-transport-m-w-d-coopers-group-ag-basel-landschaft"
+        "fr": "directeur-operationnel-des-transports-m-f-d-coopers-group-ag-basel-region"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",

@@ -2837,9 +2837,9 @@
     },
     {
       "id": "buergenstock-hotels-4cbfe881fcbb",
-      "slug": "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "en": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
         "de": "floor-vorgesetzter-100-w-m-i-burgenstock-hotels-ag-obburgen",
         "fr": "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen"
@@ -2883,12 +2883,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-        "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "floor-supervisor-100-w-m-i-buergenstock-hotels-obburgen",
-          "supervisore-del-pavimento-100-w-m-i-burgenstock-hotels-ag-obburgen"
+          "floor-supervisor-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "firstSeenAt": "2026-06-04T14:37:02.016Z",
@@ -3262,12 +3262,12 @@
     },
     {
       "id": "buergenstock-hotels-7d259de8fb57",
-      "slug": "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "barista-seasonnier-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
         "de": "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen",
-        "it": "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen"
+        "it": "barista-seasonnier-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "barkeeper-seasonnier-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "fr": "porteur-seasonnier-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3322,7 +3322,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T22:16:48.293Z"
+      "firstSeenAt": "2026-06-17T22:16:48.293Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "barkeeper-saisonnier-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     }
   ]
 }
