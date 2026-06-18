@@ -1,18 +1,19 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-06-18T12:46:05.541Z",
-  "total": 4,
-  "newCount": 2,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "generatedAt": "2026-06-18T23:13:47.621Z",
+  "total": 3,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 9193,
-  "avgDurationMs": 9193,
+  "durationMs": 9446,
+  "avgDurationMs": 9446,
   "durationHistory": [
-    9193
+    9446
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "microsoft-200040151",
       "slug": "logistics-technician-microsoft-zurich",
@@ -25,7 +26,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874589",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-18T12:46:03.223Z",
+      "crawledAt": "2026-06-18T23:13:45.603Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -39,11 +40,12 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874589",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-06-18T12:46:03.223Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -59,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874593",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-18T12:46:03.225Z",
+      "crawledAt": "2026-06-18T23:13:45.605Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -73,19 +75,55 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874593",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-06-18T12:46:03.225Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "microsoft-200034652",
+      "slug": "client-delivery-partner-microsoft-switzerland",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Client Delivery Partner",
+      "location": "Switzerland",
+      "canton": "",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556858141",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-18T23:13:45.601Z",
+      "addressLocality": "Switzerland",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556858141",
+      "firstSeenAt": "2026-06-18T07:02:58.537Z",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [
+  "removedJobs": [
     {
       "id": "microsoft-200039966",
-      "slug": "senior-data-scientist-microsoft-zurich",
+      "slug": "ricerca-di-dati-senior-microsoft-zurich",
       "company": "Microsoft",
       "companyKey": "microsoft",
       "companyDomain": "microsoft.com",
@@ -110,50 +148,18 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874141",
       "firstSeenAt": "2026-06-18T07:02:58.539Z",
-      "_qualityScore": 84,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "streetAddress": "The Circle 02",
+      "postalCode": "8058",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "microsoft-200034652",
-      "slug": "client-delivery-partner-microsoft-switzerland",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Client Delivery Partner",
-      "location": "Switzerland",
-      "canton": "",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556858141",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-18T12:46:03.229Z",
-      "addressLocality": "Switzerland",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556858141",
-      "firstSeenAt": "2026-06-18T07:02:58.537Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
