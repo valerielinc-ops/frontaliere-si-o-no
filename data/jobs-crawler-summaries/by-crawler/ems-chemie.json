@@ -1,45 +1,18 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-06-18T12:13:35.680Z",
-  "total": 9,
-  "newCount": 1,
+  "generatedAt": "2026-06-18T22:42:41.269Z",
+  "total": 8,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3394,
-  "avgDurationMs": 3394,
+  "durationMs": 3947,
+  "avgDurationMs": 3947,
   "durationHistory": [
-    3394
+    3947
   ],
-  "newJobs": [
-    {
-      "title": "Raumpfleger (m/w/d) 20%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/raumpfleger-m-w-d/265a1a88-feed-4232-a781-afff7c0b9b87",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-06-18",
-      "source": "company-website",
-      "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 8,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Senior Legal Counsel (m/w/d) 100%",
@@ -306,8 +279,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Raumpfleger (m/w/d) 20%",
       "company": "EMS-Chemie AG",
@@ -327,20 +299,22 @@
       "source": "company-website",
       "slug": "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-f4b0844326e1",
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "firstSeenAt": "2026-06-18T12:13:35.678Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Senior Legal Counsel (m/w/d) 100%",
       "company": "EMS-Chemie AG",
