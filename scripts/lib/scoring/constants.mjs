@@ -11,6 +11,17 @@ export const GSC_MIN_SIGNAL = 5;
 // Embedding stage — minimum cosine similarity required between the
 // candidate headline and the closest published article. Below this the
 // signal is too weak to trust embedding-based prediction.
+//
+// Holds under the query:/passage: asymmetric encoding (scoreFromEmbedding
+// now query-encodes the headline). multilingual-e5-small concentrates
+// cosines in a high band (~0.7-0.95 for related text) in BOTH the old
+// passage-passage (symmetric) regime and the now-intended query-passage
+// (asymmetric) retrieval regime. The asymmetric switch can shift the
+// absolute band down modestly (short query vs longer passage), but it
+// stays far above this 0.4 "too weak to trust" floor — so the gate does
+// not bind in either regime and the encoding change does not move its
+// behaviour. 0.4 is a deliberately loose noise floor, not a precision
+// threshold tuned to the symmetric distribution; it is NOT re-tuned here.
 export const EMBEDDING_MIN_COSINE = 0.4;
 
 // Semantic near-duplicate ceiling (2026-05-30). The lexical Jaccard gates
