@@ -86,7 +86,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon-2",
-        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+        "fr": "manager-per-cookie-einwilligungen-schindler-ebikon-2"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -95,15 +95,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager for cookie consents",
+        "en": "Cookie Consent Manager",
         "fr": "Gestionnaire pour les consentements de cookies"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
       "descriptionByLocale": {
-        "de": "Descrizione\nMobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nRequisiti\n- Schnupperlehre als Anlagen- und Apparatebauer*in EFZ\n- Schwerpunkt Liftmontage\n- Lehrstart 2027\n\nCosa offriamo\n- Un team di supporto che lavora ogni giorno per aiutarti\n- Una formazione di alta qualità per diventare una professionista specializzata\n\nContatto\n- (nessun contatto specificato)",
-        "it": "Descrizione Mobility | dal 1874 | Schindler Vocational Training forma più di 300 apprendisti in tutta la Svizzera – così non sarai mai solo. L'intero nostro team è impegnato con te ogni giorno, affinché tu sia uno specialista altamente qualificato alla fine del tuo apprendistato. Requisiti - Apprendistato degustazione come ingegnere impianti e apparecchiature EFZ - Focus sull'assemblaggio di sollevamenti - Inizio apprendistato 2027 Cosa offriamo - Un team di supporto che lavora ogni giorno per aiutarti - Una formazione di alta qualità per diventare una professionista specializzata Contatto - (nessun contatto specificato)",
-        "en": "Descrizione Mobility | since 1874 | Schindler Vocational Training trains more than 300 apprentices throughout Switzerland – so you'll never be alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your apprenticeship. Requisiti - Taster apprenticeship as a plant and apparatus engineer EFZ - Focus on lift assembly - Apprenticeship start 2027 Cosa offriamo - Un team di supporto che lavora ogni giorno per aiutarti - Una formazione di alta qualità per diventare una professionista specializzata Contatto - (nessun contatto specificato)",
-        "fr": "Descrizione Mobilité | depuis 1874 | Schindler Vocational Training forme plus de 300 apprentis à travers la Suisse – vous ne serez donc jamais seul. Toute notre équipe s'engage à vos yeux chaque jour afin que vous soyez un spécialiste hautement qualifié à la fin de votre apprentissage. Exigences - Apprentissage d'essai en tant qu'ingénieur d'usine et d'appareils EFZ - Focus sur l'assemblage de relevage - Début de l'apprentissage 2027 Cosa offriamo - Un team di supporto che lavora ogni giorno per aiutarti - Una formazione di alta qualità pour devenir una professionista specializzata Contatto - (nessun contatto specificato)"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage (Lehrstart 2027) in Ebikon",
+        "it": "Mobilità | dal 1874 | Schindler Vocational Training forma più di 300 apprendisti in tutta la Svizzera – così non sarai mai solo. L'intero nostro team è impegnato con te ogni giorno, affinché tu sia uno specialista altamente qualificato alla fine del tuo apprendistato. Apprendistato sperimentale come ingegnere di impianti e apparecchiature EFZ con focus sull'assemblaggio di sollevamento (apprendistato iniziato nel 2027) a Ebikon",
+        "en": "Mobility | since 1874 | Schindler Vocational Training trains more than 300 apprentices throughout Switzerland – so you'll never be alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your apprenticeship. Trial apprenticeship as a plant and apparatus engineer EFZ with a focus on lift assembly (apprenticeship start in 2027) in Ebikon",
+        "fr": "Mobilité | depuis 1874 | Schindler Vocational Training forme plus de 300 apprentis à travers la Suisse – vous ne serez donc jamais seul. Toute notre équipe s'engage à vos yeux chaque jour afin que vous soyez un spécialiste hautement qualifié à la fin de votre apprentissage. Apprentissage expérimental en tant qu'ingénieur d'usine et d'appareils EFZ avec un accent sur l'assemblage de levage (l'apprentissage commence en 2027) à Ebikon"
       },
       "location": "Ebikon",
       "canton": "LU",
@@ -132,9 +132,6 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-fur-cookie-einwilligungen-schindler-ebikon",
-          "manager-per-cookie-einwilligungen-schindler-ebikon-2"
-        ],
-        "fr": [
           "manager-per-cookie-einwilligungen-schindler-ebikon-2"
         ]
       },
@@ -4750,6 +4747,7 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5afjz",
         "manager-per-cookie-einwilligungen-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
+        "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-ebikon-2"
       ],
       "previousSlugsByLocale": {
@@ -4837,7 +4835,9 @@
         "marketing-manager-m-w-d-80-100-schindler-bern-1cb988",
         "marketing-manager-m-w-d-80-100-schindler-bern",
         "directeur-marketing-m-w-d-80-100-schindler-bern",
-        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern"
+        "verkaufsprofi-im-servicegeschaft-in-bern-m-w-d-80-100-schindler-bern",
+        "ammodernamento-degli-impianti-di-risalita-professionali-di-berna-m-f-d-80-100-schindler-bern",
+        "sales-professional-lift-modernization-in-bern-m-f-d-80-100-schindler-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5253,7 +5253,8 @@
         "manager-per-cookie-einwilligungen-schindler-ebikon-i5ae2l",
         "manager-per-cookie-einwilligungen-schindler-ebikon-2",
         "manager-per-cookie-einwilligungen-schindler-ebikon-55kbk7",
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen-2"
+        "manager-fur-cookie-einwilligungen-schindler-st-gallen-2",
+        "manager-for-cookie-permissions-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
