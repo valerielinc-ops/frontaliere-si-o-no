@@ -1,18 +1,19 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-06-19T13:14:46.780Z",
-  "total": 100,
-  "newCount": 4,
-  "updatedCount": 95,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 285347,
-  "avgDurationMs": 285347,
+  "generatedAt": "2026-06-19T22:29:21.472Z",
+  "total": 96,
+  "newCount": 0,
+  "updatedCount": 96,
+  "removedCount": 4,
+  "unchangedCount": 0,
+  "durationMs": 366872,
+  "avgDurationMs": 366872,
   "durationHistory": [
-    285347
+    366872
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Strategic-Account-Executive-%28SAE%29/74001-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Strategic-Account-Executive-%28SAE%29/74001-de_DE",
@@ -22,7 +23,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "strategic-account-executive-sae-post",
+      "slug": "esecutivo-del-conto-strategico-sae-die-schweizerische-post-bern",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -38,13 +39,22 @@
         "location": "Bern"
       },
       "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-718ea095e8a3",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-19T13:14:46.773Z",
       "needsRetranslation": true,
-      "_qualityScore": 60,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 9
+        "translation": 23,
+        "completeness": 17
       }
     },
     {
@@ -72,13 +82,22 @@
         "location": "Bern"
       },
       "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-9bc809ac7fc3",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-19T13:14:46.773Z",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 6,
-        "completeness": 9
+        "translation": 23,
+        "completeness": 17
       }
     },
     {
@@ -106,13 +125,21 @@
         "location": "Bern"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "id": "posta-svizzera-centro-regionale-bfc6eadef558",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-19T13:14:46.773Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 6,
-        "completeness": 9
+        "translation": 25,
+        "completeness": 17
       }
     },
     {
@@ -140,17 +167,24 @@
         "location": "Baldegg"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 62,
+      "id": "posta-svizzera-centro-regionale-07f563be9ac5",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "6003",
+      "addressLocality": "Baldegg",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-06-19T13:14:46.773Z",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 6,
-        "completeness": 9
+        "translation": 25,
+        "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Pakete/74124-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/74124-de_DE",
@@ -859,7 +893,6 @@
       "addressCountry": "CH",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1247,60 +1280,19 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "url": "https://job.post.ch/default/job/Asset-Managerin-Region-West/73672-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Asset-Managerin-Region-West/73672-de_DE",
-      "title": "Asset Manager:in Region West",
+      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73599-de_DE",
+      "title": "Zusteller:in Briefe und Pakete",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bern",
+      "location": "Gümligen",
       "canton": "BE",
       "country": "CH",
-      "slug": "asset-manager-in-regione-ovest-die-schweizerische-post-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-11",
-      "validThrough": "2026-07-02",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "70-100%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-0affd216f33d",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-11T13:25:52.888Z",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Fachspezialistin-Immobilienbewirtschaftung-%28Nachhaltigkeit-Qualit%C3%A4tsmanagement%29/73680-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Fachspezialistin-Immobilienbewirtschaftung-%28Nachhaltigkeit-Qualit%C3%A4tsmanagement%29/73680-de_DE",
-      "title": "Fachspezialist:in Immobilienbewirtschaftung (Nachhaltigkeit / Qualitätsmanagement)",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "specialista-nella-gestione-immobiliare-sostenibilita-gestione-della-qualita-die-schweizerische-post-bern",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-gumligen",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -1309,150 +1301,111 @@
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "IT",
+      "sector": "Servizi Postali",
       "workload": "80-100%",
       "_targetScope": {
         "canton": "BE",
-        "location": "Bern"
+        "location": "Gümligen"
       },
       "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-d6f84609a8a3",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-bdd43b083e70",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "addressLocality": "Bern",
+      "streetAddress": "",
+      "postalCode": "3001",
+      "addressLocality": "Gümligen",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "postalCode": "3001",
       "firstSeenAt": "2026-06-10T23:18:16.329Z",
-      "_qualityScore": 77,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
+        "richness": 7,
+        "translation": 23,
         "completeness": 17
       }
     },
     {
-      "url": "https://job.post.ch/default/job/Mitarbeiterin-Zustellung/74049-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Mitarbeiterin-Zustellung/74049-de_DE",
-      "title": "Mitarbeiter:in Zustellung",
+      "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73600-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/73600-de_DE",
+      "title": "Zusteller:in Pakete",
       "company": "Die Schweizerische Post",
       "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Brig",
-      "canton": "VS",
-      "country": "CH",
-      "slug": "collaboratore-trice-zustellung-die-schweizerische-post-brig",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-11",
-      "validThrough": "2026-07-03",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80%",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Brig"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-49f6d107d50f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "addressLocality": "Brig",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "3900",
-      "firstSeenAt": "2026-06-11T13:25:52.888Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73551-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73551-de_DE",
-      "title": "Zusteller:in Briefe und Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Münchenbuchsee",
+      "location": "Ostermundigen",
       "canton": "BE",
       "country": "CH",
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-munchenbuchsee",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-ostermundigen",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
-      "datePosted": "2026-06-11",
-      "validThrough": "2026-07-02",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "40-80%",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Münchenbuchsee"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-5bfa2140a22f",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "addressLocality": "Münchenbuchsee",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-06-11T13:25:52.888Z",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Transportplanerin-National-Region-Ost/73718-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Transportplanerin-National-Region-Ost/73718-de_DE",
-      "title": "Transportplaner:in National Region Ost",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Frauenfeld",
-      "canton": "TG",
-      "country": "CH",
-      "slug": "pianificatore-di-trasporto-in-regione-nazionale-est-die-schweizerische-post-frauenfeld",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-06-08",
-      "validThrough": "2026-07-04",
+      "datePosted": "2026-05-29",
+      "validThrough": "2026-06-19",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Postali",
       "workload": "80-100%",
       "_targetScope": {
-        "canton": "TG",
-        "location": "Frauenfeld"
+        "canton": "BE",
+        "location": "Ostermundigen"
       },
       "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-9de1d6b149e6",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-e4e195250230",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
+      "addressLocality": "Ostermundigen",
+      "addressRegion": "BE",
       "addressCountry": "CH",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-06-10T23:18:16.329Z",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-06-11T13:25:52.888Z",
+      "retranslationAttempts": 2,
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Servicetechnikerin-Geb%C3%A4udetechnik/73644-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Servicetechnikerin-Geb%C3%A4udetechnik/73644-de_DE",
+      "title": "Servicetechniker:in Gebäudetechnik",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "tecnico-di-servizio-tecnologia-edilizia-die-schweizerische-post-chur",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-29",
+      "validThrough": "2026-06-19",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Chur"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-7064e66a7a0d",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "",
+      "postalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-29T13:33:58.961Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1460,9 +1413,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "url": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
       "applyUrl": "https://job.post.ch/default/job/Pianificatore-Pianificatrice-d'offerta-Sud/73503-it_IT",
@@ -1506,5 +1457,6 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
