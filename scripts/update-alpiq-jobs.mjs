@@ -66,7 +66,7 @@ async function main() {
 
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
-  const rawJobs = await fetchAlpiqListingPages(6);
+  const rawJobs = await fetchAlpiqListingPages(10);
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Swiss Alpiq jobs found. Keeping existing.'); return; }
 
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Swiss Alpiq jobs.`);
