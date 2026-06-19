@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Allianz Suisse",
-  "generatedAt": "2026-06-19T12:06:17.798Z",
+  "generatedAt": "2026-06-19T21:20:22.493Z",
   "total": 94,
   "newCount": 0,
   "updatedCount": 94,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 320484,
-  "avgDurationMs": 320484,
+  "durationMs": 320170,
+  "avgDurationMs": 320170,
   "durationHistory": [
-    320484
+    320170
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -592,11 +592,11 @@
       "streetAddress": "",
       "postalCode": "9000",
       "firstSeenAt": "2026-06-10T22:11:05.157Z",
-      "_qualityScore": 94,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 22
       }
     },
