@@ -35,7 +35,6 @@
     "https://positions.manor.ch/job/Chur-Floor-Managerin-100/1325040855/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-vente-%28Confection-Messieurs%29%2C-60%2C-du-01_06_2026-au-31_07_2026/1351338255/",
     "https://positions.manor.ch/job/St_-Gallen-Mitarbeiterin-Merchandising-Fashion-40/1351299455/",
-    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50-100/960259355/",
     "https://positions.manor.ch/job/Yverdon-Apprentie-Gestionnaire-du-commerce-de-d%C3%A9tail-CFC-%28Parfumerie%29-100/1341169655/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%29-50-du-31_08_2026-au-12_09_2026/1351453555/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Confection-Dames%29-50-du-24_08_2026/1351453155/",
@@ -48,8 +47,6 @@
     "https://positions.manor.ch/job/Fribourg-Caissier%C3%A8re-%28Supermarch%C3%A9%2915-de-suite/1351626355/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-supermarch%C3%A9-%28take-out%29-50/1327664255/",
     "https://positions.manor.ch/job/Langenthal-Mitarbeiterin-Verkauf-Fashion-&-Kasse-5-10/1351855455/",
-    "https://positions.manor.ch/job/St_-Gallen-StudentinMitarbeiterin-Kasse-10-20/1353429055/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Liquides%29-Etudiante-20-du-02_05_2026-au-31_08_2026/1351823455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boucher%C3%A8re-%28Viande-&-Volaille%29-80-du-01_08_2026-au-31_10_2026/1351821555/",
     "https://positions.manor.ch/job/Biel-Drogistin-EFZ-%28Dermacenter%29-50-80/1337310655/",
     "https://positions.manor.ch/job/Biel-Droguiste-CFC-%28Dermacenter%29-50-80/1337310555/",
@@ -119,11 +116,9 @@
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28boulangerie%29-30-Etudiant/1354932655/",
     "https://positions.manor.ch/job/Pf%C3%A4ffikon-Mitarbeiterin-Verkauf-Kinderkonfektion-40/1346965455/",
     "https://positions.manor.ch/job/Schaffhausen-KochK%C3%B6chin-80/1355464555/",
-    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-20/1354309555/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/",
     "https://positions.manor.ch/job/Vevey-Cuisinier%C3%A8re-100/1348268455/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Pain-&-Patisserie%29-Etudiante-15/1352554255/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Liquides%29-50/1352560255/",
     "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-Herren-Sport-80/1336032755/",
     "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1355566155/",
     "https://positions.manor.ch/job/Basel-Head-of-Retail-Media-100/1355566055/",
@@ -173,10 +168,14 @@
     "https://positions.manor.ch/job/Sion-Collaborateurtrice-service-%28Manora%29-50/1349975355/",
     "https://positions.manor.ch/job/Morges-Collaborateurtric-caisse-%28Supermarch%C3%A9%29-40/1355950455/",
     "https://positions.manor.ch/job/M%C3%B6hlin-Mitarbeiterin-Logistik-30-100/962548755/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Lingerie-Dames%29-45/1353435055/"
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Lingerie-Dames%29-45/1353435055/",
+    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-20-Etudiant/1354309555/",
+    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/",
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50-100/960259355/",
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1355990755/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-06-19T13:03:52.043Z",
+  "updatedAt": "2026-06-19T22:18:07.082Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Zug-Mitarbeiterin-Logistik-und-Warenaufbereitung-40/1353144355/": {
       "company": "Manor AG",
@@ -286,10 +285,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50-100/960259355/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Yverdon-Apprentie-Gestionnaire-du-commerce-de-d%C3%A9tail-CFC-%28Parfumerie%29-100/1341169655/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -335,14 +330,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Langenthal-Mitarbeiterin-Verkauf-Fashion-&-Kasse-5-10/1351855455/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/St_-Gallen-StudentinMitarbeiterin-Kasse-10-20/1353429055/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Liquides%29-Etudiante-20-du-02_05_2026-au-31_08_2026/1351823455/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -622,10 +609,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-20/1354309555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28BijouterieMontres%29-30/1354328055/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -635,10 +618,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Pain-&-Patisserie%29-Etudiante-15/1352554255/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-supermarch%C3%A9-%28Produits-Liquides%29-50/1352560255/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -839,6 +818,22 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Lingerie-Dames%29-45/1353435055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-20-Etudiant/1354309555/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Vevey-Visual-Merchandising-Manager-100/1355986855/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50-100/960259355/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-100/1355990755/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
