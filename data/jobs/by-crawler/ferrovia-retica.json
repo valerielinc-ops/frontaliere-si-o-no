@@ -1,7 +1,55 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-06-19T12:31:23.997Z",
+  "assembledAt": "2026-06-19T21:44:47.859Z",
   "jobs": [
+    {
+      "title": "Sachbearbeiter/in Disposition (80-100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/sachbearbeiter-in-disposition-80-100_2026-2216/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "FULL_TIME",
+      "category": "engineering",
+      "description": "Riesci a mantenere il controllo anche in presenza di processi di costruzione complessi? In questo ruolo stimolante coordinerai la logistica dei cantieri sulla rete della RhB.\n\nCosa puoi fare\n• Du kontrollierst und koordinierst Baustellen-Anträge im Gleisbereich und trägst zu einem möglichst störungsfreien Betrieb bei\n\n• Du bist dafür verantwortlich, Verschiebungen von gleisgebundenen Baumaschinen zwischen den einzelnen Baustellen zu planen und mit anderen Stellen zu koordinieren\n\n• Über unser SAP-System erledigst du die Bestellungen sämtlicher Materialien für die einzelnen Baustellen im Gleisbau\n\nEcco perché sei la persona giusta\n• Du verfügst über eine abgeschlossene Lehre als Disponent/in, Logistiker/in oder Gleichwertiges\n\n• Du bist fit im Umgang mit IT-Systemen und bringst idealerweise Kenntnisse des Programms «GAF» und Erfahrung mit SAP mit\n\n• Rasch Zusammenhänge zu erkennen fällt dir leicht\n\n• Du arbeitest strukturiert und bewahrst auch in hektischen Situationen einen kühlen Kopf\n\n• Ausgeprägte Kommunikations- und Koordinationsfähigkeiten runden dein Profil ab\n\nCosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
+      "postedDate": "2026-06-19",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "sachbearbeiter-in-disposition-80-100-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "sachbearbeiter-in-disposition-80-100-ferrovia-retica-rhb-chur",
+        "en": "sachbearbeiter-in-disposition-80-100-ferrovia-retica-rhb-chur",
+        "de": "sachbearbeiter-in-disposition-80-100-ferrovia-retica-rhb-chur",
+        "fr": "sachbearbeiter-in-disposition-80-100-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "de": "Sachbearbeiter/in Disposition (80-100%)"
+      },
+      "percentage": "80-100%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressCountry": "CH",
+      "addressRegion": "GR",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 67000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-19T21:44:47.858Z"
+    },
     {
       "title": "Ausbildner/in Triebfahrzeugführende (VTE) 80-100% Landquart",
       "company": "Ferrovia Retica (RhB)",
@@ -194,7 +242,8 @@
       },
       "previousSlugs": [
         "handwerker-in-komponentenwechsel-50-100-ferrovia-retica-rhb-bernina"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/in Kundeninformation (50-60%)",
@@ -249,7 +298,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-12T12:05:47.509Z"
+      "firstSeenAt": "2026-06-12T12:05:47.509Z",
+      "needsRetranslation": true
     },
     {
       "title": "Rangiermitarbeiter/in Autoverlad Selfranga (50-100%)",
@@ -359,7 +409,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-11T12:35:40.360Z"
+      "firstSeenAt": "2026-06-11T12:35:40.360Z",
+      "needsRetranslation": true
     },
     {
       "title": "Spezialmonteur/in / Mechaniker/in Instandhaltung (80-100%)",
@@ -483,7 +534,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-10T12:02:38.196Z"
+      "firstSeenAt": "2026-06-10T12:02:38.196Z",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Bahndienst (80-100%)",
@@ -539,128 +591,6 @@
         }
       },
       "firstSeenAt": "2026-06-09T22:21:53.967Z"
-    },
-    {
-      "title": "Spezialist/in Rechnungswesen (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/spezialist-in-rechnungswesen-50-100_2026-2207/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "description": "Con la tua esperienza in contabilità accompagni i progetti dalla pianificazione alla conclusione, in modo strutturato e affidabile.\n\nCosa puoi fare\n• Selbständige Führung des Rechnungswesens für alle Unterhalts- und Investitionsprojekte in den zugeteilten Organisationseinheiten im Geschäftsbereich Infrastruktur\n\n• Mithilfe bei der Erstellung des Budgets sowie der Monats- und Jahresrechnung in den zugeteilten Organisationseinheiten\n\n• Administrative Begleitung der Unterhalts- und Investitionsprojekte im Bereich Finanz- und Rechnungswesen\n Ecco perché sei la persona giusta\n• Kaufmännische Ausbildung mit mehrjähriger, qualifizierter Berufserfahrung im Finanz- und Rechnungswesen, vorzugsweise Baubranche\n\n• Weiterbildung im Finanz- und Rechnungswesen (z.B. Sachbearbeiter/in Finanz- und Rechnungswesen)\n\n• Gute Kenntnisse und praktische Erfahrung mit ERP-Systemen (vorzugsweise SAP S/4HANA) und MS Office (insbesondere Excel)\n\n• Exakte, analytische, strukturierte und prozessorientierte Arbeits- und Denkweise\n\n• Kommunikative, dienstleistungsorientierte, zuverlässige und teamfähige Persönlichkeit, die Freude an einem vielseitigen und lebendigen Tagesgeschäft hat\n Cosa ti offriamo\n• sehr gut eingespieltes, motiviertes und wertschätzendes Team mit Sinn für Humor\n\n• gut eingerichteter Arbeitsplatz mit flexibler Arbeitszeitgestaltung und Homeoffice-Möglichkeit\n\n• vielseitiges und verantwortungsvolles Aufgabengebiet\nRaum für Eigeninitiative und selbständiges Arbeiten\n Dazu viele Benefits, wie z.B:\n\n• 2. Klasse Generalabonnement\n\n• Vergünstigungen auf Freifahrscheine im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-      "postedDate": "2026-06-16",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "spezialist-in-rechnungswesen-50-100-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "specialista-in-contabilita-50-100-ferrovia-retica-rhb-chur",
-        "en": "specialist-in-accounting-50-100-ferrovia-retica-rhb-chur",
-        "de": "spezialist-in-rechnungswesen-50-100-ferrovia-retica-rhb-chur",
-        "fr": "specialiste-en-comptabilite-50-100-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Specialista in Contabilità (50-100%)",
-        "en": "Specialist in Accounting (50-100%)",
-        "de": "Spezialist/in Rechnungswesen (50-100%)",
-        "fr": "Spécialiste en comptabilité (50-100%)"
-      },
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione Con la tua esperienza in contabilità accompagnai i progetti dalla pianificazione alla conclusione, in modo strutturato e affidabile. Cosa puoi fare - Contabilità autonoma per tutti i progetti di manutenzione e di investimento nelle unità organizzative assegnate nella Divisione Infrastrutture - Assistenza nella preparazione del bilancio e dei conti mensili e annuali nelle unità organizzative assegnate - Sostegno amministrativo a progetti di sostegno finanziario e contabile e di investimento Ecco perché essere la persona giusta - Formazione commerciale con esperienza professionale pluriennale e qualificata in finanza e contabilità, preferibilmente costruzione - Formazione finanziaria e contabile (ad esempio specialista in finanza e contabilità) - Buona conoscenza e esperienza pratica con i sistemi ERP (preferibilmente SAP S/4HANA) e MS Office (specialmente Excel) - Funzionamento e pensiero esatti, analitici, strutturati e orientati al processo - Personalità comunicativa, orientata al servizio, affidabile e di team-capable che ha il piacere di un business versatile e vivace Cosa c'è da sapere - squadra molto ben giocata, motivata e con senso dell'umorismo - posto di lavoro consolidato con progettazione flessibile del tempo di lavoro e possibilità di ufficio domestico - area versatile e responsabile - spazio per iniziativa e lavoro indipendente - Molti vantaggi, come: - Abbonamento generale di seconda classe - Vantaggi sul biglietto gratuito all'estero - Telefono a pagamento e abo per affari e uso privato - Prestazioni sociali attraenti e fondi pensione con prestazioni molto buone - Acquisto supplementare delle vacanze - Formazione interna ed esterna con sostegno finanziario di RhB",
-        "en": "Descrizione Con la tua esperienza in contabilità accompagni i progetti dalla pianificazione alla conclusione, in modo strutturato e affidabile. Cosa puoi fare - Self-governing accounting for all maintenance and investment projects in the assigned organisational units in the Infrastructure Division - Assistance in the preparation of the budget and the monthly and annual accounts in the allocated organisational units - Administrative support for financial and accounting subsistence and investment projects Ecco perché be la persona giusta - Commercial training with multi-year, qualified professional experience in financial and accounting, preferably construction - Training in financial and accounting (e.g. specialist in financial and accounting) - Good knowledge and practical experience with ERP systems (preferably SAP S/4HANA) and MS Office (especially Excel) - Exact, analytical, structured and process-oriented working and thinking - Communicative, service-oriented, reliable and team-capable personality that has the pleasure of a versatile and lively day business Cosa ti offriamo - very well played, motivated and value-adding team with sense of humor - well-established workplace with flexible working time design and home office possibility - versatile and responsible area - space for initiative and independent work - Many Benefits, such as: - 2nd class general subscription - Benefits on free ticket abroad - Paid mobile phone and abo for business and private use - Attractive social benefits and pension funds with very good benefits - Additional purchase of holidays - Internal and external training with financial support by RhB",
-        "de": "## Descrizione Con la tua esperienza in contabilità accompagni i progetti dalla pianificazione alla conclusione, in modo strutturato e affidabile. ## Cosa puoi fare - Selbständige Führung des Rechnungswesens für alle Unterhalts- und Investitionsprojekte in den zugeteilten Organisationseinheiten im Geschäftsbereich Infrastruktur - Mithilfe bei der Erstellung des Budgets sowie der Monats- und Jahresrechnung in den zugeteilten Organisationseinheiten - Administrative Begleitung der Unterhalts- und Investitionsprojekte im Bereich Finanz- und Rechnungswesen ## Ecco perché sei la persona giusta - Kaufmännische Ausbildung mit mehrjähriger, qualifizierter Berufserfahrung im Finanz- und Rechnungswesen, vorzugsweise Baubranche - Weiterbildung im Finanz- und Rechnungswesen (z.B. Sachbearbeiter/in Finanz- und Rechnungswesen) - Gute Kenntnisse und praktische Erfahrung mit ERP-Systemen (vorzugsweise SAP S/4HANA) und MS Office (insbesondere Excel) - Exakte, analytische, strukturierte und prozessorientierte Arbeits- und Denkweise - Kommunikative, dienstleistungsorientierte, zuverlässige und teamfähige Persönlichkeit, die Freude an einem vielseitigen und lebendigen Tagesgeschäft hat ## Cosa ti offriamo - sehr gut eingespieltes, motiviertes und wertschätzendes Team mit Sinn für Humor - gut eingerichteter Arbeitsplatz mit flexibler Arbeitszeitgestaltung und Homeoffice-Möglichkeit - vielseitiges und verantwortungsvolles Aufgabengebiet - Raum für Eigeninitiative und selbständiges Arbeiten - Viele Benefits, wie z.B: - 2. Klasse Generalabonnement - Vergünstigungen auf Freifahrscheine im Ausland - Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung - Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen - Zusätzlicher Kauf von Ferien - Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB",
-        "fr": "Descrizione Con la tua espérienza in contabilità accompagni i progetti dalla pianificazione alla conclusione, in modo strutturato e affidabile. Tarif Cosa puoi - Comptabilisation autonome de tous les projets d'entretien et d'investissement dans les unités organisationnelles affectées à la Division des infrastructures - Assistance à la préparation du budget et des comptes mensuels et annuels dans les unités organisationnelles allouées - Appui administratif aux projets financiers et comptables de subsistance et d ' investissement Ecco perché être la persona giusta - Formation commerciale avec une expérience professionnelle pluriannuelle et qualifiée en finance et comptabilité, de préférence la construction - Formation en finance et comptabilité (par exemple spécialiste en finance et comptabilité) - Bonne connaissance et expérience pratique des systèmes ERP (de préférence SAP S/4HANA) et MS Office (en particulier Excel) - Travail et réflexion précis, analytique, structuré et axé sur les processus - Personnalité communicative, orientée vers le service, fiable et apte à l'équipe qui a le plaisir d'une journée polyvalente et animée Cosa ti offriamo - équipe très bien jouée, motivée et enrichissante avec sens de l'humour - un lieu de travail bien établi avec une conception flexible du temps de travail et une possibilité de bureau à domicile - zone polyvalente et responsable - espace d'initiative et travail indépendant - De nombreux avantages, comme : - Abonnement général de 2ème classe - Avantages sur billet gratuit à l'étranger - Téléphone portable payant et abo pour les entreprises et les particuliers - Prestations sociales attractives et fonds de pension avec de très bonnes prestations - Achat supplémentaire de vacances - Formation interne et externe avec soutien financier de RHB"
-      },
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "addressRegion": "GR",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-03T13:34:04.571Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "mechanical-engineer-loks-80-100-ferrovia-retica-rhb-chur",
-          "full-stack-java-developer-expert-relewant-chiasso",
-          "motion-control-software-engineer-m-f-d-mikron",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno",
-          "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
-          "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
-          "product-manager-in-commuter-traffic-and-collective-agreements-80-100-ferrovia-retica-rhb-davos",
-          "specialist-in-roll-material-deployment-planning-50-100-ferrovia-retica-rhb-chur",
-          "specialist-in-occupational-safety-50-100-ferrovia-retica-rhb-chur",
-          "financial-specialist-50-100-ferrovia-retica-rhb-chur",
-          "specialist-in-accounting-50-100-ferrovia-retica-rhb-chur"
-        ],
-        "it": [
-          "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-          "full-stack-java-sviluppatore-expert-relewant-chiasso",
-          "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9",
-          "collaboratore-ressources-humaines-swiss-medical-network-lugano",
-          "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol",
-          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5",
-          "collaboratore-hr-swiss-medical-network-lugano-gca7b9",
-          "hr-collaborator-swiss-medical-network-lugano",
-          "collaboratore-hr-swiss-medical-network-lugano",
-          "spezialist-in-rechnungswesen-50-100-ferrovia-retica-rhb-chur",
-          "specialista-in-contabilita-50-100-ferrovia-retica-rhb-chur",
-          "specialiste-en-comptabilite-50-100-ferrovia-retica-rhb-chur",
-          "spezialist-in-anlagebuchhaltung-50-100-rhaetische-bahn-chur",
-          "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-          "specialiste-des-finances-50-100-ferrovia-retica-rhb-chur",
-          "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-          "motion-control-software-ingegnere-m-f-d-mikron-group-agno",
-          "fullstack-software-sviluppatore-m-f-d-mikron-group-agno",
-          "full-stack-java-entwickler-expert-relewant-chiasso",
-          "expert-en-developpement-java-full-stack-relewant-chiasso"
-        ],
-        "de": [
-          "hr-mitarbeiter-swiss-medical-network-lugano"
-        ],
-        "fr": [
-          "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio",
-          "candidature-spontanee-site-de-mendrisio-sintetica-sa-mendrisio",
-          "gestionnaire-de-produits-dans-le-trafic-de-banlieue-et-les-conventions-collectives-80-100-ferrovia-retica-rhb-davos"
-        ]
-      },
-      "previousSlugs": [
-        "electrician-in-event-management-50-80-ferrovia-retica-rhb-chur",
-        "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-chur",
-        "ingenieur-mecanique-loks-80-100-ferrovia-retica-rhb-chur",
-        "mechaniker-in-triebdrehgestellaufarbeitung-loks-80-100-ferrovia-retica-rhb-bernina",
-        "ingegnere-meccanico-loks-80-100-ferrovia-retica-rhb-chur",
-        "fachspezialist-in-rollmaterialeinsatzplanung-50-100-ferrovia-retica-rhb-chur",
-        "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
-        "full-stack-java-sviluppatore-expert-relewant-chiasso",
-        "spezialist-in-rechnungswesen-50-100-ferrovia-retica-rhb-chur",
-        "specialista-in-contabilita-50-100-ferrovia-retica-rhb-chur",
-        "specialist-in-accounting-50-100-ferrovia-retica-rhb-chur",
-        "specialiste-en-comptabilite-50-100-ferrovia-retica-rhb-chur",
-        "spezialist-in-anlagebuchhaltung-50-100-rhaetische-bahn-chur",
-        "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-        "specialiste-des-finances-50-100-ferrovia-retica-rhb-chur",
-        "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno",
-        "motion-control-software-ingegnere-m-f-d-mikron-group-agno",
-        "fullstack-software-sviluppatore-m-f-d-mikron-group-agno",
-        "full-stack-java-entwickler-expert-relewant-chiasso",
-        "expert-en-developpement-java-full-stack-relewant-chiasso"
-      ]
     }
   ]
 }
