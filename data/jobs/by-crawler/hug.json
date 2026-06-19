@@ -3315,8 +3315,8 @@
       },
       "description": "Votre principale mission consiste à colliger les données nécessaires pour les différents projets de recherche réalisés dans le service des soins.",
       "descriptionByLocale": {
-        "it": "La vostra missione principale è quella di raccogliere i dati necessari per i vari progetti di ricerca nel reparto assistenza.",
-        "en": "Your main mission is to collect the data needed for the various research projects carried out in the care department.",
+        "it": "Il tuo compito principale è raccogliere i dati necessari per i vari progetti di ricerca svolti nel reparto assistenza.",
+        "en": "Your main task is to collect the data necessary for the various research projects carried out in the care department.",
         "de": "Ihre Hauptaufgabe ist es, die für die verschiedenen Forschungsprojekte in der Pflegeabteilung notwendige Daten zu sammeln.",
         "fr": "Votre principale mission consiste à colliger les données nécessaires pour les différents projets de recherche réalisés dans le service des soins."
       },
@@ -3353,7 +3353,6 @@
           "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-12T12:18:14.918Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -3368,7 +3367,9 @@
         }
       },
       "postalCode": "1201",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 145
     },
     {
       "id": "hug-c2db642ecbe5",
