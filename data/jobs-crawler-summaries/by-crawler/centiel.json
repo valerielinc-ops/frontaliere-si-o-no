@@ -1,18 +1,19 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-06-19T12:14:25.159Z",
+  "generatedAt": "2026-06-19T21:27:56.113Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2461,
-  "avgDurationMs": 2461,
+  "durationMs": 3899,
+  "avgDurationMs": 3899,
   "durationHistory": [
-    2461
+    3899
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Technical Services Manager – Centiel UK",
       "slug": "technical-services-manager-centiel-uk-centiel-ticino",
@@ -35,16 +36,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 61,
+      "id": "centiel-dc762b6c8bc1",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "streetAddress": "Via Luserte 11",
+      "postalCode": "6572",
+      "firstSeenAt": "2026-06-19T12:14:25.157Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Category Buyer",
       "slug": "category-buyer-centiel-ticino",
