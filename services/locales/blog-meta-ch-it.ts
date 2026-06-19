@@ -230,6 +230,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dogana-chiasso-svizzera.title': 'Dogana Chiasso Svizzera: tempi di attesa e procedure',
     'blog.article.dogana-chiasso-svizzera.excerpt': 'Scopri i tempi di attesa alla dogana di Chiasso e le procedure per il transito in Svizzera.',
     'blog.article.dogana-chiasso-svizzera.imageAlt': 'Castello di Chiasso e frontiera svizzero-italiana',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Imposta alla fonte frontalieri in Ticino: guida aggiornata',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Imposta alla fonte per frontalieri in Ticino: cosa prevede, chi riguarda, dove si applica. Dati e procedure per lavoratori e aziende.',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Vista su Lugano e la regione di confine, area impiego frontalieri.',
 };
 
 export default blogMetaChIt;

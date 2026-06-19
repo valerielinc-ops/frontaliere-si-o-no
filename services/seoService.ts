@@ -4084,6 +4084,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-concorsi': { name: 'Concorsi pubblici', path: '/articoli-svizzera/ticino-concorsi/', parent: 'blog' },
     'blog-lidl-biasca-ticino': { name: 'Lidl, Biasca, Ticino', path: '/articoli-svizzera/lidl-biasca-ticino/', parent: 'blog' },
     'blog-dogana-chiasso-svizzera': { name: 'Dogana Chiasso', path: '/articoli-svizzera/dogana-chiasso-svizzera/', parent: 'blog' },
+    'blog-imposta-alla-fonte-frontalieri-ticino': { name: 'Imposta fonte Ticino', path: '/articoli-svizzera/imposta-alla-fonte-frontalieri-ticino/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -230,6 +230,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dogana-chiasso-svizzera.title': 'Douane Chiasso',
     'blog.article.dogana-chiasso-svizzera.excerpt': 'Découvrez les temps d\'attente à la douane de Chiasso et les procédures pour le transit en Suisse.',
     'blog.article.dogana-chiasso-svizzera.imageAlt': 'Château de Chiasso et frontière italo-suisse',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Impôt à la source frontaliers',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Impôt à la source pour frontaliers au Tessin : ce que prévoit, qui est concerné, où s\'applique. Données et procédures pour travailleurs et entreprises.',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Vue sur Lugano et la région frontalière, zone d\'emploi transfrontalier.',
 };
 
 export default blogMetaChFr;
