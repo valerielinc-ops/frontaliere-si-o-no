@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-und-pflege-ags-oder-pflegehelfer-in-40-100-senevita-reinach-bl",
         "it": "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-40-100-senevita-reinach-bl",
-        "en": "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-40-100-senevita-reinach-bl",
-        "fr": "collaboratore-trice-betreuung-e-pflege-ags-o-pflegehelfer-in-40-100-senevita-reinach-bl"
+        "en": "employee-care-and-care-ags-or-nursing-assistant-in-40-100-senevita-reinach-bl",
+        "fr": "soins-et-soins-aux-employes-ags-ou-assistant-infirmier-en-40-100-senevita-reinach-bl"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -313,8 +313,8 @@
       "slugByLocale": {
         "de": "leiter-in-bildung-80-100-m-w-d-senevita-muri-be",
         "it": "responsabile-bildung-80-100-m-w-d-senevita-muri-be",
-        "en": "leiter-in-bildung-80-100-m-w-d-senevita-muri-be",
-        "fr": "leiter-in-bildung-80-100-m-w-d-senevita-muri-be"
+        "en": "head-of-education-80-100-m-f-d-senevita-muri-be",
+        "fr": "chef-de-l-education-80-100-m-f-d-senevita-muri-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -360,6 +360,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-bildung-80-100-m-w-d-senevita-muri-be"
+        ],
+        "en": [
+          "leiter-in-bildung-80-100-m-w-d-senevita-muri-be"
+        ],
+        "fr": [
           "leiter-in-bildung-80-100-m-w-d-senevita-muri-be"
         ]
       },
@@ -1743,12 +1749,12 @@
     },
     {
       "id": "senevita-3771784936d1",
-      "slug": "junior-einkaufer-in-80-senevita-muri-be",
+      "slug": "junior-buyer-in-80-senevita-muri-be",
       "slugByLocale": {
-        "it": "junior-einkaufer-in-80-senevita-muri-be",
+        "it": "junior-buyer-in-80-senevita-muri-be",
         "en": "junior-einkaufer-in-80-senevita-muri-be",
         "de": "junior-einkaufer-in-80-senevita-muri-be",
-        "fr": "junior-einkaufer-in-80-senevita-muri-be"
+        "fr": "petit-acheteur-dans-80-senevita-muri-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1803,7 +1809,18 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-einkaufer-in-80-senevita-muri-be"
+        ],
+        "fr": [
+          "junior-einkaufer-in-80-senevita-muri-be"
+        ]
+      },
+      "previousSlugs": [
+        "junior-einkaufer-in-80-senevita-muri-be"
+      ]
     },
     {
       "id": "senevita-7f9634a23dee",
@@ -2718,12 +2735,12 @@
     },
     {
       "id": "senevita-83ad722a8575",
-      "slug": "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be",
+      "slug": "professional-housekeeping-60-senevita-munsingen-be",
       "slugByLocale": {
-        "it": "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be",
+        "it": "professional-housekeeping-60-senevita-munsingen-be",
         "en": "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be",
         "de": "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be",
-        "fr": "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be"
+        "fr": "professionnel-menage-60-senevita-munsingen-be"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2778,7 +2795,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be"
+        ],
+        "fr": [
+          "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-hauswirtschaft-60-senevita-munsingen-be"
+      ]
     },
     {
       "id": "senevita-b9cbcbe631d4",

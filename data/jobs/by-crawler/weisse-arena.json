@@ -541,7 +541,7 @@
         "it": "responsabile-eventi-weisse-arena-gruppe-laax",
         "en": "event-manager-weisse-arena-ch",
         "de": "event-manager-weisse-arena-ch",
-        "fr": "event-manager-weisse-arena-ch"
+        "fr": "gestionnaire-d-evenements-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -590,6 +590,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "event-manager-weisse-arena-ch"
+        ],
+        "fr": [
           "event-manager-weisse-arena-ch"
         ]
       },
@@ -773,9 +776,9 @@
       "slug": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "koch-kochin-con-feuer-e-leidenschaft-weisse-arena-gruppe-laax",
-        "en": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
+        "en": "cook-with-fire-and-passion-weisse-arena-gruppe-laax",
         "de": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch",
-        "fr": "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+        "fr": "cuire-avec-feu-et-passion-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -825,6 +828,12 @@
       "previousSlugsByLocale": {
         "it": [
           "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+        ],
+        "en": [
+          "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-mit-feuer-und-leidenschaft-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
@@ -847,9 +856,9 @@
       "slug": "dipendente-del-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "dipendente-del-servizio-weisse-arena-gruppe-laax",
-        "en": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+        "en": "service-staff-in-weisse-arena-gruppe-laax",
         "de": "servicemitarbeiter-in-weisse-arena-ch",
-        "fr": "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        "fr": "personnel-des-services-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -901,6 +910,12 @@
         "it": [
           "servicemitarbeiter-in-weisse-arena-ch",
           "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.956Z",
@@ -923,9 +938,9 @@
       "slug": "assistente-cuoco-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "assistente-cuoco-weisse-arena-gruppe-laax",
-        "en": "hilfskoch-hilfskochin-weisse-arena-ch",
+        "en": "auxiliary-cook-weisse-arena-gruppe-laax",
         "de": "hilfskoch-hilfskochin-weisse-arena-ch",
-        "fr": "hilfskoch-hilfskochin-weisse-arena-ch"
+        "fr": "cuisiniere-auxiliaire-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -974,6 +989,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-weisse-arena-ch"
+        ],
+        "fr": [
           "hilfskoch-hilfskochin-weisse-arena-ch"
         ]
       },

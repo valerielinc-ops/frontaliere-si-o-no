@@ -1400,9 +1400,6 @@
         "assistant-e-en-soins-et-sante-communautaire-assc-spital-emmental-burgdorf",
         "health-professional-a-spital-emmental-burgdorf",
         "specialiste-de-la-sante-a-spital-emmental-burgdorf",
-        "salute-specialistica-a-spital-emmental-burgdorf",
-        "specialist-health-a-spital-emmental-burgdorf",
-        "specialiste-de-la-sante-a-spital-emmental-burgdorf-83d675",
         "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
       ],
       "previousSlugsByLocale": {
@@ -2432,9 +2429,9 @@
       "slug": "segretario-del-dottore-in-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "segretario-del-dottore-in-a-spital-emmental-langnau",
-        "en": "arztsekretar-in-a-spital-emmental-langnau",
+        "en": "medical-secretary-in-a-spital-emmental-langnau",
         "de": "arztsekretar-in-a-spital-emmental-langnau",
-        "fr": "arztsekretar-in-a-spital-emmental-langnau"
+        "fr": "secretaire-medical-en-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2488,6 +2485,12 @@
       "previousSlugsByLocale": {
         "it": [
           "arztsekretar-in-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "arztsekretar-in-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "arztsekretar-in-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-06-04T13:38:50.339Z",
@@ -2509,9 +2512,9 @@
       "slug": "paramedico-dipl-hf-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "paramedico-dipl-hf-a-spital-emmental-langnau",
-        "en": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
+        "en": "dipl-paramedics-inside-hf-a-spital-emmental-langnau",
         "de": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau",
-        "fr": "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
+        "fr": "dipl-paramedicaux-interieur-hf-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2565,6 +2568,12 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "dipl-rettungssanitater-innen-hf-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-06-08T13:43:38.379Z",
@@ -2586,9 +2595,9 @@
       "slug": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
+        "en": "dipl-nurse-with-option-professional-responsibility-nursing-a-spital-emmental-langnau",
         "de": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-mit-option-fachverantwortung-pflege-a-spital-emmental-langnau"
+        "fr": "oui-infirmiere-avec-option-responsabilite-professionnelle-infirmiere-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2902,9 +2911,9 @@
       "slug": "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "facharztin-facharzt-per-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
+        "en": "specialist-for-general-internal-medicine-a-spital-emmental-langnau",
         "de": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau",
-        "fr": "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        "fr": "specialiste-en-medecine-interne-generale-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -2957,6 +2966,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
+        ],
+        "fr": [
           "facharztin-facharzt-fur-allgemeine-innere-medizin-a-spital-emmental-langnau"
         ]
       },
@@ -3739,9 +3754,9 @@
       "slug": "capo-squadra-infermieristica-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "capo-squadra-infermieristica-a-spital-emmental-langnau",
-        "en": "teamleitung-pflege-a-spital-emmental-langnau",
+        "en": "team-management-care-a-spital-emmental-langnau",
         "de": "teamleitung-pflege-a-spital-emmental-langnau",
-        "fr": "teamleitung-pflege-a-spital-emmental-langnau"
+        "fr": "soins-de-gestion-d-equipe-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3795,6 +3810,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-pflege-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "teamleitung-pflege-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "teamleitung-pflege-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-06-15T15:21:48.424Z",
@@ -3816,9 +3837,9 @@
       "slug": "mpa-dipl-infermiera-specialista-della-salute-cardiologia-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "mpa-dipl-infermiera-specialista-della-salute-cardiologia-a-spital-emmental-langnau",
-        "en": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
+        "en": "mpa-dipl-nurse-health-care-professional-a-spital-emmental-langnau",
         "de": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau",
-        "fr": "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
+        "fr": "mpa-dipl-infirmiere-professionnelle-de-la-sante-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3871,6 +3892,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
+        ],
+        "fr": [
           "mpa-dipl-pflegefachperson-fachperson-gesundheit-kardiologie-a-spital-emmental-langnau"
         ]
       },
@@ -4124,12 +4151,12 @@
     },
     {
       "id": "spital-emmental-2e02d573d1bb",
-      "slug": "pflegeassistent-in-a-spital-emmental-burgdorf",
+      "slug": "assistente-infermieristico-in-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "en": "pflegeassistent-in-a-spital-emmental-burgdorf",
+        "it": "assistente-infermieristico-in-a-spital-emmental-burgdorf",
+        "en": "nursing-assistant-in-a-spital-emmental-burgdorf",
         "de": "pflegeassistent-in-a-spital-emmental-burgdorf",
-        "fr": "pflegeassistent-in-a-spital-emmental-burgdorf"
+        "fr": "assistant-infirmier-en-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4188,16 +4215,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "pflegeassistent-in-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistent-in-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-7d51fd943381",
       "slug": "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-langnau",
-        "en": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
+        "en": "dietetic-cook-or-cook-a-spital-emmental-langnau",
         "de": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
-        "fr": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
+        "fr": "cuisiniere-dietetique-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4250,6 +4291,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
+        ],
+        "fr": [
           "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
         ]
       },

@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "montatore-di-mobili-falegname-pemsa-chiasso",
-        "en": "montatore-di-mobili-falegname-pemsa-chiasso",
-        "de": "montatore-di-mobili-falegname-pemsa-chiasso",
-        "fr": "montatore-di-mobili-falegname-pemsa-chiasso"
+        "en": "mobility-falegname-pemsa-chiasso",
+        "de": "mobilitat-falegname-pemsa-chiasso",
+        "fr": "mobilite-falegname-pemsa-chiasso"
       },
       "id": "pemsa-5f60f25456ae",
       "needsRetranslation": true,
@@ -219,7 +219,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-locarno",
         "en": "education-pemsa-locarno",
-        "de": "carpentiere-edile-pemsa-locarno",
+        "de": "bildung-pemsa-locarno",
         "fr": "education-pemsa-locarno"
       },
       "id": "pemsa-317e99092e53",
@@ -239,14 +239,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-17T13:31:13.135Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "bildung-pemsa-locarno"
-        ]
-      },
-      "previousSlugs": [
-        "bildung-pemsa-locarno"
-      ],
       "needsRetranslation": true
     },
     {
@@ -1470,7 +1462,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "plumbing-heating-systems-pemsa-lugano",
         "de": "durchfuhrungen-pemsa-lugano",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
+        "fr": "mise-en-uvre-pemsa-lugano"
       },
       "id": "pemsa-0698f0bf0be6",
       "salaryMin": 49500,
@@ -1489,14 +1481,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-12T12:47:46.667Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-lugano"
-      ],
       "needsRetranslation": true
     },
     {
@@ -1714,7 +1698,7 @@
       "slugByLocale": {
         "it": "carpentiere-metallico-pemsa-bellinzona",
         "en": "metal-carpenter-pemsa-bellinzona",
-        "de": "carpentiere-metallico-pemsa-bellinzona",
+        "de": "tischler-aus-metall-pemsa-bellinzona",
         "fr": "charpentier-metallique-pemsa-bellinzona"
       },
       "id": "pemsa-8486e4c1ca5a",
@@ -1734,14 +1718,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-11T13:31:56.069Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "tischler-aus-metall-pemsa-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "tischler-aus-metall-pemsa-bellinzona"
-      ],
       "needsRetranslation": true
     },
     {
@@ -1901,7 +1877,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -1920,14 +1896,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-torricella"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-torricella"
-      ],
       "needsRetranslation": true
     },
     {

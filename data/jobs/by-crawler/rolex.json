@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "rolex-0bd162b8af02",
-      "slug": "ingenieur-microfabrication-silicium-rolex-ch",
+      "slug": "ingegnere-di-microfabbricazione-silicium-rolex-bienne",
       "slugByLocale": {
-        "it": "ingenieur-microfabrication-silicium-rolex-ch",
+        "it": "ingegnere-di-microfabbricazione-silicium-rolex-bienne",
         "en": "ingenieur-microfabrication-silicium-rolex-ch",
-        "de": "ingenieur-microfabrication-silicium-rolex-ch",
+        "de": "mikrofabrikationsingenieur-silizium-rolex-bienne",
         "fr": "ingenieur-microfabrication-silicium-rolex-ch"
       },
       "company": "Rolex",
@@ -62,7 +62,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-microfabrication-silicium-rolex-ch"
+        ],
+        "de": [
+          "ingenieur-microfabrication-silicium-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-microfabrication-silicium-rolex-ch"
+      ]
     },
     {
       "id": "rolex-03d5a3831c5d",
@@ -9791,12 +9802,12 @@
     },
     {
       "id": "rolex-fbb2b5cc7915",
-      "slug": "chef-de-projets-industrialisation-logistique-h-f-rolex-ch",
+      "slug": "responsabile-del-progetto-di-industrializzazione-della-logistica-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "chef-de-projets-industrialisation-logistique-h-f-rolex-ch",
-        "it": "chef-de-projets-industrialisation-logistique-h-f-rolex-ch",
-        "en": "chef-de-projets-industrialisation-logistique-h-f-rolex-ch",
-        "de": "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
+        "it": "responsabile-del-progetto-di-industrializzazione-della-logistica-h-f-rolex-geneve",
+        "en": "logistics-industrialization-project-manager-h-f-rolex-geneve",
+        "de": "projektleiter-logistik-industrialisierung-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -9850,15 +9861,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T23:28:26.157Z"
+      "firstSeenAt": "2026-06-18T23:28:26.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
+        ],
+        "en": [
+          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
+        ],
+        "de": [
+          "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-projets-industrialisation-logistique-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-2764e2359eab",
-      "slug": "charge-de-projets-h-f-rolex-ch",
+      "slug": "project-manager-h-f-rolex-bienne",
       "slugByLocale": {
-        "it": "charge-de-projets-h-f-rolex-ch",
+        "it": "project-manager-h-f-rolex-bienne",
         "en": "charge-de-projets-h-f-rolex-ch",
-        "de": "charge-de-projets-h-f-rolex-ch",
+        "de": "projektleiter-h-f-rolex-bienne",
         "fr": "charge-de-projets-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -9912,15 +9937,26 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-b2fa4d049ee1",
-      "slug": "technicien-en-fabrication-additive-h-f-rolex-ch",
+      "slug": "tecnologia-additiva-di-fabbricazione-h-f-rolex-bienne",
       "slugByLocale": {
-        "it": "technicien-en-fabrication-additive-h-f-rolex-ch",
-        "en": "technicien-en-fabrication-additive-h-f-rolex-ch",
-        "de": "technicien-en-fabrication-additive-h-f-rolex-ch",
+        "it": "tecnologia-additiva-di-fabbricazione-h-f-rolex-bienne",
+        "en": "additive-manufacturing-technician-h-f-rolex-bienne",
+        "de": "techniker-fur-additive-fertigung-h-f-rolex-bienne",
         "fr": "technicien-en-fabrication-additive-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -9974,16 +10010,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-en-fabrication-additive-h-f-rolex-ch"
+        ],
+        "en": [
+          "technicien-en-fabrication-additive-h-f-rolex-ch"
+        ],
+        "de": [
+          "technicien-en-fabrication-additive-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-en-fabrication-additive-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-9d0afcf767f0",
-      "slug": "technicien-r-d-h-f-rolex-ch",
+      "slug": "r-d-technician-h-f-rolex-bienne",
       "slugByLocale": {
         "fr": "technicien-r-d-h-f-rolex-ch",
-        "it": "technicien-r-d-h-f-rolex-ch",
+        "it": "r-d-technician-h-f-rolex-bienne",
         "en": "technicien-r-d-h-f-rolex-ch",
-        "de": "technicien-r-d-h-f-rolex-ch"
+        "de": "fue-techniker-h-f-rolex-bienne"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -10037,7 +10087,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-18T23:28:22.482Z"
+      "firstSeenAt": "2026-06-18T23:28:22.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-r-d-h-f-rolex-ch"
+        ],
+        "de": [
+          "technicien-r-d-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-r-d-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-af6514b1db79",

@@ -12112,9 +12112,9 @@
       "slug": "capo-squadra-design-d-interni-stadler-rail-altenrhein",
       "slugByLocale": {
         "it": "capo-squadra-design-d-interni-stadler-rail-altenrhein",
-        "en": "teamleiter-in-innenausbau-stadler-rail-ch",
+        "en": "team-leader-in-interior-design-stadler-rail-altenrhein",
         "de": "teamleiter-in-innenausbau-stadler-rail-ch",
-        "fr": "teamleiter-in-innenausbau-stadler-rail-ch"
+        "fr": "chef-d-equipe-en-decoration-d-interieur-stadler-rail-altenrhein"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12160,6 +12160,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-innenausbau-stadler-rail-ch"
+        ],
+        "en": [
+          "teamleiter-in-innenausbau-stadler-rail-ch"
+        ],
+        "fr": [
           "teamleiter-in-innenausbau-stadler-rail-ch"
         ]
       },
@@ -13203,12 +13209,12 @@
     },
     {
       "id": "stadler-rail-d8c44e4aefd7",
-      "slug": "teilprojektleiter-in-elektro-stadler-rail-ch",
+      "slug": "project-manager-in-electric-stadler-rail-bussnang",
       "slugByLocale": {
         "de": "teilprojektleiter-in-elektro-stadler-rail-ch",
-        "it": "teilprojektleiter-in-elektro-stadler-rail-ch",
+        "it": "project-manager-in-electric-stadler-rail-bussnang",
         "en": "teilprojektleiter-in-elektro-stadler-rail-ch",
-        "fr": "teilprojektleiter-in-elektro-stadler-rail-ch"
+        "fr": "gestionnaire-de-projet-en-electric-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -13263,7 +13269,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T23:39:03.412Z"
+      "firstSeenAt": "2026-06-18T23:39:03.412Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teilprojektleiter-in-elektro-stadler-rail-ch"
+        ],
+        "fr": [
+          "teilprojektleiter-in-elektro-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teilprojektleiter-in-elektro-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-6451c065cec4",

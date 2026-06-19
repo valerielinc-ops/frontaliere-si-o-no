@@ -77,9 +77,9 @@
       "slug": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
       "slugByLocale": {
         "it": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-        "en": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
+        "en": "deputy-r-head-in-care-oncology-spital-sts-thun-und-spiez",
         "de": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-        "fr": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        "fr": "chef-adjoint-in-care-oncology-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -126,6 +126,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "en": [
+          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "fr": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
         ]
       },
@@ -671,12 +677,12 @@
     },
     {
       "id": "spital-sts-26389c9344d0",
-      "slug": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+      "slug": "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
-        "en": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+        "it": "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun",
+        "en": "dipl-nursing-specialist-surgery-spital-sts-thun",
         "de": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
-        "fr": "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+        "fr": "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -730,7 +736,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+      ]
     }
   ]
 }

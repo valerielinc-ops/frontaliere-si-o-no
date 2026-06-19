@@ -32,9 +32,9 @@
       "firstSeenAt": "2026-06-15T15:58:36.017Z",
       "slugByLocale": {
         "it": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "en": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "de": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno",
-        "fr": "assistente-per-il-corso-di-laurea-in-cure-infermieristiche-supsi-dti-manno"
+        "en": "assistant-for-bachelor-of-science-in-nursing-supsi-dti-manno",
+        "de": "assistent-fur-bachelor-of-science-in-nursing-supsi-dti-manno",
+        "fr": "assistant-pour-le-baccalaureat-en-sciences-infirmieres-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Assistente per il corso di laurea in Cure infermieristiche",
@@ -81,7 +81,10 @@
         "en": [
           "assistant-for-the-bachelor-s-degree-in-nursing-supsi-dti-manno"
         ]
-      }
+      },
+      "previousSlugs": [
+        "assistant-for-the-bachelor-s-degree-in-nursing-supsi-dti-manno"
+      ]
     },
     {
       "id": "company-l4u553",
@@ -264,8 +267,8 @@
       "slugByLocale": {
         "it": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
         "en": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
-        "de": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano",
-        "fr": "collaboratori-scientifici-in-computer-science-e-applied-data-science-supsi-dti-lugano"
+        "de": "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano",
+        "fr": "collaborateurs-scientifiques-en-informatique-et-en-sciences-appliquees-des-donnees-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -302,8 +305,7 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano",
-          "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano"
+          "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano"
         ],
         "en": [
           "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552"
@@ -311,7 +313,7 @@
       },
       "previousSlugs": [
         "wissenschaftliche-mitarbeiter-in-informatik-und-angewandter-datenwissenschaft-supsi-dti-lugano",
-        "wissenschaftliche-mitarbeiter-in-informatik-und-applied-data-science-supsi-dti-lugano"
+        "scientific-collaborators-in-computer-science-and-applied-data-science-supsi-dti-lugano-l4u552"
       ]
     },
     {
@@ -556,8 +558,8 @@
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
         "en": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-        "de": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano",
-        "fr": "assistente-bachelor-in-formazione-master-mse-in-electrical-engineering-supsi-dti-lugano"
+        "de": "bachelor-in-ausbildung-master-mse-in-elektrotechnik-supsi-dti-lugano",
+        "fr": "baccalaureat-en-education-master-mse-en-genie-electrique-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -630,7 +632,8 @@
       },
       "previousSlugs": [
         "master-mse-in-elektrotechnik-supsi-dti-lugano",
-        "master-mse-en-genie-electrique-supsi-dti-lugano"
+        "master-mse-en-genie-electrique-supsi-dti-lugano",
+        "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano-l4u54f"
       ]
     },
     {
@@ -797,8 +800,8 @@
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-        "de": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano-grado-d"
+        "de": "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
+        "fr": "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
       },
       "requirementsByLocale": {
         "it": [
@@ -866,20 +869,13 @@
         "it": [
           "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
         ],
-        "de": [
-          "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano"
-        ],
-        "fr": [
-          "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
-        ],
         "en": [
           "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e"
         ]
       },
       "previousSlugs": [
         "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano",
-        "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
-        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
+        "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e"
       ]
     },
     {
@@ -1046,9 +1042,9 @@
       "firstSeenAt": "2026-06-03T01:20:10.993Z",
       "slugByLocale": {
         "it": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "en": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "de": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio",
-        "fr": "assistente-con-master-in-geomorfologia-e-pericoli-naturali-supsi-dti-mendrisio"
+        "en": "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
+        "de": "assistent-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
+        "fr": "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Master in Geomorfologia e pericoli naturali",
@@ -1131,25 +1127,20 @@
       "previousSlugsByLocale": {
         "de": [
           "assistentin-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
-          "assistent-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
           "assistent-mit-masterabschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio"
         ],
         "fr": [
-          "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
           "assistant-titulaire-d-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio"
         ],
         "en": [
-          "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio",
           "assistant-with-master-s-degree-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
         "assistentin-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
-        "assistent-mit-master-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
         "assistent-mit-masterabschluss-in-geomorphologie-und-naturgefahren-supsi-dti-mendrisio",
-        "assistant-avec-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
         "assistant-titulaire-d-un-master-en-geomorphologie-et-risques-naturels-supsi-dti-mendrisio",
-        "assistant-with-master-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio"
+        "assistant-with-master-s-degree-in-geomorphology-and-natural-hazards-supsi-dti-mendrisio"
       ]
     },
     {
@@ -1190,7 +1181,7 @@
       "slugByLocale": {
         "it": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "en": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "de": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
+        "de": "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio",
         "fr": "assistente-con-master-per-il-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
       },
       "titleByLocale": {
@@ -1272,9 +1263,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
-        "de": [
-          "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio"
-        ],
         "fr": [
           "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a"
         ],
@@ -1283,8 +1271,8 @@
         ]
       },
       "previousSlugs": [
-        "master-of-arts-in-interaktionsdesign-supsi-dti-mendrisio",
-        "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a"
+        "maitrise-es-arts-en-interaction-design-supsi-dti-mendrisio-l4rl5a",
+        "assistant-with-master-s-degree-for-the-master-of-arts-in-interaction-design-supsi-dti-mendrisio-l4rl5a"
       ]
     },
     {
@@ -1327,7 +1315,7 @@
         "it": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "en": "assistant-with-bachelor-s-degree-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
         "de": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio",
-        "fr": "assistente-con-bachelor-in-formazione-master-of-arts-in-interaction-design-supsi-dti-mendrisio"
+        "fr": "assistante-au-baccalaureat-es-arts-en-conception-d-interaction-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Bachelor in formazione Master of Arts in Interaction design",
@@ -1450,8 +1438,8 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-        "de": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
-        "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
+        "de": "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio",
+        "fr": "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "en": "PhD / PhD in Dynamism of advanced composite materials for drones",
@@ -1534,14 +1522,12 @@
           "doktorand-in-fur-dynamik-fortschrittlicher-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l",
           "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio",
-          "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
-          "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio"
+          "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio"
         ],
         "fr": [
           "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
           "doctorant-e-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
-          "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l",
-          "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio"
+          "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l"
         ]
       },
       "previousSlugs": [
@@ -1552,9 +1538,7 @@
         "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-l4rl4l",
         "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio",
         "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio",
-        "phd-phd-in-dynamik-von-fortschrittlichen-verbundwerkstoffen-fur-drohnen-supsi-dti-mendrisio",
         "doctorant-e-en-dynamique-des-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
-        "doctorat-doctorat-en-dynamisme-de-materiaux-composites-avances-pour-drones-supsi-dti-mendrisio",
         "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-men",
         "dottoranda-dottorando-in-dinamica-dei-materiali-composti-avanzati-per-droni-supsi-dti-manno"
       ],
@@ -1611,9 +1595,9 @@
       "firstSeenAt": "2026-05-30T00:49:50.919Z",
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "en": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "de": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
-        "fr": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d"
+        "en": "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
+        "de": "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano",
+        "fr": "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
@@ -1686,23 +1670,16 @@
           "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano"
         ],
         "de": [
-          "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano",
-          "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano"
+          "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano"
         ],
         "en": [
-          "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
           "assistant-bachelor-in-education-master-of-science-in-engineering-mse-at-isteps-supsi-dti-lugano"
-        ],
-        "fr": [
-          "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
         "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano",
         "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano",
-        "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano",
-        "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
-        "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
+        "assistant-bachelor-in-education-master-of-science-in-engineering-mse-at-isteps-supsi-dti-lugano"
       ]
     },
     {
@@ -1742,8 +1719,8 @@
       "slugByLocale": {
         "it": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
-        "de": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d"
+        "de": "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
+        "fr": "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE in Computer Science o Data Science",
@@ -1825,7 +1802,6 @@
         ],
         "de": [
           "bachelor-in-ausbildung-master-mse-in-informatik-oder-informatik-supsi-dti-lugano",
-          "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
           "bachelor-assistenten-in-der-ausbildung-mse-masterabschluss-in-informatik-oder-data-science-supsi-dti-lugano"
         ],
         "en": [
@@ -1833,17 +1809,15 @@
           "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549"
         ],
         "fr": [
-          "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
           "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano"
         ]
       },
       "previousSlugs": [
         "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano",
         "bachelor-in-ausbildung-master-mse-in-informatik-oder-informatik-supsi-dti-lugano",
-        "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
         "bachelor-assistenten-in-der-ausbildung-mse-masterabschluss-in-informatik-oder-data-science-supsi-dti-lugano",
         "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
-        "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
+        "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
         "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano"
       ]
     },
@@ -1883,7 +1857,7 @@
         "it": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
         "en": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
         "de": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
-        "fr": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d"
+        "fr": "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Assistenti Bachelor in formazione Master MSE in Data Science",
@@ -1955,7 +1929,7 @@
         "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano",
         "bachelor-in-ausbildung-master-mse-in-informatik-supsi-dti-lugano",
         "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano-l4u54a",
-        "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
+        "bachelor-s-assistants-in-training-mse-master-in-data-science-supsi-dti-lugano-l4u54a",
         "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano",
         "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-manno"
       ],
@@ -1971,7 +1945,6 @@
           "bachelor-s-assistants-in-training-mse-master-in-data-science-supsi-dti-lugano-l4u54a"
         ],
         "fr": [
-          "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
           "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano"
         ]
       }
@@ -2408,9 +2381,9 @@
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "en": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "de": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
-        "fr": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio"
+        "en": "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
+        "de": "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio",
+        "fr": "doctorat-doctorat-en-procedes-orogenes-alpins-supsi-dti-mendrisio"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2434,27 +2407,21 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "en": [
-          "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
           "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio"
         ],
         "de": [
-          "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
-          "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio"
+          "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio"
         ],
         "fr": [
           "dottorando-dottoranda-dans-les-processus-orogeniques-alpins-supsi-dti-mendrisio",
-          "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio",
-          "doctorat-doctorat-en-procedes-orogenes-alpins-supsi-dti-mendrisio"
+          "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
-        "phd-phd-in-alpine-orogenic-processes-supsi-dti-mendrisio",
         "phd-student-in-alpine-orogenic-processes-supsi-dti-mendrisio",
         "doktorand-auf-dem-gebiet-der-alpinen-orogenetischen-prozesse-supsi-dti-mendrisio",
-        "phd-phd-in-alpine-orogene-prozesse-supsi-dti-mendrisio",
         "dottorando-dottoranda-dans-les-processus-orogeniques-alpins-supsi-dti-mendrisio",
-        "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio",
-        "doctorat-doctorat-en-procedes-orogenes-alpins-supsi-dti-mendrisio"
+        "doctorat-en-processus-orogenes-alpins-supsi-dti-mendrisio"
       ]
     },
     {
@@ -2497,9 +2464,9 @@
       "firstSeenAt": "2026-05-18T13:18:46.785Z",
       "slugByLocale": {
         "it": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "en": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "de": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-        "fr": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga"
+        "en": "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti",
+        "de": "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti",
+        "fr": "baccalaureat-en-education-master-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce"
       },
       "titleByLocale": {
         "it": "Assistente Bachelor in formazione Master in ambito bioelettronica per lo sviluppo di bioreattori miniaturizzati Organ-on-Chip",
@@ -2593,24 +2560,19 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "fr": [
-          "baccalaureat-en-education-master-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce",
           "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur"
         ],
         "de": [
-          "bachelor-in-bildung-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti-lugano",
-          "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti"
+          "bachelor-in-bildung-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti-lugano"
         ],
         "en": [
-          "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti",
           "assistant-bachelor-in-training-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniaturized-bioreactors"
         ]
       },
       "previousSlugs": [
-        "baccalaureat-en-education-master-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur-puce",
         "baccalaureat-en-education-maitrise-en-bioelectronique-pour-le-developpement-des-bioreacteurs-miniatures-d-organes-sur",
         "bachelor-in-bildung-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti-lugano",
-        "bachelor-in-education-master-in-bioelektronik-fur-die-entwicklung-von-organ-on-chip-miniatur-bioreaktoren-supsi-dti",
-        "bachelor-in-education-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniature-bioreactors-supsi-dti"
+        "assistant-bachelor-in-training-master-in-bioelectronics-for-the-development-of-organ-on-chip-miniaturized-bioreactors"
       ]
     }
   ]

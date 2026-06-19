@@ -3299,7 +3299,7 @@
       "slug": "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
       "slugByLocale": {
         "it": "commissione-amministrativa-fine-settimanaiste-20-hug-geneve",
-        "en": "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
+        "en": "administrative-clerk-weekender-20-hug-geneve",
         "de": "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
         "fr": "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
       },
@@ -3343,15 +3343,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "commis-ou-commise-administrative-weekendiste-20-hug-geneve",
-        "administrative-clerk-weekender-20-hug-geneve"
+        "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ],
         "en": [
-          "administrative-clerk-weekender-20-hug-geneve"
+          "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ]
       },
       "needsRetranslation": true,
@@ -4001,12 +4000,12 @@
     },
     {
       "id": "hug-193b10572192",
-      "slug": "stage-en-informatique-100-hug-geneve",
+      "slug": "tirocinio-in-informatica-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-en-informatique-100-hug-geneve",
-        "it": "stage-en-informatique-100-hug-geneve",
-        "en": "stage-en-informatique-100-hug-geneve",
-        "de": "stage-en-informatique-100-hug-geneve"
+        "it": "tirocinio-in-informatica-100-hug-geneve",
+        "en": "computer-internship-100-hug-geneve",
+        "de": "computerpraktikum-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4062,7 +4061,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-18T22:57:16.765Z"
+      "firstSeenAt": "2026-06-18T22:57:16.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-en-informatique-100-hug-geneve"
+        ],
+        "en": [
+          "stage-en-informatique-100-hug-geneve"
+        ],
+        "de": [
+          "stage-en-informatique-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-en-informatique-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-f5cea6ba785c",

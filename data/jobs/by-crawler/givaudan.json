@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-4f122171feec",
-      "slug": "rezeptionist-100-givaudan-ch",
+      "slug": "ricezione-100-givaudan-kemptthal-switzerland",
       "slugByLocale": {
         "de": "rezeptionist-100-givaudan-ch",
-        "it": "rezeptionist-100-givaudan-ch",
-        "en": "rezeptionist-100-givaudan-ch",
-        "fr": "rezeptionist-100-givaudan-ch"
+        "it": "ricezione-100-givaudan-kemptthal-switzerland",
+        "en": "reception-is-100-givaudan-kemptthal-switzerland",
+        "fr": "la-reception-est-a-100-givaudan-kemptthal-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -64,7 +64,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:49:21.071Z"
+      "firstSeenAt": "2026-06-18T22:49:21.071Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rezeptionist-100-givaudan-ch"
+        ],
+        "en": [
+          "rezeptionist-100-givaudan-ch"
+        ],
+        "fr": [
+          "rezeptionist-100-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rezeptionist-100-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-ea99d78cd193",

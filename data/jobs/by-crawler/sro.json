@@ -360,12 +360,12 @@
     },
     {
       "id": "sro-a8cdf939838b",
-      "slug": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+      "slug": "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
-        "en": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
+        "it": "psicologo-psicologo-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "psychologist-psychologist-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal",
-        "fr": "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        "fr": "psychologue-psychologue-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -424,7 +424,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        ],
+        "en": [
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologen-ambulatorium-80-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-cf1366c8fa71",
@@ -1502,12 +1516,12 @@
     },
     {
       "id": "sro-e751c6818393",
-      "slug": "fachperson-gesundheit-50-100-sro-langenthal",
+      "slug": "professionista-della-salute-50-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-50-100-sro-langenthal",
-        "en": "fachperson-gesundheit-50-100-sro-langenthal",
+        "it": "professionista-della-salute-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "fachperson-gesundheit-50-100-sro-langenthal",
-        "fr": "fachperson-gesundheit-50-100-sro-langenthal"
+        "fr": "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1566,7 +1580,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-50-100-sro-langenthal"
+        ],
+        "en": [
+          "fachperson-gesundheit-50-100-sro-langenthal"
+        ],
+        "fr": [
+          "fachperson-gesundheit-50-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-50-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-d72a6343b166",
@@ -1914,12 +1942,12 @@
     },
     {
       "id": "sro-bbd51a08ad3f",
-      "slug": "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+      "slug": "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
-        "en": "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
+        "it": "dipl-specialista-di-radiologia-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-radiology-specialist-hf-50-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-radiologiefachperson-hf-50-100-sro-langenthal",
-        "fr": "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        "fr": "dipl-specialiste-en-radiologie-hf-50-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1978,7 +2006,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        ],
+        "en": [
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        ],
+        "fr": [
+          "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachperson-hf-50-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-c24b98643ac8",
@@ -2475,9 +2517,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopala-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
+        "en": "dipl-care-specialist-hf-fh-50-100-br-general-orthopaedics-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        "fr": "oui-specialiste-des-soins-hf-fh-50-100-br-general-orthopedie-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2529,6 +2571,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-50-100-br-allg-orthopadie-sro-langenthal"
         ]
       },
@@ -3026,12 +3074,12 @@
     },
     {
       "id": "sro-f3692ddf5782",
-      "slug": "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-infermieristica-hf-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
+        "it": "dipl-infermieristica-hf-psichiatria-stazionaria-80-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-nursing-specialist-hf-stationary-psychiatry-80-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-psychiatrie-stationnaire-80-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3079,10 +3127,18 @@
       "validThrough": "2026-07-14",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal"
+        "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
+        "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-stationare-psychiatrie-80-sro-langenthal"
         ]
       },
@@ -3745,9 +3801,9 @@
       "slug": "assistenzarztin-assistenzarzt-o-psychologin-psychologen-80-100-notfall-triage-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "it": "assistenzarztin-assistenzarzt-o-psychologin-psychologen-80-100-notfall-triage-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro",
+        "en": "assistant-doctor-or-psychologist-80-100-emergency-triage-sro-ag-spital-region-oberaargau-langenthal",
         "de": "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro",
-        "fr": "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro"
+        "fr": "assistant-medecin-ou-psychologue-80-100-triage-d-urgence-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3800,6 +3856,12 @@
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-oder-psychologin-psychologen-80-100-notfall-triage-sro"
         ]
       },
       "firstSeenAt": "2026-06-17T13:41:57.446Z",
@@ -3818,12 +3880,12 @@
     },
     {
       "id": "sro-3a9fbda367b5",
-      "slug": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+      "slug": "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
-        "en": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
+        "it": "assistente-medico-psichiatria-per-adulti-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "assistant-physician-adult-psychiatry-ambulatorium-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal",
-        "fr": "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+        "fr": "medecin-adjoint-psychiatrie-adulte-ambulatoire-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3882,16 +3944,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-erwachsenenpsychiatrie-ambulatorium-80-100-sro-langenthal"
+      ]
     },
     {
       "id": "sro-a816de1c1310",
-      "slug": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
+      "slug": "assistente-medico-80-100-psichiatria-di-vecchiaia-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
-        "en": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
+        "it": "assistente-medico-80-100-psichiatria-di-vecchiaia-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "assistant-doctor-80-100-old-age-psychiatry-sro-ag-spital-region-oberaargau-langenthal",
         "de": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal",
-        "fr": "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        "fr": "assistant-medecin-80-100-psychiatrie-vieillesse-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -3950,7 +4026,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-80-100-alterspsychiatrie-sro-langenthal"
+      ]
     },
     {
       "id": "sro-18cab1a21c3d",
