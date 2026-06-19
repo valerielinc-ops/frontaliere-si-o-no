@@ -6,48 +6,48 @@
     "queries": [
       {
         "query": "case anziani ticino offerte di lavoro",
-        "clicks": 21,
-        "impressions": 317
+        "clicks": 24,
+        "impressions": 337
       },
       {
         "query": "offerte lavoro casa di riposo svizzera",
-        "clicks": 11,
-        "impressions": 162
+        "clicks": 12,
+        "impressions": 173
       },
       {
         "query": "offerte di lavoro casa di riposo svizzera",
-        "clicks": 10,
-        "impressions": 148
+        "clicks": 13,
+        "impressions": 162
       },
       {
         "query": "case anziani lugano posti di lavoro",
         "clicks": 7,
-        "impressions": 109
+        "impressions": 110
       },
       {
         "query": "offerte di lavoro casa anziani ticino",
         "clicks": 9,
-        "impressions": 54
+        "impressions": 56
       },
       {
         "query": "casa anziani paradiso offerta lavoro",
         "clicks": 1,
-        "impressions": 44
+        "impressions": 46
       },
       {
         "query": "offerte lavoro casa anziani ticino",
-        "clicks": 3,
-        "impressions": 36
+        "clicks": 4,
+        "impressions": 42
       },
       {
         "query": "casa anziani comunale bellinzona offerte di lavoro",
         "clicks": 1,
-        "impressions": 31
+        "impressions": 34
       },
       {
         "query": "casa anziani chiasso lavoro",
         "clicks": 5,
-        "impressions": 30
+        "impressions": 31
       },
       {
         "query": "case di riposo ticino lavora con noi",
@@ -57,12 +57,12 @@
       {
         "query": "casa anziani mendrisio lavoro",
         "clicks": 1,
-        "impressions": 28
+        "impressions": 30
       },
       {
         "query": "casa anziani offerte di lavoro",
         "clicks": 1,
-        "impressions": 19
+        "impressions": 29
       },
       {
         "query": "offerte di lavoro casa di riposo per anziani",
@@ -72,15 +72,15 @@
       {
         "query": "casa anziani giornico lavoro",
         "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "frontalieri",
-        "clicks": 0,
-        "impressions": 3
+        "impressions": 6
       },
       {
         "query": "offerte di lavoro centri diurni ticino",
+        "clicks": 1,
+        "impressions": 4
+      },
+      {
+        "query": "frontalieri",
         "clicks": 0,
         "impressions": 3
       },
@@ -105,8 +105,8 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 1071,
-    "totalClicks": 77,
+    "totalImpressions": 1145,
+    "totalClicks": 86,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -145,7 +145,7 @@
       {
         "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 95
+        "impressions": 106
       },
       {
         "query": "offerte lavoro chiasso",
@@ -161,6 +161,11 @@
         "query": "offerte di lavoro chiasso",
         "clicks": 0,
         "impressions": 8
+      },
+      {
+        "query": "cerco lavoro chiasso",
+        "clicks": 0,
+        "impressions": 7
       },
       {
         "query": "lavori chiasso",
@@ -179,11 +184,6 @@
       },
       {
         "query": "cerco lavoro a chiasso",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "cerco lavoro chiasso",
         "clicks": 0,
         "impressions": 5
       },
@@ -243,7 +243,7 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 208,
+    "totalImpressions": 221,
     "totalClicks": 2,
     "topQuery": "lavoro a chiasso",
     "title": "chiasso",
@@ -278,13 +278,152 @@
   },
   {
     "slug": "lugano",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/lugano/",
+    "queries": [
+      {
+        "query": "jobs lugano",
+        "clicks": 0,
+        "impressions": 23
+      },
+      {
+        "query": "full time jobs near me",
+        "clicks": 0,
+        "impressions": 21
+      },
+      {
+        "query": "stellen lugano",
+        "clicks": 0,
+        "impressions": 19
+      },
+      {
+        "query": "stellenangebot lugano",
+        "clicks": 0,
+        "impressions": 13
+      },
+      {
+        "query": "lugano jobs",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "jobs in lugano",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "job offers",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "emploi lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "homeoffice jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "job lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lugano job",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "jobs hiring near me full time",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs hiring near me no experience",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs in ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "lavoro lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "lugano job offers",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "offre d'emploi lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "recrutement lugano",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "ticino jobs",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "what is the best way to search jobs in italian speaking switzerland?",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 151,
+    "totalClicks": 0,
+    "topQuery": "jobs lugano",
+    "title": "lugano",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Lugano",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "lugano",
     "locale": "de",
     "path": "/de/jobs-im-tessin/lugano/",
     "queries": [
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 22
+        "impressions": 23
       },
       {
         "query": "stellenangebot lugano",
@@ -382,148 +521,9 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 148,
+    "totalImpressions": 149,
     "totalClicks": 0,
     "topQuery": "stellen lugano",
-    "title": "lugano",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Lugano",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "lugano",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/lugano/",
-    "queries": [
-      {
-        "query": "jobs lugano",
-        "clicks": 0,
-        "impressions": 23
-      },
-      {
-        "query": "full time jobs near me",
-        "clicks": 0,
-        "impressions": 18
-      },
-      {
-        "query": "stellen lugano",
-        "clicks": 0,
-        "impressions": 18
-      },
-      {
-        "query": "stellenangebot lugano",
-        "clicks": 0,
-        "impressions": 13
-      },
-      {
-        "query": "lugano jobs",
-        "clicks": 0,
-        "impressions": 9
-      },
-      {
-        "query": "jobs in lugano",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "job offers",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "emploi lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "homeoffice jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "lugano job",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "job lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs hiring near me full time",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs in ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lavoro lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lugano job offers",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offre d'emploi lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "recrutement lugano",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "ticino jobs",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "what is the best way to search jobs in italian speaking switzerland?",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "agrisano jobs",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 144,
-    "totalClicks": 0,
-    "topQuery": "jobs lugano",
     "title": "lugano",
     "titleByLocale": {
       "it": "",
@@ -562,7 +562,7 @@
       {
         "query": "nursing jobs",
         "clicks": 0,
-        "impressions": 98
+        "impressions": 101
       },
       {
         "query": "what nursing jobs are open in the zurich region?",
@@ -660,7 +660,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 130,
+    "totalImpressions": 133,
     "totalClicks": 0,
     "topQuery": "nursing jobs",
     "title": "Nurses",
@@ -700,12 +700,12 @@
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 63
+        "impressions": 66
       },
       {
         "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
         "clicks": 0,
-        "impressions": 57
+        "impressions": 58
       },
       {
         "query": "نعم ابحث",
@@ -718,12 +718,22 @@
         "impressions": 1
       },
       {
+        "query": "firme ingrijire batrani elvetia",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ingrijire batrani elvetia",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "opieka",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 123,
+    "totalImpressions": 129,
     "totalClicks": 1,
     "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
     "title": "Elderly care",
@@ -763,7 +773,12 @@
       {
         "query": "educatore sociale offerte lavoro ticino",
         "clicks": 3,
-        "impressions": 10
+        "impressions": 11
+      },
+      {
+        "query": "offerte di lavoro educatrice svizzera italiana",
+        "clicks": 3,
+        "impressions": 7
       },
       {
         "query": "offerte lavoro educatore svizzera",
@@ -771,8 +786,13 @@
         "impressions": 6
       },
       {
-        "query": "offerte di lavoro educatrice svizzera italiana",
-        "clicks": 2,
+        "query": "offerte lavoro educatrice ticino",
+        "clicks": 1,
+        "impressions": 5
+      },
+      {
+        "query": "offerte lavoro educatore canton ticino",
+        "clicks": 0,
         "impressions": 5
       },
       {
@@ -786,12 +806,17 @@
         "impressions": 4
       },
       {
-        "query": "educatore ticino",
+        "query": "educatrice ticino lavoro",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 4
       },
       {
-        "query": "educatrice ticino lavoro",
+        "query": "offerte di lavoro educatore svizzera italiana",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "educatore ticino",
         "clicks": 0,
         "impressions": 3
       },
@@ -801,19 +826,14 @@
         "impressions": 3
       },
       {
-        "query": "offerte di lavoro educatore svizzera italiana",
-        "clicks": 0,
-        "impressions": 3
+        "query": "offerte lavoro sociale ticino",
+        "clicks": 1,
+        "impressions": 2
       },
       {
-        "query": "offerte lavoro educatore canton ticino",
+        "query": "educatore sociale ticino",
         "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte lavoro educatrice ticino",
-        "clicks": 0,
-        "impressions": 3
+        "impressions": 2
       },
       {
         "query": "lavoro educatore ticino",
@@ -846,23 +866,13 @@
         "impressions": 2
       },
       {
-        "query": "asilo nido lugano cercasi educatrice",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "cerco lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "concorsi educatore ticino",
+        "query": "asilo nido chiasso cerca educatrice",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 80,
-    "totalClicks": 6,
+    "totalImpressions": 94,
+    "totalClicks": 9,
     "topQuery": "educatore sociale offerte lavoro ticino",
     "title": "Educatori",
     "titleByLocale": {
@@ -906,7 +916,7 @@
       {
         "query": "offerte lavoro bellinzona",
         "clicks": 1,
-        "impressions": 13
+        "impressions": 14
       },
       {
         "query": "lavoro bellinzona",
@@ -921,7 +931,7 @@
       {
         "query": "bellinzona offerte di lavoro",
         "clicks": 0,
-        "impressions": 5
+        "impressions": 6
       },
       {
         "query": "cerco lavoro a bellinzona",
@@ -994,7 +1004,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 75,
+    "totalImpressions": 77,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro bellinzona",
     "title": "bellinzona",
@@ -1118,6 +1128,11 @@
         "impressions": 1
       },
       {
+        "query": "pranzo di lavoro boffalora sopra ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "ristorni frontalieri",
         "clicks": 0,
         "impressions": 1
@@ -1126,14 +1141,9 @@
         "query": "settore ristorazione",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "ticino",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 72,
+    "totalImpressions": 73,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro ticino ristorazione",
     "title": "Ristorazione",
@@ -1183,7 +1193,7 @@
       {
         "query": "fahrer locarno",
         "clicks": 0,
-        "impressions": 7
+        "impressions": 8
       },
       {
         "query": "homeoffice jobs locarno",
@@ -1198,7 +1208,7 @@
       {
         "query": "locarno",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 5
       },
       {
         "query": "job locarno",
@@ -1231,7 +1241,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 62,
+    "totalImpressions": 65,
     "totalClicks": 0,
     "topQuery": "jobs locarno",
     "title": "locarno",
@@ -1280,12 +1290,12 @@
         "impressions": 8
       },
       {
-        "query": "\"das\" \"reclami\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "query": "software house ticino",
         "clicks": 0,
-        "impressions": 7
+        "impressions": 8
       },
       {
-        "query": "software house ticino",
+        "query": "\"das\" \"reclami\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
         "clicks": 0,
         "impressions": 7
       },
@@ -1340,6 +1350,11 @@
         "impressions": 1
       },
       {
+        "query": "software ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "stadler rail -ipo -aktie -börse -kurs -aktienkurs \"stadler rail\"",
         "clicks": 0,
         "impressions": 1
@@ -1348,9 +1363,14 @@
         "query": "sviluppatore lavoro",
         "clicks": 0,
         "impressions": 1
+      },
+      {
+        "query": "ticino",
+        "clicks": 0,
+        "impressions": 1
       }
     ],
-    "totalImpressions": 59,
+    "totalImpressions": 62,
     "totalClicks": 0,
     "topQuery": "software house canton ticino",
     "title": "Sviluppatori",
@@ -1390,7 +1410,7 @@
       {
         "query": "je vise un emploi à lugano",
         "clicks": 0,
-        "impressions": 38
+        "impressions": 39
       },
       {
         "query": "offre d'emploi tessin",
@@ -1428,7 +1448,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 58,
+    "totalImpressions": 59,
     "totalClicks": 0,
     "topQuery": "je vise un emploi à lugano",
     "title": "lugano",
@@ -1469,7 +1489,7 @@
       {
         "query": "full time jobs near me",
         "clicks": 0,
-        "impressions": 36
+        "impressions": 45
       },
       {
         "query": "part time jobs near me",
@@ -1497,7 +1517,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 43,
+    "totalImpressions": 52,
     "totalClicks": 0,
     "topQuery": "full time jobs near me",
     "title": "bellinzona",
@@ -1925,30 +1945,45 @@
     ]
   },
   {
-    "slug": "fahrer",
+    "slug": "entwickler",
     "locale": "de",
-    "path": "/de/jobs-im-tessin/fahrer/",
+    "path": "/de/jobs-im-tessin/entwickler/",
     "queries": [
       {
-        "query": "fahrer locarno",
+        "query": "softwareentwickler jobs lugano",
         "clicks": 0,
-        "impressions": 30
+        "impressions": 15
       },
       {
-        "query": "fahrer jobs lugano",
+        "query": "softwareentwicklung jobs lugano",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "enterprise suche für entwickler",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "graubündner kantonalbank",
         "clicks": 0,
         "impressions": 2
       },
       {
-        "query": "datumstempel migros",
+        "query": "jobs flash entwickler",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "softwareentwickler finden",
         "clicks": 0,
         "impressions": 1
       }
     ],
     "totalImpressions": 33,
     "totalClicks": 0,
-    "topQuery": "fahrer locarno",
-    "title": "Fahrer",
+    "topQuery": "softwareentwickler jobs lugano",
+    "title": "Entwickler",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -1978,45 +2013,30 @@
     ]
   },
   {
-    "slug": "entwickler",
+    "slug": "fahrer",
     "locale": "de",
-    "path": "/de/jobs-im-tessin/entwickler/",
+    "path": "/de/jobs-im-tessin/fahrer/",
     "queries": [
       {
-        "query": "softwareentwickler jobs lugano",
+        "query": "fahrer locarno",
         "clicks": 0,
-        "impressions": 15
+        "impressions": 30
       },
       {
-        "query": "softwareentwicklung jobs lugano",
-        "clicks": 0,
-        "impressions": 10
-      },
-      {
-        "query": "enterprise suche für entwickler",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "graubündner kantonalbank",
+        "query": "fahrer jobs lugano",
         "clicks": 0,
         "impressions": 2
       },
       {
-        "query": "jobs flash entwickler",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "softwareentwickler finden",
+        "query": "datumstempel migros",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 32,
+    "totalImpressions": 33,
     "totalClicks": 0,
-    "topQuery": "softwareentwickler jobs lugano",
-    "title": "Entwickler",
+    "topQuery": "fahrer locarno",
+    "title": "Fahrer",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2111,6 +2131,11 @@
         "impressions": 1
       },
       {
+        "query": "lavoro in canton ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "lavoro ingegneri svizzera",
         "clicks": 0,
         "impressions": 1
@@ -2121,10 +2146,93 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 22,
+    "totalImpressions": 23,
     "totalClicks": 0,
     "topQuery": "disegnatore",
     "title": "Ingegneri",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "restaurants",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/restaurants/",
+    "queries": [
+      {
+        "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
+        "clicks": 0,
+        "impressions": 11
+      },
+      {
+        "query": "\"zurich\" surety",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "\"debiopharm\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "debiopharm",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "en hosteleria",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "fine dining hiring",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "new openings near me",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "settore ristorazione",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 22,
+    "totalClicks": 0,
+    "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
+    "title": "Restaurants",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2193,89 +2301,6 @@
     "totalClicks": 0,
     "topQuery": "pflegejobs regionalspital surselva ag",
     "title": "Pflegepersonal",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "restaurants",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/restaurants/",
-    "queries": [
-      {
-        "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
-        "clicks": 0,
-        "impressions": 11
-      },
-      {
-        "query": "\"debiopharm\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "\"zurich\" surety",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "debiopharm",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "en hosteleria",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "fine dining hiring",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "new openings near me",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "settore ristorazione",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "ticino",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 21,
-    "totalClicks": 0,
-    "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
-    "title": "Restaurants",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2974,6 +2999,64 @@
     ]
   },
   {
+    "slug": "developers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/developers/",
+    "queries": [
+      {
+        "query": "web developer ticino",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "hire developers in switzerland",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "rpg developer jobs switzerland",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "software developer noc",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 9,
+    "totalClicks": 0,
+    "topQuery": "web developer ticino",
+    "title": "Developers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "mendrisio",
     "locale": "en",
     "path": "/en/find-jobs-ticino/mendrisio/",
@@ -3035,59 +3118,6 @@
     "source": [
       "gsc",
       "slug-parsing"
-    ]
-  },
-  {
-    "slug": "developers",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/developers/",
-    "queries": [
-      {
-        "query": "web developer ticino",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "hire developers in switzerland",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "rpg developer jobs switzerland",
-        "clicks": 0,
-        "impressions": 2
-      }
-    ],
-    "totalImpressions": 8,
-    "totalClicks": 0,
-    "topQuery": "web developer ticino",
-    "title": "Developers",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
     ]
   },
   {
@@ -3320,6 +3350,61 @@
     ]
   },
   {
+    "slug": "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino/",
+    "queries": [
+      {
+        "query": "lavoro banca ticino",
+        "clicks": 1,
+        "impressions": 4
+      }
+    ],
+    "totalImpressions": 4,
+    "totalClicks": 1,
+    "topQuery": "lavoro banca ticino",
+    "title": "Remote consulente mortgage remote sales advice basel",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "en": "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "de": "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "fr": "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "en": "/en/find-jobs-ticino/remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "de": "/de/jobs-im-tessin/remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino",
+      "fr": "/fr/trouver-emploi-tessin/remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "maisons-retraite",
     "locale": "fr",
     "path": "/fr/trouver-emploi-tessin/maisons-retraite/",
@@ -3532,6 +3617,178 @@
     ]
   },
   {
+    "slug": "fisioterapisti",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/fisioterapisti/",
+    "queries": [
+      {
+        "query": "fisioterapia canton ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ricerca lavoro fisioterapia ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "fisioterapia canton ticino",
+    "title": "Fisioterapisti",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "fisioterapisti",
+      "en": "fisioterapisti",
+      "de": "fisioterapisti",
+      "fr": "fisioterapisti"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/fisioterapisti",
+      "en": "/en/find-jobs-ticino/fisioterapisti",
+      "de": "/de/jobs-im-tessin/fisioterapisti",
+      "fr": "/fr/trouver-emploi-tessin/fisioterapisti"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "project-managers",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/project-managers/",
+    "queries": [
+      {
+        "query": "project manager ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "swissnet group",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "project manager ticino",
+    "title": "Project managers",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "project-managers",
+      "en": "project-managers",
+      "de": "project-managers",
+      "fr": "project-managers"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/project-managers",
+      "en": "/en/find-jobs-ticino/project-managers",
+      "de": "/de/jobs-im-tessin/project-managers",
+      "fr": "/fr/trouver-emploi-tessin/project-managers"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "retail",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/retail/",
+    "queries": [
+      {
+        "query": "retail worker",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "retail worker",
+    "title": "Retail",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "retail",
+      "en": "retail",
+      "de": "retail",
+      "fr": "retail"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/retail",
+      "en": "/en/find-jobs-ticino/retail",
+      "de": "/de/jobs-im-tessin/retail",
+      "fr": "/fr/trouver-emploi-tessin/retail"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
     "slug": "chiasso",
     "locale": "de",
     "path": "/de/jobs-im-tessin/chiasso/",
@@ -3621,6 +3878,114 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "recht",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/recht/",
+    "queries": [
+      {
+        "query": "legal jobs ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "legal jobs ticino",
+    "title": "Recht",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "recht",
+      "en": "recht",
+      "de": "recht",
+      "fr": "recht"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/recht",
+      "en": "/en/find-jobs-ticino/recht",
+      "de": "/de/jobs-im-tessin/recht",
+      "fr": "/fr/trouver-emploi-tessin/recht"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "uhrenindustrie",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/uhrenindustrie/",
+    "queries": [
+      {
+        "query": "uhrenindustrie jobs",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "uhrenindustrie jobs",
+    "title": "Uhrenindustrie",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "uhrenindustrie",
+      "en": "uhrenindustrie",
+      "de": "uhrenindustrie",
+      "fr": "uhrenindustrie"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/uhrenindustrie",
+      "en": "/en/find-jobs-ticino/uhrenindustrie",
+      "de": "/de/jobs-im-tessin/uhrenindustrie",
+      "fr": "/fr/trouver-emploi-tessin/uhrenindustrie"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -3795,6 +4160,61 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona/",
+    "queries": [
+      {
+        "query": "lavoro museo",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "lavoro museo",
+    "title": "Directeur de bellinzona musei museo villa dei cedri citta di bellinzona",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Bellinzona",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "en": "directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "de": "directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "fr": "directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "en": "/en/find-jobs-ticino/directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "de": "/de/jobs-im-tessin/directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona",
+      "fr": "/fr/trouver-emploi-tessin/directeur-de-bellinzona-musei-museo-villa-dei-cedri-citta-di-bellinzona-bellinzona"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
     ]
   },
   {
@@ -178957,10 +179377,10 @@
       "fr": "personnel-de-service-weisse-arena-gruppe-laax"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/personnel-de-service-weisse-arena-gruppe-laax",
-      "en": "/en/find-jobs-ticino/personnel-de-service-weisse-arena-gruppe-laax",
-      "de": "/de/jobs-im-tessin/personnel-de-service-weisse-arena-gruppe-laax",
-      "fr": "/fr/trouver-emploi-tessin/personnel-de-service-weisse-arena-gruppe-laax"
+      "it": "/cerca-lavoro-grigioni/personnel-de-service-weisse-arena-gruppe-laax",
+      "en": "/en/find-jobs-graubunden/personnel-de-service-weisse-arena-gruppe-laax",
+      "de": "/de/jobs-in-graubunden/personnel-de-service-weisse-arena-gruppe-laax",
+      "fr": "/fr/trouver-emploi-grisons/personnel-de-service-weisse-arena-gruppe-laax"
     },
     "sourceUrl": "https://www.weissearena.com/jobs/details.html?jobid=4472&jobtitle=servicemitarbeiter%3ain",
     "googleStatus": "unknown",
@@ -184177,10 +184597,10 @@
       "fr": "personnel-de-service-weisse-arena-gruppe-laax"
     },
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/service-staff-weisse-arena-gruppe-laax",
-      "en": "/en/find-jobs-ticino/service-staff-weisse-arena-gruppe-laax",
-      "de": "/de/jobs-im-tessin/service-staff-weisse-arena-gruppe-laax",
-      "fr": "/fr/trouver-emploi-tessin/service-staff-weisse-arena-gruppe-laax"
+      "it": "/cerca-lavoro-grigioni/service-staff-weisse-arena-gruppe-laax",
+      "en": "/en/find-jobs-graubunden/service-staff-weisse-arena-gruppe-laax",
+      "de": "/de/jobs-in-graubunden/service-staff-weisse-arena-gruppe-laax",
+      "fr": "/fr/trouver-emploi-grisons/service-staff-weisse-arena-gruppe-laax"
     },
     "sourceUrl": "https://www.weissearena.com/jobs/details.html?jobid=4472&jobtitle=servicemitarbeiter%3ain",
     "googleStatus": "unknown",
@@ -204780,9 +205200,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "idraulement-pemsa-lugano",
-      "en": "idraulement-pemsa-lugano",
-      "de": "idraulement-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
+      "en": "plumber-pemsa-lugano",
+      "de": "idraulierung-pemsa-lugano",
       "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
@@ -204791,12 +205211,13 @@
       "de": "/de/jobs-im-tessin/idraulement-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/idraulement-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -215621,17 +216042,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "/en/find-jobs-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "/de/jobs-im-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "/fr/trouver-emploi-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
+      "it": "/cerca-lavoro-argovia/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "en": "/en/find-jobs-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "de": "/de/jobs-im-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "fr": "/fr/trouver-emploi-argovie/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -233803,10 +234219,10 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "plumber-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
       "en": "plumber-pemsa-lugano",
-      "de": "plumber-pemsa-lugano",
-      "fr": "plumber-pemsa-lugano"
+      "de": "idraulierung-pemsa-lugano",
+      "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
       "it": "/cerca-lavoro-ticino/plumber-pemsa-lugano",
@@ -233814,12 +234230,13 @@
       "de": "/de/jobs-im-tessin/plumber-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/plumber-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -242029,9 +242446,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "pannelli-solaire-pemsa-locarno",
-      "en": "pannelli-solaire-pemsa-locarno",
-      "de": "pannelli-solaire-pemsa-locarno",
+      "it": "montatore-di-pannelli-solari-pemsa-locarno",
+      "en": "solar-panel-fitter-pemsa-locarno",
+      "de": "solarpannelli-pemsa-locarno",
       "fr": "pannelli-solaire-pemsa-locarno"
     },
     "localePaths": {
@@ -242040,12 +242457,13 @@
       "de": "/de/jobs-im-tessin/pannelli-solaire-pemsa-locarno",
       "fr": "/fr/trouver-emploi-tessin/pannelli-solaire-pemsa-locarno"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -286571,17 +286989,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -286619,17 +287032,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -290722,9 +291130,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "idraulement-pemsa-lugano",
-      "en": "idraulement-pemsa-lugano",
-      "de": "idraulement-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
+      "en": "plumber-pemsa-lugano",
+      "de": "idraulierung-pemsa-lugano",
       "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
@@ -290733,12 +291141,13 @@
       "de": "/de/jobs-im-tessin/idraulement-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/idraulement-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -312785,9 +313194,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "pannelli-solaire-pemsa-locarno",
-      "en": "pannelli-solaire-pemsa-locarno",
-      "de": "pannelli-solaire-pemsa-locarno",
+      "it": "montatore-di-pannelli-solari-pemsa-locarno",
+      "en": "solar-panel-fitter-pemsa-locarno",
+      "de": "solarpannelli-pemsa-locarno",
       "fr": "pannelli-solaire-pemsa-locarno"
     },
     "localePaths": {
@@ -312796,12 +313205,13 @@
       "de": "/de/jobs-im-tessin/pannelli-solaire-pemsa-locarno",
       "fr": "/fr/trouver-emploi-tessin/pannelli-solaire-pemsa-locarno"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -323968,10 +324378,10 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "plumber-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
       "en": "plumber-pemsa-lugano",
-      "de": "plumber-pemsa-lugano",
-      "fr": "plumber-pemsa-lugano"
+      "de": "idraulierung-pemsa-lugano",
+      "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
       "it": "/cerca-lavoro-ticino/plumber-pemsa-lugano",
@@ -323979,12 +324389,13 @@
       "de": "/de/jobs-im-tessin/plumber-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/plumber-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -463135,17 +463546,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "/en/find-jobs-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "/de/jobs-im-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "/fr/trouver-emploi-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
+      "it": "/cerca-lavoro-argovia/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "en": "/en/find-jobs-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "de": "/de/jobs-im-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "fr": "/fr/trouver-emploi-argovie/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -527785,17 +528191,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -527833,17 +528234,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -531937,9 +532333,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "idraulement-pemsa-lugano",
-      "en": "idraulement-pemsa-lugano",
-      "de": "idraulement-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
+      "en": "plumber-pemsa-lugano",
+      "de": "idraulierung-pemsa-lugano",
       "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
@@ -531948,12 +532344,13 @@
       "de": "/de/jobs-im-tessin/idraulement-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/idraulement-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -552080,9 +552477,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "pannelli-solaire-pemsa-locarno",
-      "en": "pannelli-solaire-pemsa-locarno",
-      "de": "pannelli-solaire-pemsa-locarno",
+      "it": "montatore-di-pannelli-solari-pemsa-locarno",
+      "en": "solar-panel-fitter-pemsa-locarno",
+      "de": "solarpannelli-pemsa-locarno",
       "fr": "pannelli-solaire-pemsa-locarno"
     },
     "localePaths": {
@@ -552091,12 +552488,13 @@
       "de": "/de/jobs-im-tessin/pannelli-solaire-pemsa-locarno",
       "fr": "/fr/trouver-emploi-tessin/pannelli-solaire-pemsa-locarno"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -562913,10 +563311,10 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "plumber-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
       "en": "plumber-pemsa-lugano",
-      "de": "plumber-pemsa-lugano",
-      "fr": "plumber-pemsa-lugano"
+      "de": "idraulierung-pemsa-lugano",
+      "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
       "it": "/cerca-lavoro-ticino/plumber-pemsa-lugano",
@@ -562924,12 +563322,13 @@
       "de": "/de/jobs-im-tessin/plumber-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/plumber-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -748009,17 +748408,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -748057,17 +748451,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -752161,9 +752550,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "idraulement-pemsa-lugano",
-      "en": "idraulement-pemsa-lugano",
-      "de": "idraulement-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
+      "en": "plumber-pemsa-lugano",
+      "de": "idraulierung-pemsa-lugano",
       "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
@@ -752172,12 +752561,13 @@
       "de": "/de/jobs-im-tessin/idraulement-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/idraulement-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -772108,9 +772498,9 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "pannelli-solaire-pemsa-locarno",
-      "en": "pannelli-solaire-pemsa-locarno",
-      "de": "pannelli-solaire-pemsa-locarno",
+      "it": "montatore-di-pannelli-solari-pemsa-locarno",
+      "en": "solar-panel-fitter-pemsa-locarno",
+      "de": "solarpannelli-pemsa-locarno",
       "fr": "pannelli-solaire-pemsa-locarno"
     },
     "localePaths": {
@@ -772119,12 +772509,13 @@
       "de": "/de/jobs-im-tessin/pannelli-solaire-pemsa-locarno",
       "fr": "/fr/trouver-emploi-tessin/pannelli-solaire-pemsa-locarno"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2679022",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -911363,17 +911754,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "/en/find-jobs-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "/de/jobs-im-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "/fr/trouver-emploi-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
+      "it": "/cerca-lavoro-argovia/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "en": "/en/find-jobs-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "de": "/de/jobs-im-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "fr": "/fr/trouver-emploi-argovie/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -971066,17 +971452,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nouvelles-constructions-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -971114,17 +971495,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "en": "/en/find-jobs-ticino/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "de": "/de/jobs-im-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
-      "fr": "/fr/trouver-emploi-tessin/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
+      "it": "/cerca-lavoro-ginevra/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "en": "/en/find-jobs-geneva/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "de": "/de/jobs-in-genf/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva",
+      "fr": "/fr/trouver-emploi-geneve/experience-development-delivery-manager-nuove-costruzioni-msc-group-geneva"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1006513,10 +1006889,10 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "plumber-pemsa-lugano",
+      "it": "idraulico-pemsa-lugano",
       "en": "plumber-pemsa-lugano",
-      "de": "plumber-pemsa-lugano",
-      "fr": "plumber-pemsa-lugano"
+      "de": "idraulierung-pemsa-lugano",
+      "fr": "idraulement-pemsa-lugano"
     },
     "localePaths": {
       "it": "/cerca-lavoro-ticino/plumber-pemsa-lugano",
@@ -1006524,12 +1006900,13 @@
       "de": "/de/jobs-im-tessin/plumber-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/plumber-pemsa-lugano"
     },
-    "sourceUrl": "",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-2678912",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -1136163,17 +1136540,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "en": "/en/find-jobs-ticino/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "de": "/de/jobs-im-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
-      "fr": "/fr/trouver-emploi-tessin/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
+      "it": "/cerca-lavoro-argovia/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "en": "/en/find-jobs-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "de": "/de/jobs-im-aargau/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden",
+      "fr": "/fr/trouver-emploi-argovie/talent-acquisition-partner-1-jahr-vertrag-e-m-d-hitachi-energy-baden"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1233119,9 +1233491,9 @@
     "salaryCurrency": "CHF",
     "slugByLocale": {
       "it": "idraulico-impianti-sanitari-pemsa-lugano",
-      "en": "idraulico-impianti-sanitari-pemsa-lugano",
-      "de": "idraulico-impianti-sanitari-pemsa-lugano",
-      "fr": "idraulico-impianti-sanitari-pemsa-lugano"
+      "en": "hydraulic-health-plants-pemsa-lugano",
+      "de": "hydraulische-heilpflanzen-pemsa-lugano",
+      "fr": "installations-de-sante-hydraulique-pemsa-lugano"
     },
     "localePaths": {
       "it": "/cerca-lavoro-ticino/idraulico-impianti-sanitari-pemsa-lugano",
@@ -1233129,7 +1233501,7 @@
       "de": "/de/jobs-im-tessin/idraulico-impianti-sanitari-pemsa-lugano",
       "fr": "/fr/trouver-emploi-tessin/idraulico-impianti-sanitari-pemsa-lugano"
     },
-    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2674926",
+    "sourceUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2678317",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
