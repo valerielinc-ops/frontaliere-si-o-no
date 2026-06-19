@@ -245,7 +245,7 @@
       "slugByLocale": {
         "it": "specialista-di-test-ams-avaloq-bioggio",
         "en": "ams-test-specialist-avaloq-bioggio",
-        "de": "ams-testspezialist-avaloq-bioggio",
+        "de": "ams-test-spezialist-avaloq-bioggio",
         "fr": "specialiste-des-essais-ams-avaloq-bioggio"
       },
       "id": "avaloq-e066beb0c624",
@@ -267,10 +267,14 @@
       "previousSlugsByLocale": {
         "it": [
           "ams-test-specialist-avaloq-bioggio"
+        ],
+        "de": [
+          "ams-testspezialist-avaloq-bioggio"
         ]
       },
       "previousSlugs": [
-        "ams-test-specialist-avaloq-bioggio"
+        "ams-test-specialist-avaloq-bioggio",
+        "ams-testspezialist-avaloq-bioggio"
       ]
     },
     {

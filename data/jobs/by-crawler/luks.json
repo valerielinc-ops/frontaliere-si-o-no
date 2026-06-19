@@ -16627,10 +16627,10 @@
       "id": "luks-5648339d5b7b",
       "slug": "chefarztin-chefarzt-orthopala-e-unfallchirurgie-80-100-spital-nidwalden-e-mitglied-der-spitalleitung-spital-nidwalden-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
-        "it": "chefarztin-chefarzt-orthopala-e-unfallchirurgie-80-100-spital-nidwalden-e-mitglied-der-spitalleitung-spital-nidwalden-luzerner-kantonsspital-luks-stans",
-        "en": "chief-physician-chief-physician-orthopaedics-and-trauma-surgery-80-100-hospital-nidwalden-and-member-of-the-hospital",
+        "it": "chefarztin-chefarzt-orthopala-e-unfallchirurgie-80-100-spital-nidwalden-e-mitglied-der-spitalleitung-spital-nidwalden-stans",
+        "en": "chief-physician-chief-physician-orthopaedics-and-trauma-surgery-80-100-hospital-nidwalden-and-member-of-the-901585",
         "de": "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied",
-        "fr": "medecin-en-chef-medecin-en-chef-orthopedie-et-chirurgie-des-traumatismes-80-100-hopital-nidwalden-et-membre-de-la"
+        "fr": "medecin-en-chef-medecin-en-chef-orthopedie-et-chirurgie-des-traumatismes-80-100-hopital-nidwalden-et-membre-de-la-901585"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16673,17 +16673,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied"
+        "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied",
+        "chief-physician-chief-physician-orthopaedics-and-trauma-surgery-80-100-hospital-nidwalden-and-member-of-the-hospital",
+        "medecin-en-chef-medecin-en-chef-orthopedie-et-chirurgie-des-traumatismes-80-100-hopital-nidwalden-et-membre-de-la"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied"
         ],
         "en": [
-          "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied"
+          "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied",
+          "chief-physician-chief-physician-orthopaedics-and-trauma-surgery-80-100-hospital-nidwalden-and-member-of-the-hospital"
         ],
         "fr": [
-          "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied"
+          "chefarztin-chefarzt-orthopadie-und-unfallchirurgie-80-100-spital-nidwalden-und-mitglied",
+          "medecin-en-chef-medecin-en-chef-orthopedie-et-chirurgie-des-traumatismes-80-100-hopital-nidwalden-et-membre-de-la"
         ]
       },
       "firstSeenAt": "2026-06-16T14:06:08.470Z",

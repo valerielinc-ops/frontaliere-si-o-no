@@ -311,10 +311,10 @@
     },
     {
       "id": "diakoniewerk-neumuenster-af9b9048b9b1",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
+      "slug": "infermiere-diplomato-infermiere-diplomato-spitex-alterzentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
+        "it": "infermiere-diplomato-infermiere-diplomato-spitex-alterzentrum-hottingen-diakoniewerk-neumunster-gesundheitswelt",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
       },
@@ -372,14 +372,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum-hottingen-diakoniewerk"
+      ]
     },
     {
       "id": "diakoniewerk-neumuenster-364c790a2598",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen",
+      "slug": "infermiere-diplomato-infermiere-diplomato-guardia-notturna-spitex-presso-il-centro-per-anziani-di-hottingen-diakoniewerk",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen",
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen",
+        "it": "infermiere-diplomato-infermiere-diplomato-guardia-notturna-spitex-presso-il-centro-per-anziani-di-hottingen-diakoniewerk",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen",
         "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen"
       },
@@ -437,7 +445,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T15:19:47.620Z"
+      "firstSeenAt": "2026-05-19T15:19:47.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im-alterszentrum-hottingen"
+      ]
     }
   ]
 }

@@ -2088,7 +2088,7 @@
         "it": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "en": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2",
         "de": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch",
-        "fr": "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+        "fr": "senior-manager-hr-business-partner-manufacturing-m-w-d-csl-behring-ch-2"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -2148,7 +2148,10 @@
         "fr": [
           "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
         ]
-      }
+      },
+      "previousSlugs": [
+        "gestionnaire-principal-fabrication-de-partenaires-d-affaires-en-rh-m-f-d-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-0a6358c2e526",
@@ -3318,7 +3321,7 @@
       "slugByLocale": {
         "it": "specialista-senior-di-laboratorio-f-m-x-csl-behring-bern",
         "en": "senior-laboratory-specialist-f-m-x-csl-behring-ch",
-        "de": "senior-laborspezialist-f-m-x-csl-behring-bern",
+        "de": "senior-laboratory-spezialist-f-m-x-csl-behring-bern",
         "fr": "specialiste-de-laboratoire-principal-f-m-x-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -3363,6 +3366,7 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "senior-laboratory-specialist-f-m-x-csl-behring-ch",
+        "senior-laborspezialist-f-m-x-csl-behring-bern",
         "specialiste-principal-de-laboratoire-f-m-x-csl-behring-bern",
         "programmatore-senior-csl-behring-bern",
         "senior-programmer-csl-behring-ch",
@@ -3382,7 +3386,8 @@
           "senior-laboratory-specialist-f-m-x-csl-behring-ch"
         ],
         "de": [
-          "senior-laboratory-specialist-f-m-x-csl-behring-ch"
+          "senior-laboratory-specialist-f-m-x-csl-behring-ch",
+          "senior-laborspezialist-f-m-x-csl-behring-bern"
         ],
         "fr": [
           "senior-laboratory-specialist-f-m-x-csl-behring-ch",

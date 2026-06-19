@@ -1707,9 +1707,6 @@
       "previousSlugs": [
         "diplomato-di-assistenza-infermieristica-con-responsabilita-quotidiane-40-100-concara-domicil-spitex-bern-bern",
         "dipl-career-with-day-responsibility-40-100-concara-domicil-spitex-bern-bern-921f85",
-        "dipl-pflegefachperson-con-tagesverantwortung-40-100-concara-domicil-spitex-bern-bern",
-        "diploma-in-nursing-with-daily-responsibility-40-100-concara-domicil-spitex-bern-bern",
-        "diplome-en-soins-infirmiers-avec-responsabilite-quotidienne-40-100-concara-domicil-spitex-bern-bern",
         "dipl-pflegefachperson-mit-tagesverantwortung-40-100-concara-bern"
       ],
       "previousSlugsByLocale": {
@@ -4842,10 +4839,10 @@
     },
     {
       "id": "concara-94e7c641f50f",
-      "slug": "fachverantwortliche-r-pflege-60-80-concara-belp",
+      "slug": "responsabile-tecnico-cura-60-80-concara-domicil-spitex-bern-belp",
       "slugByLocale": {
         "de": "fachverantwortliche-r-pflege-60-80-concara-belp",
-        "it": "fachverantwortliche-r-pflege-60-80-concara-belp",
+        "it": "responsabile-tecnico-cura-60-80-concara-domicil-spitex-bern-belp",
         "en": "fachverantwortliche-r-pflege-60-80-concara-belp",
         "fr": "fachverantwortliche-r-pflege-60-80-concara-belp"
       },
@@ -4903,13 +4900,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:20:49.505Z"
+      "firstSeenAt": "2026-06-19T12:20:49.505Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverantwortliche-r-pflege-60-80-concara-belp"
+        ]
+      },
+      "previousSlugs": [
+        "fachverantwortliche-r-pflege-60-80-concara-belp"
+      ]
     },
     {
       "id": "concara-42222d6b0a00",
-      "slug": "pflegefachpersonen-arbeiten-mit-schonster-aussicht-uber-belp-concara-belp",
+      "slug": "infermieri-lavorare-con-la-vista-piu-bella-su-belp-concara-domicil-spitex-bern-belp",
       "slugByLocale": {
-        "it": "pflegefachpersonen-arbeiten-mit-schonster-aussicht-uber-belp-concara-belp",
+        "it": "infermieri-lavorare-con-la-vista-piu-bella-su-belp-concara-domicil-spitex-bern-belp",
         "en": "nurses-working-with-the-most-beautiful-view-over-belp-concara-domicil-spitex-bern-belp",
         "de": "pflegefachpersonen-arbeiten-mit-schonster-aussicht-uber-belp-concara-belp",
         "fr": "infirmieres-travailler-avec-la-plus-belle-vue-sur-belp-concara-domicil-spitex-bern-belp"
@@ -4965,7 +4970,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachpersonen-arbeiten-mit-schonster-aussicht-uber-belp-concara-belp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachpersonen-arbeiten-mit-schonster-aussicht-uber-belp-concara-belp"
+      ]
     }
   ]
 }

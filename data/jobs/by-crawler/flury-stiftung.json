@@ -310,9 +310,9 @@
       "slug": "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2027-flury-stiftung-schiers",
       "slugByLocale": {
         "it": "apprendistato-fachperson-hotellerie-hauswirtschaft-cfc-ab-sommer-2027-flury-stiftung-schiers",
-        "en": "apprenticeship-specialist-hotel-industry-housekeeping-efz-from-summer-2027-flury-stiftung-schiers",
+        "en": "hotel-and-household-management-efz-trainee-from-summer-2027-flury-stiftung-schiers",
         "de": "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
-        "fr": "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
+        "fr": "formateur-en-hotellerie-gestion-de-la-maison-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -357,11 +357,19 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch"
+        "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch",
+        "apprenticeship-specialist-hotel-industry-housekeeping-efz-from-summer-2027-flury-stiftung-schiers",
+        "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-fachperson-hotellerie-hauswirtschaft-efz-ab-sommer-2027-flury-stiftung-ch"
+        ],
+        "en": [
+          "apprenticeship-specialist-hotel-industry-housekeeping-efz-from-summer-2027-flury-stiftung-schiers"
+        ],
+        "fr": [
+          "apprentissage-specialise-dans-l-hotellerie-entretien-menager-efz-a-partir-de-l-ete-2027-flury-stiftung-schiers"
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
@@ -386,7 +394,7 @@
         "it": "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers",
         "en": "apprenticeship-specialist-care-specialty-children-from-summer-2027-flury-stiftung-schiers",
         "de": "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
-        "fr": "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers"
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-garde-d-enfants-specialise-dans-les-enfants-a-partir-de-l-ete-2027-flury"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -432,7 +440,8 @@
       "pensumMax": 100,
       "previousSlugs": [
         "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
-        "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers"
+        "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers",
+        "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -442,7 +451,8 @@
           "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "fr": [
-          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers"
+          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers",
+          "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers"
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",

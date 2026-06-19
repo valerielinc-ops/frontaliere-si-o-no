@@ -183,10 +183,10 @@
     },
     {
       "id": "clinique-de-valere-3686b997380d",
-      "slug": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere",
+      "slug": "maestro-di-sport-in-attivita-fisica-adattata-clinique-de-valere-sion",
       "slugByLocale": {
         "fr": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere",
-        "it": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere",
+        "it": "maestro-di-sport-in-attivita-fisica-adattata-clinique-de-valere-sion",
         "en": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere",
         "de": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere"
       },
@@ -245,7 +245,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:18:02.719Z"
+      "firstSeenAt": "2026-06-19T12:18:02.719Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere"
+      ]
     }
   ]
 }

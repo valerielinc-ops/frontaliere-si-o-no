@@ -4196,9 +4196,9 @@
     },
     {
       "id": "coopers-d4c81ca322f1",
-      "slug": "global-quality-assurance-manager-m-f-d-coopers-basel-stadt",
+      "slug": "responsabile-globale-della-garanzia-della-qualita-m-f-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
-        "it": "global-quality-assurance-manager-m-f-d-coopers-basel-stadt",
+        "it": "responsabile-globale-della-garanzia-della-qualita-m-f-d-coopers-group-ag-basel-stadt",
         "en": "global-quality-assurance-manager-m-f-d-coopers-basel-stadt",
         "de": "global-qualitat-assurance-manager-m-f-d-coopers-group-ag-basel-stadt",
         "fr": "global-qualite-assurance-manager-m-f-d-coopers-group-ag-basel-stadt"
@@ -4270,7 +4270,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-quality-assurance-manager-m-f-d-coopers-basel-stadt"
+        ]
+      },
+      "previousSlugs": [
+        "global-quality-assurance-manager-m-f-d-coopers-basel-stadt"
+      ]
     },
     {
       "id": "coopers-7dfab96fcc9a",
@@ -4698,12 +4706,10 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-windows-server-engineer-m-w-d-coopers-bern",
-          "senior-windows-server-ingegnere-m-w-d-coopers-group-ag-bern"
+          "senior-windows-server-engineer-m-w-d-coopers-bern"
         ],
         "fr": [
-          "senior-windows-server-engineer-m-w-d-coopers-bern",
-          "senior-windows-server-ingenieur-m-w-d-coopers-group-ag-bern"
+          "senior-windows-server-engineer-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-06-18T12:07:38.149Z",

@@ -19954,12 +19954,12 @@
     },
     {
       "id": "sulzer-e744568a8399",
-      "slug": "hr-project-manager-localization-workforce-strategy-sulzer-ch",
+      "slug": "hr-project-manager-localizzazione-e-strategia-della-forza-lavoro-sulzer-winterthur",
       "slugByLocale": {
-        "it": "hr-project-manager-localization-workforce-strategy-sulzer-ch",
+        "it": "hr-project-manager-localizzazione-e-strategia-della-forza-lavoro-sulzer-winterthur",
         "en": "hr-project-manager-localization-workforce-strategy-sulzer-ch",
-        "de": "hr-project-manager-localization-workforce-strategy-sulzer-ch",
-        "fr": "hr-project-manager-localization-workforce-strategy-sulzer-ch"
+        "de": "hr-projektleiter-lokalisierung-personalstrategie-sulzer-winterthur",
+        "fr": "chef-de-projet-rh-localisation-et-strategie-de-la-main-d-uvre-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -20012,7 +20012,21 @@
         }
       },
       "postalCode": "8400",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-project-manager-localization-workforce-strategy-sulzer-ch"
+        ],
+        "de": [
+          "hr-project-manager-localization-workforce-strategy-sulzer-ch"
+        ],
+        "fr": [
+          "hr-project-manager-localization-workforce-strategy-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-project-manager-localization-workforce-strategy-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2cd67027334a",
@@ -20774,9 +20788,9 @@
     },
     {
       "id": "sulzer-dffc30f6a363",
-      "slug": "supply-chain-manager-sulzer-ch",
+      "slug": "gestore-della-catena-di-fornitura-sulzer-winterthur",
       "slugByLocale": {
-        "it": "supply-chain-manager-sulzer-ch",
+        "it": "gestore-della-catena-di-fornitura-sulzer-winterthur",
         "en": "supply-chain-manager-sulzer-ch",
         "de": "lieferkette-manager-sulzer-chattanooga",
         "fr": "chaine-d-approvisionnement-manager-sulzer-chattanooga"
@@ -20834,8 +20848,14 @@
       "postalCode": "8400",
       "addressRegion": "ZH",
       "previousSlugs": [
+        "supply-chain-manager-sulzer-ch",
         "chaine-d-approvisionnement-manager-sulzer-winterthur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "supply-chain-manager-sulzer-ch"
+        ]
+      }
     },
     {
       "id": "sulzer-721f3e61d129",
