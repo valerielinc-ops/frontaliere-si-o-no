@@ -1,81 +1,7 @@
 {
   "crawlerKey": "rhne-reseau-hospitalier-neuchatelois",
-  "assembledAt": "2026-06-18T23:26:40.755Z",
+  "assembledAt": "2026-06-19T13:13:46.384Z",
   "jobs": [
-    {
-      "id": "rhne-reseau-hospitalier-neuchatelois-a381185334d0",
-      "slug": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "slugByLocale": {
-        "it": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "spezialisierter-medizinischer-assistent-bei-50-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "fr": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Assistant·e médical·e spécialisé·e à 50%",
-      "titleByLocale": {
-        "it": "Assistente medico specializzato al 50%",
-        "en": "Specialized medical assistant at 50%",
-        "de": "Spezialisierter medizinischer Assistent bei 50 %",
-        "fr": "Assistant·e médical·e spécialisé·e à 50%"
-      },
-      "description": "Assistant·e médical·e spécialisé·e à 50% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "it": "Descrizione è specializzata al 50% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
-        "en": "Descrizione Medical assistant specialized at 50% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
-        "de": "Descrizione Medizinische Assistentin ist zu 50 % am Neuchâtel Hospital Network (RHNE) in Neuchâtel spezialisiert. Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
-        "fr": "Descrizione\nAssistant·e médical·e spécialisé·e à 50% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nRequisiti\n- Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide.\n- Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
-      },
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.798Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2559837",
-      "previousSlugs": [
-        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "de": [
-          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ]
-      },
-      "firstSeenAt": "2026-06-16T14:19:05.751Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-222885cafdea",
       "slug": "capo-del-reparto-di-radioterapia-oncologica-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
@@ -97,17 +23,18 @@
       },
       "description": "Médecin chef·fe de service radio-oncologie à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
       "descriptionByLocale": {
-        "it": "Descrizione Capo del reparto radio-oncologia all'80-100% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
-        "en": "Descrizione Head of the radio-oncology department at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
-        "de": "Descrizione Leiter der Radio-Onkologie-Abteilung bei 80-100 % im Neuchâtel Hospital Network (RHNE) in Neuchâtel. Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
-        "fr": "Descrizione\nMédecin chef·fe de service radio-oncologie à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nRequisiti\n- Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide.\n- Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+        "it": "Descrizione Capo del reparto radio-oncologia all'80-100% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. \n• Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
+        "en": "Descrizione Head of the radio-oncology department at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. \n• Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
+        "de": "Descrizione Leiter der Radio-Onkologie-Abteilung bei 80-100 % im Neuchâtel Hospital Network (RHNE) in Neuchâtel. \n• Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
+        "fr": "Médecin chef·fe de service radio-oncologie à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559185&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.798Z",
+      "crawledAt": "2026-06-19T13:13:44.070Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -185,7 +112,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2557980&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.798Z",
+      "crawledAt": "2026-06-19T13:13:44.070Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -232,83 +159,6 @@
       }
     },
     {
-      "id": "rhne-reseau-hospitalier-neuchatelois-427401eb7d8d",
-      "slug": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "slugByLocale": {
-        "it": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "chief-medical-officer-of-80-100-clinic-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "de": "chief-medical-officer-der-80-100-klinik-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "fr": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Médecin chef·fe de clinique à 80-100%",
-      "titleByLocale": {
-        "it": "80-100% medico senior",
-        "en": "80-100% Senior Physician",
-        "de": "80-100 % leitender Arzt",
-        "fr": "Médecin chef·fe de clinique à 80-100%"
-      },
-      "description": "Médecin chef·fe de clinique à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "it": "Descrizione Responsabile della Clinica all'80-100% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
-        "en": "Descrizione Head of Clinic at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
-        "de": "Descrizione ist Klinikleiter zu 80-100 % im Neuchâtel Hospital Network (RHNE) in Neuchâtel. Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
-        "fr": "Descrizione\nMédecin chef·fe de clinique à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nRequisiti\n- Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide.\n- Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
-      },
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.797Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "2560294",
-      "previousSlugs": [
-        "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "en": [
-          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "de": [
-          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:49:20.496Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "rhne-reseau-hospitalier-neuchatelois-cfbaff77d2fa",
       "slug": "100-controllo-medico-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
@@ -332,14 +182,15 @@
         "it": "Descrizione 100% Controller Medico presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. La Rete Ospedaliera di Neuchâtel (RHNe) - La Rete Ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
         "en": "Descrizione 100% Medical Controller at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel Hospital Network (RHNe) - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
         "de": "Descrizione ist 100 % Medizinischer Controller im Neuchâtel Hospital Network (RHNE) in Neuchâtel. Das Krankenhausnetzwerk Neuchâtel (RHNe) – Das Netz des Krankenhauses Neuchâtel (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
-        "fr": "Descrizione\nContrôleur·euse médical·e à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe)\n- Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide.\n- Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+        "fr": "Contrôleur·euse médical·e à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560283&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.797Z",
+      "crawledAt": "2026-06-19T13:13:44.069Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -386,6 +237,237 @@
       }
     },
     {
+      "id": "rhne-reseau-hospitalier-neuchatelois-a381185334d0",
+      "slug": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slugByLocale": {
+        "it": "50-assistente-medico-specializzato-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "de": "spezialisierter-medizinischer-assistent-bei-50-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      },
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Assistant·e médical·e spécialisé·e à 50%",
+      "titleByLocale": {
+        "it": "Assistente medico specializzato al 50%",
+        "en": "Specialized medical assistant at 50%",
+        "de": "Spezialisierter medizinischer Assistent bei 50 %",
+        "fr": "Assistant·e médical·e spécialisé·e à 50%"
+      },
+      "description": "Assistant·e médical·e spécialisé·e à 50% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
+      "descriptionByLocale": {
+        "it": "Descrizione è specializzata al 50% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. \n• Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
+        "en": "Descrizione Medical assistant specialized at 50% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. \n• Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
+        "de": "Descrizione Medizinische Assistentin ist zu 50 % am Neuchâtel Hospital Network (RHNE) in Neuchâtel spezialisiert. \n• Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
+        "fr": "Assistant·e médical·e spécialisé·e à 50% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+      },
+      "needsRetranslation": false,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-19T13:13:44.069Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2559837&cat=all",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2559837",
+      "previousSlugs": [
+        "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "assistant-e-medical-e-specialise-e-a-50-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:19:05.751Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rhne-reseau-hospitalier-neuchatelois-427401eb7d8d",
+      "slug": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slugByLocale": {
+        "it": "capo-medico-della-clinica-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "chief-medical-officer-of-80-100-clinic-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "chief-medical-officer-der-80-100-klinik-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      },
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Médecin chef·fe de clinique à 80-100%",
+      "titleByLocale": {
+        "it": "80-100% medico senior",
+        "en": "80-100% Senior Physician",
+        "de": "80-100 % leitender Arzt",
+        "fr": "Médecin chef·fe de clinique à 80-100%"
+      },
+      "description": "Médecin chef·fe de clinique à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
+      "descriptionByLocale": {
+        "it": "Descrizione Responsabile della Clinica all'80-100% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. \n• Requisiti - La rete ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. - Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
+        "en": "Descrizione Head of Clinic at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. \n• Requisiti - The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. - More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
+        "de": "Descrizione ist Klinikleiter zu 80-100 % im Neuchâtel Hospital Network (RHNE) in Neuchâtel. \n• Requisiti – Das Neuchâteler Krankenhausnetzwerk (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. - Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
+        "fr": "Médecin chef·fe de clinique à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+      },
+      "needsRetranslation": false,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-19T13:13:44.068Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560294&cat=all",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2560294",
+      "previousSlugs": [
+        "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "medecin-chef-fe-de-clinique-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "firstSeenAt": "2026-06-17T13:49:20.496Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "rhne-reseau-hospitalier-neuchatelois-5cfb2789242a",
+      "slug": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slugByLocale": {
+        "it": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "100-ergotherapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "100-ergotherapeut-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      },
+      "company": "Réseau hospitalier neuchâtelois (RHNE)",
+      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
+      "companyDomain": "rhne.ch",
+      "title": "Ergothérapeute à 100%",
+      "titleByLocale": {
+        "it": "100% Ergoterapist",
+        "en": "100% Ergotherapist",
+        "de": "100% Ergotherapeut",
+        "fr": "Ergothérapeute à 100%"
+      },
+      "description": "Ergothérapeute à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
+      "descriptionByLocale": {
+        "it": "100% Ergoterapista al Neuchâtel Hospital Network (RHNE) di Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
+        "en": "100% Ergotherapist at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
+        "de": "100% Ergotherapeut im Neuenburger Krankenhausnetzwerk (RHNE) in Neuenburg. Das Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
+        "fr": "Ergothérapeute à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+      },
+      "needsRetranslation": false,
+      "location": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
+      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-19T13:13:44.067Z",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "2560526",
+      "previousSlugs": [
+        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "firstSeenAt": "2026-06-18T12:59:07.407Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "rhne-reseau-hospitalier-neuchatelois-625bcbb39612",
       "slug": "medico-assistente-anestesiologia-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
@@ -409,14 +491,15 @@
         "it": "Vice Capo Medico Anestesiologia all'80% presso la Rete Ospedaliera di Neuchâtel (RHNE) a Neuchâtel. La Rete Ospedaliera di Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Oltre 2.600 dipendenti forniscono cure acute, riabilitazione e cure palliative alla popolazione di Neuchâtel.",
         "en": "Deputy Chief Physician Anesthesiology at 80% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel Hospital Network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 employees provide acute care, rehabilitation and palliative care for the population of Neuchâtel.",
         "de": "Stellvertretender Oberarzt für Anästhesiologie zu 80 % im Krankenhausnetzwerk Neuchâtel (RHNE) in Neuchâtel. Das Netz des Krankenhauses Neuchâtel (RHNe) umfasst die Standorte Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter bieten Akutversorgung, Rehabilitation und Palliativversorgung für die Bevölkerung von Neuchâtel an.",
-        "fr": "Médecin chef·fe adjoint·e Anesthésiologie à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
+        "fr": "Médecin chef·fe adjoint·e Anesthésiologie à 80% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560297&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.796Z",
+      "crawledAt": "2026-06-19T13:13:44.067Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -451,130 +534,52 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:49:20.494Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       }
     },
     {
-      "id": "rhne-reseau-hospitalier-neuchatelois-5cfb2789242a",
-      "slug": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-      "slugByLocale": {
-        "fr": "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "it": "100-ergoterapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "100-ergotherapist-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "de": "100-ergotherapeut-reseau-hospitalier-neuchatelois-rhne-neuchatel"
-      },
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Ergothérapeute à 100%",
-      "titleByLocale": {
-        "fr": "Ergothérapeute à 100%",
-        "it": "100% Ergoterapist",
-        "en": "100% Ergotherapist",
-        "de": "100% Ergotherapeut"
-      },
-      "description": "Ergothérapeute à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-      "descriptionByLocale": {
-        "fr": "Ergothérapeute à 100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-        "it": "100% Ergoterapista al Neuchâtel Hospital Network (RHNE) di Neuchâtel.\n\nLa rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
-        "en": "100% Ergotherapist at the Neuchâtel Hospital Network (RHNE) in Neuchâtel.\n\nThe Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
-        "de": "100% Ergotherapeut im Neuenburger Krankenhausnetzwerk (RHNE) in Neuenburg.\n\nDas Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung."
-      },
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:59:07.407Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560526&cat=all",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "externalId": "2560526",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-18T12:59:07.407Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "en": [
-          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ],
-        "de": [
-          "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-        ]
-      },
-      "previousSlugs": [
-        "ergotherapeute-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
-      ]
-    },
-    {
       "id": "rhne-reseau-hospitalier-neuchatelois-27732adabfe3",
       "slug": "assistente-capo-medico-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "fr": "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
         "it": "assistente-capo-medico-all-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "en": "assistant-chief-medical-officer-at-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "de": "assistant-chief-medical-officer-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        "de": "assistant-chief-medical-officer-bei-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "fr": "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Médecin chef·fe adjoint·e à 80-100%",
       "titleByLocale": {
-        "fr": "Médecin chef·fe adjoint·e à 80-100%",
         "it": "Assistente capo medico all'80-100%",
         "en": "Assistant Chief Medical Officer at 80-100%",
-        "de": "Assistant Chief Medical Officer bei 80-100%"
+        "de": "Assistant Chief Medical Officer bei 80-100%",
+        "fr": "Médecin chef·fe adjoint·e à 80-100%"
       },
       "description": "Médecin chef·fe adjoint·e à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
       "descriptionByLocale": {
-        "fr": "Médecin chef·fe adjoint·e à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel.\n\nLe Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise.",
-        "it": "Assistente capo medico all'80-100% presso il Neuchâtel Hospital Network (RHNE) di Neuchâtel.\n\nLa rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
-        "en": "Assistant Chief Medical Officer at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel.\n\nThe Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
-        "de": "Stellvertretender Chief Medical Officer bei 80-100% im Neuenburger Krankenhausnetzwerk (RHNE) in Neuenburg.\n\nDas Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung."
+        "it": "Assistente capo medico all'80-100% presso il Neuchâtel Hospital Network (RHNE) di Neuchâtel. La rete ospedaliera Neuchâtel (RHNe) comprende i siti di Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle e La Chrysalide. Più di 2.600 collaboratori forniscono assistenza acuta, riabilitazione e assistenza palliativa per la popolazione di Neuchâtel.",
+        "en": "Assistant Chief Medical Officer at 80-100% at the Neuchâtel Hospital Network (RHNE) in Neuchâtel. The Neuchâtel hospital network (RHNe) includes the sites of Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle and La Chrysalide. More than 2,600 collaborators provide acute care, rehabilitation and palliative care for the Neuchâtel population.",
+        "de": "Stellvertretender Chief Medical Officer bei 80-100% im Neuenburger Krankenhausnetzwerk (RHNE) in Neuenburg. Das Krankenhausnetz Neuenburg (RHNe) umfasst die Standorte Pourtalès (Neuenburg), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle und La Chrysalide. Mehr als 2.600 Mitarbeiter sorgen für die akute Versorgung, Rehabilitation und Palliativversorgung der Neuenburger Bevölkerung.",
+        "fr": "Médecin chef·fe adjoint·e à 80-100% au Réseau hospitalier neuchâtelois (RHNE) à Neuchâtel. Le Réseau hospitalier neuchâtelois (RHNe) regroupe les sites de Pourtalès (Neuchâtel), La Chaux-de-Fonds, Val-de-Travers, Val-de-Ruz, Le Locle et La Chrysalide. Plus de 2'600 collaboratrices et collaborateurs assurent les soins aigus, la réadaptation et les soins palliatifs pour la population neuchâteloise."
       },
+      "needsRetranslation": false,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560761&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T23:26:38.794Z",
+      "crawledAt": "2026-06-19T13:13:44.065Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -590,10 +595,12 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2560761&cat=all",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2560761",
+      "previousSlugs": [
+        "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "medecin-chef-fe-adjoint-e-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -606,23 +613,19 @@
           "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
         ]
       },
-      "previousSlugs": [
-        "medecin-chef-fe-adjoint-e-a-80-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "medecin-chef-fe-adjoint-e-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
-      ],
-      "salaryMin": 60500,
-      "salaryMax": 91500,
+      "firstSeenAt": "2026-06-18T23:26:38.794Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-06-18T23:26:38.794Z"
+      }
     }
   ]
 }
