@@ -1,18 +1,19 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-06-18T22:39:21.799Z",
+  "generatedAt": "2026-06-19T12:25:43.264Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 6171,
-  "avgDurationMs": 6171,
+  "durationMs": 4454,
+  "avgDurationMs": 4454,
   "durationHistory": [
-    6171
+    4454
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Customer Service Specialist - German Speaking",
       "slug": "customer-service-specialist-german-speaking-damiani-group-mendrisio",
@@ -34,17 +35,22 @@
       "postedDate": "2026-06-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-18",
-      "_qualityScore": 73,
+      "validThrough": "2026-06-19",
+      "id": "damiani-group-604443163c6a",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-06-18T22:39:21.798Z",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "IT Business Intelligence Specialist",
       "slug": "it-business-intelligence-specialist-damiani-group-mendrisio",
@@ -66,7 +72,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-18",
+      "validThrough": "2026-06-19",
       "id": "damiani-group-1b9e5efdfbd8",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -143,7 +149,7 @@
       "postedDate": "2026-06-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-18",
+      "validThrough": "2026-06-19",
       "id": "damiani-group-1e3bfdd1100f",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -180,7 +186,7 @@
       "postedDate": "2026-05-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-06-18",
+      "validThrough": "2026-06-19",
       "id": "damiani-group-f5ab2d7c6cb7",
       "salaryMin": 49500,
       "salaryMax": 75000,
