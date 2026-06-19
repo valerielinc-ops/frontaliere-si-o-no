@@ -221,6 +221,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.roche-basel-offerte-lavoro.title': 'Arbeitsangebote bei Roche: Stellen in Basel',
     'blog.article.roche-basel-offerte-lavoro.excerpt': 'Erhöhung der Arbeitschancen im pharmazeutischen Bereich in Basel, Details in Planung',
     'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerialansicht der Roche-Zentrale in Basel, Schweiz, mit Fokus auf moderne Bürogebäude und Forschungsanlagen',
+    'blog.article.ticino-concorsi.title': 'Öffentliche Ausschreibungen im Tessin: Teilnahme & Tipps',
+    'blog.article.ticino-concorsi.excerpt': 'Aktuelle Informationen zu öffentlichen Ausschreibungen im Tessin, Verfahren, Fristen und wie man sich optimal vorbereitet.',
+    'blog.article.ticino-concorsi.imageAlt': 'Schweizerisches öffentliches Gebäude mit Flaggen, städtische Szene',
 };
 
 export default blogMetaChDe;

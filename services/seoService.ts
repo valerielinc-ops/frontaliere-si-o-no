@@ -4081,6 +4081,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agenzie-interim-lugano-ticino-frontaliere': { name: 'Agenzie lavoro Lugano', path: '/articoli-frontaliere/agenzie-interim-lugano-ticino-frontaliere', parent: 'blog' },
     'blog-bloccare-ridurre-ristorni-frontalieri-roma': { name: 'Frontalieri', path: '/articoli-svizzera/bloccare-ridurre-ristorni-frontalieri-roma/', parent: 'blog' },
     'blog-roche-basel-offerte-lavoro': { name: 'Offerte di lavoro a Roche', path: '/articoli-svizzera/roche-basel-offerte-lavoro/', parent: 'blog' },
+    'blog-ticino-concorsi': { name: 'Concorsi pubblici', path: '/articoli-svizzera/ticino-concorsi/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

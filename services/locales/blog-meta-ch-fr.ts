@@ -221,6 +221,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.roche-basel-offerte-lavoro.title': 'Offres d\'emploi à Roche : postes ouverts à Bâle',
     'blog.article.roche-basel-offerte-lavoro.excerpt': 'Augmentation des opportunités d\'emploi dans le secteur pharmaceutique à Bâle, avec des détails en cours de définition',
     'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Vue aérienne du siège social de Roche à Bâle, Suisse, mettant en valeur les bâtiments modernes et les installations de recherche',
+    'blog.article.ticino-concorsi.title': 'Concours publics Ticino : comment participer et quoi savoir',
+    'blog.article.ticino-concorsi.excerpt': 'Mises à jour sur les concours publics du Ticino, procédures, échéances et comment se préparer au mieux.',
+    'blog.article.ticino-concorsi.imageAlt': 'Bâtiment public suisse avec drapeaux, scène urbaine',
 };
 
 export default blogMetaChFr;
