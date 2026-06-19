@@ -1544,12 +1544,12 @@
     },
     {
       "id": "spital-affoltern-39470cd4c9d6",
-      "slug": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro",
+      "slug": "assistente-segretariale-radiologia-di-accoglienza-di-solito-3-giorni-a-settimana-60-per-circa-6-settimane-all-anno-al",
       "slugByLocale": {
         "de": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro",
-        "it": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro",
-        "en": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro",
-        "fr": "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro"
+        "it": "assistente-segretariale-radiologia-di-accoglienza-di-solito-3-giorni-a-settimana-60-per-circa-6-settimane-all-anno-al",
+        "en": "secretarial-assistant-reception-radiology-usually-3-days-per-week-60-during-approx-6-weeks-a-year-100-due-to-vacation",
+        "fr": "assistant-secretaire-en-radiologie-de-reception-generalement-3-jours-par-semaine-60-environ-6-semaines-par-an-100-en"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -1604,7 +1604,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:22:14.428Z"
+      "firstSeenAt": "2026-06-19T13:22:14.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro"
+        ],
+        "en": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro"
+        ],
+        "fr": [
+          "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro"
+        ]
+      },
+      "previousSlugs": [
+        "sekretariatsmitarbeiterin-sekretariatsmitarbeiter-empfang-radiologie-i-d-r-3-tage-pro"
+      ]
     },
     {
       "id": "spital-affoltern-504becf1aa5d",

@@ -268,9 +268,9 @@
       },
       "slugByLocale": {
         "it": "acquirente-operativo-100-agie-charmilles-sa-langnau-im-emmental",
-        "en": "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental",
+        "en": "operational-purchaser-100-agie-charmilles-sa-langnau-im-emmental",
         "de": "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental",
-        "fr": "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental"
+        "fr": "acheteur-operationnel-100-agie-charmilles-sa-langnau-im-emmental"
       },
       "id": "agie-charmilles-2d5b0b472e32",
       "salaryMin": 77000,
@@ -290,6 +290,12 @@
       "firstSeenAt": "2026-06-19T12:00:49.696Z",
       "previousSlugsByLocale": {
         "it": [
+          "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental"
+        ],
+        "en": [
+          "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental"
+        ],
+        "fr": [
           "operativer-einkaufer-100-agie-charmilles-langnau-im-emmental"
         ]
       },
@@ -335,9 +341,9 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-montaggio-100-agie-charmilles-sa-biel-bienne",
-        "en": "montagemechaniker-100-agie-charmilles-biel-bienne",
+        "en": "assembly-mechanic-100-agie-charmilles-sa-biel-bienne",
         "de": "montagemechaniker-100-agie-charmilles-biel-bienne",
-        "fr": "montagemechaniker-100-agie-charmilles-biel-bienne"
+        "fr": "mecanicien-d-assemblage-100-agie-charmilles-sa-biel-bienne"
       },
       "id": "agie-charmilles-8d0cee7e150a",
       "salaryMin": 77000,
@@ -357,6 +363,12 @@
       "firstSeenAt": "2026-06-19T12:00:49.696Z",
       "previousSlugsByLocale": {
         "it": [
+          "montagemechaniker-100-agie-charmilles-biel-bienne"
+        ],
+        "en": [
+          "montagemechaniker-100-agie-charmilles-biel-bienne"
+        ],
+        "fr": [
           "montagemechaniker-100-agie-charmilles-biel-bienne"
         ]
       },
@@ -1536,8 +1548,7 @@
           "field-service-engineer-100-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "field-service-engineer-100-agie-charmilles-biel-bienne",
-          "au-endienstingenieur-100-agie-charmilles-sa-biel-bienne"
+          "field-service-engineer-100-agie-charmilles-biel-bienne"
         ],
         "fr": [
           "field-service-engineer-100-agie-charmilles-biel-bienne"
@@ -2053,8 +2064,7 @@
           "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
         ],
         "de": [
-          "field-service-expert-d-w-m-agie-charmilles-biel-bienne",
-          "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne"
+          "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
         ]
       },
       "previousSlugs": [

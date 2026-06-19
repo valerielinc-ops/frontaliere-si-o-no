@@ -2102,7 +2102,7 @@
         "de": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
         "it": "sales-support-per-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
         "en": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "fr": "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+        "fr": "soutien-commercial-pour-les-missions-dans-le-secteur-de-la-mode-20-principalement-les-devoirs-du-samedi-vendredi-mois-d"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -2148,6 +2148,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
+        ],
+        "fr": [
           "sales-support-fur-einsatze-im-bereich-fashion-20-vorwiegend-samstagseinsatze-w-m-d-globus"
         ]
       },
@@ -2614,7 +2617,7 @@
         "de": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
         "it": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-bern",
         "en": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
-        "fr": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        "fr": "soutien-commercial-pour-les-devoirs-dans-le-secteur-alimentaire-20-principalement-les-devoirs-du-samedi-vendredi-mois-j"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -2661,6 +2664,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
         ]
       },
       "previousSlugs": [
@@ -2686,12 +2692,12 @@
     },
     {
       "id": "globus-936038f20eee",
-      "slug": "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch",
+      "slug": "supporto-alle-vendite-assegnazioni-del-sabato-20-moda-f-m-d-globus-st-gallen",
       "slugByLocale": {
         "de": "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch",
-        "it": "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch",
+        "it": "supporto-alle-vendite-assegnazioni-del-sabato-20-moda-f-m-d-globus-st-gallen",
         "en": "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch",
-        "fr": "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
+        "fr": "support-commercial-affectations-du-samedi-20-mode-f-m-d-globus-st-gallen"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -2747,7 +2753,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:37:46.296Z"
+      "firstSeenAt": "2026-06-19T12:37:46.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-samstagseinsatze-20-fashion-w-m-d-globus-ch"
+      ]
     },
     {
       "id": "globus-50c675797d67",

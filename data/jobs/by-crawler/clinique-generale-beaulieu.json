@@ -182,8 +182,8 @@
       "slugByLocale": {
         "fr": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
         "it": "agente-pulizia-sala-operatoria-clinique-generale-beaulieu-geneve",
-        "en": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
-        "de": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
+        "en": "cleaning-agent-operating-block-clinique-generale-beaulieu-geneve",
+        "de": "reinigungsmittel-betriebsblock-clinique-generale-beaulieu-geneve"
       },
       "company": "Clinique Générale-Beaulieu",
       "companyKey": "clinique-generale-beaulieu",
@@ -242,6 +242,12 @@
       "firstSeenAt": "2026-06-19T12:19:32.319Z",
       "previousSlugsByLocale": {
         "it": [
+          "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
+        ],
+        "en": [
+          "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
+        ],
+        "de": [
           "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
         ]
       },
