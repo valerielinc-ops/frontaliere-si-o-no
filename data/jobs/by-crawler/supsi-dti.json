@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-06-18T13:17:18.769Z",
+  "assembledAt": "2026-06-19T00:15:50.609Z",
   "jobs": [
     {
       "id": "company-lr4hby",
@@ -185,54 +185,8 @@
           "Good knowledge of spoken and written English, and Italian.",
           "The candidate should be among the top 10 % of Master graduates of their university."
         ],
-        "de": [
-          "Master in Ingegneria Informatica, in Machine Learning, o formazione equivalente.",
-          "Conoscenza approfondita dei linguaggi di programmazione e di scripting, come Python e Bash.",
-          "Esperienza con i moderni strumenti ML.",
-          "Esperienza comprovata con librerie di Deep Learning (es. PyTorch), Pandas, e NumPy.",
-          "Buone capacità relazionali e capacità di lavorare sia in modo autonomo che in gruppo, in un ambiente orientato al raggiungimento degli obiettivi.",
-          "Buone capacità organizzative e di risoluzione dei problemi.",
-          "Buona conoscenza dell'inglese e dell'italiano, sia scritto che parlato.",
-          "Essere tra il 10% dei migliori laureati Master della propria università.",
-          "Vasta esperienza con il Deep Learning, in particolare nel contesto dei LLM.",
-          "Esperienza con Reinforcement Learning, in particolare nel contesto dei LLM.",
-          "Esperienze con database relazionali (es. MariaDB, PostgreSQL), database NoSQL (es. MongoDB), database a grafi (e.g., Neo4J).",
-          "Esperienze nell’uso di strumenti di containerizzazione (es. Docker, Apptainer).",
-          "Esperienza negli strumenti CI/CD (es. GitLab CI/CD, GitHub actions).",
-          "Conoscenza di architetture software come microservizi, sistemi distribuiti, servizi web, API REST.",
-          "Sviluppo di Agenti AI.",
-          "Esperienza di lavoro e/o ricerca nel settore finanziario.",
-          "Esperienza nel settore della ricerca scientifica.",
-          "PhD in Machine Learning o formazione equivalente.",
-          "Esperienze di lavoro con cluster HPC.",
-          "Conoscenza di linguaggi aggiuntivi come Java, C++, Rust, R.",
-          "Conoscenza di metodologie DevOps e MLOps.",
-          "Conoscenza di una seconda lingua nazionale"
-        ],
-        "fr": [
-          "Master in Ingegneria Informatica, in Machine Learning, o formazione equivalente.",
-          "Conoscenza approfondita dei linguaggi di programmazione e di scripting, come Python e Bash.",
-          "Esperienza con i moderni strumenti ML.",
-          "Esperienza comprovata con librerie di Deep Learning (es. PyTorch), Pandas, e NumPy.",
-          "Buone capacità relazionali e capacità di lavorare sia in modo autonomo che in gruppo, in un ambiente orientato al raggiungimento degli obiettivi.",
-          "Buone capacità organizzative e di risoluzione dei problemi.",
-          "Buona conoscenza dell'inglese e dell'italiano, sia scritto che parlato.",
-          "Essere tra il 10% dei migliori laureati Master della propria università.",
-          "Vasta esperienza con il Deep Learning, in particolare nel contesto dei LLM.",
-          "Esperienza con Reinforcement Learning, in particolare nel contesto dei LLM.",
-          "Esperienze con database relazionali (es. MariaDB, PostgreSQL), database NoSQL (es. MongoDB), database a grafi (e.g., Neo4J).",
-          "Esperienze nell’uso di strumenti di containerizzazione (es. Docker, Apptainer).",
-          "Esperienza negli strumenti CI/CD (es. GitLab CI/CD, GitHub actions).",
-          "Conoscenza di architetture software come microservizi, sistemi distribuiti, servizi web, API REST.",
-          "Sviluppo di Agenti AI.",
-          "Esperienza di lavoro e/o ricerca nel settore finanziario.",
-          "Esperienza nel settore della ricerca scientifica.",
-          "PhD in Machine Learning o formazione equivalente.",
-          "Esperienze di lavoro con cluster HPC.",
-          "Conoscenza di linguaggi aggiuntivi come Java, C++, Rust, R.",
-          "Conoscenza di metodologie DevOps e MLOps.",
-          "Conoscenza di una seconda lingua nazionale"
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -261,7 +215,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-nell-area-del-machine-learning-e-nlp-per-il-settore-finanziario-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u552",
@@ -437,28 +392,8 @@
           "Knowledge of at least one national Swiss language in addition to Italian and English.",
           "Strong communication, interpersonal and social skills."
         ],
-        "de": [
-          "Dottorato di ricerca (PhD) in sociologia, scienze politiche, scienze sociali o ambiti affini.",
-          "Produzione scientifica rilevante per i temi della posizione.",
-          "Esperienza comprovata nella ricerca qualitativa e partecipativa e in approcci collaborativi, inclusa la partecipazione attiva delle comunità interessate. L’esperienza in metodi quantitativi e/o misti costituisce titolo preferenziale.",
-          "Esperienza comprovata nella ricerca applicata presso università o scuole universitarie professionali, con acquisizione e gestione di progetti.",
-          "Esperienza significativa e riconosciuta nell’insegnamento universitario.",
-          "Aver contribuito, nel proprio percorso professionale, allo sviluppo istituzionale.",
-          "Esperienza dimostrabile nel trasferimento di conoscenze verso partner socio-economici, nonché partecipazione ad associazioni professionali o scientifiche.",
-          "Conoscenza di almeno una lingua nazionale svizzera oltre all’italiano e all’inglese.",
-          "Spiccate competenze comunicative, relazionali e sociali."
-        ],
-        "fr": [
-          "Dottorato di ricerca (PhD) in sociologia, scienze politiche, scienze sociali o ambiti affini.",
-          "Produzione scientifica rilevante per i temi della posizione.",
-          "Esperienza comprovata nella ricerca qualitativa e partecipativa e in approcci collaborativi, inclusa la partecipazione attiva delle comunità interessate. L’esperienza in metodi quantitativi e/o misti costituisce titolo preferenziale.",
-          "Esperienza comprovata nella ricerca applicata presso università o scuole universitarie professionali, con acquisizione e gestione di progetti.",
-          "Esperienza significativa e riconosciuta nell’insegnamento universitario.",
-          "Aver contribuito, nel proprio percorso professionale, allo sviluppo istituzionale.",
-          "Esperienza dimostrabile nel trasferimento di conoscenze verso partner socio-economici, nonché partecipazione ad associazioni professionali o scientifiche.",
-          "Conoscenza di almeno una lingua nazionale svizzera oltre all’italiano e all’inglese.",
-          "Spiccate competenze comunicative, relazionali e sociali."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -479,7 +414,8 @@
       "addressLocality": "manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54d",
@@ -571,7 +507,8 @@
       },
       "previousSlugs": [
         "collaboratrice-scientifica-collaboratore-scientifico-in-salute-di-precisione-abilitata-dall-ia-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54f",
@@ -634,33 +571,9 @@
           "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
           "Spirito di iniziativa, proattività e capacità di lavorare in team"
         ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria elettronica o titolo affine.",
-          "Basi scientifiche in uno dei campi citati sopra.",
-          "Buona conoscenza della lingua inglese.",
-          "Buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "Attitudine al ragionamento logico, forte senso tecnico e buone capacità pratiche",
-          "Spirito di iniziativa, proattività e capacità di lavorare in team"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -781,32 +694,8 @@
           "Initiative, flexibility, and ability to work in multidisciplinary and multicultural environments",
           "Excellent interpersonal and collaborative skills"
         ],
-        "de": [
-          "Dottorato di ricerca (PhD) in microelettronica",
-          "Esperienza comprovata nel design e nella validazione di ASIC digitali e misti (analogico/digitale)",
-          "Solida esperienza con il tool di progettazione Cadence e tools EDA",
-          "Ottima padronanza di C/C++, Python e familiarità con sistemi di controllo versione (ad es. Git)",
-          "Ottima padronanza di tool di simulazione numerica",
-          "Solida preparazione matematica",
-          "Capacità di lavorare in autonomia e di gestire scadenze e consegne di progetto",
-          "Storico di pubblicazioni scientifiche o brevetti nel settore della progettazione di circuiti integrati e in ambiti affini al presente bando",
-          "Comprovata capacità di lavorare in team interdisciplinari e internazionali",
-          "Spirito d’iniziativa, flessibilità e attitudine al lavoro in contesti multidisciplinari e multiculturali",
-          "Ottime capacità relazionali e collaborative"
-        ],
-        "fr": [
-          "Dottorato di ricerca (PhD) in microelettronica",
-          "Esperienza comprovata nel design e nella validazione di ASIC digitali e misti (analogico/digitale)",
-          "Solida esperienza con il tool di progettazione Cadence e tools EDA",
-          "Ottima padronanza di C/C++, Python e familiarità con sistemi di controllo versione (ad es. Git)",
-          "Ottima padronanza di tool di simulazione numerica",
-          "Solida preparazione matematica",
-          "Capacità di lavorare in autonomia e di gestire scadenze e consegne di progetto",
-          "Storico di pubblicazioni scientifiche o brevetti nel settore della progettazione di circuiti integrati e in ambiti affini al presente bando",
-          "Comprovata capacità di lavorare in team interdisciplinari e internazionali",
-          "Spirito d’iniziativa, flessibilità e attitudine al lavoro in contesti multidisciplinari e multiculturali",
-          "Ottime capacità relazionali e collaborative"
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -835,7 +724,8 @@
       },
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-di-elettronica-digitale-microelettronica-e-bioelettronica-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u54e",
@@ -900,36 +790,9 @@
           "della termodinamica e fluidodinamica e della simulazione.",
           "Buona capacità di comunicazione e di presentazione in inglese."
         ],
-        "en": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ],
-        "de": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ],
-        "fr": [
-          "La frequenza del corso di Master MSE.",
-          "A dipendenza del settore per cui si invia la propria candidatura, formazione Bachelor in ingegneria: meccanica, dei materiali, aerospaziale, chimica, energetica.",
-          "Interessi di ricerca multidisciplinare e forte background (a dipendenza del settore) nel campo:",
-          "dei materiali ceramici e compositi e della manifattura additiva (stampa 3D);",
-          "dei materiali polimerici e compositi;",
-          "dell’ingegneria meccanica;",
-          "della termodinamica e fluidodinamica e della simulazione.",
-          "Buona capacità di comunicazione e di presentazione in inglese."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -968,7 +831,8 @@
       "previousSlugs": [
         "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano",
         "bachelor-in-mse-ausbildung-in-maschinenbau-und-materialien-supsi-dti-lugano",
-        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano"
+        "baccalaureat-en-ingenierie-mecanique-et-materiaux-supsi-dti-lugano",
+        "assistant-professors-bachelor-in-education-mse-master-in-mechanical-engineering-and-materials-supsi-dti-lugano-l4u54e"
       ],
       "needsRetranslation": true
     },
@@ -1066,40 +930,8 @@
           "Knowledge of advanced microfluidic simulation.",
           "Familiarity with experimental characterization techniques and data analysis."
         ],
-        "de": [
-          "Background tecnico e competenze",
-          "Master MSE o laurea magistrale (minimo 90 ECTS) in ingegneria meccanica, microtecnica, meccatronica, ingegneria dei materiali o campi affini.",
-          "Competenze nella progettazione micromeccanica e modellazione CAD/CAE/CFD (preferibilmente Siemens NX, ANSYS o equivalenti).",
-          "Conoscenza dei principi di microfluidica e delle tecniche di microfabbricazione.",
-          "Esperienza sperimentale con strumentazione di laboratorio meccanico o microfluidico (microscopi, pompe a siringa, sistemi di flusso, strumenti di misura).",
-          "Familiarità con materiali e tecnologie compatibili con applicazioni biomedicali.",
-          "Soft skills",
-          "Capacità di lavorare in modo autonomo e in team interdisciplinari.",
-          "Orientamento alla sperimentazione pratica e alla prototipazione.",
-          "Interesse per la ricerca applicata e lo sviluppo tecnologico.",
-          "Buone capacità di comunicazione in inglese parlato e scritto.",
-          "Requisiti preferenziali",
-          "Esperienza nel campo dei dispositivi biomedicali o sistemi Organ-on-Chip.",
-          "Conoscenze di simulazione avanzata microfluidica.",
-          "Familiarità con tecniche di caratterizzazione sperimentale e analisi dati."
-        ],
-        "fr": [
-          "Background tecnico e competenze",
-          "Master MSE o laurea magistrale (minimo 90 ECTS) in ingegneria meccanica, microtecnica, meccatronica, ingegneria dei materiali o campi affini.",
-          "Competenze nella progettazione micromeccanica e modellazione CAD/CAE/CFD (preferibilmente Siemens NX, ANSYS o equivalenti).",
-          "Conoscenza dei principi di microfluidica e delle tecniche di microfabbricazione.",
-          "Esperienza sperimentale con strumentazione di laboratorio meccanico o microfluidico (microscopi, pompe a siringa, sistemi di flusso, strumenti di misura).",
-          "Familiarità con materiali e tecnologie compatibili con applicazioni biomedicali.",
-          "Soft skills",
-          "Capacità di lavorare in modo autonomo e in team interdisciplinari.",
-          "Orientamento alla sperimentazione pratica e alla prototipazione.",
-          "Interesse per la ricerca applicata e lo sviluppo tecnologico.",
-          "Buone capacità di comunicazione in inglese parlato e scritto.",
-          "Requisiti preferenziali",
-          "Esperienza nel campo dei dispositivi biomedicali o sistemi Organ-on-Chip.",
-          "Conoscenze di simulazione avanzata microfluidica.",
-          "Familiarità con tecniche di caratterizzazione sperimentale e analisi dati."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1128,7 +960,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl58",
@@ -1195,39 +1028,9 @@
           "Disponibilità e interesse per l’attività di ricerca",
           "Padronanza della lingua italiana, di una seconda lingua nazionale e dell’inglese"
         ],
-        "en": [
-          "Laurea magistrale in geoscienze o ambiti affini",
-          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
-          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
-          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
-          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
-          "Capacità di muoversi in terreni impervi e di alta montagna",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
-          "Disponibilità e interesse per l’attività di ricerca",
-          "Padronanza della lingua italiana, di una seconda lingua nazionale e dell’inglese"
-        ],
-        "de": [
-          "Laurea magistrale in geoscienze o ambiti affini",
-          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
-          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
-          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
-          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
-          "Capacità di muoversi in terreni impervi e di alta montagna",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
-          "Disponibilità e interesse per l’attività di ricerca",
-          "Padronanza della lingua italiana, di una seconda lingua nazionale e dell’inglese"
-        ],
-        "fr": [
-          "Laurea magistrale in geoscienze o ambiti affini",
-          "Conoscenze in geomorfologia/geologia applicata, con particolare accezione all’ambiente alpino",
-          "Esperienza di acquisizione di dati di monitoraggio sul campo e da telerilevamento",
-          "Conoscenza ed esperienza con i Sistemi Informativi Territoriali (GIS)",
-          "Esperienza con i principali software di elaborazione dati di telerilevamento (aerei e satellitari)",
-          "Capacità di muoversi in terreni impervi e di alta montagna",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione",
-          "Disponibilità e interesse per l’attività di ricerca",
-          "Padronanza della lingua italiana, di una seconda lingua nazionale e dell’inglese"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1339,39 +1142,9 @@
           "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
           "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
         ],
-        "en": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "de": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Master in Comunicazione visiva, Disegno industriale, Interaction design (o titolo affine) conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Auspicabili conoscenze di strumenti tecnici per il web design e di linguaggi di programmazione software.",
-          "Auspicabili conoscenze di linguaggi di programmazione hardware (arduino) e di tecniche e tecnologie di prototipazione rapida (stampa 3D, laser cutter, CNC).",
-          "Attitudini creative e spirito di iniziativa.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione interdisciplinare.",
-          "Capacità di lavorare in autonomia rispettando le scadenze stabilite.",
-          "Ottime conoscenze della lingua italiana. La conoscenza della lingua inglese e di una seconda lingua nazionale costituisce titolo preferenziale."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1461,7 +1234,7 @@
       "descriptionByLocale": {
         "it": "# Assistente con Bachelor in formazione Master of Arts in Interaction design\n\nIl Dipartimento ambiente costruzioni e design, con sede a Mendrisio, mette a concorso una posizione di\n, presso il\n\n## FabLab Laboratorio di fabbricazione digitale\n\n## e\n\n## Istituto Design\n. Entrata in funzione: settembre 2026.Grado di occupazione del 62.50 %.\n\n## Mansioni\n- Partecipare alle attività di gestione organizzativa, di disseminazione e mantenimento del FabLab Laboratorio di Fabbricazione digitale\n- Partecipare e fornire supporto allo sviluppo dei progetti nell’area di ricerca in interaction design\n\n## Requisiti\n- Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.\n- Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.\n- Ottima attidudine all’apprendimento di tecnologie per la prototipazione.\n- Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).\n- Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.\n- Precisione e cura dei dettagli.\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto a tempo determinato della durata di 3 anni.\n- Condivisione di attività e collaborazione con un team di ricercatori con vasta esperienza in progetti di ricerca e sviluppo nell'ambito dell’interaction design, della fabbricazione digitale e nelle aree della progettazione tangenti all’interazione.\n- Contatto diretto con professionisti del territorio e internazionali.\n- Opportunità di formare nuove competenze, sia pratiche che teoriche.\n- Inserimento in contesto di lavoro internazionale, giovane, dinamico e in continua evoluzione.\n- Attività stimolante e creativa in ambiente universitario.\n- Percorso di studio flessibile al Master of Arts in Interaction Design\n\n## Informazioni aggiuntive\nLa posizione è strettamente legata alla frequenza del Master in Interaction design (120 ECTS), con frequenza part-time e della durata di 3 anni.\nInformazioni supplementari possono essere richieste a\nMassimo Botta\n. Saranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 28 giugno 2026\ntramite l'apposito formulario.Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
         "en": "# Assistant with Bachelor's Degree / Master of Arts in Interaction Design\n\nThe Department of Environment, Construction and Design, based in Mendrisio, invites applications for the position of\n\n## Assistant with Bachelor's Degree in the Master of Arts in Interaction Design programme\n, at the\n\n## FabLab Digital Fabrication Laboratory and the Institute of Design\n. Start date: September 2026. Employment rate: 62.50%.\n\n## Responsibilities\n- Participating in the organisational management, dissemination, and maintenance of the FabLab Digital Fabrication Laboratory.\n- Participating in and providing support for the development of projects within the interaction design research area.\n\n## Requirements\n- Bachelor's degree in Visual Communication, Interior Architecture, Architecture, Product Design, Media Interaction Design, Design Engineering, or Design and Technology, obtained no more than three years ago.\n- Excellent proficiency in leading graphic design, image editing, and desktop publishing software.\n- Strong aptitude for learning prototyping technologies.\n- Knowledge of digital communication, web design languages and techniques, and/or computer programming, as well as 3D modelling and rapid prototyping technologies (3D printing, laser cutting) is considered an asset.\n- Creative mindset, initiative, and strong communication skills.\n- Precision and attention to detail.\n- Team-oriented attitude with a strong inclination towards collaboration.\n- Ability to work independently on design projects within set deadlines.\n- Flexibility and availability in pursuit of project objectives.\n- Good command of the English language. Knowledge of Italian is desirable and/or willingness to learn the language in order to integrate into an Italian-speaking work environment. Proficiency in a second national language will be considered an advantage.\n\n## We Offer\n- A fixed-term contract of 3 years.\n- The opportunity to share activities and collaborate with a team of experienced researchers working on research and development projects in interaction design, digital fabrication, and related design disciplines.\n- Direct contact with local and international professionals.\n- Opportunities to develop new competencies, both practical and theoretical.\n- Integration into an international, dynamic, and continuously evolving work environment.\n- Stimulating and creative work within an academic setting.\n- A flexible study pathway leading to the Master of Arts in Interaction Design.\n\n## Additional Information\nThis position is closely linked to enrolment in the Master of Arts in Interaction Design programme (120 ECTS), offered on a part-time basis over a period of 3 years.\nFor further information, please contact:\nMassimo Botta.\nOnly applications submitted by\n\n## 28 June 2026\nvia the designated application form will be considered.",
-        "de": "# Assistente con Bachelor in formazione Master of Arts in Interaction design\n\nIl Dipartimento ambiente costruzioni e design, con sede a Mendrisio, mette a concorso una posizione di\n, presso il\n\n## FabLab Laboratorio di fabbricazione digitale\n\n## e\n\n## Istituto Design\n. Entrata in funzione: settembre 2026.Grado di occupazione del 62.50 %.\n\n## Mansioni\n- Partecipare alle attività di gestione organizzativa, di disseminazione e mantenimento del FabLab Laboratorio di Fabbricazione digitale\n- Partecipare e fornire supporto allo sviluppo dei progetti nell’area di ricerca in interaction design\n\n## Requisiti\n- Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.\n- Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.\n- Ottima attidudine all’apprendimento di tecnologie per la prototipazione.\n- Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).\n- Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.\n- Precisione e cura dei dettagli.\n- Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.\n- Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.\n- Disponibilità e flessibilità per il raggiungimento degli obiettivi.\n- Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.\n\n## Offriamo\n- Contratto a tempo determinato della durata di 3 anni.\n- Condivisione di attività e collaborazione con un team di ricercatori con vasta esperienza in progetti di ricerca e sviluppo nell'ambito dell’interaction design, della fabbricazione digitale e nelle aree della progettazione tangenti all’interazione.\n- Contatto diretto con professionisti del territorio e internazionali.\n- Opportunità di formare nuove competenze, sia pratiche che teoriche.\n- Inserimento in contesto di lavoro internazionale, giovane, dinamico e in continua evoluzione.\n- Attività stimolante e creativa in ambiente universitario.\n- Percorso di studio flessibile al Master of Arts in Interaction Design\n\n## Informazioni aggiuntive\nLa posizione è strettamente legata alla frequenza del Master in Interaction design (120 ECTS), con frequenza part-time e della durata di 3 anni.\nInformazioni supplementari possono essere richieste a\nMassimo Botta\n. Saranno prese in considerazione unicamente le candidature inoltrate entro il\n\n## 28 giugno 2026\ntramite l'apposito formulario.Non sono accettate candidature incomplete, inviate ad altri indirizzi od oltre il termine stabilito.",
+        "de": "# Assistent mit Bachelor-in-Master-of-Arts-Ausbildung in Interaktionsdesign\n\nDie Abteilung für Umwelt, Bau und Design mit Sitz in Mendrisio schreibt einen Wettbewerb für eine Stelle aus\n, am\n\n## FabLab Digitales Fertigungslabor\n\n## e\n\n## Designinstitut\n. Inbetriebnahme: September 2026. Vermietungsgrad 62,50 %.\n\n## Pflichten\n- Beteiligen Sie sich an organisatorischen Management-, Verbreitungs- und Wartungsaktivitäten des FabLab Digital Manufacturing Laboratory\n- Mitwirkung und Unterstützung bei der Entwicklung von Projekten im Forschungsbereich Interaktionsdesign\n\n## Anforderungen\n- Bachelor in Visueller Kommunikation, Innenarchitektur, Architektur, Produktdesign und Medieninteraktionsdesign, Design Engineering oder Design und Technologie, der vor nicht mehr als drei Jahren abgeschlossen wurde.\n- Hervorragende Kenntnisse der wichtigsten Grafik-, Bildbearbeitungs- und Textlayoutprogramme.\n- Hervorragende Begabung für das Erlernen von Prototyping-Technologien.\n- Wünschenswerte Kenntnisse in digitaler Kommunikation, Webdesign-Sprachen und -Techniken und/oder Computerprogrammierung sowie 3D-Modellierung und Rapid Prototyping-Techniken und -Technologien (3D-Druck, Laserschneiden).\n- Kreative Einstellung, Initiativgeist und gute Kommunikationsfähigkeiten.\n- Präzision und Liebe zum Detail.\n- Einstellung zur Teamarbeit, mit starker Ausrichtung auf Zusammenarbeit.\n- Fähigkeit, selbstständig an Projektpfaden mit festgelegten Fristen zu arbeiten.\n- Verfügbarkeit und Flexibilität zur Zielerreichung.\n- Gute Kenntnisse der englischen Sprache. Wünschenswert sind Kenntnisse der italienischen Sprache und/oder die Bereitschaft, die Sprache für die Einbindung in einen italienischsprachigen Arbeitskontext zu erlernen. Kenntnisse einer zweiten Landessprache sind von Vorteil.\n\n## Wir bieten\n- Befristeter Vertrag mit einer Laufzeit von 3 Jahren.\n- Aufteilung der Aktivitäten und Zusammenarbeit mit einem Team von Forschern mit umfangreicher Erfahrung in Forschungs- und Entwicklungsprojekten im Bereich Interaktionsdesign, digitale Fertigung und in interaktionsbezogenen Designbereichen.\n- Direkter Kontakt mit lokalen und internationalen Fachleuten.\n- Möglichkeit, neue praktische und theoretische Fähigkeiten zu erlernen.\n- Einbindung in einen internationalen, jungen, dynamischen und sich ständig weiterentwickelnden Arbeitskontext.\n- Anregende und kreative Tätigkeit im universitären Umfeld.\n- Flexibler Studienweg zum Master of Arts in Interaction Design\n\n## Zusätzliche Informationen\nDie Stelle ist strikt an die Teilnahme am Master in Interaction Design (120 ECTS) gebunden, mit berufsbegleitender Teilnahme und einer Dauer von 3 Jahren.\nWeitere Informationen können bei angefordert werden\nMassimo Botta\n. Nur Bewerbungen eingereicht von\n\n## 28. Juni 2026\nüber das entsprechende Formular. Unvollständige Bewerbungen, die an andere Adressen oder nach Ablauf der festgelegten Frist gesendet werden, werden nicht akzeptiert.",
         "fr": "# Assistant avec une formation Bachelor en Master of Arts en Design d'interaction\n\nLe Département Environnement, Construction et Conception, basé à Mendrisio, propose un concours pour un poste de\n, au\n\n## FabLab Laboratoire de fabrication numérique\n\n##e\n\n## Institut de design\n. Entrée en exploitation : septembre 2026. Taux d'occupation de 62,50%.\n\n## Fonctions\n- Participer aux activités de gestion organisationnelle, de diffusion et de maintenance du FabLab Digital Manufacturing Laboratory\n- Participer et accompagner le développement de projets dans le domaine de recherche en design d'interaction\n\n## Exigences\n- Baccalauréat en communication visuelle, architecture d'intérieur, architecture, conception de produits et conception d'interactions médiatiques, ingénierie de conception ou conception et technologie obtenu il y a moins de trois ans.\n- Excellente connaissance des principaux programmes de graphisme, de traitement d'images et de mise en page de texte.\n- Excellente aptitude à l'apprentissage des technologies de prototypage.\n- Connaissance souhaitée de la communication numérique, des langages et techniques de conception web et/ou de la programmation informatique ainsi que des techniques et technologies de modélisation 3D et de prototypage rapide (impression 3D, découpe laser).\n- Attitudes créatives, esprit d'initiative et bonnes capacités de communication.\n- Précision et souci du détail.\n- Attitude envers le travail d'équipe, avec une forte orientation vers la collaboration.\n- Capacité à travailler de manière autonome sur des projets avec des délais établis.\n- Disponibilité et flexibilité pour atteindre les objectifs.\n- Bonne connaissance de la langue anglaise. La connaissance de la langue italienne est souhaitable et/ou la volonté d'apprendre la langue pour s'intégrer dans un contexte de travail italophone. La connaissance d'une deuxième langue nationale est un avantage.\n\n## Nous proposons\n- Contrat à durée déterminée d'une durée de 3 ans.\n- Partage d'activités et collaboration avec une équipe de chercheurs possédant une vaste expérience dans les projets de recherche et développement dans le domaine du design d'interaction, de la fabrication numérique et dans les domaines du design liés à l'interaction.\n- Contact direct avec des professionnels locaux et internationaux.\n- Possibilité de former de nouvelles compétences, tant pratiques que théoriques.\n- Inclusion dans un contexte de travail international, jeune, dynamique et en constante évolution.\n- Activité stimulante et créative en milieu universitaire.\n- Parcours d'études flexible vers le Master of Arts in Interaction Design\n\n## Informations supplémentaires\nLe poste est strictement lié à la fréquentation du Master in Interaction design (120 ECTS), à temps partiel et d'une durée de 3 ans.\nDes informations complémentaires peuvent être demandées auprès de\nMassimo Botta\n. Seules les candidatures soumises par\n\n## 28 juin 2026\nen utilisant le formulaire approprié. Les candidatures incomplètes envoyées à d’autres adresses ou après la date limite fixée ne seront pas acceptées."
       },
       "requirementsByLocale": {
@@ -1489,30 +1262,8 @@
           "Flexibility and availability in pursuit of project objectives.",
           "Good command of the English language. Knowledge of Italian is desirable and/or willingness to learn the language in order to integrate into an Italian-speaking work environment. Proficiency in a second national language will be considered an advantage."
         ],
-        "de": [
-          "Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Ottima attidudine all’apprendimento di tecnologie per la prototipazione.",
-          "Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).",
-          "Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
-          "Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Bachelor in Comunicazione visiva, Architettura d’interni, Architettura, design del prodotto e media interaction design, design engineering o design e tecnologia conseguito da non più di tre anni.",
-          "Ottime conoscenze dei principali programmi di grafica, di elaborazione immagini e d’impaginazione testi.",
-          "Ottima attidudine all’apprendimento di tecnologie per la prototipazione.",
-          "Auspicabili conoscenze in comunicazione digitale, di linguaggi e tecniche di progettazione web e/o programmazione informatica come pure di tecniche e tecnologie di modellazione 3D e prototipazione rapida (stampa 3D, taglio laser).",
-          "Attitudini creative, spirito di iniziativa e buone competenze di comunicazione.",
-          "Precisione e cura dei dettagli.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione.",
-          "Capacità di lavorare in autonomia su percorsi progettuali con scadenze stabilite.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Buone conoscenze della lingua inglese. Conoscenza della lingua italiana auspicabile e/o volontà ad imparare la lingua per l’inserimento in un contesto lavorativo italofono. La conoscenza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1619,28 +1370,8 @@
           "Developing your skills to perform long-term scientific research, from literature research, over project planning, execution, data analysis and publication.",
           "Opportunities to present results at international conferences."
         ],
-        "de": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ],
-        "fr": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1761,30 +1492,9 @@
           "Sostenibilità industriale.",
           "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
         ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in ingegneria o data science. Un’ammissione “su dossier” è possibile e da concordare.",
-          "Buone capacità di comunicazione e di presentazione in inglese.",
-          "Trasformazione digitale dei sistemi di produzione.",
-          "Sostenibilità industriale.",
-          "Robotica industriale, collaborativa e di servizio; Controllo di piattaforme mobili per applicazioni di ripristino superficiale mediante tecnologie laser pulsato."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1827,6 +1537,7 @@
         "bachelor-of-science-in-engineering-mse-am-isteps-institut-supsi-dti-lugano",
         "bachelor-of-science-in-engineering-mse-am-isteps-institute-supsi-dti-lugano",
         "bachelor-of-science-in-engineering-mse-at-isteps-institute-supsi-dti-lugano",
+        "assistant-bachelor-in-education-master-of-science-in-engineering-mse-at-isteps-supsi-dti-lugano",
         "baccalaureat-en-ingenierie-mse-a-l-institut-isteps-supsi-dti-lugano"
       ],
       "needsRetranslation": true
@@ -1894,36 +1605,9 @@
           "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
           "Sviluppo di applicazioni in ambito audio-visual processing."
         ],
-        "en": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ],
-        "de": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ],
-        "fr": [
-          "La frequenza del Master MSE nei profili di Computer Science o Data Science.",
-          "Formazione Bachelor in informatica o scienza dei dati.",
-          "Interessi di ricerca multidisciplinare in ambito ICT.",
-          "Buona capacità di comunicazione e di presentazione in inglese.",
-          "Sviluppo di applicazioni in ambito ingegneria del software in particolare; cloud-native application e sicurezza informatica.",
-          "Sviluppo di applicazioni in ambito data analysis e data processing.",
-          "Sviluppo di applicazioni in ambito realtà virtuale, realtà aumentata e realtà mista.",
-          "Sviluppo di applicazioni in ambito audio-visual processing."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1969,6 +1653,7 @@
         "bachelor-in-education-master-mse-in-informatik-oder-data-science-supsi-dti-lugano",
         "bachelor-assistenten-in-der-ausbildung-mse-masterabschluss-in-informatik-oder-data-science-supsi-dti-lugano",
         "bachelor-in-education-master-mse-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
+        "bachelor-s-assistants-in-training-mse-master-s-degree-in-computer-science-or-data-science-supsi-dti-lugano-l4u549",
         "baccalaureat-en-education-maitrise-en-informatique-ou-sciences-des-donnees-supsi-dti-lugano",
         "assistants-de-licence-en-formation-master-en-mse-en-informatique-ou-en-data-science-supsi-dti-lugano"
       ],
@@ -2033,30 +1718,9 @@
           "Buone capacità di comunicazione interpersonale.",
           "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
         ],
-        "en": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ],
-        "de": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ],
-        "fr": [
-          "La frequenza del Master MSE.",
-          "Formazione Bachelor in informatica o ingegneria.",
-          "Interessi di ricerca multidisciplinare nei settori del profilo di formazione in Data Science.",
-          "Solide conoscenze delle metodologie e dei linguaggi di programmazione come C++, Java, Python.",
-          "Buone capacità di comunicazione interpersonale.",
-          "È richiesta la conoscenza operativa della lingua inglese, parlata e scritta."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2082,6 +1746,7 @@
         "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano",
         "bachelor-in-ausbildung-master-mse-in-informatik-supsi-dti-lugano",
         "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano-l4u54a",
+        "bachelor-s-assistants-in-training-mse-master-in-data-science-supsi-dti-lugano-l4u54a",
         "baccalaureat-en-education-master-mse-en-data-science-supsi-dti-lugano",
         "assistants-de-licence-en-formation-mse-master-en-data-science-supsi-dti-lugano",
         "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-manno"
@@ -2167,36 +1832,9 @@
           "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
           "Flessibilità rivolta al buon funzionamento del Servizio."
         ],
-        "en": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "de": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "fr": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -2315,24 +1953,8 @@
           "High level of motivation, intellectual curiosity, and willingness to engage in collaborative and interdisciplinary work.",
           "Flexibility, enthusiasm, and a proactive attitude to contribute actively to the project and to the scientific life of the CARES."
         ],
-        "de": [
-          "Laurea magistrale in scienze sociali.",
-          "Ottima padronanza dell’italiano (parlato e scritto), del francese (parlato e scritto) e dell’inglese (parlato e scritto); la conoscenza del tedesco costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, incluso la raccolta e l’analisi di dati qualitativi.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo al fine di contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ],
-        "fr": [
-          "Laurea magistrale in scienze sociali.",
-          "Ottima padronanza dell’italiano (parlato e scritto), del francese (parlato e scritto) e dell’inglese (parlato e scritto); la conoscenza del tedesco costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, incluso la raccolta e l’analisi di dati qualitativi.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo al fine di contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "dottorato-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-sulla-scienza-e-la-tecnologia-supsi-dti-manno",
@@ -2359,7 +1981,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4s841",
@@ -2428,26 +2051,8 @@
           "High level of motivation, intellectual curiosity, and willingness to engage in collaborative and interdisciplinary work.",
           "Flexibility, enthusiasm, and a proactive attitude to contribute actively to the project and to the scientific life of the CARES."
         ],
-        "de": [
-          "Dottorato di ricerca in scienze sociali.",
-          "Ottima padronanza del francese o del tedesco (parlato e scritto), dell’italiano (parlato e scritto) e dell’inglese (parlato e scritto); conoscenza di una terza lingua nazionale, rispettivamente francese o tedesco (parlato), costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, comprese la raccolta e l’analisi dei dati.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Comprovata esperienza nella redazione di testi scientifici e nella comunicazione orale.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo per contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ],
-        "fr": [
-          "Dottorato di ricerca in scienze sociali.",
-          "Ottima padronanza del francese o del tedesco (parlato e scritto), dell’italiano (parlato e scritto) e dell’inglese (parlato e scritto); conoscenza di una terza lingua nazionale, rispettivamente francese o tedesco (parlato), costituisce titolo preferenziale.",
-          "Comprovata esperienza nella o forte interesse per la ricerca qualitativa ed etnografica, comprese la raccolta e l’analisi dei dati.",
-          "Esperienza comprovata in tematiche relative alle pratiche sanitarie e alla cura, alle conoscenze specialistiche e profane, all’antropologia/sociologia della salute e della malattia e/o agli studi della scienza e la tecnologia.",
-          "Comprovata esperienza nella redazione di testi scientifici e nella comunicazione orale.",
-          "Ottime capacità comunicative, capacità di risolvere i problemi e attitudine alla collaborazione.",
-          "Elevato livello di motivazione, curiosità intellettuale e disponibilità a impegnarsi in un lavoro collaborativo e interdisciplinare.",
-          "Flessibilità, entusiasmo e un atteggiamento proattivo per contribuire attivamente al progetto e alla vita scientifica del CARES."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-titolo-di-dottorato-postdoc-in-antropologia-sociologia-della-salute-e-della-malattia-e-o-studi-della-scienza-e-l4s841",
@@ -2482,7 +2087,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4rl4m",
@@ -2539,33 +2145,9 @@
           "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
           "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
         ],
-        "en": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ],
-        "de": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ],
-        "fr": [
-          "Master universitario in geologia, possibilmente con specializzazione in geologia strutturale o in petrologia metamorfica.",
-          "Ottime conoscenze della geologia regionale alpina, petrologia metamorfica e termodinamica.",
-          "Esperienza di rilevamento geologico e cartografia.",
-          "Capacità di lavorare in maniera autonoma rispettando le scadenze stabilite.",
-          "Capacità di muoversi in ambienti alpini di alta montagna.",
-          "Disponibilità a spostamenti anche prolungati nell’ambito del progetto e flessibilità per il raggiungimento degli obiettivi.",
-          "È richiesta una buona conoscenza della lingua inglese e possibilmente delle lingue nazionali."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "dottorando-dottoranda-in-processi-orogenici-alpini-supsi-dti-mendrisio",
@@ -2690,48 +2272,9 @@
           "familiarità con strumenti di laboratorio elettronico",
           "interesse per sistemi di controllo e automazione"
         ],
-        "en": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ],
-        "de": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ],
-        "fr": [
-          "Iscrizione o intenzione di iscriversi al Master MSE",
-          "Formazione Bachelor in ingegneria elettronica o disciplina affine",
-          "Buone competenze in elettronica analogica e digitale",
-          "Conoscenze di base nello sviluppo di sistemi embedded e acquisizione dati",
-          "Familiarità con sensori, attuatori e sistemi di misura",
-          "Interesse per applicazioni biomedicali e sistemi interdisciplinari",
-          "Conoscenza della lingua inglese",
-          "Buona capacità comunicativa e attitudine al lavoro in team",
-          "esperienza con microcontrollori e sistemi embedded",
-          "conoscenze di programmazione (C/C++, Python o equivalenti)",
-          "familiarità con strumenti di laboratorio elettronico",
-          "interesse per sistemi di controllo e automazione"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
