@@ -224,6 +224,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ticino-concorsi.title': 'Public Jobs in Ticino: How to Apply and What to Know',
     'blog.article.ticino-concorsi.excerpt': 'Updates on public job openings in Ticino, procedures, deadlines, and how to prepare effectively.',
     'blog.article.ticino-concorsi.imageAlt': 'Swiss public building with flags, urban scene',
+    'blog.article.lidl-biasca-ticino.title': 'Lidl Opens New Store in Biasca, Ticino',
+    'blog.article.lidl-biasca-ticino.excerpt': 'The new Lidl store in Biasca has been opened today, offering customers a wide range of high-quality products at competitive prices',
+    'blog.article.lidl-biasca-ticino.imageAlt': 'a Lidl store in Switzerland',
 };
 
 export default blogMetaChEn;

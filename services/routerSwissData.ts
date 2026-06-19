@@ -96,6 +96,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'bloccare-ridurre-ristorni-frontalieri-roma': { it: 'bloccare-ridurre-ristorni-frontalieri-roma', en: 'cross-border-workers-block-reduce-reimbursements-rome', de: 'grenzaer-blockieren-verringern-erstattung-roma', fr: 'frontaliers-bloquer-reduire-restitutions-rome' },
  'roche-basel-offerte-lavoro': { it: 'roche-basel-offerte-lavoro', en: 'roche-basel-job-openings', de: 'roche-basel-stellenangebote', fr: 'offres-d-emploi-roche-basel' },
  'ticino-concorsi': { it: 'ticino-concorsi', en: 'ticino-concorsi', de: 'ticino-stellenangebote', fr: 'ticino-offres-emploi' },
+ 'lidl-biasca-ticino': { it: 'lidl-biasca-ticino', en: 'lidl-biasca-switzerland', de: 'lidl-biasca-schweiz', fr: 'lidl-biasca-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

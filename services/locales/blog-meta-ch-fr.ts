@@ -224,6 +224,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ticino-concorsi.title': 'Concours publics Ticino : comment participer et quoi savoir',
     'blog.article.ticino-concorsi.excerpt': 'Mises à jour sur les concours publics du Ticino, procédures, échéances et comment se préparer au mieux.',
     'blog.article.ticino-concorsi.imageAlt': 'Bâtiment public suisse avec drapeaux, scène urbaine',
+    'blog.article.lidl-biasca-ticino.title': 'Lidl ouvre un nouveau magasin à Biasca',
+    'blog.article.lidl-biasca-ticino.excerpt': 'Le nouveau magasin Lidl de Biasca a été inauguré aujourd\'hui, offrant aux clients une large gamme de produits de haute qualité à des prix compétitifs',
+    'blog.article.lidl-biasca-ticino.imageAlt': 'un magasin Lidl en Suisse',
 };
 
 export default blogMetaChFr;

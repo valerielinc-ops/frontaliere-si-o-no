@@ -1,0 +1,40 @@
+{
+  "id": "lidl-biasca-ticino",
+  "slug": "lidl-biasca-ticino",
+  "publishedAt": "2026-06-19T02:07:48.237Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.127268192699193,
+    "confidence": 0.8,
+    "finalScore": 8.101814554159354,
+    "topK": [
+      {
+        "slug": "lidl-svizzera-ceo-elvetico",
+        "cosine": 0.8145237138752973
+      },
+      {
+        "slug": "svincolo-a2-biasca-rischi-frontaliere",
+        "cosine": 0.8048438766901781
+      },
+      {
+        "slug": "rinascita-praterie-sommerse-laghi-ticino",
+        "cosine": 0.7950224527018394
+      },
+      {
+        "slug": "passeggiata-lago-inverno-ascona-2026",
+        "cosine": 0.7946200840301677
+      },
+      {
+        "slug": "nuovo-farmaco-leucemia-linfatica-cronica",
+        "cosine": 0.7923231161368238
+      }
+    ],
+    "score": 8.101814554159354,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

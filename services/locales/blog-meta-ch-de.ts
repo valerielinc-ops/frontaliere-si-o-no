@@ -224,6 +224,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ticino-concorsi.title': 'Öffentliche Ausschreibungen im Tessin: Teilnahme & Tipps',
     'blog.article.ticino-concorsi.excerpt': 'Aktuelle Informationen zu öffentlichen Ausschreibungen im Tessin, Verfahren, Fristen und wie man sich optimal vorbereitet.',
     'blog.article.ticino-concorsi.imageAlt': 'Schweizerisches öffentliches Gebäude mit Flaggen, städtische Szene',
+    'blog.article.lidl-biasca-ticino.title': 'Lidl öffnet neue Filiale in Biasca',
+    'blog.article.lidl-biasca-ticino.excerpt': 'Heute wurde das neue Lidl-Geschäft in Biasca eröffnet, das Kunden eine breite Palette hochwertiger Produkte zu attraktiven Preisen bietet.',
+    'blog.article.lidl-biasca-ticino.imageAlt': 'ein Lidl-Geschäft in der Schweiz',
 };
 
 export default blogMetaChDe;
