@@ -97,6 +97,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'roche-basel-offerte-lavoro': { it: 'roche-basel-offerte-lavoro', en: 'roche-basel-job-openings', de: 'roche-basel-stellenangebote', fr: 'offres-d-emploi-roche-basel' },
  'ticino-concorsi': { it: 'ticino-concorsi', en: 'ticino-concorsi', de: 'ticino-stellenangebote', fr: 'ticino-offres-emploi' },
  'lidl-biasca-ticino': { it: 'lidl-biasca-ticino', en: 'lidl-biasca-switzerland', de: 'lidl-biasca-schweiz', fr: 'lidl-biasca-suisse' },
+ 'dogana-chiasso-svizzera': { it: 'dogana-chiasso-svizzera', en: 'chiasso-border-switzerland', de: 'grenze-chiasso-schweiz', fr: 'frontiere-chiasso-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

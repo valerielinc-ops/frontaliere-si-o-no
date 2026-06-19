@@ -227,6 +227,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lidl-biasca-ticino.title': 'Lidl ouvre un nouveau magasin à Biasca',
     'blog.article.lidl-biasca-ticino.excerpt': 'Le nouveau magasin Lidl de Biasca a été inauguré aujourd\'hui, offrant aux clients une large gamme de produits de haute qualité à des prix compétitifs',
     'blog.article.lidl-biasca-ticino.imageAlt': 'un magasin Lidl en Suisse',
+    'blog.article.dogana-chiasso-svizzera.title': 'Douane Chiasso',
+    'blog.article.dogana-chiasso-svizzera.excerpt': 'Découvrez les temps d\'attente à la douane de Chiasso et les procédures pour le transit en Suisse.',
+    'blog.article.dogana-chiasso-svizzera.imageAlt': 'Château de Chiasso et frontière italo-suisse',
 };
 
 export default blogMetaChFr;
