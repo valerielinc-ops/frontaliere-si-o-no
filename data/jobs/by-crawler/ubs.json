@@ -1,173 +1,7 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-06-19T13:35:04.588Z",
+  "assembledAt": "2026-06-19T22:48:11.546Z",
   "jobs": [
-    {
-      "id": "ubs-352697e41c47",
-      "slug": "tirocinante-ubs",
-      "slugByLocale": {
-        "en": "intern-ubs",
-        "it": "tirocinante-ubs",
-        "de": "praktikant-ubs",
-        "fr": "stagiaire-ubs"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Intern",
-      "titleByLocale": {
-        "en": "Intern",
-        "it": "Tirocinante",
-        "de": "Praktikant",
-        "fr": "Stagiaire"
-      },
-      "description": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
-      "descriptionByLocale": {
-        "en": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
-        "it": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
-        "de": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model",
-        "fr": "- work on projects that have real impact on clients\n- support our team of Wealth Management experts\n- gain product knowledge from internal and external partner\n- plan team marketing events and material\n- assist with the responsibilities of running an entrepreneurial business model"
-      },
-      "location": "Ticino",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=322427&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.519Z",
-      "addressLocality": "Ticino",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=322427&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "322427",
-        "department": "Global Wealth Management",
-        "region": "United States - Texas",
-        "cities": "",
-        "categoryRaw": "Business management, administration and support",
-        "jobType": ""
-      },
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "intern-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "intern-ubs"
-      ],
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-17T23:34:45.674Z"
-    },
-    {
-      "id": "ubs-7151d01e95f1",
-      "slug": "market-direttore-ubs-ticino",
-      "slugByLocale": {
-        "en": "market-director-ubs",
-        "it": "market-direttore-ubs-ticino",
-        "de": "market-direktor-ubs-ticino",
-        "fr": "directeur-du-marche-ubs-ticino"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Market Director",
-      "titleByLocale": {
-        "en": "Market Director",
-        "fr": "Market Director",
-        "it": "Market Direttore",
-        "de": "Market Direktor"
-      },
-      "description": "Do you know how to create and drive a culture of asset growth? And foster loyalty?\n\nWe’re looking for a Market Director to:\n\n• be responsible for financial results, overseeing cost and risk management\n• attract, recruit, develop and retain skilled talent\n• coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n\nApplications for this role can be submitted until August 16, 2026.",
-      "descriptionByLocale": {
-        "en": "Do you know how to create and drive a culture of asset growth? And foster loyalty?\n\nWe’re looking for a Market Director to:\n\n• be responsible for financial results, overseeing cost and risk management\n• attract, recruit, develop and retain skilled talent\n• coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n\nApplications for this role can be submitted until August 16, 2026.",
-        "it": "Do you know how to create and drive a culture of asset growth? And foster loyalty?\n\nWe’re looking for a Market Director to:\n\n• be responsible for financial results, overseeing cost and risk management\n• attract, recruit, develop and retain skilled talent\n• coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n\nApplications for this role can be submitted until August 16, 2026.",
-        "de": "Do you know how to create and drive a culture of asset growth? And foster loyalty?\n\nWe’re looking for a Market Director to:\n\n• be responsible for financial results, overseeing cost and risk management\n• attract, recruit, develop and retain skilled talent\n• coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n\nApplications for this role can be submitted until August 16, 2026.",
-        "fr": "Do you know how to create and drive a culture of asset growth? And foster loyalty?\n\nWe’re looking for a Market Director to:\n\n• be responsible for financial results, overseeing cost and risk management\n• attract, recruit, develop and retain skilled talent\n• coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• manage and resolve all escalated issues, including financial, reputational, compliance, supervisory, operational and HR governance risks\n\nApplications for this role can be submitted until August 16, 2026."
-      },
-      "location": "Ticino",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347233&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.518Z",
-      "addressLocality": "Ticino",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347233&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "347233",
-        "department": "Global Wealth Management",
-        "region": "United States - Colorado",
-        "cities": "",
-        "categoryRaw": "Management and Business Support",
-        "jobType": ""
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "market-director-ubs"
-        ],
-        "de": [
-          "market-director-ubs"
-        ],
-        "fr": [
-          "market-director-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "market-director-ubs"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-17T14:07:38.352Z"
-    },
     {
       "id": "ubs-4911ff682474",
       "slug": "client-associate-ubs",
@@ -199,7 +33,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347337&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.517Z",
+      "crawledAt": "2026-06-19T22:48:08.855Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -279,7 +113,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339219&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.516Z",
+      "crawledAt": "2026-06-19T22:48:08.853Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -365,7 +199,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343329&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.515Z",
+      "crawledAt": "2026-06-19T22:48:08.851Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,7 +276,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344509&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.514Z",
+      "crawledAt": "2026-06-19T22:48:08.850Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -528,7 +362,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346109&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.513Z",
+      "crawledAt": "2026-06-19T22:48:08.849Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -600,7 +434,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346475&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.512Z",
+      "crawledAt": "2026-06-19T22:48:08.847Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,7 +506,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347134&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.511Z",
+      "crawledAt": "2026-06-19T22:48:08.846Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -744,7 +578,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347132&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.510Z",
+      "crawledAt": "2026-06-19T22:48:08.844Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -824,7 +658,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346267&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.509Z",
+      "crawledAt": "2026-06-19T22:48:08.843Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -901,7 +735,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346064&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.508Z",
+      "crawledAt": "2026-06-19T22:48:08.842Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -978,7 +812,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346793&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T13:35:02.506Z",
+      "crawledAt": "2026-06-19T22:48:08.840Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1064,7 +898,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345513&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.505Z",
+      "crawledAt": "2026-06-19T22:48:08.838Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1136,7 +970,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345722&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.504Z",
+      "crawledAt": "2026-06-19T22:48:08.837Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1216,7 +1050,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342772&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T13:35:02.503Z",
+      "crawledAt": "2026-06-19T22:48:08.836Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1291,7 +1125,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345592&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.503Z",
+      "crawledAt": "2026-06-19T22:48:08.836Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1375,7 +1209,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345232&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.502Z",
+      "crawledAt": "2026-06-19T22:48:08.834Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1455,7 +1289,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347231&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.501Z",
+      "crawledAt": "2026-06-19T22:48:08.833Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1542,7 +1376,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347230&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.500Z",
+      "crawledAt": "2026-06-19T22:48:08.831Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1625,7 +1459,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344663&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T13:35:02.499Z",
+      "crawledAt": "2026-06-19T22:48:08.830Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1697,7 +1531,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344735&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.498Z",
+      "crawledAt": "2026-06-19T22:48:08.828Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1780,7 +1614,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344722&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.497Z",
+      "crawledAt": "2026-06-19T22:48:08.827Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1857,7 +1691,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344328&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.496Z",
+      "crawledAt": "2026-06-19T22:48:08.825Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1900,12 +1734,12 @@
     },
     {
       "id": "ubs-234618a4760b",
-      "slug": "ricerca-analista-industrials-ubs-ticino",
+      "slug": "research-analyst-industrials-ubs",
       "slugByLocale": {
         "en": "research-analyst-industrials-ubs",
-        "it": "ricerca-analista-industrials-ubs-ticino",
+        "it": "research-analyst-industrials-ubs",
         "de": "research-analyst-industrials-ubs",
-        "fr": "recherche-analyste-industrials-ubs-ticino"
+        "fr": "research-analyst-industrials-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1929,7 +1763,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345865&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.495Z",
+      "crawledAt": "2026-06-19T22:48:08.824Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -1970,10 +1804,11 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.347Z",
       "previousSlugs": [
-        "research-analyst-industrials-ubs"
+        "ricerca-analista-industrials-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "recherche-analyste-industrials-ubs-ticino",
           "research-analyst-industrials-ubs"
         ],
         "it": [
@@ -2012,7 +1847,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347350&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.494Z",
+      "crawledAt": "2026-06-19T22:48:08.822Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2092,7 +1927,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344822&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.493Z",
+      "crawledAt": "2026-06-19T22:48:08.821Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2134,6 +1969,78 @@
       "firstSeenAt": "2026-06-17T23:34:45.656Z"
     },
     {
+      "id": "ubs-d174a2b8c521",
+      "slug": "payment-cash-specialist-p-r-ubs",
+      "slugByLocale": {
+        "en": "payment-cash-specialist-p-r-ubs",
+        "it": "payment-cash-specialist-p-r-ubs",
+        "de": "payment-cash-specialist-p-r-ubs",
+        "fr": "payment-cash-specialist-p-r-ubs"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Payment cash Specialist P&R",
+      "titleByLocale": {
+        "en": "Payment cash Specialist P&R",
+        "it": "Payment cash Specialista P&R",
+        "de": "Payment cash Spezialist P&R",
+        "fr": "Payment cash Spécialiste P&R"
+      },
+      "description": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
+      "descriptionByLocale": {
+        "en": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
+        "it": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
+        "de": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
+        "fr": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries"
+      },
+      "location": "Ticino",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345338&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-19T22:48:08.819Z",
+      "addressLocality": "Ticino",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345338&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "_ubsMeta": {
+        "reqId": "345338",
+        "department": "Personal & Corporate Banking",
+        "region": "United States - Connecticut",
+        "cities": "",
+        "categoryRaw": "Operations",
+        "jobType": ""
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-17T23:34:45.655Z"
+    },
+    {
       "id": "ubs-4f78a16a464c",
       "slug": "speditionsfachfrau-mann-ubs",
       "slugByLocale": {
@@ -2164,7 +2071,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343821&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T13:35:02.492Z",
+      "crawledAt": "2026-06-19T22:48:08.819Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2248,7 +2155,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345259&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T13:35:02.492Z",
+      "crawledAt": "2026-06-19T22:48:08.819Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2302,78 +2209,6 @@
       }
     },
     {
-      "id": "ubs-d174a2b8c521",
-      "slug": "payment-cash-specialist-p-r-ubs",
-      "slugByLocale": {
-        "en": "payment-cash-specialist-p-r-ubs",
-        "it": "payment-cash-specialist-p-r-ubs",
-        "de": "payment-cash-specialist-p-r-ubs",
-        "fr": "payment-cash-specialist-p-r-ubs"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Payment cash Specialist P&R",
-      "titleByLocale": {
-        "en": "Payment cash Specialist P&R",
-        "it": "Payment cash Specialista P&R",
-        "de": "Payment cash Spezialist P&R",
-        "fr": "Payment cash Spécialiste P&R"
-      },
-      "description": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
-      "descriptionByLocale": {
-        "en": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
-        "it": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
-        "de": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries",
-        "fr": "• Process payment repairs for payment messages that have been formatted incorrectly to ensure best execution for our clients\n• Make sure payments are processed accurately and timely, and any delays are resolved quickly and efficiently\n• Perform efficiently in a fast-paced and changing environment, handling a wide variety of transaction types\n• Partner with internal stakeholders to ensure best in class service and create initiatives for process enhancements\n• Display superior communication and interpersonal skills, with proven ability to thoroughly resolve client inquiries"
-      },
-      "location": "Ticino",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345338&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.491Z",
-      "addressLocality": "Ticino",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345338&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "345338",
-        "department": "Personal & Corporate Banking",
-        "region": "United States - Connecticut",
-        "cities": "",
-        "categoryRaw": "Operations",
-        "jobType": ""
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-06-17T23:34:45.655Z"
-    },
-    {
       "id": "ubs-c061e82212a2",
       "slug": "client-associate-registered-ubs",
       "slugByLocale": {
@@ -2404,7 +2239,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347417&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.490Z",
+      "crawledAt": "2026-06-19T22:48:08.817Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2484,7 +2319,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347387&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.489Z",
+      "crawledAt": "2026-06-19T22:48:08.816Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2561,7 +2396,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346759&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.489Z",
+      "crawledAt": "2026-06-19T22:48:08.816Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2639,7 +2474,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345437&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.488Z",
+      "crawledAt": "2026-06-19T22:48:08.814Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2711,7 +2546,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346447&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.487Z",
+      "crawledAt": "2026-06-19T22:48:08.813Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2783,7 +2618,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343932&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.486Z",
+      "crawledAt": "2026-06-19T22:48:08.812Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2863,7 +2698,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347355&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.485Z",
+      "crawledAt": "2026-06-19T22:48:08.810Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -2943,7 +2778,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345182&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.484Z",
+      "crawledAt": "2026-06-19T22:48:08.809Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3015,7 +2850,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=347291&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.483Z",
+      "crawledAt": "2026-06-19T22:48:08.807Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3099,7 +2934,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=331793&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.482Z",
+      "crawledAt": "2026-06-19T22:48:08.806Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3186,7 +3021,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346835&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.481Z",
+      "crawledAt": "2026-06-19T22:48:08.804Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3266,7 +3101,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344855&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.480Z",
+      "crawledAt": "2026-06-19T22:48:08.803Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3338,7 +3173,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345078&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.479Z",
+      "crawledAt": "2026-06-19T22:48:08.801Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3378,14 +3213,14 @@
         }
       },
       "firstSeenAt": "2026-06-11T13:41:34.033Z",
+      "previousSlugs": [
+        "responsabile-locale-del-rischio-di-credito-corea-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
         ]
-      },
-      "previousSlugs": [
-        "responsabile-locale-del-rischio-di-credito-corea-ubs-ticino"
-      ]
+      }
     },
     {
       "id": "ubs-c7d442421116",
@@ -3418,7 +3253,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341661&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.478Z",
+      "crawledAt": "2026-06-19T22:48:08.800Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3490,7 +3325,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345716&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.477Z",
+      "crawledAt": "2026-06-19T22:48:08.799Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3532,6 +3367,150 @@
       "firstSeenAt": "2026-06-19T13:35:02.477Z"
     },
     {
+      "id": "ubs-c9beb6f52ff3",
+      "slug": "research-analyst-leveraged-loans-high-yield-bonds-cig-ubs",
+      "slugByLocale": {
+        "en": "research-analyst-leveraged-loans-high-yield-bonds-cig-ubs",
+        "it": "research-analyst-leveraged-loans-high-yield-bonds-cig-ubs",
+        "de": "research-analyst-leveraged-loans-high-yield-bonds-cig-ubs",
+        "fr": "research-analyst-leveraged-loans-high-yield-bonds-cig-ubs"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Research Analyst (Leveraged Loans & High Yield Bonds) - CIG",
+      "titleByLocale": {
+        "en": "Research Analyst (Leveraged Loans & High Yield Bonds) - CIG",
+        "it": "Ricerca Analista (Leveraged Loans & High Yield Bonds) - CIG",
+        "de": "Forschung Analyst (Leveraged Loans & High Yield Bonds) - CIG",
+        "fr": "Recherche Analyste (Leveraged Loans & High Yield Bonds) - CIG"
+      },
+      "description": "Are you an expert in researching credit investment opportunities? Do you have experience in leveraged loans and high yield bonds? Can you provide well-founded investment recommendations based on your analysis?\n\nWe are looking for Research Analyst - Leveraged Loans & High Yield Bonds to:\n\n• conduct fundamental credit analysis on leveraged loans and high yield bonds, including detailed review of financial statements, operating performance, and credit risk drivers\n• build and maintain financial models to project cash flows, assess leverage, covenant compliance, and downside scenarios\n• prepare high quality investment memoranda and support Portfolio Managers during Investment Committee discussions with clear analysis and recommendations\n• evaluate new primary market opportunities by reviewing offering materials, attending management or bank calls, and assessing deal terms and documentation\n• monitor secondary market positions, tracking performance, pricing, and credit developments, and flagging risks or opportunities to the investment team\n• support ongoing portfolio monitoring by updating models, preparing credit reviews, and contributing to risk, valuation, and investor reporting",
+      "descriptionByLocale": {
+        "en": "Are you an expert in researching credit investment opportunities? Do you have experience in leveraged loans and high yield bonds? Can you provide well-founded investment recommendations based on your analysis?\n\nWe are looking for Research Analyst - Leveraged Loans & High Yield Bonds to:\n\n• conduct fundamental credit analysis on leveraged loans and high yield bonds, including detailed review of financial statements, operating performance, and credit risk drivers\n• build and maintain financial models to project cash flows, assess leverage, covenant compliance, and downside scenarios\n• prepare high quality investment memoranda and support Portfolio Managers during Investment Committee discussions with clear analysis and recommendations\n• evaluate new primary market opportunities by reviewing offering materials, attending management or bank calls, and assessing deal terms and documentation\n• monitor secondary market positions, tracking performance, pricing, and credit developments, and flagging risks or opportunities to the investment team\n• support ongoing portfolio monitoring by updating models, preparing credit reviews, and contributing to risk, valuation, and investor reporting",
+        "it": "Are you an expert in researching credit investment opportunities? Do you have experience in leveraged loans and high yield bonds? Can you provide well-founded investment recommendations based on your analysis?\n\nWe are looking for Research Analyst - Leveraged Loans & High Yield Bonds to:\n\n• conduct fundamental credit analysis on leveraged loans and high yield bonds, including detailed review of financial statements, operating performance, and credit risk drivers\n• build and maintain financial models to project cash flows, assess leverage, covenant compliance, and downside scenarios\n• prepare high quality investment memoranda and support Portfolio Managers during Investment Committee discussions with clear analysis and recommendations\n• evaluate new primary market opportunities by reviewing offering materials, attending management or bank calls, and assessing deal terms and documentation\n• monitor secondary market positions, tracking performance, pricing, and credit developments, and flagging risks or opportunities to the investment team\n• support ongoing portfolio monitoring by updating models, preparing credit reviews, and contributing to risk, valuation, and investor reporting",
+        "de": "Are you an expert in researching credit investment opportunities? Do you have experience in leveraged loans and high yield bonds? Can you provide well-founded investment recommendations based on your analysis?\n\nWe are looking for Research Analyst - Leveraged Loans & High Yield Bonds to:\n\n• conduct fundamental credit analysis on leveraged loans and high yield bonds, including detailed review of financial statements, operating performance, and credit risk drivers\n• build and maintain financial models to project cash flows, assess leverage, covenant compliance, and downside scenarios\n• prepare high quality investment memoranda and support Portfolio Managers during Investment Committee discussions with clear analysis and recommendations\n• evaluate new primary market opportunities by reviewing offering materials, attending management or bank calls, and assessing deal terms and documentation\n• monitor secondary market positions, tracking performance, pricing, and credit developments, and flagging risks or opportunities to the investment team\n• support ongoing portfolio monitoring by updating models, preparing credit reviews, and contributing to risk, valuation, and investor reporting",
+        "fr": "Are you an expert in researching credit investment opportunities? Do you have experience in leveraged loans and high yield bonds? Can you provide well-founded investment recommendations based on your analysis?\n\nWe are looking for Research Analyst - Leveraged Loans & High Yield Bonds to:\n\n• conduct fundamental credit analysis on leveraged loans and high yield bonds, including detailed review of financial statements, operating performance, and credit risk drivers\n• build and maintain financial models to project cash flows, assess leverage, covenant compliance, and downside scenarios\n• prepare high quality investment memoranda and support Portfolio Managers during Investment Committee discussions with clear analysis and recommendations\n• evaluate new primary market opportunities by reviewing offering materials, attending management or bank calls, and assessing deal terms and documentation\n• monitor secondary market positions, tracking performance, pricing, and credit developments, and flagging risks or opportunities to the investment team\n• support ongoing portfolio monitoring by updating models, preparing credit reviews, and contributing to risk, valuation, and investor reporting"
+      },
+      "location": "Ticino",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344921&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-19T22:48:08.797Z",
+      "addressLocality": "Ticino",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344921&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "_ubsMeta": {
+        "reqId": "344921",
+        "department": "Asset Management",
+        "region": "United States - New York",
+        "cities": "",
+        "categoryRaw": "Research",
+        "jobType": ""
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-19T22:48:08.797Z"
+    },
+    {
+      "id": "ubs-10831a25ddf3",
+      "slug": "specialiste-credits-80-100-ubs",
+      "slugByLocale": {
+        "fr": "specialiste-credits-80-100-ubs",
+        "it": "specialiste-credits-80-100-ubs",
+        "en": "specialiste-credits-80-100-ubs",
+        "de": "specialiste-credits-80-100-ubs"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Spécialiste Crédits 80-100%",
+      "titleByLocale": {
+        "fr": "Spécialiste Crédits 80-100%",
+        "it": "Spécialiste Crédits 80-100%",
+        "en": "Spécialiste Crédits 80-100%",
+        "de": "Spécialiste Crédits 80-100%"
+      },
+      "description": "Êtes-vous passionné par les prêts bancaires ? Vous êtes autonome, fiable et possédez une grande conscience professionnelle ? Vous appréciez travailler dans un environnement dynamique et stimulant où les objectifs vous motivent ? Si vous avez répondu oui à ces questions, alors rejoignez notre équipe Credit Services et faites partie d'une entreprise où votre talent sera reconnu et valorisé.\n\nEn tant que spécialiste crédits, vous serez chargé de :\n\n• traiter les demandes de prêt approuvées à l'échelle nationale, en jouant un rôle clé dans la réalisation des projets de nos clients\n• préparer les contrats de crédit avec les documents de sûreté appropriés, assurant ainsi la documentation nécessaire à nos prêts\n• saisir et gérer les crédits et garanties (p.ex. les cédules hypothécaires, polices et cautions)\n• emettre les promesses de paiement et leur exécution\n• assurer la correspondance et le dialogue avec les registres fonciers, notaires, banques et compagnies d’assurance, établissant des relations de confiance avec nos partenaires\n• maintenir des contacts professionnels avec les conseillers à la clientèle, les Credit Officers et les services juridiques",
+      "descriptionByLocale": {
+        "fr": "Êtes-vous passionné par les prêts bancaires ? Vous êtes autonome, fiable et possédez une grande conscience professionnelle ? Vous appréciez travailler dans un environnement dynamique et stimulant où les objectifs vous motivent ? Si vous avez répondu oui à ces questions, alors rejoignez notre équipe Credit Services et faites partie d'une entreprise où votre talent sera reconnu et valorisé.\n\nEn tant que spécialiste crédits, vous serez chargé de :\n\n• traiter les demandes de prêt approuvées à l'échelle nationale, en jouant un rôle clé dans la réalisation des projets de nos clients\n• préparer les contrats de crédit avec les documents de sûreté appropriés, assurant ainsi la documentation nécessaire à nos prêts\n• saisir et gérer les crédits et garanties (p.ex. les cédules hypothécaires, polices et cautions)\n• emettre les promesses de paiement et leur exécution\n• assurer la correspondance et le dialogue avec les registres fonciers, notaires, banques et compagnies d’assurance, établissant des relations de confiance avec nos partenaires\n• maintenir des contacts professionnels avec les conseillers à la clientèle, les Credit Officers et les services juridiques",
+        "it": "Êtes-vous passionné par les prêts bancaires ? Vous êtes autonome, fiable et possédez une grande conscience professionnelle ? Vous appréciez travailler dans un environnement dynamique et stimulant où les objectifs vous motivent ? Si vous avez répondu oui à ces questions, alors rejoignez notre équipe Credit Services et faites partie d'une entreprise où votre talent sera reconnu et valorisé.\n\nEn tant que spécialiste crédits, vous serez chargé de :\n\n• traiter les demandes de prêt approuvées à l'échelle nationale, en jouant un rôle clé dans la réalisation des projets de nos clients\n• préparer les contrats de crédit avec les documents de sûreté appropriés, assurant ainsi la documentation nécessaire à nos prêts\n• saisir et gérer les crédits et garanties (p.ex. les cédules hypothécaires, polices et cautions)\n• emettre les promesses de paiement et leur exécution\n• assurer la correspondance et le dialogue avec les registres fonciers, notaires, banques et compagnies d’assurance, établissant des relations de confiance avec nos partenaires\n• maintenir des contacts professionnels avec les conseillers à la clientèle, les Credit Officers et les services juridiques",
+        "en": "Êtes-vous passionné par les prêts bancaires ? Vous êtes autonome, fiable et possédez une grande conscience professionnelle ? Vous appréciez travailler dans un environnement dynamique et stimulant où les objectifs vous motivent ? Si vous avez répondu oui à ces questions, alors rejoignez notre équipe Credit Services et faites partie d'une entreprise où votre talent sera reconnu et valorisé.\n\nEn tant que spécialiste crédits, vous serez chargé de :\n\n• traiter les demandes de prêt approuvées à l'échelle nationale, en jouant un rôle clé dans la réalisation des projets de nos clients\n• préparer les contrats de crédit avec les documents de sûreté appropriés, assurant ainsi la documentation nécessaire à nos prêts\n• saisir et gérer les crédits et garanties (p.ex. les cédules hypothécaires, polices et cautions)\n• emettre les promesses de paiement et leur exécution\n• assurer la correspondance et le dialogue avec les registres fonciers, notaires, banques et compagnies d’assurance, établissant des relations de confiance avec nos partenaires\n• maintenir des contacts professionnels avec les conseillers à la clientèle, les Credit Officers et les services juridiques",
+        "de": "Êtes-vous passionné par les prêts bancaires ? Vous êtes autonome, fiable et possédez une grande conscience professionnelle ? Vous appréciez travailler dans un environnement dynamique et stimulant où les objectifs vous motivent ? Si vous avez répondu oui à ces questions, alors rejoignez notre équipe Credit Services et faites partie d'une entreprise où votre talent sera reconnu et valorisé.\n\nEn tant que spécialiste crédits, vous serez chargé de :\n\n• traiter les demandes de prêt approuvées à l'échelle nationale, en jouant un rôle clé dans la réalisation des projets de nos clients\n• préparer les contrats de crédit avec les documents de sûreté appropriés, assurant ainsi la documentation nécessaire à nos prêts\n• saisir et gérer les crédits et garanties (p.ex. les cédules hypothécaires, polices et cautions)\n• emettre les promesses de paiement et leur exécution\n• assurer la correspondance et le dialogue avec les registres fonciers, notaires, banques et compagnies d’assurance, établissant des relations de confiance avec nos partenaires\n• maintenir des contacts professionnels avec les conseillers à la clientèle, les Credit Officers et les services juridiques"
+      },
+      "location": "Ticino",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346056&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-19T22:48:08.796Z",
+      "addressLocality": "Ticino",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Finanza",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=346056&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "_ubsMeta": {
+        "reqId": "346056",
+        "department": "Personal & Corporate Banking",
+        "region": "Suisse - Plateau",
+        "cities": "",
+        "categoryRaw": "Opérations",
+        "jobType": ""
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-06-19T22:48:08.796Z"
+    },
+    {
       "id": "ubs-9ac838b2f2f5",
       "slug": "internship-in-client-lifecycle-management-ubs",
       "slugByLocale": {
@@ -3562,7 +3541,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345643&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.476Z",
+      "crawledAt": "2026-06-19T22:48:08.794Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3634,7 +3613,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344719&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T13:35:02.476Z",
+      "crawledAt": "2026-06-19T22:48:08.794Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3707,7 +3686,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=330082&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.475Z",
+      "crawledAt": "2026-06-19T22:48:08.793Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3750,12 +3729,12 @@
     },
     {
       "id": "ubs-106f54959c4b",
-      "slug": "data-analista-ubs-ticino",
+      "slug": "data-analyst-ubs",
       "slugByLocale": {
         "en": "data-analyst-ubs",
-        "it": "data-analista-ubs-ticino",
+        "it": "data-analyst-ubs",
         "de": "data-analyst-ubs",
-        "fr": "data-analyste-ubs-ticino"
+        "fr": "data-analyst-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3779,7 +3758,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345358&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.474Z",
+      "crawledAt": "2026-06-19T22:48:08.791Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
@@ -3819,17 +3798,18 @@
         }
       },
       "firstSeenAt": "2026-06-19T13:35:02.474Z",
+      "previousSlugs": [
+        "data-analista-ubs-ticino"
+      ],
       "previousSlugsByLocale": {
-        "it": [
+        "fr": [
+          "data-analyste-ubs-ticino",
           "data-analyst-ubs"
         ],
-        "fr": [
+        "it": [
           "data-analyst-ubs"
         ]
-      },
-      "previousSlugs": [
-        "data-analyst-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-f83bf5bc3810",
@@ -3862,7 +3842,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343311&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:35:02.473Z",
+      "crawledAt": "2026-06-19T22:48:08.790Z",
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
