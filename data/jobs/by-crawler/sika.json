@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-06-18T23:33:09.693Z",
+  "assembledAt": "2026-06-19T11:26:43.092Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -1145,80 +1145,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sika-36fc23c257f2",
-      "slug": "accounting-specialista-financial-accounting-50-sika-baar",
-      "slugByLocale": {
-        "it": "accounting-specialista-financial-accounting-50-sika-baar",
-        "en": "accounting-specialist-financial-accounting-50-sika-ch",
-        "de": "accounting-specialist-financial-accounting-50-sika-ch",
-        "fr": "accounting-specialiste-financial-accounting-50-sika-baar"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Accounting Specialist – Financial Accounting (50%)",
-      "titleByLocale": {
-        "it": "Accounting Specialista – Financial Accounting (50%)",
-        "en": "Accounting Specialist – Financial Accounting (50%)",
-        "de": "Accounting Spezialist – Financial Accounting (50%)",
-        "fr": "Accounting Spécialiste – Financial Accounting (50%)"
-      },
-      "description": "Selbständige Führung von Haupt- und Nebenbüchern Verantwortung für die Debitoren- und Kreditorenbuchhaltung Durchführung und Abstimmung von Intercompany-Transaktionen inkl. quartalsweiser Abstimmungen Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen nach OR und IFRS Erstellung der MWST-Abrechnungen sowie Umsatzabstimmungen Analyse und Aufbereitung von Finanzkennzahlen und Reports Mitwirkung beim internen Kontrollsystem (IKS) Mitarbeit und Übernahme von Teilprojekten zur Optimierung und Digitalisierung von Finanzprozessen",
-      "descriptionByLocale": {
-        "it": "Gestione indipendente dei conti principali e secondari Responsabilità dei conti crediti e dei conti pagabili Attuazione e coordinamento delle operazioni intercompany, comprese le conciliazioni trimestrali Partecipazione a conti mensili, trimestrali e annuali secondo OR e IFRS Preparazione dei conti IVA e riconciliazione delle entrate Analisi e preparazione dei dati finanziari e relazioni Partecipazione al sistema di controllo interno (IKS) Partecipazione e assunzione di sottoprogetti di ottimizzazione delle cifre finanziarie",
-        "en": "Independent management of main and secondary accounts Responsibility for the accounts receivable and accounts payable Implementation and coordination of intercompany transactions including quarterly reconciliations Participation in monthly, quarterly and annual accounts according to OR and IFRS Preparation of VAT accounts as well as revenue reconciliation Analysis and preparation of financial figures and reports Participation in the internal control system (IKS) Participation and assumption of subprojects for the optimization and digitization of financial processes",
-        "de": "Selbständige Führung von Haupt- und Nebenbüchern Verantwortung für die Debitoren- und Kreditorenbuchhaltung Durchführung und Abstimmung von Intercompany-Transaktionen inkl. quartalsweiser Abstimmungen Mitarbeit bei Monats-, Quartals- und Jahresabschlüssen nach OR und IFRS Erstellung der MWST-Abrechnungen sowie Umsatzabstimmungen Analyse und Aufbereitung von Finanzkennzahlen und Reports Mitwirkung beim internen Kontrollsystem (IKS) Mitarbeit und Übernahme von Teilprojekten zur Optimierung und Digitalisierung von Finanzprozessen",
-        "fr": "Gestion indépendante des comptes principaux et secondaires Responsabilité des comptes débiteurs et créditeurs Mise en œuvre et coordination des opérations interentreprises, y compris rapprochements trimestriels Participation aux comptes mensuels, trimestriels et annuels conformément aux OR et aux IFRS Préparation des comptes de TVA et rapprochement des recettes Analyse et établissement des chiffres et rapports financiers Participation au système de contrôle interne Participation et hypothèse des sous-projets pour l'optimisation et la numérisation des processus financiers"
-      },
-      "location": "Baar, Canton of Zug, Switzerland",
-      "canton": "ZG",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-92d05c4c-329f-4781-a49d-615338512dd2.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:32:45.358Z",
-      "addressLocality": "Baar",
-      "postalCode": "6341",
-      "streetAddress": "",
-      "addressRegion": "Canton of Zug",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-92d05c4c-329f-4781-a49d-615338512dd2.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "accounting-specialist-financial-accounting-50-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "accounting-specialist-financial-accounting-50-sika-ch"
-        ],
-        "fr": [
-          "accounting-specialist-financial-accounting-50-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:57:18.592Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
           "unitText": "YEAR"
         }
       }
