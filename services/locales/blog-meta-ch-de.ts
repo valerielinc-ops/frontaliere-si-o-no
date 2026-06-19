@@ -230,6 +230,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dogana-chiasso-svizzera.title': 'Grenzgänger-Dogana Chiasso: Wartezeiten und Verfahren',
     'blog.article.dogana-chiasso-svizzera.excerpt': 'Erfahren Sie die Wartezeiten an der Grenze Chiasso und die dazugehörigen Verfahren für den Grenzübertritt in die Schweiz.',
     'blog.article.dogana-chiasso-svizzera.imageAlt': 'Schloss Chiasso und Schweizer-Italienische Grenze',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Quellensteuer Grenzgänger',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Quellensteuer für Grenzgänger im Tessin: Was sie beinhaltet, wen sie betrifft, wo sie gilt. Daten und Verfahren für Arbeitnehmer und Unternehmen.',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Blick auf Lugano und die Grenzregion, Grenzgänger-Arbeitsgebiet.',
 };
 
 export default blogMetaChDe;

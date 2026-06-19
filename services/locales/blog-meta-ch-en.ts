@@ -230,6 +230,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dogana-chiasso-svizzera.title': 'Chiasso Customs',
     'blog.article.dogana-chiasso-svizzera.excerpt': 'Discover the waiting times at Chiasso customs and the procedures for transiting through Switzerland.',
     'blog.article.dogana-chiasso-svizzera.imageAlt': 'Chiasso Castle and Swiss-Italian border',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Withholding tax for cross-border workers in Ticino: updated guide',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Withholding tax for cross-border workers in Ticino: what it covers, who it affects, and where it applies. Data and procedures for employees and companies.',
+    'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'View over Lugano and the border region, cross-border employment area.',
 };
 
 export default blogMetaChEn;
