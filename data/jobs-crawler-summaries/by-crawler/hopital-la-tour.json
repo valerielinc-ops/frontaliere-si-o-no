@@ -1,18 +1,19 @@
 {
   "key": "hopital-la-tour",
   "label": "Hôpital de La Tour",
-  "generatedAt": "2026-06-18T22:55:57.326Z",
+  "generatedAt": "2026-06-19T12:45:42.423Z",
   "total": 11,
-  "newCount": 2,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 11,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3180,
-  "avgDurationMs": 3180,
+  "durationMs": 3292,
+  "avgDurationMs": 3292,
   "durationHistory": [
-    3180
+    3292
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-la-tour-b57bfa5d02dd",
       "slug": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin",
@@ -20,13 +21,13 @@
       "companyKey": "hopital-la-tour",
       "companyDomain": "la-tour.ch",
       "title": "Infirmier (-ière) de nuit en Médecine 2 - CDI 70%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Meyrin",
       "canton": "GE",
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-de-nuit-en-medecine-2-cdi-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.318Z",
+      "crawledAt": "2026-06-19T12:45:40.304Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-de-nuit-en-medecine-2-cdi-70",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-18T22:55:55.318Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -56,13 +58,13 @@
       "companyKey": "hopital-la-tour",
       "companyDomain": "la-tour.ch",
       "title": "Aide Hospitalier(-ière) en Médecine 2 - CDM 6 mois à 70%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Meyrin",
       "canton": "GE",
       "url": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.327Z",
+      "crawledAt": "2026-06-19T12:45:40.322Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -77,16 +79,15 @@
       "featured": false,
       "postedDate": "2026-06-18",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-06-18T22:55:55.327Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hopital-la-tour-81ab730d13f0",
       "slug": "dieteticien-ne-en-cdi-80-hopital-la-tour-meyrin",
@@ -100,7 +101,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/dieteticien-ne-en-cdi-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.329Z",
+      "crawledAt": "2026-06-19T12:45:40.324Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -116,11 +117,11 @@
       "postedDate": "2026-06-11",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/dieteticien-ne-en-cdi-80",
       "firstSeenAt": "2026-06-11T12:47:07.951Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -137,7 +138,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdi-50",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.331Z",
+      "crawledAt": "2026-06-19T12:45:40.326Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -153,11 +154,11 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdi-50",
       "firstSeenAt": "2026-06-10T22:49:02.287Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -174,7 +175,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.333Z",
+      "crawledAt": "2026-06-19T12:45:40.327Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -190,11 +191,11 @@
       "postedDate": "2026-06-10",
       "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-puericultrice-en-pediatrie-cdm-9-mois-80",
       "firstSeenAt": "2026-06-10T22:49:02.296Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -211,7 +212,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/secretaire-medicale-au-service-des-urgences-cdi-70",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.335Z",
+      "crawledAt": "2026-06-19T12:45:40.328Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -248,7 +249,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/medecin-urgentiste-senior",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.336Z",
+      "crawledAt": "2026-06-19T12:45:40.330Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -285,7 +286,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/infirmier-ere-de-nuit-en-medecine-1-cdm-7-mois-80",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.337Z",
+      "crawledAt": "2026-06-19T12:45:40.331Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -322,7 +323,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/physiotherapeute-orientee-sport-football-feminin-40-a-60-cdi-40-au-servette-fc-feminin-equipe-professionnelle",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.339Z",
+      "crawledAt": "2026-06-19T12:45:40.333Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -359,7 +360,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/stagiaire-en-business-intelligence",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.341Z",
+      "crawledAt": "2026-06-19T12:45:40.335Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -396,7 +397,7 @@
       "url": "https://recrutement.latour.ch/nos-offres/chef.fe-de-clinique-medecin-praticien-hospitalier",
       "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:55:55.342Z",
+      "crawledAt": "2026-06-19T12:45:40.336Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -421,46 +422,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hopital-la-tour-bfe052f11f0e",
-      "slug": "infermiera-presso-i-servizi-di-emergenza-cdm-4-mesi-70-hopital-de-la-tour-meyrin",
-      "company": "Hôpital de La Tour",
-      "companyKey": "hopital-la-tour",
-      "companyDomain": "la-tour.ch",
-      "title": "Infirmier (-ière) au Service des Urgences - CDM 4 mois 70%",
-      "needsRetranslation": false,
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://recrutement.latour.ch/nos-offres/infirmier-iere-au-service-des-urgences-cdm-4-mois-70",
-      "source": "Hôpital de La Tour Dedicated Parser (VD emploi platform)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T12:27:31.552Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1217",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "applyUrl": "https://recrutement.latour.ch/nos-offres/infirmier-iere-au-service-des-urgences-cdm-4-mois-70",
-      "firstSeenAt": "2026-06-05T22:08:45.258Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
