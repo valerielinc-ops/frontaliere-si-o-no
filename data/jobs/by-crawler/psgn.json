@@ -53,12 +53,18 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
         "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
-        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
+        "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg",
+        "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "dipl-professionista-della-salute-hf-fh-psychiatrie-st-gallen-wil-sg",
+        "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+          "dipl-ing-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg",
+          "dipl-professionista-della-salute-hf-fh-psychiatrie-st-gallen-wil-sg",
+          "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
           "infirmier-ere-diplome-e-es-hes-psychiatrie-st-gallen-wil-sg"
@@ -130,11 +136,49 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-psgn-wil-sg"
+          "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+          "pflegepraktikant-in-psgn-wil-sg",
+          "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
+          "sachbearbeiterin-sachbearbeiter-psychiatrie-st-gallen-wil-sg",
+          "sachbearbeiterin-sachbearbeiter-psgn-wil-sg",
+          "neuropsicologo-neuropsicologo-psychiatrie-st-gallen-wil-sg",
+          "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg",
+          "neuropsychologin-neuropsychologe-psgn-wil-sg",
+          "neuropsychologist-neuropsychologist-psychiatrie-st-gallen-wil-sg",
+          "kaufmannisches-praktikum-psgn-wil-sg-2",
+          "kaufmannisches-praktikum-psychiatrie-st-gallen-wil-sg",
+          "kaufmannisches-praktikum-psgn-wil-sg",
+          "stage-commerciale-psychiatrie-st-gallen-wil-sg-31a5b0",
+          "commercial-internship-psychiatrie-st-gallen-wil-sg-31a5b0",
+          "stage-commercial-psychiatrie-st-gallen-wil-sg-31a5b0",
+          "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+          "commercial-internship-psychiatrie-st-gallen-wil-sg",
+          "stage-commercial-psychiatrie-st-gallen-wil-sg",
+          "stage-commerciale-psychiatrie-st-gallen-wil-sg-4ln01i",
+          "ergoterapeuta-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-psgn-wil-sg"
+        "pflegepraktikant-in-psychiatrie-st-gallen-wil-sg",
+        "pflegepraktikant-in-psgn-wil-sg",
+        "nursing-practitioner-in-psychiatrie-st-gallen-wil-sg",
+        "sachbearbeiterin-sachbearbeiter-psychiatrie-st-gallen-wil-sg",
+        "sachbearbeiterin-sachbearbeiter-psgn-wil-sg",
+        "neuropsicologo-neuropsicologo-psychiatrie-st-gallen-wil-sg",
+        "neuropsychologin-neuropsychologe-psychiatrie-st-gallen-wil-sg",
+        "neuropsychologin-neuropsychologe-psgn-wil-sg",
+        "neuropsychologist-neuropsychologist-psychiatrie-st-gallen-wil-sg",
+        "kaufmannisches-praktikum-psgn-wil-sg-2",
+        "kaufmannisches-praktikum-psychiatrie-st-gallen-wil-sg",
+        "kaufmannisches-praktikum-psgn-wil-sg",
+        "stage-commerciale-psychiatrie-st-gallen-wil-sg-31a5b0",
+        "commercial-internship-psychiatrie-st-gallen-wil-sg-31a5b0",
+        "stage-commercial-psychiatrie-st-gallen-wil-sg-31a5b0",
+        "stage-commerciale-psychiatrie-st-gallen-wil-sg",
+        "commercial-internship-psychiatrie-st-gallen-wil-sg",
+        "stage-commercial-psychiatrie-st-gallen-wil-sg",
+        "stage-commerciale-psychiatrie-st-gallen-wil-sg-4ln01i",
+        "ergoterapeuta-psychiatrie-st-gallen-wil-sg"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -296,14 +340,18 @@
           "oberarztin-oberarzt-psgn-wil-sg"
         ],
         "en": [
-          "oberarztin-oberarzt-psgn-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "senior-physician-psychiatrie-st-gallen-wil-sg"
         ],
         "fr": [
-          "oberarztin-oberarzt-psgn-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "medecin-principal-psychiatrie-st-gallen-wil-sg"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-psgn-wil-sg"
+        "oberarztin-oberarzt-psgn-wil-sg",
+        "senior-physician-psychiatrie-st-gallen-wil-sg",
+        "medecin-principal-psychiatrie-st-gallen-wil-sg"
       ]
     },
     {
@@ -368,7 +416,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:55:13.879Z"
+      "firstSeenAt": "2026-06-18T12:55:13.879Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
+      ]
     },
     {
       "id": "psgn-84bdb436c83b",
@@ -432,7 +488,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T12:55:13.160Z"
+      "firstSeenAt": "2026-06-18T12:55:13.160Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg"
+      ]
     },
     {
       "id": "psgn-eed600e95421",
