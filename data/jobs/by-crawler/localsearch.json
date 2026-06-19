@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-06-18T23:11:27.017Z",
+  "assembledAt": "2026-06-19T12:59:02.240Z",
   "jobs": [
     {
       "id": "localsearch-dbae903f8a6d",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/310123-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:24.491Z",
+      "crawledAt": "2026-06-19T12:58:59.713Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -90,6 +90,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -136,7 +137,7 @@
       "url": "https://emp.jobylon.com/jobs/310141-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:23.675Z",
+      "crawledAt": "2026-06-19T12:58:58.903Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,6 +194,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://emp.jobylon.com/jobs/310143-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:22.644Z",
+      "crawledAt": "2026-06-19T12:58:58.019Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,6 +298,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -342,7 +345,7 @@
       "url": "https://emp.jobylon.com/jobs/310140-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:21.818Z",
+      "crawledAt": "2026-06-19T12:58:57.206Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -420,7 +423,7 @@
       "url": "https://emp.jobylon.com/jobs/310149-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:20.888Z",
+      "crawledAt": "2026-06-19T12:58:56.382Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -476,6 +479,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -522,7 +526,7 @@
       "url": "https://emp.jobylon.com/jobs/310070-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:19.822Z",
+      "crawledAt": "2026-06-19T12:58:55.564Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -578,6 +582,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:03.826Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -624,7 +629,7 @@
       "url": "https://emp.jobylon.com/jobs/310097-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:19.011Z",
+      "crawledAt": "2026-06-19T12:58:54.680Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -680,6 +685,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -694,108 +700,6 @@
       },
       "postalCode": "8640",
       "addressRegion": "SG"
-    },
-    {
-      "id": "localsearch-5ac107f55084",
-      "slug": "venditore-esterno-localsearch-sirnach",
-      "slugByLocale": {
-        "it": "venditore-esterno-localsearch-sirnach",
-        "en": "field-sales-representative-localsearch-sirnach",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "fr": "representant-commercial-en-terrain-localsearch-sirnach"
-      },
-      "company": "localsearch",
-      "companyKey": "localsearch",
-      "companyDomain": "localsearch.ch",
-      "title": "Verkäuferin / Verkäufer im Aussendienst",
-      "titleByLocale": {
-        "it": "Venditore esterno",
-        "en": "Field Sales Representative",
-        "de": "Verkäuferin / Verkäufer im Aussendienst",
-        "fr": "Représentant commercial en terrain"
-      },
-      "description": "Region: Wil/Gossau SG/Toggenburg/Thurgau/Appenzell\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Antonio Alvaro wenden: +41 79 959 74 95.\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-      "descriptionByLocale": {
-        "it": "Descrizione Regione: Wil/Gossau SG/Toggenburg/Thurgau/Appenzell localsearch è il principale partner di marketing e pubblicità per le PMI svizzere. Facciamo i clienti riuscire nel mondo digitale. Vendere è la tua passione? Il tuo cuore batte per il marketing digitale? Ti piace essere in movimento e vuoi immergerti nel mondo delle PMI? E vuoi influenzare il tuo reddito? Allora sei nel posto giusto!\n• Cerchiamo te come talento vendite esterno Visiti sia i clienti PMI esistenti che i potenziali nuovi clienti e li presentiamo a soluzioni di marketing digitale su misura. Il tuo obiettivo è creare valori duraturi e rendere le PMI digitalmente efficienti. ## Competenze e requisiti Questo è ciò che porti con te per essere successo con noi: - Passione per le vendite e la consulenza: Ti appassiona il contatto personale e telefonico con i clienti e tieni molto alla comprensione dei nostri clienti. - Orientamento al cliente: Costruisci relazioni di fiducia con i tuoi clienti e spieghi con successo i benefici delle nostre soluzioni di marketing online. - Orientamento al successo: La tua motivazione e ambizione sono i tuoi fattori di successo. Anche in tempi turbolenti rimani focalizzato e orientato agli obiettivi. - Comunicativo: Parli fluentemente tedesco e padroneggi i mezzi di comunicazione comuni. - Carisma: Hai umorismo e mostri la tua personalità. - Mobilità: Possiedi una patente valida (categoria B) e un'auto propria, così puoi visitare i nostri clienti in modo affidabile. - Comportamento responsabile: Il tuo comportamento è professionale e la tua reputazione è impeccabile. - Flessibilità: Il lavoro part-time è generalmente possibile, ma solo dal secondo mese di assunzione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede principale a Zurigo. ##\n• Cosa offriamo a te Ecco perché vuoi far parte di localsearch: - Teamwork: Fai parte di un team vivace che si supporta a vicenda e si incontra regolarmente. - Territorio di vendita: Ti viene assegnato un territorio con clienti PMI esistenti e potenziali nuovi clienti. - Soluzioni di marketing: Hai a disposizione una vasta gamma di prodotti interessanti nel marketing digitale. - Lavoro autonomo: Assumi la responsabilità per i tuoi compiti, pianifichi i tuoi appuntamenti con i clienti in modo autonomo e agisci con un alto grado di iniziativa. - Formazione e sviluppo: Inizi con una formazione di diverse settimane e ricevi regolarmente supporto e formazione nel settore vendite e prodotti. - Un modello di provvigioni attraente: Il tuo successo è immediatamente ricompensato - ogni buona consulenza che porta a un ordine determina il tuo reddito. - Indennità per le spese: La tua auto personale ti porta in sicurezza all'appuntamento con il cliente e ti rimborsiamo in modo moderno. ## Contatto e candidatura Per domande tecniche, puoi contattare direttamente il nostro Sales Manager Antonio Alvaro: +41 79 959 74 95. Ci freghiamo di conoscerti! Ulteriori informazioni sul posto di lavoro e su localsearch le trovi qui.",
-        "en": "Description Region: Wil/Gossau SG/Toggenburg/Thurgau/Appenzell localsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world. Is selling your passion? Does your heart beat for digital marketing? Do you enjoy being on the move and want to dive into the SME world? And do you want to influence your earnings? Then you are exactly right here! We are looking for you as a field sales talent You visit both existing SME customers and potential new customers and present them with tailor-made digital marketing solutions. Your goal is to create lasting added value and make SMEs digitally successful. ## Skills and requirements This is what you bring with you to be successful with us: - Passion for selling and advising: You are passionate about personal and telephone customer contact and place great value on really understanding our customers. - Customer orientation: You build trustworthy relationships with your customers and successfully explain the benefits of our online marketing solutions. - Success orientation: Your motivation and ambition are your success factors. Even in turbulent times, you remain focused and goal-oriented. - Communicative: You speak fluent German and master the common means of communication. - Charisma: You have a sense of humor and enjoy showing your personality. - Mobility: You have a valid driver's license (category B) and your own car, so you can reliably visit our customers on-site. - Responsible behavior: Your appearance is professional and your reputation is spotless. - Flexibility: Part-time work is generally possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required. ##\n• What we offer you Here's why you want to become part of localsearch: - Teamwork: You are part of a lively team that supports each other and meets regularly. - Sales territory: You are assigned a territory with existing SME customers and potential new customers. - Marketing solutions: You have a varied product range from digital marketing at your disposal. - Independent working: You take responsibility for your tasks, plan your customer appointments independently and act with a high degree of initiative. - Comprehensive training and further development: You start with a multi-week training and receive regular support and training in the field of sales and products. - An attractive commission model: Your success is immediately rewarded - every good advice that leads to an order determines your income. - Mileage allowance: Your own vehicle brings you safely to the customer appointment and we compensate you accordingly. ## Contact and application For technical questions, you can contact our Sales Manager Antonio Alvaro directly: +41 79 959 74 95. We are looking forward to getting to know you! Additional information about the job and localsearch can be found here.",
-        "de": "Region: Wil/Gossau SG/Toggenburg/Thurgau/Appenzell localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Wir suchen dich als Verkaufstalent im Aussendienst Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Antonio Alvaro wenden: +41 79 959 74 95. Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Description Région: Wil/Gossau SG/Toggenburg/Thurgau/Appenzell localsearch est le partenaire de marketing et de publicité leader pour les PME suisses. Nous rendons les clients réussis dans le monde numérique. Vendre est votre passion? Votre cœur bat-il pour le marketing digital? Aimez-vous être en mouvement et souhaitez-vous vous immerger dans le monde des PME? Et souhaitez-vous influencer vos revenus? Alors vous êtes exactement au bon endroit! Nous recherchons un talent commercial en terrain Vous visitez à la fois les clients PME existants et les nouveaux clients potentiels et leur présentez des solutions de marketing digital sur mesure. Votre objectif est de créer des valeurs ajoutées durables et de rendre les PME digitalement efficaces. ## Compétences et exigences Voici ce que vous apportez pour être réussi avec nous: - Passion pour la vente et le conseil: Vous êtes passionné par le contact personnel et téléphonique avec les clients et vous accordez une grande importance à bien comprendre nos clients. - Orientation client: Vous établissez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions de marketing en ligne. - Orientation vers le succès: Votre motivation et votre ambition sont vos facteurs de succès. Même en temps de turbulence, vous restez focalisé et orienté vers les objectifs. - Communicatif: Vous parlez couramment allemand et maîtrisez les moyens de communication courants. - Charisme: Vous avez un sens de l'humour et aimez montrer votre personnalité. - Mobilité: Vous possédez un permis de conduire valide (catégorie B) et une voiture personnelle, afin de pouvoir visiter nos clients sur place de manière fiable. - Comportement responsable: Votre apparence est professionnelle et votre réputation est irréprochable. - Flexibilité: Le travail à temps partiel est généralement possible, mais seulement à partir du deuxième mois d'emploi. Le premier mois, la participation à la formation de base à notre siège social à Zurich est requise. ## Ce que nous vous offrons Voici pourquoi vous voulez faire partie de localsearch: - Travail d'équipe: Vous faites partie d'une équipe dynamique qui se soutient mutuellement et se rencontre régulièrement. - Territoire de vente: Vous êtes affecté à un territoire avec des clients PME existants et de nouveaux clients potentiels. - Solutions de marketing: Vous disposez d'une gamme de produits variée dans le marketing digital. - Travail autonome: Vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous clients de manière autonome et agissez avec un haut degré d'initiative. - Formation et développement complets: Vous commencez par une formation de plusieurs semaines et recevez régulièrement des accompagnements et formations dans le domaine des ventes et des produits. - Un modèle de commissions attractif: Votre succès est immédiatement récompensé - chaque bon conseil qui mène à une commande détermine votre revenu. - Indemnité kilométrique: Votre propre véhicule vous amène en toute sécurité au rendez-vous client et nous vous remboursons en conséquence. ## Contact et candidature Pour des questions techniques, vous pouvez contacter directement notre responsable des ventes Antonio Alvaro: +41 79 959 74 95. Nous sommes impatients de vous rencontrer! Des informations supplémentaires sur le poste et localsearch peuvent être trouvées ici."
-      },
-      "location": "Sirnach",
-      "canton": "TG",
-      "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
-      "source": "localsearch Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:18.206Z",
-      "addressLocality": "Sirnach",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Marketing digitale / Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-16",
-      "applyUrl": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Passione per le vendite e la consulenza",
-          "Orientamento al cliente",
-          "Orientamento al successo",
-          "Comunicativo",
-          "Mobilità",
-          "Comportamento responsabile",
-          "Flessibilità"
-        ],
-        "en": [
-          "Passion for selling and advising",
-          "Customer orientation",
-          "Success orientation",
-          "Communicative",
-          "Charisma",
-          "Mobility",
-          "Responsible behavior",
-          "Flexibility"
-        ],
-        "fr": [
-          "Passion pour la vente et le conseil",
-          "Orientation client",
-          "Orientation vers le succès",
-          "Communicatif",
-          "Charisme",
-          "Mobilité",
-          "Comportement responsable",
-          "Flexibilité"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-15"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:54:59.193Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8500",
-      "addressRegion": "TG"
     },
     {
       "id": "localsearch-2c9e01e8f54f",
@@ -828,7 +732,7 @@
       "url": "https://emp.jobylon.com/jobs/310098-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:17.404Z",
+      "crawledAt": "2026-06-19T12:58:53.810Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -886,6 +790,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -932,7 +837,7 @@
       "url": "https://emp.jobylon.com/jobs/310100-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:16.546Z",
+      "crawledAt": "2026-06-19T12:58:53.001Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1010,7 +915,7 @@
       "url": "https://emp.jobylon.com/jobs/310148-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:15.685Z",
+      "crawledAt": "2026-06-19T12:58:52.172Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1067,6 +972,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1113,7 +1019,7 @@
       "url": "https://emp.jobylon.com/jobs/312122-localsearch-customer-success-sales-agent-fr-de-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:14.868Z",
+      "crawledAt": "2026-06-19T12:58:51.343Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1166,6 +1072,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:43.923Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1212,7 +1119,7 @@
       "url": "https://emp.jobylon.com/jobs/351860-localsearch-ai-powered-content-innovation-praktikum-ab-010726-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:14.070Z",
+      "crawledAt": "2026-06-19T12:58:50.581Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1245,6 +1152,7 @@
         "contenu-de-l-ia-et-prototype-de-produits-stage-du-01-08-26-80-100-localsearch-zurich"
       ],
       "firstSeenAt": "2026-04-27T11:14:17.258Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -1291,7 +1199,7 @@
       "url": "https://emp.jobylon.com/jobs/310087-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:13.226Z",
+      "crawledAt": "2026-06-19T12:58:49.840Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1341,86 +1249,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "localsearch-26589b932362",
-      "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
-      "slugByLocale": {
-        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
-        "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21",
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-21"
-      },
-      "company": "localsearch",
-      "companyKey": "localsearch",
-      "companyDomain": "localsearch.ch",
-      "title": "Verkäuferin / Verkäufer im Aussendienst",
-      "titleByLocale": {
-        "it": "Venditore / venditore nel campo",
-        "en": "Seller / seller in the field",
-        "de": "Verkäuferin / Verkäufer im Aussendienst",
-        "fr": "Vendeur / vendeur dans le champ"
-      },
-      "description": "Region: Zürcher Oberland / Winterthur\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Salvatore Punturello wenden: +41 79 876 70 97\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
-      "descriptionByLocale": {
-        "it": "Regione: Zürcher Oberland / Winterthur localsearch è il principale partner commerciale e pubblicitario per le PMI svizzere. Facciamo i clienti di successo nel mondo digitale. Vendere è la tua passione? Il vostro cuore dorme per il marketing digitale? Sei felice di immergerti nel mondo delle PMI? E vuoi influenzare il tuo merito? Allora sei qui! Ti stiamo cercando come agente di vendita nel campo Visiterete clienti PMI esistenti e potenziali nuovi clienti e li presenterete soluzioni di marketing digitale su misura. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e rendere le PMI digitalmente di successo. ## Competenze e requisiti Questo ti porta ad avere successo con noi:\n• Gioia nella vendita e nella consulenza: Bruciate per il contatto personale e telefonico del cliente e mettete un grande valore sulla comprensione veramente dei nostri clienti.\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n• orientamento di successo: la vostra motivazione e ambizione sono i vostri fattori di successo. Anche in tempi turbolenti rimani concentrato e mirato.\n• Comunicativo: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n• Spiegazione: Hai umorismo e ti piace mostrare la tua personalità.\n• Mobilità: hai una carta guida valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n• Azione reattiva: il tuo aspetto è professionale e la tua reputazione è perfetta (leumund)\n• Flessibilità: il lavoro a tempo parziale è fondamentalmente possibile, ma solo dal secondo mese di lavoro. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo. # Ecco perché si vuole entrare a far parte della ricerca locale:\n• Lavoro di squadra: si è integrati in un team vivace che si sostiene e incontra incontri regolari.\n• area di vendita propria: ti verrà assegnato un'area con clienti PMI esistenti e potenziali nuovi clienti.\n• Soluzioni di marketing: hai una vasta gamma di prodotti dal marketing digitale.\n• Lavoro autonomo: Lei si assume la responsabilità per le Sue mansioni, pianificare i Suoi appuntamenti del cliente indipendentemente e trattare con un alto grado di auto-iniziativa.\n• Formazione completa e ulteriore sviluppo: si inizia con la formazione multi-settimana e ricevere supporto e formazione regolari nel settore delle vendite e dei prodotti.\n• Un attraente modello di messa in servizio: il vostro successo è ricompensato direttamente – qualsiasi buon consiglio che porta a un ordine determina il vostro reddito.\n• Vassoio Espositore: Il vostro veicolo sicuramente vi porterà alla nomina del cliente e vi compenseremo per questo. Puoi contattare il nostro responsabile vendite Salvatore Punturello: +41 79 876 70 97 Non vediamo l'ora di incontrarvi! Ulteriori informazioni sulla posizione e localsearch possono essere trovate qui.",
-        "en": "Descrizione Region: Zürcher Oberland / Winterthur localsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world. Selling is your passion? Does your heart sleep for digital marketing? Are you happy to dive into the SME world? And do you want to affect your own merit? Then you're right here! We are looking for you as a sales agent in the field You will visit existing SME customers as well as potential new customers and present them tailor-made digital marketing solutions. Your goal is to create sustainable added value and make SMEs digitally successful. ## Skills and Requirements This brings you to be successful with us:\n• Joy in selling and consulting: You burn for personal and telephone customer contact and place great value on really understanding our customers.\n• Customer orientation: You build trusted relationships with your customers and successfully explain the benefits of our online marketing solutions.\n• Success orientation: your own motivation and ambition are your success factors. Also in turbulent times you stay focused and targeted.\n• Communicative: You speak fluent German and master the common means of communication.\n• Explanation: You have humor and like to show your personality.\n• Mobility: You have a valid guide card (cat. B) and your own car, so you can visit our customers reliably on site.\n• Responsive action: Your appearance is professional and your reputation is perfect (leumund)\n• Flexibility: parttime work is basically possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required. ## That is why you want to become part of localsearch:\n• Teamwork: You are integrated into a lively team that supports each other and meets regular meetings.\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n• Marketing solutions: You have a varied range of products from digital marketing.\n• Self-employed work: You take responsibility for your tasks, plan your customer appointments independently and deal with a high degree of self-initiative.\n• Comprehensive training and further development: You start with multi-week training and receive regular support and training in the area of sales and products.\n• An attractive commissioning model: Your success is rewarded directly – any good advice that leads to an order determines your income.\n• Exhibitor tray: Your own vehicle will surely take you to the customer's appointment and we will compensate you for this. You can contact our sales manager Salvatore Punturello: +41 79 876 70 97 We are looking forward to meeting you! Additional information about the location and localsearch can be found here.",
-        "de": "Region: Zürcher Oberland / Winterthur localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Wir suchen dich als Verkaufstalent im Aussendienst Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Salvatore Punturello wenden: +41 79 876 70 97 Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Région Descrizione: Zürcher Oberland / Winterthur localsearch est le principal partenaire marketing et publicitaire pour les PME suisses. Nous faisons des clients un succès dans le monde numérique. Vendre est votre passion ? Votre cœur dort-il pour le marketing numérique? Êtes-vous heureux de plonger dans le monde des PME? Et voulez-vous affecter votre propre mérite ? Alors vous êtes là ! Nous vous recherchons en tant qu'agent commercial dans le domaine Vous visiterez les PME existantes ainsi que de nouveaux clients potentiels et leur présenterez des solutions de marketing numérique sur mesure. Votre objectif est de créer une valeur ajoutée durable et de faire des PME un succès numérique. Compétences et exigences Cela vous amène à réussir avec nous:\n• Joy en vente et conseil: Vous brûlez pour le contact client personnel et téléphonique et placez une grande valeur à vraiment comprendre nos clients.\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n• Orientation vers le succès: votre motivation et votre ambition sont vos facteurs de réussite. Aussi dans les temps agités, vous restez concentré et ciblé.\n• Communicative: Vous parlez couramment allemand et maîtrisez les moyens communs de communication.\n• Explication: Vous avez de l'humour et aimez montrer votre personnalité.\n• Mobilité: Vous avez une carte de guide valide (cat. B) et votre propre voiture, afin que vous puissiez visiter nos clients de manière fiable sur le site.\n• Action réceptive: Votre apparence est professionnelle et votre réputation est parfaite (leumund)\n• Flexibilité: le travail à temps partiel est fondamentalement possible, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base à notre siège à Zurich est nécessaire. Oui. C'est pourquoi vous voulez faire partie de la recherche locale:\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et rencontre des réunions régulières.\n• Espace de vente propre : un espace vous sera assigné avec des clients PME existants et de nouveaux clients potentiels.\n• Solutions marketing: Vous avez une gamme variée de produits du marketing numérique.\n• Travail indépendant : Vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous de manière indépendante et traitez avec un haut degré d'initiative.\n• Formation complète et perfectionnement: vous commencez par une formation de plusieurs semaines et recevez un soutien et une formation réguliers dans le domaine des ventes et des produits.\n• Un modèle de mise en service attrayant : Votre réussite est récompensée directement – tout bon conseil qui mène à une commande détermine votre revenu.\n• Plateau exposant : Votre propre véhicule vous conduira sûrement au rendez-vous du client et nous vous indemniserons pour cela. Vous pouvez contacter notre directeur commercial Salvatore Punturello: +41 79 876 70 97 Nous sommes impatients de vous rencontrer! Des informations supplémentaires sur l'emplacement et la recherche locale peuvent être trouvées ici."
-      },
-      "location": "Fehraltorf",
-      "canton": "ZH",
-      "url": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
-      "source": "localsearch Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:12.375Z",
-      "addressLocality": "Fehraltorf",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Marketing digitale / Tecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-28",
-      "applyUrl": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "venditore-venditore-nel-campo-localsearch-fehraltorf",
-        "seller-seller-in-the-field-localsearch-fehraltorf",
-        "vendeur-vendeur-dans-le-champ-localsearch-fehraltorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-          "venditore-venditore-nel-campo-localsearch-fehraltorf"
-        ],
-        "en": [
-          "seller-seller-in-the-field-localsearch-fehraltorf"
-        ],
-        "fr": [
-          "vendeur-vendeur-dans-le-champ-localsearch-fehraltorf"
-        ]
-      },
-      "firstSeenAt": "2026-04-28T22:13:23.897Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "addressRegion": "ZH"
-    },
-    {
       "id": "localsearch-264852de8162",
       "slug": "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz",
       "slugByLocale": {
@@ -1451,7 +1279,7 @@
       "url": "https://emp.jobylon.com/jobs/360005-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:11.547Z",
+      "crawledAt": "2026-06-19T12:58:49.036Z",
       "addressLocality": "Aargau, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1539,7 +1367,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:10.775Z",
+      "crawledAt": "2026-06-19T12:58:48.278Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1621,7 +1449,7 @@
       "url": "https://emp.jobylon.com/jobs/360113-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:10.005Z",
+      "crawledAt": "2026-06-19T12:58:47.493Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1706,7 +1534,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:09.239Z",
+      "crawledAt": "2026-06-19T12:58:46.725Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1790,7 +1618,7 @@
       "url": "https://emp.jobylon.com/jobs/360370-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:08.479Z",
+      "crawledAt": "2026-06-19T12:58:45.903Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1817,6 +1645,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.019Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1863,7 +1692,7 @@
       "url": "https://emp.jobylon.com/jobs/360378-localsearch-outbound-sales-agent-fr-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:07.711Z",
+      "crawledAt": "2026-06-19T12:58:45.106Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1890,6 +1719,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:31.265Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -1936,7 +1766,7 @@
       "url": "https://emp.jobylon.com/jobs/310147-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:06.945Z",
+      "crawledAt": "2026-06-19T12:58:43.785Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -2020,7 +1850,7 @@
       "url": "https://emp.jobylon.com/jobs/335376-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:06.106Z",
+      "crawledAt": "2026-06-19T12:58:42.969Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -2082,7 +1912,7 @@
       "url": "https://emp.jobylon.com/jobs/335382-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:05.278Z",
+      "crawledAt": "2026-06-19T12:58:42.091Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -2144,7 +1974,7 @@
       "url": "https://emp.jobylon.com/jobs/349346-localsearch-ai-product-engineer-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:04.465Z",
+      "crawledAt": "2026-06-19T12:58:41.299Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2169,6 +1999,7 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:14:18.246Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "baseSalary": {
@@ -2215,7 +2046,7 @@
       "url": "https://emp.jobylon.com/jobs/363941-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:03.117Z",
+      "crawledAt": "2026-06-19T12:58:40.539Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2277,7 +2108,7 @@
       "url": "https://emp.jobylon.com/jobs/363946-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:02.232Z",
+      "crawledAt": "2026-06-19T12:58:39.709Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -2339,7 +2170,7 @@
       "url": "https://emp.jobylon.com/jobs/363947-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:01.184Z",
+      "crawledAt": "2026-06-19T12:58:38.890Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2401,7 +2232,7 @@
       "url": "https://emp.jobylon.com/jobs/363948-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:11:00.353Z",
+      "crawledAt": "2026-06-19T12:58:38.031Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -2463,7 +2294,7 @@
       "url": "https://emp.jobylon.com/jobs/363950-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:10:59.511Z",
+      "crawledAt": "2026-06-19T12:58:37.218Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2524,7 +2355,7 @@
       "url": "https://emp.jobylon.com/jobs/363951-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:10:58.321Z",
+      "crawledAt": "2026-06-19T12:58:36.351Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2567,9 +2398,9 @@
       "id": "localsearch-1f421b9d649c",
       "slug": "product-manager-m-w-d-renovero-localsearch-ch",
       "slugByLocale": {
-        "de": "product-manager-m-w-d-renovero-localsearch-ch",
         "it": "product-manager-m-w-d-renovero-localsearch-ch",
         "en": "product-manager-m-w-d-renovero-localsearch-ch",
+        "de": "product-manager-m-w-d-renovero-localsearch-ch",
         "fr": "gestionnaire-de-produits-m-w-d-localsearch-zurich"
       },
       "company": "localsearch",
@@ -2577,24 +2408,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Product Manager (M/W/D) renovero",
       "titleByLocale": {
-        "de": "Produktmanager (M/W/D) renovero",
-        "en": "Product Manager (M/W/D) renovero",
         "it": "Product Manager (m/f/d) renovero",
+        "en": "Product Manager (M/W/D) renovero",
+        "de": "Product Manager (M/W/D) renovero",
         "fr": "Gestionnaire de produits (M/W/D)"
       },
       "description": "Zürich (100% - 4 Tage vor Ort, 1 Tag Homeoffice)\n\nMit renovero , der führenden Plattform für Handwerksdienstleistungen in der Schweiz, verbinden wir jährlich tausende Personen und Unternehmen mit den passenden Handwerkern. Gemeinsam entwickeln wir innovative Lösungen, um die Plattform noch nutzerfreundlicher und erfolgreicher zu machen.\n\nDEINE ROLLE BEI RENOVERO\n\nAls digital und unternehmerisch denkende Person gestaltest du die nächste Entwicklungsstufe von renovero. In dieser Schlüsselposition bist du die treibende Kraft hinter dem Produkt und übernimmst Verantwortung für dessen Erfolg, von der strategischen Vision bis zur Umsetzung mit unseren Entwicklungs- und AI-Partnern.\n\nrenovero entwickelt sich von der etablierten Handwerker-Ausschreibungsplattform zu einem AI-gestützten Ökosystem rund um den Craftsmen Agent. Im Zentrum deiner Rolle steht, den Mehrwert für Handwerker und Publisher kontinuierlich zu vertiefen, die Plattformnutzung auszubauen und AI gezielt ins Produkt zu bringen.\n\nDu bist das Bindeglied zwischen Business-Strategie, technischer Entwicklung und AI-Delivery. Du agierst als Sparringspartner für den Head of Verticals, übernimmst eine \"Mini-CEO\"-Mentalität für dein Produkt und bleibst gleichzeitig hands-on im Backlog. In einem fokussierten, schlagkräftigen Team setzt du Prioritäten klar und treibst Ergebnisse durchsetzungsstark voran.\n\nDEINE HAUPTVERANTWORTLICHKEITEN\n\nStrategische Produktführung und finanzielle Verantwortung\n\n• Produktvision und Roadmap: Du entwickelst gemeinsam mit einer Kollegin eine klare, marktorientierte Produktvision und eine datenbasierte Roadmap, die renovero konsequent in Richtung seiner Zielarchitektur weiterentwickelt. Du stellst sicher, dass die Roadmap auf die Geschäftsziele einzahlt, allen voran auf wiederkehrenden Umsatz und Nutzerakzeptanz.\n\n• Finanzielle Steuerung: Du verantwortest gegenüber dem Head of Verticals die finanzielle Gesundheit deines Produkts. Du lieferst Datengrundlagen für Business Cases, überwachst kritische SaaS-Metriken (wiederkehrender Umsatz, aktive Verträge, Renewal Rate, Kundenbindung) und triffst Entscheidungen, die Profitabilität und nachhaltiges Wachstum sichern.\n\n• Markt- und Wettbewerbsanalyse: Du analysierst kontinuierlich Markt und Wettbewerb, identifizierst Wachstumschancen und baust renoveros Position als führende Schweizer Plattform für Handwerker-Ausschreibungen aus.\n\nAI- und Agentic-Produktentwicklung (Schwerpunkt)\n\n• AI-Initiative: Du treibst die zentrale AI-Initiative von renovero voran, von intelligenten Offerten-Tools über conversational Agents mit Voice und Chat bis zu datengestützten Vergleichs- und Empfehlungsfunktionen. Du übersetzt die Vision in lieferbare Releases.\n\n• LLM- und Agentic-Kompetenz: Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus (Prompt-Design, Knowledge Bases und Retrieval, Voice- und Chat-Flows, Tool- und Funktionsaufrufe) und bewertest AI-Output-Qualität systematisch.\n\n• Daten und Datenschutz: Du arbeitest mit Knowledge Bases und sauberen Datenflüssen und denkst Trust, Safety und Datenschutz (nDSG) konsequent ins Produkt mit ein.\n\n• AI-Qualitätssicherung: Du definierst klare Acceptance Criteria für AI-Features und sicherst deren Qualität gemeinsam mit unseren Partnern.\n\nOperative Product Ownership\n\n• Backlog Management: Du schreibst User Stories mit klaren Acceptance Criteria, priorisierst das Product Backlog und führst Refinements mit dem Entwicklungsteam.\n\n• Sprint-Steuerung: Du agierst als Product Owner in den agilen Zeremonien (Sprint Planning, Refinement, Review, Retrospektive) und sorgst für einen verlässlichen Lieferrhythmus.\n\n• Abnahme: Du koordinierst und führst User Acceptance Testing durch und erteilst die formale Abnahme im Namen von renovero.\n\n• Tooling: Du arbeitest sicher mit Jira und Confluence und hältst die Governance der Projektstruktur ein.\n\nSchnittstellen- und Partner-Management\n\n• Brücke zur IT: Du bist die Hauptkontaktperson für das externe Entwicklungsteam. Deine Kollegin und du übersetzen die Business Needs aus Marketing, Sales, Kundendienst und Management in klare, priorisierte und umsetzbare Anforderungen.\n\n• AI-Delivery: Du steuerst die AI-Delivery entlang klar definierter Acceptance Criteria und führst die Zusammenarbeit mit unseren Partnern aktiv.\n\n• Aktive Steuerung: Du agierst proaktiv, treibst Themen voran und sorgst für klare, abgestimmte Entscheidungswege zwischen Produkt, IT und Management.\n\n• Interne Stakeholder: Du koordinierst eng mit Marketing, Sales, Customer Care und Legal und optimierst die Zusammenarbeit zwischen Business und IT.\n\nNutzer-Funnel, Plattform-KPIs und Wachstum\n\n• Conversion Rate Optimierung: Während Marketing für den Traffic verantwortlich ist, verantwortest du die Conversion im gesamten Ausschreibungs-Funnel, vom Start bis zur erfolgreichen Publikation.\n\n• Retention und Renewal: Du baust die Kundenbindung aus und steigerst die Renewal Rate auf Handwerkerseite unter anderem durch neue, AI-gestützte Mehrwert- und Premium-Angebote.\n\n• Nutzeraktivität: Du überwachst und steigerst Aktivität und Zufriedenheit beider Nutzergruppen, Publisher und Handwerker.\n\n• Plattform-Weiterentwicklung: Du begleitest den Ausbau der nativen Apps und die technische Weiterentwicklung der Plattform.\n\n• Neue Segmente: Du erschliesst neue Kundensegmente und Erlösmodelle (B2B-Partnerschaften, API-Integrationen, transaktionale Modelle).\n\nDEINE KERNKOMPETENZEN\n\n• Digitale Tiefe und AI-Fluency (Pflicht): Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus und bringst vertieftes digitales Produktverständnis mit.\n\n• Erfahrung (Pflicht): 3 bis 5 Jahre in der Entwicklung von Web- und App-Produkten im SaaS- und/oder Ecommerce-Umfeld.\n\n• Technisches Verständnis: Du diskutierst auf Augenhöhe mit dem IT-Team, verstehst technische Entscheidungsvorlagen und stellst die richtigen Fragen. Du musst kein Developer sein, aber du verstehst die Implikationen technischer Entscheidungen.\n\n• Unternehmerisches Handeln: Du denkst und handelst wie eine Unternehmerin oder ein Unternehmer, übernimmst volle Verantwortung und triffst mutige Entscheidungen.\n\n• Kommunikationsstärke und Durchsetzungskraft: Du kommunizierst klar, direkt und überzeugend, stellst komplexe Sachverhalte einfach dar und scheust keine schwierigen Gespräche.\n\n• Analytische Fähigkeiten: Du triffst Entscheidungen auf Datenbasis, bist versiert im Umgang mit Analytics-Tools und der Interpretation von SaaS-Metriken.\n\n• Strukturierte Arbeitsweise: Du leitest aus übergeordneten Zielen (OKRs) konkrete Pläne und Anforderungen ab und hältst deren Umsetzung nach.\n\n• Sprachen (Pflicht): Deutsch und Englisch fliessend. Französisch und/oder Italienisch sind ein willkommenes Extra.\n\nDAMIT BEGEISTERN WIR DICH\n\n• Dich erwarten hohe Eigenverantwortung, kurze Entscheidungswege und sichtbarer Impact auf ein Produkt, das AI konsequent ins Zentrum stellt. Wenn du ein Produkt entscheidend mitgestalten und prägen willst, findest du hier eine seltene Schlüsselposition.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nFlorian Laudahn und das ganze Team freuen sich auf deine Online-Bewerbung!",
       "descriptionByLocale": {
-        "de": "Zürich (100% - 4 Tage vor Ort, 1 Tag Homeoffice)\n\nMit renovero , der führenden Plattform für Handwerksdienstleistungen in der Schweiz, verbinden wir jährlich tausende Personen und Unternehmen mit den passenden Handwerkern. Gemeinsam entwickeln wir innovative Lösungen, um die Plattform noch nutzerfreundlicher und erfolgreicher zu machen.\n\nDEINE ROLLE BEI RENOVERO\n\nAls digital und unternehmerisch denkende Person gestaltest du die nächste Entwicklungsstufe von renovero. In dieser Schlüsselposition bist du die treibende Kraft hinter dem Produkt und übernimmst Verantwortung für dessen Erfolg, von der strategischen Vision bis zur Umsetzung mit unseren Entwicklungs- und AI-Partnern.\n\nrenovero entwickelt sich von der etablierten Handwerker-Ausschreibungsplattform zu einem AI-gestützten Ökosystem rund um den Craftsmen Agent. Im Zentrum deiner Rolle steht, den Mehrwert für Handwerker und Publisher kontinuierlich zu vertiefen, die Plattformnutzung auszubauen und AI gezielt ins Produkt zu bringen.\n\nDu bist das Bindeglied zwischen Business-Strategie, technischer Entwicklung und AI-Delivery. Du agierst als Sparringspartner für den Head of Verticals, übernimmst eine \"Mini-CEO\"-Mentalität für dein Produkt und bleibst gleichzeitig hands-on im Backlog. In einem fokussierten, schlagkräftigen Team setzt du Prioritäten klar und treibst Ergebnisse durchsetzungsstark voran.\n\nDEINE HAUPTVERANTWORTLICHKEITEN\n\nStrategische Produktführung und finanzielle Verantwortung\n\n• Produktvision und Roadmap: Du entwickelst gemeinsam mit einer Kollegin eine klare, marktorientierte Produktvision und eine datenbasierte Roadmap, die renovero konsequent in Richtung seiner Zielarchitektur weiterentwickelt. Du stellst sicher, dass die Roadmap auf die Geschäftsziele einzahlt, allen voran auf wiederkehrenden Umsatz und Nutzerakzeptanz.\n\n• Finanzielle Steuerung: Du verantwortest gegenüber dem Head of Verticals die finanzielle Gesundheit deines Produkts. Du lieferst Datengrundlagen für Business Cases, überwachst kritische SaaS-Metriken (wiederkehrender Umsatz, aktive Verträge, Renewal Rate, Kundenbindung) und triffst Entscheidungen, die Profitabilität und nachhaltiges Wachstum sichern.\n\n• Markt- und Wettbewerbsanalyse: Du analysierst kontinuierlich Markt und Wettbewerb, identifizierst Wachstumschancen und baust renoveros Position als führende Schweizer Plattform für Handwerker-Ausschreibungen aus.\n\nAI- und Agentic-Produktentwicklung (Schwerpunkt)\n\n• AI-Initiative: Du treibst die zentrale AI-Initiative von renovero voran, von intelligenten Offerten-Tools über conversational Agents mit Voice und Chat bis zu datengestützten Vergleichs- und Empfehlungsfunktionen. Du übersetzt die Vision in lieferbare Releases.\n\n• LLM- und Agentic-Kompetenz: Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus (Prompt-Design, Knowledge Bases und Retrieval, Voice- und Chat-Flows, Tool- und Funktionsaufrufe) und bewertest AI-Output-Qualität systematisch.\n\n• Daten und Datenschutz: Du arbeitest mit Knowledge Bases und sauberen Datenflüssen und denkst Trust, Safety und Datenschutz (nDSG) konsequent ins Produkt mit ein.\n\n• AI-Qualitätssicherung: Du definierst klare Acceptance Criteria für AI-Features und sicherst deren Qualität gemeinsam mit unseren Partnern.\n\nOperative Product Ownership\n\n• Backlog Management: Du schreibst User Stories mit klaren Acceptance Criteria, priorisierst das Product Backlog und führst Refinements mit dem Entwicklungsteam.\n\n• Sprint-Steuerung: Du agierst als Product Owner in den agilen Zeremonien (Sprint Planning, Refinement, Review, Retrospektive) und sorgst für einen verlässlichen Lieferrhythmus.\n\n• Abnahme: Du koordinierst und führst User Acceptance Testing durch und erteilst die formale Abnahme im Namen von renovero.\n\n• Tooling: Du arbeitest sicher mit Jira und Confluence und hältst die Governance der Projektstruktur ein.\n\nSchnittstellen- und Partner-Management\n\n• Brücke zur IT: Du bist die Hauptkontaktperson für das externe Entwicklungsteam. Deine Kollegin und du übersetzen die Business Needs aus Marketing, Sales, Kundendienst und Management in klare, priorisierte und umsetzbare Anforderungen.\n\n• AI-Delivery: Du steuerst die AI-Delivery entlang klar definierter Acceptance Criteria und führst die Zusammenarbeit mit unseren Partnern aktiv.\n\n• Aktive Steuerung: Du agierst proaktiv, treibst Themen voran und sorgst für klare, abgestimmte Entscheidungswege zwischen Produkt, IT und Management.\n\n• Interne Stakeholder: Du koordinierst eng mit Marketing, Sales, Customer Care und Legal und optimierst die Zusammenarbeit zwischen Business und IT.\n\nNutzer-Funnel, Plattform-KPIs und Wachstum\n\n• Conversion Rate Optimierung: Während Marketing für den Traffic verantwortlich ist, verantwortest du die Conversion im gesamten Ausschreibungs-Funnel, vom Start bis zur erfolgreichen Publikation.\n\n• Retention und Renewal: Du baust die Kundenbindung aus und steigerst die Renewal Rate auf Handwerkerseite unter anderem durch neue, AI-gestützte Mehrwert- und Premium-Angebote.\n\n• Nutzeraktivität: Du überwachst und steigerst Aktivität und Zufriedenheit beider Nutzergruppen, Publisher und Handwerker.\n\n• Plattform-Weiterentwicklung: Du begleitest den Ausbau der nativen Apps und die technische Weiterentwicklung der Plattform.\n\n• Neue Segmente: Du erschliesst neue Kundensegmente und Erlösmodelle (B2B-Partnerschaften, API-Integrationen, transaktionale Modelle).\n\nDEINE KERNKOMPETENZEN\n\n• Digitale Tiefe und AI-Fluency (Pflicht): Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus und bringst vertieftes digitales Produktverständnis mit.\n\n• Erfahrung (Pflicht): 3 bis 5 Jahre in der Entwicklung von Web- und App-Produkten im SaaS- und/oder Ecommerce-Umfeld.\n\n• Technisches Verständnis: Du diskutierst auf Augenhöhe mit dem IT-Team, verstehst technische Entscheidungsvorlagen und stellst die richtigen Fragen. Du musst kein Developer sein, aber du verstehst die Implikationen technischer Entscheidungen.\n\n• Unternehmerisches Handeln: Du denkst und handelst wie eine Unternehmerin oder ein Unternehmer, übernimmst volle Verantwortung und triffst mutige Entscheidungen.\n\n• Kommunikationsstärke und Durchsetzungskraft: Du kommunizierst klar, direkt und überzeugend, stellst komplexe Sachverhalte einfach dar und scheust keine schwierigen Gespräche.\n\n• Analytische Fähigkeiten: Du triffst Entscheidungen auf Datenbasis, bist versiert im Umgang mit Analytics-Tools und der Interpretation von SaaS-Metriken.\n\n• Strukturierte Arbeitsweise: Du leitest aus übergeordneten Zielen (OKRs) konkrete Pläne und Anforderungen ab und hältst deren Umsetzung nach.\n\n• Sprachen (Pflicht): Deutsch und Englisch fliessend. Französisch und/oder Italienisch sind ein willkommenes Extra.\n\nDAMIT BEGEISTERN WIR DICH\n\n• Dich erwarten hohe Eigenverantwortung, kurze Entscheidungswege und sichtbarer Impact auf ein Produkt, das AI konsequent ins Zentrum stellt. Wenn du ein Produkt entscheidend mitgestalten und prägen willst, findest du hier eine seltene Schlüsselposition.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nFlorian Laudahn und das ganze Team freuen sich auf deine Online-Bewerbung!",
-        "it": "Zurigo (100% - 4 giorni in loco, 1 giorno in ufficio) Con Renovero, la piattaforma leader per i servizi artigianali in Svizzera, colleghiamo migliaia di persone e aziende con i giusti artigiani ogni anno. Insieme sviluppiamo soluzioni innovative per rendere la piattaforma ancora più facile da usare e di successo. Come persona digitale e imprenditoriale, si forma la fase successiva dello sviluppo di Renovero. In questa posizione chiave, sei la forza trainante del prodotto e ti assumerai la responsabilità del suo successo, dalla visione strategica all'implementazione con i nostri partner di sviluppo e AI. renovero si sta evolvendo dalla piattaforma di tendering artigianale consolidata ad un ecosistema AI-supportato intorno all'agente Craftsmen. Il focus del vostro ruolo è quello di approfondire continuamente il valore aggiunto per artigiani e editori, espandendo l'uso della piattaforma e introducendo AI nel prodotto. Sei il collegamento tra strategia aziendale, sviluppo tecnico e consegna AI. Agisci come partner sparring per il Head of Verticals, adotti una mentalità \"mini-CEO\" per il tuo prodotto e mantieni le mani sul backlog allo stesso tempo. In un team focalizzato e potente, impostare le priorità chiaramente e spingere i risultati in avanti. Gestione strategica del prodotto e responsabilità finanziaria • Visione del prodotto e roadmap: Insieme a un collega, si sviluppa una visione chiara e orientata al mercato del prodotto e una roadmap basata sui dati che sviluppa costantemente renovero nella direzione della sua architettura di destinazione. Assicurarsi che la roadmap paghi sugli obiettivi aziendali, in particolare le entrate ricorrenti e l'adozione degli utenti. • Gestione finanziaria: Lei è responsabile della salute finanziaria del Suo prodotto al Capo dei Verticali. Fornirai basi di dati per i casi aziendali, monitorerai le metriche critiche SaaS (ricercando ricavi, contratti attivi, tasso rinnovabile, fidelizzazione del cliente) e prendere decisioni che garantiscano la redditività e la crescita sostenibile. • Analisi del mercato e della concorrenza: Analizzerai continuamente il mercato e la concorrenza, identificherai le opportunità di crescita e amplierai la posizione di Renovero come piattaforma svizzera leader per le offerte artigianali. AI e Agentic Product Development (focus) • AI Initiative: Guida l'iniziativa AI di Renovero, dall'offerta intelligente agli agenti conversazione con voce e chat alle funzionalità di confronto e raccomandazione basate sui dati. Traduci la visione in release consegnabili. • LLM e Competenza Agentica: Lei è molto familiare con i LLM comuni e le configurazioni Agentiche (prompt design, basi di conoscenza e retrieval, flussi di voce e chat, chiamate di strumenti e funzioni) e valuta sistematicamente la qualità di uscita AI. • Protezione dei dati e dei dati: si lavora con basi di conoscenza e flussi di dati puliti e pensare la fiducia, la sicurezza e la protezione dei dati (nDSG) costantemente nel prodotto. • Garanzia di qualità AI: definisci criteri di accettazione chiari per le funzioni AI e garantisci la loro qualità insieme ai nostri partner. Gestione del Backlog: scrivi storie utente con criteri di accettazione chiari, premi il backlog del prodotto e con il team di sviluppo. • Controllo delle impronte: Lei agisce come proprietario del prodotto nelle cerimonie agili (pianificazione delle impronte, raffinatezza, revisione, retrospettiva) e garantisce un ritmo di consegna affidabile. • Accettazione: coordinare e eseguire test di accettazione degli utenti e concedere l'accettazione formale per conto del renovero. • Tooling: Lavori in modo sicuro con Jira e Confluence e aderisci alla governance della struttura del progetto. Interfaccia e gestione dei partner • Bridge to IT: Sei il principale contatto per il team di sviluppo esterno. Il tuo collega e traduci le esigenze aziendali di marketing, vendite, servizio clienti e gestione in requisiti chiari, prioritari e fattibili. • AI Delivery: si controlla la consegna AI lungo criteri di accettazione chiaramente definiti e guidare attivamente la cooperazione con i nostri partner. • Gestione attiva: Lei agisce proattivamente, spinge i problemi in avanti e assicura percorsi decisionali chiari e coordinati tra prodotto, IT e gestione. • stakeholder interni: coordinati a stretto contatto con il marketing, le vendite, l'assistenza clienti e il legale e ottimizza la cooperazione tra business e IT. Imbuto utente, piattaforma KPI e crescita • Ottimizzazione del tasso di conversione: Mentre il marketing è responsabile del traffico, si è responsabili per la conversione in tutto l'imbuto tenero, dal lancio alla pubblicazione di successo. • Retention and Renewal: espandere la fidelizzazione del cliente e aumentare il tasso di rinnovo sul lato craftsman attraverso nuove, AI-supported valore aggiunto e offerte premium. • Attività dell'utente: monitora e aumenta l'attività e la soddisfazione di gruppi di utenti, editori e artigiani. • Sviluppo della piattaforma: accompagni l'espansione delle applicazioni native e lo sviluppo tecnico della piattaforma. • Nuovi segmenti: Inserisci nuovi segmenti dei clienti e modelli di ricavi (partner B2B, integrazioni API, modelli transazionali). Profondità digitale e flusso AI: Lei è molto familiare con i LLM comuni e le installazioni Agentic e portare la comprensione di prodotto digitale approfondita. • Esperienza (obbligatorio): da 3 a 5 anni nello sviluppo di prodotti web e app nell'ambiente SaaS e/o ecommerce. • Comprensione tecnica: Si discute a livello degli occhi con il team IT, capire modelli di decisione tecnica e porre le domande giuste. Non devi essere uno sviluppatore, ma capisci le implicazioni delle decisioni tecniche. • Azione imprenditoriale: Lei pensa e si comporta come un imprenditore, si assume la piena responsabilità e prende decisioni coraggiose. • Resistenza alla comunicazione e assertività: Comunichi chiaramente, direttamente e convincibilmente, semplicemente presenta problemi complessi e non timidi lontano da conversazioni difficili. • AbilitÃ analitiche: Prenderai decisioni basate sui dati, sarai abile negli strumenti di analisi e interpreterai le metriche di SaaS. • Metodo di lavoro strutturato: si ricavano piani e requisiti concreti da obiettivi di overarching (OKRs) e tenere traccia della loro attuazione. • Lingue (obbligatorio): fluente tedesco e inglese. Francese e/o italiano sono un extra di benvenuto. Per questo ti visitiamo. Ti aspetti un alto livello di responsabilità personale, brevi percorsi decisionali e impatto visibile su un prodotto che mette costantemente AI al centro. Se si desidera modellare e modellare in modo decisivo un prodotto, si trova qui una posizione chiave rara. Ulteriori informazioni su localsearch come datore di lavoro possono essere trovate qui. Florian Laudahn e l'intero team sono lieti della vostra applicazione online!",
-        "en": "Zurich (100% - 4 days on site, 1 day home office) With renovero, the leading platform for craft services in Switzerland, we connect thousands of people and companies with the right craftsmen every year. Together we develop innovative solutions to make the platform even more user-friendly and successful. As a digital and entrepreneurial person, you shape the next stage of renovero’s development. In this key position, you are the driving force behind the product and take responsibility for its success, from strategic vision to implementation with our development and AI partners. renovero is evolving from the established craftsman tendering platform to an AI-supported ecosystem around the Craftsmen Agent. The focus of your role is on continuously deepening the added value for craftsmen and publishers, expanding platform use and introducing AI into the product. You are the link between business strategy, technical development and AI delivery. You act as a sparring partner for the Head of Verticals, adopt a \"mini-CEO\" mentality for your product and remain hands-on in the backlog at the same time. In a focused, powerful team, you set priorities clearly and push results forward. Strategic product management and financial responsibility • Product vision and roadmap: Together with a colleague, you develop a clear, market-oriented product vision and a data-based roadmap that consistently develops renovero in the direction of its target architecture. You make sure the roadmap pays in on business goals, especially recurring revenue and user adoption. • Financial management: You are responsible for the financial health of your product to the Head of Verticals. You will provide data bases for business cases, monitor critical SaaS metrics (recurring revenue, active contracts, renewable rate, customer loyalty) and make decisions that ensure profitability and sustainable growth. • Market and competition analysis: You will continuously analyze the market and competition, identify growth opportunities and expand Renovero’s position as a leading Swiss platform for craftsman tenders. AI and Agentic Product Development (focus) • AI Initiative: You drive renovero’s core AI initiative, from intelligent offering tools to conversational agents with voice and chat to data-driven comparison and recommendation capabilities. You translate the vision into deliverable releases. • LLM and Agentic Competence: You are very familiar with the common LLMs and Agentic setups (prompt design, knowledge bases and retrieval, voice and chat flows, tool and function calls) and systematically evaluate AI output quality. • Data and data protection: You work with knowledge bases and clean data flows and think trust, safety and data protection (nDSG) consistently into the product. • AI quality assurance: You define clear acceptance criteria for AI features and ensure their quality together with our partners. Operational Product Ownership • Backlog Management: You write user stories with clear acceptance criteria, prioritize the product backlog and lead refinements with the development team. • Sprint control: You act as a product owner in the agile ceremonies (sprint planning, refinement, review, retrospective) and ensure a reliable delivery rhythm. • Acceptance: You coordinate and perform user acceptance testing and grant formal acceptance on behalf of renovero. • Tooling: You work safely with Jira and Confluence and adhere to the governance of the project structure. Interface and Partner Management • Bridge to IT: You are the main contact for the external development team. Your colleague and you translate the business needs of marketing, sales, customer service and management into clear, prioritized and actionable requirements. • AI Delivery: You control the AI Delivery along clearly defined Acceptance Criteria and actively lead the cooperation with our partners. • Active management: You act proactively, drive issues forward and ensure clear, coordinated decision-making paths between product, IT and management. • Internal stakeholders: You coordinate closely with marketing, sales, customer care and legal and optimize the cooperation between business and IT. User funnel, platform KPIs and growth • Conversion rate optimization: While marketing is responsible for traffic, you are responsible for conversion throughout the tender funnel, from launch to successful publication. • Retention and Renewal: You expand customer loyalty and increase the Renewal rate on the craftsman side through new, AI-supported value-added and premium offers. • User activity: You monitor and increase activity and satisfaction of both user groups, publishers and craftsmen. • Platform development: You accompany the expansion of the native apps and the technical development of the platform. • New segments: You enter new customer segments and revenue models (B2B partnerships, API integrations, transactional models). Digital depth and AI flux: You are very familiar with the common LLMs and Agentic setups and bring in-depth digital product understanding. • Experience (mandatory): 3 to 5 years in the development of web and app products in the SaaS and/or ecommerce environment. • Technical understanding: You discuss at eye level with the IT team, understand technical decision templates and ask the right questions. You don’t have to be a developer, but you understand the implications of technical decisions. • Entrepreneurial action: You think and act like an entrepreneur, take full responsibility and make bold decisions. • Communication strength and assertiveness: You communicate clearly, directly and convincingly, simply present complex issues and do not shy away from difficult conversations. • Analytical skills: You’ll make data-driven decisions, be adept at analytics tools and interpreting SaaS metrics. • Structured working method: You derive concrete plans and requirements from overarching goals (OKRs) and keep track of their implementation. • Languages (mandatory): German and English fluent. French and/or Italian are a welcome extra. That's why we visit you. You expect a high level of personal responsibility, short decision paths and visible impact on a product that consistently puts AI at the center. If you want to decisively shape and shape a product, you will find here a rare key position. Contact & Application More information about localsearch as an employer can be found here. Florian Laudahn and the whole team are looking forward to your online application!",
-        "fr": "Zurich (100% - 4 jours sur place, 1 jour de bureau) Avec Renovero, la plateforme leader des services artisanaux en Suisse, nous mettons en contact des milliers de personnes et d'entreprises avec les bons artisans chaque année. Ensemble, nous développons des solutions innovantes pour rendre la plateforme encore plus conviviale et réussie. En tant que personne numérique et entrepreneuriale, vous façonnez la prochaine étape du développement de la rénovation. Dans cette position clé, vous êtes la force motrice du produit et prenez la responsabilité de son succès, de la vision stratégique à la mise en œuvre avec nos partenaires de développement et d'IA. renovero passe de la plate-forme d'appel d'offres établie à un écosystème soutenu par l'IA autour de l'agent artisanal. Votre rôle est d'approfondir en permanence la valeur ajoutée pour les artisans et les éditeurs, d'étendre l'utilisation de la plateforme et d'introduire l'IA dans le produit. Vous êtes le lien entre la stratégie commerciale, le développement technique et la prestation d'IA. Vous agissez en tant que partenaire d'éparpillement pour le Head of Verticals, adoptez une mentalité \"mini-CEO\" pour votre produit et restez dans l'arriéré en même temps. Dans une équipe ciblée et puissante, vous définissez clairement vos priorités et faites avancer les résultats. Gestion stratégique des produits et responsabilité financière • Vision et feuille de route des produits : Avec un collègue, vous développez une vision claire et axée sur le marché ainsi qu'une feuille de route basée sur les données qui développe systématiquement la rénovation dans la direction de son architecture cible. Vous assurez-vous que la feuille de route paie sur les objectifs des entreprises, en particulier les revenus récurrents et l'adoption des utilisateurs. • Gestion financière : Vous êtes responsable de la santé financière de votre produit auprès du Chef des Verticals. Vous fournirez des bases de données pour les analyses de rentabilisation, surveillerez les paramètres SaaS critiques (revenu récurrent, contrats actifs, taux renouvelable, fidélité de la clientèle) et prendrez des décisions qui assureront la rentabilité et la croissance durable. • Analyse du marché et de la concurrence: Vous analyserez en permanence le marché et la concurrence, identifierez les opportunités de croissance et élargirez la position de Renovero , une plateforme suisse leader pour les appels d'offres des artisans. Développement de produits d'IA et d'agents (focus) • Initiative d'IA : Vous conduisez l'initiative d'IA de base, de l'offre intelligente aux agents conversationnels avec voix et chat aux capacités de comparaison et de recommandation axées sur les données. Vous traduisez la vision en versions livrables. • Compétence LLM et Agentic : Vous connaissez bien les configurations LLM et Agentic communes (conception rapide, bases de connaissances et récupération, flux de voix et de chat, appels d'outils et de fonctions) et évaluez systématiquement la qualité de sortie AI. • Protection des données et des données: Vous travaillez avec des bases de connaissances et des flux de données propres et pensez à la confiance, la sécurité et la protection des données (nDSG) systématiquement dans le produit. • Assurance qualité AI: Vous définissez des critères d'acceptation clairs pour les fonctionnalités AI et assurez leur qualité avec nos partenaires. Propriété opérationnelle du produit • Backlog Management: Vous écrivez des histoires d'utilisateurs avec des critères d'acceptation clairs, priorisez l'arriéré de produits et dirigez les améliorations avec l'équipe de développement. • Contrôle de l'empreinte : Vous êtes propriétaire de produits lors des cérémonies agiles (planification de l'empreinte, raffinement, revue, rétrospective) et vous assurez un rythme de livraison fiable. • Acceptation: Vous coordonnez et effectuez des tests d'acceptation de l'utilisateur et accordez une acceptation formelle au nom de renovero. • Outillage: Vous travaillez en toute sécurité avec Jira et Confluence et vous adhérez à la gouvernance de la structure du projet. Interface et gestion des partenaires • Passer à l'informatique : Vous êtes le contact principal pour l'équipe de développement externe. Votre collègue et vous traduisez les besoins commerciaux du marketing, des ventes, du service à la clientèle et de la gestion en exigences claires, prioritaires et réalisables. • Livraison AI: Vous contrôlez la livraison AI selon des critères d'acceptation clairement définis et dirigez activement la coopération avec nos partenaires. • Gestion active : Vous agissez de manière proactive, dirigez les questions vers l'avant et assurez des voies de décision claires et coordonnées entre le produit, l'informatique et la gestion. • Les acteurs internes: vous coordonnez étroitement avec le marketing, les ventes, le service à la clientèle et le droit et optimisez la coopération entre les entreprises et les TI. Entonnoir utilisateur, plateforme KPIs et croissance • Optimisation du taux de conversion : Alors que le marketing est responsable du trafic, vous êtes responsable de la conversion tout au long de l'entonnoir d'appel d'offres, du lancement à la publication réussie. • Conservation et renouvellement : vous accroissez la fidélité de la clientèle et augmentez le taux de renouvellement du côté artisanal grâce à de nouvelles offres à valeur ajoutée et premium soutenues par l'IA. • Activité utilisateur : vous surveillez et augmentez l'activité et la satisfaction des groupes d'utilisateurs, des éditeurs et des artisans. • Développement de la plateforme : Vous accompagnez l'expansion des applications natives et le développement technique de la plateforme. • Nouveaux segments : vous entrez de nouveaux segments clients et modèles de revenus (partenariats B2B, intégrations API, modèles transactionnels). Profondeur numérique et flux d'IA: Vous êtes très familier avec les LLM et les configurations Agentiques communes et apportez une compréhension approfondie des produits numériques. • Expérience (obligatoire): 3 à 5 ans dans le développement de produits web et app dans l'environnement SaaS et/ou ecommerce. • Compréhension technique: Vous discutez au niveau des yeux avec l'équipe informatique, comprenez les modèles de décision technique et posez les bonnes questions. Vous ne devez pas être un développeur, mais vous comprenez les implications des décisions techniques. • Action entrepreneuriale: Vous pensez et agissez comme un entrepreneur, prenez l'entière responsabilité et prenez des décisions audacieuses. • La force de communication et l'affirmation: Vous communiquez clairement, directement et de manière convaincante, simplement présenter des questions complexes et ne pas hésiter à des conversations difficiles. • Compétences d'analyse: Vous prendrez des décisions basées sur les données, serez au fait des outils d'analyse et interpréterez les paramètres SaaS. • Méthode de travail structurée : Vous tirez des plans et des exigences concrets des objectifs globaux (OKR) et vous surveillez leur mise en oeuvre. • Langues (obligatoire): allemand et anglais couramment. Le français et/ou l'italien sont les bienvenus. C'est pour ça qu'on vous rend visite. Vous attendez un haut niveau de responsabilité personnelle, des chemins de décision courts et un impact visible sur un produit qui met constamment l'IA au centre. Si vous voulez façonner de façon décisive un produit, vous trouverez ici une position clé rare. Contact & Application Vous trouverez plus d'informations sur la recherche locale en tant qu'employeur ici. Florian Laudahn et toute l'équipe attendent avec impatience votre candidature en ligne!"
+        "it": "Zurigo (100% - 4 giorni in loco, 1 giorno in ufficio) Con Renovero, la piattaforma leader per i servizi artigianali in Svizzera, colleghiamo migliaia di persone e aziende con i giusti artigiani ogni anno. Insieme sviluppiamo soluzioni innovative per rendere la piattaforma ancora più facile da usare e di successo. Come persona digitale e imprenditoriale, si forma la fase successiva dello sviluppo di Renovero. In questa posizione chiave, sei la forza trainante del prodotto e ti assumerai la responsabilità del suo successo, dalla visione strategica all'implementazione con i nostri partner di sviluppo e AI. renovero si sta evolvendo dalla piattaforma di tendering artigianale consolidata ad un ecosistema AI-supportato intorno all'agente Craftsmen. Il focus del vostro ruolo è quello di approfondire continuamente il valore aggiunto per artigiani e editori, espandendo l'uso della piattaforma e introducendo AI nel prodotto. Sei il collegamento tra strategia aziendale, sviluppo tecnico e consegna AI. Agisci come partner sparring per il Head of Verticals, adotti una mentalità \"mini-CEO\" per il tuo prodotto e mantieni le mani sul backlog allo stesso tempo. In un team focalizzato e potente, impostare le priorità chiaramente e spingere i risultati in avanti. Gestione strategica del prodotto e responsabilità finanziaria\n• Visione del prodotto e roadmap: Insieme a un collega, si sviluppa una visione chiara e orientata al mercato del prodotto e una roadmap basata sui dati che sviluppa costantemente renovero nella direzione della sua architettura di destinazione. Assicurarsi che la roadmap paghi sugli obiettivi aziendali, in particolare le entrate ricorrenti e l'adozione degli utenti.\n• Gestione finanziaria: Lei è responsabile della salute finanziaria del Suo prodotto al Capo dei Verticali. Fornirai basi di dati per i casi aziendali, monitorerai le metriche critiche SaaS (ricercando ricavi, contratti attivi, tasso rinnovabile, fidelizzazione del cliente) e prendere decisioni che garantiscano la redditività e la crescita sostenibile.\n• Analisi del mercato e della concorrenza: Analizzerai continuamente il mercato e la concorrenza, identificherai le opportunità di crescita e amplierai la posizione di Renovero come piattaforma svizzera leader per le offerte artigianali. AI e Agentic Product Development (focus)\n• AI Initiative: Guida l'iniziativa AI di Renovero, dall'offerta intelligente agli agenti conversazione con voce e chat alle funzionalità di confronto e raccomandazione basate sui dati. Traduci la visione in release consegnabili.\n• LLM e Competenza Agentica: Lei è molto familiare con i LLM comuni e le configurazioni Agentiche (prompt design, basi di conoscenza e retrieval, flussi di voce e chat, chiamate di strumenti e funzioni) e valuta sistematicamente la qualità di uscita AI.\n• Protezione dei dati e dei dati: si lavora con basi di conoscenza e flussi di dati puliti e pensare la fiducia, la sicurezza e la protezione dei dati (nDSG) costantemente nel prodotto.\n• Garanzia di qualità AI: definisci criteri di accettazione chiari per le funzioni AI e garantisci la loro qualità insieme ai nostri partner. Gestione del Backlog: scrivi storie utente con criteri di accettazione chiari, premi il backlog del prodotto e con il team di sviluppo.\n• Controllo delle impronte: Lei agisce come proprietario del prodotto nelle cerimonie agili (pianificazione delle impronte, raffinatezza, revisione, retrospettiva) e garantisce un ritmo di consegna affidabile.\n• Accettazione: coordinare e eseguire test di accettazione degli utenti e concedere l'accettazione formale per conto del renovero.\n• Tooling: Lavori in modo sicuro con Jira e Confluence e aderisci alla governance della struttura del progetto. Interfaccia e gestione dei partner\n• Bridge to IT: Sei il principale contatto per il team di sviluppo esterno. Il tuo collega e traduci le esigenze aziendali di marketing, vendite, servizio clienti e gestione in requisiti chiari, prioritari e fattibili.\n• AI Delivery: si controlla la consegna AI lungo criteri di accettazione chiaramente definiti e guidare attivamente la cooperazione con i nostri partner.\n• Gestione attiva: Lei agisce proattivamente, spinge i problemi in avanti e assicura percorsi decisionali chiari e coordinati tra prodotto, IT e gestione.\n• stakeholder interni: coordinati a stretto contatto con il marketing, le vendite, l'assistenza clienti e il legale e ottimizza la cooperazione tra business e IT. Imbuto utente, piattaforma KPI e crescita\n• Ottimizzazione del tasso di conversione: Mentre il marketing è responsabile del traffico, si è responsabili per la conversione in tutto l'imbuto tenero, dal lancio alla pubblicazione di successo.\n• Retention and Renewal: espandere la fidelizzazione del cliente e aumentare il tasso di rinnovo sul lato craftsman attraverso nuove, AI-supported valore aggiunto e offerte premium.\n• Attività dell'utente: monitora e aumenta l'attività e la soddisfazione di gruppi di utenti, editori e artigiani.\n• Sviluppo della piattaforma: accompagni l'espansione delle applicazioni native e lo sviluppo tecnico della piattaforma.\n• Nuovi segmenti: Inserisci nuovi segmenti dei clienti e modelli di ricavi (partner B2B, integrazioni API, modelli transazionali). Profondità digitale e flusso AI: Lei è molto familiare con i LLM comuni e le installazioni Agentic e portare la comprensione di prodotto digitale approfondita.\n• Esperienza (obbligatorio): da 3 a 5 anni nello sviluppo di prodotti web e app nell'ambiente SaaS e/o ecommerce.\n• Comprensione tecnica: Si discute a livello degli occhi con il team IT, capire modelli di decisione tecnica e porre le domande giuste. Non devi essere uno sviluppatore, ma capisci le implicazioni delle decisioni tecniche.\n• Azione imprenditoriale: Lei pensa e si comporta come un imprenditore, si assume la piena responsabilità e prende decisioni coraggiose.\n• Resistenza alla comunicazione e assertività: Comunichi chiaramente, direttamente e convincibilmente, semplicemente presenta problemi complessi e non timidi lontano da conversazioni difficili.\n• AbilitÃ analitiche: Prenderai decisioni basate sui dati, sarai abile negli strumenti di analisi e interpreterai le metriche di SaaS.\n• Metodo di lavoro strutturato: si ricavano piani e requisiti concreti da obiettivi di overarching (OKRs) e tenere traccia della loro attuazione.\n• Lingue (obbligatorio): fluente tedesco e inglese. Francese e/o italiano sono un extra di benvenuto. Per questo ti visitiamo. Ti aspetti un alto livello di responsabilità personale, brevi percorsi decisionali e impatto visibile su un prodotto che mette costantemente AI al centro. Se si desidera modellare e modellare in modo decisivo un prodotto, si trova qui una posizione chiave rara. Ulteriori informazioni su localsearch come datore di lavoro possono essere trovate qui. Florian Laudahn e l'intero team sono lieti della vostra applicazione online!",
+        "en": "Zurich (100% - 4 days on site, 1 day home office) With renovero, the leading platform for craft services in Switzerland, we connect thousands of people and companies with the right craftsmen every year. Together we develop innovative solutions to make the platform even more user-friendly and successful. As a digital and entrepreneurial person, you shape the next stage of renovero’s development. In this key position, you are the driving force behind the product and take responsibility for its success, from strategic vision to implementation with our development and AI partners. renovero is evolving from the established craftsman tendering platform to an AI-supported ecosystem around the Craftsmen Agent. The focus of your role is on continuously deepening the added value for craftsmen and publishers, expanding platform use and introducing AI into the product. You are the link between business strategy, technical development and AI delivery. You act as a sparring partner for the Head of Verticals, adopt a \"mini-CEO\" mentality for your product and remain hands-on in the backlog at the same time. In a focused, powerful team, you set priorities clearly and push results forward. Strategic product management and financial responsibility\n• Product vision and roadmap: Together with a colleague, you develop a clear, market-oriented product vision and a data-based roadmap that consistently develops renovero in the direction of its target architecture. You make sure the roadmap pays in on business goals, especially recurring revenue and user adoption.\n• Financial management: You are responsible for the financial health of your product to the Head of Verticals. You will provide data bases for business cases, monitor critical SaaS metrics (recurring revenue, active contracts, renewable rate, customer loyalty) and make decisions that ensure profitability and sustainable growth.\n• Market and competition analysis: You will continuously analyze the market and competition, identify growth opportunities and expand Renovero’s position as a leading Swiss platform for craftsman tenders. AI and Agentic Product Development (focus)\n• AI Initiative: You drive renovero’s core AI initiative, from intelligent offering tools to conversational agents with voice and chat to data-driven comparison and recommendation capabilities. You translate the vision into deliverable releases.\n• LLM and Agentic Competence: You are very familiar with the common LLMs and Agentic setups (prompt design, knowledge bases and retrieval, voice and chat flows, tool and function calls) and systematically evaluate AI output quality.\n• Data and data protection: You work with knowledge bases and clean data flows and think trust, safety and data protection (nDSG) consistently into the product.\n• AI quality assurance: You define clear acceptance criteria for AI features and ensure their quality together with our partners. Operational Product Ownership\n• Backlog Management: You write user stories with clear acceptance criteria, prioritize the product backlog and lead refinements with the development team.\n• Sprint control: You act as a product owner in the agile ceremonies (sprint planning, refinement, review, retrospective) and ensure a reliable delivery rhythm.\n• Acceptance: You coordinate and perform user acceptance testing and grant formal acceptance on behalf of renovero.\n• Tooling: You work safely with Jira and Confluence and adhere to the governance of the project structure. Interface and Partner Management\n• Bridge to IT: You are the main contact for the external development team. Your colleague and you translate the business needs of marketing, sales, customer service and management into clear, prioritized and actionable requirements.\n• AI Delivery: You control the AI Delivery along clearly defined Acceptance Criteria and actively lead the cooperation with our partners.\n• Active management: You act proactively, drive issues forward and ensure clear, coordinated decision-making paths between product, IT and management.\n• Internal stakeholders: You coordinate closely with marketing, sales, customer care and legal and optimize the cooperation between business and IT. User funnel, platform KPIs and growth\n• Conversion rate optimization: While marketing is responsible for traffic, you are responsible for conversion throughout the tender funnel, from launch to successful publication.\n• Retention and Renewal: You expand customer loyalty and increase the Renewal rate on the craftsman side through new, AI-supported value-added and premium offers.\n• User activity: You monitor and increase activity and satisfaction of both user groups, publishers and craftsmen.\n• Platform development: You accompany the expansion of the native apps and the technical development of the platform.\n• New segments: You enter new customer segments and revenue models (B2B partnerships, API integrations, transactional models). Digital depth and AI flux: You are very familiar with the common LLMs and Agentic setups and bring in-depth digital product understanding.\n• Experience (mandatory): 3 to 5 years in the development of web and app products in the SaaS and/or ecommerce environment.\n• Technical understanding: You discuss at eye level with the IT team, understand technical decision templates and ask the right questions. You don’t have to be a developer, but you understand the implications of technical decisions.\n• Entrepreneurial action: You think and act like an entrepreneur, take full responsibility and make bold decisions.\n• Communication strength and assertiveness: You communicate clearly, directly and convincingly, simply present complex issues and do not shy away from difficult conversations.\n• Analytical skills: You’ll make data-driven decisions, be adept at analytics tools and interpreting SaaS metrics.\n• Structured working method: You derive concrete plans and requirements from overarching goals (OKRs) and keep track of their implementation.\n• Languages (mandatory): German and English fluent. French and/or Italian are a welcome extra. That's why we visit you. You expect a high level of personal responsibility, short decision paths and visible impact on a product that consistently puts AI at the center. If you want to decisively shape and shape a product, you will find here a rare key position. Contact & Application More information about localsearch as an employer can be found here. Florian Laudahn and the whole team are looking forward to your online application!",
+        "de": "Zürich (100% - 4 Tage vor Ort, 1 Tag Homeoffice) Mit renovero , der führenden Plattform für Handwerksdienstleistungen in der Schweiz, verbinden wir jährlich tausende Personen und Unternehmen mit den passenden Handwerkern. Gemeinsam entwickeln wir innovative Lösungen, um die Plattform noch nutzerfreundlicher und erfolgreicher zu machen. DEINE ROLLE BEI RENOVERO Als digital und unternehmerisch denkende Person gestaltest du die nächste Entwicklungsstufe von renovero. In dieser Schlüsselposition bist du die treibende Kraft hinter dem Produkt und übernimmst Verantwortung für dessen Erfolg, von der strategischen Vision bis zur Umsetzung mit unseren Entwicklungs- und AI-Partnern. renovero entwickelt sich von der etablierten Handwerker-Ausschreibungsplattform zu einem AI-gestützten Ökosystem rund um den Craftsmen Agent. Im Zentrum deiner Rolle steht, den Mehrwert für Handwerker und Publisher kontinuierlich zu vertiefen, die Plattformnutzung auszubauen und AI gezielt ins Produkt zu bringen. Du bist das Bindeglied zwischen Business-Strategie, technischer Entwicklung und AI-Delivery. Du agierst als Sparringspartner für den Head of Verticals, übernimmst eine \"Mini-CEO\"-Mentalität für dein Produkt und bleibst gleichzeitig hands-on im Backlog. In einem fokussierten, schlagkräftigen Team setzt du Prioritäten klar und treibst Ergebnisse durchsetzungsstark voran. DEINE HAUPTVERANTWORTLICHKEITEN Strategische Produktführung und finanzielle Verantwortung\n• Produktvision und Roadmap: Du entwickelst gemeinsam mit einer Kollegin eine klare, marktorientierte Produktvision und eine datenbasierte Roadmap, die renovero konsequent in Richtung seiner Zielarchitektur weiterentwickelt. Du stellst sicher, dass die Roadmap auf die Geschäftsziele einzahlt, allen voran auf wiederkehrenden Umsatz und Nutzerakzeptanz.\n• Finanzielle Steuerung: Du verantwortest gegenüber dem Head of Verticals die finanzielle Gesundheit deines Produkts. Du lieferst Datengrundlagen für Business Cases, überwachst kritische SaaS-Metriken (wiederkehrender Umsatz, aktive Verträge, Renewal Rate, Kundenbindung) und triffst Entscheidungen, die Profitabilität und nachhaltiges Wachstum sichern.\n• Markt- und Wettbewerbsanalyse: Du analysierst kontinuierlich Markt und Wettbewerb, identifizierst Wachstumschancen und baust renoveros Position als führende Schweizer Plattform für Handwerker-Ausschreibungen aus. AI- und Agentic-Produktentwicklung (Schwerpunkt)\n• AI-Initiative: Du treibst die zentrale AI-Initiative von renovero voran, von intelligenten Offerten-Tools über conversational Agents mit Voice und Chat bis zu datengestützten Vergleichs- und Empfehlungsfunktionen. Du übersetzt die Vision in lieferbare Releases.\n• LLM- und Agentic-Kompetenz: Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus (Prompt-Design, Knowledge Bases und Retrieval, Voice- und Chat-Flows, Tool- und Funktionsaufrufe) und bewertest AI-Output-Qualität systematisch.\n• Daten und Datenschutz: Du arbeitest mit Knowledge Bases und sauberen Datenflüssen und denkst Trust, Safety und Datenschutz (nDSG) konsequent ins Produkt mit ein.\n• AI-Qualitätssicherung: Du definierst klare Acceptance Criteria für AI-Features und sicherst deren Qualität gemeinsam mit unseren Partnern. Operative Product Ownership\n• Backlog Management: Du schreibst User Stories mit klaren Acceptance Criteria, priorisierst das Product Backlog und führst Refinements mit dem Entwicklungsteam.\n• Sprint-Steuerung: Du agierst als Product Owner in den agilen Zeremonien (Sprint Planning, Refinement, Review, Retrospektive) und sorgst für einen verlässlichen Lieferrhythmus.\n• Abnahme: Du koordinierst und führst User Acceptance Testing durch und erteilst die formale Abnahme im Namen von renovero.\n• Tooling: Du arbeitest sicher mit Jira und Confluence und hältst die Governance der Projektstruktur ein. Schnittstellen- und Partner-Management\n• Brücke zur IT: Du bist die Hauptkontaktperson für das externe Entwicklungsteam. Deine Kollegin und du übersetzen die Business Needs aus Marketing, Sales, Kundendienst und Management in klare, priorisierte und umsetzbare Anforderungen.\n• AI-Delivery: Du steuerst die AI-Delivery entlang klar definierter Acceptance Criteria und führst die Zusammenarbeit mit unseren Partnern aktiv.\n• Aktive Steuerung: Du agierst proaktiv, treibst Themen voran und sorgst für klare, abgestimmte Entscheidungswege zwischen Produkt, IT und Management.\n• Interne Stakeholder: Du koordinierst eng mit Marketing, Sales, Customer Care und Legal und optimierst die Zusammenarbeit zwischen Business und IT. Nutzer-Funnel, Plattform-KPIs und Wachstum\n• Conversion Rate Optimierung: Während Marketing für den Traffic verantwortlich ist, verantwortest du die Conversion im gesamten Ausschreibungs-Funnel, vom Start bis zur erfolgreichen Publikation.\n• Retention und Renewal: Du baust die Kundenbindung aus und steigerst die Renewal Rate auf Handwerkerseite unter anderem durch neue, AI-gestützte Mehrwert- und Premium-Angebote.\n• Nutzeraktivität: Du überwachst und steigerst Aktivität und Zufriedenheit beider Nutzergruppen, Publisher und Handwerker.\n• Plattform-Weiterentwicklung: Du begleitest den Ausbau der nativen Apps und die technische Weiterentwicklung der Plattform.\n• Neue Segmente: Du erschliesst neue Kundensegmente und Erlösmodelle (B2B-Partnerschaften, API-Integrationen, transaktionale Modelle). DEINE KERNKOMPETENZEN\n• Digitale Tiefe und AI-Fluency (Pflicht): Du kennst dich hervorragend mit den gängigen LLMs und Agentic-Setups aus und bringst vertieftes digitales Produktverständnis mit.\n• Erfahrung (Pflicht): 3 bis 5 Jahre in der Entwicklung von Web- und App-Produkten im SaaS- und/oder Ecommerce-Umfeld.\n• Technisches Verständnis: Du diskutierst auf Augenhöhe mit dem IT-Team, verstehst technische Entscheidungsvorlagen und stellst die richtigen Fragen. Du musst kein Developer sein, aber du verstehst die Implikationen technischer Entscheidungen.\n• Unternehmerisches Handeln: Du denkst und handelst wie eine Unternehmerin oder ein Unternehmer, übernimmst volle Verantwortung und triffst mutige Entscheidungen.\n• Kommunikationsstärke und Durchsetzungskraft: Du kommunizierst klar, direkt und überzeugend, stellst komplexe Sachverhalte einfach dar und scheust keine schwierigen Gespräche.\n• Analytische Fähigkeiten: Du triffst Entscheidungen auf Datenbasis, bist versiert im Umgang mit Analytics-Tools und der Interpretation von SaaS-Metriken.\n• Strukturierte Arbeitsweise: Du leitest aus übergeordneten Zielen (OKRs) konkrete Pläne und Anforderungen ab und hältst deren Umsetzung nach.\n• Sprachen (Pflicht): Deutsch und Englisch fliessend. Französisch und/oder Italienisch sind ein willkommenes Extra. DAMIT BEGEISTERN WIR DICH\n• Dich erwarten hohe Eigenverantwortung, kurze Entscheidungswege und sichtbarer Impact auf ein Produkt, das AI konsequent ins Zentrum stellt. Wenn du ein Produkt entscheidend mitgestalten und prägen willst, findest du hier eine seltene Schlüsselposition. Kontakt & Bewerbung Weitere Informationen zu localsearch als Arbeitgeber findest du hier . Florian Laudahn und das ganze Team freuen sich auf deine Online-Bewerbung!",
+        "fr": "Zurich (100% - 4 jours sur place, 1 jour de bureau) Avec Renovero, la plateforme leader des services artisanaux en Suisse, nous mettons en contact des milliers de personnes et d'entreprises avec les bons artisans chaque année. Ensemble, nous développons des solutions innovantes pour rendre la plateforme encore plus conviviale et réussie. En tant que personne numérique et entrepreneuriale, vous façonnez la prochaine étape du développement de la rénovation. Dans cette position clé, vous êtes la force motrice du produit et prenez la responsabilité de son succès, de la vision stratégique à la mise en œuvre avec nos partenaires de développement et d'IA. renovero passe de la plate-forme d'appel d'offres établie à un écosystème soutenu par l'IA autour de l'agent artisanal. Votre rôle est d'approfondir en permanence la valeur ajoutée pour les artisans et les éditeurs, d'étendre l'utilisation de la plateforme et d'introduire l'IA dans le produit. Vous êtes le lien entre la stratégie commerciale, le développement technique et la prestation d'IA. Vous agissez en tant que partenaire d'éparpillement pour le Head of Verticals, adoptez une mentalité \"mini-CEO\" pour votre produit et restez dans l'arriéré en même temps. Dans une équipe ciblée et puissante, vous définissez clairement vos priorités et faites avancer les résultats. Gestion stratégique des produits et responsabilité financière\n• Vision et feuille de route des produits : Avec un collègue, vous développez une vision claire et axée sur le marché ainsi qu'une feuille de route basée sur les données qui développe systématiquement la rénovation dans la direction de son architecture cible. Vous assurez-vous que la feuille de route paie sur les objectifs des entreprises, en particulier les revenus récurrents et l'adoption des utilisateurs.\n• Gestion financière : Vous êtes responsable de la santé financière de votre produit auprès du Chef des Verticals. Vous fournirez des bases de données pour les analyses de rentabilisation, surveillerez les paramètres SaaS critiques (revenu récurrent, contrats actifs, taux renouvelable, fidélité de la clientèle) et prendrez des décisions qui assureront la rentabilité et la croissance durable.\n• Analyse du marché et de la concurrence: Vous analyserez en permanence le marché et la concurrence, identifierez les opportunités de croissance et élargirez la position de Renovero , une plateforme suisse leader pour les appels d'offres des artisans. Développement de produits d'IA et d'agents (focus)\n• Initiative d'IA : Vous conduisez l'initiative d'IA de base, de l'offre intelligente aux agents conversationnels avec voix et chat aux capacités de comparaison et de recommandation axées sur les données. Vous traduisez la vision en versions livrables.\n• Compétence LLM et Agentic : Vous connaissez bien les configurations LLM et Agentic communes (conception rapide, bases de connaissances et récupération, flux de voix et de chat, appels d'outils et de fonctions) et évaluez systématiquement la qualité de sortie AI.\n• Protection des données et des données: Vous travaillez avec des bases de connaissances et des flux de données propres et pensez à la confiance, la sécurité et la protection des données (nDSG) systématiquement dans le produit.\n• Assurance qualité AI: Vous définissez des critères d'acceptation clairs pour les fonctionnalités AI et assurez leur qualité avec nos partenaires. Propriété opérationnelle du produit\n• Backlog Management: Vous écrivez des histoires d'utilisateurs avec des critères d'acceptation clairs, priorisez l'arriéré de produits et dirigez les améliorations avec l'équipe de développement.\n• Contrôle de l'empreinte : Vous êtes propriétaire de produits lors des cérémonies agiles (planification de l'empreinte, raffinement, revue, rétrospective) et vous assurez un rythme de livraison fiable.\n• Acceptation: Vous coordonnez et effectuez des tests d'acceptation de l'utilisateur et accordez une acceptation formelle au nom de renovero.\n• Outillage: Vous travaillez en toute sécurité avec Jira et Confluence et vous adhérez à la gouvernance de la structure du projet. Interface et gestion des partenaires\n• Passer à l'informatique : Vous êtes le contact principal pour l'équipe de développement externe. Votre collègue et vous traduisez les besoins commerciaux du marketing, des ventes, du service à la clientèle et de la gestion en exigences claires, prioritaires et réalisables.\n• Livraison AI: Vous contrôlez la livraison AI selon des critères d'acceptation clairement définis et dirigez activement la coopération avec nos partenaires.\n• Gestion active : Vous agissez de manière proactive, dirigez les questions vers l'avant et assurez des voies de décision claires et coordonnées entre le produit, l'informatique et la gestion.\n• Les acteurs internes: vous coordonnez étroitement avec le marketing, les ventes, le service à la clientèle et le droit et optimisez la coopération entre les entreprises et les TI. Entonnoir utilisateur, plateforme KPIs et croissance\n• Optimisation du taux de conversion : Alors que le marketing est responsable du trafic, vous êtes responsable de la conversion tout au long de l'entonnoir d'appel d'offres, du lancement à la publication réussie.\n• Conservation et renouvellement : vous accroissez la fidélité de la clientèle et augmentez le taux de renouvellement du côté artisanal grâce à de nouvelles offres à valeur ajoutée et premium soutenues par l'IA.\n• Activité utilisateur : vous surveillez et augmentez l'activité et la satisfaction des groupes d'utilisateurs, des éditeurs et des artisans.\n• Développement de la plateforme : Vous accompagnez l'expansion des applications natives et le développement technique de la plateforme.\n• Nouveaux segments : vous entrez de nouveaux segments clients et modèles de revenus (partenariats B2B, intégrations API, modèles transactionnels). Profondeur numérique et flux d'IA: Vous êtes très familier avec les LLM et les configurations Agentiques communes et apportez une compréhension approfondie des produits numériques.\n• Expérience (obligatoire): 3 à 5 ans dans le développement de produits web et app dans l'environnement SaaS et/ou ecommerce.\n• Compréhension technique: Vous discutez au niveau des yeux avec l'équipe informatique, comprenez les modèles de décision technique et posez les bonnes questions. Vous ne devez pas être un développeur, mais vous comprenez les implications des décisions techniques.\n• Action entrepreneuriale: Vous pensez et agissez comme un entrepreneur, prenez l'entière responsabilité et prenez des décisions audacieuses.\n• La force de communication et l'affirmation: Vous communiquez clairement, directement et de manière convaincante, simplement présenter des questions complexes et ne pas hésiter à des conversations difficiles.\n• Compétences d'analyse: Vous prendrez des décisions basées sur les données, serez au fait des outils d'analyse et interpréterez les paramètres SaaS.\n• Méthode de travail structurée : Vous tirez des plans et des exigences concrets des objectifs globaux (OKR) et vous surveillez leur mise en oeuvre.\n• Langues (obligatoire): allemand et anglais couramment. Le français et/ou l'italien sont les bienvenus. C'est pour ça qu'on vous rend visite. Vous attendez un haut niveau de responsabilité personnelle, des chemins de décision courts et un impact visible sur un produit qui met constamment l'IA au centre. Si vous voulez façonner de façon décisive un produit, vous trouverez ici une position clé rare. Contact & Application Vous trouverez plus d'informations sur la recherche locale en tant qu'employeur ici. Florian Laudahn et toute l'équipe attendent avec impatience votre candidature en ligne!"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://emp.jobylon.com/jobs/367353-localsearch-product-manager-mwd-renovero/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:10:56.873Z",
+      "crawledAt": "2026-06-19T12:58:35.495Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2608,9 +2439,9 @@
       "postedDate": "2026-06-18",
       "applyUrl": "https://emp.jobylon.com/jobs/367353-localsearch-product-manager-mwd-renovero/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-06-18T23:10:56.873Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "baseSalary": {
@@ -2624,8 +2455,7 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-18T23:10:56.873Z"
+      "addressRegion": "ZH"
     }
   ]
 }
