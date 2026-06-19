@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+        "en": "nurse-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -69,12 +69,12 @@
     },
     {
       "id": "ksw-4ecfdf2046d5",
-      "slug": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
+      "slug": "infermiera-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+        "it": "infermiera-nel-campo-medico-kantonsspital-winterthur-ksw-winterthur",
+        "en": "nursing-specialist-nursing-specialist-in-the-medical-field-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmiere-dans-le-domaine-medical-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -130,7 +130,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T23:06:56.257Z"
+      "firstSeenAt": "2026-06-18T23:06:56.257Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-im-medizinischen-bereich-ksw-ch"
+      ]
     },
     {
       "id": "ksw-afee750c0b52",
@@ -643,8 +657,7 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
-        "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4731,9 +4744,9 @@
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+        "en": "nurse-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur-73aec2",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch"
+        "fr": "infirmiere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur-73aec2"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4777,8 +4790,8 @@
       "department": "Pflege Medizin",
       "previousSlugs": [
         "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-des-soins-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
         "care-specialist-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-des-soins-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
         "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {

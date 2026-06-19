@@ -2022,9 +2022,9 @@
       "slug": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
       "slugByLocale": {
         "it": "fachmann-frau-gesundheit-cfc-spitaler-schaffhausen",
-        "en": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
+        "en": "professional-health-efz-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen",
-        "fr": "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+        "fr": "sante-professionnelle-efz-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2071,6 +2071,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "fachmann-frau-gesundheit-efz-spitaeler-schaffhausen-schaffhausen"
         ]
       },
@@ -3950,9 +3956,9 @@
       "slug": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
       "slugByLocale": {
         "it": "fachmann-frau-gesundheit-cfc-erwachsenenbildung-nach-art-32-bbv-spitaler-schaffhausen",
-        "en": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
+        "en": "health-professional-efz-adult-education-according-to-art-32-bbv-spitaler-schaffhausen-schaffhausen",
         "de": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen",
-        "fr": "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        "fr": "efz-professionnel-de-la-sante-education-des-adultes-selon-l-article-32-bbv-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4000,6 +4006,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        ],
+        "en": [
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
+        ],
+        "fr": [
+          "fachmann-frau-gesundheit-efz-erwachsenenbildung-nach-art-32-bbv-spitaeler-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-06-18T13:06:31.795Z",
@@ -4018,12 +4030,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-3ac343793fe8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "it": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4066,10 +4078,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },
@@ -4092,9 +4112,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen-5b56a9",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-5b56a9"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",

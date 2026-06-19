@@ -2405,7 +2405,7 @@
       "slugByLocale": {
         "it": "specialista-di-farmacia-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "en": "pharmacy-specialist-in-hospital-pharmacy-80-hopital-du-valais-sion",
-        "de": "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion",
+        "de": "apothekerspezialist-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
         "fr": "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -2456,14 +2456,16 @@
         ],
         "de": [
           "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
-          "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
+          "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
+          "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "farmacista-specialista-in-farmacia-ospedaliera-80-hopital-du-valais-sion",
         "pharmacien-ne-specialiste-en-pharmacie-hospitaliere-80-hopital-du-valais-sion",
         "pharmazie-spezialistin-fur-krankenhauspharmazie-80-hopital-du-valais-sion",
-        "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion"
+        "apotheker-in-der-krankenhausapotheke-80-hopital-du-valais-sion",
+        "apotheker-im-krankenhaus-apotheke-80-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-06-03T23:52:48.116Z",
       "salaryMin": 60500,
@@ -4237,12 +4239,12 @@
     },
     {
       "id": "hopital-du-valais-850f770a48aa",
-      "slug": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
+      "slug": "infermiera-80-unita-di-cura-acuta-pzo-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
-        "it": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
+        "it": "infermiera-80-unita-di-cura-acuta-pzo-hopital-du-valais-brig",
         "en": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig",
-        "fr": "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
+        "fr": "infirmiere-80-service-aigu-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4299,7 +4301,18 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-06-18T22:56:13.434Z"
+      "firstSeenAt": "2026-06-18T22:56:13.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-akutabteilung-pzo-hopital-du-valais-brig"
+      ]
     }
   ]
 }

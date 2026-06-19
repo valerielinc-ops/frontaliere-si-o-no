@@ -515,10 +515,10 @@
     },
     {
       "id": "implenia-ef8ca941ab72",
-      "slug": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a",
+      "slug": "cmsm-m-f-d-zurigo-opfikon-50-70-temporaneo-implenia-thurgauerstrasse-101a",
       "slugByLocale": {
         "de": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
-        "it": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a",
+        "it": "cmsm-m-f-d-zurigo-opfikon-50-70-temporaneo-implenia-thurgauerstrasse-101a",
         "en": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
         "fr": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
       },
@@ -565,11 +565,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
+          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
+          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
+        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
+        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -665,12 +667,12 @@
     },
     {
       "id": "implenia-b8f7642ee2b6",
-      "slug": "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "real-estate-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch",
+        "it": "real-estate-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
         "en": "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch"
+        "fr": "directeur-immobilier-m-f-j-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -725,7 +727,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:59:08.552Z"
+      "firstSeenAt": "2026-06-18T22:59:08.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -734,7 +747,7 @@
         "de": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
         "it": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
         "en": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch",
-        "fr": "customer-consultant-bewirtschaftung-m-w-d-winterthur-60-100-implenia-ch"
+        "fr": "consultant-en-gestion-m-f-d-winterthur-60-100-implenia-winterthur-roter-turm"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -793,12 +806,12 @@
     },
     {
       "id": "implenia-bede1cec8d87",
-      "slug": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
+      "slug": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
       "slugByLocale": {
         "de": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "it": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch",
-        "en": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
-        "fr": "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "it": "direttore-tecnico-immobiliare-commerciale-m-f-d-basilea-80-100-implenia-zurich-masch",
+        "en": "technical-director-commercial-real-estate-m-f-d-basel-80-100-implenia-zurich-masch",
+        "fr": "directeur-technique-immobilier-commercial-m-f-d-bale-80-100-implenia-zurich-masch"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -843,11 +856,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
+        ],
+        "en": [
+          "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        ],
+        "fr": [
           "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch"
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-ch",
+        "technischer-leiter-kommerzielle-immobilien-m-w-d-basel-80-100-implenia-zurich-masch"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -865,12 +886,12 @@
     },
     {
       "id": "implenia-e26c8e63e816",
-      "slug": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
+      "slug": "responsabile-della-proprieta-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
       "slugByLocale": {
         "de": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "it": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "en": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch",
-        "fr": "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        "it": "responsabile-della-proprieta-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "en": "property-manager-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur",
+        "fr": "gestionnaire-immobilier-m-f-d-winterthur-80-100-implenia-technikumstrasse-61-postfach-8400-winterthur"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -925,7 +946,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:59:07.111Z"
+      "firstSeenAt": "2026-06-18T22:59:07.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "en": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-3e012d993f5a",
@@ -1082,12 +1117,12 @@
     },
     {
       "id": "implenia-41afb0f1832c",
-      "slug": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "en": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        "it": "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
+        "en": "senior-calculator-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "fr": "calculatrice-principale-de-construction-de-bois-m-f-j-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -1142,7 +1177,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:59:05.859Z"
+      "firstSeenAt": "2026-06-18T22:59:05.859Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-4ca369f24228",
@@ -2787,12 +2836,12 @@
     },
     {
       "id": "implenia-a8fc6a9d2289",
-      "slug": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "en": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2847,7 +2896,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:58:58.671Z"
+      "firstSeenAt": "2026-06-18T22:58:58.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-768610a7e5f2",
@@ -4263,12 +4326,12 @@
     },
     {
       "id": "implenia-97bd43b55aa1",
-      "slug": "leiter-kalkulation-zentralschweiz-m-w-d-80-100-implenia-gisikon",
+      "slug": "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
       "slugByLocale": {
         "de": "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-        "it": "leiter-kalkulation-zentralschweiz-m-w-d-80-100-implenia-gisikon",
-        "en": "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-        "fr": "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch"
+        "it": "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
+        "en": "head-of-calculation-central-switzerland-f-m-d-80-100-implenia-gisikon",
+        "fr": "responsable-du-calcul-suisse-centrale-f-m-j-80-100-implenia-gisikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4313,11 +4376,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
+          "leiter-kalkulation-zentralschweiz-m-w-d-80-100-implenia-gisikon"
+        ],
+        "en": [
+          "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch"
+        "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
+        "leiter-kalkulation-zentralschweiz-m-w-d-80-100-implenia-gisikon"
       ],
       "salaryMin": 96000,
       "salaryMax": 146000,
@@ -4335,12 +4406,12 @@
     },
     {
       "id": "implenia-ba1f8fedbe82",
-      "slug": "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+      "slug": "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
       "slugByLocale": {
         "de": "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "it": "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "en": "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "fr": "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        "it": "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "en": "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "fr": "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4385,11 +4456,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
+          "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+        ],
+        "en": [
+          "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        ],
+        "fr": [
           "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
+        "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4407,12 +4486,12 @@
     },
     {
       "id": "implenia-1222ea180b6f",
-      "slug": "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+      "slug": "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon",
       "slugByLocale": {
         "de": "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "it": "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
-        "en": "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "fr": "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        "it": "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "en": "project-manager-new-building-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "fr": "chef-de-projet-nouveau-batiment-gu-tu-gisikon-f-m-d-implenia-gisikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4457,11 +4536,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
+          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+        ],
+        "en": [
+          "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        ],
+        "fr": [
           "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch"
+        "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
+        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

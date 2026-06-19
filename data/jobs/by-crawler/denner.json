@@ -1249,12 +1249,12 @@
     },
     {
       "id": "denner-727bbf66b8c4",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-basel",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-basel",
         "de": "assistent-in-filialleitung-denner-ag-basel-lvyhnb",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-basel",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1324,7 +1324,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-18T22:40:00.067Z"
+      "firstSeenAt": "2026-06-18T22:40:00.067Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-a9d3e660c799",
@@ -2204,12 +2218,12 @@
     },
     {
       "id": "denner-70aa4f83689a",
-      "slug": "verkaufer-in-im-stundenlohn-denner-nebikon",
+      "slug": "venditore-nel-salario-orario-denner-nebikon",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "it": "venditore-nel-salario-orario-denner-nebikon",
         "de": "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-n9b3cp",
-        "en": "verkaufer-in-im-stundenlohn-denner-nebikon",
-        "fr": "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "en": "seller-in-the-hourly-wage-denner-nebikon",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-nebikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2268,11 +2282,19 @@
       "crawledAt": "2026-06-18T22:39:57.589Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -2291,12 +2313,12 @@
     },
     {
       "id": "denner-13fc8e2f0f94",
-      "slug": "verkaufer-in-denner-frick",
+      "slug": "venditore-denner-frick",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-frick",
+        "it": "venditore-denner-frick",
         "de": "verkaufer-in-denner-ag-frick",
-        "en": "verkaufer-in-denner-frick",
-        "fr": "verkaufer-in-denner-frick"
+        "en": "seller-denner-frick",
+        "fr": "vendeur-denner-frick"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2355,11 +2377,19 @@
       "crawledAt": "2026-06-18T22:39:57.586Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-frick"
+        ],
+        "en": [
+          "verkaufer-in-denner-frick"
+        ],
+        "fr": [
+          "verkaufer-in-denner-frick"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-frick"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2380,10 +2410,10 @@
       "id": "denner-42c80cb4cf7a",
       "slug": "leiter-in-product-management-food-denner",
       "slugByLocale": {
-        "it": "leiter-in-product-management-food-denner",
+        "it": "leiter-in-product-management-food-denner-ag-zurich",
         "en": "leiter-in-product-management-food-denner",
         "de": "leiter-in-product-management-food-denner",
-        "fr": "leiter-in-product-management-food-denner"
+        "fr": "chef-de-la-gestion-des-produits-alimentaires-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2459,12 +2489,12 @@
     },
     {
       "id": "denner-ae42e7a4bb4f",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-con-salario-orario-denner-zurich",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-con-salario-orario-denner-zurich",
+        "en": "salesperson-on-an-hourly-wage-denner-zurich",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-a-salaire-horaire-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2524,20 +2554,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-2"
+          "verkaufer-in-denner-2",
+          "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-zurich"
+          "verkaufer-in-denner-zurich",
+          "verkaufer-in-denner"
         ],
         "de": [
           "verkaufer-in-denner-zurich"
         ],
         "fr": [
-          "verkaufer-in-denner-zurich"
+          "verkaufer-in-denner-zurich",
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-2",
+        "verkaufer-in-denner",
         "verkaufer-in-denner-zurich"
       ],
       "salaryMin": 83000,

@@ -24,12 +24,12 @@
         "en": "Delivery:in packages",
         "fr": "Livraison:en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-in-pacchetti-die-schweizerische-post-rothenburg",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-in-pacchetti-die-schweizerische-post-rothenburg",
+        "en": "delivery-in-packages-die-schweizerische-post-rothenburg",
         "de": "zusteller-in-pakete-die-schweizerische-post-rothenburg",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livraison-en-paquets-die-schweizerische-post-rothenburg"
       },
       "sourceLang": "de",
       "department": "",
@@ -64,7 +64,21 @@
       "addressRegion": "LU",
       "addressCountry": "CH",
       "postalCode": "6003",
-      "firstSeenAt": "2026-06-18T23:27:48.214Z"
+      "firstSeenAt": "2026-06-18T23:27:48.214Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/HR-Data-&-Solution-Spezialistin/74098-de_DE",
@@ -7025,9 +7039,9 @@
         "de": "Berater/Kundenberater KMU",
         "fr": "Conseillère/Conseiller clientèle PME"
       },
-      "slug": "consulente-client-advisor-pmi-la-poste-suisse-fribourg",
+      "slug": "consulente-cliente-pmi-consiglio-la-poste-suisse-fribourg",
       "slugByLocale": {
-        "it": "consulente-client-advisor-pmi-la-poste-suisse-fribourg",
+        "it": "consulente-cliente-pmi-consiglio-la-poste-suisse-fribourg",
         "en": "advisor-client-advisor-smes-la-poste-suisse-fribourg",
         "de": "berater-kundenberater-kmu-la-poste-suisse-fribourg",
         "fr": "conseillere-conseiller-clientele-pme-la-poste-suisse-fribourg"
@@ -7069,7 +7083,8 @@
       "firstSeenAt": "2026-06-17T13:25:00.907Z",
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-conseiller-clientele-pme-post"
+          "conseillere-conseiller-clientele-pme-post",
+          "consulente-client-advisor-pmi-la-poste-suisse-fribourg"
         ],
         "en": [
           "conseillere-conseiller-clientele-pme-post"
@@ -7079,7 +7094,8 @@
         ]
       },
       "previousSlugs": [
-        "conseillere-conseiller-clientele-pme-post"
+        "conseillere-conseiller-clientele-pme-post",
+        "consulente-client-advisor-pmi-la-poste-suisse-fribourg"
       ]
     },
     {

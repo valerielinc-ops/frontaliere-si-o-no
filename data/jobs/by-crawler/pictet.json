@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "pictet-e6f58eb6465f",
-      "slug": "compliance-officer-pictet-singapore",
+      "slug": "ufficiale-di-conformita-pictet-group-singapore",
       "slugByLocale": {
         "en": "compliance-officer-pictet-singapore",
-        "it": "compliance-officer-pictet-singapore",
-        "de": "compliance-officer-pictet-singapore",
-        "fr": "compliance-officer-pictet-singapore"
+        "it": "ufficiale-di-conformita-pictet-group-singapore",
+        "de": "compliance-beauftragter-pictet-group-singapore",
+        "fr": "specialiste-du-respect-des-dispositions-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -65,7 +65,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-18T23:22:38.008Z"
+      "firstSeenAt": "2026-06-18T23:22:38.008Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-pictet-singapore"
+        ],
+        "de": [
+          "compliance-officer-pictet-singapore"
+        ],
+        "fr": [
+          "compliance-officer-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-officer-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-cac1c9aa5312",

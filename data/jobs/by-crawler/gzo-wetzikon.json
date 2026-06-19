@@ -1868,8 +1868,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch",
         "it": "dipl-pflegefachfrau-mann-hf-fh-per-la-medizinische-bettenstation-60-100-gzo-spital-wetzikon",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch"
+        "en": "qualified-nurse-hf-fh-for-the-medical-bed-station-60-100-gzo-spital-wetzikon-wetzikon",
+        "fr": "infirmiere-infirmier-diplome-hf-hes-pour-le-service-des-lits-medicaux-60-100-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1916,6 +1916,12 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-fur-die-medizinische-bettenstation-60-100-gzo-wetzikon-ch"
         ]
       },

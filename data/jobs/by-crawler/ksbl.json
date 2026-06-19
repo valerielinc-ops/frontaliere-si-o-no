@@ -167,11 +167,8 @@
       },
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "assistente-inferiore-medicina-a-kantonsspital-baselland-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "junior-medical-assistant-a-kantonsspital-baselland-ksbl-liestal",
         "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "assistant-medical-junior-a-kantonsspital-baselland-ksbl-liestal",
         "sous-assistant-en-medecine-a-kantonsspital-baselland-ksbl-liestal",
         "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal",
         "segretaria-o-di-clinica-in-medicina-kantonsspital-baselland-ksbl-liestal",
@@ -4094,9 +4091,9 @@
     },
     {
       "id": "ksbl-9019aad02f15",
-      "slug": "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital",
+      "slug": "centro-di-pronto-soccorso-specializzato-specializzato-infermieristico-nds-hf-centro-di-pronto-soccorso-per-infermieri",
       "slugByLocale": {
-        "it": "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital",
+        "it": "centro-di-pronto-soccorso-specializzato-specializzato-infermieristico-nds-hf-centro-di-pronto-soccorso-per-infermieri",
         "en": "dipl-expert-expert-emergency-care-nds-hf-dipl-nursing-professional-emergency-centre-a-kantonsspital-baselland-ksbl",
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
         "fr": "dipl-expert-expert-soins-d-urgence-nds-hf-dipl-professionnels-des-soins-infirmiers-centre-d-urgence-a-kantonsspital"
@@ -4141,11 +4138,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+        "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
+        "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
+          "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann",
+          "dipl-expert-expert-emergency-care-nds-hf-dipl-centro-di-emergenza-professionale-infermieristico-a-kantonsspital"
         ],
         "en": [
           "dipl-expertin-experte-notfallpflege-nds-hf-dipl-pflegefachfrau-pflegefachmann"
@@ -5014,8 +5013,7 @@
         "teamleiterin-teamleiter-workplace-management-a-ksbl-liestal",
         "chef-d-equipe-gestion-du-milieu-de-travail-a-kantonsspital-baselland-ksbl-liestal",
         "staff-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal"
+        "gestion-des-lieux-de-travail-du-personnel-a-kantonsspital-baselland-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [

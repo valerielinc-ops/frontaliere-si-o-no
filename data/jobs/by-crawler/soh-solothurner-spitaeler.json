@@ -11096,7 +11096,7 @@
       "slug": "infermiera-dipl-infermiera-reparto-letto-operativo-f-m-d-solothurner-spitaler-ag-soh-olten",
       "slugByLocale": {
         "it": "infermiera-dipl-infermiera-reparto-letto-operativo-f-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
+        "en": "dipl-nursing-specialist-nursing-specialist-operative-bettenstation-f-m-d-solothurner-spitaler-ag-soh-olten",
         "de": "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-poste-lit-operationnel-f-m-d-solothurner-spitaler"
       },
@@ -11143,7 +11143,8 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler",
         "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-solothurner-spitaler-ag-soh-olten",
-        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten"
+        "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten",
+        "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11151,7 +11152,8 @@
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-solothurner-spitaler-ag-soh-olten",
-          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten"
+          "dipl-nursing-specialist-nursing-specialist-operational-bed-station-f-m-d-solothurner-spitaler-ag-soh-olten",
+          "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-operative-bettenstation-w-m-d-soh-solothurner-spitaeler"
@@ -11415,7 +11417,7 @@
         "it": "senior-controller-management-accounting-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "en": "senior-controller-operating-accounting-f-m-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch",
-        "fr": "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
+        "fr": "comptabilite-des-controleurs-superieurs-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -11459,7 +11461,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn"
+        "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11469,7 +11472,8 @@
           "senior-controller-betriebsbuchhaltung-w-m-d-soh-solothurner-spitaeler-solothurn"
         ],
         "fr": [
-          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn"
+          "controleur-principal-de-la-comptabilite-de-fonctionnement-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+          "senior-controller-betriebsbuchhaltung-w-m-d-soh-ch"
         ]
       },
       "firstSeenAt": "2026-06-01T16:07:15.035Z",
@@ -12437,7 +12441,7 @@
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-hr-administration-w-m-d-soh-solothurner-spitaeler-olten",
         "it": "sachbearbeiterin-sachbearbeiter-hr-administration-w-m-d-soh-solothurner-spitaeler-olten",
-        "en": "sachbearbeiterin-sachbearbeiter-hr-administration-w-m-d-soh-solothurner-spitaeler-olten",
+        "en": "personnel-personnel-hr-administration-f-m-d-solothurner-spitaler-ag-soh-olten",
         "fr": "sachbearbeiterin-sachbearbeiter-hr-administration-w-m-d-soh-solothurner-spitaeler-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
@@ -12501,8 +12505,8 @@
       "slugByLocale": {
         "de": "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "mpa-poliklinik-orthopala-w-m-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "en": "mpa-polyclinic-orthopaedics-f-m-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "mpa-orthopedie-polyclinique-f-m-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12561,6 +12565,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "mpa-poliklinik-orthopadie-w-m-d-soh-solothurner-spitaeler-solothurn"
         ]
       },
       "previousSlugs": [
@@ -12569,12 +12579,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-3ae37e49b076",
-      "slug": "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn",
+      "slug": "tecnologia-di-pulizia-professionale-professionale-in-formazione-m-f-d-solothurner-spitaler-ag-soh-solothurn",
       "slugByLocale": {
-        "it": "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn",
+        "it": "tecnologia-di-pulizia-professionale-professionale-in-formazione-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "en": "professional-professional-cleaning-technology-in-training-m-f-d-solothurner-spitaler-ag-soh-solothurn",
         "de": "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-soh-ch",
-        "fr": "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
+        "fr": "technologie-de-nettoyage-professionnelle-en-formation-m-f-d-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -12619,11 +12629,19 @@
       "firstSeenAt": "2026-06-18T13:05:26.329Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-soh-solothurner-spitaeler"
+          "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-soh-solothurner-spitaeler",
+          "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
+        ],
+        "en": [
+          "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
+        ],
+        "fr": [
+          "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
         ]
       },
       "previousSlugs": [
-        "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-soh-solothurner-spitaeler"
+        "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-soh-solothurner-spitaeler",
+        "fachmann-fachfrau-reinigungstechnik-in-ausbildung-m-w-d-solothurner-spitaler-ag-soh-solothurn"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

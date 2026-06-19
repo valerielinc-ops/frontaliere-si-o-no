@@ -2604,12 +2604,12 @@
     },
     {
       "id": "lindenhofgruppe-f1a78639ecdf",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+        "en": "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b",
+        "fr": "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-2e2f7b"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2654,11 +2654,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-6",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -2754,12 +2762,12 @@
     },
     {
       "id": "lindenhofgruppe-8e1d52c2f0d3",
-      "slug": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
+      "slug": "codice-medico-lindenhofgruppe-muristalden",
       "slugByLocale": {
         "de": "medizinische-r-codierer-in-lindenhofgruppe-ch",
-        "it": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
-        "en": "medizinische-r-codierer-in-lindenhofgruppe-muristalden",
-        "fr": "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        "it": "codice-medico-lindenhofgruppe-muristalden",
+        "en": "medical-coder-lindenhofgruppe-muristalden",
+        "fr": "codeur-medical-lindenhofgruppe-muristalden"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2804,11 +2812,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-codierer-in-lindenhofgruppe-ch"
+          "medizinische-r-codierer-in-lindenhofgruppe-ch",
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        ],
+        "en": [
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
+        ],
+        "fr": [
+          "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-codierer-in-lindenhofgruppe-ch"
+        "medizinische-r-codierer-in-lindenhofgruppe-ch",
+        "medizinische-r-codierer-in-lindenhofgruppe-muristalden"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

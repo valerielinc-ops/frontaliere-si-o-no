@@ -904,12 +904,12 @@
     },
     {
       "id": "ukbb-91e317916747",
-      "slug": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
+      "slug": "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel",
       "slugByLocale": {
         "de": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
-        "it": "dipl-fachperson-op-technik-hf-topa-ukbb-basel",
+        "it": "dipl-op-tecnico-hf-topa-universitats-kinderspital-beider-basel-basel",
         "en": "dipl-fachperson-op-technik-hf-topa-universitats-kinderspital-beider-basel-basel",
-        "fr": "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        "fr": "specialiste-certifie-en-technologie-chirurgicale-hf-topa-universitats-kinderspital-beider-basel-basel"
       },
       "company": "Universitäts-Kinderspital beider Basel",
       "companyKey": "ukbb",
@@ -965,7 +965,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T23:50:30.227Z"
+      "firstSeenAt": "2026-06-18T23:50:30.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        ],
+        "fr": [
+          "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-op-technik-hf-topa-ukbb-basel"
+      ]
     },
     {
       "id": "ukbb-ee9b97916de9",

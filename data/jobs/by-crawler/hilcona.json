@@ -2109,8 +2109,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "electricien-d-installation-geiser-ag-schlieren",
-        "elettrotecnico-di-impianto-geiser-ag-schlieren"
+        "electricien-d-installation-geiser-ag-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3102,8 +3101,7 @@
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
         "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
-        "elettricista-operativo-bell-schweiz-ag-oensingen"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6387,9 +6385,7 @@
         "elettricista-operativo-bell-schweiz-ag-oensingen",
         "electricien-en-service-bell-schweiz-ag-oensingen",
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-bell-schweiz-ag-oensingen",
-        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "electricien-de-maintenance-oensingen-bell-schweiz-ag-oensingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7090,12 +7086,12 @@
     },
     {
       "id": "hilcona-ca267b548ec7",
-      "slug": "praktikant-praktikantin-nachhaltigkeit-hilcona-basel",
+      "slug": "stagisti-sostenibilita-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "praktikant-praktikantin-nachhaltigkeit-hilcona-basel",
-        "it": "praktikant-praktikantin-nachhaltigkeit-hilcona-basel",
-        "en": "praktikant-praktikantin-nachhaltigkeit-hilcona-basel",
-        "fr": "praktikant-praktikantin-nachhaltigkeit-hilcona-basel"
+        "it": "stagisti-sostenibilita-bell-schweiz-ag-basel",
+        "en": "intern-intern-sustainability-bell-schweiz-ag-basel",
+        "fr": "durabilite-des-stagiaires-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -7147,7 +7143,21 @@
       "postalCode": "4001",
       "country": "CH",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-18T22:54:13.494Z"
+      "firstSeenAt": "2026-06-18T22:54:13.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-praktikantin-nachhaltigkeit-hilcona-basel"
+        ],
+        "en": [
+          "praktikant-praktikantin-nachhaltigkeit-hilcona-basel"
+        ],
+        "fr": [
+          "praktikant-praktikantin-nachhaltigkeit-hilcona-basel"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-praktikantin-nachhaltigkeit-hilcona-basel"
+      ]
     },
     {
       "id": "hilcona-da4a5ef2fc13",

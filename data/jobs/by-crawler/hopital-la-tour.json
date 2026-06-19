@@ -698,12 +698,12 @@
     },
     {
       "id": "hopital-la-tour-88a79d485686",
-      "slug": "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin",
+      "slug": "assistente-ospedaliero-in-medicina-2-cdm-6-mesi-al-70-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin",
-        "it": "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin",
-        "en": "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin",
-        "de": "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
+        "it": "assistente-ospedaliero-in-medicina-2-cdm-6-mesi-al-70-hopital-de-la-tour-meyrin",
+        "en": "hospital-assistant-in-medicine-2-cdm-6-months-at-70-hopital-de-la-tour-meyrin",
+        "de": "krankenhausassistent-in-der-medizin-2-cdm-6-monate-mit-70-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -758,16 +758,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:55:55.327Z"
+      "firstSeenAt": "2026-06-18T22:55:55.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "aide-hospitalier-iere-en-medecine-2-cdm-6-mois-a-70-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-b57bfa5d02dd",
-      "slug": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin",
+      "slug": "infermiera-notturna-in-medicina-2-contratto-permanente-70-hopital-de-la-tour-meyrin",
       "slugByLocale": {
         "fr": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin",
-        "it": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin",
-        "en": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin",
-        "de": "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin"
+        "it": "infermiera-notturna-in-medicina-2-contratto-permanente-70-hopital-de-la-tour-meyrin",
+        "en": "night-nurse-in-medicine-2-permanent-contract-70-hopital-de-la-tour-meyrin",
+        "de": "nachtpflegekraft-in-medizin-2-festanstellung-70-hopital-de-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
       "companyKey": "hopital-la-tour",
@@ -822,7 +836,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:55:55.318Z"
+      "firstSeenAt": "2026-06-18T22:55:55.318Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-iere-de-nuit-en-medecine-2-cdi-70-hopital-la-tour-meyrin"
+      ]
     }
   ]
 }

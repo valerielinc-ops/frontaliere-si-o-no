@@ -3833,9 +3833,9 @@
       "slug": "assistente-dell-hotel-60-spital-uster-uster",
       "slugByLocale": {
         "it": "assistente-dell-hotel-60-spital-uster-uster",
-        "en": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
+        "en": "hotel-assistant-hotel-assistant-60-spital-uster-uster",
         "de": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch",
-        "fr": "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+        "fr": "assistant-d-hotel-assistant-d-hotel-60-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3883,6 +3883,12 @@
       "previousSlugsByLocale": {
         "it": [
           "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+        ],
+        "en": [
+          "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
+        ],
+        "fr": [
+          "hotelfachassistentin-hotelfachassistent-60-spital-uster-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3905,9 +3911,9 @@
       "slug": "medico-senior-50-60-endocrinologia-diabetologia-spital-uster-uster",
       "slugByLocale": {
         "it": "medico-senior-50-60-endocrinologia-diabetologia-spital-uster-uster",
-        "en": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
+        "en": "senior-physician-50-60-endocrinology-diabetology-spital-uster-uster",
         "de": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch",
-        "fr": "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+        "fr": "medecin-senior-50-60-endocrinologie-diabeteologie-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3954,6 +3960,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-50-60-endokrinologie-diabetologie-spital-uster-ch"
         ]
       },
@@ -4052,9 +4064,9 @@
       "slug": "responsabile-dello-sviluppo-infermieristico-spital-uster-uster",
       "slugByLocale": {
         "it": "responsabile-dello-sviluppo-infermieristico-spital-uster-uster",
-        "en": "leitung-pflegeentwicklung-spital-uster-ch",
+        "en": "head-of-care-development-spital-uster-uster",
         "de": "leitung-pflegeentwicklung-spital-uster-ch",
-        "fr": "leitung-pflegeentwicklung-spital-uster-ch"
+        "fr": "chef-du-developpement-des-soins-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4101,6 +4113,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leitung-pflegeentwicklung-spital-uster-ch"
+        ],
+        "en": [
+          "leitung-pflegeentwicklung-spital-uster-ch"
+        ],
+        "fr": [
           "leitung-pflegeentwicklung-spital-uster-ch"
         ]
       },

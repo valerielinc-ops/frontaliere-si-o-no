@@ -1777,12 +1777,12 @@
     },
     {
       "id": "ksgl-1433ced5230c",
-      "slug": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus",
-        "it": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus",
+        "it": "dipl-expert-expert-anesthesia-care-nds-hf-kantonsspital-glarus-ksgl-glarus",
         "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus",
-        "fr": "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus"
+        "fr": "dipl-soins-d-anesthesie-expert-expert-nds-hf-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -1837,7 +1837,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T23:06:17.823Z"
+      "firstSeenAt": "2026-06-18T23:06:17.823Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-ksgl-glarus"
+      ]
     },
     {
       "id": "ksgl-300063a52aab",

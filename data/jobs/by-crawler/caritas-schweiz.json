@@ -194,12 +194,12 @@
     },
     {
       "id": "caritas-schweiz-5908bbeca530",
-      "slug": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
+      "slug": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
       "slugByLocale": {
         "de": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "it": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "en": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz",
-        "fr": "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+        "it": "infermiera-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
+        "en": "nurse-hf-fh-60-80-m-f-d-caritas-schweiz-zentralschweiz",
+        "fr": "infirmiere-hf-fh-60-80-m-f-j-caritas-schweiz-zentralschweiz"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -257,7 +257,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T22:27:04.258Z"
+      "firstSeenAt": "2026-06-18T22:27:04.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+        ],
+        "fr": [
+          "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-60-80-m-w-d-caritas-schweiz-zentralschweiz"
+      ]
     },
     {
       "id": "caritas-schweiz-8d5ad1e916ab",

@@ -909,8 +909,7 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "betriebsingenieur-in-siegfried-ch",
-        "ingenieur-de-production-siegfried-zofingen",
-        "ingegnere-di-produzione-siegfried-zofingen"
+        "ingenieur-de-production-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1728,9 +1727,9 @@
     },
     {
       "id": "siegfried-825934eb33b4",
-      "slug": "senior-lab-technician-process-safety-siegfried-ch",
+      "slug": "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "senior-lab-technician-process-safety-siegfried-ch",
+        "it": "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz",
         "en": "senior-lab-technician-process-safety-siegfried-ch",
         "de": "senior-lab-techniker-process-safety-siegfried-evionnaz",
         "fr": "senior-lab-technician-process-safety-siegfried-ch"
@@ -1788,7 +1787,15 @@
         }
       },
       "postalCode": "1950",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lab-technician-process-safety-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lab-technician-process-safety-siegfried-ch"
+      ]
     }
   ]
 }

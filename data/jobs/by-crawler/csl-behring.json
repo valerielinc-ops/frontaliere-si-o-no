@@ -2194,8 +2194,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3283,9 +3281,7 @@
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
         "scienziato-senior-tech-ops-csl-behring-bern",
-        "senior-wissenschaftler-tech-ops-csl-behring-bern",
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern"
+        "senior-wissenschaftler-tech-ops-csl-behring-bern"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -3478,8 +3474,8 @@
       "slugByLocale": {
         "en": "senior-laboratory-specialist-f-m-d-analytical-testing-csl-behring-ch",
         "it": "senior-laboratory-specialist-f-m-d-analytical-testing-csl-behring-ch",
-        "de": "senior-laboratory-specialist-f-m-d-analytical-testing-csl-behring-ch",
-        "fr": "senior-laboratory-specialist-f-m-d-analytical-testing-csl-behring-ch"
+        "de": "senior-laboratory-specialist-w-m-d-analytische-prufung-csl-behring-bern",
+        "fr": "specialiste-de-laboratoire-principal-f-m-d-essais-analytiques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3539,12 +3535,12 @@
     },
     {
       "id": "csl-behring-888c37a55829",
-      "slug": "scientist-technical-operations-csl-behring-ch",
+      "slug": "scienziato-operazioni-tecniche-csl-behring-bern",
       "slugByLocale": {
         "en": "scientist-technical-operations-csl-behring-ch",
-        "it": "scientist-technical-operations-csl-behring-ch",
-        "de": "scientist-technical-operations-csl-behring-ch",
-        "fr": "scientist-technical-operations-csl-behring-ch"
+        "it": "scienziato-operazioni-tecniche-csl-behring-bern",
+        "de": "wissenschaftler-technische-operationen-csl-behring-bern",
+        "fr": "scientifique-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3600,15 +3596,29 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-18T22:38:32.777Z"
+      "firstSeenAt": "2026-06-18T22:38:32.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-technical-operations-csl-behring-ch"
+        ],
+        "de": [
+          "scientist-technical-operations-csl-behring-ch"
+        ],
+        "fr": [
+          "scientist-technical-operations-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-technical-operations-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-4a9ee97a450d",
-      "slug": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
+      "slug": "principale-scienziato-tech-ops-m-f-x-csl-behring-bern",
       "slugByLocale": {
         "en": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
-        "it": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
-        "de": "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
+        "it": "principale-scienziato-tech-ops-m-f-x-csl-behring-bern",
+        "de": "hauptwissenschaftler-tech-ops-m-w-x-csl-behring-bern",
         "fr": "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -3667,10 +3677,19 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-18T22:38:32.122Z",
       "previousSlugs": [
+        "principal-scientist-tech-ops-m-f-x-csl-behring-ch",
         "principale-scienziato-tech-ops-tech-transfer-and-outsourcing-csl-behring-bern",
         "principal-scientist-tech-ops-tech-transfer-and-outsourcing-csl-behring-ch",
         "chercheur-principal-operations-techniques-transfert-de-technologie-et-externalisation-csl-behring-bern"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        ],
+        "de": [
+          "principal-scientist-tech-ops-m-f-x-csl-behring-ch"
+        ]
+      }
     }
   ]
 }
