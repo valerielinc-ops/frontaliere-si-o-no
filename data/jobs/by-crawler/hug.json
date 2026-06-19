@@ -3309,14 +3309,14 @@
       "title": "Commis ou Commise administrative - weekendiste - 20%",
       "titleByLocale": {
         "it": "Commissione amministrativa - fine settimanaiste - 20%",
-        "en": "Commis ou Commise administrative - weekendiste - 20%",
+        "en": "Administrative clerk - weekender - 20%",
         "de": "Commis oder Commise administrative - Wochenendist - 20 %",
-        "fr": "Commis ou Commise administrative - weekendiste - 20%"
+        "fr": "Commission ou Commission administrative - weekendiste - 20%"
       },
       "description": "Votre principale mission consiste à colliger les données nécessaires pour les différents projets de recherche réalisés dans le service des soins.",
       "descriptionByLocale": {
         "it": "La vostra missione principale è quella di raccogliere i dati necessari per i vari progetti di ricerca nel reparto assistenza.",
-        "en": "Your main mission is to collect the data needed for the various research projects carried out in the care department.",
+        "en": "Your main mission is to collect the data needed for the various research projects in the care department.",
         "de": "Ihre Hauptaufgabe ist es, die für die verschiedenen Forschungsprojekte in der Pflegeabteilung notwendige Daten zu sammeln.",
         "fr": "Votre principale mission consiste à colliger les données nécessaires pour les différents projets de recherche réalisés dans le service des soins."
       },
@@ -3368,7 +3368,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1201"
+      "postalCode": "1201",
+      "retranslationAttempts": 2
     },
     {
       "id": "hug-c2db642ecbe5",
@@ -4013,16 +4014,16 @@
       "title": "Stage en informatique - 100%",
       "titleByLocale": {
         "fr": "Stage en informatique - 100%",
-        "it": "Stage en informatique - 100%",
-        "en": "Stage en informatique - 100%",
-        "de": "Stage en informatique - 100%"
+        "it": "Tirocinio in informatica - 100%",
+        "en": "Computer Internship - 100%",
+        "de": "Computerpraktikum – 100 %"
       },
       "description": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\n Vous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\n Vous travaillez sur des dossiers de conception d’applications informatiques.\n Vous participez à des projets spécifiques.",
       "descriptionByLocale": {
-        "fr": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\n Vous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\n Vous travaillez sur des dossiers de conception d’applications informatiques.\n Vous participez à des projets spécifiques.",
-        "it": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\n Vous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\n Vous travaillez sur des dossiers de conception d’applications informatiques.\n Vous participez à des projets spécifiques.",
-        "en": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\n Vous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\n Vous travaillez sur des dossiers de conception d’applications informatiques.\n Vous participez à des projets spécifiques.",
-        "de": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\n Vous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\n Vous travaillez sur des dossiers de conception d’applications informatiques.\n Vous participez à des projets spécifiques."
+        "fr": "À la recherche d’un stage dans l’informatique, vous collaborez avec notre analyste en informatique en qualité de correspondant ou correspondante informatique stagiaire pour le département des neurosciences cliniques.\nVous soutenez les utilisateurs des 5 services : Neurochirurgie, Neurologie, ORL, Neurorééducation et Ophtalmologie du département en matière informatique, vous aidez au choix et à l’utilisation de matériel et de logiciels, vous caractérisez les problèmes rencontrés, vous en assurez le suivi et soutenez la gestion des droits d’accès.\nVous travaillez sur des dossiers de conception d’applications informatiques.\nVous participez à des projets spécifiques.",
+        "it": "Se stai cercando uno stage in informatica, lavorerai con il nostro analista informatico come corrispondente informatico stagista per il Dipartimento di Neuroscienze Cliniche. Supporterai gli utenti dei 5 reparti: Neurochirurgia, Neurologia, Otorinolaringoiatria, Neuroriabilitazione e Oftalmologia del dipartimento in materia IT, aiuterai nella scelta e nell'uso di hardware e software, caratterizzerai i problemi incontrati, li seguirai e supporterai la gestione dei diritti di accesso. Lavori su file di progettazione di applicazioni IT. Partecipi a progetti specifici.",
+        "en": "If you are looking for an internship in computer science, you will work with our computer analyst as an intern computer correspondent for the Department of Clinical Neurosciences. You will support the users of the 5 departments: Neurosurgery, Neurology, ENT, Neurorehabilitation and Ophthalmology of the department in IT matters, you will help with the choice and use of hardware and software, you will characterize the problems encountered, you will follow up on them and you will support the management of access rights. You work on IT application design files. You participate in specific projects.",
+        "de": "Wenn Sie ein Praktikum in der Informatik suchen, arbeiten Sie mit unserem Computeranalysten als Praktikant als Computerkorrespondent für die Abteilung für klinische Neurowissenschaften zusammen. Sie unterstützen die Nutzer der fünf Abteilungen: Neurochirurgie, Neurologie, HNO, Neurorehabilitation und Augenheilkunde der Abteilung in IT-Angelegenheiten, helfen bei der Auswahl und Nutzung von Hardware und Software, charakterisieren die auftretenden Probleme, verfolgen sie und unterstützen das Management der Zugangsrechte. Du arbeitest an IT-Anwendungsdesign-Dateien. Du nimmst an bestimmten Projekten teil."
       },
       "location": "Genève",
       "canton": "GE",
@@ -4048,7 +4049,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 57000,
       "salaryMax": 97000,
       "baseSalary": {
