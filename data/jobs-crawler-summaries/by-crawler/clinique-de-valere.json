@@ -1,18 +1,19 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-06-19T12:18:06.697Z",
+  "generatedAt": "2026-06-19T21:32:00.214Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8459,
-  "avgDurationMs": 8459,
+  "durationMs": 7828,
+  "avgDurationMs": 7828,
   "durationHistory": [
-    8459
+    7828
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-de-valere-3686b997380d",
       "slug": "maitre-de-sport-en-activite-physique-adaptee-clinique-de-valere",
@@ -20,14 +21,14 @@
       "companyKey": "clinique-de-valere",
       "companyDomain": "swissmedical.net",
       "title": "Maitre de sport en activité physique adaptée",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Sion",
       "canton": "VS",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133023945-maitre-de-sport-en-activite-physique-adaptee",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133023945-maitre-de-sport-en-activite-physique-adaptee",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:18:02.719Z",
+      "crawledAt": "2026-06-19T21:31:56.273Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "datePosted": "2026-06-19",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-19T12:18:02.719Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clinique-de-valere-aa4340a179af",
       "slug": "cdi-ergotherapeute-clinique-de-valere",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131591781-cdi-ergotherapeute",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:18:03.714Z",
+      "crawledAt": "2026-06-19T21:31:57.238Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000127440690-medecin-responsable-d-unite",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:18:04.675Z",
+      "crawledAt": "2026-06-19T21:31:58.175Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -129,47 +129,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "clinique-de-valere-0b43b5a708e2",
-      "slug": "cva-dietetician-graduate-clinique-de-valere-sion",
-      "company": "Clinique de Valère",
-      "companyKey": "clinique-de-valere",
-      "companyDomain": "swissmedical.net",
-      "title": "CVA_Diététicien(ne) diplômé(e)",
-      "needsRetranslation": false,
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132160749-cva-dieteticien-ne-diplome-e-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000132160749-cva-dieteticien-ne-diplome-e-",
-      "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-18T22:31:49.116Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "streetAddress": "Rue Pré-Fleuri 16, 1950 Sion",
-      "category": "Sanità / Ospedali",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "datePosted": "2026-06-15",
-      "firstSeenAt": "2026-06-15T14:14:54.143Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
