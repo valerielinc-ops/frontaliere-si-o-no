@@ -264,8 +264,8 @@
       "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
       "slugByLocale": {
         "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
-        "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
-        "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
+        "en": "private-client-advisor-lausanne-postfinance-lausanne",
+        "de": "privatkundenberater-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
       },
       "sourceLang": "fr",
@@ -286,10 +286,18 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-clientele-privee-lausanne-postfinance"
+        ],
+        "en": [
+          "advisor-private-customer-service-lausanne-postfinance-lausanne"
+        ],
+        "de": [
+          "berater-privater-kundenservice-lausanne-postfinance-lausanne"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-lausanne-postfinance"
+        "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "advisor-private-customer-service-lausanne-postfinance-lausanne",
+        "berater-privater-kundenservice-lausanne-postfinance-lausanne"
       ],
       "id": "postfinance-1ee349fcd573",
       "salaryMin": 60500,
@@ -333,11 +341,11 @@
         "de": "Investment-Kundenberater, Lausanne",
         "fr": "Conseiller:ère clientèle en placement, Lausanne"
       },
-      "slug": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
+      "slug": "consulente-per-clienti-investitori-losanna-postfinance-lausanne",
       "slugByLocale": {
-        "it": "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
-        "en": "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne",
-        "de": "berater-ere-clients-en-placement-lausanne-postfinance-lausanne",
+        "it": "consulente-per-clienti-investitori-losanna-postfinance-lausanne",
+        "en": "investment-client-advisor-lausanne-postfinance-lausanne",
+        "de": "investment-kundenberater-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-en-placement-lausanne-postfinance"
       },
       "sourceLang": "fr",
@@ -377,18 +385,22 @@
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-clientele-en-placement-lausanne-postfinance",
-          "consulente-per-clienti-investitori-losanna-postfinance-lausanne"
+          "advisor-ere-client-en-placement-losanna-postfinance-lausanne"
         ],
         "en": [
-          "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+          "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+          "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne"
         ],
         "de": [
-          "conseiller-ere-clientele-en-placement-lausanne-postfinance"
+          "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+          "berater-ere-clients-en-placement-lausanne-postfinance-lausanne"
         ]
       },
       "previousSlugs": [
         "conseiller-ere-clientele-en-placement-lausanne-postfinance",
-        "consulente-per-clienti-investitori-losanna-postfinance-lausanne"
+        "advisor-ere-client-en-placement-losanna-postfinance-lausanne",
+        "advisor-ere-clients-en-placement-lausanne-postfinance-lausanne",
+        "berater-ere-clients-en-placement-lausanne-postfinance-lausanne"
       ]
     }
   ]
