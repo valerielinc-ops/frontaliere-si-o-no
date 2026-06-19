@@ -1,18 +1,53 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-06-19T13:02:03.708Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-06-19T22:16:09.104Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8889,
-  "avgDurationMs": 8889,
+  "durationMs": 9815,
+  "avgDurationMs": 9815,
   "durationHistory": [
-    8889
+    9815
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "microsoft-200040955",
+      "slug": "data-center-technician-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Data Center Technician",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556896247",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-06-19T22:16:06.942Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556896247",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "microsoft-200040151",
@@ -26,7 +61,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874589",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:02:01.593Z",
+      "crawledAt": "2026-06-19T22:16:06.938Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +96,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556874593",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:02:01.594Z",
+      "crawledAt": "2026-06-19T22:16:06.940Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -96,7 +131,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556858141",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T13:02:01.591Z",
+      "crawledAt": "2026-06-19T22:16:06.937Z",
       "addressLocality": "Switzerland",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -120,46 +155,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "microsoft-200039966",
-      "slug": "ricerca-di-dati-senior-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Senior Data Scientist",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556874141",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-06-18T12:46:03.227Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556874141",
-      "firstSeenAt": "2026-06-18T07:02:58.539Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "streetAddress": "The Circle 02",
-      "postalCode": "8058",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
