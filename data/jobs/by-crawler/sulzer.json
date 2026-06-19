@@ -5404,9 +5404,9 @@
     },
     {
       "id": "sulzer-cfe8a7a60f9a",
-      "slug": "qc-technician-sulzer-ch",
+      "slug": "qc-tecnico-sulzer-margate",
       "slugByLocale": {
-        "it": "qc-technician-sulzer-ch",
+        "it": "qc-tecnico-sulzer-margate",
         "en": "qc-technician-sulzer-ch",
         "de": "qc-techniker-sulzer-margate",
         "fr": "qc-technicien-sulzer-margate"
@@ -5463,7 +5463,15 @@
         }
       },
       "postalCode": "8001",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "qc-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qc-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-7e334b51cd54",
