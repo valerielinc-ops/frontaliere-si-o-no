@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-06-18T23:04:27.191Z",
+  "generatedAt": "2026-06-19T12:51:58.256Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4584,
-  "avgDurationMs": 4584,
+  "durationMs": 3566,
+  "avgDurationMs": 3566,
   "durationHistory": [
-    4584
+    3566
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -228,11 +228,11 @@
       },
       "id": "klinik-wyssholzli-101dcb2ca155",
       "firstSeenAt": "2026-06-10T12:24:11.922Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -265,11 +265,11 @@
       },
       "id": "klinik-wyssholzli-2aab5834c80e",
       "firstSeenAt": "2026-06-10T12:24:11.922Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     }
