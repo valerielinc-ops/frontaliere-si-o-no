@@ -1,18 +1,19 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-06-19T12:19:36.525Z",
+  "generatedAt": "2026-06-19T21:33:14.084Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9473,
-  "avgDurationMs": 9473,
+  "durationMs": 7591,
+  "avgDurationMs": 7591,
   "durationHistory": [
-    9473
+    7591
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-generale-beaulieu-ffc5b28e1eb4",
       "slug": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
@@ -20,14 +21,14 @@
       "companyKey": "clinique-generale-beaulieu",
       "companyDomain": "swissmedical.net",
       "title": "Agent nettoyage bloc opératoire",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Genève",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133041249-agent-nettoyage-bloc-operatoire",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000133041249-agent-nettoyage-bloc-operatoire",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:19:32.319Z",
+      "crawledAt": "2026-06-19T21:33:10.391Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -42,16 +43,15 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "datePosted": "2026-06-19",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-06-19T12:19:32.319Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clinique-generale-beaulieu-31c3c2deb3b6",
       "slug": "sage-femme-clinique-generale-beaulieu",
@@ -66,7 +66,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000131667835-sage-femme",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:19:33.282Z",
+      "crawledAt": "2026-06-19T21:33:11.296Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000126682308-apprenti-e-technologue-en-dispositif-medicaux",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-19T12:19:34.272Z",
+      "crawledAt": "2026-06-19T21:33:12.182Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
