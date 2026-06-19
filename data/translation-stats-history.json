@@ -11384,5 +11384,119 @@
         "pending": 14
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-19T17:48:04.033Z",
+    "label": "before",
+    "total": 17225,
+    "needsRetranslation": 8759,
+    "suppressed": 659,
+    "incomplete": 1845,
+    "complete": 15380,
+    "missingByLocale": {
+      "it": 946,
+      "en": 685,
+      "de": 917,
+      "fr": 610
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 928
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Richemont",
+        "pending": 106
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 99
+      },
+      {
+        "company": "Roche",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 33
+      },
+      {
+        "company": "Migros-Genossenschafts-Bund",
+        "pending": 27
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-19T19:24:42.202Z",
+    "label": "after",
+    "total": 17225,
+    "needsRetranslation": 3222,
+    "suppressed": 658,
+    "incomplete": 1640,
+    "complete": 15585,
+    "missingByLocale": {
+      "it": 803,
+      "en": 563,
+      "de": 872,
+      "fr": 479
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 928
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 99
+      },
+      {
+        "company": "Roche",
+        "pending": 51
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 33
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      }
+    ]
   }
 ]

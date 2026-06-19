@@ -252,7 +252,7 @@
         "it": "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
         "en": "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
         "de": "dipl-pflegefachperson-schwerpunkt-angst-pzm-muensingen-munsingen",
-        "fr": "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+        "fr": "infirmier-ere-diplome-e-specialisation-dans-l-anxiete-psychiatriezentrum-munsingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -295,15 +295,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-schwerpunkt-angst-pzm-muensingen-munsingen",
-        "infirmier-ere-diplome-e-specialisation-dans-l-anxiete-psychiatriezentrum-munsingen-munsingen",
-        "dipl-ing-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
+        "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
+        "dipl-ing-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen",
+        "specialista-infermieristico-qualificato-specializzato-in-ansia-psychiatriezentrum-munsingen-munsingen",
+        "infirmier-ere-diplome-e-specialisation-dans-l-anxiete-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-schwerpunkt-angst-pzm-muensingen-munsingen"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-specialisation-dans-l-anxiete-psychiatriezentrum-munsingen-munsingen"
+          "dipl-pflegefachperson-schwerpunkt-angst-psychiatriezentrum-munsingen-munsingen"
         ]
       },
       "firstSeenAt": "2026-05-26T23:56:45.786Z",
@@ -487,7 +489,7 @@
         "it": "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
         "en": "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
         "de": "dipl-pflegefachperson-pzm-muensingen-biel",
-        "fr": "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel"
+        "fr": "dipl-pflegefachpersonne-psychiatriezentrum-munsingen-biel"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -531,14 +533,16 @@
       "previousSlugs": [
         "dipl-pflegefachperson-pzm-muensingen-biel",
         "specialista-specialista-dipl-argomento-della-cura-psychiatriezentrum-munsingen-biel",
+        "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
         "specialist-specialist-dipl-care-subject-psychiatriezentrum-munsingen-biel",
         "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-psychiatriezentrum-munsingen-biel",
         "specialiste-specialiste-dipl-sujet-psychiatriezentrum-munsingen-biel",
-        "dipl-pflegefachpersonne-psychiatriezentrum-munsingen-biel",
         "fachverantwortliche-fachverantwortlicher-dipl-pflegefachperson-pzm-muensingen-biel",
         "infermiere-a-professionale-psychiatriezentrum-munsingen-biel",
         "infirmier-ere-professionnel-le-psychiatriezentrum-munsingen-biel",
-        "dipl-das-ist-eine-gute-idee-psychiatriezentrum-munsingen-biel"
+        "dipl-das-ist-eine-gute-idee-psychiatriezentrum-munsingen-biel",
+        "dipl-pflegefach-psychiatriezentrum-munsingen-biel",
+        "dipl-pflegefachpersonne-psychiatriezentrum-munsingen-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -553,7 +557,7 @@
         ],
         "fr": [
           "specialiste-specialiste-dipl-sujet-psychiatriezentrum-munsingen-biel",
-          "dipl-pflegefachpersonne-psychiatriezentrum-munsingen-biel"
+          "dipl-pflegefachperson-psychiatriezentrum-munsingen-biel"
         ]
       },
       "firstSeenAt": "2026-06-02T14:22:26.152Z",
@@ -863,12 +867,12 @@
     },
     {
       "id": "pzm-muensingen-400c0b83607e",
-      "slug": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
+      "slug": "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
       "slugByLocale": {
-        "it": "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
+        "it": "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
         "en": "fachperson-betreuung-fabe-psychiatriezentrum-munsingen-munsingen",
         "de": "fachperson-betreuung-fabe-pzm-muensingen-munsingen",
-        "fr": "assistant-e-socio-educatif-ve-ase-psychiatriezentrum-munsingen-munsingen"
+        "fr": "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -910,13 +914,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
+        "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
+        "assistant-e-socio-educatif-ve-ase-psychiatriezentrum-munsingen-munsingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "cura-professionale-fabe-psychiatriezentrum-munsingen-munsingen",
           "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
         ],
         "fr": [
+          "assistant-e-socio-educatif-ve-ase-psychiatriezentrum-munsingen-munsingen",
           "fachperson-betreuung-fabe-pzm-muensingen-munsingen"
         ]
       },
@@ -1082,8 +1089,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
         "it": "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-e-delir-psychiatriezentrum-munsingen",
-        "en": "specialist-health-on-night-duty-focus-on-dementia-and-delirium-psychiatriezentrum-munsingen-munsingen",
-        "fr": "sante-specialisee-de-nuit-accent-sur-la-demence-et-le-delire-psychiatriezentrum-munsingen-munsingen"
+        "en": "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen",
+        "fr": "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
       },
       "company": "Psychiatriezentrum Münsingen",
       "companyKey": "pzm-muensingen",
@@ -1091,7 +1098,7 @@
       "title": "Fachperson Gesundheit im Nachtdienst- Schwerpunkt Demenz und Delir",
       "titleByLocale": {
         "de": "Fachperson Gesundheit im Nachtdienst- Schwerpunkt Demenz und Delir",
-        "it": "Professionista della salute nel servizio notturno si concentra sulla demenza e il delirio",
+        "it": "Salute specialistica durante il turno notturno - Focus su demenza e delirio",
         "en": "Specialist Health on Night Duty - Focus on Dementia and Delirium",
         "fr": "Santé spécialisée de nuit - Accent sur la démence et le délire"
       },
@@ -1129,12 +1136,6 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
-        ],
-        "en": [
-          "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
-        ],
-        "fr": [
-          "fachperson-gesundheit-im-nachtdienst-schwerpunkt-demenz-und-delir-pzm-muensingen-munsingen"
         ]
       },
       "previousSlugs": [
@@ -1169,7 +1170,7 @@
       "title": "Teamleiterin / Teamleiter Reinigungsservice",
       "titleByLocale": {
         "de": "Teamleiterin / Teamleiter Reinigungsservice",
-        "it": "Team Leader / Team Leader Servizio di pulizia",
+        "it": "Servizio di pulizia Capo Squadra",
         "en": "Team Leader Cleaning Service",
         "fr": "Service de nettoyage de chef d'équipe"
       },
