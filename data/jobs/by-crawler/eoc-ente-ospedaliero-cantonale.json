@@ -620,9 +620,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -659,19 +659,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+          "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+        "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
+        "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -1678,9 +1684,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-        "de": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-        "fr": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -1717,19 +1723,23 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
         ],
         "de": [
-          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
         ],
         "fr": [
-          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
         ]
       },
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
         "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
       ]
     },
     {
@@ -1844,7 +1854,7 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
         "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -1883,11 +1893,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+        "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -2117,9 +2129,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -2163,19 +2175,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -2202,7 +2220,7 @@
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -2228,14 +2246,16 @@
         ],
         "fr": [
           "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
-          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
+          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
         "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -2283,9 +2303,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
-        "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Medico assistente / Medico ospedaliero",
@@ -2330,19 +2350,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio"
+          "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
+          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c"
         ],
         "de": [
-          "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio"
+          "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio",
+          "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
         "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
+        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+        "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -2367,7 +2393,7 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -2406,11 +2432,13 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
-        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -2435,9 +2463,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -2455,22 +2483,28 @@
       "previousSlugsByLocale": {
         "en": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+          "career-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+          "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
-          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
+          "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
         "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio",
+        "career-eoc-ente-ospedaliero-cantonale-novaggio",
+        "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -2515,9 +2549,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Stage Servizio infermieristico",
@@ -2554,19 +2588,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio"
+          "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+          "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
+          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio"
+          "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
+          "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "stage-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
-        "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio"
+        "service-de-soins-infirmiers-de-stade-eoc-ente-ospedaliero-cantonale-novaggio",
+        "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+        "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -2594,9 +2634,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -2641,19 +2681,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -2680,9 +2726,9 @@
       "firstSeenAt": "2026-06-17T22:37:29.271Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a",
@@ -2726,19 +2772,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -7911,9 +7963,9 @@
       },
       "descriptionByLocale": {
         "it": "Cuoco/a e/o Cuoco/a in dietetica - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 6’500 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità prendendosi cura di oltre 41'000 pazienti degenti all’anno e fornendo oltre 600'000 consulti ambulatoriali. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Cuoco/a e/o Cuoco/a in dietetica Profilo: Il/la futuro/a collaboratore/trice è in possesso di ottime capacità tecnico-professionali. Svolge tutte le attività operative del settore nel rispetto di programmi, norme e procedure di lavoro definite. Organizza efficacemente il proprio lavoro definendo le priorità. È una persona disponibile, orientata al cambiamento ed è in grado di rispondere alle sollecitazioni. Fa fronte a carichi di lavoro importanti con prontezza e serietà, mantenendo buone relazioni in un contesto multiculturale.\n• Requisiti necessari: Attestato federale di capacità di cuoco/a e/o cuoco/a in dietetica. Pluriennale esperienza professionale, maturata in analoga posizione presso organizzazioni pubbliche o private di medio/grandi dimensioni. Ottime conoscenze delle norme e delle procedure vigenti sull’igiene (HACCP). Disponibilità a turni di lavoro flessibili (7/7 e serali fino alle 22.00). Autonomia e flessibilità. Spirito d’iniziativa, affidabilità e creatività. Ottima conoscenza della lingua italiana parlata e scritta. Buone conoscenze dei principali mezzi informatici (pacchetto office). Data d'entrata e osservazioni: --> Non essendoci al momento posti liberi non è prevista attualmente una data d’entrata. La valutazione delle candidature verrà effettuata solo in caso di esigenze di servizio con i profili che corrispondono ai requisiti richiesti. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. Verranno considerate unicamente le candidature inoltrate tramite l’apposita piattaforma sul sito aziendale. EOC - il nostro ospedale. Interessato/a?",
-        "en": "Cuoco/a and/or Cuoco/a in dietetics - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of more than 6,500 employees and their attention to the human relationship, EOC ensures quality health care by taking care of more than 41,000 patients per year and providing more than 600,000 outpatients. The following position is addressed to candidates wishing to apply spontaneously such as Cuoco/a and/or Cuoco/a in dietetics Profile: The future/cooperator/professional is in possession of excellent technical and professional skills. It carries out all the operational activities of the sector in compliance with defined programmes, standards and working procedures. Effectively organize your work by defining priorities. It is a person available, geared to change and is able to respond to stress. It copes with important workloads with readiness and seriousness, maintaining good relations in a multicultural context.\n• Requirements: Federal certification of cook/cook and/or cook/cook capacity in dietetics. Multiannual professional experience, gained in similar position at medium-sized public or private organizations. Excellent knowledge of hygiene standards and procedures (HACCP). Flexible work shifts (7/7 and evenings until 22.00). Autonomy and flexibility. Spirit of initiative, reliability and creativity. Excellent knowledge of the Italian language spoken and written. Good knowledge of the main IT media (office package). Date of entry and comments: --> Since there are currently no free places there is no date of entry. Applications will be assessed only in case of service requirements with profiles that meet the requirements. As a position for spontaneous applications, telephone information is not released. Only applications submitted via the appropriate platform will be considered on the company website. EOC - our hospital. Interested?",
+        "en": "Cuoco/a and/or Cuoco/a in dietetics - Ausschreibung L’EOC the multisite hospital of Ticino is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 6,500 employees and their attention to the human relationship, the EOC ensures quality health care by taking care of over 41, 000 patients who are deceased a year and providing over 600,000 outpatients. The following position is addressed to candidates wishing to apply spontaneously such as Cuoco/a and/or Cuoco/a in dietetics Profile: The future/cooperator/cooperator has excellent technical and professional skills. It carries out all the operational activities of the sector in compliance with defined programmes, standards and working procedures. Effectively organize your work by defining priorities. It is a person available, geared to change and is able to respond to stress. It copes with important workloads with readiness and seriousness, maintaining good relations in a multicultural context.\n• Requirements: Federal certification of cook/cook and/or cook/cook capacity in dietetics. Multiannual professional experience, gained in similar position at public or private organizations of medium/large size. Excellent knowledge of hygiene standards and procedures (HACCP). Flexible work shifts (7/7 and evenings until 22.00). Autonomy and flexibility. Spirit of initiative, reliability and creativity. Excellent knowledge of the Italian language spoken and written. Good knowledge of the main IT media (office package). Date of entry and observations: --> Since there are currently no free seats there is no date of entry. Applications will be assessed only in case of service requirements with profiles that meet the requirements. As a position for spontaneous applications, telephone information is not released. Only applications submitted via the appropriate platform will be considered on the company website. EOC - our hospital. Interested?",
         "de": "Spital Männedorf – Dein ganz besonderer Arbeitsort. Ob ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation. Das Wesen deiner Tätigkeit:\n• Behandlung unserer ambulanten Patientinnen und Patienten auf den Gebieten der Orthopädie, Chirurgie, Inneren Medizin, Akutgeriatrie, Rheumatologie, Neurologie, Gynäkologie und Onkologie\n• Sporadische Einsätze im stationären Bereich (Orthopädie, Chirurgie, Inneren Medizin, Akutgeriatrie, Rheumatologie, Neurologie, Gynäkologie und Onkologie)\n• Leisten von Wochenenddiensten Die Basis deiner Leistung:\n• Ausbildung als Dipl. Physiotherapeut/in FH (SRK-Anerkennung bei ausländischem Diplom)\n• Gewinnende und innovative Persönlichkeit, die unsere Patientinnen und Patienten zur Mitarbeit in der Therapie motivieren kann\n• Offenheit und Engagement in der Zusammenarbeit im Team und interdisziplinär Die Gründe deiner Entscheidung: Wir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen. Fragen zum Leben in der Schweiz? Bei Fragen zum Leben in der Schweiz steht der externe Partner relo2 mit einem kostenlosen Service zur Verfügung. Dieser unterstützt bei allen Themen rund um Leben, Arbeiten und Umziehen in die Schweiz. hier klicken, um den Service zu nutzen.",
-        "fr": "Cuoco/a et/ou Cuoco/a en diététique - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à l'attention qu'ils portent à la relation humaine, le COE assure la qualité des soins de santé en prenant soin de plus de 41 000 patients par année et en fournissant plus de 600 000 consultations externes. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Cuoco/a et/ou Cuoco/a dans le profil diététique : Le futur/coopérateur/professionnel possède d'excellentes compétences techniques et professionnelles. Elle mène toutes les activités opérationnelles du secteur conformément aux programmes, normes et procédures de travail définis. Organisez efficacement votre travail en définissant des priorités. C'est une personne disponible, adaptée au changement et capable de réagir au stress. Il fait face à d'importantes charges de travail avec disponibilité et sérieux, en maintenant de bonnes relations dans un contexte multiculturel.\n• Exigences : Certification fédérale de la capacité de cuisson et/ou de cuisson en diététique. Expérience professionnelle pluriannuelle acquise dans des organisations publiques ou privées de taille moyenne. Excellente connaissance des normes et procédures d'hygiène (HACCP). Temps de travail flexible (7/7 et soir jusqu'à 22h). Autonomie et flexibilité. Esprit d'initiative, fiabilité et créativité. Excellente connaissance de la langue italienne parlée et écrite. Bonne connaissance des principaux médias informatiques (paquet bureau). Date d'entrée et d'observation: --> Étant donné qu'il n'y a actuellement aucun endroit libre, il n'y a pas de date d'entrée. Les demandes ne seront évaluées qu'en cas d'exigences de service dont les profils répondent aux exigences. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. Seules les demandes soumises par l'intermédiaire de la plateforme appropriée seront examinées sur le site Web de l'entreprise. EOC - notre hôpital. Intéressé ?"
+        "fr": "Cuoco/a et/ou Cuoco/a en diététique - Ausschreibung L-EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Le poste suivant s'adresse aux candidats qui souhaitent postuler spontanément comme Cuoco/a et/ou Cuoco/a dans le profil diététique : L'avenir/coopérateur/coopérateur possède d'excellentes compétences techniques et professionnelles. Il exécute toutes les activités opérationnelles du secteur conformément aux programmes, normes et procédures de travail définis. Organisez efficacement votre travail en définissant des priorités. C'est une personne disponible, adaptée au changement et capable de répondre au stress. Il fait face à d'importantes charges de travail avec disponibilité et sérieux, en maintenant de bonnes relations dans un contexte multiculturel.\n• Exigences : Certification fédérale de la capacité de cuisson et/ou de cuisson en diététique. Expérience professionnelle pluriannuelle acquise dans des organisations publiques ou privées de taille moyenne ou grande. Excellente connaissance des normes et procédures d'hygiène (HACCP). Des postes flexibles (7/7 et soirs jusqu'à 22h00). Autonomie et flexibilité. Esprit d'initiative, fiabilité et créativité. Excellente connaissance de la langue italienne parlée et écrite. Bonne connaissance des principaux médias informatiques (paquet bureau). Date d'entrée et d'observation: --> Comme il n'y a actuellement aucun siège libre, il n'y a pas de date d'entrée. Les demandes ne seront évaluées qu'en cas d'exigences de service dont les profils répondent aux exigences. Pour les demandes spontanées, l'information téléphonique n'est pas divulguée. Seules les demandes soumises par l'intermédiaire de la plateforme appropriée seront examinées sur le site Web de l'entreprise. EOC - notre hôpital. Intéressé ?"
       },
       "requirementsByLocale": {
         "it": [
