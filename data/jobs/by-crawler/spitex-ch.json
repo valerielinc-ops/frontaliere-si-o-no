@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "spitex-ch-33c2437cd148",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+      "slug": "specialista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "it": "specialista-della-salute-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "en": "professional-health-efz-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "de": "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
         "fr": "professionnel-sante-efz-fage-50-90-spitex-rechtes-limmattal-weiningen-zh"
@@ -54,7 +54,8 @@
       "firstSeenAt": "2026-06-18T13:11:03.878Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+          "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+          "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
@@ -64,7 +65,8 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh"
+        "fachfrau-fachmann-gesundheit-efz-fage-50-90-spitex-spitex-ch-weiningen-zh",
+        "fachfrau-fachmann-gesundheit-cfc-fage-50-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -533,8 +535,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-somatik-spitex-ch-wald-zh",
-        "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh",
-        "infermiere-dipl-sss-sup-somatik-stiftung-drei-tannen-wald-zh"
+        "dipl-infirmiere-hf-fh-somatic-stiftung-drei-tannen-wald-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1342,9 +1343,9 @@
     },
     {
       "id": "spitex-ch-e8ff775750c7",
-      "slug": "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis",
+      "slug": "infermiere-certificato-spitex-con-case-management-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis",
+        "it": "infermiere-certificato-spitex-con-case-management-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis",
         "en": "dipl-care-professional-spitex-with-case-management-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis",
         "de": "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis",
         "fr": "dipl-professionnel-de-soins-spitex-avec-gestion-de-cas-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am"
@@ -1401,7 +1402,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis"
+      ]
     },
     {
       "id": "spitex-ch-213a6313e803",
@@ -1543,7 +1552,6 @@
         "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
         "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln",
         "dipl-specialiste-des-soins-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "dipl-pflegefachperson-hf-fh-con-fallfuhrung-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-nursing-professional-hf-specialization-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl"
       ],
       "previousSlugsByLocale": {
@@ -1883,9 +1891,9 @@
       "slug": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
       "slugByLocale": {
         "it": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
-        "en": "team-management-somatic-care-80-100-spitex-region-aarau-aarau",
+        "en": "somatic-nursing-team-leader-80-100-spitex-region-aarau-aarau",
         "de": "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
-        "fr": "gestion-d-equipe-somatic-care-80-100-spitex-region-aarau-aarau"
+        "fr": "chef-d-equipe-en-soins-infirmiers-somatiques-80-100-spitex-region-aarau-aarau"
       },
       "company": "Spitex Region Aarau",
       "companyKey": "spitex-ch",
@@ -1928,11 +1936,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
+        "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
+        "team-management-somatic-care-80-100-spitex-region-aarau-aarau",
+        "gestion-d-equipe-somatic-care-80-100-spitex-region-aarau-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-somatische-pflege-80-100-spitex-ch-aarau"
+        ],
+        "en": [
+          "team-management-somatic-care-80-100-spitex-region-aarau-aarau"
+        ],
+        "fr": [
+          "gestion-d-equipe-somatic-care-80-100-spitex-region-aarau-aarau"
         ]
       },
       "firstSeenAt": "2026-06-18T13:11:21.107Z",

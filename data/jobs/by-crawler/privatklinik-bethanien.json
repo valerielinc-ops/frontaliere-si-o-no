@@ -325,7 +325,7 @@
         "it": "stv-capo-della-fisioterapia-privatklinik-bethanien-zurich",
         "en": "stv-head-of-physiotherapy-privatklinik-bethanien-zurich",
         "de": "stv-leitung-physiotherapie-privatklinik-bethanien",
-        "fr": "stv-leitung-physiotherapie-privatklinik-bethanien"
+        "fr": "chef-adjoint-de-la-physiotherapie-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -376,6 +376,9 @@
         ],
         "en": [
           "stv-leitung-physiotherapie-privatklinik-bethanien"
+        ],
+        "fr": [
+          "stv-leitung-physiotherapie-privatklinik-bethanien"
         ]
       },
       "firstSeenAt": "2026-06-10T23:17:17.070Z",
@@ -397,9 +400,9 @@
       "slug": "collaboratore-trice-in-reception-80-privatklinik-bethanien-zurich",
       "slugByLocale": {
         "it": "collaboratore-trice-in-reception-80-privatklinik-bethanien-zurich",
-        "en": "employee-reception-80-privatklinik-bethanien-zurich",
+        "en": "reception-staff-80-privatklinik-bethanien-zurich",
         "de": "mitarbeiter-in-reception-80-privatklinik-bethanien",
-        "fr": "reception-des-employes-80-privatklinik-bethanien-zurich"
+        "fr": "personnel-de-reception-80-privatklinik-bethanien-zurich"
       },
       "company": "Privatklinik Bethanien",
       "companyKey": "privatklinik-bethanien",
@@ -442,17 +445,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-reception-80-privatklinik-bethanien"
+        "mitarbeiter-in-reception-80-privatklinik-bethanien",
+        "employee-reception-80-privatklinik-bethanien-zurich",
+        "reception-des-employes-80-privatklinik-bethanien-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reception-80-privatklinik-bethanien"
         ],
         "en": [
-          "mitarbeiter-in-reception-80-privatklinik-bethanien"
+          "mitarbeiter-in-reception-80-privatklinik-bethanien",
+          "employee-reception-80-privatklinik-bethanien-zurich"
         ],
         "fr": [
-          "mitarbeiter-in-reception-80-privatklinik-bethanien"
+          "mitarbeiter-in-reception-80-privatklinik-bethanien",
+          "reception-des-employes-80-privatklinik-bethanien-zurich"
         ]
       },
       "firstSeenAt": "2026-06-12T23:00:36.572Z",
