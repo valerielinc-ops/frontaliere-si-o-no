@@ -28,6 +28,19 @@ const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+/**
+ * Build the listing URL for a given 1-based page number.
+ *
+ * Alpiq switched pagination from the legacy `?page=N` query (now 404) to a
+ * path-segment scheme: `.../jobs/job-page-{N}/f1-<x>/f2-<y>/search`, where
+ * `f1`/`f2` are the category/location facet filters and `%2A` (URL-encoded `*`)
+ * means unfiltered. Page 1 stays on the bare listing URL.
+ */
+function alpiqListingPageUrl(page) {
+  if (page <= 1) return CAREERS_URL;
+  return `${CAREERS_BASE}/career/open-jobs/jobs/job-page-${page}/f1-%2A/f2-%2A/search`;
+}
+
 
 export function stripHtml(html = '') {
   return String(html || '')
@@ -203,10 +216,11 @@ export function parseAlpiqDetailHtml(html) {
 /**
  * Fetch all pages of Alpiq job listings.
  */
-export async function fetchAlpiqListingPages(maxPages = 6, timeoutMs = 15000) {
+export async function fetchAlpiqListingPages(maxPages = 10, timeoutMs = 15000) {
   const allJobs = [];
+  const seen = new Set();
   for (let page = 1; page <= maxPages; page++) {
-    const url = page === 1 ? CAREERS_URL : `${CAREERS_URL}?page=${page}`;
+    const url = alpiqListingPageUrl(page);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
@@ -218,9 +232,20 @@ export async function fetchAlpiqListingPages(maxPages = 6, timeoutMs = 15000) {
       clearTimeout(timer);
       if (!res.ok) break;
       const html = await res.text();
-      const jobs = parseAlpiqListingHtml(html, { swissOnly: true });
-      if (jobs.length === 0) break;
-      allJobs.push(...jobs);
+      // Parse the FULL page (all locations), not the Swiss-filtered subset, to
+      // drive pagination: Alpiq interleaves non-Swiss postings, so a page with
+      // zero Swiss jobs (e.g. page 1 = Praha/Madrid/Milano) must NOT stop the
+      // crawl before later pages that do carry Swiss jobs.
+      const pageJobs = parseAlpiqListingHtml(html, { swissOnly: false });
+      if (pageJobs.length === 0) break;
+      // Out-of-range page numbers are clamped to the last page and re-served, so
+      // a page that adds no new job ids means we've reached the end.
+      const fresh = pageJobs.filter((j) => !seen.has(j.jobId));
+      if (fresh.length === 0) break;
+      for (const j of fresh) {
+        seen.add(j.jobId);
+        if (isSwissLocation(j.location)) allJobs.push(j);
+      }
     } catch (err) {
       clearTimeout(timer);
       console.warn(`\u26a0\ufe0f Failed to fetch Alpiq page ${page}: ${err.message}`);
@@ -228,13 +253,7 @@ export async function fetchAlpiqListingPages(maxPages = 6, timeoutMs = 15000) {
     }
   }
 
-  // Deduplicate across pages
-  const seen = new Set();
-  return allJobs.filter((j) => {
-    if (seen.has(j.jobId)) return false;
-    seen.add(j.jobId);
-    return true;
-  });
+  return allJobs;
 }
 
 /**
