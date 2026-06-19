@@ -161,6 +161,7 @@
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-niederlenz-700505",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-regensdorf-673297",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-romanshorn-692914",
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-sarnen-707224",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691873",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-schlieren-691880",
     "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-spreitenbach-691879",
@@ -293,7 +294,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-samstagskraft-m-w-d-20-chur-705710",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-samstagskraft-m-w-d-20-landquart-705694",
     "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-693331",
-    "https://team.lidl.ch/fr/jobs/agent-de-comptage-h-f-d-60-80-sevaz-695395",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-noville-610170",
     "https://team.lidl.ch/fr/jobs/apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-yverdon-les-bains-705254",
     "https://team.lidl.ch/fr/jobs/collaborateur-collaboratrice-libre-service-et-vente-40-martigny-693901",
@@ -323,8 +323,35 @@
     "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-06-19T12:59:41.115Z",
+  "updatedAt": "2026-06-19T22:10:27.614Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/de/jobs/stv-filialleiter-stv-filialleiterin-m-w-d-80-100-sarnen-707224": {
+      "location": "Sarnen",
+      "addressLocality": "Sarnen",
+      "canton": "OW",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-matten-bei-interlaken-684263": {
+      "location": "Matten bei Interlaken",
+      "addressLocality": "Matten bei Interlaken",
+      "canton": "BE",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-duedingen-696989": {
+      "location": "Düdingen",
+      "addressLocality": "Düdingen",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-stans-707098": {
       "location": "Stans",
       "addressLocality": "Stans",
@@ -1414,15 +1441,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-matten-bei-interlaken-684263": {
-      "location": "Matten bei Interlaken",
-      "addressLocality": "Matten bei Interlaken",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-oftringen-700736": {
       "location": "Oftringen",
       "addressLocality": "Oftringen",
@@ -1467,15 +1485,6 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
-    },
-    "https://team.lidl.ch/fr/jobs/agent-de-comptage-h-f-d-60-80-sevaz-695395": {
-      "location": "Sévaz",
-      "addressLocality": "Sévaz",
-      "canton": "FR",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Temps Partiel"
     },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-kehrsatz-659797": {
       "location": "Kehrsatz",
@@ -1715,15 +1724,6 @@
       "location": "Seewen",
       "addressLocality": "Seewen",
       "canton": "SO",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-duedingen-696989": {
-      "location": "Düdingen",
-      "addressLocality": "Düdingen",
-      "canton": "FR",
       "country": "CH",
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
