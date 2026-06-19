@@ -413,9 +413,9 @@
     },
     {
       "id": "corner-banca-9238ccb59915",
-      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+      "slug": "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano",
       "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "it": "risk-manager-gestione-delle-passivita-attive-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "de": "risikomanager-asset-liability-management-alm-und-liquiditatsrisiko-corner-banca-lugano",
         "fr": "gestionnaire-du-risque-gestion-de-la-responsabilite-en-matiere-d-actifs-gap-et-risque-de-liquidite-corner-banca-lugano"
@@ -488,13 +488,21 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-9a08d15ac96b",
-      "slug": "employee-collection-team-zurich-corner-banca-wallisellen",
+      "slug": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "it": "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen",
         "en": "employee-collection-team-zurich-corner-banca-wallisellen",
         "de": "mitarbeitersammlung-team-zurich-corner-banca-wallisellen",
         "fr": "equipe-de-recouvrement-des-employes-zurich-corner-banca-wallisellen"
@@ -579,7 +587,15 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "postalCode": "8001",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-collection-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "employee-collection-team-zurich-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-4b9d1c5b215f",
@@ -873,7 +889,7 @@
         "it": "responsabile-del-caso-di-raccolta-legale-corner-banca-wallisellen",
         "en": "legal-collection-case-manager-corner-banca-wallisellen",
         "de": "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
-        "fr": "legal-collection-case-manager-corner-banca-wallisellen"
+        "fr": "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -939,6 +955,9 @@
           "legal-collection-case-manager-corner-banca-wallisellen"
         ],
         "de": [
+          "legal-collection-case-manager-corner-banca-wallisellen"
+        ],
+        "fr": [
           "legal-collection-case-manager-corner-banca-wallisellen"
         ]
       },

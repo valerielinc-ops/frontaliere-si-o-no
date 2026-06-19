@@ -264,10 +264,10 @@
     },
     {
       "id": "alcon-7d1f05a2ca3e",
-      "slug": "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2",
+      "slug": "team-leader-m-f-d-produzione-environment-controlled-area-eca-alcon-schaffhausen",
       "slugByLocale": {
         "de": "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch",
-        "it": "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2",
+        "it": "team-leader-m-f-d-produzione-environment-controlled-area-eca-alcon-schaffhausen",
         "en": "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2",
         "fr": "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2"
       },
@@ -326,7 +326,15 @@
         }
       },
       "postalCode": "8200",
-      "firstSeenAt": "2026-06-19T12:00:06.247Z"
+      "firstSeenAt": "2026-06-19T12:00:06.247Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-m-w-d-produktion-environment-controlled-area-eca-alcon-ch-2"
+      ]
     }
   ]
 }

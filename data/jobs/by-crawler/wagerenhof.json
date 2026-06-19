@@ -228,12 +228,12 @@
     },
     {
       "id": "wagerenhof-141ae8fb779b",
-      "slug": "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster",
+      "slug": "giardiniere-di-piante-ornamentali-con-accento-agogico-50-stiftung-wagerenhof-uster",
       "slugByLocale": {
-        "it": "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster",
-        "en": "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster",
+        "it": "giardiniere-di-piante-ornamentali-con-accento-agogico-50-stiftung-wagerenhof-uster",
+        "en": "ornamental-plant-gardener-with-agogic-flair-50-stiftung-wagerenhof-uster",
         "de": "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster",
-        "fr": "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster"
+        "fr": "jardinier-de-plantes-ornementales-avec-un-flair-agogique-50-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -286,16 +286,30 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster"
+        ],
+        "en": [
+          "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster"
+        ],
+        "fr": [
+          "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster"
+        ]
+      },
+      "previousSlugs": [
+        "zierpflanzengartner-in-mit-agogischem-flair-50-m-w-d-wagerenhof-uster"
+      ]
     },
     {
       "id": "wagerenhof-93785e589354",
       "slug": "florist-in-cfc-bp-o-hfp-100-m-w-d-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "it": "florist-in-cfc-bp-o-hfp-100-m-w-d-stiftung-wagerenhof-uster",
-        "en": "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster",
+        "en": "florist-florist-100-stiftung-wagerenhof-uster",
         "de": "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster",
-        "fr": "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster"
+        "fr": "fleuriste-fleuriste-100-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -344,6 +358,12 @@
         "it": [
           "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster",
           "florist-in-efz-bp-oder-hfp-100-wagerenhof-uster"
+        ],
+        "en": [
+          "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster"
+        ],
+        "fr": [
+          "florist-in-efz-bp-oder-hfp-100-m-w-d-wagerenhof-uster"
         ]
       },
       "firstSeenAt": "2026-06-12T23:30:41.254Z",

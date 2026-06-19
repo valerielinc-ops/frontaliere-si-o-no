@@ -180,10 +180,10 @@
     },
     {
       "id": "clinique-generale-beaulieu-ffc5b28e1eb4",
-      "slug": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
+      "slug": "agente-pulizia-sala-operatoria-clinique-generale-beaulieu-geneve",
       "slugByLocale": {
         "fr": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
-        "it": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
+        "it": "agente-pulizia-sala-operatoria-clinique-generale-beaulieu-geneve",
         "en": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu",
         "de": "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
       },
@@ -242,7 +242,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:19:32.319Z"
+      "firstSeenAt": "2026-06-19T12:19:32.319Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
+        ]
+      },
+      "previousSlugs": [
+        "agent-nettoyage-bloc-operatoire-clinique-generale-beaulieu"
+      ]
     }
   ]
 }
