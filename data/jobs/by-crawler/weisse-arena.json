@@ -1,6 +1,6 @@
 {
   "crawlerKey": "weisse-arena",
-  "assembledAt": "2026-06-18T23:51:34.420Z",
+  "assembledAt": "2026-06-19T13:38:48.066Z",
   "jobs": [
     {
       "id": "weisse-arena-3ba6d893ef9b",
@@ -33,7 +33,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4462&jobTitle=Restaurantleiter%3Ain+Camino",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.347Z",
+      "crawledAt": "2026-06-19T13:38:45.731Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -75,6 +75,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -120,7 +121,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4461&jobTitle=Stellvertretende%3Ar+K%C3%BCchenchef%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.347Z",
+      "crawledAt": "2026-06-19T13:38:45.731Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -184,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:26.309Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -193,6 +195,86 @@
           "@type": "QuantitativeValue",
           "minValue": 79000,
           "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-35c0453be143",
+      "slug": "cucina-kochin-weisse-arena-gruppe-laax",
+      "slugByLocale": {
+        "it": "cucina-kochin-weisse-arena-gruppe-laax",
+        "en": "cook-kochin-weisse-arena-gruppe-laax",
+        "de": "koch-kochin-weisse-arena-ch",
+        "fr": "cuisiniere-kochin-weisse-arena-gruppe-laax"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "Koch/Köchin",
+      "titleByLocale": {
+        "it": "Cucina/Köchin",
+        "en": "Cook/Köchin",
+        "de": "Koch/Köchin",
+        "fr": "Cuisinière/Köchin"
+      },
+      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du verstärks unser Team als Koch/Köchin, mit viel Sinn für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Verantwortung über den eigenen Posten\n• Mise en place für das Tagesgeschäft\n• Zubereitung der Gerichte\n• Einhaltung der Hygienevorschriften\n• Allgemeine Reinigungsarbeiten | Was dich ausmacht:\n• Abgeschlossene Kochausbildung\n• 3-4 Jahre Arbeitserfahrung im à la carte Bereich, mit Vorteil in der italienischen Küche\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com I www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "it": "Il Weisse Arena Group è una società di servizi integrata nel settore del turismo e del tempo libero. Ci comprendiamo come fornitore di esperienze di svago alpino. Il gruppo comprende una compagnia di funivie e impianti di risalita, aziende alberghiere e gastronomia, una società di distribuzione e noleggio attrezzature sportive, una scuola di sci e snowboard e una società amministrativa. Il Gruppo Weisse Arena è anche responsabile della commercializzazione della destinazione turistica Flims Laax Falera. Il Ristorante Camino serve piatti di pasta o risotto, piatti di carne e pesce e pizze tradizionali dalla stufa a legna. La selezione di vini e bevande italiane completa l'offerta. Gli ospiti dell'hotel potranno gustare la colazione e la cena qui. Il ristorante offre spazio per circa 110 ospiti nella zona ristorante e per circa 60 ospiti nel Camino Bar/Lounge. Il Ristorante Camino offre anche vari ristoranti e banchetti. Immaginate di consolidare il nostro team come cuoco/cucina, con molto senso per la cucina tradizionale italiana al Ristorante Camino. Mansioni - Responsabilità per il proprio post - Mise en place für die Tagesgeschäft - Preparazione dei piatti - Compliance con le normative igieniche - Pulizia generale\n• Requisiti - Allenamento cucina completo - Esperienza di lavoro 3-4 anni nella zona à la carte, con vantaggio nella cucina italiana - Gioia nel lavoro in un'operazione vivace - Siete impegnati e lavorate con attenzione, speditive, indipendenti, affidabili e responsabili - Teamplayer del tedesco Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è sicuramente vostro. - No. Hai anche l'opportunità di svilupparti nel nostro team dinamico, sollevato e vivace cultura aziendale. - Non vediamo l'ora di numerosi benefici per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché benefici per la vostra famiglia. - No. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. Contatto Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax",
+        "en": "Descrizione The Weisse Arena Group is an integrated service company in the field of tourism and leisure. We understand ourselves as a provider of alpine leisure experiences. The group includes a cable car and ski lift company, hotel and gastronomy companies, a sports equipment distribution and rental company, a ski and snowboard school as well as an administrative company. The Weisse Arena Group is also responsible for the marketing of the Flims Laax Falera tourism destination. The Ristorante Camino serves pasta or risotto variations, meat and fish dishes as well as traditional pizzas from the wood stove. The selection of Italian wines and drinks completes the offer. Hotel guests enjoy their breakfast and dinner here. The restaurant offers space for around 110 guests in the restaurant area and for about 60 guests in the Camino Bar/Lounge. The Ristorante Camino also offers various catering and banquets. Imagine you will strengthen our team as a cook/cook, with a lot of sense for traditional Italian cuisine at Ristorante Camino. Mansioni - Responsibility for your own post - Mise en place for daily business - Preparation of dishes - Compliance with hygiene regulations - General cleaning work\n• Requisiti - Complete cooking training - 3-4 years working experience in the à la carte area, with advantage in Italian cuisine - Pleasure to work in a lively operation - You are committed and work carefully, speditive, independent, reliable and responsible - Team player who can communicate well in German\n• Cosa offriamo - An attractive workplace in the midst of a breathtaking mountain world is certainly yours. - You also have the opportunity to develop yourself in our dynamic, uplifted team and lively corporate culture. - Look forward to numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy businesses, as well as benefits for your family. - Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. Contatto White Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax.com",
+        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du verstärks unser Team als Koch/Köchin, mit viel Sinn für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Verantwortung über den eigenen Posten\n• Mise en place für das Tagesgeschäft\n• Zubereitung der Gerichte\n• Einhaltung der Hygienevorschriften\n• Allgemeine Reinigungsarbeiten | Was dich ausmacht:\n• Abgeschlossene Kochausbildung\n• 3-4 Jahre Arbeitserfahrung im à la carte Bereich, mit Vorteil in der italienischen Küche\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com I www.weissearena.com I www.laax.com",
+        "fr": "Descrizione Le Groupe Weisse Arena est une société de services intégrée dans le domaine du tourisme et des loisirs. Nous nous comprenons comme un fournisseur d'expériences de loisirs alpins. Le groupe comprend une compagnie de téléphérique et de téléski, des entreprises hôtelières et gastronomiques, une société de distribution et de location d'équipements sportifs, une école de ski et de snowboard ainsi qu'une société administrative. Le Groupe Weisse Arena est également responsable de la commercialisation de la destination touristique Flims Laax Falera. Le Ristorante Camino sert des pâtes ou des risottos, des plats de viande et de poisson ainsi que des pizzas traditionnelles du poêle à bois. La sélection des vins et boissons italiens complète l'offre. Les clients de l'hôtel apprécieront leur petit déjeuner et leur dîner ici. Le restaurant offre un espace pour environ 110 personnes dans le secteur du restaurant et pour environ 60 personnes dans le Camino Bar/Lounge. Le Ristorante Camino propose également divers restaurants et banquets. Imaginez que vous renforcerez notre équipe en tant que cuisinier/cuisinier, avec beaucoup de sens pour la cuisine italienne traditionnelle au Ristorante Camino. Mansioni - Responsabilité pour votre propre poste - Mise en place für die Tagesgeschäft - Préparation de plats - Conformité aux règles d'hygiène - Nettoyage général\n• Requisiti - Formation complète à la cuisine - 3-4 ans d'expérience de travail dans la région à la carte, avec avantage dans la cuisine italienne - Joy in work in a animation operation - Vous êtes engagé et travaillez avec soin, spéditive, indépendante, fiable et responsable - Teamplayer of the German Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. - Oui. Vous avez aussi l'occasion de vous développer dans notre équipe dynamique et animée et dans notre culture d'entreprise. - Réjouissez-vous de nombreux avantages pour les employés, comme des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et commerces de gastronomie, ainsi que des avantages pour votre famille. - Oui. Commencez votre aventure professionnelle au Groupe Weissen Arena avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Contatto Weisse Arena Hospitality AG signeinahotel/Ristorante Camino Tino Rominger Tél. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4507&jobTitle=Koch%2FK%C3%B6chin",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-19T13:38:45.730Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-31",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4507&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "signinahotel/Ristorante Camino",
+      "jobNumber": "WAG02341",
+      "pensum": "60 - 100%",
+      "contractLabel": "Saisonanstellung",
+      "previousSlugs": [
+        "koch-kochin-weisse-arena-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-weisse-arena-ch"
+        ],
+        "en": [
+          "koch-kochin-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-weisse-arena-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-04T16:03:28.980Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       },
@@ -229,7 +311,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4502&jobTitle=Elektroinstallateur%3Ain%2FTechniker%3Ain+Infrastruktur",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.346Z",
+      "crawledAt": "2026-06-19T13:38:45.730Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -317,7 +399,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4499&jobTitle=Mitarbeiter%3Ain+PR-+und+Corporate+Communication",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.346Z",
+      "crawledAt": "2026-06-19T13:38:45.730Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -375,166 +457,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "weisse-arena-2765974aca91",
-      "slug": "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
-        "en": "associate-sales-und-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
-        "de": "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch",
-        "fr": "collaborateur-trice-vente-und-administration-wintersaison-70-100-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Mitarbeiter:in Verkauf und Administration Wintersaison (70-100%)",
-      "titleByLocale": {
-        "it": "Addetto/a alle vendite e Administration Wintersaison (70-100%)",
-        "en": "Staff:in sales and administration winter season (70-100%)",
-        "de": "Mitarbeiter:in Verkauf und Administration Wintersaison (70-100%)",
-        "fr": "Collaborateur/trice Vente und Administration Wintersaison (70-100%)"
-      },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weissen Arena Gruppe, Laax. Neben dem Betrieb der Ski- und Snowboardfahrschule ist sie für die Freestyle Academy LAAX zuständig . In der LAAX School erlernen Anfänger die Grundlagen des Snowboardens oder Skifahrens, Fortgeschrittene und Pros verbessern ihre Schwungtechnik oder erweitern ihr Repertoire im Snowpark. Dabei profitieren sie von unserer jahrelangen Erfahrung und kommen in den Genuss eines trendorientierten, altersstufengerechten Unterrichts nach neusten Methoden. Spass und Lernerfolg stehen dabei gleichermassen im Fokus. An Spitzentagen stehen bis zu 250 Ski- und Snowboardlehrer im Einsatz und die LAAX School zählt somit zu den grössten Schneesportschulen Europas. | Für die Wintersaison (1. Dezember 2026 bis März/April 2027) suchen wir aufgestellte Mitarbeitende für den Verkauf und die Administration in unserem belebten LAAX School Büro. | Was du bewegst:\n• Beratung der Gäste beim Buchen von Ski- und Snowboardunterricht am Telefon, per E-Mail oder am Schalter\n• Verkauf des gesamten Angebotes der LAAX School\n• Diverse administrative Arbeiten\n• Zusammenstellen der notwendigen Unterlagen für den Unterricht | Was dich ausmacht:\n• Du fühlst dich in der Welt des Schneesports wohl und hast Freude am Umgang mit Gästen\n• Du bist teamfähig, flexibel, initiativ und belastbar\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut ausdrücken\n• Vorzugsweise bringst du auch Italienisch- und/oder Französisch-Kenntnisse mit\n• eine abgeschlossene kaufmännische Ausbildung ist von Vorteil, aber nicht zwingend\n• Du kannst dir eine längerfristige Zusammenarbeit vorstellen, jeweils während der Wintersaisons von Dezember bis März/April | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Descrizione Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. Mountain Adventures AG è una filiale del Weissen Arena Group, Laax. Oltre al funzionamento della scuola di sci e snowboard, è responsabile della Freestyle Academy LAAX . Nella scuola LAAX, i principianti imparano le basi dello snowboard o dello sci, avanzati e pro migliorano la loro dinamica o ampliano il loro repertorio nel snowpark. Essi beneficiano dei nostri anni di esperienza e beneficiano di un insegnamento orientato alla tendenza, orientato all'età secondo i metodi più recenti. Il focus è anche su divertimento e successo di apprendimento. Fino a 250 istruttori di sci e snowboard sono nei giorni migliori e LAAX School è una delle più grandi scuole di sport neve in Europa. Per la stagione invernale (1 dicembre 2026 a marzo/aprile 2027), stiamo cercando dipendenti consolidati per le vendite e l'amministrazione nel nostro vivace ufficio LAAX School. Mansioni - Consultare gli ospiti al momento della prenotazione di lezioni di sci e snowboard al telefono, via e-mail o all'interruttore - Vendita di tutte le offerte LAAX School - Vari lavori amministrativi - compilazione dei documenti necessari per l'insegnamento\n• Requisiti - Ti senti a tuo agio nel mondo degli sport sulla neve e sei felice di gestire gli ospiti - Lei è collaborabile, flessibile, intraprendente e resiliente - Parli fluentemente tedesco e puoi esprimerti bene in inglese - Puoi anche portare il know-how italiano e/o francese - una formazione commerciale completa è vantaggiosa, ma non necessariamente - Potete immaginare la cooperazione a lungo termine, durante la stagione invernale da dicembre a marzo/aprile Cosa? - Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è sicuramente vostro. - Hai anche l'opportunità di svilupparti nel nostro team dinamico, sollevato e vivace cultura aziendale. - Non vediamo l'ora di numerosi benefici per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché benefici per la vostra famiglia. - Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. Contatto Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 www.weissearena.com www.laax",
-        "en": "Descrizione The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. Mountain Adventures AG is a subsidiary of Weissen Arena Group, Laax. In addition to the operation of the ski and snowboarding school, it is responsible for the Freestyle Academy LAAX . In the LAAX School, beginners learn the basics of snowboarding or skiing, advanced and pros improve their dynamics or expand their repertoire in the snow park. They benefit from our years of experience and benefit from a trend-oriented, age-oriented teaching according to the latest methods. The focus is also on fun and learning success. Up to 250 ski and snowboard instructors are on top days and LAAX School is one of the largest snow sports schools in Europe. For the winter season (1 December 2026 to March/April 2027), we are looking for established employees for sales and administration in our lively LAAX School office. Mansioni - Advising guests when booking ski and snowboard lessons on the phone, by email or on the switch - Sale of all LAAX School offers - Various administrative work - compiling the necessary documents for teaching\n• Requisiti - You feel comfortable in the world of snow sports and are happy to handle guests - You are teamable, flexible, initiativeable and resilient - You speak fluent German and can express yourself well in English - You may also bring Italian and/or French know-how - a completed commercial training is advantageous, but not necessarily - You can imagine long-term cooperation, during the winter season from December to March/April\n• Cosa offriamo - An attractive workplace in the midst of a breathtaking mountain world is certainly yours. - You also have the opportunity to develop yourself in our dynamic, uplifted team and lively corporate culture. - Look forward to numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy businesses, as well as benefits for your family. - Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. Contatto Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weissen Arena Gruppe, Laax. Neben dem Betrieb der Ski- und Snowboardfahrschule ist sie für die Freestyle Academy LAAX zuständig . In der LAAX School erlernen Anfänger die Grundlagen des Snowboardens oder Skifahrens, Fortgeschrittene und Pros verbessern ihre Schwungtechnik oder erweitern ihr Repertoire im Snowpark. Dabei profitieren sie von unserer jahrelangen Erfahrung und kommen in den Genuss eines trendorientierten, altersstufengerechten Unterrichts nach neusten Methoden. Spass und Lernerfolg stehen dabei gleichermassen im Fokus. An Spitzentagen stehen bis zu 250 Ski- und Snowboardlehrer im Einsatz und die LAAX School zählt somit zu den grössten Schneesportschulen Europas. | Für die Wintersaison (1. Dezember 2026 bis März/April 2027) suchen wir aufgestellte Mitarbeitende für den Verkauf und die Administration in unserem belebten LAAX School Büro. | Was du bewegst:\n• Beratung der Gäste beim Buchen von Ski- und Snowboardunterricht am Telefon, per E-Mail oder am Schalter\n• Verkauf des gesamten Angebotes der LAAX School\n• Diverse administrative Arbeiten\n• Zusammenstellen der notwendigen Unterlagen für den Unterricht | Was dich ausmacht:\n• Du fühlst dich in der Welt des Schneesports wohl und hast Freude am Umgang mit Gästen\n• Du bist teamfähig, flexibel, initiativ und belastbar\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut ausdrücken\n• Vorzugsweise bringst du auch Italienisch- und/oder Französisch-Kenntnisse mit\n• eine abgeschlossene kaufmännische Ausbildung ist von Vorteil, aber nicht zwingend\n• Du kannst dir eine längerfristige Zusammenarbeit vorstellen, jeweils während der Wintersaisons von Dezember bis März/April | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com I www.laax.com",
-        "fr": "Descrizione Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Mountain Adventures AG est une filiale de Weissen Arena Group, Laax. En plus du fonctionnement de l'école de ski et de snowboard, il est responsable de la Freestyle Academy LAAX . Dans l'école LAAX, les débutants apprennent les bases du snowboard ou du ski, avancés et pros améliorent leur dynamique ou élargissent leur répertoire dans le parc à neige. Ils bénéficient de nos années d'expérience et d'un enseignement axé sur les tendances et l'âge selon les dernières méthodes. L'accent est également mis sur le plaisir et le succès d'apprentissage. Jusqu'à 250 moniteurs de ski et de snowboard sont à l'honneur et LAX School est l'une des plus grandes écoles de sports de neige en Europe. Pour la saison hivernale (1er décembre 2026 à mars/avril 2027), nous recherchons des employés établis pour les ventes et l'administration dans notre bureau animé de l'école LAAX. Mansioni - Conseiller les clients lors de la réservation de cours de ski et de snowboard au téléphone, par email ou sur l'interrupteur - Vente de toutes les offres de LAX School - Divers travaux administratifs - la compilation des documents nécessaires à l'enseignement\n• Requisiti - Vous vous sentez à l'aise dans le monde des sports de neige et êtes heureux de gérer les invités - Vous êtes équipable, flexible, efficace et résilient - Vous parlez couramment allemand et vous pouvez bien vous exprimer en anglais - Vous pouvez aussi apporter le savoir-faire italien et/ou français - une formation commerciale complète est avantageuse, mais pas nécessairement - Vous pouvez imaginer une coopération à long terme pendant la saison hivernale de décembre à mars/avril\n• Cosa offriamo - Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. - Vous avez également l'occasion de vous développer dans notre équipe dynamique et animée et dans notre culture d'entreprise. - Réjouissez-vous de nombreux avantages pour les employés, comme des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et commerces de gastronomie, ainsi que des avantages pour votre famille. - Commencez votre aventure professionnelle au Weissen Arena Group avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Contatto Mountain Adventures AG École LAAX Christian Sutter Tél. +41 81 927 71 71 www.weissearena.com www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.345Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-02",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4510&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "LAAX School",
-      "jobNumber": "WAG02389",
-      "pensum": "70 - 100%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
-        ],
-        "en": [
-          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-04T16:03:28.978Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "weisse-arena-35c0453be143",
-      "slug": "cucina-kochin-weisse-arena-gruppe-laax",
-      "slugByLocale": {
-        "it": "cucina-kochin-weisse-arena-gruppe-laax",
-        "en": "cook-kochin-weisse-arena-gruppe-laax",
-        "de": "koch-kochin-weisse-arena-ch",
-        "fr": "cuisiniere-kochin-weisse-arena-gruppe-laax"
-      },
-      "company": "Weisse Arena Gruppe",
-      "companyKey": "weisse-arena",
-      "companyDomain": "weissearena.com",
-      "title": "Koch/Köchin",
-      "titleByLocale": {
-        "it": "Cucina/Köchin",
-        "en": "Cook/Köchin",
-        "de": "Koch/Köchin",
-        "fr": "Cuisinière/Köchin"
-      },
-      "description": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du verstärks unser Team als Koch/Köchin, mit viel Sinn für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Verantwortung über den eigenen Posten\n• Mise en place für das Tagesgeschäft\n• Zubereitung der Gerichte\n• Einhaltung der Hygienevorschriften\n• Allgemeine Reinigungsarbeiten | Was dich ausmacht:\n• Abgeschlossene Kochausbildung\n• 3-4 Jahre Arbeitserfahrung im à la carte Bereich, mit Vorteil in der italienischen Küche\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com I www.weissearena.com I www.laax.com",
-      "descriptionByLocale": {
-        "it": "Il Weisse Arena Group è una società di servizi integrata nel settore del turismo e del tempo libero. Ci comprendiamo come fornitore di esperienze di svago alpino. Il gruppo comprende una compagnia di funivie e impianti di risalita, aziende alberghiere e gastronomia, una società di distribuzione e noleggio attrezzature sportive, una scuola di sci e snowboard e una società amministrativa. Il Gruppo Weisse Arena è anche responsabile della commercializzazione della destinazione turistica Flims Laax Falera. Il Ristorante Camino serve piatti di pasta o risotto, piatti di carne e pesce e pizze tradizionali dalla stufa a legna. La selezione di vini e bevande italiane completa l'offerta. Gli ospiti dell'hotel potranno gustare la colazione e la cena qui. Il ristorante offre spazio per circa 110 ospiti nella zona ristorante e per circa 60 ospiti nel Camino Bar/Lounge. Il Ristorante Camino offre anche vari ristoranti e banchetti. Immaginate di consolidare il nostro team come cuoco/cucina, con molto senso per la cucina tradizionale italiana al Ristorante Camino. Mansioni - Responsabilità per il proprio post - Mise en place für die Tagesgeschäft - Preparazione dei piatti - Compliance con le normative igieniche - Pulizia generale\n• Requisiti - Allenamento cucina completo - Esperienza di lavoro 3-4 anni nella zona à la carte, con vantaggio nella cucina italiana - Gioia nel lavoro in un'operazione vivace - Siete impegnati e lavorate con attenzione, speditive, indipendenti, affidabili e responsabili - Teamplayer del tedesco Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è sicuramente vostro. - No. Hai anche l'opportunità di svilupparti nel nostro team dinamico, sollevato e vivace cultura aziendale. - Non vediamo l'ora di numerosi benefici per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché benefici per la vostra famiglia. - No. Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. Contatto Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax",
-        "en": "Descrizione The Weisse Arena Group is an integrated service company in the field of tourism and leisure. We understand ourselves as a provider of alpine leisure experiences. The group includes a cable car and ski lift company, hotel and gastronomy companies, a sports equipment distribution and rental company, a ski and snowboard school as well as an administrative company. The Weisse Arena Group is also responsible for the marketing of the Flims Laax Falera tourism destination. The Ristorante Camino serves pasta or risotto variations, meat and fish dishes as well as traditional pizzas from the wood stove. The selection of Italian wines and drinks completes the offer. Hotel guests enjoy their breakfast and dinner here. The restaurant offers space for around 110 guests in the restaurant area and for about 60 guests in the Camino Bar/Lounge. The Ristorante Camino also offers various catering and banquets. Imagine you will strengthen our team as a cook/cook, with a lot of sense for traditional Italian cuisine at Ristorante Camino. Mansioni - Responsibility for your own post - Mise en place for daily business - Preparation of dishes - Compliance with hygiene regulations - General cleaning work\n• Requisiti - Complete cooking training - 3-4 years working experience in the à la carte area, with advantage in Italian cuisine - Pleasure to work in a lively operation - You are committed and work carefully, speditive, independent, reliable and responsible - Team player who can communicate well in German\n• Cosa offriamo - An attractive workplace in the midst of a breathtaking mountain world is certainly yours. - You also have the opportunity to develop yourself in our dynamic, uplifted team and lively corporate culture. - Look forward to numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy businesses, as well as benefits for your family. - Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. Contatto White Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax.com",
-        "de": "Die Weisse Arena Gruppe ist ein integriertes Dienstleistungsunternehmen im Bereich Tourismus und Freizeit. Wir verstehen uns als Anbieter von alpinen Freizeiterlebnissen. Zur Gruppe gehören eine Seilbahn- und Skiliftgesellschaft, Hotel und Gastronomiebetriebe, ein Sportgerätevertrieb und -verleih, eine Ski- und Snowboardschule sowie eine Verwaltungsgesellschaft. Zudem ist die Weisse Arena Gruppe für die Vermarktung der Tourismusdestination Flims Laax Falera verantwortlich. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du verstärks unser Team als Koch/Köchin, mit viel Sinn für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Verantwortung über den eigenen Posten\n• Mise en place für das Tagesgeschäft\n• Zubereitung der Gerichte\n• Einhaltung der Hygienevorschriften\n• Allgemeine Reinigungsarbeiten | Was dich ausmacht:\n• Abgeschlossene Kochausbildung\n• 3-4 Jahre Arbeitserfahrung im à la carte Bereich, mit Vorteil in der italienischen Küche\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel. +41 79 131 39 01 www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "fr": "Descrizione Le Groupe Weisse Arena est une société de services intégrée dans le domaine du tourisme et des loisirs. Nous nous comprenons comme un fournisseur d'expériences de loisirs alpins. Le groupe comprend une compagnie de téléphérique et de téléski, des entreprises hôtelières et gastronomiques, une société de distribution et de location d'équipements sportifs, une école de ski et de snowboard ainsi qu'une société administrative. Le Groupe Weisse Arena est également responsable de la commercialisation de la destination touristique Flims Laax Falera. Le Ristorante Camino sert des pâtes ou des risottos, des plats de viande et de poisson ainsi que des pizzas traditionnelles du poêle à bois. La sélection des vins et boissons italiens complète l'offre. Les clients de l'hôtel apprécieront leur petit déjeuner et leur dîner ici. Le restaurant offre un espace pour environ 110 personnes dans le secteur du restaurant et pour environ 60 personnes dans le Camino Bar/Lounge. Le Ristorante Camino propose également divers restaurants et banquets. Imaginez que vous renforcerez notre équipe en tant que cuisinier/cuisinier, avec beaucoup de sens pour la cuisine italienne traditionnelle au Ristorante Camino. Mansioni - Responsabilité pour votre propre poste - Mise en place für die Tagesgeschäft - Préparation de plats - Conformité aux règles d'hygiène - Nettoyage général\n• Requisiti - Formation complète à la cuisine - 3-4 ans d'expérience de travail dans la région à la carte, avec avantage dans la cuisine italienne - Joy in work in a animation operation - Vous êtes engagé et travaillez avec soin, spéditive, indépendante, fiable et responsable - Teamplayer of the German Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. - Oui. Vous avez aussi l'occasion de vous développer dans notre équipe dynamique et animée et dans notre culture d'entreprise. - Réjouissez-vous de nombreux avantages pour les employés, comme des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et commerces de gastronomie, ainsi que des avantages pour votre famille. - Oui. Commencez votre aventure professionnelle au Groupe Weissen Arena avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Contatto Weisse Arena Hospitality AG signeinahotel/Ristorante Camino Tino Rominger Tél. +41 79 131 39 01 www.signinahotel.com www.weissearena.com www.laax.com"
-      },
-      "location": "Laax",
-      "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4507&jobTitle=Koch%2FK%C3%B6chin",
-      "source": "Weisse Arena Gruppe Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.345Z",
-      "addressLocality": "Laax",
-      "postalCode": "7031",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "CONTRACTOR",
-      "experienceLevel": "mid",
-      "sector": "Turismo / Sport",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-31",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4507&langCode=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "signinahotel/Ristorante Camino",
-      "jobNumber": "WAG02341",
-      "pensum": "60 - 100%",
-      "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "koch-kochin-weisse-arena-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "koch-kochin-weisse-arena-ch"
-        ],
-        "en": [
-          "koch-kochin-weisse-arena-ch"
-        ],
-        "fr": [
-          "koch-kochin-weisse-arena-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-04T16:03:28.980Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "weisse-arena-97b96b7e7789",
       "slug": "responsabile-eventi-weisse-arena-gruppe-laax",
       "slugByLocale": {
@@ -565,7 +487,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4515&jobTitle=Event+Manager",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.344Z",
+      "crawledAt": "2026-06-19T13:38:45.729Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -597,6 +519,7 @@
         ]
       },
       "firstSeenAt": "2026-06-12T13:10:24.517Z",
+      "needsRetranslation": true,
       "salaryMin": 87500,
       "salaryMax": 154500,
       "baseSalary": {
@@ -642,7 +565,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4514&jobTitle=Mitarbeiter%3Ain+Bahn%C3%BCberwachung",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.344Z",
+      "crawledAt": "2026-06-19T13:38:45.729Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -692,71 +615,71 @@
       "addressRegion": "GR"
     },
     {
-      "id": "weisse-arena-d769fa9b6cdc",
-      "slug": "pizzaiolo-a-chef-weisse-arena-gruppe-laax",
+      "id": "weisse-arena-2765974aca91",
+      "slug": "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "pizzaiolo-a-chef-weisse-arena-gruppe-laax",
-        "en": "pizzaiolo-a-chef-weisse-arena-gruppe-laax",
-        "de": "pizzaiolo-a-koch-kochin-weisse-arena-ch",
-        "fr": "pizzaiolo-a-chef-weisse-arena-gruppe-laax"
+        "it": "addetto-a-alle-vendite-e-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
+        "en": "associate-sales-und-administration-wintersaison-70-100-weisse-arena-gruppe-laax",
+        "de": "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch",
+        "fr": "collaborateur-trice-vente-und-administration-wintersaison-70-100-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
       "companyDomain": "weissearena.com",
-      "title": "Pizzaiolo:a / Koch/Köchin",
+      "title": "Mitarbeiter:in Verkauf und Administration Wintersaison (70-100%)",
       "titleByLocale": {
-        "it": "Pizzaiolo:a / Chef",
-        "en": "Pizzaiolo:a / Chef",
-        "de": "Pizzaiolo:a / Koch/Köchin",
-        "fr": "Pizzaiolo:a / Chef"
+        "it": "Addetto/a alle vendite e Administration Wintersaison (70-100%)",
+        "en": "Staff:in sales and administration winter season (70-100%)",
+        "de": "Mitarbeiter:in Verkauf und Administration Wintersaison (70-100%)",
+        "fr": "Collaborateur/trice Vente und Administration Wintersaison (70-100%)"
       },
-      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du bist unser neues Teammitglied als Pizzaiolo/Pizzaiola, mit viel Leidenschaft für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Zubereitung von Pizzen\n• Mise en place\n• Bei Bedarf Mitarbeit in der Küche\n• Allgemeine Hilfs- und Reinigungsarbeiten\n• Einhaltung der Hygienevorschriften | Was dich ausmacht:\n• 1-2 Jahre Arbeitserfahrung als Pizzaiolo/ Pizzaiola\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig, und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel.081 927 90 52 www.signinahotel.com I www.weissearena.com I www.laax.com",
+      "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weissen Arena Gruppe, Laax. Neben dem Betrieb der Ski- und Snowboardfahrschule ist sie für die Freestyle Academy LAAX zuständig . In der LAAX School erlernen Anfänger die Grundlagen des Snowboardens oder Skifahrens, Fortgeschrittene und Pros verbessern ihre Schwungtechnik oder erweitern ihr Repertoire im Snowpark. Dabei profitieren sie von unserer jahrelangen Erfahrung und kommen in den Genuss eines trendorientierten, altersstufengerechten Unterrichts nach neusten Methoden. Spass und Lernerfolg stehen dabei gleichermassen im Fokus. An Spitzentagen stehen bis zu 250 Ski- und Snowboardlehrer im Einsatz und die LAAX School zählt somit zu den grössten Schneesportschulen Europas. | Für die Wintersaison (1. Dezember 2026 bis März/April 2027) suchen wir aufgestellte Mitarbeitende für den Verkauf und die Administration in unserem belebten LAAX School Büro. | Was du bewegst:\n• Beratung der Gäste beim Buchen von Ski- und Snowboardunterricht am Telefon, per E-Mail oder am Schalter\n• Verkauf des gesamten Angebotes der LAAX School\n• Diverse administrative Arbeiten\n• Zusammenstellen der notwendigen Unterlagen für den Unterricht | Was dich ausmacht:\n• Du fühlst dich in der Welt des Schneesports wohl und hast Freude am Umgang mit Gästen\n• Du bist teamfähig, flexibel, initiativ und belastbar\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut ausdrücken\n• Vorzugsweise bringst du auch Italienisch- und/oder Französisch-Kenntnisse mit\n• eine abgeschlossene kaufmännische Ausbildung ist von Vorteil, aber nicht zwingend\n• Du kannst dir eine längerfristige Zusammenarbeit vorstellen, jeweils während der Wintersaisons von Dezember bis März/April | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com I www.laax.com",
       "descriptionByLocale": {
-        "it": "Il White Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie attività di hotel e catering, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una società di gestione e costruzione. Il nostro successo? Un team motivato e dedicato che vive quotidianamente la sua passione. # Nel Ristorante Camino, sotto il motto “l’arte della cucina italiana” vengono serviti piatti di carne e pesce e pizza tradizionale del forno a legna. La selezione di vini e bevande italiane completa l'offerta. Gli ospiti dell'hotel potranno gustare la colazione e la cena qui. Il ristorante può ospitare circa 110 ospiti nella zona ristorante e circa 60 ospiti nel Camino Bar/Lounge. Inoltre, il Ristorante Camino offre vari catering e banchetti. Immaginate di essere il nostro nuovo membro del team come Pizzaiolo/Pizzaiola, con una passione per la cucina tradizionale italiana al Ristorante Camino. Cosa si muove:\n• Preparazione delle pizze\n• Mise e luogo\n• Se necessario, cooperazione in cucina\n• Lavori generali di ausilio e pulizia\n• Compliance con i regolamenti igienici | Che cosa ti rende:\n• 1-2 anni di esperienza lavorativa come Pizzaiolo/Pizziola\n• Gioia di lavoro in una vivace azienda\n• Siete impegnati e lavorate con attenzione, prontamente, indipendentemente, in modo affidabile e responsabile\n• Giocatore di squadra che può comunicare bene in tedesco | Un posto di lavoro attraente nel mezzo di un mondo di montagna mozzafiato è certo per voi. Hai anche l'opportunità di sviluppare nel nostro team dinamico, brillante e vivace cultura aziendale. Attendere con ansia numerosi vantaggi per i dipendenti, come gite in montagna gratuite, vantaggi nei nostri negozi, hotel e ristoranti, e benefici per la vostra famiglia. Inizia la tua avventura professionale al Weissen Arena Group ora con la tua applicazione online completa con la foto. Non vediamo l'ora. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel.081 927 90 52 www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "en": "The White Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and catering businesses, sports and rental shops, a ski, snowboard and bike school as well as a management and construction company. Our success? A motivated and dedicated team that lives its passion daily. | In the Ristorante Camino, under the motto “l’arte della cucina italiana” pasta or risotto variations, meat and fish dishes and traditional pizza from the wood oven are served. The selection of Italian wines and drinks completes the offer. Hotel guests enjoy their breakfast and dinner here. The restaurant can accommodate around 110 guests in the restaurant area and around 60 guests in the Camino Bar/Lounge. In addition, the Ristorante Camino offers various caterings and banquets. | Imagine being our new team member as Pizzaiolo/Pizzaiola, with a passion for traditional Italian cuisine at Ristorante Camino. What You Move:\n• Preparation of pizzas\n• Mise and place\n• If necessary, cooperation in the kitchen\n• General auxiliary and cleaning work\n• Compliance with hygiene regulations | What makes you:\n• 1-2 years of work experience as Pizzaiolo/Pizziola\n• Joy of working in a lively company\n• You are committed and work carefully, promptly, independently, reliably, and responsibly\n• Team player who can communicate well in German | An attractive workplace in the middle of a breathtaking mountain world is certain for you. You also have the opportunity to develop in our dynamic, bright team and vibrant company culture. Look forward to numerous employee benefits, such as free mountain rides, perks in our shops, hotels and restaurants, and benefits for your family. Start your professional adventure at the Weissen Arena Group now with your complete online application with photo. We look forward to that. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel.081 927 90 52 www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Im Ristorante Camino werden unter dem Motto „l’arte della cucina italiana“ Pasta- oder Risottovariationen, Fleisch- und Fischgerichte sowie traditionelle Pizza aus dem Holzofen serviert. Die Auswahl an italienischen Weinen und Getränken rundet das Angebot ab. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Stell dir vor, du bist unser neues Teammitglied als Pizzaiolo/Pizzaiola, mit viel Leidenschaft für traditionelle Italienische Küche im Ristorante Camino. | Was du bewegst:\n• Zubereitung von Pizzen\n• Mise en place\n• Bei Bedarf Mitarbeit in der Küche\n• Allgemeine Hilfs- und Reinigungsarbeiten\n• Einhaltung der Hygienevorschriften | Was dich ausmacht:\n• 1-2 Jahre Arbeitserfahrung als Pizzaiolo/ Pizzaiola\n• Freude an der Arbeit in einem lebhaften Betrieb\n• Du bist engagiert und arbeitest sorgfältig, speditiv, selbständig, zuverlässig, und verantwortungsbewusst\n• Teamplayer der sich gut auf Deutsch verständigen kann | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Tino Rominger Tel.081 927 90 52 www.signinahotel.com I www.weissearena.com I www.laax.com",
-        "fr": "Le White Arena Group de LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses entreprises hôtelières et de restauration, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une société de gestion et de construction. Notre succès ? Une équipe motivée et dévouée qui vit sa passion au quotidien. Autres Dans le Ristorante Camino, sous la devise \"Della cucina italiana\" les pâtes ou les variations de risotto, les plats de viande et de poisson et la pizza traditionnelle du four à bois sont servis. La sélection des vins et boissons italiens complète l'offre. Les clients de l'hôtel apprécieront leur petit déjeuner et leur dîner ici. Le restaurant peut accueillir environ 110 personnes dans le secteur du restaurant et environ 60 personnes dans le Camino Bar/Lounge. En outre, le Ristorante Camino propose divers restaurants et banquets. Imaginez être notre nouveau membre de l'équipe comme Pizzaiolo/Pizzaiola, avec une passion pour la cuisine italienne traditionnelle au Ristorante Camino. Ce que vous déplacez :\n• Préparation de pizzas\n• Mise et place\n• Si nécessaire, coopération dans la cuisine\n• Travaux généraux auxiliaires et de nettoyage\n• Respect des règles d'hygiène.\n• 1-2 ans d'expérience professionnelle en tant que Pizzaiolo/Pizziola\n• Joy de travailler dans une entreprise animée\n• Vous êtes engagé et travaillez prudemment, rapidement, indépendamment, fiable et responsable\n• Joueur d'équipe qui peut bien communiquer en allemand. Vous avez également l'occasion de vous développer dans notre équipe dynamique, lumineuse et dynamique culture d'entreprise. Profitez de nombreux avantages pour les employés, comme des promenades en montagne gratuites, des avantages dans nos magasins, hôtels et restaurants, et des avantages pour votre famille. Commencez votre aventure professionnelle au Weissen Arena Group avec votre candidature complète en ligne avec photo. Nous attendons cela avec impatience. Weisse Arena Hospitality AG signeinahotel/Ristorante Camino Tino Rominger Tél. I www.weissearena.com I www.laax.com"
+        "it": "Descrizione Il Weisse Arena Group di LAAX è un pioniere nel turismo alpino e una comunità entusiasta per avventure di montagna uniche. Il gruppo comprende varie strutture alberghiere e gastronomiche, negozi di sport e noleggio, una scuola di sci, snowboard e bici, nonché una gestione e una società di costruzione. Il nostro successo? Un team motivato e impegnato che vive quotidianamente la sua passione. Mountain Adventures AG è una filiale del Weissen Arena Group, Laax. Oltre al funzionamento della scuola di sci e snowboard, è responsabile della Freestyle Academy LAAX . Nella scuola LAAX, i principianti imparano le basi dello snowboard o dello sci, avanzati e pro migliorano la loro dinamica o ampliano il loro repertorio nel snowpark. Essi beneficiano dei nostri anni di esperienza e beneficiano di un insegnamento orientato alla tendenza, orientato all'età secondo i metodi più recenti. Il focus è anche su divertimento e successo di apprendimento. Fino a 250 istruttori di sci e snowboard sono nei giorni migliori e LAAX School è una delle più grandi scuole di sport neve in Europa. Per la stagione invernale (1 dicembre 2026 a marzo/aprile 2027), stiamo cercando dipendenti consolidati per le vendite e l'amministrazione nel nostro vivace ufficio LAAX School. Mansioni - Consultare gli ospiti al momento della prenotazione di lezioni di sci e snowboard al telefono, via e-mail o all'interruttore - Vendita di tutte le offerte LAAX School - Vari lavori amministrativi - compilazione dei documenti necessari per l'insegnamento\n• Requisiti - Ti senti a tuo agio nel mondo degli sport sulla neve e sei felice di gestire gli ospiti - Lei è collaborabile, flessibile, intraprendente e resiliente - Parli fluentemente tedesco e puoi esprimerti bene in inglese - Puoi anche portare il know-how italiano e/o francese - una formazione commerciale completa è vantaggiosa, ma non necessariamente - Potete immaginare la cooperazione a lungo termine, durante la stagione invernale da dicembre a marzo/aprile Cosa? - Un posto di lavoro attraente in mezzo a un mondo di montagna mozzafiato è sicuramente vostro. - Hai anche l'opportunità di svilupparti nel nostro team dinamico, sollevato e vivace cultura aziendale. - Non vediamo l'ora di numerosi benefici per i dipendenti, come escursioni in montagna gratuite, sconti nei nostri negozi, hotel e aziende gastronomiche, nonché benefici per la vostra famiglia. - Inizia la tua avventura professionale al Weissen Arena Group con la tua applicazione online completa con la foto. Non vediamo l'ora. Contatto Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 www.weissearena.com www.laax",
+        "en": "Descrizione The Weisse Arena Group in LAAX is a pioneer in alpine tourism and an enthusiastic community for unique mountain adventures. The group includes various hotel and gastronomy facilities, sports and rental shops, a ski, snowboard and bike school as well as a management and a construction company. Our success? A motivated and committed team that lives his passion daily. Mountain Adventures AG is a subsidiary of Weissen Arena Group, Laax. In addition to the operation of the ski and snowboarding school, it is responsible for the Freestyle Academy LAAX . In the LAAX School, beginners learn the basics of snowboarding or skiing, advanced and pros improve their dynamics or expand their repertoire in the snow park. They benefit from our years of experience and benefit from a trend-oriented, age-oriented teaching according to the latest methods. The focus is also on fun and learning success. Up to 250 ski and snowboard instructors are on top days and LAAX School is one of the largest snow sports schools in Europe. For the winter season (1 December 2026 to March/April 2027), we are looking for established employees for sales and administration in our lively LAAX School office. Mansioni - Advising guests when booking ski and snowboard lessons on the phone, by email or on the switch - Sale of all LAAX School offers - Various administrative work - compiling the necessary documents for teaching\n• Requisiti - You feel comfortable in the world of snow sports and are happy to handle guests - You are teamable, flexible, initiativeable and resilient - You speak fluent German and can express yourself well in English - You may also bring Italian and/or French know-how - a completed commercial training is advantageous, but not necessarily - You can imagine long-term cooperation, during the winter season from December to March/April\n• Cosa offriamo - An attractive workplace in the midst of a breathtaking mountain world is certainly yours. - You also have the opportunity to develop yourself in our dynamic, uplifted team and lively corporate culture. - Look forward to numerous employee benefits, such as free mountain trips, discounts in our shops, hotels and gastronomy businesses, as well as benefits for your family. - Start your professional adventure at the Weissen Arena Group with your full online application with photo. We look forward to it. Contatto Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com www.laax.com",
+        "de": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Zur Gruppe gehören diverse Hotel- und Gastronomiebetriebe, Sport und Rental Shops, eine Ski-, Snowboard- und Bikeschule sowie eine Management- und eine Baugesellschaft. Unser Erfolg? Ein motiviertes und engagiertes Team, das seine Leidenschaft täglich lebt. | Die Mountain Adventures AG ist eine Tochtergesellschaft der Weissen Arena Gruppe, Laax. Neben dem Betrieb der Ski- und Snowboardfahrschule ist sie für die Freestyle Academy LAAX zuständig . In der LAAX School erlernen Anfänger die Grundlagen des Snowboardens oder Skifahrens, Fortgeschrittene und Pros verbessern ihre Schwungtechnik oder erweitern ihr Repertoire im Snowpark. Dabei profitieren sie von unserer jahrelangen Erfahrung und kommen in den Genuss eines trendorientierten, altersstufengerechten Unterrichts nach neusten Methoden. Spass und Lernerfolg stehen dabei gleichermassen im Fokus. An Spitzentagen stehen bis zu 250 Ski- und Snowboardlehrer im Einsatz und die LAAX School zählt somit zu den grössten Schneesportschulen Europas. | Für die Wintersaison (1. Dezember 2026 bis März/April 2027) suchen wir aufgestellte Mitarbeitende für den Verkauf und die Administration in unserem belebten LAAX School Büro. | Was du bewegst:\n• Beratung der Gäste beim Buchen von Ski- und Snowboardunterricht am Telefon, per E-Mail oder am Schalter\n• Verkauf des gesamten Angebotes der LAAX School\n• Diverse administrative Arbeiten\n• Zusammenstellen der notwendigen Unterlagen für den Unterricht | Was dich ausmacht:\n• Du fühlst dich in der Welt des Schneesports wohl und hast Freude am Umgang mit Gästen\n• Du bist teamfähig, flexibel, initiativ und belastbar\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut ausdrücken\n• Vorzugsweise bringst du auch Italienisch- und/oder Französisch-Kenntnisse mit\n• eine abgeschlossene kaufmännische Ausbildung ist von Vorteil, aber nicht zwingend\n• Du kannst dir eine längerfristige Zusammenarbeit vorstellen, jeweils während der Wintersaisons von Dezember bis März/April | Ein attraktiver Arbeitsplatz inmitten einer atemberaubenden Bergwelt ist dir gewiss. Zudem hast du die Möglichkeit, dich in unserem dynamischen, aufgeweckten Team und der lebhaften Unternehmenskultur weiterzuentwickeln. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte jetzt dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung mit Foto. Wir freuen uns darauf. | Mountain Adventures AG LAAX School Christian Sutter Tel. +41 81 927 71 71 www.weissearena.com I www.laax.com",
+        "fr": "Descrizione Le groupe Weisse Arena à LAAX est un pionnier du tourisme alpin et une communauté enthousiaste pour des aventures de montagne uniques. Le groupe comprend diverses installations hôtelières et gastronomiques, des magasins de sport et de location, une école de ski, de snowboard et de vélo ainsi qu'une direction et une entreprise de construction. Notre succès ? Une équipe motivée et engagée qui vit sa passion au quotidien. Mountain Adventures AG est une filiale de Weissen Arena Group, Laax. En plus du fonctionnement de l'école de ski et de snowboard, il est responsable de la Freestyle Academy LAAX . Dans l'école LAAX, les débutants apprennent les bases du snowboard ou du ski, avancés et pros améliorent leur dynamique ou élargissent leur répertoire dans le parc à neige. Ils bénéficient de nos années d'expérience et d'un enseignement axé sur les tendances et l'âge selon les dernières méthodes. L'accent est également mis sur le plaisir et le succès d'apprentissage. Jusqu'à 250 moniteurs de ski et de snowboard sont à l'honneur et LAX School est l'une des plus grandes écoles de sports de neige en Europe. Pour la saison hivernale (1er décembre 2026 à mars/avril 2027), nous recherchons des employés établis pour les ventes et l'administration dans notre bureau animé de l'école LAAX. Mansioni - Conseiller les clients lors de la réservation de cours de ski et de snowboard au téléphone, par email ou sur l'interrupteur - Vente de toutes les offres de LAX School - Divers travaux administratifs - la compilation des documents nécessaires à l'enseignement\n• Requisiti - Vous vous sentez à l'aise dans le monde des sports de neige et êtes heureux de gérer les invités - Vous êtes équipable, flexible, efficace et résilient - Vous parlez couramment allemand et vous pouvez bien vous exprimer en anglais - Vous pouvez aussi apporter le savoir-faire italien et/ou français - une formation commerciale complète est avantageuse, mais pas nécessairement - Vous pouvez imaginer une coopération à long terme pendant la saison hivernale de décembre à mars/avril\n• Cosa offriamo - Un lieu de travail attrayant au milieu d'un monde montagneux à couper le souffle est certainement le vôtre. - Vous avez également l'occasion de vous développer dans notre équipe dynamique et animée et dans notre culture d'entreprise. - Réjouissez-vous de nombreux avantages pour les employés, comme des voyages en montagne gratuits, des réductions dans nos magasins, hôtels et commerces de gastronomie, ainsi que des avantages pour votre famille. - Commencez votre aventure professionnelle au Weissen Arena Group avec votre application complète en ligne avec photo. Nous nous réjouissons de cela. Contatto Mountain Adventures AG École LAAX Christian Sutter Tél. +41 81 927 71 71 www.weissearena.com www.laax.com"
       },
       "location": "Laax",
       "canton": "GR",
-      "url": "https://www.weissearena.com/jobs/details.html?jobId=4512&jobTitle=Pizzaiolo%3Aa+%2F+Koch%2FK%C3%B6chin",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4510&jobTitle=Mitarbeiter%3Ain+Verkauf+und+Administration+Wintersaison+%2870-100%25%29",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.344Z",
+      "crawledAt": "2026-06-19T13:38:45.729Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Ristorazione",
+      "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "CONTRACTOR",
       "experienceLevel": "mid",
       "sector": "Turismo / Sport",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-07",
-      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4512&langCode=de_DE",
+      "postedDate": "2026-06-02",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4510&langCode=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "department": "signinahotel/Ristorante Camino",
-      "jobNumber": "WAG02326",
-      "pensum": "60 - 100%",
+      "department": "LAAX School",
+      "jobNumber": "WAG02389",
+      "pensum": "70 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+        "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
         ],
         "en": [
-          "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
         ],
         "fr": [
-          "pizzaiolo-a-koch-kochin-weisse-arena-ch"
+          "mitarbeiter-in-verkauf-und-administration-wintersaison-70-100-weisse-arena-ch"
         ]
       },
-      "firstSeenAt": "2026-06-08T14:00:24.187Z",
+      "firstSeenAt": "2026-06-04T16:03:28.978Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -802,7 +725,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4518&jobTitle=Koch%2FK%C3%B6chin+mit+Feuer+und+Leidenschaft",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.343Z",
+      "crawledAt": "2026-06-19T13:38:45.728Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -837,6 +760,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:41:43.955Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -882,7 +806,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4521&jobTitle=Servicemitarbeiter%3Ain",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.343Z",
+      "crawledAt": "2026-06-19T13:38:45.728Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -964,7 +888,7 @@
       "url": "https://www.weissearena.com/jobs/details.html?jobId=4519&jobTitle=Hilfskoch%2FHilfsk%C3%B6chin",
       "source": "Weisse Arena Gruppe Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-18T23:51:32.341Z",
+      "crawledAt": "2026-06-19T13:38:45.727Z",
       "addressLocality": "Laax",
       "postalCode": "7031",
       "addressCountry": "CH",
@@ -1012,6 +936,75 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "weisse-arena-2fa633beab76",
+      "slug": "hr-generalist-in-weisse-arena-ch",
+      "slugByLocale": {
+        "de": "hr-generalist-in-weisse-arena-ch",
+        "it": "hr-generalist-in-weisse-arena-ch",
+        "en": "hr-generalist-in-weisse-arena-ch",
+        "fr": "hr-generalist-in-weisse-arena-ch"
+      },
+      "company": "Weisse Arena Gruppe",
+      "companyKey": "weisse-arena",
+      "companyDomain": "weissearena.com",
+      "title": "HR Generalist:in",
+      "titleByLocale": {
+        "de": "HR Generalist:in",
+        "it": "Risorse Umane Generalist:in",
+        "en": "HR Generalist:in",
+        "fr": "Ressources Humaines Generalist:in"
+      },
+      "description": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make ist LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+      "descriptionByLocale": {
+        "de": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make ist LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+        "it": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make ist LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+        "en": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make ist LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com",
+        "fr": "Die Weisse Arena Gruppe betreibt mit LAAX eines der führenden Freizeit- und Tourismusunternehmen der Schweiz. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. Unsere People Performance Team betreut über 1400 Kolleginnen und Kollegen im Winter sowie rund 550 im Sommer. | Make it people. Make ist LAAX. | Wir suchen eine Persönlichkeit, die mitdenkt, Verantwortung übernimmt, pragmatisch handelt und unser HR im Alltag besser macht. | Was du bewegst: Du begleitest Mitarbeitende und Führungskräfte in personalrelevanten Themen entlang des gesamten Employee Lifecycles und sorgst dafür, dass unsere HR Prozesse professionell, zuverlässig und serviceorientiert funktionieren. Dabei verbindest du operative Umsetzungsstärke mit einem klaren Blick für Qualität, Struktur und Weiterentwicklung. Du übernimmst Verantwortung für administrative und operative HR-Themen, stellst die Qualität unserer HR-Daten und Prozesse sicher, bist im Austausch mit internen und externen Partnern und behältst auch bei mehreren Themen gleichzeitig den Überblick. Du klärst arbeitsrechtliche, sozialversicherungsrechtliche sowie organisatorische Fragestellungen und hast ein Auge auf die konsequente Umsetzung vereinbarter Lösungen. Du erkennst Verbesserungspotenzial, bringst neue Impulse ein und entwickelst unsere HR-Prozesse, Standards und Arbeitsweisen kontinuierlich weiter. | Was dich ausmacht: Du bist ein HR-Profi mit hoher Dienstleistungsorientierung, gesundem Menschenverstand und Freude an einem dynamischen Umfeld. Du arbeitest strukturiert, denkst vernetzt und bringst Themen sauber zu Ende.\n• Abgeschlossene Weiterbildung im Personalwesen, HR-Fachfrau/-mann mit eidg. Fachausweis oder vergleichbare Qualifikation\n• Mehrjährige Erfahrung im operativen HR, idealerweise in einem Unternehmen mit saisonalen Strukturen\n• Gute Kenntnisse im Schweizer Arbeitsrecht und in den Sozialversicherungen\n• Erfahrung in der Personaladministration, Payroll-Nähe und Führungskräfteberatung\n• Sicherer Umgang mit HR-Systemen und digitalen Prozessen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Genauigkeit, Diskretion und Verantwortungsbewusstsein\n• Stilsicheres Deutsch in Wort und Schrift sowie gute Englischkenntnisse\n• Freude an Menschen, Klarheit in der Kommunikation und eine pragmatische Haltung\n• Branchenkenntnisse in Tourismus, Seilbahn, Hotellerie oder Gastronomie sind von Vorteil | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung unseres HR aktiv mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Zudem profitierst du von attraktiven Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie von weiteren Vorteilen für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Mountain Vision AG Human & Organizational Performance Management Christina Darms Tel. +41 81 927 70 14 www.weissearena.com I www.laax.com"
+      },
+      "location": "Laax",
+      "canton": "GR",
+      "url": "https://www.weissearena.com/jobs/details.html?jobId=4522&jobTitle=HR+Generalist%3Ain",
+      "source": "Weisse Arena Gruppe Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-06-19T13:38:45.726Z",
+      "addressLocality": "Laax",
+      "postalCode": "7031",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Turismo / Sport",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-18",
+      "applyUrl": "https://emea3.recruitmentplatform.com/apply-app/pages/application-form?jobId=PD6FK026203F3VBQBLO8NV79D-4522&langCode=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Human & Organizational Performance Management",
+      "jobNumber": "WAG02398",
+      "pensum": "80 - 100%",
+      "contractLabel": "Festanstellung",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-06-19T13:38:45.726Z"
     }
   ]
 }
