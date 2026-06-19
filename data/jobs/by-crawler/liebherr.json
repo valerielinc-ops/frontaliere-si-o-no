@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "liebherr-8f7c69728dce",
-      "slug": "controleur-de-gestion-senior-h-f-x-liebherr-bulle",
+      "slug": "senior-management-controller-h-f-x-liebherr-bulle",
       "slugByLocale": {
         "fr": "controleur-de-gestion-senior-h-f-x-liebherr-bulle",
-        "it": "controleur-de-gestion-senior-h-f-x-liebherr-bulle",
+        "it": "senior-management-controller-h-f-x-liebherr-bulle",
         "en": "controleur-de-gestion-senior-h-f-x-liebherr-bulle",
         "de": "controleur-de-gestion-senior-h-f-x-liebherr-bulle"
       },
@@ -65,14 +65,22 @@
         }
       },
       "postalCode": "1630",
-      "firstSeenAt": "2026-06-19T12:59:19.285Z"
+      "firstSeenAt": "2026-06-19T12:59:19.285Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-de-gestion-senior-h-f-x-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-de-gestion-senior-h-f-x-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-1bcd93f2e841",
       "slug": "technician-m-w-d-liebherr-bulle",
       "slugByLocale": {
         "it": "technician-m-w-d-liebherr-bulle",
-        "en": "warranty-investigation-technician-m-w-d-liebherr-bulle",
+        "en": "diagnostics-technician-m-f-x-liebherr-bulle",
         "de": "warranty-investigation-technician-m-w-d-liebherr-bulle",
         "fr": "technicien-en-enquete-de-garantie-m-f-d-liebherr-bulle"
       },
@@ -134,6 +142,9 @@
           "diagnostics-technician-m-f-x-liebherr-bulle"
         ],
         "fr": [
+          "warranty-investigation-technician-m-w-d-liebherr-bulle"
+        ],
+        "en": [
           "warranty-investigation-technician-m-w-d-liebherr-bulle"
         ]
       },
@@ -1343,12 +1354,12 @@
     },
     {
       "id": "liebherr-694763ed3a4a",
-      "slug": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+      "slug": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
       "slugByLocale": {
-        "it": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
+        "it": "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
         "en": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2",
         "de": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "fr": "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
+        "fr": "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1391,17 +1402,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-        "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
-        "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
+        "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden",
-          "bewerbung-iniziale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ],
         "fr": [
-          "candidature-initiale-liebherr-baumaschinen-ag-liebherr-reiden",
           "initialbewerbung-liebherr-baumaschinen-ag-liebherr-reiden-2"
         ]
       },

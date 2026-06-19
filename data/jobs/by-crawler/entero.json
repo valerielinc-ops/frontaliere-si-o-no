@@ -372,8 +372,8 @@
       "slugByLocale": {
         "de": "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil",
         "it": "mutterschaftsvertretung-come-fallfuhrende-bezugsperson-60-entero-egliswil",
-        "en": "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil",
-        "fr": "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil"
+        "en": "maternity-representation-as-a-case-leading-caregiver-60-entero-egliswil",
+        "fr": "representation-de-la-maternite-comme-soignante-chef-de-file-60-entero-egliswil"
       },
       "company": "entero",
       "companyKey": "entero",
@@ -418,6 +418,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil"
+        ],
+        "en": [
+          "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil"
+        ],
+        "fr": [
           "mutterschaftsvertretung-als-fallfuhrende-bezugsperson-60-entero-egliswil"
         ]
       },
