@@ -221,6 +221,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.roche-basel-offerte-lavoro.title': 'Offerte di lavoro a Roche: posizioni aperte a Basilea',
     'blog.article.roche-basel-offerte-lavoro.excerpt': 'Aumento delle opportunità di lavoro nel settore farmaceutico a Basilea, con dettagli in fase di definizione',
     'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerea dell\'edificio principale di Roche a Basilea, Svizzera, con dettagli sulle strutture moderne e di ricerca',
+    'blog.article.ticino-concorsi.title': 'Concorsi pubblici in Ticino: come partecipare e cosa sapere',
+    'blog.article.ticino-concorsi.excerpt': 'Aggiornamenti sui concorsi pubblici in Ticino, procedure, scadenze e come prepararsi al meglio.',
+    'blog.article.ticino-concorsi.imageAlt': 'Edificio pubblico svizzero con bandiere, scena urbana',
 };
 
 export default blogMetaChIt;

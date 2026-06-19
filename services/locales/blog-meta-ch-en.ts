@@ -221,6 +221,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.roche-basel-offerte-lavoro.title': 'Job offers at Roche: open positions in Basel',
     'blog.article.roche-basel-offerte-lavoro.excerpt': 'Increase in job opportunities in the pharmaceutical sector in Basel, with details being finalized',
     'blog.article.roche-basel-offerte-lavoro.imageAlt': 'Aerial view of Roche\'s headquarters in Basel, Switzerland, showcasing modern office buildings and research facilities',
+    'blog.article.ticino-concorsi.title': 'Public Jobs in Ticino: How to Apply and What to Know',
+    'blog.article.ticino-concorsi.excerpt': 'Updates on public job openings in Ticino, procedures, deadlines, and how to prepare effectively.',
+    'blog.article.ticino-concorsi.imageAlt': 'Swiss public building with flags, urban scene',
 };
 
 export default blogMetaChEn;

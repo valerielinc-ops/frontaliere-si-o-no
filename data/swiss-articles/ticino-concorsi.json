@@ -1,0 +1,19 @@
+{
+  "id": "ticino-concorsi",
+  "slug": "ticino-concorsi",
+  "publishedAt": "2026-06-19T00:55:02.451Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 130.46946336666667,
+    "confidence": 1,
+    "finalScore": 130.46946336666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 130.46946336666667,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}
