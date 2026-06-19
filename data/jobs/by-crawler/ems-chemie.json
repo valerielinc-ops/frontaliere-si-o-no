@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-06-19T11:03:47.522Z",
+  "assembledAt": "2026-06-19T12:29:14.010Z",
   "jobs": [
     {
       "title": "Senior Legal Counsel (m/w/d) 100%",
@@ -80,7 +80,7 @@
       "source": "company-website",
       "slug": "gestione-distribuzione-m-w-d-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
-        "it": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
+        "it": "gestione-distribuzione-m-w-d-100-ems-chemie-ag-domat-ems",
         "en": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
         "de": "verteilungsmanager-m-w-d-100-ems-chemie-ag-domat-ems",
         "fr": "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
@@ -115,6 +115,7 @@
       },
       "firstSeenAt": "2026-06-09T11:21:23.775Z",
       "previousSlugs": [
+        "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
         "betriebscontroller-w-m-d-100-ems-chemie-domat-ems",
         "operations-controller-m-f-d-100-ems-chemie-ag-domat-ems",
         "betriebsleiter-w-m-d-100-ems-chemie-ag-domat-ems",
@@ -124,7 +125,12 @@
         "responsable-de-l-assistance-marketing-et-vente-h-f-d-100-ems-chemie-ag-domat-ems",
         "controller-m-w-d-100-ems-chemie-ag-domat-ems",
         "controller-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Laborant Forschung & Entwicklung (m/w/d) 100%",
@@ -146,7 +152,7 @@
       "source": "company-website",
       "slug": "gestione-del-prodotto-m-w-d-ems-chemie-ag-domat-ems",
       "slugByLocale": {
-        "it": "laborant-forschung-entwicklung-m-w-d-100-ems-chemie-domat-ems",
+        "it": "gestione-del-prodotto-m-w-d-ems-chemie-ag-domat-ems",
         "en": "projektmanagement-m-w-d-ems-chemie-ag-domat-ems",
         "de": "laborant-forschung-entwicklung-m-w-d-100-ems-chemie-domat-ems",
         "fr": "laborant-forschung-entwicklung-m-w-d-100-ems-chemie-domat-ems"
@@ -183,10 +189,14 @@
       "previousSlugsByLocale": {
         "en": [
           "laboratory-technician-research-development-m-f-d-100-ems-chemie-ag-domat-ems"
+        ],
+        "it": [
+          "laborant-forschung-entwicklung-m-w-d-100-ems-chemie-domat-ems"
         ]
       },
       "previousSlugs": [
-        "laboratory-technician-research-development-m-f-d-100-ems-chemie-ag-domat-ems"
+        "laboratory-technician-research-development-m-f-d-100-ems-chemie-ag-domat-ems",
+        "laborant-forschung-entwicklung-m-w-d-100-ems-chemie-domat-ems"
       ]
     },
     {
@@ -272,7 +282,7 @@
       "source": "company-website",
       "slug": "projektleiter-m-w-d-ems-chemie-ag-domat-ems",
       "slugByLocale": {
-        "it": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
+        "it": "projektleiter-m-w-d-ems-chemie-ag-domat-ems",
         "en": "polymechanic-m-f-d-100-ems-chemie-ag-domat-ems",
         "de": "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
         "fr": "polymecanicien-h-f-d-100-ems-chemie-ag-domat-ems"
@@ -307,6 +317,7 @@
       },
       "firstSeenAt": "2026-06-02T12:56:07.219Z",
       "previousSlugs": [
+        "polymechaniker-m-w-d-100-ems-chemie-domat-ems",
         "polymechaniker-w-m-d-100-ems-chemie-domat-ems",
         "raumpfleger-m-w-d-20-ems-chemie-domat-ems",
         "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
@@ -325,7 +336,12 @@
         "projektleiter-materialprufung-m-w-d-100-ems-chemie-ag-domat-ems",
         "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-ag-domat-ems",
         "projektleiter-kunststoffverpackungen-aus-spezialpolyamiden-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Leiter Produktion LFT (m/w/d) 100%",
@@ -412,7 +428,7 @@
       "source": "company-website",
       "slug": "applicazione-technics-100-ems-chemie-ag-domat-ems",
       "slugByLocale": {
-        "it": "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
+        "it": "applicazione-technics-100-ems-chemie-ag-domat-ems",
         "en": "application-technician-technical-fibers-100-ems-chemie-ag-domat-ems",
         "de": "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
         "fr": "technicien-d-application-fibres-techniques-100-ems-chemie-ag-domat-ems"
@@ -448,11 +464,13 @@
       "firstSeenAt": "2026-05-27T12:30:49.737Z",
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems"
+          "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems",
+          "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
         ]
       },
       "previousSlugs": [
-        "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems"
+        "anwendungstechniker-technische-fasern-m-w-d-100-ems-chemie-domat-ems",
+        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
       ]
     },
     {
