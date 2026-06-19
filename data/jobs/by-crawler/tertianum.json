@@ -610,10 +610,7 @@
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-ags-eba-tertianum-wald",
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald",
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-ags-eba-tertianum-lenzburg",
-        "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-lenzburg",
-        "stage-come-assistente-a-in-salute-e-sociale-ags-eba-tertianum-wald",
-        "apprenticeship-as-health-and-social-care-assistant-ags-eba-tertianum-wald",
-        "apprentissage-en-tant-qu-assistant-e-en-sante-et-social-ags-eba-tertianum-wald"
+        "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -911,8 +908,8 @@
       "slugByLocale": {
         "de": "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur",
         "it": "assistent-in-gesundheit-soziales-o-pflegehelfer-in-tertianum-chur",
-        "en": "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur",
-        "fr": "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur"
+        "en": "assistant-in-health-social-care-or-nursing-assistant-tertianum-chur",
+        "fr": "assistant-en-sante-et-affaires-sociales-ou-assistant-infirmier-tertianum-chur"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -957,6 +954,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur"
+        ],
+        "en": [
+          "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur"
+        ],
+        "fr": [
           "assistent-in-gesundheit-soziales-oder-pflegehelfer-in-tertianum-chur"
         ]
       },
@@ -5211,7 +5214,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
       ],
       "firstSeenAt": "2026-05-19T12:23:09.661Z",
@@ -7487,7 +7489,7 @@
         "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "fr": "group-fitness-instructor-in-50-tertianum-meilen"
+        "fr": "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -7529,15 +7531,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-fitness-instructor-in-50-tertianum-meilen",
-        "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
+        "group-fitness-instructor-in-50-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-in-50-tertianum-meilen"
         ],
         "fr": [
-          "instructeur-de-fitness-en-groupe-50-tertianum-meilen",
           "group-fitness-instructor-in-50-tertianum-meilen"
         ]
       },
@@ -9802,7 +9802,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-solothurn",
         "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistentin-assistent-gesundheit-und-soziales-eba-60-100-tertianum-solothurn",
-        "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil",
         "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn"
       ],
       "firstSeenAt": "2026-05-19T12:22:58.075Z",

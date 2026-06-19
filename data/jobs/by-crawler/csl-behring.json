@@ -2194,8 +2194,6 @@
         "associate-director-biostatistics-csl-behring-ch",
         "associate-direktor-biostatistics-csl-behring-bern",
         "directeur-associe-biostatistique-csl-behring-bern",
-        "direttore-biostatistica-csl-behring-bern",
-        "leiter-biostatistik-csl-behring-bern",
         "direttore-associato-biostatistica-csl-behring-bern-847139"
       ],
       "previousSlugsByLocale": {
@@ -3267,9 +3265,7 @@
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
-        "scienziato-senior-tech-ops-csl-behring-bern",
-        "specialista-di-laboratorio-senior-tech-ops-csl-behring-bern",
-        "senior-laboratoriumspezialist-tech-ops-csl-behring-bern"
+        "scienziato-senior-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3707,12 +3703,12 @@
     },
     {
       "id": "csl-behring-5f73ff941f5b",
-      "slug": "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
+      "slug": "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
       "slugByLocale": {
         "en": "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "it": "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
+        "it": "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
         "de": "senior-scientist-tech-ops-analytical-testing-csl-behring-ch",
-        "fr": "senior-scientist-tech-ops-analytical-testing-csl-behring-ch"
+        "fr": "chercheur-principal-operations-techniques-essais-analytiques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3768,7 +3764,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-19T12:24:19.959Z"
+      "firstSeenAt": "2026-06-19T12:24:19.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-tech-ops-analytical-testing-csl-behring-ch"
+        ],
+        "fr": [
+          "senior-scientist-tech-ops-analytical-testing-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-tech-ops-analytical-testing-csl-behring-ch"
+      ]
     }
   ]
 }

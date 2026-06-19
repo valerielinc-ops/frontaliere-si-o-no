@@ -2040,12 +2040,12 @@
     },
     {
       "id": "hib-broye-a4b04c9b89e8",
-      "slug": "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
+      "slug": "90-cucina-dietetica-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
       "slugByLocale": {
         "fr": "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
-        "it": "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
-        "en": "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac",
-        "de": "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+        "it": "90-cucina-dietetica-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "en": "90-dietetic-cooker-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
+        "de": "90-diatetische-kocher-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -2100,16 +2100,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:42:08.663Z"
+      "firstSeenAt": "2026-06-19T12:42:08.663Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+        ],
+        "en": [
+          "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+        ],
+        "de": [
+          "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+        ]
+      },
+      "previousSlugs": [
+        "cuisinier-ere-en-dietetique-a-90-hib-broye-estavayer-le-lac"
+      ]
     },
     {
       "id": "hib-broye-5ebb9f672ae3",
-      "slug": "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne",
+      "slug": "responsabile-clinica-pediatrica-100-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne",
-        "it": "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne",
-        "en": "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne",
-        "de": "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne"
+        "it": "responsabile-clinica-pediatrica-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "head-of-pediatric-clinic-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "leiterin-der-kinderklinik-100-hopital-intercantonal-de-la-broye-hib-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
       "companyKey": "hib-broye",
@@ -2164,7 +2178,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:42:08.662Z"
+      "firstSeenAt": "2026-06-19T12:42:08.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne"
+        ],
+        "en": [
+          "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne"
+        ],
+        "de": [
+          "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-en-pediatrie-a-100-hib-broye-payerne"
+      ]
     },
     {
       "id": "hib-broye-215e4bf9bc17",
@@ -3333,11 +3361,11 @@
     },
     {
       "id": "hib-broye-5cbd9a66c489",
-      "slug": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
+      "slug": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
         "fr": "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
-        "it": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
-        "en": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
+        "it": "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "pharmacy-assistant-contract-hours-call-requests-hopital-intercantonal-de-la-broye-hib-payerne",
         "de": "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3395,14 +3423,14 @@
       },
       "firstSeenAt": "2026-06-17T22:43:37.102Z",
       "previousSlugs": [
-        "farmacia-assistente-ore-di-contratto-richieste-di-chiamata-hopital-intercantonal-de-la-broye-hib-payerne",
         "clinical-nurse-specialist-in-the-emergency-department-from-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
+        "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
+        "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne",
         "klinische-pflegefachkraft-in-der-notaufnahme-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-payerne",
         "infermieristica-clinica-specialista-nel-pronto-soccorso-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-payerne"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "pharmacy-assistant-contract-hours-call-requests-hopital-intercantonal-de-la-broye-hib-payerne",
           "clinical-nurse-specialist-in-the-emergency-department-from-80-to-100-hopital-intercantonal-de-la-broye-hib-payerne",
           "infirmier-ere-clinicien-ne-specialise-e-aux-urgences-de-80-a-100-hib-broye-payerne",
           "assistant-e-en-pharmacie-en-contrat-heures-demandes-sur-appels-hib-broye-payerne"

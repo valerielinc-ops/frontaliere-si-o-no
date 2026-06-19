@@ -432,8 +432,8 @@
       "slugByLocale": {
         "de": "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch",
         "it": "fachperson-finanzen-e-administration-con-unterstutzung-im-payroll-kantonale-verwaltung-graubunden-chur",
-        "en": "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch",
-        "fr": "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch"
+        "en": "finance-and-administration-specialist-with-payroll-support-kantonale-verwaltung-graubunden-chur",
+        "fr": "finances-et-administration-professionnelles-avec-soutien-dans-la-paie-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -482,6 +482,12 @@
       "pensum": "80-100%",
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch"
+        ],
+        "en": [
+          "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch"
+        ],
+        "fr": [
           "fachperson-finanzen-und-administration-mit-unterstutzung-im-payroll-kanton-gr-ch"
         ]
       },
@@ -582,9 +588,9 @@
     },
     {
       "id": "kanton-gr-61b4bd8f9444",
-      "slug": "systems-engineer-in-windows-server-kanton-gr-ch",
+      "slug": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "systems-engineer-in-windows-server-kanton-gr-ch",
+        "it": "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
         "en": "systems-engineer-in-windows-server-kantonale-verwaltung-graubunden-chur",
         "de": "systems-engineer-in-windows-server-kanton-gr-ch",
         "fr": "systems-engineer-in-windows-server-kanton-gr-ch"
@@ -633,7 +639,7 @@
       "pensumMax": 100,
       "pensum": "60-100%",
       "previousSlugs": [
-        "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
+        "systems-engineer-in-windows-server-kanton-gr-ch",
         "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
         "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
         "systems-engineer-in-per-applicazioni-windows-kantonale-verwaltung-graubunden-chur",
@@ -643,13 +649,11 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-a-di-sistema-windows-server-kantonale-verwaltung-graubunden-chur",
           "systems-engineer-in-windows-server-kanton-gr-ch"
         ],
         "fr": [
           "ingenieur-systeme-windows-server-kantonale-verwaltung-graubunden-chur",
-          "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur",
-          "systems-engineer-in-windows-server-kanton-gr-ch"
+          "ingenieur-systemes-windows-server-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-06-18T12:33:01.610Z",
@@ -1077,7 +1081,7 @@
         "it": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "en": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
         "de": "dipl-pflegefachperson-hf-kanton-gr-ch",
-        "fr": "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
+        "fr": "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -1125,8 +1129,6 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-kanton-gr-ch",
         "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis",
-        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis",
-        "infermiere-laureato-in-hf-kantonale-verwaltung-graubunden-cazis",
         "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
@@ -1135,7 +1137,7 @@
           "infermiere-dipl-sss-kantonale-verwaltung-graubunden-cazis"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+          "infirmiere-diplomee-en-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-06-18T12:32:57.645Z",

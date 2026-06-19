@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rolex-cf005c96126c",
-      "slug": "assistant-administratif-h-f-rolex-ch",
+      "slug": "assistente-amministrativo-h-f-rolex-geneve",
       "slugByLocale": {
         "fr": "assistant-administratif-h-f-rolex-ch",
-        "it": "assistant-administratif-h-f-rolex-ch",
-        "en": "assistant-administratif-h-f-rolex-ch",
-        "de": "assistant-administratif-h-f-rolex-ch"
+        "it": "assistente-amministrativo-h-f-rolex-geneve",
+        "en": "administrative-assistant-h-f-rolex-geneve",
+        "de": "assistent-administratif-h-f-rolex-geneve"
       },
       "company": "Rolex",
       "companyKey": "rolex",
@@ -63,7 +63,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:18:36.491Z"
+      "firstSeenAt": "2026-06-19T13:18:36.491Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-administratif-h-f-rolex-ch"
+        ],
+        "en": [
+          "assistant-administratif-h-f-rolex-ch"
+        ],
+        "de": [
+          "assistant-administratif-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-administratif-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-5456371098fb",

@@ -938,8 +938,7 @@
           "oberarzt-arztin-frauenklinik-see-spital-ch",
           "oberarzt-arztin-frauenklinik-see-spital-horgen",
           "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
-          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "it": [
           "oberarzt-arztin-frauenklinik-see-spital-ch",
@@ -3735,12 +3734,12 @@
     },
     {
       "id": "see-spital-57624788cb5f",
-      "slug": "qualitatsmanager-in-see-spital-horgen",
+      "slug": "gestione-della-qualita-see-spital-horgen",
       "slugByLocale": {
         "de": "qualitatsmanager-in-see-spital-ch",
-        "it": "qualitatsmanager-in-see-spital-horgen",
-        "en": "qualitatsmanager-in-see-spital-horgen",
-        "fr": "qualitatsmanager-in-see-spital-horgen"
+        "it": "gestione-della-qualita-see-spital-horgen",
+        "en": "quality-manager-see-spital-horgen",
+        "fr": "gestionnaire-de-la-qualite-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3786,11 +3785,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "qualitatsmanager-in-see-spital-ch"
+          "qualitatsmanager-in-see-spital-ch",
+          "qualitatsmanager-in-see-spital-horgen"
+        ],
+        "en": [
+          "qualitatsmanager-in-see-spital-horgen"
+        ],
+        "fr": [
+          "qualitatsmanager-in-see-spital-horgen"
         ]
       },
       "previousSlugs": [
-        "qualitatsmanager-in-see-spital-ch"
+        "qualitatsmanager-in-see-spital-ch",
+        "qualitatsmanager-in-see-spital-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

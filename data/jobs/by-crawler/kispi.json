@@ -3503,7 +3503,7 @@
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-per-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "en": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
-        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -3556,7 +3556,6 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesie-padiatrie-kispi-zurich"
         ],
         "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich",
           "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
         ]
       },
@@ -3565,7 +3564,7 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi-2",
         "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-kispi",
         "dipl-carriera-dipl-specialista-infermieristico-per-nds-hf-anestesia-care-paediatrics-universitats-kinderspital-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-fur-das-nds-hf-anasthesiepflege-padiatrie-universitats-kinderspital-zurich"
+        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-pour-la-pediatrie-de-la-nds-hf-universitats-kinderspital-zurich"
       ],
       "firstSeenAt": "2026-05-19T22:39:00.246Z",
       "salaryMin": 73500,
@@ -4708,9 +4707,9 @@
       "slug": "payroll-spezialistin-m-w-d-90-100-befristet-bis-august-2027-universitats-kinderspital-zurich",
       "slugByLocale": {
         "it": "payroll-spezialistin-m-w-d-90-100-befristet-bis-august-2027-universitats-kinderspital-zurich",
-        "en": "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich",
+        "en": "payroll-specialist-m-f-90-100-temporary-until-august-2027-universitats-kinderspital-zurich-zurich",
         "de": "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich",
-        "fr": "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich"
+        "fr": "specialiste-de-la-paie-m-f-90-100-temporaire-jusqu-en-aout-2027-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4753,20 +4752,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich",
-        "payroll-specialist-m-f-90-100-temporary-until-august-2027-universitats-kinderspital-zurich-zurich",
-        "specialiste-de-la-paie-m-f-90-100-temporaire-jusqu-en-aout-2027-universitats-kinderspital-zurich-zurich"
+        "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich"
         ],
         "en": [
-          "payroll-specialist-m-f-90-100-temporary-until-august-2027-universitats-kinderspital-zurich-zurich",
           "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich"
         ],
         "fr": [
-          "specialiste-de-la-paie-m-f-90-100-temporaire-jusqu-en-aout-2027-universitats-kinderspital-zurich-zurich",
           "payroll-spezialistin-m-w-90-100-befristet-bis-august-2027-kispi-zurich"
         ]
       },
@@ -5301,12 +5296,12 @@
     },
     {
       "id": "kispi-1759d0ccbd2e",
-      "slug": "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich",
+      "slug": "gestione-dei-casi-dei-dipendenti-60-70-m-f-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-fallmanagement-60-70-m-w-kispi-zurich",
-        "it": "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich",
-        "en": "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich",
-        "fr": "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich"
+        "it": "gestione-dei-casi-dei-dipendenti-60-70-m-f-universitats-kinderspital-zurich-zurich",
+        "en": "employee-case-management-60-70-m-f-universitats-kinderspital-zurich-zurich",
+        "fr": "gestion-des-cas-des-employes-60-a-70-m-f-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5352,11 +5347,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-fallmanagement-60-70-m-w-kispi-zurich"
+          "mitarbeiterin-fallmanagement-60-70-m-w-kispi-zurich",
+          "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-fallmanagement-60-70-m-w-kispi-zurich"
+        "mitarbeiterin-fallmanagement-60-70-m-w-kispi-zurich",
+        "mitarbeiterin-fallmanagement-60-70-m-w-universitats-kinderspital-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5374,12 +5377,12 @@
     },
     {
       "id": "kispi-76cb7b4f40fc",
-      "slug": "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular",
+      "slug": "dipl-analista-biomedicale-m-f-80-laboratorio-diagnostico-oncologia-divisione-diagnostica-genetica-molecolare",
       "slugByLocale": {
         "de": "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular",
-        "it": "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular",
-        "en": "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular",
-        "fr": "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular"
+        "it": "dipl-analista-biomedicale-m-f-80-laboratorio-diagnostico-oncologia-divisione-diagnostica-genetica-molecolare",
+        "en": "dipl-biomedical-analyst-m-f-80-oncology-diagnostic-laboratory-molecular-genetic-diagnostics-division-universitats",
+        "fr": "dipl-analyste-biomedical-m-f-80-laboratoire-de-diagnostic-d-oncologie-division-du-diagnostic-genetique-moleculaire"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -5435,7 +5438,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:48:49.378Z"
+      "firstSeenAt": "2026-06-19T12:48:49.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular"
+        ],
+        "en": [
+          "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular"
+        ],
+        "fr": [
+          "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-biomedizinische-analytikerin-m-w-80-onkologie-diagnostiklabor-bereich-molekular"
+      ]
     }
   ]
 }

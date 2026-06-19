@@ -2360,9 +2360,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
+        "en": "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
         "de": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
+        "fr": "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -2405,9 +2405,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
-        "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
         "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil-44d28e",
-        "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil",
         "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil-44d28e"
       ],
       "previousSlugsByLocale": {
@@ -2415,12 +2413,10 @@
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ],
         "en": [
-          "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
           "dipl-nursing-professional-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil-44d28e",
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil",
           "infirmier-ere-diplome-e-es-hes-schweizer-paraplegiker-zentrum-spz-nottwil-44d28e",
           "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil"
         ]
@@ -3365,8 +3361,8 @@
       "slugByLocale": {
         "de": "lehrstelle-gartner-in-eba-spz-nottwil",
         "it": "apprendistato-gartner-in-afp-schweizer-paraplegiker-zentrum-spz-nottwil",
-        "en": "lehrstelle-gartner-in-eba-spz-nottwil",
-        "fr": "lehrstelle-gartner-in-eba-spz-nottwil"
+        "en": "apprenticeship-gardener-eba-schweizer-paraplegiker-zentrum-spz-nottwil",
+        "fr": "jardinier-en-apprentissage-eba-schweizer-paraplegiker-zentrum-spz-nottwil"
       },
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
@@ -3411,6 +3407,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-gartner-in-eba-spz-nottwil"
+        ],
+        "en": [
+          "lehrstelle-gartner-in-eba-spz-nottwil"
+        ],
+        "fr": [
           "lehrstelle-gartner-in-eba-spz-nottwil"
         ]
       },

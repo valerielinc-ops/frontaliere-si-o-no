@@ -7723,10 +7723,10 @@
     },
     {
       "id": "eth-zurich-8f457375099f",
-      "slug": "administrative-assistant-eth-zurich-ch",
+      "slug": "assistente-amministrativo-eth-zurich-zurich",
       "slugByLocale": {
         "en": "administrative-assistant-eth-zurich-ch",
-        "it": "administrative-assistant-eth-zurich-ch",
+        "it": "assistente-amministrativo-eth-zurich-zurich",
         "de": "administrative-assistent-eth-zurich-zurich",
         "fr": "administrative-assistant-eth-zurich-ch"
       },
@@ -7783,16 +7783,24 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T12:31:04.659Z"
+      "firstSeenAt": "2026-06-19T12:31:04.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-assistant-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-assistant-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-dbb690d89b4a",
-      "slug": "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
+      "slug": "posizione-di-dottorato-in-ia-per-la-modellazione-dei-materiali-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
-        "it": "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
-        "de": "phd-position-in-ai-for-materials-modeling-eth-zurich-ch",
-        "fr": "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
+        "it": "posizione-di-dottorato-in-ia-per-la-modellazione-dei-materiali-eth-zurich-zurich",
+        "de": "promotionsstelle-im-bereich-ki-fur-materialmodellierung-eth-zurich-zurich",
+        "fr": "poste-de-doctorat-en-ia-pour-la-modelisation-des-materiaux-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7847,7 +7855,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T12:31:04.131Z"
+      "firstSeenAt": "2026-06-19T12:31:04.131Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-ai-for-materials-modeling-eth-zurich-ch"
+      ]
     }
   ]
 }

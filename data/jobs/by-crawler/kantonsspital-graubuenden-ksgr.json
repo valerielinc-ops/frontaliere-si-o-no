@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-19T13:00:08.949Z",
-      "slug": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
+      "slug": "assistente-medico-medico-dipartimento-centrale-di-pronto-soccorso-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
+        "it": "assistente-medico-medico-dipartimento-centrale-di-pronto-soccorso-kantonsspital-graubunden-chur",
+        "en": "medical-practice-assistant-central-emergency-department-kantonsspital-graubunden-chur",
+        "fr": "assistant-de-pratique-medicale-au-service-central-des-urgences-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Zentrale Notfallstation",
@@ -55,7 +58,15 @@
       "salaryMin": 41080,
       "salaryMax": 87000,
       "currency": "CHF",
-      "firstSeenAt": "2026-06-19T13:00:08.949Z"
+      "firstSeenAt": "2026-06-19T13:00:08.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10076988",
@@ -1845,12 +1856,12 @@
       "employmentType": "100 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-06-19T13:00:08.950Z",
-      "slug": "apprendistato-come-specialista-nell-industria-alberghiera-e-nelle-pulizie-kantonsspital-graubunden-chur",
+      "slug": "specialista-di-apprendistato-professionale-specialista-dell-industria-alberghiera-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "it": "apprendistato-come-specialista-nell-industria-alberghiera-e-nelle-pulizie-kantonsspital-graubunden-chur",
+        "it": "specialista-di-apprendistato-professionale-specialista-dell-industria-alberghiera-kantonsspital-graubunden-chur",
         "en": "vocational-apprenticeship-as-a-specialist-in-the-hotel-industry-and-housekeeping-kantonsspital-graubunden-chur",
-        "fr": "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
+        "fr": "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufslehre Fachfrau / Fachmann Hotellerie-Hauswirtschaft",
@@ -1887,15 +1898,14 @@
         "formazione-professionale-addetta-addetto-alla-ristorazione-e-servizi-alberghieri-kantonsspital-graubunden-chur",
         "apprendistato-specialista-in-ospitalita-e-servizi-di-casa-kantonsspital-graubunden-chur",
         "apprendistato-specialista-in-economia-domestica-del-settore-alberghiero-kantonsspital-graubunden-chur",
-        "specialista-di-apprendistato-professionale-specialista-dell-industria-alberghiera-kantonsspital-graubunden-chur",
+        "apprendistato-come-specialista-nell-industria-alberghiera-e-nelle-pulizie-kantonsspital-graubunden-chur",
         "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur",
         "apprenticeship-in-hospitality-housekeeping-kantonsspital-graubunden-chur",
         "apprenticeship-specialist-in-hotel-and-housekeeping-kantonsspital-graubunden-chur",
         "apprentice-hotel-and-housekeeping-specialist-kantonsspital-graubunden-chur",
         "hotel-and-hospitality-training-for-hotel-and-hospitality-professionals-kantonsspital-graubunden-chur",
         "professional-apprenticeship-hotel-and-catering-specialist-kantonsspital-graubunden-chur",
-        "apprenticeship-in-hotel-and-hospitality-kantonsspital-graubunden-chur",
-        "hotel-and-catering-apprenticeship-kantonsspital-graubunden-chur"
+        "apprenticeship-in-hotel-and-hospitality-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1910,7 +1920,7 @@
           "formazione-professionale-addetta-addetto-alla-ristorazione-e-servizi-alberghieri-kantonsspital-graubunden-chur",
           "apprendistato-specialista-in-ospitalita-e-servizi-di-casa-kantonsspital-graubunden-chur",
           "apprendistato-specialista-in-economia-domestica-del-settore-alberghiero-kantonsspital-graubunden-chur",
-          "specialista-di-apprendistato-professionale-specialista-dell-industria-alberghiera-kantonsspital-graubunden-chur"
+          "apprendistato-come-specialista-nell-industria-alberghiera-e-nelle-pulizie-kantonsspital-graubunden-chur"
         ],
         "en": [
           "apprentice-hotelier-and-housekeeping-kantonsspital-graubunden-chur",
@@ -1935,7 +1945,8 @@
           "apprentissage-hotellerie-et-restauration-kantonsspital-graubunden-chur",
           "apprentissage-specialiste-en-hotellerie-et-services-de-maison-kantonsspital-graubunden-chur",
           "specialiste-de-l-enseignement-professionnel-professional-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-          "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur"
+          "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur",
+          "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -6314,7 +6325,6 @@
         "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur",
-        "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {

@@ -2473,10 +2473,10 @@
       "id": "spitaeler-schaffhausen-709e9e7c0319",
       "slug": "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "studente-universitario-datori-di-lavoro-branding-social-media-spitaler-schaffhausen-schaffhausen",
+        "it": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "en": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
         "de": "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "fr": "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
+        "fr": "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2519,15 +2519,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-        "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
+        "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen",
-          "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen"
+          "hochschulstudent-in-employer-branding-amp-social-media-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "hochschulstudent-in-employer-branding-social-media-spitaler-schaffhausen-schaffhausen",
           "etudiant-universitaire-employeur-branding-medias-sociaux-spitaler-schaffhausen-schaffhausen"
         ]
       },
@@ -2624,12 +2622,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-2a341759238d",
-      "slug": "security-engineer-spitaeler-schaffhausen-schaffhausen",
+      "slug": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
-        "it": "security-engineer-spitaeler-schaffhausen-schaffhausen",
+        "it": "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
         "en": "security-engineer-spitaler-schaffhausen-schaffhausen",
         "de": "security-engineer-spitaeler-schaffhausen-schaffhausen",
-        "fr": "security-engineer-spitaeler-schaffhausen-schaffhausen"
+        "fr": "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -2671,18 +2669,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
-        "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen",
+        "security-engineer-spitaeler-schaffhausen-schaffhausen",
         "security-ingegnere-spitaler-schaffhausen-schaffhausen",
         "security-ingenieur-spitaler-schaffhausen-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-di-sicurezza-spitaler-schaffhausen-schaffhausen",
           "security-engineer-spitaeler-schaffhausen-schaffhausen"
         ],
         "fr": [
-          "ingenieur-de-securite-spitaler-schaffhausen-schaffhausen",
           "security-engineer-spitaeler-schaffhausen-schaffhausen"
         ]
       },
@@ -3934,12 +3929,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-9d76270b8065",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen-acf1a6",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "it": "dipl-infermiera-infermiera-specialista-hf-spitaler-schaffhausen-schaffhausen-acf1a6",
+        "en": "dipl-nurse-nurse-specialist-hf-spitaler-schaffhausen-schaffhausen-acf1a6",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-spitaler-schaffhausen-schaffhausen-acf1a6"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -3984,11 +3979,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen"
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaeler-schaffhausen-schaffhausen",
+        "dipl-pflegefachfrau-pflegefachmann-hf-spitaler-schaffhausen-schaffhausen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4006,12 +4009,12 @@
     },
     {
       "id": "spitaeler-schaffhausen-2b9529c0dc76",
-      "slug": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
+      "slug": "gestione-dell-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
-        "it": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
-        "en": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen",
-        "fr": "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        "it": "gestione-dell-assistenza-di-emergenza-spitaler-schaffhausen-schaffhausen",
+        "en": "management-of-emergency-care-spitaler-schaffhausen-schaffhausen",
+        "fr": "gestion-des-soins-d-urgence-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4066,16 +4069,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:21:28.377Z"
+      "firstSeenAt": "2026-06-19T13:21:28.377Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-notfall-pflege-spitaeler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-26893f1b815b",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        "it": "dipl-infermiera-infermiera-specialista-hf-psichiatria-a-lungo-termine-spitaler-schaffhausen-schaffhausen",
+        "en": "dipl-nurse-nurse-specialist-hf-long-term-psychiatry-spitaler-schaffhausen-schaffhausen",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-psychiatrie-a-long-terme-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4130,7 +4147,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:21:28.373Z"
+      "firstSeenAt": "2026-06-19T13:21:28.373Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-langzeitpsychiatrie-spitaeler-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-ed51f140a5d8",
@@ -4138,8 +4169,8 @@
       "slugByLocale": {
         "de": "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
         "it": "ernahrungsberater-in-bsc-in-ernahrung-e-diatetik-spitaler-schaffhausen",
-        "en": "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen",
-        "fr": "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        "en": "nutritionist-bsc-in-nutrition-and-dietetics-spitaler-schaffhausen-schaffhausen",
+        "fr": "nutritionniste-bsc-en-nutrition-et-dietetique-spitaler-schaffhausen-schaffhausen"
       },
       "company": "Spitäler Schaffhausen",
       "companyKey": "spitaeler-schaffhausen",
@@ -4184,6 +4215,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
           "ernahrungsberater-in-bsc-in-ernahrung-und-diatetik-spitaeler-schaffhausen-schaffhausen"
         ]
       },

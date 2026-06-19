@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "pictet-ef1fd2634810",
-      "slug": "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
+      "slug": "quality-control-mobile-team-officer-contratto-a-termine-24-mesi-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
-        "it": "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
+        "it": "quality-control-mobile-team-officer-contratto-a-termine-24-mesi-pictet-group-luxembourg",
         "de": "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg",
         "fr": "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg"
       },
@@ -65,16 +65,24 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-19T13:10:00.678Z"
+      "firstSeenAt": "2026-06-19T13:10:00.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "quality-control-mobile-team-officer-fixed-term-contract-24-months-pictet-luxembourg"
+      ]
     },
     {
       "id": "pictet-2c768918a195",
-      "slug": "reporting-analyst-pictet-london",
+      "slug": "reporting-analista-pictet-group-london",
       "slugByLocale": {
         "en": "reporting-analyst-pictet-london",
-        "it": "reporting-analyst-pictet-london",
-        "de": "reporting-analyst-pictet-london",
-        "fr": "reporting-analyst-pictet-london"
+        "it": "reporting-analista-pictet-group-london",
+        "de": "meldende-analysten-pictet-group-london",
+        "fr": "reporting-analyste-pictet-group-london"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -130,7 +138,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-19T13:09:59.885Z"
+      "firstSeenAt": "2026-06-19T13:09:59.885Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reporting-analyst-pictet-london"
+        ],
+        "de": [
+          "reporting-analyst-pictet-london"
+        ],
+        "fr": [
+          "reporting-analyst-pictet-london"
+        ]
+      },
+      "previousSlugs": [
+        "reporting-analyst-pictet-london"
+      ]
     },
     {
       "id": "pictet-e6f58eb6465f",
@@ -658,12 +680,12 @@
     },
     {
       "id": "pictet-0775fd37bc3d",
-      "slug": "financial-analyst-pictet-singapore",
+      "slug": "financial-analista-pictet-group-singapore",
       "slugByLocale": {
         "en": "financial-analyst-pictet-singapore",
-        "it": "financial-analyst-pictet-singapore",
-        "de": "financial-analyst-pictet-singapore",
-        "fr": "financial-analyst-pictet-singapore"
+        "it": "financial-analista-pictet-group-singapore",
+        "de": "finanzanalyst-pictet-group-singapore",
+        "fr": "financial-analyste-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -719,7 +741,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-19T13:09:54.186Z"
+      "firstSeenAt": "2026-06-19T13:09:54.186Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-analyst-pictet-singapore"
+        ],
+        "de": [
+          "financial-analyst-pictet-singapore"
+        ],
+        "fr": [
+          "financial-analyst-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "financial-analyst-pictet-singapore"
+      ]
     }
   ]
 }

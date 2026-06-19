@@ -459,12 +459,12 @@
     },
     {
       "id": "stiftung-diaconis-86",
-      "slug": "cucina-100-stiftung-diaconis-bern",
+      "slug": "cuocere-cucinare-100-stiftung-diaconis-bern",
       "slugByLocale": {
-        "it": "cucina-100-stiftung-diaconis-bern",
-        "en": "cooking-100-stiftung-diaconis-bern",
+        "it": "cuocere-cucinare-100-stiftung-diaconis-bern",
+        "en": "cook-cook-100-stiftung-diaconis-bern",
         "de": "kochin-koch-100-stiftung-diaconis-bern",
-        "fr": "cuisson-100-stiftung-diaconis-bern"
+        "fr": "cuire-cuire-100-stiftung-diaconis-bern"
       },
       "company": "Stiftung Diaconis",
       "companyKey": "stiftung-diaconis",
@@ -506,17 +506,23 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-100-stiftung-diaconis-bern"
+        "kochin-koch-100-stiftung-diaconis-bern",
+        "cucina-100-stiftung-diaconis-bern",
+        "cooking-100-stiftung-diaconis-bern",
+        "cuisson-100-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-100-stiftung-diaconis-bern"
+          "kochin-koch-100-stiftung-diaconis-bern",
+          "cucina-100-stiftung-diaconis-bern"
         ],
         "en": [
-          "kochin-koch-100-stiftung-diaconis-bern"
+          "kochin-koch-100-stiftung-diaconis-bern",
+          "cooking-100-stiftung-diaconis-bern"
         ],
         "fr": [
-          "kochin-koch-100-stiftung-diaconis-bern"
+          "kochin-koch-100-stiftung-diaconis-bern",
+          "cuisson-100-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-05-21T00:23:53.660Z",
@@ -615,8 +621,8 @@
       "slugByLocale": {
         "de": "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern",
         "it": "responsabile-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern",
-        "en": "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern",
-        "fr": "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern"
+        "en": "head-of-labour-market-measure-amm-ear-80-stiftung-diaconis-bern",
+        "fr": "responsable-de-la-mesure-du-marche-du-travail-amm-ear-80-stiftung-diaconis-bern"
       },
       "company": "Stiftung Diaconis",
       "companyKey": "stiftung-diaconis",
@@ -661,6 +667,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern"
+        ],
+        "en": [
+          "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern"
+        ],
+        "fr": [
           "leiter-in-arbeitsmarktliche-massnahme-amm-ear-80-stiftung-diaconis-bern"
         ]
       },

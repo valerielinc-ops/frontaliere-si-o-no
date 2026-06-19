@@ -995,12 +995,12 @@
     },
     {
       "id": "imad-4c1fe42479a5",
-      "slug": "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva",
+      "slug": "infermiera-presso-l-unita-mobile-di-emergenza-sociale-umus-80-in-contratto-permanente-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva",
-        "en": "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva",
-        "de": "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva"
+        "it": "infermiera-presso-l-unita-mobile-di-emergenza-sociale-umus-80-in-contratto-permanente-imad-geneva",
+        "en": "nurse-at-the-mobile-social-emergency-unit-umus-80-on-permanent-contract-imad-geneva",
+        "de": "krankenschwester-auf-der-mobilen-sozialnotaufnahme-umus-80-auf-festem-vertrag-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -1056,7 +1056,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-19T12:48:23.162Z"
+      "firstSeenAt": "2026-06-19T12:48:23.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-l-unite-mobile-d-urgences-sociales-umus-a-80-en-cdi-imad-geneva"
+      ]
     }
   ]
 }

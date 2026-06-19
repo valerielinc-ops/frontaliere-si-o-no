@@ -1016,12 +1016,12 @@
     },
     {
       "id": "sobi-6cf1d5ff57a6",
-      "slug": "head-of-global-medical-publications-sobi-basel",
+      "slug": "responsabile-delle-pubblicazioni-mediche-globali-sobi-basel",
       "slugByLocale": {
         "en": "head-of-global-medical-publications-sobi-basel",
-        "it": "head-of-global-medical-publications-sobi-basel",
+        "it": "responsabile-delle-pubblicazioni-mediche-globali-sobi-basel",
         "de": "head-of-global-medical-publications-sobi-basel",
-        "fr": "head-of-global-medical-publications-sobi-basel"
+        "fr": "chef-des-publications-medicales-mondiales-sobi-basel"
       },
       "company": "Sobi",
       "companyKey": "sobi",
@@ -1077,7 +1077,18 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-06-19T13:20:37.107Z"
+      "firstSeenAt": "2026-06-19T13:20:37.107Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-global-medical-publications-sobi-basel"
+        ],
+        "fr": [
+          "head-of-global-medical-publications-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-global-medical-publications-sobi-basel"
+      ]
     },
     {
       "id": "sobi-19f434e9010d",
