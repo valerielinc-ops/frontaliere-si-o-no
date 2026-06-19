@@ -102,8 +102,8 @@
       "slugByLocale": {
         "it": "assistente-nella-direzione-della-filiale-denner-langnau-am-albis",
         "de": "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-langnau-am-albis",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-langnau-am-albis"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -176,6 +176,12 @@
       "firstSeenAt": "2026-06-19T12:26:44.358Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
           "assistent-in-filialleitung-denner"
         ]
       },
@@ -865,8 +871,8 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-nebikon",
         "de": "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy",
-        "en": "verkaufer-in-im-stundenlohn-denner-nebikon",
-        "fr": "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "en": "seller-in-the-hourly-wage-denner-nebikon-1d9a93",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-nebikon-1d9a93"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -926,6 +932,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "fr": [
           "verkaufer-in-im-stundenlohn-denner-nebikon"
         ]
       },
@@ -1150,10 +1162,10 @@
       "id": "denner-4d8e9d272fa2",
       "slug": "responsabile-product-management-vino-denner-zurich",
       "slugByLocale": {
-        "it": "responsabile-product-management-vino-denner-zurich",
-        "en": "leiter-in-product-management-wein-denner",
+        "it": "leiter-in-product-management-wein-denner-ag-zurich",
+        "en": "head-of-product-management-wine-denner-zurich",
         "de": "leiter-in-product-management-wein-denner",
-        "fr": "leiter-in-product-management-wein-denner"
+        "fr": "chef-de-la-gestion-des-produits-vin-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1231,6 +1243,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-product-management-wein-denner"
+        ],
+        "en": [
+          "leiter-in-product-management-wein-denner"
+        ],
+        "fr": [
+          "leiter-in-product-management-wein-denner"
         ]
       },
       "previousSlugs": [
@@ -1242,9 +1260,9 @@
       "slug": "venditore-denner-niederuzwil",
       "slugByLocale": {
         "it": "venditore-denner-niederuzwil",
-        "en": "verkaufer-in-denner-niederuzwil",
+        "en": "seller-denner-niederuzwil",
         "de": "verkaufer-in-denner-niederuzwil",
-        "fr": "verkaufer-in-denner-niederuzwil"
+        "fr": "vendeur-denner-niederuzwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1305,11 +1323,18 @@
         "it": [
           "verkaufer-in-denner-2",
           "verkaufer-in-denner"
+        ],
+        "en": [
+          "verkaufer-in-denner-niederuzwil"
+        ],
+        "fr": [
+          "verkaufer-in-denner-niederuzwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-2",
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-niederuzwil"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1331,9 +1356,9 @@
       "slug": "venditore-con-retribuzione-oraria-denner-wilen-b",
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-wilen-b",
-        "en": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
+        "en": "seller-in-the-hourly-wage-denner-wilen-b",
         "de": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
-        "fr": "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-wilen-b"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1394,11 +1419,18 @@
         "it": [
           "verkaufer-in-im-stundenlohn-denner-2",
           "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner-2",
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1421,8 +1453,8 @@
       "slugByLocale": {
         "it": "venditore-denner-pfungen",
         "de": "verkaufer-in-denner-ag-pfungen",
-        "en": "verkaufer-in-denner-pfungen",
-        "fr": "verkaufer-in-denner-pfungen"
+        "en": "seller-denner-pfungen",
+        "fr": "vendeur-denner-pfungen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1483,6 +1515,12 @@
         "it": [
           "verkaufer-in-denner",
           "verkaufer-in-denner-pfungen"
+        ],
+        "en": [
+          "verkaufer-in-denner-pfungen"
+        ],
+        "fr": [
+          "verkaufer-in-denner-pfungen"
         ]
       },
       "previousSlugs": [
@@ -1510,8 +1548,8 @@
       "slugByLocale": {
         "it": "venditore-con-retribuzione-oraria-denner-winterthur",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-winterthur-oesw1q",
-        "en": "verkaufer-in-im-stundenlohn-denner-winterthur",
-        "fr": "verkaufer-in-im-stundenlohn-denner-winterthur"
+        "en": "seller-in-the-hourly-wage-denner-winterthur",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1572,6 +1610,12 @@
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-winterthur"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-winterthur"
         ]
       },
       "previousSlugs": [
@@ -1598,9 +1642,9 @@
       "slug": "direttoredifiliale-denner-herisau",
       "slugByLocale": {
         "it": "direttoredifiliale-denner-herisau",
-        "en": "filialleiter-in-denner-herisau",
+        "en": "store-manager-denner-herisau",
         "de": "filialleiter-in-denner-herisau",
-        "fr": "filialleiter-in-denner-herisau"
+        "fr": "gestionnaire-de-magasin-denner-herisau"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1661,11 +1705,18 @@
         "it": [
           "filialleiter-in-denner-2",
           "filialleiter-in-denner"
+        ],
+        "en": [
+          "filialleiter-in-denner-herisau"
+        ],
+        "fr": [
+          "filialleiter-in-denner-herisau"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-denner-2",
-        "filialleiter-in-denner"
+        "filialleiter-in-denner",
+        "filialleiter-in-denner-herisau"
       ],
       "salaryMin": 73500,
       "salaryMax": 113000,
@@ -1687,9 +1738,9 @@
       "slug": "vice-direttoredifiliale-denner-appenzell",
       "slugByLocale": {
         "it": "vice-direttoredifiliale-denner-appenzell",
-        "en": "stv-filialleiter-in-denner-appenzell",
+        "en": "stv-branch-manager-in-denner-appenzell",
         "de": "stv-filialleiter-in-denner-appenzell",
-        "fr": "stv-filialleiter-in-denner-appenzell"
+        "fr": "directeur-de-succursale-stv-in-denner-appenzell"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1750,11 +1801,18 @@
         "it": [
           "stv-filialleiter-in-denner-2",
           "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-appenzell"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-appenzell"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner-2",
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-appenzell"
       ],
       "salaryMin": 73500,
       "salaryMax": 113000,
@@ -1776,9 +1834,9 @@
       "slug": "responsabiledi-filiale-in-formazione-denner-winterthur",
       "slugByLocale": {
         "it": "responsabiledi-filiale-in-formazione-denner-winterthur",
-        "en": "filialleiter-in-in-ausbildung-denner-winterthur",
+        "en": "branch-manager-in-training-denner-winterthur",
         "de": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "fr": "filialleiter-in-in-ausbildung-denner-winterthur"
+        "fr": "directeur-de-branche-en-formation-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1852,10 +1910,17 @@
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "filialleiter-in-in-ausbildung-denner-winterthur"
+        ],
+        "fr": [
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner"
+        "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-winterthur"
       ]
     },
     {
@@ -1863,9 +1928,9 @@
       "slug": "tecnico-operativo-a-magenwil-denner-magenwil",
       "slugByLocale": {
         "it": "tecnico-operativo-a-magenwil-denner-magenwil",
-        "en": "betriebstechniker-in-magenwil-denner",
+        "en": "operational-technician-in-magenwil-denner-magenwil",
         "de": "betriebstechniker-in-magenwil-denner",
-        "fr": "betriebstechniker-in-magenwil-denner"
+        "fr": "technicien-operationnel-a-magenwil-denner-magenwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1939,6 +2004,12 @@
       "previousSlugsByLocale": {
         "it": [
           "betriebstechniker-in-magenwil-denner"
+        ],
+        "en": [
+          "betriebstechniker-in-magenwil-denner"
+        ],
+        "fr": [
+          "betriebstechniker-in-magenwil-denner"
         ]
       },
       "previousSlugs": [
@@ -1949,9 +2020,9 @@
       "id": "denner-6c14d3e2201f",
       "slug": "vicesindaco-denner-sion",
       "slugByLocale": {
-        "it": "vicesindaco-denner-sion",
-        "en": "adjoint-e-gerant-e-denner",
-        "de": "adjoint-e-gerant-e-denner",
+        "it": "adjoint-e-gerant-e-denner-sa-sion",
+        "en": "deputy-managing-officer-denner-sion",
+        "de": "stellvertretender-geschaftsfuhrer-denner-sion",
         "fr": "adjoint-e-gerant-e-denner-sion"
       },
       "company": "Denner",
@@ -2025,6 +2096,12 @@
       "firstSeenAt": "2026-06-19T12:26:35.676Z",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "en": [
+          "adjoint-e-gerant-e-denner"
+        ],
+        "de": [
           "adjoint-e-gerant-e-denner"
         ]
       },

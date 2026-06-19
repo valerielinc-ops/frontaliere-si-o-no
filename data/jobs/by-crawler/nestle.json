@@ -4086,12 +4086,12 @@
     },
     {
       "id": "nestle-1406364133",
-      "slug": "packaging-intern-nestle-ch",
+      "slug": "packaging-tirocinante-nestle-konolfingen-ch",
       "slugByLocale": {
         "en": "packaging-intern-nestle-ch",
-        "it": "packaging-intern-nestle-ch",
-        "de": "packaging-intern-nestle-ch",
-        "fr": "packaging-intern-nestle-ch"
+        "it": "packaging-tirocinante-nestle-konolfingen-ch",
+        "de": "packaging-praktikant-nestle-konolfingen-ch",
+        "fr": "packaging-stagiaire-nestle-konolfingen-ch"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -4146,7 +4146,21 @@
       },
       "postalCode": "3001",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-06-19T13:05:40.424Z"
+      "firstSeenAt": "2026-06-19T13:05:40.424Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "packaging-intern-nestle-ch"
+        ],
+        "de": [
+          "packaging-intern-nestle-ch"
+        ],
+        "fr": [
+          "packaging-intern-nestle-ch"
+        ]
+      },
+      "previousSlugs": [
+        "packaging-intern-nestle-ch"
+      ]
     },
     {
       "id": "nestle-1381829433",

@@ -6638,8 +6638,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-wangen-a",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch-3",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        "en": "electrical-installer-in-efz-all-bkw-wangen-a",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-wangen-a"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -6685,6 +6685,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "fr": [
           "elektroinstallateur-in-efz-alle-bkw-ch-3"
         ]
       },
@@ -20307,7 +20313,6 @@
         "gebaudetechnikplaner-in-heizung-alle-bkw-ch",
         "building-services-engineer-heating-all-bkw-winterthur",
         "planificateur-de-technique-du-batiment-chauffage-tous-bkw-winterthur",
-        "pianificatore-di-tecnologia-di-costruzione-in-riscaldamento-tutti-bkw-koniz",
         "progettista-di-impianti-tecnici-per-edifici-riscaldamento-tutti-bkw-winterthur"
       ],
       "previousSlugsByLocale": {
@@ -22219,8 +22224,8 @@
       "slugByLocale": {
         "de": "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch",
         "it": "responsabile-konstruktion-hoch-e-genio-civile-alle-bkw-bern",
-        "en": "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch",
-        "fr": "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch"
+        "en": "head-of-construction-building-and-civil-engineering-all-bkw-bern",
+        "fr": "chef-du-batiment-et-du-genie-civil-tous-bkw-bern"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -22266,6 +22271,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch"
+        ],
+        "en": [
+          "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch"
+        ],
+        "fr": [
           "leiter-in-konstruktion-hoch-und-tiefbau-alle-bkw-ch"
         ]
       },

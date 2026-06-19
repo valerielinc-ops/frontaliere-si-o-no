@@ -114,8 +114,8 @@
       "slugByLocale": {
         "it": "tirocinio-in-metalli-e-compositi-per-applicazioni-di-commutazione-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
         "en": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6",
-        "de": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6",
-        "fr": "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        "de": "praktikum-in-metallen-und-verbundwerkstoffen-fur-switching-anwendungen-80-100-abb-svizzera-sede-ticino-baden-daettwil",
+        "fr": "stage-en-metaux-et-composites-pour-applications-de-commutation-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -123,6 +123,12 @@
       "previousSlugsByLocale": {
         "it": [
           "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+          "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        ],
+        "de": [
+          "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
+        ],
+        "fr": [
           "internship-in-metals-and-composites-for-switching-applications-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-14m0p6"
         ]
       },
@@ -189,7 +195,7 @@
         "it": "80-100-engineering-capo-squadra-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y",
         "en": "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y",
         "de": "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y",
-        "fr": "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y"
+        "fr": "80-100-chef-d-equipe-en-genie-abb-svizzera-sede-ticino-untersiggenthal-aargau"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -197,10 +203,14 @@
       "previousSlugsByLocale": {
         "it": [
           "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+        ],
+        "fr": [
+          "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y"
         ]
       },
       "previousSlugs": [
-        "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+        "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+        "80-100-engineering-team-leader-abb-svizzera-sede-ticino-untersiggenthal-aargau-l0920y"
       ],
       "salaryMin": 64500,
       "salaryMax": 110000,

@@ -9,7 +9,7 @@
         "en": "prada-assistant-general-manager-chicago-prada-group-chicago",
         "it": "prada-assistant-general-manager-chicago-prada-group-chicago",
         "de": "prada-assistant-general-manager-chicago-prada-group-chicago",
-        "fr": "prada-assistant-general-manager-chicago-prada-group-chicago"
+        "fr": "prada-directeur-general-adjoint-chicago-prada-group-chicago"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -65,10 +65,10 @@
     },
     {
       "id": "prada-955e2ca90b3b",
-      "slug": "prada-stock-assistant-kalakaua-prada-group-honolulu",
+      "slug": "prada-assistente-azionario-kalakaua-prada-group-honolulu",
       "slugByLocale": {
         "en": "prada-stock-assistant-kalakaua-prada-group-honolulu",
-        "it": "prada-stock-assistant-kalakaua-prada-group-honolulu",
+        "it": "prada-assistente-azionario-kalakaua-prada-group-honolulu",
         "de": "prada-stock-assistant-kalakaua-prada-group-honolulu",
         "fr": "prada-stock-assistant-kalakaua-prada-group-honolulu"
       },
@@ -122,7 +122,15 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-06-19T13:10:35.870Z"
+      "firstSeenAt": "2026-06-19T13:10:35.870Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-stock-assistant-kalakaua-prada-group-honolulu"
+        ]
+      },
+      "previousSlugs": [
+        "prada-stock-assistant-kalakaua-prada-group-honolulu"
+      ]
     },
     {
       "id": "prada-994ee760c1da",
@@ -131,7 +139,7 @@
         "en": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "it": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
         "de": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas",
-        "fr": "stock-associate-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
+        "fr": "associe-las-vegas-bellagio-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -192,7 +200,7 @@
         "en": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "it": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
         "de": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas",
-        "fr": "team-manager-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
+        "fr": "directeur-d-equipe-las-vegas-city-center-prada-group-nearest-major-market-las-vegas"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -248,11 +256,11 @@
     },
     {
       "id": "prada-223b39f02f8f",
-      "slug": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+      "slug": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
       "slugByLocale": {
         "en": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
-        "it": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
-        "de": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager",
+        "it": "riparare-laboratorio-e-controllo-qualita-assistant-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
+        "de": "repair-laboratory-qualitat-control-assistent-manager-prada-group-chiba-repair-laboratory-quality-control-assistant",
         "fr": "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
       },
       "company": "Prada Group",
@@ -305,7 +313,18 @@
       "postalCode": "6500",
       "country": "CH",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-06-19T13:10:34.626Z"
+      "firstSeenAt": "2026-06-19T13:10:34.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ],
+        "de": [
+          "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+        ]
+      },
+      "previousSlugs": [
+        "repair-laboratory-quality-control-assistant-manager-prada-group-chiba-repair-laboratory-amp-quality-control-assistant-manager"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",

@@ -3502,12 +3502,12 @@
     },
     {
       "id": "spital-buelach-8b0026d075a9",
-      "slug": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
+      "slug": "stazione-privata-specializzata-spital-bulach-bulach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "it": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
+        "it": "stazione-privata-specializzata-spital-bulach-bulach",
         "en": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "fr": "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+        "fr": "station-privee-specialisee-en-sante-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3562,7 +3562,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:21:54.082Z"
+      "firstSeenAt": "2026-06-19T13:21:54.082Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+        ],
+        "fr": [
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+      ]
     }
   ]
 }

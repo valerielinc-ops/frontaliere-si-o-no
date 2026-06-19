@@ -394,8 +394,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
         "it": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "en": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "fr": "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
+        "en": "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
+        "fr": "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -444,10 +444,17 @@
         ],
         "de": [
           "dipl-pflegefachfrau-mann-40-100-kssg-ch"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-40-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-40-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1232,7 +1239,7 @@
       "slug": "esperto-a-di-cure-apn-70-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "esperto-a-di-cure-apn-70-hoch-health-ostschweiz-st-gallen",
-        "en": "pflegeexpert-in-apn-70-hoch-health-st-gallen",
+        "en": "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "pflegeexpert-in-apn-70-hoch-health-st-gallen",
         "fr": "expert-en-soins-apn-70-hoch-health-ostschweiz-st-gallen"
       },
@@ -1283,13 +1290,12 @@
           "pflegeexpert-in-apn-70-kssg-ch"
         ],
         "en": [
-          "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "pflegeexpert-in-apn-70-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "pflegeexpert-in-apn-70-kssg-ch",
-        "care-expert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "pflegeexpert-in-apn-70-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-11T13:02:11.519Z",
@@ -2683,9 +2689,9 @@
       "slug": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
       "slugByLocale": {
         "it": "specialista-certificato-in-radiologia-hf-80-100-hoch-health-ostschweiz-st",
-        "en": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
+        "en": "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen",
-        "fr": "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
+        "fr": "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -2734,18 +2740,15 @@
           "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-radiologiefachfrau-mann-hf-80-100-kssg-ch",
-        "dipl-radiology-specialist-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-specialiste-en-radiologie-hf-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-radiologiefachfrau-mann-hf-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T11:39:15.322Z",
@@ -2767,7 +2770,7 @@
       "slug": "esperto-esperta-di-cure-intensive-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "esperto-esperta-di-cure-intensive-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen",
+        "en": "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen",
         "fr": "diplome-e-en-soins-intensifs-80-100-hoch-health-ostschweiz-st-gallen"
       },
@@ -2818,13 +2821,12 @@
           "dipl-experte-expertin-intensivpflege-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-experte-expertin-intensivpflege-80-100-kssg-ch",
-        "dipl-expert-expert-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-experte-expertin-intensivpflege-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-14T11:39:14.279Z",
@@ -3596,9 +3598,9 @@
       "slug": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
+        "en": "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632",
         "de": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
+        "fr": "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -3647,18 +3649,15 @@
           "dipl-pflegefachfrau-mann-40-100-kssg-ch"
         ],
         "en": [
-          "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ],
         "fr": [
-          "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-40-100-kssg-ch",
-        "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632",
-        "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-1d4632"
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T15:01:08.346Z",
@@ -4886,7 +4885,7 @@
       "slug": "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
         "it": "diplomata-di-assistenza-infermieristica-springerpool-80-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
+        "en": "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen",
         "fr": "diplome-e-en-soins-infirmiers-springerpool-80-100-hoch-health-ostschweiz-st-gallen"
       },
@@ -4937,13 +4936,12 @@
           "dipl-pflegefachfrau-mann-springerpool-80-100-kssg-ch"
         ],
         "en": [
-          "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
           "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-springerpool-80-100-kssg-ch",
-        "dipl-care-specialist-springerpool-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        "dipl-pflegefachfrau-mann-springerpool-80-100-hoch-health-st-gallen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-06-16T13:55:58.439Z",
@@ -6308,12 +6306,12 @@
     },
     {
       "id": "kssg-2e18dd5e71fd",
-      "slug": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-e671d5",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-80-100-kssg-ch-2",
-        "fr": "dipl-pflegefachfrau-mann-80-100-kssg-ch-2"
+        "it": "dipl-infermieristica-professionale-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-e671d5",
+        "en": "dipl-nursing-professional-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-professionnels-des-soins-infirmiers-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6358,11 +6356,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch-2",
+          "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-80-100-kssg-ch-2"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-80-100-kssg-ch-2"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-80-100-kssg-ch-2"
+        "dipl-pflegefachfrau-mann-80-100-kssg-ch-2",
+        "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6380,12 +6386,12 @@
     },
     {
       "id": "kssg-a02558e740f1",
-      "slug": "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-60-100-kssg-ch",
-        "it": "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "fachfrau-mann-gesundheit-60-100-kssg-ch",
-        "fr": "fachfrau-mann-gesundheit-60-100-kssg-ch"
+        "it": "salute-professionale-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "professional-health-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "sante-professionnelle-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6430,11 +6436,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-60-100-kssg-ch",
+          "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-60-100-kssg-ch"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-60-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-60-100-kssg-ch"
+        "fachfrau-mann-gesundheit-60-100-kssg-ch",
+        "fachfrau-mann-gesundheit-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6452,12 +6466,12 @@
     },
     {
       "id": "kssg-ca396e984154",
-      "slug": "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-corso-post-laurea-supervision-care-uwp-intermedio-imc-80-100-kantonsspital-st-gallen-kssg-hoch",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100",
-        "it": "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100",
-        "fr": "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100"
+        "it": "dipl-infermieristica-corso-post-laurea-supervision-care-uwp-intermedio-imc-80-100-kantonsspital-st-gallen-kssg-hoch",
+        "en": "dipl-nursing-specialist-postgraduate-course-supervision-care-uwp-intermediate-imc-80-100-kantonsspital-st-gallen-kssg",
+        "fr": "dipl-specialiste-des-soins-infirmiers-cours-de-troisieme-cycle-supervision-care-uwp-intermediaire-imc-80-100"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6502,11 +6516,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100",
+          "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100"
+        "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100",
+        "dipl-pflegefachfrau-mann-nachdiplomkurs-uberwachungspflege-uwp-intermediate-imc-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6524,12 +6546,12 @@
     },
     {
       "id": "kssg-c63a393a460b",
-      "slug": "dipl-fachfrau-mann-operationstechnik-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-tecnica-chirurgica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
-        "it": "dipl-fachfrau-mann-operationstechnik-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
-        "fr": "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
+        "it": "dipl-tecnica-chirurgica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-professional-surgical-technique-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-technique-chirurgicale-professionnelle-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6574,11 +6596,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
+          "dipl-fachfrau-mann-operationstechnik-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
+        ],
+        "fr": [
           "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch"
+        "dipl-fachfrau-mann-operationstechnik-50-100-kssg-ch",
+        "dipl-fachfrau-mann-operationstechnik-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6596,12 +6626,12 @@
     },
     {
       "id": "kssg-1a0f3c67378f",
-      "slug": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-studi-post-laurea-specialistici-nds-cura-intensiva-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch",
-        "fr": "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch"
+        "it": "dipl-studi-post-laurea-specialistici-nds-cura-intensiva-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-nursing-specialist-post-graduate-studies-nds-intensive-care-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-soins-intensifs-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6646,11 +6676,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch",
+          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch"
+        "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kssg-ch",
+        "dipl-pflegefachfrau-mann-nachdiplomstudium-nds-intensivpflege-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6668,12 +6706,12 @@
     },
     {
       "id": "kssg-72be41635d69",
-      "slug": "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch",
+      "slug": "dipl-cura-dell-anestesia-esperto-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch",
-        "it": "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch",
-        "en": "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch",
-        "fr": "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch"
+        "it": "dipl-cura-dell-anestesia-esperto-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "en": "dipl-expert-anesthesia-care-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "dipl-soins-d-anesthesie-experts-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6728,16 +6766,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:59:11.243Z"
+      "firstSeenAt": "2026-06-19T12:59:11.243Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch"
+        ],
+        "en": [
+          "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch"
+        ],
+        "fr": [
+          "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-anasthesiepflege-50-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-15e074d3d35d",
-      "slug": "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+      "slug": "dipl-infermieristica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-d80f46",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-50-100-kssg-ch",
-        "it": "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "en": "dipl-pflegefachfrau-mann-50-100-kssg-ch-2",
-        "fr": "dipl-pflegefachfrau-mann-50-100-kssg-ch-2"
+        "it": "dipl-infermieristica-professionale-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-d80f46",
+        "en": "dipl-nursing-professional-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-d80f46",
+        "fr": "dipl-professionnels-des-soins-infirmiers-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-d80f46"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6782,11 +6834,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-50-100-kssg-ch-2",
+          "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-50-100-kssg-ch-2"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-50-100-kssg-ch-2"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-50-100-kssg-ch-2"
+        "dipl-pflegefachfrau-mann-50-100-kssg-ch-2",
+        "dipl-pflegefachfrau-mann-50-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6808,8 +6868,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-restaurantfachfrau-mann-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-restaurantfachfrau-mann-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "lehrstelle-als-restaurantfachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
-        "fr": "lehrstelle-als-restaurantfachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        "en": "apprenticeship-as-a-restaurant-expert-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-comme-expert-de-restaurant-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6858,10 +6918,17 @@
         ],
         "de": [
           "lehrstelle-als-restaurantfachfrau-mann-efz-kssg-ch"
+        ],
+        "en": [
+          "lehrstelle-als-restaurantfachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        ],
+        "fr": [
+          "lehrstelle-als-restaurantfachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-restaurantfachfrau-mann-efz-kssg-ch"
+        "lehrstelle-als-restaurantfachfrau-mann-efz-kssg-ch",
+        "lehrstelle-als-restaurantfachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -6883,8 +6950,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-gesundheit-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-st-gallen",
-        "fr": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-st-gallen"
+        "en": "apprenticeship-as-an-expert-health-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-qu-expert-en-sante-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -6958,8 +7025,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kochin-koch-efz-hoch-health-wil",
         "it": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-wil",
-        "en": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-wil",
-        "fr": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-wil"
+        "en": "apprenticeship-as-cook-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7033,8 +7100,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-gesundheit-efz-hoch-health-uznach",
         "it": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-uznach",
-        "en": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-uznach",
-        "fr": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-uznach"
+        "en": "apprenticeship-as-an-expert-health-efz-kantonsspital-st-gallen-kssg-hoch-lehre-f3773a",
+        "fr": "apprentissage-en-tant-qu-expert-en-sante-efz-kantonsspital-st-gallen-kssg-hoch-lehre-f3773a"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7108,8 +7175,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-integrales-energie-management-100-hoch-health-st-gallen",
         "it": "specialista-in-integrales-energy-management-100-hoch-health-ostschweiz-st-gallen",
-        "en": "specialista-in-integrales-energy-management-100-hoch-health-ostschweiz-st-gallen",
-        "fr": "specialista-in-integrales-energy-management-100-hoch-health-ostschweiz-st-gallen"
+        "en": "specialist-in-integral-energy-management-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
+        "fr": "specialiste-en-gestion-integrale-de-l-energie-100-kantonsspital-st-gallen-kssg-hoch-festanstellung"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7483,8 +7550,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-hoch-health-st-gallen",
         "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-hoch-health-ostschweiz-st-gallen",
-        "en": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonsspital-st-gallen-kssg-hoch-lehre",
-        "fr": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonsspital-st-gallen-kssg-hoch-lehre"
+        "en": "apprenticeship-as-computer-scientist-in-efz-platform-development-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-informatique-en-efz-developpement-d-une-plateforme-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7533,10 +7600,17 @@
         ],
         "de": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kssg-ch"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonsspital-st-gallen-kssg-hoch-lehre"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonsspital-st-gallen-kssg-hoch-lehre"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kssg-ch"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kssg-ch",
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-kantonsspital-st-gallen-kssg-hoch-lehre"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -7558,8 +7632,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-betreuung-efz-kinder-hoch-health-st-gallen",
         "it": "apprendistato-come-fachperson-betreuung-cfc-kinder-hoch-health-ostschweiz-st-gallen",
-        "en": "apprendistato-come-fachperson-betreuung-cfc-kinder-hoch-health-ostschweiz-st-gallen",
-        "fr": "apprendistato-come-fachperson-betreuung-cfc-kinder-hoch-health-ostschweiz-st-gallen"
+        "en": "apprenticeship-as-expert-care-efz-children-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-soins-specialises-efz-enfants-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7633,8 +7707,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-ict-fachperson-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-ict-fachperson-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "apprendistato-come-ict-fachperson-cfc-hoch-health-ostschweiz-st-gallen",
-        "fr": "apprendistato-come-ict-fachperson-cfc-hoch-health-ostschweiz-st-gallen"
+        "en": "apprenticeship-as-ict-specialist-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-specialiste-des-tic-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7708,8 +7782,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kochin-koch-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen",
-        "fr": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-st-gallen"
+        "en": "apprenticeship-as-cook-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre-8336e3",
+        "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre-8336e3"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7783,8 +7857,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachperson-gesundheit-efz-hoch-health-wil",
         "it": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-wil",
-        "en": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-wil",
-        "fr": "apprendistato-come-fachperson-gesundheit-cfc-hoch-health-ostschweiz-wil"
+        "en": "apprenticeship-as-an-expert-health-efz-kantonsspital-st-gallen-kssg-hoch-lehre-3b8657",
+        "fr": "apprentissage-en-tant-qu-expert-en-sante-efz-kantonsspital-st-gallen-kssg-hoch-lehre-3b8657"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7858,8 +7932,8 @@
       "slugByLocale": {
         "de": "strukturiertes-praxisjahr-fachmaturitat-gesundheit-hoch-health-st-gallen",
         "it": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-st",
-        "en": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-st",
-        "fr": "anno-pratico-strutturato-per-la-laurea-specialistica-in-sanita-hoch-health-ostschweiz-st"
+        "en": "structured-year-of-practice-health-kantonsspital-st-gallen-kssg-hoch-praktikum",
+        "fr": "annee-structuree-de-la-sante-pratique-kantonsspital-st-gallen-kssg-hoch-praktikum"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7933,8 +8007,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-mann-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-kauffrau-mann-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "lehrstelle-als-kauffrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
-        "fr": "lehrstelle-als-kauffrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        "en": "apprenticeship-as-a-businesswoman-man-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-femme-d-affaires-homme-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -7983,10 +8057,17 @@
         ],
         "de": [
           "lehrstelle-als-kauffrau-mann-efz-kssg-ch"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-mann-efz-kssg-ch"
+        "lehrstelle-als-kauffrau-mann-efz-kssg-ch",
+        "lehrstelle-als-kauffrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -8008,8 +8089,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-systemgastronomiefachfrau-mann-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-systemgastronomiefachfrau-mann-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
-        "fr": "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        "en": "apprenticeship-as-a-system-gastronomy-specialist-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-gastronomie-systeme-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8058,10 +8139,17 @@
         ],
         "de": [
           "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kssg-ch"
+        ],
+        "en": [
+          "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        ],
+        "fr": [
+          "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kssg-ch"
+        "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kssg-ch",
+        "lehrstelle-als-systemgastronomiefachfrau-mann-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -8158,8 +8246,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-medizinproduktetechnologin-technologe-efz-hoch-health-st-gallen",
         "it": "apprendistato-come-medizinproduktetechnologin-technologe-cfc-hoch-health-ostschweiz-st-gallen",
-        "en": "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
-        "fr": "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        "en": "apprenticeship-as-medical-device-technologist-efz-kantonsspital-st-gallen-kssg-hoch-lehre",
+        "fr": "apprentissage-en-tant-que-technologue-des-instruments-medicaux-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8208,10 +8296,17 @@
         ],
         "de": [
           "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kssg-ch"
+        ],
+        "en": [
+          "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
+        ],
+        "fr": [
+          "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kssg-ch"
+        "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kssg-ch",
+        "lehrstelle-als-medizinproduktetechnologin-technologe-efz-kantonsspital-st-gallen-kssg-hoch-lehre"
       ],
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -8233,8 +8328,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-uznach",
         "it": "sub-assistente-2028-hoch-health-ostschweiz-uznach",
-        "en": "sub-assistente-2028-hoch-health-ostschweiz-uznach",
-        "fr": "sub-assistente-2028-hoch-health-ostschweiz-uznach"
+        "en": "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum",
+        "fr": "sous-assistant-en-2028-kantonsspital-st-gallen-kssg-hoch-praktikum"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8383,8 +8478,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-wil",
         "it": "sub-assistente-2028-hoch-health-ostschweiz-wil",
-        "en": "sub-assistente-2028-hoch-health-ostschweiz-wil",
-        "fr": "sub-assistente-2028-hoch-health-ostschweiz-wil"
+        "en": "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8",
+        "fr": "sous-assistant-en-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-7658d8"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8458,8 +8553,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-2028-hoch-health-grabs",
         "it": "sub-assistente-2028-hoch-health-ostschweiz-grabs",
-        "en": "sub-assistente-2028-hoch-health-ostschweiz-grabs",
-        "fr": "sub-assistente-2028-hoch-health-ostschweiz-grabs"
+        "en": "sub-assistant-in-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-57f27f",
+        "fr": "sous-assistant-en-2028-kantonsspital-st-gallen-kssg-hoch-praktikum-57f27f"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",
@@ -8533,8 +8628,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kochin-koch-efz-hoch-health-grabs",
         "it": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-grabs",
-        "en": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-grabs",
-        "fr": "apprendistato-come-kochin-koch-cfc-hoch-health-ostschweiz-grabs"
+        "en": "apprenticeship-as-cook-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre-0b7e80",
+        "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-kantonsspital-st-gallen-kssg-hoch-lehre-0b7e80"
       },
       "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
       "companyKey": "kssg",

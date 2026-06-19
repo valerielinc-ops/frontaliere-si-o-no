@@ -306,12 +306,12 @@
     },
     {
       "id": "spital-zollikerberg-cfc1774102d2",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
       "slugByLocale": {
         "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "it": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "en": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum",
-        "fr": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-infermieristica-spitex-old-age-centre-hottingen-spital",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-spitex-old-age-centre-hottingen-spital",
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-spitex-old"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -366,16 +366,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+        ]
+      },
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-alterszentrum"
+      ]
     },
     {
       "id": "spital-zollikerberg-321d3ed47403",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-infermieristica-orologio-notturno-spitex",
       "slugByLocale": {
         "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
-        "it": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
-        "en": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
-        "fr": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-infermieristica-orologio-notturno-spitex",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-nursing-specialist-night-watch-spitex-in-the-hottingen-old-age",
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-montres-de"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -430,7 +444,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+        ]
+      },
+      "previousSlugs": [
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+      ]
     }
   ]
 }

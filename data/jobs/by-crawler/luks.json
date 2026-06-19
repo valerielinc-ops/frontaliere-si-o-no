@@ -5783,9 +5783,9 @@
       "slug": "operatorin-operator-technik-80-luks-luzern-2",
       "slugByLocale": {
         "it": "operatorin-operator-technik-80-luks-luzern-2",
-        "en": "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+        "en": "operatorin-operator-technik-80-luks-luzern-2",
         "de": "operatorin-operator-technik-80-luks-luzern",
-        "fr": "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "operatorin-operator-technik-80-luks-luzern-2"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -5834,12 +5834,14 @@
         "operator-operator-technik-80-luzerner-kantonsspital-luks-luzern",
         "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
         "operator-technician-80-luzerner-kantonsspital-luks-luzern",
+        "technical-operator-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern",
         "technicien-d-exploitation-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+        "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -16046,9 +16048,9 @@
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
+        "en": "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16090,20 +16092,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
-        "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
-        "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital"
+        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ],
         "en": [
-          "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital",
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ]
       },
@@ -17629,8 +17627,7 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen",
-          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopala-luzerner-kantonsspital-luks-wolhusen"
+          "fachfrau-fachmann-operationstechnik-hf-50-100-schwerpunkt-orthopadie-luks-wolhusen"
         ]
       },
       "firstSeenAt": "2026-06-18T12:57:13.770Z",
@@ -18528,8 +18525,8 @@
       "slugByLocale": {
         "de": "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern",
         "it": "expertin-experte-notfallpflege-nds-hf-per-unser-notfallzentrum-80-100-luzerner-kantonsspital-luks-luzern",
-        "en": "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern",
-        "fr": "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern"
+        "en": "expert-emergency-care-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "expert-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18575,6 +18572,12 @@
       "previousSlugsByLocale": {
         "it": [
           "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern"
+        ],
+        "en": [
+          "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern"
+        ],
+        "fr": [
+          "expertin-experte-notfallpflege-nds-hf-fur-unser-notfallzentrum-80-100-luks-luzern"
         ]
       },
       "previousSlugs": [
@@ -18600,8 +18603,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern",
         "it": "fachfrau-fachmann-gesundheit-cfc-per-la-medizinische-tagesstation-40-100-luzerner-kantonsspital-luks-luzern",
-        "en": "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern",
-        "fr": "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern"
+        "en": "professional-health-efz-for-the-medical-day-care-unit-40-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "professionnel-sante-efz-pour-l-unite-de-garde-medicale-40-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18646,6 +18649,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern"
+        ],
+        "fr": [
           "fachfrau-fachmann-gesundheit-efz-fur-die-medizinische-tagesstation-40-100-luks-luzern"
         ]
       },

@@ -5014,12 +5014,12 @@
     },
     {
       "id": "emmi-1b49b1ee402a",
-      "slug": "anlagenfuhrer-in-mixmatic-emmi-ch",
+      "slug": "system-manager-in-mixmatic-emmi-ostermundigen-bern",
       "slugByLocale": {
         "de": "anlagenfuhrer-in-mixmatic-emmi-ch",
-        "it": "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "it": "system-manager-in-mixmatic-emmi-ostermundigen-bern",
         "en": "anlagenfuhrer-in-mixmatic-emmi-ch",
-        "fr": "anlagenfuhrer-in-mixmatic-emmi-ch"
+        "fr": "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -5086,7 +5086,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T12:28:26.778Z"
+      "firstSeenAt": "2026-06-19T12:28:26.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagenfuhrer-in-mixmatic-emmi-ch"
+        ],
+        "fr": [
+          "anlagenfuhrer-in-mixmatic-emmi-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagenfuhrer-in-mixmatic-emmi-ch"
+      ]
     }
   ]
 }

@@ -77,12 +77,12 @@
     },
     {
       "id": "medartis-1aae46e1b497",
-      "slug": "senior-total-reward-specialist-medartis-basel",
+      "slug": "specialista-senior-della-ricompensa-totale-medartis-basel",
       "slugByLocale": {
         "de": "senior-total-reward-specialist-medartis-basel",
-        "it": "senior-total-reward-specialist-medartis-basel",
+        "it": "specialista-senior-della-ricompensa-totale-medartis-basel",
         "en": "senior-total-reward-specialist-medartis-basel",
-        "fr": "senior-total-reward-specialist-medartis-basel"
+        "fr": "specialiste-senior-de-la-remuneration-totale-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -137,16 +137,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:02:05.789Z"
+      "firstSeenAt": "2026-06-19T13:02:05.789Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-total-reward-specialist-medartis-basel"
+        ],
+        "fr": [
+          "senior-total-reward-specialist-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "senior-total-reward-specialist-medartis-basel"
+      ]
     },
     {
       "id": "medartis-9a4ba8e0310b",
-      "slug": "supply-and-production-planner-100-medartis-basel",
+      "slug": "fornitura-e-produzione-planner-100-medartis-basel",
       "slugByLocale": {
         "de": "supply-and-production-planner-100-medartis-basel",
-        "it": "supply-and-production-planner-100-medartis-basel",
+        "it": "fornitura-e-produzione-planner-100-medartis-basel",
         "en": "supply-and-production-planner-100-medartis-basel",
-        "fr": "supply-and-production-planner-100-medartis-basel"
+        "fr": "planificateur-d-approvisionnement-et-de-production-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -201,7 +212,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:02:05.073Z"
+      "firstSeenAt": "2026-06-19T13:02:05.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "supply-and-production-planner-100-medartis-basel"
+        ],
+        "fr": [
+          "supply-and-production-planner-100-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "supply-and-production-planner-100-medartis-basel"
+      ]
     },
     {
       "id": "medartis-82cdaa5c484f",
@@ -1553,7 +1575,7 @@
       "slugByLocale": {
         "it": "risorse-umane-process-excellence-systems-specialista-100-medartis-basel",
         "en": "hr-process-excellence-systems-specialist-100-medartis-basel",
-        "de": "hr-process-excellence-systems-specialist-100-medartis-basel",
+        "de": "hr-prozessexzellenz-systemspezialist-zu-100-medartis-basel",
         "fr": "ressources-humaines-process-excellence-systems-specialiste-100-medartis-basel"
       },
       "company": "Medartis",
@@ -1597,7 +1619,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "hr-prozessexzellenz-systemspezialist-zu-100-medartis-basel",
           "hr-process-excellence-systems-specialist-100-medartis-basel"
         ],
         "it": [
@@ -1608,8 +1629,7 @@
         ]
       },
       "previousSlugs": [
-        "hr-process-excellence-systems-specialist-100-medartis-basel",
-        "hr-prozessexzellenz-systemspezialist-zu-100-medartis-basel"
+        "hr-process-excellence-systems-specialist-100-medartis-basel"
       ],
       "firstSeenAt": "2026-06-12T12:33:43.264Z",
       "salaryMin": 64500,

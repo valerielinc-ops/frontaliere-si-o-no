@@ -3280,8 +3280,7 @@
           "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
         ],
         "en": [
-          "administrative-clerk-weekender-20-hug-geneve",
-          "commis-ou-commise-administrative-weekendiste-20-hug-geneve"
+          "administrative-clerk-weekender-20-hug-geneve"
         ]
       },
       "localeMismatchSuppressed": true,
@@ -3699,8 +3698,8 @@
       "slugByLocale": {
         "fr": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
         "it": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
-        "en": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex",
-        "de": "educateur-ou-educatrice-sociale-en-psychiatrie-80-hug-thonex"
+        "en": "social-educator-in-psychiatry-80-hug-thonex",
+        "de": "sozialpadagoge-in-der-psychiatrie-80-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3837,12 +3836,12 @@
     },
     {
       "id": "hug-2b3978fc656e",
-      "slug": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
+      "slug": "terapista-occupazionale-in-psichiatria-ambulatoriale-70-hug-geneve",
       "slugByLocale": {
         "fr": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "it": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "en": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve",
-        "de": "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        "it": "terapista-occupazionale-in-psichiatria-ambulatoriale-70-hug-geneve",
+        "en": "occupational-therapist-in-psychiatry-outpatient-70-hug-geneve",
+        "de": "ergotherapeut-in-der-ambulanten-psychiatrie-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3898,16 +3897,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.175Z"
+      "firstSeenAt": "2026-06-19T12:44:48.175Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ],
+        "en": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ],
+        "de": [
+          "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-en-ambulatoire-de-psychiatrie-70-hug-geneve"
+      ]
     },
     {
       "id": "hug-1d0a08eb0cce",
-      "slug": "logopediste-50-a-60-hug-geneve",
+      "slug": "logopedista-50-60-hug-geneve",
       "slugByLocale": {
         "fr": "logopediste-50-a-60-hug-geneve",
-        "it": "logopediste-50-a-60-hug-geneve",
-        "en": "logopediste-50-a-60-hug-geneve",
-        "de": "logopediste-50-a-60-hug-geneve"
+        "it": "logopedista-50-60-hug-geneve",
+        "en": "speech-therapist-50-to-60-hug-geneve",
+        "de": "sprachtherapeut-50-bis-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3963,7 +3976,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.174Z"
+      "firstSeenAt": "2026-06-19T12:44:48.174Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopediste-50-a-60-hug-geneve"
+        ],
+        "en": [
+          "logopediste-50-a-60-hug-geneve"
+        ],
+        "de": [
+          "logopediste-50-a-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "logopediste-50-a-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-193b10572192",
@@ -4044,12 +4071,12 @@
     },
     {
       "id": "hug-6d8c9251c5b1",
-      "slug": "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve",
+      "slug": "responsabile-progetto-del-servizio-di-ostetricia-30-hug-geneve",
       "slugByLocale": {
         "fr": "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve",
-        "it": "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve",
-        "en": "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve",
-        "de": "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve"
+        "it": "responsabile-progetto-del-servizio-di-ostetricia-30-hug-geneve",
+        "en": "obstetrics-service-project-manager-30-hug-geneve",
+        "de": "projektleiter-des-geburtshilfsdienstes-30-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4107,20 +4134,32 @@
       "postalCode": "1201",
       "firstSeenAt": "2026-06-19T12:44:48.172Z",
       "previousSlugs": [
+        "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve",
         "responsabile-dei-progetti-culturali-60-hug-geneve",
         "responsible-for-cultural-projects-60-hug-geneve",
         "verantwortlich-fur-kulturprojekte-60-hug-geneve",
         "charge-ou-chargee-de-projets-culturels-60-hug-geneve"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve"
+        ],
+        "en": [
+          "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve"
+        ],
+        "de": [
+          "charge-ou-chargee-des-projets-service-d-obstetrique-30-hug-geneve"
+        ]
+      }
     },
     {
       "id": "hug-40fac85da16e",
-      "slug": "stages-a-la-direction-de-la-communication-100-hug-geneve",
+      "slug": "tirocini-nel-dipartimento-comunicazione-100-hug-geneve",
       "slugByLocale": {
         "fr": "stages-a-la-direction-de-la-communication-100-hug-geneve",
-        "it": "stages-a-la-direction-de-la-communication-100-hug-geneve",
-        "en": "stages-a-la-direction-de-la-communication-100-hug-geneve",
-        "de": "stages-a-la-direction-de-la-communication-100-hug-geneve"
+        "it": "tirocini-nel-dipartimento-comunicazione-100-hug-geneve",
+        "en": "internships-in-the-communication-department-100-hug-geneve",
+        "de": "praktika-in-der-kommunikationsabteilung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4176,16 +4215,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.169Z"
+      "firstSeenAt": "2026-06-19T12:44:48.169Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stages-a-la-direction-de-la-communication-100-hug-geneve"
+        ],
+        "en": [
+          "stages-a-la-direction-de-la-communication-100-hug-geneve"
+        ],
+        "de": [
+          "stages-a-la-direction-de-la-communication-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stages-a-la-direction-de-la-communication-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-92ebea3dc8a5",
-      "slug": "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
+      "slug": "dietista-40-80-hug-geneve",
       "slugByLocale": {
         "fr": "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
-        "it": "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
-        "en": "dieteticien-ou-dieteticienne-40-a-80-hug-geneve",
-        "de": "dieteticien-ou-dieteticienne-40-a-80-hug-geneve"
+        "it": "dietista-40-80-hug-geneve",
+        "en": "dietician-40-to-80-hug-geneve",
+        "de": "diatassistentin-40-bis-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4241,16 +4294,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.167Z"
+      "firstSeenAt": "2026-06-19T12:44:48.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieteticien-ou-dieteticienne-40-a-80-hug-geneve"
+        ],
+        "en": [
+          "dieteticien-ou-dieteticienne-40-a-80-hug-geneve"
+        ],
+        "de": [
+          "dieteticien-ou-dieteticienne-40-a-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "dieteticien-ou-dieteticienne-40-a-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-d94b9b140151",
-      "slug": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
+      "slug": "assistente-alla-salute-e-assistenza-comunitaria-nella-divisione-privata-unita-onco-ematologia-80-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "it": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "en": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco",
-        "de": "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        "it": "assistente-alla-salute-e-assistenza-comunitaria-nella-divisione-privata-unita-onco-ematologia-80-hug-geneve",
+        "en": "community-health-and-care-assistant-in-the-private-division-onco-hematology-unit-80-hug-geneve",
+        "de": "gemeindegesundheits-und-pflegeassistentin-in-der-privaten-abteilung-onkohamatologie-einheit-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4306,16 +4373,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.166Z"
+      "firstSeenAt": "2026-06-19T12:44:48.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ],
+        "en": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ],
+        "de": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-en-soins-et-sante-communautaire-a-la-division-privee-unite-d-onco"
+      ]
     },
     {
       "id": "hug-f1a6b9f18d47",
-      "slug": "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve",
+      "slug": "segretario-del-capo-ufficiale-di-oftalomologia-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve",
-        "it": "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve",
-        "en": "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve",
-        "de": "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve"
+        "it": "segretario-del-capo-ufficiale-di-oftalomologia-80-al-100-hug-geneve",
+        "en": "secretary-to-the-chief-ophthalomology-officer-80-to-100-hug-geneve",
+        "de": "sekretar-des-leitenden-augenheilkunde-offiziers-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4371,7 +4452,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-06-19T12:44:48.156Z"
+      "firstSeenAt": "2026-06-19T12:44:48.156Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-la-medecin-cheffe-de-service-en-ophtalomologie-80-a-100-hug-geneve"
+      ]
     }
   ]
 }

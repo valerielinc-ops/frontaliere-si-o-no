@@ -935,12 +935,12 @@
     },
     {
       "id": "weisse-arena-2fa633beab76",
-      "slug": "hr-generalist-in-weisse-arena-ch",
+      "slug": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "hr-generalist-in-weisse-arena-ch",
-        "it": "hr-generalist-in-weisse-arena-ch",
+        "it": "risorse-umane-generalist-in-weisse-arena-gruppe-laax",
         "en": "hr-generalist-in-weisse-arena-ch",
-        "fr": "hr-generalist-in-weisse-arena-ch"
+        "fr": "ressources-humaines-generalist-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -1000,7 +1000,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-06-19T13:38:45.726Z"
+      "firstSeenAt": "2026-06-19T13:38:45.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-generalist-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "hr-generalist-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-generalist-in-weisse-arena-ch"
+      ]
     }
   ]
 }

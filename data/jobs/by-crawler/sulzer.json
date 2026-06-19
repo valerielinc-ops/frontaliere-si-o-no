@@ -2063,12 +2063,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2108,16 +2108,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -9821,12 +9818,12 @@
     },
     {
       "id": "sulzer-0346500d4e6d",
-      "slug": "repair-coordinator-sulzer-ch",
+      "slug": "repair-coordinatore-sulzer-bridgeport",
       "slugByLocale": {
         "en": "repair-coordinator-sulzer-ch",
-        "it": "repair-coordinator-sulzer-ch",
-        "de": "repair-coordinator-sulzer-ch",
-        "fr": "repair-coordinator-sulzer-ch"
+        "it": "repair-coordinatore-sulzer-bridgeport",
+        "de": "repair-koordinator-sulzer-bridgeport",
+        "fr": "repair-coordinateur-sulzer-bridgeport"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -9883,16 +9880,14 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-05-28T14:26:40.714Z",
       "previousSlugs": [
-        "repair-coordinatore-sulzer-bridgeport",
+        "repair-coordinator-sulzer-ch",
         "repair-coordinator-sulzer-bridgeport"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "repair-koordinator-sulzer-bridgeport",
           "repair-coordinator-sulzer-ch"
         ],
         "fr": [
-          "repair-coordinateur-sulzer-bridgeport",
           "repair-coordinator-sulzer-ch"
         ],
         "it": [
@@ -12915,14 +12910,7 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "principal-structure-ingenieur-sulzer-shanghai",
-          "principal-structure-engineer-sulzer-ch"
-        ],
-        "it": [
-          "principal-structure-engineer-sulzer-ch"
-        ],
-        "fr": [
-          "principal-structure-engineer-sulzer-ch"
+          "principal-structure-ingenieur-sulzer-shanghai"
         ]
       }
     },
@@ -15419,7 +15407,7 @@
         "it": "risorse-umane-business-partner-sulzer-shanghai",
         "en": "hr-business-partner-sulzer-ch",
         "de": "personalwesen-business-partner-sulzer-shanghai",
-        "fr": "partenaire-d-affaires-rh-sulzer-shanghai"
+        "fr": "partenaire-operationnel-rh-sulzer-shanghai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -15461,7 +15449,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hr-business-partner-sulzer-ch",
-        "hr-business-partner-sulzer-shanghai"
+        "hr-business-partner-sulzer-shanghai",
+        "partenaire-d-affaires-rh-sulzer-shanghai"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15471,7 +15460,8 @@
           "hr-business-partner-sulzer-ch"
         ],
         "fr": [
-          "hr-business-partner-sulzer-shanghai"
+          "hr-business-partner-sulzer-shanghai",
+          "partenaire-d-affaires-rh-sulzer-shanghai"
         ]
       },
       "firstSeenAt": "2026-05-28T14:24:07.018Z",
@@ -17130,12 +17120,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -17176,17 +17166,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -22592,7 +22579,7 @@
       "slugByLocale": {
         "it": "montaggio-di-montaggio-sulzer-suzhou",
         "en": "assembly-fitter-sulzer-ch",
-        "de": "baugruppe-fitter-sulzer-suzhou",
+        "de": "montagefitter-sulzer-suzhou",
         "fr": "assemblage-fitter-sulzer-suzhou"
       },
       "company": "Sulzer",
@@ -22635,14 +22622,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assembly-fitter-sulzer-ch",
-        "assembly-fitter-sulzer-suzhou"
+        "assembly-fitter-sulzer-suzhou",
+        "baugruppe-fitter-sulzer-suzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assembly-fitter-sulzer-ch"
         ],
         "de": [
-          "assembly-fitter-sulzer-suzhou"
+          "assembly-fitter-sulzer-suzhou",
+          "baugruppe-fitter-sulzer-suzhou"
         ],
         "fr": [
           "assembly-fitter-sulzer-ch"
@@ -23436,12 +23425,12 @@
     },
     {
       "id": "sulzer-755c3c4bd596",
-      "slug": "sales-manager-large-machines-sulzer-ch",
+      "slug": "direttore-vendite-grandi-macchine-sulzer-birmingham",
       "slugByLocale": {
         "en": "sales-manager-large-machines-sulzer-ch",
-        "it": "sales-manager-large-machines-sulzer-ch",
-        "de": "sales-manager-large-machines-sulzer-ch",
-        "fr": "sales-manager-large-machines-sulzer-ch"
+        "it": "direttore-vendite-grandi-macchine-sulzer-birmingham",
+        "de": "sales-manager-gro-e-maschinen-sulzer-birmingham",
+        "fr": "directeur-des-ventes-grandes-machines-sulzer-birmingham"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23496,16 +23485,30 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T13:30:35.038Z"
+      "firstSeenAt": "2026-06-19T13:30:35.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-manager-large-machines-sulzer-ch"
+        ],
+        "de": [
+          "sales-manager-large-machines-sulzer-ch"
+        ],
+        "fr": [
+          "sales-manager-large-machines-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-manager-large-machines-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-283ef7f8d4da",
-      "slug": "commercial-operations-manager-ssa-sulzer-ch",
+      "slug": "direttore-operativo-commerciale-ssa-sulzer-johannesburg",
       "slugByLocale": {
         "en": "commercial-operations-manager-ssa-sulzer-ch",
-        "it": "commercial-operations-manager-ssa-sulzer-ch",
-        "de": "commercial-operations-manager-ssa-sulzer-ch",
-        "fr": "commercial-operations-manager-ssa-sulzer-ch"
+        "it": "direttore-operativo-commerciale-ssa-sulzer-johannesburg",
+        "de": "betriebsleiter-ssa-sulzer-johannesburg",
+        "fr": "directeur-des-operations-commerciales-ssa-sulzer-johannesburg"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23560,7 +23563,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T13:30:34.227Z"
+      "firstSeenAt": "2026-06-19T13:30:34.227Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-operations-manager-ssa-sulzer-ch"
+        ],
+        "de": [
+          "commercial-operations-manager-ssa-sulzer-ch"
+        ],
+        "fr": [
+          "commercial-operations-manager-ssa-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-operations-manager-ssa-sulzer-ch"
+      ]
     }
   ]
 }
