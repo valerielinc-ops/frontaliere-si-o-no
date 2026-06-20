@@ -301,9 +301,9 @@
       "firstSeenAt": "2026-06-19T12:33:50.457Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "de": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "fr": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -340,17 +340,24 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
         ],
         "de": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -377,9 +384,9 @@
       "firstSeenAt": "2026-06-19T12:33:50.457Z",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -423,19 +430,25 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "de": [
-          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       },
       "previousSlugs": [
         "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -650,7 +663,10 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugs": [
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-x29n55",
@@ -710,7 +726,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugs": [
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56"
+      ]
     },
     {
       "id": "company-x29n56",
@@ -734,9 +756,9 @@
       "firstSeenAt": "2026-06-19T12:33:50.457Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -773,19 +795,29 @@
       "country": "CH",
       "previousSlugsByLocale": {
         "en": [
-          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio"
+          "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
+          "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+          "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+          "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
+        "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
+        "socio-sanitater-sanitaterin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -991,7 +1023,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugs": [
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n64",
@@ -1018,9 +1056,9 @@
       "firstSeenAt": "2026-06-19T12:33:50.457Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -1046,22 +1084,32 @@
       "previousSlugsByLocale": {
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1121,9 +1169,9 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -1139,7 +1187,14 @@
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -1149,15 +1204,18 @@
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ]
       },
       "salaryMin": 70500,
@@ -1217,9 +1275,9 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -1235,7 +1293,14 @@
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -1245,15 +1310,18 @@
         ],
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ]
       },
       "salaryMin": 70500,
@@ -1369,9 +1437,9 @@
       "firstSeenAt": "2026-06-19T12:33:50.457Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a",
@@ -1396,22 +1464,28 @@
       "previousSlugsByLocale": {
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -1470,9 +1544,9 @@
       },
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -1487,7 +1561,10 @@
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -1497,15 +1574,18 @@
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6v",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-737b1d"
         ]
       },
       "salaryMin": 70500,
@@ -1564,9 +1644,9 @@
       },
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "requirementsByLocale": {
         "it": [
@@ -1581,7 +1661,10 @@
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
         "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -1591,15 +1674,18 @@
         ],
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-946a27"
         ]
       },
       "salaryMin": 70500,
@@ -1740,7 +1826,10 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "country": "CH"
+      "country": "CH",
+      "previousSlugs": [
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uikyun",
@@ -1900,7 +1989,7 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+        "en": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -1940,11 +2029,13 @@
       "previousSlugs": [
         "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n48",
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzo-x29n47"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzo-x29n47",
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio"
+          "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+          "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
         ]
       }
     },
@@ -2195,9 +2286,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Infermiere/a in cure generali",
@@ -2237,17 +2328,23 @@
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-uil17z",
-        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z"
+        "infermiere-a-in-cure-generali-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uil17z",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio",
+        "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio"
+          "nurses-in-general-care-eoc-ente-ospedaliero-cantonale-novaggio",
+          "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
-          "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
+          "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
+          "krankenpfleger-in-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+          "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+          "infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },
@@ -2273,9 +2370,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+        "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Medico assistente / Medico ospedaliero",
@@ -2293,15 +2390,18 @@
       "previousSlugsByLocale": {
         "en": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c"
+          "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+          "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
+          "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+          "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
-          "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
+          "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -2309,7 +2409,10 @@
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
         "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
         "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio",
-        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medical-assistant-medical-hospital-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medizinische-assistenz-medizinisches-krankenhaus-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-medical-hopital-medical-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -2354,7 +2457,7 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -2397,11 +2500,13 @@
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n4e",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n55",
         "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n56",
-        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n55"
+        "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n55",
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+          "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+          "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },
@@ -2427,9 +2532,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
-        "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "career-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Assistente di cura",
@@ -2469,17 +2574,23 @@
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n58",
-        "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58"
+        "assistente-di-cura-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedalie-x29n58",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+        "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "career-eoc-ente-ospedaliero-cantonale-novaggio"
+          "career-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
         ],
         "de": [
-          "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
-          "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+          "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+          "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },
@@ -2506,7 +2617,7 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "internship-nursing-service-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -2529,7 +2640,8 @@
         ],
         "de": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
-          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio"
+          "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
+          "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
@@ -2546,7 +2658,8 @@
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil172",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil177",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "krankenpflegeleistungen-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 63000,
@@ -2594,9 +2707,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "de": "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
-        "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
+        "en": "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -2623,17 +2736,20 @@
         "en": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
-          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ]
       },
       "previousSlugs": [
@@ -2653,7 +2769,10 @@
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
         "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
         "absolvent-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
-        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
+        "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -2700,9 +2819,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-        "de": "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
-        "fr": "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
+        "en": "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Ergoterapista diplomato/a",
@@ -2728,17 +2847,20 @@
         "en": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualified-occupational-therapist-eoc-ente-ospedaliero-cantonale-novaggio",
+          "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "de": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio"
+          "qualifizierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+          "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ],
         "fr": [
           "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
           "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio",
-          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+          "ergotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+          "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
         ]
       },
       "previousSlugs": [
@@ -2758,7 +2880,10 @@
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6u",
         "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
         "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
-        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-df5057"
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-df5057",
+        "graduated-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
+        "absolvent-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
+        "diplome-ergotherapeute-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7"
       ],
       "sourceLang": "it",
       "salaryMin": 70500,
@@ -2803,9 +2928,9 @@
       "firstSeenAt": "2026-06-18T12:18:16.765Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
-        "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "de": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "fr": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice economia domestica",
@@ -2842,17 +2967,23 @@
       "country": "CH",
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
         ],
         "de": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona"
         ],
         "fr": [
-          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+          "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+          "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
         ]
       }
     },
@@ -3739,7 +3870,7 @@
         "fr": "Infirmières spécialisées en anesthésie - Ausschreibung L.E.C. L'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1 000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 6 500 employés et à leur attention sur la relation humaine, le COE assure des soins de qualité en prenant soin de plus de 41 000 patients décédés chaque année et en fournissant plus de 600 000 consultations externes. Pour compléter notre équipe du service d'anesthésiologie de l'hôpital régional de Lugano, nous recherchons une(a) infirmière spécialisée en anesthésie (80%-100%) Profil: organise et gère de multiples activités de manière autonome et avec flexibilité, sachant établir des priorités de manière efficace et en temps opportun maintient une attitude positive même dans des situations complexes, d'un stress fort et inattendu est capable de travailler à la fois de manière autonome et en équipe\n• Exigences requises: un diplôme d'infirmerie (ou diplôme équivalent reconnu) un diplôme d'infirmerie/expérimenté en anesthésie de soins/un SSS du SPD ou un certificat d'infirmerie/une expérience de travail spécialisée en anesthésie (ASI) d'au moins un an dans un service d'anesthésie suisse flexibilité pour travailler dans les deux emplacements de l'hôpital régional de Lugano Application complète du curriculum vitae, lettre de motivation, copies des certificats d'études et de travail, sera envoyé au plus tard le 17 juin 2026 uniquement sous forme électronique via www.eoc.ch. Les demandes qui se présenteront au-delà de cette date ne seront pas prises en considération, ainsi que celles qui seront envoyées sur papier, par courriel ou qui ne sont pas conformes aux exigences indiquées. Des informations complémentaires peuvent être demandées à M. Geremia Gervasoni, Chef du Département de soins infirmiers Anesthésie ORL (geremia.gervasoni @eoc.ch)."
       },
       "slugByLocale": {
-        "it": "infermiera-specializzata-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "it": "infermieri-specializzati-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "nurses-specialising-in-anaesthesia-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "anasthesie-spezialschwestern-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "infermieri-specializzati-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano"
@@ -3752,14 +3883,16 @@
         "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano-uilqeu",
         "intensivpflege-spezialisten-80-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "specialistes-en-soins-intensifs-80-100-eoc-ente-ospedaliero-cantonale-lugano"
+        "specialistes-en-soins-intensifs-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+        "infermiera-specializzata-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "infermieri-specializzati-in-anestesia-80-100-eoc-lugano-uilr19",
           "infermieri-specializzati-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola-uilr19",
-          "infermieri-specializzati-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano"
+          "infermieri-specializzati-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano",
+          "infermiera-specializzata-in-anestesia-80-100-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "en": [
           "infermieri-specializzati-in-anestesia-80-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola-uilr19"
@@ -9874,9 +10007,9 @@
         "fr": "Stage de formation avant SUPSI"
       },
       "descriptionByLocale": {
-        "it": "Stage formativo pre-SUPSI - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea per Stage formativo pre-SUPSI presso la Clinica di Riabilitazione EOC (CREOC) sede di Faido Profilo Lo stage pre-SUPSI è richiesto dalla Scuola universitaria della Svizzera italiana ed è rivolto agli studenti che desiderano intraprendere il Bachelor in Cure infermieristiche o in fisioterapia\n• Requisiti necessari essere iscritti e frequentare i moduli complementari della Scuola Specializzata per le professioni Sanitare e Sociali (SSPSS) predisposizione al contatto umano, motivazione a lavorare con pazienti, capacità comunicative e flessibilità ottime conoscenze della lingua italiana parlata e scritta ed eventualmente di una seconda lingua nazionale indispensabile la conoscenza dei principali mezzi informatici (pacchetto Office). Osservazioni Periodi formativi stabiliti dalla scuola (1° periodo: gennaio-febbraio e 2° periodo: aprile-maggio). --> Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati. La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio. Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche. EOC - il nostro ospedale Interessato/a?",
-        "en": "Description Pre-SUPSI training internship - Ausschreibung The EOC, the multi-site hospital in Ticino, is present with its institutes throughout the entire cantonal territory for a total of 1,000 beds. The organization allows us to effectively combine a local approach and an overall vision, guaranteeing the population a global and local hospital offer, regardless of the place where the services are required. Thanks to the commitment and expertise of over 5,000 collaborators and their attention to human relationships, the EOC ensures quality healthcare for 380,000 patients per year. The following position is aimed at candidates who wish to submit a spontaneous application for a pre-SUPSI training internship at the EOC Rehabilitation Clinic (CREOC) located in Faido\n• Profile The pre-SUPSI internship is required by the University School of Italian-speaking Switzerland and is aimed at students who wish to undertake the Bachelor in Nursing Care or in Physiotherapy Duties - The pre-SUPSI internship is required by the University School of Italian-Italian Switzerland and is aimed at students who wish to undertake the Bachelor in Nursing Care or in physiotherapy\n• Requirements - being enrolled and attending the complementary modules of the Specialized School for Health and Social Professions (SSPSS) - predisposition to human contact - motivation to work with patients - communication skills and flexibility - excellent knowledge of spoken and written Italian - possibly a second national language - knowledge of the main IT tools (Office package) essential Observations - Training periods established by the school (1st period: January-February and 2nd period: April-May) - The applications from those who do not meet the above requirements will in no case be taken into consideration and will consequently be eliminated from our database. - The evaluation of applications will be made only in case of service needs. - Since this is a position for spontaneous applications, no telephone information will be released.\n• What we offer - quality healthcare for 380,000 patients per year - a global and local hospital offer Contact - Interested?",
-        "de": "Beschreibung Vor-SUPSI-Ausbildungspraktikum - Ausschreibung Das EOC, das Multistandortspital im Tessin, ist mit seinen Instituten im gesamten Kantonsgebiet mit insgesamt 1.000 Betten vertreten. Die Organisation ermöglicht es uns, einen lokalen Ansatz und eine Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und lokales Krankenhausangebot zu garantieren, unabhängig vom Ort, an dem die Leistungen benötigt werden. Dank des Engagements und der Fachkenntnis von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit für menschliche Beziehungen gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Stelle richtet sich an Kandidaten, die sich spontan für ein Vor-SUPSI-Ausbildungspraktikum an der EOC-Rehabilitationsklinik (CREOC) in Faido bewerben möchten. Profil Das Vor-SUPSI-Praktikum wird von der Universitätsschule der italienischen Schweiz verlangt und richtet sich an Studierende, die den Bachelor in Krankenpflege oder in Physiotherapieaufgaben absolvieren möchten in Physiotherapie Voraussetzungen - Immatrikulation und Teilnahme an den ergänzenden Modulen der Fachschule für Gesundheits- und Sozialberufe (SSPSS) - Veranlagung zum menschlichen Kontakt - Motivation zur Arbeit mit Patienten - Kommunikationsfähigkeit und Flexibilität - ausgezeichnete Kenntnisse der italienischen Sprache in Wort und Schrift - möglicherweise eine zweite Landessprache - Kenntnisse der wichtigsten IT-Tools (Office-Paket) unerlässlich Bemerkungen - Von der Schule festgelegte Ausbildungszeiträume (1. Periode: Januar-Februar und 2. Periode: April-Mai) - Die Bewerbungen von diesen Wer die oben genannten Voraussetzungen nicht erfüllt, wird in keinem Fall berücksichtigt und daher aus unserer Datenbank gelöscht. - Die Bewertung von Anträgen erfolgt nur im Bedarfsfall. - Da es sich um eine Stelle für Initiativbewerbungen handelt, werden keine telefonischen Auskünfte erteilt.\n• Was wir bieten - hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr - ein globales und lokales Krankenhausangebot Kontakt - Interessiert?",
+        "it": "Descrizione\nStage formativo pre-SUPSI - Ausschreibung L’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea per Stage formativo pre-SUPSI presso la Clinica di Riabilitazione EOC (CREOC) sede di Faido Profilo Lo stage pre-SUPSI è richiesto dalla Scuola universitaria della Svizzera italiana ed è rivolto agli studenti che desiderano intraprendere il Bachelor in Cure infermieristiche o in fisioterapia\n\nMansioni\n- Lo stage pre-SUPSI è richiesto dalla Scuola universitaria della Svizzera italiana ed è rivolto agli studenti che desiderano intraprendere il Bachelor in Cure infermieristiche o in fisioterapia\n\nRequisiti\n- essere iscritti e frequentare i moduli complementari della Scuola Specializzata per le professioni Sanitare e Sociali (SSPSS)\n- predisposizione al contatto umano\n- motivazione a lavorare con pazienti\n- capacità comunicative e flessibilità\n- ottime conoscenze della lingua italiana parlata e scritta\n- eventualmente di una seconda lingua nazionale\n- indispensabile la conoscenza dei principali mezzi informatici (pacchetto Office)\n\nOsservazioni\n- Periodi formativi stabiliti dalla scuola (1° periodo: gennaio-febbraio e 2° periodo: aprile-maggio)\n- Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati.\n- La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio.\n- Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche.\n\nCosa offriamo\n- un’assistenza sanitaria di qualità a 380'000 pazienti all’anno\n- un’offerta ospedaliera globale e di prossimità\n\nContatto\n- Interessato/a?",
+        "en": "Description Pre-SUPSI training internship - Ausschreibung The EOC, the multi-site hospital in Ticino, is present with its institutes throughout the entire cantonal territory for a total of 1,000 beds. The organization allows us to effectively combine a local approach and an overall vision, guaranteeing the population a global and local hospital offer, regardless of the place where the services are required. Thanks to the commitment and expertise of over 5,000 collaborators and their attention to human relationships, the EOC ensures quality healthcare for 380,000 patients per year. The following position is aimed at candidates who wish to submit a spontaneous application for a pre-SUPSI training internship at the EOC Rehabilitation Clinic (CREOC) located in Faido Profile The pre-SUPSI internship is required by the University School of Italian-speaking Switzerland and is aimed at students who wish to undertake the Bachelor in Nursing Care or in Physiotherapy Duties - The pre-SUPSI internship is required by the University School of Italian-Italian Switzerland and is aimed at students who wish to undertake the Bachelor in Nursing Care or in physiotherapy Requirements - being enrolled and attending the complementary modules of the Specialized School for Health and Social Professions (SSPSS) - predisposition to human contact - motivation to work with patients - communication skills and flexibility - excellent knowledge of spoken and written Italian - possibly a second national language - knowledge of the main IT tools (Office package) essential Observations - Training periods established by the school (1st period: January-February and 2nd period: April-May) - The applications from those who do not meet the above requirements will in no case be taken into consideration and will consequently be eliminated from our database. - The evaluation of applications will be made only in case of service needs. - Since this is a position for spontaneous applications, no telephone information will be released. What we offer - quality healthcare for 380,000 patients per year - a global and local hospital offer Contact - Interested?",
+        "de": "Beschreibung Vor-SUPSI-Ausbildungspraktikum - Ausschreibung Das EOC, das Multistandortspital im Tessin, ist mit seinen Instituten im gesamten Kantonsgebiet mit insgesamt 1.000 Betten vertreten. Die Organisation ermöglicht es uns, einen lokalen Ansatz und eine Gesamtvision effektiv zu kombinieren und der Bevölkerung ein globales und lokales Krankenhausangebot zu garantieren, unabhängig vom Ort, an dem die Leistungen benötigt werden. Dank des Engagements und der Fachkenntnis von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit für menschliche Beziehungen gewährleistet das EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Stelle richtet sich an Kandidaten, die sich spontan für ein Vor-SUPSI-Ausbildungspraktikum an der EOC-Rehabilitationsklinik (CREOC) in Faido bewerben möchten. Profil Das Vor-SUPSI-Praktikum wird von der Universitätsschule der italienischen Schweiz verlangt und richtet sich an Studierende, die den Bachelor in Krankenpflege oder in Physiotherapieaufgaben absolvieren möchten in Physiotherapie Voraussetzungen - Immatrikulation und Teilnahme an den ergänzenden Modulen der Fachschule für Gesundheits- und Sozialberufe (SSPSS) - Veranlagung zum menschlichen Kontakt - Motivation zur Arbeit mit Patienten - Kommunikationsfähigkeit und Flexibilität - ausgezeichnete Kenntnisse der italienischen Sprache in Wort und Schrift - möglicherweise eine zweite Landessprache - Kenntnisse der wichtigsten IT-Tools (Office-Paket) unerlässlich Bemerkungen - Von der Schule festgelegte Ausbildungszeiträume (1. Periode: Januar-Februar und 2. Periode: April-Mai) - Die Bewerbungen von diesen Wer die oben genannten Voraussetzungen nicht erfüllt, wird in keinem Fall berücksichtigt und daher aus unserer Datenbank gelöscht. - Die Bewertung von Anträgen erfolgt nur im Bedarfsfall. - Da es sich um eine Stelle für Initiativbewerbungen handelt, werden keine telefonischen Auskünfte erteilt. Was wir bieten - hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr - ein globales und lokales Krankenhausangebot Kontakt - Interessiert?",
         "fr": "Description Stage de formation pré-SUPSI - Ausschreibung L'EOC, l'hôpital multisite du Tessin, est présent avec ses instituts sur tout le territoire cantonal pour un total de 1000 lits. L'organisation permet d'allier efficacement une approche locale et une vision globale, garantissant à la population une offre hospitalière globale et locale, quel que soit le lieu où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 collaborateurs et à leur souci des relations humaines, les EOC assurent des soins de qualité à 380 000 patients par an. Le poste suivant s'adresse aux candidats qui souhaitent déposer une candidature spontanée pour un stage de formation pré-SUPSI à la Clinique de Réadaptation EOC (CREOC) située à Faido Profil Le stage pré-SUPSI est exigé par l'École Universitaire de Suisse Italienne et s'adresse aux étudiants qui souhaitent entreprendre le Bachelor en Soins Infirmiers ou en Fonctions de Physiothérapie - Le stage pré-SUPSI est exigé par l'École Universitaire de Suisse Italo-Italienne et s'adresse aux étudiants qui souhaitent entreprendre le Bachelor en Soins Infirmiers ou en physiothérapie Conditions - être inscrit et fréquenter les modules complémentaires de l'École Spécialisée des Professions Sanitaires et Sociales (SSPSS) - prédisposition au contact humain - motivation pour travailler avec les patients - capacités de communication et flexibilité - excellente connaissance de l'italien parlé et écrit - éventuellement une deuxième langue nationale - connaissance des principaux outils informatiques (package Office) indispensables Observations - Périodes de formation établies par l'école (1ère période : janvier-février et 2ème période : avril-mai) - Les candidatures de ceux qui ne satisfont pas aux exigences ci-dessus seront en Aucun cas ne sera pris en considération et sera par conséquent éliminé de notre base de données. - L'évaluation des candidatures ne sera effectuée qu'en cas de besoins de service. - Puisqu'il s'agit d'un poste pour candidatures spontanées, aucune information téléphonique ne sera divulguée. Ce que nous proposons - des soins de qualité pour 380 000 patients par an - une offre hospitalière globale et locale Contact - Intéressé ?"
       },
       "requirementsByLocale": {},
