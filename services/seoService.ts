@@ -4085,6 +4085,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lidl-biasca-ticino': { name: 'Lidl, Biasca, Ticino', path: '/articoli-svizzera/lidl-biasca-ticino/', parent: 'blog' },
     'blog-dogana-chiasso-svizzera': { name: 'Dogana Chiasso', path: '/articoli-svizzera/dogana-chiasso-svizzera/', parent: 'blog' },
     'blog-imposta-alla-fonte-frontalieri-ticino': { name: 'Imposta fonte Ticino', path: '/articoli-svizzera/imposta-alla-fonte-frontalieri-ticino/', parent: 'blog' },
+    'blog-dogana-stabio-gaggiolo': { name: 'Traffico Dogane', path: '/articoli-svizzera/dogana-stabio-gaggiolo/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2839,
+ "numberOfItems": 2840,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7483,7 +7483,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2836, "name": "Concorsi pubblici in Ticino: come partecipare e...", "url": `${BASE_URL}/articoli-frontaliere/ticino-concorsi` },
           { "@type": "ListItem", "position": 2837, "name": "Lidl apre nuovo negozio a Biasca, Ticino", "url": `${BASE_URL}/articoli-frontaliere/lidl-biasca-ticino` },
           { "@type": "ListItem", "position": 2838, "name": "Dogana Chiasso Svizzera: tempi di attesa e proc...", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-svizzera` },
-          { "@type": "ListItem", "position": 2839, "name": "Imposta alla fonte frontalieri in Ticino: guida...", "url": `${BASE_URL}/articoli-frontaliere/imposta-alla-fonte-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 2839, "name": "Imposta alla fonte frontalieri in Ticino: guida...", "url": `${BASE_URL}/articoli-frontaliere/imposta-alla-fonte-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 2840, "name": "Dogana di Gaggiolo: operazioni e aggiornamenti", "url": `${BASE_URL}/articoli-frontaliere/dogana-stabio-gaggiolo` }
  ]
  },
  {

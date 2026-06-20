@@ -233,6 +233,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Impôt à la source frontaliers',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Impôt à la source pour frontaliers au Tessin : ce que prévoit, qui est concerné, où s\'applique. Données et procédures pour travailleurs et entreprises.',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Vue sur Lugano et la région frontalière, zone d\'emploi transfrontalier.',
+    'blog.article.dogana-stabio-gaggiolo.title': 'Douane de Gaggiolo: opérations et mises à jour',
+    'blog.article.dogana-stabio-gaggiolo.excerpt': 'Mises à jour récentes sur la situation de la douane de Gaggiolo et Stabio, avec un focus sur les contrôles et les procédures.',
+    'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Scène douanière à Gaggiolo et Stabio avec agents en service',
 };
 
 export default blogMetaChFr;
