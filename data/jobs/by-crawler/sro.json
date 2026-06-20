@@ -507,12 +507,12 @@
     },
     {
       "id": "sro-1635d4afa6a0",
-      "slug": "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
+      "slug": "medico-senior-in-psichiatria-ricoveranda-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
-        "it": "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
-        "en": "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
-        "fr": "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+        "it": "medico-senior-in-psichiatria-ricoveranda-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "medecin-senior-en-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -574,13 +574,24 @@
       },
       "firstSeenAt": "2026-06-19T22:41:14.568Z",
       "previousSlugs": [
+        "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal",
         "medico-senior-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "senior-physician-stationary-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medecin-principal-psychiatrie-stationnaire-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medecin-chef-medecin-cheffe-psychiatrie-hospitaliere-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "senior-physician-inpatient-psychiatry-80-100-sro-ag-spital-region-oberaargau-langenthal"
-      ]
+        "medico-capo-medica-capo-psichiatria-stazionaria-80-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+        ],
+        "en": [
+          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-stationare-psychiatrie-80-100-sro-langenthal"
+        ]
+      }
     },
     {
       "id": "sro-16b2c93e01d0",
@@ -1135,12 +1146,12 @@
     },
     {
       "id": "sro-4d3f51f9e08e",
-      "slug": "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal",
+      "slug": "medico-senior-trattamento-acuto-mobile-70-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal",
-        "it": "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal",
-        "en": "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal",
-        "fr": "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal"
+        "it": "medico-senior-trattamento-acuto-mobile-70-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "senior-physician-mobile-acute-treatment-70-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "medecin-senior-traitement-aigu-mobile-70-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1202,18 +1213,29 @@
       },
       "firstSeenAt": "2026-06-19T22:41:08.903Z",
       "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal",
         "medico-anestesista-capo-100-sro-ag-spital-region-oberaargau-langenthal",
         "head-physician-anesthesiology-100-sro-ag-spital-region-oberaargau-langenthal",
         "leitende-arztin-leitenden-arzt-anasthesiologie-100-sro-langenthal",
         "medecin-chef-anesthesiologie-100-sro-ag-spital-region-oberaargau-langenthal",
         "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-ag-spital-region-oberaargau-langenthal",
         "medico-specialista-responsabile-mobile-trattamento-acuto-70-100-sro-ag-spital-region-oberaargau-langenthal",
-        "senior-physician-mobile-acute-treatment-70-100-sro-ag-spital-region-oberaargau-langenthal",
         "medecin-senior-traitement-mobile-aigu-70-100-sro-ag-spital-region-oberaargau-langenthal",
         "lead-physician-senior-physician-mobile-acute-treatment-70-100-sro-ag-spital-region-oberaargau-langenthal",
         "medico-primario-medico-responsabile-trattamento-acuto-mobile-70-100-sro-ag-spital-region-oberaargau-langenthal",
         "medecin-chef-medecin-cadre-traitement-aigu-mobile-70-100-sro-ag-spital-region-oberaargau-langenthal"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal"
+        ],
+        "en": [
+          "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-mobile-akutbehandlung-70-100-sro-langenthal"
+        ]
+      }
     },
     {
       "id": "sro-c09dce2ae406",
@@ -4075,12 +4097,12 @@
     },
     {
       "id": "sro-8acc2107fb0e",
-      "slug": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
+      "slug": "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "it": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "en": "arztsekretar-in-orthopadie-80-100-sro-langenthal",
-        "fr": "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        "it": "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -4142,12 +4164,24 @@
       },
       "firstSeenAt": "2026-06-19T22:40:40.779Z",
       "previousSlugs": [
+        "arztsekretar-in-orthopadie-80-100-sro-langenthal",
         "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "orthopedic-medical-secretary-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "secretaire-medical-e-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medical-secretary-orthopedics-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "secretaire-medicale-orthopedique-80-100-sro-ag-spital-region-oberaargau-langenthal"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        ],
+        "en": [
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        ],
+        "fr": [
+          "arztsekretar-in-orthopadie-80-100-sro-langenthal"
+        ]
+      }
     },
     {
       "id": "sro-cfe434e511c0",

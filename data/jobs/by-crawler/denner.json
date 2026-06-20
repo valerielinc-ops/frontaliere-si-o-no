@@ -962,12 +962,12 @@
     },
     {
       "id": "denner-6f8406fc9c5e",
-      "slug": "verkaufer-in-im-stundenlohn-denner-nebikon",
+      "slug": "venditore-nel-salario-orario-denner-nebikon-80235e",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-nebikon",
+        "it": "venditore-nel-salario-orario-denner-nebikon-80235e",
         "de": "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-n9k4ay",
-        "en": "verkaufer-in-im-stundenlohn-denner-nebikon",
-        "fr": "verkaufer-in-im-stundenlohn-denner-nebikon"
+        "en": "seller-in-the-hourly-wage-denner-nebikon-80235e",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-nebikon-80235e"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1026,11 +1026,19 @@
       "crawledAt": "2026-06-19T21:40:09.152Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-nebikon"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-nebikon"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -1049,12 +1057,12 @@
     },
     {
       "id": "denner-a08aecb696db",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-steinhausen",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-steinhausen",
         "de": "assistent-in-filialleitung-denner-ag-steinhausen-g1nzab",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-steinhausen",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-steinhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1124,7 +1132,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-19T21:40:08.558Z"
+      "firstSeenAt": "2026-06-19T21:40:08.558Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-42c80cb4cf7a",
@@ -1615,12 +1637,12 @@
     },
     {
       "id": "denner-104834993eba",
-      "slug": "verkaufer-in-im-stundenlohn-denner",
+      "slug": "venditore-nel-salario-orario-denner-wilen-b",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
+        "it": "venditore-nel-salario-orario-denner-wilen-b",
+        "en": "seller-in-the-hourly-wage-denner-wilen-b-c5a953",
         "de": "verkaufer-in-im-stundenlohn-denner-wilen-b-will",
-        "fr": "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
+        "fr": "vendeur-dans-le-salaire-horaire-denner-wilen-b-c5a953"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1679,11 +1701,20 @@
       "crawledAt": "2026-06-19T21:40:05.637Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner-3"
+          "verkaufer-in-im-stundenlohn-denner-3",
+          "verkaufer-in-im-stundenlohn-denner"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-3"
+        "verkaufer-in-im-stundenlohn-denner-3",
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-wilen-b-will"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1797,12 +1828,12 @@
     },
     {
       "id": "denner-64dfa3f2be81",
-      "slug": "verkaufer-in-denner",
+      "slug": "venditore-con-salario-orario-denner-butschwil",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-con-salario-orario-denner-butschwil",
+        "en": "salesperson-on-an-hourly-wage-denner-butschwil",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-a-salaire-horaire-denner-butschwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1862,20 +1893,24 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-3"
+          "verkaufer-in-denner-3",
+          "verkaufer-in-denner"
         ],
         "en": [
-          "verkaufer-in-denner-butschwil"
+          "verkaufer-in-denner-butschwil",
+          "verkaufer-in-denner"
         ],
         "de": [
           "verkaufer-in-denner-butschwil"
         ],
         "fr": [
-          "verkaufer-in-denner-butschwil"
+          "verkaufer-in-denner-butschwil",
+          "verkaufer-in-denner"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-3",
+        "verkaufer-in-denner",
         "verkaufer-in-denner-butschwil"
       ],
       "salaryMin": 59000,
@@ -2182,12 +2217,12 @@
     },
     {
       "id": "denner-b45da71ac05e",
-      "slug": "verkaufer-in-denner-sulgen",
+      "slug": "venditore-denner-sulgen",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-sulgen",
+        "it": "venditore-denner-sulgen",
         "de": "verkaufer-in-denner-ag-sulgen",
-        "en": "verkaufer-in-denner-sulgen",
-        "fr": "verkaufer-in-denner-sulgen"
+        "en": "seller-denner-sulgen",
+        "fr": "vendeur-denner-sulgen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2246,11 +2281,19 @@
       "crawledAt": "2026-06-19T21:40:04.162Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-sulgen"
+        ],
+        "en": [
+          "verkaufer-in-denner-sulgen"
+        ],
+        "fr": [
+          "verkaufer-in-denner-sulgen"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner"
+        "verkaufer-in-denner",
+        "verkaufer-in-denner-sulgen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -2456,12 +2499,12 @@
     },
     {
       "id": "denner-91bae124c945",
-      "slug": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+      "slug": "venditore-nel-salario-orario-denner-spreitenbach",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+        "it": "venditore-nel-salario-orario-denner-spreitenbach",
         "de": "verkaufer-in-im-stundenlohn-denner-ag-spreitenbach-h9wkyg",
-        "en": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
-        "fr": "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        "en": "seller-in-the-hourly-wage-denner-spreitenbach",
+        "fr": "vendeur-dans-le-salaire-horaire-denner-spreitenbach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2520,11 +2563,19 @@
       "crawledAt": "2026-06-19T21:40:03.703Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        ],
+        "en": [
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        ],
+        "fr": [
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-spreitenbach"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2701,17 +2752,10 @@
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-gerant-e-denner"
-        ],
-        "en": [
-          "adjoint-e-gerant-e-denner-sa-lausanne"
-        ],
-        "de": [
-          "adjoint-e-gerant-e-denner-sa-lausanne"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-gerant-e-denner",
-        "adjoint-e-gerant-e-denner-sa-lausanne"
+        "adjoint-e-gerant-e-denner"
       ],
       "needsRetranslation": true,
       "salaryMin": 72000,

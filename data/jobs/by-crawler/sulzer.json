@@ -2063,12 +2063,12 @@
     },
     {
       "id": "sulzer-da553708c3b9",
-      "slug": "electrical-fitter-sulzer-ch",
+      "slug": "apparecchi-elettrici-sulzer-winterthur",
       "slugByLocale": {
-        "it": "electrical-fitter-sulzer-ch",
+        "it": "apparecchi-elettrici-sulzer-winterthur",
         "en": "electrical-fitter-sulzer-ch",
         "de": "electrical-fitter-sulzer-winterthur",
-        "fr": "electrical-fitter-sulzer-ch"
+        "fr": "avertisseur-electrique-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -2108,16 +2108,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apparecchi-elettrici-sulzer-winterthur",
-        "avertisseur-electrique-sulzer-winterthur"
+        "electrical-fitter-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apparecchi-elettrici-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ],
         "fr": [
-          "avertisseur-electrique-sulzer-winterthur",
           "electrical-fitter-sulzer-ch"
         ]
       },
@@ -13026,8 +13023,7 @@
       ],
       "previousSlugsByLocale": {
         "de": [
-          "principal-structure-engineer-sulzer-ch",
-          "principal-structure-ingenieur-sulzer-shanghai"
+          "principal-structure-engineer-sulzer-ch"
         ],
         "it": [
           "principal-structure-engineer-sulzer-ch"
@@ -17100,12 +17096,12 @@
     },
     {
       "id": "sulzer-b604fa7e4a58",
-      "slug": "sales-manager-sulzer-ch",
+      "slug": "responsabile-vendite-sulzer-winterthur",
       "slugByLocale": {
-        "it": "sales-manager-sulzer-ch",
+        "it": "responsabile-vendite-sulzer-winterthur",
         "en": "sales-manager-sulzer-winterthur",
         "de": "sales-manager-sulzer-ch",
-        "fr": "sales-manager-sulzer-ch"
+        "fr": "directeur-des-ventes-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -17146,17 +17142,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-manager-w-m-d-sulzer-ch",
-        "responsabile-vendite-sulzer-winterthur",
-        "directeur-des-ventes-sulzer-winterthur"
+        "sales-manager-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-manager-w-m-d-sulzer-ch",
-          "responsabile-vendite-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ],
         "fr": [
-          "directeur-des-ventes-sulzer-winterthur",
           "sales-manager-sulzer-ch"
         ]
       },
@@ -23490,11 +23483,11 @@
     },
     {
       "id": "sulzer-6fa7dee7ba59",
-      "slug": "electrical-engineer-sulzer-ch",
+      "slug": "electrical-ingegnere-sulzer-colton",
       "slugByLocale": {
         "en": "electrical-engineer-sulzer-ch",
-        "it": "electrical-engineer-sulzer-ch",
-        "de": "electrical-engineer-sulzer-ch",
+        "it": "electrical-ingegnere-sulzer-colton",
+        "de": "electrical-ingenieur-sulzer-colton",
         "fr": "electrical-engineer-sulzer-ch"
       },
       "company": "Sulzer",
@@ -23551,7 +23544,18 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T22:44:22.648Z"
+      "firstSeenAt": "2026-06-19T22:44:22.648Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-engineer-sulzer-ch"
+        ],
+        "de": [
+          "electrical-engineer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-engineer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-4533645e920d",

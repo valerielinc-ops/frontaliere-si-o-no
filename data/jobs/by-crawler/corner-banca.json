@@ -1074,12 +1074,12 @@
     },
     {
       "id": "corner-banca-31e07dd63549",
-      "slug": "marketing-project-manager-corner-banca-lugano",
+      "slug": "responsabile-del-progetto-di-marketing-corner-banca-lugano",
       "slugByLocale": {
-        "it": "marketing-project-manager-corner-banca-lugano",
+        "it": "responsabile-del-progetto-di-marketing-corner-banca-lugano",
         "en": "marketing-project-manager-corner-banca-lugano",
-        "de": "marketing-project-manager-corner-banca-lugano",
-        "fr": "marketing-project-manager-corner-banca-lugano"
+        "de": "marketing-projektmanager-corner-banca-lugano",
+        "fr": "directeur-de-projet-marketing-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1180,7 +1180,21 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "firstSeenAt": "2026-06-19T21:37:06.561Z"
+      "firstSeenAt": "2026-06-19T21:37:06.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-project-manager-corner-banca-lugano"
+        ],
+        "de": [
+          "marketing-project-manager-corner-banca-lugano"
+        ],
+        "fr": [
+          "marketing-project-manager-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-project-manager-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-115c1c6e6274",

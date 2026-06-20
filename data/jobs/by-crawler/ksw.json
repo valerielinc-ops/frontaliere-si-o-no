@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ksw-e230c7eea728",
-      "slug": "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
+      "slug": "infermieristica-professionale-infermieristica-in-piscina-medica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
+        "it": "infermieristica-professionale-infermieristica-in-piscina-medica-kantonsspital-winterthur-ksw-winterthur",
+        "en": "nursing-professional-nursing-professional-in-the-medical-pool-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-dans-la-piscine-medicale-kantonsspital"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:07:25.121Z"
+      "firstSeenAt": "2026-06-19T22:07:25.121Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-im-medizinischen-pool-ksw-ch"
+      ]
     },
     {
       "id": "ksw-a33c28a77303",
@@ -291,9 +305,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -336,7 +350,9 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -516,12 +532,12 @@
     },
     {
       "id": "ksw-028827099c68",
-      "slug": "physician-associate-ksw-ch",
+      "slug": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "physician-associate-ksw-ch",
+        "it": "medico-associato-kantonsspital-winterthur-ksw-winterthur",
         "en": "physician-associate-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-ksw-ch",
-        "fr": "physician-associate-ksw-ch"
+        "fr": "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -564,16 +580,13 @@
       "requirementsByLocale": {},
       "department": "Klinik für Urologie",
       "previousSlugs": [
-        "medico-associato-kantonsspital-winterthur-ksw-winterthur",
-        "medecin-associe-kantonsspital-winterthur-ksw-winterthur"
+        "physician-associate-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medico-associato-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ],
         "fr": [
-          "medecin-associe-kantonsspital-winterthur-ksw-winterthur",
           "physician-associate-ksw-ch"
         ]
       },
@@ -672,8 +685,8 @@
       "id": "ksw-338414bc11b1",
       "slug": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "interno-di-cura-interno-di-cura-kantonsspital-winterthur-ksw-winterthur",
-        "en": "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "en": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -719,15 +732,13 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugs": [
         "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch",
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch"
         ],
         "en": [
-          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
           "care-intern-care-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
@@ -1832,8 +1843,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch",
         "it": "mitarbeiterin-collaboratore-trice-telefonzentrale-e-information-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
+        "en": "employee-telephone-center-and-information-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "employe-centre-telephonique-et-information-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1880,6 +1891,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-telefonzentrale-und-information-ksw-ch"
         ]
       },
       "previousSlugs": [
@@ -1905,8 +1922,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch",
         "it": "oberarztin-oberarzt-innere-medizin-e-notfallzentrum-kantonsspital-winterthur-ksw-winterthur",
-        "en": "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch",
-        "fr": "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch"
+        "en": "senior-physician-internal-medicine-and-emergency-center-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-principal-centre-de-medecine-interne-et-d-urgence-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1952,6 +1969,12 @@
       "department": "Zentrum für Allgemeine Innere Medizin",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-innere-medizin-und-notfallzentrum-ksw-ch"
         ]
       },
@@ -4171,12 +4194,12 @@
     },
     {
       "id": "ksw-76c57c168e40",
-      "slug": "assistentin-assistent-leitung-pflege-ksw-ch",
+      "slug": "assistente-assistente-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "assistentin-assistent-leitung-pflege-ksw-ch",
-        "it": "assistentin-assistent-leitung-pflege-ksw-ch",
-        "en": "assistentin-assistent-leitung-pflege-ksw-ch",
-        "fr": "assistentin-assistent-leitung-pflege-ksw-ch"
+        "it": "assistente-assistente-kantonsspital-winterthur-ksw-winterthur",
+        "en": "assistant-assistant-head-care-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-assistant-chef-de-service-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4232,16 +4255,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:07:25.119Z"
+      "firstSeenAt": "2026-06-19T22:07:25.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-leitung-pflege-ksw-ch"
+        ],
+        "en": [
+          "assistentin-assistent-leitung-pflege-ksw-ch"
+        ],
+        "fr": [
+          "assistentin-assistent-leitung-pflege-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-leitung-pflege-ksw-ch"
+      ]
     },
     {
       "id": "ksw-66f03fa5a522",
-      "slug": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
+      "slug": "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "it": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "en": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch",
-        "fr": "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        "it": "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4297,7 +4334,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:07:25.119Z"
+      "firstSeenAt": "2026-06-19T22:07:25.119Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ],
+        "en": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ],
+        "fr": [
+          "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
+      ]
     },
     {
       "id": "ksw-31bedafd450a",

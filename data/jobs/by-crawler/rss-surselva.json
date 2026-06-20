@@ -571,7 +571,7 @@
         "it": "dipl-fachperson-operationstechnik-hf-o-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz",
         "en": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz",
         "de": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss-sursel",
-        "fr": "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
+        "fr": "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -618,7 +618,7 @@
       "pensumMax": 100,
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss",
-        "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
+        "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -628,7 +628,6 @@
           "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss"
         ],
         "fr": [
-          "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz",
           "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
         ]
       },
@@ -649,12 +648,12 @@
     },
     {
       "id": "rss-surselva-609a7aff3056",
-      "slug": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+      "slug": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+        "it": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
         "en": "dipl-experten-expertin-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "de": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
-        "fr": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+        "fr": "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -702,19 +701,16 @@
       "previousSlugs": [
         "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-        "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
-        "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz",
+        "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
         "dipl-expert-expert-hf-emergency-care-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
           "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-          "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ],
         "fr": [
-          "dipl-expert-expert-hf-soins-d-urgence-100-regionalspital-surselva-ilanz",
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ]
       },
@@ -735,10 +731,10 @@
     },
     {
       "id": "rss-surselva-9b4c791a3514",
-      "slug": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+      "slug": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
-        "en": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+        "it": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
+        "en": "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
         "de": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "fr": "radiologie-fachperson-mtr-hf-80-100-regionalspital-surselva-ilanz"
       },
@@ -786,17 +782,14 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "previousSlugs": [
-        "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
-        "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
+        "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "specialista-di-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
         ],
         "en": [
-          "radiology-professional-mtr-hf-80-100-regionalspital-surselva-ilanz",
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
         ]
       },
