@@ -2772,8 +2772,8 @@
       "slugByLocale": {
         "de": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
         "it": "sales-support-per-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-m-w-d-globus-zurich-bahnhofstrasse",
-        "en": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch",
-        "fr": "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        "en": "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
+        "fr": "soutien-aux-ventes-pour-les-missions-dans-le-secteur-alimentaire-20-principalement-les-missions-du-samedi-f-m-d-globus"
       },
       "company": "Globus",
       "companyKey": "globus",
@@ -2820,6 +2820,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ],
+        "en": [
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
+        ],
+        "fr": [
+          "sales-support-fur-einsatze-im-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus-ch"
         ]
       },
       "previousSlugs": [
@@ -2841,10 +2847,10 @@
     },
     {
       "id": "globus-cbacbb62fe9f",
-      "slug": "sales-support-a-20-samedis-globus-ch",
+      "slug": "supporto-vendite-20-sabati-globus-geneve",
       "slugByLocale": {
         "fr": "sales-support-a-20-samedis-globus-ch",
-        "it": "sales-support-a-20-samedis-globus-ch",
+        "it": "supporto-vendite-20-sabati-globus-geneve",
         "en": "sales-support-a-20-samedis-globus-ch",
         "de": "sales-support-a-20-samedis-globus-ch"
       },
@@ -2902,7 +2908,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T21:50:13.019Z"
+      "firstSeenAt": "2026-06-19T21:50:13.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-a-20-samedis-globus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sales-support-a-20-samedis-globus-ch"
+      ]
     }
   ]
 }

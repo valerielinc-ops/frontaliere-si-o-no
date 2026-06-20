@@ -388,9 +388,9 @@
       "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "en": "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "fr": "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -434,8 +434,6 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
-        "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
-        "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
         "dipl-radiology-nurse-technologist-hf-lindenhofgruppe-bern",
         "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
@@ -448,11 +446,9 @@
           "infermiere-laureato-fh-hf-lindenhofgruppe-bern"
         ],
         "en": [
-          "dipl-nursing-specialist-fh-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ],
         "fr": [
-          "infirmier-ere-diplome-e-hes-hf-lindenhofgruppe-bern",
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
         ]
       },
@@ -2840,12 +2836,12 @@
     },
     {
       "id": "lindenhofgruppe-14da0d4b63e8",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
+      "slug": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital",
-        "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
-        "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
+        "it": "dipl-infermieristica-professionale-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+        "en": "dipl-nursing-professional-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc",
+        "fr": "dipl-soins-infirmiers-fh-hf-lindenhofgruppe-lindenhofspital-e0d8fc"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2890,11 +2886,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch-8",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-lindenhofspital"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

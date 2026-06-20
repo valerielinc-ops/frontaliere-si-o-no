@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "giardino-a70fdbb79832",
-      "slug": "housekeeping-attendant-giardino-group-ascona",
+      "slug": "addetto-alle-pulizie-giardino-group-ascona",
       "slugByLocale": {
         "de": "housekeeping-attendant-giardino-group-ascona",
-        "it": "housekeeping-attendant-giardino-group-ascona",
-        "en": "housekeeping-attendant-giardino-group-ascona",
+        "it": "addetto-alle-pulizie-giardino-group-ascona",
+        "en": "housekeeping-waiting-giardino-group-ascona",
         "fr": "housekeeping-attendant-giardino-group-ascona"
       },
       "company": "Giardino Group",
@@ -80,7 +80,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T21:49:01.621Z"
+      "firstSeenAt": "2026-06-19T21:49:01.621Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-attendant-giardino-group-ascona"
+        ],
+        "en": [
+          "housekeeping-attendant-giardino-group-ascona"
+        ]
+      },
+      "previousSlugs": [
+        "housekeeping-attendant-giardino-group-ascona"
+      ]
     }
   ]
 }

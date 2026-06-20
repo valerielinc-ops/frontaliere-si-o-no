@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-3aa0007d7140",
-      "slug": "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
+      "slug": "capo-degli-ingredienti-di-fragranza-m-f-d-givaudan-vernier-switzerland",
       "slugByLocale": {
         "en": "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
-        "it": "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
+        "it": "capo-degli-ingredienti-di-fragranza-m-f-d-givaudan-vernier-switzerland",
         "de": "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch",
-        "fr": "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
+        "fr": "chef-des-affaires-sur-les-ingredients-des-fragrances-m-f-d-givaudan-vernier-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -64,7 +64,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T21:49:28.620Z"
+      "firstSeenAt": "2026-06-19T21:49:28.620Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
+        ],
+        "fr": [
+          "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-fragrance-ingredients-business-m-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-4f122171feec",

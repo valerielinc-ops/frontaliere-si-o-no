@@ -2808,12 +2808,12 @@
     },
     {
       "id": "sika-be9659a382f8",
-      "slug": "data-engineer-hr-data-analytics-sika-ch",
+      "slug": "data-ingegnere-risorse-umane-data-analytics-sika-zurich-zurich-switzerland",
       "slugByLocale": {
         "en": "data-engineer-hr-data-analytics-sika-ch",
-        "it": "data-engineer-hr-data-analytics-sika-ch",
-        "de": "data-engineer-hr-data-analytics-sika-ch",
-        "fr": "data-engineer-hr-data-analytics-sika-ch"
+        "it": "data-ingegnere-risorse-umane-data-analytics-sika-zurich-zurich-switzerland",
+        "de": "data-ingenieur-personalwesen-data-analytics-sika-zurich-zurich-switzerland",
+        "fr": "data-ingenieur-ressources-humaines-data-analytics-sika-zurich-zurich-switzerland"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2869,7 +2869,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:32:37.925Z"
+      "firstSeenAt": "2026-06-19T22:32:37.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-engineer-hr-data-analytics-sika-ch"
+        ],
+        "de": [
+          "data-engineer-hr-data-analytics-sika-ch"
+        ],
+        "fr": [
+          "data-engineer-hr-data-analytics-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-engineer-hr-data-analytics-sika-ch"
+      ]
     }
   ]
 }

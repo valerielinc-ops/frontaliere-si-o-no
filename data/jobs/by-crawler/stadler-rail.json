@@ -12867,12 +12867,12 @@
     },
     {
       "id": "stadler-rail-63e178e6db95",
-      "slug": "polymechaniker-in-cnc-drehen-stadler-rail-ch",
+      "slug": "tornitura-cnc-polimeccanica-stadler-rail-frauenfeld",
       "slugByLocale": {
         "de": "polymechaniker-in-cnc-drehen-stadler-rail-ch",
-        "it": "polymechaniker-in-cnc-drehen-stadler-rail-ch",
-        "en": "polymechaniker-in-cnc-drehen-stadler-rail-ch",
-        "fr": "polymechaniker-in-cnc-drehen-stadler-rail-ch"
+        "it": "tornitura-cnc-polimeccanica-stadler-rail-frauenfeld",
+        "en": "polymechanic-cnc-turning-stadler-rail-frauenfeld",
+        "fr": "tournage-cnc-polymecanique-stadler-rail-frauenfeld"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12929,11 +12929,23 @@
       },
       "firstSeenAt": "2026-06-19T22:40:03.811Z",
       "previousSlugs": [
+        "polymechaniker-in-cnc-drehen-stadler-rail-ch",
         "polimeccanica-in-fresatura-cnc-stadler-rail-winterthur",
         "polymechanics-in-cnc-milling-stadler-rail-winterthur",
         "polymechaniker-in-cnc-frasen-stadler-rail-ch",
         "fraisage-cnc-polymecanique-stadler-rail-winterthur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-cnc-drehen-stadler-rail-ch"
+        ],
+        "en": [
+          "polymechaniker-in-cnc-drehen-stadler-rail-ch"
+        ],
+        "fr": [
+          "polymechaniker-in-cnc-drehen-stadler-rail-ch"
+        ]
+      }
     },
     {
       "id": "stadler-rail-5a1d746c07f0",

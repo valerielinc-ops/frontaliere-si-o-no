@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "operatore-impianto-di-betonaggio-pemsa-bellinzona",
-        "en": "operatore-impianto-di-betonaggio-pemsa-bellinzona",
-        "de": "operatore-impianto-di-betonaggio-pemsa-bellinzona",
-        "fr": "operatore-impianto-di-betonaggio-pemsa-bellinzona"
+        "en": "operator-betoning-plant-pemsa-bellinzona",
+        "de": "betreiber-betonieranlage-pemsa-bellinzona",
+        "fr": "usine-de-parieuse-pemsa-bellinzona"
       },
       "id": "pemsa-4ccffa0f00ab",
       "needsRetranslation": true,
@@ -396,7 +396,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
         "en": "hydraulic-plants-heating-pemsa-lugano",
         "de": "hydraulische-anlagen-heizung-pemsa-lugano",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
+        "fr": "installations-hydrauliques-chauffage-pemsa-lugano"
       },
       "id": "pemsa-f7abbafa335a",
       "salaryMin": 49500,
@@ -415,14 +415,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-19T13:11:10.120Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "installations-hydrauliques-chauffage-pemsa-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "installations-hydrauliques-chauffage-pemsa-lugano"
-      ],
       "needsRetranslation": true
     },
     {
@@ -2190,7 +2182,7 @@
         "it": "idraulico-impianti-riscaldamento-pemsa-torricella",
         "en": "implementations-pemsa-torricella",
         "de": "durchfuhrungen-pemsa-torricella",
-        "fr": "idraulico-impianti-riscaldamento-pemsa-torricella"
+        "fr": "mise-en-uvre-pemsa-torricella"
       },
       "id": "pemsa-c878202c7986",
       "salaryMin": 49500,
@@ -2209,14 +2201,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "mise-en-uvre-pemsa-torricella"
-        ]
-      },
-      "previousSlugs": [
-        "mise-en-uvre-pemsa-torricella"
-      ],
       "needsRetranslation": true
     },
     {

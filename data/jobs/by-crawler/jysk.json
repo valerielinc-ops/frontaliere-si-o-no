@@ -36,9 +36,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-a-30-in-der-filiale-winterthur-rosenberg-jysk-winterthur-op55hr",
-        "en": "verkaufer-in-a-30-in-der-filiale-winterthur-rosenberg-jysk-winterthur-op55hr",
+        "en": "seller-a-30-in-the-winterthur-rosenberg-branch-jysk-winterthur",
         "de": "verkaufer-in-a-30-in-der-filiale-winterthur-rosenberg-jysk-winterthur-op55hr",
-        "fr": "verkaufer-in-a-30-in-der-filiale-winterthur-rosenberg-jysk-winterthur-op55hr"
+        "fr": "vendeur-a-30-dans-la-succursale-winterthur-rosenberg-jysk-winterthur"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -71,7 +71,7 @@
     },
     {
       "id": "company-a31h5f",
-      "slug": "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f",
+      "slug": "venditore-a-40-nel-ramo-davos-jysk-davos-platz",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 40% in der Filiale Davos",
       "location": "Davos Platz",
@@ -102,20 +102,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service client avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\nPossibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Compétitions internes entre succursales à des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et autres sociétés du Groupe Lars Larsen\n\n- Les principaux services de fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages tels qu'une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il ira dans votre prochain travail\n\n- Vous êtes responsable des ventes dans le magasin et offrez à nos clients un service haut de gamme\n\n- Assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous prenez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez indépendamment\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, vous avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nAllez-y !"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f",
-        "en": "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f",
+        "it": "venditore-a-40-nel-ramo-davos-jysk-davos-platz",
+        "en": "seller-a-40-in-the-davos-branch-jysk-davos-platz",
         "de": "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f",
-        "fr": "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f"
+        "fr": "vendeur-a-40-dans-la-succursale-de-davos-jysk-davos-platz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz"
+          "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz",
+          "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f"
+        ],
+        "en": [
+          "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f"
+        ],
+        "fr": [
+          "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz"
+        "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz",
+        "verkaufer-in-a-40-in-der-filiale-davos-jysk-davos-platz-a31h5f"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -138,7 +146,7 @@
     },
     {
       "id": "company-yos1k",
-      "slug": "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k",
+      "slug": "venditore-a-20-nel-ramo-davos-sabato-jysk-davos-platz",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 20% in der Filiale Davos (Samstag)",
       "location": "Davos Platz",
@@ -169,20 +177,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service client avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\nPossibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Compétitions internes entre succursales à des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et autres sociétés du Groupe Lars Larsen\n\n- Les principaux services de fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages tels qu'une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il ira dans votre prochain travail\n\n- Vous êtes responsable des ventes dans le magasin et offrez à nos clients un service haut de gamme\n\n- Assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous prenez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez indépendamment\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, vous avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nAllez-y !"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k",
-        "en": "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k",
+        "it": "venditore-a-20-nel-ramo-davos-sabato-jysk-davos-platz",
+        "en": "seller-a-20-in-the-davos-branch-saturday-jysk-davos-platz",
         "de": "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k",
-        "fr": "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k"
+        "fr": "vendeur-a-20-dans-la-succursale-de-davos-samedi-jysk-davos-platz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz"
+          "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz",
+          "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k"
+        ],
+        "en": [
+          "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k"
+        ],
+        "fr": [
+          "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz"
+        "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz",
+        "verkaufer-in-a-20-in-der-filiale-davos-samstag-jysk-davos-platz-0yos1k"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -925,9 +941,6 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-a-20-in-der-filiale-biel-collaborateur-trice-20-dans-la-filiale-bienne-jysk-biel"
-        ],
-        "de": [
-          "verkaufer-in-a-20-in-der-branch-biel-collaborateur-trice-20-in-der-branch-biel-jysk-biel-5uoz9k"
         ]
       },
       "previousSlugs": [
