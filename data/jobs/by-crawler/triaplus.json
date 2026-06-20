@@ -2754,12 +2754,12 @@
     },
     {
       "id": "triaplus-9f73a0cca67d",
-      "slug": "it-systemspezialist-m-w-d-triaplus-ag-oberwil",
+      "slug": "specialista-del-sistema-it-m-f-d-triaplus-ag-oberwil",
       "slugByLocale": {
-        "it": "it-systemspezialist-m-w-d-triaplus-ag-oberwil",
-        "en": "it-systemspezialist-m-w-d-triaplus-ag-oberwil",
+        "it": "specialista-del-sistema-it-m-f-d-triaplus-ag-oberwil",
+        "en": "it-system-specialist-m-f-d-triaplus-ag-oberwil",
         "de": "it-systemspezialist-m-w-d-triaplus-it-systemspezialist-m-w-d",
-        "fr": "it-systemspezialist-m-w-d-triaplus-ag-oberwil"
+        "fr": "specialiste-des-systemes-informatiques-m-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2802,11 +2802,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-systemspezialist-m-w-d-triaplus-it-systemspezialist-m-w-d"
+        "it-systemspezialist-m-w-d-triaplus-it-systemspezialist-m-w-d",
+        "it-systemspezialist-m-w-d-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-systemspezialist-m-w-d-triaplus-it-systemspezialist-m-w-d"
+          "it-systemspezialist-m-w-d-triaplus-it-systemspezialist-m-w-d",
+          "it-systemspezialist-m-w-d-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "it-systemspezialist-m-w-d-triaplus-ag-oberwil"
+        ],
+        "fr": [
+          "it-systemspezialist-m-w-d-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-06-19T13:39:19.534Z",

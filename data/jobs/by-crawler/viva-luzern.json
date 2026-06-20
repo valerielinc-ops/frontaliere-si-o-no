@@ -863,7 +863,6 @@
         "assistant-en-sante-efz-viva-luzern-luzern",
         "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
         "fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "fachfrau-mann-gesundheit-cfc-viva-luzern",
         "specialista-della-salute-efz-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
@@ -1441,9 +1440,9 @@
       "slug": "collaboratore-trice-technik-unterhalt-viva-luzern",
       "slugByLocale": {
         "it": "collaboratore-trice-technik-unterhalt-viva-luzern",
-        "en": "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern",
+        "en": "employee-technology-maintenance-viva-luzern-luzern",
         "de": "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern",
-        "fr": "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern"
+        "fr": "technologie-et-maintenance-des-employes-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1489,6 +1488,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern"
+        ],
+        "en": [
+          "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern"
+        ],
+        "fr": [
           "mitarbeiter-in-technik-amp-unterhalt-viva-luzern-luzern"
         ]
       },
