@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-06-19T22:35:18.697Z",
+  "assembledAt": "2026-06-20T11:49:44.913Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:16.073Z",
+      "crawledAt": "2026-06-20T11:49:42.460Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +135,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kauffrau-Kaufmann-EFZ-2027-de-j391.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:15.246Z",
+      "crawledAt": "2026-06-20T11:49:41.658Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -173,6 +173,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T22:44:48.417Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -202,7 +203,7 @@
       "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
       "titleByLocale": {
         "it": "Apprendistato come Kaufmann/-frau CFC Marketing & Kommunikation 2027",
-        "en": "Apprenticeship as a businessman/woman EFZ Marketing & Communication 2027",
+        "en": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "de": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
         "fr": "Apprentissage en tant qu'homme d'affaires/femme EFZ Marketing & Communication 2027"
       },
@@ -218,7 +219,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:14.180Z",
+      "crawledAt": "2026-06-20T11:49:40.675Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -317,7 +318,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Audio-Video-100-de-j396.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:13.350Z",
+      "crawledAt": "2026-06-20T11:49:39.873Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -363,6 +364,7 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:56.684Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "baseSalary": {
@@ -408,7 +410,7 @@
       "url": "https://jobs.somedia.ch/Polygrafin-80-100-mit-Lernendenbetreuung-de-j397.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:12.411Z",
+      "crawledAt": "2026-06-20T11:49:38.989Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -458,6 +460,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:40:47.208Z",
+      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500,
       "baseSalary": {
@@ -503,7 +506,7 @@
       "url": "https://jobs.somedia.ch/Sachbearbeiterin-Fruehschicht-25-de-j395.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:11.464Z",
+      "crawledAt": "2026-06-20T11:49:38.077Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -563,6 +566,7 @@
         "sachbearbeiter-in-fruhschicht-25-somedia-ch"
       ],
       "firstSeenAt": "2026-05-28T14:07:41.063Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
