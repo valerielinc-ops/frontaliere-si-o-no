@@ -373,12 +373,12 @@
     },
     {
       "id": "ubs-6b245a1f964d",
-      "slug": "cliente-associato-ubs-ticino",
+      "slug": "client-associate-ubs",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino",
+        "it": "client-associate-ubs",
         "de": "client-associate-ubs",
-        "fr": "client-associe-ubs-ticino"
+        "fr": "client-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -442,9 +442,6 @@
       },
       "firstSeenAt": "2026-06-17T23:34:45.659Z",
       "previousSlugs": [
-        "client-associate-ubs-2",
-        "client-associe-ubs-ticino-6c4f9e",
-        "client-associate-ubs",
         "cliente-associato-ubs-ticino-6c4f9e"
       ],
       "previousSlugsByLocale": {
@@ -453,12 +450,10 @@
         ],
         "fr": [
           "client-associe-ubs-ticino-6c4f9e",
-          "client-associate-ubs-2",
-          "client-associate-ubs"
+          "client-associate-ubs-2"
         ],
         "it": [
-          "client-associate-ubs-2",
-          "client-associate-ubs"
+          "client-associate-ubs-2"
         ]
       }
     },
@@ -606,12 +601,12 @@
     },
     {
       "id": "ubs-4f78a16a464c",
-      "slug": "specialista-di-spedizione-ubs-ticino",
+      "slug": "speditionsfachfrau-mann-ubs",
       "slugByLocale": {
-        "en": "freight-forwarding-specialist-ubs-ticino",
-        "it": "specialista-di-spedizione-ubs-ticino",
+        "en": "speditionsfachfrau-mann-ubs",
+        "it": "speditionsfachfrau-mann-ubs",
         "de": "speditionsfachfrau-mann-ubs",
-        "fr": "specialiste-du-transport-de-marchandises-ubs-ticino"
+        "fr": "speditionsfachfrau-mann-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -676,13 +671,15 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "speditionsfachfrau-mann-ubs"
+        "specialista-di-spedizione-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "freight-forwarding-specialist-ubs-ticino",
           "speditionsfachfrau-mann-ubs"
         ],
         "fr": [
+          "specialiste-du-transport-de-marchandises-ubs-ticino",
           "speditionsfachfrau-mann-ubs"
         ],
         "it": [
@@ -692,12 +689,12 @@
     },
     {
       "id": "ubs-43c38322433a",
-      "slug": "prezioso-cassiere-in-metallo-ubs-ticino",
+      "slug": "edelmetall-kassierer-in-ubs",
       "slugByLocale": {
-        "en": "precious-metal-cashier-in-ubs-ticino",
-        "it": "prezioso-cassiere-in-metallo-ubs-ticino",
+        "en": "edelmetall-kassierer-in-ubs",
+        "it": "edelmetall-kassierer-in-ubs",
         "de": "edelmetall-kassierer-in-ubs",
-        "fr": "precieux-caissier-metal-in-ubs-ticino"
+        "fr": "edelmetall-kassierer-in-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -762,13 +759,15 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "edelmetall-kassierer-in-ubs"
+        "prezioso-cassiere-in-metallo-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "precious-metal-cashier-in-ubs-ticino",
           "edelmetall-kassierer-in-ubs"
         ],
         "fr": [
+          "precieux-caissier-metal-in-ubs-ticino",
           "edelmetall-kassierer-in-ubs"
         ],
         "it": [
@@ -778,12 +777,12 @@
     },
     {
       "id": "ubs-0c23ccdb8f73",
-      "slug": "cliente-associato-registrato-ubs-ticino",
+      "slug": "registered-client-associate-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino",
+        "it": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs",
-        "fr": "client-enregistre-associe-ubs-ticino"
+        "fr": "registered-client-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -845,27 +844,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T12:04:57.135Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "registered-client-associate-ubs"
-        ],
-        "fr": [
-          "registered-client-associate-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "registered-client-associate-ubs"
-      ]
+      "firstSeenAt": "2026-06-20T12:04:57.135Z"
     },
     {
       "id": "ubs-c5dd9e4ffd41",
-      "slug": "cliente-associato-registrato-ubs-ticino-4b0642",
+      "slug": "registered-client-associate-ubs-2",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-4b0642",
+        "it": "registered-client-associate-ubs-2",
         "de": "registered-client-associate-ubs-2",
-        "fr": "client-enregistre-associe-ubs-ticino-4b0642"
+        "fr": "registered-client-associate-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -927,27 +915,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T12:04:57.133Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "registered-client-associate-ubs-2"
-        ],
-        "fr": [
-          "registered-client-associate-ubs-2"
-        ]
-      },
-      "previousSlugs": [
-        "registered-client-associate-ubs-2"
-      ]
+      "firstSeenAt": "2026-06-20T12:04:57.133Z"
     },
     {
       "id": "ubs-2722586f1e86",
-      "slug": "servizio-clienti-registrato-associato-ubs-ticino",
+      "slug": "registered-client-service-associate-ubs",
       "slugByLocale": {
         "en": "registered-client-service-associate-ubs",
-        "it": "servizio-clienti-registrato-associato-ubs-ticino",
+        "it": "registered-client-service-associate-ubs",
         "de": "registered-client-service-associate-ubs",
-        "fr": "associe-de-service-a-la-clientele-enregistre-ubs-ticino"
+        "fr": "registered-client-service-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1009,18 +986,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T12:04:57.132Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "registered-client-service-associate-ubs"
-        ],
-        "fr": [
-          "registered-client-service-associate-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "registered-client-service-associate-ubs"
-      ]
+      "firstSeenAt": "2026-06-20T12:04:57.132Z"
     },
     {
       "id": "ubs-352697e41c47",
@@ -1174,12 +1140,12 @@
     },
     {
       "id": "ubs-234618a4760b",
-      "slug": "ricerca-analista-industrials-ubs-ticino",
+      "slug": "research-analyst-industrials-ubs",
       "slugByLocale": {
         "en": "research-analyst-industrials-ubs",
-        "it": "ricerca-analista-industrials-ubs-ticino",
+        "it": "research-analyst-industrials-ubs",
         "de": "research-analyst-industrials-ubs",
-        "fr": "recherche-analyste-industrials-ubs-ticino"
+        "fr": "research-analyst-industrials-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1243,10 +1209,11 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.347Z",
       "previousSlugs": [
-        "research-analyst-industrials-ubs"
+        "ricerca-analista-industrials-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "recherche-analyste-industrials-ubs-ticino",
           "research-analyst-industrials-ubs"
         ],
         "it": [
@@ -1560,12 +1527,12 @@
     },
     {
       "id": "ubs-4c55974f3540",
-      "slug": "agente-operativo-ubs-ticino",
+      "slug": "operations-officer-ubs",
       "slugByLocale": {
         "en": "operations-officer-ubs",
-        "it": "agente-operativo-ubs-ticino",
+        "it": "operations-officer-ubs",
         "de": "operations-officer-ubs",
-        "fr": "specialiste-des-operations-ubs-ticino"
+        "fr": "operations-officer-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1627,27 +1594,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T12:04:57.120Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operations-officer-ubs"
-        ],
-        "fr": [
-          "operations-officer-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "operations-officer-ubs"
-      ]
+      "firstSeenAt": "2026-06-20T12:04:57.120Z"
     },
     {
       "id": "ubs-00e41e8420f1",
-      "slug": "cliente-associato-registrato-ubs-ticino-c8b149",
+      "slug": "registered-client-associate-ubs-3",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-c8b149",
+        "it": "registered-client-associate-ubs-3",
         "de": "registered-client-associate-ubs-3",
-        "fr": "client-enregistre-associe-ubs-ticino-c8b149"
+        "fr": "registered-client-associate-ubs-3"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1711,11 +1667,9 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.357Z",
       "previousSlugs": [
-        "cliente-associato-registrato-ubs-ticino-7c46bf",
-        "registered-client-associate-ubs-3",
-        "registered-client-associate-ubs",
-        "client-enregistre-associe-ubs-ticino",
         "cliente-associato-registrato-ubs-ticino",
+        "client-enregistre-associe-ubs-ticino-c8b149",
+        "cliente-associato-registrato-ubs-ticino-c8b149",
         "client-associate-registered-ubs",
         "registered-client-associate-ubs-2",
         "servizio-clienti-registrato-associato-ubs-ticino",
@@ -1730,8 +1684,12 @@
         ],
         "fr": [
           "client-enregistre-associe-ubs-ticino",
+          "client-enregistre-associe-ubs-ticino-c8b149",
           "registered-client-associate-ubs-3",
           "registered-client-associate-ubs"
+        ],
+        "de": [
+          "registered-client-associate-ubs-3"
         ]
       }
     },
@@ -1809,12 +1767,12 @@
     },
     {
       "id": "ubs-1a46177cf424",
-      "slug": "amministratore-ufficio-ubs-ticino",
+      "slug": "office-administrator-ubs",
       "slugByLocale": {
         "en": "office-administrator-ubs",
-        "it": "amministratore-ufficio-ubs-ticino",
-        "de": "buroverwaltung-ubs-ticino",
-        "fr": "administrateur-de-bureau-ubs-ticino"
+        "it": "office-administrator-ubs",
+        "de": "office-administrator-ubs",
+        "fr": "office-administrator-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1878,13 +1836,15 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.356Z",
       "previousSlugs": [
-        "office-administrator-ubs"
+        "amministratore-ufficio-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "buroverwaltung-ubs-ticino",
           "office-administrator-ubs"
         ],
         "fr": [
+          "administrateur-de-bureau-ubs-ticino",
           "office-administrator-ubs"
         ],
         "it": [
@@ -1965,12 +1925,12 @@
     },
     {
       "id": "ubs-90de87e1f3f6",
-      "slug": "gestione-account-cliente-ubs-ticino",
+      "slug": "client-account-manager-ubs",
       "slugByLocale": {
         "en": "client-account-manager-ubs",
-        "it": "gestione-account-cliente-ubs-ticino",
-        "de": "kundenkontomanager-ubs-ticino",
-        "fr": "gestionnaire-de-compte-client-ubs-ticino"
+        "it": "client-account-manager-ubs",
+        "de": "client-account-manager-ubs",
+        "fr": "client-account-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2034,13 +1994,15 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.353Z",
       "previousSlugs": [
-        "client-account-manager-ubs"
+        "gestione-account-cliente-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
+          "kundenkontomanager-ubs-ticino",
           "client-account-manager-ubs"
         ],
         "fr": [
+          "gestionnaire-de-compte-client-ubs-ticino",
           "client-account-manager-ubs"
         ],
         "it": [
@@ -2055,7 +2017,7 @@
         "en": "internship-in-finance-team-spanish-speaker-ubs",
         "it": "internship-in-finance-team-spanish-speaker-ubs",
         "de": "internship-in-finance-team-spanish-speaker-ubs",
-        "fr": "stage-dans-l-equipe-des-finances-president-espagnol-ubs-ticino"
+        "fr": "internship-in-finance-team-spanish-speaker-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2117,16 +2079,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.350Z"
+      "firstSeenAt": "2026-06-17T14:07:38.350Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "stage-dans-l-equipe-des-finances-president-espagnol-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-fa005dcc31f6",
-      "slug": "cliente-associato-ubs-ticino-29b88b",
+      "slug": "client-associate-ubs-2",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-29b88b",
+        "it": "client-associate-ubs-2",
         "de": "client-associate-ubs-2",
-        "fr": "client-associe-ubs-ticino-29b88b"
+        "fr": "client-associate-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2190,20 +2157,18 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.603Z",
       "previousSlugs": [
-        "client-associate-ubs-3",
-        "client-associate-ubs-2"
+        "cliente-associato-ubs-ticino-29b88b"
       ],
       "previousSlugsByLocale": {
         "de": [
           "client-associate-ubs-3"
         ],
         "fr": [
-          "client-associate-ubs-3",
-          "client-associate-ubs-2"
+          "client-associe-ubs-ticino-29b88b",
+          "client-associate-ubs-3"
         ],
         "it": [
-          "client-associate-ubs-3",
-          "client-associate-ubs-2"
+          "client-associate-ubs-3"
         ]
       }
     },
@@ -2433,12 +2398,12 @@
     },
     {
       "id": "ubs-9ce7282d7ccd",
-      "slug": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
+      "slug": "clearing-relationship-manager-ubs",
       "slugByLocale": {
         "en": "clearing-relationship-manager-ubs",
-        "it": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
+        "it": "clearing-relationship-manager-ubs",
         "de": "clearing-relationship-manager-ubs",
-        "fr": "gestionnaire-de-relations-de-compensation-ubs-ticino"
+        "fr": "clearing-relationship-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2502,10 +2467,11 @@
       },
       "firstSeenAt": "2026-06-18T13:20:32.602Z",
       "previousSlugs": [
-        "clearing-relationship-manager-ubs"
+        "gestione-delle-relazioni-di-compensazione-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "gestionnaire-de-relations-de-compensation-ubs-ticino",
           "clearing-relationship-manager-ubs"
         ],
         "it": [
@@ -2747,12 +2713,12 @@
     },
     {
       "id": "ubs-3ee4e7409662",
-      "slug": "cliente-associato-registrato-ubs-ticino-e43e90",
+      "slug": "registered-client-associate-ubs-4",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-e43e90",
+        "it": "registered-client-associate-ubs-4",
         "de": "registered-client-associate-ubs-4",
-        "fr": "client-enregistre-associe-ubs-ticino-e43e90"
+        "fr": "registered-client-associate-ubs-4"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2816,14 +2782,15 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.604Z",
       "previousSlugs": [
-        "registered-client-associate-ubs-2",
-        "registered-client-associate-ubs-4"
+        "cliente-associato-registrato-ubs-ticino-e43e90"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "registered-client-associate-ubs-2"
+          "registered-client-associate-ubs-2",
+          "registered-client-associate-ubs-4"
         ],
         "fr": [
+          "client-enregistre-associe-ubs-ticino-e43e90",
           "registered-client-associate-ubs-4",
           "registered-client-associate-ubs-2"
         ],
@@ -2835,12 +2802,12 @@
     },
     {
       "id": "ubs-c061e82212a2",
-      "slug": "cliente-associato-registrato-ubs-ticino-633ac5",
+      "slug": "client-associate-registered-ubs",
       "slugByLocale": {
         "en": "client-associate-registered-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-633ac5",
+        "it": "client-associate-registered-ubs",
         "de": "client-associate-registered-ubs",
-        "fr": "associe-client-enregistre-ubs-ticino"
+        "fr": "client-associate-registered-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2904,10 +2871,11 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.614Z",
       "previousSlugs": [
-        "client-associate-registered-ubs"
+        "cliente-associato-registrato-ubs-ticino-633ac5"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "associe-client-enregistre-ubs-ticino",
           "client-associate-registered-ubs"
         ],
         "it": [
@@ -2921,8 +2889,8 @@
       "slugByLocale": {
         "en": "global-banking-hong-kong-ubs",
         "it": "global-banking-hong-kong-ubs",
-        "de": "global-banking-hongkong-ubs-ticino",
-        "fr": "banque-mondiale-hong-kong-ubs-ticino"
+        "de": "global-banking-hong-kong-ubs",
+        "fr": "global-banking-hong-kong-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2984,7 +2952,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:20:32.601Z"
+      "firstSeenAt": "2026-06-18T13:20:32.601Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "global-banking-hongkong-ubs-ticino"
+        ],
+        "fr": [
+          "banque-mondiale-hong-kong-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-91e85e3d34cb",
@@ -3059,12 +3035,12 @@
     },
     {
       "id": "ubs-10831a25ddf3",
-      "slug": "stanziamenti-specializzati-80-100-ubs-ticino",
+      "slug": "specialiste-credits-80-100-ubs",
       "slugByLocale": {
         "fr": "specialiste-credits-80-100-ubs",
-        "it": "stanziamenti-specializzati-80-100-ubs-ticino",
-        "en": "specialist-appropriations-80-100-ubs-ticino",
-        "de": "spezialisierte-mittel-80-100-ubs-ticino"
+        "it": "specialiste-credits-80-100-ubs",
+        "en": "specialiste-credits-80-100-ubs",
+        "de": "specialiste-credits-80-100-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3128,13 +3104,15 @@
       },
       "firstSeenAt": "2026-06-19T22:48:08.796Z",
       "previousSlugs": [
-        "specialiste-credits-80-100-ubs"
+        "stanziamenti-specializzati-80-100-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "specialist-appropriations-80-100-ubs-ticino",
           "specialiste-credits-80-100-ubs"
         ],
         "de": [
+          "spezialisierte-mittel-80-100-ubs-ticino",
           "specialiste-credits-80-100-ubs"
         ],
         "it": [
@@ -3144,12 +3122,12 @@
     },
     {
       "id": "ubs-692cf7395ea7",
-      "slug": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
+      "slug": "stage-juridique-au-service-juridique-d-ubs-ubs",
       "slugByLocale": {
         "fr": "stage-juridique-au-service-juridique-d-ubs-ubs",
-        "it": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
-        "en": "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
-        "de": "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino"
+        "it": "stage-juridique-au-service-juridique-d-ubs-ubs",
+        "en": "stage-juridique-au-service-juridique-d-ubs-ubs",
+        "de": "stage-juridique-au-service-juridique-d-ubs-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3214,13 +3192,15 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-19T13:35:02.476Z",
       "previousSlugs": [
-        "stage-juridique-au-service-juridique-d-ubs-ubs"
+        "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
+          "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
           "stage-juridique-au-service-juridique-d-ubs-ubs"
         ],
         "de": [
+          "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino",
           "stage-juridique-au-service-juridique-d-ubs-ubs"
         ],
         "it": [
@@ -3230,12 +3210,12 @@
     },
     {
       "id": "ubs-9ac838b2f2f5",
-      "slug": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
+      "slug": "internship-in-client-lifecycle-management-ubs",
       "slugByLocale": {
         "en": "internship-in-client-lifecycle-management-ubs",
-        "it": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
+        "it": "internship-in-client-lifecycle-management-ubs",
         "de": "internship-in-client-lifecycle-management-ubs",
-        "fr": "stage-en-gestion-du-cycle-de-vie-des-clients-ubs-ticino"
+        "fr": "internship-in-client-lifecycle-management-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3299,10 +3279,11 @@
       },
       "firstSeenAt": "2026-06-19T13:35:02.476Z",
       "previousSlugs": [
-        "internship-in-client-lifecycle-management-ubs"
+        "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "stage-en-gestion-du-cycle-de-vie-des-clients-ubs-ticino",
           "internship-in-client-lifecycle-management-ubs"
         ],
         "it": [
@@ -3312,12 +3293,12 @@
     },
     {
       "id": "ubs-f7e7956e3bfb",
-      "slug": "ingegnere-software-java-fullstack-soluzioni-pensioni-ubs-ticino",
+      "slug": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
       "slugByLocale": {
         "en": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "it": "ingegnere-software-java-fullstack-soluzioni-pensioni-ubs-ticino",
+        "it": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
         "de": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "fr": "ingenieur-logiciel-java-fullstack-solutions-retraites-ubs-ticino"
+        "fr": "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3325,16 +3306,16 @@
       "title": "Software Engineer- Fullstack Java - Obtain Pension Solutions",
       "titleByLocale": {
         "en": "Software Engineer- Fullstack Java - Obtain Pension Solutions",
-        "it": "Ingegnere Software - Java Fullstack - Soluzioni Pensioni",
-        "de": "Software-Engineer - Fullstack Java - Rentenlösungen",
-        "fr": "Ingénieur logiciel - Java Fullstack - Solutions retraites"
+        "it": "Ingegnere del Software - Fullstack Java - Ottenere soluzioni pensionistiche",
+        "de": "Softwareingenieur – Fullstack Java – Rentenlösungen erhalten",
+        "fr": "Ingénieur logiciel - Fullstack Java - Obtenir des solutions de retraite"
       },
       "description": "Do you want to design and build next generation business applications using the latest technologies? Are you confident at iteratively refining user requirements and removing any ambiguity? Do you like to be challenged and encouraged to learn and grow professionally?\n\nWe’re looking for a developer for the IT Crew “Obtain Pension Solutions” to:\n• work closely with the Requirements Engineer, the Solution Architect as well as the Product Owner in the team and translate the requirements into tasks and stories for the development team\n• be an active member of our development team (Backend & Frontend) and deliver software, enabling our business growth and strategy\n• ensure highest quality delivery of our Software and implement respective quality measures and checks\n• ensure the fully development cycle including proper documentation, unit testing and test automation scripting\n• support the team in our Crew with your own development skills and ability",
       "descriptionByLocale": {
         "en": "Do you want to design and build next generation business applications using the latest technologies? Are you confident at iteratively refining user requirements and removing any ambiguity? Do you like to be challenged and encouraged to learn and grow professionally?\n\nWe’re looking for a developer for the IT Crew “Obtain Pension Solutions” to:\n• work closely with the Requirements Engineer, the Solution Architect as well as the Product Owner in the team and translate the requirements into tasks and stories for the development team\n• be an active member of our development team (Backend & Frontend) and deliver software, enabling our business growth and strategy\n• ensure highest quality delivery of our Software and implement respective quality measures and checks\n• ensure the fully development cycle including proper documentation, unit testing and test automation scripting\n• support the team in our Crew with your own development skills and ability",
-        "it": "Vuoi progettare e realizzare applicazioni aziendali di nuova generazione utilizzando le ultime tecnologie? Sei sicuro di affinare in modo iterativo i requisiti degli utenti e di rimuovere qualsiasi ambiguità? Ti piace essere sfidato e incoraggiato a imparare e crescere professionalmente? Stiamo cercando uno sviluppatore per l'IT Crew \"Ottenere soluzioni pensionistiche\" per: • lavorare a stretto contatto con l'ingegnere dei requisiti, l'architetto della soluzione e il proprietario del prodotto nel team e tradurre i requisiti in attività e storie per il team di sviluppo • essere un membro attivo del nostro team di sviluppo (backend e frontend) e fornire software, consentendo la nostra crescita e strategia aziendale • garantire la massima qualità della consegna del nostro software e implementare le rispettive misure e controlli di qualità • garantire il ciclo di sviluppo completo, compresa la documentazione adeguata, test unitari e script di automazione dei test • supportare il team nel nostro equipaggio con le proprie capacità e abilità di sviluppo",
-        "de": "Möchten Sie Geschäftsanwendungen der nächsten Generation mit den neuesten Technologien entwerfen und erstellen? Sind Sie zuversichtlich, die Benutzeranforderungen iterativ zu verfeinern und Unklarheiten zu beseitigen? Möchten Sie herausgefordert und ermutigt werden, beruflich zu lernen und zu wachsen? Wir suchen einen Entwickler für die IT-Crew „Erhalten Sie Vorsorgelösungen“, um: • eng mit dem Requirements Engineer, dem Solution Architect sowie dem Product Owner im Team zusammenzuarbeiten und die Anforderungen in Aufgaben und Geschichten für das Entwicklungsteam zu übersetzen • ein aktives Mitglied unseres Entwicklungsteams (Backend & Frontend) zu sein und Software zu liefern, die unser Geschäftswachstum und unsere Strategie ermöglicht • die Bereitstellung unserer Software in höchster Qualität sicherzustellen und entsprechende Qualitätsmaßnahmen und -prüfungen durchzuführen • den vollständigen Entwicklungszyklus einschließlich ordnungsgemäßer Dokumentation, Komponententests und Testautomatisierungs-Scripting sicherzustellen • das Team in unserer Crew mit Ihren eigenen Entwicklungsfähigkeiten und -fähigkeiten zu unterstützen",
-        "fr": "Voulez-vous concevoir et construire des applications professionnelles de nouvelle génération en utilisant les dernières technologies ? Êtes-vous confiant pour affiner de manière itérative les exigences des utilisateurs et lever toute ambiguïté ? Aimez-vous être mis au défi et encouragé à apprendre et à grandir professionnellement ? Nous recherchons un développeur pour l'équipe informatique « Obtenir des solutions de retraite » pour : • travailler en étroite collaboration avec l'ingénieur des exigences, l'architecte de la solution ainsi que le propriétaire du produit dans l'équipe et traduire les exigences en tâches et histoires pour l'équipe de développement • être un membre actif de notre équipe de développement (Backend & Frontend) et fournir des logiciels, permettant notre croissance et notre stratégie commerciales • assurer la livraison de la plus haute qualité de notre logiciel et mettre en œuvre des mesures et des contrôles de qualité respectifs • assurer le cycle de développement complet, y compris la documentation appropriée, les tests unitaires et les scripts d'automatisation des tests • soutenir l'équipe dans notre équipe avec vos propres compétences et capacités de développement"
+        "it": "Vuoi progettare e costruire applicazioni aziendali di nuova generazione utilizzando le tecnologie più recenti? Sei sicuro nel perfezionare iterativamente i requisiti degli utenti e eliminare qualsiasi ambiguità? Ti piace essere stimolata e stimolata a imparare e crescere professionalmente? Cerchiamo uno sviluppatore per il team IT \"Ottenere soluzioni pensionistiche\" per: • lavorare a stretto contatto con l'Ingegnere dei Requisiti, il Solution Architect e il Product Owner nel team e tradurre i requisiti in compiti e storie per il team di sviluppo • essere un membro attivo del nostro team di sviluppo (Backend e Frontend) e fornire software, Favorire la crescita e la strategia del nostro business • garantire la massima qualità della consegna del nostro software e implementare le rispettive misure e controlli di qualità • garantire il ciclo completo di sviluppo, inclusa documentazione adeguata, test unitario e script di automazione dei test • supportare il team del nostro Crew con le proprie competenze e capacità di sviluppo",
+        "de": "Möchten Sie die nächste Generation von Geschäftsanwendungen mit den neuesten Technologien entwerfen und entwickeln? Bist du zuversichtlich, die Anforderungen der Nutzer iterativ zu verfeinern und jegliche Unklarheiten zu beseitigen? Möchten Sie herausgefordert und ermutigt werden, professionell zu lernen und sich weiterzuentwickeln? Wir suchen einen Entwickler für das IT-Team \"Acquire Pension Solutions\", der: • eng mit dem Requirements Engineer, dem Solution Architect sowie dem Product Owner im Team zusammenarbeitet und die Anforderungen in Aufgaben und Geschichten für das Entwicklungsteam übersetzt • ein aktives Mitglied unseres Entwicklungsteams (Backend & Frontend) ist und Software liefert, Unterstützung unseres Geschäftswachstums und unserer Strategie • Sicherstellung der höchsten Qualität der Bereitstellung unserer Software sowie Umsetzung entsprechender Qualitätsmaße und -kontrollen • Sicherstellung des vollständigen Entwicklungszyklus einschließlich ordnungsgemäßer Dokumentation, Unit-Tests und Testautomatisierungsskripte • Unterstützung des Teams mit Ihren eigenen Entwicklungsfähigkeiten und -fähigkeiten",
+        "fr": "Souhaitez-vous concevoir et construire des applications métier de nouvelle génération en utilisant les dernières technologies? Êtes-vous confiant pour affiner de manière itérative les exigences des utilisateurs et éliminer toute ambiguïté? Aimez-vous être mis au défi et encouragé à apprendre et à progresser professionnellement? Nous recherchons un développeur pour l'équipe IT « Obtenir des solutions de retraite » afin de : • travailler en étroite collaboration avec l'ingénieur des exigences, l'architecte de solutions ainsi qu'avec le Product Owner de l'équipe et traduire les exigences en tâches et histoires pour l'équipe de développement • être un membre actif de notre équipe de développement (Backend & Frontend) et livrer des logiciels, Permettre la croissance et la stratégie de notre entreprise • garantir la meilleure qualité de livraison de nos logiciels et mettre en œuvre les mesures et contrôles de qualité appropriées • garantir le cycle complet de développement, y compris la documentation appropriée, les tests unitaires et les scripts automatisés de tests • soutenir l'équipe de notre équipe avec vos propres compétences et compétences en développement"
       },
       "location": "Ticino",
       "canton": "",
@@ -3381,27 +3362,19 @@
       },
       "firstSeenAt": "2026-06-19T13:35:02.475Z",
       "previousSlugs": [
-        "softwareingenieur-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-        "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-retraite-ubs-ticino",
-        "ingegnere-del-software-fullstack-java-ottenere-soluzioni-pensionistiche-ubs-ticino",
-        "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
-        "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-        "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino"
+        "ingegnere-del-software-fullstack-java-ottenere-soluzioni-pensionistiche-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
           "softwareingenieur-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-          "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino"
+          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
         ],
         "fr": [
           "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-retraite-ubs-ticino",
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-          "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino"
+          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
         ],
         "it": [
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-          "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino"
+          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
         ]
       }
     },
@@ -3650,7 +3623,7 @@
         "en": "local-credit-risk-officer-korea-ubs",
         "it": "local-credit-risk-officer-korea-ubs",
         "de": "local-credit-risk-officer-korea-ubs",
-        "fr": "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
+        "fr": "local-credit-risk-officer-korea-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3713,6 +3686,11 @@
         }
       },
       "firstSeenAt": "2026-06-11T13:41:34.033Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
+        ]
+      },
       "previousSlugs": [
         "responsabile-locale-del-rischio-di-credito-corea-ubs-ticino"
       ]
@@ -3861,12 +3839,12 @@
     },
     {
       "id": "ubs-31bf357b70be",
-      "slug": "receptionist-ginevra-100-ubs-ticino",
+      "slug": "receptionniste-geneve-100-ubs",
       "slugByLocale": {
         "fr": "receptionniste-geneve-100-ubs",
-        "it": "receptionist-ginevra-100-ubs-ticino",
-        "en": "receptionist-geneva-100-ubs-ticino",
-        "de": "empfangsdame-genf-100-ubs-ticino"
+        "it": "receptionniste-geneve-100-ubs",
+        "en": "receptionniste-geneve-100-ubs",
+        "de": "receptionniste-geneve-100-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3880,10 +3858,10 @@
       },
       "description": "Appréciez-vous le contact clientèle ? Etes-vous proactif-ve et orienté-e service à la clientèle ? Avez-vous un fort intérêt pour les nouvelles technologies ? Nous recherchons une personne dotée d’un fort sens du service, de la flexibilité et de la polyvalence pour renforcer notre équipe multidisciplinaire de Genève répartie sur 3 sites. Vous assisterez nos conseillers bancaires et accueillerez la clientèle selon nos critères élevés de service et prestations.\nVoici vos tâches :\n\n• effectuer la mise en place nécessaire et assurer le bon fonctionnement du matériel informatique et technique (auditorium, salles de conférence, salons clients)\n• accompagner les clients jusqu’au lieu de leur rendez-vous et annoncer leur présence aux conseillers bancaires\n• assurer le service des boissons\n• enregistrer les réservations dans l’application dédiée\n• débarrasser les boissons et remettre en ordre les salons\n• superviser le bon déroulement de certaines séances et rester jusqu’à la fin de ces évènements\n• aviser les conseillers de l'arrivée de courrier interne ou externe",
       "descriptionByLocale": {
-        "fr": "Descrizione\nAppréciez-vous le contact clientèle ? Etes-vous proactif-ve et orienté-e service à la clientèle ? Avez-vous un fort intérêt pour les nouvelles technologies ? Nous recherchons une personne dotée d’un fort sens du service, de la flexibilité et de la polyvalence pour renforcer notre équipe multidisciplinaire de Genève répartie sur 3 sites. Vous assisterez nos conseillers bancaires et accueillerez la clientèle selon nos critères élevés de service et prestations.\n\nMansioni\n- effectuer la mise en place nécessaire et assurer le bon fonctionnement du matériel informatique et technique (auditorium, salles de conférence, salons clients)\n- accompagner les clients jusqu’au lieu de leur rendez-vous et annoncer leur présence aux conseillers bancaires\n- assurer le service des boissons\n- enregistrer les réservations dans l’application dédiée\n- débarrasser les boissons et remettre en ordre les salons\n- superviser le bon déroulement de certaines séances et rester jusqu’à la fin de ces évènements\n- aviser les conseillers de l'arrivée de courrier interne ou externe\n\nRequisiti\n- sens du service\n- flexibilité\n- polyvalence\n\nCosa offriamo\n- possibilità di lavorare in un ambiente multidisciplinare\n- possibilità di sviluppare le proprie competenze\n\nContatto\n- (contatto non specificato)",
-        "it": "Descrizione Apprezzi il contatto con il cliente? Sei proattivo e orientato al servizio clienti? Hai un forte interesse per le nuove tecnologie? Cerchiamo una persona con un forte senso del servizio, flessibilità e versatilità per rafforzare il nostro team multidisciplinare a Ginevra distribuito su 3 sedi. Assisterai i nostri consulenti bancari e accoglierai i clienti secondo i nostri elevati standard di servizio e servizi. Mansioni - effettuare i necessari allestimenti e garantire il buon funzionamento delle attrezzature informatiche e tecniche (auditorium, sale congressi, lounge clienti) - accompagnare i clienti al luogo di incontro e annunciare la loro presenza ai consulenti bancari - garantire il servizio bevande - registrare le prenotazioni nell'applicazione dedicata - svuotare bevande e rimettere in ordine le sale - vigilare sul regolare svolgimento di alcune sessioni e rimanere fino alla fine di questi eventi - avvisare i consulenti dell'arrivo di posta interna o esterna Necessaria - senso del servizio - flessibilità - versatilità La nostra offerta - possibilità di lavorare in ambiente multidisciplinare - possibilità di supportare il titolare competenze Contatto - (contatto non specificato)",
-        "en": "Description Do you appreciate customer contact? Are you proactive and customer service oriented? Do you have a strong interest in new technologies? We are looking for a person with a strong sense of service, flexibility and versatility to strengthen our multidisciplinary team in Geneva spread across 3 sites. You will assist our banking advisors and welcome customers according to our high standards of service and services. Mansioni - carry out the necessary set-up and ensure the proper functioning of IT and technical equipment (auditorium, conference rooms, customer lounges) - accompany clients to their meeting place and announce their presence to bank advisors - ensure drinks service - record reservations in the dedicated application - clear drinks and put the lounges back in order - supervise the smooth running of certain sessions and stay until the end of these events - notify advisors of the arrival of internal or external mail Required - sense of service - flexibility - versatility Our offer - possibility of working in a multidisciplinary environment - possibility of supporting the owner competenze Contatto - (contatto non specificato)",
-        "de": "Beschreibung Schätzen Sie den Kundenkontakt? Sind Sie proaktiv und kundenorientiert? Haben Sie ein starkes Interesse an neuen Technologien? Wir suchen eine Person mit einem ausgeprägten Sinn für Service, Flexibilität und Vielseitigkeit, um unser multidisziplinäres Team in Genf, verteilt auf drei Standorte, zu verstärken. Sie unterstützen unsere Bankberater und betreuen unsere Kunden nach unseren hohen Service- und Servicestandards. Mansioni - Führen Sie die erforderlichen Einstellungen durch und stellen Sie sicher, dass die IT- und technische Ausrüstung (Auditorium, Konferenzräume, Kundenlounges) ordnungsgemäß funktioniert. - Begleiten Sie Kunden zu ihrem Treffpunkt und geben Sie den Bankberatern ihre Anwesenheit bekannt. - Sorgen Sie für den Getränkeservice Angebot - Möglichkeit, in einem multidisziplinären Umfeld zu arbeiten - Möglichkeit der Unterstützung des Eigentümers. Kompetenzkontakt - (nicht spezifischer Kontakt)"
+        "fr": "Appréciez-vous le contact clientèle ? Etes-vous proactif-ve et orienté-e service à la clientèle ? Avez-vous un fort intérêt pour les nouvelles technologies ? Nous recherchons une personne dotée d’un fort sens du service, de la flexibilité et de la polyvalence pour renforcer notre équipe multidisciplinaire de Genève répartie sur 3 sites. Vous assisterez nos conseillers bancaires et accueillerez la clientèle selon nos critères élevés de service et prestations.\nVoici vos tâches :\n\n• effectuer la mise en place nécessaire et assurer le bon fonctionnement du matériel informatique et technique (auditorium, salles de conférence, salons clients)\n• accompagner les clients jusqu’au lieu de leur rendez-vous et annoncer leur présence aux conseillers bancaires\n• assurer le service des boissons\n• enregistrer les réservations dans l’application dédiée\n• débarrasser les boissons et remettre en ordre les salons\n• superviser le bon déroulement de certaines séances et rester jusqu’à la fin de ces évènements\n• aviser les conseillers de l'arrivée de courrier interne ou externe",
+        "it": "Apprezzi il contatto con il cliente? Sei proattivo e orientato al servizio clienti? Hai un forte interesse per le nuove tecnologie? Cerchiamo una persona con un forte senso del servizio, flessibilità e versatilità per rafforzare il nostro team multidisciplinare a Ginevra distribuito su 3 sedi. Assisterai i nostri consulenti bancari e accoglierai i clienti secondo i nostri elevati standard di servizio e servizi. Ecco i tuoi compiti: • effettuare i necessari allestimenti e garantire il buon funzionamento delle attrezzature informatiche e tecniche (auditorium, sale conferenze, sale clienti) • accompagnare i clienti sul luogo dell'incontro e annunciare la loro presenza ai consulenti bancari • garantire il servizio bevande • registrare le prenotazioni nell'applicazione dedicata • svuotare le bevande e rimettere in ordine le sale • vigilare sul regolare svolgimento di alcune sessioni e restare fino alla fine di tali eventi • avvisare i consulenti dell'arrivo di posta interna o esterna",
+        "en": "Do you appreciate customer contact? Are you proactive and customer service oriented? Do you have a strong interest in new technologies? We are looking for a person with a strong sense of service, flexibility and versatility to strengthen our multidisciplinary team in Geneva spread across 3 sites. You will assist our banking advisors and welcome customers according to our high standards of service and services. Here are your tasks: • carry out the necessary set-up and ensure the proper functioning of the IT and technical equipment (auditorium, conference rooms, customer lounges) • accompany clients to the location of their meeting and announce their presence to bank advisors • ensure drinks service • record reservations in the dedicated application • clear drinks and put the lounges back in order • supervise the smooth running of certain sessions and stay until the end of these events • notify advisors of the arrival of internal or external mail",
+        "de": "Schätzen Sie den Kundenkontakt? Sind Sie proaktiv und kundenorientiert? Haben Sie ein starkes Interesse an neuen Technologien? Wir suchen eine Person mit einem ausgeprägten Sinn für Service, Flexibilität und Vielseitigkeit, um unser multidisziplinäres Team in Genf, verteilt auf drei Standorte, zu verstärken. Sie unterstützen unsere Bankberater und betreuen unsere Kunden nach unseren hohen Service- und Servicestandards. Hier sind Ihre Aufgaben: • Führen Sie die erforderlichen Einstellungen durch und sorgen Sie für die ordnungsgemäße Funktion der IT- und technischen Ausrüstung (Auditorium, Konferenzräume, Kundenlounges). • Begleiten Sie Kunden zum Ort ihrer Besprechung und melden Sie ihre Anwesenheit den Bankberatern. • Sorgen Sie für den Getränkeservice"
       },
       "location": "Ticino",
       "canton": "",
@@ -3930,19 +3908,8 @@
       },
       "firstSeenAt": "2026-06-20T12:04:57.083Z",
       "previousSlugs": [
-        "receptionniste-geneve-100-ubs"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "receptionniste-geneve-100-ubs"
-        ],
-        "en": [
-          "receptionniste-geneve-100-ubs"
-        ],
-        "de": [
-          "receptionniste-geneve-100-ubs"
-        ]
-      }
+        "receptionist-ginevra-100-ubs-ticino"
+      ]
     }
   ]
 }
