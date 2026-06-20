@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-06-20T10:51:59.698Z",
+  "assembledAt": "2026-06-20T21:47:39.791Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-da1009241443",
@@ -43,7 +43,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:57.731Z",
+      "crawledAt": "2026-06-20T21:47:37.594Z",
       "previousSlugs": [
         "associate-front-office-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-front-office-davos-klosters-bergbahnen-ag-davos",
@@ -126,7 +126,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office_j_2449776",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:57.493Z",
+      "crawledAt": "2026-06-20T21:47:37.310Z",
       "previousSlugs": [
         "mitarbeiter-in-booking-office-davos-klosters-bergbahnen-davos"
       ],
@@ -139,6 +139,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:20:50.604Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -196,7 +197,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Bar-Rotliechtli_j_3890499",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:57.243Z",
+      "crawledAt": "2026-06-20T21:47:37.016Z",
       "previousSlugs": [
         "mitarbeiter-in-bar-rotliechtli-davos-klosters-bergbahnen-davos"
       ],
@@ -266,7 +267,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in_j_3887486",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:57.007Z",
+      "crawledAt": "2026-06-20T21:47:36.723Z",
       "previousSlugs": [
         "masseur-in-davos-klosters-bergbahnen-davos"
       ],
@@ -336,7 +337,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:56.760Z",
+      "crawledAt": "2026-06-20T21:47:36.442Z",
       "previousSlugs": [
         "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos",
         "responsabile-manutenzione-e-infrastrutture-edilizia-davos-klosters-bergbahnen-ag-davos",
@@ -415,7 +416,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Kabinenfuehrer-in-Jakobshorn_j_3891467",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:56.510Z",
+      "crawledAt": "2026-06-20T21:47:36.168Z",
       "previousSlugs": [
         "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
       ],
@@ -488,7 +489,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Front-Office-Mitarbeiter-in_j_3887442",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:56.266Z",
+      "crawledAt": "2026-06-20T21:47:35.885Z",
       "previousSlugs": [
         "front-office-mitarbeiter-in-davos-klosters-bergbahnen-davos",
         "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos",
@@ -560,7 +561,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:56.034Z",
+      "crawledAt": "2026-06-20T21:47:35.591Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos"
       ],
@@ -633,7 +634,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T10:51:55.775Z",
+      "crawledAt": "2026-06-20T21:47:35.308Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos"
       ],
