@@ -1,6 +1,6 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-06-20T12:02:59.555Z",
+  "assembledAt": "2026-06-20T22:55:19.349Z",
   "jobs": [
     {
       "id": "transgourmet-1c3385a2-832",
@@ -33,7 +33,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T12:02:57.539Z",
+      "crawledAt": "2026-06-20T22:55:17.472Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -99,6 +99,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:25:48.621Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "baseSalary": {
