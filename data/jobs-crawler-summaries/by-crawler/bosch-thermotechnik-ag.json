@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-06-20T10:37:17.254Z",
+  "generatedAt": "2026-06-20T21:33:06.785Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 16831,
-  "avgDurationMs": 16831,
+  "durationMs": 19591,
+  "avgDurationMs": 19591,
   "durationHistory": [
-    16831
+    19591
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -267,44 +267,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Betriebselektriker / Automatiker (w/m/d) REF283890J",
-      "slug": "elettricista-industriale-automatico-f-m-d-ref283890j-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF283890J-betriebselektriker-automatiker-w-m-d-ref283890j",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000121443977-betriebselektriker-automatiker-w-m-d-ref283890j?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-17",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-01dea42a12f3",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "8500",
-      "firstSeenAt": "2026-06-12T11:45:48.348Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Key Account Manager – Bosch Building Technologies 100% (w/m/div.) REF287492K",
