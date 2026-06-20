@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ubs-4911ff682474",
-      "slug": "cliente-associato-ubs-ticino",
+      "slug": "client-associate-ubs",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino",
+        "it": "client-associate-ubs",
         "de": "client-associate-ubs",
-        "fr": "client-associe-ubs-ticino"
+        "fr": "client-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -73,14 +73,11 @@
       },
       "firstSeenAt": "2026-06-17T23:34:45.673Z",
       "previousSlugs": [
-        "client-associate-ubs"
+        "cliente-associato-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associate-ubs"
-        ],
-        "it": [
-          "client-associate-ubs"
+          "client-associe-ubs-ticino"
         ]
       }
     },
@@ -176,7 +173,7 @@
         "en": "real-estate-portfolio-manager-taiwan-ubs",
         "it": "real-estate-portfolio-manager-taiwan-ubs",
         "de": "real-estate-portfolio-manager-taiwan-ubs",
-        "fr": "gestionnaire-de-portefeuille-immobilier-taiwan-ubs-ticino"
+        "fr": "real-estate-portfolio-manager-taiwan-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -238,7 +235,12 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.380Z"
+      "firstSeenAt": "2026-06-17T14:07:38.380Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "gestionnaire-de-portefeuille-immobilier-taiwan-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-dff5cb9fd5c7",
@@ -785,16 +787,16 @@
       "title": "Privatkundenberater/in Affluent Bern, 80 - 100%",
       "titleByLocale": {
         "de": "Privatkundenberater/in Affluent Bern, 80 - 100%",
-        "it": "Consulente Clientela Privata Affluent Berna, 80 - 100%",
+        "it": "Consulente clienti privato ad Affluent Bern, 80 - 100 %",
         "en": "Private Client Advisor Affluent Bern, 80 - 100%",
-        "fr": "Conseiller/ère Clientèle Privée Affluent Berne, 80 - 100%"
+        "fr": "Conseiller en particuliers à Berne aisé, 80 % - 100 %"
       },
       "description": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
       "descriptionByLocale": {
-        "de": "Descrizione\n\nSind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nMansioni\n\n- Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n- Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n- Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n- Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
-        "it": "Descrizione Sei un'iniziativa, personalità socievole? E sei al meglio quando consigli ai clienti con l'aiuto delle ultime tecnologie? Allora contattaci. Siamo alla ricerca di un collega che ha un tocco per le preoccupazioni del cliente e si sente a proprio agio nel mondo digitale. Mansioni - Potrai catturare con precisione le diverse esigenze dei nostri clienti e consigliarli in modo competente. - No. Dopo un periodo di formazione completo, supervisionare e elaborare il proprio portafoglio clienti con clienti di investimento e mutuo. - No. Hai un forte senso di soluzioni ottimali. Questo garantisce rapporti e punteggi a lungo termine con nuovi clienti. - No. Nella vostra consulenza, vi affidate anche a strumenti e app innovativi. Questo è il modo in cui portate i vostri clienti nel nostro viaggio nel futuro: li incoraggiate a utilizzare i nostri prodotti digitali e supportarli in questo modo.",
-        "en": "Descrizione Are you an initiative, sociable personality? And are you at your best when you advise customers with the help of the latest technologies? Then contact us. We are looking for a colleague who has a flair for the concerns of the customer and feels comfortable in the digital world. Mansioni - You will accurately capture the diverse needs of our customers and advise them competently. - After a comprehensive training period, you supervise and process your own customer portfolio with investment and mortgage customers. - You have a strong sense of optimal solutions. This ensures long-term customer relationships and scores with new customers. - In your consulting, you also rely on innovative tools and apps. This is how you take your customers on our journey into the future: you encourage them to use our digital products and support them in doing so.",
-        "fr": "Descrizione Êtes-vous une initiative, une personnalité sociable ? Et êtes-vous à votre meilleur quand vous conseillez les clients avec l'aide des dernières technologies? Alors contactez-nous. Nous recherchons un collègue qui a un goût pour les préoccupations du client et qui se sent à l'aise dans le monde numérique. Autres Vous saisirez avec précision les différents besoins de nos clients et les conseillerez avec compétence. - Oui. Après une période de formation complète, vous supervisez et traitez votre propre portefeuille client avec des clients d'investissement et d'hypothèque. - Oui. Vous avez un fort sens des solutions optimales. Cela garantit des relations client à long terme et des scores avec de nouveaux clients. - Oui. Dans votre consultation, vous comptez également sur des outils et des applications innovants. C'est ainsi que vous faites voyager vos clients dans l'avenir : vous les encouragez à utiliser nos produits numériques et les aidez à le faire."
+        "de": "Sind Sie eine initiative, kontaktfreudige Persönlichkeit? Und laufen Sie zur Hochform auf, wenn Sie Kunden und Kundinnen mit Hilfe der neusten Technologien beraten?\n\nDann nehmen Sie doch mit uns Kontakt auf. Wir suchen eine Kollegin oder einen Kollegen, die/der ein Flair für die Anliegen der Kundschaft hat und sich in der digitalen Welt wohl fühlt.\n\nUnd das sind Ihre Kernaufgaben:\n• Sie erfassen die vielseitigen Bedürfnisse unserer Kunden und Kundinnen präzis und beraten sie kompetent.\n• Sie betreuen und bearbeiten nach einer umfassenden Einarbeitungszeit ein eigenes Kundenportefeuille mit Anlage- und Hypothekarkunden.\n• Sie haben ein ausgeprägtes Gespür für optimale Lösungen. Damit sichern Sie Kundenbeziehungen langfristig und punkten bei Neukunden und Neukundinnen.\n• Bei Ihrer Beratung setzen Sie auch auf innovative Tools und Apps. So nehmen Sie die Kundschaft auf unsere Reise in die Zukunft mit: Sie ermuntern sie, unsere digitalen Produkte einzusetzen und unterstützen Sie dabei.",
+        "it": "Sei una persona iniziativa ed estroversa? E sei al meglio quando consigli i clienti con l'aiuto delle tecnologie più recenti? Allora vi preghiamo di contattarci. Cerchiamo un collega che abbia un talento per le preoccupazioni dei clienti e che si senta a proprio agio nel mondo digitale. E questi sono i tuoi compiti principali: • Registrerai con precisione le diverse esigenze dei nostri clienti e li consiglierai in modo competente. • Dopo un periodo di formazione completo, gestirai e gestirai il tuo portafoglio clienti con clienti di investimento e mutui. • Hai un acuto senso per le soluzioni ottimali. In questo modo, si consolidano le relazioni con i clienti nel lungo periodo e si guadagnano punti con nuovi clienti. • Nella tua consulenza, ti affidi anche a strumenti e app innovativi. In questo modo, accompagni i tuoi clienti nel nostro viaggio verso il futuro: li incoraggi a utilizzare i nostri prodotti digitali e li supporti nel farlo.",
+        "en": "Are you an initiative, outgoing personality? And are you at your best when you advise customers with the help of the latest technologies? Then please contact us. We are looking for a colleague who has a flair for the concerns of customers and feels comfortable in the digital world. And these are your core tasks: • You will precisely record the diverse needs of our customers and advise them competently. • After a comprehensive training period, you will manage and process your own customer portfolio with investment and mortgage customers. • You have a keen sense for optimal solutions. In this way, you secure customer relationships in the long term and score points with new customers. • In your consultation, you also rely on innovative tools and apps. In this way, you take your customers on our journey into the future: You encourage them to use our digital products and support them in doing so.",
+        "fr": "Êtes-vous une personnalité initiative et extravertie? Et êtes-vous à votre meilleur lorsque vous conseillez vos clients grâce aux dernières technologies? Alors, veuillez nous contacter. Nous recherchons un collègue qui a un sens pour les préoccupations des clients et qui se sent à l'aise dans le monde numérique. Et voici vos tâches principales : • Vous enregistrerez précisément les besoins variés de nos clients et les conseillerez de manière compétente. • Après une période de formation complète, vous gérerez et traiterez votre propre portefeuille client avec des clients d'investissement et de prêts hypothécaires. • Vous avez un sens aigu des solutions optimales. De cette façon, vous sécurisez des relations clients sur le long terme et vous marquez des points auprès de nouveaux clients. • Dans votre consultation, vous comptez également sur des outils et des applications innovants. De cette façon, vous emmenez vos clients dans notre voyage vers l'avenir : vous les encouragez à utiliser nos produits numériques et les soutenez dans ce processus."
       },
       "location": "Ticino",
       "canton": "",
@@ -928,12 +930,12 @@
     },
     {
       "id": "ubs-344df7b4f15c",
-      "slug": "gestione-delle-relazioni-cliente-ubs-ticino",
+      "slug": "client-relationship-manager-ubs",
       "slugByLocale": {
         "en": "client-relationship-manager-ubs",
-        "it": "gestione-delle-relazioni-cliente-ubs-ticino",
+        "it": "client-relationship-manager-ubs",
         "de": "client-relationship-manager-ubs",
-        "fr": "gestionnaire-de-relations-avec-les-clients-ubs-ticino"
+        "fr": "client-relationship-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -997,43 +999,39 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.363Z",
       "previousSlugs": [
-        "client-relationship-manager-ubs",
         "gestione-relazioni-cliente-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-relationship-manager-ubs"
-        ],
-        "it": [
-          "client-relationship-manager-ubs"
+          "gestionnaire-de-relations-avec-les-clients-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-2249f8d12c30",
-      "slug": "consulente-ipotecario-remoto-vendite-e-consulenza-remota-basilea-80-100-ubs-ticino",
+      "slug": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
       "slugByLocale": {
         "de": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
-        "it": "consulente-ipotecario-remoto-vendite-e-consulenza-remota-basilea-80-100-ubs-ticino",
+        "it": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
         "en": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
-        "fr": "conseiller-hypothecaire-a-distance-ventes-et-conseil-a-distance-bale-80-100-ubs-ticino"
+        "fr": "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
       "title": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
       "titleByLocale": {
-        "de": "Remote Advisor Hypothek – Remote Sales & Advice Basel, 80-100%",
+        "de": "Remote Advisor Mortgage – Remote Sales & Beratung Basel, 80-100 %",
         "en": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100%",
-        "it": "Consulente Ipotecario Remoto – Vendite e Consulenza Remota Basilea, 80-100%",
-        "fr": "Conseiller Hypothécaire à Distance – Ventes et Conseil à Distance Bâle, 80-100%"
+        "it": "Remote Advisor Mortgage – Remote Sales & Advice Basel, 80-100 %",
+        "fr": "Prêt hypothécaire conseiller à distance – Ventes à distance et conseils de basel, 80-100 %"
       },
       "description": "Als Remote Advisor Mortgage bist du die erste Anlaufstelle für Neukundinnen, die sich mit einer der wichtigsten finanziellen Entscheidungen ihres Lebens beschäftigen – der Finanzierung ihres Eigenheims. Mit deinem Fachwissen, deiner Begeisterung für den Vertrieb und deiner Fähigkeit, Vertrauen aufzubauen, begleitest du Kundinnen von der ersten Beratung bis zum Abschluss. Gemeinsam mit einem engagierten Team und modernsten digitalen Tools machst du die Hypothekarberatung von morgen erfolgreich.\n\nDeine Aufgaben:\n• Du berätst Neukund*innen zu Hypothekengeschäften – flexibel, digital und immer mit einem offenen Ohr für ihre individuellen Bedürfnisse.\n• Du gewinnst aktiv neue Kund*innen im Affluent-Segment und baust langfristige Beziehungen auf.\n• Du führst Finanzierungsgespräche, prüfst Kreditanfragen und entwickelst passgenaue Finanzierungslösungen.\n• Du kooperierst mit externen Finders (z. B. Immobilienmakler, Vermittler), um Leads zu generieren und erfolgreich abzuschliessen.\n• Du stellst sicher, dass alle regulatorischen Vorgaben und Compliance-Standards eingehalten werden.",
       "descriptionByLocale": {
-        "de": "Descrizione\nAls Remote Advisor Mortgage bist du die erste Anlaufstelle für Neukundinnen, die sich mit einer der wichtigsten finanziellen Entscheidungen ihres Lebens beschäftigen – der Finanzierung ihres Eigenheims. Mit deinem Fachwissen, deiner Begeisterung für den Vertrieb und deiner Fähigkeit, Vertrauen aufzubauen, begleitest du Kundinnen von der ersten Beratung bis zum Abschluss. Gemeinsam mit einem engagierten Team und modernsten digitalen Tools machst du die Hypothekarberatung von morgen erfolgreich.\n\nMansioni\n- Du berätst Neukund*innen zu Hypothekengeschäften – flexibel, digital und immer mit einem offenen Ohr für ihre individuellen Bedürfnisse.\n- Du gewinnst aktiv neue Kund*innen im Affluent-Segment und baust langfristige Beziehungen auf.\n- Du führst Finanzierungsgespräche, prüfst Kreditanfragen und entwickelst passgenaue Finanzierungslösungen.\n- Du kooperierst mit externen Finders (z. B. Immobilienmakler, Vermittler), um Leads zu generieren und erfolgreich abzuschliessen.\n- Du stellst sicher, dass alle regulatorischen Vorgaben und Compliance-Standards eingehalten werden.",
-        "it": "Descrizione In qualità di consulente mutuo remoto, sei il primo punto di contatto per i nuovi clienti che si trovano ad affrontare una delle decisioni finanziarie più importanti della loro vita: il finanziamento della propria casa. Con le tue conoscenze specialistiche, il tuo entusiasmo per la vendita e la tua capacità di creare fiducia, accompagnerai i clienti dalla prima consulenza fino alla conclusione. Insieme ad un team dedicato e a strumenti digitali all’avanguardia, renderete vincente la consulenza ipotecaria di domani. Mansioni - Consigliate i nuovi clienti nelle transazioni ipotecari - in modo flessibile, digitale e sempre con un orecchio aperto alle loro esigenze individuali. - Acquisisci attivamente nuovi clienti nel segmento Affluent e costruisci relazioni a lungo termine. - Conduci discussioni sul finanziamento, controlli le richieste di prestito e sviluppi soluzioni di finanziamento su misura. - Collabori con cercatori esterni (ad esempio agenti immobiliari, agenti) per generare e chiudere con successo contatti. - Ti assicuri che tutti i requisiti normativi e gli standard di conformità siano rispettati.",
-        "en": "Description As a Remote Mortgage Advisor, you are the first point of contact for new customers who are dealing with one of the most important financial decisions of their lives - financing their home. With your specialist knowledge, your enthusiasm for sales and your ability to build trust, you will accompany customers from the first consultation to the conclusion. Together with a dedicated team and state-of-the-art digital tools, you will make the mortgage advice of tomorrow successful. Mansioni - You advise new customers on mortgage transactions - flexibly, digitally and always with an open ear for their individual needs. - You actively acquire new customers in the Affluent segment and build long-term relationships. - You conduct financing discussions, check loan requests and develop tailor-made financing solutions. - You cooperate with external finders (e.g. real estate agents, agents) to generate and successfully close leads. - You ensure that all regulatory requirements and compliance standards are adhered to.",
-        "fr": "Description En tant que conseiller hypothécaire à distance, vous êtes le premier point de contact pour les nouveaux clients qui sont aux prises avec l'une des décisions financières les plus importantes de leur vie : le financement de leur maison. Grâce à vos connaissances spécialisées, votre enthousiasme pour la vente et votre capacité à instaurer la confiance, vous accompagnerez les clients de la première consultation à la conclusion. Avec une équipe dédiée et des outils numériques de pointe, vous ferez du succès le conseil hypothécaire de demain. Mansioni - Vous conseillez les nouveaux clients sur les transactions hypothécaires - de manière flexible, numérique et toujours à l'écoute de leurs besoins individuels. - Vous acquérez activement de nouveaux clients dans le segment Affluent et construisez des relations à long terme. - Vous conduisez les discussions de financement, vérifiez les demandes de prêt et élaborez des solutions de financement sur mesure. - Vous coopérez avec des chercheurs externes (par exemple des agents immobiliers, des agents) pour générer et clôturer avec succès des prospects. - Vous veillez au respect de toutes les exigences réglementaires et normes de conformité."
+        "de": "Als Remote Advisor Mortgage bist du die erste Anlaufstelle für Neukundinnen, die sich mit einer der wichtigsten finanziellen Entscheidungen ihres Lebens beschäftigen – der Finanzierung ihres Eigenheims. Mit deinem Fachwissen, deiner Begeisterung für den Vertrieb und deiner Fähigkeit, Vertrauen aufzubauen, begleitest du Kundinnen von der ersten Beratung bis zum Abschluss. Gemeinsam mit einem engagierten Team und modernsten digitalen Tools machst du die Hypothekarberatung von morgen erfolgreich.\n\nDeine Aufgaben:\n• Du berätst Neukund*innen zu Hypothekengeschäften – flexibel, digital und immer mit einem offenen Ohr für ihre individuellen Bedürfnisse.\n• Du gewinnst aktiv neue Kund*innen im Affluent-Segment und baust langfristige Beziehungen auf.\n• Du führst Finanzierungsgespräche, prüfst Kreditanfragen und entwickelst passgenaue Finanzierungslösungen.\n• Du kooperierst mit externen Finders (z. B. Immobilienmakler, Vermittler), um Leads zu generieren und erfolgreich abzuschliessen.\n• Du stellst sicher, dass alle regulatorischen Vorgaben und Compliance-Standards eingehalten werden.",
+        "it": "In qualità di consulente mutuo remoto, sei il primo punto di contatto per i nuovi clienti che si trovano ad affrontare una delle decisioni finanziarie più importanti della loro vita: il finanziamento della propria casa. Con le tue conoscenze specialistiche, il tuo entusiasmo per la vendita e la tua capacità di creare fiducia, accompagnerai i clienti dalla prima consulenza fino alla conclusione. Insieme ad un team dedicato e a strumenti digitali all’avanguardia, renderete vincente la consulenza ipotecaria di domani. I vostri compiti: • Consigliate i nuovi clienti sulle transazioni ipotecari - in modo flessibile, digitale e sempre attenti alle loro esigenze individuali. • Acquisisci attivamente nuovi clienti nel segmento Affluent e costruisci relazioni a lungo termine. • Conducete discussioni sul finanziamento, verificate le richieste di prestito e sviluppate soluzioni di finanziamento su misura. • Collabori con cercatori esterni (ad esempio agenti immobiliari, agenti) per generare e chiudere con successo contatti. • Garantire che tutti i requisiti normativi e gli standard di conformità siano rispettati.",
+        "en": "As a Remote Mortgage Advisor, you are the first point of contact for new customers who are dealing with one of the most important financial decisions of their lives - financing their home. With your specialist knowledge, your enthusiasm for sales and your ability to build trust, you will accompany customers from the first consultation to the conclusion. Together with a dedicated team and state-of-the-art digital tools, you will make the mortgage advice of tomorrow successful. Your tasks: • You advise new customers on mortgage transactions - flexibly, digitally and always with an open ear for their individual needs. • You actively acquire new customers in the Affluent segment and build long-term relationships. • You conduct financing discussions, check loan requests and develop tailor-made financing solutions. • You cooperate with external finders (e.g. real estate agents, agents) to generate and successfully close leads. • You ensure that all regulatory requirements and compliance standards are adhered to.",
+        "fr": "En tant que conseiller hypothécaire à distance, vous êtes le premier point de contact pour les nouveaux clients qui sont aux prises avec l'une des décisions financières les plus importantes de leur vie : le financement de leur maison. Grâce à vos connaissances spécialisées, votre enthousiasme pour la vente et votre capacité à instaurer la confiance, vous accompagnerez les clients de la première consultation à la conclusion. Avec une équipe dédiée et des outils numériques de pointe, vous ferez du succès le conseil hypothécaire de demain. Vos tâches : • Vous conseillez les nouveaux clients sur les transactions hypothécaires - de manière flexible, numérique et toujours à l'écoute de leurs besoins individuels. • Vous acquérez activement de nouveaux clients dans le segment Affluent et établissez des relations à long terme. • Vous conduisez les discussions de financement, vérifiez les demandes de prêt et élaborez des solutions de financement sur mesure. • Vous coopérez avec des chercheurs externes (par exemple des agents immobiliers, des agents) pour générer et clôturer avec succès des prospects. • Vous vous assurez que toutes les exigences réglementaires et normes de conformité sont respectées."
       },
       "location": "Ticino",
       "canton": "",
@@ -1080,26 +1078,17 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.360Z",
       "previousSlugs": [
-        "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs",
         "remote-consulente-mortgage-remote-sales-advice-basel-80-100-ubs-ticino"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
-        ],
-        "fr": [
-          "remote-advisor-mortgage-remote-sales-advice-basel-80-100-ubs"
-        ]
-      }
+      ]
     },
     {
       "id": "ubs-f7336c29aa44",
-      "slug": "strategista-commerciale-ubs-ticino",
+      "slug": "business-strategist-ubs",
       "slugByLocale": {
         "en": "business-strategist-ubs",
-        "it": "strategista-commerciale-ubs-ticino",
-        "de": "geschaftsstratege-ubs-ticino",
-        "fr": "strategie-commerciale-ubs-ticino"
+        "it": "business-strategist-ubs",
+        "de": "business-strategist-ubs",
+        "fr": "business-strategist-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1164,28 +1153,25 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T14:07:38.360Z",
       "previousSlugs": [
-        "business-strategist-ubs"
+        "strategista-commerciale-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "business-strategist-ubs"
+          "geschaftsstratege-ubs-ticino"
         ],
         "fr": [
-          "business-strategist-ubs"
-        ],
-        "it": [
-          "business-strategist-ubs"
+          "strategie-commerciale-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-3ff07e23b12e",
-      "slug": "investimento-privato-associato-ubs-ticino",
+      "slug": "private-equity-investment-associate-ubs",
       "slugByLocale": {
         "en": "private-equity-investment-associate-ubs",
-        "it": "investimento-privato-associato-ubs-ticino",
+        "it": "private-equity-investment-associate-ubs",
         "de": "private-equity-investment-associate-ubs",
-        "fr": "investissement-prive-associe-ubs-ticino"
+        "fr": "private-equity-investment-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1249,27 +1235,22 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.359Z",
       "previousSlugs": [
-        "societe-d-investissement-privee-ubs-ticino",
-        "private-equity-investment-associate-ubs"
+        "investimento-privato-associato-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "societe-d-investissement-privee-ubs-ticino",
-          "private-equity-investment-associate-ubs"
-        ],
-        "it": [
-          "private-equity-investment-associate-ubs"
+          "societe-d-investissement-privee-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-00e41e8420f1",
-      "slug": "cliente-associato-registrato-ubs-ticino",
+      "slug": "registered-client-associate-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino",
+        "it": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs",
-        "fr": "client-enregistre-associe-ubs-ticino"
+        "fr": "registered-client-associate-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1333,9 +1314,6 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.357Z",
       "previousSlugs": [
-        "registered-client-associate-ubs-3",
-        "client-enregistre-associe-ubs-ticino-c8b149",
-        "registered-client-associate-ubs",
         "cliente-associato-registrato-ubs-ticino-c8b149"
       ],
       "previousSlugsByLocale": {
@@ -1344,23 +1322,21 @@
         ],
         "fr": [
           "client-enregistre-associe-ubs-ticino-c8b149",
-          "registered-client-associate-ubs-3",
-          "registered-client-associate-ubs"
+          "registered-client-associate-ubs-3"
         ],
         "it": [
-          "registered-client-associate-ubs-3",
-          "registered-client-associate-ubs"
+          "registered-client-associate-ubs-3"
         ]
       }
     },
     {
       "id": "ubs-1a46177cf424",
-      "slug": "amministratore-ufficio-ubs-ticino",
+      "slug": "office-administrator-ubs",
       "slugByLocale": {
         "en": "office-administrator-ubs",
-        "it": "amministratore-ufficio-ubs-ticino",
-        "de": "buroverwaltung-ubs-ticino",
-        "fr": "administrateur-de-bureau-ubs-ticino"
+        "it": "office-administrator-ubs",
+        "de": "office-administrator-ubs",
+        "fr": "office-administrator-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1424,17 +1400,14 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.356Z",
       "previousSlugs": [
-        "office-administrator-ubs"
+        "amministratore-ufficio-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "office-administrator-ubs"
+          "buroverwaltung-ubs-ticino"
         ],
         "fr": [
-          "office-administrator-ubs"
-        ],
-        "it": [
-          "office-administrator-ubs"
+          "administrateur-de-bureau-ubs-ticino"
         ]
       }
     },
@@ -1511,12 +1484,12 @@
     },
     {
       "id": "ubs-90de87e1f3f6",
-      "slug": "gestione-account-cliente-ubs-ticino",
+      "slug": "client-account-manager-ubs",
       "slugByLocale": {
         "en": "client-account-manager-ubs",
-        "it": "gestione-account-cliente-ubs-ticino",
-        "de": "kundenkontomanager-ubs-ticino",
-        "fr": "gestionnaire-de-compte-client-ubs-ticino"
+        "it": "client-account-manager-ubs",
+        "de": "client-account-manager-ubs",
+        "fr": "client-account-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1580,17 +1553,14 @@
       },
       "firstSeenAt": "2026-06-17T14:07:38.353Z",
       "previousSlugs": [
-        "client-account-manager-ubs"
+        "gestione-account-cliente-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "client-account-manager-ubs"
+          "kundenkontomanager-ubs-ticino"
         ],
         "fr": [
-          "client-account-manager-ubs"
-        ],
-        "it": [
-          "client-account-manager-ubs"
+          "gestionnaire-de-compte-client-ubs-ticino"
         ]
       }
     },
@@ -1601,7 +1571,7 @@
         "en": "internship-in-finance-team-spanish-speaker-ubs",
         "it": "internship-in-finance-team-spanish-speaker-ubs",
         "de": "internship-in-finance-team-spanish-speaker-ubs",
-        "fr": "stage-dans-l-equipe-des-finances-president-espagnol-ubs-ticino"
+        "fr": "internship-in-finance-team-spanish-speaker-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1663,7 +1633,12 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-17T14:07:38.350Z"
+      "firstSeenAt": "2026-06-17T14:07:38.350Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "stage-dans-l-equipe-des-finances-president-espagnol-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-e0088f6afaf4",
@@ -1820,12 +1795,12 @@
     },
     {
       "id": "ubs-6b245a1f964d",
-      "slug": "cliente-associato-ubs-ticino-6c4f9e",
+      "slug": "client-associate-ubs-2",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-6c4f9e",
+        "it": "client-associate-ubs-2",
         "de": "client-associate-ubs-2",
-        "fr": "client-associe-ubs-ticino-6c4f9e"
+        "fr": "client-associate-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -1889,14 +1864,11 @@
       },
       "firstSeenAt": "2026-06-17T23:34:45.659Z",
       "previousSlugs": [
-        "client-associate-ubs-2"
+        "cliente-associato-ubs-ticino-6c4f9e"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associate-ubs-2"
-        ],
-        "it": [
-          "client-associate-ubs-2"
+          "client-associe-ubs-ticino-6c4f9e"
         ]
       }
     },
@@ -2044,12 +2016,12 @@
     },
     {
       "id": "ubs-4f78a16a464c",
-      "slug": "specialista-di-spedizione-ubs-ticino",
+      "slug": "speditionsfachfrau-mann-ubs",
       "slugByLocale": {
-        "en": "freight-forwarding-specialist-ubs-ticino",
-        "it": "specialista-di-spedizione-ubs-ticino",
+        "en": "speditionsfachfrau-mann-ubs",
+        "it": "speditionsfachfrau-mann-ubs",
         "de": "speditionsfachfrau-mann-ubs",
-        "fr": "specialiste-du-transport-de-marchandises-ubs-ticino"
+        "fr": "speditionsfachfrau-mann-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2114,28 +2086,25 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "speditionsfachfrau-mann-ubs"
+        "specialista-di-spedizione-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "speditionsfachfrau-mann-ubs"
+          "freight-forwarding-specialist-ubs-ticino"
         ],
         "fr": [
-          "speditionsfachfrau-mann-ubs"
-        ],
-        "it": [
-          "speditionsfachfrau-mann-ubs"
+          "specialiste-du-transport-de-marchandises-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-43c38322433a",
-      "slug": "prezioso-cassiere-in-metallo-ubs-ticino",
+      "slug": "edelmetall-kassierer-in-ubs",
       "slugByLocale": {
-        "en": "precious-metal-cashier-in-ubs-ticino",
-        "it": "prezioso-cassiere-in-metallo-ubs-ticino",
+        "en": "edelmetall-kassierer-in-ubs",
+        "it": "edelmetall-kassierer-in-ubs",
         "de": "edelmetall-kassierer-in-ubs",
-        "fr": "precieux-caissier-metal-in-ubs-ticino"
+        "fr": "edelmetall-kassierer-in-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2200,28 +2169,25 @@
       "addressRegion": "ZH",
       "firstSeenAt": "2026-06-17T23:34:45.655Z",
       "previousSlugs": [
-        "edelmetall-kassierer-in-ubs"
+        "prezioso-cassiere-in-metallo-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "edelmetall-kassierer-in-ubs"
+          "precious-metal-cashier-in-ubs-ticino"
         ],
         "fr": [
-          "edelmetall-kassierer-in-ubs"
-        ],
-        "it": [
-          "edelmetall-kassierer-in-ubs"
+          "precieux-caissier-metal-in-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-c061e82212a2",
-      "slug": "cliente-associato-registrato-ubs-ticino-633ac5",
+      "slug": "client-associate-registered-ubs",
       "slugByLocale": {
         "en": "client-associate-registered-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-633ac5",
+        "it": "client-associate-registered-ubs",
         "de": "client-associate-registered-ubs",
-        "fr": "associe-client-enregistre-ubs-ticino"
+        "fr": "client-associate-registered-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2285,14 +2251,11 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.614Z",
       "previousSlugs": [
-        "client-associate-registered-ubs"
+        "cliente-associato-registrato-ubs-ticino-633ac5"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associate-registered-ubs"
-        ],
-        "it": [
-          "client-associate-registered-ubs"
+          "associe-client-enregistre-ubs-ticino"
         ]
       }
     },
@@ -2593,12 +2556,12 @@
     },
     {
       "id": "ubs-9ce7282d7ccd",
-      "slug": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
+      "slug": "clearing-relationship-manager-ubs",
       "slugByLocale": {
         "en": "clearing-relationship-manager-ubs",
-        "it": "gestione-delle-relazioni-di-compensazione-ubs-ticino",
+        "it": "clearing-relationship-manager-ubs",
         "de": "clearing-relationship-manager-ubs",
-        "fr": "gestionnaire-de-relations-de-compensation-ubs-ticino"
+        "fr": "clearing-relationship-manager-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2662,25 +2625,22 @@
       },
       "firstSeenAt": "2026-06-18T13:20:32.602Z",
       "previousSlugs": [
-        "clearing-relationship-manager-ubs"
+        "gestione-delle-relazioni-di-compensazione-ubs-ticino"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "clearing-relationship-manager-ubs"
-        ],
-        "it": [
-          "clearing-relationship-manager-ubs"
+          "gestionnaire-de-relations-de-compensation-ubs-ticino"
         ]
       }
     },
     {
       "id": "ubs-fa005dcc31f6",
-      "slug": "cliente-associato-ubs-ticino-29b88b",
+      "slug": "client-associate-ubs-3",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "cliente-associato-ubs-ticino-29b88b",
+        "it": "client-associate-ubs-3",
         "de": "client-associate-ubs-3",
-        "fr": "client-associe-ubs-ticino-29b88b"
+        "fr": "client-associate-ubs-3"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2744,14 +2704,11 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.603Z",
       "previousSlugs": [
-        "client-associate-ubs-3"
+        "cliente-associato-ubs-ticino-29b88b"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "client-associate-ubs-3"
-        ],
-        "it": [
-          "client-associate-ubs-3"
+          "client-associe-ubs-ticino-29b88b"
         ]
       }
     },
@@ -2911,12 +2868,12 @@
     },
     {
       "id": "ubs-3ee4e7409662",
-      "slug": "cliente-associato-registrato-ubs-ticino-e43e90",
+      "slug": "registered-client-associate-ubs-2",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "cliente-associato-registrato-ubs-ticino-e43e90",
+        "it": "registered-client-associate-ubs-2",
         "de": "registered-client-associate-ubs-2",
-        "fr": "client-enregistre-associe-ubs-ticino-e43e90"
+        "fr": "registered-client-associate-ubs-2"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2980,20 +2937,18 @@
       },
       "firstSeenAt": "2026-06-18T23:47:19.604Z",
       "previousSlugs": [
-        "registered-client-associate-ubs-4",
-        "registered-client-associate-ubs-2"
+        "cliente-associato-registrato-ubs-ticino-e43e90"
       ],
       "previousSlugsByLocale": {
         "de": [
           "registered-client-associate-ubs-4"
         ],
         "fr": [
-          "registered-client-associate-ubs-4",
-          "registered-client-associate-ubs-2"
+          "client-enregistre-associe-ubs-ticino-e43e90",
+          "registered-client-associate-ubs-4"
         ],
         "it": [
-          "registered-client-associate-ubs-4",
-          "registered-client-associate-ubs-2"
+          "registered-client-associate-ubs-4"
         ]
       }
     },
@@ -3003,8 +2958,8 @@
       "slugByLocale": {
         "en": "global-banking-hong-kong-ubs",
         "it": "global-banking-hong-kong-ubs",
-        "de": "global-banking-hongkong-ubs-ticino",
-        "fr": "banque-mondiale-hong-kong-ubs-ticino"
+        "de": "global-banking-hong-kong-ubs",
+        "fr": "global-banking-hong-kong-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3066,7 +3021,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-18T13:20:32.601Z"
+      "firstSeenAt": "2026-06-18T13:20:32.601Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "global-banking-hongkong-ubs-ticino"
+        ],
+        "fr": [
+          "banque-mondiale-hong-kong-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-91e85e3d34cb",
@@ -3146,7 +3109,7 @@
         "en": "local-credit-risk-officer-korea-ubs",
         "it": "local-credit-risk-officer-korea-ubs",
         "de": "local-credit-risk-officer-korea-ubs",
-        "fr": "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
+        "fr": "local-credit-risk-officer-korea-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3211,7 +3174,12 @@
       "firstSeenAt": "2026-06-11T13:41:34.033Z",
       "previousSlugs": [
         "responsabile-locale-del-rischio-di-credito-corea-ubs-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "specialiste-du-risque-de-credit-local-coree-ubs-ticino"
+        ]
+      }
     },
     {
       "id": "ubs-c7d442421116",
@@ -3286,12 +3254,12 @@
     },
     {
       "id": "ubs-94878c66e7c0",
-      "slug": "consulenza-commerciale-global-markets-india-ubs-ticino",
+      "slug": "advisory-sales-global-markets-india-ubs",
       "slugByLocale": {
         "en": "advisory-sales-global-markets-india-ubs",
-        "it": "consulenza-commerciale-global-markets-india-ubs-ticino",
+        "it": "advisory-sales-global-markets-india-ubs",
         "de": "advisory-sales-global-markets-india-ubs",
-        "fr": "ventes-conseils-marches-mondiaux-inde-ubs-ticino"
+        "fr": "advisory-sales-global-markets-india-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3353,18 +3321,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:35:02.477Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "advisory-sales-global-markets-india-ubs"
-        ],
-        "fr": [
-          "advisory-sales-global-markets-india-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "advisory-sales-global-markets-india-ubs"
-      ]
+      "firstSeenAt": "2026-06-19T13:35:02.477Z"
     },
     {
       "id": "ubs-c9beb6f52ff3",
@@ -3439,12 +3396,12 @@
     },
     {
       "id": "ubs-10831a25ddf3",
-      "slug": "stanziamenti-specializzati-80-100-ubs-ticino",
+      "slug": "specialiste-credits-80-100-ubs",
       "slugByLocale": {
         "fr": "specialiste-credits-80-100-ubs",
-        "it": "stanziamenti-specializzati-80-100-ubs-ticino",
-        "en": "specialist-appropriations-80-100-ubs-ticino",
-        "de": "spezialisierte-mittel-80-100-ubs-ticino"
+        "it": "specialiste-credits-80-100-ubs",
+        "en": "specialiste-credits-80-100-ubs",
+        "de": "specialiste-credits-80-100-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3506,30 +3463,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:48:08.796Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-credits-80-100-ubs"
-        ],
-        "en": [
-          "specialiste-credits-80-100-ubs"
-        ],
-        "de": [
-          "specialiste-credits-80-100-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-credits-80-100-ubs"
-      ]
+      "firstSeenAt": "2026-06-19T22:48:08.796Z"
     },
     {
       "id": "ubs-9ac838b2f2f5",
-      "slug": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
+      "slug": "internship-in-client-lifecycle-management-ubs",
       "slugByLocale": {
         "en": "internship-in-client-lifecycle-management-ubs",
-        "it": "stage-nella-gestione-del-ciclo-di-vita-del-cliente-ubs-ticino",
+        "it": "internship-in-client-lifecycle-management-ubs",
         "de": "internship-in-client-lifecycle-management-ubs",
-        "fr": "stage-en-gestion-du-cycle-de-vie-des-clients-ubs-ticino"
+        "fr": "internship-in-client-lifecycle-management-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3591,27 +3534,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:35:02.476Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "internship-in-client-lifecycle-management-ubs"
-        ],
-        "fr": [
-          "internship-in-client-lifecycle-management-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "internship-in-client-lifecycle-management-ubs"
-      ]
+      "firstSeenAt": "2026-06-19T13:35:02.476Z"
     },
     {
       "id": "ubs-692cf7395ea7",
-      "slug": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
+      "slug": "stage-juridique-au-service-juridique-d-ubs-ubs",
       "slugByLocale": {
         "fr": "stage-juridique-au-service-juridique-d-ubs-ubs",
-        "it": "corso-di-formazione-legale-presso-il-servizio-legale-di-ubs-ubs-ticino",
-        "en": "legal-training-course-at-the-legal-service-of-ubs-ubs-ticino",
-        "de": "juristische-ausbildung-im-juristischen-dienst-der-ubs-ubs-ticino"
+        "it": "stage-juridique-au-service-juridique-d-ubs-ubs",
+        "en": "stage-juridique-au-service-juridique-d-ubs-ubs",
+        "de": "stage-juridique-au-service-juridique-d-ubs-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3674,30 +3606,16 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T13:35:02.476Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "stage-juridique-au-service-juridique-d-ubs-ubs"
-        ],
-        "en": [
-          "stage-juridique-au-service-juridique-d-ubs-ubs"
-        ],
-        "de": [
-          "stage-juridique-au-service-juridique-d-ubs-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "stage-juridique-au-service-juridique-d-ubs-ubs"
-      ]
+      "firstSeenAt": "2026-06-19T13:35:02.476Z"
     },
     {
       "id": "ubs-f7e7956e3bfb",
-      "slug": "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
+      "slug": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
       "slugByLocale": {
         "en": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
-        "it": "software-engineer-fullstack-java-ottieni-soluzioni-pensione-ubs-ticino",
-        "de": "software-engineer-fullstack-java-rentenlosungen-erhalten-ubs-ticino",
-        "fr": "ingenieur-logiciel-fullstack-java-obtenir-des-solutions-de-pension-ubs-ticino"
+        "it": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
+        "de": "software-engineer-fullstack-java-obtain-pension-solutions-ubs",
+        "fr": "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -3705,16 +3623,16 @@
       "title": "Software Engineer- Fullstack Java - Obtain Pension Solutions",
       "titleByLocale": {
         "en": "Software Engineer- Fullstack Java - Obtain Pension Solutions",
-        "it": "Software Engineer- Fullstack Java - Ottieni soluzioni pensione",
-        "de": "Software Engineer - Fullstack Java - Rentenlösungen erhalten",
-        "fr": "Ingénieur logiciel- Fullstack Java - Obtenir des solutions de pension"
+        "it": "Ingegnere del Software - Fullstack Java - Ottenere soluzioni pensionistiche",
+        "de": "Softwareingenieur – Fullstack Java – Rentenlösungen erhalten",
+        "fr": "Ingénieur logiciel - Fullstack Java - Obtenir des solutions de retraite"
       },
       "description": "Do you want to design and build next generation business applications using the latest technologies? Are you confident at iteratively refining user requirements and removing any ambiguity? Do you like to be challenged and encouraged to learn and grow professionally?\n\nWe’re looking for a developer for the IT Crew “Obtain Pension Solutions” to:\n• work closely with the Requirements Engineer, the Solution Architect as well as the Product Owner in the team and translate the requirements into tasks and stories for the development team\n• be an active member of our development team (Backend & Frontend) and deliver software, enabling our business growth and strategy\n• ensure highest quality delivery of our Software and implement respective quality measures and checks\n• ensure the fully development cycle including proper documentation, unit testing and test automation scripting\n• support the team in our Crew with your own development skills and ability",
       "descriptionByLocale": {
-        "en": "Mansioni\n\n- work closely with the Requirements Engineer, the Solution Architect as well as the Product Owner in the team and translate the requirements into tasks and stories for the development team\n- be an active member of our development team (Backend & Frontend) and deliver software, enabling our business growth and strategy\n- ensure highest quality delivery of our Software and implement respective quality measures and checks\n- ensure the fully development cycle including proper documentation, unit testing and test automation scripting\n- support the team in our Crew with your own development skills and ability\n\nRequisiti\n\n- Do you want to design and build next generation business applications using the latest technologies?\n- Are you confident at iteratively refining user requirements and removing any ambiguity?\n- Do you like to be challenged and encouraged to learn and grow professionally?\n\nCosa offriamo\n\n- A role in the IT Crew “Obtain Pension Solutions”\n\nContatto\n\n- We’re looking for a developer for the IT Crew “Obtain Pension Solutions”",
-        "it": "Mansioni - lavorare a stretto contatto con l'Ingegnere Requisiti, l'Architetto Soluzione e il Proprietario del Prodotto nel team e tradurre i requisiti in compiti e storie per il team di sviluppo - essere un membro attivo del nostro team di sviluppo (Backend & Frontend) e fornire software, consentendo la nostra crescita aziendale e strategia - garantire la consegna di alta qualità del nostro software e implementare le rispettive misure di qualità e controlli - garantire il ciclo di sviluppo completo, tra cui la corretta documentazione, test unit test e scripting Vuoi progettare e costruire applicazioni aziendali di nuova generazione utilizzando le ultime tecnologie? - Sei fiducioso di trovare iterativamente i requisiti degli utenti e rimuovere qualsiasi ambiguità? - Ti piace essere sfidato e incoraggiato ad imparare e crescere professionalmente? Cosa offriamo - Un ruolo nel Crew IT “Obtain Pension Solutions” Contatto - Stiamo cercando uno sviluppatore per il Crew IT “Obtain Pension Solutions”",
-        "de": "Mansioni - arbeiten Sie eng mit dem Requirements Engineer, dem Solution Architect sowie dem Product Owner im Team zusammen und übersetzen Sie die Anforderungen in Aufgaben und Geschichten für das Entwicklungsteam - seien Sie ein aktives Mitglied unseres Entwicklungsteams (Backend & Frontend) und liefern Sie Software, die unser Geschäftswachstum und unsere Strategie ermöglicht - stellen Sie die qualitativ hochwertigste Lieferung unserer Software sicher und implementieren Sie entsprechende Qualitätsmaßnahmen und -prüfungen - stellen Sie den vollständigen Entwicklungszyklus einschließlich ordnungsgemäßer Dokumentation, Unit-Tests und Testautomatisierung sicher - unterstützen Sie das Team in unserer Crew mit Ihren eigenen Entwicklungsfähigkeiten und Fähigkeiten Requisiti - Möchten Sie Business-Anwendungen der nächsten Generation mit den neuesten Technologien entwerfen und erstellen? - Sind Sie zuversichtlich, die Benutzeranforderungen iterativ zu verfeinern und Unklarheiten zu beseitigen? - Möchten Sie herausgefordert und ermutigt werden, professionell zu lernen und zu wachsen? Cosa offriamo - Eine Rolle in der IT-Crew \"Obtain Pension Solutions\" Contatto - Wir suchen einen Entwickler für die IT-Crew \"Obtain Pension Solutions\"",
-        "fr": "Mansioni - travailler en étroite collaboration avec l'ingénieur des exigences, l'architecte de solutions et le propriétaire du produit dans l'équipe et traduire les exigences en tâches et en histoires pour l'équipe de développement - être un membre actif de notre équipe de développement (Backend & Frontend) et fournir des logiciels, permettant notre croissance d'entreprise et notre stratégie - assurer la livraison de notre logiciel de la plus haute qualité et mettre en œuvre des mesures et des contrôles de qualité respectifs - assurer le cycle de développement complet, y compris la documentation appropriée, les essais unitaires et le script d'automatisation de test - soutenir l'équipe de notre équipage avec vos propres compétences de développement Requisiti - Voulez-vous concevoir et construire des applications commerciales de nouvelle génération en utilisant les dernières technologies? - Êtes-vous confiant à l'amélioration itérative des besoins des utilisateurs et de supprimer toute ambiguïté? - Vous aimez être défié et encouragé à apprendre et à grandir professionnellement? Cosa offriamo - Un rôle dans l'équipe de TI Solutions de pension Obtain Contatto - Nous sommes à la recherche d'un développeur pour l'équipe de TI Solutions de pension Obtain"
+        "en": "Do you want to design and build next generation business applications using the latest technologies? Are you confident at iteratively refining user requirements and removing any ambiguity? Do you like to be challenged and encouraged to learn and grow professionally?\n\nWe’re looking for a developer for the IT Crew “Obtain Pension Solutions” to:\n• work closely with the Requirements Engineer, the Solution Architect as well as the Product Owner in the team and translate the requirements into tasks and stories for the development team\n• be an active member of our development team (Backend & Frontend) and deliver software, enabling our business growth and strategy\n• ensure highest quality delivery of our Software and implement respective quality measures and checks\n• ensure the fully development cycle including proper documentation, unit testing and test automation scripting\n• support the team in our Crew with your own development skills and ability",
+        "it": "Vuoi progettare e costruire applicazioni aziendali di nuova generazione utilizzando le tecnologie più recenti? Sei sicuro nel perfezionare iterativamente i requisiti degli utenti e eliminare qualsiasi ambiguità? Ti piace essere stimolata e stimolata a imparare e crescere professionalmente? Cerchiamo uno sviluppatore per il team IT \"Ottenere soluzioni pensionistiche\" per: • lavorare a stretto contatto con l'Ingegnere dei Requisiti, il Solution Architect e il Product Owner nel team e tradurre i requisiti in compiti e storie per il team di sviluppo • essere un membro attivo del nostro team di sviluppo (Backend e Frontend) e fornire software, Favorire la crescita e la strategia del nostro business • garantire la massima qualità della consegna del nostro software e implementare le rispettive misure e controlli di qualità • garantire il ciclo completo di sviluppo, inclusa documentazione adeguata, test unitario e script di automazione dei test • supportare il team del nostro Crew con le proprie competenze e capacità di sviluppo",
+        "de": "Möchten Sie die nächste Generation von Geschäftsanwendungen mit den neuesten Technologien entwerfen und entwickeln? Bist du zuversichtlich, die Anforderungen der Nutzer iterativ zu verfeinern und jegliche Unklarheiten zu beseitigen? Möchten Sie herausgefordert und ermutigt werden, professionell zu lernen und sich weiterzuentwickeln? Wir suchen einen Entwickler für das IT-Team \"Acquire Pension Solutions\", der: • eng mit dem Requirements Engineer, dem Solution Architect sowie dem Product Owner im Team zusammenarbeitet und die Anforderungen in Aufgaben und Geschichten für das Entwicklungsteam übersetzt • ein aktives Mitglied unseres Entwicklungsteams (Backend & Frontend) ist und Software liefert, Unterstützung unseres Geschäftswachstums und unserer Strategie • Sicherstellung der höchsten Qualität der Bereitstellung unserer Software sowie Umsetzung entsprechender Qualitätsmaße und -kontrollen • Sicherstellung des vollständigen Entwicklungszyklus einschließlich ordnungsgemäßer Dokumentation, Unit-Tests und Testautomatisierungsskripte • Unterstützung des Teams mit Ihren eigenen Entwicklungsfähigkeiten und -fähigkeiten",
+        "fr": "Souhaitez-vous concevoir et construire des applications métier de nouvelle génération en utilisant les dernières technologies? Êtes-vous confiant pour affiner de manière itérative les exigences des utilisateurs et éliminer toute ambiguïté? Aimez-vous être mis au défi et encouragé à apprendre et à progresser professionnellement? Nous recherchons un développeur pour l'équipe IT « Obtenir des solutions de retraite » afin de : • travailler en étroite collaboration avec l'ingénieur des exigences, l'architecte de solutions ainsi qu'avec le Product Owner de l'équipe et traduire les exigences en tâches et histoires pour l'équipe de développement • être un membre actif de notre équipe de développement (Backend & Frontend) et livrer des logiciels, Permettre la croissance et la stratégie de notre entreprise • garantir la meilleure qualité de livraison de nos logiciels et mettre en œuvre les mesures et contrôles de qualité appropriées • garantir le cycle complet de développement, y compris la documentation appropriée, les tests unitaires et les scripts automatisés de tests • soutenir l'équipe de notre équipe avec vos propres compétences et compétences en développement"
       },
       "location": "Ticino",
       "canton": "",
@@ -3759,21 +3677,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T13:35:02.475Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
-        ],
-        "de": [
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
-        ],
-        "fr": [
-          "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "software-engineer-fullstack-java-obtain-pension-solutions-ubs"
-      ]
+      "firstSeenAt": "2026-06-19T13:35:02.475Z"
     },
     {
       "id": "ubs-106f54959c4b",
@@ -3781,7 +3685,7 @@
       "slugByLocale": {
         "en": "data-analyst-ubs",
         "it": "data-analista-ubs-ticino",
-        "de": "datenanalyst-ubs-ticino",
+        "de": "data-analyst-ubs",
         "fr": "data-analyste-ubs-ticino"
       },
       "company": "UBS",
@@ -3854,9 +3758,6 @@
         ],
         "it": [
           "data-analyst-ubs"
-        ],
-        "de": [
-          "data-analyst-ubs"
         ]
       }
     },
@@ -3867,7 +3768,7 @@
         "en": "sap-s-4-hana-finance-functional-sme-ubs",
         "it": "sap-s-4-hana-finance-functional-sme-ubs",
         "de": "sap-s-4-hana-finance-functional-sme-ubs",
-        "fr": "sap-s-4-hana-finance-pme-fonctionnelles-ubs-ticino"
+        "fr": "sap-s-4-hana-finance-functional-sme-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
