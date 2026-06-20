@@ -3796,11 +3796,13 @@
       "requirementsByLocale": {},
       "department": "Spezialpflege",
       "previousSlugs": [
-        "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
+        "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
+        "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
+          "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch",
+          "esperto-esperto-nds-50-100-assistenza-di-emergenza-spital-uster-uster"
         ],
         "fr": [
           "expertin-experte-nds-50-100-notfallpflege-spital-uster-ch"
@@ -3870,14 +3872,16 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "previousSlugs": [
-        "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch"
+        "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
+        "specialiste-des-soins-hf-fh-80-100-soins-d-urgence-spital-uster-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch"
         ],
         "fr": [
-          "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch"
+          "pflegefachperson-hf-fh-80-100-notfallpflege-spital-uster-ch",
+          "specialiste-des-soins-hf-fh-80-100-soins-d-urgence-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-06-19T22:39:38.620Z",
@@ -3944,17 +3948,23 @@
       "requirementsByLocale": {},
       "department": "Lernende/Studierende/Praktikanten",
       "previousSlugs": [
-        "studierende-nds-hf-notfallpflege-spital-uster-ch"
+        "studierende-nds-hf-notfallpflege-spital-uster-ch",
+        "studenti-nds-hf-assistenza-di-emergenza-spital-uster-uster",
+        "students-nds-hf-emergency-care-spital-uster-uster",
+        "etudiants-nds-hf-soins-infirmiers-d-urgence-spital-uster-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-nds-hf-notfallpflege-spital-uster-ch"
+          "studierende-nds-hf-notfallpflege-spital-uster-ch",
+          "studenti-nds-hf-assistenza-di-emergenza-spital-uster-uster"
         ],
         "en": [
-          "studierende-nds-hf-notfallpflege-spital-uster-ch"
+          "studierende-nds-hf-notfallpflege-spital-uster-ch",
+          "students-nds-hf-emergency-care-spital-uster-uster"
         ],
         "fr": [
-          "studierende-nds-hf-notfallpflege-spital-uster-ch"
+          "studierende-nds-hf-notfallpflege-spital-uster-ch",
+          "etudiants-nds-hf-soins-infirmiers-d-urgence-spital-uster-uster"
         ]
       },
       "firstSeenAt": "2026-06-19T22:39:38.596Z",
