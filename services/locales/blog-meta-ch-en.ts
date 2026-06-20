@@ -245,6 +245,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-nero-dumping-2025-svizzera.title': '15,000 violations in 2025: black labor and wage dumping in Switzerland',
     'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'In 2025, SECO detected 15,000 irregularities: construction and hospitality were the hardest-hit sectors. Ticino is among the most active cantons in inspections. Mandatory obligations apply.',
     'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Construction worker in Ticino inspected for labor violations, with Lugano and Lake Lugano in the background.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Swiss Pension (LPP) Benefits: Taxation',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guide to taxing occupational pension (LPP) benefits in Switzerland, focusing on annuities and lump sums.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Zurich skyline with financial and academic buildings at sunset.',
 };
 
 export default blogMetaChEn;

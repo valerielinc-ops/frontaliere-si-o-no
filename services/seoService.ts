@@ -4089,6 +4089,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasporti-45-ticino-margini': { name: 'Mobilità Svizzera', path: '/articoli-svizzera/trasporti-45-ticino-margini/', parent: 'blog' },
     'blog-nucleare-13avs-salari-votazioni': { name: 'Novità Svizzera', path: '/articoli-svizzera/nucleare-13avs-salari-votazioni/', parent: 'blog' },
     'blog-lavoro-nero-dumping-2025-svizzera': { name: 'Lavoro nero 2025', path: '/articoli-svizzera/lavoro-nero-dumping-2025-svizzera/', parent: 'blog' },
+    'blog-lpp-prestazioni-tassazione-svizzera': { name: 'Tassazione LPP', path: '/articoli-svizzera/lpp-prestazioni-tassazione-svizzera/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

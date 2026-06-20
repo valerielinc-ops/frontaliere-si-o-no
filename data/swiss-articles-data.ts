@@ -737,6 +737,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lpp-prestazioni-tassazione-svizzera',
+    category: 'fiscale',
+    date: '2026-06-20T03:47:30.174Z',
+    image: '/images/blog/lpp-prestazioni-tassazione-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
