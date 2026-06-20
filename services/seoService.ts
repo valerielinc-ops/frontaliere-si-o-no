@@ -4086,6 +4086,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dogana-chiasso-svizzera': { name: 'Dogana Chiasso', path: '/articoli-svizzera/dogana-chiasso-svizzera/', parent: 'blog' },
     'blog-imposta-alla-fonte-frontalieri-ticino': { name: 'Imposta fonte Ticino', path: '/articoli-svizzera/imposta-alla-fonte-frontalieri-ticino/', parent: 'blog' },
     'blog-dogana-stabio-gaggiolo': { name: 'Traffico Dogane', path: '/articoli-svizzera/dogana-stabio-gaggiolo/', parent: 'blog' },
+    'blog-trasporti-45-ticino-margini': { name: 'Mobilità Svizzera', path: '/articoli-svizzera/trasporti-45-ticino-margini/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

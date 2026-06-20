@@ -236,6 +236,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dogana-stabio-gaggiolo.title': 'Gaggiolo Zoll: Operationen und Neuigkeiten',
     'blog.article.dogana-stabio-gaggiolo.excerpt': 'Aktuelle Updates zur Situation am Zoll Gaggiolo und Stabio, mit Fokus auf Kontrollen und Verfahren.',
     'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Zollszene bei Gaggiolo und Stabio mit Beamten im Dienst',
+    'blog.article.trasporti-45-ticino-margini.title': '«Verkehr ’45»: Tessin am Rand der Schweizer Mobilität',
+    'blog.article.trasporti-45-ticino-margini.excerpt': 'Der Bundesrat präsentiert das Projekt «Verkehr ’45», doch das Tessin bleibt von den Prioritäten ausgeschlossen',
+    'blog.article.trasporti-45-ticino-margini.imageAlt': 'Zug fährt durch die Schweizer Alpen bei Lugano',
 };
 
 export default blogMetaChDe;

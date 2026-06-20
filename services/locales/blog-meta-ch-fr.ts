@@ -236,6 +236,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dogana-stabio-gaggiolo.title': 'Douane de Gaggiolo: opérations et mises à jour',
     'blog.article.dogana-stabio-gaggiolo.excerpt': 'Mises à jour récentes sur la situation de la douane de Gaggiolo et Stabio, avec un focus sur les contrôles et les procédures.',
     'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Scène douanière à Gaggiolo et Stabio avec agents en service',
+    'blog.article.trasporti-45-ticino-margini.title': '«Transports \'45»: le Tessin à la traîne de la mobilité suisse',
+    'blog.article.trasporti-45-ticino-margini.excerpt': 'Le Conseil fédéral présente le projet «Transports \'45», mais le Tessin reste exclu des priorités',
+    'blog.article.trasporti-45-ticino-margini.imageAlt': 'Train traversant les Alpes suisses près de Lugano',
 };
 
 export default blogMetaChFr;
