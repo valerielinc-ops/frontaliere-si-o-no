@@ -6,53 +6,53 @@
     "queries": [
       {
         "query": "case anziani ticino offerte di lavoro",
-        "clicks": 24,
-        "impressions": 337
-      },
-      {
-        "query": "offerte lavoro casa di riposo svizzera",
-        "clicks": 12,
-        "impressions": 173
+        "clicks": 27,
+        "impressions": 351
       },
       {
         "query": "offerte di lavoro casa di riposo svizzera",
         "clicks": 13,
-        "impressions": 162
+        "impressions": 180
+      },
+      {
+        "query": "offerte lavoro casa di riposo svizzera",
+        "clicks": 12,
+        "impressions": 178
       },
       {
         "query": "case anziani lugano posti di lavoro",
         "clicks": 7,
-        "impressions": 110
+        "impressions": 113
       },
       {
         "query": "offerte di lavoro casa anziani ticino",
-        "clicks": 9,
-        "impressions": 56
+        "clicks": 10,
+        "impressions": 61
       },
       {
         "query": "casa anziani paradiso offerta lavoro",
         "clicks": 1,
-        "impressions": 46
+        "impressions": 47
       },
       {
         "query": "offerte lavoro casa anziani ticino",
         "clicks": 4,
-        "impressions": 42
+        "impressions": 44
+      },
+      {
+        "query": "casa anziani chiasso lavoro",
+        "clicks": 6,
+        "impressions": 35
       },
       {
         "query": "casa anziani comunale bellinzona offerte di lavoro",
         "clicks": 1,
-        "impressions": 34
-      },
-      {
-        "query": "casa anziani chiasso lavoro",
-        "clicks": 5,
-        "impressions": 31
+        "impressions": 35
       },
       {
         "query": "case di riposo ticino lavora con noi",
-        "clicks": 3,
-        "impressions": 30
+        "clicks": 4,
+        "impressions": 31
       },
       {
         "query": "casa anziani mendrisio lavoro",
@@ -67,17 +67,22 @@
       {
         "query": "offerte di lavoro casa di riposo per anziani",
         "clicks": 1,
-        "impressions": 10
+        "impressions": 11
       },
       {
         "query": "casa anziani giornico lavoro",
-        "clicks": 0,
-        "impressions": 6
+        "clicks": 1,
+        "impressions": 8
       },
       {
         "query": "offerte di lavoro centri diurni ticino",
         "clicks": 1,
         "impressions": 4
+      },
+      {
+        "query": "case per anziani ticino",
+        "clicks": 0,
+        "impressions": 3
       },
       {
         "query": "frontalieri",
@@ -98,15 +103,10 @@
         "query": "offerte lavoro over 65",
         "clicks": 1,
         "impressions": 2
-      },
-      {
-        "query": "case per anziani ticino",
-        "clicks": 0,
-        "impressions": 2
       }
     ],
-    "totalImpressions": 1145,
-    "totalClicks": 86,
+    "totalImpressions": 1204,
+    "totalClicks": 93,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -145,17 +145,17 @@
       {
         "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 106
+        "impressions": 111
+      },
+      {
+        "query": "lavoro chiasso",
+        "clicks": 0,
+        "impressions": 11
       },
       {
         "query": "offerte lavoro chiasso",
         "clicks": 0,
         "impressions": 11
-      },
-      {
-        "query": "lavoro chiasso",
-        "clicks": 0,
-        "impressions": 10
       },
       {
         "query": "offerte di lavoro chiasso",
@@ -166,6 +166,11 @@
         "query": "cerco lavoro chiasso",
         "clicks": 0,
         "impressions": 7
+      },
+      {
+        "query": "lavorare a chiasso",
+        "clicks": 0,
+        "impressions": 6
       },
       {
         "query": "lavori chiasso",
@@ -188,7 +193,7 @@
         "impressions": 5
       },
       {
-        "query": "lavorare a chiasso",
+        "query": "job chiasso",
         "clicks": 0,
         "impressions": 5
       },
@@ -208,9 +213,9 @@
         "impressions": 4
       },
       {
-        "query": "job chiasso",
+        "query": "chiasso offerte lavoro",
         "clicks": 0,
-        "impressions": 4
+        "impressions": 3
       },
       {
         "query": "offerte di lavoro a chiasso svizzera",
@@ -236,14 +241,9 @@
         "query": "chiasso lavoro offerte",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "chiasso offerte di lavoro",
-        "clicks": 0,
-        "impressions": 2
       }
     ],
-    "totalImpressions": 221,
+    "totalImpressions": 230,
     "totalClicks": 2,
     "topQuery": "lavoro a chiasso",
     "title": "chiasso",
@@ -278,13 +278,152 @@
   },
   {
     "slug": "lugano",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/lugano/",
+    "queries": [
+      {
+        "query": "stellen lugano",
+        "clicks": 0,
+        "impressions": 24
+      },
+      {
+        "query": "stellenangebot lugano",
+        "clicks": 0,
+        "impressions": 22
+      },
+      {
+        "query": "taetigkeitsfelder jobs lugano",
+        "clicks": 0,
+        "impressions": 10
+      },
+      {
+        "query": "handel jobs lugano",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "stellenvermittlung lugano",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "bäckereifachverkäufer jobs lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "pharmareferent jobs lugano",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "altenpfleger jobs lugano",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "assistent jobs lugano",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "bestatter jobs lugano",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "jobs lugano",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "bestbezahlte jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "bundesverwaltung jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "ich suche in lugano eine stelle im service mit italienisch und geregeltem trinkgeldsystem und unterkunft wenn möglich",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lehrstellen lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "materialwirtschaft jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "mathematiker jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "medizintechniker jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "rekrutierung tessin",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "rettungssanitäter jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      }
+    ],
+    "totalImpressions": 165,
+    "totalClicks": 0,
+    "topQuery": "stellen lugano",
+    "title": "lugano",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Lugano",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "lugano",
     "locale": "en",
     "path": "/en/find-jobs-ticino/lugano/",
     "queries": [
       {
         "query": "jobs lugano",
         "clicks": 0,
-        "impressions": 23
+        "impressions": 27
       },
       {
         "query": "full time jobs near me",
@@ -294,7 +433,7 @@
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 19
+        "impressions": 20
       },
       {
         "query": "stellenangebot lugano",
@@ -304,7 +443,12 @@
       {
         "query": "lugano jobs",
         "clicks": 0,
-        "impressions": 10
+        "impressions": 11
+      },
+      {
+        "query": "job offers",
+        "clicks": 0,
+        "impressions": 6
       },
       {
         "query": "jobs in lugano",
@@ -312,14 +456,9 @@
         "impressions": 6
       },
       {
-        "query": "job offers",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
         "query": "emploi lugano",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 4
       },
       {
         "query": "homeoffice jobs lugano",
@@ -382,148 +521,9 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 151,
+    "totalImpressions": 159,
     "totalClicks": 0,
     "topQuery": "jobs lugano",
-    "title": "lugano",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Lugano",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "lugano",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/lugano/",
-    "queries": [
-      {
-        "query": "stellen lugano",
-        "clicks": 0,
-        "impressions": 23
-      },
-      {
-        "query": "stellenangebot lugano",
-        "clicks": 0,
-        "impressions": 21
-      },
-      {
-        "query": "taetigkeitsfelder jobs lugano",
-        "clicks": 0,
-        "impressions": 9
-      },
-      {
-        "query": "stellenvermittlung lugano",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "altenpfleger jobs lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "assistent jobs lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "bestatter jobs lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "handel jobs lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "jobs lugano",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "bestbezahlte jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "bundesverwaltung jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "bäckereifachverkäufer jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "ich suche in lugano eine stelle im service mit italienisch und geregeltem trinkgeldsystem und unterkunft wenn möglich",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "mathematiker jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "medizintechniker jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "pharmareferent jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "rekrutierung tessin",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "rettungssanitäter jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "zurich jobs lugano",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "alltagsbegleiter jobs lugano",
-        "clicks": 0,
-        "impressions": 2
-      }
-    ],
-    "totalImpressions": 149,
-    "totalClicks": 0,
-    "topQuery": "stellen lugano",
     "title": "lugano",
     "titleByLocale": {
       "it": "",
@@ -562,7 +562,7 @@
       {
         "query": "nursing jobs",
         "clicks": 0,
-        "impressions": 101
+        "impressions": 105
       },
       {
         "query": "what nursing jobs are open in the zurich region?",
@@ -591,6 +591,11 @@
       },
       {
         "query": "nursing job opportunities in switzerland",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "nursing jobs in switzerland",
         "clicks": 0,
         "impressions": 2
       },
@@ -653,14 +658,9 @@
         "query": "nursing job switzerland",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "nursing jobs in switzerland",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 133,
+    "totalImpressions": 139,
     "totalClicks": 0,
     "topQuery": "nursing jobs",
     "title": "Nurses",
@@ -700,7 +700,7 @@
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 66
+        "impressions": 67
       },
       {
         "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -733,7 +733,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 129,
+    "totalImpressions": 130,
     "totalClicks": 1,
     "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
     "title": "Elderly care",
@@ -773,12 +773,27 @@
       {
         "query": "educatore sociale offerte lavoro ticino",
         "clicks": 3,
-        "impressions": 11
+        "impressions": 13
       },
       {
         "query": "offerte di lavoro educatrice svizzera italiana",
-        "clicks": 3,
-        "impressions": 7
+        "clicks": 5,
+        "impressions": 10
+      },
+      {
+        "query": "offerte lavoro educatore ticino",
+        "clicks": 0,
+        "impressions": 9
+      },
+      {
+        "query": "offerte lavoro educatore canton ticino",
+        "clicks": 0,
+        "impressions": 8
+      },
+      {
+        "query": "educatrice ticino lavoro",
+        "clicks": 0,
+        "impressions": 6
       },
       {
         "query": "offerte lavoro educatore svizzera",
@@ -786,27 +801,22 @@
         "impressions": 6
       },
       {
+        "query": "offerte di lavoro educatore ticino",
+        "clicks": 2,
+        "impressions": 5
+      },
+      {
         "query": "offerte lavoro educatrice ticino",
         "clicks": 1,
         "impressions": 5
       },
       {
-        "query": "offerte lavoro educatore canton ticino",
+        "query": "educatore ticino",
         "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "offerte lavoro educatore ticino",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "offerte di lavoro educatore ticino",
-        "clicks": 1,
         "impressions": 4
       },
       {
-        "query": "educatrice ticino lavoro",
+        "query": "lavoro insegnante canton ticino",
         "clicks": 0,
         "impressions": 4
       },
@@ -816,27 +826,32 @@
         "impressions": 4
       },
       {
-        "query": "educatore ticino",
+        "query": "offerte lavoro educatore",
         "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "lavoro insegnante canton ticino",
-        "clicks": 0,
-        "impressions": 3
+        "impressions": 4
       },
       {
         "query": "offerte lavoro sociale ticino",
+        "clicks": 1,
+        "impressions": 3
+      },
+      {
+        "query": "lavoro educatore ticino",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro educatore",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lavorare in svizzera come educatore",
         "clicks": 1,
         "impressions": 2
       },
       {
         "query": "educatore sociale ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lavoro educatore ticino",
         "clicks": 0,
         "impressions": 2
       },
@@ -854,25 +869,10 @@
         "query": "offerte di lavoro centri diurni ticino",
         "clicks": 0,
         "impressions": 2
-      },
-      {
-        "query": "offerte di lavoro educatore",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offerte di lavoro educatore svizzera",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "asilo nido chiasso cerca educatrice",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 94,
-    "totalClicks": 9,
+    "totalImpressions": 126,
+    "totalClicks": 14,
     "topQuery": "educatore sociale offerte lavoro ticino",
     "title": "Educatori",
     "titleByLocale": {
@@ -932,6 +932,11 @@
         "query": "bellinzona offerte di lavoro",
         "clicks": 0,
         "impressions": 6
+      },
+      {
+        "query": "bellinzona svizzera lavoro",
+        "clicks": 0,
+        "impressions": 4
       },
       {
         "query": "cerco lavoro a bellinzona",
@@ -1004,7 +1009,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 77,
+    "totalImpressions": 81,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro bellinzona",
     "title": "bellinzona",
@@ -1045,7 +1050,7 @@
       {
         "query": "offerte di lavoro ticino ristorazione",
         "clicks": 0,
-        "impressions": 13
+        "impressions": 14
       },
       {
         "query": "offerte lavoro ristorazione ticino",
@@ -1053,14 +1058,14 @@
         "impressions": 10
       },
       {
-        "query": "lavoro ticino ristorazione",
-        "clicks": 0,
+        "query": "offerte di lavoro ristorazione ticino",
+        "clicks": 1,
         "impressions": 6
       },
       {
-        "query": "offerte di lavoro ristorazione ticino",
-        "clicks": 1,
-        "impressions": 5
+        "query": "lavoro ticino ristorazione",
+        "clicks": 0,
+        "impressions": 6
       },
       {
         "query": "offerte lavoro ticino ristorazione",
@@ -1143,7 +1148,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 73,
+    "totalImpressions": 75,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro ticino ristorazione",
     "title": "Ristorazione",
@@ -1183,12 +1188,12 @@
       {
         "query": "jobs locarno",
         "clicks": 0,
-        "impressions": 23
+        "impressions": 24
       },
       {
         "query": "nebenjobs locarno",
         "clicks": 0,
-        "impressions": 9
+        "impressions": 11
       },
       {
         "query": "fahrer locarno",
@@ -1211,12 +1216,12 @@
         "impressions": 5
       },
       {
-        "query": "job locarno",
+        "query": "werkstudentenjob locarno",
         "clicks": 0,
-        "impressions": 2
+        "impressions": 4
       },
       {
-        "query": "werkstudentenjob locarno",
+        "query": "job locarno",
         "clicks": 0,
         "impressions": 2
       },
@@ -1241,7 +1246,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 65,
+    "totalImpressions": 70,
     "totalClicks": 0,
     "topQuery": "jobs locarno",
     "title": "locarno",
@@ -1315,6 +1320,11 @@
         "impressions": 3
       },
       {
+        "query": "sviluppatore ugello",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
         "query": "posti vacanti ticino",
         "clicks": 0,
         "impressions": 2
@@ -1370,7 +1380,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 62,
+    "totalImpressions": 65,
     "totalClicks": 0,
     "topQuery": "software house canton ticino",
     "title": "Sviluppatori",
@@ -1410,7 +1420,7 @@
       {
         "query": "je vise un emploi à lugano",
         "clicks": 0,
-        "impressions": 39
+        "impressions": 40
       },
       {
         "query": "offre d'emploi tessin",
@@ -1438,17 +1448,17 @@
         "impressions": 2
       },
       {
-        "query": "emploi lugano",
+        "query": "offre d'emploi lugano",
         "clicks": 0,
-        "impressions": 1
+        "impressions": 2
       },
       {
-        "query": "offre d'emploi lugano",
+        "query": "emploi lugano",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 59,
+    "totalImpressions": 61,
     "totalClicks": 0,
     "topQuery": "je vise un emploi à lugano",
     "title": "lugano",
@@ -1489,7 +1499,7 @@
       {
         "query": "full time jobs near me",
         "clicks": 0,
-        "impressions": 45
+        "impressions": 46
       },
       {
         "query": "part time jobs near me",
@@ -1517,9 +1527,73 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 52,
+    "totalImpressions": 53,
     "totalClicks": 0,
     "topQuery": "full time jobs near me",
+    "title": "bellinzona",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Bellinzona",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "bellinzona",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/bellinzona/",
+    "queries": [
+      {
+        "query": "jobs bellinzona",
+        "clicks": 0,
+        "impressions": 15
+      },
+      {
+        "query": "bestbezahlte jobs bellinzona",
+        "clicks": 0,
+        "impressions": 14
+      },
+      {
+        "query": "nebenjobs bellinzona",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "lehrstellen bellinzona",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "concorsi bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 40,
+    "totalClicks": 0,
+    "topQuery": "jobs bellinzona",
     "title": "bellinzona",
     "titleByLocale": {
       "it": "",
@@ -1558,7 +1632,7 @@
       {
         "query": "altenpfleger jobs lugano",
         "clicks": 0,
-        "impressions": 15
+        "impressions": 17
       },
       {
         "query": "altenpflegerin nach mailand",
@@ -1611,7 +1685,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 35,
+    "totalImpressions": 37,
     "totalClicks": 0,
     "topQuery": "altenpfleger jobs lugano",
     "title": "Altenpflege",
@@ -1644,40 +1718,45 @@
     ]
   },
   {
-    "slug": "bellinzona",
+    "slug": "entwickler",
     "locale": "de",
-    "path": "/de/jobs-im-tessin/bellinzona/",
+    "path": "/de/jobs-im-tessin/entwickler/",
     "queries": [
       {
-        "query": "bestbezahlte jobs bellinzona",
+        "query": "softwareentwickler jobs lugano",
         "clicks": 0,
-        "impressions": 13
+        "impressions": 18
       },
       {
-        "query": "jobs bellinzona",
+        "query": "softwareentwicklung jobs lugano",
         "clicks": 0,
-        "impressions": 13
+        "impressions": 10
       },
       {
-        "query": "lehrstellen bellinzona",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "nebenjobs bellinzona",
+        "query": "enterprise suche für entwickler",
         "clicks": 0,
         "impressions": 4
       },
       {
-        "query": "concorsi bellinzona",
+        "query": "graubündner kantonalbank",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs flash entwickler",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "softwareentwickler finden",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 35,
+    "totalImpressions": 36,
     "totalClicks": 0,
-    "topQuery": "bestbezahlte jobs bellinzona",
-    "title": "bellinzona",
+    "topQuery": "softwareentwickler jobs lugano",
+    "title": "Entwickler",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -1692,7 +1771,7 @@
     },
     "company": "",
     "companyKey": "",
-    "location": "Bellinzona",
+    "location": "",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -1703,8 +1782,7 @@
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
-      "gsc",
-      "slug-parsing"
+      "gsc"
     ]
   },
   {
@@ -1945,74 +2023,6 @@
     ]
   },
   {
-    "slug": "entwickler",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/entwickler/",
-    "queries": [
-      {
-        "query": "softwareentwickler jobs lugano",
-        "clicks": 0,
-        "impressions": 15
-      },
-      {
-        "query": "softwareentwicklung jobs lugano",
-        "clicks": 0,
-        "impressions": 10
-      },
-      {
-        "query": "enterprise suche für entwickler",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "graubündner kantonalbank",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs flash entwickler",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "softwareentwickler finden",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 33,
-    "totalClicks": 0,
-    "topQuery": "softwareentwickler jobs lugano",
-    "title": "Entwickler",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
     "slug": "fahrer",
     "locale": "de",
     "path": "/de/jobs-im-tessin/fahrer/",
@@ -2086,6 +2096,11 @@
         "impressions": 2
       },
       {
+        "query": "lavoro ingegneri svizzera",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
         "query": "lavoro svizzera ingegnere",
         "clicks": 0,
         "impressions": 2
@@ -2136,20 +2151,83 @@
         "impressions": 1
       },
       {
-        "query": "lavoro ingegneri svizzera",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
         "query": "offerte di lavoro ingegnere svizzera",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 23,
+    "totalImpressions": 24,
     "totalClicks": 0,
     "topQuery": "disegnatore",
     "title": "Ingegneri",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
+    "slug": "pflegepersonal",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/pflegepersonal/",
+    "queries": [
+      {
+        "query": "pflegejobs regionalspital surselva ag",
+        "clicks": 0,
+        "impressions": 9
+      },
+      {
+        "query": "pflege jobs spital thusis",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "pflegedienst tessin",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "altenpfleger jobs lugano",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "altenpflegerin nach mailand",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "ksw anästhesie",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 24,
+    "totalClicks": 0,
+    "topQuery": "pflegejobs regionalspital surselva ag",
+    "title": "Pflegepersonal",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2262,45 +2340,35 @@
     ]
   },
   {
-    "slug": "pflegepersonal",
+    "slug": "ingenieure",
     "locale": "de",
-    "path": "/de/jobs-im-tessin/pflegepersonal/",
+    "path": "/de/jobs-im-tessin/ingenieure/",
     "queries": [
       {
-        "query": "pflegejobs regionalspital surselva ag",
+        "query": "ingenieur jobs lugano",
         "clicks": 0,
-        "impressions": 8
+        "impressions": 11
       },
       {
-        "query": "pflege jobs spital thusis",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "pflegedienst tessin",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "altenpflegerin nach mailand",
+        "query": "bauingenieur jobs lugano",
         "clicks": 0,
         "impressions": 3
       },
       {
-        "query": "altenpfleger jobs lugano",
+        "query": "ingenieure ohne grenzen jobs",
         "clicks": 0,
-        "impressions": 2
+        "impressions": 3
       },
       {
-        "query": "ksw anästhesie",
+        "query": "ingenieure stellenvermittlung",
         "clicks": 0,
-        "impressions": 1
+        "impressions": 2
       }
     ],
-    "totalImpressions": 22,
+    "totalImpressions": 19,
     "totalClicks": 0,
-    "topQuery": "pflegejobs regionalspital surselva ag",
-    "title": "Pflegepersonal",
+    "topQuery": "ingenieur jobs lugano",
+    "title": "Ingenieure",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2327,6 +2395,190 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "junior-compliance-specialista-with-italian-ubs-ticino",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/junior-compliance-specialista-with-italian-ubs-ticino/",
+    "queries": [
+      {
+        "query": "ubs lugano offerte di lavoro",
+        "clicks": 2,
+        "impressions": 6
+      },
+      {
+        "query": "ubs jobs",
+        "clicks": 2,
+        "impressions": 5
+      },
+      {
+        "query": "lavoro banca ticino",
+        "clicks": 2,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro compliance",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ubs frontalieri",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ubs lavoro",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 18,
+    "totalClicks": 6,
+    "topQuery": "ubs lugano offerte di lavoro",
+    "title": "Junior compliance specialista with italian",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "UBS",
+    "companyKey": "ubs",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "junior-compliance-specialista-with-italian-ubs-ticino",
+      "en": "junior-compliance-specialista-with-italian-ubs-ticino",
+      "de": "junior-compliance-specialista-with-italian-ubs-ticino",
+      "fr": "junior-compliance-specialista-with-italian-ubs-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/junior-compliance-specialista-with-italian-ubs-ticino",
+      "en": "/en/find-jobs-ticino/junior-compliance-specialista-with-italian-ubs-ticino",
+      "de": "/de/jobs-im-tessin/junior-compliance-specialista-with-italian-ubs-ticino",
+      "fr": "/fr/trouver-emploi-tessin/junior-compliance-specialista-with-italian-ubs-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "mendrisio",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/mendrisio/",
+    "queries": [
+      {
+        "query": "lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "comune di mendrisio offerte di lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "mendrisio lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "obv mendrisio offerte lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro mendrisiotto",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro mendrisiotto",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "point service mendrisio",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "ti offro lavoro mendrisio",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 17,
+    "totalClicks": 0,
+    "topQuery": "lavoro mendrisio",
+    "title": "mendrisio",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -2373,40 +2625,40 @@
     ]
   },
   {
-    "slug": "gastronomie",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/gastronomie/",
+    "slug": "locarno",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/locarno/",
     "queries": [
       {
-        "query": "gastronom jobs lugano",
+        "query": "locarno",
         "clicks": 0,
-        "impressions": 5
+        "impressions": 6
       },
       {
-        "query": "ich suche jobs in der italienischen schweiz im service oder an der bar",
-        "clicks": 0,
-        "impressions": 5
-      },
-      {
-        "query": "\"bvg\" +\"sicherheit\"",
+        "query": "lavoro locarno",
         "clicks": 0,
         "impressions": 4
       },
       {
-        "query": "candrian catering jobs",
+        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte di lavoro locarno",
         "clicks": 0,
         "impressions": 1
       },
       {
-        "query": "candrian jobs",
+        "query": "offerte di lavoro per frontalieri svizzera",
         "clicks": 0,
         "impressions": 1
       }
     ],
     "totalImpressions": 16,
     "totalClicks": 0,
-    "topQuery": "gastronom jobs lugano",
-    "title": "Gastronomie",
+    "topQuery": "locarno",
+    "title": "locarno",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2421,7 +2673,7 @@
     },
     "company": "",
     "companyKey": "",
-    "location": "",
+    "location": "Locarno",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -2432,7 +2684,8 @@
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
-      "gsc"
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -2443,7 +2696,7 @@
       {
         "query": "offerte di lavoro presso città di lugano",
         "clicks": 0,
-        "impressions": 2
+        "impressions": 3
       },
       {
         "query": "aziende a lugano che assumono",
@@ -2511,7 +2764,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 15,
+    "totalImpressions": 16,
     "totalClicks": 0,
     "topQuery": "offerte di lavoro presso città di lugano",
     "title": "lugano",
@@ -2545,193 +2798,40 @@
     ]
   },
   {
-    "slug": "mendrisio",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/mendrisio/",
-    "queries": [
-      {
-        "query": "lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offerte lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "mendrisio lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "obv mendrisio offerte lavoro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro mendrisiotto",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte lavoro mendrisiotto",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "point service mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "ti offro lavoro mendrisio",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 15,
-    "totalClicks": 0,
-    "topQuery": "lavoro mendrisio",
-    "title": "mendrisio",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Mendrisio",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "locarno",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/locarno/",
-    "queries": [
-      {
-        "query": "lavoro locarno",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "locarno",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro locarno",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro per frontalieri svizzera",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 14,
-    "totalClicks": 0,
-    "topQuery": "lavoro locarno",
-    "title": "locarno",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Locarno",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
-    "slug": "ingenieure",
+    "slug": "gastronomie",
     "locale": "de",
-    "path": "/de/jobs-im-tessin/ingenieure/",
+    "path": "/de/jobs-im-tessin/gastronomie/",
     "queries": [
       {
-        "query": "ingenieur jobs lugano",
+        "query": "gastronom jobs lugano",
         "clicks": 0,
-        "impressions": 8
+        "impressions": 5
       },
       {
-        "query": "ingenieure ohne grenzen jobs",
+        "query": "ich suche jobs in der italienischen schweiz im service oder an der bar",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 5
       },
       {
-        "query": "ingenieure stellenvermittlung",
+        "query": "\"bvg\" +\"sicherheit\"",
         "clicks": 0,
-        "impressions": 2
+        "impressions": 4
       },
       {
-        "query": "bauingenieur jobs lugano",
+        "query": "candrian catering jobs",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "candrian jobs",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 14,
+    "totalImpressions": 16,
     "totalClicks": 0,
-    "topQuery": "ingenieur jobs lugano",
-    "title": "Ingenieure",
+    "topQuery": "gastronom jobs lugano",
+    "title": "Gastronomie",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2768,7 +2868,7 @@
       {
         "query": "lehrstellen mendrisio",
         "clicks": 0,
-        "impressions": 8
+        "impressions": 10
       },
       {
         "query": "mendrisio jobs",
@@ -2786,7 +2886,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 12,
+    "totalImpressions": 14,
     "totalClicks": 0,
     "topQuery": "lehrstellen mendrisio",
     "title": "mendrisio",
@@ -2893,6 +2993,70 @@
     ]
   },
   {
+    "slug": "mendrisio",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/mendrisio/",
+    "queries": [
+      {
+        "query": "full time jobs near me",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "mendrisio jobs",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "acd mendrisio lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "in euro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "mendrisio ti",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 11,
+    "totalClicks": 0,
+    "topQuery": "full time jobs near me",
+    "title": "mendrisio",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "erzieher",
     "locale": "de",
     "path": "/de/jobs-im-tessin/erzieher/",
@@ -2900,7 +3064,7 @@
       {
         "query": "erzieher jobs lugano",
         "clicks": 0,
-        "impressions": 8
+        "impressions": 9
       },
       {
         "query": "pädagoge jobs lugano",
@@ -2908,7 +3072,7 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 10,
+    "totalImpressions": 11,
     "totalClicks": 0,
     "topQuery": "erzieher jobs lugano",
     "title": "Erzieher",
@@ -3057,70 +3221,6 @@
     ]
   },
   {
-    "slug": "mendrisio",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/mendrisio/",
-    "queries": [
-      {
-        "query": "full time jobs near me",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "mendrisio jobs",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "acd mendrisio lavora con noi",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "in euro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "mendrisio ti",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 9,
-    "totalClicks": 0,
-    "topQuery": "full time jobs near me",
-    "title": "mendrisio",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Mendrisio",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
     "slug": "locarno",
     "locale": "en",
     "path": "/en/find-jobs-ticino/locarno/",
@@ -3136,17 +3236,17 @@
         "impressions": 2
       },
       {
-        "query": "jobs locarno",
+        "query": "locarno jobs",
         "clicks": 0,
-        "impressions": 1
+        "impressions": 2
       },
       {
-        "query": "locarno jobs",
+        "query": "jobs locarno",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 7,
+    "totalImpressions": 8,
     "totalClicks": 0,
     "topQuery": "full time jobs near me",
     "title": "locarno",
@@ -3299,6 +3399,65 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "einzelhandel",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/einzelhandel/",
+    "queries": [
+      {
+        "query": "einzelhandelskaufmann jobs",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "handel jobs",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 5,
+    "totalClicks": 0,
+    "topQuery": "einzelhandelskaufmann jobs",
+    "title": "Einzelhandel",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "einzelhandel",
+      "en": "einzelhandel",
+      "de": "einzelhandel",
+      "fr": "einzelhandel"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/einzelhandel",
+      "en": "/en/find-jobs-ticino/einzelhandel",
+      "de": "/de/jobs-im-tessin/einzelhandel",
+      "fr": "/fr/trouver-emploi-tessin/einzelhandel"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -3572,12 +3731,17 @@
         "impressions": 1
       },
       {
+        "query": "ja",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "job contact chiasso",
         "clicks": 0,
         "impressions": 1
       }
     ],
-    "totalImpressions": 2,
+    "totalImpressions": 3,
     "totalClicks": 0,
     "topQuery": "chiasso lavoro",
     "title": "chiasso",
@@ -3608,6 +3772,65 @@
     "source": [
       "gsc",
       "slug-parsing"
+    ]
+  },
+  {
+    "slug": "architekten",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/architekten/",
+    "queries": [
+      {
+        "query": "architetti ticino offerte lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "innenarchitekt jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "architetti ticino offerte lavoro",
+    "title": "Architekten",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "architekten",
+      "en": "architekten",
+      "de": "architekten",
+      "fr": "architekten"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/architekten",
+      "en": "/en/find-jobs-ticino/architekten",
+      "de": "/de/jobs-im-tessin/architekten",
+      "fr": "/fr/trouver-emploi-tessin/architekten"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -3651,6 +3874,222 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "doctors",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/doctors/",
+    "queries": [
+      {
+        "query": "doctor jobs in switzerland",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "doctor jobs in switzerland",
+    "title": "Doctors",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "doctors",
+      "en": "doctors",
+      "de": "doctors",
+      "fr": "doctors"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/doctors",
+      "en": "/en/find-jobs-ticino/doctors",
+      "de": "/de/jobs-im-tessin/doctors",
+      "fr": "/fr/trouver-emploi-tessin/doctors"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "pharmacists",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/pharmacists/",
+    "queries": [
+      {
+        "query": "pharmacist jobs in switzerland",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "pharmacist jobs in switzerland",
+    "title": "Pharmacists",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "pharmacists",
+      "en": "pharmacists",
+      "de": "pharmacists",
+      "fr": "pharmacists"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/pharmacists",
+      "en": "/en/find-jobs-ticino/pharmacists",
+      "de": "/de/jobs-im-tessin/pharmacists",
+      "fr": "/fr/trouver-emploi-tessin/pharmacists"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "mechaniker",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/mechaniker/",
+    "queries": [
+      {
+        "query": "kfz mechaniker jobs lugano",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "kfz mechaniker jobs lugano",
+    "title": "Mechaniker",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "mechaniker",
+      "en": "mechaniker",
+      "de": "mechaniker",
+      "fr": "mechaniker"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/mechaniker",
+      "en": "/en/find-jobs-ticino/mechaniker",
+      "de": "/de/jobs-im-tessin/mechaniker",
+      "fr": "/fr/trouver-emploi-tessin/mechaniker"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "banque-finance",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/banque-finance/",
+    "queries": [
+      {
+        "query": "offre d'emploi finance lucerne",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "offre d'emploi finance lucerne",
+    "title": "Banque finance",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "banque-finance",
+      "en": "banque-finance",
+      "de": "banque-finance",
+      "fr": "banque-finance"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/banque-finance",
+      "en": "/en/find-jobs-ticino/banque-finance",
+      "de": "/de/jobs-im-tessin/banque-finance",
+      "fr": "/fr/trouver-emploi-tessin/banque-finance"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -3781,6 +4220,61 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+    "locale": "fr",
+    "path": "/fr/trouver-emploi-tessin/constructeur-trice-habillage-100-hamilton-international-ltd-ticino/",
+    "queries": [
+      {
+        "query": "tessin jobs",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 1,
+    "totalClicks": 0,
+    "topQuery": "tessin jobs",
+    "title": "Constructeur trice habillage hamilton international ltd",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Ticino",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "en": "constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "de": "constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "fr": "constructeur-trice-habillage-100-hamilton-international-ltd-ticino"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "en": "/en/find-jobs-ticino/constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "de": "/de/jobs-im-tessin/constructeur-trice-habillage-100-hamilton-international-ltd-ticino",
+      "fr": "/fr/trouver-emploi-tessin/constructeur-trice-habillage-100-hamilton-international-ltd-ticino"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs",
       "slug-parsing"
     ]
   },
@@ -13932,17 +14426,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "en": "verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "de": "verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "fr": "verkaufer-in-im-stundenlohn-denner-ieg13f"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "en": "/en/find-jobs-ticino/verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "de": "/de/jobs-im-tessin/verkaufer-in-im-stundenlohn-denner-ieg13f",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-im-stundenlohn-denner-ieg13f"
+      "it": "/cerca-lavoro-argovia/verkaufer-in-im-stundenlohn-denner-ieg13f",
+      "en": "/en/find-jobs-aargau/verkaufer-in-im-stundenlohn-denner-ieg13f",
+      "de": "/de/jobs-im-aargau/verkaufer-in-im-stundenlohn-denner-ieg13f",
+      "fr": "/fr/trouver-emploi-argovie/verkaufer-in-im-stundenlohn-denner-ieg13f"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -21727,17 +22216,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "en": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "de": "verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "fr": "verkaufer-in-kassen-services-coop-genossenschaft-uznach"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "en": "/en/find-jobs-ticino/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "de": "/de/jobs-im-tessin/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-kassen-services-coop-genossenschaft-uznach"
+      "it": "/cerca-lavoro-san-gallo/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
+      "en": "/en/find-jobs-st-gallen/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
+      "de": "/de/jobs-in-st-gallen/verkaufer-in-kassen-services-coop-genossenschaft-uznach",
+      "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-kassen-services-coop-genossenschaft-uznach"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -83823,7 +84307,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-9royqb",
+      "en": "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-9royqb",
+      "de": "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-9royqb",
+      "fr": "verkaufsberater-in-kosmetik-coop-genossenschaft-luzern-9royqb"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-argovia/verkaufsberater-in-kosmetik-coop-genossenschaft-luzern",
       "en": "/en/find-jobs-aargau/verkaufsberater-in-kosmetik-coop-genossenschaft-luzern",
@@ -83836,6 +84325,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs",
       "slug-parsing"
     ]
@@ -108052,10 +108542,10 @@
     "salaryMin": 0,
     "salaryCurrency": "CHF",
     "slugByLocale": {
-      "it": "kommissionierer-in-coop-genossenschaft-bern-qkxid3",
-      "en": "kommissionierer-in-coop-genossenschaft-bern-qkxid3",
-      "de": "kommissionierer-in-coop-genossenschaft-bern-qkxid3",
-      "fr": "kommissionierer-in-coop-genossenschaft-bern-qkxid3"
+      "it": "kommissionierer-in-coop-genossenschaft-bern-v4ilim",
+      "en": "kommissionierer-in-coop-genossenschaft-bern-v4ilim",
+      "de": "kommissionierer-in-coop-genossenschaft-bern-v4ilim",
+      "fr": "kommissionierer-in-coop-genossenschaft-bern-v4ilim"
     },
     "localePaths": {
       "it": "/cerca-lavoro-vallese/kommissionierer-in-coop-genossenschaft-bern",
@@ -158942,17 +159432,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-denner-sulgen",
-      "en": "verkaufer-in-denner-sulgen",
-      "de": "verkaufer-in-denner-sulgen",
-      "fr": "verkaufer-in-denner-sulgen"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-denner-sulgen",
-      "en": "/en/find-jobs-ticino/verkaufer-in-denner-sulgen",
-      "de": "/de/jobs-im-tessin/verkaufer-in-denner-sulgen",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-denner-sulgen"
+      "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-sulgen",
+      "en": "/en/find-jobs-thurgau/verkaufer-in-denner-sulgen",
+      "de": "/de/jobs-im-thurgau/verkaufer-in-denner-sulgen",
+      "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-sulgen"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -250958,17 +251443,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "/en/find-jobs-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "/de/jobs-im-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "/fr/trouver-emploi-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
+      "it": "/cerca-lavoro-zurigo/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "en": "/en/find-jobs-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "de": "/de/jobs-in-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "fr": "/fr/trouver-emploi-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -253073,17 +253553,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-denner-sulgen",
-      "en": "verkaufer-in-denner-sulgen",
-      "de": "verkaufer-in-denner-sulgen",
-      "fr": "verkaufer-in-denner-sulgen"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-denner-sulgen",
-      "en": "/en/find-jobs-ticino/verkaufer-in-denner-sulgen",
-      "de": "/de/jobs-im-tessin/verkaufer-in-denner-sulgen",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-denner-sulgen"
+      "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-sulgen",
+      "en": "/en/find-jobs-thurgau/verkaufer-in-denner-sulgen",
+      "de": "/de/jobs-im-thurgau/verkaufer-in-denner-sulgen",
+      "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-sulgen"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -276752,17 +277227,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "/en/find-jobs-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "/de/jobs-im-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "/fr/trouver-emploi-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
+      "it": "/cerca-lavoro-zurigo/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "en": "/en/find-jobs-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "de": "/de/jobs-in-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "fr": "/fr/trouver-emploi-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -307269,17 +307739,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -307366,17 +307831,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -548451,17 +548911,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -548548,17 +549003,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -614435,17 +614885,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "/en/find-jobs-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "/de/jobs-im-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "/fr/trouver-emploi-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
+      "it": "/cerca-lavoro-zurigo/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "en": "/en/find-jobs-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "de": "/de/jobs-in-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "fr": "/fr/trouver-emploi-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -768639,17 +769084,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -768736,17 +769176,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -968504,17 +968939,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-denner-sulgen",
-      "en": "verkaufer-in-denner-sulgen",
-      "de": "verkaufer-in-denner-sulgen",
-      "fr": "verkaufer-in-denner-sulgen"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-denner-sulgen",
-      "en": "/en/find-jobs-ticino/verkaufer-in-denner-sulgen",
-      "de": "/de/jobs-im-tessin/verkaufer-in-denner-sulgen",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-denner-sulgen"
+      "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-sulgen",
+      "en": "/en/find-jobs-thurgau/verkaufer-in-denner-sulgen",
+      "de": "/de/jobs-im-thurgau/verkaufer-in-denner-sulgen",
+      "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-sulgen"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -991658,17 +992088,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-en-soins-d-urgence-nds-hf-pour-notre-centre-d-urgence-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -991755,17 +992180,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "en": "/en/find-jobs-ticino/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "de": "/de/jobs-im-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
-      "fr": "/fr/trouver-emploi-tessin/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
+      "it": "/cerca-lavoro-lucerna/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "en": "/en/find-jobs-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "de": "/de/jobs-in-luzern/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern",
+      "fr": "/fr/trouver-emploi-lucerne/expert-in-emergency-nursing-nds-hf-for-our-emergency-center-80-100-luzerner-kantonsspital-luks-luzern"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1058846,17 +1059266,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "en": "/en/find-jobs-ticino/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "de": "/de/jobs-im-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
-      "fr": "/fr/trouver-emploi-tessin/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
+      "it": "/cerca-lavoro-zurigo/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "en": "/en/find-jobs-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "de": "/de/jobs-in-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni",
+      "fr": "/fr/trouver-emploi-zurich/rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-grigioni"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1192431,17 +1192846,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufer-in-denner-sulgen",
-      "en": "verkaufer-in-denner-sulgen",
-      "de": "verkaufer-in-denner-sulgen",
-      "fr": "verkaufer-in-denner-sulgen"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufer-in-denner-sulgen",
-      "en": "/en/find-jobs-ticino/verkaufer-in-denner-sulgen",
-      "de": "/de/jobs-im-tessin/verkaufer-in-denner-sulgen",
-      "fr": "/fr/trouver-emploi-tessin/verkaufer-in-denner-sulgen"
+      "it": "/cerca-lavoro-turgovia/verkaufer-in-denner-sulgen",
+      "en": "/en/find-jobs-thurgau/verkaufer-in-denner-sulgen",
+      "de": "/de/jobs-im-thurgau/verkaufer-in-denner-sulgen",
+      "fr": "/fr/trouver-emploi-thurgovie/verkaufer-in-denner-sulgen"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1214642,17 +1215052,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "en": "inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "de": "inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "fr": "inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "en": "/en/find-jobs-ticino/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "de": "/de/jobs-im-tessin/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-      "fr": "/fr/trouver-emploi-tessin/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
+      "it": "/cerca-lavoro-grigioni/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+      "en": "/en/find-jobs-graubunden/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+      "de": "/de/jobs-in-graubunden/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
+      "fr": "/fr/trouver-emploi-grisons/inside-sales-spezialist-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1247517,7 +1247922,7 @@
     "descriptionByLocale": {
       "it": "L'opportunità Hitachi Energy serve i clienti nei settori di utilità, industria e infrastrutture con soluzioni e servizi innovativi in tutta la catena del valore. Insieme a clienti e partner, pionieri delle tecnologie e consentiamo la trasformazione digitale necessaria per accelerare la transizione energetica verso un futuro neutro-carbonio. A Hitachi Energy il nostro scopo sta avanzando un futuro energetico sostenibile per tutti. Portiamo il potere nelle nostre case, scuole, ospedali e fabbriche. Unisciti a noi e lavorare con persone fantastiche, imparando e sviluppandosi su progetti che hanno un impatto reale per le nostre comunità e la società. Unisciti a noi e lavorare con persone fantastiche, imparando e sviluppandosi su progetti che hanno un impatto reale sulle nostre comunità e società. Come farete un impatto Vi guiderete un'analisi completa dei requisiti con i team interfunzionali per comprendere le esigenze degli utenti e i vincoli di sistema complessi, garantendo l'allineamento con gli standard del settore a Hitachi Energy. Ti impegni in modo proattivo con gli stakeholder chiave per definire gli obiettivi del progetto e chiarire gli aggiornamenti, facilitando una comunicazione efficace e raccogliendo intuizioni per migliorare i risultati del progetto. Abiliterà forti relazioni con i clienti chiave, utilizzando il loro feedback per guidare il miglioramento continuo nella piattaforma di progettazione meccanica. Realizzerai prodotti di nuova concezione in una piattaforma di progettazione meccanica che garantisce elevate prestazioni e reattività, collaborando a stretto contatto con i team R&D per superare le aspettative dei clienti. È necessario condurre un'analisi approfondita del rischio e sviluppare strategie di mitigazione per ridurre al minimo gli impatti potenziali sui tempi e budget del progetto della piattaforma di progettazione meccanica. Potrai sostenere le metodologie agili del campione organizzando sprint e retrospettive regolari per migliorare la collaborazione del team e adattarsi alle mutevoli esigenze. Potrai supervisionare i processi di test e debugging per garantire la qualità del software, utilizzando strumenti avanzati per identificare e risolvere i difetti in modo efficace. Lei agirà come esperto di materia nell'ambito di progetti, offrendo indicazioni ai colleghi. Promuovere una cultura della condivisione delle conoscenze distribuendo attivamente approfondimenti, best practice e lezioni apprese a promuovere la collaborazione e l'innovazione continua all'interno del team. L'utente sarà responsabile di garantire il rispetto delle normative, procedure e linee guida esterne e interne applicabili. Vivere Hitachi Energy valorizza la sicurezza e l'integrità, il che significa assumersi la responsabilità delle proprie azioni mentre si prende cura dei vostri colleghi e del business. Il tuo sfondo Hai una laurea in ingegneria elettrica, ingegneria meccanica o un campo correlato. 5-10 anni di esperienza nell'ingegneria del design con un collaudato record di progetti di design. O un minimo di 5 anni di esperienza nello sviluppo del software all'interno dell'industria del trasformatore o un campo tecnico comparabile. Conoscenza solida della modellazione Creo (Pro\\/Programma, Foglio-Metale, Tavolo famiglia, Interscambio, Relazione, Scheletro, Montaggio) La competenza avanzata nei linguaggi di programmazione come C#, Java, Python, VB, C+ o C++, con una vasta esperienza nel sfruttare i framework di sviluppo software per fornire soluzioni complesse. Conoscenza approfondita del ciclo di vita dello sviluppo software (SDLC) e delle metodologie agili, con una comprovata track record di team leader efficacemente attraverso tutte le fasi di sviluppo. Eccezionale problem-solving e competenze analitiche, con la capacità di eseguire analisi completa del rischio. Capacità di portare nuove prospettive e idee innovative al processo di progettazione. Forte capacità di collaborazione con la capacità di promuovere un ambiente di innovazione e lavoro di squadra tra colleghi. Volontà di viaggiare e capacità di interagire con i colleghi in diversi fusi orari, come la posizione è Global. Eccellente capacità di comunicazione verbale e scritta. Ulteriori informazioni su di noi Hitachi Energy Korea hanno ricevuto il seguente onore [Best Practice in Remote Work",
       "en": "The opportunity Hitachi Energy serves customers in the utility, industry and infrastructure sectors with innovative solutions and services across the value chain. Together with customers and partners, we pioneer technologies and enable the digital transformation required to accelerate the energy transition towards a carbon-neutral future. At Hitachi Energy our purpose is advancing a sustainable energy future for all. We bring power to our homes, schools, hospitals, and factories. Join us and work with fantastic people, while learning and developing yourself on projects that have a real impact to our communities and society. Join us and work with fantastic people, while learning and developing yourself on projects that have a real impact on our communities and society. How you'll make an impact You will lead comprehensive requirements analysis with cross-functional teams to understand user needs and complex system constraints, ensuring alignment with industry standards at Hitachi Energy. You will engage proactively with key stakeholders to define project objectives and clarify updates, facilitating effective communication and gathering insights for improved project outcomes. You will foster strong relationships with key customers, utilizing their feedback to drive continuous improvement in the mechanical design platform. You will implement newly developed products in a mechanical design platform that ensures high performance and responsiveness, collaborating closely with R&D teams to exceed customer expectations. You need to conduct in-depth risk analysis and develop mitigation strategies to minimize potential impacts on mechanical design platform project timelines and budgets. You will be supporting champion agile methodologies by organizing regular sprints and retrospectives to enhance team collaboration and adapt to changing requirements. You will oversee testing and debugging processes to guarantee software quality, utilizing advanced tools to identify and resolve defects effectively. You will act as a subject matter expert within projects, offering guidance to colleagues. Foster a culture of knowledge sharing by actively distributing insights, best practices, and lessons learned to promote collaboration and continuous innovation within the team. You will be responsible for ensure compliance with applicable external and internal regulations, procedures, and guidelines. Living Hitachi Energy's core values safety and integrity, which means taking responsibility for your own actions while caring for your colleagues and the business. Your background You hold a bachelor's degree in electrical engineering, mechanical engineering or a related field. 5-10 years of experience in design engineering with a proven track record of leading design projects. Or a minimum of 5 years of experience in software development within the transformer industry or a comparable technical field. Solid knowledge of Creo modelling (Pro\\/Program, Sheet-Metal, Family table, Interchange, Relation, Skeleton, Assembly) Advanced proficiency in programming languages such as C#, Java, Python, VB, C+ or C++, with extensive experience in leveraging software development frameworks to deliver complex solutions. In-depth knowledge of the software development life cycle (SDLC) and agile methodologies, with a proven track record of effectively leading teams through all phases of development. Exceptional problem-solving and analytical skills, with the capability to perform comprehensive risk analysis. Ability to bring fresh perspectives and innovative ideas to the design process. Strong collaborative skills with the ability to foster an environment of innovation and teamwork among colleagues. Willingness to travel and ability to interact with colleagues in different time zones, as position is Global. Excellent verbal and written communication skills. More about us Hitachi Energy Korea have been awarded the following honor [Best Practice in Remote Work",
-      "de": "Hitachi Energy beliefert Kunden in den Sektoren Versorgungsunternehmen, Industrie und Infrastruktur mit innovativen Lösungen und Dienstleistungen entlang der gesamten Wertschöpfungskette. Gemeinsam mit Kunden und Partnern machen wir Pioniertechnologien und ermöglichen die digitale Transformation, die erforderlich ist, um die Energiewende in eine CO2-neutrale Zukunft zu beschleunigen. Bei Hitachi Energy ist es unser Ziel, eine nachhaltige Energiezukunft für alle voranzutreiben. Wir bringen Energie in unsere Häuser, Schulen, Krankenhäuser und Fabriken. Begleiten Sie uns und arbeiten Sie mit fantastischen Menschen zusammen, während Sie lernen und sich an Projekten entwickeln, die einen echten Einfluss auf unsere Gemeinschaften und die Gesellschaft haben. Begleiten Sie uns und arbeiten Sie mit fantastischen Menschen zusammen, während Sie selbst lernen und sich an Projekten entwickeln, die einen echten Einfluss auf unsere Gemeinschaften und die Gesellschaft haben. Sie führen eine umfassende Anforderungsanalyse mit funktionsübergreifenden Teams, um die Benutzeranforderungen und komplexen Systembeschränkungen zu verstehen und die Übereinstimmung mit den Industriestandards von Hitachi Energy sicherzustellen. Sie werden proaktiv mit den wichtigsten Interessengruppen zusammenarbeiten, um Projektziele zu definieren und Updates zu klären, eine effektive Kommunikation zu erleichtern und Erkenntnisse für verbesserte Projektergebnisse zu sammeln. Sie werden starke Beziehungen zu wichtigen Kunden pflegen und deren Feedback nutzen, um die mechanische Konstruktionsplattform kontinuierlich zu verbessern. Sie werden neu entwickelte Produkte in einer mechanischen Konstruktionsplattform implementieren, die eine hohe Leistung und Reaktionsfähigkeit gewährleistet und eng mit F & E-Teams zusammenarbeitet, um die Erwartungen der Kunden zu übertreffen. Sie müssen eine eingehende Risikoanalyse durchführen und Minderungsstrategien entwickeln, um mögliche Auswirkungen auf die Zeitpläne und Budgets der mechanischen Konstruktionsplattformen zu minimieren. Sie unterstützen agile Champion-Methoden, indem Sie regelmäßige Sprints und Retrospektiven organisieren, um die Zusammenarbeit im Team zu verbessern und sich an sich ändernde Anforderungen anzupassen. Sie beaufsichtigen Test- und Debugging-Prozesse, um die Softwarequalität zu gewährleisten, indem Sie fortschrittliche Tools verwenden, um Fehler effektiv zu identifizieren und zu beheben. Sie werden als Fachexperte in Projekten auftreten und den Kollegen Orientierung bieten. Förderung einer Kultur des Wissensaustauschs durch aktive Verbreitung von Erkenntnissen, Best Practices und gewonnenen Erkenntnissen, um die Zusammenarbeit und kontinuierliche Innovation im Team zu fördern. Sie sind dafür verantwortlich, die Einhaltung der geltenden externen und internen Vorschriften, Verfahren und Richtlinien sicherzustellen. Living Hitachi Energy legt Wert auf Sicherheit und Integrität, was bedeutet, dass Sie Verantwortung für Ihr eigenes Handeln übernehmen und sich um Ihre Kollegen und das Unternehmen kümmern. Dein Hintergrund Sie haben einen Bachelor-Abschluss in Elektrotechnik, Maschinenbau oder einem verwandten Bereich. 5-10 Jahre Erfahrung im Design Engineering mit einer nachgewiesenen Erfolgsbilanz von führenden Designprojekten. Oder mindestens 5 Jahre Erfahrung in der Softwareentwicklung in der Transformatorenindustrie oder einem vergleichbaren technischen Bereich. Fundierte Kenntnisse der Creo-Modellierung (Pro\\/Program, Sheet-Metal, Family Table, Interchange, Relation, Skeleton, Assembly) Fortgeschrittene Kenntnisse in Programmiersprachen wie C#, Java, Python, VB, C+ oder C++ mit umfangreicher Erfahrung in der Nutzung von Softwareentwicklungs-Frameworks zur Bereitstellung komplexer Lösungen. Vertiefte Kenntnisse des Software Development Life Cycle (SDLC) und der agilen Methoden, mit einer nachgewiesenen Erfolgsbilanz bei der effektiven Führung von Teams durch alle Phasen der Entwicklung. Außergewöhnliche Problemlösungs- und Analysefähigkeiten mit der Fähigkeit, eine umfassende Risikoanalyse durchzuführen. Fähigkeit, frische Perspektiven und innovative Ideen in den Designprozess einzubringen. Starke kollaborative Fähigkeiten mit der Fähigkeit, ein Umfeld der Innovation und Teamarbeit unter Kollegen zu fördern. Reisebereitschaft und Fähigkeit, mit Kollegen in verschiedenen Zeitzonen zu interagieren, da die Position global ist. Hervorragende verbale und schriftliche Kommunikationsfähigkeiten. Mehr über uns Hitachi Energy Korea haben die folgende Auszeichnung erhalten [Best Practice in Remote Work]",
+      "de": "Hitachi Energy beliefert Kunden in den Sektoren Versorgungsunternehmen, Industrie und Infrastruktur mit innovativen Lösungen und Dienstleistungen entlang der gesamten Wertschöpfungskette. Gemeinsam mit Kunden und Partnern machen wir Pioniertechnologien und ermöglichen die digitale Transformation, die erforderlich ist, um die Energiewende in eine CO2-neutrale Zukunft zu beschleunigen. Bei Hitachi Energy ist es unser Ziel, eine nachhaltige Energiezukunft für alle voranzutreiben. Wir bringen Energie in unsere Häuser, Schulen, Krankenhäuser und Fabriken. Begleiten Sie uns und arbeiten Sie mit fantastischen Menschen zusammen, während Sie lernen und sich an Projekten entwickeln, die einen echten Einfluss auf unsere Gemeinschaften und die Gesellschaft haben. Begleiten Sie uns und arbeiten Sie mit fantastischen Menschen zusammen, während Sie selbst lernen und sich an Projekten entwickeln, die einen echten Einfluss auf unsere Gemeinschaften und die Gesellschaft haben. Sie führen eine umfassende Anforderungsanalyse mit funktionsübergreifenden Teams, um die Benutzeranforderungen und komplexen Systembeschränkungen zu verstehen und die Übereinstimmung mit den Industriestandards von Hitachi Energy sicherzustellen. Sie werden proaktiv mit den wichtigsten Interessengruppen zusammenarbeiten, um Projektziele zu definieren und Updates zu klären, eine effektive Kommunikation zu erleichtern und Erkenntnisse für verbesserte Projektergebnisse zu sammeln. Sie werden starke Beziehungen zu wichtigen Kunden pflegen und deren Feedback nutzen, um die mechanische Konstruktionsplattform kontinuierlich zu verbessern. Sie werden neu entwickelte Produkte in einer mechanischen Konstruktionsplattform implementieren, die eine hohe Leistung und Reaktionsfähigkeit gewährleistet und eng mit F & E-Teams zusammenarbeitet, um die Erwartungen der Kunden zu übertreffen. Sie müssen eine eingehende Risikoanalyse durchführen und Minderungsstrategien entwickeln, um mögliche Auswirkungen auf die Zeitpläne und Budgets der mechanischen Konstruktionsplattformen zu minimieren. Sie unterstützen agile Champion-Methoden, indem Sie regelmäßige Sprints und Retrospektiven organisieren, um die Zusammenarbeit im Team zu verbessern und sich an sich ändernde • Anforderungen anzupassen. Sie beaufsichtigen Test- und Debugging-Prozesse, um die Softwarequalität zu gewährleisten, indem Sie fortschrittliche Tools verwenden, um Fehler effektiv zu identifizieren und zu beheben. Sie werden als Fachexperte in Projekten auftreten und den Kollegen Orientierung bieten. Förderung einer Kultur des Wissensaustauschs durch aktive Verbreitung von Erkenntnissen, Best Practices und gewonnenen Erkenntnissen, um die Zusammenarbeit und kontinuierliche Innovation im Team zu fördern. Sie sind dafür verantwortlich, die Einhaltung der geltenden externen und internen Vorschriften, Verfahren und Richtlinien sicherzustellen. Living Hitachi Energy legt Wert auf Sicherheit und Integrität, was bedeutet, dass Sie Verantwortung für Ihr eigenes Handeln übernehmen und sich um Ihre Kollegen und das Unternehmen kümmern. Dein Hintergrund Sie haben einen Bachelor-Abschluss in Elektrotechnik, Maschinenbau oder einem verwandten Bereich. 5-10 Jahre Erfahrung im Design Engineering mit einer nachgewiesenen Erfolgsbilanz von führenden Designprojekten. Oder mindestens 5 Jahre Erfahrung in der Softwareentwicklung in der Transformatorenindustrie oder einem vergleichbaren technischen Bereich. Fundierte Kenntnisse der Creo-Modellierung (Pro\\/Program, Sheet-Metal, Family Table, Interchange, Relation, Skeleton, Assembly) Fortgeschrittene Kenntnisse in Programmiersprachen wie C#, Java, Python, VB, C+ oder C++ mit umfangreicher Erfahrung in der Nutzung von Softwareentwicklungs-Frameworks zur Bereitstellung komplexer Lösungen. Vertiefte Kenntnisse des Software Development Life Cycle (SDLC) und der agilen Methoden, mit einer nachgewiesenen Erfolgsbilanz bei der effektiven Führung von Teams durch alle Phasen der Entwicklung. Außergewöhnliche Problemlösungs- und Analysefähigkeiten mit der Fähigkeit, eine umfassende Risikoanalyse durchzuführen. Fähigkeit, frische Perspektiven und innovative Ideen in den Designprozess einzubringen. Starke kollaborative Fähigkeiten mit der Fähigkeit, ein Umfeld der Innovation und Teamarbeit unter Kollegen zu fördern. Reisebereitschaft und Fähigkeit, mit Kollegen in verschiedenen Zeitzonen zu interagieren, da die Position global ist. Hervorragende verbale und schriftliche Kommunikationsfähigkeiten. Mehr über uns Hitachi Energy Korea haben die folgende Auszeichnung erhalten [Best Practice in Remote Work]",
       "fr": "L'opportunité Hitachi Energy sert les clients des secteurs des services publics, de l'industrie et de l'infrastructure avec des solutions et des services innovants tout au long de la chaîne de valeur. Avec nos clients et nos partenaires, nous sommes les pionniers des technologies et nous permettons la transformation numérique nécessaire pour accélérer la transition énergétique vers un avenir neutre en carbone. Chez Hitachi Energy, notre objectif est de promouvoir un avenir énergétique durable pour tous. Nous apportons le pouvoir à nos maisons, écoles, hôpitaux et usines. Rejoignez-nous et travaillez avec des gens fantastiques, tout en apprenant et en vous développant sur des projets qui ont un impact réel sur nos communautés et notre société. Rejoignez-nous et travaillez avec des gens fantastiques, tout en apprenant et en vous développant sur des projets qui ont un impact réel sur nos communautés et notre société. Comment vous allez avoir un impact Vous dirigerez une analyse complète des exigences avec des équipes interfonctionnelles pour comprendre les besoins des utilisateurs et les contraintes complexes du système, en assurant l'alignement avec les normes de l'industrie chez Hitachi Energy. Vous collaborerez de façon proactive avec les principaux intervenants afin de définir les objectifs du projet et de clarifier les mises à jour, de faciliter une communication efficace et de recueillir des renseignements pour améliorer les résultats du projet. Vous favoriserez des relations solides avec les clients clés, en utilisant leur rétroaction pour conduire à l'amélioration continue de la plate-forme de conception mécanique. Vous mettrez en œuvre des produits nouvellement développés dans une plateforme de conception mécanique qui assure une haute performance et réactivité, en collaborant étroitement avec les équipes de R-D pour dépasser les attentes des clients. Vous devez effectuer une analyse approfondie des risques et élaborer des stratégies d'atténuation afin de minimiser les impacts potentiels sur les calendriers et les budgets des projets de la plateforme de conception mécanique. Vous soutiendrez les méthodologies agiles championnes en organisant régulièrement des sprints et des rétrospectives pour améliorer la collaboration d'équipe et s'adapter aux exigences changeantes. Vous superviserez les processus de test et de débogage pour garantir la qualité du logiciel, en utilisant des outils avancés pour identifier et résoudre efficacement les défauts. Vous agirez en tant qu'expert en matière de projets, en offrant des conseils à vos collègues. Favoriser une culture du partage des connaissances en distribuant activement les idées, les pratiques exemplaires et les leçons apprises afin de promouvoir la collaboration et l'innovation continue au sein de l'équipe. Vous serez responsable de la conformité aux règlements, procédures et lignes directrices externes et internes applicables. Vivre Hitachi Energy valorise la sécurité et l'intégrité, ce qui signifie prendre la responsabilité de vos propres actions tout en prenant soin de vos collègues et de l'entreprise. Vos antécédents Vous êtes titulaire d'un baccalauréat en génie électrique, en génie mécanique ou dans un domaine connexe. 5-10 ans d'expérience en ingénierie de la conception avec une expérience éprouvée de grands projets de conception. Ou un minimum de 5 ans d'expérience dans le développement de logiciels dans l'industrie des transformateurs ou dans un domaine technique comparable. Connaissance approfondie de la modélisation Creo (Pro\\/Programme, feuille métallique, tableau familial, échange, relation, squelette, assemblage) Compétences avancées dans les langages de programmation tels que C#, Java, Python, VB, C+ ou C++, avec une vaste expérience dans la mise à profit des cadres de développement logiciel pour fournir des solutions complexes. Connaissance approfondie du cycle de vie du développement logiciel (DDLC) et des méthodologies agiles, avec une expérience éprouvée de diriger efficacement les équipes pendant toutes les phases du développement. Compétences exceptionnelles en résolution de problèmes et en analyse, avec la capacité d'effectuer une analyse complète des risques. Capacité d'apporter de nouvelles perspectives et des idées novatrices au processus de conception. De solides compétences en collaboration avec la capacité de favoriser un environnement d'innovation et de travail d'équipe entre collègues. Volonté de voyager et capacité d'interagir avec des collègues dans différents fuseaux horaires, comme position est Global. Excellentes compétences en communication verbale et écrite. Plus sur nous Hitachi Energy Corée ont reçu l'honneur suivant [Meilleure pratique dans le travail à distance"
     },
     "company": "Hitachi Energy",
@@ -1270023,7 +1270428,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
+    "slugByLocale": {
+      "it": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm",
+      "en": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm",
+      "de": "verkaufer-in-food-coop-genossenschaft-birsfelden",
+      "fr": "verkaufer-in-food-coop-birsfelden-basel-landschaft-704jdm"
+    },
     "localePaths": {
       "it": "/cerca-lavoro-zurigo/verkaufer-in-food-coop-genossenschaft-birsfelden",
       "en": "/en/find-jobs-zurich/verkaufer-in-food-coop-genossenschaft-birsfelden",
@@ -1270036,6 +1270446,7 @@
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "slug-registry",
       "all-known-slugs"
     ]
   },
