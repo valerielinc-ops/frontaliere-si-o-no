@@ -1,6 +1,6 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-06-20T10:58:55.940Z",
+  "assembledAt": "2026-06-20T12:27:08.363Z",
   "jobs": [
     {
       "title": "Specialista Marketing Digitale (Canary Test)",
@@ -31,13 +31,13 @@
       "description": "Annuncio dimostrativo interno usato per verificare end-to-end il funnel degli annunci sponsorizzati: pagina dedicata, ricerca, posizionamento in cima al listino, candidature in-house, dati strutturati SEO, blast newsletter, job alert e job alert specifica per questo annuncio. \n• Cerchiamo una figura motivata per coordinare campagne digitali, analizzare metriche e ottimizzare la comunicazione verso i frontalieri del Canton Ticino. Questo annuncio e visibile pubblicamente ma le sue email vengono inviate esclusivamente al proprietario del sito per non disturbare gli utenti reali durante i test.",
       "titleByLocale": {
         "it": "Specialista Marketing Digitale (Canary Test)",
-        "en": "Digital Marketing Specialist (Canary Test)",
+        "en": "Specialista Marketing Digitale (Canary Test)",
         "de": "Specialista Marketing Digitale (Canary Test)",
         "fr": "Specialista Marketing Digitale (Canary Test)"
       },
       "slugByLocale": {
         "it": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
-        "en": "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano",
+        "en": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
         "de": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino",
         "fr": "specialista-marketing-digitale-canary-test-lugano-frontaliere-ticino"
       },
@@ -56,6 +56,7 @@
       "publisherUid": "aAqGpXr2mUQNQlio3gCxut4bBzH3",
       "publisherJobId": "canary-owner-demo",
       "canary": true,
+      "needsRetranslation": true,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -67,6 +68,9 @@
         }
       },
       "previousSlugsByLocale": {
+        "en": [
+          "digital-marketing-specialist-canary-test-frontaliere-ticino-lugano"
+        ],
         "de": [
           "digitaler-marketing-spezialist-kanarienvogeltest-frontaliere-ticino-lugano",
           "spezialist-fur-digitales-marketing-kanarientest-frontaliere-ticino-lugano",
