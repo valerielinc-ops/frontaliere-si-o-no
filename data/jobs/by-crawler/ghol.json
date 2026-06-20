@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-06-20T11:03:00.185Z",
+  "assembledAt": "2026-06-20T21:57:36.853Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.139Z",
+      "crawledAt": "2026-06-20T21:57:34.325Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -145,7 +146,8 @@
       "applyUrl": "https://app.beehire.com/invite/bpjuF3PTM",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.139Z",
+      "crawledAt": "2026-06-20T21:57:34.325Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza positiva in un ambiente ospedaliero",
@@ -255,7 +257,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.138Z",
+      "crawledAt": "2026-06-20T21:57:34.324Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -357,7 +360,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.137Z",
+      "crawledAt": "2026-06-20T21:57:34.323Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -432,7 +435,8 @@
       "applyUrl": "https://app.beehire.com/invite/j92t_xzbO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.137Z",
+      "crawledAt": "2026-06-20T21:57:34.323Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Descrizione GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle."
@@ -518,7 +522,7 @@
       "applyUrl": "https://app.beehire.com/invite/9HnYY9NDt",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.135Z",
+      "crawledAt": "2026-06-20T21:57:34.321Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmiere-en-charge-de-la-surveillance-des-infections-du-site-chirurgical-ssi-swissnoso"
@@ -593,7 +597,8 @@
       "applyUrl": "https://app.beehire.com/invite/SAEhDyjSq",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.134Z",
+      "crawledAt": "2026-06-20T21:57:34.320Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "technicien-ne-en-analyses-biomedicales-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -618,81 +623,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-1be9997cdcbd",
-      "slug": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "clinical-respondent-specialized-in-surgical-instrumentation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "klinische-respondentin-spezialisiert-auf-chirurgische-instrumente-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale",
-      "titleByLocale": {
-        "it": "Risponsabile clinico specializzato nella strumentazione chirurgica",
-        "en": "Clinical respondent specialized in surgical instrumentation",
-        "de": "Klinische Respondentin, spezialisiert auf chirurgische Instrumente",
-        "fr": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale"
-      },
-      "description": "Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale.\n Profil requis :\n\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n\n• Une rigueur scientifique alliée à un pragmatisme de terrain.\n Pourquoi nous rejoindre ?\n Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus.\n Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation.",
-      "descriptionByLocale": {
-        "it": "Descrizione della posizione: Nei vostri nuovi doveri, le vostre missioni avranno un impatto sulla qualità della cura del paziente. Il vostro ruolo includerà:\n• Competenza clinica: siete il riferimento. L'utente implementa le migliori pratiche (Evidence Based Practice) e assicura che le raccomandazioni di sicurezza (Health and Safety at Work) e l'igiene (Health Prevention and Infection Control) non siano solo documenti, ma una realtà a terra. Incorniciate, allenatevi e accompagnate la nostra squadra.\n• Transmission & Coaching: In coppia con ICS, si accolgono e formare nuovi dipendenti e sostenere lo sviluppo di tutti i membri del team. Si pone domande all'interno del team e progetti pilota per sviluppare tecniche di cura innovative. Trasforma il potenziale in competenza.\n• Pilotage & Organisation: Usando gli indicatori di performance (tipoANAP), sei coinvolto nell'ottimizzazione dell'offerta di cure Requisiti e know-how: esercitare rigore, iniziativa e lealtà, mentre lavori come team con flessibilità e creatività, nel rispetto della riservatezza e delle regole istituzionali. Esegui le tue missioni in stretto contatto con il team sanitario e medico. Profilo richiesto:\n• Un diploma in strumentazione chirurgica (un'infermiera laureata nel campo della chirurgia, tecnico della sala operatoria con una solida esperienza di unità operativa) idealmente con una specializzazione o un forte interesse per la formazione / qualità.\n• 5 anni di pratica strumentale in un'unità operativa\n• Una padronanza del quadro giuridico svizzero e degli standard di sicurezza\n• Una leadership naturale: sai come convincere piuttosto che imporre.\n• Rigor scientifico combinato con il pragmatismo sul campo. Perché unirsi a noi? Qui, lavoriamo \"seriosamente senza prenderci sul serio\". Vi offriamo un quadro in cui la vostra autonomia è rispettata e dove i vostri progetti di sviluppo della cura saranno sostenuti. Un vero specialista clinico, nel tuo nuovo ruolo, ora puoi investire nello sviluppo e nell'ottimizzazione delle pratiche sanitarie nel campo della strumentazione.",
-        "en": "Position Description: In your new duties, your missions will have an impact on the quality of patient care. Your role will include:\n• Clinical expertise: you are the reference. You implement best practices (Evidence Based Practice) and ensure that safety recommendations (Health and Safety at Work) and hygiene (Health Prevention and Infection Control) are not just documents, but a reality on the ground. You frame, train and accompany our team.\n• Transmission & Coaching: In pairs with ICS, you welcome and train new employees and support the development of all team members. You raise questions within the team and pilot projects to develop innovative care techniques. You turn potential into competence.\n• Pilotage & Organisation: By using the performance indicators (ANAP type), you are involved in optimising the care offer Requirements and know-how: to exercise rigour, initiative and loyalty, while working as a team with flexibility and creativity, respecting confidentiality and institutional rules. You perform your missions in close contact with the healthcare and medical team. Profile required:\n• A diploma in surgical instrumentation (a graduate nurse in the field of surgery, operating room technician with a solid operating unit experience) ideally with a specialization or a strong interest in training/quality.\n• 5 years of instrumentation practice in an operating unit\n• A mastery of the Swiss legal framework and safety standards\n• A natural leadership: you know how to convince rather than impose.\n• Scientific rigor combined with field pragmatism. Why join us? Here, we work \"seriously without taking ourselves seriously\". We offer you a framework where your autonomy is respected and where your care development projects will be supported. A true clinical specialist, in your new role, you can now invest in the development and optimization of healthcare practices in the field of instrumentation.",
-        "de": "Positionsbeschreibung: In Ihren neuen Aufgaben werden sich Ihre Missionen auf die Qualität der Patientenversorgung auswirken. Ihre Rolle umfasst:\n• Klinische Expertise: Sie sind die Referenz. Sie implementieren Best Practices (Evidence Based Practice) und stellen sicher, dass Sicherheitsempfehlungen (Health and Safety at Work) und Hygiene (Health Prevention and Infection Control) nicht nur Dokumente sind, sondern eine Realität vor Ort. Sie gestalten, trainieren und begleiten unser Team.\n• Transmission & Coaching: In Paaren mit ICS begrüßen und schulen Sie neue Mitarbeiter und unterstützen die Entwicklung aller Teammitglieder. Sie stellen Fragen innerhalb des Teams und Pilotprojekte zur Entwicklung innovativer Pflegetechniken. Sie verwandeln Potenzial in Kompetenz.\n• Pilotage & Organisation: Durch die Verwendung der Leistungsindikatoren (ANAP-Typ) sind Sie an der Optimierung des Pflegeangebots beteiligt Anforderungen und Know-how: Strenge, Initiative und Loyalität, während Sie als Team mit Flexibilität und Kreativität arbeiten und Vertraulichkeit und institutionelle Regeln respektieren. Sie erfüllen Ihre Missionen in engem Kontakt mit dem Gesundheits- und Medizinteam. Profil erforderlich:\n• Ein Diplom in chirurgischen Instrumenten (ein Diplom-Krankenschwester im Bereich der Chirurgie, Operationssaaltechniker mit einer soliden Operationseinheit Erfahrung) idealerweise mit einer Spezialisierung oder einem starken Interesse an Ausbildung / Qualität.\n• 5 Jahre Instrumentierungspraxis in einer operativen Einheit\n• Die Beherrschung des schweizerischen Rechtsrahmens und der Sicherheitsstandards\n• Eine natürliche Führung: Sie wissen, wie man überzeugt, anstatt es durchzusetzen.\n• Wissenschaftliche Strenge kombiniert mit Feldpragmatismus. Warum mitmachen? Hier arbeiten wir \"ernsthaft, ohne uns selbst ernst zu nehmen\". Wir bieten Ihnen einen Rahmen, in dem Ihre Autonomie respektiert wird und in dem Ihre Pflegeentwicklungsprojekte unterstützt werden. Ein echter klinischer Spezialist, in Ihrer neuen Rolle können Sie jetzt in die Entwicklung und Optimierung von Gesundheitspraktiken im Bereich der Instrumentierung investieren.",
-        "fr": "Descriptif du poste : Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale. Profil requis :\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n• Une rigueur scientifique alliée à un pragmatisme de terrain. Pourquoi nous rejoindre ? Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus. Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://app.beehire.com/invite/etyOQWpII",
-      "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.133Z",
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ],
-        "en": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ],
-        "de": [
-          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:27:39.539Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -742,7 +672,7 @@
       "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.133Z",
+      "crawledAt": "2026-06-20T21:57:34.319Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -759,6 +689,81 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:27:39.540Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ghol-1be9997cdcbd",
+      "slug": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "risponsabile-clinico-specializzato-nella-strumentazione-chirurgica-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "clinical-respondent-specialized-in-surgical-instrumentation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "klinische-respondentin-spezialisiert-auf-chirurgische-instrumente-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale",
+      "titleByLocale": {
+        "it": "Risponsabile clinico specializzato nella strumentazione chirurgica",
+        "en": "Clinical respondent specialized in surgical instrumentation",
+        "de": "Klinische Respondentin, spezialisiert auf chirurgische Instrumente",
+        "fr": "Répondant·e clinique spécialisé·e en instrumentation chirurgicale"
+      },
+      "description": "Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale.\n Profil requis :\n\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n\n• Une rigueur scientifique alliée à un pragmatisme de terrain.\n Pourquoi nous rejoindre ?\n Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus.\n Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation.",
+      "descriptionByLocale": {
+        "it": "Descrizione della posizione: Nei vostri nuovi doveri, le vostre missioni avranno un impatto sulla qualità della cura del paziente. Il vostro ruolo includerà:\n• Competenza clinica: siete il riferimento. L'utente implementa le migliori pratiche (Evidence Based Practice) e assicura che le raccomandazioni di sicurezza (Health and Safety at Work) e l'igiene (Health Prevention and Infection Control) non siano solo documenti, ma una realtà a terra. Incorniciate, allenatevi e accompagnate la nostra squadra.\n• Transmission & Coaching: In coppia con ICS, si accolgono e formare nuovi dipendenti e sostenere lo sviluppo di tutti i membri del team. Si pone domande all'interno del team e progetti pilota per sviluppare tecniche di cura innovative. Trasforma il potenziale in competenza.\n• Pilotage & Organisation: Usando gli indicatori di performance (tipoANAP), sei coinvolto nell'ottimizzazione dell'offerta di cure Requisiti e know-how: esercitare rigore, iniziativa e lealtà, mentre lavori come team con flessibilità e creatività, nel rispetto della riservatezza e delle regole istituzionali. Esegui le tue missioni in stretto contatto con il team sanitario e medico. Profilo richiesto:\n• Un diploma in strumentazione chirurgica (un'infermiera laureata nel campo della chirurgia, tecnico della sala operatoria con una solida esperienza di unità operativa) idealmente con una specializzazione o un forte interesse per la formazione / qualità.\n• 5 anni di pratica strumentale in un'unità operativa\n• Una padronanza del quadro giuridico svizzero e degli standard di sicurezza\n• Una leadership naturale: sai come convincere piuttosto che imporre.\n• Rigor scientifico combinato con il pragmatismo sul campo. Perché unirsi a noi? Qui, lavoriamo \"seriosamente senza prenderci sul serio\". Vi offriamo un quadro in cui la vostra autonomia è rispettata e dove i vostri progetti di sviluppo della cura saranno sostenuti. Un vero specialista clinico, nel tuo nuovo ruolo, ora puoi investire nello sviluppo e nell'ottimizzazione delle pratiche sanitarie nel campo della strumentazione.",
+        "en": "Position Description: In your new duties, your missions will have an impact on the quality of patient care. Your role will include:\n• Clinical expertise: you are the reference. You implement best practices (Evidence Based Practice) and ensure that safety recommendations (Health and Safety at Work) and hygiene (Health Prevention and Infection Control) are not just documents, but a reality on the ground. You frame, train and accompany our team.\n• Transmission & Coaching: In pairs with ICS, you welcome and train new employees and support the development of all team members. You raise questions within the team and pilot projects to develop innovative care techniques. You turn potential into competence.\n• Pilotage & Organisation: By using the performance indicators (ANAP type), you are involved in optimising the care offer Requirements and know-how: to exercise rigour, initiative and loyalty, while working as a team with flexibility and creativity, respecting confidentiality and institutional rules. You perform your missions in close contact with the healthcare and medical team. Profile required:\n• A diploma in surgical instrumentation (a graduate nurse in the field of surgery, operating room technician with a solid operating unit experience) ideally with a specialization or a strong interest in training/quality.\n• 5 years of instrumentation practice in an operating unit\n• A mastery of the Swiss legal framework and safety standards\n• A natural leadership: you know how to convince rather than impose.\n• Scientific rigor combined with field pragmatism. Why join us? Here, we work \"seriously without taking ourselves seriously\". We offer you a framework where your autonomy is respected and where your care development projects will be supported. A true clinical specialist, in your new role, you can now invest in the development and optimization of healthcare practices in the field of instrumentation.",
+        "de": "Positionsbeschreibung: In Ihren neuen Aufgaben werden sich Ihre Missionen auf die Qualität der Patientenversorgung auswirken. Ihre Rolle umfasst:\n• Klinische Expertise: Sie sind die Referenz. Sie implementieren Best Practices (Evidence Based Practice) und stellen sicher, dass Sicherheitsempfehlungen (Health and Safety at Work) und Hygiene (Health Prevention and Infection Control) nicht nur Dokumente sind, sondern eine Realität vor Ort. Sie gestalten, trainieren und begleiten unser Team.\n• Transmission & Coaching: In Paaren mit ICS begrüßen und schulen Sie neue Mitarbeiter und unterstützen die Entwicklung aller Teammitglieder. Sie stellen Fragen innerhalb des Teams und Pilotprojekte zur Entwicklung innovativer Pflegetechniken. Sie verwandeln Potenzial in Kompetenz.\n• Pilotage & Organisation: Durch die Verwendung der Leistungsindikatoren (ANAP-Typ) sind Sie an der Optimierung des Pflegeangebots beteiligt Anforderungen und Know-how: Strenge, Initiative und Loyalität, während Sie als Team mit Flexibilität und Kreativität arbeiten und Vertraulichkeit und institutionelle Regeln respektieren. Sie erfüllen Ihre Missionen in engem Kontakt mit dem Gesundheits- und Medizinteam. Profil erforderlich:\n• Ein Diplom in chirurgischen Instrumenten (ein Diplom-Krankenschwester im Bereich der Chirurgie, Operationssaaltechniker mit einer soliden Operationseinheit Erfahrung) idealerweise mit einer Spezialisierung oder einem starken Interesse an Ausbildung / Qualität.\n• 5 Jahre Instrumentierungspraxis in einer operativen Einheit\n• Die Beherrschung des schweizerischen Rechtsrahmens und der Sicherheitsstandards\n• Eine natürliche Führung: Sie wissen, wie man überzeugt, anstatt es durchzusetzen.\n• Wissenschaftliche Strenge kombiniert mit Feldpragmatismus. Warum mitmachen? Hier arbeiten wir \"ernsthaft, ohne uns selbst ernst zu nehmen\". Wir bieten Ihnen einen Rahmen, in dem Ihre Autonomie respektiert wird und in dem Ihre Pflegeentwicklungsprojekte unterstützt werden. Ein echter klinischer Spezialist, in Ihrer neuen Rolle können Sie jetzt in die Entwicklung und Optimierung von Gesundheitspraktiken im Bereich der Instrumentierung investieren.",
+        "fr": "Descriptif du poste : Dans vos nouvelles fonctions, vos missions auront un impact sur la qualité de prise en charge des patient·e·s. Votre rôle consistera notamment à :\n• Expertise Clinique : vous êtes la référence. Vous implémentez les meilleures pratiques (Evidence Based Practice) et veillez à ce que les recommandations de sécurité (Médecine Santé et Sécurité au Travail) et d’hygiène (Hygiène Prévention et Contrôle de l’infection) ne soient pas juste des documents, mais une réalité vécue sur le terrain. Vous encadrez, formez et accompagnez notre équipe.\n• Transmission & Coaching : en binôme avec l’ICS, vous accueillez et formez les nouveaux collaborateurs·trices et soutenez le développement de tous les membres de l’équipe. Vous suscitez le questionnement au sein de l’équipe et pilotez des projets de développement de techniques de soins innovantes. Vous transformez le potentiel en compétence.\n• Pilotage & Organisation : en vous appuyant sur les indicateurs de performance (type ANAP), vous participez à l’optimisation de l'offre de soins Exigences et savoir-être : faire preuve de rigueur, initiative et loyauté, tout en travaillant en équipe avec flexibilité et créativité, dans le respect de la confidentialité et des règles institutionnelles. Vous réalisez vos missions en étroite relation avec l’équipe soignante et médicale. Profil requis :\n• Un diplôme en instrumentation chirurgicale (infirmier·ière diplômé·e du domaine opératoire, technicien·ne de salle d’opération avec une solide expérience en bloc opératoire) idéalement avec une spécialisation ou un intérêt marqué pour la formation/qualité .\n• 5 ans de pratique en instrumentation au sein d’un bloc opératoire\n• Une maîtrise du cadre légal suisse et des normes de sécurité\n• ​Un leadership naturel : vous savez convaincre plutôt qu'imposer.\n• Une rigueur scientifique alliée à un pragmatisme de terrain. Pourquoi nous rejoindre ? Ici, on travaille « sérieusement sans se prendre au sérieux ». Nous vous offrons un cadre où votre autonomie est respectée et où vos projets de développement de soins seront soutenus. Véritable spécialiste clinique, dans votre nouveau rôle, vous pouvez désormais vous investir dans le développement et l’optimisation des pratiques de soins dans le domaine de l’instrumentation."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "url": "https://app.beehire.com/invite/etyOQWpII",
+      "applyUrl": "https://app.beehire.com/invite/etyOQWpII",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-06-20T21:57:34.318Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ],
+        "en": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ],
+        "de": [
+          "repondant-e-clinique-specialise-e-en-instrumentation-chirurgicale-groupement-hospitalier"
+        ]
+      },
+      "firstSeenAt": "2026-06-15T14:27:39.539Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "baseSalary": {
@@ -817,7 +822,7 @@
       "applyUrl": "https://app.beehire.com/invite/ue0iaht7b",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-06-20T11:02:58.131Z",
+      "crawledAt": "2026-06-20T21:57:34.317Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assistant-e-en-pharmacie-groupement-hospitalier-de-l-ouest-lemanique-nyon"
