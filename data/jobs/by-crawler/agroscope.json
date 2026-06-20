@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-06-20T10:28:15.412Z",
+  "assembledAt": "2026-06-20T21:23:15.383Z",
   "jobs": [
     {
       "title": "Collaboratore/trice scientifico/a (90%) - Colture frutticole e qualità dei prodotti",
@@ -211,7 +211,7 @@
       "description": "• Analizzare i dati di utilizzo delle infrastrutture e dei servizi informatici al fine d'identificare tendenze, esigenze e possibilità di miglioramento\n\n• Sviluppare strumenti semplici e riproducibili, tra cui pipeline, rapporti, pannelli di controllo o prototipi, per migliorare la comprensione e la gestione dei servizi\n\n• Studiare approcci più avanzati, tra cui l'analisi di serie temporali, il rilevamento di anomalie, i sistemi di raccomandazione o metodi basati sul machine learning e/o sull'intelligenza artificiale\n\n• Diploma universitario in informatica, scienze o ingegneria conseguito da meno di un anno\n\n• Buone conoscenze in programmazione (ad es. R, Python, Bash). Buone conoscenze nel controllo di versione (ad es. Git). Dimestichezza con la visualizzazione di diversi set di dati\n\n• Le conoscenze in fatto di SQL, pipelines, cloud computing e le esperienze pregresse con modelli statistici e machine learning rappresentano un vantaggio\n\n• Conoscenza di due lingue ufficiali e dell'inglese",
       "titleByLocale": {
         "it": "Praticante Informatica",
-        "en": "Computer Practitioner",
+        "en": "Praticante Informatica",
         "de": "Computerpraktiker",
         "fr": "Spécialiste de l'informatique"
       },
@@ -223,7 +223,7 @@
       },
       "slugByLocale": {
         "it": "praticante-informatica-agroscope-posieux",
-        "en": "computer-practitioner-agroscope-1725-posieux",
+        "en": "praticante-informatica-agroscope-posieux",
         "de": "computerpraktiker-agroscope-1725-posieux",
         "fr": "specialiste-de-l-informatique-agroscope-1725-posieux"
       },
@@ -246,11 +246,13 @@
       "firstSeenAt": "2026-06-02T12:00:03.023Z",
       "previousSlugsByLocale": {
         "en": [
-          "it-practitioner-agroscope-1725-posieux"
+          "it-practitioner-agroscope-1725-posieux",
+          "computer-practitioner-agroscope-1725-posieux"
         ]
       },
       "previousSlugs": [
-        "it-practitioner-agroscope-1725-posieux"
+        "it-practitioner-agroscope-1725-posieux",
+        "computer-practitioner-agroscope-1725-posieux"
       ],
       "needsRetranslation": true
     },
@@ -668,7 +670,6 @@
       "previousSlugs": [
         "meccanico-a-di-macchine-agricole-agroscope-nyon"
       ],
-      "needsRetranslation": true,
       "retranslationAttempts": 0
     },
     {
