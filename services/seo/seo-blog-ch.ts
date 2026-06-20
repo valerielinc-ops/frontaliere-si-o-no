@@ -3023,6 +3023,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nucleare-13avs-salari-votazioni': {
+    title: 'Nucleare, 13ma AVS e salari: i risultati della sessione estiva del Parlamento',
+    description: 'Sessione estiva del Parlamento svizzero: tre dossier chiave verso il voto popolare. Nuove decisioni su nucleare, AVS e salari minimi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, nucleare, 13ma, salari, risultati',
+    ogTitle: 'Nuove votazioni in Svizzera: nucleare, 13ma AVS e salari',
+    ogDescription: 'Dossier chiave della sessione estiva del Parlamento svizzero: nucleare, AVS e salari minimi in votazione.',
+    canonicalPath: '/articoli-svizzera/nucleare-13avs-salari-votazioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nucleare, 13ma AVS e salari: i risultati della sessione estiva del Parlamento",
+      "description": "Sessione estiva del Parlamento svizzero: tre dossier chiave verso il voto popolare. Nuove decisioni su nucleare, AVS e salari minimi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/nucleare-13avs-salari-votazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il parlamento federale svizzero a Berna durante una sessione."
+      },
+      "datePublished": "2026-06-20T01:40:45+00:00",
+      "dateModified": "2026-06-20T01:40:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/nucleare-13avs-salari-votazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

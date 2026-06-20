@@ -239,6 +239,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.trasporti-45-ticino-margini.title': 'Transport \'45: Ticino on the fringes of Swiss mobility',
     'blog.article.trasporti-45-ticino-margini.excerpt': 'The Federal Council presents the \'Transport \'45\' project, but Ticino remains excluded from the priorities',
     'blog.article.trasporti-45-ticino-margini.imageAlt': 'Train passing through the Swiss Alps near Lugano',
+    'blog.article.nucleare-13avs-salari-votazioni.title': 'Nuclear, 13th AVS & Minimum Wages: Summer Session Results',
+    'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'New votes in Switzerland on nuclear power, 13th AVS funding, and minimum wages. Here\'s what changes.',
+    'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Swiss Federal Parliament in Bern during a session.',
 };
 
 export default blogMetaChEn;

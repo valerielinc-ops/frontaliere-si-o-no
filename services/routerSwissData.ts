@@ -101,6 +101,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'imposta-alla-fonte-frontalieri-ticino': { it: 'imposta-alla-fonte-frontalieri-ticino', en: 'withholding-tax-cross-border-ticino', de: 'quellensteuer-grenzgaenger-tessin', fr: 'imposition-a-la-source-frontaliers-tessin' },
  'dogana-stabio-gaggiolo': { it: 'dogana-stabio-gaggiolo', en: 'dogana-gaggiolo-stabio', de: 'zoll-gaggiolo-stabio', fr: 'douane-gaggiolo-stabio' },
  'trasporti-45-ticino-margini': { it: 'trasporti-45-ticino-margini', en: 'swiss-transport-policy-ticino-marginalized', de: 'verkehrspolitik-ticino-am-rand', fr: 'politique-transports-ticino-en-marge' },
+ 'nucleare-13avs-salari-votazioni': { it: 'nucleare-13avs-salari-votazioni', en: 'nuclear-13avs-wages-votes', de: 'kernenergie-13avs-loehne-abstimmungen', fr: 'energie-nucleaire-13avs-salaires-votes' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

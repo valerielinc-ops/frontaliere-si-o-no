@@ -1,0 +1,40 @@
+{
+  "id": "nucleare-13avs-salari-votazioni",
+  "slug": "nucleare-13avs-salari-votazioni",
+  "publishedAt": "2026-06-20T01:40:47.343Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.764401035503834,
+    "confidence": 0.8,
+    "finalScore": 11.011520828403068,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8602750647189896
+      },
+      {
+        "slug": "berna-discute-approvvigionamento-economico-e-13esima-avs",
+        "cosine": 0.8545986671532737
+      },
+      {
+        "slug": "consiglio-stati-soluzione-mista-13esima-avs",
+        "cosine": 0.8490755284984737
+      },
+      {
+        "slug": "ristorni-italia-sospesi",
+        "cosine": 0.8470158352648226
+      },
+      {
+        "slug": "tredicesima-avs-iva-contributi",
+        "cosine": 0.8456470289118855
+      }
+    ],
+    "score": 11.011520828403068,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}
