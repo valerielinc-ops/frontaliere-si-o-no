@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gkb",
-  "assembledAt": "2026-06-20T11:04:08.612Z",
+  "assembledAt": "2026-06-20T21:59:13.662Z",
   "jobs": [
     {
       "id": "gkb-48538c69e008",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1871/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:06.259Z",
+      "crawledAt": "2026-06-20T21:59:10.917Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -65,6 +65,7 @@
         "business-analyst-in-payments-fokus-geschaftskunden-60-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-01T23:46:30.584Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -110,7 +111,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:05.406Z",
+      "crawledAt": "2026-06-20T21:59:10.070Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -131,6 +132,7 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "firstSeenAt": "2026-06-03T13:43:29.166Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -152,7 +154,7 @@
         "it": "befristet-legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "en": "befristet-legal-advisor-regulatory-relations-80-100-graubundner-kantonalbank-chur",
         "de": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
-        "fr": "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur"
+        "fr": "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
       },
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
@@ -176,7 +178,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1938/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:04.565Z",
+      "crawledAt": "2026-06-20T21:59:09.200Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -198,6 +200,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch",
+        "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
         "legal-consulente-regulatory-relations-80-100-graubundner-kantonalbank-chur"
       ],
       "previousSlugsByLocale": {
@@ -205,10 +208,12 @@
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ],
         "fr": [
+          "limited-conseiller-juridique-relations-reglementaires-80-100-graubundner-kantonalbank-chur",
           "befristet-legal-advisor-regulatory-relations-80-100-gkb-ch"
         ]
       },
       "firstSeenAt": "2026-06-03T13:43:28.315Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -254,7 +259,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1939/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:03.738Z",
+      "crawledAt": "2026-06-20T21:59:08.346Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -286,6 +291,7 @@
         "it-controlling-und-governance-manager-100-gkb-ch"
       ],
       "firstSeenAt": "2026-06-08T12:57:10.558Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "baseSalary": {
@@ -331,7 +337,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1941/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:02.891Z",
+      "crawledAt": "2026-06-20T21:59:07.474Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -405,7 +411,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1936/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:02.043Z",
+      "crawledAt": "2026-06-20T21:59:06.606Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -479,7 +485,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1937/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:01.213Z",
+      "crawledAt": "2026-06-20T21:59:05.756Z",
       "addressLocality": "Lenzerheide",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -559,7 +565,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1940/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:04:00.372Z",
+      "crawledAt": "2026-06-20T21:59:04.891Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -636,7 +642,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1944/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:03:59.506Z",
+      "crawledAt": "2026-06-20T21:59:04.043Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -710,7 +716,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1943/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:03:58.642Z",
+      "crawledAt": "2026-06-20T21:59:03.010Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
