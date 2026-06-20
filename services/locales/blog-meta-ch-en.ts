@@ -236,6 +236,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dogana-stabio-gaggiolo.title': 'Gaggiolo Customs: Operations and Updates',
     'blog.article.dogana-stabio-gaggiolo.excerpt': 'Recent updates on the situation at Gaggiolo and Stabio customs, focusing on controls and procedures.',
     'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Customs scene at Gaggiolo and Stabio with officials in service',
+    'blog.article.trasporti-45-ticino-margini.title': 'Transport \'45: Ticino on the fringes of Swiss mobility',
+    'blog.article.trasporti-45-ticino-margini.excerpt': 'The Federal Council presents the \'Transport \'45\' project, but Ticino remains excluded from the priorities',
+    'blog.article.trasporti-45-ticino-margini.imageAlt': 'Train passing through the Swiss Alps near Lugano',
 };
 
 export default blogMetaChEn;

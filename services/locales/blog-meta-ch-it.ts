@@ -236,6 +236,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dogana-stabio-gaggiolo.title': 'Dogana di Gaggiolo: operazioni e aggiornamenti',
     'blog.article.dogana-stabio-gaggiolo.excerpt': 'Aggiornamenti recenti sulla situazione della dogana di Gaggiolo e Stabio, con focus su controlli e procedure.',
     'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Dogana di Gaggiolo e Stabio con funzionari in servizio',
+    'blog.article.trasporti-45-ticino-margini.title': '«Trasporti ’45»: Ticino ai margini della mobilità svizzera',
+    'blog.article.trasporti-45-ticino-margini.excerpt': 'Il Consiglio federale presenta il progetto «Trasporti ’45», ma il Ticino resta escluso dalle priorità',
+    'blog.article.trasporti-45-ticino-margini.imageAlt': 'Treno che attraversa le Alpi svizzere vicino a Lugano',
 };
 
 export default blogMetaChIt;
