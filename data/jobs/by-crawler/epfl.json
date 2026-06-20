@@ -403,11 +403,11 @@
     },
     {
       "id": "epfl-9118bb80e144",
-      "slug": "cvcs-tecnico-epfl-sion",
+      "slug": "technicien-ne-hvac-epfl-sion",
       "slugByLocale": {
-        "it": "cvcs-tecnico-epfl-sion",
+        "it": "technicien-ne-hvac-epfl-sion",
         "en": "cvcs-technician-epfl-sion",
-        "de": "cvcs-techniker-epfl-sion",
+        "de": "technicien-ne-hlk-epfl-sion",
         "fr": "technicien-ne-cvcs-epfl-sion"
       },
       "company": "EPFL",
@@ -451,17 +451,21 @@
       "contractType": "Technique",
       "externalId": "1164791755",
       "previousSlugs": [
-        "technicien-ne-cvcs-epfl-sion"
+        "technicien-ne-cvcs-epfl-sion",
+        "cvcs-tecnico-epfl-sion",
+        "cvcs-techniker-epfl-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-ne-cvcs-epfl-sion"
+          "technicien-ne-cvcs-epfl-sion",
+          "cvcs-tecnico-epfl-sion"
         ],
         "en": [
           "technicien-ne-cvcs-epfl-sion"
         ],
         "de": [
-          "technicien-ne-cvcs-epfl-sion"
+          "technicien-ne-cvcs-epfl-sion",
+          "cvcs-techniker-epfl-sion"
         ]
       },
       "firstSeenAt": "2026-05-26T22:45:58.521Z",
@@ -3218,8 +3222,6 @@
         "verwaltungsassistent-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistante-administrative-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",

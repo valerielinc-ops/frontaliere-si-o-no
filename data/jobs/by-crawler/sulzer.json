@@ -6845,12 +6845,12 @@
     },
     {
       "id": "sulzer-0d5749c831c9",
-      "slug": "engenheiro-a-de-aplicacao-sulzer-ch",
+      "slug": "ing-di-applicazione-sulzer-winterthur",
       "slugByLocale": {
         "en": "engenheiro-a-de-aplicacao-sulzer-ch",
         "fr": "engenheiro-a-de-aplicacao-sulzer-winterthur",
-        "it": "engenheiro-a-de-aplicacao-sulzer-ch",
-        "de": "engenheiro-a-de-aplicacao-sulzer-ch"
+        "it": "ing-di-applicazione-sulzer-winterthur",
+        "de": "anwendungstechniker-sulzer-winterthur"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -6905,7 +6905,18 @@
       },
       "postalCode": "8400",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T22:48:14.542Z"
+      "firstSeenAt": "2026-06-19T22:48:14.542Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engenheiro-a-de-aplicacao-sulzer-ch"
+        ],
+        "de": [
+          "engenheiro-a-de-aplicacao-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engenheiro-a-de-aplicacao-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-217c5ca352d7",
@@ -11456,12 +11467,12 @@
     },
     {
       "id": "sulzer-282940ace6a8",
-      "slug": "welder-sulzer-ch",
+      "slug": "soldato-sulzer-pasadena",
       "slugByLocale": {
         "en": "welder-sulzer-ch",
-        "it": "welder-sulzer-ch",
-        "de": "welder-sulzer-ch",
-        "fr": "welder-sulzer-ch"
+        "it": "soldato-sulzer-pasadena",
+        "de": "schwei-er-sulzer-pasadena",
+        "fr": "soudeur-sulzer-pasadena"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -11516,7 +11527,21 @@
       },
       "postalCode": "8001",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-06-19T22:47:14.235Z"
+      "firstSeenAt": "2026-06-19T22:47:14.235Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "welder-sulzer-ch"
+        ],
+        "de": [
+          "welder-sulzer-ch"
+        ],
+        "fr": [
+          "welder-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "welder-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-bf49d3888133",
@@ -23561,7 +23586,7 @@
         "en": "area-sales-manager-sulzer-ch",
         "it": "area-sales-manager-sulzer-ch-2",
         "de": "area-sales-manager-sulzer-ch-2",
-        "fr": "area-sales-manager-sulzer-ch-2"
+        "fr": "directeur-regional-des-ventes-sulzer-colton"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
