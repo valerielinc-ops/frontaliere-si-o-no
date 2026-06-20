@@ -102,6 +102,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'dogana-stabio-gaggiolo': { it: 'dogana-stabio-gaggiolo', en: 'dogana-gaggiolo-stabio', de: 'zoll-gaggiolo-stabio', fr: 'douane-gaggiolo-stabio' },
  'trasporti-45-ticino-margini': { it: 'trasporti-45-ticino-margini', en: 'swiss-transport-policy-ticino-marginalized', de: 'verkehrspolitik-ticino-am-rand', fr: 'politique-transports-ticino-en-marge' },
  'nucleare-13avs-salari-votazioni': { it: 'nucleare-13avs-salari-votazioni', en: 'nuclear-13avs-wages-votes', de: 'kernenergie-13avs-loehne-abstimmungen', fr: 'energie-nucleaire-13avs-salaires-votes' },
+ 'lavoro-nero-dumping-2025-svizzera': { it: 'lavoro-nero-dumping-2025-svizzera', en: 'black-work-salary-dumping-2025-switzerland', de: 'schwarzarbeit-lohn-dumping-2025-schweiz', fr: 'travail-illegal-salaire-dumping-2025-suisse' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

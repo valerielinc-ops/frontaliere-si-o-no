@@ -242,6 +242,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nucleare-13avs-salari-votazioni.title': 'Atomkraft, 13. AHV und Mindestlöhne: Ergebnisse der Sommer-Session',
     'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'Neue Abstimmungen in der Schweiz zur Atomkraft, zur Finanzierung der 13. AHV und zu Mindestlöhnen. Hier erfahren Sie, was sich ändert.',
     'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Das Schweizer Bundesparlament in Bern während einer Sitzung.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.title': 'Über 15.000 Verstöße 2025: Schwarzarbeit und Lohndumping in der Schweiz',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'Im Jahr 2025 hat das SECO 15.000 Unregelmäßigkeiten festgestellt: Die Bau- und Gaststättengewerbe sind am stärksten betroffen. Der Kanton Tessin ist einer der aktivsten bei den Kontrollen.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Bauarbeiter im Tessin wird auf Arbeitsverstöße überprüft, mit Blick auf Lugano und den Lago di Lugano.',
 };
 
 export default blogMetaChDe;

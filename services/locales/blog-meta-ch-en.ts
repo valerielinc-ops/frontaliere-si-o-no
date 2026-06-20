@@ -242,6 +242,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nucleare-13avs-salari-votazioni.title': 'Nuclear, 13th AVS & Minimum Wages: Summer Session Results',
     'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'New votes in Switzerland on nuclear power, 13th AVS funding, and minimum wages. Here\'s what changes.',
     'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Swiss Federal Parliament in Bern during a session.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.title': '15,000 violations in 2025: black labor and wage dumping in Switzerland',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'In 2025, SECO detected 15,000 irregularities: construction and hospitality were the hardest-hit sectors. Ticino is among the most active cantons in inspections. Mandatory obligations apply.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Construction worker in Ticino inspected for labor violations, with Lugano and Lake Lugano in the background.',
 };
 
 export default blogMetaChEn;
