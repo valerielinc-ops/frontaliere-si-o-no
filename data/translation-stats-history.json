@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-06-01T00:03:46.732Z",
-    "label": "before",
-    "total": 8997,
-    "needsRetranslation": 5650,
-    "incomplete": 623,
-    "complete": 8374,
-    "missingByLocale": {
-      "it": 401,
-      "en": 313,
-      "de": 193,
-      "fr": 394
-    },
-    "topPending": [
-      {
-        "company": "IWC",
-        "pending": 102
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 29
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 23
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Roche",
-        "pending": 16
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-01T02:20:08.798Z",
-    "label": "after",
-    "total": 8997,
-    "needsRetranslation": 1987,
-    "incomplete": 481,
-    "complete": 8516,
-    "missingByLocale": {
-      "it": 334,
-      "en": 262,
-      "de": 172,
-      "fr": 326
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 23
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 15
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-01T05:06:22.980Z",
-    "label": "before",
-    "total": 9002,
-    "needsRetranslation": 2205,
-    "incomplete": 487,
-    "complete": 8515,
-    "missingByLocale": {
-      "it": 335,
-      "en": 268,
-      "de": 177,
-      "fr": 333
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 23
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 15
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-01T06:09:34.515Z",
-    "label": "after",
-    "total": 9002,
-    "needsRetranslation": 1904,
-    "incomplete": 467,
-    "complete": 8535,
-    "missingByLocale": {
-      "it": 323,
-      "en": 252,
-      "de": 168,
-      "fr": 315
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 74
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 23
-      },
-      {
-        "company": "HOCH Health Ostschweiz",
-        "pending": 22
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Roche",
-        "pending": 15
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-01T06:13:21.214Z",
     "label": "before",
     "total": 9002,
@@ -11468,6 +11244,120 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 922
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Implenia",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-20T10:26:54.554Z",
+    "label": "before",
+    "total": 17247,
+    "needsRetranslation": 2408,
+    "suppressed": 613,
+    "incomplete": 940,
+    "complete": 16307,
+    "missingByLocale": {
+      "it": 310,
+      "en": 292,
+      "de": 634,
+      "fr": 122
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 878
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      },
+      {
+        "company": "Kantonsspital Baden (KSB)",
+        "pending": 3
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 3
+      },
+      {
+        "company": "Roche",
+        "pending": 3
+      },
+      {
+        "company": "Bürgenstock Hotels AG",
+        "pending": 2
+      },
+      {
+        "company": "Implenia",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-20T11:02:17.132Z",
+    "label": "after",
+    "total": 17247,
+    "needsRetranslation": 2402,
+    "suppressed": 616,
+    "incomplete": 941,
+    "complete": 16306,
+    "missingByLocale": {
+      "it": 310,
+      "en": 292,
+      "de": 634,
+      "fr": 122
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 878
       },
       {
         "company": "Manor AG",
