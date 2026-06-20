@@ -1360,9 +1360,9 @@
     },
     {
       "id": "denner-1d9882bfb52b",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-direzione-della-filiale-denner-zurich",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-direzione-della-filiale-denner-zurich",
         "de": "assistent-in-filialleitung-denner-ag-zurich-mlzv0z",
         "en": "assistent-in-filialleitung-denner",
         "fr": "assistent-in-filialleitung-denner"
@@ -1436,7 +1436,15 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-20T10:52:56.935Z"
+      "firstSeenAt": "2026-06-20T10:52:56.935Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-4d8e9d272fa2",
@@ -1516,8 +1524,7 @@
         ],
         "en": [
           "leiter-in-product-management-wein-denner",
-          "head-of-product-management-wine-denner-zurich",
-          "leiter-in-product-management-wein-denner-ag-zurich-yw6kgz"
+          "head-of-product-management-wine-denner-zurich"
         ],
         "fr": [
           "leiter-in-product-management-wein-denner"
@@ -2198,8 +2205,7 @@
           "filialleiter-in-denner-herisau"
         ],
         "de": [
-          "filialleiter-in-denner-herisau",
-          "filialleiter-in-denner-ag-herisau"
+          "filialleiter-in-denner-herisau"
         ],
         "fr": [
           "filialleiter-in-denner-herisau"
@@ -2298,8 +2304,7 @@
           "stv-filialleiter-in-denner-appenzell"
         ],
         "de": [
-          "stv-filialleiter-in-denner-appenzell",
-          "stv-filialleiter-in-denner-ag-appenzell-3o9h68"
+          "stv-filialleiter-in-denner-appenzell"
         ],
         "fr": [
           "stv-filialleiter-in-denner-appenzell"
@@ -2488,8 +2493,7 @@
           "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "de": [
-          "filialleiter-in-in-ausbildung-denner-winterthur",
-          "filialleiter-in-ausbildung-denner-ag-winterthur-2tuvc9"
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "fr": [
           "filialleiter-in-in-ausbildung-denner-winterthur"
@@ -2589,9 +2593,6 @@
         ],
         "fr": [
           "betriebstechniker-in-magenwil-denner"
-        ],
-        "de": [
-          "betriebstechniker-in-magenwil-denner-ag-magenwil"
         ]
       },
       "previousSlugs": [
@@ -2784,8 +2785,7 @@
           "adjoint-e-gerant-e-denner"
         ],
         "fr": [
-          "adjoint-e-gerant-e-denner-sion",
-          "adjoint-e-gerant-e-denner-sa-sion-ctzk8x"
+          "adjoint-e-gerant-e-denner-sion"
         ]
       },
       "firstSeenAt": "2026-06-19T12:26:35.676Z",
