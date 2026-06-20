@@ -3999,7 +3999,6 @@
       "addressRegion": "GE",
       "firstSeenAt": "2026-06-19T13:11:55.238Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates-697dcf",
         "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
@@ -4198,8 +4197,6 @@
         "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
         "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates-697dcf"
       ],
       "previousSlugsByLocale": {
@@ -6045,7 +6042,6 @@
         "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen-2",
         "data-center-technicien-ch-st-gallen-on-site-reboot-monkey-st-gallen",
         "technicien-data-center-ch-saint-gall-sur-site-reboot-monkey-st-gallen",
-        "data-center-technician-ch-st-gallen-on-site-reboot-monkey-st-gallen",
         "data-center-technician-ch-st-gallen-in-loco-reboot-monkey-st-gallen",
         "data-center-techniker-ch-st-gallen-on-site-reboot-monkey-st-gallen"
       ],
@@ -6455,7 +6451,6 @@
       "previousSlugs": [
         "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil",
         "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2",
-        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
         "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
         "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil"
       ],
@@ -6663,7 +6658,6 @@
         "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix",
         "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
         "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix",
-        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
         "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
         "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix"
       ],
@@ -7163,7 +7157,6 @@
       "previousSlugs": [
         "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains",
         "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
         "tecnico-data-center-ch-widnau-presenza-in-sede-reboot-monkey-widnau",
         "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
         "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains"
@@ -10747,8 +10740,8 @@
       "slugByLocale": {
         "it": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2",
         "en": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
-        "de": "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne",
-        "fr": "data-center-technicien-lucerne-on-site-reboot-monkey-lucerne"
+        "de": "rechenzentrumstechniker-luzern-vor-ort-reboot-monkey-lucerne",
+        "fr": "technicien-de-centre-de-donnees-lucerne-sur-site-reboot-monkey-lucerne"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -10803,11 +10796,19 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne"
+        "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
+        "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne",
+        "data-center-technicien-lucerne-on-site-reboot-monkey-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-lucerne-on-site-reboot-monkey-lucerne"
+        ],
+        "de": [
+          "data-center-techniker-lucerne-on-site-reboot-monkey-lucerne"
+        ],
+        "fr": [
+          "data-center-technicien-lucerne-on-site-reboot-monkey-lucerne"
         ]
       },
       "firstSeenAt": "2026-06-15T15:31:55.798Z",

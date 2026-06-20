@@ -1250,7 +1250,6 @@
         "uhrwerkbauer-h-f-van-cleef-arpels-meyrin",
         "team-leader-pick-pack-richemont-villars-sur-glane",
         "team-leader-picking-and-packing-richemont-villars-sur-glane",
-        "costruttore-movimento-h-f-van-cleef-arpels-meyrin",
         "pick-pack-capo-squadra-richemont-villars-sur-glane"
       ],
       "firstSeenAt": "2026-05-11T13:58:02.555Z",
@@ -3834,9 +3833,9 @@
     },
     {
       "id": "richemont-ee79ca7f3646",
-      "slug": "tirocinio-m-a-richemont-bellevue",
+      "slug": "stagista-m-a-richemont-bellevue",
       "slugByLocale": {
-        "it": "tirocinio-m-a-richemont-bellevue",
+        "it": "stagista-m-a-richemont-bellevue",
         "en": "m-a-intern-richemont-bellevue",
         "de": "m-a-praktikant-richemont-bellevue",
         "fr": "stagiaire-en-fusions-et-acquisitions-richemont-bellevue"
@@ -3925,8 +3924,8 @@
         "it": [
           "stage-m-a-richemont-bellevue",
           "m-a-tirocinante-richemont-bellevue",
-          "stagista-m-a-richemont-bellevue",
-          "m-a-intern-richemont-bellevue"
+          "m-a-intern-richemont-bellevue",
+          "tirocinio-m-a-richemont-bellevue"
         ],
         "fr": [
           "stagiaire-en-m-a-richemont-bellevue",
@@ -3936,8 +3935,8 @@
       "previousSlugs": [
         "stage-m-a-richemont-bellevue",
         "m-a-tirocinante-richemont-bellevue",
-        "stagista-m-a-richemont-bellevue",
         "m-a-intern-richemont-bellevue",
+        "tirocinio-m-a-richemont-bellevue",
         "stagiaire-en-m-a-richemont-bellevue",
         "m-a-stagiaire-richemont-bellevue",
         "sustainability-engagement-tirocinante-richemont-bellevue",
@@ -7939,9 +7938,6 @@
         "stage-d-excellence-en-commerce-de-detail-et-partenaire-piaget-plan-les-ouates",
         "retail-partner-retail-excellence-intern-piaget-plan-les-ouates",
         "group-l-d-intern-richemont-bellevue-e8uyst",
-        "stage-retail-partner-retail-excellence-piaget-plan-les-ouates",
-        "praktikum-retail-partner-retail-excellence-piaget-plan-les-ouates",
-        "stagiaire-en-excellence-retail-partenaires-piaget-plan-les-ouates",
         "stagista-di-gruppo-l-d-richemont-bellevue"
       ],
       "firstSeenAt": "2026-06-15T15:26:37.952Z",
@@ -15509,7 +15505,7 @@
         "it": "interno-di-gestione-della-conoscenza-della-supply-chain-cartier-villars-sur-glane",
         "en": "supply-chain-knowledge-management-intern-richemont-villars-sur-glane",
         "de": "supply-chain-knowledge-management-intern-richemont-villars-sur-glane",
-        "fr": "stagiaire-en-gestion-de-la-connaissance-de-la-chaine-d-approvisionnement-cartier-villars-sur-glane"
+        "fr": "stage-de-gestion-des-connaissances-de-la-chaine-d-approvisionnement-cartier-villars-sur-glane"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -15552,7 +15548,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "supply-chain-knowledge-management-intern-richemont-villars-sur-glane",
-        "lieferkette-knowledge-management-praktikant-cartier-villars-sur-glane"
+        "lieferkette-knowledge-management-praktikant-cartier-villars-sur-glane",
+        "stagiaire-en-gestion-de-la-connaissance-de-la-chaine-d-approvisionnement-cartier-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15562,7 +15559,8 @@
           "lieferkette-knowledge-management-praktikant-cartier-villars-sur-glane"
         ],
         "fr": [
-          "supply-chain-knowledge-management-intern-richemont-villars-sur-glane"
+          "supply-chain-knowledge-management-intern-richemont-villars-sur-glane",
+          "stagiaire-en-gestion-de-la-connaissance-de-la-chaine-d-approvisionnement-cartier-villars-sur-glane"
         ]
       },
       "firstSeenAt": "2026-06-15T23:50:22.565Z",
