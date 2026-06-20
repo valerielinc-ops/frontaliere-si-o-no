@@ -16247,12 +16247,12 @@
     },
     {
       "id": "usz-c9cafecba122",
-      "slug": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
+      "slug": "personale-in-amministrazione-consultazione-tempo-paziente-direttiva-20-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
-        "en": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
+        "it": "personale-in-amministrazione-consultazione-tempo-paziente-direttiva-20-universitatsspital-zurich-usz-stettbach",
+        "en": "personnel-in-administration-consultation-time-patient-directive-20-universitatsspital-zurich-usz-stettbach",
         "de": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch",
-        "fr": "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        "fr": "personnel-en-administration-consultation-temps-directive-patient-20-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16306,16 +16306,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-administration-sprechstunde-patientenverfugung-20-usz-ch"
+      ]
     },
     {
       "id": "usz-aed5fa008b82",
-      "slug": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch",
+      "slug": "assistente-medico-f-m-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch",
-        "en": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch",
+        "it": "assistente-medico-f-m-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-campus",
+        "en": "assistant-doctor-f-m-d-intensive-care-medicine-80-100-universitatsspital-zurich-usz-campus",
         "de": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch",
-        "fr": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        "fr": "medecin-adjoint-f-m-j-medecine-des-soins-intensifs-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16369,16 +16383,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-c80d68f812e4",
       "slug": "fachperson-gesundheit-per-la-kardiologie-e-herzchirurgie-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "it": "fachperson-gesundheit-per-la-kardiologie-e-herzchirurgie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch",
+        "en": "health-professional-for-cardiology-and-cardiac-surgery-80-100-universitatsspital-zurich-usz-campus",
         "de": "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch",
-        "fr": "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        "fr": "professionnels-de-la-sante-pour-la-cardiologie-et-la-chirurgie-cardiaque-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16425,6 +16453,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-fur-die-kardiologie-und-herzchirurgie-80-100-usz-ch"
         ]
       },
       "needsRetranslation": true,
@@ -16444,12 +16478,12 @@
     },
     {
       "id": "usz-fcf35d989675",
-      "slug": "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch",
+      "slug": "medico-senior-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch",
-        "en": "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch",
+        "it": "medico-senior-f-m-d-medicina-interna-80-100-universitatsspital-zurich-usz-campus",
+        "en": "senior-physician-f-m-d-internal-medicine-80-100-universitatsspital-zurich-usz-campus",
         "de": "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch",
-        "fr": "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        "fr": "medecin-principal-f-m-d-medecine-interne-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16503,16 +16537,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-w-m-d-innere-medizin-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-c9a8bf400f6d",
-      "slug": "hilfskochin-hilfskoch-80-100-usz-ch",
+      "slug": "assistente-cuoco-assistente-cuoco-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
         "de": "hilfskochin-hilfskoch-80-100-usz-ch",
-        "it": "hilfskochin-hilfskoch-80-100-usz-ch",
-        "en": "hilfskochin-hilfskoch-80-100-usz-ch",
-        "fr": "hilfskochin-hilfskoch-80-100-usz-ch"
+        "it": "assistente-cuoco-assistente-cuoco-80-100-universitatsspital-zurich-usz-campus",
+        "en": "assistant-cook-assistant-cook-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "cuisinier-adjoint-cuisinier-adjoint-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16567,7 +16615,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:49:09.275Z"
+      "firstSeenAt": "2026-06-19T22:49:09.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hilfskochin-hilfskoch-80-100-usz-ch"
+        ],
+        "en": [
+          "hilfskochin-hilfskoch-80-100-usz-ch"
+        ],
+        "fr": [
+          "hilfskochin-hilfskoch-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hilfskochin-hilfskoch-80-100-usz-ch"
+      ]
     }
   ]
 }

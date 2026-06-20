@@ -9596,12 +9596,12 @@
     },
     {
       "id": "roche-549a61485e30",
-      "slug": "product-manager-roche-ch",
+      "slug": "analista-di-conformita-di-viaggio-ed-erogazione-con-arabo-talent-pool-roche-ho-chi-minh",
       "slugByLocale": {
         "en": "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch",
-        "it": "responsabile-del-prodotto-roche-ho-chi-minh",
-        "de": "product-manager-roche-ch",
-        "fr": "product-manager-roche-ch"
+        "it": "analista-di-conformita-di-viaggio-ed-erogazione-con-arabo-talent-pool-roche-ho-chi-minh",
+        "de": "reise-und-spesen-compliance-analyst-bei-arabisch-talentpool-roche-ho-chi-minh",
+        "fr": "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-arabic-talent-pool-roche-ho-chi-minh"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -9661,16 +9661,15 @@
         "produktmanager-roche-ho-chi-minh",
         "travel-and-expense-compliance-analyst-mit-arabic-talent-pool-roche-ho-chi-minh",
         "analyst-fur-reise-und-spesen-compliance-mit-arabisch-talent-pool-roche-ho-chi-minh",
-        "reise-und-spesen-compliance-analyst-bei-arabisch-talentpool-roche-ho-chi-minh",
         "reise-und-spesen-compliance-analyst-bei-arabic-talent-pool-roche-ho-chi-minh",
+        "product-manager-roche-ch",
         "gestionnaire-de-produits-roche-ho-chi-minh",
-        "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-arabic-talent-pool-roche-ho-chi-minh",
         "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-le-vivier-de-talents-arabes-roche-ho-chi-minh",
         "analyste-conformite-des-voyages-et-des-depenses-avec-arabe-pool-de-talents-roche-ho-chi-minh",
         "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch",
+        "responsabile-del-prodotto-roche-ho-chi-minh",
         "responsabile-del-prodotto-roche-ho-chi-minh-d96e04",
         "analista-di-conformita-viaggi-e-spese-con-arabic-talent-pool-roche-ho-chi-minh",
-        "analista-di-conformita-di-viaggio-ed-erogazione-con-arabo-talent-pool-roche-ho-chi-minh",
         "travel-and-expense-compliance-analista-with-arabic-talent-pool-roche-ho-chi-minh"
       ],
       "previousSlugsByLocale": {
@@ -9678,17 +9677,19 @@
           "produktmanager-roche-ho-chi-minh",
           "travel-and-expense-compliance-analyst-mit-arabic-talent-pool-roche-ho-chi-minh",
           "analyst-fur-reise-und-spesen-compliance-mit-arabisch-talent-pool-roche-ho-chi-minh",
-          "reise-und-spesen-compliance-analyst-bei-arabisch-talentpool-roche-ho-chi-minh",
-          "reise-und-spesen-compliance-analyst-bei-arabic-talent-pool-roche-ho-chi-minh"
+          "reise-und-spesen-compliance-analyst-bei-arabic-talent-pool-roche-ho-chi-minh",
+          "product-manager-roche-ch"
         ],
         "fr": [
           "gestionnaire-de-produits-roche-ho-chi-minh",
-          "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-arabic-talent-pool-roche-ho-chi-minh",
           "analyste-de-la-conformite-des-voyages-et-des-depenses-avec-le-vivier-de-talents-arabes-roche-ho-chi-minh",
-          "analyste-conformite-des-voyages-et-des-depenses-avec-arabe-pool-de-talents-roche-ho-chi-minh"
+          "analyste-conformite-des-voyages-et-des-depenses-avec-arabe-pool-de-talents-roche-ho-chi-minh",
+          "product-manager-roche-ch"
         ],
         "it": [
-          "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch"
+          "travel-and-expense-compliance-analyst-with-arabic-talent-pool-roche-ch",
+          "responsabile-del-prodotto-roche-ho-chi-minh",
+          "product-manager-roche-ch"
         ]
       }
     },
@@ -12852,7 +12853,7 @@
       "slugByLocale": {
         "it": "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel",
         "en": "strategic-account-executive-pathology-lab-roche-ch",
-        "de": "strategic-account-executive-pathology-lab-roche-ch",
+        "de": "strategischer-account-executive-pathologielabor-roche-basel",
         "fr": "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel"
       },
       "company": "Roche",
@@ -12893,15 +12894,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "strategic-account-executive-pathology-lab-roche-ch",
-        "strategischer-account-executive-pathologielabor-roche-basel"
+        "strategic-account-executive-pathology-lab-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "de": [
-          "strategischer-account-executive-pathologielabor-roche-basel"
+          "strategic-account-executive-pathology-lab-roche-ch"
         ],
         "fr": [
           "strategic-account-executive-pathology-lab-roche-ch"
@@ -23572,10 +23572,10 @@
     },
     {
       "id": "roche-d971e223548b",
-      "slug": "roche-shanghai",
+      "slug": "organizzazione-roche-shanghai",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-shanghai",
+        "it": "organizzazione-roche-shanghai",
         "de": "roche-shanghai",
         "fr": "roche-shanghai"
       },
@@ -23620,11 +23620,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-41"
+          "roche-ch-41",
+          "roche-shanghai"
         ]
       },
       "previousSlugs": [
-        "roche-ch-41"
+        "roche-ch-41",
+        "roche-shanghai"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -25738,12 +25740,12 @@
     },
     {
       "id": "roche-53ff69b5abb1",
-      "slug": "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
+      "slug": "terreno-della-societa-registrati-locali-roche-basel",
       "slugByLocale": {
-        "it": "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
+        "it": "terreno-della-societa-registrati-locali-roche-basel",
         "en": "roche-basel",
         "de": "therapeutic-area-manager-therapeutischer-bereich-augenheilkunde-lanzhou-roche-basel",
-        "fr": "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel"
+        "fr": "en-anglais-seulement-roche-basel-9d29f5"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -25786,7 +25788,8 @@
         "it": [
           "locale-registrati-locali-roche-basel",
           "roche-basel",
-          "roche-ch"
+          "roche-ch",
+          "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel"
         ],
         "de": [
           "klassisch-eingehalten-roche-basel",
@@ -25794,7 +25797,8 @@
         ],
         "fr": [
           "c-est-pas-vrai-roche-basel",
-          "roche-basel"
+          "roche-basel",
+          "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel"
         ],
         "en": [
           "roche-ch"
@@ -25804,8 +25808,10 @@
         "locale-registrati-locali-roche-basel",
         "roche-basel",
         "roche-ch",
+        "responsabile-dell-area-terapeutica-area-terapeutica-oftalmica-lanzhou-roche-basel",
         "klassisch-eingehalten-roche-basel",
         "c-est-pas-vrai-roche-basel",
+        "responsable-d-aire-therapeutique-aire-therapeutique-ophtalmique-lanzhou-roche-basel",
         "roche-ch-6"
       ],
       "firstSeenAt": "2026-06-18T23:46:27.149Z",
@@ -27156,7 +27162,6 @@
       "previousSlugs": [
         "roche-ch",
         "roche-ch-6",
-        "roche-basel",
         "locale-registrati-locali-roche-basel",
         "klassisch-eingehalten-roche-basel"
       ],
@@ -42835,7 +42840,6 @@
         "interno-di-funzionamento-del-regolatore-roche-basel-l32gh0",
         "regulatory-operation-stagiaire-roche-basel",
         "regulatory-operation-tirocinante-roche-basel",
-        "regulatory-operation-intern-roche-ch-2",
         "interno-di-funzionamento-del-regolatore-roche-basel",
         "operation-de-reglementation-interne-roche-basel",
         "regulatory-operation-praktikant-roche-basel"
@@ -63489,7 +63493,6 @@
         "strategic-account-executive-pathology-lab-roche-basel",
         "strategischer-account-executive-pathologielabor-roche-basel",
         "responsable-de-compte-strategique-laboratoire-de-pathologie-roche-basel",
-        "strategic-account-executive-pathology-lab-roche-ch",
         "esecutivo-del-conto-strategico-laboratorio-di-patologia-roche-basel"
       ],
       "previousSlugsByLocale": {
@@ -72993,8 +72996,7 @@
         "it-business-analyste-pharma-medicines-techops-roche-pune",
         "it-business-analista-pharma-r-d-roche-basel",
         "analista-it-business-r-s-farmaceutico-roche-basel-vne1td",
-        "it-business-analyst-pharma-r-d-roche-ch-2-vne1td",
-        "analista-it-business-r-s-farmaceutico-roche-basel"
+        "it-business-analyst-pharma-r-d-roche-ch-2-vne1td"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -78628,10 +78630,10 @@
     },
     {
       "id": "roche-71ac3046449d",
-      "slug": "roche-guangzhou",
+      "slug": "traduzione-roche-guangzhou",
       "slugByLocale": {
         "en": "roche-ch",
-        "it": "roche-guangzhou",
+        "it": "traduzione-roche-guangzhou",
         "de": "roche-guangzhou",
         "fr": "roche-guangzhou"
       },
@@ -78676,11 +78678,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "roche-ch-153"
+          "roche-ch-153",
+          "roche-guangzhou"
         ]
       },
       "previousSlugs": [
-        "roche-ch-153"
+        "roche-ch-153",
+        "roche-guangzhou"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -85591,8 +85595,7 @@
       },
       "previousSlugs": [
         "molecular-account-executive-denver-roche-ch",
-        "responsable-du-compte-moleculaire-md-clinique-roche-basel",
-        "responsabile-di-account-molecolare-md-clinico-roche-basel"
+        "responsable-du-compte-moleculaire-md-clinique-roche-basel"
       ],
       "firstSeenAt": "2026-06-11T23:22:11.485Z",
       "salaryMin": 85500,
@@ -87757,7 +87760,7 @@
       "slugByLocale": {
         "en": "patient-journey-partner-ophthalmology-roche-ch",
         "it": "partner-del-viaggio-paziente-ophthalmology-roche-basel",
-        "de": "patient-journey-partner-ophthalmology-roche-ch-2",
+        "de": "patientenreise-partner-augenheilkunde-roche-delhi-haryana",
         "fr": "patient-journey-partner-ophthalmology-roche-ch-2"
       },
       "company": "Roche",
@@ -87816,9 +87819,7 @@
       "firstSeenAt": "2026-06-19T22:34:40.490Z",
       "previousSlugs": [
         "patient-journey-partner-ophthalmology-roche-ch-2",
-        "patient-journey-partner-ophthalmology-roche-ch",
         "patient-journey-partner-roche-ch-2",
-        "patient-journey-partner-oncology-roche-ch",
         "partner-del-viaggio-paziente-lussemburgo-roche-brussels",
         "patient-journey-partner-luxembourg-roche-ch",
         "responsabile-partner-del-viaggio-del-paziente-roche-tegucigalpa",
@@ -87830,7 +87831,12 @@
         "patient-journey-partner-roche-ch-3",
         "patient-journey-partner-oftalmologia-roche-ch",
         "patient-journey-partner-ophthalmology-roche-italy"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "patient-journey-partner-ophthalmology-roche-ch-2"
+        ]
+      }
     },
     {
       "id": "roche-b1bf7721301a",
@@ -93367,12 +93373,12 @@
     },
     {
       "id": "roche-5581bb59fc21",
-      "slug": "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch",
+      "slug": "considerazioni-di-sicurezza-esperte-m-f-d-protezione-contro-le-esplosioni-protezione-contro-le-esplosioni-roche-basel",
       "slugByLocale": {
         "de": "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch",
-        "it": "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch",
-        "en": "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch",
-        "fr": "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch"
+        "it": "considerazioni-di-sicurezza-esperte-m-f-d-protezione-contro-le-esplosioni-protezione-contro-le-esplosioni-roche-basel",
+        "en": "expert-safety-considerations-m-f-d-explosion-protection-explosion-protection-roche-basel",
+        "fr": "considerations-de-securite-des-experts-m-f-d-protection-contre-les-explosions-protection-contre-les-explosions-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -93429,14 +93435,20 @@
       "addressRegion": "BS",
       "firstSeenAt": "2026-06-19T13:19:23.111Z",
       "previousSlugs": [
+        "expert-safety-considerations-m-f-d-explosion-protection-ex-protection-roche-basel",
+        "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch",
         "considerazioni-di-sicurezza-degli-esperti-m-f-d-protezione-contro-le-esplosioni-ex-protection-roche-basel"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "expert-safety-considerations-m-f-d-explosion-protection-ex-protection-roche-basel"
+          "expert-safety-considerations-m-f-d-explosion-protection-ex-protection-roche-basel",
+          "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch"
         ],
         "fr": [
-          "considerations-de-securite-des-experts-m-f-d-protection-contre-les-explosions-protection-contre-les-explosions-roche"
+          "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch"
+        ],
+        "it": [
+          "experte-sicherheitsbetrachtungen-m-w-d-explosionsschutz-ex-schutz-roche-ch"
         ]
       }
     },
@@ -94144,7 +94156,7 @@
         "en": "senior-vendor-manager-and-project-leader-80-100-roche-ch",
         "it": "senior-vendor-manager-and-project-leader-80-100-roche-ch",
         "de": "senior-vendor-manager-and-project-leader-80-100-roche-ch",
-        "fr": "senior-vendor-manager-and-project-leader-80-100-roche-ch"
+        "fr": "gestionnaire-principal-des-fournisseurs-et-chef-de-projet-80-100-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94203,12 +94215,12 @@
     },
     {
       "id": "roche-2c14f0ea4600",
-      "slug": "scientist-phcs-roche-ch",
+      "slug": "scienziato-phcs-roche-tucson",
       "slugByLocale": {
         "en": "scientist-phcs-roche-ch",
-        "it": "scientist-phcs-roche-ch",
-        "de": "scientist-phcs-roche-ch",
-        "fr": "scientist-phcs-roche-ch"
+        "it": "scienziato-phcs-roche-tucson",
+        "de": "wissenschaftler-phcs-roche-tucson",
+        "fr": "scientifique-phcs-roche-tucson"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94263,7 +94275,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-19T22:32:50.170Z"
+      "firstSeenAt": "2026-06-19T22:32:50.170Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientist-phcs-roche-ch"
+        ],
+        "de": [
+          "scientist-phcs-roche-ch"
+        ],
+        "fr": [
+          "scientist-phcs-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientist-phcs-roche-ch"
+      ]
     },
     {
       "id": "roche-0e14be9e9c3c",
@@ -94272,7 +94298,7 @@
         "en": "pasante-de-corporate-affairs-communications-roche-ch",
         "it": "pasante-de-corporate-affairs-communications-roche-ch",
         "de": "pasante-de-corporate-affairs-communications-roche-ch",
-        "fr": "pasante-de-corporate-affairs-communications-roche-ch"
+        "fr": "pasante-de-affaires-generales-communications-roche-rm"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94335,8 +94361,8 @@
       "slugByLocale": {
         "en": "product-engineering-expert-manufacturing-roche-ch",
         "it": "product-engineering-expert-manufacturing-roche-ch",
-        "de": "product-engineering-expert-manufacturing-roche-ch",
-        "fr": "product-engineering-expert-manufacturing-roche-ch"
+        "de": "product-engineering-experte-herstellung-roche-rotkreuz",
+        "fr": "expert-en-genie-des-produits-fabrication-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94399,8 +94425,8 @@
       "slugByLocale": {
         "en": "operations-ai-data-scientist-roche-ch",
         "it": "operations-ai-data-scientist-roche-ch",
-        "de": "operations-ai-data-scientist-roche-ch",
-        "fr": "operations-ai-data-scientist-roche-ch"
+        "de": "betriebs-ki-datenwissenschaftler-roche-basel",
+        "fr": "specialiste-des-donnees-sur-l-ia-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94459,12 +94485,12 @@
     },
     {
       "id": "roche-fd26057a8e03",
-      "slug": "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch",
+      "slug": "tirocinio-machine-learning-per-la-scoperta-di-anticorpi-a-partire-dai-dati-di-sequenziamento-roche-basel",
       "slugByLocale": {
         "en": "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch",
-        "it": "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch",
-        "de": "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch",
-        "fr": "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch"
+        "it": "tirocinio-machine-learning-per-la-scoperta-di-anticorpi-a-partire-dai-dati-di-sequenziamento-roche-basel",
+        "de": "praktikum-maschinelles-lernen-zur-antikorperentdeckung-aus-sequenzierungsdaten-roche-basel",
+        "fr": "stage-apprentissage-automatique-pour-la-decouverte-d-anticorps-a-partir-de-donnees-de-sequencage-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -94519,7 +94545,21 @@
       },
       "postalCode": "4001",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-06-19T22:32:43.536Z"
+      "firstSeenAt": "2026-06-19T22:32:43.536Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch"
+        ],
+        "de": [
+          "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch"
+        ],
+        "fr": [
+          "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-machine-learning-for-antibody-discovery-from-sequencing-data-roche-ch"
+      ]
     },
     {
       "id": "roche-9cfbaed4033b",

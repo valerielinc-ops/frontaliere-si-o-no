@@ -138,8 +138,7 @@
           "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
         ],
         "en": [
-          "nurse-hf-psychiatry-40-80-spitex-region-olten-olten",
-          "pflegefachperson-hf-psychiatrie-40-80-spitex-ch-olten"
+          "nurse-hf-psychiatry-40-80-spitex-region-olten-olten"
         ]
       },
       "firstSeenAt": "2026-06-19T13:26:09.152Z",
@@ -1463,7 +1462,7 @@
         "de": "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee",
         "it": "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee",
         "en": "diplomierte-pflegefachperson-hf-oder-fage-40-bis-50-spitex-ch-greifensee",
-        "fr": "diplomierte-pflegefachperson-hf-o-fage-40-bis-50-spitex-greifensee-zentrum-im-hof-greifensee"
+        "fr": "infirmiere-qualifiee-hf-ou-fage-40-a-50-spitex-greifensee-zentrum-im-hof-greifensee"
       },
       "company": "Spitex Greifensee, Zentrum Im Hof",
       "companyKey": "spitex-ch",
@@ -1536,7 +1535,7 @@
         "de": "srk-fage-hf-berufsbildner-in-60-100-spitex-ch-goldau",
         "it": "srk-fage-hf-berufsbildner-in-60-100-spitex-ch-goldau",
         "en": "srk-fage-hf-berufsbildner-in-60-100-spitex-ch-goldau",
-        "fr": "srk-fage-hf-berufsbildner-in-60-100-spitex-ch-goldau"
+        "fr": "entraineur-professionnel-en-60-100-spitex-regio-arth-goldau-goldau"
       },
       "company": "Spitex Regio Arth-Goldau",
       "companyKey": "spitex-ch",
@@ -1751,12 +1750,12 @@
     },
     {
       "id": "spitex-ch-0600c7564978",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+      "slug": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "it": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -1814,9 +1813,12 @@
       },
       "firstSeenAt": "2026-06-19T22:40:04.108Z",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
-        "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
+        "dipl-pflegefachperson-hf-fh-con-fallfuhrung-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+        "dipl-nurse-hf-fh-with-case-management-80-100-spitex-rechtes-limmattal-weiningen-zh",
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh",
+        "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh",
+        "registered-nurse-hf-specializing-in-child-and-adolescent-psychiatry-60-80-spitex-region-birs-gmbh-reinach-bl",
         "infermiere-dipl-hf-specializzato-in-psichiatria-infantile-e-juvenile-60-80-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-fachrichtung-kinder-und-jugendpsychiatrie-60-80-spitex-ch-reinach",
         "infirmier-dipl-hf-specialise-en-psychiatrie-de-l-enfant-et-de-l-adolescent-60-80-spitex-region-birs-gmbh-reinach-bl",
@@ -1825,28 +1827,27 @@
         "dipl-career-hf-fh-with-drop-guidance-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-carriere-hf-fh-avec-guide-d-abandon-80-100-spitex-rechtes-limmattal-weiningen-zh",
         "dipl-fachperson-fur-pflege-hf-80-100-spitex-pratteln-augst-giebenach-gmbh-pratteln",
-        "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
         "dipl-infermiere-a-hf-con-gestione-casi-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-nursing-professional-hf-with-case-management-50-100-spitex-region-birs-gmbh-reinach-bl",
         "dipl-pflegefachperson-hf-mit-fallfuhrung-50-100-spitex-ch-reinach-bl",
         "diplome-e-en-soins-infirmiers-hf-avec-gestion-de-cas-50-100-spitex-region-birs-gmbh-reinach-bl",
-        "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa",
-        "dipl-care-specialist-hf-fh-with-drop-guidance-80-100-spitex-stafa-stafa",
-        "dipl-specialiste-des-soins-hf-fh-avec-guide-d-abandon-80-100-spitex-stafa-stafa",
-        "dipl-pflegefachperson-hf-80-100-spitex-ch-pratteln"
+        "dipl-specialista-hf-fh-con-guida-a-goccia-80-100-spitex-stafa-stafa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-con-fallfuhrung-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "dipl-pflegefachperson-hf-fh-con-fallfuhrung-80-100-spitex-rechtes-limmattal-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ],
         "en": [
-          "dipl-nurse-hf-fh-with-case-management-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "dipl-nurse-hf-fh-with-case-management-80-100-spitex-rechtes-limmattal-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-weiningen-zh"
         ],
         "fr": [
-          "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh"
+          "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-rechtes-limmattal-weiningen-zh",
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
         ]
       }
     }

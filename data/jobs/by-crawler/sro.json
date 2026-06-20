@@ -1239,12 +1239,12 @@
     },
     {
       "id": "sro-c09dce2ae406",
-      "slug": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+      "slug": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
       "slugByLocale": {
         "de": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-        "it": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
+        "it": "senior-physician-chief-physician-gynecology-60-100-sro-ag-spital-region-oberaargau-divers",
         "en": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers",
-        "fr": "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        "fr": "medecin-principal-medecin-en-chef-gynecologie-60-100-sro-ag-spital-region-oberaargau-divers"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1304,7 +1304,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-19T22:41:08.015Z"
+      "firstSeenAt": "2026-06-19T22:41:08.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitenden-arzt-gynakologie-60-100-sro-divers"
+      ]
     },
     {
       "id": "sro-4c4466b52461",

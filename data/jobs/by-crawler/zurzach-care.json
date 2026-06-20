@@ -4652,12 +4652,12 @@
     },
     {
       "id": "zurzach-care-b7858709c3ec",
-      "slug": "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach",
+      "slug": "segretario-medico-segretario-medico-80-zurzach-care-bad-zurzach",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach",
-        "en": "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach",
+        "it": "segretario-medico-segretario-medico-80-zurzach-care-bad-zurzach",
+        "en": "medical-secretary-medical-secretary-80-zurzach-care-bad-zurzach",
         "de": "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach",
-        "fr": "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach"
+        "fr": "secretaire-medical-secretaire-medical-80-zurzach-care-bad-zurzach"
       },
       "company": "ZURZACH Care",
       "companyKey": "zurzach-care",
@@ -4711,7 +4711,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-80-zurzach-care-bad-zurzach"
+      ]
     },
     {
       "id": "zurzach-care-3ac3fab6990e",
