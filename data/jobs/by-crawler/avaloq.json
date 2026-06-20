@@ -786,8 +786,8 @@
       "slugByLocale": {
         "it": "cloud-infrastructure-architect-client-advisory-avaloq-bioggio",
         "en": "cloud-infrastructure-architect-client-advisory-avaloq-bioggio",
-        "de": "cloud-infrastructure-architect-kundenberatung-avaloq-bioggio",
-        "fr": "cloud-infrastructure-architect-client-advisory-avaloq-bioggio"
+        "de": "cloud-infrastrukturarchitekt-klientenberatung-avaloq-bioggio",
+        "fr": "architecte-d-infrastructure-cloud-conseil-aux-clients-avaloq-bioggio"
       },
       "id": "avaloq-77262cb28369",
       "salaryMin": 51500,
@@ -806,11 +806,17 @@
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-04-23T21:06:16.735Z",
       "previousSlugs": [
+        "cloud-infrastructure-architect-kundenberatung-avaloq-bioggio",
         "cloud-architetto-avaloq-bioggio",
         "cloud-architect-avaloq-bioggio",
         "architektur-und-architektur-avaloq-bioggio",
         "cloud-architecte-avaloq-bioggio"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "cloud-infrastructure-architect-kundenberatung-avaloq-bioggio"
+        ]
+      }
     },
     {
       "title": "Head of Financial Planning, Analysis and Controlling",
