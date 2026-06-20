@@ -83,8 +83,8 @@
       "slugByLocale": {
         "de": "fachliche-und-personelle-teamleitung-psychiatrie-70-90-spitex-spitex-ch-weiningen-zh",
         "it": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
-        "en": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh",
-        "fr": "fachliche-e-personelle-teamleitung-psychiatrie-70-90-spitex-rechtes-limmattal-weiningen-zh"
+        "en": "specialist-and-personnel-team-leader-psychiatry-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
+        "fr": "chef-d-equipe-specialiste-et-de-personnel-en-psychiatrie-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       },
       "company": "Spitex Rechtes Limmattal",
       "companyKey": "spitex-ch",
@@ -135,8 +135,6 @@
       },
       "previousSlugs": [
         "fachliche-und-personelle-teamleitung-psychiatrie-70-90-spitex-spitex-ch-weiningen-zh",
-        "specialist-and-personnel-team-leader-psychiatry-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
-        "chef-d-equipe-specialiste-et-de-personnel-en-psychiatrie-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh",
         "professional-and-human-team-management-psychiatry-70-90-spitex-spitex-rechtes-limmattal-weiningen-zh"
       ],
       "salaryMin": 73500,
@@ -160,7 +158,7 @@
         "de": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
         "it": "dipl-specialista-infermieristico-hf-psichiatria-dipl-infermieristica-specialista-hf-psichiatria-spitex-rebeno-ag",
         "en": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
-        "fr": "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
+        "fr": "infirmiere-diplomee-en-psychiatrie-en-insuffisance-cardiaque-infirmiere-diplomee-en-psychiatrie-en-insuffisance-spitex"
       },
       "company": "SPITEX ReBeNo AG",
       "companyKey": "spitex-ch",
@@ -207,10 +205,14 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-ch-zollikofen",
+        "dipl-pflegefachfrau-hf-psychiatrie-dipl-pflegefachmann-hf-psychiatrie-spitex-rebeno-ag-zollikofen",
         "dipl-infirmier-ere-es-psychiatrie-spitex-rebeno-ag-zollikofen"
       ],
       "salaryMin": 68500,
@@ -233,8 +235,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-60-80-mit-interesse-an-palliative-care-spitex-ch",
         "it": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "en": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg",
-        "fr": "dipl-pflegefachperson-hf-o-fh-60-80-con-interesse-an-palliative-care-spitex-rothenburg"
+        "en": "qualified-nurse-hf-or-fh-60-80-with-an-interest-in-palliative-care-spitex-rothenburg-rothenburg",
+        "fr": "infirmiere-diplomee-en-hf-ou-fh-60-80-avec-un-interet-pour-les-soins-palliatifs-spitex-rothenburg-rothenburg"
       },
       "company": "Spitex Rothenburg",
       "companyKey": "spitex-ch",
@@ -1752,12 +1754,12 @@
     },
     {
       "id": "spitex-ch-b975fec7fd1e",
-      "slug": "teamleitung-pflege-spitex-ch-horgen",
+      "slug": "capo-squadra-infermieristica-spitex-horgen-oberrieden-horgen",
       "slugByLocale": {
         "de": "teamleitung-pflege-spitex-ch-horgen",
-        "it": "teamleitung-pflege-spitex-ch-horgen",
-        "en": "teamleitung-pflege-spitex-ch-horgen",
-        "fr": "teamleitung-pflege-spitex-ch-horgen"
+        "it": "capo-squadra-infermieristica-spitex-horgen-oberrieden-horgen",
+        "en": "team-leader-nursing-spitex-horgen-oberrieden-horgen",
+        "fr": "chef-d-equipe-infirmiere-spitex-horgen-oberrieden-horgen"
       },
       "company": "Spitex Horgen-Oberrieden",
       "companyKey": "spitex-ch",
@@ -1815,10 +1817,22 @@
       },
       "firstSeenAt": "2026-06-20T11:57:55.795Z",
       "previousSlugs": [
+        "teamleitung-pflege-spitex-ch-horgen",
         "cura-della-leadership-del-team-spitex-horgen-oberrieden-horgen",
         "team-leadership-care-spitex-horgen-oberrieden-horgen",
         "soins-de-direction-de-l-equipe-spitex-horgen-oberrieden-horgen"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "en": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ],
+        "fr": [
+          "teamleitung-pflege-spitex-ch-horgen"
+        ]
+      }
     },
     {
       "id": "spitex-ch-3dd635a8501b",
@@ -1826,8 +1840,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-planung-70-100-spitex-ch-munchenstein",
         "it": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "en": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein",
-        "fr": "collaboratore-trice-in-planung-70-100-spitex-birseck-munchenstein"
+        "en": "employee-planning-70-100-spitex-birseck-munchenstein",
+        "fr": "planification-des-employes-70-100-spitex-birseck-munchenstein"
       },
       "company": "Spitex Birseck",
       "companyKey": "spitex-ch",
@@ -1901,8 +1915,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-psychiatrie-m-w-d-pensum-zw-30-50-spitex-ch-ehrendingen",
         "it": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "en": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
-        "fr": "fachfrau-mann-gesundheit-cfc-psychiatrie-m-w-d-pensum-zw-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
+        "en": "health-specialist-efz-psychiatry-m-f-d-workload-between-30-50-spitex-nord-ost-aargau-noa-ag-ehrendingen",
+        "fr": "specialiste-de-sante-efz-psychiatrie-l-f-d-charge-de-travail-entre-30-et-50-spitex-nord-ost-aargau-noa-ag-ehrendingen"
       },
       "company": "Spitex Nord Ost Aargau (NOA) AG",
       "companyKey": "spitex-ch",
@@ -2049,8 +2063,8 @@
       "slugByLocale": {
         "de": "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
         "it": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
-        "en": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d",
-        "fr": "gestione-del-team-assistenza-somatica-80-100-spitex-region-aarau-aarau-64af6d"
+        "en": "somatic-nursing-team-leader-80-100-spitex-region-aarau-aarau",
+        "fr": "chef-d-equipe-en-soins-infirmiers-somatiques-80-100-spitex-region-aarau-aarau"
       },
       "company": "Spitex Region Aarau",
       "companyKey": "spitex-ch",
@@ -2101,8 +2115,6 @@
       },
       "previousSlugs": [
         "teamleitung-somatische-pflege-80-100-spitex-ch-aarau",
-        "somatic-nursing-team-leader-80-100-spitex-region-aarau-aarau",
-        "chef-d-equipe-en-soins-infirmiers-somatiques-80-100-spitex-region-aarau-aarau",
         "team-management-somatic-care-80-100-spitex-region-aarau-aarau",
         "gestion-d-equipe-somatic-care-80-100-spitex-region-aarau-aarau"
       ],
