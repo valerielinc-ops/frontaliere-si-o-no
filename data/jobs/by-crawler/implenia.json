@@ -367,12 +367,12 @@
     },
     {
       "id": "implenia-5f74215b8c1e",
-      "slug": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+      "slug": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
       "slugByLocale": {
         "de": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "it": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon",
+        "it": "technician-project-manager-building-digitalization-m-f-d-80-100-implenia-glattpark-opfikon",
         "en": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
-        "fr": "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "fr": "technicien-gestionnaire-de-projet-digitalisation-des-batiments-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -417,11 +417,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+          "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
+        ],
+        "fr": [
           "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch"
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-ch",
+        "techniker-projektleiter-gebaudedigitalisierung-m-w-d-80-100-implenia-glattpark-opfikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -508,7 +513,7 @@
         "de": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
         "it": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
         "en": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch",
-        "fr": "senior-key-account-manager-m-w-d-opfikon-80-100-implenia-ch"
+        "fr": "gestionnaire-principal-de-comptes-cles-m-f-d-opfikon-80-100-implenia-thurgauerstrasse-101a"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -567,10 +572,10 @@
     },
     {
       "id": "implenia-ef8ca941ab72",
-      "slug": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a",
+      "slug": "cmsm-m-f-d-zurigo-opfikon-50-70-temporaneo-implenia-thurgauerstrasse-101a",
       "slugByLocale": {
         "de": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
-        "it": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a",
+        "it": "cmsm-m-f-d-zurigo-opfikon-50-70-temporaneo-implenia-thurgauerstrasse-101a",
         "en": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
         "fr": "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
       },
@@ -617,11 +622,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
+          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
+          "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch"
+        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-ch",
+        "sachbearbeiter-cmsm-m-w-d-zurich-opfikon-50-70-befristet-implenia-thurgauerstrasse-101a"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2706,12 +2713,12 @@
     },
     {
       "id": "implenia-a8fc6a9d2289",
-      "slug": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
+      "slug": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
       "slugByLocale": {
         "de": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "it": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "en": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch",
-        "fr": "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        "it": "costruzione-di-legname-m-f-d-80-100-implenia-rumlang",
+        "en": "foreman-timber-construction-m-f-d-80-100-implenia-rumlang",
+        "fr": "construction-de-bois-de-contremaitre-m-f-d-80-100-implenia-rumlang"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2766,16 +2773,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T11:17:06.357Z"
+      "firstSeenAt": "2026-06-20T11:17:06.357Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
+          "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-holzbau-m-w-d-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-768610a7e5f2",
-      "slug": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
+      "slug": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
       "slugByLocale": {
         "de": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "it": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck",
-        "en": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
-        "fr": "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "it": "responsabile-commerciale-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "en": "commercial-manager-senior-manager-m-f-d-basel-klybeck-80-100-implenia-basel-klybeck",
+        "fr": "directeur-commercial-directeur-principal-m-f-d-bale-klybeck-80-100-implenia-basel-klybeck"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2820,11 +2841,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
+        ],
+        "en": [
+          "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        ],
+        "fr": [
           "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
         ]
       },
       "previousSlugs": [
-        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch"
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-ch",
+        "kaufmannischer-leiter-senior-bewirtschafter-m-w-d-basel-klybeck-80-100-implenia-basel-klybeck"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -2906,12 +2935,12 @@
     },
     {
       "id": "implenia-f84b9a96a5a6",
-      "slug": "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1",
+      "slug": "real-estate-manager-m-f-d-basilea-80-implenia-basel-wohnen-1",
       "slugByLocale": {
         "de": "immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
-        "it": "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1",
-        "en": "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1",
-        "fr": "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1"
+        "it": "real-estate-manager-m-f-d-basilea-80-implenia-basel-wohnen-1",
+        "en": "real-estate-manager-m-f-d-basel-80-implenia-basel-wohnen-1",
+        "fr": "directeur-immobilier-m-f-d-bale-80-implenia-basel-wohnen-1"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -2956,11 +2985,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+          "immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
+          "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1"
         ]
       },
       "previousSlugs": [
-        "immobilienbewirtschafter-m-w-d-basel-80-implenia-ch"
+        "immobilienbewirtschafter-m-w-d-basel-80-implenia-ch",
+        "immobilienbewirtschafter-m-w-d-basel-80-implenia-basel-wohnen-1"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -3899,7 +3936,7 @@
         "de": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
         "it": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
         "en": "senior-manager-m-a-m-w-d-80-100-implenia-ch",
-        "fr": "senior-manager-m-a-m-w-d-80-100-implenia-ch"
+        "fr": "aine-gestionnaire-m-a-m-f-j-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -3962,8 +3999,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
         "it": "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon",
-        "en": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
-        "fr": "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "en": "employee-construction-scheduling-avor-m-f-d-80-100-implenia-glattpark-opfikon",
+        "fr": "calendrier-de-construction-des-employes-avor-m-f-d-80-100-implenia-glattpark-opfikon"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4008,6 +4045,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "en": [
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        ],
+        "fr": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
         ]
       },

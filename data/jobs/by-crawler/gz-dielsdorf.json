@@ -1278,8 +1278,8 @@
       "slugByLocale": {
         "de": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
         "it": "studium-pflegefachfrau-mann-hf-specializzazione-langzeitpflege-gesundheitszentrum-dielsdorf",
-        "en": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf",
-        "fr": "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
+        "en": "study-nursing-hf-long-term-care-direction-gesundheitszentrum-dielsdorf-dielsdorf",
+        "fr": "etude-d-infirmiere-hf-direction-de-soins-a-long-terme-gesundheitszentrum-dielsdorf-dielsdorf"
       },
       "company": "Gesundheitszentrum Dielsdorf",
       "companyKey": "gz-dielsdorf",
@@ -1324,6 +1324,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
+        ],
+        "en": [
+          "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
+        ],
+        "fr": [
           "studium-pflegefachfrau-mann-hf-fachrichtung-langzeitpflege-gz-dielsdorf-dielsdorf"
         ]
       },

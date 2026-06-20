@@ -1784,8 +1784,8 @@
       "slugByLocale": {
         "de": "teamleitung-pflege-und-betreuung-80-100-tertianum-bern",
         "it": "teamleitung-pflege-e-betreuung-80-100-tertianum-bern",
-        "en": "teamleitung-pflege-und-betreuung-80-100-tertianum-bern",
-        "fr": "teamleitung-pflege-und-betreuung-80-100-tertianum-bern"
+        "en": "team-management-nursing-and-support-80-100-tertianum-bern",
+        "fr": "chef-d-equipe-des-soins-et-de-l-encadrement-80-100-tertianum-bern"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -1830,6 +1830,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleitung-pflege-und-betreuung-80-100-tertianum-bern"
+        ],
+        "en": [
+          "teamleitung-pflege-und-betreuung-80-100-tertianum-bern"
+        ],
+        "fr": [
           "teamleitung-pflege-und-betreuung-80-100-tertianum-bern"
         ]
       },
@@ -3032,7 +3038,6 @@
       "previousSlugs": [
         "kochin-koch-tertianum-horgen",
         "kochin-koch-efz-80-100-tertianum-horgen",
-        "kochin-koch-efz-80-100-tertianum-bern",
         "cuoco-cuoca-tertianum-horgen",
         "chef-co-chef-tertianum-horgen",
         "cuisinier-chef-cuisinier-tertianum-horgen"
@@ -4731,9 +4736,6 @@
         "assistent-in-gesundheit-soziales-40-100-tertianum-richterswil",
         "assistent-in-gesundheit-soziales-40-100-wahlbar-ob-im-tagdienst-oder-im-nachtdienst",
         "assistentin-assistent-gesundheit-und-soziales-eba-40-100-tertianum-richterswil",
-        "assistente-a-alla-salute-e-al-sociale-40-100-tertianum-solothurn",
-        "health-and-social-care-assistant-40-100-tertianum-solothurn",
-        "assistant-e-en-sante-et-social-40-100-tertianum-solothurn",
         "assistente-a-alla-salute-e-al-sociale-40-100-turni-diurni-o-notturni-tertianum-richterswil"
       ],
       "previousSlugsByLocale": {
@@ -5454,7 +5456,6 @@
       "previousSlugs": [
         "dipl-care-specialist-hf-fh-dnii-80-100-tertianum-bern",
         "dipl-specialiste-des-soins-hf-fh-dnii-80-100-tertianum-bern",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
@@ -8423,7 +8424,7 @@
         "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "fr": "group-fitness-instructor-in-50-tertianum-meilen"
+        "fr": "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -8465,15 +8466,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-fitness-instructor-in-50-tertianum-meilen",
-        "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
+        "group-fitness-instructor-in-50-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-in-50-tertianum-meilen"
         ],
         "fr": [
-          "instructeur-de-fitness-en-groupe-50-tertianum-meilen",
           "group-fitness-instructor-in-50-tertianum-meilen"
         ]
       },

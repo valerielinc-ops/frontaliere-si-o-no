@@ -1350,8 +1350,8 @@
       "slugByLocale": {
         "it": "assistente-nella-direzione-della-filiale-denner-zurich",
         "de": "assistent-in-filialleitung-denner-ag-zurich-mlzv0z",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-zurich",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1424,6 +1424,12 @@
       "firstSeenAt": "2026-06-20T10:52:56.935Z",
       "previousSlugsByLocale": {
         "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
           "assistent-in-filialleitung-denner"
         ]
       },
