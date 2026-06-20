@@ -11390,5 +11390,119 @@
         "pending": 3
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-20T06:12:52.415Z",
+    "label": "before",
+    "total": 17456,
+    "needsRetranslation": 2953,
+    "suppressed": 657,
+    "incomplete": 1156,
+    "complete": 16300,
+    "missingByLocale": {
+      "it": 462,
+      "en": 348,
+      "de": 755,
+      "fr": 240
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 953
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Roche",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 13
+      },
+      {
+        "company": "Sulzer",
+        "pending": 6
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-20T06:54:27.311Z",
+    "label": "after",
+    "total": 17456,
+    "needsRetranslation": 2679,
+    "suppressed": 657,
+    "incomplete": 1107,
+    "complete": 16349,
+    "missingByLocale": {
+      "it": 428,
+      "en": 309,
+      "de": 761,
+      "fr": 196
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 940
+      },
+      {
+        "company": "UBS",
+        "pending": 47
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Roche",
+        "pending": 20
+      },
+      {
+        "company": "Manor AG",
+        "pending": 18
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Sulzer",
+        "pending": 5
+      },
+      {
+        "company": "IKEA",
+        "pending": 4
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 4
+      },
+      {
+        "company": "Kantonsspital Uri",
+        "pending": 3
+      }
+    ]
   }
 ]
