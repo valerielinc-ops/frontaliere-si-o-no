@@ -136,7 +136,8 @@
         "agent-as-agent-receptionist-fromy-night-inter-inter-26-27-ver-marriott-international-verbier",
         "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
         "agent-d-accueil-receptionniste-jour-et-nuit-hiver-26-27-w-verbier-marriott-international-verbier",
-        "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier"
+        "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
+        "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier"
       ],
       "firstSeenAt": "2026-06-19T13:02:49.621Z",
       "salaryMin": 60500,
@@ -151,7 +152,12 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "de": [
+          "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier"
+        ]
+      }
     },
     {
       "id": "marriott-b6da655d02d1",
