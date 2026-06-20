@@ -1,26 +1,26 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-06-19T21:29:00.225Z",
+  "generatedAt": "2026-06-20T10:41:39.482Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3087,
-  "avgDurationMs": 3087,
+  "durationMs": 2990,
+  "avgDurationMs": 2990,
   "durationHistory": [
-    3087
+    2990
   ],
   "newJobs": [],
   "updatedJobs": [
     {
-      "id": "citta-di-bellinzona-operaio-a-addetto-a-agli-impianti-sportivi-presso-l-ente-autonomo-bellinzona-sp-bellinzona",
-      "slug": "operaio-a-addetto-a-agli-impianti-sportivi-presso-l-ente-autonomo-bellinzona-sp-bellinzona",
+      "id": "citta-di-bellinzona-operai-e-presso-il-settore-servizi-urbani-e-ambiente-bellinzona",
+      "slug": "operai-e-presso-il-settore-servizi-urbani-e-ambiente-bellinzona",
       "company": "Città di Bellinzona",
       "companyKey": "citta-di-bellinzona",
       "companyDomain": "bellinzona.ch",
-      "title": "Operaio/a (addetto/a agli impianti sportivi), presso l’Ente autonomo Bellinzona Sport",
+      "title": "Operai/e, presso il Settore Servizi urbani e ambiente",
       "location": "Bellinzona",
       "canton": "TI",
       "addressLocality": "Bellinzona",
@@ -33,19 +33,18 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-30",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4963bfb0-dc3f-4082-9131-848794b0a92d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "postedDate": "2026-06-20",
+      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=3ab009c9-19a9-45d3-b56e-79792ad7534f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=4963bfb0-dc3f-4082-9131-848794b0a92d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=3ab009c9-19a9-45d3-b56e-79792ad7534f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-06-19T21:28:58.253Z",
-      "firstSeenAt": "2026-05-30T10:21:10.150Z",
-      "_qualityScore": 90,
+      "crawledAt": "2026-06-20T10:41:37.505Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 4,
         "completeness": 20
       }
     }
