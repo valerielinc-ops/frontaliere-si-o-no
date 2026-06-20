@@ -239,6 +239,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.trasporti-45-ticino-margini.title': '«Verkehr ’45»: Tessin am Rand der Schweizer Mobilität',
     'blog.article.trasporti-45-ticino-margini.excerpt': 'Der Bundesrat präsentiert das Projekt «Verkehr ’45», doch das Tessin bleibt von den Prioritäten ausgeschlossen',
     'blog.article.trasporti-45-ticino-margini.imageAlt': 'Zug fährt durch die Schweizer Alpen bei Lugano',
+    'blog.article.nucleare-13avs-salari-votazioni.title': 'Atomkraft, 13. AHV und Mindestlöhne: Ergebnisse der Sommer-Session',
+    'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'Neue Abstimmungen in der Schweiz zur Atomkraft, zur Finanzierung der 13. AHV und zu Mindestlöhnen. Hier erfahren Sie, was sich ändert.',
+    'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Das Schweizer Bundesparlament in Bern während einer Sitzung.',
 };
 
 export default blogMetaChDe;

@@ -239,6 +239,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.trasporti-45-ticino-margini.title': '«Trasporti ’45»: Ticino ai margini della mobilità svizzera',
     'blog.article.trasporti-45-ticino-margini.excerpt': 'Il Consiglio federale presenta il progetto «Trasporti ’45», ma il Ticino resta escluso dalle priorità',
     'blog.article.trasporti-45-ticino-margini.imageAlt': 'Treno che attraversa le Alpi svizzere vicino a Lugano',
+    'blog.article.nucleare-13avs-salari-votazioni.title': 'Nucleare, 13ma AVS e salari: i risultati della sessione estiva del Parlamento',
+    'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'Nuove votazioni in Svizzera per nucleare, finanziamento della 13ma AVS e salari minimi. Ecco cosa cambia.',
+    'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Il parlamento federale svizzero a Berna durante una sessione.',
 };
 
 export default blogMetaChIt;

@@ -719,6 +719,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nucleare-13avs-salari-votazioni',
+    category: 'novita',
+    date: '2026-06-20T01:40:45.942Z',
+    image: '/images/blog/nucleare-13avs-salari-votazioni.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
