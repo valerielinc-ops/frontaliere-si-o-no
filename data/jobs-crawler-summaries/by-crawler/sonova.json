@@ -1,18 +1,19 @@
 {
   "key": "sonova",
   "label": "Sonova",
-  "generatedAt": "2026-06-19T22:35:41.994Z",
+  "generatedAt": "2026-06-20T11:54:44.586Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7598,
-  "avgDurationMs": 7598,
+  "durationMs": 8149,
+  "avgDurationMs": 8149,
   "durationHistory": [
-    7598
+    8149
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sonova-e8d48d6e9369",
       "slug": "hardware-verification-specialist-sonova-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Verification-Specialist/1406585333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T22:35:39.928Z",
+      "crawledAt": "2026-06-20T11:54:42.668Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -38,16 +39,15 @@
       "featured": false,
       "postedDate": "2026-06-19",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1406585333/?locale=en_US",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-06-19T22:35:39.928Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "sonova-ce7f3ceab843",
       "slug": "payroll-specialist-teilzeit-sonova-ch",
@@ -60,7 +60,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Payroll-Specialist-%28Teilzeit%29/1370691433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:39.939Z",
+      "crawledAt": "2026-06-20T11:54:42.677Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -95,7 +95,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Produktionsmitarbeiter-Elektronikfertigung-%28SMT-AOI%29/1287531701/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:39.943Z",
+      "crawledAt": "2026-06-20T11:54:42.679Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -130,7 +130,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Teamleader-Support-Specialist-%28mfd%29/1286553001/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:39.946Z",
+      "crawledAt": "2026-06-20T11:54:42.682Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1388787833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:39.950Z",
+      "crawledAt": "2026-06-20T11:54:42.685Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Patent-Engineer-%2880-100%29-%28mfd%29/1387967033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T22:35:39.953Z",
+      "crawledAt": "2026-06-20T11:54:42.687Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -235,7 +235,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-19T22:35:39.957Z",
+      "crawledAt": "2026-06-20T11:54:42.690Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Junior-Embedded-Software-Engineer-%28mfd%29/1395139533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T22:35:39.930Z",
+      "crawledAt": "2026-06-20T11:54:42.669Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -282,13 +282,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1395139533/?locale=en_US",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-13T22:42:45.656Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -304,7 +303,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director%2C-Performance-Management-and-Capabilities-Building-%28Academies%29/1385671733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-19T22:35:39.936Z",
+      "crawledAt": "2026-06-20T11:54:42.674Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -328,45 +327,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "sonova-ba3edb1f67d4",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-m-w-d-sonova-staefa",
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1240395201/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-06-19T13:21:57.703Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1240395201/?locale=en_US",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-13T22:42:45.649Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "postalCode": "8001",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
