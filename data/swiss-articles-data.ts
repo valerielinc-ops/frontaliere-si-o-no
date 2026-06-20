@@ -728,6 +728,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'lavoro-nero-dumping-2025-svizzera',
+    category: 'pratico',
+    date: '2026-06-20T02:45:15.950Z',
+    image: '/images/blog/lavoro-nero-dumping-2025-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

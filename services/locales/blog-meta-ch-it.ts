@@ -242,6 +242,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nucleare-13avs-salari-votazioni.title': 'Nucleare, 13ma AVS e salari: i risultati della sessione estiva del Parlamento',
     'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'Nuove votazioni in Svizzera per nucleare, finanziamento della 13ma AVS e salari minimi. Ecco cosa cambia.',
     'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Il parlamento federale svizzero a Berna durante una sessione.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.title': 'Oltre 15.000 violazioni nel 2025: lavoro nero e dumping salariale in Svizzera',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'Nel 2025, SECO ha rilevato 15.000 irregolarità: edilizia e ristorazione i settori più colpiti. Il Ticino è tra i cantoni più attivi nei controlli.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Operaio edile in Ticino controllato dalle autorità per irregolarità sul lavoro, con sfondo di Lugano e lago.',
 };
 
 export default blogMetaChIt;

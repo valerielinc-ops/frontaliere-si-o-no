@@ -242,6 +242,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nucleare-13avs-salari-votazioni.title': 'Nucléaire, 13e AVS et salaires: résultats de la session d\'été',
     'blog.article.nucleare-13avs-salari-votazioni.excerpt': 'Nouveaux votes en Suisse sur le nucléaire, le financement de la 13e AVS et les salaires minimums. Voici ce qui change.',
     'blog.article.nucleare-13avs-salari-votazioni.imageAlt': 'Le parlement fédéral suisse à Berne lors d\'une session.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.title': '15 000 infractions en 2025 : travail au noir et dumping salarial',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'En 2025, le SECO a détecté 15 000 irrégularités : le bâtiment et la restauration sont les secteurs les plus touchés. Le Tessin figure parmi les cantons les plus actifs dans les contrôles.',
+    'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Ouvrier du bâtiment dans le Tessin contrôlé pour des irrégularités du travail, avec vue sur Lugano et le lac de Lugano.',
 };
 
 export default blogMetaChFr;
