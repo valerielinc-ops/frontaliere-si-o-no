@@ -248,6 +248,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Swiss Pension (LPP) Benefits: Taxation',
     'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guide to taxing occupational pension (LPP) benefits in Switzerland, focusing on annuities and lump sums.',
     'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Zurich skyline with financial and academic buildings at sunset.',
+    'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1,047 People Helped, Deficit Reduced',
+    'blog.article.caritas-ticino-poverta-2025.excerpt': 'The annual assembly on June 16 highlights an increase in poverty and loneliness cases, but signals a financial improvement for 2025.',
+    'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Castelgrande Bellinzona',
 };
 
 export default blogMetaChEn;

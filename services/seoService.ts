@@ -4090,6 +4090,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nucleare-13avs-salari-votazioni': { name: 'Novità Svizzera', path: '/articoli-svizzera/nucleare-13avs-salari-votazioni/', parent: 'blog' },
     'blog-lavoro-nero-dumping-2025-svizzera': { name: 'Lavoro nero 2025', path: '/articoli-svizzera/lavoro-nero-dumping-2025-svizzera/', parent: 'blog' },
     'blog-lpp-prestazioni-tassazione-svizzera': { name: 'Tassazione LPP', path: '/articoli-svizzera/lpp-prestazioni-tassazione-svizzera/', parent: 'blog' },
+    'blog-caritas-ticino-poverta-2025': { name: 'Caritas Ticino', path: '/articoli-svizzera/caritas-ticino-poverta-2025/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

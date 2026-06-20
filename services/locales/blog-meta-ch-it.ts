@@ -248,6 +248,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Prestazioni LPP svizzere: tassazione',
     'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guida alla tassazione delle prestazioni di previdenza professionale (LPP) in Svizzera, con focus su rendite e capitale.',
     'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Skyline di Zurigo con edifici finanziari e accademici al tramonto.',
+    'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1.047 persone accolte e deficit ridotto nel 2025',
+    'blog.article.caritas-ticino-poverta-2025.excerpt': 'L\'assemblea annuale del 16 giugno evidenzia aumento dei casi di povertà e solitudine, ma segnala un miglioramento finanziario per il 2025.',
+    'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Castelgrande a Bellinzona',
 };
 
 export default blogMetaChIt;

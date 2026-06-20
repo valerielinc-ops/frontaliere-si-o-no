@@ -248,6 +248,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lpp-prestazioni-tassazione-svizzera.title': '...',
     'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': '...',
     'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Zürcher Skyline mit Finanz- und Universitätsgebäuden bei Sonnenuntergang.',
+    'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1.047 Personen aufgenommen und Defizit reduziert',
+    'blog.article.caritas-ticino-poverta-2025.excerpt': 'Die Jahresversammlung vom 16. Juni zeigt einen Anstieg der Fälle von Armut und Einsamkeit, aber auch eine finanzielle Verbesserung für 2025.',
+    'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Castelgrande Bellinzona',
 };
 
 export default blogMetaChDe;
