@@ -4670,7 +4670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2843,
+ "numberOfItems": 2844,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7487,7 +7487,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2840, "name": "Dogana di Gaggiolo: operazioni e aggiornamenti", "url": `${BASE_URL}/articoli-frontaliere/dogana-stabio-gaggiolo` },
           { "@type": "ListItem", "position": 2841, "name": "«Trasporti ’45»: Ticino ai margini della mobili...", "url": `${BASE_URL}/articoli-frontaliere/trasporti-45-ticino-margini` },
           { "@type": "ListItem", "position": 2842, "name": "Nucleare, 13ma AVS e salari: i risultati della ...", "url": `${BASE_URL}/articoli-frontaliere/nucleare-13avs-salari-votazioni` },
-          { "@type": "ListItem", "position": 2843, "name": "Oltre 15.000 violazioni nel 2025: lavoro nero e...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-nero-dumping-2025-svizzera` }
+          { "@type": "ListItem", "position": 2843, "name": "Oltre 15.000 violazioni nel 2025: lavoro nero e...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-nero-dumping-2025-svizzera` },
+          { "@type": "ListItem", "position": 2844, "name": "Prestazioni LPP svizzere: tassazione", "url": `${BASE_URL}/articoli-frontaliere/lpp-prestazioni-tassazione-svizzera` }
  ]
  },
  {

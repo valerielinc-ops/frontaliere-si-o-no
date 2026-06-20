@@ -245,6 +245,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lavoro-nero-dumping-2025-svizzera.title': 'Oltre 15.000 violazioni nel 2025: lavoro nero e dumping salariale in Svizzera',
     'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'Nel 2025, SECO ha rilevato 15.000 irregolarità: edilizia e ristorazione i settori più colpiti. Il Ticino è tra i cantoni più attivi nei controlli.',
     'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Operaio edile in Ticino controllato dalle autorità per irregolarità sul lavoro, con sfondo di Lugano e lago.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Prestazioni LPP svizzere: tassazione',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guida alla tassazione delle prestazioni di previdenza professionale (LPP) in Svizzera, con focus su rendite e capitale.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Skyline di Zurigo con edifici finanziari e accademici al tramonto.',
 };
 
 export default blogMetaChIt;

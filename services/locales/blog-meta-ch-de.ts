@@ -245,6 +245,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-nero-dumping-2025-svizzera.title': 'Über 15.000 Verstöße 2025: Schwarzarbeit und Lohndumping in der Schweiz',
     'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'Im Jahr 2025 hat das SECO 15.000 Unregelmäßigkeiten festgestellt: Die Bau- und Gaststättengewerbe sind am stärksten betroffen. Der Kanton Tessin ist einer der aktivsten bei den Kontrollen.',
     'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Bauarbeiter im Tessin wird auf Arbeitsverstöße überprüft, mit Blick auf Lugano und den Lago di Lugano.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.title': '...',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': '...',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Zürcher Skyline mit Finanz- und Universitätsgebäuden bei Sonnenuntergang.',
 };
 
 export default blogMetaChDe;

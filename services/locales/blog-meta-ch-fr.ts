@@ -245,6 +245,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-nero-dumping-2025-svizzera.title': '15 000 infractions en 2025 : travail au noir et dumping salarial',
     'blog.article.lavoro-nero-dumping-2025-svizzera.excerpt': 'En 2025, le SECO a détecté 15 000 irrégularités : le bâtiment et la restauration sont les secteurs les plus touchés. Le Tessin figure parmi les cantons les plus actifs dans les contrôles.',
     'blog.article.lavoro-nero-dumping-2025-svizzera.imageAlt': 'Ouvrier du bâtiment dans le Tessin contrôlé pour des irrégularités du travail, avec vue sur Lugano et le lac de Lugano.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Prestations LPP suisses : imposition',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guide sur l\'imposition des prestations de prévoyance professionnelle (LPP) en Suisse, avec un focus sur les rentes et le capital.',
+    'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Horizon de Zurich avec des bâtiments financiers et universitaires au coucher du soleil.',
 };
 
 export default blogMetaChFr;
