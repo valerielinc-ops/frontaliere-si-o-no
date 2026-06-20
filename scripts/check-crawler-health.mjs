@@ -119,6 +119,16 @@ const EMPTY_OK_CRAWLERS = new Set([
   // manufacturer simply has no current openings. Healthy, re-arms when a
   // vacancy is published.
   'linnea',
+  // Clinique CIC (Saxon VS & Clarens VD): the jobup.ch company mask
+  // (https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp) returns
+  // HTTP 200 with its unchanged structure but currently only the two
+  // "Offres spontanées" placeholder rows (one per clinic), which the parser
+  // correctly drops as non-openings. A small two-site private surgical group
+  // legitimately has 0 real vacancies for stretches (had 2 on 2026-06-16); the
+  // listing parser is healthy and re-arms when a real opening reappears. Same
+  // legitimately-empty small-employer case as linnea and
+  // banca-raiffeisen-vedeggio-cassarate.
+  'clinique-cic',
   // Giorgio Armani S.p.A. (SuccessFactors SPA, company=3397177P): the dedicated
   // crawler renders the hydrated listing (~34 jobs) correctly and is scoped to
   // Switzerland-based roles only (TI/GR). The Italian luxury house posts almost
