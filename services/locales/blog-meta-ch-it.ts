@@ -233,6 +233,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Imposta alla fonte frontalieri in Ticino: guida aggiornata',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Imposta alla fonte per frontalieri in Ticino: cosa prevede, chi riguarda, dove si applica. Dati e procedure per lavoratori e aziende.',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Vista su Lugano e la regione di confine, area impiego frontalieri.',
+    'blog.article.dogana-stabio-gaggiolo.title': 'Dogana di Gaggiolo: operazioni e aggiornamenti',
+    'blog.article.dogana-stabio-gaggiolo.excerpt': 'Aggiornamenti recenti sulla situazione della dogana di Gaggiolo e Stabio, con focus su controlli e procedure.',
+    'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Dogana di Gaggiolo e Stabio con funzionari in servizio',
 };
 
 export default blogMetaChIt;

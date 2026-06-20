@@ -233,6 +233,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Withholding tax for cross-border workers in Ticino: updated guide',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Withholding tax for cross-border workers in Ticino: what it covers, who it affects, and where it applies. Data and procedures for employees and companies.',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'View over Lugano and the border region, cross-border employment area.',
+    'blog.article.dogana-stabio-gaggiolo.title': 'Gaggiolo Customs: Operations and Updates',
+    'blog.article.dogana-stabio-gaggiolo.excerpt': 'Recent updates on the situation at Gaggiolo and Stabio customs, focusing on controls and procedures.',
+    'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Customs scene at Gaggiolo and Stabio with officials in service',
 };
 
 export default blogMetaChEn;

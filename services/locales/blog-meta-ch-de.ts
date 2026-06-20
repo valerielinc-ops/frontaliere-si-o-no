@@ -233,6 +233,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-alla-fonte-frontalieri-ticino.title': 'Quellensteuer Grenzgänger',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.excerpt': 'Quellensteuer für Grenzgänger im Tessin: Was sie beinhaltet, wen sie betrifft, wo sie gilt. Daten und Verfahren für Arbeitnehmer und Unternehmen.',
     'blog.article.imposta-alla-fonte-frontalieri-ticino.imageAlt': 'Blick auf Lugano und die Grenzregion, Grenzgänger-Arbeitsgebiet.',
+    'blog.article.dogana-stabio-gaggiolo.title': 'Gaggiolo Zoll: Operationen und Neuigkeiten',
+    'blog.article.dogana-stabio-gaggiolo.excerpt': 'Aktuelle Updates zur Situation am Zoll Gaggiolo und Stabio, mit Fokus auf Kontrollen und Verfahren.',
+    'blog.article.dogana-stabio-gaggiolo.imageAlt': 'Zollszene bei Gaggiolo und Stabio mit Beamten im Dienst',
 };
 
 export default blogMetaChDe;

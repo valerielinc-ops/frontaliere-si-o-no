@@ -1,0 +1,40 @@
+{
+  "id": "dogana-stabio-gaggiolo",
+  "slug": "dogana-stabio-gaggiolo",
+  "publishedAt": "2026-06-20T00:11:33.208Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 21.323444893369423,
+    "confidence": 0.8,
+    "finalScore": 17.05875591469554,
+    "topK": [
+      {
+        "slug": "casa-artigianato-dongio-sostegno",
+        "cosine": 0.8369666158320339
+      },
+      {
+        "slug": "capre-dogana-gandria-intervento-30-marzo",
+        "cosine": 0.8355852054373312
+      },
+      {
+        "slug": "fuoriuscita-ammoniaca-rapelli-stabio",
+        "cosine": 0.8311496378771276
+      },
+      {
+        "slug": "fuga-ammoniaca-stabio-rapelli-allerta-ticino",
+        "cosine": 0.8301018120394164
+      },
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.8259462271472737
+      }
+    ],
+    "score": 17.05875591469554,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

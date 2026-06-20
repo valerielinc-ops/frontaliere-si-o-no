@@ -99,6 +99,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'lidl-biasca-ticino': { it: 'lidl-biasca-ticino', en: 'lidl-biasca-switzerland', de: 'lidl-biasca-schweiz', fr: 'lidl-biasca-suisse' },
  'dogana-chiasso-svizzera': { it: 'dogana-chiasso-svizzera', en: 'chiasso-border-switzerland', de: 'grenze-chiasso-schweiz', fr: 'frontiere-chiasso-suisse' },
  'imposta-alla-fonte-frontalieri-ticino': { it: 'imposta-alla-fonte-frontalieri-ticino', en: 'withholding-tax-cross-border-ticino', de: 'quellensteuer-grenzgaenger-tessin', fr: 'imposition-a-la-source-frontaliers-tessin' },
+ 'dogana-stabio-gaggiolo': { it: 'dogana-stabio-gaggiolo', en: 'dogana-gaggiolo-stabio', de: 'zoll-gaggiolo-stabio', fr: 'douane-gaggiolo-stabio' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {

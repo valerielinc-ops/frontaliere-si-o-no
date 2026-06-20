@@ -701,6 +701,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'dogana-stabio-gaggiolo',
+    category: 'novita',
+    date: '2026-06-20T00:11:31.710Z',
+    image: '/images/blog/dogana-stabio-gaggiolo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
