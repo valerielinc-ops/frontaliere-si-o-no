@@ -3180,13 +3180,15 @@
         "scientist-tech-ops-csl-behring-ch",
         "wissenschaftler-tech-ops-csl-behring-bern",
         "scientifique-tech-ops-csl-behring-bern",
-        "scienziato-senior-tech-ops-csl-behring-bern"
+        "scienziato-senior-tech-ops-csl-behring-bern",
+        "senior-wissenschaftler-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-laboratory-specialist-tech-ops-csl-behring-ch",
           "scientifique-principal-tech-ops-csl-behring-bern",
-          "ricercatore-senior-tech-ops-csl-behring-bern"
+          "ricercatore-senior-tech-ops-csl-behring-bern",
+          "senior-wissenschaftler-tech-ops-csl-behring-bern"
         ],
         "en": [
           "senior-scientist-tech-ops-csl-behring-ch"
@@ -3679,7 +3681,19 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-19T12:24:19.959Z"
+      "firstSeenAt": "2026-06-19T12:24:19.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern"
+        ],
+        "de": [
+          "senior-scientist-tech-ops-analytische-tests-csl-behring-bern"
+        ]
+      },
+      "previousSlugs": [
+        "scienziato-senior-operazioni-tecniche-test-analitici-csl-behring-bern",
+        "senior-scientist-tech-ops-analytische-tests-csl-behring-bern"
+      ]
     },
     {
       "id": "csl-behring-0a6358c2e526",
