@@ -11398,5 +11398,119 @@
         "pending": 6
       }
     ]
+  },
+  {
+    "timestamp": "2026-06-20T14:18:26.023Z",
+    "label": "before",
+    "total": 17348,
+    "needsRetranslation": 8761,
+    "suppressed": 614,
+    "incomplete": 1576,
+    "complete": 15772,
+    "missingByLocale": {
+      "it": 815,
+      "en": 545,
+      "de": 747,
+      "fr": 419
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1042
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 23
+      },
+      {
+        "company": "Geberit",
+        "pending": 21
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Implenia",
+        "pending": 14
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-20T15:41:44.623Z",
+    "label": "after",
+    "total": 17348,
+    "needsRetranslation": 2818,
+    "suppressed": 613,
+    "incomplete": 1372,
+    "complete": 15976,
+    "missingByLocale": {
+      "it": 622,
+      "en": 355,
+      "de": 746,
+      "fr": 226
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 957
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 48
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Implenia",
+        "pending": 14
+      },
+      {
+        "company": "Decathlon",
+        "pending": 11
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 8
+      },
+      {
+        "company": "Ensemble hospitalier de la Côte (EHC)",
+        "pending": 6
+      }
+    ]
   }
 ]
