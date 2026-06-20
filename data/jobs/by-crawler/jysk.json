@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-06-20T11:22:32.908Z",
+  "assembledAt": "2026-06-20T22:08:57.832Z",
   "jobs": [
     {
       "id": "company-op55hr",
@@ -750,7 +750,8 @@
       "country": "CH",
       "addressRegion": "BE",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xvcu07",
@@ -965,7 +966,8 @@
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true
     },
     {
       "id": "company-2fnafy",
@@ -1040,7 +1042,8 @@
       "country": "CH",
       "addressRegion": "BE",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-a454t1",
