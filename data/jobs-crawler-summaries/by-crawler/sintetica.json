@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-06-20T11:49:18.626Z",
+  "generatedAt": "2026-06-20T22:40:53.371Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 8469,
-  "avgDurationMs": 8469,
+  "durationMs": 9578,
+  "avgDurationMs": 9578,
   "durationHistory": [
-    8469
+    9578
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -282,7 +282,7 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "fr",
+      "sourceLang": "it",
       "crawledAt": "",
       "id": "sintetica-24a05f372003",
       "salaryMin": 49500,
@@ -290,10 +290,10 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-27T00:09:57.244Z",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
