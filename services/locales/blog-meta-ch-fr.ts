@@ -248,6 +248,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lpp-prestazioni-tassazione-svizzera.title': 'Prestations LPP suisses : imposition',
     'blog.article.lpp-prestazioni-tassazione-svizzera.excerpt': 'Guide sur l\'imposition des prestations de prévoyance professionnelle (LPP) en Suisse, avec un focus sur les rentes et le capital.',
     'blog.article.lpp-prestazioni-tassazione-svizzera.imageAlt': 'Horizon de Zurich avec des bâtiments financiers et universitaires au coucher du soleil.',
+    'blog.article.caritas-ticino-poverta-2025.title': 'Caritas Ticino: 1.047 personnes accueillies et déficit réduit en 2025',
+    'blog.article.caritas-ticino-poverta-2025.excerpt': 'L\'assemblée annuelle du 16 juin met en évidence une augmentation des cas de pauvreté et de solitude, mais signale une amélioration financière pour 2025.',
+    'blog.article.caritas-ticino-poverta-2025.imageAlt': 'Château de Bellinzone',
 };
 
 export default blogMetaChFr;
