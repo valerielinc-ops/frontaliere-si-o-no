@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-06-20T11:54:44.584Z",
+  "assembledAt": "2026-06-20T22:43:31.909Z",
   "jobs": [
     {
       "id": "sonova-befc5732f81c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:54:42.690Z",
+      "crawledAt": "2026-06-20T22:43:29.937Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Patent-Engineer-%2880-100%29-%28mfd%29/1387967033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T11:54:42.687Z",
+      "crawledAt": "2026-06-20T22:43:29.933Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -185,7 +185,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1388787833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:54:42.685Z",
+      "crawledAt": "2026-06-20T22:43:29.930Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Teamleader-Support-Specialist-%28mfd%29/1286553001/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:54:42.682Z",
+      "crawledAt": "2026-06-20T22:43:29.926Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -331,7 +331,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Produktionsmitarbeiter-Elektronikfertigung-%28SMT-AOI%29/1287531701/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:54:42.679Z",
+      "crawledAt": "2026-06-20T22:43:29.923Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -391,7 +391,7 @@
       "title": "Payroll Specialist (Teilzeit)",
       "titleByLocale": {
         "it": "Payroll Specialista (Teilzeit)",
-        "en": "Payroll Specialist (part-time)",
+        "en": "Payroll Specialist (Teilzeit)",
         "de": "Payroll Spezialist (Teilzeit)",
         "fr": "Payroll Spécialiste (Teilzeit)"
       },
@@ -407,7 +407,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Payroll-Specialist-%28Teilzeit%29/1370691433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-06-20T11:54:42.677Z",
+      "crawledAt": "2026-06-20T22:43:29.920Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -485,7 +485,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Director%2C-Performance-Management-and-Capabilities-Building-%28Academies%29/1385671733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T11:54:42.674Z",
+      "crawledAt": "2026-06-20T22:43:29.916Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -561,7 +561,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Junior-Embedded-Software-Engineer-%28mfd%29/1395139533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T11:54:42.669Z",
+      "crawledAt": "2026-06-20T22:43:29.910Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -590,6 +590,7 @@
         ]
       },
       "firstSeenAt": "2026-06-13T22:42:45.656Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "baseSalary": {
@@ -636,7 +637,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Hardware-Verification-Specialist/1406585333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-06-20T11:54:42.668Z",
+      "crawledAt": "2026-06-20T22:43:29.909Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -651,7 +652,9 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1406585333/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-19T22:35:39.928Z",
+      "previousSlugs": [
+        "hardware-verification-specialist-sonova-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hardware-verification-specialist-sonova-ch"
@@ -663,9 +666,7 @@
           "hardware-verification-specialist-sonova-ch"
         ]
       },
-      "previousSlugs": [
-        "hardware-verification-specialist-sonova-ch"
-      ],
+      "firstSeenAt": "2026-06-19T22:35:39.928Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "baseSalary": {
