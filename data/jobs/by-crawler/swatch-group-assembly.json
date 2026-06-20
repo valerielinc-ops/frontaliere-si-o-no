@@ -193,9 +193,9 @@
       },
       "slugByLocale": {
         "it": "acquirente-senior-100-the-swatch-group-research-and-development-ltd-ticino",
-        "en": "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino",
-        "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9",
-        "fr": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9"
+        "en": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
+        "de": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
+        "fr": "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
       },
       "requirementsByLocale": {},
       "sourceLang": "fr",
@@ -206,7 +206,8 @@
         ],
         "en": [
           "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9",
-          "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb"
+          "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
+          "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino"
         ],
         "de": [
           "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
@@ -223,7 +224,8 @@
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdt9",
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino-7ubdsb",
         "senior-purchaser-100-the-swatch-group-research-and-development-ltd-rue-de-sors-3-2074-marin-neuchatel-suisse-adresse-de-l-entreprise-the-swa-7ubdsb",
-        "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino"
+        "senior-purchaser-100-the-swatch-group-research-and-development-ltd-ticino",
+        "senior-purchase-100-the-swatch-group-research-and-development-ltd-ticino"
       ],
       "salaryMin": 175000,
       "salaryMax": 307500,
@@ -470,8 +472,7 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "BE",
-      "needsRetranslation": true
+      "addressRegion": "BE"
     },
     {
       "id": "company-7ubd5z",
@@ -564,8 +565,7 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "NE",
-      "needsRetranslation": true
+      "addressRegion": "NE"
     },
     {
       "id": "company-7uavdc",
@@ -646,8 +646,7 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "FR",
-      "needsRetranslation": true
+      "addressRegion": "FR"
     },
     {
       "id": "company-7uaw4v",

@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-05-31T07:10:20.995Z",
-    "label": "before",
-    "total": 9051,
-    "needsRetranslation": 1911,
-    "incomplete": 486,
-    "complete": 8565,
-    "missingByLocale": {
-      "it": 328,
-      "en": 260,
-      "de": 175,
-      "fr": 324
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 94
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Roche",
-        "pending": 35
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-31T08:10:50.537Z",
-    "label": "after",
-    "total": 9051,
-    "needsRetranslation": 1771,
-    "incomplete": 466,
-    "complete": 8585,
-    "missingByLocale": {
-      "it": 314,
-      "en": 245,
-      "de": 170,
-      "fr": 309
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 93
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Roche",
-        "pending": 35
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-31T09:27:37.351Z",
-    "label": "before",
-    "total": 9009,
-    "needsRetranslation": 1766,
-    "incomplete": 462,
-    "complete": 8547,
-    "missingByLocale": {
-      "it": 314,
-      "en": 244,
-      "de": 166,
-      "fr": 309
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Roche",
-        "pending": 35
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-31T10:22:46.841Z",
-    "label": "after",
-    "total": 9009,
-    "needsRetranslation": 1722,
-    "incomplete": 459,
-    "complete": 8550,
-    "missingByLocale": {
-      "it": 313,
-      "en": 245,
-      "de": 163,
-      "fr": 308
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "Geiser AG",
-        "pending": 75
-      },
-      {
-        "company": "Roche",
-        "pending": 35
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 20
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Nestlé",
-        "pending": 14
-      },
-      {
-        "company": "Regionalspital Surselva",
-        "pending": 12
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 11
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-31T13:07:11.739Z",
     "label": "before",
     "total": 9001,
@@ -11496,6 +11272,120 @@
       {
         "company": "CSD ENGINEERS",
         "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-19T22:58:17.366Z",
+    "label": "before",
+    "total": 17434,
+    "needsRetranslation": 7266,
+    "suppressed": 658,
+    "incomplete": 1816,
+    "complete": 15618,
+    "missingByLocale": {
+      "it": 954,
+      "en": 605,
+      "de": 840,
+      "fr": 521
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1124
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Richemont",
+        "pending": 105
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Lonza",
+        "pending": 41
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 22
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 13
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-20T00:32:53.453Z",
+    "label": "after",
+    "total": 17434,
+    "needsRetranslation": 3215,
+    "suppressed": 657,
+    "incomplete": 1609,
+    "complete": 15825,
+    "missingByLocale": {
+      "it": 796,
+      "en": 454,
+      "de": 892,
+      "fr": 363
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1040
+      },
+      {
+        "company": "Manor AG",
+        "pending": 118
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Lonza",
+        "pending": 41
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 22
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Richemont",
+        "pending": 14
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 13
       }
     ]
   }
