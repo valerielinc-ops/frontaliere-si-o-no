@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "fellow-cardiology-universitatsspital-basel-basel",
         "en": "fellow-cardiology-unispital-basel-ch",
-        "de": "fellow-cardiology-unispital-basel-ch",
-        "fr": "fellow-cardiology-unispital-basel-ch"
+        "de": "fellow-kardiologie-universitatsspital-basel-basel",
+        "fr": "fellow-cardiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -51,20 +51,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fellow-cardiology-unispital-basel-ch",
-        "fellow-kardiologie-universitatsspital-basel-basel",
-        "fellow-cardiologie-universitatsspital-basel-basel"
+        "fellow-cardiology-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-cardiology-unispital-basel-ch"
         ],
         "de": [
-          "fellow-kardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ],
         "fr": [
-          "fellow-cardiologie-universitatsspital-basel-basel",
           "fellow-cardiology-unispital-basel-ch"
         ]
       },
@@ -87,9 +83,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -132,7 +128,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -248,9 +246,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -293,7 +291,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -407,7 +407,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+        "en": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
       },
@@ -454,7 +454,6 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
@@ -468,7 +467,6 @@
           "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
         ]
       },
@@ -491,7 +489,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -539,6 +537,7 @@
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
@@ -552,7 +551,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "en": [
-          "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
           "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
         ]
       },
@@ -823,7 +821,7 @@
         "it": "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "en": "nds-experte-expertin-notfallpflege-nfz-universitatsspital-basel-basel",
         "de": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "fr": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+        "fr": "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -868,7 +866,6 @@
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
@@ -882,7 +879,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
           "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
         ]
       },
@@ -1149,7 +1145,7 @@
         "it": "fellowship-abdominelle-e-onkologische-radiologie-universitatsspital-basel",
         "en": "fellowship-abdominelle-und-onkologische-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fr": "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
+        "fr": "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1192,8 +1188,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel",
-        "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel"
+        "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1201,7 +1196,6 @@
           "fellowship-radiologia-addominale-e-oncologica-universitatsspital-basel-basel"
         ],
         "fr": [
-          "bourse-radiologie-abdominale-et-oncologique-universitatsspital-basel-basel",
           "fellowship-abdominelle-und-onkologische-radiologie-unispital-basel-ch"
         ]
       },
@@ -1555,7 +1549,7 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "en": "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
@@ -1600,7 +1594,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-y80ezo",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-cje476",
@@ -1615,7 +1608,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ],
         "en": [
-          "dipl-nurse-nurse-specialist-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
         ]
       },
@@ -1638,9 +1630,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1683,7 +1675,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1797,9 +1791,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1842,7 +1836,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2218,7 +2214,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2261,7 +2257,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2269,7 +2266,6 @@
           "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
           "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
         ]
       },
@@ -2292,7 +2288,7 @@
       "slug": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
-        "en": "study-nurse-neurochirurgie-unispital-basel-ch",
+        "en": "study-nurse-neurosurgery-universitatsspital-basel-basel",
         "de": "study-nurse-neurochirurgie-unispital-basel-ch",
         "fr": "study-nurse-neurochirurgie-universitatsspital-basel-basel"
       },
@@ -2336,15 +2332,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-neurochirurgie-unispital-basel-ch",
-        "study-nurse-neurosurgery-universitatsspital-basel-basel"
+        "study-nurse-neurochirurgie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ],
         "en": [
-          "study-nurse-neurosurgery-universitatsspital-basel-basel",
           "study-nurse-neurochirurgie-unispital-basel-ch"
         ]
       },
@@ -2367,7 +2361,7 @@
       "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
+        "en": "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel"
       },
@@ -2412,8 +2406,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit",
-        "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2421,7 +2414,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
         ]
       },
@@ -2635,10 +2627,10 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "fr": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2683,7 +2675,7 @@
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
@@ -2697,11 +2689,9 @@
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
         ]
       },
@@ -3292,12 +3282,12 @@
     },
     {
       "id": "unispital-basel-b9d4c734c71a",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+      "slug": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+        "it": "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -3339,16 +3329,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-qualificato-specializzato-in-hf-fh-reparto-polmonare-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-station-pulmonaire-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
         ]
       },
@@ -4229,9 +4216,9 @@
       "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
+        "en": "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4273,20 +4260,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
-        "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
-        "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "en": [
-          "dipl-career-dipl-nursing-specialist-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-carriere-dipl-specialiste-des-soins-infirmiers-frauenklinik-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ]
       },
@@ -4846,7 +4829,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4889,14 +4872,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch"
         ],
         "fr": [
-          "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
           "pflegefachperson-hf-fh-universitatsspital-basel-basel"
         ]
       },
@@ -4919,9 +4901,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+        "en": "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "fr": "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4963,20 +4945,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
-        "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "en": [
-          "dipl-care-specialist-hf-fh-acute-medicine-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ],
         "fr": [
-          "dipl-specialiste-en-medecine-aigue-hf-fh-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
         ]
       },
@@ -5908,7 +5886,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5951,7 +5929,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5959,7 +5938,6 @@
           "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
         ],
         "fr": [
-          "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
           "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
         ]
       },
@@ -6066,10 +6044,10 @@
       "id": "unispital-basel-28c2fd6de85f",
       "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "fr": "ergotherapeute-universitatsspital-basel-basel"
+        "fr": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6112,15 +6090,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
           "ergotherapeute-universitatsspital-basel-basel"
         ]
       },
@@ -6753,9 +6729,9 @@
       "slug": "study-nurse-rheumatologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "study-nurse-rheumatologie-universitatsspital-basel-basel",
-        "en": "study-nurse-rheumatologie-unispital-basel-ch",
+        "en": "study-nurse-rheumatology-universitatsspital-basel-basel",
         "de": "study-nurse-rheumatologie-unispital-basel-ch",
-        "fr": "study-nurse-rheumatologie-unispital-basel-ch"
+        "fr": "infirmiere-rhumatologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6797,20 +6773,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "study-nurse-rheumatologie-unispital-basel-ch",
-        "study-nurse-rheumatology-universitatsspital-basel-basel",
-        "infirmiere-rhumatologie-universitatsspital-basel-basel"
+        "study-nurse-rheumatologie-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "en": [
-          "study-nurse-rheumatology-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ],
         "fr": [
-          "infirmiere-rhumatologie-universitatsspital-basel-basel",
           "study-nurse-rheumatologie-unispital-basel-ch"
         ]
       },
@@ -7167,9 +7139,9 @@
       "slug": "payroll-spezialist-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "payroll-spezialist-in-universitatsspital-basel-basel",
-        "en": "payroll-spezialist-in-unispital-basel-ch",
+        "en": "payroll-specialist-universitatsspital-basel-basel",
         "de": "payroll-spezialist-in-unispital-basel-ch",
-        "fr": "payroll-spezialist-in-unispital-basel-ch"
+        "fr": "specialiste-de-la-paie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7211,20 +7183,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-spezialist-in-unispital-basel-ch",
-        "payroll-specialist-universitatsspital-basel-basel",
-        "specialiste-de-la-paie-universitatsspital-basel-basel"
+        "payroll-spezialist-in-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "en": [
-          "payroll-specialist-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ],
         "fr": [
-          "specialiste-de-la-paie-universitatsspital-basel-basel",
           "payroll-spezialist-in-unispital-basel-ch"
         ]
       },
@@ -7947,9 +7915,9 @@
       "slug": "op-koordinator-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "op-koordinator-in-universitatsspital-basel-basel",
-        "en": "op-koordinator-in-unispital-basel-ch",
+        "en": "op-coordinator-universitatsspital-basel-basel",
         "de": "op-koordinator-in-unispital-basel-ch",
-        "fr": "op-koordinator-in-unispital-basel-ch"
+        "fr": "coordinateur-op-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7991,20 +7959,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "op-koordinator-in-unispital-basel-ch",
-        "op-coordinator-universitatsspital-basel-basel",
-        "coordinateur-op-universitatsspital-basel-basel"
+        "op-koordinator-in-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "op-koordinator-in-unispital-basel-ch"
         ],
         "en": [
-          "op-coordinator-universitatsspital-basel-basel",
           "op-koordinator-in-unispital-basel-ch"
         ],
         "fr": [
-          "coordinateur-op-universitatsspital-basel-basel",
           "op-koordinator-in-unispital-basel-ch"
         ]
       },
@@ -8415,9 +8379,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
+        "en": "dipl-nurse-hf-fh-medicine-8-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
+        "fr": "infirmiere-diplomee-en-hf-fh-medecine-8-1-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -8459,20 +8423,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
-        "dipl-nurse-hf-fh-medicine-8-1-universitatsspital-basel-basel",
-        "infirmiere-diplomee-en-hf-fh-medecine-8-1-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
         ],
         "en": [
-          "dipl-nurse-hf-fh-medicine-8-1-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
         ],
         "fr": [
-          "infirmiere-diplomee-en-hf-fh-medecine-8-1-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch"
         ]
       },

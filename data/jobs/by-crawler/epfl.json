@@ -81,7 +81,7 @@
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
-        "de": "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne",
+        "de": "postdoktorand-forschungsingenieur-epfl-lausanne",
         "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
@@ -136,7 +136,7 @@
         "de": [
           "postdoctoral-researcher-research-engineer-epfl-lausanne",
           "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
-          "postdoktorand-forschungsingenieur-epfl-lausanne"
+          "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -144,7 +144,7 @@
         "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
         "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
-        "postdoktorand-forschungsingenieur-epfl-lausanne"
+        "postdoctoral-researcher-forschung-ingenieur-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
       "salaryMin": 60500,
@@ -164,11 +164,11 @@
     },
     {
       "id": "epfl-51a09e21257e",
-      "slug": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
+      "slug": "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
+        "it": "ricercatore-post-dottorato-in-tecnologia-edilizia-epfl-fribourg",
         "en": "postdoctoral-researcher-in-building-technology-epfl-fribourg",
-        "de": "postdoktorand-im-bereich-bautechnik-epfl-fribourg",
+        "de": "postdoktorand-in-bauwissenschaften-epfl-fribourg",
         "fr": "chercheur-postdoctoral-en-technologie-du-batiment-epfl-fribourg"
       },
       "company": "EPFL",
@@ -216,12 +216,14 @@
           "ricercatore-post-dottorato-nella-tecnologia-dell-edilizia-epfl-fribourg",
           "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
           "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
-          "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg"
+          "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
+          "postdoctoral-researcher-in-building-technology-epfl-fribourg"
         ],
         "de": [
           "postdoktorandin-fur-bautechnik-epfl-fribourg",
           "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-          "postdoktorand-in-bautechnologie-epfl-fribourg"
+          "postdoktorand-in-bautechnologie-epfl-fribourg",
+          "postdoktorand-im-bereich-bautechnik-epfl-fribourg"
         ]
       },
       "previousSlugs": [
@@ -229,9 +231,11 @@
         "ricercatore-post-dottorato-in-building-technology-epfl-fribourg",
         "ricercatore-post-dottorato-in-tecnologia-edile-epfl-fribourg",
         "ricercatore-post-dottorato-in-tecnologia-dell-edilizia-epfl-fribourg",
+        "postdoctoral-researcher-in-building-technology-epfl-fribourg",
         "postdoktorandin-fur-bautechnik-epfl-fribourg",
         "postdoktorand-in-gebaudetechnik-epfl-fribourg",
-        "postdoktorand-in-bautechnologie-epfl-fribourg"
+        "postdoktorand-in-bautechnologie-epfl-fribourg",
+        "postdoktorand-im-bereich-bautechnik-epfl-fribourg"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.744Z",
       "salaryMin": 68500,
@@ -575,8 +579,8 @@
       "slugByLocale": {
         "it": "tecnico-chirurgia-del-topo-e-neuroscienze-epfl-lausanne",
         "en": "technician-mouse-surgery-neuroscience-epfl-lausanne",
-        "de": "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne",
-        "fr": "technician-mouse-surgery-neuroscience-epfl-lausanne"
+        "de": "techniker-maus-chirurgie-und-neurobiologie-epfl-lausanne",
+        "fr": "technicien-chirurgie-du-souris-et-neurosciences-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -622,23 +626,28 @@
         "fr": [
           "technicien-ne-chirurgie-murine-et-neurosciences-epfl-lausanne",
           "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne",
-          "technicien-chirurgie-de-la-souris-et-neurosciences-epfl-lausanne"
+          "technicien-chirurgie-de-la-souris-et-neurosciences-epfl-lausanne",
+          "technician-mouse-surgery-neuroscience-epfl-lausanne"
         ],
         "it": [
           "technician-mouse-surgery-neuroscience-epfl-lausanne",
           "tecnico-chirurgia-del-mouse-neuroscience-epfl-lausanne",
           "tecnico-chirurgia-su-topi-e-neuroscienze-epfl-lausanne",
           "technico-chirurgia-del-tasto-e-neuroscienza-epfl-lausanne"
+        ],
+        "de": [
+          "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne"
         ]
       },
       "previousSlugs": [
         "technicien-ne-chirurgie-murine-et-neurosciences-epfl-lausanne",
         "technicien-chirurgie-de-la-souris-et-neuroscience-epfl-lausanne",
-        "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "technicien-chirurgie-de-la-souris-et-neurosciences-epfl-lausanne",
+        "technician-mouse-surgery-neuroscience-epfl-lausanne",
         "tecnico-chirurgia-del-mouse-neuroscience-epfl-lausanne",
         "tecnico-chirurgia-su-topi-e-neuroscienze-epfl-lausanne",
-        "technico-chirurgia-del-tasto-e-neuroscienza-epfl-lausanne"
+        "technico-chirurgia-del-tasto-e-neuroscienza-epfl-lausanne",
+        "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.740Z",
       "salaryMin": 60500,
@@ -911,7 +920,7 @@
         "it": "ingegnere-di-ricerca-nelle-misurazioni-atmosferiche-in-ambienti-estremi-epfl-sion",
         "en": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
         "de": "forschungsingenieur-fur-atmospharische-messungen-in-extremumgebungen-epfl-sion",
-        "fr": "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
+        "fr": "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -956,7 +965,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "ingenieur-de-recherche-pour-les-mesures-atmospheriques-dans-les-environnements-extremes-epfl-sion",
-          "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion"
+          "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion"
         ],
         "it": [
           "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
@@ -969,7 +978,6 @@
       "previousSlugs": [
         "ingenieur-de-recherche-pour-les-mesures-atmospheriques-dans-les-environnements-extremes-epfl-sion",
         "research-engineer-in-atmospheric-measurements-in-extreme-environments-epfl-sion",
-        "ingenieur-de-recherche-en-mesures-atmospheriques-dans-des-environnements-extremes-epfl-sion",
         "ingeniero-di-ricerca-per-misurazioni-atmospheriche-in-ambienti-estremi-epfl-sion",
         "forschungsingenieur-in-atmospharischen-messungen-in-extremen-umgebungen-epfl-sion"
       ],
@@ -1074,8 +1082,8 @@
       "slugByLocale": {
         "it": "phd-in-iontronic-materials-epfl-lausanne",
         "en": "phd-in-iontronic-materials-epfl-lausanne",
-        "de": "phd-in-iontronischen-werkstoffen-epfl-lausanne",
-        "fr": "phd-in-iontronic-materials-epfl-lausanne"
+        "de": "phd-in-iontronic-materialien-epfl-lausanne",
+        "fr": "doctorat-en-materiaux-iontroniques-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1119,19 +1127,19 @@
       "externalId": "1164147955",
       "previousSlugsByLocale": {
         "fr": [
-          "phd-en-materiaux-iontriques-epfl-lausanne",
-          "doctorat-en-materiaux-iontroniques-epfl-lausanne"
+          "phd-en-materiaux-iontriques-epfl-lausanne"
         ],
         "de": [
           "promotion-in-iontronic-materialien-epfl-lausanne",
-          "phd-in-iontroischen-materialien-epfl-lausanne"
+          "phd-in-iontroischen-materialien-epfl-lausanne",
+          "phd-in-iontronischen-werkstoffen-epfl-lausanne"
         ]
       },
       "previousSlugs": [
         "phd-en-materiaux-iontriques-epfl-lausanne",
-        "doctorat-en-materiaux-iontroniques-epfl-lausanne",
         "promotion-in-iontronic-materialien-epfl-lausanne",
-        "phd-in-iontroischen-materialien-epfl-lausanne"
+        "phd-in-iontroischen-materialien-epfl-lausanne",
+        "phd-in-iontronischen-werkstoffen-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.733Z",
       "salaryMin": 60500,
@@ -1155,7 +1163,7 @@
       "slugByLocale": {
         "it": "ingegnere-meccanico-epfl-sion",
         "en": "mechanical-engineer-epfl-sion",
-        "de": "mechanical-ingenieur-epfl-sion",
+        "de": "maschinenbauingenieur-epfl-sion",
         "fr": "ingenieur-mecanique-epfl-sion"
       },
       "company": "EPFL",
@@ -1202,8 +1210,8 @@
         "de": [
           "maschinenbauingenieur-in-epfl-sion",
           "mechanischer-ingenieur-epfl-sion",
-          "maschinenbauingenieur-epfl-sion",
-          "mechanical-engineer-epfl-sion"
+          "mechanical-engineer-epfl-sion",
+          "mechanical-ingenieur-epfl-sion"
         ],
         "it": [
           "mechanical-engineer-epfl-sion",
@@ -1217,8 +1225,8 @@
       "previousSlugs": [
         "maschinenbauingenieur-in-epfl-sion",
         "mechanischer-ingenieur-epfl-sion",
-        "maschinenbauingenieur-epfl-sion",
         "mechanical-engineer-epfl-sion",
+        "mechanical-ingenieur-epfl-sion",
         "ingeniero-meccanico-epfl-sion",
         "mechanical-ingegnere-epfl-sion",
         "ingegnere-di-progetto-epfl-sion",
@@ -1664,9 +1672,9 @@
     },
     {
       "id": "epfl-25d14b737daf",
-      "slug": "postdoctoral-researcher-epfl-lausanne",
+      "slug": "ricercatore-post-dottorato-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-epfl-lausanne",
+        "it": "ricercatore-post-dottorato-epfl-lausanne",
         "en": "postdoctoral-researcher-epfl-lausanne",
         "de": "postdoktorand-epfl-lausanne",
         "fr": "chercheur-postdoctoral-epfl-lausanne"
@@ -1714,7 +1722,7 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-doc-epfl-lausanne",
-          "ricercatore-post-dottorato-epfl-lausanne"
+          "postdoctoral-researcher-epfl-lausanne"
         ],
         "de": [
           "post-doktorand-epfl-lausanne"
@@ -1725,7 +1733,7 @@
       },
       "previousSlugs": [
         "ricercatore-post-doc-epfl-lausanne",
-        "ricercatore-post-dottorato-epfl-lausanne",
+        "postdoctoral-researcher-epfl-lausanne",
         "post-doktorand-epfl-lausanne",
         "recherche-post-doctorale-epfl-lausanne",
         "postdoctoral-researcher-in-photoelectrochemistry-epfl-lausanne"
@@ -1910,7 +1918,7 @@
         "it": "posizione-di-dottorato-gestione-della-linea-forestale-delle-alpi-svizzere-epfl-sion",
         "en": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
         "de": "promotionsstelle-waldbaummanagement-in-den-schweizer-alpen-epfl-sion",
-        "fr": "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion"
+        "fr": "poste-de-doctorat-gestion-de-la-lisiere-forestiere-dans-les-alpes-suisses-epfl-sion"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1957,7 +1965,7 @@
           "poste-de-doctorat-gestion-forestiere-dans-les-alpes-suisses-epfl-sion",
           "poste-de-doctorant-e-gestion-de-la-limite-des-arbres-en-haute-montagne-dans-les-alpes-suisses-epfl-sion",
           "position-phd-gestion-de-la-ligne-de-limite-forestiere-dans-les-alpes-suisses-epfl-sion",
-          "poste-de-doctorat-gestion-de-la-lisiere-forestiere-dans-les-alpes-suisses-epfl-sion"
+          "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion"
         ],
         "it": [
           "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
@@ -1975,7 +1983,6 @@
         "poste-de-doctorant-e-gestion-de-la-limite-des-arbres-en-haute-montagne-dans-les-alpes-suisses-epfl-sion",
         "position-phd-gestion-de-la-ligne-de-limite-forestiere-dans-les-alpes-suisses-epfl-sion",
         "phd-position-forest-treeline-management-in-the-swiss-alps-epfl-sion",
-        "poste-de-doctorat-gestion-de-la-lisiere-forestiere-dans-les-alpes-suisses-epfl-sion",
         "posizione-di-dottorato-forest-treeline-management-nelle-alpi-svizzere-epfl-sion",
         "phd-position-gestione-della-linea-di-confine-forestale-nelle-alpi-svizzere-epfl-sion",
         "phd-stelle-waldbaummanagement-in-den-schweizer-alpen-epfl-sion",
@@ -2540,7 +2547,7 @@
         "it": "posizione-del-dottorato-in-tecnologia-e-gestione-delle-operazioni-epfl-lausanne",
         "en": "phd-position-in-technology-operations-management-epfl-lausanne",
         "de": "promotionsstelle-in-technologie-und-betriebsmanagement-epfl-lausanne",
-        "fr": "phd-position-in-technology-operations-management-epfl-lausanne"
+        "fr": "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -2586,7 +2593,7 @@
         "fr": [
           "poste-de-doctorat-en-technologie-et-gestion-des-operations-epfl-lausanne",
           "poste-de-phd-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne",
-          "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne"
+          "phd-position-in-technology-operations-management-epfl-lausanne"
         ],
         "it": [
           "phd-position-in-technology-operations-management-epfl-lausanne"
@@ -2601,7 +2608,6 @@
         "poste-de-doctorat-en-technologie-et-gestion-des-operations-epfl-lausanne",
         "poste-de-phd-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne",
         "phd-position-in-technology-operations-management-epfl-lausanne",
-        "poste-de-doctorat-en-gestion-de-la-technologie-et-des-operations-epfl-lausanne",
         "phd-position-im-technologie-und-betriebsmanagement-epfl-lausanne",
         "phd-stelle-in-technologie-und-operationsmanagement-epfl-lausanne",
         "doktoratsstelle-in-technologie-und-betriebswirtschaft-epfl-lausanne"
@@ -2624,9 +2630,9 @@
     },
     {
       "id": "epfl-e557517bcba6",
-      "slug": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+      "slug": "ricercatore-post-dottorato-in-ottica-adattiva-per-l-interazione-ultraveloce-laser-materia-epfl-neuchatel",
       "slugByLocale": {
-        "it": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
+        "it": "ricercatore-post-dottorato-in-ottica-adattiva-per-l-interazione-ultraveloce-laser-materia-epfl-neuchatel",
         "en": "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
         "de": "postdoktorand-in-adaptiver-optik-fur-ultraschnelle-laser-materie-interaktion-epfl-neuchatel",
         "fr": "bourse-de-recherche-postdoctorale-en-optique-adaptative-pour-l-interaction-laser-matiere-ultrarapide-epfl-neuchatel"
@@ -2675,7 +2681,7 @@
         "it": [
           "ricercatore-post-dottorato-in-ottica-adattiva-per-interazione-laser-materia-ultraveloce-epfl-neuchatel",
           "fellow-postdoctoral-research-in-ottica-adattiva-per-l-interazione-laser-materia-ultraveloce-epfl-neuchatel",
-          "ricercatore-post-dottorato-in-ottica-adattiva-per-l-interazione-ultraveloce-laser-materia-epfl-neuchatel"
+          "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction"
         ],
         "de": [
           "postdoktorand-in-fur-adaptive-optik-in-der-ultraschnellen-laser-materie-wechselwirkung-epfl-neuchatel"
@@ -2684,7 +2690,7 @@
       "previousSlugs": [
         "ricercatore-post-dottorato-in-ottica-adattiva-per-interazione-laser-materia-ultraveloce-epfl-neuchatel",
         "fellow-postdoctoral-research-in-ottica-adattiva-per-l-interazione-laser-materia-ultraveloce-epfl-neuchatel",
-        "ricercatore-post-dottorato-in-ottica-adattiva-per-l-interazione-ultraveloce-laser-materia-epfl-neuchatel",
+        "postdoctoral-research-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction",
         "postdoktorand-in-fur-adaptive-optik-in-der-ultraschnellen-laser-materie-wechselwirkung-epfl-neuchatel",
         "postdoctoral-ricerca-fellow-in-adaptive-optics-for-ultrafast-laser-matter-interaction-epfl-neuchatel"
       ],
@@ -3077,8 +3083,6 @@
         "verwaltungsassistent-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistante-administrative-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",
@@ -3104,7 +3108,7 @@
         "it": "postdoc-nella-biofisica-sperimentale-epfl-lausanne",
         "en": "postdoc-in-experimental-biophysics-epfl-lausanne",
         "de": "postdoc-in-experimenteller-biophysik-epfl-lausanne",
-        "fr": "postdoc-in-experimental-biophysics-epfl-lausanne"
+        "fr": "postdoc-en-biophysique-experimentale-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3148,7 +3152,7 @@
       "externalId": "1164715455",
       "previousSlugsByLocale": {
         "fr": [
-          "postdoc-en-biophysique-experimentale-epfl-lausanne"
+          "postdoc-in-experimental-biophysics-epfl-lausanne"
         ],
         "it": [
           "postdoc-in-experimental-biophysics-epfl-lausanne"
@@ -3158,8 +3162,7 @@
         ]
       },
       "previousSlugs": [
-        "postdoc-in-experimental-biophysics-epfl-lausanne",
-        "postdoc-en-biophysique-experimentale-epfl-lausanne"
+        "postdoc-in-experimental-biophysics-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-11T22:00:31.569Z",
       "salaryMin": 60500,
@@ -3514,7 +3517,7 @@
         "it": "tirocinio-in-analisi-dei-dati-ambientali-epfl-lausanne",
         "en": "canevas-epfl-empty-epfl-lausanne",
         "de": "praktikum-umweltdatenanalyse-epfl-lausanne",
-        "fr": "canevas-epfl-empty-epfl-lausanne"
+        "fr": "stage-analyse-des-donnees-environnementales-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3561,7 +3564,7 @@
           "canevas-epfl-vide-epfl-lausanne",
           "stage-en-analyse-de-donnees-environnementales-epfl-lausanne-bc087f",
           "stagiaire-analyse-donnees-environnementales-epfl-lausanne",
-          "stage-analyse-des-donnees-environnementales-epfl-lausanne"
+          "canevas-epfl-empty-epfl-lausanne"
         ],
         "it": [
           "canevas-epfl-empty-epfl-lausanne",
@@ -3579,7 +3582,6 @@
         "canevas-epfl-vide-epfl-lausanne",
         "stage-en-analyse-de-donnees-environnementales-epfl-lausanne-bc087f",
         "stagiaire-analyse-donnees-environnementales-epfl-lausanne",
-        "stage-analyse-des-donnees-environnementales-epfl-lausanne",
         "canevas-epfl-empty-epfl-lausanne",
         "internship-environmental-data-analysis-epfl-lausanne",
         "canevas-epfl-leer-epfl-lausanne",
@@ -3684,12 +3686,12 @@
     },
     {
       "id": "epfl-b0cd92a73585",
-      "slug": "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
+      "slug": "posizione-di-post-dottorato-su-allineamento-dell-ia-e-sicurezza-dell-ia-disponibile-presso-l-epfl-dlab-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
+        "it": "posizione-di-post-dottorato-su-allineamento-dell-ia-e-sicurezza-dell-ia-disponibile-presso-l-epfl-dlab-epfl-lausanne",
         "en": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-        "de": "postdoc-stelle-zu-ki-ausrichtung-und-sicherer-ki-verfugbar-bei-epfl-dlab-epfl-lausanne",
-        "fr": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
+        "de": "postdoktorand-in-in-ai-bereich-alignment-und-sichere-ki-am-epfl-dlab-epfl-lausanne",
+        "fr": "poste-de-postdoctorant-en-alignement-de-l-ia-et-ia-securisee-au-dlab-de-l-epfl-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3736,27 +3738,32 @@
           "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
           "postdoc-en-alignement-de-l-ia-et-ia-sure-a-l-epfl-dlab-epfl-lausanne",
           "poste-de-recherche-postdoctorale-sur-l-alignement-ai-et-l-ai-securisee-disponibles-a-epfl-dlab-epfl-lausanne",
-          "poste-de-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-sur-epfl-dlab-epfl-lausanne"
+          "poste-de-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-sur-epfl-dlab-epfl-lausanne",
+          "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne"
         ],
         "it": [
           "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
           "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne",
-          "posizione-post-dottorato-su-allineamento-dell-ia-e-ia-sicura-presso-epfl-dlab-epfl-lausanne"
+          "posizione-post-dottorato-su-allineamento-dell-ia-e-ia-sicura-presso-epfl-dlab-epfl-lausanne",
+          "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne"
         ],
         "de": [
           "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-          "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne"
+          "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
+          "postdoc-stelle-zu-ki-ausrichtung-und-sicherer-ki-verfugbar-bei-epfl-dlab-epfl-lausanne"
         ]
       },
       "previousSlugs": [
         "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
         "postdoc-en-alignement-de-l-ia-et-ia-sure-a-l-epfl-dlab-epfl-lausanne",
         "poste-de-recherche-postdoctorale-sur-l-alignement-ai-et-l-ai-securisee-disponibles-a-epfl-dlab-epfl-lausanne",
-        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
         "poste-de-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-sur-epfl-dlab-epfl-lausanne",
+        "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne",
         "posizione-post-dottorato-su-allineamento-dell-ia-e-ia-sicura-presso-epfl-dlab-epfl-lausanne",
+        "postdoc-position-su-allineamento-ai-e-ai-sicura-disponibile-a-epfl-dlab-epfl-lausanne",
         "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
+        "postdoc-stelle-zu-ki-ausrichtung-und-sicherer-ki-verfugbar-bei-epfl-dlab-epfl-lausanne",
         "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
         "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-la-78lgov",
@@ -4034,7 +4041,7 @@
         "it": "posizione-postdoc-presso-epfl-sulla-ricerca-di-frontier-sull-intelligenza-artificiale-epfl-lausanne",
         "en": "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne",
         "de": "postdoc-stelle-an-der-epfl-in-spitzenforschung-zu-kunstlicher-intelligenz-epfl-lausanne",
-        "fr": "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne"
+        "fr": "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4080,7 +4087,7 @@
         "fr": [
           "poste-de-post-doctorat-a-l-epfl-sur-la-recherche-de-pointe-en-intelligence-artificielle-epfl-lausanne",
           "position-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-aux-frontieres-epfl-lausanne",
-          "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne"
+          "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne"
         ],
         "it": [
           "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne",
@@ -4094,7 +4101,6 @@
         "poste-de-post-doctorat-a-l-epfl-sur-la-recherche-de-pointe-en-intelligence-artificielle-epfl-lausanne",
         "position-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-aux-frontieres-epfl-lausanne",
         "postdoc-position-at-epfl-on-frontier-artificial-intelligence-research-epfl-lausanne",
-        "poste-de-postdoc-a-l-epfl-sur-la-recherche-en-intelligence-artificielle-de-pointe-epfl-lausanne",
         "posizione-post-dottorato-presso-l-epfl-sulla-ricerca-all-avanguardia-in-intelligenza-artificiale-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-15T22:56:18.950Z",
@@ -4115,11 +4121,11 @@
     },
     {
       "id": "epfl-23d9b7e51a76",
-      "slug": "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
+      "slug": "2-posizioni-postdoc-presso-l-epfl-su-modelli-di-fondazione-biologica-epfl-lausanne",
       "slugByLocale": {
-        "it": "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
+        "it": "2-posizioni-postdoc-presso-l-epfl-su-modelli-di-fondazione-biologica-epfl-lausanne",
         "en": "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-        "de": "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne",
+        "de": "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne",
         "fr": "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4168,22 +4174,24 @@
         ],
         "it": [
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-          "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne"
+          "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
+          "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne"
         ],
         "en": [
           "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne"
         ],
         "de": [
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-          "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
+          "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne"
         ]
       },
       "previousSlugs": [
-        "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
         "2-postdoc-positions-a-l-epfl-sur-les-modeles-de-fondation-biologique-epfl-lausanne",
+        "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
         "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
+        "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
         "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne",
-        "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
+        "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-15T22:56:18.340Z",
       "salaryMin": 60500,
@@ -4452,7 +4460,7 @@
         "it": "consulente-strategico-dell-ufficio-del-vicepresidente-epfl-lausanne",
         "en": "canevas-epfl-empty-epfl-lausanne",
         "de": "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
-        "fr": "canevas-epfl-empty-epfl-lausanne"
+        "fr": "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4498,7 +4506,7 @@
         "fr": [
           "cadre-epfl-epfl-lausanne",
           "canevas-epfl-vide-epfl-lausanne",
-          "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne"
+          "canevas-epfl-empty-epfl-lausanne"
         ],
         "it": [
           "canevas-epfl-empty-epfl-lausanne",
@@ -4516,7 +4524,6 @@
       "previousSlugs": [
         "cadre-epfl-epfl-lausanne",
         "canevas-epfl-vide-epfl-lausanne",
-        "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne",
         "canevas-epfl-empty-epfl-lausanne",
         "tirocinio-in-analisi-dei-dati-ambientali-epfl-lausanne",
         "canevas-epfl-vuoto-epfl-lausanne",
@@ -5028,7 +5035,7 @@
         "it": "responsabile-di-laboratorio-epfl-lausanne",
         "en": "laboratory-manager-epfl-lausanne",
         "de": "laborleiter-epfl-lausanne",
-        "fr": "laboratory-manager-epfl-lausanne"
+        "fr": "responsable-de-laboratoire-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5072,7 +5079,7 @@
       "externalId": "1164927455",
       "previousSlugsByLocale": {
         "fr": [
-          "responsable-de-laboratoire-epfl-lausanne"
+          "laboratory-manager-epfl-lausanne"
         ],
         "it": [
           "laboratory-manager-epfl-lausanne"
@@ -5082,8 +5089,7 @@
         ]
       },
       "previousSlugs": [
-        "laboratory-manager-epfl-lausanne",
-        "responsable-de-laboratoire-epfl-lausanne"
+        "laboratory-manager-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-17T12:46:58.964Z",
       "salaryMin": 83500,
@@ -5263,7 +5269,7 @@
         "it": "posizione-di-ricercatore-post-dottorato-presso-epfl-ai-per-la-scienza-salute-biologia-epfl-lausanne",
         "en": "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
         "de": "postdoktorandenstelle-an-der-epfl-ki-fur-die-wissenschaft-gesundheit-biologie-epfl-lausanne",
-        "fr": "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne"
+        "fr": "poste-de-chercheur-postdoctoral-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5307,7 +5313,7 @@
       "externalId": "1164939055",
       "previousSlugsByLocale": {
         "fr": [
-          "poste-de-chercheur-postdoctoral-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne"
+          "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne"
         ],
         "it": [
           "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne"
@@ -5317,8 +5323,7 @@
         ]
       },
       "previousSlugs": [
-        "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne",
-        "poste-de-chercheur-postdoctoral-a-l-epfl-ia-pour-la-science-sante-biologie-epfl-lausanne"
+        "postdoctoral-researcher-position-at-epfl-ai-for-science-health-biology-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-18T12:14:49.233Z",
       "salaryMin": 60500,
@@ -5494,11 +5499,11 @@
     },
     {
       "id": "epfl-2779f76ab4b1",
-      "slug": "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne",
+      "slug": "formatore-presso-la-biblioteca-epfl-specialista-di-formazione-80-epfl-lausanne",
       "slugByLocale": {
-        "it": "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne",
-        "en": "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
-        "de": "trainerin-bei-epfl-library-training-specialist-80-epfl-lausanne",
+        "it": "formatore-presso-la-biblioteca-epfl-specialista-di-formazione-80-epfl-lausanne",
+        "en": "trainer-at-the-epfl-library-training-specialist-80-epfl-lausanne",
+        "de": "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-80-epfl-lausanne",
         "fr": "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne"
       },
       "company": "EPFL",
@@ -5544,16 +5549,19 @@
       "previousSlugsByLocale": {
         "en": [
           "trainer-at-the-epfl-library-training-specialist-epfl-lausanne",
-          "trainer-at-epfl-library-training-specialist-80-epfl-lausanne"
+          "trainer-at-epfl-library-training-specialist-80-epfl-lausanne",
+          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne"
         ],
         "it": [
           "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
           "formatore-presso-la-biblioteca-epfl-specialista-della-formazione-epfl-lausanne",
-          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne"
+          "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne",
+          "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne"
         ],
         "de": [
           "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
-          "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne"
+          "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne",
+          "trainerin-bei-epfl-library-training-specialist-80-epfl-lausanne"
         ]
       },
       "previousSlugs": [
@@ -5562,7 +5570,9 @@
         "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-epfl-lausanne",
         "formatore-presso-la-biblioteca-epfl-specialista-della-formazione-epfl-lausanne",
         "formateur-trice-a-la-bibliotheque-de-l-epfl-specialiste-formations-80-epfl-lausanne",
-        "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne"
+        "allenatore-presso-epfl-library-specialista-di-formazione-80-epfl-lausanne",
+        "ausbilder-in-der-epfl-bibliothek-ausbildungsspezialist-epfl-lausanne",
+        "trainerin-bei-epfl-library-training-specialist-80-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-19T12:30:14.666Z",
       "salaryMin": 60500,
@@ -5903,9 +5913,9 @@
     },
     {
       "id": "epfl-794688223d98",
-      "slug": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
+      "slug": "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
+        "it": "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne",
         "en": "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
         "de": "postdoc-in-photoelektrochemie-und-korrosion-epfl-lausanne",
         "fr": "postdoc-en-photoelectrochimie-et-corrosion-epfl-lausanne"
@@ -5953,7 +5963,7 @@
       "previousSlugsByLocale": {
         "it": [
           "postdoc-in-fotoelettrochemsitria-e-corrosione-epfl-lausanne",
-          "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne"
+          "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne"
         ],
         "fr": [
           "post-doctorat-en-photoelectrochimie-et-corrosion-epfl-lausanne"
@@ -5961,7 +5971,7 @@
       },
       "previousSlugs": [
         "postdoc-in-fotoelettrochemsitria-e-corrosione-epfl-lausanne",
-        "postdoc-in-fotoelettrochimica-e-corrosione-epfl-lausanne",
+        "postdoc-in-photoelectrochemsitry-and-corrosion-epfl-lausanne",
         "post-doctorat-en-photoelectrochimie-et-corrosion-epfl-lausanne"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.748Z",
