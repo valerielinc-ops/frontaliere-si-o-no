@@ -69,7 +69,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -171,9 +170,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "fr": "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -216,7 +215,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
+        "radiology-specialist-hf-nuclear-medicine-universitatsspital-basel-basel",
+        "technicien-ne-en-radiologie-es-medecine-nucleaire-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -231,7 +232,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -250,9 +250,9 @@
       "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
-        "en": "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fr": "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
+        "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -295,7 +295,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel"
+        "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
+        "fellowship-kardiothorakale-radiologies-universitatsspital-basel-basel",
+        "bourse-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -310,7 +312,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -476,7 +477,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -495,7 +495,7 @@
       "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
-        "en": "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -542,11 +542,13 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel"
+        "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -561,7 +563,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -727,7 +728,6 @@
         "soins-clinic-ambulatoire-gynecologique-et-oncologique-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -872,28 +872,27 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "med-practical-assistant-in-radiology-universitatsspital-basel-basel"
+        "med-practical-assistant-in-radiology-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-          "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
+          "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
         ],
         "fr": [
-          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel",
-          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+          "epd-expert-e-en-soins-d-urgence-nfz-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1132,7 +1131,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1563,9 +1561,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "fr": "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1608,7 +1606,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
+        "radiology-specialist-hf-mri-universitatsspital-basel-basel",
+        "specialiste-en-radiologie-hf-irm-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1623,7 +1623,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1707,7 +1706,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:57:07.685Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1726,9 +1724,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "fr": "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -1771,7 +1769,9 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel"
+        "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
+        "radiology-specialist-hf-fh-universitatsspital-basel-basel",
+        "specialiste-de-radiologie-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1786,7 +1786,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -1949,7 +1948,6 @@
         "administrative-r-collaboratore-trice-in-case-management-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2129,7 +2127,6 @@
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -2150,7 +2147,7 @@
         "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "fr": "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2193,7 +2190,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "dipl-carriere-medecine-interne-7-2-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2206,7 +2204,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2363,7 +2360,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2550,7 +2546,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2634,7 +2629,6 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2652,7 +2646,7 @@
       "id": "unispital-basel-f16341854433",
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
@@ -2708,22 +2702,21 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
           "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "fr": [
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-          "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -2889,7 +2882,6 @@
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
@@ -2898,10 +2890,11 @@
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
+        "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3142,7 +3135,6 @@
         "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3216,7 +3208,6 @@
         ]
       },
       "firstSeenAt": "2026-05-21T13:42:28.490Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -3374,7 +3365,6 @@
         ]
       },
       "firstSeenAt": "2026-05-22T13:24:58.838Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4080,7 +4070,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.913Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4231,7 +4220,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4794,7 +4782,7 @@
         "it": "radiologiefachperson-mtra-o-pflegefachperson-hf-fh-universitatsspital-basel",
         "en": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
         "de": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "fr": "pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "fr": "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4837,7 +4825,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-unispital-basel-ch",
-        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel"
+        "radiologiefachperson-mtra-oder-pflegefachperson-hf-fh-universitatsspital-basel-basel",
+        "pflegefachperson-hf-fh-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4849,7 +4838,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.899Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -4930,7 +4918,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:52:53.593Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -5159,7 +5146,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T23:03:08.588Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "baseSalary": {
@@ -5818,14 +5804,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales",
-        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel",
         "med-practical-assistant-practical-assistant-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-universitatsspital-basel-basel",
         "med-assistant-pratique-assistant-pratique-mpa-amb-sz-universitatsspital-basel-basel",
         "med-praxisassistentin-praxisassistent-mpa-amb-sz-unispital-basel-ch",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel",
         "assistente-di-assistenza-pa-o-assistente-assistente-sanitario-e-sociale-ags-nel-salario-orario-universitatsspital-basel-",
-        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag"
+        "pflegeassistentin-pflegeassistent-pa-oder-assistentin-assistent-gesundheit-und-soziales-ag",
+        "pflegeassistentin-pflegeassistent-pa-o-assistentin-assistent-gesundheit-e-soziales-ags-im-stundenlohn-universitatsspital-basel",
+        "med-assistente-pratico-assistente-pratico-mpa-amb-sz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5935,7 +5922,7 @@
         "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "fr": "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
+        "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5978,7 +5965,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "dipl-expert-nds-hf-ip-station-intensive-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5991,7 +5979,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6094,7 +6081,7 @@
       "id": "unispital-basel-28c2fd6de85f",
       "slug": "terapeuta-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "it": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "en": "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
         "de": "ergotherapeutin-ergotherapeut-unispital-basel-ch",
         "fr": "ergotherapeute-universitatsspital-basel-basel"
@@ -6140,20 +6127,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+        "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
+        "terapeuta-del-lavoro-universitatsspital-basel-basel",
+        "ergotherapeute-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeutin-ergotherapeut-unispital-basel-ch",
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-unispital-basel-ch"
         ],
         "fr": [
-          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel",
-          "ergotherapeute-universitatsspital-basel-basel"
+          "ergotherapeutin-ergotherapeut-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.257Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -6920,7 +6906,6 @@
         ]
       },
       "firstSeenAt": "2026-06-04T16:00:17.911Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7077,7 +7062,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:24:02.256Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7324,7 +7308,6 @@
       "previousSlugs": [
         "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "medico-senior-brustklinik-universitatsspital-basel-basel",
-        "medico-senior-ambulatorio-universitatsspital-basel-basel",
         "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
         "senior-physician-brustklinik-universitatsspital-basel-basel",
@@ -7339,7 +7322,10 @@
         "senior-physician-cardiology-universitatsspital-basel-basel",
         "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
         "medecin-principal-cardiologie-universitatsspital-basel-basel",
-        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "medico-senior-angiologia-universitatsspital-basel-basel",
+        "senior-physician-angiology-universitatsspital-basel-basel",
+        "medecin-principal-angiologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7444,7 +7430,6 @@
         "arztsekretar-in-unispital-basel-ch",
         "arztsekretar-in-universitatsspital-basel-basel",
         "assistente-di-medico-universitatsspital-basel-basel-1122f1",
-        "segretario-del-dottore-in-universitatsspital-basel-basel",
         "doctor-s-secretary-in-universitatsspital-basel-basel",
         "secretaire-medical-e-universitatsspital-basel-basel-1122f1",
         "assistente-di-medico-universitatsspital-basel-basel",
@@ -7455,7 +7440,10 @@
         "medical-assistant-in-oncology-universitatsspital-basel-basel",
         "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "assistant-medical-en-oncologie-universitatsspital-basel-basel",
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-27T14:18:53.315Z",
       "salaryMin": 62000,
@@ -7528,7 +7516,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:35:48.852Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -7780,15 +7767,15 @@
       "titleByLocale": {
         "de": "Mitarbeiter*in QM&QS (Hotellerie & Gastronomie)",
         "it": "Collaboratore/trice*in QM&QS (Hotellerie & Gastronomie)",
-        "en": "Mitarbeiter*in QM&QS (Hotellerie & Gastronomie)",
-        "fr": "Mitarbeiter*in QM&QS (Hotellerie & Gastronomie)"
+        "en": "Employee* in QM&QS (Hotels & Gastronomy)",
+        "fr": "QM&QS (Hôtellerie & Gastronomie) Employé"
       },
       "description": "Aufgaben:\n• Sie tragen dazu bei, dass unsere hohen Food-Safety-Standards im täglichen Betrieb eingehalten werden\n\n• Sie begleiten Qualitätskontrollen, unterstützen Audits und entwickeln Prozesse aktiv weiter\n\n• Sie wirken bei HACCP-Themen sowie der Optimierung des Qualitätsmanagements mit\n\n• Sie erstellen und pflegen Spezifikationen, Qualitätsdokumentationen sowie relevante Auswertungen\n\n• Gemeinsam mit Produktion, Logistik und IT gestalten Sie effiziente und zukunftsorientierte Abläufe\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene EFZ-Ausbildung in der Lebensmittelbranche, beispielsweise als Lebensmitteltechnolog*in, Koch/Köchin oder über eine vergleichbare Qualifikation\n\n• Erfahrung in der Qualitätssicherung und Kenntnisse der GFSI-Standards\n\n• Technisches Flair sowie sicherer Umgang mit digitalen Tools und IT-Systemen\n\n• Präzise, strukturierte und selbstständige Arbeitsweise\n\n• Verantwortungsbewusstsein, lösungsorientierte Denkweise und eine offene, teamorientierte Kommunikation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Sie tragen dazu bei, dass unsere hohen Food-Safety-Standards im täglichen Betrieb eingehalten werden\n\n• Sie begleiten Qualitätskontrollen, unterstützen Audits und entwickeln Prozesse aktiv weiter\n\n• Sie wirken bei HACCP-Themen sowie der Optimierung des Qualitätsmanagements mit\n\n• Sie erstellen und pflegen Spezifikationen, Qualitätsdokumentationen sowie relevante Auswertungen\n\n• Gemeinsam mit Produktion, Logistik und IT gestalten Sie effiziente und zukunftsorientierte Abläufe\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene EFZ-Ausbildung in der Lebensmittelbranche, beispielsweise als Lebensmitteltechnolog*in, Koch/Köchin oder über eine vergleichbare Qualifikation\n\n• Erfahrung in der Qualitätssicherung und Kenntnisse der GFSI-Standards\n\n• Technisches Flair sowie sicherer Umgang mit digitalen Tools und IT-Systemen\n\n• Präzise, strukturierte und selbstständige Arbeitsweise\n\n• Verantwortungsbewusstsein, lösungsorientierte Denkweise und eine offene, teamorientierte Kommunikation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Sie tragen dazu bei, dass unsere hohen Food-Safety-Standards im täglichen Betrieb eingehalten werden\n\n• Sie begleiten Qualitätskontrollen, unterstützen Audits und entwickeln Prozesse aktiv weiter\n\n• Sie wirken bei HACCP-Themen sowie der Optimierung des Qualitätsmanagements mit\n\n• Sie erstellen und pflegen Spezifikationen, Qualitätsdokumentationen sowie relevante Auswertungen\n\n• Gemeinsam mit Produktion, Logistik und IT gestalten Sie effiziente und zukunftsorientierte Abläufe\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene EFZ-Ausbildung in der Lebensmittelbranche, beispielsweise als Lebensmitteltechnolog*in, Koch/Köchin oder über eine vergleichbare Qualifikation\n\n• Erfahrung in der Qualitätssicherung und Kenntnisse der GFSI-Standards\n\n• Technisches Flair sowie sicherer Umgang mit digitalen Tools und IT-Systemen\n\n• Präzise, strukturierte und selbstständige Arbeitsweise\n\n• Verantwortungsbewusstsein, lösungsorientierte Denkweise und eine offene, teamorientierte Kommunikation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Sie tragen dazu bei, dass unsere hohen Food-Safety-Standards im täglichen Betrieb eingehalten werden\n\n• Sie begleiten Qualitätskontrollen, unterstützen Audits und entwickeln Prozesse aktiv weiter\n\n• Sie wirken bei HACCP-Themen sowie der Optimierung des Qualitätsmanagements mit\n\n• Sie erstellen und pflegen Spezifikationen, Qualitätsdokumentationen sowie relevante Auswertungen\n\n• Gemeinsam mit Produktion, Logistik und IT gestalten Sie effiziente und zukunftsorientierte Abläufe\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene EFZ-Ausbildung in der Lebensmittelbranche, beispielsweise als Lebensmitteltechnolog*in, Koch/Köchin oder über eine vergleichbare Qualifikation\n\n• Erfahrung in der Qualitätssicherung und Kenntnisse der GFSI-Standards\n\n• Technisches Flair sowie sicherer Umgang mit digitalen Tools und IT-Systemen\n\n• Präzise, strukturierte und selbstständige Arbeitsweise\n\n• Verantwortungsbewusstsein, lösungsorientierte Denkweise und eine offene, teamorientierte Kommunikation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Sie tragen dazu bei, dass unsere hohen Food-Safety-Standards im täglichen Betrieb eingehalten werden\n\n• Sie begleiten Qualitätskontrollen, unterstützen Audits und entwickeln Prozesse aktiv weiter\n\n• Sie wirken bei HACCP-Themen sowie der Optimierung des Qualitätsmanagements mit\n\n• Sie erstellen und pflegen Spezifikationen, Qualitätsdokumentationen sowie relevante Auswertungen\n\n• Gemeinsam mit Produktion, Logistik und IT gestalten Sie effiziente und zukunftsorientierte Abläufe\n\nAnforderungen:\n• Sie verfügen über eine abgeschlossene EFZ-Ausbildung in der Lebensmittelbranche, beispielsweise als Lebensmitteltechnolog*in, Koch/Köchin oder über eine vergleichbare Qualifikation\n\n• Erfahrung in der Qualitätssicherung und Kenntnisse der GFSI-Standards\n\n• Technisches Flair sowie sicherer Umgang mit digitalen Tools und IT-Systemen\n\n• Präzise, strukturierte und selbstständige Arbeitsweise\n\n• Verantwortungsbewusstsein, lösungsorientierte Denkweise und eine offene, teamorientierte Kommunikation\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti: • Contribuisci a garantire che i nostri elevati standard di sicurezza alimentare siano rispettati nell'attività quotidiana • Accompagni i controlli di qualità, supporti gli audit e sviluppi attivamente i processi • Partecipa ai temi HACCP e all'ottimizzazione della gestione della qualità • Crea e mantieni specifiche, documentazione di qualità e valutazioni rilevanti • Insieme alla produzione, alla logistica e all'IT progetta processi efficienti e orientati al futuro Requisiti: • Hai completato la formazione EFZ nell'industria alimentare, ad esempio come tecnologo alimentare, Cuoco o possiedi una qualifica comparabile • Esperienza nell'assicurazione della qualità e conoscenza del Standard GFSI • Estremità tecnica e utilizzo sicuro di strumenti digitali e sistemi IT • Modo di lavorare preciso, strutturato e indipendente • Senso di responsabilità, modo di pensare orientato alla soluzione e comunicazione aperta e orientata al team Offriamo: • Politica salariale interessante ed eccellenti prestazioni sociali • Riduzioni nei settori dello shopping, dello sport e del tempo libero • Supporto per il trasloco e la ricerca di un appartamento • 25 giorni di ferie più 5 giorni flessibili gratuiti • Supporto per la formazione continua e la pianificazione della carriera • Campus nel cuore di Basilea e nel triangolo di confine • Completo opzioni per l'assistenza all'infanzia • Programma gratuito di sport ed esercizi",
+        "en": "Tasks: • You contribute to ensuring that our high food safety standards are adhered to in daily operations • You accompany quality controls, support audits and actively develop processes • You participate in HACCP topics and the optimization of quality management • You create and maintain specifications, quality documentation and relevant evaluations • Together with production, logistics and IT, you design efficient and future-oriented processes Requirements: • You have completed EFZ training in the food industry, for example as a food technologist, Cook or have a comparable qualification • Experience in quality assurance and knowledge of the GFSI standards • Technical flair and confident use of digital tools and IT systems • Precise, structured and independent way of working • Sense of responsibility, solution-oriented way of thinking and open, team-oriented communication We offer: • Attractive wage policy and excellent social benefits • Discounts in the areas of shopping, sports and leisure • Support with moving and looking for an apartment • 25 days of vacation plus 5 free flexi days • Support with further training and career planning • Campus in the heart of Basel and in the border triangle • Comprehensive childcare options • Free sports and exercise program",
+        "fr": "Tâches : • Vous contribuez à garantir le respect de nos normes élevées de sécurité alimentaire dans les opérations quotidiennes • Vous accompagnez les contrôles de qualité, soutenez les audits et développez activement les processus • Vous participez aux sujets HACCP et à l'optimisation de la gestion de la qualité • Vous créez et maintenez des spécifications, des documents de qualité et des évaluations pertinentes • En collaboration avec la production, la logistique et l'informatique, vous concevez des processus efficaces et orientés vers l'avenir Exigences : • Vous avez suivi une formation EFZ dans l'industrie alimentaire, par exemple en tant que technologue alimentaire, cuisinier ou avez une qualification comparable • Expérience en assurance qualité et connaissance Normes GFSI • Sens technique et utilisation sûre des outils numériques et des systèmes informatiques • Méthode de travail précise, structurée et indépendante • Sens des responsabilités, réflexion axée sur les solutions et communication ouverte et axée sur l'équipe Nous proposons : • Une politique salariale attrayante et d'excellentes prestations sociales • Des réductions dans les domaines du shopping, du sport et des loisirs • Une aide au déménagement et à la recherche d'un appartement • 25 jours de vacances plus 5 jours flexibles gratuits • Un soutien pour la formation continue et la planification de carrière • Campus au cœur de Bâle et dans le triangle frontalier • Options complètes de garde d'enfants • Programme de sports et d'exercices gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7814,7 +7801,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-qm-amp-qs-hotellerie-amp-gastronomie-unispital-basel-ch"
@@ -8044,7 +8030,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T14:05:10.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
@@ -8409,7 +8394,9 @@
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8509,7 +8496,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:35:18.960Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
