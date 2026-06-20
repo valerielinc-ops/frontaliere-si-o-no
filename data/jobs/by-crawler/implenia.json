@@ -1325,16 +1325,16 @@
       "companyDomain": "implenia.com",
       "title": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
-        "it": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100%",
+        "it": "Senior Transaction Advisory Manager (lun/mercrediere/d), Opfikon, 80-100%",
         "en": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100%",
-        "de": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100%",
-        "fr": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100%"
+        "de": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100 %",
+        "fr": "Gestionnaire principal des conseils sur les transactions (m/m/j), Opfikon, 80-100%"
       },
       "description": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Real Estate — Basel. Implenia, Construction & Construction Services.",
       "descriptionByLocale": {
-        "it": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Immobiliare — Basel. Implenia, Construction & Construction Services.",
+        "it": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Real Estate — Basilea. Implenia, Costruzioni e Servizi di Costruzione.",
         "en": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Real Estate — Basel. Implenia, Construction & Construction Services.",
-        "de": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Real Estate — Basel Implenia, Construction & Construction Services.",
+        "de": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100 % — Immobilien — Basel. Implenia, Bauwesen und Baudienstleistungen.",
         "fr": "Senior Transaction Advisory Manager (m/w/d), Opfikon, 80-100% — Real Estate — Basel. Implenia, Construction & Construction Services."
       },
       "location": "Basel",
@@ -1372,7 +1372,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -3186,13 +3187,16 @@
       "title": "Initiativbewerbung",
       "titleByLocale": {
         "it": "Iniziativbewerbung",
-        "en": "Initiativbewerbung",
-        "de": "Initiativbewerbung",
+        "en": "Initiativbewerbung translates to Application on Initiative.",
+        "de": "Initiativebewerbung",
         "fr": "Initiativbewerbung"
       },
       "description": "Initiativbewerbung — Andere — Opfikon. Implenia, Construction & Construction Services.",
       "descriptionByLocale": {
-        "fr": "Initiativbewerbung — Andere — Opfikon. Implenia, Construction & Construction Services."
+        "fr": "Initiativbewerbung — Andere — Opfikon. Implenia, Construction & Construction Services.",
+        "it": "Initiativbewerbung — Andere — Opfikon. Implenia, Costruzioni e Servizi di Costruzione.",
+        "en": "Initiativbewerbung — Andere - Opfikon. Implenia, Construction & Construction Services.",
+        "de": "Initiativbewerbung — Andere — Opfikon. Implenia, Bauwesen und Baudienstleistungen."
       },
       "location": "Opfikon",
       "canton": "ZH",
