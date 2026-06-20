@@ -3222,8 +3222,6 @@
         "verwaltungsassistent-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
-        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
-        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistante-administrative-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",
@@ -3327,7 +3325,7 @@
       "slugByLocale": {
         "it": "formatore-di-laboratorio-della-scuola-di-informatica-epfl-lausanne",
         "en": "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne",
-        "de": "labortrainer-der-informatikschule-epfl-lausanne",
+        "de": "ausbilder-oder-ausbilder-laboratoire-ecole-informatique-epfl-lausanne",
         "fr": "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne"
       },
       "company": "EPFL",
@@ -3372,6 +3370,7 @@
       "externalId": "1164886255",
       "previousSlugs": [
         "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne",
+        "labortrainer-der-informatikschule-epfl-lausanne",
         "think-okay-let-s-tackle-this-translation-the-user-wants-the-job-title-formatrice-ou-formateur-laboratoire-ecole"
       ],
       "previousSlugsByLocale": {
@@ -3379,7 +3378,8 @@
           "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne"
         ],
         "de": [
-          "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne"
+          "formatrice-ou-formateur-laboratoire-ecole-informatique-epfl-lausanne",
+          "labortrainer-der-informatikschule-epfl-lausanne"
         ],
         "fr": [
           "think-okay-let-s-tackle-this-translation-the-user-wants-the-job-title-formatrice-ou-formateur-laboratoire-ecole"
@@ -4254,11 +4254,11 @@
     },
     {
       "id": "epfl-23d9b7e51a76",
-      "slug": "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
+      "slug": "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
       "slugByLocale": {
-        "it": "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
+        "it": "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
         "en": "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-        "de": "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne",
+        "de": "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne",
         "fr": "2-postdoc-positions-a-l-epfl-sur-les-modeles-de-fondation-biologique-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4306,18 +4306,22 @@
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne"
         ],
         "it": [
-          "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne"
+          "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
+          "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne"
         ],
         "en": [
           "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne"
         ],
         "de": [
-          "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne"
+          "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
+          "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
         ]
       },
       "previousSlugs": [
         "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-        "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne"
+        "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
+        "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne",
+        "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
       ],
       "firstSeenAt": "2026-06-15T22:56:18.340Z",
       "salaryMin": 60500,

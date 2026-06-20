@@ -3178,7 +3178,7 @@
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
         "en": "initiativbewerbung-implenia-opfikon",
-        "de": "initiativbewerbung-implenia-ch",
+        "de": "initiativebewerbung-implenia-opfikon",
         "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
@@ -3228,6 +3228,9 @@
         "it": [
           "initiativbewerbung-implenia-ch",
           "initiativbewerbung-implenia-opfikon"
+        ],
+        "de": [
+          "initiativbewerbung-implenia-ch"
         ]
       },
       "needsRetranslation": true,
