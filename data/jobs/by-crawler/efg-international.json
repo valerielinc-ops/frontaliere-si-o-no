@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-06-21T11:28:15.004Z",
+  "assembledAt": "2026-06-21T21:47:48.682Z",
   "jobs": [
     {
       "id": "efg-6266",
@@ -83,7 +83,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.402Z",
+      "crawledAt": "2026-06-21T21:47:46.231Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -126,101 +126,8 @@
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
       ],
-      "country": "CH"
-    },
-    {
-      "id": "efg-6219",
-      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Data Ops Engineer",
-        "it": "Ingegnere di Data Ops",
-        "de": "Data Ops Ingenieur",
-        "fr": "Ingénieur des opérations de données"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-06-21T11:28:12.400Z",
-      "slugByLocale": {
-        "it": "data-ops-ingegnere-efg-international-ag-geneve",
-        "en": "data-ops-engineer-efg-geneve",
-        "de": "data-ops-ingenieur-efg-international-ag-geneve",
-        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-05-20",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "1204",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-20T22:46:49.521Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "de": [
-          "data-ops-engineer-efg-geneve"
-        ],
-        "fr": [
-          "data-ops-engineer-efg-geneve",
-          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "data-ops-engineer-efg-geneve",
-        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
-      ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -309,7 +216,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.400Z",
+      "crawledAt": "2026-06-21T21:47:46.229Z",
       "slugByLocale": {
         "it": "cis-specialista-onboarding-periodic-reviews-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -347,6 +254,101 @@
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
       "country": "CH"
+    },
+    {
+      "id": "efg-6219",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n- Department: IT Data Departement\n\n- Work time Percentage: 100%\n\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n\n- Maintain high standards of data quality, reliability, and performance.\n\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n\n- Comfortable working with Python, SQL, PySpark and Databricks\n\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n\n- Familiarity with microservices architecture, API management and observability is a real plus\n\n- Experienced with Azure databricks.\n\n- Good communication and collaboration skills.\n\n- Rigorous and methodical in documentation and process creation\n\n- High interest for convergence, normalization and reusability.\n\n- Curious, enthusiastic and proactive\n\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6219",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Data Ops Engineer",
+        "it": "Ingegnere di Data Ops",
+        "de": "Data Ops Ingenieur",
+        "fr": "Ingénieur des opérations de données"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n- Department: IT Data Departement\n- Work time Percentage: 100%\n- Location: Geneva\n\nOur Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nDataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nWe are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line.\n\nKey team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.\n\nMain Responsibilities\n\nAs our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.\n- Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders.\n- We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python\n- By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.\n- Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP)\n\n- track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.\n- Design, implement, and optimize data pipeline in batch and streaming mode.\n- Follow and apply CI/CD practice to automate and streamline deployments and integrations.\n- Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.\n- Collaborate with cross-functional teams to improve and review governance around integration operations.\n- Maintain high standards of data quality, reliability, and performance.\n- Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement\n\nRequirements and Qualifications\n- At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.\n- Comfortable working with Python, SQL, PySpark and Databricks\n- Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).\n- Familiarity with microservices architecture, API management and observability is a real plus\n- Experienced with Azure databricks.\n- Good communication and collaboration skills.\n- Rigorous and methodical in documentation and process creation\n- High interest for convergence, normalization and reusability.\n- Curious, enthusiastic and proactive\n- Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment\n- Fluent in spoken and written English, French is an asset.\n\nOur Values\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on: Being proactive to rapidly deliver high-quality results\n- Passionate: Being committed and striving for excellence\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\nPlease ensure to attach a cover letter to your CV when filling the application.\n\nApplication\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Informazioni generali\n- Dipartimento: Dipartimento dati IT\n- Tempo di lavoro Percentuale: 100%\n- Posizione: Ginevra\n\nLa nostra azienda\n\nEFG International è un gruppo bancario privato globale, che offre servizi di private banking e asset management. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si sforza di essere un datore di lavoro di scelta.\n\nIl nostro scopo e missione\n\nIncoraggiare le menti imprenditoriali a creare valore – oggi e per il futuro.\n\nDescrizione del lavoro\n\nLa missione del team di piattaforma DataOps è garantire un livello di servizio affidabile in ogni componente tecnologica della piattaforma dati EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack).\n\nStiamo costruendo ed evolvendo la piattaforma CI/CD che supporta le implementazioni delle pipeline di dati, portando competenze di implementazione e lavorando a stretto contatto con i team di progetto per ottenere consegnabili attraverso la linea.\n\nLe responsabilità chiave del team includono, la governance CI/CD delle pipeline di dati, il supporto di distribuzione delle pipeline e la certificazione e il monitoraggio delle operazioni a livello di piattaforma.\n\nPrincipali responsabilità\n\nMentre la nostra piattaforma e il panorama dei dati si evolvono, vorremmo rafforzare il nostro team con un ingegnere CI/CD specializzato nelle implementazioni delle pipeline di dati.\n- Le aspettative sulla qualità dei dati sono in costante aumento con la necessità di una consegna di servizio estremamente stabile. Dobbiamo garantire che i nostri processi di consegna siano controllati e visibili ai nostri stakeholder.\n- Siamo particolarmente interessati a qualcuno che guida le operazioni di Kafka, Spark e Databricks con Python\n- Rinforzando il nostro team, contribuirai notevolmente alla continuità e alla qualità delle nostre operazioni.\n- Assumere la proprietà operativa di specifici servizi di dati (gestione del cambiamento, gestione dell'assicurazione di qualità, SLA, SOP)\n\n- tracciare e garantire il buon funzionamento dei datadotti critici durante le ore asiatiche, agendo come punto di contatto primario per problemi critici in un modello di supporto al sole.\n- Progettare, implementare e ottimizzare la pipeline di dati in modalità batch e streaming.\n- Seguire e applicare la pratica CI/CD per automatizzare e ottimizzare le implementazioni e le integrazioni.\n- Creare, mantenere e migliorare la documentazione e le procedure operative per le quali è garantita la proprietà operativa.\n- Collaborare con team interfunzionali per migliorare e rivedere la governance nelle operazioni di integrazione.\n- Mantenere elevati standard di qualità dei dati, affidabilità e prestazioni.\n- Mantenere corrente con progressi nell'ingegneria dei dati, di dataops tech stack, per supportare il miglioramento continuo\n\nRequisiti e qualifiche\n- Almeno 5 anni di comprovata esperienza pratica nell'ingegneria dei dati e nell'implementazione delle pipeline di dati radicate nella pratica dei devoti.\n- Confortevole lavoro con Python, SQL, PySpark e Databricks\n- Robusta esperienza di tutte le principali piattaforme e processi CI/CD in ambiente ibrido (ad esempio, Azure DevOps, GitLab CI, GitHub Actions ).\n- La familiarità con l'architettura dei microservizi, la gestione delle API e l'osservabilità è un vantaggio reale\n- Esperienza con i databrick Azure.\n- Buone capacità di comunicazione e collaborazione.\n- Rigoroso e metodico nella documentazione e nella creazione di processi\n- Alto interesse per la convergenza, la normalizzazione e la riutilizzabilità.\n- Curioso, entusiasta e proattivo\n- Appassionato sulle tecnologie di elaborazione dei dati, con un forte desiderio di imparare e crescere in un ambiente esigente\n- Fluente in inglese parlato e scritto, il francese è un bene.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
+        "de": "Allgemeine Info\n- Abteilung: IT Data Department\n- Arbeitszeit Prozentsatz: 100%\n- Standort: Genf\n\nUnsere Firma\n\nEFG International ist eine globale private Bankengruppe, die private Bank- und Asset-Management-Dienste anbietet. Wir servieren Kunden an über 40 Standorten weltweit. EFG International bietet ein anregendes und dynamisches Arbeitsumfeld und strebt danach, Arbeitgeber der Wahl zu sein.\n\nUnsere Aufgabe und Mission\n\nUnternehmerische Köpfe stärken, Wert zu schaffen – heute und für die Zukunft.\n\nJob Description\n\nDataOps-Plattform-Team-Mission ist, ein zuverlässiges Serviceniveau über jede technologische Komponente der EFG-Datenplattform (Databricks, Kafka, Spark, Eastic Search, Apache MQ, uServices Stack) zu gewährleisten.\n\nWir bauen und entwickeln die CI/CD-Plattform, die Datenpipeline-Bereitstellungen unterstützt, Implementierungskompetenz bringt und eng mit Projektteams zusammenarbeitet, um Lieferungen über die Strecke zu erhalten.\n\nZu den Hauptaufgaben des Teams gehören die CI/CD Governance von Datenpipelines, die Unterstützung der Pipeline-Bereitstellung und die Zertifizierung und Überwachung von Plattformebenenoperationen.\n\nHauptverantwortlichkeiten\n\nMit der Entwicklung unserer Plattform und Datenlandschaft möchten wir unser Team mit einem qualifizierten CI/CD-Ingenieur, der sich auf die Implementierung von Datenpipeline spezialisiert hat, stärken.\n- Erwartungen an die Datenqualität steigen ständig mit der Notwendigkeit einer extrem stabilen Service-Lieferung. Wir müssen sicherstellen, dass unsere Lieferprozesse für unsere Stakeholder kontrolliert und sichtbar werden.\n- Wir sind besonders an einem komfortablen Fahren von Kafka, Spark und Databricks mit Python interessiert\n- Durch die Verstärkung unseres Teams tragen Sie maßgeblich zur Kontinuität und Qualität unserer Operationen bei.\n- Nehmen Sie das operative Eigentum an bestimmten Datendiensten (Wechselmanagement, Qualitätssicherung, SLA, SOP)\n\n- den reibungslosen Betrieb von kritischen Datenpipelines während asiatischer Stunden verfolgen und sicherstellen, als primärer Ansprechpartner für kritische Fragen in einem Folgemodell der Sonnenunterstützung.\n- Entwicklung, Implementierung und Optimierung der Datenpipeline im Batch- und Streaming-Modus.\n- Folgen Sie der CI/CD-Praxis, um Bereitstellungen und Integrationen zu automatisieren und zu optimieren.\n- Erstellung, Wartung und Verbesserung der Dokumentation und der operativen Verfahren, für die das operative Eigentum gewährleistet ist.\n- Zusammenarbeit mit funktionsübergreifenden Teams zur Verbesserung und Überprüfung der Governance bei Integrationsoperationen.\n- Bewahren Sie hohe Standards der Datenqualität, Zuverlässigkeit und Leistung.\n- Bleiben Sie aktuell mit Fortschritten in der Datentechnik, von Dataops Tech Stack, um kontinuierliche Verbesserung zu unterstützen\n\nAnforderungen und Qualifikationen\n- Mindestens 5 Jahre Erfahrung in der Datentechnik und Datenpipeline-Bereitstellung, die in der Praxis verwurzelt ist.\n- Komfortables Arbeiten mit Python, SQL, PySpark und Databricks\n- Robuste Erfahrung aller führenden CI/CD-Plattformen und Prozesse in hybrider Umgebung (z.B. Azure DevOps, GitLab CI, GitHub Actions).\n- Vertrautheit mit Mikroservice-Architektur, API-Management und Beobachtbarkeit ist ein echtes Plus\n- Erlebt mit Azure Databricks.\n- Gute Kommunikation und Zusammenarbeit.\n- Beständig und methodisch in der Dokumentation und Prozesserstellung\n- Hohes Interesse an Konvergenz, Normalisierung und Wiederverwendbarkeit.\n- Kurios, begeistert und proaktiv\n- Leidenschaftlich über Datenverarbeitungstechnologien, mit einem starken Wunsch, in einer anspruchsvollen Umgebung zu lernen und zu wachsen\n- Flöten in gesprochenem und geschriebenem Englisch, Französisch ist ein Vermögen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
+        "fr": "Informations générales\n- Département: Département des données informatiques\n- Temps de travail Pourcentage: 100%\n- Lieu: Genève\n\nNotre société\n\nEFG International est un groupe mondial de banques privées qui offre des services de banque privée et de gestion d'actifs. Nous servons des clients dans plus de 40 endroits dans le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix.\n\nNotre but et notre mission\n\nAutoriser les esprits entrepreneurs à créer de la valeur – aujourd'hui et pour l'avenir.\n\nDescription de l'emploi\n\nLa mission de l'équipe de plate-forme DataOps est d'assurer un niveau de service fiable pour chaque composant technologique de la plate-forme de données EFG (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices pile).\n\nNous développons et évoluons la plate-forme CI/CD qui appuie le déploiement de pipelines de données, apporte une expertise en mise en oeuvre et travaille en étroite collaboration avec les équipes de projet pour obtenir les résultats attendus.\n\nLes principales responsabilités de l'équipe comprennent la gouvernance des pipelines de données, le soutien au déploiement des pipelines et la certification et la surveillance des opérations au niveau des plates-formes.\n\nPrincipales responsabilités\n\nAu fur et à mesure que notre plateforme et notre paysage de données évoluent, nous souhaitons renforcer notre équipe avec un ingénieur CI/CD qualifié spécialisé dans les implémentations de pipelines de données.\n- Les attentes en matière de qualité des données ne cessent d'augmenter avec la nécessité d'une prestation de services extrêmement stable. Nous devons veiller à ce que nos processus de prestation soient contrôlés et visibles par nos intervenants.\n- Nous sommes particulièrement intéressés par quelqu'un confortable conduire des opérations Kafka, Spark et Databricks avec Python\n- En renforçant notre équipe, vous contribuerez grandement à la continuité et à la qualité de nos opérations.\n- Prise en charge opérationnelle de services de données spécifiques (gestion du changement, gestion de l'assurance qualité, SLA, SOP)\n\n- suivre et assurer le bon fonctionnement des pipelines de données critiques pendant les heures d'Asie, agissant comme point de contact principal pour les problèmes critiques dans un modèle de soutien solaire suivant.\n- Concevoir, mettre en œuvre et optimiser le pipeline de données en mode batch et streaming.\n- Suivre et appliquer la pratique de l'IC/CD pour automatiser et rationaliser les déploiements et les intégrations.\n- Créer, maintenir et améliorer la documentation et les procédures opérationnelles pour lesquelles la propriété opérationnelle est assurée.\n- Collaborer avec des équipes interfonctionnelles pour améliorer et examiner la gouvernance des opérations d'intégration.\n- Maintenir des normes élevées de qualité des données, de fiabilité et de performance.\n- Restez à jour avec les progrès de l'ingénierie des données, de la pile de technologie de données, pour soutenir l'amélioration continue\n\nExigences et qualifications\n- Au moins 5 ans d'expérience pratique prouvée en ingénierie des données et en déploiement de pipelines de données enracinés dans la pratique des dévops.\n- Travail confortable avec Python, SQL, PySpark et Databricks\n- Expérience robuste de toutes les plateformes et processus CI/CD de pointe dans l'environnement hybride (p. ex. Azure DevOps, GitLab CI, GitHub Actions).\n- Familiarité avec l'architecture des microservices, la gestion des API et l'observabilité est un vrai plus\n- Expérience avec Azure databricks.\n- Bonnes compétences en communication et collaboration.\n- Rigieuse et méthodique dans la documentation et la création de processus\n- Intérêt pour la convergence, la normalisation et la réutilisabilité.\n- Curieux, enthousiaste et proactif\n- Passionné par les technologies de traitement des données, avec un vif désir d'apprendre et de grandir dans un environnement exigeant\n- En anglais parlé et écrit, le français est un atout.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nVeuillez joindre une lettre d'accompagnement à votre CV pour remplir la demande.\n\nDemande\n\nSi vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"DE\"><strong>General Info</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Department: IT Data Departement</span></li><li><span lang=\"EN-GB\">Work time Percentage: 100%</span></li><li><span lang=\"EN-GB\">Location: Geneva</span></li></ul><p> </p><p><span lang=\"IT-CH\"><strong>Our Company</strong></span></p><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span lang=\"EN-GB\"><strong>Job Description</strong></span></p><p><span lang=\"EN-GB\">DataOps platform team mission is to ensure a reliable service level across each technological component of the EFG data platform (Databricks, Kafka, Spark, Elastic Search, Apache MQ, uServices stack). </span></p><p><span lang=\"EN-GB\">We are building and evolving the CI/CD Platform that supports data pipeline deployments, bringing implementation expertise and working closely with project teams to get deliverables across the line. </span></p><p><span lang=\"EN-GB\">Key team responsibilities includes, CI/CD governance of data pipelines, pipeline deployment support and certification and monitoring of platform level operations.</span></p><p><span lang=\"EN-GB\"><strong>Main Responsibilities</strong></span></p><p><span lang=\"EN-GB\"> As our platform and data landscape evolve, we would like to strengthen our team with a skilled CI/CD engineer specialised in data pipeline implementations.</span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Expectations on data quality are constantly increasing with the need for a extremely stable service delivery. We must ensure that our delivery processes are controlled and visible to our stakeholders. </span></li><li><span lang=\"EN-GB\">We are particularly interested in someone comfortable driving Kafka, Spark and Databricks operations with Python </span></li><li><span lang=\"EN-GB\">By reinforcing our team, you will greatly contribute to the continuity and quality of our operations.</span></li><li><span lang=\"EN-GB\">Take operational ownership of specific data services (change management, quality insurance management, SLA, SOP) </span></li><li><span lang=\"EN-GB\">track and ensure the smooth operation of critical data pipelines during Asian hours, acting as the primary point of contact for critical issues in a follow-the sun support model.</span></li><li><span lang=\"EN-GB\">Design, implement, and optimize data pipeline in batch and streaming mode.</span></li><li><span lang=\"EN-GB\">Follow and apply CI/CD practice to automate and streamline deployments and integrations.</span></li><li><span lang=\"EN-GB\">Create, maintain, and improve documentation and operational procedures for which operationnal ownership is ensured.</span></li><li><span lang=\"EN-GB\">Collaborate with cross-functional teams to improve and review governance around integration operations.</span></li><li><span lang=\"EN-GB\">Maintain high standards of data quality, reliability, and performance.</span></li><li><span lang=\"EN-GB\">Stay current with advancements in data engineering, of dataops tech stack, to support continuous improvement</span></li></ul><p><span lang=\"EN-GB\"><strong>Requirements and Qualifications</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">At least 5 Years of proven hands-on experience in data engineering and data pipeline deployment rooted in devops practice.</span></li><li><span lang=\"EN-GB\">Comfortable working with Python, SQL, PySpark and Databricks</span></li><li><span lang=\"EN-GB\">Robust experience of any leading CI/CD platforms and processes in hybrid environment (e.g., Azure DevOps, GitLab CI, GitHub Actions ).</span></li><li><span lang=\"EN-GB\">Familiarity with microservices architecture, API management and observability is a real plus </span></li><li><span lang=\"EN-GB\">Experienced with Azure databricks.</span></li><li><span lang=\"EN-GB\">Good communication and collaboration skills.</span></li><li><span lang=\"EN-GB\">Rigorous and methodical in documentation and process creation</span></li><li><span lang=\"EN-GB\">High interest for convergence, normalization and reusability.</span></li><li><span lang=\"EN-GB\">Curious, enthusiastic and proactive</span></li><li><span lang=\"EN-GB\">Passionate about data processing technologies, with a strong desire to learn and grow in a demanding environment</span></li><li><span lang=\"EN-GB\">Fluent in spoken and written English, French is an asset.</span></li></ul><p><span lang=\"EN-GB\"> </span></p><p><span lang=\"EN-GB\"><strong>Our Values</strong></span></p><ul style=\"list-style-type: disc;\"><li><span lang=\"EN-GB\">Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span lang=\"EN-GB\">Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span lang=\"EN-GB\">Passionate: Being committed and striving for excellence</span></li><li><span lang=\"EN-GB\">Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span lang=\"EN-GB\">Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul><p><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></p><p><span lang=\"EN-GB\">Application</span></p><p><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-06-21T21:47:46.228Z",
+      "slugByLocale": {
+        "it": "data-ops-ingegnere-efg-international-ag-geneve",
+        "en": "data-ops-engineer-efg-geneve",
+        "de": "data-ops-ingenieur-efg-international-ag-geneve",
+        "fr": "data-ops-ingenieur-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-20",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "",
+      "postalCode": "1204",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-20T22:46:49.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "de": [
+          "data-ops-engineer-efg-geneve"
+        ],
+        "fr": [
+          "data-ops-engineer-efg-geneve",
+          "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "data-ops-engineer-efg-geneve",
+        "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
+      ],
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -397,7 +399,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.398Z",
+      "crawledAt": "2026-06-21T21:47:46.227Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
@@ -436,7 +438,8 @@
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6190",
@@ -564,7 +567,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.397Z",
+      "crawledAt": "2026-06-21T21:47:46.226Z",
       "slugByLocale": {
         "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -607,7 +610,8 @@
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -658,7 +662,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.396Z",
+      "crawledAt": "2026-06-21T21:47:46.225Z",
       "slugByLocale": {
         "it": "client-support-officer-efg-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -696,7 +700,8 @@
           "funzionario-dell-assistenza-clienti-efg-international-ag-st"
         ]
       },
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -822,7 +827,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.394Z",
+      "crawledAt": "2026-06-21T21:47:46.223Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -867,7 +872,8 @@
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1020,7 +1026,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.392Z",
+      "crawledAt": "2026-06-21T21:47:46.221Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1248,7 +1254,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.392Z",
+      "crawledAt": "2026-06-21T21:47:46.220Z",
       "slugByLocale": {
         "it": "international-payroll-specialista-efg-international-ag-lugano-n9331q",
         "en": "international-payroll-specialist-efg-international-ag-lugano-n9331q",
@@ -1383,7 +1389,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.390Z",
+      "crawledAt": "2026-06-21T21:47:46.219Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1565,7 +1571,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.389Z",
+      "crawledAt": "2026-06-21T21:47:46.217Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1603,7 +1609,8 @@
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -1654,7 +1661,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.388Z",
+      "crawledAt": "2026-06-21T21:47:46.216Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -1698,7 +1705,8 @@
         "client-services-officer-geneva-talent-pool-efg-international-ag-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -1749,7 +1757,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.386Z",
+      "crawledAt": "2026-06-21T21:47:46.215Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -1792,7 +1800,8 @@
         "senior-private-markets-product-specialist-efg-zurich",
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -1843,7 +1852,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.386Z",
+      "crawledAt": "2026-06-21T21:47:46.214Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1932,7 +1941,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.385Z",
+      "crawledAt": "2026-06-21T21:47:46.213Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -1975,7 +1984,8 @@
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2138,7 +2148,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.384Z",
+      "crawledAt": "2026-06-21T21:47:46.212Z",
       "slugByLocale": {
         "it": "it-trading-treasury-solutions-specialista-efg-international-ag-lugano-n93k12",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2208,7 +2218,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2355,7 +2366,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.382Z",
+      "crawledAt": "2026-06-21T21:47:46.211Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2415,99 +2426,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
-    },
-    {
-      "id": "efg-5869",
-      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n\n- Business analyst and power user of MI data\n\n- Establish and compile presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Design and maintain data models for analysis and forecasting\n\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n\n- Develop strong relationship with business management and business controllers to build a role as business partner\n\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Strategic Planning Officer",
-        "it": "Ufficiale di Pianificazione Strategica",
-        "de": "Strategischer Planungsbeauftragter",
-        "fr": "Officier de planification stratégique"
-      },
-      "descriptionByLocale": {
-        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n- Business analyst and power user of MI data\n- Establish and compile presentations to senior management\n- Take active role in the business performance dialogues\n- Design and maintain data models for analysis and forecasting\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n- Develop strong relationship with business management and business controllers to build a role as business partner\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "La nostra azienda EFG International è un gruppo globale di private banking, che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e il nostro scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro L'Ufficiale di Pianificazione Strategica farà parte del Team di Strategia e Sviluppo Aziendale a Lugano e contribuirà a gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di partner aziendale e sfidante delle prestazioni aziendali, si concentrerà sul supporto decisionale a valore aggiunto attraverso un'analisi granulare delle cause profonde delle prestazioni e fornendo informazioni approfondite sui fattori di creazione di valore. L'Ufficiale di Pianificazione Strategica svolgerà un ruolo attivo nei dialoghi sulle prestazioni aziendali, supporterà lo sviluppo aziendale e fornirà supporto decisionale a valore aggiunto utilizzando la modellazione dei dati e l'intelligence previsionale. Responsabilità principali\n- Analista aziendale e utente avanzato dei dati MI\n- Creare e compilare presentazioni per la direzione\n- Partecipare attivamente ai dialoghi sulle prestazioni aziendali\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Collaborazione attiva con l'unità di Pianificazione e Controllo durante il processo di budgeting e previsione\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili dei controlli per costruire un ruolo di partner aziendale\n- Sviluppare analisi di benchmarking ricorrenti in collaborazione con consulenti esterni\n- Collaborazione chiave in progetti di sviluppo aziendale e iniziative strategiche, comprese transazioni M&A Requisiti\n- Avere esperienza professionale nel settore dei servizi finanziari, in particolare nelle attività di Corporate Finance\n- Capacità di comprendere grandi dataset e esperienza di modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di MS-Excel e MS-PowerPoint; Conoscenza dell'uso di Excel Macros, VBA, Python, Power BI come plus\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a prendere nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con gli stakeholder interni a tutti i livelli\n- Fluente in inglese e fluente in italiano I nostri valori\n- Accountability: prendere la proprietà di compiti e sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionate: essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con una mentalità consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
-        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die Private-Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber der Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der Strategische Planungsbeauftragte wird Teil des Teams Strategie und Unternehmensentwicklung in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichterstellungs- und Leistungsüberprüfungsprozess zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als Geschäftspartner und Herausforderer der Geschäftsleistung wird er sich auf die wertschöpfende Entscheidungsunterstützung durch granulare Analyse der Leistungsursachen und durch die Bereitstellung von Erkenntnissen über Wertschöpfungshebel konzentrieren. Der Strategische Planungsbeauftragte wird eine aktive Rolle in den Geschäftsdialogen spielen, die Geschäftsentwicklung unterstützen und eine wertschöpfende Entscheidungsunterstützung unter Verwendung von Datenmodellierung und Prognoseintelligenz bereitstellen. Hauptverantwortungen\n- Unternehmensanalyst und Power-User von MI-Daten\n- Erstellen und Zusammenstellen von Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Geschäftsdialogen\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Aktive Zusammenarbeit mit der Planungs- und Controlling-Einheit während des Budgetierungs- und Prognoseprozesses\n- Aufbau einer starken Beziehung zu den Geschäftsführern und Controllern, um eine Rolle als Geschäftspartner aufzubauen\n- Entwicklung von regelmäßigen Benchmarking-Analysen in Zusammenarbeit mit externen Beratern\n- Schlüsselrolle bei der Zusammenarbeit an Unternehmensentwicklungsprojekten und strategischen Initiativen, einschließlich M&A-Transaktionen Anforderungen\n- Berufserfahrung in der Finanzdienstleistungsbranche, insbesondere in Corporate-Finance-Aktivitäten\n- Fähigkeit, große Datensätze zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von MS-Excel und MS-PowerPoint; Kenntnis der Verwendung von Excel-Makros, VBA, Python, Power BI als Plus\n- Schnelle Lernfähigkeit, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit internen Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Englisch und fließend in Italienisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um schnell Ergebnisse von hoher Qualität zu liefern\n- Passionate: engagiert sein und sich für Exzellenz einsetzen\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
-        "fr": "Notre entreprise EFG International est un groupe mondial de banque privée, offrant des services de banque privée et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste L'Officier de planification stratégique fera partie de l'équipe Stratégie et développement des entreprises à Lugano et contribuera à gérer un processus intégré de planification, de reporting et d'examen des performances pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de partenaire commercial et de challenger de la performance commerciale, il se concentrera sur le soutien à la décision à valeur ajoutée grâce à une analyse granulaire des causes profondes de la performance et en fournissant des informations sur les facteurs de création de valeur. L'Officier de planification stratégique jouera un rôle actif dans les dialogues sur la performance commerciale, soutiendra le développement commercial et fournira un soutien à la décision à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Analyste commercial et utilisateur expérimenté des données MI\n- Établir et compiler des présentations pour la direction\n- Prendre un rôle actif dans les dialogues sur la performance commerciale\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Collaboration active avec l'unité de planification et de contrôle pendant le processus de budgétisation et de prévision\n- Développer une relation solide avec la direction commerciale et les contrôleurs pour construire un rôle de partenaire commercial\n- Développer des analyses de benchmarking récurrentes en collaboration avec des conseillers externes\n- Collaboration clé dans les projets de développement des entreprises et les initiatives stratégiques, y compris les transactions M&A Exigences\n- Expérience professionnelle dans le secteur des services financiers, en particulier dans les activités de finance d'entreprise\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses de données précises\n- Utilisateur expérimenté de MS-Excel et MS-PowerPoint; Connaissance de l'utilisation des macros Excel, VBA, Python, Power BI comme plus\n- Capacité d'apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté de prendre de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes internes à tous les niveaux\n- Courant en anglais et courant en italien Nos valeurs\n- Accountability: prendre la responsabilité des tâches et des défis, ainsi que rechercher l'amélioration continue\n- Hands-on: être proactif pour fournir rapidement des résultats de haute qualité\n- Passionate: être engagé et s'efforcer d'excellence\n- Solution-driven: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Partnership-oriented: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-06-21T11:28:12.381Z",
-      "slugByLocale": {
-        "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
-        "en": "strategic-planning-officer-efg-lugano",
-        "de": "strategischer-planungsbeauftragter-efg-international-ag-lugano",
-        "fr": "officier-de-planification-strategique-efg-international-ag-lugano"
-      },
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "strategic-planning-officer-efg-lugano"
-        ],
-        "de": [
-          "strategic-planning-officer-efg-lugano"
-        ],
-        "fr": [
-          "strategic-planning-officer-efg-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "strategic-planning-officer-efg-lugano"
-      ],
-      "firstSeenAt": "2026-04-13T10:28:21.931Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -2649,7 +2569,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.380Z",
+      "crawledAt": "2026-06-21T21:47:46.209Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -2690,11 +2610,104 @@
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
       ],
+      "country": "CH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-5869",
+      "slug": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n\n- Business analyst and power user of MI data\n\n- Establish and compile presentations to senior management\n\n- Take active role in the business performance dialogues\n\n- Design and maintain data models for analysis and forecasting\n\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n\n- Develop strong relationship with business management and business controllers to build a role as business partner\n\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n\n- Quick learner, accurate and efficient\n\n- Proactive attitude and willingness to take on new knowledge and skills\n\n- Ability to work under pressure and adapt to unforeseen work demands\n\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on : Being proactive to rapidly deliver high-quality results\n\n- Passionate : Being committed and striving for excellence\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Strategic Planning Officer",
+        "it": "Ufficiale di Pianificazione Strategica",
+        "de": "Strategischer Planungsbeauftragter",
+        "fr": "Officier de planification stratégique"
+      },
+      "descriptionByLocale": {
+        "en": "Our Company\n\nEFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.\n\nOur Purpose and Mission\n\nEmpowering entrepreneurial minds to create value – today and for the future.\n\nJob Description\n\nThe Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.\n\nThe Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence.\n\nMain responsibilities\n- Business analyst and power user of MI data\n- Establish and compile presentations to senior management\n- Take active role in the business performance dialogues\n- Design and maintain data models for analysis and forecasting\n- Active collaboration with Planning & Controlling unit during budgeting and forecasting process\n- Develop strong relationship with business management and business controllers to build a role as business partner\n- Develop recurring benchmarking analysis in collaboration with external advisors\n\n-\nKey collaboration in corporate development projects and strategic initiatives, including M&A transactions\n\nSkills and experience\n- Have professional experience in Financial Services Industry, in particular in Corporate Finance activities\n- Ability to understand large datasets and experience of data modelling, providing accurate data analysis\n- Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus\n- Quick learner, accurate and efficient\n- Proactive attitude and willingness to take on new knowledge and skills\n- Ability to work under pressure and adapt to unforeseen work demands\n- Good communication skills to communicate effectively with internal stakeholders at all levels\n\n-\nFluent in English and fluent in Italian\n\nOur Values\n- Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n- Hands-on : Being proactive to rapidly deliver high-quality results\n- Passionate : Being committed and striving for excellence\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "La nostra azienda EFG International è un gruppo globale di private banking, che offre servizi di private banking e gestione patrimoniale. Serviamo clienti in oltre 40 sedi in tutto il mondo. EFG International offre un ambiente di lavoro stimolante e dinamico e si impegna a essere un datore di lavoro di scelta. La nostra missione e il nostro scopo Empowering entrepreneurial minds to create value – today and for the future. Descrizione del lavoro L'Ufficiale di Pianificazione Strategica farà parte del Team di Strategia e Sviluppo Aziendale a Lugano e contribuirà a gestire un processo integrato di pianificazione, reporting e revisione delle prestazioni per facilitare decisioni aziendali guidate dal valore. Nel suo ruolo di partner aziendale e sfidante delle prestazioni aziendali, si concentrerà sul supporto decisionale a valore aggiunto attraverso un'analisi granulare delle cause profonde delle prestazioni e fornendo informazioni approfondite sui fattori di creazione di valore. L'Ufficiale di Pianificazione Strategica svolgerà un ruolo attivo nei dialoghi sulle prestazioni aziendali, supporterà lo sviluppo aziendale e fornirà supporto decisionale a valore aggiunto utilizzando la modellazione dei dati e l'intelligence previsionale. Responsabilità principali\n- Analista aziendale e utente avanzato dei dati MI\n- Creare e compilare presentazioni per la direzione\n- Partecipare attivamente ai dialoghi sulle prestazioni aziendali\n- Progettare e mantenere modelli di dati per l'analisi e la previsione\n- Collaborazione attiva con l'unità di Pianificazione e Controllo durante il processo di budgeting e previsione\n- Sviluppare una forte relazione con la gestione aziendale e i responsabili dei controlli per costruire un ruolo di partner aziendale\n- Sviluppare analisi di benchmarking ricorrenti in collaborazione con consulenti esterni\n- Collaborazione chiave in progetti di sviluppo aziendale e iniziative strategiche, comprese transazioni M&A Requisiti\n- Avere esperienza professionale nel settore dei servizi finanziari, in particolare nelle attività di Corporate Finance\n- Capacità di comprendere grandi dataset e esperienza di modellazione dei dati, fornendo analisi accurate dei dati\n- Utente avanzato di MS-Excel e MS-PowerPoint; Conoscenza dell'uso di Excel Macros, VBA, Python, Power BI come plus\n- Velocità di apprendimento, accuratezza ed efficienza\n- Atteggiamento proattivo e disponibilità a prendere nuove conoscenze e competenze\n- Capacità di lavorare sotto pressione e adattarsi a richieste di lavoro impreviste\n- Buone capacità di comunicazione per comunicare efficacemente con gli stakeholder interni a tutti i livelli\n- Fluente in inglese e fluente in italiano I nostri valori\n- Accountability: prendere la proprietà di compiti e sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionate: essere impegnati e impegnarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con una mentalità consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con uno spirito imprenditoriale.",
+        "de": "Unser Unternehmen EFG International ist eine globale Private-Banking-Gruppe, die Private-Banking- und Vermögensverwaltungsdienstleistungen anbietet. Wir bedienen Kunden in über 40 Standorten weltweit. EFG International bietet eine stimulierende und dynamische Arbeitsumgebung und bemüht sich, ein Arbeitgeber der Wahl zu sein. Unser Zweck und unsere Mission Empowering entrepreneurial minds to create value – today and for the future. Job-Beschreibung Der Strategische Planungsbeauftragte wird Teil des Teams Strategie und Unternehmensentwicklung in Lugano sein und dazu beitragen, einen integrierten Planungs-, Berichterstellungs- und Leistungsüberprüfungsprozess zu betreiben, um wertgetriebene Geschäftsentscheidungen zu erleichtern. In seiner Rolle als Geschäftspartner und Herausforderer der Geschäftsleistung wird er sich auf die wertschöpfende Entscheidungsunterstützung durch granulare Analyse der Leistungsursachen und durch die Bereitstellung von Erkenntnissen über Wertschöpfungshebel konzentrieren. Der Strategische Planungsbeauftragte wird eine aktive Rolle in den Geschäftsdialogen spielen, die Geschäftsentwicklung unterstützen und eine wertschöpfende Entscheidungsunterstützung unter Verwendung von Datenmodellierung und Prognoseintelligenz bereitstellen. Hauptverantwortungen\n- Unternehmensanalyst und Power-User von MI-Daten\n- Erstellen und Zusammenstellen von Präsentationen für das Senior-Management\n- Aktive Teilnahme an den Geschäftsdialogen\n- Entwerfen und Warten von Datenmodellen für Analyse und Prognose\n- Aktive Zusammenarbeit mit der Planungs- und Controlling-Einheit während des Budgetierungs- und Prognoseprozesses\n- Aufbau einer starken Beziehung zu den Geschäftsführern und Controllern, um eine Rolle als Geschäftspartner aufzubauen\n- Entwicklung von regelmäßigen Benchmarking-Analysen in Zusammenarbeit mit externen Beratern\n- Schlüsselrolle bei der Zusammenarbeit an Unternehmensentwicklungsprojekten und strategischen Initiativen, einschließlich M&A-Transaktionen Anforderungen\n- Berufserfahrung in der Finanzdienstleistungsbranche, insbesondere in Corporate-Finance-Aktivitäten\n- Fähigkeit, große Datensätze zu verstehen und Erfahrung in der Datenmodellierung, um genaue Datenanalysen bereitzustellen\n- Power-User von MS-Excel und MS-PowerPoint; Kenntnis der Verwendung von Excel-Makros, VBA, Python, Power BI als Plus\n- Schnelle Lernfähigkeit, Genauigkeit und Effizienz\n- Proaktive Einstellung und Bereitschaft, neue Kenntnisse und Fähigkeiten zu erwerben\n- Fähigkeit, unter Druck zu arbeiten und sich an unvorhergesehene Arbeitsanforderungen anzupassen\n- Gute Kommunikationsfähigkeiten, um effektiv mit internen Stakeholdern auf allen Ebenen zu kommunizieren\n- Fließend in Englisch und fließend in Italienisch Unsere Werte\n- Accountability: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um schnell Ergebnisse von hoher Qualität zu liefern\n- Passionate: engagiert sein und sich für Exzellenz einsetzen\n- Solution-driven: Fokus auf Kundenergebnisse und faire Behandlung von Kunden mit einem risikobewussten Mindset\n- Partnership-oriented: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeiten mit einem unternehmerischen Geist.",
+        "fr": "Notre entreprise EFG International est un groupe mondial de banque privée, offrant des services de banque privée et de gestion de patrimoine. Nous servons des clients dans plus de 40 sites à travers le monde. EFG International offre un environnement de travail stimulant et dynamique et s'efforce d'être un employeur de choix. Notre objectif et notre mission Empowering entrepreneurial minds to create value – today and for the future. Description du poste L'Officier de planification stratégique fera partie de l'équipe Stratégie et développement des entreprises à Lugano et contribuera à gérer un processus intégré de planification, de reporting et d'examen des performances pour faciliter les décisions commerciales axées sur la valeur. Dans son rôle de partenaire commercial et de challenger de la performance commerciale, il se concentrera sur le soutien à la décision à valeur ajoutée grâce à une analyse granulaire des causes profondes de la performance et en fournissant des informations sur les facteurs de création de valeur. L'Officier de planification stratégique jouera un rôle actif dans les dialogues sur la performance commerciale, soutiendra le développement commercial et fournira un soutien à la décision à valeur ajoutée en utilisant la modélisation des données et l'intelligence prévisionnelle. Responsabilités principales\n- Analyste commercial et utilisateur expérimenté des données MI\n- Établir et compiler des présentations pour la direction\n- Prendre un rôle actif dans les dialogues sur la performance commerciale\n- Concevoir et maintenir des modèles de données pour l'analyse et la prévision\n- Collaboration active avec l'unité de planification et de contrôle pendant le processus de budgétisation et de prévision\n- Développer une relation solide avec la direction commerciale et les contrôleurs pour construire un rôle de partenaire commercial\n- Développer des analyses de benchmarking récurrentes en collaboration avec des conseillers externes\n- Collaboration clé dans les projets de développement des entreprises et les initiatives stratégiques, y compris les transactions M&A Exigences\n- Expérience professionnelle dans le secteur des services financiers, en particulier dans les activités de finance d'entreprise\n- Capacité à comprendre de grands ensembles de données et expérience de la modélisation des données, fournissant des analyses de données précises\n- Utilisateur expérimenté de MS-Excel et MS-PowerPoint; Connaissance de l'utilisation des macros Excel, VBA, Python, Power BI comme plus\n- Capacité d'apprentissage rapide, précision et efficacité\n- Attitude proactive et volonté de prendre de nouvelles connaissances et compétences\n- Capacité à travailler sous pression et à s'adapter à des demandes de travail imprévues\n- Bonnes compétences en communication pour communiquer efficacement avec les parties prenantes internes à tous les niveaux\n- Courant en anglais et courant en italien Nos valeurs\n- Accountability: prendre la responsabilité des tâches et des défis, ainsi que rechercher l'amélioration continue\n- Hands-on: être proactif pour fournir rapidement des résultats de haute qualité\n- Passionate: être engagé et s'efforcer d'excellence\n- Solution-driven: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Partnership-oriented: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-06-21T21:47:46.209Z",
+      "slugByLocale": {
+        "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
+        "en": "strategic-planning-officer-efg-lugano",
+        "de": "strategischer-planungsbeauftragter-efg-international-ag-lugano",
+        "fr": "officier-de-planification-strategique-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategic-planning-officer-efg-lugano"
+        ],
+        "de": [
+          "strategic-planning-officer-efg-lugano"
+        ],
+        "fr": [
+          "strategic-planning-officer-efg-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "strategic-planning-officer-efg-lugano"
+      ],
+      "firstSeenAt": "2026-04-13T10:28:21.931Z",
       "country": "CH"
     },
     {
       "id": "efg-4543",
-      "slug": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+      "slug": "group-financial-controller-efg-geneve",
       "company": "EFG International AG",
       "title": "Group Financial Controller",
       "location": "Geneve",
@@ -2857,11 +2870,11 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.378Z",
+      "crawledAt": "2026-06-21T21:47:46.207Z",
       "slugByLocale": {
-        "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "it": "group-financial-controller-efg-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
+        "de": "group-financial-controller-efg-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2886,16 +2899,20 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "gruppo-controllore-finanziario-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ],
         "de": [
+          "konzern-finanzverantwortlicher-efg-international-ag-geneve",
           "group-financial-controller-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "group-financial-controller-efg-geneve"
+        "gruppo-controllore-finanziario-efg-international-ag-geneve",
+        "konzern-finanzverantwortlicher-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -2945,7 +2962,7 @@
           }
         }
       },
-      "crawledAt": "2026-06-21T11:28:12.375Z",
+      "crawledAt": "2026-06-21T21:47:46.203Z",
       "slugByLocale": {
         "it": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -3002,7 +3019,8 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6150",
@@ -3139,7 +3157,8 @@
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialista-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -3421,7 +3440,8 @@
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -3622,7 +3642,8 @@
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -3832,7 +3853,8 @@
         "talent-acquisition-internship-efg-international-ag-geneve"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -4457,7 +4479,8 @@
         "operational-risk-and-advisory-it-and-information-security-specialiste-efg-international-ag-zurich",
         "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich"
       ],
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6101",
@@ -4790,7 +4813,7 @@
         "fr": "Apprenti Commercial"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial and credit market\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- deadline planning and priority management\n\n- use of financial IT systems\n\n♪ Requirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Explain relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- Knowledge of English\n\nIf you are motivated, thanks to attach to the online application: a letter of motivation, CV, the three most recent school reports and the middle school license.",
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
         "de": "Sind Sie Abschluss der Mittelschule und daran interessiert, ein Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank der EFG Bank das, was sie für Sie tut.\n\nSie arbeiten am Schweizer Hauptsitz der EFG Bank im Zentrum von Lugano von August 2026 bis August 2029, wenn Sie das Federal Certificate of Capacity erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsteams erleben, die auf nationaler und internationaler Ebene arbeiten, z. B. Private Banking, Compliance, Kreditkarten, Central Filing, Credit, Business Risk Management, Asset Management usw.\n\nNeben der Ausbildung im Unternehmen, bei der Sie von einem Tutor begleitet werden, der jedem Team gewidmet ist, besuchen Sie die kaufmännische Berufsschule (CPC) Ihres Interesses und die Kurse im Bankenkompetenzzentrum (CYP) zusammen mit allen kaufmännischen Lehrlingen Zweigbank des Kantons.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsausbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung sicherzustellen.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse von Finanzmarkt und Kredit\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Priority Management\n- Nutzung von Finanz-IT-Systemen\n\nAnforderungen\n- Leidenschaft für Wirtschaft und Bankenwelt\n- High School Lizenz mit hervorragenden Ergebnissen\n\nErklären Sie die relationalen Fähigkeiten und die einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Kenntnisse der englischen Sprache\n\nWenn Sie motiviert sind, danken Sie für das Anfügen an die Online-Bewerbung: ein Motivationsschreiben, Lebenslauf, die drei neuesten Schulberichte und die Mittelschullizenz.",
         "fr": "Finissez-vous le collège et souhaitez-vous devenir un professionnel à la banque ?\n\nSi tel est votre souhait, la Banque d'apprentissage commercial d'EFG est ce qu'elle fait pour vous.\n\nVous travaillerez au siège social suisse de la Banque EFG dans le centre de Lugano, entre août 2026 et août 2029, lorsque vous recevrez le Certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple Private Banking, Compliance, Credit Cards, Central Fileing, Credit, Business Risk Management, Asset Management, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétences bancaires (CYP) avec tous les apprentis d'affaires de la banque du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée afin de garantir une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des délais et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence de lycée avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de la langue anglaise\n\nSi vous êtes motivé, merci d'avoir joint à la demande en ligne : une lettre de motivation, un CV, les trois derniers rapports scolaires et la licence du collège."
@@ -4924,7 +4947,8 @@
         "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "country": "CH"
+      "country": "CH",
+      "needsRetranslation": true
     }
   ]
 }
