@@ -72,10 +72,18 @@ set -uo pipefail
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
 
-# Export a key=value to $GITHUB_ENV (so later YAML steps see it) AND echo it,
-# mirroring the `echo "K=V" >> "$GITHUB_ENV"` the monolith steps use.
+# Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
+# see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
+# in-process export is essential: the monolith propagated CDN_BASE/TAR_BYTES
+# between SEPARATE YAML steps via $GITHUB_ENV, but here the whole prep is ONE
+# bash script, so $GITHUB_ENV does NOT propagate intra-run — later steps
+# (step_offload/step_prune_cdn/step_drop_assets read CDN_BASE; step_audit_bytes
+# reads TAR_BYTES) need it set in this very process. Without the export,
+# CDN_BASE stayed empty after a SUCCESSFUL CDN push → offload skipped + the
+# drop-assets FATAL guard wrongly fired (run 27918706767 IT leg).
 export_env() {
   local key="$1" value="$2"
+  export "$key"="$value"
   if [ -n "${GITHUB_ENV:-}" ]; then
     printf '%s=%s\n' "$key" "$value" >> "$GITHUB_ENV"
   fi
