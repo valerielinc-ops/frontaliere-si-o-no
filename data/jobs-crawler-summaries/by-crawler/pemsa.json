@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-06-20T22:32:23.473Z",
+  "generatedAt": "2026-06-21T12:14:16.047Z",
   "total": 62,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 54,
-  "durationMs": 151126,
-  "avgDurationMs": 151126,
+  "durationMs": 167481,
+  "avgDurationMs": 167481,
   "durationHistory": [
-    151126
+    167481
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -311,45 +311,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Installatore Idraulico Esperto",
-      "slug": "installatore-idraulico-esperto-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-esperto-2675571/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-esperto-2675571/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-19",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-06-20",
-      "id": "pemsa-441b3c20f47c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-19T23:12:33.521Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Operatore Impianto di betonaggio",
@@ -1379,7 +1341,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "retranslationAttempts": 0,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1417,7 +1378,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-06-10T12:46:51.447Z",
-      "retranslationAttempts": 0,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
