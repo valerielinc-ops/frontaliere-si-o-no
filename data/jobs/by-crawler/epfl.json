@@ -3086,6 +3086,8 @@
         "verwaltungsassistent-60-80-epfl-sion",
         "administrative-assistant-professor-s-secretary-60-80-target-language-english-epfl-sion",
         "administrative-assistent-60-80-epfl-sion",
+        "assistente-amministrativo-segretario-del-professore-60-80-epfl-sion",
+        "verwaltungsassistent-sekretar-des-professors-60-80-epfl-sion",
         "assistante-administrative-60-80-epfl-sion"
       ],
       "firstSeenAt": "2026-06-09T11:22:26.917Z",
@@ -4124,11 +4126,11 @@
     },
     {
       "id": "epfl-23d9b7e51a76",
-      "slug": "2-posizioni-di-postdoc-presso-epfl-sui-modelli-di-fondazione-biologica-epfl-lausanne",
+      "slug": "2-posizioni-di-postdoc-all-epfl-sui-modelli-fondamentali-biologici-epfl-lausanne",
       "slugByLocale": {
-        "it": "2-posizioni-di-postdoc-presso-epfl-sui-modelli-di-fondazione-biologica-epfl-lausanne",
+        "it": "2-posizioni-di-postdoc-all-epfl-sui-modelli-fondamentali-biologici-epfl-lausanne",
         "en": "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-        "de": "2-postdoc-stellen-an-der-epfl-zu-biologischen-fundamentmodellen-epfl-lausanne",
+        "de": "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne",
         "fr": "2-postdoc-positions-a-l-epfl-sur-les-modeles-de-fondation-biologique-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4136,9 +4138,9 @@
       "companyDomain": "epfl.ch",
       "title": "2 PostDoc Positions at EPFL on Biological Foundation Models",
       "titleByLocale": {
-        "it": "2 Posizioni di PostDoc presso EPFL sui Modelli di Fondazione Biologica",
+        "it": "2 Posizioni PostDoc presso l'EPFL su Modelli di Fondazione Biologica",
         "en": "2 PostDoc Positions at EPFL on Biological Foundation Models",
-        "de": "2 PostDoc-Stellen an der EPFL zu Biologischen Fundamentmodellen",
+        "de": "2 Postdoc-Stellen an der EPFL zu biologischen Grundlagenmodellen",
         "fr": "2 PostDoc Positions à l'EPFL sur les modèles de fondation biologique"
       },
       "description": "General\n\nThe Artificial Intelligence in Molecular Medicine (AIMM) Lab, led by Prof. Charlotte Bunne at EPFL, sits at the interface of computer science and the life sciences, affiliated with both the School of Computer and Communication Sciences and the School of Life Sciences, as well as the EPFL AI Center.\n\nWe are recruiting two postdoctoral researchers with strong expertise in large-scale AI development and a background in biology . The positions cover the full stack of biological foundation model research: from core architecture design and pretraining at scale to integration into agentic interfaces. Both roles involve close collaboration with pharmaceutical industry partners and come with dedicated access to the Swiss National Supercomputing Centre (CSCS) and the Swiss AI Initiative.\n\nResearch directions include\n\n• Foundation model architecture development: novel pretraining objectives, tokenization, and scalable architectures for biological data.\n\n• Multimodal learning: representation learning across diverse biological data modalities.\n\n• Agentic interfaces: integrating foundation models into reasoning and decision-support systems.\n\n• Translational applications: bridging foundation model research towards impact in early drug-discovery and biomedical sciences.\n\nWe are looking for candidates with\n\n• A PhD in machine learning, computer science, computational biology, or a closely related field (completed or near completion).\n\n• Demonstrated experience in largescale AI development, including pretraining, finetuning, or scaling on substantial compute.\n\n• A solid biological background; familiarity with biological data modalities is expected.\n\n• A strong publication record at toptier ML conferences and/or life science journals.\n\n• Excellent communication skills and enthusiasm for interdisciplinary research.\n\nWe offer\n\n• Competitive EPFL postdoc salary and full social benefits.\n\n• Dedicated compute allocation on CSCS and the Swiss AI Initiative.\n\n• Direct collaboration with pharmaceutical industry partners.\n\n• Mentorship toward an independent academic or industry research career.\n\n• An international, collaborative environment at one of Europe's leading technical universities.\n\nActivity rate : 100%.\n\nStart date : ideally Fall 2026, with later start dates possible by arrangement.\n\nTo apply, please send a CV, a brief statement of research interests (1 page), and the names of two references. More information via aimm.epfl.ch . Applications are reviewed on a rolling basis.",
@@ -4175,20 +4177,15 @@
         "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
         "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
         "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
-        "2-posizioni-di-postdoc-all-epfl-sui-modelli-fondamentali-biologici-epfl-lausanne",
         "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne",
         "think-okay-let-s-tackle-this-translation-the-user-wants-the-job-title-2-postdoc-positions-at-epfl-on-biological",
-        "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne",
-        "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne",
-        "2-posizioni-postdoc-presso-l-epfl-su-modelli-di-fondazione-biologica-epfl-lausanne"
+        "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
           "2-posizioni-postdoc-presso-l-epfl-su-modelli-fondazionali-biologici-epfl-lausanne",
-          "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne",
-          "2-posizioni-di-postdoc-all-epfl-sui-modelli-fondamentali-biologici-epfl-lausanne",
-          "2-posizioni-postdoc-presso-l-epfl-su-modelli-di-fondazione-biologica-epfl-lausanne"
+          "due-posizioni-di-post-dottorato-presso-l-epfl-sui-modelli-biologici-fondamentali-epfl-lausanne"
         ],
         "en": [
           "2-postes-de-postdoc-a-l-epfl-sur-les-modeles-biologiques-fondamentaux-epfl-lausanne",
@@ -4196,8 +4193,7 @@
         ],
         "de": [
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne",
-          "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne",
-          "zwei-postdoktoranden-stellen-an-der-epfl-zu-biologischen-grundmodellen-epfl-lausanne"
+          "2-postdoc-stellen-an-der-epfl-zu-biologischen-grundlagenmodellen-epfl-lausanne"
         ],
         "fr": [
           "2-postdoc-positions-at-epfl-on-biological-foundation-models-epfl-lausanne"
