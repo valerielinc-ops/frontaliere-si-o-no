@@ -487,8 +487,7 @@
         }
       },
       "postalCode": "3600",
-      "firstSeenAt": "2026-06-19T21:34:16.771Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-06-19T21:34:16.771Z"
     },
     {
       "title": "zwei Modulverantwortliche für das Bildungszentrum Arbeitslosenversicherung",
@@ -850,8 +849,7 @@
       "previousSlugs": [
         "senior-intelligence-officer-confederazione-bern",
         "officier-de-renseignement-confederazione-svizzera-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Finanzverantwortliche/r mit Stellvertretung Chef Stab KD",
@@ -966,9 +964,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-bern",
-        "en": "logistician-on-site-warehouse-confederazione-svizzera-chur",
+        "en": "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern-tvrgfb",
-        "fr": "logistique-entrepot-sur-place-confederazione-svizzera-chur"
+        "fr": "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-f9c0d0e43d80",
       "previousSlugsByLocale": {
@@ -977,11 +975,13 @@
         ],
         "en": [
           "logistiker-in-vorortlager-confederazione-chur",
-          "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern"
+          "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
+          "logistician-on-site-warehouse-confederazione-svizzera-chur"
         ],
         "fr": [
           "logistiker-in-vorortlager-confederazione-chur",
-          "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern"
+          "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
+          "logistique-entrepot-sur-place-confederazione-svizzera-chur"
         ],
         "de": [
           "logistiker-in-vorortlager-confederazione-chur"
@@ -991,7 +991,9 @@
         "logistiker-in-vorortlager-confederazione-chur",
         "logistician-on-site-warehouse-swiss-armed-forces-vtg-bern",
         "logistique-entrepot-sur-place-swiss-armed-forces-vtg-bern",
-        "impiegato-a-in-logistica-vorortlager-confederazione-svizzera-chur"
+        "impiegato-a-in-logistica-vorortlager-confederazione-svizzera-chur",
+        "logistician-on-site-warehouse-confederazione-svizzera-chur",
+        "logistique-entrepot-sur-place-confederazione-svizzera-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -4916,8 +4918,7 @@
       "previousSlugs": [
         "flugsicherungstechniker-in-support-flugsicherungssysteme-sufs-confederazione-flugplatz-locarno-6595-riazzino",
         "air-traffic-control-engineer-in-support-air-traffic-control-systems-sufs-confederazione-svizzera-flugplatz-locarno-6595"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Mitarbeiter/-in Gebäudebetrieb Dübendorf",
@@ -7818,9 +7819,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern",
-        "en": "logistics-specialist-confederazione-svizzera-schattdorf",
+        "en": "logistics-specialist-swiss-armed-forces-vtg-bern",
         "de": "logistiker-in-swiss-armed-forces-vtg-bern-qjueiz",
-        "fr": "logisticien-ne-confederazione-svizzera-schattdorf"
+        "fr": "logisticien-ne-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-cbc901308131",
       "previousSlugsByLocale": {
@@ -7832,18 +7833,22 @@
         ],
         "en": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logistics-specialist-swiss-armed-forces-vtg-bern"
+          "logistics-specialist-swiss-armed-forces-vtg-bern",
+          "logistics-specialist-confederazione-svizzera-schattdorf"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-schattdorf",
-          "logisticien-ne-swiss-armed-forces-vtg-bern"
+          "logisticien-ne-swiss-armed-forces-vtg-bern",
+          "logisticien-ne-confederazione-svizzera-schattdorf"
         ]
       },
       "previousSlugs": [
         "logistiker-in-confederazione-schattdorf",
         "logistiker-in-confederazione-svizzera-schattdorf",
         "logistics-specialist-swiss-armed-forces-vtg-bern",
-        "logisticien-ne-swiss-armed-forces-vtg-bern"
+        "logisticien-ne-swiss-armed-forces-vtg-bern",
+        "logistics-specialist-confederazione-svizzera-schattdorf",
+        "logisticien-ne-confederazione-svizzera-schattdorf"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -9226,9 +9231,9 @@
       },
       "slugByLocale": {
         "it": "offizier-in-rustung-e-weiterentwicklung-confederazione-svizzera-rivera",
-        "en": "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "en": "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
         "de": "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
-        "fr": "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
+        "fr": "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-6d52f47f3206",
       "previousSlugsByLocale": {
@@ -9238,19 +9243,23 @@
         "en": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern"
+          "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
+          "officer-in-armor-and-development-confederazione-svizzera-rivera"
         ],
         "fr": [
           "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
           "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
-          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+          "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
+          "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
         ]
       },
       "previousSlugs": [
         "offizier-in-rustung-und-weiterentwicklung-confederazione-rivera",
         "offizier-in-rustung-und-weiterentwicklung-swiss-armed-forces-vtg-bern",
         "officer-in-armor-and-development-swiss-armed-forces-vtg-bern",
-        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern"
+        "officier-in-armor-et-developpement-swiss-armed-forces-vtg-bern",
+        "officer-in-armor-and-development-confederazione-svizzera-rivera",
+        "officier-in-armor-et-developpement-confederazione-svizzera-rivera"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -10759,7 +10768,7 @@
       "description": "• Radar-, Funk- und Kommunikationssysteme verwalten und betreiben\n\n• IKT Grundinfrastruktur und Kommunikationsanbindung im Rahmen des Betriebs militärsicher Flugplätze betreiben und sicherstellen\n\n• Fehlerhafte und komplexe Systemzustände analysieren, protokollieren und beheben\n\n• Inventar- und Dokumentationssysteme führen sowie bei der Installations- bzw. Ein-/ und Ausbauplanung von Hardwarekomponenten mitarbeiten\n\n• Bei Betriebs- und LifeCycle-Projekten mitarbeiten und unterstützen sowie den SUFS Emmen als lokale Vertretung gewährleisten\n\n• Technische Grundausbildung EFZ in der Fachrichtung Elektrotechnik, Elektronik, Informatik Telekommunikation und Netzwerktechnik\n\n• Berufserfahrung im Bereich Betrieb von IKT-Infrastrukturen mit vernetztem Fachwissen der Tätigkeitsgebiete IKT- und Flugsicherungssysteme von Vorteil\n\n• Systembezogene Ausbildungen für den Betrieb und Unterhalt von Führungssystemen wie Radar, Funk, Voice Communication und IKT-Plattformen von Vorteil\n\n• Selbständigkeit, hohe Eigeninitiative sowie eine exakte und verantwortungsbewusste Arbeitsweise\n\n• Englischkenntnisse auf Stufe B1 von Vorteil sowie für die Ausübung der Funktion erforderlichen mündlichen und schriftlichen Kenntnisse einer zweiten Amtssprache",
       "titleByLocale": {
         "it": "Tecnico di controllo del traffico aereo / in supporto sistemi di controllo del traffico aereo SUFS",
-        "en": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
+        "en": "Air traffic control technician/in support air traffic control systems SUFS",
         "de": "Flugsicherungstechniker/-in Support Flugsicherungssysteme SUFS",
         "fr": "Technicien en contrôle de la circulation aérienne/soutien aux systèmes de contrôle de la circulation aérienne SUFS"
       },
@@ -12720,8 +12729,7 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-06-10T22:26:55.170Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-06-10T22:26:55.170Z"
     },
     {
       "title": "Wissenschaftliche/r Mitarbeiter/in Agronomie/Biologie - Aprikosenzüchtung",
@@ -13794,8 +13802,7 @@
       },
       "previousSlugs": [
         "amministratore-del-database-senior-1025-confederazione-svizzera-zollikofen"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Fachexperte/-in Vorläuferstoffe für explosionsfähige Stoffe",
@@ -16019,13 +16026,13 @@
         "en": "Logistics specialist",
         "de": "Logistik",
         "fr": "Spécialiste de la logistique",
-        "it": "Logistikfachmann/-frau"
+        "it": "Specialista della logistica/donna"
       },
       "descriptionByLocale": {
         "en": "• Manage, plan and coordinate logistical tasks and adhere to deadlines and work processes in connection with the delivery, return and relocation of army textiles\n• Carry out warehouse management and inventory management work as well as reordering materials\n• Ensure the optimal condition of the stored army textiles and initiate the necessary measures to restore readiness for delivery\n• Transfer maintenance work to the responsible authorities and allocate the army textiles professionally\n• The troops and specialists about the handling of the army textiles within the framework instructing and training in material acceptance and material returns\n• Completed apprenticeship as a logistics specialist EFZ with further training to become a logistics specialist with a federal specialist certificate\n• Driver's license in categories B/BE and forklift license\n• Very good MS Office and SAP knowledge for use in warehouse management (EWM), inventory management and for repeat orders\n• Knowledge of modern conveyor technology and practice-oriented, speedy and Conscientious working methods and a sense of responsibility in handling materials management\n• Willingness to use force and weapons training is required",
         "de": "• Logistische Aufgaben leiten, planen und koordinieren sowie Termine und Arbeitsabläufe im Zusammenhang mit der Abgabe, Rücknahme und Umlagerung von Armeetextilien einhalten\n• Arbeiten der Lagerverwaltung und Inventarführung sowie Materialnachbestellungen durchführen\n• Für den optimalen Zustand der eingelagerten Armeetextilien sorgen und die nötigen Massnahmen zur Wiedererstellung der Abgabebereitschaft einleiten\n• Instandhaltungsarbeiten an die zuständigen Stellen übertragen und die Armeetextilien fachgerecht zuteilen\n• Die Truppe und Spezialist/innen über die Handhabung der Armeetextilien im Rahmen der Materialübernahmen und Materialrückgaben instruieren und ausbilden\n• Abgeschlossene Berufslehre als Logistiker/-in EFZ mit Weiterbildung zum/r Logistikfachmann/-frau mit eidgenössischem Fachausweis\n• Führerausweis der Kategorien B/BE und Stapler-Ausweis\n• Sehr gute MS-Office- und SAP-Kenntnisse zur Nutzung in der Lagerverwaltung (EWM), der Inventarführung und für Nachbestellungen\n• Kenntnisse bezüglich moderner Fördertechnik und praxisorientierte, speditive und gewissenhafte Arbeitsweise sowie Verantwortungsbewusstsein im Handling der Materialwirtschaft\n• Bereitschaft zur Zwangsmittel- sowie Waffenausbildung ist erforderlich",
         "fr": "• Gérer, planifier et coordonner les tâches logistiques et respecter les délais et les processus de travail en rapport avec la livraison, le retour et le déplacement des textiles militaires.\n• Effectuer les travaux de gestion des entrepôts et des stocks ainsi que la réapprovisionnement des matériaux.\n• Assurer l'état optimal des textiles militaires stockés et initier les mesures nécessaires pour rétablir la préparation à la livraison.\n• Transférer les travaux d'entretien aux autorités responsables et attribuer les textiles militaires de manière professionnelle. apprentissage de logisticien EFZ avec formation continue de logisticien avec certificat fédéral de spécialiste\n• Permis de conduire dans les catégories B/BE et permis de chariot élévateur\n• Très bonnes connaissances de MS Office et SAP pour l'utilisation dans la gestion d'entrepôt (EWM), la gestion des stocks et pour les commandes répétées\n• Connaissance de la technologie de convoyage moderne et des méthodes de travail pratiques, rapides et consciencieuses et sens des responsabilités dans la gestion des matériaux\n• Volonté d'utiliser la force et une formation aux armes est requise",
-        "it": "• Logistische Aufgaben leiten, planen und koordinieren sowie Termine und Arbeitsabläufe im Zusammenhang mit der Abgabe, Rücknahme und Umlagerung von Armeetextilien einhalten\n\n• Arbeiten der Lagerverwaltung und Inventarführung sowie Materialnachbestellungen durchführen\n\n• Für den optimalen Zustand der eingelagerten Armeetextilien sorgen und die nötigen Massnahmen zur Wiedererstellung der Abgabebereitschaft einleiten\n\n• Instandhaltungsarbeiten an die zuständigen Stellen übertragen und die Armeetextilien fachgerecht zuteilen\n\n• Die Truppe und Spezialist/innen über die Handhabung der Armeetextilien im Rahmen der Materialübernahmen und Materialrückgaben instruieren und ausbilden\n\n• Abgeschlossene Berufslehre als Logistiker/-in EFZ mit Weiterbildung zum/r Logistikfachmann/-frau mit eidgenössischem Fachausweis\n\n• Führerausweis der Kategorien B/BE und Stapler-Ausweis\n\n• Sehr gute MS-Office- und SAP-Kenntnisse zur Nutzung in der Lagerverwaltung (EWM), der Inventarführung und für Nachbestellungen\n\n• Kenntnisse bezüglich moderner Fördertechnik und praxisorientierte, speditive und gewissenhafte Arbeitsweise sowie Verantwortungsbewusstsein im Handling der Materialwirtschaft\n\n• Bereitschaft zur Zwangsmittel- sowie Waffenausbildung ist erforderlich"
+        "it": "• Gestire, pianificare e coordinare i compiti logistici e rispettare le scadenze e i flussi di lavoro in relazione alla resa, al rimpatrio e al trasferimento dei tessili dell'esercito\n\n• eseguire lavori di gestione del magazzino e gestione dell'inventario nonché riordini materiali\n\n• Assicurare la condizione ottimale dei tessuti dell'esercito conservato e avviare le misure necessarie per ripristinare il pronto per la consegna\n\n• trasferire lavori di manutenzione alle autorità competenti e destinare i tessili dell'esercito professionalmente\n\n• Istruire e formare le truppe e gli specialisti sulla gestione dei tessili dell'esercito nel contesto dei trasferimenti materiali e dei ritorni materiali\n\n• Apprendistato professionale completo come logistico/in EFZ con ulteriore formazione come specialista di logistica con un certificato federale\n\n• Titolo di guida della categoria B/BE e identificazione del camion\n\n• Buone conoscenze MS-Office e SAP per l'uso nella gestione del magazzino (EWM), nella gestione dell'inventario e nei riordini\n\n• Conoscenza delle moderne tecnologie di trasporto e metodi di lavoro orientati alla pratica, previsionali e coscienziosi, nonché un senso di responsabilità nella gestione dei materiali\n\n• È richiesta la disponibilità per l'addestramento coercitivo e delle armi"
       },
       "slugByLocale": {
         "en": "logistics-specialist-confederazione-svizzera-thun",
@@ -16385,7 +16392,7 @@
         "en": "Build the medical staff within the National Alarm Centre NAZ. Helping to establish a strategic patient distribution that allows political, operational and technical assignment, transport and delivery of a very large number of patients over a longer period of time.\n• Elaborate the processes of leadership in the National Association of Catastrophic Medicine KATAMED between the Confederation, cantons, third parties and international bodies.\n• Plan and conduct exercises with a focus on leadership, emergency and disaster management.\n• Work on strategic-political issues in the realignment of KATAMED and in the protection of the population in war.\n• Ensure controlling and reporting for the Faculty of Disaster Medicine KATAMED.\n• Completed studies at master level or equivalent education with several years of functionally relevant experience.\n• Training in the staff work of larger organizations / formations and / or degree in emergency and crisis management or equivalent training with several years of functionally relevant experience.\n• Proven experience with leadership responsibility in the staff work of larger organizations. Very good knowledge of health and security policy structures and instruments in Switzerland and many years of experience in cooperation with civil protection partners (police, fire brigade, military, civil protection and health care). Polyvalent, pragmatic, resilient, socially competent and willing to perform. Active knowledge of two official languages, passive knowledge of a third official language and English.",
         "de": "Den Fachstab Sanität innerhalb der Nationalen Alarmzentrale NAZ aufbauen. Mithilfe beim Aufbau einer strategischen Patientenverteilung, die politisch, operativ und technisch die Zuweisung, den Transport und die Übernahme einer sehr grossen Anzahl von Patienten über eine längere Zeitdauer ermöglicht.\n• Die Prozesse der Führung im Nationalen Verbund Katstrophenmedizin KATAMED zwischen Bund, Kantonen, Dritten und internationalen Stellen erarbeiten.\n• Übungen mit dem Fokus auf Führung, Notfall- und Katastrophenmangement planen und durchführen.\n• Strategisch-politische Themen in der Neuausrichtung KATAMED und im Bevölkerungsschutz im Krieg bearbeiten.\n• Das Controlling und Reporting für den Fachbereich Katastrophenmedizin KATAMED sicherstellen.\n• Abgeschlossenes Studium auf Stufe Master oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n• Ausbildung in der Stabsarbeit grösserer Organisationen/Formationen und/oder Abschluss im Notfall- und Krisenmanagement oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n• Ausgewiesene Erfahrung mit Führungsverantwortung in der Stabsarbeit grösserer Organisationen. Sehr gute Kenntnisse der gesundheits- und sicherheitspolitischen Strukturen und Instrumente der Schweiz und langjährige Erfahrung in der Zusammenarbeit mit den Partnern des Bevölkerungsschutzes (Polizei, Feuerwehr, Militär, Zivilschutz und Gesundheitswesen). Polyvalent einsetzbar, pragmatisch, belastbar, sozial kompetent und leistungsbereit. Aktive Kenntnisse zweier Amtssprachen, passive Kenntnisse einer dritten Amtssprache sowie des Englischen.",
         "fr": "Construisez le personnel médical au sein du Centre national d'alarme NAZ. Aider à établir une répartition stratégique des patients qui permet l'affectation politique, opérationnelle et technique, le transport et la livraison d'un très grand nombre de patients sur une plus longue période.\n• Elaborer les processus de leadership au sein de l'Association Nationale de Médecine Catastrophique KATAMED entre la Confédération, les cantons, les tiers et les organismes internationaux.\n• Planifier et organiser des exercices axés sur le leadership, les urgences et la gestion des catastrophes.\n• Travail sur les questions stratégiques et politiques dans le cadre du réalignement de KATAMED et de la protection de la population en guerre.\n• Assurer le contrôle et l'établissement de rapports pour la Faculté de médecine des catastrophes KATAMED.\n• Études terminées au niveau de la maîtrise ou études équivalentes avec plusieurs années d'expérience fonctionnellement pertinente.\n• Formation au travail du personnel des grandes organisations / formations et / ou diplôme en gestion des urgences et des crises ou formation équivalente avec plusieurs années d'expérience fonctionnellement pertinente.\n• Expérience éprouvée de la responsabilité du leadership dans le travail du personnel des grandes organisations. Très bonne connaissance des structures et des instruments de la politique de santé et de sécurité en Suisse et de nombreuses années d'expérience en coopération avec les partenaires de la protection civile (police, pompiers, militaires, protection civile et soins de santé). Polyvalent, pragmatique, résilient, socialement compétent et prêt à effectuer. Connaissance active de deux langues officielles, connaissance passive d'une troisième langue officielle et de l'anglais.",
-        "it": "• Den Fachstab Sanität innerhalb der Nationalen Alarmzentrale NAZ aufbauen.\n\n• Mithilfe beim Aufbau einer strategischen Patientenverteilung, die politisch, operativ und technisch die Zuweisung, den Transport und die Übernahme einer sehr grossen Anzahl von Patienten über eine längere Zeitdauer ermöglicht.\n\n• Die Prozesse der Führung im Nationalen Verbund Katstrophenmedizin KATAMED zwischen Bund, Kantonen, Dritten und internationalen Stellen erarbeiten.\n\n• Übungen mit dem Fokus auf Führung, Notfall- und Katastrophenmangement planen und durchführen.\n\n• Strategisch-politische Themen in der Neuausrichtung KATAMED und im Bevölkerungsschutz im Krieg bearbeiten.\n\n• Das Controlling und Reporting für den Fachbereich Katastrophenmedizin KATAMED sicherstellen.\n\n• Abgeschlossenes Studium auf Stufe Master oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n\n• Ausbildung in der Stabsarbeit grösserer Organisationen/Formationen und/oder Abschluss im Notfall- und Krisenmanagement oder gleichwertige Ausbildung mit mehrjähriger funktionsrelevanter Erfahrung.\n\n• Ausgewiesene Erfahrung mit Führungsverantwortung in der Stabsarbeit grösserer Organisationen.\n\n• Sehr gute Kenntnisse der gesundheits- und sicherheitspolitischen Strukturen und Instrumente der Schweiz und langjährige Erfahrung in der Zusammenarbeit mit den Partnern des Bevölkerungsschutzes (Polizei, Feuerwehr, Militär, Zivilschutz und Gesundheitswesen).\n\n• Polyvalent einsetzbar, pragmatisch, belastbar, sozial kompetent und leistungsbereit.\n\n• Aktive Kenntnisse zweier Amtssprachen, passive Kenntnisse einer dritten Amtssprache sowie des Englischen."
+        "it": "• Costruisci il personale medico all'interno del National Alarm Centre NAZ.\n\n• Aiutare a stabilire una distribuzione strategica di pazienti che consente l'assegnazione politica, operativa e tecnica, il trasporto e la consegna di un numero molto elevato di pazienti per un periodo di tempo più lungo.\n\n• Elaborare i processi di leadership nell'Associazione Nazionale di Medicina Catastrofica KATAMED tra Confederazione, Cantoni, Terzi e Organismi Internazionali.\n\n• Pianificare e condurre esercizi con un focus sulla leadership, l'emergenza e la gestione dei disastri.\n\n• Lavorare su questioni strategiche-politiche nel riallineamento di KATAMED e nella protezione della popolazione in guerra.\n\n• Assicurare il controllo e la segnalazione per la Facoltà di Medicina Disaster KATAMED.\n\n• Studi completi a livello master o di istruzione equivalente con diversi anni di esperienza funzionale.\n\n• Formazione nel lavoro del personale di organizzazioni / formazioni più grandi e / o grado in gestione di emergenza e crisi o formazione equivalente con diversi anni di esperienza funzionale rilevanti.\n\n• Provata esperienza con responsabilità di leadership nel lavoro del personale di organizzazioni più grandi.\n\n• Ottima conoscenza delle strutture e degli strumenti di politica sanitaria e di sicurezza in Svizzera e di molti anni di esperienza in collaborazione con i partner di protezione civile (polizia, vigili del fuoco, militari, protezione civile e assistenza sanitaria).\n\n• Polivalente, pragmatico, resiliente, socialmente competente e disposto a svolgere.\n\n• Conoscenza attiva di due lingue ufficiali, conoscenza passiva di una terza lingua ufficiale e inglese."
       },
       "slugByLocale": {
         "en": "scientific-staff-member-in-disaster-medicine-katamed-the-position-is-limited-to-3-years-confederazione-svizzera-bern",
@@ -17227,8 +17234,7 @@
         "lead-architect-in-sgc-1196-confederazione-svizzera-zollikofen",
         "capo-architetto-sgc-1196-confederazione-svizzera-zollikofen",
         "leitender-architekt-in-sgc-1196-confederazione-svizzera-zollikofen"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "SAP Entwickler/-in / Wirtschaftsinformatiker/-in (1218)",
@@ -17297,8 +17303,7 @@
       },
       "previousSlugs": [
         "sap-entwickler-in-wirtschaftsinformatiker-in-1218-confederazione-zollikofen"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Juristische/r Hochschulpraktikant/-in",
@@ -22072,7 +22077,7 @@
       "description": "• In die Welt der Bits und Bytes eintauchen\n\n• Die Informatikberufe (ICT-Fachfrau/-mann, Informatiker/-in Plattform- und Applikatiosentwicklung) hautnah erleben\n\n• Rundgang durch die Arbeitswelten des BIT\n\n• Neugierige Schüler/-innen der 7. und 8. Klasse\n\n• Freude am kreativen und logischen Denken\n\n• Spass, in der Gruppe etwas Cooles zu kreieren\n\n• Begeistert für die Zusammenarbeit mit Lernenden des BIT",
       "titleByLocale": {
         "it": "Esperienza informatica",
-        "en": "Erlebnistag Informatik",
+        "en": "Computer Science Experience",
         "de": "Erlebnistag Informatik",
         "fr": "Expérience en informatique"
       },
@@ -22281,7 +22286,7 @@
       "description": "• Kundenbedürfnisse mit den gegebenen technischen Standards umsetzten, damit möglichst Individual-Lösungen vermeiden werden können, was auch Durchsetzungsvermögen und gute Kommunikationsfähigkeiten voraussetzt\n\n• Verantwortlich, Netzwerk-Technologie- und Sicherheitsarchitekturen (ICT-Architekturen) und deren Zusammenhänge zu planen, zu erstellen, zu dokumentieren, zu kommunizieren und zu pflegen; dabei die Aspekte Wirtschaftlichkeit, Sicherheit, Qualität und Umsetzbarkeit berücksichtigen\n\n• Technologiewechsel und Modernisierungsvorhaben konzipieren und begleiten wie auch die Kosten, Businesscases aufbereitet und den entsprechenden Gremien präsentieren\n\n• Vermitteln der Architekturvision und Architekturvorgaben zu deren Erreichung in Projekten und agilen Vorhaben, so wie die Prüfung der Architekturkonformität in Vorhaben definieren\n\n• Sicherheitsvorfälle analysieren und Verbesserungsmassnahmen einleiten\n\n• Abschluss (ETH/FH/HF) in Informatik oder Telekommunikation mit mindestens drei Jahren Berufspraxis im Bereich Netzwerk Services Engineering oder Networkautomation und Security\n\n• Diplomatisches Gespür, damit Entscheide, die von verschiedenen Instanzen getroffen werden müssen, auch von allen mitgetragen werden\n\n• Erfahrung mit Netzwerkarchitekturen, idealerweise in Hochsicherheitsumgebungen, ist wichtig, zudem sind Kenntnisse in Netzwerksicherheit, Verschlüsselungstechnologien, Segmentierung und Zero Trust-Verfahren von Vorteil\n\n• Proaktive, umgängliche und motivierte Persönlichkeit, die sich durch eine hohe Kundenorientierung auszeichnet, eine analytische Denkweise und die Fähigkeit mitbringt, komplexe Sachverhalte verständlich zu visualisieren und darzustellen\n\n• Kenntnisse einer zweiten Amtssprache sind erwünscht",
       "titleByLocale": {
         "it": "ICT architetto/esperto",
-        "en": "ICT-Architekt/-in Expert",
+        "en": "ICT architect/in expert",
         "de": "ICT-Architekt/-in Expert",
         "fr": "Architecte/expert en TIC"
       },
@@ -22351,7 +22356,7 @@
       "description": "• Prozesse mittels PowerShell automatisieren; Datenmigration und -bereitstellung von SharePoint OnPrem nach M365; Entwicklung von SP OnPrem und M365 Backend-Diensten\n\n• Neue oder bestehende Lösungen im M365 Umfeld bereitstellen sowie Migration und Transformation von Lösungen aus SharePoint Classic\n\n• Generieren von automatischen Reports via Power BI; Analysieren und Beheben von Störungen sowie automatisieren von LifeCycle-Themen im Betrieb der SharePoint OnPrem- und M365 Services\n\n• Kundenpflege in Migrationsfragen von M365 und -beratung in der Lösungsfindung mit M365 Services (speziell in Ansätzen mit Microsoft Search und VIVA Suite)\n\n• Lead in Projekten mit agilen Arbeitsmethoden sowie proaktives Mitwirken in deren Arbeitsprozessen (SCRUM, SAFe, Kanban)\n\n• Informatikausbildung (EFZ) mit Flair für Softwareentwicklung und Automatisierung\n\n• Langjährige Kundenerfahrung in vergleichbaren Projekten sowie Know-how in SharePoint OnPrem und M365 und Kenntnisse in den erforderlichen Technologien (PowerShell, HTML5 und REST-Service, Graph-API, PnP); Erfahrung in LowCode Lösungen (Power Plattform)\n\n• Erfahren in der Zusammenarbeit in agilen Teams (SAFe/SCRUM)\n\n• Motivierte sowie engagierte Persönlichkeit; kunden- und teamorientierte sowie vernetzte Arbeitsweise; kommunikativ und fähig, anspruchsvolle Zusammenhänge verständlich aufzubereiten\n\n• Gute Kenntnisse einer zweiten Amtssprache von Vorteil",
       "titleByLocale": {
         "it": "Specialista del sistema ICT/in esperto (802)",
-        "en": "ICT-System-Spezialist/-in Expert (802)",
+        "en": "ICT system specialist/in expert (802)",
         "de": "ICT-System-Spezialist/-in Expert (802)",
         "fr": "Spécialiste des systèmes TIC/expert (802)"
       },
@@ -22981,9 +22986,9 @@
       },
       "slugByLocale": {
         "it": "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "en": "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
+        "en": "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
         "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "fr": "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
+        "fr": "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
       },
       "id": "confederazione-ticino-8823a8430d20",
       "previousSlugsByLocale": {
@@ -22995,17 +23000,21 @@
         ],
         "en": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "senior-consultant-m-w-swiss-armed-forces-vtg-bern"
+          "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
+          "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland"
         ],
         "fr": [
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
-          "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
+          "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
+          "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
         ]
       },
       "previousSlugs": [
         "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-confederazione-stans-oberdorf-ausland",
         "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-        "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
+        "consultant-principal-m-m-swiss-armed-forces-vtg-bern",
+        "senior-consultant-m-w-confederazione-svizzera-stans-oberdorf-ausland",
+        "consultant-principal-m-m-confederazione-svizzera-stans-oberdorf-ausland"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,

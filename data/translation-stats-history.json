@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-06-02T06:00:57.713Z",
-    "label": "before",
-    "total": 8959,
-    "needsRetranslation": 2047,
-    "suppressed": 17,
-    "incomplete": 540,
-    "complete": 8419,
-    "missingByLocale": {
-      "it": 337,
-      "en": 232,
-      "de": 206,
-      "fr": 328
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 92
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 74
-      },
-      {
-        "company": "Roche",
-        "pending": 34
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 23
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 18
-      },
-      {
-        "company": "Sulzer",
-        "pending": 18
-      },
-      {
-        "company": "Nestlé",
-        "pending": 17
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-06-02T07:05:04.258Z",
-    "label": "after",
-    "total": 8959,
-    "needsRetranslation": 1976,
-    "suppressed": 17,
-    "incomplete": 502,
-    "complete": 8457,
-    "missingByLocale": {
-      "it": 304,
-      "en": 210,
-      "de": 196,
-      "fr": 295
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 92
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 74
-      },
-      {
-        "company": "Roche",
-        "pending": 34
-      },
-      {
-        "company": "UBS",
-        "pending": 28
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 19
-      },
-      {
-        "company": "Sulzer",
-        "pending": 18
-      },
-      {
-        "company": "Nestlé",
-        "pending": 17
-      },
-      {
-        "company": "IWC",
-        "pending": 16
-      },
-      {
-        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
-        "pending": 13
-      }
-    ]
-  },
-  {
     "timestamp": "2026-06-02T08:11:25.991Z",
     "label": "before",
     "total": 8941,
@@ -11396,6 +11282,120 @@
       {
         "company": "Sulzer",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-21T12:42:57.310Z",
+    "label": "before",
+    "total": 17200,
+    "needsRetranslation": 8151,
+    "suppressed": 587,
+    "incomplete": 1448,
+    "complete": 15752,
+    "missingByLocale": {
+      "it": 665,
+      "en": 454,
+      "de": 746,
+      "fr": 353
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 846
+      },
+      {
+        "company": "Richemont",
+        "pending": 102
+      },
+      {
+        "company": "Manor AG",
+        "pending": 101
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 23
+      },
+      {
+        "company": "Geberit",
+        "pending": 21
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-06-21T13:54:57.051Z",
+    "label": "after",
+    "total": 17200,
+    "needsRetranslation": 2731,
+    "suppressed": 587,
+    "incomplete": 1266,
+    "complete": 15934,
+    "missingByLocale": {
+      "it": 570,
+      "en": 350,
+      "de": 698,
+      "fr": 237
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 846
+      },
+      {
+        "company": "Manor AG",
+        "pending": 101
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 96
+      },
+      {
+        "company": "UBS",
+        "pending": 46
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 26
+      },
+      {
+        "company": "Sunrise Communications AG",
+        "pending": 25
+      },
+      {
+        "company": "CSD ENGINEERS",
+        "pending": 15
+      },
+      {
+        "company": "Richemont",
+        "pending": 13
+      },
+      {
+        "company": "Decathlon",
+        "pending": 11
+      },
+      {
+        "company": "Bank Cler",
+        "pending": 8
       }
     ]
   }
