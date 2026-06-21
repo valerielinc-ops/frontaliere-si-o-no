@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://careers.abb/global/en/job/ABB1GLOBAL93008285EXTERNALENGLOBAL/IS-Solution-Architect_93008285",
-    "https://careers.abb/global/en/job/ABB1GLOBAL96145232EXTERNALENGLOBAL/Field-Service-Engineer_96145232",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00005941EXTERNALENGLOBAL/Sales-Specialist-OEM--Talent-Pool----80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00006495EXTERNALENGLOBAL/Production-Shift-Supervisor--80-100--_JR00006495-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100",
@@ -65,16 +64,8 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00038630EXTERNALENGLOBAL/maintenance-operator"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-06-21T11:00:00.578Z",
+  "updatedAt": "2026-06-21T21:18:13.388Z",
   "seedMetaByUrl": {
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00037153EXTERNALENGLOBAL/Lead-Power-Systems-Architect": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00037313EXTERNALENGLOBAL/Group-Government-Relations---Public-Affairs-Manager": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
@@ -246,6 +237,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00034854EXTERNALENGLOBAL/XMLNAME--80---100---Engineering-Change-Manager-Service": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00037153EXTERNALENGLOBAL/Lead-Power-Systems-Architect": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -470,14 +469,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00037174EXTERNALENGLOBAL/R-D-Associate-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBAL96145232EXTERNALENGLOBAL/Field-Service-Engineer_96145232": {
-      "location": "Turgi, Aargau, Switzerland",
-      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
