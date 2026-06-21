@@ -29,6 +29,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { Worker } from 'worker_threads';
 import type { Plugin } from 'vite';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const OUT_SUBDIR = 'og/jobs';
 // Persistent cache dir survives `dist/` cleanup. Cache step in deploy.yml
@@ -476,6 +477,21 @@ export default function jobOgImagesPlugin(): Plugin {
     },
     async closeBundle() {
       if (!outDir || !rootDir) return;
+      // dist/og is IT-owned (root-level, language-neutral: one card per job slug,
+      // written here via direct fs.writeFileSync — it bypasses the WriteCollector's
+      // shouldEmitPath gate). On a per-locale shard that does NOT own the root
+      // (BUILD_LOCALE=en/de/fr) these cards would be rendered/copied into dist/og
+      // only to be deleted by prune-locale-shard.mjs — pure wasted I/O (thousands
+      // of webp). Skip: the IT shard (always present in the matrix) generates them
+      // and pushes /og to the CDN; en/de/fr pages reference that shared CDN /og.
+      // Monolith (EMIT_ALL) and the IT shard keep generating them unchanged, so the
+      // recomposed-vs-monolith equivalence is unaffected (en/de/fr never carried
+      // /og in their pruned output anyway).
+      if (!shouldEmitLocale('it')) {
+        // eslint-disable-next-line no-console
+        console.log('[job-og-images] BUILD_LOCALE excludes IT (root owner) — skipping OG generation (CDN-shared, pruned on this shard).');
+        return;
+      }
       const fontPair = readFontPair(rootDir);
       if (!fontPair) {
         // eslint-disable-next-line no-console
