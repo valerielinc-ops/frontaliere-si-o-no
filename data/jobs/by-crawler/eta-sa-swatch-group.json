@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-6oyzsl",
-      "slug": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl",
+      "slug": "ingegnere-di-linea-aerea-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Mécanicien de ligne | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -23,9 +23,9 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl",
-        "en": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl",
-        "de": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl",
+        "it": "ingegnere-di-linea-aerea-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "airline-engineer-swiss-watch-manufacture-eta-sa-eta-sa-swatch-group-ticino",
+        "de": "fluggesellschaftsingenieur-schweizer-uhrenhersteller-eta-sa-eta-sa-swatch-group-ticino",
         "fr": "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
       },
       "titleByLocale": {
@@ -59,7 +59,21 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
+        ],
+        "en": [
+          "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
+        ],
+        "de": [
+          "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-de-ligne-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-piscine-20-ch-19-6oyzsl"
+      ]
     },
     {
       "id": "company-6oyzsj",
@@ -95,15 +109,21 @@
       },
       "slugByLocale": {
         "it": "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-erreichbarkeit-mit-offent",
-        "en": "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj",
+        "en": "head-of-quality-assurance-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "de": "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj",
-        "fr": "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj"
+        "fr": "responsable-de-l-assurance-qualite-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err",
+          "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj"
+        ],
+        "en": [
+          "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj"
+        ],
+        "fr": [
           "leiter-qualitatssicherung-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-2540-grenchen-gute-err-6oyzsj"
         ]
       },
@@ -132,7 +152,7 @@
     },
     {
       "id": "company-6oyzsm",
-      "slug": "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-1950-sion-a",
+      "slug": "project-manager-industrializzazione-100-in-loco-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "CHEF/FE DE PROJET INDUSTRIALISATION 100% on site | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -153,9 +173,9 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-1950-sion-a",
-        "en": "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm",
-        "de": "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm",
+        "it": "project-manager-industrializzazione-100-in-loco-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "industrialization-project-manager-100-on-site-swiss-watch-manufacture-eta-sa-eta-sa-swatch-group-ticino",
+        "de": "industrialisierungsprojektleiter-100-vor-ort-schweizer-uhrenhersteller-eta-sa-eta-sa-swatch-group-ticino",
         "fr": "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm"
       },
       "titleByLocale": {
@@ -180,21 +200,25 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm"
+          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm",
+          "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm"
         ],
         "de": [
-          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm"
+          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm",
+          "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm"
         ],
         "fr": [
           "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm"
         ],
         "it": [
-          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm"
+          "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm",
+          "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-1950-sion-a"
         ]
       },
       "previousSlugs": [
         "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-swatch-group-eta-sa-manufacture-horlogere-suisse-route-de-la-pis-6oyzsm",
         "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-6oyzsm",
+        "chef-fe-de-projet-industrialisation-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-1950-sion-a",
         "chef-de-projet-industrialisation-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       ],
       "sourceLang": "fr",
@@ -219,7 +243,7 @@
     },
     {
       "id": "company-6oyzsk",
-      "slug": "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk",
+      "slug": "product-manager-al-100-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Product Manager 100% | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -238,9 +262,9 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk",
+        "it": "product-manager-al-100-manifattura-svizzera-di-orologi-eta-sa-eta-sa-swatch-group-ticino",
         "en": "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk",
-        "de": "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk",
+        "de": "produktmanager-100-schweizer-uhrenhersteller-eta-sa-eta-sa-swatch-group-ticino",
         "fr": "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk"
       },
       "titleByLocale": {
@@ -274,11 +298,22 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk"
+        ],
+        "de": [
+          "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-100-manufacture-horlogere-suisse-eta-sa-swatch-group-1950-sion-a-proximite-des-transports-publics-envie-de-nous-rejoi-6oyzsk"
+      ]
     },
     {
       "id": "company-6oyzsp",
-      "slug": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp",
+      "slug": "tecnologo-plastics-furnisher-produzione-compatta-verde-sul-sito-fabbricazione-horlogere-suisse-eta-sa-eta-sa-swatch",
       "company": "ETA SA (Swatch Group)",
       "title": "Kunststofftechnologe / Einrichter Grünlingfertigung, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -297,10 +332,10 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp",
-        "en": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp",
+        "it": "tecnologo-plastics-furnisher-produzione-compatta-verde-sul-sito-fabbricazione-horlogere-suisse-eta-sa-eta-sa-swatch",
+        "en": "plastics-technologist-furnishing-green-metal-production-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group",
         "de": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp",
-        "fr": "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp"
+        "fr": "technologue-en-plastiques-production-de-metal-vert-pour-l-ameublement-sur-place-manufacture-horlogere-suisse-eta-sa-eta"
       },
       "titleByLocale": {
         "de": "Kunststofftechnologe / Einrichter Grünlingfertigung, vor Ort | Manufacture Horlogère Suisse | ETA SA",
@@ -335,13 +370,25 @@
       "country": "CH",
       "addressRegion": "SO",
       "previousSlugs": [
+        "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp",
         "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-eta-sa-manufacture-horlogere-suisse-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp"
+        ],
+        "en": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp"
+        ],
+        "fr": [
+          "kunststofftechnologe-einrichter-grunlingfertigung-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreich-6oyzsp"
+        ]
+      }
     },
     {
       "id": "company-6oyzso",
-      "slug": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso",
+      "slug": "polimeccanica-nel-campo-dell-erosione-80-100-sul-sito-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Polymechaniker/in im Bereich Erosion 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -360,8 +407,8 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso",
-        "en": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso",
+        "it": "polimeccanica-nel-campo-dell-erosione-80-100-sul-sito-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "polymechanic-in-the-field-of-erosion-80-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "de": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso",
         "fr": "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso"
       },
@@ -396,11 +443,22 @@
       "addressLocality": "Ticino",
       "addressCountry": "CH",
       "country": "CH",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso"
+        ],
+        "en": [
+          "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso"
+        ]
+      },
+      "previousSlugs": [
+        "polymechaniker-in-im-bereich-erosion-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkei-6oyzso"
+      ]
     },
     {
       "id": "company-6oz0cg",
-      "slug": "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
+      "slug": "produzione-di-parti-in-plastica-fitter-al-100-in-loco-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Einrichter/in Kunststoffteilefertigung 100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -419,8 +477,8 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
-        "en": "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
+        "it": "produzione-di-parti-in-plastica-fitter-al-100-in-loco-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "installer-in-plastic-parts-production-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "de": "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
         "fr": "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg"
       },
@@ -457,12 +515,21 @@
       "country": "CH",
       "addressRegion": "SO",
       "previousSlugs": [
+        "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg",
         "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg"
+        ],
+        "en": [
+          "einrichter-in-kunststoffteilefertigung-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-6oz0cg"
+        ]
+      }
     },
     {
       "id": "company-6oz0ch",
-      "slug": "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch",
+      "slug": "stampa-technologist-login-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Drucktechnologe/-login 100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -481,8 +548,8 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch",
-        "en": "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-6oz0ch",
+        "it": "stampa-technologist-login-100-sul-sito-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "100-printing-technologist-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "de": "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch",
         "fr": "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch"
       },
@@ -505,10 +572,17 @@
         ],
         "de": [
           "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-6oz0ch"
+        ],
+        "it": [
+          "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch"
+        ],
+        "en": [
+          "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-6oz0ch"
         ]
       },
       "previousSlugs": [
         "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-6oz0ch",
+        "drucktechnologe-login-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlic-6oz0ch",
         "drucktechnologe-login-100-vor-ort-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino"
       ],
       "sourceLang": "de",
@@ -533,7 +607,7 @@
     },
     {
       "id": "company-6oz0cc",
-      "slug": "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc",
+      "slug": "imbiancatore-di-auto-al-100-sul-posto-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
       "company": "ETA SA (Swatch Group)",
       "title": "Autolackierer/in 100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
       "location": "Ticino",
@@ -552,8 +626,8 @@
       "crawledAt": "2026-06-20T22:57:03.134Z",
       "firstSeenAt": "2026-06-20T22:57:03.134Z",
       "slugByLocale": {
-        "it": "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc",
-        "en": "autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc",
+        "it": "imbiancatore-di-auto-al-100-sul-posto-manifattura-orologeria-svizzera-eta-sa-eta-sa-swatch-group-ticino",
+        "en": "car-painter-100-on-site-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-ticino",
         "de": "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc",
         "fr": "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc"
       },
@@ -576,10 +650,17 @@
         ],
         "de": [
           "autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc"
+        ],
+        "it": [
+          "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc"
+        ],
+        "en": [
+          "autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc"
         ]
       },
       "previousSlugs": [
-        "autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc"
+        "autolackierer-in-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-verk-6oz0cc",
+        "autolackierer-in-80-100-vor-ort-manufacture-horlogere-suisse-eta-sa-swatch-group-2540-grenchen-gute-erreichbarkeit-mit-offentlichen-v-6oz0cc"
       ],
       "sourceLang": "de",
       "salaryMin": 68500,

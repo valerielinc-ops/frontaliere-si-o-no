@@ -3472,8 +3472,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald",
         "it": "apprendistato-come-assistentin-assistent-gesundheit-e-soziales-afp-tertianum-wald",
-        "en": "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald",
-        "fr": "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald"
+        "en": "apprenticeship-as-assistant-assistant-health-and-social-eba-tertianum-wald",
+        "fr": "apprentissage-a-titre-d-adjoint-assistante-en-sante-et-en-affaires-sociales-tertianum-wald"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -3518,6 +3518,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald"
+        ],
+        "en": [
+          "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald"
+        ],
+        "fr": [
           "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-tertianum-wald"
         ]
       },
@@ -8490,7 +8496,7 @@
         "it": "istruttore-di-fitness-di-gruppo-50-tertianum-meilen",
         "en": "group-fitness-instructor-in-50-tertianum-meilen",
         "de": "group-fitness-instructor-in-50-tertianum-meilen",
-        "fr": "group-fitness-instructor-in-50-tertianum-meilen"
+        "fr": "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -8532,15 +8538,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "group-fitness-instructor-in-50-tertianum-meilen",
-        "instructeur-de-fitness-en-groupe-50-tertianum-meilen"
+        "group-fitness-instructor-in-50-tertianum-meilen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "group-fitness-instructor-in-50-tertianum-meilen"
         ],
         "fr": [
-          "instructeur-de-fitness-en-groupe-50-tertianum-meilen",
           "group-fitness-instructor-in-50-tertianum-meilen"
         ]
       },

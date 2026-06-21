@@ -2022,12 +2022,12 @@
     },
     {
       "id": "denner-0f13c61b036b",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
         "de": "assistent-in-filialleitung-denner-ag-wadenswil-dmwt2p",
-        "en": "assistent-in-filialleitung-denner",
-        "fr": "assistent-in-filialleitung-denner"
+        "en": "assistant-in-branch-management-denner-wadenswil",
+        "fr": "assistant-dans-la-gestion-des-succursales-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -2097,7 +2097,21 @@
         }
       },
       "country": "CH",
-      "firstSeenAt": "2026-06-20T21:48:29.464Z"
+      "firstSeenAt": "2026-06-20T21:48:29.464Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner"
+      ]
     },
     {
       "id": "denner-53bf00c58e33",

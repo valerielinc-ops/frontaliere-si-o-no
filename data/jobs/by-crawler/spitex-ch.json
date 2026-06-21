@@ -1652,12 +1652,12 @@
     },
     {
       "id": "spitex-ch-1ba91dc002c3",
-      "slug": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
+      "slug": "assistente-sanitario-crs-spitex-limmat-aare-reuss-ag-untersiggenthal",
       "slugByLocale": {
         "de": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "it": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "en": "pflegehelfer-in-srk-spitex-ch-untersiggenthal",
-        "fr": "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
+        "it": "assistente-sanitario-crs-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "en": "nursing-assistant-m-f-spitex-limmat-aare-reuss-ag-untersiggenthal",
+        "fr": "aide-soignant-crs-spitex-limmat-aare-reuss-ag-untersiggenthal"
       },
       "company": "Spitex Limmat Aare Reuss AG",
       "companyKey": "spitex-ch",
@@ -1713,7 +1713,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T22:51:01.537Z"
+      "firstSeenAt": "2026-06-20T22:51:01.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
+        ],
+        "en": [
+          "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
+        ],
+        "fr": [
+          "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
+        ]
+      },
+      "previousSlugs": [
+        "pflegehelfer-in-srk-spitex-ch-untersiggenthal"
+      ]
     },
     {
       "id": "spitex-ch-3dd635a8501b",
@@ -2046,8 +2060,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
         "it": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
-        "en": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon",
-        "fr": "fachperson-gesundheit-efz-50-80-spitex-ch-effretikon"
+        "en": "health-professional-efz-50-80-spitex-kempt-effretikon",
+        "fr": "professionnels-de-la-sante-efz-50-80-spitex-kempt-effretikon"
       },
       "company": "SPITEX Kempt",
       "companyKey": "spitex-ch",
@@ -2180,12 +2194,12 @@
     },
     {
       "id": "spitex-ch-0600c7564978",
-      "slug": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
+      "slug": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "it": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "en": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa",
-        "fr": "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        "it": "infermiera-hf-fh-con-gestione-dei-casi-80-100-spitex-stafa-stafa",
+        "en": "dipl-nurse-hf-fh-with-case-management-80-100-spitex-stafa-stafa",
+        "fr": "dipl-infirmiere-hf-fh-avec-gestion-de-cas-80-100-spitex-stafa-stafa"
       },
       "company": "Spitex Stäfa",
       "companyKey": "spitex-ch",
@@ -2241,7 +2255,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-20T22:51:16.667Z"
+      "firstSeenAt": "2026-06-20T22:51:16.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-mit-fallfuhrung-80-100-spitex-ch-stafa"
+      ]
     }
   ]
 }
