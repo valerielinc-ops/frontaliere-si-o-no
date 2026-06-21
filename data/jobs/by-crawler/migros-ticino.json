@@ -216,22 +216,28 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-zurich",
-          "venditore-denner-ag-zurich-e89fe9"
+          "venditore-denner-ag-zurich-e89fe9",
+          "venditore-a-denner-ag-zurich"
         ],
         "en": [
           "verkaufer-in-denner-ag-zurich",
-          "seller-denner-ag-zurich"
+          "seller-denner-ag-zurich",
+          "sales-associate-denner-ag-zurich"
         ],
         "fr": [
           "verkaufer-in-denner-ag-zurich",
-          "vendeur-denner-ag-zurich"
+          "vendeur-denner-ag-zurich",
+          "vendeur-vendeuse-denner-ag-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
-        "vendeur-denner-ag-zurich"
+        "vendeur-denner-ag-zurich",
+        "venditore-a-denner-ag-zurich",
+        "sales-associate-denner-ag-zurich",
+        "vendeur-vendeuse-denner-ag-zurich"
       ]
     },
     {
@@ -448,18 +454,24 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-wilderswil",
-          "venditore-denner-ag-wilderswil-834c79"
+          "venditore-denner-ag-wilderswil-834c79",
+          "venditore-a-denner-ag-wilderswil"
         ],
         "en": [
-          "verkaufer-in-denner-ag-wilderswil"
+          "verkaufer-in-denner-ag-wilderswil",
+          "sales-associate-denner-ag-wilderswil"
         ],
         "fr": [
-          "verkaufer-in-denner-ag-wilderswil"
+          "verkaufer-in-denner-ag-wilderswil",
+          "vendeur-vendeuse-denner-ag-wilderswil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-wilderswil",
-        "venditore-denner-ag-wilderswil-834c79"
+        "venditore-denner-ag-wilderswil-834c79",
+        "venditore-a-denner-ag-wilderswil",
+        "sales-associate-denner-ag-wilderswil",
+        "vendeur-vendeuse-denner-ag-wilderswil"
       ]
     },
     {
@@ -999,18 +1011,24 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-mohlin",
-          "venditore-denner-ag-mohlin-0713a1"
+          "venditore-denner-ag-mohlin-0713a1",
+          "venditore-a-denner-ag-mohlin"
         ],
         "en": [
-          "verkaufer-in-denner-ag-mohlin"
+          "verkaufer-in-denner-ag-mohlin",
+          "salesperson-denner-ag-mohlin"
         ],
         "fr": [
-          "verkaufer-in-denner-ag-mohlin"
+          "verkaufer-in-denner-ag-mohlin",
+          "vendeur-vendeuse-denner-ag-mohlin"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-mohlin",
-        "venditore-denner-ag-mohlin-0713a1"
+        "venditore-denner-ag-mohlin-0713a1",
+        "venditore-a-denner-ag-mohlin",
+        "salesperson-denner-ag-mohlin",
+        "vendeur-vendeuse-denner-ag-mohlin"
       ]
     },
     {
@@ -1106,12 +1124,15 @@
           "vendeur-denner-ag-wetzikon-8e6f7a"
         ],
         "it": [
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil",
+          "venditore-denner-ag-zurich-1ed56c",
+          "verkaufer-in-denner-ag-frick-7j5ksm",
+          "verkaufer-in-denner-ag-interlaken-vz3gdz"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-wetzikon-douzkp",
-        "verkaufer-in-denner-ag-sulgen",
         "seller-denner-ag-sulgen",
         "seller-denner-ag-wetzikon-8e6f7a",
         "vendeur-denner-ag-sulgen",
@@ -1126,7 +1147,12 @@
         "verkaufer-in-denner-ag-zurich",
         "vendeur-denner-ag-zurich-1d38ef",
         "verkaufer-in-denner-ag-zurich-fzpktp",
-        "verkaufer-in-denner-ag-frick"
+        "verkaufer-in-denner-ag-frick",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil",
+        "venditore-denner-ag-zurich-1ed56c",
+        "verkaufer-in-denner-ag-frick-7j5ksm",
+        "verkaufer-in-denner-ag-interlaken-vz3gdz"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1247,22 +1273,38 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner-ag-zurich",
-          "venditore-denner-ag-zurich-1ed56c"
+          "venditore-denner-ag-zurich-1ed56c",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-zurich-o7keak",
+          "venditore-denner-ag-zurich-1d38ef",
+          "venditore-a-denner-ag-zurich-1ed56c"
         ],
         "en": [
           "verkaufer-in-denner-ag-zurich",
-          "seller-denner-ag-zurich-1ed56c"
+          "seller-denner-ag-zurich-1ed56c",
+          "sales-associate-denner-ag-zurich-1ed56c"
         ],
         "fr": [
           "verkaufer-in-denner-ag-zurich",
-          "vendeur-denner-ag-zurich-1ed56c"
+          "vendeur-denner-ag-zurich-1ed56c",
+          "vendeur-vendeuse-denner-ag-zurich-1ed56c"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-denner-ag-zurich",
         "venditore-denner-ag-zurich-1ed56c",
         "seller-denner-ag-zurich-1ed56c",
-        "vendeur-denner-ag-zurich-1ed56c"
+        "vendeur-denner-ag-zurich-1ed56c",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-zurich-o7keak",
+        "venditore-denner-ag-zurich-1d38ef",
+        "venditore-a-denner-ag-zurich-1ed56c",
+        "sales-associate-denner-ag-zurich-1ed56c",
+        "vendeur-vendeuse-denner-ag-zurich-1ed56c"
       ]
     },
     {
@@ -2134,10 +2176,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-zurich"
+        ],
+        "fr": [
+          "instructeur-de-fitness-activ-fitness-zurich"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "fitness-instructor-m-w-d-activ-fitness-zurich",
+        "instructeur-de-fitness-activ-fitness-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -7707,17 +7753,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-zurich-fzpktp",
-          "verkaufer-in-denner-ag-zurich-2",
-          "verkaufer-in-denner-ag-zurich",
-          "verkaufer-in-denner-ag-langenthal-oggkv1",
-          "verkaufer-in-denner-ag-langenthal-3",
-          "verkaufer-in-denner-ag-langenthal",
-          "venditore-denner-ag-frick",
-          "verkaufer-in-denner-ag-interlaken-vz3gdz",
-          "verkaufer-in-denner-ag-interlaken-2",
-          "verkaufer-in-denner-ag-interlaken",
-          "verkaufer-in-denner-ag-basel-68m8tl",
           "verkaufer-in-denner-ag-basel-2",
           "verkaufer-in-denner-ag-basel",
           "verkaufer-in-denner-ag-wilderswil-8uju7p",
@@ -7726,7 +7761,18 @@
           "verkaufer-in-denner-ag-chur-s710og",
           "verkaufer-in-denner-ag-chur-2",
           "verkaufer-in-denner-ag-chur",
-          "verkaufer-in-denner-ag-wattwil-v6p61a"
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil",
+          "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+          "verkaufer-in-denner-ag-ruti-zh-2",
+          "verkaufer-in-denner-ag-ruti-zh",
+          "verkaufer-in-denner-ag-mohlin-ynz3u9",
+          "verkaufer-in-denner-ag-mohlin-2",
+          "verkaufer-in-denner-ag-mohlin"
         ],
         "en": [
           "verkaufer-in-denner-ag-frick-7j5ksm",
@@ -7743,17 +7789,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-zurich",
-        "verkaufer-in-denner-ag-langenthal-oggkv1",
-        "verkaufer-in-denner-ag-langenthal-3",
-        "verkaufer-in-denner-ag-langenthal",
-        "venditore-denner-ag-frick",
-        "seller-denner-ag-frick",
-        "vendeur-denner-ag-frick",
-        "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "verkaufer-in-denner-ag-interlaken-2",
-        "verkaufer-in-denner-ag-interlaken",
-        "verkaufer-in-denner-ag-basel-68m8tl",
         "verkaufer-in-denner-ag-basel-2",
         "verkaufer-in-denner-ag-basel",
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
@@ -7762,7 +7797,18 @@
         "verkaufer-in-denner-ag-chur-s710og",
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-chur",
-        "verkaufer-in-denner-ag-wattwil-v6p61a"
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil",
+        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
+        "verkaufer-in-denner-ag-ruti-zh-2",
+        "verkaufer-in-denner-ag-ruti-zh",
+        "verkaufer-in-denner-ag-mohlin-ynz3u9",
+        "verkaufer-in-denner-ag-mohlin-2",
+        "verkaufer-in-denner-ag-mohlin"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8402,7 +8448,14 @@
           "verkaufer-in-denner-ag-interlaken",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
           "venditore-denner-ag-interlaken-c59906",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-interlaken-hchfj3",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-denner-ag-interlaken-vz3gdz",
@@ -8424,13 +8477,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-interlaken-vz3gdz",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-interlaken",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-interlaken-c59906",
-        "seller-denner-ag-interlaken-c59906",
-        "vendeur-denner-ag-interlaken-c59906",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-2",
         "verkaufer-in-denner-ag-basel-68m8tl",
@@ -8443,7 +8489,14 @@
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-chur",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-interlaken-hchfj3",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8550,7 +8603,14 @@
           "verkaufer-in-denner-ag-basel",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
           "venditore-denner-ag-basel-15d39b",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-basel-xf6s8h",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-denner-ag-basel-68m8tl",
@@ -8572,13 +8632,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-basel-68m8tl",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-basel",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-basel-15d39b",
-        "seller-denner-ag-basel-15d39b",
-        "vendeur-denner-ag-basel-15d39b",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
@@ -8591,7 +8644,14 @@
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-chur",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-basel-xf6s8h",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8698,7 +8758,14 @@
           "verkaufer-in-denner-ag-wilderswil",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
           "venditore-denner-ag-wilderswil-2b22fa",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-wilderswil-iglubf",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-denner-ag-wilderswil-8uju7p",
@@ -8720,13 +8787,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-wilderswil-8uju7p",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-wilderswil",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-wilderswil-2b22fa",
-        "seller-denner-ag-wilderswil-2b22fa",
-        "vendeur-denner-ag-wilderswil-2b22fa",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
@@ -8739,7 +8799,14 @@
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-chur",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-wilderswil-iglubf",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -8846,7 +8913,14 @@
           "verkaufer-in-denner-ag-chur",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
           "venditore-denner-ag-chur-2511ee",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-chur-pu2w4a",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil"
         ],
         "en": [
           "verkaufer-in-denner-ag-chur-s710og",
@@ -8868,13 +8942,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-chur-s710og",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-chur",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "venditore-denner-ag-chur-2511ee",
-        "seller-denner-ag-chur-2511ee",
-        "vendeur-denner-ag-chur-2511ee",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
@@ -8887,7 +8954,14 @@
         "verkaufer-in-denner-ag-wilderswil",
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-chur-pu2w4a",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -8993,7 +9067,15 @@
           "verkaufer-in-denner-ag-frick",
           "verkaufer-in-denner-ag-wattwil",
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-allschwil-2",
+          "verkaufer-in-denner-ag-allschwil",
+          "verkaufer-in-denner-ag-wattwil-2x8201",
+          "venditore-venditrice-denner-ag-wattwil",
+          "sales-associate-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-chur"
         ],
         "en": [
           "verkaufer-in-denner-ag-wattwil-v6p61a",
@@ -9013,12 +9095,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-wattwil-v6p61a",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-wattwil",
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "verkaufer-in-denner-ag-frick-7j5ksm",
-        "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
         "verkaufer-in-denner-ag-interlaken",
         "verkaufer-in-denner-ag-basel-68m8tl",
@@ -9030,7 +9106,15 @@
         "verkaufer-in-denner-ag-chur-s710og",
         "verkaufer-in-denner-ag-chur-2",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-allschwil-2",
+        "verkaufer-in-denner-ag-allschwil",
+        "verkaufer-in-denner-ag-wattwil-2x8201",
+        "venditore-venditrice-denner-ag-wattwil",
+        "sales-associate-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-chur"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -9139,7 +9223,9 @@
           "venditore-denner-ag-allschwil-5b4844",
           "venditore-denner-ag-allschwil",
           "verkaufer-in-denner-ag-frick-7j5ksm",
-          "verkaufer-in-denner-ag-interlaken-vz3gdz"
+          "verkaufer-in-denner-ag-interlaken-vz3gdz",
+          "verkaufer-in-denner-ag-interlaken-2",
+          "verkaufer-in-denner-ag-interlaken"
         ],
         "en": [
           "verkaufer-in-denner-ag-allschwil-b1y7ze",
@@ -9159,8 +9245,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-basel-68m8tl",
-        "verkaufer-in-denner-ag-basel-2",
         "verkaufer-in-denner-ag-basel",
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
         "verkaufer-in-denner-ag-wilderswil-2",
@@ -9178,7 +9262,9 @@
         "seller-denner-ag-allschwil-5b4844",
         "vendeur-denner-ag-allschwil-5b4844",
         "verkaufer-in-denner-ag-frick-7j5ksm",
-        "verkaufer-in-denner-ag-interlaken-vz3gdz"
+        "verkaufer-in-denner-ag-interlaken-vz3gdz",
+        "verkaufer-in-denner-ag-interlaken-2",
+        "verkaufer-in-denner-ag-interlaken"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9428,7 +9514,15 @@
           "verkaufer-in-denner-ag-allschwil-2",
           "verkaufer-in-denner-ag-allschwil",
           "venditore-denner-ag-mohlin-68d2c2",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-chur-2",
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-mohlin-fxzsgw",
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze"
         ],
         "en": [
           "verkaufer-in-denner-ag-mohlin-ynz3u9",
@@ -9450,14 +9544,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-mohlin-ynz3u9",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-mohlin",
-        "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-mohlin-68d2c2",
-        "seller-denner-ag-mohlin-68d2c2",
-        "vendeur-denner-ag-mohlin-68d2c2",
         "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
@@ -9469,7 +9555,15 @@
         "verkaufer-in-denner-ag-wilderswil-2",
         "verkaufer-in-denner-ag-wilderswil",
         "verkaufer-in-denner-ag-sulgen-ylgjxe",
-        "verkaufer-in-denner-ag-sulgen"
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-chur-2",
+        "verkaufer-in-denner-ag-chur",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-mohlin-fxzsgw",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9577,7 +9671,17 @@
           "verkaufer-in-denner-ag-allschwil-2",
           "verkaufer-in-denner-ag-allschwil",
           "venditore-denner-ag-ruti-zh-855b89",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-chur-2",
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-sulgen-ylgjxe",
+          "verkaufer-in-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze"
         ],
         "en": [
           "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
@@ -9599,16 +9703,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-ruti-zh-rmc0i8",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-ruti-zh",
-        "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-ruti-zh-855b89",
-        "venditore-denner-ag-sulgen",
-        "sales-associate-denner-ag-ruti-zh",
-        "vendeur-denner-ag-ruti-zh-855b89",
-        "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
         "verkaufer-in-denner-ag-interlaken",
@@ -9618,7 +9712,17 @@
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
         "verkaufer-in-denner-ag-wilderswil-2",
         "verkaufer-in-denner-ag-wilderswil",
-        "seller-denner-ag-ruti-zh-855b89"
+        "seller-denner-ag-ruti-zh-855b89",
+        "verkaufer-in-denner-ag-chur-2",
+        "verkaufer-in-denner-ag-chur",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-ruti-zh-t7zg1v",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-sulgen-ylgjxe",
+        "verkaufer-in-denner-ag-sulgen",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10527,7 +10631,19 @@
           "verkaufer-in-denner-ag-langenthal",
           "verkaufer-in-denner-ag-allschwil-2",
           "verkaufer-in-denner-ag-allschwil",
-          "venditore-denner-ag-sulgen"
+          "venditore-denner-ag-sulgen",
+          "verkaufer-in-denner-ag-langenthal-2",
+          "verkaufer-in-denner-ag-langenthal-oggkv1",
+          "verkaufer-in-denner-ag-chur-2",
+          "verkaufer-in-denner-ag-chur",
+          "verkaufer-in-denner-ag-wattwil-v6p61a",
+          "verkaufer-in-denner-ag-wattwil-2",
+          "verkaufer-in-denner-ag-wattwil",
+          "verkaufer-in-denner-ag-allschwil-b1y7ze",
+          "verkaufer-in-denner-ag-wilderswil",
+          "verkaufer-in-denner-ag-chur-s710og",
+          "verkaufer-in-denner-ag-sulgen-ylgjxe",
+          "verkaufer-in-denner-ag-sulgen"
         ],
         "en": [
           "verkaufer-in-denner-ag-langenthal-hutbop",
@@ -10548,16 +10664,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-langenthal-hutbop",
-        "verkaufer-in-denner-ag-frick",
-        "verkaufer-in-denner-ag-langenthal",
-        "verkaufer-in-denner-ag-allschwil-2",
-        "verkaufer-in-denner-ag-allschwil",
-        "venditore-denner-ag-sulgen",
-        "seller-denner-ag-langenthal-634638",
-        "seller-denner-ag-langenthal",
-        "vendeur-denner-ag-langenthal-634638",
-        "verkaufer-in-denner-ag-frick-7j5ksm",
         "verkaufer-in-denner-ag-interlaken-vz3gdz",
         "verkaufer-in-denner-ag-interlaken-2",
         "verkaufer-in-denner-ag-interlaken",
@@ -10565,7 +10671,19 @@
         "verkaufer-in-denner-ag-basel-2",
         "verkaufer-in-denner-ag-basel",
         "verkaufer-in-denner-ag-wilderswil-8uju7p",
-        "verkaufer-in-denner-ag-wilderswil-2"
+        "verkaufer-in-denner-ag-wilderswil-2",
+        "verkaufer-in-denner-ag-langenthal-2",
+        "verkaufer-in-denner-ag-langenthal-oggkv1",
+        "verkaufer-in-denner-ag-chur-2",
+        "verkaufer-in-denner-ag-chur",
+        "verkaufer-in-denner-ag-wattwil-v6p61a",
+        "verkaufer-in-denner-ag-wattwil-2",
+        "verkaufer-in-denner-ag-wattwil",
+        "verkaufer-in-denner-ag-allschwil-b1y7ze",
+        "verkaufer-in-denner-ag-wilderswil",
+        "verkaufer-in-denner-ag-chur-s710og",
+        "verkaufer-in-denner-ag-sulgen-ylgjxe",
+        "verkaufer-in-denner-ag-sulgen"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
