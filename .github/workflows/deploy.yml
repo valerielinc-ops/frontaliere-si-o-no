@@ -87,6 +87,11 @@ on:
         required: false
         type: boolean
         default: false
+      force_matrix:
+        description: 'Run the per-locale MATRIX build path instead of the monolith (for testing before flipping the LOCALE_MATRIX_BUILD repo var)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   # This workflow only needs repository read access: the previous-slug winners
@@ -99,6 +104,11 @@ permissions:
 
 jobs:
   build:
+    # Monolithic build path — the DEFAULT. Skipped only when the per-locale
+    # MATRIX build path is selected (repo var LOCALE_MATRIX_BUILD=true or the
+    # force_matrix workflow_dispatch input). Everything else in this job is
+    # byte-identical to before; this guard is the ONLY addition.
+    if: ${{ vars.LOCALE_MATRIX_BUILD != 'true' && github.event.inputs.force_matrix != 'true' }}
     # `pages-build` concurrency group with cancel-in-progress: FALSE.
     # Builds are 12-15 min of heavy CPU each. We need:
     #   1. NOT to run 5+ builds in parallel for stale cron commits
@@ -1561,6 +1571,510 @@ jobs:
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
+  # ═══════════════════════════════════════════════════════════════════════
+  # PER-LOCALE MATRIX BUILD PATH (flag-gated alternative to the monolith).
+  #
+  # Selected via repo var LOCALE_MATRIX_BUILD=true OR the force_matrix
+  # workflow_dispatch input. When OFF (default) all three matrix jobs are
+  # skipped and the monolith `build` job above runs exactly as before.
+  #
+  # Architecture (mirrors deploy-matrix-experiment.yml, productionised):
+  #   matrix-setup → emits the locale list + a shared digits-only DEPLOY_BUILD_ID
+  #   prep         → assembles the dataset ONCE → atomic prepared-snapshot artifact
+  #   build-locale → matrix (it,en,de,fr); each runner builds ONLY its locale.
+  #                  IT is the Pages-serving shard (uploads github-pages + the
+  #                  sitemaps/jobs-master/snapshot/winners artifacts, exactly like
+  #                  the monolith). en/de/fr push to their frontaliere-<loc> shard
+  #                  repos. All shards pass the same DEPLOY_BUILD_ID so every
+  #                  dist/build-id.txt is byte-identical (build-plugins/constants.ts).
+  #
+  # The shared downstream jobs (deploy/validate-dist/...) consume the IT shard's
+  # github-pages artifact the same way they consume the monolith's — they run
+  # after EITHER build path via the `needs: [build, build-locale]` + success-of-
+  # either guards below.
+  # ═══════════════════════════════════════════════════════════════════════
+  matrix-setup:
+    if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
+      build_id: ${{ steps.build_id.outputs.build_id }}
+    steps:
+      - name: Build locale matrix
+        id: build
+        run: |
+          set -eo pipefail
+          # Canonical locale set, fixed order, de-duplicated (same node one-liner
+          # as deploy-matrix-experiment.yml). Production always builds all four.
+          JSON=$(node -e '
+            const all = ["it","en","de","fr"];
+            process.stdout.write(JSON.stringify(all));
+          ')
+          echo "matrix=$JSON" >> "$GITHUB_OUTPUT"
+          echo "Locale matrix: $JSON"
+      - name: Mint shared digits-only build id
+        id: build_id
+        run: |
+          # Single canonical DEPLOY_BUILD_ID for every shard so each shard's
+          # build-plugins/constants.ts BUILD_ID (DEPLOY_BUILD_ID-aware) emits an
+          # identical dist/build-id.txt — validate-live's propagation check keys
+          # on that file, so all shards must agree.
+          echo "build_id=$(date +%s%3N)" >> "$GITHUB_OUTPUT"
+
+  # ── Shared prep: assemble the dataset ONCE → atomic snapshot artifact. ──
+  # Removes the ×4 duplicated data-prep from the locale shards and guarantees
+  # every shard builds from the IDENTICAL job snapshot (no crawler-commit-window
+  # divergence). Mirrors deploy-matrix-experiment.yml's prep VERBATIM, plus the
+  # monolith's Active-jobs regression check + SEO moratorium check.
+  prep:
+    if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
+    needs: matrix-setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: Audit no merge conflict markers
+        run: npm run audit:no-merge-markers
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs || echo "⚠️ load-rc-env failed (non-fatal)"
+      - name: Cache assemble-jobs output
+        uses: actions/cache@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-${{ runner.os }}-${{ hashFiles('scripts/assemble-jobs-dataset.mjs', 'scripts/lib/parse-job-slices-worker.mjs', 'data/jobs/by-crawler/**/*.json', 'data/jobs/expired/by-crawler/**/*.json', 'data/jobs-crawler-summaries/by-crawler/**/*.json') }}
+          restore-keys: |
+            assemble-jobs-${{ runner.os }}-
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+      - name: Active-jobs regression check
+        # Block deploy if active jobs dropped >25% vs baseline. Catches mass
+        # job loss that slips past the assemble hard-fail (crawler outages,
+        # over-eager housekeeping prunes, expired-jobs leaks). Baseline at
+        # data/active-jobs-baseline.json auto-ratchets UP only — manual
+        # commit required to lower (see CLAUDE.md rule #1).
+        run: npm run audit:active-jobs-regression
+      - name: SEO moratorium check (CLAUDE.md #19)
+        # Block new build-plugin-emitted SEO landings while the 7-day GSC
+        # avg position is > 7.5. Long-tail dilution from 50+ SEO PRs in
+        # 10 days drove avg position 5.7 → 8.62. Re-enable when ≤ 7.5.
+        # Only runs on pull_request events — main pushes have already passed
+        # the gate, and workflow_dispatch is exempt so we can manually deploy
+        # fixes/refactors that happen to add a file matching the pattern.
+        if: github.event_name == 'pull_request'
+        env:
+          # OAuth2 path (currently not set; SA fallback in
+          # refresh-gsc-position-rolling.mjs uses GOOGLE_APPLICATION_CREDENTIALS
+          # exported by the Prepare Firebase credentials step above — the
+          # Firebase SA also has GSC permissions per memory
+          # `reference_firebase_sa_doubles_as_gsc`).
+          GSC_CLIENT_ID:     ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+        run: |
+          node scripts/refresh-gsc-position-rolling.mjs
+          node scripts/check-seo-moratorium.mjs
+      - name: Housekeeping (cross-crawler dedup + locale hardening)
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
+        run: node scripts/cleanup-jobs.mjs
+      - name: Refresh weekly-employers footer link list
+        run: node scripts/refresh-weekly-employers-top-pairs.mjs
+      - name: Mine all job slugs for 404 coverage
+        run: node scripts/mine-all-job-slugs.mjs
+      - name: Canton-aware migration of slug registry
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+      - name: Generate responsive image thumbnails
+        run: node scripts/generate-image-thumbnails.mjs
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+      - name: Pack prepared snapshot (generated data + thumbnails)
+        run: |
+          set -eo pipefail
+          tar -czf /tmp/prepared-snapshot.tgz \
+            data \
+            public/images/blog/thumbnails public/images/places/thumbnails 2>/dev/null || \
+            tar -czf /tmp/prepared-snapshot.tgz data
+          ls -lh /tmp/prepared-snapshot.tgz
+      - name: Upload prepared snapshot
+        uses: actions/upload-artifact@v7
+        with:
+          name: prepared-snapshot
+          path: /tmp/prepared-snapshot.tgz
+          retention-days: 1
+
+  # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
+  # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
+  build-locale:
+    if: ${{ vars.LOCALE_MATRIX_BUILD == 'true' || github.event.inputs.force_matrix == 'true' }}
+    needs: [matrix-setup, prep]
+    runs-on: ubuntu-latest
+    # NO job-level concurrency: the matrix legs must NOT cancel each other.
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+      issues: write
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        locale: ${{ fromJSON(needs.matrix-setup.outputs.matrix) }}
+    env:
+      # Mirrors the monolith Build step env. Profile-bound knobs that map to
+      # workflow_dispatch inputs irrelevant to the matrix path are dropped;
+      # SEQUENTIAL_PROFILE is forced on (always sequential on the GH runner).
+      BUILD_PROFILE: '1'
+      ASSET_CDN: 'https://cdn.frontaliereticino.ch'
+      POST_WALK_WORKERS: '2'
+      SEQUENTIAL_PROFILE: '1'
+      JOBS_SEO_PROFILE_PHASES: '1'
+      WEEKLY_EMPLOYERS_PROFILE: ''
+      RELATED_SEARCH_CLUSTERS_NO_CACHE: '1'
+      RELATED_SEARCH_PREPASS_CONCURRENCY: '1'
+      DEPLOY_CONTENT_MANIFEST: '1'
+      # Per-locale emit filter + shared canonical build id (identical
+      # dist/build-id.txt across all shards).
+      BUILD_LOCALE: ${{ matrix.locale }}
+      DEPLOY_BUILD_ID: ${{ needs.matrix-setup.outputs.build_id }}
+    steps:
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: |
+          echo "::group::Disk usage BEFORE cleanup"
+          df -h /
+          echo "::endgroup::"
+          sudo rm -rf /usr/local/lib/android &
+          sudo rm -rf /usr/share/dotnet &
+          sudo rm -rf /opt/ghc &
+          sudo rm -rf /usr/local/share/boost &
+          sudo rm -rf /opt/hostedtoolcache/CodeQL &
+          sudo rm -rf /usr/share/swift &
+          wait
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v5
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Audit no merge conflict markers
+        run: npm run audit:no-merge-markers
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config secrets will not be loaded."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # Consume the shared atomic snapshot from the prep job instead of
+      # re-running assemble/cleanup/mine/migrate/thumbnails per shard.
+      - name: Download prepared snapshot
+        uses: actions/download-artifact@v7
+        with:
+          name: prepared-snapshot
+          path: /tmp/snapshot
+      - name: Restore prepared snapshot (data + thumbnails)
+        run: |
+          set -eo pipefail
+          tar -xzf /tmp/snapshot/prepared-snapshot.tgz -C .
+          test -f data/jobs.json && echo "✓ data/jobs.json restored ($(wc -c < data/jobs.json) bytes)" || { echo "✖ data/jobs.json missing after restore"; exit 1; }
+
+      - name: Cache per-job OG images
+        uses: actions/cache@v5
+        with:
+          path: .cache/og-jobs
+          key: og-jobs-${{ runner.os }}-${{ hashFiles('build-plugins/jobOgImagesPlugin.ts', 'public/fonts/Roboto-*.ttf', 'data/company-logos-manifest.json') }}
+          restore-keys: |
+            og-jobs-${{ runner.os }}-
+
+      # IT-only: restore + stash the previous deploy content manifest so the
+      # IT shard's deploy-file-delta can diff in-place HTML changes (the IT
+      # shard is the one that runs deploy-it-pages-prep.sh).
+      - name: Restore previous deploy content manifest
+        if: matrix.locale == 'it'
+        uses: actions/cache@v5
+        with:
+          path: content-manifest.tsv
+          key: deploy-content-manifest-${{ github.run_id }}
+          restore-keys: |
+            deploy-content-manifest-
+
+      - name: Stash previous content manifest before build overwrites it
+        if: matrix.locale == 'it'
+        run: |
+          if [ -f content-manifest.tsv ]; then
+            mv content-manifest.tsv prev-content-manifest.tsv
+            echo "[file-delta] previous manifest stashed ($(wc -l < prev-content-manifest.tsv) lines)"
+          else
+            echo "[file-delta] no previous manifest (first run after enabling / cache miss)"
+          fi
+
+      - name: Build (BUILD_LOCALE=${{ matrix.locale }})
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build:ci 2>&1 | tee /tmp/build.log
+
+      - name: Verify critical dist pages before upload
+        if: matrix.locale == 'it'
+        run: node scripts/validate-critical-dist-pages.mjs
+
+      - name: Verify build profile markers before upload
+        if: matrix.locale == 'it'
+        run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
+
+      # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
+      # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
+      # write every locale. This removes the non-owned locale output the same
+      # way deploy.yml copies only dist/<locale> to each shard repo.
+      - name: Prune to locale shard
+        run: node scripts/ci/prune-locale-shard.mjs dist
+
+      - name: Validate locale shard output
+        run: node scripts/ci/validate-locale-shard-build.mjs dist
+
+      # ── IT shard → GitHub Pages + CDN (Pages-serving shard) ──────────────
+      # deploy-it-pages-prep.sh runs the monolith's post-build bash IN ORDER:
+      # SPA fallback, CDN push (exports CDN_BASE), offload, prune-cdn, drop
+      # dist/assets, capture sitemaps, pack new sitemap urls, stage bundle,
+      # pack tar (exports TAR_BYTES), audit bytes, file delta, refresh
+      # url-first-seen. It does NOT commit dist-history (that stays YAML below).
+      - name: Deploy prep (IT → Pages + CDN)
+        if: matrix.locale == 'it'
+        env:
+          CDN_DEPLOY_KEY: ${{ secrets.CDN_DEPLOY_KEY }}
+        run: bash scripts/lib/deploy-it-pages-prep.sh
+
+      - name: Upload Pages artifact (compression-level 9)
+        if: matrix.locale == 'it'
+        id: upload-pages-artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
+          # Level 9 = max deflate compression on the zip envelope. Pages
+          # backend extracts the zip first, so our content gets the best
+          # compression ratio in transit (~970 MB vs ~1.21 GB at level 6).
+          compression-level: 9
+
+      # Single small artifact (~tens of KB) consumed by validate-live for
+      # IndexNow / Google Indexing diff. Lets validate-live skip the
+      # 1.5 GB github-pages artifact entirely.
+      - name: Upload sitemaps bundle artifact
+        if: matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemaps-${{ github.run_id }}
+          path: /tmp/sitemaps-bundle/
+          retention-days: 1
+          if-no-files-found: ignore
+
+      # Master source data for post-deploy validators (jobs.json +
+      # jobs-crawler-summaries.json). Downloaded back into data/ by
+      # post-deploy-validate-dist.
+      - name: Upload master source data for post-deploy validators
+        if: matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-master-${{ github.run_id }}
+          path: |
+            data/jobs.json
+            data/jobs-crawler-summaries.json
+          retention-days: 1
+          if-no-files-found: error
+
+      - name: Upload pre-deploy snapshot for post-deploy validation
+        if: matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: pre-deploy-snapshot-${{ github.run_id }}
+          path: /tmp/pre-deploy-sitemap-urls.json
+          retention-days: 1
+          if-no-files-found: ignore
+
+      - name: Upload write-collisions analysis
+        if: always() && matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: write-collisions-analysis-${{ github.run_id }}
+          path: |
+            dist/.write-collisions.json
+            dist/.write-collisions-data/
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+
+      - name: Detect previous-slug winners changes
+        if: matrix.locale == 'it'
+        id: winners_changed
+        run: |
+          if git diff --quiet -- data/previous-slug-winners.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload previous-slug winners for post-deploy validation
+        if: matrix.locale == 'it' && steps.winners_changed.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: winners-${{ github.run_id }}
+          path: data/previous-slug-winners.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Commit dist-size-history row + url-first-seen updates
+        if: matrix.locale == 'it'
+        continue-on-error: true
+        run: |
+          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
+            echo "[dist-history] no diff to commit"
+            exit 0
+          fi
+          git config user.name "dist-history-bot"
+          git config user.email "dist-history-bot@frontaliereticino.ch"
+          git add data/dist-size-history.jsonl data/url-first-seen.json
+          git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
+          # The build job leaves dist/ and other generated files dirty
+          # in the working tree. `git pull --rebase` refuses to run
+          # while unstaged changes exist (`cannot pull with rebase: You
+          # have unstaged changes`), so we ran the retry loop three
+          # times for nothing on every deploy and the url-first-seen
+          # update never landed on origin. `rebase.autoStash=true`
+          # stashes those untracked/unstaged files before rebase and
+          # pops them back after — purely scoped to this command, no
+          # leftover stash state.
+          # Bumped 3 → 5 attempts + geometric-ish backoff
+          # (5/10/15/25/40 s) after annotation on run 26604491084 (and
+          # every prior deploy): `[dist-history] push failed after 3
+          # attempts`. Concurrent producers on main (crawlers +
+          # thin-promotions + fuel + weather + post-merge auto-commits)
+          # regularly out-race a 3×5 s window. The extended budget hits
+          # a ~95 s total wait before giving up, which empirically
+          # covers every observed conflict cluster on the main branch.
+          for i in 1 2 3 4 5; do
+            if git -c rebase.autoStash=true pull --rebase origin main \
+                && git push origin HEAD:main; then
+              echo "[dist-history] pushed on attempt $i"
+              exit 0
+            fi
+            case "$i" in
+              1) sleep 5 ;;
+              2) sleep 10 ;;
+              3) sleep 15 ;;
+              4) sleep 25 ;;
+              5) sleep 40 ;;
+            esac
+          done
+          echo "::warning::[dist-history] push failed after 5 attempts — url-first-seen.json will not be available to the next build's grace-window check"
+
+      # ── NON-IT shards (en/de/fr) → frontaliere-<loc> shard repos ─────────
+      - name: Offload shard refs to CDN
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        # offload-generated-images-cdn.mjs rewrites HTML asset/data refs to the CDN
+        # and injects window.__CDN_DATA_BASE__. It reads CDN_BASE from the env and
+        # NO-OPs when unset. In the monolith a single offload runs after the CDN
+        # push (which exports CDN_BASE) and rewrites every locale; here en/de/fr run
+        # on separate runners that never push the CDN, so CDN_BASE must be supplied
+        # explicitly (it's the fixed CDN-repo Pages origin, == ASSET_CDN). Without
+        # it the shard HTML would keep same-origin /data refs → 404 live (the shard
+        # repos don't host /data; it's CDN-offloaded). The actual CDN content is
+        # pushed by the IT shard's deploy-it-pages-prep, which runs in parallel and
+        # completes before validate-dist/validate-live.
+        env:
+          CDN_BASE: 'https://cdn.frontaliereticino.ch'
+        run: node scripts/offload-generated-images-cdn.mjs
+
+      - name: Push locale shard
+        if: matrix.locale != 'it'
+        continue-on-error: true
+        env:
+          SHARD_EN_DEPLOY_KEY: ${{ secrets.SHARD_EN_DEPLOY_KEY }}
+          SHARD_DE_DEPLOY_KEY: ${{ secrets.SHARD_DE_DEPLOY_KEY }}
+          SHARD_FR_DEPLOY_KEY: ${{ secrets.SHARD_FR_DEPLOY_KEY }}
+        run: bash scripts/lib/push-locale-shard.sh ${{ matrix.locale }} dist
+
+      - name: Report failure to GitHub Issues (build)
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --description "## Build fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 1 \
+            --reopen-within-hours 6 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve build GitHub Issue on success
+        if: success()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Build succeeded → close the canonical "CI Failure (build)" issue if
+          # open. Paired with --reopen-within-hours 6 on the reporter above so the
+          # close↔reopen cycle stays on ONE canonical issue (no per-run storm,
+          # no stale issue while green). Idempotent no-op when nothing is open.
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "CI Failure (build): ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish dist/ to GitHub Pages (actions/deploy-pages reads the
   # `github-pages` artifact from this run automatically). Inherits the
@@ -1580,10 +2094,11 @@ jobs:
   # deploy congestion), NOT in reducing site size or changing host.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
-    needs: build
-    if: |
-      success() &&
-      github.event.inputs.profile_sequential != 'true'
+    needs: [build, build-locale]
+    # Runs after EITHER build path (monolith `build` OR the per-locale
+    # `build-locale` matrix). !cancelled() lets it proceed even though the
+    # unselected path was skipped; success-of-either gates the actual run.
+    if: ${{ !cancelled() && (needs.build.result == 'success' || needs.build-locale.result == 'success') && github.event.inputs.profile_sequential != 'true' }}
     # Concurrency lock applies HERE only — `actions/deploy-pages@v5` is
     # the singleton: GitHub Pages allows one active deployment at a time
     # repo-wide. Build (above) has no concurrency so multiple builds
@@ -1835,10 +2350,9 @@ jobs:
   # Runs in PARALLEL with `deploy` — only needs `build` (the artifact).
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
-    needs: build
-    if: |
-      success() &&
-      github.event.inputs.profile_sequential != 'true'
+    needs: [build, build-locale]
+    # Runs after EITHER build path (success-of-either), in PARALLEL with deploy.
+    if: ${{ !cancelled() && (needs.build.result == 'success' || needs.build-locale.result == 'success') && github.event.inputs.profile_sequential != 'true' }}
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
       deploy_run_id: ${{ github.run_id }}
