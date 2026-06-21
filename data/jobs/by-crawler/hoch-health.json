@@ -7054,7 +7054,7 @@
       "id": "hoch-health-d65836bd3a65",
       "slug": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d",
+        "it": "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "en": "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
         "de": "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
         "fr": "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach"
@@ -7100,6 +7100,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+        "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-wil-oxkde5",
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen",
@@ -7115,14 +7116,12 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
-        "dipl-specialiste-des-soins-40-100-hoch-health-ostschweiz-uznach"
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
+          "infermiere-a-diplomato-a-80-100-hoch-health-ostschweiz-st-gallen-cc3f6d"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen-3"
@@ -10578,7 +10577,7 @@
       "id": "hoch-health-65abacc1cf4f",
       "slug": "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
+        "it": "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
         "en": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
         "de": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
         "fr": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
@@ -10628,6 +10627,7 @@
         "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
+        "sub-assistente-2026-hoch-health-ostschweiz-uznach",
         "professional-health-40-100-hoch-health-ostschweiz-uznach",
         "sante-professionnelle-40-100-hoch-health-ostschweiz-uznach",
         "subassistanza-nel-2026-hoch-health-ostschweiz-uznach",
@@ -10639,15 +10639,15 @@
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-uznach",
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-uznach",
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-st-gallen",
-        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen",
-        "salute-professionale-40-100-hoch-health-ostschweiz-uznach"
+        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
           "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
-          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach"
+          "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
+          "sub-assistente-2026-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "professional-health-40-100-hoch-health-ostschweiz-uznach"
@@ -11279,7 +11279,7 @@
       "id": "hoch-health-328e470e3612",
       "slug": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
       "slugByLocale": {
-        "it": "sub-assistente-2026-hoch-health-ostschweiz-uznach",
+        "it": "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach",
         "en": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-4",
         "de": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
         "fr": "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-4"
@@ -11327,6 +11327,7 @@
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
         "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
+        "sub-assistente-2026-hoch-health-ostschweiz-uznach",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3",
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-2",
         "professional-health-40-100-hoch-health-ostschweiz-uznach",
@@ -11340,13 +11341,13 @@
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-uznach",
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-uznach",
         "strukturiertes-praxisjahr-fachmaturitat-gesundheit-2026-hoch-health-st-gallen",
-        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen",
-        "fachfrau-mann-gesundheit-40-100-hoch-health-ostschweiz-uznach"
+        "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-          "salute-professionale-40-100-hoch-health-ostschweiz-uznach"
+          "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
+          "sub-assistente-2026-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
@@ -11373,7 +11374,7 @@
       "id": "hoch-health-651c9501734b",
       "slug": "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
+        "it": "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen",
         "en": "healthcare-assistant-40-100-hoch-health-ostschweiz-st-gallen",
         "de": "pflegehelfer-in-40-100-hoch-health-uznach",
         "fr": "assistant-e-en-soins-de-sante-40-100-hoch-health-ostschweiz-st-gallen"
@@ -11443,6 +11444,7 @@
         "pflegehelfer-in-40-100-hoch-health-st-gallen",
         "pflegehelfer-in-40-100-hoch-health-uznach",
         "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-uznach",
+        "sottocapo-2027-hoch-health-ostschweiz-st-gallen",
         "sottocapo-2027-hoch-health-ostschweiz-uznach",
         "junior-assistant-2027-hoch-health-ostschweiz-st-gallen",
         "unterassistent-in-2027-hoch-health-uznach",
@@ -11454,16 +11456,14 @@
         "junior-assistant-2028-hoch-health-ostschweiz-st-gallen",
         "assistant-junior-2028-hoch-health-ostschweiz-st-gallen",
         "unterassistent-in-2028-hoch-health-st-gallen-2",
-        "assistente-junior-2028-hoch-health-ostschweiz-st-gallen",
-        "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-st-gallen",
-        "healthcare-assistant-40-100-hoch-health-ostschweiz-st-gallen",
-        "assistant-e-en-soins-de-sante-40-100-hoch-health-ostschweiz-st-gallen"
+        "assistente-junior-2028-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegehelfer-in-40-100-hoch-health-st-gallen",
           "pflegehelfer-in-40-100-hoch-health-uznach",
-          "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-uznach"
+          "aiuto-infermiere-a-40-100-hoch-health-ostschweiz-uznach",
+          "sottocapo-2027-hoch-health-ostschweiz-st-gallen"
         ],
         "de": [
           "pflegehelfer-in-40-100-hoch-health-st-gallen"
@@ -12733,7 +12733,7 @@
       "id": "hoch-health-ae171e90e683",
       "slug": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
+        "it": "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen",
         "en": "diploma-in-nursing-50-100-hoch-health-ostschweiz-st-gallen",
         "de": "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
         "fr": "infirmier-e-diplome-e-50-100-hoch-health-ostschweiz-st-gallen"
@@ -12779,16 +12779,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs",
         "dipl-pflegefachfrau-mann-50-100-hoch-health-grabs",
         "capo-team-operations-infermieristica-100-hoch-health-ostschweiz-st-gallen",
         "operations-nursing-team-lead-100-hoch-health-ostschweiz-st-gallen",
         "gruppenleiter-in-operationspflege-100-hoch-health-st-gallen",
-        "chef-d-equipe-en-soins-operatoires-100-hoch-health-ostschweiz-st-gallen",
-        "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-st-gallen"
+        "chef-d-equipe-en-soins-operatoires-100-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen",
+          "dipl-pflegefachfrau-mann-50-100-hoch-health-ostschweiz-grabs"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-50-100-hoch-health-st-gallen"
