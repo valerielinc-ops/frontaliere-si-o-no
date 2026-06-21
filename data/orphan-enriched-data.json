@@ -6,23 +6,23 @@
     "queries": [
       {
         "query": "case anziani ticino offerte di lavoro",
-        "clicks": 27,
-        "impressions": 351
+        "clicks": 29,
+        "impressions": 364
+      },
+      {
+        "query": "offerte lavoro casa di riposo svizzera",
+        "clicks": 16,
+        "impressions": 187
       },
       {
         "query": "offerte di lavoro casa di riposo svizzera",
         "clicks": 13,
-        "impressions": 180
-      },
-      {
-        "query": "offerte lavoro casa di riposo svizzera",
-        "clicks": 12,
-        "impressions": 178
+        "impressions": 187
       },
       {
         "query": "case anziani lugano posti di lavoro",
         "clicks": 7,
-        "impressions": 113
+        "impressions": 116
       },
       {
         "query": "offerte di lavoro casa anziani ticino",
@@ -32,32 +32,32 @@
       {
         "query": "casa anziani paradiso offerta lavoro",
         "clicks": 1,
-        "impressions": 47
+        "impressions": 48
       },
       {
         "query": "offerte lavoro casa anziani ticino",
         "clicks": 4,
-        "impressions": 44
+        "impressions": 45
+      },
+      {
+        "query": "casa anziani comunale bellinzona offerte di lavoro",
+        "clicks": 2,
+        "impressions": 37
       },
       {
         "query": "casa anziani chiasso lavoro",
         "clicks": 6,
-        "impressions": 35
+        "impressions": 36
       },
       {
-        "query": "casa anziani comunale bellinzona offerte di lavoro",
+        "query": "casa anziani mendrisio lavoro",
         "clicks": 1,
-        "impressions": 35
+        "impressions": 34
       },
       {
         "query": "case di riposo ticino lavora con noi",
         "clicks": 4,
         "impressions": 31
-      },
-      {
-        "query": "casa anziani mendrisio lavoro",
-        "clicks": 1,
-        "impressions": 30
       },
       {
         "query": "casa anziani offerte di lavoro",
@@ -105,8 +105,8 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 1204,
-    "totalClicks": 93,
+    "totalImpressions": 1245,
+    "totalClicks": 100,
     "topQuery": "case anziani ticino offerte di lavoro",
     "title": "Case anziani",
     "titleByLocale": {
@@ -145,7 +145,7 @@
       {
         "query": "lavoro a chiasso",
         "clicks": 0,
-        "impressions": 111
+        "impressions": 116
       },
       {
         "query": "lavoro chiasso",
@@ -243,7 +243,7 @@
         "impressions": 2
       }
     ],
-    "totalImpressions": 230,
+    "totalImpressions": 236,
     "totalClicks": 2,
     "topQuery": "lavoro a chiasso",
     "title": "chiasso",
@@ -284,7 +284,7 @@
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 24
+        "impressions": 25
       },
       {
         "query": "stellenangebot lugano",
@@ -294,7 +294,7 @@
       {
         "query": "taetigkeitsfelder jobs lugano",
         "clicks": 0,
-        "impressions": 10
+        "impressions": 12
       },
       {
         "query": "handel jobs lugano",
@@ -332,6 +332,11 @@
         "impressions": 4
       },
       {
+        "query": "industriemechaniker jobs lugano",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
         "query": "jobs lugano",
         "clicks": 0,
         "impressions": 4
@@ -348,6 +353,11 @@
       },
       {
         "query": "ich suche in lugano eine stelle im service mit italienisch und geregeltem trinkgeldsystem und unterkunft wenn möglich",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lagerist jobs lugano",
         "clicks": 0,
         "impressions": 3
       },
@@ -370,19 +380,9 @@
         "query": "medizintechniker jobs lugano",
         "clicks": 0,
         "impressions": 3
-      },
-      {
-        "query": "rekrutierung tessin",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "rettungssanitäter jobs lugano",
-        "clicks": 0,
-        "impressions": 3
       }
     ],
-    "totalImpressions": 165,
+    "totalImpressions": 172,
     "totalClicks": 0,
     "topQuery": "stellen lugano",
     "title": "lugano",
@@ -433,7 +433,12 @@
       {
         "query": "stellen lugano",
         "clicks": 0,
-        "impressions": 20
+        "impressions": 21
+      },
+      {
+        "query": "lugano jobs",
+        "clicks": 0,
+        "impressions": 13
       },
       {
         "query": "stellenangebot lugano",
@@ -441,14 +446,9 @@
         "impressions": 13
       },
       {
-        "query": "lugano jobs",
-        "clicks": 0,
-        "impressions": 11
-      },
-      {
         "query": "job offers",
         "clicks": 0,
-        "impressions": 6
+        "impressions": 7
       },
       {
         "query": "jobs in lugano",
@@ -516,12 +516,12 @@
         "impressions": 2
       },
       {
-        "query": "what is the best way to search jobs in italian speaking switzerland?",
+        "query": "virtual assistant jobs lugano",
         "clicks": 0,
         "impressions": 2
       }
     ],
-    "totalImpressions": 159,
+    "totalImpressions": 165,
     "totalClicks": 0,
     "topQuery": "jobs lugano",
     "title": "lugano",
@@ -555,6 +555,144 @@
     ]
   },
   {
+    "slug": "educatori",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/educatori/",
+    "queries": [
+      {
+        "query": "educatore sociale offerte lavoro ticino",
+        "clicks": 3,
+        "impressions": 14
+      },
+      {
+        "query": "offerte di lavoro educatrice svizzera italiana",
+        "clicks": 5,
+        "impressions": 11
+      },
+      {
+        "query": "offerte lavoro educatore ticino",
+        "clicks": 0,
+        "impressions": 9
+      },
+      {
+        "query": "offerte lavoro educatore canton ticino",
+        "clicks": 0,
+        "impressions": 8
+      },
+      {
+        "query": "educatore ticino",
+        "clicks": 0,
+        "impressions": 7
+      },
+      {
+        "query": "offerte di lavoro educatore ticino",
+        "clicks": 3,
+        "impressions": 6
+      },
+      {
+        "query": "educatrice ticino lavoro",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "offerte lavoro educatore",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "offerte lavoro educatore svizzera",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "offerte lavoro educatrice ticino",
+        "clicks": 1,
+        "impressions": 5
+      },
+      {
+        "query": "lavoro educatrice ticino",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "lavoro insegnante canton ticino",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte di lavoro educatore svizzera italiana",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte lavoro sociale ticino",
+        "clicks": 1,
+        "impressions": 3
+      },
+      {
+        "query": "lavoro educatore ticino",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro centri diurni ticino",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "offerte di lavoro educatore",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
+        "query": "lavorare in svizzera come educatore",
+        "clicks": 1,
+        "impressions": 2
+      },
+      {
+        "query": "concorso educatore ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "educatore sociale ticino",
+        "clicks": 0,
+        "impressions": 2
+      }
+    ],
+    "totalImpressions": 146,
+    "totalClicks": 16,
+    "topQuery": "educatore sociale offerte lavoro ticino",
+    "title": "Educatori",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
+    ]
+  },
+  {
     "slug": "nurses",
     "locale": "en",
     "path": "/en/find-jobs-ticino/nurses/",
@@ -562,7 +700,7 @@
       {
         "query": "nursing jobs",
         "clicks": 0,
-        "impressions": 105
+        "impressions": 109
       },
       {
         "query": "what nursing jobs are open in the zurich region?",
@@ -660,7 +798,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 139,
+    "totalImpressions": 143,
     "totalClicks": 0,
     "topQuery": "nursing jobs",
     "title": "Nurses",
@@ -700,7 +838,7 @@
       {
         "query": "i am searching for caregiver jobs in ticino for elderly support.",
         "clicks": 0,
-        "impressions": 67
+        "impressions": 68
       },
       {
         "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
@@ -733,148 +871,10 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 130,
+    "totalImpressions": 131,
     "totalClicks": 1,
     "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
     "title": "Elderly care",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "educatori",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/educatori/",
-    "queries": [
-      {
-        "query": "educatore sociale offerte lavoro ticino",
-        "clicks": 3,
-        "impressions": 13
-      },
-      {
-        "query": "offerte di lavoro educatrice svizzera italiana",
-        "clicks": 5,
-        "impressions": 10
-      },
-      {
-        "query": "offerte lavoro educatore ticino",
-        "clicks": 0,
-        "impressions": 9
-      },
-      {
-        "query": "offerte lavoro educatore canton ticino",
-        "clicks": 0,
-        "impressions": 8
-      },
-      {
-        "query": "educatrice ticino lavoro",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "offerte lavoro educatore svizzera",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "offerte di lavoro educatore ticino",
-        "clicks": 2,
-        "impressions": 5
-      },
-      {
-        "query": "offerte lavoro educatrice ticino",
-        "clicks": 1,
-        "impressions": 5
-      },
-      {
-        "query": "educatore ticino",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "lavoro insegnante canton ticino",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro educatore svizzera italiana",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte lavoro educatore",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte lavoro sociale ticino",
-        "clicks": 1,
-        "impressions": 3
-      },
-      {
-        "query": "lavoro educatore ticino",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "offerte di lavoro educatore",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "lavorare in svizzera come educatore",
-        "clicks": 1,
-        "impressions": 2
-      },
-      {
-        "query": "educatore sociale ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lavoro educatrice ticino",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offerta di lavoro educatore",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "offerte di lavoro centri diurni ticino",
-        "clicks": 0,
-        "impressions": 2
-      }
-    ],
-    "totalImpressions": 126,
-    "totalClicks": 14,
-    "topQuery": "educatore sociale offerte lavoro ticino",
-    "title": "Educatori",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -969,6 +969,11 @@
         "impressions": 2
       },
       {
+        "query": "agenzie lavoro bellinzona",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
         "query": "citta di bellinzona lavoro",
         "clicks": 0,
         "impressions": 1
@@ -1002,14 +1007,9 @@
         "query": "posti di lavoro bellinzona",
         "clicks": 0,
         "impressions": 1
-      },
-      {
-        "query": "ristorni frontalieri",
-        "clicks": 0,
-        "impressions": 1
       }
     ],
-    "totalImpressions": 81,
+    "totalImpressions": 82,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro bellinzona",
     "title": "bellinzona",
@@ -1068,12 +1068,12 @@
         "impressions": 6
       },
       {
-        "query": "offerte lavoro ticino ristorazione",
+        "query": "tutti ch lavoro ticino ristorazione",
         "clicks": 0,
-        "impressions": 5
+        "impressions": 6
       },
       {
-        "query": "tutti ch lavoro ticino ristorazione",
+        "query": "offerte lavoro ticino ristorazione",
         "clicks": 0,
         "impressions": 5
       },
@@ -1088,17 +1088,17 @@
         "impressions": 4
       },
       {
+        "query": "lavoro ristorazione ticino",
+        "clicks": 0,
+        "impressions": 3
+      },
+      {
         "query": "offerte lavoro svizzera ristorazione",
         "clicks": 0,
         "impressions": 3
       },
       {
         "query": "cerco lavoro ristorazione",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "lavoro ristorazione ticino",
         "clicks": 0,
         "impressions": 2
       },
@@ -1148,7 +1148,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 75,
+    "totalImpressions": 77,
     "totalClicks": 2,
     "topQuery": "offerte di lavoro ticino ristorazione",
     "title": "Ristorazione",
@@ -1188,7 +1188,7 @@
       {
         "query": "jobs locarno",
         "clicks": 0,
-        "impressions": 24
+        "impressions": 27
       },
       {
         "query": "nebenjobs locarno",
@@ -1246,7 +1246,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 70,
+    "totalImpressions": 73,
     "totalClicks": 0,
     "topQuery": "jobs locarno",
     "title": "locarno",
@@ -1290,12 +1290,12 @@
         "impressions": 11
       },
       {
-        "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+        "query": "software house ticino",
         "clicks": 0,
-        "impressions": 8
+        "impressions": 9
       },
       {
-        "query": "software house ticino",
+        "query": "\"das\" \"assicurazione\" -\"5g\" -\"d.a.s.p.o.\" -\"f1\" -\"accise\" -\"casinò\" -\"e-das\" -\"fibra ottica\" -\"für\" -\"idrotecnica\" -\"monitoraggio sismico\" -\"nas\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
         "clicks": 0,
         "impressions": 8
       },
@@ -1335,6 +1335,11 @@
         "impressions": 2
       },
       {
+        "query": "software ticino",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
         "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
         "clicks": 0,
         "impressions": 1
@@ -1360,11 +1365,6 @@
         "impressions": 1
       },
       {
-        "query": "software ticino",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
         "query": "stadler rail -ipo -aktie -börse -kurs -aktienkurs \"stadler rail\"",
         "clicks": 0,
         "impressions": 1
@@ -1380,7 +1380,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 65,
+    "totalImpressions": 67,
     "totalClicks": 0,
     "topQuery": "software house canton ticino",
     "title": "Sviluppatori",
@@ -1420,7 +1420,7 @@
       {
         "query": "je vise un emploi à lugano",
         "clicks": 0,
-        "impressions": 40
+        "impressions": 41
       },
       {
         "query": "offre d'emploi tessin",
@@ -1458,7 +1458,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 61,
+    "totalImpressions": 62,
     "totalClicks": 0,
     "topQuery": "je vise un emploi à lugano",
     "title": "lugano",
@@ -1558,6 +1558,74 @@
     "source": [
       "gsc",
       "slug-parsing"
+    ]
+  },
+  {
+    "slug": "entwickler",
+    "locale": "de",
+    "path": "/de/jobs-im-tessin/entwickler/",
+    "queries": [
+      {
+        "query": "softwareentwickler jobs lugano",
+        "clicks": 0,
+        "impressions": 18
+      },
+      {
+        "query": "softwareentwicklung jobs lugano",
+        "clicks": 0,
+        "impressions": 14
+      },
+      {
+        "query": "enterprise suche für entwickler",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "graubündner kantonalbank",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs flash entwickler",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "softwareentwickler finden",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 41,
+    "totalClicks": 0,
+    "topQuery": "softwareentwickler jobs lugano",
+    "title": "Entwickler",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc"
     ]
   },
   {
@@ -1689,74 +1757,6 @@
     "totalClicks": 0,
     "topQuery": "altenpfleger jobs lugano",
     "title": "Altenpflege",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc"
-    ]
-  },
-  {
-    "slug": "entwickler",
-    "locale": "de",
-    "path": "/de/jobs-im-tessin/entwickler/",
-    "queries": [
-      {
-        "query": "softwareentwickler jobs lugano",
-        "clicks": 0,
-        "impressions": 18
-      },
-      {
-        "query": "softwareentwicklung jobs lugano",
-        "clicks": 0,
-        "impressions": 10
-      },
-      {
-        "query": "enterprise suche für entwickler",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "graubündner kantonalbank",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs flash entwickler",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "softwareentwickler finden",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 36,
-    "totalClicks": 0,
-    "topQuery": "softwareentwickler jobs lugano",
-    "title": "Entwickler",
     "titleByLocale": {
       "it": "",
       "en": "",
@@ -2083,7 +2083,7 @@
       {
         "query": "disegnatore",
         "clicks": 0,
-        "impressions": 5
+        "impressions": 6
       },
       {
         "query": "disegnatore genio civile",
@@ -2156,7 +2156,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 24,
+    "totalImpressions": 25,
     "totalClicks": 0,
     "topQuery": "disegnatore",
     "title": "Ingegneri",
@@ -2405,7 +2405,7 @@
       {
         "query": "lavoro mendrisio",
         "clicks": 0,
-        "impressions": 3
+        "impressions": 4
       },
       {
         "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
@@ -2463,7 +2463,7 @@
         "impressions": 1
       }
     ],
-    "totalImpressions": 17,
+    "totalImpressions": 18,
     "totalClicks": 0,
     "topQuery": "lavoro mendrisio",
     "title": "mendrisio",
@@ -2482,6 +2482,75 @@
     "company": "",
     "companyKey": "",
     "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
+    "slug": "locarno",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/locarno/",
+    "queries": [
+      {
+        "query": "locarno",
+        "clicks": 0,
+        "impressions": 6
+      },
+      {
+        "query": "lavoro locarno",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+        "clicks": 0,
+        "impressions": 4
+      },
+      {
+        "query": "frontaliere",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro locarno",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte di lavoro per frontalieri svizzera",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 17,
+    "totalClicks": 0,
+    "topQuery": "locarno",
+    "title": "locarno",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Locarno",
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
@@ -2537,70 +2606,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "locarno",
-    "locale": "it",
-    "path": "/cerca-lavoro-ticino/locarno/",
-    "queries": [
-      {
-        "query": "locarno",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "lavoro locarno",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro locarno negli ultimi 3 giorni",
-        "clicks": 0,
-        "impressions": 4
-      },
-      {
-        "query": "offerte di lavoro locarno",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "offerte di lavoro per frontalieri svizzera",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 16,
-    "totalClicks": 0,
-    "topQuery": "locarno",
-    "title": "locarno",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Locarno",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -2835,6 +2840,70 @@
     ]
   },
   {
+    "slug": "mendrisio",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/mendrisio/",
+    "queries": [
+      {
+        "query": "full time jobs near me",
+        "clicks": 0,
+        "impressions": 7
+      },
+      {
+        "query": "mendrisio jobs",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "acd mendrisio lavora con noi",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "in euro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "mendrisio ti",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 12,
+    "totalClicks": 0,
+    "topQuery": "full time jobs near me",
+    "title": "mendrisio",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Mendrisio",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
+    ]
+  },
+  {
     "slug": "logistica",
     "locale": "it",
     "path": "/cerca-lavoro-ticino/logistica/",
@@ -2908,70 +2977,6 @@
     ]
   },
   {
-    "slug": "mendrisio",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/mendrisio/",
-    "queries": [
-      {
-        "query": "full time jobs near me",
-        "clicks": 0,
-        "impressions": 6
-      },
-      {
-        "query": "mendrisio jobs",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "acd mendrisio lavora con noi",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "in euro",
-        "clicks": 0,
-        "impressions": 1
-      },
-      {
-        "query": "mendrisio ti",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 11,
-    "totalClicks": 0,
-    "topQuery": "full time jobs near me",
-    "title": "mendrisio",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Mendrisio",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
-    ]
-  },
-  {
     "slug": "erzieher",
     "locale": "de",
     "path": "/de/jobs-im-tessin/erzieher/",
@@ -3017,6 +3022,65 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
+    ]
+  },
+  {
+    "slug": "locarno",
+    "locale": "en",
+    "path": "/en/find-jobs-ticino/locarno/",
+    "queries": [
+      {
+        "query": "full time jobs near me",
+        "clicks": 0,
+        "impressions": 5
+      },
+      {
+        "query": "jobs in locarno",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "locarno jobs",
+        "clicks": 0,
+        "impressions": 2
+      },
+      {
+        "query": "jobs locarno",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 10,
+    "totalClicks": 0,
+    "topQuery": "full time jobs near me",
+    "title": "locarno",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "Locarno",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {},
+    "localePaths": {},
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "slug-parsing"
     ]
   },
   {
@@ -3133,65 +3197,6 @@
     "lastCrawlTime": "",
     "source": [
       "gsc"
-    ]
-  },
-  {
-    "slug": "locarno",
-    "locale": "en",
-    "path": "/en/find-jobs-ticino/locarno/",
-    "queries": [
-      {
-        "query": "full time jobs near me",
-        "clicks": 0,
-        "impressions": 3
-      },
-      {
-        "query": "jobs in locarno",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "locarno jobs",
-        "clicks": 0,
-        "impressions": 2
-      },
-      {
-        "query": "jobs locarno",
-        "clicks": 0,
-        "impressions": 1
-      }
-    ],
-    "totalImpressions": 8,
-    "totalClicks": 0,
-    "topQuery": "full time jobs near me",
-    "title": "locarno",
-    "titleByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "descriptionByLocale": {
-      "it": "",
-      "en": "",
-      "de": "",
-      "fr": ""
-    },
-    "company": "",
-    "companyKey": "",
-    "location": "Locarno",
-    "sector": "",
-    "salaryMin": 0,
-    "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
-    "sourceUrl": "",
-    "googleStatus": "unknown",
-    "googleCanonical": "",
-    "lastCrawlTime": "",
-    "source": [
-      "gsc",
-      "slug-parsing"
     ]
   },
   {
@@ -3628,6 +3633,124 @@
     "source": [
       "gsc",
       "slug-parsing"
+    ]
+  },
+  {
+    "slug": "agricoltura",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/agricoltura/",
+    "queries": [
+      {
+        "query": "aziende agricole ticino offerte di lavoro",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "lavoro agricolo svizzera canton ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "aziende agricole ticino offerte di lavoro",
+    "title": "Agricoltura",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "agricoltura",
+      "en": "agricoltura",
+      "de": "agricoltura",
+      "fr": "agricoltura"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/agricoltura",
+      "en": "/en/find-jobs-ticino/agricoltura",
+      "de": "/de/jobs-im-tessin/agricoltura",
+      "fr": "/fr/trouver-emploi-tessin/agricoltura"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
+    ]
+  },
+  {
+    "slug": "hotel-alberghi",
+    "locale": "it",
+    "path": "/cerca-lavoro-ticino/hotel-alberghi/",
+    "queries": [
+      {
+        "query": "lavoro hoteis ticino",
+        "clicks": 0,
+        "impressions": 1
+      },
+      {
+        "query": "offerte lavoro hotel svizzera canton ticino",
+        "clicks": 0,
+        "impressions": 1
+      }
+    ],
+    "totalImpressions": 2,
+    "totalClicks": 0,
+    "topQuery": "lavoro hoteis ticino",
+    "title": "Hotel alberghi",
+    "titleByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "descriptionByLocale": {
+      "it": "",
+      "en": "",
+      "de": "",
+      "fr": ""
+    },
+    "company": "",
+    "companyKey": "",
+    "location": "",
+    "sector": "",
+    "salaryMin": 0,
+    "salaryCurrency": "CHF",
+    "slugByLocale": {
+      "it": "hotel-alberghi",
+      "en": "hotel-alberghi",
+      "de": "hotel-alberghi",
+      "fr": "hotel-alberghi"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/hotel-alberghi",
+      "en": "/en/find-jobs-ticino/hotel-alberghi",
+      "de": "/de/jobs-im-tessin/hotel-alberghi",
+      "fr": "/fr/trouver-emploi-tessin/hotel-alberghi"
+    },
+    "sourceUrl": "",
+    "googleStatus": "unknown",
+    "googleCanonical": "",
+    "lastCrawlTime": "",
+    "source": [
+      "gsc",
+      "all-known-slugs"
     ]
   },
   {
@@ -14064,17 +14187,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "en": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "fr": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "en": "/en/find-jobs-ticino/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "de": "/de/jobs-im-tessin/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
-      "fr": "/fr/trouver-emploi-tessin/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
+      "it": "/cerca-lavoro-glarona/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+      "en": "/en/find-jobs-glarus/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+      "de": "/de/jobs-in-glarus/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+      "fr": "/fr/trouver-emploi-glaris/verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -19390,17 +19508,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "en": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "de": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "fr": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "en": "/en/find-jobs-ticino/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "de": "/de/jobs-im-tessin/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "fr": "/fr/trouver-emploi-tessin/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
+      "it": "/cerca-lavoro-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "en": "/en/find-jobs-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "de": "/de/jobs-in-neuenburg/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "fr": "/fr/trouver-emploi-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -19622,17 +19735,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "en": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "de": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "fr": "instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "en": "/en/find-jobs-ticino/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "de": "/de/jobs-im-tessin/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
-      "fr": "/fr/trouver-emploi-tessin/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
+      "it": "/cerca-lavoro-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "en": "/en/find-jobs-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "de": "/de/jobs-in-neuenburg/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds",
+      "fr": "/fr/trouver-emploi-neuchatel/instructeur-de-fitness-f-h-d-activ-fitness-la-chaux-de-fonds"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -372459,17 +372567,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "/en/find-jobs-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "/de/jobs-im-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "/fr/trouver-emploi-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
+      "it": "/cerca-lavoro-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "en": "/en/find-jobs-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "de": "/de/jobs-in-neuenburg/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "fr": "/fr/trouver-emploi-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -610508,17 +610611,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "/en/find-jobs-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "/de/jobs-im-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "/fr/trouver-emploi-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
+      "it": "/cerca-lavoro-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "en": "/en/find-jobs-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "de": "/de/jobs-in-neuenburg/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "fr": "/fr/trouver-emploi-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -831724,17 +831822,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "/en/find-jobs-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "/de/jobs-im-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "/fr/trouver-emploi-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
+      "it": "/cerca-lavoro-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "en": "/en/find-jobs-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "de": "/de/jobs-in-neuenburg/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "fr": "/fr/trouver-emploi-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
@@ -1054329,17 +1054422,12 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {
-      "it": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
-    },
+    "slugByLocale": {},
     "localePaths": {
-      "it": "/cerca-lavoro-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "en": "/en/find-jobs-ticino/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "de": "/de/jobs-im-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
-      "fr": "/fr/trouver-emploi-tessin/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
+      "it": "/cerca-lavoro-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "en": "/en/find-jobs-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "de": "/de/jobs-in-neuenburg/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c",
+      "fr": "/fr/trouver-emploi-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds-142a0c"
     },
     "sourceUrl": "",
     "googleStatus": "unknown",
