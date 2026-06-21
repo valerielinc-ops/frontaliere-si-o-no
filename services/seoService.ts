@@ -4093,6 +4093,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-caritas-ticino-poverta-2025': { name: 'Caritas Ticino', path: '/articoli-svizzera/caritas-ticino-poverta-2025/', parent: 'blog' },
     'blog-caldo-lavoro-casa': { name: 'Caldo estivo', path: '/articoli-svizzera/caldo-lavoro-casa/', parent: 'blog' },
     'blog-vivere-senza-big-tech': { name: 'Tecnologia', path: '/articoli-svizzera/vivere-senza-big-tech/', parent: 'blog' },
+    'blog-finanziamento-parziale-13esima-avs': { name: '13esima AVS finanziamento', path: '/articoli-svizzera/finanziamento-parziale-13esima-avs/', parent: 'blog' },
  };
 
  const info = sectionNames[section];

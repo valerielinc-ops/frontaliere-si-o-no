@@ -257,6 +257,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vivere-senza-big-tech.title': 'Living without Big Tech: Is It Possible?',
     'blog.article.vivere-senza-big-tech.excerpt': 'Two Swissinfo journalists tried to cut ties with US tech giants. Here\'s what happened.',
     'blog.article.vivere-senza-big-tech.imageAlt': 'A person working on a computer with a blank screen',
+    'blog.article.finanziamento-parziale-13esima-avs.title': 'Swiss Parliament Approves Partial Funding for 13th AVS Pension',
+    'blog.article.finanziamento-parziale-13esima-avs.excerpt': '0.4% VAT increase approved, wage contributions rejected: only half the 13th AVS pension costs covered',
+    'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'View of the Swiss Parliament with Swiss flags symbolizing national pension policy decisions',
 };
 
 export default blogMetaChEn;

@@ -257,6 +257,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vivere-senza-big-tech.title': 'È possibile vivere e lavorare senza le Big Tech?',
     'blog.article.vivere-senza-big-tech.excerpt': 'Due giornalisti di Swissinfo hanno provato a tagliare i ponti con i giganti tecnologici statunitensi. Ecco cosa è successo.',
     'blog.article.vivere-senza-big-tech.imageAlt': 'Una persona che lavora al computer con uno schermo vuoto',
+    'blog.article.finanziamento-parziale-13esima-avs.title': 'Parlamento svizzero approva finanziamento parziale per la 13esima AVS',
+    'blog.article.finanziamento-parziale-13esima-avs.excerpt': 'Aumento IVA del 0,4% approvato, contributi salariali bocciati: solo metà costi 13esima AVS coperti',
+    'blog.article.finanziamento-parziale-13esima-avs.imageAlt': 'Vista del Parlamento svizzero con bandiere elvetiche che simboleggiano le decisioni sulla previdenza nazionale',
 };
 
 export default blogMetaChIt;

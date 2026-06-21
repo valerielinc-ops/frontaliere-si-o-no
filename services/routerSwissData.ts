@@ -107,6 +107,7 @@ export const SWISS_SLUGS: Record<string, Record<Locale, string>> = {
  'caritas-ticino-poverta-2025': { it: 'caritas-ticino-poverta-2025', en: 'caritas-ticino-poverty-2025', de: 'caritas-ticino-armut-2025', fr: 'caritas-ticino-pauvrete-2025' },
  'caldo-lavoro-casa': { it: 'caldo-lavoro-casa', en: 'workers-rights-summer-heat', de: 'arbeiterrechte-sommerhitze', fr: 'droits-travailleurs-chaud-ete' },
  'vivere-senza-big-tech': { it: 'vivere-senza-big-tech', en: 'living-without-big-tech', de: 'ohne-big-tech-leben', fr: 'vivre-sans-les-big-tech' },
+ 'finanziamento-parziale-13esima-avs': { it: 'finanziamento-parziale-13esima-avs', en: 'partial-funding-13th-pension', de: 'teilfinanzierung-13-rente', fr: 'financement-partiel-13e-retraite' },
 };
 
 export const REVERSE_SWISS: Record<Locale, Record<string, string>> = (() => {
