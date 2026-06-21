@@ -158,7 +158,7 @@
         "it": "partner-commerciale-per-gli-acquisti-villeret-straumann-villeret",
         "en": "procurement-business-partner-villeret-straumann-ch",
         "de": "beschaffungsgeschaftspartner-villeret-straumann-villeret",
-        "fr": "procurement-business-partner-villeret-straumann-ch"
+        "fr": "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -206,15 +206,13 @@
         ]
       },
       "previousSlugs": [
-        "procurement-business-partner-villeret-straumann-ch",
-        "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret"
+        "procurement-business-partner-villeret-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-business-partner-villeret-straumann-ch"
         ],
         "fr": [
-          "approvisionnement-partenaire-d-affaires-villeret-straumann-villeret",
           "procurement-business-partner-villeret-straumann-ch"
         ]
       },
@@ -241,7 +239,7 @@
       "slugByLocale": {
         "it": "steward-dei-dati-principali-straumann-villeret",
         "en": "think-okay-let-s-tackle-this-translation-request-the-user-wants-to-translate-the-job-title-master-data-steward-into",
-        "de": "master-data-steward-straumann-ch",
+        "de": "stammdatenverwalter-straumann-villeret",
         "fr": "master-data-steward-straumann-ch"
       },
       "company": "Straumann",
@@ -283,7 +281,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "master-data-steward-straumann-ch",
-        "stammdatenverwalter-straumann-villeret",
         "maitre-de-la-garde-des-donnees-straumann-villeret"
       ],
       "previousSlugsByLocale": {
@@ -291,7 +288,6 @@
           "master-data-steward-straumann-ch"
         ],
         "de": [
-          "stammdatenverwalter-straumann-villeret",
           "master-data-steward-straumann-ch"
         ],
         "fr": [

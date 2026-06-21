@@ -223,12 +223,12 @@
     },
     {
       "id": "msc-cargo-b9f77471cd4e",
-      "slug": "travelling-destination-manager-msc-geneva",
+      "slug": "gestione-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
         "en": "travelling-destination-manager-msc-geneva",
-        "it": "travelling-destination-manager-msc-geneva",
-        "de": "travelling-destination-manager-msc-geneva",
-        "fr": "travelling-destination-manager-msc-geneva"
+        "it": "gestione-delle-destinazioni-msc-group-geneva",
+        "de": "reisezielmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-destination-itinerante-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -284,7 +284,21 @@
         }
       },
       "postalCode": "1204",
-      "firstSeenAt": "2026-06-21T12:08:32.902Z"
+      "firstSeenAt": "2026-06-21T12:08:32.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "de": [
+          "travelling-destination-manager-msc-geneva"
+        ],
+        "fr": [
+          "travelling-destination-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "travelling-destination-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
@@ -403,9 +417,6 @@
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva"
-        ],
-        "de": [
-          "casino-slots-und-technical-operations-manager-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-06-15T23:34:14.881Z",
@@ -552,8 +563,7 @@
           "junior-architect-port-development-intern-msc-geneva"
         ],
         "de": [
-          "junior-architect-port-development-intern-msc-geneva",
-          "junior-architect-port-development-praktikant-msc-group-geneva"
+          "junior-architect-port-development-intern-msc-geneva"
         ],
         "fr": [
           "junior-architect-port-development-intern-msc-geneva"

@@ -911,7 +911,7 @@
         "de": "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern",
         "it": "zivildienstante-come-tuttofare-elettricista-progetto-101155-luzerner-kantonsspital-luks-luzern",
         "fr": "employe-civil-comme-tout-en-un-en-electronique-projet-101155-luzerner-kantonsspital-luks-luzern",
-        "en": "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
+        "en": "civil-service-provider-as-all-rounder-electrical-engineering-specifications-101155-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -956,6 +956,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
+        ],
+        "en": [
           "zivildienstleistende-als-allrounder-elektrotechnik-pflichtenheft-101155-luks-luzern"
         ]
       },
@@ -1055,7 +1058,7 @@
         "de": "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung",
         "it": "prestatore-di-servizio-civile-come-tuttofare-per-allestimento-spazi-e-manutenzione-edile-requisiti-101154-luzerner",
         "fr": "prestataire-de-service-civil-comme-polyvalent-pour-l-amenagement-des-espaces-et-l-entretien-du-batiment-exigences-101154",
-        "en": "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung"
+        "en": "civil-service-performers-as-all-rounders-space-and-structural-maintenance-specifications-101154-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -1100,6 +1103,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung"
+        ],
+        "en": [
           "zivildienstleistende-als-allrounder-raumeinrichtung-und-bauliche-instandhaltung"
         ]
       },
@@ -5435,9 +5441,9 @@
       "slug": "operatorin-operator-technik-80-luks-luzern-2",
       "slugByLocale": {
         "it": "operatorin-operator-technik-80-luks-luzern-2",
-        "en": "operator-technical-operator-80-luzerner-kantonsspital-luks-luzern",
+        "en": "operatorin-operator-technik-80-luks-luzern-2",
         "de": "operatorin-operator-technik-80-luks-luzern",
-        "fr": "operateur-operateur-technique-80-luzerner-kantonsspital-luks-luzern"
+        "fr": "operatorin-operator-technik-80-luks-luzern-2"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -5487,6 +5493,7 @@
         "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
         "operator-technician-80-luzerner-kantonsspital-luks-luzern",
         "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+        "operator-technical-operator-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
         "operatrice-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "operateur-operateur-technik-80-luzerner-kantonsspital-luks-luzern",
@@ -5494,6 +5501,7 @@
         "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
         "technicien-d-exploitation-80-luzerner-kantonsspital-luks-luzern",
         "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+        "operateur-operateur-technique-80-luzerner-kantonsspital-luks-luzern",
         "betreiber-technik-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
@@ -5507,7 +5515,8 @@
           "operator-operator-technik-80-luzerner-kantonsspital-luks-luzern",
           "operator-operator-technique-80-luzerner-kantonsspital-luks-luzern",
           "operator-technician-80-luzerner-kantonsspital-luks-luzern",
-          "technical-operator-80-luzerner-kantonsspital-luks-luzern"
+          "technical-operator-80-luzerner-kantonsspital-luks-luzern",
+          "operator-technical-operator-80-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
           "operateur-technique-80-luzerner-kantonsspital-luks-luzern-e4aad4",
@@ -5516,7 +5525,8 @@
           "operateur-technique-d-operateur-80-luzerner-kantonsspital-luks-luzern",
           "operateur-operatrice-technique-80-luzerner-kantonsspital-luks-luzern",
           "technicien-d-exploitation-80-luzerner-kantonsspital-luks-luzern",
-          "operateur-technique-80-luzerner-kantonsspital-luks-luzern"
+          "operateur-technique-80-luzerner-kantonsspital-luks-luzern",
+          "operateur-operateur-technique-80-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-05-21T12:39:26.860Z",
@@ -15419,9 +15429,9 @@
       "slug": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27-luzerner-kantonsspital-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
+        "en": "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
         "de": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15463,20 +15473,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27",
-        "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
-        "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital"
+        "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ],
         "en": [
-          "nursing-specialist-hf-fh-ambulatorium-cardiology-40-temporary-until-31-05-27-luzerner-kantonsspital-luks-luzern",
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ],
         "fr": [
-          "specialiste-des-soins-infirmiers-hf-fh-cardiologie-ambulatoire-40-temporaire-jusqu-au-31-05-27-luzerner-kantonsspital",
           "pflegefachfrau-pflegefachmann-hf-fh-ambulatorium-kardiologie-40-befristet-bis-31-05-27"
         ]
       },
